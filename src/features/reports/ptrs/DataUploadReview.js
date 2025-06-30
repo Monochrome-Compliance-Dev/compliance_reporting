@@ -1,6 +1,14 @@
 import { useEffect, useState, useMemo } from "react";
+import { useNavigate } from "react-router";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@mui/material";
 import {
   Box,
+  Button,
   Card,
   CardContent,
   Typography,
@@ -13,10 +21,11 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Button,
+  Tooltip,
+  Chip,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { tcpService, dcService } from "../../../services";
+import { tcpService, dcService, reportService } from "../../../services";
 import { useAlert } from "../../../context/AlertContext";
 import PayeesMissingAbnTable from "./PayeesMissingAbnTable";
 
@@ -24,10 +33,44 @@ const DataUploadReview = ({
   errors = [],
   validRecordsPreview = [],
   onErrorsUpdated,
-  onRecordsUpdated, // <--- add this prop for new callback
+  onRecordsUpdated,
+  onRefreshClick, // <-- new optional callback
 }) => {
   const [validRows, setValidRows] = useState(validRecordsPreview);
   const [editedRows, setEditedRows] = useState({});
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  // Collapsed state for hiding the card after validation
+  const [collapse, setCollapse] = useState(false);
+  // Handler for confirming validation and navigating
+  const navigate = useNavigate();
+
+  // Accepts "dashboard" or "report"
+  const handleConfirm = async (destination) => {
+    try {
+      // Use localStorage for reportDetails
+      const stored = localStorage.getItem("reportDetails");
+      const parsed = JSON.parse(stored);
+      const reportDetails = Array.isArray(parsed) ? parsed : [parsed];
+      // Get reportService from window (keep as is for now)
+      const latestReport = Array.isArray(reportDetails)
+        ? reportDetails.find((r) => r.code === "ptrs")
+        : null;
+      if (!latestReport?.id) return;
+
+      await reportService.patch(latestReport.id, { reportStatus: "Validated" });
+
+      setConfirmOpen(false);
+      setCollapse(true);
+      if (destination === "dashboard") {
+        navigate("/user/dashboard");
+      } else {
+        navigate(`/reports/ptrs/${latestReport.id}`);
+      }
+    } catch (err) {
+      console.error("Failed to update report status:", err);
+      showAlert("Failed to mark report as validated.", "error");
+    }
+  };
   // abnSuggestions: { [payeeName]: { loading: bool, candidates: array, error: string|null } }
   const [abnSuggestions, setAbnSuggestions] = useState({});
   const { showAlert } = useAlert();
@@ -208,237 +251,319 @@ const DataUploadReview = ({
 
   return (
     <Box sx={{ mt: 4 }}>
-      <Card variant="outlined">
-        <CardContent>
-          <Typography variant="h6" gutterBottom>
-            Upload Validation Results
-          </Typography>
+      {!collapse && (
+        <Card variant="outlined">
+          <CardContent>
+            <Typography variant="h6" gutterBottom>
+              Upload Validation Results
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 1,
+                mb: 2,
+                flexWrap: "wrap",
+                alignItems: "center",
+              }}
+            >
+              <Chip
+                label={`✅ ${validRows.length} valid`}
+                color="success"
+                variant="outlined"
+              />
+              <Chip
+                label={`⚠️ ${safeErrors.length} errors`}
+                color="error"
+                variant="outlined"
+              />
+              <Chip
+                label={`📄 ${validRows.length + safeErrors.length} total`}
+                color="default"
+                variant="outlined"
+              />
+            </Box>
 
-          {/* --- Payees Missing ABNs Table --- */}
-          <PayeesMissingAbnTable
-            key={
-              Object.keys(payeesMissingAbn).length +
-              "-" +
-              Object.keys(abnSuggestions).length
-            }
-            payeesMissingAbn={payeesMissingAbn}
-            abnSuggestions={abnSuggestions}
-            onAbnSearch={debouncedAbnSearch}
-            onAbnFix={handleAbnFix}
-          />
+            {/* Refresh Records Button with Tooltip */}
+            {safeErrors.length > 0 && (
+              <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
+                <Tooltip title="Force-refresh the records from the database, bypassing any cache.">
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    sx={{ ml: "auto" }}
+                    onClick={onRefreshClick}
+                  >
+                    Refresh Records
+                  </Button>
+                </Tooltip>
+              </Box>
+            )}
 
-          {preValidatedErrors.length > 0 ? (
-            <>
-              {Object.entries(groupedErrors).map(([issueType, rows]) => (
-                <Box key={issueType} sx={{ mt: 2 }}>
-                  <Accordion>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography>
-                        {issueType} ({rows.length})
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <TableContainer>
-                        <Table size="small">
-                          <TableHead>
-                            <TableRow>
-                              <TableCell>Payer</TableCell>
-                              <TableCell>Payee</TableCell>
-                              <TableCell>ABN</TableCell>
-                              <TableCell>Amount</TableCell>
-                              <TableCell>Date</TableCell>
-                              <TableCell>Issues</TableCell>
-                            </TableRow>
-                          </TableHead>
-                          <TableBody>
-                            {/* Track edited state for each row in editedRows state */}
-                            {rows.map((row, index) => {
-                              const rowEdit = editedRows[row.id] || {};
-                              // Compose the displayed row: prefer edited values, then original
-                              const rowCopy = {
-                                ...row,
-                                ...rowEdit,
-                                issues: revalidateRow({ ...row, ...rowEdit }),
-                              };
-                              return (
-                                <TableRow key={row.id || index}>
-                                  <TableCell>
-                                    <input
-                                      value={rowCopy.payerEntityName || ""}
-                                      onChange={(e) => {
-                                        setEditedRows((prev) => ({
-                                          ...prev,
-                                          [row.id]: {
-                                            ...prev[row.id],
-                                            payerEntityName: e.target.value,
-                                            modified: true,
-                                          },
-                                        }));
-                                      }}
-                                      style={{ width: "100%" }}
-                                    />
-                                  </TableCell>
-                                  <TableCell>
-                                    <input
-                                      value={rowCopy.payeeEntityName || ""}
-                                      onChange={(e) => {
-                                        setEditedRows((prev) => ({
-                                          ...prev,
-                                          [row.id]: {
-                                            ...prev[row.id],
-                                            payeeEntityName: e.target.value,
-                                            modified: true,
-                                          },
-                                        }));
-                                      }}
-                                      style={{ width: "100%" }}
-                                    />
-                                  </TableCell>
-                                  <TableCell>
-                                    <input
-                                      value={rowCopy.payeeEntityAbn || ""}
-                                      onChange={(e) => {
-                                        setEditedRows((prev) => ({
-                                          ...prev,
-                                          [row.id]: {
-                                            ...prev[row.id],
-                                            payeeEntityAbn: e.target.value,
-                                            modified: true,
-                                          },
-                                        }));
-                                      }}
-                                      style={{ width: "100%" }}
-                                    />
-                                  </TableCell>
-                                  <TableCell>
-                                    <input
-                                      value={rowCopy.paymentAmount || ""}
-                                      onChange={(e) => {
-                                        setEditedRows((prev) => ({
-                                          ...prev,
-                                          [row.id]: {
-                                            ...prev[row.id],
-                                            paymentAmount: e.target.value,
-                                            modified: true,
-                                          },
-                                        }));
-                                      }}
-                                      style={{ width: "100%" }}
-                                    />
-                                  </TableCell>
-                                  <TableCell>
-                                    <input
-                                      value={rowCopy.paymentDate || ""}
-                                      onChange={(e) => {
-                                        setEditedRows((prev) => ({
-                                          ...prev,
-                                          [row.id]: {
-                                            ...prev[row.id],
-                                            paymentDate: e.target.value,
-                                            modified: true,
-                                          },
-                                        }));
-                                      }}
-                                      style={{ width: "100%" }}
-                                    />
-                                  </TableCell>
-                                  <TableCell>
-                                    <ul style={{ margin: 0, paddingLeft: 16 }}>
-                                      {Array.isArray(rowCopy.issues) &&
-                                        rowCopy.issues.map((issue, i) => (
-                                          <li key={i}>{issue}</li>
-                                        ))}
-                                    </ul>
-                                  </TableCell>
-                                  <TableCell>
-                                    {rowCopy.issues.length === 0 &&
-                                      rowCopy.modified && (
-                                        <Button
-                                          variant="outlined"
-                                          size="small"
-                                          onClick={() => {
-                                            tcpService
-                                              .patchRecord(rowCopy.id, rowCopy)
-                                              .then(() => {
-                                                const updatedErrors =
-                                                  safeErrors.filter(
-                                                    (e) => e.id !== rowCopy.id
+            {/* Mark as Validated Button */}
+            {safeErrors.length === 0 && validRows.length > 0 && (
+              <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
+                <Tooltip title="Mark the dataset as validated and commence the report preparation.">
+                  <Button
+                    variant="contained"
+                    color="success"
+                    onClick={() => setConfirmOpen(true)}
+                  >
+                    Mark as Validated
+                  </Button>
+                </Tooltip>
+              </Box>
+            )}
+
+            {/* --- Payees Missing ABNs Table --- */}
+            <PayeesMissingAbnTable
+              key={
+                Object.keys(payeesMissingAbn).length +
+                "-" +
+                Object.keys(abnSuggestions).length
+              }
+              payeesMissingAbn={payeesMissingAbn}
+              abnSuggestions={abnSuggestions}
+              onAbnSearch={debouncedAbnSearch}
+              onAbnFix={handleAbnFix}
+            />
+
+            {preValidatedErrors.length > 0 ? (
+              <>
+                {Object.entries(groupedErrors).map(([issueType, rows]) => (
+                  <Box key={issueType} sx={{ mt: 2 }}>
+                    <Accordion>
+                      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography>
+                          {issueType} ({rows.length})
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <TableContainer>
+                          <Table size="small">
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Payer</TableCell>
+                                <TableCell>Payee</TableCell>
+                                <TableCell>ABN</TableCell>
+                                <TableCell>Amount</TableCell>
+                                <TableCell>Date</TableCell>
+                                <TableCell>Issues</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableBody>
+                              {/* Track edited state for each row in editedRows state */}
+                              {rows.map((row, index) => {
+                                const rowEdit = editedRows[row.id] || {};
+                                // Compose the displayed row: prefer edited values, then original
+                                const rowCopy = {
+                                  ...row,
+                                  ...rowEdit,
+                                  issues: revalidateRow({ ...row, ...rowEdit }),
+                                };
+                                return (
+                                  <TableRow key={row.id || index}>
+                                    <TableCell>
+                                      <input
+                                        value={rowCopy.payerEntityName || ""}
+                                        onChange={(e) => {
+                                          setEditedRows((prev) => ({
+                                            ...prev,
+                                            [row.id]: {
+                                              ...prev[row.id],
+                                              payerEntityName: e.target.value,
+                                              modified: true,
+                                            },
+                                          }));
+                                        }}
+                                        style={{ width: "100%" }}
+                                      />
+                                    </TableCell>
+                                    <TableCell>
+                                      <input
+                                        value={rowCopy.payeeEntityName || ""}
+                                        onChange={(e) => {
+                                          setEditedRows((prev) => ({
+                                            ...prev,
+                                            [row.id]: {
+                                              ...prev[row.id],
+                                              payeeEntityName: e.target.value,
+                                              modified: true,
+                                            },
+                                          }));
+                                        }}
+                                        style={{ width: "100%" }}
+                                      />
+                                    </TableCell>
+                                    <TableCell>
+                                      <input
+                                        value={rowCopy.payeeEntityAbn || ""}
+                                        onChange={(e) => {
+                                          setEditedRows((prev) => ({
+                                            ...prev,
+                                            [row.id]: {
+                                              ...prev[row.id],
+                                              payeeEntityAbn: e.target.value,
+                                              modified: true,
+                                            },
+                                          }));
+                                        }}
+                                        style={{ width: "100%" }}
+                                      />
+                                    </TableCell>
+                                    <TableCell>
+                                      <input
+                                        value={rowCopy.paymentAmount || ""}
+                                        onChange={(e) => {
+                                          setEditedRows((prev) => ({
+                                            ...prev,
+                                            [row.id]: {
+                                              ...prev[row.id],
+                                              paymentAmount: e.target.value,
+                                              modified: true,
+                                            },
+                                          }));
+                                        }}
+                                        style={{ width: "100%" }}
+                                      />
+                                    </TableCell>
+                                    <TableCell>
+                                      <input
+                                        value={rowCopy.paymentDate || ""}
+                                        onChange={(e) => {
+                                          setEditedRows((prev) => ({
+                                            ...prev,
+                                            [row.id]: {
+                                              ...prev[row.id],
+                                              paymentDate: e.target.value,
+                                              modified: true,
+                                            },
+                                          }));
+                                        }}
+                                        style={{ width: "100%" }}
+                                      />
+                                    </TableCell>
+                                    <TableCell>
+                                      <ul
+                                        style={{ margin: 0, paddingLeft: 16 }}
+                                      >
+                                        {Array.isArray(rowCopy.issues) &&
+                                          rowCopy.issues.map((issue, i) => (
+                                            <li key={i}>{issue}</li>
+                                          ))}
+                                      </ul>
+                                    </TableCell>
+                                    <TableCell>
+                                      {rowCopy.issues.length === 0 &&
+                                        rowCopy.modified && (
+                                          <Button
+                                            variant="outlined"
+                                            size="small"
+                                            onClick={() => {
+                                              tcpService
+                                                .patchRecord(
+                                                  rowCopy.id,
+                                                  rowCopy
+                                                )
+                                                .then(() => {
+                                                  const updatedErrors =
+                                                    safeErrors.filter(
+                                                      (e) => e.id !== rowCopy.id
+                                                    );
+                                                  const updatedValid = [
+                                                    ...validRows,
+                                                    rowCopy,
+                                                  ];
+                                                  onRecordsUpdated?.(
+                                                    updatedErrors,
+                                                    updatedValid
                                                   );
-                                                const updatedValid = [
-                                                  ...validRows,
-                                                  rowCopy,
-                                                ];
-                                                onRecordsUpdated?.(
-                                                  updatedErrors,
-                                                  updatedValid
-                                                );
-                                                setEditedRows((prev) => {
-                                                  const copy = { ...prev };
-                                                  delete copy[rowCopy.id];
-                                                  return copy;
-                                                });
-                                              })
-                                              .catch(console.error);
-                                          }}
-                                        >
-                                          Save
-                                        </Button>
-                                      )}
-                                  </TableCell>
-                                </TableRow>
-                              );
-                            })}
-                          </TableBody>
-                        </Table>
-                      </TableContainer>
-                    </AccordionDetails>
-                  </Accordion>
-                </Box>
-              ))}
-            </>
-          ) : null}
+                                                  setEditedRows((prev) => {
+                                                    const copy = { ...prev };
+                                                    delete copy[rowCopy.id];
+                                                    return copy;
+                                                  });
+                                                  onRefreshClick?.(); // Trigger refresh from DB
+                                                })
+                                                .catch(console.error);
+                                            }}
+                                          >
+                                            Save
+                                          </Button>
+                                        )}
+                                    </TableCell>
+                                  </TableRow>
+                                );
+                              })}
+                            </TableBody>
+                          </Table>
+                        </TableContainer>
+                      </AccordionDetails>
+                    </Accordion>
+                  </Box>
+                ))}
+              </>
+            ) : null}
 
-          {validRows.length > 0 && (
-            <Accordion sx={{ mt: 3 }}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography>Preview Valid Rows</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <TableContainer>
-                  <Table size="small">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>Payer</TableCell>
-                        <TableCell>Payee</TableCell>
-                        <TableCell>ABN</TableCell>
-                        <TableCell>Amount</TableCell>
-                        <TableCell>Date</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {validRows.map((row, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{row.payerEntityName}</TableCell>
-                          <TableCell>{row.payeeEntityName}</TableCell>
-                          <TableCell>{row.payeeEntityAbn}</TableCell>
-                          <TableCell>{row.paymentAmount}</TableCell>
-                          <TableCell>
-                            {row.paymentDate
-                              ? new Date(row.paymentDate)
-                                  .toISOString()
-                                  .split("T")[0]
-                              : ""}
-                          </TableCell>
+            {validRows.length > 0 && (
+              <Accordion sx={{ mt: 3 }}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography>
+                    Preview Valid Rows ({validRows.length})
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <TableContainer>
+                    <Table size="small">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>Payer</TableCell>
+                          <TableCell>Payee</TableCell>
+                          <TableCell>ABN</TableCell>
+                          <TableCell>Amount</TableCell>
+                          <TableCell>Date</TableCell>
                         </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </AccordionDetails>
-            </Accordion>
-          )}
-        </CardContent>
-      </Card>
+                      </TableHead>
+                      <TableBody>
+                        {validRows.map((row, index) => (
+                          <TableRow key={index}>
+                            <TableCell>{row.payerEntityName}</TableCell>
+                            <TableCell>{row.payeeEntityName}</TableCell>
+                            <TableCell>{row.payeeEntityAbn}</TableCell>
+                            <TableCell>{row.paymentAmount}</TableCell>
+                            <TableCell>
+                              {row.paymentDate
+                                ? new Date(row.paymentDate)
+                                    .toISOString()
+                                    .split("T")[0]
+                                : ""}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </AccordionDetails>
+              </Accordion>
+            )}
+            {/* Confirm Validation Dialog */}
+            <Dialog open={confirmOpen} onClose={() => setConfirmOpen(false)}>
+              <DialogTitle>Confirm Validation</DialogTitle>
+              <DialogContent>
+                This will mark the dataset as validated. Where would you like to
+                go next?
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={() => handleConfirm("dashboard")}>
+                  Dashboard
+                </Button>
+                <Button onClick={() => handleConfirm("report")} autoFocus>
+                  Go to Report
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </CardContent>
+        </Card>
+      )}
     </Box>
   );
 };

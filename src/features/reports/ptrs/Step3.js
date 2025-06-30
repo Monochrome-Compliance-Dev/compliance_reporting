@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Box, Typography, Button, Paper, Alert } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  Alert,
+  Card,
+  CardContent,
+  Paper,
+} from "@mui/material";
 import { tcpService } from "../../../services";
 import { Download, Upload, OpenInNew } from "@mui/icons-material";
 
@@ -149,7 +157,7 @@ export default function Step3({
   };
 
   return (
-    <Box sx={{ padding: 3 }}>
+    <Paper sx={{ p: 3, mb: 4 }}>
       {isLocked && (
         <Alert severity="info" sx={{ mb: 2 }}>
           This report has already been submitted and cannot be edited.
@@ -167,70 +175,74 @@ export default function Step3({
         In this step, you need to download the TCP dataset and upload it to the
         SBI tool on the regulator's portal. The SBI tool will compare the ABNs
         in the dataset to the list of business ABNs that the regulator has
-        judged to be not small businesses. After running the comparison, upload
+        judged to not be small businesses. After running the comparison, upload
         the resulting CSV file here to exclude the relevant TCP records from the
         rest of the process.
       </Typography>
-      <Paper sx={{ padding: 3, marginBottom: 3 }}>
-        <Typography variant="h6" sx={{ marginBottom: 2 }}>
-          Download TCP Dataset
-        </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleDownload}
-          startIcon={<Download />}
-          disabled={isLocked}
-        >
-          Download TCP Dataset
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() =>
-            window.open("https://portal.paymenttimes.gov.au/", "_blank")
-          }
-          sx={{ marginLeft: 2 }}
-          disabled={!downloadedFile || isLocked}
-          endIcon={<OpenInNew />}
-        >
-          PTRS Portal
-        </Button>
-      </Paper>
-      <Paper sx={{ padding: 3, marginBottom: 3 }}>
-        <Typography variant="h6" sx={{ marginBottom: 2 }}>
-          Upload Comparison File
-        </Typography>
-        <Button
-          variant="contained"
-          component="label"
-          sx={{ marginBottom: 2 }}
-          startIcon={<Upload />}
-          disabled={isLocked}
-        >
-          Upload SBI File
-          <input
-            type="file"
-            hidden
-            accept=".csv"
-            onChange={handleFileUpload}
-            disabled={isLocked}
-          />
-        </Button>
-        {uploadedFile && (
-          <Typography variant="body2" sx={{ marginBottom: 2 }}>
-            Uploaded File: {uploadedFile.name}
+      <Card variant="outlined" sx={{ mb: 3 }}>
+        <CardContent>
+          <Typography variant="h6" sx={{ marginBottom: 2 }}>
+            Download TCP Dataset
           </Typography>
-        )}
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={handleSubmit}
-          disabled={!uploadedFile || isLocked}
-        >
-          Submit
-        </Button>
-      </Paper>
-    </Box>
+          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleDownload}
+              startIcon={<Download />}
+              disabled={isLocked}
+            >
+              Download TCP Dataset
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() =>
+                window.open("https://portal.paymenttimes.gov.au/", "_blank")
+              }
+              disabled={!downloadedFile || isLocked}
+              endIcon={<OpenInNew />}
+            >
+              PTRS Portal
+            </Button>
+          </Box>
+        </CardContent>
+      </Card>
+      <Card variant="outlined" sx={{ mb: 3 }}>
+        <CardContent>
+          <Typography variant="h6" sx={{ marginBottom: 2 }}>
+            Upload Comparison File
+          </Typography>
+          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+            <Button
+              variant="contained"
+              component="label"
+              startIcon={<Upload />}
+              disabled={isLocked}
+            >
+              Upload SBI File
+              <input
+                type="file"
+                hidden
+                accept=".csv"
+                onChange={handleFileUpload}
+                disabled={isLocked}
+              />
+            </Button>
+            {uploadedFile && (
+              <Typography variant="body2">{uploadedFile.name}</Typography>
+            )}
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleSubmit}
+              disabled={!uploadedFile || isLocked}
+            >
+              Submit
+            </Button>
+          </Box>
+        </CardContent>
+      </Card>
+    </Paper>
   );
 }

@@ -16,9 +16,20 @@ export default function CreateReport({
   onUpdate,
   reportDetails,
 }) {
+  const hasReport = Array.isArray(reportDetails) && reportDetails.length > 0;
   const theme = useTheme();
   const { code } = useParams();
   const { showAlert } = useAlert();
+  console.log("reportDetails in CreateReport:", reportDetails);
+
+  // Utility for formatting date as YYYY-MM-DD
+  const formatDate = (value) => {
+    try {
+      return new Date(value).toISOString().split("T")[0];
+    } catch {
+      return "N/A";
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -102,7 +113,7 @@ export default function CreateReport({
                 variant="contained"
                 color="primary"
                 fullWidth
-                disabled={!!reportDetails}
+                disabled={hasReport}
               >
                 Create Report
               </Button>
@@ -112,7 +123,7 @@ export default function CreateReport({
       </Grid>
 
       <Grid item xs={12} md={6} display="flex" alignItems="center">
-        {!reportDetails && (
+        {!hasReport && (
           <Box
             sx={{
               borderRadius: 2,
@@ -122,10 +133,10 @@ export default function CreateReport({
               width: "100%",
             }}
           >
-            Loading
+            No report created yet.
           </Box>
         )}
-        {reportDetails && (
+        {hasReport && (
           <Box
             sx={{
               borderRadius: 2,
@@ -139,19 +150,20 @@ export default function CreateReport({
               ✅ Report Created
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
-              <strong>Report ID:</strong> {reportDetails.id}
+              <strong>Report ID:</strong> {reportDetails[0]?.id}
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
               <strong>Start Date:</strong>{" "}
-              {reportDetails.ReportingPeriodStartDate}
+              {formatDate(reportDetails[0]?.ReportingPeriodStartDate)}
             </Typography>
             <Typography variant="body2" sx={{ mb: 2 }}>
-              <strong>End Date:</strong> {reportDetails.ReportingPeriodEndDate}
+              <strong>End Date:</strong>{" "}
+              {formatDate(reportDetails[0]?.ReportingPeriodEndDate)}
             </Typography>
             <Button
               variant="contained"
               color="error"
-              onClick={() => handleDeleteReport(reportDetails.id)}
+              onClick={() => handleDeleteReport(reportDetails[0]?.id)}
             >
               Delete Report
             </Button>

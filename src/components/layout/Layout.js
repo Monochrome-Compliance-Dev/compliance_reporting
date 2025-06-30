@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo, Suspense } from "react";
 import { Outlet, useLocation } from "react-router";
-import { Box, CssBaseline, Container } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../navigation/Navbar";

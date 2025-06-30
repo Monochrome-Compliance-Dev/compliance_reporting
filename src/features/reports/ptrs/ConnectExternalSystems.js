@@ -1,34 +1,37 @@
 import { useState, useRef } from "react";
 import { tcpService, xeroService } from "../../../services";
 import {
-  Box,
   Button,
   Typography,
   Alert,
   Snackbar,
   Tooltip,
   Paper,
+  Stack,
+  Card,
+  CardContent,
 } from "@mui/material";
 import { useReportContext } from "../../../context";
 import { userService } from "../../../services";
 
-export default function ConnectExternalSystems() {
+export default function ConnectExternalSystems({ onUploadComplete }) {
   const { reportDetails } = useReportContext();
   const [alert] = useState(null);
   const [progressMessage, setProgressMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef();
   const [uploading, setUploading] = useState(false);
+  console.log("reportDetails in ConnectExternalSystems:", reportDetails);
 
   const handleXeroConnect = async () => {
     setIsLoading(true);
     setProgressMessage("Connecting to Xero...");
     try {
       const data = await xeroService.connect({
-        reportId: reportDetails.id,
+        reportId: reportDetails[0]?.id,
         createdBy: userService.userValue.id,
-        startDate: reportDetails.ReportingPeriodStartDate,
-        endDate: reportDetails.ReportingPeriodEndDate,
+        startDate: reportDetails[0]?.ReportingPeriodStartDate,
+        endDate: reportDetails[0]?.ReportingPeriodEndDate,
       });
 
       const authUrl = data.authUrl;
@@ -40,10 +43,10 @@ export default function ConnectExternalSystems() {
       // Store callbackData before redirect
       const callbackData = {
         clientId: userService.userValue.clientId,
-        reportId: reportDetails.reportId,
+        reportId: reportDetails[0]?.id,
         createdBy: userService.userValue.id,
-        startDate: reportDetails.ReportingPeriodStartDate,
-        endDate: reportDetails.ReportingPeriodEndDate,
+        startDate: reportDetails[0]?.ReportingPeriodStartDate,
+        endDate: reportDetails[0]?.ReportingPeriodEndDate,
       };
 
       localStorage.setItem("callbackData", JSON.stringify(callbackData));
@@ -74,11 +77,16 @@ export default function ConnectExternalSystems() {
 
     const formData = new FormData();
     formData.append("file", file, file.name);
-    formData.append("reportId", reportDetails.id);
+    formData.append("reportId", reportDetails[0]?.id);
+    console.log("Form data prepared for upload:", {
+      fileName: file.name,
+      reportId: reportDetails[0]?.id,
+    });
 
     try {
       await tcpService.upload(formData, true);
       setProgressMessage("Upload successful.");
+      if (onUploadComplete) onUploadComplete();
     } catch (error) {
       console.error("Upload failed:", error);
       setProgressMessage("Upload failed.");
@@ -89,22 +97,24 @@ export default function ConnectExternalSystems() {
   };
 
   return (
-    <Box sx={{ padding: 2 }}>
-      <Typography variant="h5" sx={{ marginBottom: 2 }}>
-        Connect to External Data Source
-      </Typography>
-      {alert && (
-        <Alert severity={alert.type} sx={{ mb: 2 }}>
-          {alert.message}
-        </Alert>
-      )}
-      <Paper elevation={3} sx={{ padding: 2, mt: 2 }}>
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 4 }}>
+    <Card variant="outlined" sx={{ mt: 2 }}>
+      <CardContent>
+        {alert && (
+          <Alert severity={alert.type} sx={{ mb: 2 }}>
+            {alert.message}
+          </Alert>
+        )}
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+          Select a provider or upload a CSV extract to get started.
+        </Typography>
+        <Stack direction="row" spacing={2} justifyContent="center">
           <Button
             variant="contained"
             color="primary"
             onClick={handleXeroConnect}
             disabled={isLoading}
+            size="large"
+            sx={{ minWidth: 180 }}
           >
             {isLoading ? "Processing..." : "Xero"}
           </Button>
@@ -113,6 +123,8 @@ export default function ConnectExternalSystems() {
             color="primary"
             onClick={handleUploadClick}
             disabled={uploading}
+            size="large"
+            sx={{ minWidth: 180 }}
           >
             {uploading ? "Uploading..." : "Upload data extract"}
           </Button>
@@ -124,28 +136,40 @@ export default function ConnectExternalSystems() {
           />
           <Tooltip title="Coming soon">
             <span>
-              <Button variant="contained" color="secondary" disabled>
+              <Button
+                variant="contained"
+                color="secondary"
+                disabled
+                size="large"
+                sx={{ minWidth: 180 }}
+              >
                 MYOB
               </Button>
             </span>
           </Tooltip>
           <Tooltip title="Coming soon">
             <span>
-              <Button variant="contained" color="secondary" disabled>
+              <Button
+                variant="contained"
+                color="secondary"
+                disabled
+                size="large"
+                sx={{ minWidth: 180 }}
+              >
                 JDE
               </Button>
             </span>
           </Tooltip>
-        </Box>
-      </Paper>
+        </Stack>
 
-      <Snackbar
-        open={!!progressMessage}
-        message={progressMessage}
-        autoHideDuration={3000}
-        onClose={() => setProgressMessage("")}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-      />
-    </Box>
+        <Snackbar
+          open={!!progressMessage}
+          message={progressMessage}
+          autoHideDuration={3000}
+          onClose={() => setProgressMessage("")}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        />
+      </CardContent>
+    </Card>
   );
 }

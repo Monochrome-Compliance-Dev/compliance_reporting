@@ -30,6 +30,12 @@ import { getRowHighlightColor } from "../../../lib/utils/highlightRow";
 import { fieldMapping } from "./fieldMapping";
 import { useReportContext } from "../../../context";
 
+const maskCreditCard = (value = "") => {
+  const digits = String(value).replace(/\D/g, "");
+  if (digits.length < 4) return "****";
+  return `**** **** **** ${digits.slice(-4)}`;
+};
+
 const DEFAULT_SORT_CONFIG = {
   key: null,
   direction: "asc",
@@ -531,6 +537,19 @@ export default function CollapsibleTable({ editableFields, hiddenColumns }) {
                               field.name
                             );
 
+                            // Special case: mask credit card number if not editable
+                            if (
+                              field.name === "creditCardNumber" &&
+                              !isEditable
+                            ) {
+                              return (
+                                <TableCell key={`${record.id}-${field.name}`}>
+                                  {maskCreditCard(record[field.name])}
+                                </TableCell>
+                              );
+                            }
+
+                            // General-purpose fallback TableCell logic
                             return (
                               <TableCell key={`${record.id}-${field.name}`}>
                                 {field.type === "amount" ? (

@@ -167,7 +167,7 @@ export default function ReportWizard() {
         const report = await reportService.getById(params.reportId);
         // console.log("Report loaded:", report);
         if (report?.currentStep) {
-          setCurrentStep(report.currentStep);
+          setCurrentStep(Math.min(report.currentStep, steps.length - 1));
         }
       } catch (error) {
         console.error("Error loading report records:", error);
@@ -177,6 +177,24 @@ export default function ReportWizard() {
     }
     loadRecords();
   }, [reportId, updateRecordsWithFlags, params.reportId]);
+
+  const saveCurrentStep = async (step) => {
+    try {
+      await reportService.patch(reportId, {
+        currentStep: step,
+      });
+      setAlert({
+        type: "success",
+        message: `Progress updated successfully.`,
+      });
+    } catch (error) {
+      console.error("Failed to save current step:", error);
+      setAlert({
+        type: "error",
+        message: "Failed to save current step. Please try again.",
+      });
+    }
+  };
 
   const goToNext = () => {
     // Save any changes before moving to the next step
@@ -207,29 +225,15 @@ export default function ReportWizard() {
 
     if (hasErrors) return;
 
-    setCurrentStep((prev) => {
-      if (prev < steps.length - 1) return prev + 1;
-      // report.currentStep = prev;
-      return prev;
-    });
-
-    // Update the report's current step in the database
-    // reportService
-    //   .update(params.reportId, report)
-    //   .then(() => {
-    //     console.log("Report step updated successfully");
-    //   })
-    //   .catch((error) => {
-    //     console.error("Failed to update report step:", error);
-    //     setAlert({
-    //       type: "error",
-    //       message: "Failed to update report step.",
-    //     });
-    //   });
+    const nextStep = Math.min(currentStep + 1, steps.length - 1);
+    setCurrentStep(nextStep);
+    // saveCurrentStep(nextStep);
   };
 
   const goToBack = () => {
-    setCurrentStep((prev) => Math.max(prev - 1, 0));
+    const prevStep = Math.max(currentStep - 1, 0);
+    setCurrentStep(prevStep);
+    // saveCurrentStep(prevStep);
   };
 
   const handleSaveUpdates = async () => {
@@ -430,35 +434,39 @@ export default function ReportWizard() {
           >
             Back
           </Button>
-          {(() => {
-            const changedCount = records.filter((rec) => rec.wasChanged).length;
-            return (
-              <Tooltip
-                title={
-                  changedCount === 0
-                    ? "No changes to save"
-                    : `Save the changes you made to ${changedCount} record${changedCount > 1 ? "s" : ""}`
-                }
-              >
-                <span>
-                  <Button
-                    variant="outlined"
-                    onClick={handleSaveUpdates}
-                    disabled={changedCount === 0}
+          {currentStep !== 2 ||
+            (currentStep !== 5 &&
+              (() => {
+                const changedCount = records.filter(
+                  (rec) => rec.wasChanged
+                ).length;
+                return (
+                  <Tooltip
+                    title={
+                      changedCount === 0
+                        ? "No changes to save"
+                        : `Save the changes you made to ${changedCount} record${changedCount > 1 ? "s" : ""}`
+                    }
                   >
-                    Save Updates
-                  </Button>
-                </span>
-              </Tooltip>
-            );
-          })()}
+                    <span>
+                      <Button
+                        variant="outlined"
+                        onClick={handleSaveUpdates}
+                        disabled={changedCount === 0}
+                      >
+                        Save Updates
+                      </Button>
+                    </span>
+                  </Tooltip>
+                );
+              })())}
           <Button
             onClick={goToNext}
             variant="contained"
             color="primary"
-            disabled={currentStep === steps.length - 1}
+            disabled={currentStep === steps.length}
           >
-            {currentStep === steps.length - 2 ? "Finish" : "Next"}
+            {currentStep === steps.length - 1 ? "Finish" : "Next"}
           </Button>
         </Box>
       </Box>

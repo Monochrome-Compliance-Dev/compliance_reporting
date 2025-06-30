@@ -7,6 +7,7 @@ export const reportService = {
   getById,
   create,
   update,
+  patch,
   delete: _delete,
 };
 
@@ -24,6 +25,10 @@ async function create(params) {
 
 async function update(id, params) {
   return await fetchWrapper.put(`${baseUrl}/${id}`, params);
+}
+
+async function patch(id, params) {
+  return await fetchWrapper.patch(`${baseUrl}/${id}`, params);
 }
 
 async function _delete(id) {

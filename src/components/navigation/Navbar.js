@@ -20,13 +20,13 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
 import Tooltip from "@mui/material/Tooltip";
 import PriceCheckIcon from "@mui/icons-material/PriceCheck";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useLocation } from "react-router";
 import { useTheme } from "@mui/material/styles";
 import { userService } from "../../services";
-// import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../context/AuthContext";
 
 export default function Navbar({ isDarkTheme, onToggleTheme }) {
-  // const { user } = useAuthContext();
+  const { user } = useAuthContext();
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
   const [gettingStartedAnchor, setGettingStartedAnchor] = useState(null);
@@ -44,6 +44,13 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const handleAdminOpen = (event) => setAdminAnchor(event.currentTarget);
   const handleAdminClose = () => setAdminAnchor(null);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isLoggedIn = Boolean(user);
+  const hideNavLinks =
+    location.pathname.includes("/dashboard") ||
+    location.pathname.includes("/data") ||
+    location.pathname.includes("/report");
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);

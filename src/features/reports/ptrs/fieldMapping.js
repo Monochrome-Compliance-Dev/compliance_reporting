@@ -121,7 +121,7 @@ export const fieldMapping = [
   {
     name: "invoiceReceiptDate",
     label: "Invoice Receipt Date",
-    type: "text",
+    type: "date",
     requiredAtStep: [1, 2, 4],
     group: "invoice",
   },
@@ -184,7 +184,7 @@ export const fieldMapping = [
   {
     name: "creditCardNumber",
     label: "Credit Card Number",
-    type: "number",
+    type: "text",
     requiredAtStep: [2, 4],
     group: "step 2",
   },

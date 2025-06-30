@@ -43,12 +43,13 @@ export default function Dashboard() {
       setError("Failed to load reports");
     });
   }, [refreshReports]);
+  // console.log("reportDetails in Dashboard:", reportDetails);
 
   const reportList = [
     {
       name: "Payment Times Reporting Scheme",
       code: "ptrs",
-      description: "History of submitted reports",
+      description: "Active and submitted reports",
     },
   ];
 
@@ -75,6 +76,10 @@ export default function Dashboard() {
     }
     return (
       <TableRow key={row.id}>
+        <TableCell>{row.id}</TableCell>
+        <TableCell>
+          {new Date(row.createdAt).toISOString().split("T")[0]}
+        </TableCell>
         <TableCell>
           {new Date(row.ReportingPeriodStartDate).toISOString().split("T")[0]}
         </TableCell>
@@ -83,7 +88,7 @@ export default function Dashboard() {
         </TableCell>
         <TableCell>{row.reportStatus}</TableCell>
         <TableCell>
-          {row.reportStatus === "Created" ? (
+          {row.reportStatus === "Validated" ? (
             <Button
               variant="contained"
               color="primary"
@@ -154,21 +159,26 @@ export default function Dashboard() {
             Report Management
           </Typography>
           <Typography variant="body2" color="textSecondary" gutterBottom>
-            Use prepared data to create or continue your compliance reports.
+            Use prepared data to create a report or select an existing report to
+            continue.
           </Typography>
           <Grid container spacing={3} sx={{ marginTop: theme.spacing(2) }}>
             {reportList.map((report, index) => {
               const relevantReports = Array.isArray(reportDetails)
-                ? [reportDetails].filter((r) => r.code === report.code)
+                ? reportDetails.filter(
+                    (r) =>
+                      r.code === report.code && r.reportStatus === "Validated"
+                  )
                 : [];
-
-              const hasCreatedReport = relevantReports.some(
-                (r) => r.reportStatus === "Created"
-              );
 
               return (
                 <Grid item xs={12} key={index}>
-                  <Card>
+                  <Card
+                    sx={{
+                      border: `1px solid ${theme.palette.primary.main}`,
+                      backgroundColor: theme.palette.action.hover,
+                    }}
+                  >
                     <CardContent>
                       <Typography variant="h6" gutterBottom>
                         {report.name}
@@ -188,6 +198,8 @@ export default function Dashboard() {
                           >
                             <TableHead>
                               <TableRow>
+                                <TableCell>Report ID</TableCell>
+                                <TableCell>Created Date</TableCell>
                                 <TableCell>
                                   Reporting Period Start Date
                                 </TableCell>
@@ -210,7 +222,7 @@ export default function Dashboard() {
                           No records found for this report
                         </Typography>
                       )}
-                      {!hasCreatedReport && (
+                      {/* {!hasCreatedReport && (
                         <Button
                           variant="contained"
                           color="primary"
@@ -219,7 +231,7 @@ export default function Dashboard() {
                         >
                           Create New Report
                         </Button>
-                      )}
+                      )} */}
                     </CardContent>
                   </Card>
                 </Grid>

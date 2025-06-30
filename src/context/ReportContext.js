@@ -25,10 +25,11 @@ export const ReportProvider = ({ children }) => {
       const user = userService.userValue;
       const result = await reportService.getAll({ clientId: user.clientId });
       if (result && result.length > 0) {
-        setReportDetails(result[0]);
-        localStorage.setItem("reportDetails", JSON.stringify(result[0]));
+        console.log("Fetched reportDetails:", result);
+        setReportDetails(result);
+        localStorage.setItem("reportDetails", JSON.stringify(result));
       } else {
-        setReportDetails(null);
+        setReportDetails([]);
         localStorage.removeItem("reportDetails");
       }
     } catch (err) {
@@ -43,7 +44,7 @@ export const ReportProvider = ({ children }) => {
 
     if (storedReports) {
       const parsed = JSON.parse(storedReports);
-      setReportDetails(parsed);
+      setReportDetails(Array.isArray(parsed) ? parsed : parsed ? [parsed] : []);
     } else {
       fetchReports();
     }
