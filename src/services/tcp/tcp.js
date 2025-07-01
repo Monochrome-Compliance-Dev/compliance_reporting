@@ -20,6 +20,7 @@ export const tcpService = {
   downloadSummaryReport,
   upload,
   getErrorsByReportId,
+  recalculateMetrics,
 };
 
 async function getAll() {
@@ -28,7 +29,7 @@ async function getAll() {
 
 async function getAllByReportId(reportId) {
   const response = await fetchWrapper.get(`${baseUrl}/report/${reportId}`);
-  console.log("Fetched TCP records for reportId:", reportId, response);
+  // console.log("Fetched TCP records for reportId:", reportId, response);
   return response;
 }
 
@@ -101,3 +102,7 @@ async function getErrorsByReportId(reportId) {
   return await fetchWrapper.get(`${baseUrl}/errors/${reportId}`);
 }
 //   for (const dir of modelDirs) {
+
+async function recalculateMetrics(reportId) {
+  return await fetchWrapper.put(`${baseUrl}/recalculate/${reportId}`);
+}

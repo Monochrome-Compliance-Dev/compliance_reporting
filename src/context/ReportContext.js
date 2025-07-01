@@ -25,7 +25,7 @@ export const ReportProvider = ({ children }) => {
       const user = userService.userValue;
       const result = await reportService.getAll({ clientId: user.clientId });
       if (result && result.length > 0) {
-        console.log("Fetched reportDetails:", result);
+        // console.log("Fetched reportDetails:", result);
         setReportDetails(result);
         localStorage.setItem("reportDetails", JSON.stringify(result));
       } else {

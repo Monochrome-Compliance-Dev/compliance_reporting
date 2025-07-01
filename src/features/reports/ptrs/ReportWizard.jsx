@@ -32,8 +32,9 @@ const steps = [
   { label: "Step 2: Finalise TCP Dataset", Component: StepView },
   { label: "Step 3: Export ABNs and upload returns for SBI", Component: Step3 },
   {
-    label: "Step 4: Exclude parial payments and insert payment times",
+    label: "Step 4: Exclude partial payments and insert payment times",
     Component: StepView,
+    canRecalculate: true,
   },
   // { label: "Step 5: Process payment", Component: Payment },
   { label: "Step 6: Summary & Submission", Component: Step6 },
@@ -81,6 +82,7 @@ export default function ReportWizard() {
   const [records, setRecords] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [alert, setAlert] = useState(null);
+  const [isRecalculating, setIsRecalculating] = useState(false);
   const params = useParams();
 
   const { Component } = steps[currentStep];
@@ -146,26 +148,15 @@ export default function ReportWizard() {
           };
         });
 
-        // Update the backend with the paymentTime and paymentTerm
-        // Create the payload to update paymentTerm and paymentTime in the DB
-        // const updatePayload = enhancedRecords.map((rec) => ({
-        //   id: rec.id,
-        //   paymentTime: rec.paymentTime,
-        //   paymentTerm: rec.paymentTerm,
-        // }));
-        // console.log("Update payload:", updatePayload);
-
-        // // Send the bulk patch request
-        // if (updatePayload.length > 0)
-        //   await tcpService.patchRecords(updatePayload);
-        // setRecords(enhancedRecords || []);
-        // setRecords((prev) => updateRecordsWithFlags(prev));
-
-        // Until I can fix the bulk patch issue, we will just set the records
         setRecords(enhancedRecords || []);
+        // After loading, recalculate metrics and reload records from backend
+        await tcpService.recalculateMetrics(reportId);
+        const now = new Date().toISOString();
+        localStorage.setItem(`lastRecalc_${reportId}`, now);
+        const updated = await tcpService.getAllByReportId(reportId);
+        setRecords(updated || []);
 
         const report = await reportService.getById(params.reportId);
-        // console.log("Report loaded:", report);
         if (report?.currentStep) {
           setCurrentStep(Math.min(report.currentStep, steps.length - 1));
         }
@@ -383,6 +374,49 @@ export default function ReportWizard() {
             {alert.message}
           </Alert>
         )}
+
+        {stepConfig.canRecalculate && records.length > 0 && (
+          <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
+            <Button
+              variant="outlined"
+              onClick={async () => {
+                setIsRecalculating(true);
+                try {
+                  await tcpService.recalculateMetrics(reportId);
+                  const updated = await tcpService.getAllByReportId(reportId);
+                  setRecords(updated || []);
+                  setAlert({
+                    type: "success",
+                    message: "Derived fields recalculated successfully.",
+                  });
+                } catch (err) {
+                  console.error("Recalculation failed", err);
+                  setAlert({
+                    type: "error",
+                    message: "Recalculation failed. Please try again.",
+                  });
+                } finally {
+                  setIsRecalculating(false);
+                }
+              }}
+              disabled={isRecalculating}
+            >
+              {isRecalculating
+                ? "Recalculating..."
+                : "Recalculate Derived Fields"}
+            </Button>
+            <Typography
+              variant="caption"
+              sx={{ mt: 1, color: "text.secondary" }}
+            >
+              Last recalculated:{" "}
+              {new Date(
+                localStorage.getItem(`lastRecalc_${reportId}`)
+              ).toLocaleString()}
+            </Typography>
+          </Box>
+        )}
+
         {/* Main content */}
         <Typography
           variant="subtitle1"
