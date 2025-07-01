@@ -27,7 +27,9 @@ async function getAll() {
 }
 
 async function getAllByReportId(reportId) {
-  return await fetchWrapper.get(`${baseUrl}/report/${reportId}`);
+  const response = await fetchWrapper.get(`${baseUrl}/report/${reportId}`);
+  console.log("Fetched TCP records for reportId:", reportId, response);
+  return response;
 }
 
 async function patchRecord(id, updates) {

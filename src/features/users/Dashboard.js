@@ -18,6 +18,7 @@ import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { userService } from "../../services";
 import { useReportContext } from "../../context"; // Adjust the path if needed
+import PtrsDashboard from "../reports/ptrs/PtrsDashboard";
 
 export default function Dashboard() {
   const user = userService.userValue; // Get the current user
@@ -131,6 +132,11 @@ export default function Dashboard() {
           contact support.
         </Typography>
       )}
+
+      {/* User Information Section */}
+      <Card sx={{ marginTop: theme.spacing(4) }}>
+        <PtrsDashboard />
+      </Card>
 
       {/* Data Preparation Section */}
       <Card sx={{ marginTop: theme.spacing(4) }}>

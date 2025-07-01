@@ -36,6 +36,7 @@ export default function DataConsole() {
   };
 
   const refreshUploadedData = useCallback(() => {
+    console.log("Refreshing uploaded data for reportId:", reportId);
     if (!reportId) return;
     const cacheKey = `tcp_records_${reportId}`;
 
@@ -44,6 +45,7 @@ export default function DataConsole() {
       tcpService.getErrorsByReportId(reportId),
     ])
       .then(([valid, errors]) => {
+        console.log("Fetched valid records:", valid);
         setValidPreview(valid);
         setErrorRecords(errors);
         sessionStorage.setItem(cacheKey, JSON.stringify({ errors, valid }));

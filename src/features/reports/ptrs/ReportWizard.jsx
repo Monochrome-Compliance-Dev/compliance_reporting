@@ -120,7 +120,7 @@ export default function ReportWizard() {
     async function loadRecords() {
       try {
         const records = await tcpService.getAllByReportId(reportId);
-        // console.log("Loaded records:", records);
+        console.log("Loaded records:", records);
         // Append wasChanged, wasSaved, and original object to each record
         const enhancedRecords = records.map((r) => {
           const { original, original_field, ...rest } = r; // Remove any original_ fields if exist
@@ -423,7 +423,13 @@ export default function ReportWizard() {
             flexGrow: 1,
           }}
         >
-          {records ? <Component stepId={currentStep + 1} /> : <Loading />}
+          {records && typeof Component === "function" ? (
+            <Component stepId={currentStep + 1} />
+          ) : (
+            <Typography color="error">
+              Unable to render step: invalid component
+            </Typography>
+          )}
         </Box>
 
         <Box sx={{ display: "flex", justifyContent: "space-between", mt: 4 }}>
