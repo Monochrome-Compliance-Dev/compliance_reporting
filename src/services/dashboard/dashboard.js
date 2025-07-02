@@ -12,6 +12,7 @@ export const dashboardService = {
   getFlaggedRecords,
   getMetricsSnapshot,
   getDashboardSignals,
+  getDashboardExtendedMetrics,
 };
 
 async function getAll() {
@@ -47,4 +48,8 @@ async function getDashboardSignals(reportId) {
   const response = await fetchWrapper.get(`${baseUrlDash}/${reportId}/signals`);
   // console.log("Dashboard signals response:", response);
   return response;
+}
+
+async function getDashboardExtendedMetrics(reportId) {
+  return await fetchWrapper.get(`${baseUrlDash}/${reportId}/extended-metrics`);
 }

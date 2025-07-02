@@ -61,9 +61,20 @@ const StatCard = ({ title, value }) => {
 
 export default function PtrsDashboard() {
   const theme = useTheme();
-  const { getDashboardSignals } = dashboardService;
-  const { reportDetails, refreshReports } = useReportContext();
+  const { getDashboardSignals, getDashboardExtendedMetrics } = dashboardService;
+  const { reportDetails } = useReportContext();
   const reportId = reportDetails?.[0]?.id;
+
+  useEffect(() => {
+    if (!reportId) return;
+
+    const currentKey = `tcp_records_${reportId}`;
+    Object.keys(sessionStorage).forEach((key) => {
+      if (key.startsWith("tcp_records_") && key !== currentKey) {
+        sessionStorage.removeItem(key);
+      }
+    });
+  }, [reportId]);
   //   console.log("Report ID:", reportId);
 
   const [signals, setSignals] = useState(null);
@@ -71,30 +82,80 @@ export default function PtrsDashboard() {
   useEffect(() => {
     const loadSignals = async () => {
       try {
-        const data = await getDashboardSignals(reportId);
-        console.log("Fetched dashboard signals:", data);
-        setSignals(data);
+        const [core, extended] = await Promise.all([
+          getDashboardSignals(reportId),
+          getDashboardExtendedMetrics(reportId),
+        ]);
+        const merged = { ...core, ...extended };
+        console.log("Fetched dashboard signals:", merged);
+        setSignals(merged);
       } catch (err) {
         console.error("Failed to fetch dashboard signals:", err);
       }
     };
     if (reportId) loadSignals();
-  }, [reportId, getDashboardSignals]);
+  }, [reportId, getDashboardSignals, getDashboardExtendedMetrics]);
 
-  if (!signals) return null;
+  if (!signals) {
+    console.log("No signals found.");
+    return null;
+  }
 
+  // Build metrics with fallback to null, and log missing/undefined/null fields
   const metrics = {
-    invoicesPaidWithin30Days: signals.invoicesPaidWithin30Days,
-    valuePaidWithin30Days: signals.valuePaidWithin30Days,
-    avgPaymentTime: signals.avgDays,
-    medianPaymentTime: signals.medianDays,
-    percentile80: signals.percentile80,
-    percentile95: signals.percentile95,
-    sbNumPayments: signals.sbNumPayments,
-    sbValuePayments: signals.sbValuePayments,
-    sbPeppolNum: signals.sbPeppolNum,
-    sbPeppolValue: signals.sbPeppolValue,
+    invoicesPaidWithin30Days: signals?.invoicesPaidWithin30Days ?? null,
+    valuePaidWithin30Days: signals?.valuePaidWithin30Days ?? null,
+    avgPaymentTime: signals?.avgDays ?? null,
+    medianPaymentTime: signals?.medianDays ?? null,
+    percentile80: signals?.percentile80 ?? null,
+    percentile95: signals?.percentile95 ?? null,
+    sbNumPayments: signals?.sbNumPayments ?? null,
+    sbValuePayments: signals?.sbValuePayments ?? null,
+    sbPeppolNum: signals?.sbPeppolNum ?? null,
+    sbPeppolValue: signals?.sbPeppolValue ?? null,
+    invoiceBands: Array.isArray(signals?.invoiceBands)
+      ? signals.invoiceBands
+      : [],
+    slowestPaidSuppliers: Array.isArray(signals?.slowestPaidSuppliers)
+      ? signals.slowestPaidSuppliers
+      : [],
+    lateSbRate: signals?.lateSbRate ?? 0,
   };
+
+  // Log missing fields with reason
+  [
+    "invoicesPaidWithin30Days",
+    "valuePaidWithin30Days",
+    "avgDays",
+    "medianDays",
+    "percentile80",
+    "percentile95",
+    "sbNumPayments",
+    "sbValuePayments",
+    "sbPeppolNum",
+    "sbPeppolValue",
+    "invoiceBands",
+    "slowestPaidSuppliers",
+    "lateSbRate",
+  ].forEach((field) => {
+    if (!(field in signals)) {
+      console.warn(
+        `[PTRS Dashboard] signals is missing field '${field}' (not present in object)`
+      );
+    } else if (signals[field] === undefined) {
+      console.warn(
+        `[PTRS Dashboard] signals field '${field}' is present but undefined`
+      );
+    } else if (signals[field] === null) {
+      console.warn(
+        `[PTRS Dashboard] signals field '${field}' is present but null`
+      );
+    }
+  });
+
+  Object.entries(metrics).forEach(([key, val]) => {
+    console.log(`Metric '${key}' value:`, val);
+  });
 
   return (
     <Box sx={{ p: 3, backgroundColor: theme.palette.background.default }}>
@@ -142,34 +203,43 @@ export default function PtrsDashboard() {
         sx={{ height: "100%" }}
       >
         <Grid item xs={6} sm={4} md={2}>
+          {console.log(
+            "invoicesPaidWithin30Days",
+            metrics.invoicesPaidWithin30Days
+          )}
           <StatCard
             title="Invoices paid within 30 days"
-            value={`${metrics.invoicesPaidWithin30Days}%`}
+            value={metrics.invoicesPaidWithin30Days}
           />
         </Grid>
         <Grid item xs={6} sm={4} md={2}>
+          {console.log("valuePaidWithin30Days", metrics.valuePaidWithin30Days)}
           <StatCard
             title="Value of invoices paid within 30 days"
-            value={`$${metrics.valuePaidWithin30Days}`}
+            value={metrics.valuePaidWithin30Days}
           />
         </Grid>
         <Grid item xs={6} sm={4} md={2}>
+          {console.log("avgPaymentTime", metrics.avgPaymentTime)}
           <StatCard
             title="Average payment time"
-            value={`${metrics.avgPaymentTime} days`}
+            value={metrics.avgPaymentTime}
           />
         </Grid>
         <Grid item xs={6} sm={4} md={2}>
+          {console.log("medianPaymentTime", metrics.medianPaymentTime)}
           <StatCard
             title="Median payment time"
-            value={`${metrics.medianPaymentTime} days`}
+            value={metrics.medianPaymentTime}
           />
         </Grid>
         <Grid item xs={6} sm={4} md={2}>
-          <StatCard title="80th" value={`${metrics.percentile80} days`} />
+          {console.log("percentile80", metrics.percentile80)}
+          <StatCard title="80th" value={metrics.percentile80} />
         </Grid>
         <Grid item xs={6} sm={4} md={2}>
-          <StatCard title="95th" value={`${metrics.percentile95} days`} />
+          {console.log("percentile95", metrics.percentile95)}
+          <StatCard title="95th" value={metrics.percentile95} />
         </Grid>
       </Grid>
 
@@ -189,27 +259,31 @@ export default function PtrsDashboard() {
         sx={{ height: "100%" }}
       >
         <Grid item xs={6} sm={4} md={3}>
+          {console.log("sbNumPayments", metrics.sbNumPayments)}
           <StatCard
             title="# Small Business Payments"
-            value={`${metrics.sbNumPayments}`}
+            value={metrics.sbNumPayments}
           />
         </Grid>
         <Grid item xs={6} sm={4} md={3}>
+          {console.log("sbValuePayments", metrics.sbValuePayments)}
           <StatCard
             title="Value of SB Payments"
-            value={`$${metrics.sbValuePayments}`}
+            value={metrics.sbValuePayments}
           />
         </Grid>
         <Grid item xs={6} sm={4} md={3}>
+          {console.log("sbPeppolNum", metrics.sbPeppolNum)}
           <StatCard
             title="Peppol-enabled SB (Num)"
-            value={`${metrics.sbPeppolNum}`}
+            value={metrics.sbPeppolNum}
           />
         </Grid>
         <Grid item xs={6} sm={4} md={3}>
+          {console.log("sbPeppolValue", metrics.sbPeppolValue)}
           <StatCard
             title="Peppol-enabled SB (Value)"
-            value={`$${metrics.sbPeppolValue}`}
+            value={metrics.sbPeppolValue}
           />
         </Grid>
       </Grid>
@@ -566,7 +640,9 @@ export default function PtrsDashboard() {
                     fontSize: "1.1rem",
                   }}
                 >
-                  {`+${signals.avgDays - signals.medianDays}d`}
+                  {signals.avgDays != null && signals.medianDays != null
+                    ? `+${(parseFloat(signals.avgDays) - parseFloat(signals.medianDays)).toFixed(1)}d`
+                    : "—"}
                 </Typography>
                 <Typography
                   variant="caption"
@@ -575,7 +651,7 @@ export default function PtrsDashboard() {
                     color: theme.palette.text.secondary,
                   }}
                 >
-                  {`(Avg: ${signals.avgDays}d, Median: ${signals.medianDays}d)`}
+                  {`(Avg: ${signals.avgDays ?? "—"}d, Median: ${signals.medianDays ?? "—"}d)`}
                 </Typography>
               </Box>
             </CardContent>
@@ -624,7 +700,7 @@ export default function PtrsDashboard() {
                     height: 60,
                     borderRadius: "50%",
                     // Use error.main for late, and text.secondary for remainder for contrast in dark mode
-                    background: `conic-gradient(${theme.palette.error.main} 0 ${(signals.lateSbRate * 100).toFixed(0)}%, ${theme.palette.text.secondary} 0 100%)`,
+                    background: `conic-gradient(${theme.palette.error.main} 0 ${(parseFloat(metrics.lateSbRate ?? 0) * 100).toFixed(0)}%, ${theme.palette.text.secondary} 0 100%)`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -661,7 +737,7 @@ export default function PtrsDashboard() {
                       fontSize: "1.1rem",
                     }}
                   >
-                    {`${(signals.lateSbRate * 100).toFixed(0)}%`}
+                    {`${(parseFloat(metrics.lateSbRate ?? 0) * 100).toFixed(0)}%`}
                   </Typography>
                 </Box>
               </Box>
@@ -708,9 +784,9 @@ export default function PtrsDashboard() {
                   Top 10 slowest-paid SBs
                 </Typography>
                 {/* List of Top 10 slowest-paid SBs */}
-                {signals.slowestPaidSuppliers.map((s, idx) => (
+                {metrics.slowestPaidSuppliers.map((s, idx) => (
                   <Box
-                    key={s.abn}
+                    key={`slowest-paid-${s.payeeEntityAbn}-${idx}`}
                     sx={{
                       display: "flex",
                       justifyContent: "space-between",
@@ -728,7 +804,7 @@ export default function PtrsDashboard() {
                         fontWeight: 500,
                       }}
                     >
-                      {s.abn}
+                      {s.payeeEntityAbn}
                     </Typography>
                     <Typography
                       variant="body2"
@@ -739,7 +815,7 @@ export default function PtrsDashboard() {
                         ml: 2,
                       }}
                     >
-                      {s.days}d
+                      {s.avgDays}d
                     </Typography>
                   </Box>
                 ))}
@@ -798,23 +874,25 @@ export default function PtrsDashboard() {
                     mb: 1.5,
                   }}
                 >
-                  {signals.invoiceBands.map((band, idx) => (
-                    <Box
-                      key={band.label}
-                      sx={{
-                        flex: `0 0 ${band.pct}%`,
-                        backgroundColor:
-                          idx === 0
-                            ? theme.palette.primary.light
-                            : idx === 1
-                              ? theme.palette.primary.main
-                              : idx === 2
-                                ? theme.palette.secondary.main
-                                : theme.palette.grey[500],
-                        height: "100%",
-                      }}
-                    />
-                  ))}
+                  {metrics.invoiceBands.map((band, idx) =>
+                    band.pct != null ? (
+                      <Box
+                        key={`band-${band.label}-${idx}`}
+                        sx={{
+                          flex: `0 0 ${band.pct}%`,
+                          backgroundColor:
+                            idx === 0
+                              ? theme.palette.primary.light
+                              : idx === 1
+                                ? theme.palette.primary.main
+                                : idx === 2
+                                  ? theme.palette.secondary.main
+                                  : theme.palette.grey[500],
+                          height: "100%",
+                        }}
+                      />
+                    ) : null
+                  )}
                 </Box>
                 {/* Bands labels */}
                 <Box
@@ -827,7 +905,7 @@ export default function PtrsDashboard() {
                 >
                   {signals.invoiceBands.map((band, idx) => (
                     <Typography
-                      key={band.label}
+                      key={`band-${band.label}-${idx}`}
                       variant="caption"
                       sx={{
                         fontSize: "0.7rem",

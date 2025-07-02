@@ -2,7 +2,12 @@ import ReactDOM from "react-dom/client";
 import AppRouter from "./app/AppRouter";
 import { HelmetProvider } from "react-helmet-async";
 
-import { AlertProvider, AuthProvider, ReportProvider } from "./context/";
+import {
+  AlertProvider,
+  AuthProvider,
+  ReportProvider,
+  TcpProvider,
+} from "./context/";
 // import { userService } from "./services";
 // import { redirect } from "react-router";
 
@@ -35,7 +40,9 @@ function startApp() {
       <AuthProvider>
         <AlertProvider>
           <ReportProvider>
-            <AppRouter />
+            <TcpProvider>
+              <AppRouter />
+            </TcpProvider>
           </ReportProvider>
         </AlertProvider>
       </AuthProvider>

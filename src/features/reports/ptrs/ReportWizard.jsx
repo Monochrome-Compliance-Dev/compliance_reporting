@@ -36,8 +36,7 @@ const steps = [
     Component: StepView,
     canRecalculate: true,
   },
-  // { label: "Step 5: Process payment", Component: Payment },
-  { label: "Step 6: Summary & Submission", Component: Step6 },
+  { label: "Step 5: Summary & Submission", Component: Step6 },
 ];
 
 function enhanceWithGlossary(text) {
@@ -121,38 +120,12 @@ export default function ReportWizard() {
     // Initial load logic (e.g. fetch report data)
     async function loadRecords() {
       try {
-        const records = await tcpService.getAllByReportId(reportId);
-        console.log("Loaded records:", records);
-        // Append wasChanged, wasSaved, and original object to each record
-        const enhancedRecords = records.map((r) => {
-          const { original, original_field, ...rest } = r; // Remove any original_ fields if exist
-          // Calculate paymentTime and paymentTerm
-          const paymentTime = calculatePaymentTime(rest);
-          const paymentTerm = calculatePaymentTerm(rest);
-
-          const originalCopy = JSON.parse(
-            JSON.stringify({
-              ...rest,
-              paymentTime,
-              paymentTerm,
-            })
-          );
-
-          return {
-            ...rest,
-            paymentTime,
-            paymentTerm,
-            wasChanged: false,
-            wasSaved: false,
-            original: originalCopy,
-          };
-        });
-
-        setRecords(enhancedRecords || []);
-        // After loading, recalculate metrics and reload records from backend
+        // Recalculate metrics before fetching records
         await tcpService.recalculateMetrics(reportId);
         const now = new Date().toISOString();
         localStorage.setItem(`lastRecalc_${reportId}`, now);
+
+        // Now fetch fresh recalculated records
         const updated = await tcpService.getAllByReportId(reportId);
         setRecords(updated || []);
 
@@ -168,6 +141,27 @@ export default function ReportWizard() {
     }
     loadRecords();
   }, [reportId, updateRecordsWithFlags, params.reportId]);
+
+  // Recalculate/reload when entering step 4 (currentStep === 3)
+  useEffect(() => {
+    if (currentStep === 3) {
+      const forceRecalcAndReload = async () => {
+        try {
+          setIsRecalculating(true);
+          await tcpService.recalculateMetrics(reportId);
+          const now = new Date().toISOString();
+          localStorage.setItem(`lastRecalc_${reportId}`, now);
+          const updated = await tcpService.getAllByReportId(reportId);
+          setRecords(updated || []);
+        } catch (err) {
+          console.error("Step 4 recalc failed", err);
+        } finally {
+          setIsRecalculating(false);
+        }
+      };
+      forceRecalcAndReload();
+    }
+  }, [currentStep, reportId]);
 
   const saveCurrentStep = async (step) => {
     try {
@@ -353,6 +347,7 @@ export default function ReportWizard() {
     );
   }
 
+  const changedCount = records.filter((rec) => rec.wasChanged).length;
   return (
     <ReportContext.Provider
       value={{
@@ -474,32 +469,25 @@ export default function ReportWizard() {
           >
             Back
           </Button>
-          {currentStep !== 2 ||
-            (currentStep !== 5 &&
-              (() => {
-                const changedCount = records.filter(
-                  (rec) => rec.wasChanged
-                ).length;
-                return (
-                  <Tooltip
-                    title={
-                      changedCount === 0
-                        ? "No changes to save"
-                        : `Save the changes you made to ${changedCount} record${changedCount > 1 ? "s" : ""}`
-                    }
-                  >
-                    <span>
-                      <Button
-                        variant="outlined"
-                        onClick={handleSaveUpdates}
-                        disabled={changedCount === 0}
-                      >
-                        Save Updates
-                      </Button>
-                    </span>
-                  </Tooltip>
-                );
-              })())}
+          {currentStep !== 2 && currentStep !== 5 && (
+            <Tooltip
+              title={
+                changedCount === 0
+                  ? "No changes to save"
+                  : `Save the changes you made to ${changedCount} record${changedCount > 1 ? "s" : ""}`
+              }
+            >
+              <span>
+                <Button
+                  variant="outlined"
+                  onClick={handleSaveUpdates}
+                  disabled={changedCount === 0}
+                >
+                  Save Updates
+                </Button>
+              </span>
+            </Tooltip>
+          )}
           <Button
             onClick={goToNext}
             variant="contained"

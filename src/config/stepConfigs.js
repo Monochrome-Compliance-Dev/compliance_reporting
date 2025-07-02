@@ -110,11 +110,4 @@ export const stepConfigs = {
     issueRules: [],
     exclusionRules: [],
   },
-  step6: {
-    editableFields: [],
-    hiddenColumns: [],
-    validationRules: {},
-    issueRules: [],
-    exclusionRules: [],
-  },
 };
