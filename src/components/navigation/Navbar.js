@@ -262,14 +262,6 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               component={Link}
               to="/contact"
             >
-              <HourglassEmptyIcon sx={{ fontSize: 20, mr: 1 }} />
-              Join the Waitlist
-            </MenuItem>
-            <MenuItem
-              onClick={handleConnectClose}
-              component={Link}
-              to="/booking"
-            >
               <FolderIcon sx={{ fontSize: 20, mr: 1 }} />
               Booking
             </MenuItem>
@@ -344,14 +336,6 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               to="/contact"
               sx={{ color: theme.palette.text.primary }}
             >
-              Join the Waitlist
-            </MenuItem>
-            <MenuItem
-              onClick={handleMenuClose}
-              component={Link}
-              to="/booking"
-              sx={{ color: theme.palette.text.primary }}
-            >
               Booking
             </MenuItem>
             <MenuItem
@@ -376,7 +360,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => navigate("/booking")}
+          onClick={() => navigate("/contact")}
           sx={{
             ml: 2,
             fontWeight: 600,
