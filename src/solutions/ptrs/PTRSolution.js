@@ -179,7 +179,7 @@ export default function PTRSolution() {
               justifyContent: "center",
             }}
           >
-            <Button
+            {/* <Button
               variant="contained"
               color="primary"
               size="large"
@@ -187,7 +187,7 @@ export default function PTRSolution() {
               sx={{ width: isSmallScreen ? "100%" : "auto" }}
             >
               Launch the Compliance Navigator
-            </Button>
+            </Button> */}
             <Button
               variant="contained"
               color="primary"

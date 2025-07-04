@@ -73,8 +73,8 @@ export default function Layout() {
           backgroundColor: theme.palette.background.default,
         }}
       >
-        <Navbar isDarkTheme={isDarkTheme} onToggleTheme={toggleTheme} />
         <Box sx={{ flex: 1 }}>
+          <Navbar isDarkTheme={isDarkTheme} onToggleTheme={toggleTheme} />
           <Container maxWidth="lg" sx={{ py: 4 }}>
             <Suspense fallback={<LoadingSpinner />}>
               <Outlet />

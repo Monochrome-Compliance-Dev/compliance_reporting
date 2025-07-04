@@ -55,7 +55,7 @@ export default function Contact() {
       to: "contact@monochrome-compliance.com",
       cc: "contact@monochrome-compliance.com",
       from: "contact@monochrome-compliance.com",
-      topic: "Request for assistance",
+      topic: "Contact Us",
     },
     mode: "onChange",
   });
@@ -64,20 +64,12 @@ export default function Contact() {
     const contactEmail = {
       to: data.to || "contact@monochrome-compliance.com",
       subject: data.subject || data.topic + " " + new Date().toISOString(),
-      html: `
-        <ul style="font-family: sans-serif; font-size: 1rem; color: #333;">
-          <li><strong>subject:</strong> ${data.subject || "Not provided"}</li>
-          <li><strong>message:</strong> ${data.message || "Not provided"}</li>
-          <li><strong>name:</strong> ${data.name || "Not provided"}</li>
-          <li><strong>email:</strong> ${data.email || "Not provided"}</li>
-          <li><strong>date:</strong> ${data.date || "Not provided"}</li>
-          <li><strong>time:</strong> ${data.time || "Not provided"}</li>
-          <li><strong>company:</strong> ${data.company || "Not provided"}</li>
-          <li><strong>from:</strong> ${data.from || data.email || "Not provided"}</li>
-          <li><strong>cc:</strong> ${data.cc || "Not provided"}</li>
-          <li><strong>bcc:</strong> ${data.bcc || "Not provided"}</li>
-        </ul>
-      `,
+      message: data.message,
+      name: data.name,
+      email: data.email,
+      date: data.date,
+      time: data.time,
+      company: data.company,
       from: data.from || data.email,
       cc: data.cc,
       bcc: data.bcc,

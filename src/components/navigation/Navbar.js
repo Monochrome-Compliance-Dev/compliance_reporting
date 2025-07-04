@@ -93,7 +93,9 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             }
             alt="Monochrome Compliance Logo"
             sx={{
-              height: 48,
+              height: "auto",
+              maxWidth: { xs: "200px", md: "300px" },
+              width: "100%",
               objectFit: "contain",
               mt: 1.5,
               mb: 0.5,
@@ -187,7 +189,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               ESG Reporting
             </MenuItem>
           </Menu>
-          <Button
+          {/* <Button
             color="inherit"
             onClick={handleGettingStartedOpen}
             sx={{
@@ -230,7 +232,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               <HelpOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
               FAQ
             </MenuItem>
-          </Menu>
+          </Menu> */}
           <Button
             color="inherit"
             onClick={handleConnectOpen}
@@ -256,14 +258,6 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             >
               <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
               Contact
-            </MenuItem>
-            <MenuItem
-              onClick={handleConnectClose}
-              component={Link}
-              to="/contact"
-            >
-              <FolderIcon sx={{ fontSize: 20, mr: 1 }} />
-              Booking
             </MenuItem>
             <MenuItem onClick={handleConnectClose} component={Link} to="/blog">
               <HelpOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
@@ -301,10 +295,59 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
+              to="/modern-slavery"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Modern Slavery
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/whistleblower-compliance"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Whistleblower Compliance
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/director-obligations"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Director Obligations
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/risk-register"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Risk Register
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/working-capital"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Working Capital Analysis
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/esg-reporting"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              ESG Reporting
+            </MenuItem>
+            {/* <Divider />
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
               to="/overview"
               sx={{ color: theme.palette.text.primary }}
             >
-              Getting Started
+              Overview
             </MenuItem>
             <MenuItem
               onClick={handleMenuClose}
@@ -321,7 +364,8 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               sx={{ color: theme.palette.text.primary }}
             >
               FAQ
-            </MenuItem>
+            </MenuItem> */}
+            <Divider />
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
@@ -329,14 +373,6 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               sx={{ color: theme.palette.text.primary }}
             >
               Contact
-            </MenuItem>
-            <MenuItem
-              onClick={handleMenuClose}
-              component={Link}
-              to="/contact"
-              sx={{ color: theme.palette.text.primary }}
-            >
-              Booking
             </MenuItem>
             <MenuItem
               onClick={handleMenuClose}
@@ -354,7 +390,6 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             >
               About
             </MenuItem>
-            {/* Dashboard menu item for logged-in users */}
           </Menu>
         </Box>
         <Button
@@ -367,7 +402,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             display: { xs: "none", md: "inline-flex" },
           }}
         >
-          Book a Demo
+          Contact Us
         </Button>
         <IconButton
           sx={{ ml: 1, color: theme.palette.text.primary }}
