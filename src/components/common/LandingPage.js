@@ -12,6 +12,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import Contact from "./Contact";
+import { Link } from "react-router";
 
 export default function LandingPage() {
   const theme = useTheme();
@@ -60,6 +61,7 @@ export default function LandingPage() {
                 sx={{ fontSize: 36, color: theme.palette.primary.main }}
               />
             ),
+            to: "/modern-slavery",
           },
           {
             title: "Director Disclosures",
@@ -70,6 +72,7 @@ export default function LandingPage() {
                 sx={{ fontSize: 36, color: theme.palette.primary.main }}
               />
             ),
+            to: "/director-disclosures",
           },
           {
             title: "Whistleblower Compliance",
@@ -80,6 +83,7 @@ export default function LandingPage() {
                 sx={{ fontSize: 36, color: theme.palette.primary.main }}
               />
             ),
+            to: "/whistleblower-compliance",
           },
           {
             title: "Risk Register as a Service",
@@ -90,6 +94,7 @@ export default function LandingPage() {
                 sx={{ fontSize: 36, color: theme.palette.primary.main }}
               />
             ),
+            to: "/risk-register",
           },
           {
             title: "Payment Times Reporting",
@@ -100,6 +105,7 @@ export default function LandingPage() {
                 sx={{ fontSize: 36, color: theme.palette.primary.main }}
               />
             ),
+            to: "/payment-times",
           },
           {
             title: "ESG Reporting",
@@ -110,6 +116,7 @@ export default function LandingPage() {
                 sx={{ fontSize: 36, color: theme.palette.primary.main }}
               />
             ),
+            to: "/esg-reporting",
           },
           {
             title: "Working Capital",
@@ -120,6 +127,7 @@ export default function LandingPage() {
                 sx={{ fontSize: 36, color: theme.palette.primary.main }}
               />
             ),
+            to: "/working-capital",
           },
         ].map((card, index) => (
           <Box
@@ -131,21 +139,28 @@ export default function LandingPage() {
               scrollSnapAlign: "start",
             }}
           >
-            <Paper
-              sx={{
-                p: 3,
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-              }}
-            >
-              <Box sx={{ mb: 1 }}>{card.icon}</Box>
-              <Typography variant="h6" gutterBottom>
-                {card.title}
-              </Typography>
-              <Typography variant="body2">{card.description}</Typography>
-            </Paper>
+            <Link to={card.to} style={{ textDecoration: "none" }}>
+              <Paper
+                sx={{
+                  p: 3,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                  "&:hover": {
+                    transform: "translateY(-4px)",
+                    boxShadow: 4,
+                  },
+                }}
+              >
+                <Box sx={{ mb: 1 }}>{card.icon}</Box>
+                <Typography variant="h6" gutterBottom>
+                  {card.title}
+                </Typography>
+                <Typography variant="body2">{card.description}</Typography>
+              </Paper>
+            </Link>
           </Box>
         ))}
       </Box>
