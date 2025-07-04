@@ -278,8 +278,8 @@ function formatStructuredBlockForHtml(structuredBlock, subjectLineRaw) {
 }
 
 export const handler = async (event) => {
-  console.log("LOG TEST ENTRY");
-  console.log("Incoming Event:", JSON.stringify(event, null, 2));
+  console.log("=== HANDLER START ===");
+  console.log("Raw Event Payload:", JSON.stringify(event, null, 2));
   const allowedOrigins = [
     "https://www.monochrome-compliance.com",
     "http://localhost:3000",
@@ -298,22 +298,30 @@ export const handler = async (event) => {
   console.log("Received request headers:", event.headers);
 
   if (method === "OPTIONS") {
-    // Log CORS preflight response headers before returning
-    console.log("Responding to CORS preflight with headers:", {
+    console.log("OPTIONS preflight request received.");
+    console.log("Event headers received:", event.headers);
+    console.log("Allowed Origins:", allowedOrigins);
+    console.log("Origin header from request:", origin);
+    console.log("Computed CORS origin:", corsOrigin);
+
+    const corsHeaders = {
       "Access-Control-Allow-Origin": corsOrigin,
       "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Headers":
+        "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
       Vary: "Origin",
+    };
+
+    console.log("Responding to CORS preflight with headers:", corsHeaders);
+    console.log("OPTIONS block response payload:", {
+      statusCode: 200,
+      headers: corsHeaders,
+      body: JSON.stringify({ message: "CORS preflight OK" }),
     });
     console.log("Returning from OPTIONS preflight handler.");
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": corsOrigin,
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-        Vary: "Origin",
-      },
+      headers: corsHeaders,
       body: JSON.stringify({ message: "CORS preflight OK" }),
     };
   }
@@ -353,11 +361,12 @@ export const handler = async (event) => {
       await ses.send(new SendEmailCommand(emailParams));
       console.log("SES send successful.");
 
+      console.log("Returning success from direct POST branch");
       console.log("Returning from direct POST handler.");
       return {
         statusCode: 200,
         headers: {
-          "Access-Control-Allow-Origin": corsOrigin,
+          ...(corsOrigin && { "Access-Control-Allow-Origin": corsOrigin }),
           "Access-Control-Allow-Methods": "POST, OPTIONS",
           "Access-Control-Allow-Headers":
             "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
@@ -413,7 +422,7 @@ export const handler = async (event) => {
       return {
         statusCode: 200,
         headers: {
-          "Access-Control-Allow-Origin": corsOrigin,
+          ...(corsOrigin && { "Access-Control-Allow-Origin": corsOrigin }),
           "Access-Control-Allow-Methods": "POST, OPTIONS",
           "Access-Control-Allow-Headers":
             "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
@@ -882,10 +891,11 @@ export const handler = async (event) => {
     }
 
     console.log("Returning from main handler after SES send.");
+    console.log("=== END OF HANDLER ===");
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": corsOrigin,
+        ...(corsOrigin && { "Access-Control-Allow-Origin": corsOrigin }),
         "Access-Control-Allow-Methods": "POST, OPTIONS",
         "Access-Control-Allow-Headers":
           "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
@@ -900,10 +910,12 @@ export const handler = async (event) => {
       "\nEvent was:",
       JSON.stringify(event, null, 2)
     );
+    console.error("Full error stack:", error.stack);
+    console.log("=== END OF HANDLER ===");
     return {
       statusCode: 500,
       headers: {
-        "Access-Control-Allow-Origin": corsOrigin,
+        ...(corsOrigin && { "Access-Control-Allow-Origin": corsOrigin }),
         "Access-Control-Allow-Methods": "POST, OPTIONS",
         "Access-Control-Allow-Headers":
           "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",

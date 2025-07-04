@@ -77,10 +77,15 @@ async function _post(url, body) {
     ...authHeader(url),
     "X-CSRF-Token": sessionStorage.getItem("csrfToken") || "",
   };
+  // const requestOptions = {
+  //   method: "POST",
+  //   headers,
+  //   credentials: "include",
+  //   body: JSON.stringify(body),
+  // };
   const requestOptions = {
     method: "POST",
-    headers,
-    credentials: "include",
+    headers: {},
     body: JSON.stringify(body),
   };
   const response = await fetch(url, requestOptions);
