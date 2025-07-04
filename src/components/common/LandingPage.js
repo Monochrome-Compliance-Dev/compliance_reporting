@@ -6,6 +6,7 @@ import {
   useTheme,
   Divider,
   Container,
+  CardMedia,
 } from "@mui/material";
 import DomainVerificationIcon from "@mui/icons-material/DomainVerification";
 import DescriptionIcon from "@mui/icons-material/Description";
@@ -34,6 +35,37 @@ export default function LandingPage() {
       >
         Simplifying Compliance for Australian Companies
       </Typography>
+      {/* 
+      <Box
+        sx={{
+          position: "relative",
+          height: 240,
+          backgroundImage:
+            "url('/images/backgrounds/right-zebra-crossing.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          my: 4,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          px: 4,
+        }}
+      >
+        <Typography
+          variant="body1"
+          sx={{
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            p: 2,
+            maxWidth: "60%",
+            borderRadius: 1,
+          }}
+        >
+          Monochrome helps you meet key obligations like Payment Times
+          Reporting, Modern Slavery statements, and Director Disclosures —
+          without spreadsheets, manual follow-ups, or legal headaches.
+        </Typography>
+      </Box>
+      */}
       <Container maxWidth="sm">
         <Typography variant="body1" textAlign="center" sx={{ mb: 4 }}>
           Monochrome helps you meet key obligations like Payment Times
@@ -62,6 +94,7 @@ export default function LandingPage() {
               />
             ),
             to: "/modern-slavery",
+            image: "/images/solutions/ms/modern-slavery.jpg",
           },
           {
             title: "Director Disclosures",
@@ -73,6 +106,7 @@ export default function LandingPage() {
               />
             ),
             to: "/director-obligations",
+            image: "/images/solutions/do/director.jpg",
           },
           {
             title: "Whistleblower Compliance",
@@ -84,6 +118,7 @@ export default function LandingPage() {
               />
             ),
             to: "/whistleblower-compliance",
+            image: "/images/solutions/wb/whistleblower.jpg",
           },
           {
             title: "Risk Register as a Service",
@@ -95,6 +130,7 @@ export default function LandingPage() {
               />
             ),
             to: "/risk-register",
+            image: "/images/solutions/rr/Risks.jpg",
           },
           {
             title: "Payment Times Reporting",
@@ -106,6 +142,7 @@ export default function LandingPage() {
               />
             ),
             to: "/payment-times-reporting",
+            image: "/images/solutions/ptrs/Payment-times-reporting.jpg",
           },
           {
             title: "ESG Reporting",
@@ -117,6 +154,7 @@ export default function LandingPage() {
               />
             ),
             to: "/esg-reporting",
+            image: "/images/solutions/esg/ESG-reporting.jpg",
           },
           {
             title: "Working Capital",
@@ -128,6 +166,7 @@ export default function LandingPage() {
               />
             ),
             to: "/working-capital",
+            image: "/images/solutions/wc/Working-Capital.jpg",
           },
         ].map((card, index) => (
           <Box
@@ -154,7 +193,18 @@ export default function LandingPage() {
                   },
                 }}
               >
-                <Box sx={{ mb: 1 }}>{card.icon}</Box>
+                {(!card.image || card.image === "") && (
+                  <Box sx={{ mb: 1 }}>{card.icon}</Box>
+                )}
+                {card.image && (
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image={card.image}
+                    alt={`${card.title} image`}
+                    sx={{ mb: 1, borderRadius: 1 }}
+                  />
+                )}
                 <Typography variant="h6" gutterBottom>
                   {card.title}
                 </Typography>
