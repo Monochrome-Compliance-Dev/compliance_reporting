@@ -61,33 +61,24 @@ export default function Contact() {
   });
 
   const sendContactEmail = async (data) => {
+    const topic = sanitiseInput(data.topic);
     const contactEmail = {
-      to: data.to || "contact@monochrome-compliance.com",
-      subject: data.subject || data.topic + " " + new Date().toISOString(),
-      html: `
-        <ul style="font-family: sans-serif; font-size: 1rem; color: #333;">
-          <li><strong>subject:</strong> ${data.subject || "Not provided"}</li>
-          <li><strong>message:</strong> ${data.message || "Not provided"}</li>
-          <li><strong>name:</strong> ${data.name || "Not provided"}</li>
-          <li><strong>email:</strong> ${data.email || "Not provided"}</li>
-          <li><strong>date:</strong> ${data.date || "Not provided"}</li>
-          <li><strong>time:</strong> ${data.time || "Not provided"}</li>
-          <li><strong>company:</strong> ${data.company || "Not provided"}</li>
-          <li><strong>from:</strong> ${data.from || data.email || "Not provided"}</li>
-          <li><strong>cc:</strong> ${data.cc || "Not provided"}</li>
-          <li><strong>bcc:</strong> ${data.bcc || "Not provided"}</li>
-        </ul>
-      `,
-      from: data.from || data.email,
-      cc: data.cc,
-      bcc: data.bcc,
+      name: sanitiseInput(data.name),
+      cc: sanitiseInput(data.cc),
+      email: sanitiseInput(data.email),
+      subject: sanitiseInput(topic),
+      topic: sanitiseInput(topic),
+      company: sanitiseInput(data.company),
+      message: sanitiseInput(data.message),
+      to: sanitiseInput(data.email),
+      from: sanitiseInput(data.from),
     };
 
     try {
       setLoading(true);
 
       // Send the contact email
-      const response = await publicService.sendSesEmailLambda(contactEmail);
+      const response = await publicService.sendSesEmail(contactEmail);
       if (response?.status === 200) {
         reset();
         showAlert("Message sent successfully!", "success");
