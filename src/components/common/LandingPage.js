@@ -72,7 +72,7 @@ export default function LandingPage() {
                 sx={{ fontSize: 36, color: theme.palette.primary.main }}
               />
             ),
-            to: "/director-disclosures",
+            to: "/director-obligations",
           },
           {
             title: "Whistleblower Compliance",
@@ -105,7 +105,7 @@ export default function LandingPage() {
                 sx={{ fontSize: 36, color: theme.palette.primary.main }}
               />
             ),
-            to: "/payment-times",
+            to: "/payment-times-reporting",
           },
           {
             title: "ESG Reporting",
