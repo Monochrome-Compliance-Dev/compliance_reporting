@@ -142,6 +142,7 @@ export default function LandingPage() {
                   image={layer.image}
                   alt={layer.label}
                   sx={{ mb: 2, borderRadius: 1 }}
+                  loading="lazy"
                 />
                 <CardContent>
                   <Typography variant="subtitle1" gutterBottom>
@@ -293,6 +294,7 @@ export default function LandingPage() {
                       image={card.image}
                       alt={`${card.title} image`}
                       sx={{ mb: 1, borderRadius: 1 }}
+                      loading="lazy"
                     />
                   )}
                   <Typography variant="h6" gutterBottom>
