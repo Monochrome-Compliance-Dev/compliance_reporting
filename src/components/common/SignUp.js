@@ -110,7 +110,8 @@ const SignUp = () => {
       setLoading(true);
 
       // Send the sign-up email
-      const response = await publicService.sendSesEmail(cleanData);
+      const response = await publicService.sendSesEmailLambda(cleanData);
+      // const response = await publicService.sendSesEmail(cleanData);
       if (response?.status === 200) {
         reset();
         showAlert("PTRS sign-up email sent successfully!", "success");
