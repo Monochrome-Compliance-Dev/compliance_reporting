@@ -6,6 +6,8 @@ import {
   Button,
   useTheme,
   useMediaQuery,
+  CardContent,
+  CardMedia,
 } from "@mui/material";
 import { useNavigate } from "react-router";
 import AssessmentIcon from "@mui/icons-material/Assessment";
@@ -13,6 +15,7 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import ChecklistIcon from "@mui/icons-material/Checklist";
 import PageMeta from "../../components/ui/PageMeta";
 import RelatedSolutions from "../RelatedSolutions";
+import { image } from "@uiw/react-md-editor";
 
 export default function ESGReporting() {
   const navigate = useNavigate();
@@ -26,14 +29,16 @@ export default function ESGReporting() {
         {
           title: "Centralised Metrics",
           description:
-            "Track carbon emissions, diversity stats, modern slavery inputs, and other ESG indicators from a unified dashboard.",
+            "Collect structured data across carbon, water, diversity, and supply chain metrics. Align inputs with ISSB S1/S2 and enable version-controlled entries.",
           iconComponent: AssessmentIcon,
+          image: "/images/solutions/esg/metrics.jpg",
         },
         {
           title: "Guided Workflows",
           description:
-            "Prompt contributors for input, track status by ESG domain, and export a consistent, governance-ready report.",
+            "Assign tasks by ESG topic, validate supporting evidence, and track contributor progress with assurance-ready logs and status indicators.",
           iconComponent: ChecklistIcon,
+          image: "/images/solutions/esg/workflows.jpg",
         },
       ],
     },
@@ -43,8 +48,9 @@ export default function ESGReporting() {
         {
           title: "Annual & Periodic Reporting",
           description:
-            "Generate reporting outputs aligned with TCFD, SASB, or local ESG disclosure frameworks. Review history with audit-ready logs.",
+            "Generate exportable ESG reports mapped to IFRS S1/S2, Australian climate disclosures, and industry-specific standards like SASB. Maintain audit-ready version history.",
           iconComponent: TimelineIcon,
+          image: "/images/solutions/esg/reporting.jpg",
         },
       ],
     },
@@ -76,9 +82,9 @@ export default function ESGReporting() {
           color={theme.palette.text.secondary}
           sx={{ mb: theme.spacing(4) }}
         >
-          ESG obligations are evolving quickly, but your process doesn't have
-          to. Monochrome Compliance helps you collect, structure and publish ESG
-          data with clarity and consistency.
+          ESG expectations are escalating — particularly under Australia’s new
+          climate disclosure laws. Monochrome Compliance equips you to collect,
+          structure, and disclose ESG data with rigour, clarity, and confidence.
         </Typography>
 
         {groupedFeatures.map((group, i) => (
@@ -96,20 +102,20 @@ export default function ESGReporting() {
                   <Card
                     elevation={2}
                     sx={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      padding: 2,
                       height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
                     }}
                   >
-                    <item.iconComponent
-                      sx={{
-                        fontSize: 40,
-                        color: theme.palette.primary.main,
-                        mr: 2,
-                      }}
-                    />
-                    <Box>
+                    <CardMedia
+                      component="img"
+                      height="230"
+                      image={item.image}
+                      alt={item.description}
+                      sx={{ mb: 2, borderRadius: 1 }}
+                      loading="lazy"
+                    ></CardMedia>
+                    <CardContent>
                       <Typography
                         variant="subtitle1"
                         fontWeight="bold"
@@ -123,7 +129,7 @@ export default function ESGReporting() {
                       >
                         {item.description}
                       </Typography>
-                    </Box>
+                    </CardContent>
                   </Card>
                 </Grid>
               ))}
@@ -137,7 +143,7 @@ export default function ESGReporting() {
             gutterBottom
             color={theme.palette.text.primary}
           >
-            Ready to streamline ESG reporting?
+            Get ahead of mandatory ESG reporting requirements
           </Typography>
           <Box
             sx={{

@@ -1,12 +1,3 @@
----
-title: Who Needs to Report Under the Payment Times Reporting Scheme?
-author: Monochrome Compliance Team
-date: 2025-05-18
-slug: who-needs-to-report-ptr
-description: Find out which businesses and corporate structures are required to report under the Australian Payment Times Reporting Scheme.
-tags: [PTR, eligibility, reporting obligations, compliance]
----
-
 # Who Needs to Report Under the Payment Times Reporting Scheme?
 
 _Published: 18 May 2025 • Author: Monochrome Compliance Team_

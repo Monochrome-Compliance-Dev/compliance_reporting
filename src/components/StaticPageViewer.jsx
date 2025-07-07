@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Box, Typography, CircularProgress } from "@mui/material";
 import ReactMarkdown from "react-markdown";
-import { adminService } from "../services/admin/admin";
 
 const StaticPageViewer = () => {
   const { slug } = useParams();
@@ -13,8 +12,10 @@ const StaticPageViewer = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const result = await adminService.getBySlug(slug);
-        setContent(result.content || "");
+        const res = await fetch(`/static-content/blog/${slug}.md`);
+        if (!res.ok) throw new Error("Failed to load content");
+        const text = await res.text();
+        setContent(text);
       } catch (err) {
         console.error("Error fetching content:", err);
         setError(true);
