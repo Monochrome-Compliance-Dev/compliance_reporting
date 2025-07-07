@@ -29,28 +29,30 @@ const BlogIndex = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    adminService
-      .getAll()
+    fetch("/static-content/blog/index.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load index");
+        return res.json();
+      })
       .then((data) => {
         const blogs = data
-          .filter(
-            (post) => post.type === "blog" && post.slug !== "your-blog-slug"
-          )
-          .map(({ slug, title, description, date, tags }) => {
-            return {
-              slug,
-              title: title || "Untitled",
-              description: description || "",
-              date: date || "",
-              tags: tags || [],
-            };
-          })
+          .filter((post) => post.slug !== "your-blog-slug")
+          .map(({ slug, title, description, date, tags }) => ({
+            slug,
+            title: title || "Untitled",
+            description: description || "",
+            date: date || "",
+            tags: tags || [],
+          }))
           .sort((a, b) => new Date(b.date) - new Date(a.date));
 
         setAllPosts(blogs);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        console.error("Failed to load blog index:", err);
+        setLoading(false);
+      });
   }, []);
 
   const filteredPosts =
