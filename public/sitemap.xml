@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://monochrome-compliance.com/</loc></url>
-  <url><loc>https://monochrome-compliance.com/blog</loc></url>
-  <url><loc>https://monochrome-compliance.com/blog/how-to-submit-ptr-report</loc></url>
-  <url><loc>https://monochrome-compliance.com/blog/improve-data-quality</loc></url>
-  <url><loc>https://monochrome-compliance.com/blog/ptr-legislation-2025</loc></url>
-  <url><loc>https://monochrome-compliance.com/blog/ptr-reporting-deadlines</loc></url>
-  <url><loc>https://monochrome-compliance.com/blog/ptr-submission-mistakes</loc></url>
-  <url><loc>https://monochrome-compliance.com/blog/using-sbi-tool-for-ptr</loc></url>
-  <url><loc>https://monochrome-compliance.com/blog/who-needs-to-report-ptr</loc></url>
+  <!-- Core site pages -->
+  <url><loc>https://www.monochrome-compliance.com/</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/blog</loc></url>
+
+  <!-- Blog content -->
+  <url><loc>https://www.monochrome-compliance.com/blog/how-to-submit-ptr-report</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/blog/improve-data-quality</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/blog/ptr-legislation-2025</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/blog/ptr-reporting-deadlines</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/blog/ptr-submission-mistakes</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/blog/using-sbi-tool-for-ptr</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/blog/who-needs-to-report-ptr</loc></url>
+
+  <!-- Compliance solutions and pricing -->
+  <url><loc>https://www.monochrome-compliance.com/solutions</loc></url>
+
+  <!-- Compliance products -->
+  <url><loc>https://www.monochrome-compliance.com/payment-times-reporting</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/modern-slavery</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/director-obligations</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/whistleblower-compliance</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/risk-register</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/working-capital</loc></url>
+  <url><loc>https://www.monochrome-compliance.com/esg-reporting</loc></url>
 </urlset>

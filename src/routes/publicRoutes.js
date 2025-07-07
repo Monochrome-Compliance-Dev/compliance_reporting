@@ -2,10 +2,10 @@ import ClientRegister from "../features/clients/ClientRegister";
 
 // Publicly available
 import Contact from "../components/common/Contact";
-import PublicComplianceNavigator from "../components/ptrs/PublicComplianceNavigator";
-import PTRSolution from "../components/ptrs/PTRSolution";
-import ResourcePage from "../components/ptrs/ResourcePage";
-import { SubmissionChecklistViewer } from "../components/ptrs/SubmissionChecklistViewer";
+import PublicComplianceNavigator from "../solutions/ptrs/PublicComplianceNavigator";
+import PTRSolution from "../solutions/ptrs/PTRSolution";
+import ResourcePage from "../solutions/ptrs/ResourcePage";
+import { SubmissionChecklistViewer } from "../solutions/ptrs/SubmissionChecklistViewer";
 
 // Policy documents
 import ClientServiceAgreement from "../components/policies/ClientServiceAgreement";
@@ -16,13 +16,13 @@ import StaticPageViewer from "../components/StaticPageViewer";
 
 // PTRS
 // Testing pdf email
-import TestPdfEmail from "../components/ptrs/TestPdfEmail";
+import TestPdfEmail from "../solutions/ptrs/TestPdfEmail";
 
 import ForgotPassword from "../features/users/ForgotPassword";
 import ResetPassword from "../features/users/ResetPassword";
 import Login from "../features/users/Login";
-import GettingStartedPage from "../components/ptrs/GettingStarted";
-import FAQ from "../components/ptrs/FAQ";
+import GettingStartedPage from "../solutions/ptrs/GettingStarted";
+import FAQ from "../solutions/ptrs/FAQ";
 import Booking from "../components/common/Booking";
 import ContactThankyou from "../components/common/ContactThankyou";
 import BookingThankyou from "../components/common/BookingThankyou";
@@ -39,7 +39,22 @@ import CompNavThankyou from "../components/common/CompNavThankyou";
 import LandingPage from "../components/common/LandingPage";
 import PriceTier from "../components/common/PriceTier";
 
-const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "true";
+// Solutions
+import Solutions from "../solutions/Solutions";
+
+// Products
+import ModernSlavery from "../solutions/ms/ModernSlavery";
+import WhistleBlower from "../solutions/wb/WhistleBlower";
+import DirectorObligations from "../solutions/do/DirectorObligations";
+import RiskRegister from "../solutions/rr/RiskRegister";
+import WorkingCapitalAnalysis from "../solutions/wc/WorkingCapitalAnalysis";
+import ESGReporting from "../solutions/esg/ESGReporting";
+
+// TODO: add Testimonials component
+// import Testimonials from "../components/common/Testimonials";
+import About from "../components/common/About";
+
+const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "false";
 
 const allPublicRoutes = [
   { path: "/", Component: LandingPage },
@@ -109,6 +124,7 @@ const allPublicRoutes = [
   { path: "pricing", Component: PriceTier },
   { path: "/signup", Component: SignUp },
   { path: "thankyou-signup", Component: SignUpThankyou },
+  { path: "about", Component: About },
   // Policy documents
   {
     path: "policy-documents/client-service-agreement",
@@ -130,7 +146,19 @@ const allPublicRoutes = [
     path: "/user/forgot-password",
     Component: ForgotPassword,
   },
+
+  // Solutions
+  { path: "/solutions", Component: Solutions },
+
+  // Products
   { path: "/user/reset-password", Component: ResetPassword },
+  { path: "payment-times-reporting", Component: PTRSolution },
+  { path: "modern-slavery", Component: ModernSlavery },
+  { path: "whistleblower-compliance", Component: WhistleBlower },
+  { path: "director-obligations", Component: DirectorObligations },
+  { path: "risk-register", Component: RiskRegister },
+  { path: "working-capital", Component: WorkingCapitalAnalysis },
+  { path: "esg-reporting", Component: ESGReporting },
 ];
 
 const launchPublicRoutes = [
@@ -156,7 +184,7 @@ const launchPublicRoutes = [
     Component: ContactThankyou,
   },
   {
-    path: "ptr-solution",
+    path: "payment-times-reporting",
     Component: PTRSolution,
   },
   {
@@ -184,6 +212,7 @@ const launchPublicRoutes = [
     Component: BookingThankyou,
   },
   { path: "thankyou-signup", Component: SignUpThankyou },
+  { path: "about", Component: About },
   // Policy documents
   {
     path: "policy-documents/client-service-agreement",
@@ -197,6 +226,12 @@ const launchPublicRoutes = [
     path: "policy-documents/legal",
     Component: LegalDisclaimer,
   },
+  { path: "modern-slavery", Component: ModernSlavery },
+  { path: "whistleblower-compliance", Component: WhistleBlower },
+  { path: "director-obligations", Component: DirectorObligations },
+  { path: "risk-register", Component: RiskRegister },
+  { path: "working-capital", Component: WorkingCapitalAnalysis },
+  { path: "esg-reporting", Component: ESGReporting },
   // Super secret routes for boss access
   {
     path: "/bossmode",

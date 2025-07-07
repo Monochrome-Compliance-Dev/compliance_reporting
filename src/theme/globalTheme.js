@@ -1,51 +1,33 @@
 import { createTheme } from "@mui/material/styles";
 
-// Palette
-// Lightest: #ffffff
-// Light: #eceff1
-// Dark: #4d4d4d
-// Darkest: #141414
-
-// New Palette?
-// Lightest: #f1f0f0
-// Light: #eceff1
-// Dark: #4d4d4d
-// Darkest: #222323
-
 const lightPalette = {
-  primary: { main: "#d0d0d0" },
-  secondary: { main: "#cfd8dc" },
+  primary: { main: "#7c4dff" }, // Accent purple #7c4dff
+  secondary: { main: "#6f7e8c" }, // Steel grey #6f7e8c
   background: {
-    default: "#f9f9f9",
-    paper: "#ffffff",
-    navbar: "#eceff1",
+    default: "#f4f6f8", // Background default #f4f6f8
+    paper: "#ffffff", // Background paper #ffffff
+    navbar: "#e1e5ea", // Navbar background #e1e5ea
   },
   text: {
-    primary: "#222323",
-    secondary: "#4d4d4d",
+    primary: "#1e1e1e", // Primary text #1e1e1e
+    secondary: "#4d4d4d", // Secondary text #4d4d4d
   },
-  action: { hoverOpacity: 0.8 },
+  action: { hoverOpacity: 0.08 },
 };
 
 const darkPalette = {
-  primary: {
-    main: "#4d4d4d", // Darkest for primary color
-  },
-  secondary: {
-    main: "#222323", // Dark for secondary color
-  },
+  primary: { main: "#1e88e5" }, // Mid-blue for dark CTAs #1e88e5
+  secondary: { main: "#6f7e8c" }, // Steel grey #6f7e8c
   background: {
-    default: "#4d4d4d", // Darkest for default background
-    paper: "#222323", // Dark for paper background
-    navbar: "#4d4d4d", // Dark for navbar background
+    default: "#292940", // Background default #1e1e2f
+    paper: "#2b2b3c", // Background paper #2b2b3c
+    navbar: "#1e1e2f", // Navbar background #1e1e2f
   },
   text: {
-    primary: "#eceff1", // Lightest for primary text
-    secondary: "#f1f0f0", // Light for secondary text
+    primary: "#f0f2f5", // Primary text #f0f2f5
+    secondary: "#aeb0b5", // Secondary text #aeb0b5
   },
-  action: {
-    hoverOpacity: 0.8, // Ensure hoverOpacity is defined
-  },
+  action: { hoverOpacity: 0.08 },
 };
 
 const globalTheme = (mode) => {
@@ -63,8 +45,14 @@ const globalTheme = (mode) => {
       mode, // Ensure mode is either "light" or "dark"
       ...(mode === "light" ? lightPalette : darkPalette),
     },
+    // Status color extension
+    status: {
+      success: "#2ecc71", // #2ecc71
+      warning: "#f39c12", // #f39c12
+      danger: "#e74c3c", // #e74c3c
+    },
     typography: {
-      fontFamily: "'Outfit', 'Roboto', 'Arial', sans-serif",
+      fontFamily: "'Outfit','Roboto', 'Helvetica', 'Arial', sans-serif",
       h4: {
         fontWeight: 600,
         fontSize: "1.8rem",
@@ -75,21 +63,43 @@ const globalTheme = (mode) => {
           mode === "light"
             ? lightPalette.text.primary
             : darkPalette.text.primary, // Adjust text color for modes
+        lineHeight: 1.7,
+      },
+      // Additional variants
+      body2: {
+        fontSize: "0.875rem",
+        lineHeight: 1.6,
+      },
+      subtitle1: {
+        fontWeight: 500,
+        fontSize: "1rem",
+      },
+      caption: {
+        fontSize: "0.75rem",
+        color:
+          mode === "light"
+            ? lightPalette.text.secondary
+            : darkPalette.text.secondary,
       },
       allVariants: {
         color:
           mode === "light"
             ? lightPalette.text.primary
             : darkPalette.text.primary,
+        lineHeight: 1.7,
       },
     },
+    shape: {
+      borderRadius: 8,
+    },
+    spacing: 8,
     components: {
       MuiPaper: {
         styleOverrides: {
           root: {
             padding: "16px",
             borderRadius: "8px",
-            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+            boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
             backgroundColor:
               mode === "light"
                 ? lightPalette.background.paper
@@ -105,11 +115,9 @@ const globalTheme = (mode) => {
             padding: "10px 16px",
           },
           containedPrimary: {
-            backgroundColor: mode === "light" ? "#bbdefb" : "#1565c0",
-            // backgroundColor: mode === "light" ? "#e3f2fd" : "#1565c0",
+            backgroundColor: mode === "light" ? "#7c4dff" : "#1e88e5",
             "&:hover": {
-              backgroundColor: mode === "light" ? "#e3f2fd" : "#1e88e5",
-              // backgroundColor: mode === "light" ? "#bbdefb" : "#1e88e5",
+              backgroundColor: mode === "light" ? "#9575cd" : "#42a5f5",
             },
           },
           outlined: {
@@ -126,7 +134,7 @@ const globalTheme = (mode) => {
                 mode === "light"
                   ? lightPalette.text.secondary
                   : darkPalette.text.secondary,
-              backgroundColor: mode === "light" ? "#e8f5e9" : "#2e7d32",
+              backgroundColor: mode === "light" ? "#ede7f6" : "#3a3a4d",
             },
           },
         },
@@ -198,6 +206,46 @@ const globalTheme = (mode) => {
                     : darkPalette.primary.dark || "#333", // fallback if not defined
               },
             },
+          },
+        },
+      },
+
+      // Additional component overrides
+      MuiLink: {
+        styleOverrides: {
+          root: {
+            color:
+              mode === "light"
+                ? lightPalette.primary.main
+                : darkPalette.primary.main,
+            textDecoration: "none",
+            "&:hover": {
+              textDecoration: "underline",
+            },
+          },
+        },
+      },
+      MuiTooltip: {
+        styleOverrides: {
+          tooltip: {
+            backgroundColor: mode === "light" ? "#333" : "#eee",
+            color: mode === "light" ? "#fff" : "#000",
+            fontSize: "0.75rem",
+          },
+        },
+      },
+      MuiTableCell: {
+        styleOverrides: {
+          root: {
+            borderBottom: `1px solid ${mode === "light" ? "#e0e0e0" : "#444"}`,
+            color:
+              mode === "light"
+                ? lightPalette.text.primary
+                : darkPalette.text.primary,
+          },
+          head: {
+            fontWeight: 600,
+            backgroundColor: mode === "light" ? "#f5f5f5" : "#1f1f2e",
           },
         },
       },

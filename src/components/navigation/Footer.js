@@ -84,6 +84,17 @@ function Footer(props) {
         >
           Terms of Service
         </Link>
+        <span style={{ color: theme.palette.text.disabled }}>•</span>
+        <Link
+          component="a"
+          href="/sitemap.xml"
+          color="inherit"
+          underline="hover"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Sitemap
+        </Link>
       </Typography>
 
       {showScrollButton && (

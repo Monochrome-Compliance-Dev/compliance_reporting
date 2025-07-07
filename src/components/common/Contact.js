@@ -55,30 +55,31 @@ export default function Contact() {
       to: "contact@monochrome-compliance.com",
       cc: "contact@monochrome-compliance.com",
       from: "contact@monochrome-compliance.com",
-      topic: "Request for assistance",
+      topic: "Contact Us",
     },
     mode: "onChange",
   });
 
   const sendContactEmail = async (data) => {
-    const topic = sanitiseInput(data.topic);
     const contactEmail = {
-      name: sanitiseInput(data.name),
-      cc: sanitiseInput(data.cc),
-      email: sanitiseInput(data.email),
-      subject: sanitiseInput(topic),
-      topic: sanitiseInput(topic),
-      company: sanitiseInput(data.company),
-      message: sanitiseInput(data.message),
-      to: sanitiseInput(data.email),
-      from: sanitiseInput(data.from),
+      to: data.to || "contact@monochrome-compliance.com",
+      subject: data.subject || data.topic + " " + new Date().toISOString(),
+      message: data.message,
+      name: data.name,
+      email: data.email,
+      date: data.date,
+      time: data.time,
+      company: data.company,
+      from: data.from || data.email,
+      cc: data.cc,
+      bcc: data.bcc,
     };
 
     try {
       setLoading(true);
 
       // Send the contact email
-      const response = await publicService.sendSesEmail(contactEmail);
+      const response = await publicService.sendSesEmailLambda(contactEmail);
       if (response?.status === 200) {
         reset();
         showAlert("Message sent successfully!", "success");

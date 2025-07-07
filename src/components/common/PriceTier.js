@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Card,
@@ -12,53 +12,52 @@ import {
   ToggleButton,
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const tiers = [
   {
-    title: "Compliance Essential",
-    monthlyPrice: 5500,
-    annualPrice: 5500 * 12 * 0.95,
+    title: "Compliance Base",
+    monthlyPrice: 950,
+    annualPrice: 950 * 12 * 0.95,
     description: [
-      "2x Payment Times Reports per year",
-      "1x Modern Slavery Statement (annual)",
-      "Supplier & Training templates",
-      "Quarterly Compliance Dashboard",
-      "Email support + 1x live review call per deliverable",
+      "3 compliance obligations (e.g. Payment Times Reporting, Modern Slavery Statement)",
+      "Guided template setup",
+      "Deadline reminders",
+      "Quarterly summary email",
+      "Email support only",
     ],
-    buttonText: "Choose Essential",
+    buttonText: "Get Started",
     buttonVariant: "outlined",
     buttonLink: "/signup",
   },
   {
-    title: "Compliance Standard",
-    monthlyPrice: 8500,
-    annualPrice: 8500 * 12 * 0.95,
+    title: ".....   Compliance Growth",
+    monthlyPrice: 1850,
+    annualPrice: 1850 * 12 * 0.95,
     mostPopular: true,
     description: [
-      "Everything in Essential, plus:",
-      "Quarterly supplier data hygiene & ABN updates",
-      "Annual policy review (Supplier Code, Whistleblower, Procurement)",
-      "Training register setup + audit support",
-      "High-risk supplier alerting",
-      "Up to 4 hours/quarter of compliance advisory support",
+      "Everything in Base, plus:",
+      "Unlimited obligations + report generation",
+      "Whistleblower, ESG, Risk Register included",
+      "Quarterly compliance dashboard",
+      "4 hours/quarter advisory support",
+      "Annual policy review (Code, Procurement, etc.)",
     ],
-    buttonText: "Choose Standard",
+    buttonText: "Choose Growth",
     buttonVariant: "contained",
     buttonLink: "/signup",
   },
   {
-    title: "Compliance Executive",
-    monthlyPrice: 12000,
-    annualPrice: 12000 * 12 * 0.95,
+    title: "Compliance Enterprise",
+    monthlyPrice: 3500,
+    annualPrice: 3500 * 12 * 0.95,
     description: [
-      "Everything in Standard, plus:",
-      "Board-ready briefings (2x/year)",
-      "Supplier risk scorecards + remediation guidance",
-      "Custom modern slavery training modules",
-      "Quarterly compliance workshops with stakeholders",
-      "Submission handling + document archiving",
-      "“Fix it fast” SLA: response within 24h on urgent issues",
+      "Everything in Growth, plus:",
+      "Custom training & onboarding",
+      "Board-ready reporting (twice annually)",
+      "Supplier risk scorecard + remediation",
+      "Submission and document handling",
+      "24h SLA for urgent compliance issues",
     ],
     buttonText: "Contact Sales",
     buttonVariant: "contained",
@@ -77,7 +76,7 @@ export default function PriceTier() {
   return (
     <Box
       sx={{
-        py: 6,
+        py: 2,
         backgroundColor: theme.palette.background.default,
         px: { xs: 2, sm: 0 },
         overflow: "visible",
@@ -108,7 +107,7 @@ export default function PriceTier() {
           <ToggleButton value="annual">Annual Billing (5% off)</ToggleButton>
         </ToggleButtonGroup>
       </Box>
-      <Grid container spacing={5} justifyContent="center" sx={{ mt: 4 }}>
+      <Grid container spacing={3} justifyContent="center" sx={{ mt: 2 }}>
         {tiers.map((tier) => (
           <Grid
             item
@@ -118,7 +117,6 @@ export default function PriceTier() {
             sx={{
               maxWidth: 320,
               flex: "1 1 auto",
-              // mx: "auto",
             }}
           >
             <Card
@@ -198,6 +196,7 @@ export default function PriceTier() {
                   sx={{
                     color: theme.palette.text.primary,
                     fontWeight: "bold",
+                    fontSize: "22px",
                     textTransform: "uppercase",
                   }}
                 >

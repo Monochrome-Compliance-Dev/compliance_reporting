@@ -384,8 +384,7 @@ export default function ReportWizard() {
           variant="subtitle1"
           sx={{ mb: 0.5, color: "text.secondary" }}
         >
-          Step {currentStep + 1} of {steps.length} with {records.length}
-          {" records"}
+          Step {currentStep + 1} of {steps.length}
         </Typography>
         <Stepper activeStep={currentStep} alternativeLabel sx={{ mb: 2.5 }}>
           {steps.map((step, index) => (

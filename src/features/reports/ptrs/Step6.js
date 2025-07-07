@@ -162,7 +162,7 @@ export default function Step6() {
       fields: [
         {
           label: "Average payment time",
-          value: metrics.averagePaymentTime, // Use the calculated metric
+          value: metrics.averagePaymentTime != null ? Math.round(metrics.averagePaymentTime) : "",
           comment:
             "Calculated using AVERAGE() on all values in the 'Payment Time' column of the Final SBTCP Dataset.",
         },

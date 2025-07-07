@@ -8,7 +8,7 @@ import { protectedRoutes } from "../routes/routeConfig";
 import { publicRoutes } from "../routes/publicRoutes";
 import ProtectedRoute from "../components/navigation/ProtectedRoute";
 
-const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "true";
+const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "false";
 
 export default function AppRouter() {
   const router = createBrowserRouter([

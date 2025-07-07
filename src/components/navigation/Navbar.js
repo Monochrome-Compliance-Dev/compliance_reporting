@@ -31,11 +31,14 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [gettingStartedAnchor, setGettingStartedAnchor] = useState(null);
   const [connectAnchor, setConnectAnchor] = useState(null);
-  const [solutionsAnchor, setSolutionsAnchor] = useState(null);
   const [adminAnchor, setAdminAnchor] = useState(null);
+  const [solutionsAnchor, setSolutionsAnchor] = useState(null);
   const handleSolutionsOpen = (event) =>
     setSolutionsAnchor(event.currentTarget);
   const handleSolutionsClose = () => setSolutionsAnchor(null);
+  const [productsAnchor, setProductsAnchor] = useState(null);
+  const handleProductsOpen = (event) => setProductsAnchor(event.currentTarget);
+  const handleProductsClose = () => setSolutionsAnchor(null);
   const handleConnectOpen = (event) => setConnectAnchor(event.currentTarget);
   const handleConnectClose = () => setConnectAnchor(null);
   const handleAdminOpen = (event) => setAdminAnchor(event.currentTarget);
@@ -87,12 +90,15 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             component="img"
             src={
               isDarkTheme
-                ? "/images/logos/logo-dark-thin.png"
-                : "/images/logos/logo-light-thin.png"
+                ? // ? "/images/logos/logo-dark-thin.png"
+                  "https://monochrome-assets.s3.ap-southeast-2.amazonaws.com/logo-dark-no-background.png"
+                : "https://monochrome-assets.s3.ap-southeast-2.amazonaws.com/logo-light-no-background.png"
             }
             alt="Monochrome Compliance Logo"
             sx={{
-              height: 48,
+              height: "auto",
+              maxWidth: { xs: "200px", md: "300px" },
+              width: "100%",
               objectFit: "contain",
               mt: 1.5,
               mb: 0.5,
@@ -108,9 +114,6 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
           />
         </Typography>
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
-          {/* PTRS task-related items: Admin, Dashboard, Logout (for logged-in), Login (for guests) */}
-
-          {/* Solutions, Getting Started, Connect - moved after user/admin/dashboard/logout/login */}
           <Button
             color="inherit"
             onClick={handleSolutionsOpen}
@@ -132,82 +135,96 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem
               onClick={handleSolutionsClose}
               component={Link}
-              to="/ptr-solution"
+              to="/solutions"
+            >
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Overview
+            </MenuItem>
+            <MenuItem
+              onClick={handleSolutionsClose}
+              component={Link}
+              to="/pricing"
+            >
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Pricing
+            </MenuItem>
+          </Menu>
+          <Button
+            color="inherit"
+            onClick={handleProductsOpen}
+            sx={{
+              color: theme.palette.text.primary,
+              display: "flex",
+              alignItems: "center",
+            }}
+            endIcon={<ExpandMoreIcon />}
+          >
+            Products
+          </Button>
+          <Menu
+            anchorEl={productsAnchor}
+            open={Boolean(productsAnchor)}
+            onClose={handleProductsClose}
+            sx={{ mt: 1 }}
+          >
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/payment-times-reporting"
             >
               <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
               PTR Solution
             </MenuItem>
-            <Divider />
-            <Tooltip
-              title="Coming soon"
-              placement="bottom"
-              arrow
-              enterDelay={300}
-              leaveDelay={100}
-              PopperProps={{
-                modifiers: [
-                  {
-                    name: "offset",
-                    options: {
-                      offset: [0, -20],
-                    },
-                  },
-                ],
-              }}
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/modern-slavery"
             >
-              <Box
-                component="li"
-                sx={{
-                  listStyle: "none",
-                  display: "flex",
-                  alignItems: "center",
-                  px: 2,
-                  py: 1.5,
-                  opacity: 0.5,
-                  cursor: "default",
-                  pointerEvents: "auto",
-                }}
-              >
-                <HourglassEmptyIcon sx={{ fontSize: 20, mr: 1 }} />
-                <Typography variant="body2">Data Cleanser</Typography>
-              </Box>
-            </Tooltip>
-            <Tooltip
-              title="Coming soon"
-              placement="bottom"
-              arrow
-              enterDelay={300}
-              leaveDelay={10}
-              PopperProps={{
-                modifiers: [
-                  {
-                    name: "offset",
-                    options: {
-                      offset: [0, -20],
-                    },
-                  },
-                ],
-              }}
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Modern Slavery
+            </MenuItem>
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/whistleblower-compliance"
             >
-              <Box
-                component="li"
-                sx={{
-                  listStyle: "none",
-                  display: "flex",
-                  alignItems: "center",
-                  px: 2,
-                  py: 1.5,
-                  opacity: 0.5,
-                  cursor: "default",
-                  pointerEvents: "auto",
-                }}
-              >
-                <HourglassEmptyIcon sx={{ fontSize: 20, mr: 1 }} />
-                <Typography variant="body2">Sustainability Report</Typography>
-              </Box>
-            </Tooltip>
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Whistleblower Compliance
+            </MenuItem>
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/director-obligations"
+            >
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Director Obligations
+            </MenuItem>
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/risk-register"
+            >
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Risk Register
+            </MenuItem>
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/working-capital"
+            >
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Working Capital Analysis
+            </MenuItem>
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/esg-reporting"
+            >
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              ESG Reporting
+            </MenuItem>
           </Menu>
-          <Button
+          {/* <Button
             color="inherit"
             onClick={handleGettingStartedOpen}
             sx={{
@@ -250,7 +267,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               <HelpOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
               FAQ
             </MenuItem>
-          </Menu>
+          </Menu> */}
           <Button
             color="inherit"
             onClick={handleConnectOpen}
@@ -277,25 +294,13 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
               Contact
             </MenuItem>
-            <MenuItem
-              onClick={handleConnectClose}
-              component={Link}
-              to="/contact"
-            >
-              <HourglassEmptyIcon sx={{ fontSize: 20, mr: 1 }} />
-              Join the Waitlist
-            </MenuItem>
-            <MenuItem
-              onClick={handleConnectClose}
-              component={Link}
-              to="/booking"
-            >
-              <FolderIcon sx={{ fontSize: 20, mr: 1 }} />
-              Booking
-            </MenuItem>
             <MenuItem onClick={handleConnectClose} component={Link} to="/blog">
               <HelpOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
               Blog
+            </MenuItem>
+            <MenuItem onClick={handleConnectClose} component={Link} to="/about">
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              About
             </MenuItem>
           </Menu>
         </Box>
@@ -317,7 +322,24 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
-              to="/ptr-solution"
+              to="/solutions"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Solutions Overview
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/pricing"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Pricing
+            </MenuItem>
+            <Divider />
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/payment-times-reporting"
               sx={{ color: theme.palette.text.primary }}
             >
               PTR Solution
@@ -325,10 +347,59 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
+              to="/modern-slavery"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Modern Slavery
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/whistleblower-compliance"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Whistleblower Compliance
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/director-obligations"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Director Obligations
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/risk-register"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Risk Register
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/working-capital"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Working Capital Analysis
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/esg-reporting"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              ESG Reporting
+            </MenuItem>
+            {/* <Divider />
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
               to="/overview"
               sx={{ color: theme.palette.text.primary }}
             >
-              Getting Started
+              Overview
             </MenuItem>
             <MenuItem
               onClick={handleMenuClose}
@@ -345,7 +416,8 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               sx={{ color: theme.palette.text.primary }}
             >
               FAQ
-            </MenuItem>
+            </MenuItem> */}
+            <Divider />
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
@@ -357,30 +429,33 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
-              to="/contact"
-              sx={{ color: theme.palette.text.primary }}
-            >
-              Join the Waitlist
-            </MenuItem>
-            <MenuItem
-              onClick={handleMenuClose}
-              component={Link}
-              to="/booking"
-              sx={{ color: theme.palette.text.primary }}
-            >
-              Booking
-            </MenuItem>
-            <MenuItem
-              onClick={handleMenuClose}
-              component={Link}
               to="/blog"
               sx={{ color: theme.palette.text.primary }}
             >
               Blog
             </MenuItem>
-            {/* Dashboard menu item for logged-in users */}
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/about"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              About
+            </MenuItem>
           </Menu>
         </Box>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => navigate("/contact")}
+          sx={{
+            ml: 2,
+            fontWeight: 600,
+            display: { xs: "none", md: "inline-flex" },
+          }}
+        >
+          Book a Call
+        </Button>
         <IconButton
           sx={{ ml: 1, color: theme.palette.text.primary }}
           onClick={onToggleTheme}

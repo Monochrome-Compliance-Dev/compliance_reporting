@@ -6,6 +6,7 @@ export const publicService = {
   sendEmail,
   sendSesEmail,
   sendAttachmentEmail,
+  sendSesEmailLambda,
 };
 
 async function sendEmail(formData) {
@@ -36,4 +37,12 @@ async function sendAttachmentEmail(formData, isFormData = false) {
     console.error("Failed to send email:", error);
     throw error;
   }
+}
+
+async function sendSesEmailLambda(contactEmail) {
+  const response = await fetchWrapper.post(
+    "https://x4zjtsegcxfytzwiyu2rdhzc6e0qdiuk.lambda-url.us-east-1.on.aws/",
+    contactEmail
+  );
+  return response;
 }
