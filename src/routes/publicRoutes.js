@@ -39,6 +39,10 @@ import CompNavThankyou from "../components/common/CompNavThankyou";
 import LandingPage from "../components/common/LandingPage";
 import PriceTier from "../components/common/PriceTier";
 
+// Solutions
+import Solutions from "../solutions/Solutions";
+
+// Products
 import ModernSlavery from "../solutions/ms/ModernSlavery";
 import WhistleBlower from "../solutions/wb/WhistleBlower";
 import DirectorObligations from "../solutions/do/DirectorObligations";
@@ -142,6 +146,11 @@ const allPublicRoutes = [
     path: "/user/forgot-password",
     Component: ForgotPassword,
   },
+
+  // Solutions
+  { path: "/solutions", Component: Solutions },
+
+  // Products
   { path: "/user/reset-password", Component: ResetPassword },
   { path: "payment-times-reporting", Component: PTRSolution },
   { path: "modern-slavery", Component: ModernSlavery },

@@ -31,11 +31,14 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [gettingStartedAnchor, setGettingStartedAnchor] = useState(null);
   const [connectAnchor, setConnectAnchor] = useState(null);
-  const [solutionsAnchor, setSolutionsAnchor] = useState(null);
   const [adminAnchor, setAdminAnchor] = useState(null);
+  const [solutionsAnchor, setSolutionsAnchor] = useState(null);
   const handleSolutionsOpen = (event) =>
     setSolutionsAnchor(event.currentTarget);
   const handleSolutionsClose = () => setSolutionsAnchor(null);
+  const [productsAnchor, setProductsAnchor] = useState(null);
+  const handleProductsOpen = (event) => setProductsAnchor(event.currentTarget);
+  const handleProductsClose = () => setSolutionsAnchor(null);
   const handleConnectOpen = (event) => setConnectAnchor(event.currentTarget);
   const handleConnectClose = () => setConnectAnchor(null);
   const handleAdminOpen = (event) => setAdminAnchor(event.currentTarget);
@@ -111,9 +114,6 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
           />
         </Typography>
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
-          {/* PTRS task-related items: Admin, Dashboard, Logout (for logged-in), Login (for guests) */}
-
-          {/* Solutions, Getting Started, Connect - moved after user/admin/dashboard/logout/login */}
           <Button
             color="inherit"
             onClick={handleSolutionsOpen}
@@ -135,13 +135,48 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem
               onClick={handleSolutionsClose}
               component={Link}
+              to="/solutions"
+            >
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Overview
+            </MenuItem>
+            <MenuItem
+              onClick={handleSolutionsClose}
+              component={Link}
+              to="/pricing"
+            >
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Pricing
+            </MenuItem>
+          </Menu>
+          <Button
+            color="inherit"
+            onClick={handleProductsOpen}
+            sx={{
+              color: theme.palette.text.primary,
+              display: "flex",
+              alignItems: "center",
+            }}
+            endIcon={<ExpandMoreIcon />}
+          >
+            Products
+          </Button>
+          <Menu
+            anchorEl={productsAnchor}
+            open={Boolean(productsAnchor)}
+            onClose={handleProductsClose}
+            sx={{ mt: 1 }}
+          >
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
               to="/payment-times-reporting"
             >
               <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
               PTR Solution
             </MenuItem>
             <MenuItem
-              onClick={handleSolutionsClose}
+              onClick={handleProductsClose}
               component={Link}
               to="/modern-slavery"
             >
@@ -149,7 +184,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               Modern Slavery
             </MenuItem>
             <MenuItem
-              onClick={handleSolutionsClose}
+              onClick={handleProductsClose}
               component={Link}
               to="/whistleblower-compliance"
             >
@@ -157,7 +192,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               Whistleblower Compliance
             </MenuItem>
             <MenuItem
-              onClick={handleSolutionsClose}
+              onClick={handleProductsClose}
               component={Link}
               to="/director-obligations"
             >
@@ -165,7 +200,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               Director Obligations
             </MenuItem>
             <MenuItem
-              onClick={handleSolutionsClose}
+              onClick={handleProductsClose}
               component={Link}
               to="/risk-register"
             >
@@ -173,7 +208,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               Risk Register
             </MenuItem>
             <MenuItem
-              onClick={handleSolutionsClose}
+              onClick={handleProductsClose}
               component={Link}
               to="/working-capital"
             >
@@ -181,7 +216,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               Working Capital Analysis
             </MenuItem>
             <MenuItem
-              onClick={handleSolutionsClose}
+              onClick={handleProductsClose}
               component={Link}
               to="/esg-reporting"
             >
@@ -284,6 +319,23 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             onClose={handleMenuClose}
             sx={{ backgroundColor: theme.palette.background.paper }}
           >
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/solutions"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Solutions Overview
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/pricing"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Pricing
+            </MenuItem>
+            <Divider />
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
@@ -402,7 +454,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             display: { xs: "none", md: "inline-flex" },
           }}
         >
-          Contact Us
+          Book a Call
         </Button>
         <IconButton
           sx={{ ml: 1, color: theme.palette.text.primary }}

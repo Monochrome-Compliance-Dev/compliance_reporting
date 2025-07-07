@@ -75,11 +75,9 @@ export default function Layout() {
       >
         <Box sx={{ flex: 1 }}>
           <Navbar isDarkTheme={isDarkTheme} onToggleTheme={toggleTheme} />
-          <Container maxWidth="lg" sx={{ py: 4 }}>
-            <Suspense fallback={<LoadingSpinner />}>
-              <Outlet />
-            </Suspense>
-          </Container>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Outlet />
+          </Suspense>
         </Box>
         <Box
           sx={{ display: "flex", justifyContent: "flex-start", mt: 2, px: 2 }}

@@ -19,7 +19,7 @@ const darkPalette = {
   primary: { main: "#1e88e5" }, // Mid-blue for dark CTAs #1e88e5
   secondary: { main: "#6f7e8c" }, // Steel grey #6f7e8c
   background: {
-    default: "#1e1e2f", // Background default #1e1e2f
+    default: "#292940", // Background default #1e1e2f
     paper: "#2b2b3c", // Background paper #2b2b3c
     navbar: "#1e1e2f", // Navbar background #1e1e2f
   },
@@ -52,7 +52,7 @@ const globalTheme = (mode) => {
       danger: "#e74c3c", // #e74c3c
     },
     typography: {
-      fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+      fontFamily: "'Outfit','Roboto', 'Helvetica', 'Arial', sans-serif",
       h4: {
         fontWeight: 600,
         fontSize: "1.8rem",
