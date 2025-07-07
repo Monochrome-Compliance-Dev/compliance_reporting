@@ -1,12 +1,3 @@
----
-title: PTR Reporting Deadlines: What You Need to Know
-author: Monochrome Compliance Team
-date: 2025-05-18
-slug: ptr-reporting-deadlines
-description: Understand the key reporting periods and submission dates for the Payment Times Reporting Scheme so your business never misses a deadline.
-tags: [PTR, deadlines, reporting calendar, compliance]
----
-
 # PTR Reporting Deadlines: What You Need to Know
 
 <div style="font-size: 0.875rem"><em>Published: 18 May 2025 • Author: Monochrome Compliance Team</em></div>

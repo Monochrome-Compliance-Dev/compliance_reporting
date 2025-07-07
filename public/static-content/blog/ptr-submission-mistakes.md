@@ -1,12 +1,3 @@
----
-title: Avoid These Common PTR Submission Mistakes
-author: Monochrome Compliance Team
-date: 2025-05-18
-slug: ptr-submission-mistakes
-description: Learn from the most common errors seen in Payment Times Reporting submissions and how to avoid them using good governance and reliable tools.
-tags: [PTR, submission errors, compliance, common mistakes]
----
-
 # Avoid These Common PTR Submission Mistakes
 
 _Published: 18 May 2025 • Author: Monochrome Compliance Team_

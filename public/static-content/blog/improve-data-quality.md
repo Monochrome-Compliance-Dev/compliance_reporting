@@ -1,10 +1,6 @@
----
-title: "How to Improve Data Quality Before Submitting Your PTR Report"
-date: "2025-05-19"
-description: "Bad data can derail your submission. Here’s how to clean, validate, and catch issues before they become a problem."
----
+# When it comes to Payment Times Reporting, clean data is everything.
 
-When it comes to Payment Times Reporting, clean data is everything.
+_Published: 18 May 2025 • Author: Monochrome Compliance Team_
 
 Before you upload your CSV file or generate your final report, take a few minutes to check for common issues that can cause delays — or worse, non-compliance.
 

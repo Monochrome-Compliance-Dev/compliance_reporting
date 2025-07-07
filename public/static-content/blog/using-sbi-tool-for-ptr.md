@@ -1,12 +1,3 @@
----
-title: How to Use the SBI Tool to Flag Small Business Payments
-author: Monochrome Compliance Team
-date: 2025-05-18
-slug: using-sbi-tool-for-ptr
-description: Learn how to identify which suppliers are small businesses using the Payment Times Reporting Regulator’s Small Business Identification (SBI) Tool.
-tags: [PTR, SBI Tool, small business, supplier flagging]
----
-
 # How to Use the SBI Tool to Flag Small Business Payments
 
 _Published: 18 May 2025 • Author: Monochrome Compliance Team_
