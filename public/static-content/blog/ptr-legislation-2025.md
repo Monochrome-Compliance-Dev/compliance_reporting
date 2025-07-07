@@ -1,12 +1,3 @@
----
-title: What’s Changed in PTR Legislation in 2025?
-author: Monochrome Compliance Team
-date: 2025-05-18
-slug: ptr-legislation-2025
-description: A summary of key legislative changes to the Payment Times Reporting Scheme in 2025, including updated definitions, obligations and deadlines.
-tags: [PTR, legislation, 2025 changes, compliance updates]
----
-
 # What’s Changed in PTR Legislation in 2025?
 
 _Published: 18 May 2025 • Author: Monochrome Compliance Team_

@@ -1,12 +1,3 @@
----
-title: How to Submit a PTR Report
-author: Monochrome Compliance Team
-date: 2025-05-18
-slug: how-to-submit-ptr-report
-description: A step-by-step guide to preparing, validating and lodging your Payment Times Reporting (PTR) submission using Monochrome Compliance.
-tags: [PTR, compliance, submission, how-to, reporting]
----
-
 # How to Submit a PTR Report
 
 _Published: 18 May 2025 • Author: Monochrome Compliance Team_
