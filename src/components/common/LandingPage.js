@@ -82,9 +82,9 @@ export default function LandingPage() {
               px: 2,
             }}
           >
-            Compliance is a burden.
+            Board-ready compliance
             <br />
-            We make it disappear.
+            without the internal burden.
           </Typography>
         </Box>
       </Box>

@@ -38,7 +38,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const handleSolutionsClose = () => setSolutionsAnchor(null);
   const [productsAnchor, setProductsAnchor] = useState(null);
   const handleProductsOpen = (event) => setProductsAnchor(event.currentTarget);
-  const handleProductsClose = () => setSolutionsAnchor(null);
+  const handleProductsClose = () => setProductsAnchor(null);
   const handleConnectOpen = (event) => setConnectAnchor(event.currentTarget);
   const handleConnectClose = () => setConnectAnchor(null);
   const handleAdminOpen = (event) => setAdminAnchor(event.currentTarget);
