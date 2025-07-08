@@ -6,7 +6,6 @@ import Fallback from "../components/common/Fallback";
 import LandingPage from "../components/common/LandingPage";
 import { protectedRoutes } from "../routes/routeConfig";
 import { publicRoutes } from "../routes/publicRoutes";
-import ProtectedRoute from "../components/navigation/ProtectedRoute";
 
 const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "false";
 
@@ -20,13 +19,7 @@ export default function AppRouter() {
       children: [
         { index: true, Component: LandingPage },
         ...publicRoutes,
-        ...(isPublicOnlyMode
-          ? []
-          : protectedRoutes.map(({ requiredRoles, path, children }) => ({
-              path,
-              Component: () => <ProtectedRoute requiredRoles={requiredRoles} />,
-              children,
-            }))),
+        ...(isPublicOnlyMode ? [] : protectedRoutes),
       ],
     },
   ]);

@@ -65,7 +65,7 @@ const allPublicRoutes = [
   },
   { path: "/clients/register-first-user", Component: FirstUserRegister },
   {
-    path: "/user/login",
+    path: "/login",
     Component: Login,
   },
   {

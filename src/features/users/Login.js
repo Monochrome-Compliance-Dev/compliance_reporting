@@ -54,7 +54,7 @@ export default function Login() {
         navigate(lastPath);
         localStorage.removeItem("lastVisitedPath");
       } else {
-        navigate("/user/dashboard");
+        navigate("/dashboard");
       }
     } catch (error) {
       const message = error?.message || "Login failed. Please try again.";

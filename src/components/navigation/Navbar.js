@@ -463,6 +463,26 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
         >
           Book a Call
         </Button>
+        {/* Dynamic Login/Logout button */}
+        {!isLoggedIn ? (
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => navigate("/user/login")}
+            sx={{ ml: 2, fontWeight: 600 }}
+          >
+            Login
+          </Button>
+        ) : (
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={handleLogout}
+            sx={{ ml: 2, fontWeight: 600 }}
+          >
+            Logout
+          </Button>
+        )}
         <IconButton
           sx={{ ml: 1, color: theme.palette.text.primary }}
           onClick={onToggleTheme}
