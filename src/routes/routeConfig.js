@@ -27,7 +27,7 @@ import DataConsole from "../features/data/DataConsole";
 import DataErrorBoundary from "../components/navigation/DataErrorBoundary";
 
 import EsgDashboard from "../features/esg/EsgDashboard";
-// import EsgReport from "../features/esg/EsgReport";
+import EsgReportingPeriod from "../features/esg/EsgReportingPeriod";
 
 export const protectedRoutes = [
   {
@@ -129,6 +129,13 @@ export const protectedRoutes = [
         <EsgDashboard />
       </RequireRoles>
     ),
-    // children: [{ path: ":code/:reportId", element: <EsgReport /> }],
+  },
+  {
+    path: "/esg/:reportingPeriodId",
+    element: (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <EsgReportingPeriod />
+      </RequireRoles>
+    ),
   },
 ];

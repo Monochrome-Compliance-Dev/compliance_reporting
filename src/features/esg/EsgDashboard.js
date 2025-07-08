@@ -13,12 +13,14 @@ import {
 import { esgService } from "../../services/esg/esg";
 import { useAlert } from "../../context/";
 import NewReportingPeriodDialog from "./NewReportingPeriodDialog";
+import { useNavigate } from "react-router";
 
 const EsgDashboard = () => {
   const [reportingPeriods, setReportingPeriods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openNewDialog, setOpenNewDialog] = useState(false);
   const { showAlert } = useAlert();
+  const navigate = useNavigate();
 
   const fetchReportingPeriods = useCallback(async () => {
     try {
@@ -66,7 +68,12 @@ const EsgDashboard = () => {
           <TableBody>
             {reportingPeriods.length > 0 ? (
               reportingPeriods.map((period) => (
-                <TableRow key={period.id}>
+                <TableRow
+                  key={period.id}
+                  hover
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => navigate(`/esg/${period.id}`)}
+                >
                   <TableCell>{period.name}</TableCell>
                   <TableCell>{period.startDate}</TableCell>
                   <TableCell>{period.endDate}</TableCell>

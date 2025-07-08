@@ -83,6 +83,7 @@ async function _post(url, body) {
     credentials: "include",
     body: JSON.stringify(body),
   };
+  console.log("Request Options:", requestOptions);
   const response = await fetch(url, requestOptions);
   return handleResponse(response);
 }
