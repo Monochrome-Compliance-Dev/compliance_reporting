@@ -11,6 +11,8 @@ export const esgService = {
   createMetric,
   getIndicatorsByReportingPeriodId,
   getMetricsByReportingPeriodId,
+  deleteIndicator,
+  deleteMetric,
 };
 
 async function getReportingPeriods() {
@@ -43,4 +45,12 @@ async function getIndicatorsByReportingPeriodId(reportingPeriodId) {
 
 async function getMetricsByReportingPeriodId(reportingPeriodId) {
   return await fetchWrapper.get(`${baseUrl}/metrics/${reportingPeriodId}`);
+}
+
+async function deleteIndicator(indicatorId) {
+  return await fetchWrapper.delete(`${baseUrl}/indicators/${indicatorId}`);
+}
+
+async function deleteMetric(metricId) {
+  return await fetchWrapper.delete(`${baseUrl}/metrics/${metricId}`);
 }

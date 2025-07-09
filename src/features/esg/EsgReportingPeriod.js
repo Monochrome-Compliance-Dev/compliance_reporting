@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import {
-  Container,
-  Typography,
-  Button,
-  Grid,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-} from "@mui/material";
+import { Container, Typography, Button, Grid } from "@mui/material";
 import { esgService } from "../../services/esg/esg";
 import { useAlert } from "../../context/";
 import NewIndicatorDialog from "./NewIndicatorDialog";
 import NewMetricDialog from "./NewMetricDialog";
+import EsgSummary from "./EsgSummary";
+import EsgDataTable from "./EsgDataTable";
+import ConfirmDeleteIndicatorDialog from "./ConfirmDeleteIndicatorDialog";
 
 const EsgReportingPeriod = () => {
   const { reportingPeriodId } = useParams();
@@ -25,6 +18,7 @@ const EsgReportingPeriod = () => {
   const { showAlert } = useAlert();
   const [openNewDialog, setOpenNewDialog] = useState(false);
   const [openNewMetricDialog, setOpenNewMetricDialog] = useState(false);
+  const [indicatorToDelete, setIndicatorToDelete] = useState(null);
 
   const fetchMetricsAgain = async () => {
     try {
@@ -48,6 +42,38 @@ const EsgReportingPeriod = () => {
     }
   };
 
+  const handleDeleteIndicator = (indicator) => {
+    setIndicatorToDelete(indicator);
+  };
+
+  const confirmDeleteIndicator = async (indicatorId, associatedMetrics) => {
+    try {
+      for (const metric of associatedMetrics) {
+        await esgService.deleteMetric(metric.id);
+      }
+      await esgService.deleteIndicator(indicatorId);
+      showAlert("Indicator and associated metrics deleted.", "success");
+      fetchIndicatorsAgain();
+      fetchMetricsAgain();
+    } catch (error) {
+      console.error("Failed to delete indicator or metrics:", error);
+      showAlert("Failed to delete indicator and its metrics.", "error");
+    } finally {
+      setIndicatorToDelete(null);
+    }
+  };
+
+  const handleDeleteMetric = async (metricId) => {
+    try {
+      await esgService.deleteMetric(metricId);
+      showAlert("Metric deleted.", "success");
+      fetchMetricsAgain();
+    } catch (error) {
+      console.error("Failed to delete metric:", error);
+      showAlert("Failed to delete metric.", "error");
+    }
+  };
+
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -68,7 +94,7 @@ const EsgReportingPeriod = () => {
   }, [reportingPeriodId, showAlert]);
 
   return (
-    <Container sx={{ mt: 4 }}>
+    <Container sx={{ mt: (theme) => theme.spacing(4) }}>
       <Typography variant="h4" gutterBottom>
         ESG Reporting Period
       </Typography>
@@ -76,82 +102,33 @@ const EsgReportingPeriod = () => {
         Period ID: {reportingPeriodId}
       </Typography>
 
-      <Grid container spacing={3} sx={{ mt: 2 }}>
+      <EsgSummary indicators={indicators} metrics={metrics} />
+
+      <Grid container spacing={3} sx={{ mt: (theme) => theme.spacing(2) }}>
         <Grid item xs={12}>
-          <Typography variant="h6" gutterBottom>
-            Indicators
-          </Typography>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Code</TableCell>
-                <TableCell>Category</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {loading ? (
-                <TableRow>
-                  <TableCell colSpan={3}>Loading indicators...</TableCell>
-                </TableRow>
-              ) : indicators.length > 0 ? (
-                indicators.map((ind) => (
-                  <TableRow key={ind.id}>
-                    <TableCell>{ind.name}</TableCell>
-                    <TableCell>{ind.code}</TableCell>
-                    <TableCell>{ind.category}</TableCell>
-                  </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell colSpan={3}>No indicators found.</TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-          <Button
-            variant="contained"
-            sx={{ mt: 2 }}
-            onClick={() => setOpenNewDialog(true)}
-          >
-            + Add Indicator
-          </Button>
+          <EsgDataTable
+            title="Indicators"
+            columns={["Name", "Code", "Category"]}
+            data={indicators}
+            loading={loading}
+            renderRow={(ind) => [ind.name, ind.code, ind.category]}
+            onAdd={() => setOpenNewDialog(true)}
+            addLabel="+ Add Indicator"
+            onDelete={(indicatorId) => {
+              const indicator = indicators.find((i) => i.id === indicatorId);
+              handleDeleteIndicator(indicator);
+            }}
+          />
         </Grid>
 
         <Grid item xs={12}>
-          <Typography variant="h6" gutterBottom>
-            Metrics
-          </Typography>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Value</TableCell>
-                <TableCell>Unit</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {loading ? (
-                <TableRow>
-                  <TableCell colSpan={2}>Loading metrics...</TableCell>
-                </TableRow>
-              ) : metrics.length > 0 ? (
-                metrics.map((m) => (
-                  <TableRow key={m.id}>
-                    <TableCell>{m.value}</TableCell>
-                    <TableCell>{m.unit}</TableCell>
-                  </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell colSpan={2}>No metrics found.</TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-          <Button
-            variant="contained"
-            sx={{ mt: 2 }}
-            onClick={() => {
+          <EsgDataTable
+            title="Metrics"
+            columns={["Value", "Unit"]}
+            data={metrics}
+            loading={loading}
+            renderRow={(m) => [m.value, m.unit]}
+            onAdd={() => {
               if (!indicators || indicators.length === 0) {
                 showAlert(
                   "You need to create an indicator before adding metrics.",
@@ -161,9 +138,9 @@ const EsgReportingPeriod = () => {
               }
               setOpenNewMetricDialog(true);
             }}
-          >
-            + Add Metric
-          </Button>
+            addLabel="+ Add Metric"
+            onDelete={handleDeleteMetric}
+          />
         </Grid>
       </Grid>
       <NewIndicatorDialog
@@ -178,6 +155,14 @@ const EsgReportingPeriod = () => {
         onCreated={fetchMetricsAgain}
         reportingPeriodId={reportingPeriodId}
         indicators={indicators}
+        metrics={metrics}
+      />
+      <ConfirmDeleteIndicatorDialog
+        open={!!indicatorToDelete}
+        onClose={() => setIndicatorToDelete(null)}
+        onConfirm={confirmDeleteIndicator}
+        indicator={indicatorToDelete}
+        metrics={metrics}
       />
     </Container>
   );

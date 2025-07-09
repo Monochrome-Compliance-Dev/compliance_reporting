@@ -13,11 +13,19 @@ import * as Yup from "yup";
 import { esgService } from "../../services/esg/esg";
 import { useAlert } from "../../context/";
 import { sanitiseInput } from "../../lib/utils/sanitiseInput";
+import { useState } from "react";
 
 const schema = Yup.object().shape({
-  indicatorId: Yup.string().length(10).required("Indicator is required"),
-  value: Yup.number().required("Value is required"),
+  indicatorId: Yup.string().required("Indicator is required"),
+  value: Yup.number()
+    .typeError("Value must be a number")
+    .required("Value is required"),
   unit: Yup.string().required("Unit is required"),
+  newUnit: Yup.mixed().when("unit", (unit) =>
+    unit === "__new__"
+      ? Yup.string().required("New unit is required")
+      : Yup.string()
+  ),
 });
 
 const NewMetricDialog = ({
@@ -26,37 +34,70 @@ const NewMetricDialog = ({
   onCreated,
   reportingPeriodId,
   indicators,
+  metrics,
 }) => {
   const { showAlert } = useAlert();
+  const [newUnit, setNewUnit] = useState("");
+  // Build unique units from all metrics
+  const uniqueUnits = [...new Set(metrics.map((m) => m.unit))].filter(
+    (u) => !!u && u !== "__new__"
+  );
 
   const {
     control,
     handleSubmit,
     reset,
     formState: { errors },
+    watch,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
       indicatorId: "",
       value: "",
       unit: "",
+      newUnit: "",
     },
   });
 
+  const watchedUnit = watch("unit");
+
   const onSubmit = async (data) => {
+    if (
+      data.unit === "__new__" &&
+      (!data.newUnit || data.newUnit.trim() === "")
+    ) {
+      showAlert("New unit is required.", "warning");
+      return;
+    }
+
+    const selectedUnit =
+      data.unit === "__new__"
+        ? sanitiseInput(data.newUnit)
+        : sanitiseInput(data.unit);
+    // Prevent duplicate units
+    if (
+      data.unit === "__new__" &&
+      uniqueUnits.includes(sanitiseInput(data.newUnit))
+    ) {
+      showAlert(
+        "This unit already exists. Please select it from the list.",
+        "warning"
+      );
+      return;
+    }
     const cleanData = {
       indicatorId: data.indicatorId,
       value: data.value,
-      unit: sanitiseInput(data.unit),
+      unit: selectedUnit,
       reportingPeriodId,
     };
-
     try {
       await esgService.createMetric(cleanData);
       showAlert(`Metric created.`, "success");
       onCreated();
       onClose();
       reset();
+      setNewUnit("");
     } catch (error) {
       console.error("Failed to create metric:", error);
       showAlert("Failed to create metric.", "error");
@@ -97,31 +138,61 @@ const NewMetricDialog = ({
           )}
         />
         <Controller
+          name="unit"
+          control={control}
+          render={({ field }) => (
+            <>
+              <TextField
+                {...field}
+                select
+                label="Select Unit *"
+                margin="normal"
+                fullWidth
+                error={!!errors.unit}
+                helperText={errors.unit?.message}
+              >
+                {uniqueUnits.length > 0 ? (
+                  uniqueUnits.map((u, i) => (
+                    <MenuItem key={i} value={u}>
+                      {u}
+                    </MenuItem>
+                  ))
+                ) : (
+                  <MenuItem disabled>No existing units</MenuItem>
+                )}
+                <MenuItem value="__new__">+ Add new unit</MenuItem>
+              </TextField>
+              {field.value === "__new__" && (
+                <Controller
+                  name="newUnit"
+                  control={control}
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      label="New Unit *"
+                      margin="normal"
+                      fullWidth
+                      error={!!errors.newUnit}
+                      helperText={errors.newUnit?.message}
+                    />
+                  )}
+                />
+              )}
+            </>
+          )}
+        />
+        <Controller
           name="value"
           control={control}
           render={({ field }) => (
             <TextField
               {...field}
-              label="Value"
+              label="Value *"
               type="number"
               margin="normal"
               fullWidth
               error={!!errors.value}
               helperText={errors.value?.message}
-            />
-          )}
-        />
-        <Controller
-          name="unit"
-          control={control}
-          render={({ field }) => (
-            <TextField
-              {...field}
-              label="Unit"
-              margin="normal"
-              fullWidth
-              error={!!errors.unit}
-              helperText={errors.unit?.message}
             />
           )}
         />
