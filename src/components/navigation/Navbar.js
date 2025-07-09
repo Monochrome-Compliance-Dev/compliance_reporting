@@ -68,7 +68,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
     try {
       userService.logout();
       handleMenuClose();
-      navigate("/user/login");
+      navigate("/login");
     } catch (error) {
       console.error("Logout failed:", error); // Log the error
       alert("Failed to log out. Please try again."); // Display a user-friendly message
@@ -468,7 +468,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
           <Button
             variant="outlined"
             color="primary"
-            onClick={() => navigate("/user/login")}
+            onClick={() => navigate("/login")}
             sx={{ ml: 2, fontWeight: 600 }}
           >
             Login
