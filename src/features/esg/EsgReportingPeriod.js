@@ -100,16 +100,19 @@ const EsgReportingPeriod = () => {
 
   return (
     <Container sx={{ mt: (theme) => theme.spacing(4) }}>
-      <Button
-        variant="outlined"
+      <Grid
+        container
+        justifyContent="space-between"
+        alignItems="center"
         sx={{ mb: 2 }}
-        onClick={() => navigate("/esg")}
       >
-        ← Back to ESG Dashboard
-      </Button>
-      <Typography variant="h4" gutterBottom>
-        ESG Reporting Period
-      </Typography>
+        <Typography variant="h4" gutterBottom>
+          ESG Reporting Period
+        </Typography>
+        <Button variant="outlined" onClick={() => navigate("/esg")}>
+          ← Back to ESG Dashboard
+        </Button>
+      </Grid>
       <Typography variant="subtitle1" gutterBottom>
         Period ID: {reportingPeriodId}
       </Typography>
