@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router";
 import { Container, Typography, Button, Grid } from "@mui/material";
 import { esgService } from "../../services/esg/esg";
 import { useAlert } from "../../context/";
@@ -11,6 +11,7 @@ import ConfirmDeleteIndicatorDialog from "./ConfirmDeleteIndicatorDialog";
 
 const EsgReportingPeriod = () => {
   const { reportingPeriodId } = useParams();
+  const navigate = useNavigate();
 
   const [indicators, setIndicators] = useState([]);
   const [metrics, setMetrics] = useState([]);
@@ -19,6 +20,7 @@ const EsgReportingPeriod = () => {
   const [openNewDialog, setOpenNewDialog] = useState(false);
   const [openNewMetricDialog, setOpenNewMetricDialog] = useState(false);
   const [indicatorToDelete, setIndicatorToDelete] = useState(null);
+  const [period, setPeriod] = useState(null);
 
   const fetchMetricsAgain = async () => {
     try {
@@ -77,12 +79,15 @@ const EsgReportingPeriod = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [fetchedIndicators, fetchedMetrics] = await Promise.all([
-          esgService.getIndicatorsByReportingPeriodId(reportingPeriodId),
-          esgService.getMetricsByReportingPeriodId(reportingPeriodId),
-        ]);
+        const [fetchedIndicators, fetchedMetrics, fetchedPeriod] =
+          await Promise.all([
+            esgService.getIndicatorsByReportingPeriodId(reportingPeriodId),
+            esgService.getMetricsByReportingPeriodId(reportingPeriodId),
+            esgService.getReportingPeriodById(reportingPeriodId),
+          ]);
         setIndicators(fetchedIndicators);
         setMetrics(fetchedMetrics);
+        setPeriod(fetchedPeriod);
       } catch (error) {
         console.error("Failed to load ESG data:", error);
         showAlert("Failed to load ESG data", "error");
@@ -95,12 +100,142 @@ const EsgReportingPeriod = () => {
 
   return (
     <Container sx={{ mt: (theme) => theme.spacing(4) }}>
+      <Button
+        variant="outlined"
+        sx={{ mb: 2 }}
+        onClick={() => navigate("/esg")}
+      >
+        ← Back to ESG Dashboard
+      </Button>
       <Typography variant="h4" gutterBottom>
         ESG Reporting Period
       </Typography>
       <Typography variant="subtitle1" gutterBottom>
         Period ID: {reportingPeriodId}
       </Typography>
+      <Typography variant="subtitle2">Status: {period?.status}</Typography>
+
+      {/* Approval workflow buttons */}
+      {period && (
+        <Grid container spacing={2} sx={{ mb: 2 }}>
+          {period.status === "Draft" && (
+            <Grid item>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={async () => {
+                  try {
+                    await esgService.submitReportingPeriod(reportingPeriodId);
+                    showAlert("Submitted for approval.", "success");
+                    // Reload all data including period
+                    setLoading(true);
+                    const [fetchedIndicators, fetchedMetrics, fetchedPeriod] =
+                      await Promise.all([
+                        esgService.getIndicatorsByReportingPeriodId(
+                          reportingPeriodId
+                        ),
+                        esgService.getMetricsByReportingPeriodId(
+                          reportingPeriodId
+                        ),
+                        esgService.getReportingPeriodById(reportingPeriodId),
+                      ]);
+                    setIndicators(fetchedIndicators);
+                    setMetrics(fetchedMetrics);
+                    setPeriod(fetchedPeriod);
+                  } catch (err) {
+                    console.error(err);
+                    showAlert("Failed to submit for approval.", "error");
+                  } finally {
+                    setLoading(false);
+                  }
+                }}
+              >
+                Submit for Approval
+              </Button>
+            </Grid>
+          )}
+          {period.status === "PendingApproval" && (
+            <>
+              <Grid item>
+                <Button
+                  variant="contained"
+                  color="success"
+                  onClick={async () => {
+                    try {
+                      await esgService.approveReportingPeriod(
+                        reportingPeriodId
+                      );
+                      showAlert("Period approved and locked.", "success");
+                      setLoading(true);
+                      const [fetchedIndicators, fetchedMetrics, fetchedPeriod] =
+                        await Promise.all([
+                          esgService.getIndicatorsByReportingPeriodId(
+                            reportingPeriodId
+                          ),
+                          esgService.getMetricsByReportingPeriodId(
+                            reportingPeriodId
+                          ),
+                          esgService.getReportingPeriodById(reportingPeriodId),
+                        ]);
+                      setIndicators(fetchedIndicators);
+                      setMetrics(fetchedMetrics);
+                      setPeriod(fetchedPeriod);
+                    } catch (err) {
+                      console.error(err);
+                      showAlert("Failed to approve.", "error");
+                    } finally {
+                      setLoading(false);
+                    }
+                  }}
+                >
+                  Approve & Lock
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  variant="outlined"
+                  onClick={async () => {
+                    try {
+                      await esgService.rollbackReportingPeriod(
+                        reportingPeriodId
+                      );
+                      showAlert("Rolled back to Draft.", "info");
+                      setLoading(true);
+                      const [fetchedIndicators, fetchedMetrics, fetchedPeriod] =
+                        await Promise.all([
+                          esgService.getIndicatorsByReportingPeriodId(
+                            reportingPeriodId
+                          ),
+                          esgService.getMetricsByReportingPeriodId(
+                            reportingPeriodId
+                          ),
+                          esgService.getReportingPeriodById(reportingPeriodId),
+                        ]);
+                      setIndicators(fetchedIndicators);
+                      setMetrics(fetchedMetrics);
+                      setPeriod(fetchedPeriod);
+                    } catch (err) {
+                      console.error(err);
+                      showAlert("Failed to rollback.", "error");
+                    } finally {
+                      setLoading(false);
+                    }
+                  }}
+                >
+                  Rollback to Draft
+                </Button>
+              </Grid>
+            </>
+          )}
+          {period.status === "Approved" && (
+            <Grid item>
+              <Typography color="textSecondary">
+                This period is approved and locked.
+              </Typography>
+            </Grid>
+          )}
+        </Grid>
+      )}
 
       <EsgSummary indicators={indicators} metrics={metrics} />
 
@@ -112,12 +247,13 @@ const EsgReportingPeriod = () => {
             data={indicators}
             loading={loading}
             renderRow={(ind) => [ind.name, ind.code, ind.category]}
+            isLocked={period?.status === "Approved"}
             onAdd={() => setOpenNewDialog(true)}
-            addLabel="+ Add Indicator"
             onDelete={(indicatorId) => {
               const indicator = indicators.find((i) => i.id === indicatorId);
               handleDeleteIndicator(indicator);
             }}
+            addLabel="+ Add Indicator"
           />
         </Grid>
 
@@ -128,18 +264,10 @@ const EsgReportingPeriod = () => {
             data={metrics}
             loading={loading}
             renderRow={(m) => [m.value, m.unit]}
-            onAdd={() => {
-              if (!indicators || indicators.length === 0) {
-                showAlert(
-                  "You need to create an indicator before adding metrics.",
-                  "warning"
-                );
-                return;
-              }
-              setOpenNewMetricDialog(true);
-            }}
-            addLabel="+ Add Metric"
+            isLocked={period?.status === "Approved"}
+            onAdd={() => setOpenNewMetricDialog(true)}
             onDelete={handleDeleteMetric}
+            addLabel="+ Add Metric"
           />
         </Grid>
       </Grid>

@@ -15,7 +15,6 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import ChecklistIcon from "@mui/icons-material/Checklist";
 import PageMeta from "../../components/ui/PageMeta";
 import RelatedSolutions from "../RelatedSolutions";
-import { image } from "@uiw/react-md-editor";
 
 export default function ESGReporting() {
   const navigate = useNavigate();

@@ -18,6 +18,7 @@ const EsgDataTable = ({
   onAdd,
   addLabel = "+ Add",
   onDelete,
+  isLocked = false,
 }) => {
   return (
     <Box sx={{ mb: 4 }}>
@@ -30,13 +31,15 @@ const EsgDataTable = ({
             {columns.map((col, idx) => (
               <TableCell key={idx}>{col}</TableCell>
             ))}
-            {onDelete && <TableCell>Actions</TableCell>}
+            {onDelete && !isLocked && <TableCell>Actions</TableCell>}
           </TableRow>
         </TableHead>
         <TableBody>
           {loading ? (
             <TableRow>
-              <TableCell colSpan={columns.length + (onDelete ? 1 : 0)}>
+              <TableCell
+                colSpan={columns.length + (onDelete && !isLocked ? 1 : 0)}
+              >
                 Loading...
               </TableCell>
             </TableRow>
@@ -46,7 +49,7 @@ const EsgDataTable = ({
                 {renderRow(row).map((cell, i) => (
                   <TableCell key={i}>{cell}</TableCell>
                 ))}
-                {onDelete && (
+                {onDelete && !isLocked && (
                   <TableCell>
                     <Button
                       size="small"
@@ -62,16 +65,20 @@ const EsgDataTable = ({
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length + (onDelete ? 1 : 0)}>
+              <TableCell
+                colSpan={columns.length + (onDelete && !isLocked ? 1 : 0)}
+              >
                 No {title.toLowerCase()} found.
               </TableCell>
             </TableRow>
           )}
         </TableBody>
       </Table>
-      <Button variant="contained" sx={{ mt: 2 }} onClick={onAdd}>
-        {addLabel}
-      </Button>
+      {!isLocked && (
+        <Button variant="contained" sx={{ mt: 2 }} onClick={onAdd}>
+          {addLabel}
+        </Button>
+      )}
     </Box>
   );
 };
