@@ -6,12 +6,13 @@ import {
   useTheme,
   IconButton,
   Paper,
+  MenuItem,
 } from "@mui/material";
-import { userService } from "../../services";
-import { useForm } from "react-hook-form";
+import { clientService, userService } from "../../services";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 import { useAlert } from "../../context/AlertContext";
@@ -21,10 +22,32 @@ export default function Login() {
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [clients, setClients] = useState([]);
   const navigate = useNavigate();
   const { showAlert } = useAlert();
 
+  const alertCallback = useCallback(
+    (message, severity) => {
+      showAlert(message, severity);
+    },
+    [showAlert]
+  );
+
+  useEffect(() => {
+    const loadClients = async () => {
+      try {
+        const response = await clientService.getAll();
+        setClients(response || []);
+      } catch (err) {
+        logError("Failed to load clients", err);
+        alertCallback("Unable to load client list", "error");
+      }
+    };
+    loadClients();
+  }, [alertCallback]);
+
   const schema = yup.object().shape({
+    clientId: yup.string().required("Client is required"),
     email: yup
       .string()
       .transform((value) => value?.trim())
@@ -42,6 +65,7 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
     setError,
+    control,
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {
@@ -114,6 +138,33 @@ export default function Login() {
               gap: theme.spacing(2),
             }}
           >
+            <Controller
+              name="clientId"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <TextField
+                  select
+                  label="Select client *"
+                  fullWidth
+                  value={field.value ?? ""}
+                  onChange={field.onChange}
+                  error={!!errors.clientId}
+                  helperText={errors.clientId?.message}
+                  SelectProps={{ native: false }}
+                  InputLabelProps={{
+                    style: { color: theme.palette.text.primary },
+                  }}
+                >
+                  <MenuItem value="">-- Select client --</MenuItem>
+                  {(clients || []).map((client) => (
+                    <MenuItem key={client.id} value={client.id}>
+                      {client.name}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              )}
+            />
             <TextField
               label="Email address *"
               type="email"

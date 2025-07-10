@@ -61,7 +61,7 @@ function logout() {
   ];
 
   // May need to update over time if routes change
-  const excludedPaths = ["/user/login", "/user/verify", "/reset-password"];
+  const excludedPaths = ["/login", "/verify", "/reset-password"];
   const currentPath = window.location.pathname;
 
   if (!excludedPaths.includes(currentPath) && allPaths.includes(currentPath)) {
