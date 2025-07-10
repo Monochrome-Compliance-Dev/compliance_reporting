@@ -37,6 +37,7 @@ export default function Login() {
     const loadClients = async () => {
       try {
         const response = await clientService.getAll();
+        // console.log("Loaded clients:", response);
         setClients(response || []);
       } catch (err) {
         logError("Failed to load clients", err);
@@ -157,11 +158,16 @@ export default function Login() {
                   }}
                 >
                   <MenuItem value="">-- Select client --</MenuItem>
-                  {(clients || []).map((client) => (
-                    <MenuItem key={client.id} value={client.id}>
-                      {client.name}
-                    </MenuItem>
-                  ))}
+                  {(clients || [])
+                    .slice()
+                    .sort((a, b) =>
+                      a.businessName.localeCompare(b.businessName)
+                    )
+                    .map((client) => (
+                      <MenuItem key={client.id} value={client.id}>
+                        {client.businessName}
+                      </MenuItem>
+                    ))}
                 </TextField>
               )}
             />
