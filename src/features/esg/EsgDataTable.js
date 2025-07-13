@@ -8,6 +8,7 @@ import {
   Button,
   Box,
 } from "@mui/material";
+import LoadingSpinner from "../../components/ui/LoadingSpinner";
 
 const EsgDataTable = ({
   title,
@@ -19,6 +20,7 @@ const EsgDataTable = ({
   addLabel = "+ Add",
   onDelete,
   isLocked = false,
+  onRowClick,
 }) => {
   return (
     <Box sx={{ mb: 4 }}>
@@ -40,12 +42,17 @@ const EsgDataTable = ({
               <TableCell
                 colSpan={columns.length + (onDelete && !isLocked ? 1 : 0)}
               >
-                Loading...
+                <LoadingSpinner />
               </TableCell>
             </TableRow>
           ) : data.length > 0 ? (
             data.map((row, index) => (
-              <TableRow key={row.id || index}>
+              <TableRow
+                key={row.id || index}
+                hover={!!onRowClick}
+                sx={onRowClick ? { cursor: "pointer" } : {}}
+                onClick={onRowClick ? () => onRowClick(row) : undefined}
+              >
                 {renderRow(row).map((cell, i) => (
                   <TableCell key={i}>{cell}</TableCell>
                 ))}
@@ -54,7 +61,10 @@ const EsgDataTable = ({
                     <Button
                       size="small"
                       variant="outlined"
-                      onClick={() => onDelete(row.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onDelete(row.id);
+                      }}
                       sx={{ color: "error.main" }}
                     >
                       Delete

@@ -271,6 +271,7 @@ const EsgReportingPeriod = () => {
             onAdd={() => setOpenNewMetricDialog(true)}
             onDelete={handleDeleteMetric}
             addLabel="+ Add Metric"
+            onRowClick={(m) => navigate(`/metrics/${m.id}`)}
           />
         </Grid>
       </Grid>

@@ -2,10 +2,6 @@ import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/esg`;
 
-async function getReportingPeriodById(id) {
-  return await fetchWrapper.get(`${baseUrl}/reporting-periods/${id}`);
-}
-
 export const esgService = {
   getReportingPeriods,
   createReportingPeriod,
@@ -21,10 +17,15 @@ export const esgService = {
   approveReportingPeriod,
   rollbackReportingPeriod,
   getReportingPeriodById,
+  getMetricById,
 };
 
 async function getReportingPeriods() {
   return await fetchWrapper.get(`${baseUrl}/reporting-periods`);
+}
+
+async function getReportingPeriodById(id) {
+  return await fetchWrapper.get(`${baseUrl}/reporting-periods/${id}`);
 }
 
 async function createReportingPeriod(params) {
@@ -52,7 +53,9 @@ async function getIndicatorsByReportingPeriodId(reportingPeriodId) {
 }
 
 async function getMetricsByReportingPeriodId(reportingPeriodId) {
-  return await fetchWrapper.get(`${baseUrl}/metrics/${reportingPeriodId}`);
+  return await fetchWrapper.get(
+    `${baseUrl}/metrics/by-reporting-period/${reportingPeriodId}`
+  );
 }
 
 async function deleteIndicator(indicatorId) {
@@ -73,4 +76,8 @@ async function approveReportingPeriod(id) {
 
 async function rollbackReportingPeriod(id) {
   return await fetchWrapper.post(`${baseUrl}/reporting-periods/${id}/rollback`);
+}
+
+async function getMetricById(metricId) {
+  return await fetchWrapper.get(`${baseUrl}/metrics/${metricId}`);
 }

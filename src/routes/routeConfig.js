@@ -28,11 +28,12 @@ import DataErrorBoundary from "../components/navigation/DataErrorBoundary";
 
 import EsgDashboard from "../features/esg/EsgDashboard";
 import EsgReportingPeriod from "../features/esg/EsgReportingPeriod";
+import MetricDetail from "../features/esg/MetricDetail";
 
 export const protectedRoutes = [
   {
     path: "/dashboard",
-    element: (
+    Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <Dashboard />
       </RequireRoles>
@@ -40,7 +41,7 @@ export const protectedRoutes = [
   },
   {
     path: "/admin",
-    element: (
+    Component: () => (
       <RequireRoles allowed={[Role.Admin, Role.Boss]}>
         <AdminDashboard />
       </RequireRoles>
@@ -48,15 +49,15 @@ export const protectedRoutes = [
     children: [
       {
         path: "users",
-        element: <UsersLayout />,
+        Component: UsersLayout,
         children: [
           {
             index: true,
-            element: <Users />,
+            Component: Users,
           },
           {
             path: "create",
-            element: <CreateUser />,
+            Component: CreateUser,
           },
         ],
       },
@@ -64,7 +65,7 @@ export const protectedRoutes = [
   },
   {
     path: "/boss",
-    element: (
+    Component: () => (
       <RequireRoles allowed={[Role.Boss]}>
         <BossDashboard />
       </RequireRoles>
@@ -73,8 +74,8 @@ export const protectedRoutes = [
       {
         path: "clients",
         children: [
-          { index: true, element: <Clients /> },
-          { path: "register", element: <ClientRegister /> },
+          { index: true, Component: Clients },
+          { path: "register", Component: ClientRegister },
         ],
       },
       {
@@ -82,11 +83,11 @@ export const protectedRoutes = [
         children: [
           {
             path: "faq",
-            element: require("../features/admin/content/EditFaq").default,
+            Component: require("../features/admin/content/EditFaq").default,
           },
           {
             path: "blog/:slug",
-            element: require("../features/admin/content/EditBlog").default,
+            Component: require("../features/admin/content/EditBlog").default,
           },
         ],
       },
@@ -94,7 +95,7 @@ export const protectedRoutes = [
   },
   {
     path: "/reports",
-    element: (
+    Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Audit, Role.Boss]}>
         <ReportProvider>
           <ReportsLayout />
@@ -103,16 +104,16 @@ export const protectedRoutes = [
     ),
     errorElement: <ReportErrorBoundary />,
     children: [
-      { path: ":code/:reportId", element: <ReportWizard /> },
-      { path: ":code/:reportId/connect", element: <ConnectExternalSystems /> },
-      { path: ":code/:reportId/selection", element: <XeroSelection /> },
-      { path: ":code/:reportId/progress", element: <XeroConnectProgress /> },
-      { path: "steps", element: <StepsOverview /> },
+      { path: ":code/:reportId", Component: ReportWizard },
+      { path: ":code/:reportId/connect", Component: ConnectExternalSystems },
+      { path: ":code/:reportId/selection", Component: XeroSelection },
+      { path: ":code/:reportId/progress", Component: XeroConnectProgress },
+      { path: "steps", Component: StepsOverview },
     ],
   },
   {
     path: "/data",
-    element: (
+    Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <TcpProvider>
           <DataLayout />
@@ -120,11 +121,11 @@ export const protectedRoutes = [
       </RequireRoles>
     ),
     errorElement: <DataErrorBoundary />,
-    children: [{ path: ":code/console", element: <DataConsole /> }],
+    children: [{ path: ":code/console", Component: DataConsole }],
   },
   {
     path: "/esg",
-    element: (
+    Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <EsgDashboard />
       </RequireRoles>
@@ -132,9 +133,17 @@ export const protectedRoutes = [
   },
   {
     path: "/esg/:reportingPeriodId",
-    element: (
+    Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <EsgReportingPeriod />
+      </RequireRoles>
+    ),
+  },
+  {
+    path: "/metrics/:metricId",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <MetricDetail />
       </RequireRoles>
     ),
   },
