@@ -112,6 +112,10 @@ export default function FileAttachments({
     if (!file) return;
 
     setLoading(true);
+    showAlert(
+      "File is being uploaded and scanned. This may take a few moments.",
+      "info"
+    );
     try {
       await fileService.uploadFile({
         file,

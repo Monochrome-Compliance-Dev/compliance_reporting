@@ -47,7 +47,7 @@ const NewMetricDialog = ({
     control,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     watch,
   } = useForm({
     resolver: yupResolver(schema),
@@ -162,7 +162,7 @@ const NewMetricDialog = ({
                 )}
                 <MenuItem value="__new__">+ Add new unit</MenuItem>
               </TextField>
-              {field.value === "__new__" && (
+              {watchedUnit === "__new__" && (
                 <Controller
                   name="newUnit"
                   control={control}
@@ -199,7 +199,11 @@ const NewMetricDialog = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={handleSubmit(onSubmit)} variant="contained">
+        <Button
+          onClick={handleSubmit(onSubmit)}
+          variant="contained"
+          disabled={isSubmitting}
+        >
           Create
         </Button>
       </DialogActions>

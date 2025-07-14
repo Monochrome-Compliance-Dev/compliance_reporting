@@ -66,6 +66,9 @@ const EsgReportingPeriod = () => {
   };
 
   const handleDeleteMetric = async (metricId) => {
+    if (!window.confirm("Are you sure you want to delete this metric?")) {
+      return;
+    }
     try {
       await esgService.deleteMetric(metricId);
       showAlert("Metric deleted.", "success");
@@ -244,35 +247,51 @@ const EsgReportingPeriod = () => {
 
       <Grid container spacing={3} sx={{ mt: (theme) => theme.spacing(2) }}>
         <Grid item xs={12}>
-          <EsgDataTable
-            title="Indicators"
-            columns={["Name", "Code", "Category"]}
-            data={indicators}
-            loading={loading}
-            renderRow={(ind) => [ind.name, ind.code, ind.category]}
-            isLocked={period?.status === "Approved"}
-            onAdd={() => setOpenNewDialog(true)}
-            onDelete={(indicatorId) => {
-              const indicator = indicators.find((i) => i.id === indicatorId);
-              handleDeleteIndicator(indicator);
-            }}
-            addLabel="+ Add Indicator"
-          />
+          <div
+            style={
+              period?.status === "Approved"
+                ? { opacity: 0.6, pointerEvents: "none" }
+                : {}
+            }
+          >
+            <EsgDataTable
+              title="Indicators"
+              columns={["Name", "Code", "Category"]}
+              data={indicators}
+              loading={loading}
+              renderRow={(ind) => [ind.name, ind.code, ind.category]}
+              isLocked={period?.status === "Approved"}
+              onAdd={() => setOpenNewDialog(true)}
+              onDelete={(indicatorId) => {
+                const indicator = indicators.find((i) => i.id === indicatorId);
+                handleDeleteIndicator(indicator);
+              }}
+              addLabel="+ Add Indicator"
+            />
+          </div>
         </Grid>
 
         <Grid item xs={12}>
-          <EsgDataTable
-            title="Metrics"
-            columns={["Value", "Unit"]}
-            data={metrics}
-            loading={loading}
-            renderRow={(m) => [m.value, m.unit]}
-            isLocked={period?.status === "Approved"}
-            onAdd={() => setOpenNewMetricDialog(true)}
-            onDelete={handleDeleteMetric}
-            addLabel="+ Add Metric"
-            onRowClick={(m) => navigate(`/metrics/${m.id}`)}
-          />
+          <div
+            style={
+              period?.status === "Approved"
+                ? { opacity: 0.6, pointerEvents: "none" }
+                : {}
+            }
+          >
+            <EsgDataTable
+              title="Metrics"
+              columns={["Value", "Unit"]}
+              data={metrics}
+              loading={loading}
+              renderRow={(m) => [m.value, m.unit]}
+              isLocked={period?.status === "Approved"}
+              onAdd={() => setOpenNewMetricDialog(true)}
+              onDelete={handleDeleteMetric}
+              addLabel="+ Add Metric"
+              onRowClick={(m) => navigate(`/metrics/${m.id}`)}
+            />
+          </div>
         </Grid>
       </Grid>
       <NewIndicatorDialog

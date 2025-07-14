@@ -39,7 +39,7 @@ const NewIndicatorDialog = ({
     control,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -141,7 +141,11 @@ const NewIndicatorDialog = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={handleSubmit(onSubmit)} variant="contained">
+        <Button
+          onClick={handleSubmit(onSubmit)}
+          variant="contained"
+          disabled={isSubmitting}
+        >
           Create
         </Button>
       </DialogActions>
