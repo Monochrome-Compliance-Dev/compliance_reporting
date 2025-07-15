@@ -4,13 +4,13 @@ import { io } from "socket.io-client";
 // It connects to the server, listens for various progress and result events, and dispatches them
 // to specific handlers for clarity and maintainability.
 
-console.log("🔥 socket.js loaded");
+// console.log("🔥 socket.js loaded");
 
 const socket = io("http://localhost:4000");
 
 // --- Connection lifecycle events ---
 socket.on("connect", () => {
-  console.log("✅ Connected to socket.io server with ID:", socket.id);
+  // console.log("✅ Connected to socket.io server with ID:", socket.id);
 });
 
 socket.on("disconnect", (reason) => {
@@ -88,7 +88,7 @@ socket.on("statusUpdate", ({ type, stage, payload }) => {
  * Ensures consistent logging and routing even if events come through other channels.
  */
 socket.onAny((event, data) => {
-  console.log("🔄 Socket catch-all event:", event, "Data:", data);
+  // console.log("🔄 Socket catch-all event:", event, "Data:", data);
 
   if (
     data &&
@@ -100,13 +100,13 @@ socket.onAny((event, data) => {
     if (handlers[data.type]) {
       handlers[data.type]({ stage: data.stage, payload: data.payload });
     } else {
-      console.warn(
-        "⚠️ Unhandled catch-all type:",
-        data.type,
-        "stage:",
-        data.stage,
-        data.payload
-      );
+      // console.warn(
+      //   "⚠️ Unhandled catch-all type:",
+      //   data.type,
+      //   "stage:",
+      //   data.stage,
+      //   data.payload
+      // );
     }
   } else {
     console.log("⚠️ Received non-standard socket data on event:", event, data);

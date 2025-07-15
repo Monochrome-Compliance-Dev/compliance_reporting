@@ -18,6 +18,14 @@ export const esgService = {
   rollbackReportingPeriod,
   getReportingPeriodById,
   getMetricById,
+  getCategoryTotals,
+  getAllIndicatorsWithLatestMetrics,
+  getTotalsByIndicator,
+  cloneTemplatesForReportingPeriod,
+  createTemplate,
+  getTemplates,
+  getTemplateById,
+  deleteTemplate,
 };
 
 async function getReportingPeriods() {
@@ -80,4 +88,44 @@ async function rollbackReportingPeriod(id) {
 
 async function getMetricById(metricId) {
   return await fetchWrapper.get(`${baseUrl}/metrics/${metricId}`);
+}
+
+async function getCategoryTotals(reportingPeriodId) {
+  return await fetchWrapper.get(
+    `${baseUrl}/dashboard/category-totals/${reportingPeriodId}`
+  );
+}
+
+async function getAllIndicatorsWithLatestMetrics(reportingPeriodId) {
+  return await fetchWrapper.get(
+    `${baseUrl}/dashboard/indicators-with-metrics/${reportingPeriodId}`
+  );
+}
+
+async function getTotalsByIndicator(reportingPeriodId) {
+  return await fetchWrapper.get(
+    `${baseUrl}/dashboard/totals-by-indicator/${reportingPeriodId}`
+  );
+}
+
+async function cloneTemplatesForReportingPeriod(reportingPeriodId) {
+  return await fetchWrapper.post(
+    `${baseUrl}/reporting-periods/${reportingPeriodId}/clone-templates`
+  );
+}
+
+async function createTemplate(params) {
+  return await fetchWrapper.post(`${baseUrl}/templates`, params);
+}
+
+async function getTemplates() {
+  return await fetchWrapper.get(`${baseUrl}/templates`);
+}
+
+async function getTemplateById(id) {
+  return await fetchWrapper.get(`${baseUrl}/templates/${id}`);
+}
+
+async function deleteTemplate(id) {
+  return await fetchWrapper.delete(`${baseUrl}/templates/${id}`);
 }

@@ -30,26 +30,40 @@ import { useNavigate } from "react-router";
 
 const EsgDashboard = () => {
   const [reportingPeriods, setReportingPeriods] = useState([]);
+  const [categoryTotals, setCategoryTotals] = useState([]);
+  const [indicatorTotals, setIndicatorTotals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openNewDialog, setOpenNewDialog] = useState(false);
   const { showAlert } = useAlert();
   const navigate = useNavigate();
 
-  const fetchReportingPeriods = useCallback(async () => {
+  const fetchDashboardData = useCallback(async () => {
     try {
       setLoading(true);
       const periods = await esgService.getReportingPeriods();
       setReportingPeriods(periods);
+
+      if (periods.length > 0) {
+        const currentPeriodId = periods[0].id;
+        const categoryData =
+          await esgService.getCategoryTotals(currentPeriodId);
+        const indicatorData =
+          await esgService.getTotalsByIndicator(currentPeriodId);
+
+        setCategoryTotals(categoryData);
+        setIndicatorTotals(indicatorData);
+      }
     } catch (error) {
-      showAlert("Failed to load reporting periods", "error");
+      showAlert("Failed to load ESG dashboard data", "error");
     } finally {
       setLoading(false);
     }
   }, [showAlert]);
 
   useEffect(() => {
-    fetchReportingPeriods();
-  }, [fetchReportingPeriods]);
+    fetchDashboardData();
+  }, [fetchDashboardData]);
+  // console.log("ESG Dashboard data fetched", categoryTotals, indicatorTotals);
 
   return (
     <Container>
@@ -62,38 +76,20 @@ const EsgDashboard = () => {
         ESG Overview
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={3}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6">Scope 1 Emissions</Typography>
-              <Typography variant="h4">1,234 tCO₂e</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6">Waste Recycled</Typography>
-              <Typography variant="h4">68%</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6">Women in Leadership</Typography>
-              <Typography variant="h4">42%</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6">Supplier ESG Rating</Typography>
-              <Typography variant="h4">B+</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
+        {categoryTotals.length > 0 ? (
+          categoryTotals.map((cat) => (
+            <Grid item xs={12} sm={6} md={3} key={cat.category}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h6">{cat.category}</Typography>
+                  <Typography variant="h4">{cat.totalValue}</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))
+        ) : (
+          <Typography>No category data available.</Typography>
+        )}
       </Grid>
 
       {/* Example ESG Trends Chart */}
@@ -101,20 +97,13 @@ const EsgDashboard = () => {
         Emissions Trend
       </Typography>
       <ResponsiveContainer width="100%" height={300}>
-        <LineChart
-          data={[
-            { year: "2021", emissions: 1600 },
-            { year: "2022", emissions: 1400 },
-            { year: "2023", emissions: 1250 },
-            { year: "2024", emissions: 1234 },
-          ]}
-        >
+        <LineChart data={indicatorTotals}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="year" />
+          <XAxis dataKey="indicatorId" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="emissions" stroke="#1976d2" />
+          <Line type="monotone" dataKey="totalValue" stroke="#1976d2" />
         </LineChart>
       </ResponsiveContainer>
 
@@ -142,6 +131,7 @@ const EsgDashboard = () => {
               <TableCell>Start Date</TableCell>
               <TableCell>End Date</TableCell>
               <TableCell>Status</TableCell>
+              <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -157,11 +147,34 @@ const EsgDashboard = () => {
                   <TableCell>{period.startDate}</TableCell>
                   <TableCell>{period.endDate}</TableCell>
                   <TableCell>{period.status || "Draft"}</TableCell>
+                  <TableCell>
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      onClick={async (e) => {
+                        e.stopPropagation();
+                        try {
+                          await esgService.cloneTemplatesForReportingPeriod(
+                            period.id
+                          );
+                          showAlert(
+                            "Templates generated successfully",
+                            "success"
+                          );
+                          fetchDashboardData();
+                        } catch (err) {
+                          showAlert("Failed to generate templates", "error");
+                        }
+                      }}
+                    >
+                      Generate Templates
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={4} align="center">
+                <TableCell colSpan={5} align="center">
                   No reporting periods found.
                 </TableCell>
               </TableRow>
@@ -197,7 +210,7 @@ const EsgDashboard = () => {
       <NewReportingPeriodDialog
         open={openNewDialog}
         onClose={() => setOpenNewDialog(false)}
-        onCreated={fetchReportingPeriods}
+        onCreated={fetchDashboardData}
       />
     </Container>
   );
