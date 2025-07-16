@@ -63,7 +63,7 @@ const EsgDashboard = () => {
   useEffect(() => {
     fetchDashboardData();
   }, [fetchDashboardData]);
-  // console.log("ESG Dashboard data fetched", categoryTotals, indicatorTotals);
+  console.log("ESG Dashboard data fetched", categoryTotals, indicatorTotals);
 
   return (
     <Container>
@@ -76,13 +76,18 @@ const EsgDashboard = () => {
         ESG Overview
       </Typography>
       <Grid container spacing={3}>
-        {categoryTotals.length > 0 ? (
+        {categoryTotals && categoryTotals.length > 0 ? (
           categoryTotals.map((cat) => (
             <Grid item xs={12} sm={6} md={3} key={cat.category}>
               <Card>
                 <CardContent>
                   <Typography variant="h6">{cat.category}</Typography>
-                  <Typography variant="h4">{cat.totalValue}</Typography>
+                  <Typography variant="h4">
+                    {Number(cat.totalValue).toLocaleString()}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    Sum of all metric values
+                  </Typography>
                 </CardContent>
               </Card>
             </Grid>
@@ -99,9 +104,14 @@ const EsgDashboard = () => {
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={indicatorTotals}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="indicatorId" />
+          <XAxis dataKey="ESGIndicator.name" />
           <YAxis />
-          <Tooltip />
+          <Tooltip
+            formatter={(value, name, props) => {
+              const unit = props.payload.Unit ? props.payload.Unit.name : "";
+              return [`${value} ${unit}`, "Total"];
+            }}
+          />
           <Legend />
           <Line type="monotone" dataKey="totalValue" stroke="#1976d2" />
         </LineChart>
