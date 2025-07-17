@@ -29,6 +29,12 @@ import DataErrorBoundary from "../components/navigation/DataErrorBoundary";
 import EsgDashboard from "../features/esg/EsgDashboard";
 import EsgReportingPeriod from "../features/esg/EsgReportingPeriod";
 import MetricDetail from "../features/esg/MetricDetail";
+import MsDashboard from "../features/ms/MsDashboard";
+import MsReportingPeriod from "../features/ms/MsReportingPeriod";
+import MsInterviewForm from "../features/ms/MsInterviewForm";
+import MsTraining from "../features/ms/MsTraining";
+import MsGrievances from "../features/ms/MsGrievances";
+import MsSupplierRisks from "../features/ms/MsSupplierRisks";
 
 export const protectedRoutes = [
   {
@@ -144,6 +150,54 @@ export const protectedRoutes = [
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <MetricDetail />
+      </RequireRoles>
+    ),
+  },
+  {
+    path: "/ms",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <MsDashboard />
+      </RequireRoles>
+    ),
+  },
+  {
+    path: "/ms/:reportingPeriodId",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <MsReportingPeriod />
+      </RequireRoles>
+    ),
+  },
+  {
+    path: "/ms/:reportingPeriodId/interview",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <MsInterviewForm />
+      </RequireRoles>
+    ),
+  },
+  {
+    path: "/ms/:reportingPeriodId/training",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <MsTraining />
+      </RequireRoles>
+    ),
+  },
+  {
+    path: "/ms/:reportingPeriodId/grievances",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <MsGrievances />
+      </RequireRoles>
+    ),
+  },
+  {
+    path: "/ms/:reportingPeriodId/supplier-risks",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <MsSupplierRisks />
       </RequireRoles>
     ),
   },
