@@ -9,30 +9,24 @@ import {
   TableHead,
   TableRow,
   CircularProgress,
-  Grid,
-  Card,
-  CardContent,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
   Box,
 } from "@mui/material";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
-import { msService } from "../../services/ms/ms";
+import { msService } from "../../services/";
 import { useAlert } from "../../context/";
 import { useNavigate } from "react-router";
 import NewEntityDialog from "../../components/ui/NewEntityDialog";
 import * as yup from "yup";
+import {
+  DashboardCards,
+  DashboardChart,
+} from "../../components/shared/compliance/";
+import { sortByPeriodName } from "../../lib/utils/periodUtils";
+import { chartConfigs } from "../../lib/utils/chartConfig";
+import { findOrReduceSummary } from "../../lib/utils/summaryUtils";
 
 const reportingPeriodSchema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -43,14 +37,12 @@ const reportingPeriodSchema = yup.object().shape({
     .required("End Date is required"),
 });
 
-const MsDashboard = () => {
-  const [reportingPeriods, setReportingPeriods] = useState([]);
+const MsDashboard = ({ selectedPeriod, reportingPeriods }) => {
   const [supplierRisks, setSupplierRisks] = useState([]);
   const [trainingStats, setTrainingStats] = useState([]);
   const [grievances, setGrievances] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openNewDialog, setOpenNewDialog] = useState(false);
-  const [selectedPeriodId, setSelectedPeriodId] = useState("all");
   const [chartType, setChartType] = useState("supplier");
   const { showAlert } = useAlert();
   const navigate = useNavigate();
@@ -59,8 +51,7 @@ const MsDashboard = () => {
     try {
       setLoading(true);
       // Replace fakeMsService with msService when available
-      const periods = await msService.getReportingPeriods();
-      setReportingPeriods(periods);
+      // Removed fetching reportingPeriods here as it comes from props
 
       const supplierRiskSummary = await msService.getSupplierRiskSummary();
       setSupplierRisks(supplierRiskSummary);
@@ -80,36 +71,34 @@ const MsDashboard = () => {
     fetchDashboardData();
   }, [fetchDashboardData]);
 
-  console.log("Reporting Periods:", reportingPeriods);
-  console.log("Supplier Risks:", supplierRisks);
-  console.log("Training Stats:", trainingStats);
-  console.log("Grievances:", grievances);
-
   // Overview card values
-  const latestPeriodId = reportingPeriods.at(-1)?.id;
-  const activePeriodId = selectedPeriodId === "all" ? null : selectedPeriodId;
+  const activePeriodId = selectedPeriod === "all" ? null : selectedPeriod;
 
-  const supplierSummary = activePeriodId
-    ? supplierRisks.find((r) => r.reportingPeriodId === activePeriodId)
-        ?.summary || {}
-    : supplierRisks.reduce((acc, r) => {
-        Object.entries(r.summary).forEach(([risk, count]) => {
-          acc[risk] = (acc[risk] || 0) + count;
-        });
-        return acc;
-      }, {});
+  const supplierSummary = findOrReduceSummary(
+    supplierRisks,
+    activePeriodId,
+    (r) => r?.summary || {},
+    (r) => r?.reportingPeriodId
+  );
+
+  const grievanceSummary = findOrReduceSummary(
+    grievances,
+    activePeriodId,
+    (g) => g?.summary || {},
+    (g) => g?.reportingPeriodId
+  );
+
+  const trainingSummary = findOrReduceSummary(
+    trainingStats,
+    activePeriodId,
+    (t) =>
+      t
+        ? { completed: t?.completed || 0, total: t?.total || 0 }
+        : { completed: 0, total: 0 },
+    (t) => t?.reportingPeriodId
+  );
 
   const highRiskSupplierCount = supplierSummary["High"] || 0;
-
-  const grievanceSummary = activePeriodId
-    ? grievances.find((g) => g.reportingPeriodId === activePeriodId)?.summary ||
-      {}
-    : grievances.reduce((acc, g) => {
-        Object.entries(g.summary).forEach(([status, count]) => {
-          acc[status] = (acc[status] || 0) + count;
-        });
-        return acc;
-      }, {});
 
   const openGrievanceCount = grievanceSummary["Open"] || 0;
   const totalGrievanceCount = Object.values(grievanceSummary).reduce(
@@ -117,245 +106,92 @@ const MsDashboard = () => {
     0
   );
 
-  const trainingSummary = activePeriodId
-    ? trainingStats.find((t) => t.reportingPeriodId === activePeriodId) || {
-        completed: 0,
-        total: 0,
-      }
-    : trainingStats.reduce(
-        (acc, t) => {
-          acc.completed += t.completed;
-          acc.total += t.total;
-          return acc;
-        },
-        { completed: 0, total: 0 }
-      );
-
   const trainingCompletion =
     trainingSummary && trainingSummary.total > 0
       ? Math.round((trainingSummary.completed / trainingSummary.total) * 100)
       : 0;
 
+  // TODO: Align dates used for charts with selected period
+  // (reportedAt vs. createdAt and grouping by reportingPeriodId changed to report period start and end date)
   const getChartData = () => {
-    if (chartType === "supplier") {
-      return supplierRisks
-        .map((r) => ({
-          period:
-            reportingPeriods.find((p) => p.id === r.reportingPeriodId)?.name ||
-            r.reportingPeriodId,
-          highRisk: r.summary["High"] || 0,
-          mediumRisk: r.summary["Medium"] || 0,
-          lowRisk: r.summary["Low"] || 0,
-        }))
-        .sort((a, b) => a.period.localeCompare(b.period));
-    } else if (chartType === "training") {
-      return trainingStats
-        .map((t) => ({
-          period:
-            reportingPeriods.find((p) => p.id === t.reportingPeriodId)?.name ||
-            t.reportingPeriodId,
-          completed: t.completed || 0,
-          remaining: (t.total || 0) - (t.completed || 0),
-        }))
-        .sort((a, b) => a.period.localeCompare(b.period));
-    } else if (chartType === "grievance") {
-      return grievances
-        .map((g) => ({
-          period:
-            reportingPeriods.find((p) => p.id === g.reportingPeriodId)?.name ||
-            g.reportingPeriodId,
-          open: g.summary["Open"] || 0,
-          closed: g.summary["Closed"] || 0,
-          investigating: g.summary["Investigating"] || 0,
-        }))
-        .sort((a, b) => a.period.localeCompare(b.period));
-    }
-    return [];
+    const config = chartConfigs(reportingPeriods)[chartType];
+    const dataSource =
+      chartType === "supplier"
+        ? supplierRisks
+        : chartType === "training"
+          ? trainingStats
+          : grievances;
+
+    return config ? dataSource.map(config.mapFn).sort(sortByPeriodName) : [];
   };
 
   return (
     <Container>
-      <Typography variant="h4" gutterBottom>
-        Modern Slavery Compliance Dashboard
-      </Typography>
-
-      {/* Overview Cards */}
-      <Grid
-        container
+      <Box
+        display="flex"
         justifyContent="space-between"
         alignItems="center"
-        sx={{ mt: 3 }}
+        mt={3}
+        mb={2}
       >
-        <Grid item>
-          <Typography variant="h5" gutterBottom>
-            Overview
-          </Typography>
-        </Grid>
-        <Grid item>
-          <FormControl size="small" sx={{ minWidth: 180 }}>
-            <InputLabel>Reporting Period</InputLabel>
-            <Select
-              value={selectedPeriodId}
-              label="Reporting Period"
-              onChange={(e) => setSelectedPeriodId(e.target.value)}
-            >
-              <MenuItem value="all">All Periods</MenuItem>
-              {reportingPeriods.map((p) => (
-                <MenuItem key={p.id} value={p.id}>
-                  {p.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Grid>
-      </Grid>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={3}>
-          <Box
-            onClick={() =>
-              navigate(`/ms/${activePeriodId || latestPeriodId}/supplier-risks`)
-            }
-            sx={{ cursor: "pointer" }}
-          >
-            <Card>
-              <CardContent>
-                <Typography variant="h6">High Risk Suppliers</Typography>
-                <Typography variant="h4">{highRiskSupplierCount}</Typography>
-                <Typography variant="body2" color="textSecondary">
-                  Suppliers flagged as high risk
-                </Typography>
-              </CardContent>
-            </Card>
-          </Box>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Box
-            onClick={() =>
-              navigate(`/ms/${activePeriodId || latestPeriodId}/training`)
-            }
-            sx={{ cursor: "pointer" }}
-          >
-            <Card>
-              <CardContent>
-                <Typography variant="h6">Training Completion</Typography>
-                <Typography variant="h4">{trainingCompletion}%</Typography>
-                <Typography variant="body2" color="textSecondary">
-                  {trainingSummary.completed} of {trainingSummary.total}{" "}
-                  completed
-                </Typography>
-              </CardContent>
-            </Card>
-          </Box>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Box
-            onClick={() =>
-              navigate(`/ms/${activePeriodId || latestPeriodId}/grievances`)
-            }
-            sx={{ cursor: "pointer" }}
-          >
-            <Card>
-              <CardContent>
-                <Typography variant="h6">Open Grievances</Typography>
-                <Typography variant="h4">{openGrievanceCount}</Typography>
-                <Typography variant="body2" color="textSecondary">
-                  {totalGrievanceCount} total grievances
-                </Typography>
-              </CardContent>
-            </Card>
-          </Box>
-        </Grid>
-      </Grid>
+        <Typography variant="h5" gutterBottom>
+          Overview
+        </Typography>
+      </Box>
+      <DashboardCards
+        raisedOnHover
+        cards={[
+          {
+            title: "High Risk Suppliers",
+            value: highRiskSupplierCount,
+            subtitle: "Suppliers flagged as high risk",
+            href: "/ms/suppliers",
+            period: selectedPeriod,
+          },
+          {
+            title: "Training Completion",
+            value: `${trainingCompletion}%`,
+            subtitle: `${trainingSummary.completed} of ${trainingSummary.total} completed`,
+            href: "/ms/training",
+            period: selectedPeriod,
+          },
+          {
+            title: "Open Grievances",
+            value: openGrievanceCount,
+            subtitle: `${totalGrievanceCount} total grievances`,
+            href: "/ms/grievances",
+            period: selectedPeriod,
+          },
+        ]}
+      />
 
       {/* Supplier Risk Trend Chart */}
-      <Typography variant="h6" gutterBottom sx={{ mt: 4 }}>
-        {chartType === "supplier"
-          ? "Supplier Risk Over Time"
-          : chartType === "training"
-            ? "Training Completion Over Time"
-            : "Grievances Over Time"}
-      </Typography>
-      <FormControl size="small" sx={{ minWidth: 180, mt: 2 }}>
-        <InputLabel>Chart Type</InputLabel>
-        <Select
-          value={chartType}
-          label="Chart Type"
-          onChange={(e) => setChartType(e.target.value)}
-        >
-          <MenuItem value="supplier">Supplier Risk</MenuItem>
-          <MenuItem value="training">Training Completion</MenuItem>
-          <MenuItem value="grievance">Grievances</MenuItem>
-        </Select>
-      </FormControl>
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={getChartData()}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="period" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          {chartType === "supplier" && (
-            <>
-              <Line
-                type="monotone"
-                dataKey="lowRisk"
-                stroke="#388e3c"
-                name="Low Risk"
-              />
-              <Line
-                type="monotone"
-                dataKey="mediumRisk"
-                stroke="#f9a825"
-                name="Medium Risk"
-              />
-              <Line
-                type="monotone"
-                dataKey="highRisk"
-                stroke="#d32f2f"
-                name="High Risk"
-              />
-            </>
-          )}
-          {chartType === "training" && (
-            <>
-              <Line
-                type="monotone"
-                dataKey="completed"
-                stroke="#388e3c"
-                name="Completed"
-              />
-              <Line
-                type="monotone"
-                dataKey="remaining"
-                stroke="#d32f2f"
-                name="Remaining"
-              />
-            </>
-          )}
-          {chartType === "grievance" && (
-            <>
-              <Line
-                type="monotone"
-                dataKey="open"
-                stroke="#d32f2f"
-                name="Open"
-              />
-              <Line
-                type="monotone"
-                dataKey="investigating"
-                stroke="#f9a825"
-                name="Investigating"
-              />
-              <Line
-                type="monotone"
-                dataKey="closed"
-                stroke="#388e3c"
-                name="Closed"
-              />
-            </>
-          )}
-        </LineChart>
-      </ResponsiveContainer>
+      <Box display="flex" justifyContent="flex-end" mt={3}>
+        <FormControl size="small" sx={{ minWidth: 200 }}>
+          <InputLabel>Chart Type</InputLabel>
+          <Select
+            value={chartType}
+            label="Chart Type"
+            onChange={(e) => setChartType(e.target.value)}
+          >
+            <MenuItem value="supplier">Supplier Risk</MenuItem>
+            <MenuItem value="training">Training Completion</MenuItem>
+            <MenuItem value="grievance">Grievances</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+      <DashboardChart
+        title={
+          chartType === "supplier"
+            ? "Supplier Risk Over Time"
+            : chartType === "training"
+              ? "Training Completion Over Time"
+              : "Grievances Over Time"
+        }
+        data={getChartData()}
+        xKey="period"
+        lines={chartConfigs(reportingPeriods)[chartType].lineKeys}
+      />
 
       {/* Reporting Periods Table */}
       <Typography variant="h5" gutterBottom sx={{ mt: 3 }}>

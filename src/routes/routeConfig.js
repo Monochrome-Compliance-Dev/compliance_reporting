@@ -1,7 +1,7 @@
 import RequireRoles from "./RequireRoles";
 import Role from "../context/role";
-import { ReportProvider } from "../context/ReportContext";
-import { TcpProvider } from "../context/TcpContext";
+import { ReportProvider, TcpProvider } from "../context/";
+import ComplianceDashboardLayout from "../components/layouts/ComplianceDashboardLayout";
 
 import Dashboard from "../features/users/Dashboard";
 import AdminDashboard from "../features/users/AdminDashboard";
@@ -133,7 +133,9 @@ export const protectedRoutes = [
     path: "/esg",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <EsgDashboard />
+        <ComplianceDashboardLayout title="ESG Dashboard" module="esg">
+          <EsgDashboard />
+        </ComplianceDashboardLayout>
       </RequireRoles>
     ),
   },
@@ -157,7 +159,9 @@ export const protectedRoutes = [
     path: "/ms",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <MsDashboard />
+        <ComplianceDashboardLayout title="Modern Slavery Dashboard" module="ms">
+          <MsDashboard />
+        </ComplianceDashboardLayout>
       </RequireRoles>
     ),
   },
@@ -178,7 +182,7 @@ export const protectedRoutes = [
     ),
   },
   {
-    path: "/ms/:reportingPeriodId/training",
+    path: "/ms/training",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <MsTraining />

@@ -1,6 +1,6 @@
 // Updated AppRouter.js to align with new /user, /admin, /boss structure
 import { createBrowserRouter, RouterProvider } from "react-router";
-import Layout from "../components/layout/Layout";
+import Layout from "../components/layouts/Layout";
 import RootErrorBoundary from "../components/navigation/RootErrorBoundary";
 import Fallback from "../components/common/Fallback";
 import LandingPage from "../components/common/LandingPage";

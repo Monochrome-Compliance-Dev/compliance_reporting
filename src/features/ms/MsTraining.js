@@ -1,71 +1,88 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 import { msService } from "../../services/ms/ms";
+import { StandardTable } from "../../components/shared/compliance";
+import { trainingColumns } from "../../components/shared/compliance/tableConfigs";
+import { useAlert } from "../../context/AlertContext";
+import { ConfirmDialog } from "../../components/ui/";
 
 function MsTraining() {
-  const { reportingPeriodId } = useParams();
   const [trainingData, setTrainingData] = useState([]);
+  const [dialogState, setDialogState] = useState(null);
+  const [editingRowId, setEditingRowId] = useState(null);
+  const { showAlert } = useAlert();
 
   useEffect(() => {
-    msService.getTrainingRecords(reportingPeriodId).then((data) => {
-      if (Array.isArray(data)) setTrainingData(data);
-      else console.warn("Unexpected response:", data);
+    msService.getTrainingRecords().then((data) => {
+      if (Array.isArray(data)) {
+        setTrainingData(data);
+      } else {
+        console.warn("Unexpected response:", data);
+      }
     });
-  }, [reportingPeriodId]);
+  }, []);
+
+  const handleEdit = async (updatedRecord) => {
+    try {
+      const result = await msService.updateTrainingRecord(
+        updatedRecord.id,
+        updatedRecord
+      );
+      setTrainingData((prev) =>
+        prev.map((r) => (r.id === result.id ? result : r))
+      );
+      setEditingRowId(null);
+      showAlert("Training record updated successfully.", "success");
+    } catch (err) {
+      console.error("Edit failed:", err);
+      showAlert("Failed to update training record.", "error");
+    }
+  };
+
+  const handleDelete = (record) => {
+    const confirmedDelete = async () => {
+      try {
+        await msService.deleteTrainingRecord(record.id);
+        setTrainingData((prev) => prev.filter((r) => r.id !== record.id));
+        showAlert("Training record deleted successfully.", "success");
+      } catch (err) {
+        console.error("Delete failed:", err);
+        showAlert("Failed to delete training record.", "error");
+      } finally {
+        setDialogState(null);
+      }
+    };
+
+    setDialogState({
+      title: `Delete training record`,
+      content: `Are you sure you want to delete the training record for ${record.employeeName}? This action cannot be undone.`,
+      onClose: () => setDialogState(null),
+      onConfirm: confirmedDelete,
+    });
+  };
 
   return (
     <>
       <Button onClick={() => console.log("Add clicked")} sx={{ mb: 2 }}>
         Add Training Record
       </Button>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Employee Name</TableCell>
-              <TableCell>Department</TableCell>
-              <TableCell>Training Completed</TableCell>
-              <TableCell>Date Completed</TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {trainingData.map((row, idx) => (
-              <TableRow key={idx}>
-                <TableCell>{row.name}</TableCell>
-                <TableCell>{row.department}</TableCell>
-                <TableCell>{row.completed}</TableCell>
-                <TableCell>{row.date}</TableCell>
-                <TableCell>
-                  <Stack direction="row" spacing={1}>
-                    <Button
-                      size="small"
-                      onClick={() => console.log("Edit", row)}
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      size="small"
-                      onClick={() => console.log("Delete", row)}
-                    >
-                      Delete
-                    </Button>
-                  </Stack>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <StandardTable
+        columns={trainingColumns}
+        rows={trainingData}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+        editingRowId={editingRowId}
+        setEditingRowId={setEditingRowId}
+      />
+      {dialogState && (
+        <ConfirmDialog
+          open={true}
+          title={dialogState.title}
+          content={dialogState.content}
+          onClose={dialogState.onClose || (() => setDialogState(null))}
+          onConfirm={dialogState.onConfirm}
+        />
+      )}
     </>
   );
 }

@@ -1,30 +1,17 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Typography,
-  Box,
-  Button,
-  Stack,
-} from "@mui/material";
+import { StandardTable } from "../../components/shared/compliance/StandardTable";
+import { Typography, Box, Button } from "@mui/material";
 import { msService } from "../../services/ms/ms";
 
 function MsSupplierRisks() {
-  const { reportingPeriodId } = useParams();
   const [supplierRisks, setSupplierRisks] = useState([]);
 
   useEffect(() => {
-    msService.getSupplierRisks(reportingPeriodId).then((data) => {
+    msService.getSupplierRisks().then((data) => {
       if (Array.isArray(data)) setSupplierRisks(data);
       else console.warn("Unexpected response:", data);
     });
-  }, [reportingPeriodId]);
+  }, []);
 
   return (
     <Box>
@@ -34,45 +21,17 @@ function MsSupplierRisks() {
       <Button onClick={() => console.log("Add clicked")} sx={{ mb: 2 }}>
         Add Supplier Risk
       </Button>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Supplier Name</TableCell>
-              <TableCell>Country</TableCell>
-              <TableCell>Risk Level</TableCell>
-              <TableCell>Last Reviewed</TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {supplierRisks.map((row, idx) => (
-              <TableRow key={idx}>
-                <TableCell>{row.name}</TableCell>
-                <TableCell>{row.country}</TableCell>
-                <TableCell>{row.risk}</TableCell>
-                <TableCell>{row.reviewed}</TableCell>
-                <TableCell>
-                  <Stack direction="row" spacing={1}>
-                    <Button
-                      size="small"
-                      onClick={() => console.log("Edit", row)}
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      size="small"
-                      onClick={() => console.log("Delete", row)}
-                    >
-                      Delete
-                    </Button>
-                  </Stack>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <StandardTable
+        rows={supplierRisks}
+        columns={[
+          { label: "Supplier Name", key: "name" },
+          { label: "Country", key: "country" },
+          { label: "Risk Level", key: "risk" },
+          { label: "Last Reviewed", key: "reviewed" },
+        ]}
+        onEdit={(row) => console.log("Edit", row)}
+        onDelete={(row) => console.log("Delete", row)}
+      />
     </Box>
   );
 }

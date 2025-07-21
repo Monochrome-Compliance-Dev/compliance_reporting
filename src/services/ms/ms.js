@@ -10,18 +10,32 @@ export const msService = {
   submitInterviewResponses,
   getSupplierRisks,
   createSupplierRisk,
+  updateSupplierRisk,
   deleteSupplierRisk,
   getTrainingRecords,
   createTrainingRecord,
+  updateTrainingRecord,
   deleteTrainingRecord,
   getGrievances,
   createGrievance,
+  updateGrievanceRecord,
   deleteGrievance,
   generateStatement,
   getSupplierRiskSummary,
   getTrainingStats,
   getGrievanceSummary,
 };
+
+// Helper to build query params
+function buildQueryParams(params) {
+  const searchParams = new URLSearchParams();
+  for (const key in params) {
+    if (params[key] !== undefined && params[key] !== null) {
+      searchParams.append(key, params[key]);
+    }
+  }
+  return searchParams.toString();
+}
 
 // Reporting Periods
 async function getReportingPeriods() {
@@ -51,63 +65,63 @@ async function submitInterviewResponses(reportingPeriodId, params) {
 }
 
 // Supplier Risks
-async function getSupplierRisks(reportingPeriodId) {
+async function getSupplierRisks(startDate, endDate) {
+  const query = buildQueryParams({ startDate, endDate });
   return await fetchWrapper.get(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/supplier-risks`
+    `${baseUrl}/supplier-risks${query ? `?${query}` : ""}`
   );
 }
 
-async function createSupplierRisk(reportingPeriodId, params) {
-  return await fetchWrapper.post(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/supplier-risks`,
-    params
-  );
+async function createSupplierRisk(params) {
+  return await fetchWrapper.post(`${baseUrl}/supplier-risks`, params);
 }
 
-async function deleteSupplierRisk(reportingPeriodId, riskId) {
-  return await fetchWrapper.delete(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/supplier-risks/${riskId}`
-  );
+async function updateSupplierRisk(id, params) {
+  return await fetchWrapper.put(`${baseUrl}/supplier-risks/${id}`, params);
+}
+
+async function deleteSupplierRisk(riskId) {
+  return await fetchWrapper.delete(`${baseUrl}/supplier-risks/${riskId}`);
 }
 
 // Training Records
-async function getTrainingRecords(reportingPeriodId) {
+async function getTrainingRecords(startDate, endDate) {
+  const query = buildQueryParams({ startDate, endDate });
   return await fetchWrapper.get(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/training`
+    `${baseUrl}/training${query ? `?${query}` : ""}`
   );
 }
 
-async function createTrainingRecord(reportingPeriodId, params) {
-  return await fetchWrapper.post(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/training`,
-    params
-  );
+async function createTrainingRecord(params) {
+  return await fetchWrapper.post(`${baseUrl}/training`, params);
 }
 
-async function deleteTrainingRecord(reportingPeriodId, recordId) {
-  return await fetchWrapper.delete(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/training/${recordId}`
-  );
+async function updateTrainingRecord(recordId, params) {
+  return await fetchWrapper.put(`${baseUrl}/training/${recordId}`, params);
+}
+
+async function deleteTrainingRecord(recordId) {
+  return await fetchWrapper.delete(`${baseUrl}/training/${recordId}`);
 }
 
 // Grievances
-async function getGrievances(reportingPeriodId) {
+async function getGrievances(startDate, endDate) {
+  const query = buildQueryParams({ startDate, endDate });
   return await fetchWrapper.get(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/grievances`
+    `${baseUrl}/grievances${query ? `?${query}` : ""}`
   );
 }
 
-async function createGrievance(reportingPeriodId, params) {
-  return await fetchWrapper.post(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/grievances`,
-    params
-  );
+async function createGrievance(params) {
+  return await fetchWrapper.post(`${baseUrl}/grievances`, params);
 }
 
-async function deleteGrievance(reportingPeriodId, grievanceId) {
-  return await fetchWrapper.delete(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/grievances/${grievanceId}`
-  );
+async function updateGrievanceRecord(grievanceId, params) {
+  return await fetchWrapper.put(`${baseUrl}/grievances/${grievanceId}`, params);
+}
+
+async function deleteGrievance(grievanceId) {
+  return await fetchWrapper.delete(`${baseUrl}/grievances/${grievanceId}`);
 }
 
 // Generate Statement

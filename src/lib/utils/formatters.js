@@ -1,3 +1,8 @@
+export function formatIsoDate(dateStr) {
+  if (!dateStr) return "-";
+  const date = new Date(dateStr);
+  return date.toISOString().split("T")[0];
+}
 export function formatDateForMySQL(dateStr) {
   if (!dateStr) return null;
   const date = new Date(dateStr);
