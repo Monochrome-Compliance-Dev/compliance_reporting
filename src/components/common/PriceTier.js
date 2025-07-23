@@ -17,8 +17,8 @@ import { useNavigate } from "react-router";
 const tiers = [
   {
     title: "Compliance Base",
-    monthlyPrice: 950,
-    annualPrice: 950 * 12 * 0.95,
+    monthlyPrice: 2500,
+    annualPrice: 2500 * 12 * 0.95,
     description: [
       "3 compliance obligations (e.g. Payment Times Reporting, Modern Slavery Statement)",
       "Guided template setup",
@@ -32,8 +32,8 @@ const tiers = [
   },
   {
     title: ".....   Compliance Growth",
-    monthlyPrice: 1850,
-    annualPrice: 1850 * 12 * 0.95,
+    monthlyPrice: 4000,
+    annualPrice: 4000 * 12 * 0.95,
     mostPopular: true,
     description: [
       "Everything in Base, plus:",
@@ -49,8 +49,8 @@ const tiers = [
   },
   {
     title: "Compliance Enterprise",
-    monthlyPrice: 3500,
-    annualPrice: 3500 * 12 * 0.95,
+    monthlyPrice: 6500,
+    annualPrice: 6500 * 12 * 0.95,
     description: [
       "Everything in Growth, plus:",
       "Custom training & onboarding",
