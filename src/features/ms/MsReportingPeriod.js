@@ -37,7 +37,7 @@ const MsReportingPeriod = () => {
         console.log("Interview:", interview);
         const risks = await msService.getSupplierRisks(reportingPeriodId);
         console.log("Risks:", risks);
-        const training = await msService.getTrainingRecords(reportingPeriodId);
+        const training = await msService.getTraining(reportingPeriodId);
         console.log("Training:", training);
         const grievances = await msService.getGrievances(reportingPeriodId);
         console.log("Grievances:", grievances);
@@ -110,7 +110,7 @@ const MsReportingPeriod = () => {
         sx={{ mb: 2 }}
         startIcon={<SchoolIcon />}
       >
-        Manage Training Records (4)
+        Manage Training Records // count of training records in state
       </Button>
       <Button
         variant="contained"

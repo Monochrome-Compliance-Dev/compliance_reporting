@@ -145,7 +145,7 @@ const MsDashboard = ({ selectedPeriod, reportingPeriods }) => {
             title: "High Risk Suppliers",
             value: highRiskSupplierCount,
             subtitle: "Suppliers flagged as high risk",
-            href: "/ms/suppliers",
+            href: "/ms/supplier-risks",
             period: selectedPeriod,
           },
           {

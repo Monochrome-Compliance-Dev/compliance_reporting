@@ -25,7 +25,7 @@ import {
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { formatCurrency, formatDateForMySQL } from "../../../lib/utils/";
+import { formatCurrency, formatDateForSQL } from "../../../lib/utils/";
 import { getRowHighlightColor } from "../../../lib/utils/highlightRow";
 import { fieldMapping } from "./fieldMapping";
 import { useReportContext } from "../../../context";
@@ -556,9 +556,9 @@ export default function CollapsibleTable({ editableFields, hiddenColumns }) {
                                   formatCurrency(record[field.name])
                                 ) : field.type === "date" ? (
                                   record[field.name] ? (
-                                    formatDateForMySQL(
-                                      record[field.name]
-                                    ).split(" ")[0]
+                                    formatDateForSQL(record[field.name]).split(
+                                      " "
+                                    )[0]
                                   ) : (
                                     "-"
                                   )

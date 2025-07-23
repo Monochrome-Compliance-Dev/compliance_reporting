@@ -190,7 +190,7 @@ export const protectedRoutes = [
     ),
   },
   {
-    path: "/ms/:reportingPeriodId/grievances",
+    path: "/ms/grievances",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <MsGrievances />
@@ -198,7 +198,7 @@ export const protectedRoutes = [
     ),
   },
   {
-    path: "/ms/:reportingPeriodId/supplier-risks",
+    path: "/ms/supplier-risks",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <MsSupplierRisks />

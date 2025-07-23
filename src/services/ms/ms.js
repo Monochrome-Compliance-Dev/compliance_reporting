@@ -12,13 +12,13 @@ export const msService = {
   createSupplierRisk,
   updateSupplierRisk,
   deleteSupplierRisk,
-  getTrainingRecords,
-  createTrainingRecord,
-  updateTrainingRecord,
-  deleteTrainingRecord,
+  getTraining,
+  createTraining,
+  updateTraining,
+  deleteTraining,
   getGrievances,
   createGrievance,
-  updateGrievanceRecord,
+  updateGrievance,
   deleteGrievance,
   generateStatement,
   getSupplierRiskSummary,
@@ -85,22 +85,22 @@ async function deleteSupplierRisk(riskId) {
 }
 
 // Training Records
-async function getTrainingRecords(startDate, endDate) {
+async function getTraining(startDate, endDate) {
   const query = buildQueryParams({ startDate, endDate });
   return await fetchWrapper.get(
     `${baseUrl}/training${query ? `?${query}` : ""}`
   );
 }
 
-async function createTrainingRecord(params) {
+async function createTraining(params) {
   return await fetchWrapper.post(`${baseUrl}/training`, params);
 }
 
-async function updateTrainingRecord(recordId, params) {
+async function updateTraining(recordId, params) {
   return await fetchWrapper.put(`${baseUrl}/training/${recordId}`, params);
 }
 
-async function deleteTrainingRecord(recordId) {
+async function deleteTraining(recordId) {
   return await fetchWrapper.delete(`${baseUrl}/training/${recordId}`);
 }
 
@@ -116,7 +116,7 @@ async function createGrievance(params) {
   return await fetchWrapper.post(`${baseUrl}/grievances`, params);
 }
 
-async function updateGrievanceRecord(grievanceId, params) {
+async function updateGrievance(grievanceId, params) {
   return await fetchWrapper.put(`${baseUrl}/grievances/${grievanceId}`, params);
 }
 

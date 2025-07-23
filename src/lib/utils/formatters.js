@@ -3,7 +3,7 @@ export function formatIsoDate(dateStr) {
   const date = new Date(dateStr);
   return date.toISOString().split("T")[0];
 }
-export function formatDateForMySQL(dateStr) {
+export function formatDateForSQL(dateStr) {
   if (!dateStr) return null;
   const date = new Date(dateStr);
   const pad = (n) => (n < 10 ? "0" + n : n);
