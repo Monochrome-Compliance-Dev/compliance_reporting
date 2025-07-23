@@ -56,14 +56,21 @@ function MsTraining() {
 
   const filteredRecords = useMemo(() => {
     return records.filter((record) => {
-      const passesFuzzy = Object.entries(filtersFuzzy).every(([key, value]) =>
-        String(record[key] || "")
-          .toLowerCase()
-          .includes(value.toLowerCase())
-      );
-      const passesExact = Object.entries(filtersExact).every(
-        ([key, value]) => value === "" || String(record[key] || "") === value
-      );
+      const passesFuzzy = Object.entries(filtersFuzzy).every(([key, value]) => {
+        let targetValue = record[key] ?? "";
+        if (key === "completed") {
+          targetValue = record.completed ? "Yes" : "No";
+        }
+        return String(targetValue).toLowerCase().includes(value.toLowerCase());
+      });
+      const passesExact = Object.entries(filtersExact).every(([key, value]) => {
+        if (value === "") return true;
+        let recordVal = record[key] ?? "";
+        if (key === "completed") {
+          recordVal = record.completed ? "Yes" : "No";
+        }
+        return String(recordVal) === value;
+      });
       return passesFuzzy && passesExact;
     });
   }, [records, filtersFuzzy, filtersExact]);
@@ -237,19 +244,29 @@ function MsTraining() {
       {/* Remove global search bar, since filtering is now per-column */}
       <Paper>
         <TableContainer sx={{ maxHeight: 440 }}>
-          <Table stickyHeader>
+          <Table stickyHeader size="small">
             <TableHead>
               <TableRow>
                 {/* Employee Name */}
-                <TableCell sx={{ fontWeight: "bold", verticalAlign: "bottom" }}>
+                <TableCell
+                  sx={{
+                    fontWeight: "bold",
+                    verticalAlign: "bottom",
+                    py: 0.25,
+                    pl: 0.5,
+                    pr: 0.5,
+                  }}
+                >
                   <Box
                     display="flex"
                     alignItems="center"
-                    justifyContent="space-between"
+                    gap={0.5}
+                    flexWrap="nowrap"
                   >
-                    Employee Name
+                    <span style={{ flex: 1 }}>Employee Name</span>
                     <IconButton
                       size="small"
+                      sx={{ p: 0, ml: 0.5, flexShrink: 0 }}
                       onClick={() =>
                         setSortConfig((prev) => ({
                           ...prev,
@@ -269,53 +286,77 @@ function MsTraining() {
                         : "↕️"}
                     </IconButton>
                   </Box>
-                  <TextField
-                    size="small"
-                    variant="standard"
-                    placeholder="Contains..."
-                    value={filtersFuzzy.employeeName ?? ""}
-                    onChange={(e) =>
-                      setFiltersFuzzy((prev) => ({
-                        ...prev,
-                        employeeName: e.target.value,
-                      }))
-                    }
-                    sx={{ mb: 0.5 }}
-                  />
-                  <Select
-                    size="small"
-                    variant="standard"
-                    displayEmpty
-                    fullWidth
-                    value={filtersExact.employeeName ?? ""}
-                    onChange={(e) =>
-                      setFiltersExact((prev) => ({
-                        ...prev,
-                        employeeName: e.target.value,
-                      }))
-                    }
-                  >
-                    <MenuItem value="">(All)</MenuItem>
-                    {[...new Set(records.map((r) => r.employeeName || ""))]
-                      .filter((v) => v)
-                      .sort((a, b) => a.localeCompare(b))
-                      .map((option) => (
-                        <MenuItem key={option} value={option}>
-                          {option}
-                        </MenuItem>
-                      ))}
-                  </Select>
+                  <Box display="flex" alignItems="center" gap={0.5}>
+                    <TextField
+                      size="small"
+                      variant="standard"
+                      placeholder="Contains..."
+                      value={filtersFuzzy.employeeName ?? ""}
+                      onChange={(e) =>
+                        setFiltersFuzzy((prev) => ({
+                          ...prev,
+                          employeeName: e.target.value,
+                        }))
+                      }
+                      sx={{
+                        mb: 0.2,
+                        maxWidth: 80,
+                        fontSize: "0.75rem",
+                        minWidth: 0,
+                      }}
+                      InputProps={{ style: { fontSize: "0.75rem" } }}
+                    />
+                    <Select
+                      size="small"
+                      variant="standard"
+                      displayEmpty
+                      value={filtersExact.employeeName ?? ""}
+                      onChange={(e) =>
+                        setFiltersExact((prev) => ({
+                          ...prev,
+                          employeeName: e.target.value,
+                        }))
+                      }
+                      sx={{
+                        mb: 0.2,
+                        maxWidth: 80,
+                        fontSize: "0.75rem",
+                        minWidth: 0,
+                      }}
+                      inputProps={{ style: { fontSize: "0.75rem" } }}
+                    >
+                      <MenuItem value="">(All)</MenuItem>
+                      {[...new Set(records.map((r) => r.employeeName || ""))]
+                        .filter((v) => v)
+                        .sort((a, b) => a.localeCompare(b))
+                        .map((option) => (
+                          <MenuItem key={option} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                    </Select>
+                  </Box>
                 </TableCell>
                 {/* Department */}
-                <TableCell sx={{ fontWeight: "bold", verticalAlign: "bottom" }}>
+                <TableCell
+                  sx={{
+                    fontWeight: "bold",
+                    verticalAlign: "bottom",
+                    py: 0.25,
+                    pl: 0.5,
+                    pr: 0.5,
+                  }}
+                >
                   <Box
                     display="flex"
                     alignItems="center"
-                    justifyContent="space-between"
+                    gap={0.5}
+                    flexWrap="nowrap"
                   >
-                    Department
+                    <span style={{ flex: 1 }}>Department</span>
                     <IconButton
                       size="small"
+                      sx={{ p: 0, ml: 0.5, flexShrink: 0 }}
                       onClick={() =>
                         setSortConfig((prev) => ({
                           ...prev,
@@ -335,53 +376,77 @@ function MsTraining() {
                         : "↕️"}
                     </IconButton>
                   </Box>
-                  <TextField
-                    size="small"
-                    variant="standard"
-                    placeholder="Contains..."
-                    value={filtersFuzzy.department ?? ""}
-                    onChange={(e) =>
-                      setFiltersFuzzy((prev) => ({
-                        ...prev,
-                        department: e.target.value,
-                      }))
-                    }
-                    sx={{ mb: 0.5 }}
-                  />
-                  <Select
-                    size="small"
-                    variant="standard"
-                    displayEmpty
-                    fullWidth
-                    value={filtersExact.department ?? ""}
-                    onChange={(e) =>
-                      setFiltersExact((prev) => ({
-                        ...prev,
-                        department: e.target.value,
-                      }))
-                    }
-                  >
-                    <MenuItem value="">(All)</MenuItem>
-                    {[...new Set(records.map((r) => r.department || ""))]
-                      .filter((v) => v)
-                      .sort((a, b) => a.localeCompare(b))
-                      .map((option) => (
-                        <MenuItem key={option} value={option}>
-                          {option}
-                        </MenuItem>
-                      ))}
-                  </Select>
+                  <Box display="flex" alignItems="center" gap={0.5}>
+                    <TextField
+                      size="small"
+                      variant="standard"
+                      placeholder="Contains..."
+                      value={filtersFuzzy.department ?? ""}
+                      onChange={(e) =>
+                        setFiltersFuzzy((prev) => ({
+                          ...prev,
+                          department: e.target.value,
+                        }))
+                      }
+                      sx={{
+                        mb: 0.2,
+                        maxWidth: 80,
+                        fontSize: "0.75rem",
+                        minWidth: 0,
+                      }}
+                      InputProps={{ style: { fontSize: "0.75rem" } }}
+                    />
+                    <Select
+                      size="small"
+                      variant="standard"
+                      displayEmpty
+                      value={filtersExact.department ?? ""}
+                      onChange={(e) =>
+                        setFiltersExact((prev) => ({
+                          ...prev,
+                          department: e.target.value,
+                        }))
+                      }
+                      sx={{
+                        mb: 0.2,
+                        maxWidth: 80,
+                        fontSize: "0.75rem",
+                        minWidth: 0,
+                      }}
+                      inputProps={{ style: { fontSize: "0.75rem" } }}
+                    >
+                      <MenuItem value="">(All)</MenuItem>
+                      {[...new Set(records.map((r) => r.department || ""))]
+                        .filter((v) => v)
+                        .sort((a, b) => a.localeCompare(b))
+                        .map((option) => (
+                          <MenuItem key={option} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                    </Select>
+                  </Box>
                 </TableCell>
                 {/* Completed */}
-                <TableCell sx={{ fontWeight: "bold", verticalAlign: "bottom" }}>
+                <TableCell
+                  sx={{
+                    fontWeight: "bold",
+                    verticalAlign: "bottom",
+                    py: 0.25,
+                    pl: 0.5,
+                    pr: 0.5,
+                  }}
+                >
                   <Box
                     display="flex"
                     alignItems="center"
-                    justifyContent="space-between"
+                    gap={0.5}
+                    flexWrap="nowrap"
                   >
-                    Completed
+                    <span style={{ flex: 1 }}>Completed</span>
                     <IconButton
                       size="small"
+                      sx={{ p: 0, ml: 0.5, flexShrink: 0 }}
                       onClick={() =>
                         setSortConfig((prev) => ({
                           ...prev,
@@ -400,47 +465,71 @@ function MsTraining() {
                         : "↕️"}
                     </IconButton>
                   </Box>
-                  <TextField
-                    size="small"
-                    variant="standard"
-                    placeholder="Contains..."
-                    value={filtersFuzzy.completed ?? ""}
-                    onChange={(e) =>
-                      setFiltersFuzzy((prev) => ({
-                        ...prev,
-                        completed: e.target.value,
-                      }))
-                    }
-                    sx={{ mb: 0.5 }}
-                  />
-                  <Select
-                    size="small"
-                    variant="standard"
-                    fullWidth
-                    displayEmpty
-                    value={filtersExact.completed ?? ""}
-                    onChange={(e) =>
-                      setFiltersExact((prev) => ({
-                        ...prev,
-                        completed: e.target.value,
-                      }))
-                    }
-                  >
-                    <MenuItem value="">(All)</MenuItem>
-                    <MenuItem value="Yes">Yes</MenuItem>
-                    <MenuItem value="No">No</MenuItem>
-                  </Select>
+                  <Box display="flex" alignItems="center" gap={0.5}>
+                    <TextField
+                      size="small"
+                      variant="standard"
+                      placeholder="Contains..."
+                      value={filtersFuzzy.completed ?? ""}
+                      onChange={(e) =>
+                        setFiltersFuzzy((prev) => ({
+                          ...prev,
+                          completed: e.target.value,
+                        }))
+                      }
+                      sx={{
+                        mb: 0.2,
+                        maxWidth: 80,
+                        fontSize: "0.75rem",
+                        minWidth: 0,
+                      }}
+                      InputProps={{ style: { fontSize: "0.75rem" } }}
+                    />
+                    <Select
+                      size="small"
+                      variant="standard"
+                      displayEmpty
+                      value={filtersExact.completed ?? ""}
+                      onChange={(e) =>
+                        setFiltersExact((prev) => ({
+                          ...prev,
+                          completed: e.target.value,
+                        }))
+                      }
+                      sx={{
+                        mb: 0.2,
+                        maxWidth: 80,
+                        fontSize: "0.75rem",
+                        minWidth: 0,
+                      }}
+                      inputProps={{ style: { fontSize: "0.75rem" } }}
+                    >
+                      <MenuItem value="">(All)</MenuItem>
+                      <MenuItem value="Yes">Yes</MenuItem>
+                      <MenuItem value="No">No</MenuItem>
+                    </Select>
+                  </Box>
                 </TableCell>
                 {/* Completed Date */}
-                <TableCell sx={{ fontWeight: "bold", verticalAlign: "bottom" }}>
+                <TableCell
+                  sx={{
+                    fontWeight: "bold",
+                    verticalAlign: "bottom",
+                    py: 0.25,
+                    pl: 0.5,
+                    pr: 0.5,
+                  }}
+                >
                   <Box
                     display="flex"
                     alignItems="center"
-                    justifyContent="space-between"
+                    gap={0.5}
+                    flexWrap="nowrap"
                   >
-                    Completed Date
+                    <span style={{ flex: 1 }}>Completed Date</span>
                     <IconButton
                       size="small"
+                      sx={{ p: 0, ml: 0.5, flexShrink: 0 }}
                       onClick={() =>
                         setSortConfig((prev) => ({
                           ...prev,
@@ -460,51 +549,73 @@ function MsTraining() {
                         : "↕️"}
                     </IconButton>
                   </Box>
-                  <TextField
-                    size="small"
-                    variant="standard"
-                    placeholder="Contains..."
-                    value={filtersFuzzy.completedAt ?? ""}
-                    onChange={(e) =>
-                      setFiltersFuzzy((prev) => ({
-                        ...prev,
-                        completedAt: e.target.value,
-                      }))
-                    }
-                    sx={{ mb: 0.5 }}
-                  />
-                  <Select
-                    size="small"
-                    variant="standard"
-                    fullWidth
-                    displayEmpty
-                    value={filtersExact.completedAt ?? ""}
-                    onChange={(e) =>
-                      setFiltersExact((prev) => ({
-                        ...prev,
-                        completedAt: e.target.value,
-                      }))
-                    }
-                  >
-                    <MenuItem value="">(All)</MenuItem>
-                    {[
-                      ...new Set(
-                        records.map((r) =>
-                          r.completedAt ? formatIsoDate(r.completedAt) : ""
-                        )
-                      ),
-                    ]
-                      .filter((v) => v)
-                      .sort((a, b) => a.localeCompare(b))
-                      .map((option) => (
-                        <MenuItem key={option} value={option}>
-                          {option}
-                        </MenuItem>
-                      ))}
-                  </Select>
+                  <Box display="flex" alignItems="center" gap={0.5}>
+                    <TextField
+                      size="small"
+                      variant="standard"
+                      placeholder="Contains..."
+                      value={filtersFuzzy.completedAt ?? ""}
+                      onChange={(e) =>
+                        setFiltersFuzzy((prev) => ({
+                          ...prev,
+                          completedAt: e.target.value,
+                        }))
+                      }
+                      sx={{
+                        mb: 0.2,
+                        maxWidth: 80,
+                        fontSize: "0.75rem",
+                        minWidth: 0,
+                      }}
+                      InputProps={{ style: { fontSize: "0.75rem" } }}
+                    />
+                    <Select
+                      size="small"
+                      variant="standard"
+                      displayEmpty
+                      value={filtersExact.completedAt ?? ""}
+                      onChange={(e) =>
+                        setFiltersExact((prev) => ({
+                          ...prev,
+                          completedAt: e.target.value,
+                        }))
+                      }
+                      sx={{
+                        mb: 0.2,
+                        maxWidth: 80,
+                        fontSize: "0.75rem",
+                        minWidth: 0,
+                      }}
+                      inputProps={{ style: { fontSize: "0.75rem" } }}
+                    >
+                      <MenuItem value="">(All)</MenuItem>
+                      {[
+                        ...new Set(
+                          records.map((r) =>
+                            r.completedAt ? formatIsoDate(r.completedAt) : ""
+                          )
+                        ),
+                      ]
+                        .filter((v) => v)
+                        .sort((a, b) => a.localeCompare(b))
+                        .map((option) => (
+                          <MenuItem key={option} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                    </Select>
+                  </Box>
                 </TableCell>
                 {/* Actions */}
-                <TableCell sx={{ fontWeight: "bold", verticalAlign: "bottom" }}>
+                <TableCell
+                  sx={{
+                    fontWeight: "bold",
+                    verticalAlign: "top",
+                    py: 0.25,
+                    pl: 3,
+                    pr: 0.5,
+                  }}
+                >
                   Actions
                 </TableCell>
               </TableRow>
