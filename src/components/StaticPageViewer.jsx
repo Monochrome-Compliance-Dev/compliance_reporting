@@ -31,19 +31,6 @@ const StaticPageViewer = () => {
 
   return (
     <Box sx={{ maxWidth: "900px", mx: "auto", p: 4 }}>
-      <Typography
-        variant="h3"
-        component="h1"
-        sx={{
-          fontWeight: "bold",
-          mb: 3,
-          borderBottom: "2px solid",
-          borderColor: "primary.main",
-          pb: 1,
-        }}
-      >
-        {content.split("\n")[0].replace(/^#*/, "").trim()}
-      </Typography>
       <Box
         sx={{
           p: 3,
