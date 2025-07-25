@@ -31,6 +31,9 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [gettingStartedAnchor, setGettingStartedAnchor] = useState(null);
   const [connectAnchor, setConnectAnchor] = useState(null);
+  const [partnersAnchor, setPartnersAnchor] = useState(null);
+  const handlePartnersOpen = (event) => setPartnersAnchor(event.currentTarget);
+  const handlePartnersClose = () => setPartnersAnchor(null);
   const [adminAnchor, setAdminAnchor] = useState(null);
   const [solutionsAnchor, setSolutionsAnchor] = useState(null);
   const handleSolutionsOpen = (event) =>
@@ -277,6 +280,41 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
           </Menu> */}
           <Button
             color="inherit"
+            onClick={handlePartnersOpen}
+            sx={{
+              color: theme.palette.text.primary,
+              display: "flex",
+              alignItems: "center",
+            }}
+            endIcon={<ExpandMoreIcon />}
+          >
+            Partners
+          </Button>
+          <Menu
+            anchorEl={partnersAnchor}
+            open={Boolean(partnersAnchor)}
+            onClose={handlePartnersClose}
+            sx={{ mt: 1 }}
+          >
+            <MenuItem
+              onClick={handlePartnersClose}
+              component={Link}
+              to="/partners"
+            >
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Overview
+            </MenuItem>
+            <MenuItem
+              onClick={handlePartnersClose}
+              component={Link}
+              to="/partners/products/modern-slavery"
+            >
+              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              Modern Slavery
+            </MenuItem>
+          </Menu>
+          <Button
+            color="inherit"
             onClick={handleConnectOpen}
             sx={{
               color: theme.palette.text.primary,
@@ -448,6 +486,14 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               sx={{ color: theme.palette.text.primary }}
             >
               About
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/partners"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Partners
             </MenuItem>
           </Menu>
         </Box>

@@ -12,7 +12,7 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import { fileService } from "../../services/file/file";
 import { useAlert } from "../../context/";
-import LoadingSpinner from "../../components/ui/LoadingSpinner";
+import { LoadingSpinner } from "../../components/ui/";
 
 export default function FileAttachments({
   indicatorId,

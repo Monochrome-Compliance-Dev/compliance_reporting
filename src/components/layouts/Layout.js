@@ -9,7 +9,7 @@ import ProcessFlow from "../../features/reports/ptrs/ProcessFlow";
 import { Alert, Snackbar } from "@mui/material";
 import globalTheme from "../../theme/globalTheme"; // Ensure the import matches the export
 import { useAlert } from "../../context/AlertContext";
-import LoadingSpinner from "../ui/LoadingSpinner"; // If you have a spinner component
+import { LoadingSpinner } from "../ui/"; // If you have a spinner component
 import useGtagPageview from "../../hooks/useGtagPageview";
 
 export default function Layout() {

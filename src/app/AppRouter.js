@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Layout from "../components/layouts/Layout";
 import RootErrorBoundary from "../components/navigation/RootErrorBoundary";
 import Fallback from "../components/common/Fallback";
-import LandingPage from "../components/common/LandingPage";
+import LandingPage from "../components/static/LandingPage";
 import { protectedRoutes } from "../routes/routeConfig";
 import { publicRoutes } from "../routes/publicRoutes";
 

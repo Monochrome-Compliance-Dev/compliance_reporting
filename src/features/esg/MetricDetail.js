@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 import { esgService } from "../../services/esg/esg";
 import { useAlert } from "../../context/";
 import FileAttachments from "../files/FileAttachments";
-import LoadingSpinner from "../../components/ui/LoadingSpinner";
+import { LoadingSpinner } from "../../components/ui/";
 
 export default function MetricDetail() {
   const { metricId } = useParams();

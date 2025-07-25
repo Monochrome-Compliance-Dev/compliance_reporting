@@ -1,7 +1,7 @@
 import ClientRegister from "../features/clients/ClientRegister";
 
 // Publicly available
-import Contact from "../components/common/Contact";
+import Contact from "../components/forms/Contact";
 import PublicComplianceNavigator from "../solutions/ptrs/PublicComplianceNavigator";
 import PTRSolution from "../solutions/ptrs/PTRSolution";
 import ResourcePage from "../solutions/ptrs/ResourcePage";
@@ -12,7 +12,7 @@ import ClientServiceAgreement from "../components/policies/ClientServiceAgreemen
 import PrivacyPolicy from "../components/policies/PrivacyPolicy";
 
 // Static page viewer
-import StaticPageViewer from "../components/StaticPageViewer";
+import StaticPageViewer from "../components/shared/StaticPageViewer";
 
 // PTRS
 // Testing pdf email
@@ -23,21 +23,21 @@ import ResetPassword from "../features/users/ResetPassword";
 import Login from "../features/users/Login";
 import GettingStartedPage from "../solutions/ptrs/GettingStarted";
 import FAQ from "../solutions/ptrs/FAQ";
-import Booking from "../components/common/Booking";
-import ContactThankyou from "../components/common/ContactThankyou";
-import BookingThankyou from "../components/common/BookingThankyou";
+import Booking from "../components/forms/Booking";
+import ContactThankyou from "../components/forms/ContactThankyou";
+import BookingThankyou from "../components/forms/BookingThankyou";
 import BlogIndex from "../routes/BlogIndex";
 import LegalDisclaimer from "../components/policies/LegalDisclaimer";
 import VerifyEmail from "../features/users/VerifyEmail";
 import FirstUserRegister from "../features/users/FirstUserRegister";
 // import PtrsPriceTier:PriceTier from "../components/ptrs/PriceTier";
-import SignUp from "../components/common/SignUp";
-import SignUpThankyou from "../components/common/SignUpThankyou";
-import CompNavThankyou from "../components/common/CompNavThankyou";
+import SignUp from "../components/forms/SignUp";
+import SignUpThankyou from "../components/forms/SignUpThankyou";
+import CompNavThankyou from "../components/forms/CompNavThankyou";
 
 // CaaS
-import LandingPage from "../components/common/LandingPage";
-import PriceTier from "../components/common/PriceTier";
+import LandingPage from "../components/static/LandingPage";
+import PriceTier from "../components/pricing/PriceTier";
 
 // Solutions
 import Solutions from "../solutions/Solutions";
@@ -52,7 +52,9 @@ import ESGReporting from "../solutions/esg/ESGReporting";
 
 // TODO: add Testimonials component
 // import Testimonials from "../components/common/Testimonials";
-import About from "../components/common/About";
+import About from "../components/static/About";
+import PartnersLanding from "../components/partners/PartnersLanding";
+import PartnerModernSlavery from "../components/partners/products/ModernSlavery";
 
 const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "false";
 
@@ -159,6 +161,17 @@ const allPublicRoutes = [
   { path: "risk-register", Component: RiskRegister },
   { path: "working-capital", Component: WorkingCapitalAnalysis },
   { path: "esg-reporting", Component: ESGReporting },
+  {
+    path: "partners",
+    Component: PartnersLanding,
+    children: [
+      {
+        path: "products/modern-slavery",
+        Component: require("../components/partners/products/ModernSlavery")
+          .default,
+      },
+    ],
+  },
 ];
 
 const launchPublicRoutes = [
@@ -232,6 +245,16 @@ const launchPublicRoutes = [
   { path: "risk-register", Component: RiskRegister },
   { path: "working-capital", Component: WorkingCapitalAnalysis },
   { path: "esg-reporting", Component: ESGReporting },
+  {
+    path: "partners",
+    Component: PartnersLanding,
+    children: [
+      {
+        path: "products/modern-slavery",
+        Component: PartnerModernSlavery,
+      },
+    ],
+  },
   // Super secret routes for boss access
   {
     path: "/bossmode",

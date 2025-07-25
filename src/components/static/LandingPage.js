@@ -308,6 +308,108 @@ export default function LandingPage() {
         </Box>
       </Box>
       <Divider />
+      <Box sx={{ px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
+        <Typography variant="h6" textAlign="center" gutterBottom>
+          Work With Us
+        </Typography>
+        <Typography variant="body2" textAlign="center" sx={{ mb: 4 }}>
+          Monochrome Compliance partners with consultants, advisors, and digital
+          service providers to deliver Compliance-as-a-Service at scale.
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            overflowX: "auto",
+            gap: 2,
+            scrollSnapType: "x mandatory",
+            px: 2,
+            pb: 2,
+          }}
+        >
+          {[
+            {
+              title: "White-label ready",
+              description:
+                "Custom-branded reports, dashboards, and portals with your client front and centre.",
+              image: "",
+            },
+            {
+              title: "Fast onboarding",
+              description:
+                "Your clients can be live in under 48 hours — no dev team required.",
+              image: "",
+            },
+            {
+              title: "Attractive margins",
+              description:
+                "Earn ongoing revenue with every active product subscription.",
+              image: "",
+            },
+          ].map((card, index) => (
+            <Box
+              key={index}
+              sx={{
+                minWidth: 280,
+                maxWidth: 300,
+                flexShrink: 0,
+                scrollSnapAlign: "start",
+              }}
+            >
+              <Paper
+                sx={{
+                  p: 3,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                  "&:hover": {
+                    transform: "translateY(-4px)",
+                    boxShadow: 4,
+                  },
+                }}
+              >
+                {card.image && (
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image={card.image}
+                    alt={`${card.title} image`}
+                    sx={{ mb: 1, borderRadius: 1 }}
+                    loading="lazy"
+                  />
+                )}
+                <Typography variant="h6" gutterBottom>
+                  {card.title}
+                </Typography>
+                <Typography variant="body2">{card.description}</Typography>
+              </Paper>
+            </Box>
+          ))}
+        </Box>
+        <Box textAlign="center" sx={{ mt: 4 }}>
+          <Link to="/partners" style={{ textDecoration: "none" }}>
+            <Paper
+              elevation={3}
+              sx={{
+                display: "inline-block",
+                px: 4,
+                py: 1.5,
+                backgroundColor: theme.palette.primary.main,
+                color: "#fff",
+                fontWeight: 600,
+                borderRadius: 2,
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.light,
+                },
+              }}
+            >
+              Learn About Partnerships
+            </Paper>
+          </Link>
+        </Box>
+      </Box>
+      <Divider />
       <Box textAlign="center" sx={{ px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
         <Typography variant="h6" gutterBottom>
           Let Us Handle Compliance for You

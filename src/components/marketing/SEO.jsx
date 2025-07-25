@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { adminService } from "../services/admin/admin";
+import { adminService } from "../../services/admin/admin";
 
 const StaticPageViewer = () => {
   const { slug } = useParams();

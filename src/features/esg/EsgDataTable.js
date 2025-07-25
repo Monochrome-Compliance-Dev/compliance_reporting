@@ -8,7 +8,7 @@ import {
   Button,
   Box,
 } from "@mui/material";
-import LoadingSpinner from "../../components/ui/LoadingSpinner";
+import { LoadingSpinner } from "../../components/ui/";
 
 const EsgDataTable = ({
   title,

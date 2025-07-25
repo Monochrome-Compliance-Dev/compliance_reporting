@@ -11,7 +11,7 @@ import {
   Tooltip,
   Alert,
 } from "@mui/material";
-import Loading from "../../../components/Loading";
+import { LoadingSpinner } from "../../../components/ui";
 
 import StepView from "./StepView";
 import Step3 from "./Step3";
@@ -342,7 +342,7 @@ export default function ReportWizard() {
   if (isLoading) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-        <Loading />
+        <LoadingSpinner />
       </Box>
     );
   }

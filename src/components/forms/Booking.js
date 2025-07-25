@@ -10,7 +10,7 @@ import {
   Paper,
 } from "@mui/material";
 import { bookingService, publicService } from "../../services";
-import { sanitiseInput } from "../../lib/utils/";
+import { sanitiseInput } from "../../lib/utils";
 import { useTheme } from "@mui/material/styles";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
