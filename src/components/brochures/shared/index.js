@@ -1,0 +1,12 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as FAQSection } from "./FAQSection";
+export { default as FeaturesSection } from "./FeaturesSection";
+export { default as PricingSection } from "./PricingSection";
+export { default as ComparisonTable } from "./ComparisonTable";
+export { default as ActionSection } from "./ActionSection";
+export { default as Footer } from "./Footer";
+export { default as QRCodeSection } from "./QRCodeSection";
+export { default as PartnerBenefitsSection } from "./PartnerBenefitsSection";
+export { default as BrochureLayout } from "./BrochureLayout";
+export { default as WhatSection } from "./WhatSection";
+export { default as WhatSectioWhoSectionn } from "./WhoSection";

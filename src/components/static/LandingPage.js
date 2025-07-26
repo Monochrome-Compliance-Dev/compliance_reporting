@@ -331,19 +331,19 @@ export default function LandingPage() {
               title: "White-label ready",
               description:
                 "Custom-branded reports, dashboards, and portals with your client front and centre.",
-              image: "",
+              image: "/images/partners/report.jpg",
             },
             {
               title: "Fast onboarding",
               description:
                 "Your clients can be live in under 48 hours — no dev team required.",
-              image: "",
+              image: "/images/partners/onboarding.jpg",
             },
             {
               title: "Attractive margins",
               description:
                 "Earn ongoing revenue with every active product subscription.",
-              image: "",
+              image: "/images/partners/profit.jpg",
             },
           ].map((card, index) => (
             <Box

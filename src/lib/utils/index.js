@@ -11,3 +11,4 @@ export * from "./loadGoogleMapsApi";
 export * from "./sanitiseInput";
 export * from "./abnChecksum";
 export * from "./payloadSanitiser";
+export * from "./usePrintComponent";
