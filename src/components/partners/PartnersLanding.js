@@ -95,7 +95,7 @@ export default function PartnersLanding() {
             },
             {
               label: "Attractive Margins",
-              text: "Earn up to 40% margins on every product subscription sold.",
+              text: "Earn up to 20% margins on every product subscription sold.",
               image: "/images/partners/profit.jpg",
             },
             {

@@ -38,6 +38,7 @@ export default function PricingSection({
   headline = "Transparent, partner-friendly pricing",
   subheadline = "Simple tiers that scale with your ambitions",
   tiers = defaultTiers,
+  printing,
 }) {
   const theme = useTheme();
 
@@ -74,20 +75,20 @@ export default function PricingSection({
             key={index}
             elevation={3}
             sx={{
-              p: 3,
-              width: 280,
+              p: printing ? 2 : 3,
+              width: printing ? 220 : 280,
               backgroundColor: theme.palette.background.paper,
             }}
           >
             <Typography
-              variant="h6"
+              variant={printing ? "subtitle1" : "h6"}
               gutterBottom
               color={theme.palette.text.primary}
             >
               {tier.name}
             </Typography>
             <Typography
-              variant="h5"
+              variant={printing ? "body1" : "h5"}
               gutterBottom
               color={theme.palette.text.primary}
             >

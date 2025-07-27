@@ -56,7 +56,6 @@ import About from "../components/static/About";
 import PartnersLanding from "../components/partners/PartnersLanding";
 import PartnerModernSlavery from "../components/partners/products/ModernSlavery";
 import PartnerLayout from "../components/partners/PartnerLayout";
-import PartnerModernSlaveryCopy from "../components/partners/products/ModernSlavery copy";
 
 const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "false";
 
@@ -175,10 +174,6 @@ const allPublicRoutes = [
         path: "products/modern-slavery",
         Component: PartnerModernSlavery,
       },
-      {
-        path: "products/modern-slavery-copy",
-        Component: PartnerModernSlaveryCopy,
-      },
     ],
   },
 ];
@@ -254,24 +249,6 @@ const launchPublicRoutes = [
   { path: "risk-register", Component: RiskRegister },
   { path: "working-capital", Component: WorkingCapitalAnalysis },
   { path: "esg-reporting", Component: ESGReporting },
-  {
-    path: "partners",
-    Component: PartnerLayout,
-    children: [
-      {
-        index: true,
-        Component: PartnersLanding,
-      },
-      {
-        path: "products/modern-slavery",
-        Component: PartnerModernSlavery,
-      },
-      {
-        path: "products/modern-slavery-copy",
-        Component: PartnerModernSlaveryCopy,
-      },
-    ],
-  },
   // Super secret routes for boss access
   {
     path: "/bossmode",

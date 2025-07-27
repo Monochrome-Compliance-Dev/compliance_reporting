@@ -20,7 +20,7 @@ const tiers = [
     monthlyPrice: 2500,
     annualPrice: 2500 * 12 * 0.95,
     description: [
-      "3 compliance obligations (e.g. Payment Times Reporting, Modern Slavery Statement)",
+      "2 compliance obligations (e.g. Payment Times Reporting, Modern Slavery Statement)",
       "Guided template setup",
       "Deadline reminders",
       "Quarterly summary email",
@@ -31,7 +31,7 @@ const tiers = [
     buttonLink: "/signup",
   },
   {
-    title: ".....   Compliance Growth",
+    title: "Compliance Growth",
     monthlyPrice: 4000,
     annualPrice: 4000 * 12 * 0.95,
     mostPopular: true,
@@ -198,6 +198,7 @@ export default function PriceTier() {
                     fontWeight: "bold",
                     fontSize: "22px",
                     textTransform: "uppercase",
+                    mt: 5, // added to give space under the ribbon
                   }}
                 >
                   {tier.title}

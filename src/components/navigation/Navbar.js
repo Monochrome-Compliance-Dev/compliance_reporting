@@ -20,6 +20,18 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
 import Tooltip from "@mui/material/Tooltip";
 import PriceCheckIcon from "@mui/icons-material/PriceCheck";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import GavelIcon from "@mui/icons-material/Gavel";
+import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import WarningIcon from "@mui/icons-material/Warning";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import ForestIcon from "@mui/icons-material/Forest";
+import HandshakeIcon from "@mui/icons-material/Handshake";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import ArticleIcon from "@mui/icons-material/Article";
 import { Link, useNavigate, useLocation } from "react-router";
 import { useTheme } from "@mui/material/styles";
 import { userService } from "../../services";
@@ -147,7 +159,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               component={Link}
               to="/solutions"
             >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              <DashboardIcon sx={{ fontSize: 20, mr: 1 }} />
               Overview
             </MenuItem>
             <MenuItem
@@ -155,7 +167,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               component={Link}
               to="/pricing"
             >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              <AttachMoneyIcon sx={{ fontSize: 20, mr: 1 }} />
               Pricing
             </MenuItem>
           </Menu>
@@ -180,58 +192,58 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem
               onClick={handleProductsClose}
               component={Link}
-              to="/payment-times-reporting"
-            >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
-              PTR Solution
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/modern-slavery"
-            >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
-              Modern Slavery
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/whistleblower-compliance"
-            >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
-              Whistleblower Compliance
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
               to="/director-obligations"
             >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              <SupervisorAccountIcon sx={{ fontSize: 20, mr: 1 }} />
               Director Obligations
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/risk-register"
-            >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
-              Risk Register
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/working-capital"
-            >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
-              Working Capital Analysis
             </MenuItem>
             <MenuItem
               onClick={handleProductsClose}
               component={Link}
               to="/esg-reporting"
             >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              <ForestIcon sx={{ fontSize: 20, mr: 1 }} />
               ESG Reporting
+            </MenuItem>
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/modern-slavery"
+            >
+              <GavelIcon sx={{ fontSize: 20, mr: 1 }} />
+              Modern Slavery
+            </MenuItem>
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/payment-times-reporting"
+            >
+              <AccessTimeIcon sx={{ fontSize: 20, mr: 1 }} />
+              PTR Solution
+            </MenuItem>
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/risk-register"
+            >
+              <WarningIcon sx={{ fontSize: 20, mr: 1 }} />
+              Risk Register
+            </MenuItem>
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/whistleblower-compliance"
+            >
+              <RecordVoiceOverIcon sx={{ fontSize: 20, mr: 1 }} />
+              Whistleblower Compliance
+            </MenuItem>
+            <MenuItem
+              onClick={handleProductsClose}
+              component={Link}
+              to="/working-capital"
+            >
+              <TrendingUpIcon sx={{ fontSize: 20, mr: 1 }} />
+              Working Capital Analysis
             </MenuItem>
           </Menu>
           {/* <Button
@@ -301,7 +313,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               component={Link}
               to="/partners"
             >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              <HandshakeIcon sx={{ fontSize: 20, mr: 1 }} />
               Overview
             </MenuItem>
             <MenuItem
@@ -309,7 +321,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               component={Link}
               to="/partners/products/modern-slavery"
             >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              <GavelIcon sx={{ fontSize: 20, mr: 1 }} />
               Modern Slavery
             </MenuItem>
           </Menu>
@@ -336,11 +348,11 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               component={Link}
               to="/contact"
             >
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+              <MailOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
               Contact
             </MenuItem>
             <MenuItem onClick={handleConnectClose} component={Link} to="/blog">
-              <HelpOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
+              <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
               Blog
             </MenuItem>
             <MenuItem onClick={handleConnectClose} component={Link} to="/about">
@@ -384,10 +396,18 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
-              to="/payment-times-reporting"
+              to="/director-obligations"
               sx={{ color: theme.palette.text.primary }}
             >
-              PTR Solution
+              Director Obligations
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/esg-reporting"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              ESG Reporting
             </MenuItem>
             <MenuItem
               onClick={handleMenuClose}
@@ -400,18 +420,10 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
-              to="/whistleblower-compliance"
+              to="/payment-times-reporting"
               sx={{ color: theme.palette.text.primary }}
             >
-              Whistleblower Compliance
-            </MenuItem>
-            <MenuItem
-              onClick={handleMenuClose}
-              component={Link}
-              to="/director-obligations"
-              sx={{ color: theme.palette.text.primary }}
-            >
-              Director Obligations
+              PTR Solution
             </MenuItem>
             <MenuItem
               onClick={handleMenuClose}
@@ -424,18 +436,18 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
-              to="/working-capital"
+              to="/whistleblower-compliance"
               sx={{ color: theme.palette.text.primary }}
             >
-              Working Capital Analysis
+              Whistleblower Compliance
             </MenuItem>
             <MenuItem
               onClick={handleMenuClose}
               component={Link}
-              to="/esg-reporting"
+              to="/working-capital"
               sx={{ color: theme.palette.text.primary }}
             >
-              ESG Reporting
+              Working Capital Analysis
             </MenuItem>
             {/* <Divider />
             <MenuItem

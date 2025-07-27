@@ -9,4 +9,7 @@ export { default as QRCodeSection } from "./QRCodeSection";
 export { default as PartnerBenefitsSection } from "./PartnerBenefitsSection";
 export { default as BrochureLayout } from "./BrochureLayout";
 export { default as WhatSection } from "./WhatSection";
-export { default as WhatSectioWhoSectionn } from "./WhoSection";
+export { default as WhoSection } from "./WhoSection";
+export { default as HowSection } from "./HowSection";
+export { default as TrustedSection } from "./TrustedSection";
+export { default as BrochureButtons } from "./BrochureButtons";

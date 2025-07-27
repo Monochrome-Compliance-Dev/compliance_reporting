@@ -9,19 +9,14 @@ const BrochureFooter = ({
 
   return (
     <Box
-      component="footer"
       sx={{
-        borderTop: `1px solid ${
-          theme.palette.mode === "light"
-            ? theme.palette.grey[300]
-            : theme.palette.grey[700]
-        }`,
         mt: 6,
         pt: 2,
+        borderTop: `1px solid ${theme.palette.divider}`,
         textAlign: "center",
       }}
     >
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="caption" color="textSecondary">
         © {new Date().getFullYear()} {title} {subtitle} {legalReference}
       </Typography>
     </Box>
