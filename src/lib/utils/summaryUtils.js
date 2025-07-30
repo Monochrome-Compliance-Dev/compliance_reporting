@@ -21,3 +21,10 @@ export const findOrReduceSummary = (
   const item = items.find((item) => extractPeriodId(item) === periodId);
   return extractSummary(item) || {};
 };
+
+// Helpers
+export function filterAnalyticsByType(summaries, type = "reportingPeriod") {
+  return Array.isArray(summaries)
+    ? summaries.filter((s) => s.type === type)
+    : [];
+}
