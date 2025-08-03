@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import {
   Container,
   Typography,
@@ -8,49 +8,61 @@ import {
   Select,
   FormControl,
   InputLabel,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Button,
 } from "@mui/material";
+import { useNavigate } from "react-router";
 import { msService } from "../../services";
 import { useAlert } from "../../context";
 import {
   DashboardCards,
   DashboardChart,
-} from "../../components/shared/compliance/";
+} from "../../components/shared/compliance";
 import { chartConfigs } from "./chartConfig";
 import { isWithinRange } from "../../lib/utils/periodUtils";
+import NewReportingPeriodDialog from "./NewReportingPeriodDialog";
 
 // Reset: basic one-panel dashboard using real backend data
 
 const MsDashboard = ({ selectedPeriod }) => {
+  const navigate = useNavigate();
   const [reportingPeriods, setReportingPeriods] = useState([]);
   const [supplierRisks, setSupplierRisks] = useState([]);
   const [trainingStats, setTrainingStats] = useState([]);
   const [grievanceStats, setGrievanceStats] = useState([]);
+  const [openNewDialog, setOpenNewDialog] = useState(false);
   const [loading, setLoading] = useState(true);
   const { showAlert } = useAlert();
 
-  // Fetch all data once
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [periods, risks, training, grievances] = await Promise.all([
-          msService.getReportingPeriods(),
-          msService.getSupplierRisks(),
-          msService.getTraining(),
-          msService.getGrievances(),
-        ]);
-        setReportingPeriods(periods);
-        setSupplierRisks(risks);
-        setTrainingStats(training);
-        setGrievanceStats(grievances);
-      } catch (e) {
-        showAlert("Failed to load dashboard data", "error");
-        console.error(e);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
+  const fetchDashboardData = useCallback(async () => {
+    try {
+      setLoading(true);
+      // Fetch all data once
+      const [periods, risks, training, grievances] = await Promise.all([
+        msService.getReportingPeriods(),
+        msService.getSupplierRisks(),
+        msService.getTraining(),
+        msService.getGrievances(),
+      ]);
+      setReportingPeriods(periods);
+      setSupplierRisks(risks);
+      setTrainingStats(training);
+      setGrievanceStats(grievances);
+    } catch (e) {
+      showAlert("Failed to load dashboard data", "error");
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
   }, [showAlert]);
+
+  useEffect(() => {
+    fetchDashboardData();
+  }, [fetchDashboardData]);
 
   // Determine active period range
   const activePeriod =
@@ -247,6 +259,117 @@ const MsDashboard = ({ selectedPeriod }) => {
               }
               xKey="period"
               lines={chartConfigs(reportingPeriods)[chartType]?.lineKeys || []}
+            />
+
+            {/* Reporting Periods */}
+            <Typography variant="h5" gutterBottom sx={{ mt: 3 }}>
+              Reporting Periods
+            </Typography>
+
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ mb: 2 }}
+              onClick={() => setOpenNewDialog(true)}
+            >
+              + New Reporting Period
+            </Button>
+
+            {loading ? (
+              <CircularProgress />
+            ) : (
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Name</TableCell>
+                    <TableCell>Start Date</TableCell>
+                    <TableCell>End Date</TableCell>
+                    <TableCell>Status</TableCell>
+                    <TableCell>Actions</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {reportingPeriods.length > 0 ? (
+                    reportingPeriods.map((period) => (
+                      <TableRow
+                        key={period.id}
+                        hover
+                        sx={{ cursor: "pointer" }}
+                        onClick={() => navigate(`/ms/${period.id}`)}
+                      >
+                        <TableCell>{period.name}</TableCell>
+                        <TableCell>{period.startDate}</TableCell>
+                        <TableCell>{period.endDate}</TableCell>
+                        <TableCell>{period.status || "Draft"}</TableCell>
+                        <TableCell>
+                          <Button
+                            variant="outlined"
+                            size="small"
+                            onClick={async (e) => {
+                              e.stopPropagation();
+                              try {
+                                await msService.cloneTemplatesForReportingPeriod(
+                                  period.id
+                                );
+                                showAlert(
+                                  "Templates generated successfully",
+                                  "success"
+                                );
+                                fetchDashboardData();
+                              } catch (err) {
+                                showAlert(
+                                  "Failed to generate templates",
+                                  "error"
+                                );
+                              }
+                            }}
+                          >
+                            Generate Templates
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  ) : (
+                    <TableRow>
+                      <TableCell colSpan={5} align="center">
+                        No reporting periods found.
+                      </TableCell>
+                    </TableRow>
+                  )}
+                </TableBody>
+              </Table>
+            )}
+
+            {/* Data Input */}
+            <Typography variant="h5" gutterBottom sx={{ mt: 3 }}>
+              Data Input
+            </Typography>
+            <div>
+              TODO: Data input forms for Emissions, Workforce, Waste, etc.
+            </div>
+
+            {/* Approvals */}
+            <Typography variant="h5" gutterBottom sx={{ mt: 3 }}>
+              Approvals
+            </Typography>
+            <div>TODO: Approval workflow, status indicators</div>
+
+            {/* Reports */}
+            <Typography variant="h5" gutterBottom sx={{ mt: 3 }}>
+              Reports
+            </Typography>
+            <div>TODO: Report generation & download options</div>
+
+            {/* Audit Log */}
+            <Typography variant="h5" gutterBottom sx={{ mt: 3 }}>
+              Audit Log
+            </Typography>
+            <div>TODO: Show audit trail of data changes & approvals</div>
+
+            <NewReportingPeriodDialog
+              open={openNewDialog}
+              onClose={() => setOpenNewDialog(false)}
+              onCreated={fetchDashboardData}
             />
           </Box>
         </>
