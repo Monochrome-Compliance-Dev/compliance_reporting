@@ -1,5 +1,5 @@
 import React from "react";
-import Step2 from "../Step2";
+import Step2 from "../ptrs/Step2";
 
 export default function Step2View({ data, onNext, onBack, reportStatus }) {
   return (

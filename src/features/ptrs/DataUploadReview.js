@@ -25,8 +25,8 @@ import {
   Chip,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { tcpService, dcService, reportService } from "../../../services";
-import { useAlert } from "../../../context/AlertContext";
+import { tcpService, dcService, ptrsService } from "../../services";
+import { useAlert } from "../../context/AlertContext";
 import PayeesMissingAbnTable from "./PayeesMissingAbnTable";
 
 const DataUploadReview = ({
@@ -44,31 +44,31 @@ const DataUploadReview = ({
   // Handler for confirming validation and navigating
   const navigate = useNavigate();
 
-  // Accepts "dashboard" or "report"
+  // Accepts "dashboard" or "ptrs"
   const handleConfirm = async (destination) => {
     try {
-      // Use localStorage for reportDetails
-      const stored = localStorage.getItem("reportDetails");
+      // Use localStorage for ptrsDetails
+      const stored = localStorage.getItem("ptrsDetails");
       const parsed = JSON.parse(stored);
-      const reportDetails = Array.isArray(parsed) ? parsed : [parsed];
-      // Get reportService from window (keep as is for now)
-      const latestReport = Array.isArray(reportDetails)
-        ? reportDetails.find((r) => r.code === "ptrs")
+      const ptrsDetails = Array.isArray(parsed) ? parsed : [parsed];
+      // Get ptrsService from window (keep as is for now)
+      const latestPtrs = Array.isArray(ptrsDetails)
+        ? ptrsDetails.find((r) => r.code === "ptrs")
         : null;
-      if (!latestReport?.id) return;
+      if (!latestPtrs?.id) return;
 
-      await reportService.patch(latestReport.id, { reportStatus: "Validated" });
+      await ptrsService.patch(latestPtrs.id, { ptrsStatus: "Validated" });
 
       setConfirmOpen(false);
       setCollapse(true);
       if (destination === "dashboard") {
         navigate("/user/dashboard");
       } else {
-        navigate(`/reports/ptrs/${latestReport.id}`);
+        navigate(`/ptrs/${latestPtrs.id}`);
       }
     } catch (err) {
-      console.error("Failed to update report status:", err);
-      showAlert("Failed to mark report as validated.", "error");
+      console.error("Failed to update ptrs status:", err);
+      showAlert("Failed to mark ptrs as validated.", "error");
     }
   };
   // abnSuggestions: { [payeeName]: { loading: bool, candidates: array, error: string|null } }
@@ -302,7 +302,7 @@ const DataUploadReview = ({
             {/* Mark as Validated Button */}
             {safeErrors.length === 0 && validRows.length > 0 && (
               <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
-                <Tooltip title="Mark the dataset as validated and commence the report preparation.">
+                <Tooltip title="Mark the dataset as validated and commence the ptrs preparation.">
                   <Button
                     variant="contained"
                     color="success"
@@ -556,7 +556,7 @@ const DataUploadReview = ({
                 <Button onClick={() => handleConfirm("dashboard")}>
                   Dashboard
                 </Button>
-                <Button onClick={() => handleConfirm("report")} autoFocus>
+                <Button onClick={() => handleConfirm("ptrs")} autoFocus>
                   Go to Report
                 </Button>
               </DialogActions>

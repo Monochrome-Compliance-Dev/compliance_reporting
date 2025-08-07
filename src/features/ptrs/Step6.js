@@ -14,9 +14,9 @@ import {
   AccordionDetails,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { calculateFinalMetrics } from "../../../lib/calculations/ptrs";
+import { calculateFinalMetrics } from "../../lib/calculations/ptrs";
 import { CheckBox } from "@mui/icons-material";
-import { useReportContext } from "../../../context";
+import { useReportContext } from "../../context";
 
 export default function Step6() {
   const { records } = useReportContext();

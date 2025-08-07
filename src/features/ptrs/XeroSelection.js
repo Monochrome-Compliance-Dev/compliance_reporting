@@ -20,8 +20,8 @@ import {
   Alert,
   CircularProgress,
 } from "@mui/material";
-import { xeroService } from "../../../services/xero/xero";
-import { useAlert } from "../../../context";
+import { xeroService } from "../../services/xero/xero";
+import { useAlert } from "../../context";
 
 export default function XeroSelection() {
   const location = useLocation();

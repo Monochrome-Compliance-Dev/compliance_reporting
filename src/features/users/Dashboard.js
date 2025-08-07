@@ -25,7 +25,7 @@ export default function Dashboard() {
 
       <Grid container spacing={4} sx={{ marginTop: theme.spacing(2) }}>
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ cursor: "pointer" }} onClick={() => navigate("/reports")}>
+          <Card sx={{ cursor: "pointer" }} onClick={() => navigate("/ptrs")}>
             <CardContent>
               <Typography variant="h6">PTRS</Typography>
               <Typography variant="body2" color="textSecondary">

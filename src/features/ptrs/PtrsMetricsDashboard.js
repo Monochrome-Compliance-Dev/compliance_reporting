@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useReportContext } from "../../../context";
-import { dashboardService } from "../../../services/";
+import { usePtrsContext } from "../../context";
+import { dashboardService } from "../../services";
 import {
   Box,
   Card,
@@ -59,10 +59,10 @@ const StatCard = ({ title, value }) => {
   );
 };
 
-export default function PtrsDashboard() {
+export default function PtrsMetricsDashboard() {
   const theme = useTheme();
   const { getDashboardSignals, getDashboardExtendedMetrics } = dashboardService;
-  const { reportDetails } = useReportContext();
+  const { reportDetails } = usePtrsContext();
   const reportId = reportDetails?.[0]?.id;
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function PtrsDashboard() {
       }
     });
   }, [reportId]);
-  //   console.log("Report ID:", reportId);
+  //   console.log("Ptrs ID:", reportId);
 
   const [signals, setSignals] = useState(null);
 

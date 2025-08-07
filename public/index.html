@@ -62,18 +62,33 @@
       }
     </script>
     <!-- Google tag (gtag.js) -->
+    <!--
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-17266555248"
     ></script>
+    -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+      if (window.location.hostname !== "localhost") {
+        const script = document.createElement("script");
+        script.src =
+          "https://www.googletagmanager.com/gtag/js?id=AW-17266555248";
+        script.async = true;
+        document.head.appendChild(script);
 
-      gtag("config", "AW-17266555248");
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "AW-17266555248");
+      }
+      // Fallback: define a no-op gtag in development so it's always defined
+      if (window.location.hostname === "localhost") {
+        window.gtag = function () {
+          console.debug("gtag dev fallback called with:", arguments);
+        };
+      }
     </script>
   </head>
   <body>

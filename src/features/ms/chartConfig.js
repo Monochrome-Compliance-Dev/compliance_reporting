@@ -1,12 +1,12 @@
-import { getPeriodName } from "./periodUtils";
+import { getPeriodName } from "../../lib/utils/periodUtils";
 
 export const chartConfigs = (reportingPeriods) => ({
   supplier: {
     mapFn: (r) => ({
       period: getPeriodName(r.reportingPeriodId, reportingPeriods),
-      lowRisk: r.summary["Low"] || 0,
-      mediumRisk: r.summary["Medium"] || 0,
-      highRisk: r.summary["High"] || 0,
+      lowRisk: r.summary?.["Low"] ?? 0,
+      mediumRisk: r.summary?.["Medium"] ?? 0,
+      highRisk: r.summary?.["High"] ?? 0,
     }),
     lineKeys: [
       { key: "lowRisk", stroke: "#388e3c", name: "Low Risk" },
@@ -28,9 +28,9 @@ export const chartConfigs = (reportingPeriods) => ({
   grievance: {
     mapFn: (g) => ({
       period: getPeriodName(g.reportingPeriodId, reportingPeriods),
-      open: g.summary["Open"] || 0,
-      closed: g.summary["Closed"] || 0,
-      investigating: g.summary["Investigating"] || 0,
+      open: g.summary?.["Open"] ?? 0,
+      closed: g.summary?.["Closed"] ?? 0,
+      investigating: g.summary?.["Investigating"] ?? 0,
     }),
     lineKeys: [
       { key: "open", stroke: "#d32f2f", name: "Open" },

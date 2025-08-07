@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { tcpService, xeroService } from "../../../services";
+import { tcpService, xeroService } from "../../services";
 import {
   Button,
   Typography,
@@ -11,8 +11,8 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
-import { useReportContext } from "../../../context";
-import { userService } from "../../../services";
+import { useReportContext } from "../../context";
+import { userService } from "../../services";
 
 export default function ConnectExternalSystems({ onUploadComplete }) {
   const { reportDetails } = useReportContext();

@@ -4,9 +4,9 @@ import { Box, Typography, Divider, Paper, IconButton } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import CreateReport from "../reports/ptrs/CreateReport";
-import ConnectExternalSystems from "../reports/ptrs/ConnectExternalSystems";
-import DataUploadReview from "../reports/ptrs/DataUploadReview";
+import CreateReport from "../ptrs/CreatePtrs";
+import ConnectExternalSystems from "../ptrs/ConnectExternalSystems";
+import DataUploadReview from "../ptrs/DataUploadReview";
 import { tcpService } from "../../services/";
 
 export default function DataConsole() {

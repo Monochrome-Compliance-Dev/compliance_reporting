@@ -21,7 +21,7 @@ export const moduleData = {
       "A quick preview of key elements of the Modern Slavery solution, including the statement generator, supplier tracking, and board-ready exports.",
     items: [
       {
-        src: "/images/screens/ms-dashboard.png",
+        src: "/images/ms/ms-dashboard.png",
         alt: "Dashboard Overview",
         caption:
           "Dashboard overview with compliance status and upcoming deadlines.",
@@ -32,7 +32,7 @@ export const moduleData = {
         caption: "Statement generator with live editing and export preview.",
       },
       {
-        src: "/images/screens/ms-supplier-risk.png",
+        src: "/images/ms/ms-supplier-risk.png",
         alt: "Supplier Risk Tracking",
         caption: "Supplier risk tracking with historical comparisons.",
       },

@@ -8,7 +8,7 @@ import {
   CardContent,
   Paper,
 } from "@mui/material";
-import { tcpService } from "../../../services";
+import { tcpService } from "../../services";
 import { Download, Upload, OpenInNew } from "@mui/icons-material";
 
 export default function Step3({

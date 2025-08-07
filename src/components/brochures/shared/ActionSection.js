@@ -28,6 +28,7 @@ const ActionSection = ({ actions }) => {
               alt={action.alt}
               sx={{
                 maxWidth: "100%",
+                maxHeight: 350,
                 borderRadius: 2,
                 boxShadow: 2,
               }}

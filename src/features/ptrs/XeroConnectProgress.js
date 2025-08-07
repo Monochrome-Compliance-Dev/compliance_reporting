@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router"; // react-router, not reac
 import { Typography, Container, Box, LinearProgress } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-import { xeroService } from "../../../services/xero/xero";
+import { xeroService } from "../../services/xero/xero";
 
 export const XeroConnectSuccess = () => {
   const theme = useTheme();

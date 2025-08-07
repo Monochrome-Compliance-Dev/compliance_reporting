@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ReportErrorBoundary({ error }) {
+export default function PtrsErrorBoundary({ error }) {
   const message = error?.message || "An unexpected error occurred.";
   const status = error?.status || 500;
 

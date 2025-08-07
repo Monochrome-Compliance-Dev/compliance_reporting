@@ -25,10 +25,10 @@ import {
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { formatCurrency, formatDateForSQL } from "../../../lib/utils/";
-import { getRowHighlightColor } from "../../../lib/utils/highlightRow";
+import { formatCurrency, formatDateForSQL } from "../../lib/utils/";
+import { getRowHighlightColor } from "../../lib/utils/highlightRow";
 import { fieldMapping } from "./fieldMapping";
-import { useReportContext } from "../../../context";
+import { useReportContext } from "../../context";
 
 const maskCreditCard = (value = "") => {
   const digits = String(value).replace(/\D/g, "");

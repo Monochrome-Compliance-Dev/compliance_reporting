@@ -132,14 +132,36 @@ async function generateStatement(reportingPeriodId) {
 }
 
 // Analytics calls
-async function getSupplierRiskSummary() {
-  return await fetchWrapper.get(`${baseUrl}/dashboard/supplier-risk-summary`);
+/**
+ * Fetches both monthly and reporting period summaries for supplier risk.
+ * Each item in the array has: { type: "monthly" | "reportingPeriod", period, summary }
+ */
+async function getSupplierRiskSummary(params = {}) {
+  console.log("Calling getSupplierRiskSummary with ", params);
+  const query = buildQueryParams(params);
+  return await fetchWrapper.get(
+    `${baseUrl}/dashboard/supplier-risk-summary${query ? `?${query}` : ""}`
+  );
 }
 
-async function getTrainingStats() {
-  return await fetchWrapper.get(`${baseUrl}/dashboard/training-stats`);
+/**
+ * Fetches both monthly and reporting period training stats.
+ * Each item in the array has: { type: "monthly" | "reportingPeriod", period, summary }
+ */
+async function getTrainingStats(params = {}) {
+  const query = buildQueryParams(params);
+  return await fetchWrapper.get(
+    `${baseUrl}/dashboard/training-stats${query ? `?${query}` : ""}`
+  );
 }
 
-async function getGrievanceSummary() {
-  return await fetchWrapper.get(`${baseUrl}/dashboard/grievance-summary`);
+/**
+ * Fetches both monthly and reporting period grievance summaries.
+ * Each item in the array has: { type: "monthly" | "reportingPeriod", period, summary }
+ */
+async function getGrievanceSummary(params = {}) {
+  const query = buildQueryParams(params);
+  return await fetchWrapper.get(
+    `${baseUrl}/dashboard/grievance-summary${query ? `?${query}` : ""}`
+  );
 }

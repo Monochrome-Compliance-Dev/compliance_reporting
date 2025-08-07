@@ -7,20 +7,20 @@ import {
   Typography,
 } from "@mui/material";
 import { useParams } from "react-router";
-import { reportService, userService } from "../../../services";
-import { useAlert } from "../../../context/";
+import { ptrsService, userService } from "../../services";
+import { useAlert } from "../../context";
 
-export default function CreateReport({
+export default function CreatePtrs({
   onSuccess,
   onDelete,
   onUpdate,
-  reportDetails,
+  ptrsDetails,
 }) {
-  const hasReport = Array.isArray(reportDetails) && reportDetails.length > 0;
+  const hasPtrs = Array.isArray(ptrsDetails) && ptrsDetails.length > 0;
   const theme = useTheme();
   const { code } = useParams();
   const { showAlert } = useAlert();
-  console.log("reportDetails in CreateReport:", reportDetails);
+  console.log("ptrsDetails in CreatePtrs:", ptrsDetails);
 
   // Utility for formatting date as YYYY-MM-DD
   const formatDate = (value) => {
@@ -34,41 +34,41 @@ export default function CreateReport({
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    let newReportDetails = Object.fromEntries(formData);
+    let newPtrsDetails = Object.fromEntries(formData);
 
-    newReportDetails = {
-      ...newReportDetails,
+    newPtrsDetails = {
+      ...newPtrsDetails,
       code: code,
-      reportName: "Payment Times Reporting Scheme",
-      reportStatus: "Created",
+      ptrsName: "Payment Times Reporting Scheme",
+      ptrsStatus: "Created",
       currentStep: 0,
       createdBy: userService.userValue.id,
       clientId: userService.userValue.clientId,
     };
 
     try {
-      const report = await reportService.create(newReportDetails);
-      if (!report) {
-        showAlert("Report not created", "error");
+      const ptrs = await ptrsService.create(newPtrsDetails);
+      if (!ptrs) {
+        showAlert("Ptrs not created", "error");
         return;
       }
 
-      showAlert("Report created successfully", "success");
-      if (onSuccess) onSuccess(report);
+      showAlert("Ptrs created successfully", "success");
+      if (onSuccess) onSuccess(ptrs);
     } catch (error) {
-      showAlert(error.message || "Error creating report", "error");
-      console.error("Error creating report:", error);
+      showAlert(error.message || "Error creating ptrs", "error");
+      console.error("Error creating ptrs:", error);
     }
   };
 
-  const handleDeleteReport = async (reportId) => {
+  const handleDeletePtrs = async (ptrsId) => {
     try {
-      await reportService.delete(reportId);
-      showAlert("Report deleted successfully", "success");
-      if (onDelete) onDelete(); // Triggers refreshReports in the parent
+      await ptrsService.delete(ptrsId);
+      showAlert("Ptrs deleted successfully", "success");
+      if (onDelete) onDelete(); // Triggers refreshPtrs in the parent
     } catch (error) {
-      showAlert(error.message || "Error deleting report", "error");
-      console.error("Error deleting report:", error);
+      showAlert(error.message || "Error deleting ptrs", "error");
+      console.error("Error deleting ptrs:", error);
     }
   };
 
@@ -113,9 +113,9 @@ export default function CreateReport({
                 variant="contained"
                 color="primary"
                 fullWidth
-                disabled={hasReport}
+                disabled={hasPtrs}
               >
-                Create Report
+                Create Ptrs
               </Button>
             </Grid>
           </Grid>
@@ -123,7 +123,7 @@ export default function CreateReport({
       </Grid>
 
       <Grid item xs={12} md={6} display="flex" alignItems="center">
-        {!hasReport && (
+        {!hasPtrs && (
           <Box
             sx={{
               borderRadius: 2,
@@ -133,10 +133,10 @@ export default function CreateReport({
               width: "100%",
             }}
           >
-            No report created yet.
+            No ptrs created yet.
           </Box>
         )}
-        {hasReport && (
+        {hasPtrs && (
           <Box
             sx={{
               borderRadius: 2,
@@ -147,25 +147,25 @@ export default function CreateReport({
             }}
           >
             <Typography variant="h6" gutterBottom>
-              ✅ Report Created
+              ✅ Ptrs Created
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
-              <strong>Report ID:</strong> {reportDetails[0]?.id}
+              <strong>Ptrs ID:</strong> {ptrsDetails[0]?.id}
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
               <strong>Start Date:</strong>{" "}
-              {formatDate(reportDetails[0]?.ReportingPeriodStartDate)}
+              {formatDate(ptrsDetails[0]?.ReportingPeriodStartDate)}
             </Typography>
             <Typography variant="body2" sx={{ mb: 2 }}>
               <strong>End Date:</strong>{" "}
-              {formatDate(reportDetails[0]?.ReportingPeriodEndDate)}
+              {formatDate(ptrsDetails[0]?.ReportingPeriodEndDate)}
             </Typography>
             <Button
               variant="contained"
               color="error"
-              onClick={() => handleDeleteReport(reportDetails[0]?.id)}
+              onClick={() => handleDeletePtrs(ptrsDetails[0]?.id)}
             >
-              Delete Report
+              Delete Ptrs
             </Button>
           </Box>
         )}

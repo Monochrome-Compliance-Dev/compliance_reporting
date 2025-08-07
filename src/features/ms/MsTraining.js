@@ -19,8 +19,8 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import { useAlert } from "../../context/";
-import { msService } from "../../services/";
+import { useAlert } from "../../context";
+import { msService } from "../../services";
 import * as Yup from "yup";
 import { formatIsoDate } from "../../lib/utils/formatters";
 import {
