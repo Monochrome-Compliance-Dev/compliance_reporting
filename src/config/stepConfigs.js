@@ -1,4 +1,4 @@
-import { fieldMapping } from "../features/reports/ptrs/fieldMapping";
+import { fieldMapping } from "../features/ptrs/fieldMapping";
 
 export const stepConfigs = {
   step1: {

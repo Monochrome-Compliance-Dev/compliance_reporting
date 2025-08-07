@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import CollapsibleTable from "./CollapsibleTable";
-import { useReportContext } from "../../../context";
-import { stepConfigs } from "../../../config/stepConfigs";
+import { useReportContext } from "../../context";
+import { stepConfigs } from "../../config/stepConfigs";
 
 export default function StepView({ stepId }) {
   const { records } = useReportContext();

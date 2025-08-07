@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { getExclusionFlags, getIssueFlags } from "../../../lib/utils/";
+import { getExclusionFlags, getIssueFlags } from "../../lib/utils";
 import { useParams } from "react-router";
 import {
   Box,
@@ -11,21 +11,21 @@ import {
   Tooltip,
   Alert,
 } from "@mui/material";
-import { LoadingSpinner } from "../../../components/ui";
+import { LoadingSpinner } from "../../components/ui";
 
 import StepView from "./StepView";
 import Step3 from "./Step3";
 import Step6 from "./Step6";
 // import Payment from "../../payment/Payment";
 
-import { reportService, tcpService } from "../../../services";
-import { glossary, ptrsGuidance } from "../../../constants/";
-import { ReportContext } from "../../../context/ReportContext";
-import { stepConfigs } from "../../../config/stepConfigs";
+import { ptrsService, tcpService } from "../../services";
+import { glossary, ptrsGuidance } from "../../constants";
+import { PtrsContext } from "../../context/PtrsContext";
+import { stepConfigs } from "../../config/stepConfigs";
 import {
   calculatePaymentTerm,
   calculatePaymentTime,
-} from "../../../lib/calculations/ptrs";
+} from "../../lib/calculations/ptrs";
 
 const steps = [
   { label: "Step 1: Confirm TCPs", Component: StepView },
@@ -75,8 +75,8 @@ function getChangedFields(record, original) {
   return changedFields;
 }
 
-export default function ReportWizard() {
-  const { reportId } = useParams();
+export default function PtrsWizard() {
+  const { ptrsId } = useParams();
   const [currentStep, setCurrentStep] = useState(0);
   const [records, setRecords] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -117,30 +117,30 @@ export default function ReportWizard() {
   );
 
   useEffect(() => {
-    // Initial load logic (e.g. fetch report data)
+    // Initial load logic (e.g. fetch ptrs data)
     async function loadRecords() {
       try {
         // Recalculate metrics before fetching records
-        await tcpService.recalculateMetrics(reportId);
+        await tcpService.recalculateMetrics(ptrsId);
         const now = new Date().toISOString();
-        localStorage.setItem(`lastRecalc_${reportId}`, now);
+        localStorage.setItem(`lastRecalc_${ptrsId}`, now);
 
         // Now fetch fresh recalculated records
-        const updated = await tcpService.getAllByReportId(reportId);
+        const updated = await tcpService.getAllByPtrsId(ptrsId);
         setRecords(updated || []);
 
-        const report = await reportService.getById(params.reportId);
-        if (report?.currentStep) {
-          setCurrentStep(Math.min(report.currentStep, steps.length - 1));
+        const ptrs = await ptrsService.getById(params.ptrsId);
+        if (ptrs?.currentStep) {
+          setCurrentStep(Math.min(ptrs.currentStep, steps.length - 1));
         }
       } catch (error) {
-        console.error("Error loading report records:", error);
+        console.error("Error loading ptrs records:", error);
       } finally {
         setIsLoading(false);
       }
     }
     loadRecords();
-  }, [reportId, updateRecordsWithFlags, params.reportId]);
+  }, [ptrsId, updateRecordsWithFlags, params.ptrsId]);
 
   // Recalculate/reload when entering step 4 (currentStep === 3)
   useEffect(() => {
@@ -148,10 +148,10 @@ export default function ReportWizard() {
       const forceRecalcAndReload = async () => {
         try {
           setIsRecalculating(true);
-          await tcpService.recalculateMetrics(reportId);
+          await tcpService.recalculateMetrics(ptrsId);
           const now = new Date().toISOString();
-          localStorage.setItem(`lastRecalc_${reportId}`, now);
-          const updated = await tcpService.getAllByReportId(reportId);
+          localStorage.setItem(`lastRecalc_${ptrsId}`, now);
+          const updated = await tcpService.getAllByPtrsId(ptrsId);
           setRecords(updated || []);
         } catch (err) {
           console.error("Step 4 recalc failed", err);
@@ -161,11 +161,11 @@ export default function ReportWizard() {
       };
       forceRecalcAndReload();
     }
-  }, [currentStep, reportId]);
+  }, [currentStep, ptrsId]);
 
   const saveCurrentStep = async (step) => {
     try {
-      await reportService.patch(reportId, {
+      await ptrsService.patch(ptrsId, {
         currentStep: step,
       });
       setAlert({
@@ -349,9 +349,9 @@ export default function ReportWizard() {
 
   const changedCount = records.filter((rec) => rec.wasChanged).length;
   return (
-    <ReportContext.Provider
+    <PtrsContext.Provider
       value={{
-        reportId,
+        ptrsId,
         currentStep: currentStep + 1,
         records,
         handleRecordChange,
@@ -377,8 +377,8 @@ export default function ReportWizard() {
               onClick={async () => {
                 setIsRecalculating(true);
                 try {
-                  await tcpService.recalculateMetrics(reportId);
-                  const updated = await tcpService.getAllByReportId(reportId);
+                  await tcpService.recalculateMetrics(ptrsId);
+                  const updated = await tcpService.getAllByPtrsId(ptrsId);
                   setRecords(updated || []);
                   setAlert({
                     type: "success",
@@ -406,7 +406,7 @@ export default function ReportWizard() {
             >
               Last recalculated:{" "}
               {new Date(
-                localStorage.getItem(`lastRecalc_${reportId}`)
+                localStorage.getItem(`lastRecalc_${ptrsId}`)
               ).toLocaleString()}
             </Typography>
           </Box>
@@ -498,6 +498,6 @@ export default function ReportWizard() {
           </Button>
         </Box>
       </Box>
-    </ReportContext.Provider>
+    </PtrsContext.Provider>
   );
 }

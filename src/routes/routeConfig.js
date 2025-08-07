@@ -1,7 +1,8 @@
 import RequireRoles from "./RequireRoles";
 import Role from "../context/role";
-import { ReportProvider, TcpProvider } from "../context/";
+import { PtrsProvider, TcpProvider } from "../context/";
 import ComplianceDashboardLayout from "../components/layouts/ComplianceDashboardLayout";
+import { Outlet } from "react-router";
 
 import Dashboard from "../features/users/Dashboard";
 import AdminDashboard from "../features/users/AdminDashboard";
@@ -14,13 +15,13 @@ import CreateUser from "../features/users/CreateUser";
 import Clients from "../features/clients/Clients";
 import ClientRegister from "../features/clients/ClientRegister";
 
-import ReportsLayout from "../features/reports/ReportsLayout";
-import ReportWizard from "../features/reports/ptrs/ReportWizard";
-import ConnectExternalSystems from "../features/reports/ptrs/ConnectExternalSystems";
-import XeroSelection from "../features/reports/ptrs/XeroSelection";
-import XeroConnectProgress from "../features/reports/ptrs/XeroConnectProgress";
-import StepsOverview from "../features/reports/ptrs/StepsOverview";
-import ReportErrorBoundary from "../components/navigation/ReportErrorBoundary";
+import PtrsLayout from "../features/ptrs/PtrsLayout";
+import PtrsWizard from "../features/ptrs/PtrsWizard";
+import ConnectExternalSystems from "../features/ptrs/ConnectExternalSystems";
+import XeroSelection from "../features/ptrs/XeroSelection";
+import XeroConnectProgress from "../features/ptrs/XeroConnectProgress";
+import StepsOverview from "../features/ptrs/StepsOverview";
+import PtrsErrorBoundary from "../components/navigation/PtrsErrorBoundary";
 
 import DataLayout from "../features/data/DataLayout";
 import DataConsole from "../features/data/DataConsole";
@@ -35,6 +36,8 @@ import MsInterviewForm from "../features/ms/MsInterviewForm";
 import MsTraining from "../features/ms/MsTraining";
 import MsGrievances from "../features/ms/MsGrievances";
 import MsSupplierRisks from "../features/ms/MsSupplierRisks";
+import PtrsDashboard from "../features/ptrs/PtrsDashboard";
+import PtrsMetricsDashboard from "../features/ptrs/PtrsMetricsDashboard";
 
 export const protectedRoutes = [
   {
@@ -100,30 +103,63 @@ export const protectedRoutes = [
     ],
   },
   {
-    path: "/reports",
+    path: "/ptrs",
     Component: () => (
-      <RequireRoles allowed={[Role.User, Role.Admin, Role.Audit, Role.Boss]}>
-        <ReportProvider>
-          <ReportsLayout />
-        </ReportProvider>
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <PtrsProvider>
+          <Outlet />
+        </PtrsProvider>
       </RequireRoles>
     ),
-    errorElement: <ReportErrorBoundary />,
     children: [
-      { path: ":code/:reportId", Component: ReportWizard },
-      { path: ":code/:reportId/connect", Component: ConnectExternalSystems },
-      { path: ":code/:reportId/selection", Component: XeroSelection },
-      { path: ":code/:reportId/progress", Component: XeroConnectProgress },
-      { path: "steps", Component: StepsOverview },
+      {
+        index: true,
+        Component: () => (
+          <ComplianceDashboardLayout title="PTRS Dashboard" module="ptrs">
+            <PtrsDashboard />
+          </ComplianceDashboardLayout>
+        ),
+      },
+      {
+        path: ":reportingPeriodId",
+        children: [
+          {
+            index: true,
+            Component: PtrsWizard,
+          },
+          {
+            path: "connect",
+            Component: ConnectExternalSystems,
+          },
+          {
+            path: "selection",
+            Component: XeroSelection,
+          },
+          {
+            path: "progress",
+            Component: XeroConnectProgress,
+          },
+        ],
+      },
+      {
+        path: "metrics",
+        Component: () => (
+          <ComplianceDashboardLayout title="PTRS Dashboard" module="ptrs">
+            <PtrsMetricsDashboard />
+          </ComplianceDashboardLayout>
+        ),
+      },
     ],
   },
   {
     path: "/data",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <TcpProvider>
-          <DataLayout />
-        </TcpProvider>
+        <PtrsProvider>
+          <TcpProvider>
+            <DataLayout />
+          </TcpProvider>
+        </PtrsProvider>
       </RequireRoles>
     ),
     errorElement: <DataErrorBoundary />,
@@ -134,18 +170,20 @@ export const protectedRoutes = [
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <ComplianceDashboardLayout title="ESG Dashboard" module="esg">
-          <EsgDashboard />
+          <Outlet />
         </ComplianceDashboardLayout>
       </RequireRoles>
     ),
-  },
-  {
-    path: "/esg/:reportingPeriodId",
-    Component: () => (
-      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <EsgReportingPeriod />
-      </RequireRoles>
-    ),
+    children: [
+      {
+        index: true,
+        Component: EsgDashboard,
+      },
+      {
+        path: ":reportingPeriodId",
+        Component: EsgReportingPeriod,
+      },
+    ],
   },
   {
     path: "/metrics/:metricId",
@@ -160,49 +198,35 @@ export const protectedRoutes = [
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <ComplianceDashboardLayout title="Modern Slavery Dashboard" module="ms">
-          <MsDashboard />
+          <Outlet />
         </ComplianceDashboardLayout>
       </RequireRoles>
     ),
-  },
-  {
-    path: "/ms/:reportingPeriodId",
-    Component: () => (
-      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <MsReportingPeriod />
-      </RequireRoles>
-    ),
-  },
-  {
-    path: "/ms/:reportingPeriodId/interview",
-    Component: () => (
-      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <MsInterviewForm />
-      </RequireRoles>
-    ),
-  },
-  {
-    path: "/ms/training",
-    Component: () => (
-      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <MsTraining />
-      </RequireRoles>
-    ),
-  },
-  {
-    path: "/ms/grievances",
-    Component: () => (
-      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <MsGrievances />
-      </RequireRoles>
-    ),
-  },
-  {
-    path: "/ms/supplier-risks",
-    Component: () => (
-      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <MsSupplierRisks />
-      </RequireRoles>
-    ),
+    children: [
+      {
+        index: true,
+        Component: MsDashboard,
+      },
+      {
+        path: ":reportingPeriodId",
+        Component: MsReportingPeriod,
+      },
+      {
+        path: ":reportingPeriodId/interview",
+        Component: MsInterviewForm,
+      },
+      {
+        path: "training",
+        Component: MsTraining,
+      },
+      {
+        path: "grievances",
+        Component: MsGrievances,
+      },
+      {
+        path: "supplier-risks",
+        Component: MsSupplierRisks,
+      },
+    ],
   },
 ];

@@ -1,6 +1,6 @@
 export * from "./xero/xero";
 export * from "./auth/user";
-export * from "./reports/report";
+export * from "./ptrs/ptrs";
 export * from "./clients/client";
 export * from "./tcp/tcp";
 export * from "./entity/entity";

@@ -1,36 +1,36 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { tcpService } from "../services";
-import { useReportContext } from "./ReportContext";
+import { usePtrsContext } from "./PtrsContext";
 
 const TcpContext = createContext();
 
 export const TcpProvider = ({ children }) => {
-  const { reportDetails } = useReportContext();
-  const selectedReport = reportDetails?.[0] || null;
+  const { ptrsDetails } = usePtrsContext();
+  const selectedPtrs = ptrsDetails?.[0] || null;
   const [tcpRecords, setTcpRecords] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   // Utility functions for sessionStorage caching
-  const storageKey = (reportId) => `tcp_records_${reportId}`;
+  const storageKey = (ptrsId) => `tcp_records_${ptrsId}`;
 
   const cacheRecords = (records) => {
-    if (!selectedReport?.id) return;
+    if (!selectedPtrs?.id) return;
     sessionStorage.setItem(
-      storageKey(selectedReport.id),
+      storageKey(selectedPtrs.id),
       JSON.stringify(records)
     );
   };
 
   const loadCachedRecords = () => {
-    if (!selectedReport?.id) return null;
-    const key = storageKey(selectedReport.id);
+    if (!selectedPtrs?.id) return null;
+    const key = storageKey(selectedPtrs.id);
     const raw = sessionStorage.getItem(key);
     console.log("Cached data found for", key, raw);
     return raw ? JSON.parse(raw) : null;
   };
 
   const pruneOldCaches = () => {
-    const currentKey = storageKey(selectedReport.id);
+    const currentKey = storageKey(selectedPtrs.id);
     console.log("Pruning sessionStorage. Keeping:", currentKey);
     Object.keys(sessionStorage).forEach((k) => {
       if (k.startsWith("tcp_records_") && k !== currentKey) {
@@ -56,12 +56,12 @@ export const TcpProvider = ({ children }) => {
 
   useEffect(() => {
     const hydrate = async () => {
-      if (!selectedReport?.id) return;
+      if (!selectedPtrs?.id) return;
 
       pruneOldCaches();
 
       const cached = loadCachedRecords();
-      console.log("Checking cached records for reportId:", selectedReport?.id);
+      console.log("Checking cached records for ptrsId:", selectedPtrs?.id);
       if (Array.isArray(cached) && cached.length > 0) {
         console.log("Using cached TCP records");
         setTcpRecords(cached);
@@ -70,7 +70,7 @@ export const TcpProvider = ({ children }) => {
 
       setIsLoading(true);
       try {
-        const records = await tcpService.getAll(selectedReport.id);
+        const records = await tcpService.getAll(selectedPtrs.id);
         console.log("Fetched TCP records:", records);
         setTcpRecords(records);
         cacheRecords(records);
@@ -82,7 +82,7 @@ export const TcpProvider = ({ children }) => {
     };
 
     hydrate();
-  }, [selectedReport?.id]);
+  }, [selectedPtrs?.id]);
 
   return (
     <TcpContext.Provider

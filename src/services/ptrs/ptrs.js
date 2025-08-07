@@ -1,8 +1,8 @@
 import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
 
-const baseUrl = `${process.env.REACT_APP_API_URL}/reports`;
+const baseUrl = `${process.env.REACT_APP_API_URL}/ptrs`;
 
-export const reportService = {
+export const ptrsService = {
   getAll,
   getById,
   create,
@@ -16,8 +16,8 @@ async function getAll() {
 }
 
 async function getById(id) {
-  const response = await fetchWrapper.get(`${baseUrl}/report/${id}`);
-  console.log("Fetched report:", response);
+  const response = await fetchWrapper.get(`${baseUrl}/ptrs/${id}`);
+  console.log("Fetched ptrs:", response);
   return response;
 }
 

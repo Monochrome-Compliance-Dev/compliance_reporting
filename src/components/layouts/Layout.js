@@ -5,7 +5,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../navigation/Navbar";
 import Footer from "../navigation/Footer";
-import ProcessFlow from "../../features/reports/ptrs/ProcessFlow";
+import ProcessFlow from "../../features/ptrs/ProcessFlow";
 import { Alert, Snackbar } from "@mui/material";
 import globalTheme from "../../theme/globalTheme"; // Ensure the import matches the export
 import { useAlert } from "../../context/AlertContext";

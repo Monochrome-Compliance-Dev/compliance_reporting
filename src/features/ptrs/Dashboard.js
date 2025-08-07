@@ -18,7 +18,6 @@ import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { userService } from "../../services";
 import { useReportContext } from "../../context"; // Adjust the path if needed
-import PtrsDashboard from "../reports/ptrs/PtrsDashboard";
 
 export default function Dashboard() {
   const user = userService.userValue; // Get the current user
@@ -95,7 +94,7 @@ export default function Dashboard() {
               color="primary"
               onClick={() => continueReport(row)}
             >
-              Resume
+              Continue Submission
             </Button>
           ) : (
             <Button
@@ -103,7 +102,7 @@ export default function Dashboard() {
               color="primary"
               onClick={() => createReport(row)}
             >
-              View Details
+              Resume Report
             </Button>
           )}
         </TableCell>
@@ -133,9 +132,25 @@ export default function Dashboard() {
         </Typography>
       )}
 
-      {/* User Information Section */}
+      {/* PTRS Module Link */}
       <Card sx={{ marginTop: theme.spacing(4) }}>
-        <PtrsDashboard />
+        <CardContent>
+          <Typography variant="h5" gutterBottom>
+            Payment Times Reporting Scheme
+          </Typography>
+          <Typography variant="body2" color="textSecondary" gutterBottom>
+            View and manage PTRS reporting periods, prepare data, and submit
+            reports.
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => navigate("/ptrs")}
+            sx={{ mt: 2 }}
+          >
+            Go to PTRS Dashboard
+          </Button>
+        </CardContent>
       </Card>
 
       {/* Data Preparation Section */}
