@@ -38,9 +38,7 @@ export default function CreatePtrs({
 
     newPtrsDetails = {
       ...newPtrsDetails,
-      code: code,
-      ptrsName: "Payment Times Reporting Scheme",
-      ptrsStatus: "Created",
+      status: "Created",
       currentStep: 0,
       createdBy: userService.userValue.id,
       clientId: userService.userValue.clientId,
@@ -49,26 +47,26 @@ export default function CreatePtrs({
     try {
       const ptrs = await ptrsService.create(newPtrsDetails);
       if (!ptrs) {
-        showAlert("Ptrs not created", "error");
+        showAlert("PTRS not created", "error");
         return;
       }
 
-      showAlert("Ptrs created successfully", "success");
+      showAlert("PTRS created successfully", "success");
       if (onSuccess) onSuccess(ptrs);
     } catch (error) {
-      showAlert(error.message || "Error creating ptrs", "error");
-      console.error("Error creating ptrs:", error);
+      showAlert(error.message || "Error creating PTRS", "error");
+      console.error("Error creating PTRS:", error);
     }
   };
 
   const handleDeletePtrs = async (ptrsId) => {
     try {
       await ptrsService.delete(ptrsId);
-      showAlert("Ptrs deleted successfully", "success");
+      showAlert("PTRS deleted successfully", "success");
       if (onDelete) onDelete(); // Triggers refreshPtrs in the parent
     } catch (error) {
-      showAlert(error.message || "Error deleting ptrs", "error");
-      console.error("Error deleting ptrs:", error);
+      showAlert(error.message || "Error deleting PTRS", "error");
+      console.error("Error deleting PTRS:", error);
     }
   };
 
@@ -89,22 +87,25 @@ export default function CreatePtrs({
                 select
                 label="Reporting Period"
                 fullWidth
-                defaultValue="1 July 2024 - 31 December 2024"
+                defaultValue="1 January 2025 - 30 June 2025"
                 SelectProps={{ native: true }}
               >
                 <option value="1 July 2024 - 31 December 2024">
                   1 July 2024 - 31 December 2024
                 </option>
+                <option value="1 January 2025 - 30 June 2025">
+                  1 January 2025 - 30 June 2025
+                </option>
               </TextField>
               <input
                 type="hidden"
-                name="ReportingPeriodStartDate"
-                value="2024-07-01"
+                name="reportingPeriodStartDate"
+                value="2025-01-01"
               />
               <input
                 type="hidden"
-                name="ReportingPeriodEndDate"
-                value="2024-12-31"
+                name="reportingPeriodEndDate"
+                value="2025-06-30"
               />
             </Grid>
             <Grid item xs={12}>
@@ -115,7 +116,7 @@ export default function CreatePtrs({
                 fullWidth
                 disabled={hasPtrs}
               >
-                Create Ptrs
+                Create PTRS
               </Button>
             </Grid>
           </Grid>
@@ -133,7 +134,7 @@ export default function CreatePtrs({
               width: "100%",
             }}
           >
-            No ptrs created yet.
+            No PTRS report created yet.
           </Box>
         )}
         {hasPtrs && (
@@ -147,25 +148,25 @@ export default function CreatePtrs({
             }}
           >
             <Typography variant="h6" gutterBottom>
-              ✅ Ptrs Created
+              ✅ PTRS Report Created
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
-              <strong>Ptrs ID:</strong> {ptrsDetails[0]?.id}
+              <strong>PTRS ID:</strong> {ptrsDetails[0]?.id}
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
               <strong>Start Date:</strong>{" "}
-              {formatDate(ptrsDetails[0]?.ReportingPeriodStartDate)}
+              {formatDate(ptrsDetails[0]?.reportingPeriodStartDate)}
             </Typography>
             <Typography variant="body2" sx={{ mb: 2 }}>
               <strong>End Date:</strong>{" "}
-              {formatDate(ptrsDetails[0]?.ReportingPeriodEndDate)}
+              {formatDate(ptrsDetails[0]?.reportingPeriodEndDate)}
             </Typography>
             <Button
               variant="contained"
               color="error"
               onClick={() => handleDeletePtrs(ptrsDetails[0]?.id)}
             >
-              Delete Ptrs
+              Delete PTRS
             </Button>
           </Box>
         )}

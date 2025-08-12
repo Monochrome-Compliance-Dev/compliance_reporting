@@ -11,30 +11,30 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
-import { useReportContext } from "../../context";
+import { usePtrsContext } from "../../context";
 import { userService } from "../../services";
 
 export default function ConnectExternalSystems({ onUploadComplete }) {
-  const { reportDetails } = useReportContext();
+  const { ptrsDetails } = usePtrsContext();
   const [alert] = useState(null);
   const [progressMessage, setProgressMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef();
   const [uploading, setUploading] = useState(false);
-  console.log("reportDetails in ConnectExternalSystems:", reportDetails);
+  console.log("ptrsDetails in ConnectExternalSystems:", ptrsDetails);
 
   const handleXeroConnect = async () => {
     setIsLoading(true);
     setProgressMessage("Connecting to Xero...");
     try {
-      const data = await xeroService.connect({
-        reportId: reportDetails[0]?.id,
+      const resp = await xeroService.connect({
+        ptrsId: ptrsDetails[0]?.id,
         createdBy: userService.userValue.id,
-        startDate: reportDetails[0]?.ReportingPeriodStartDate,
-        endDate: reportDetails[0]?.ReportingPeriodEndDate,
+        startDate: ptrsDetails[0]?.reportingPeriodStartDate,
+        endDate: ptrsDetails[0]?.reportingPeriodEndDate,
       });
 
-      const authUrl = data.authUrl;
+      const authUrl = resp?.authUrl ?? resp?.data?.authUrl;
 
       if (!authUrl) {
         throw new Error("Authorisation URL not provided by server");
@@ -43,10 +43,10 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
       // Store callbackData before redirect
       const callbackData = {
         clientId: userService.userValue.clientId,
-        reportId: reportDetails[0]?.id,
+        ptrsId: ptrsDetails[0]?.id,
         createdBy: userService.userValue.id,
-        startDate: reportDetails[0]?.ReportingPeriodStartDate,
-        endDate: reportDetails[0]?.ReportingPeriodEndDate,
+        startDate: ptrsDetails[0]?.reportingPeriodStartDate,
+        endDate: ptrsDetails[0]?.reportingPeriodEndDate,
       };
 
       localStorage.setItem("callbackData", JSON.stringify(callbackData));
@@ -77,10 +77,10 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
 
     const formData = new FormData();
     formData.append("file", file, file.name);
-    formData.append("reportId", reportDetails[0]?.id);
+    formData.append("ptrsId", ptrsDetails[0]?.id);
     console.log("Form data prepared for upload:", {
       fileName: file.name,
-      reportId: reportDetails[0]?.id,
+      ptrsId: ptrsDetails[0]?.id,
     });
 
     try {

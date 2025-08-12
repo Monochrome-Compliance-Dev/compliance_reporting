@@ -1,24 +1,25 @@
-import { useReportContext } from "../../context";
+import { usePtrsContext } from "../../context";
 import { useState, useEffect, useCallback } from "react";
 import { Box, Typography, Divider, Paper, IconButton } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import CreateReport from "../ptrs/CreatePtrs";
+import CreatePtrs from "../ptrs/CreatePtrs";
 import ConnectExternalSystems from "../ptrs/ConnectExternalSystems";
 import DataUploadReview from "../ptrs/DataUploadReview";
 import { tcpService } from "../../services/";
 
 export default function DataConsole() {
   const theme = useTheme();
-  const { reportDetails, refreshReports } = useReportContext();
+  const { ptrsDetails, refreshPtrs } = usePtrsContext();
+  console.log("DataConsole ptrsDetails:", ptrsDetails);
 
-  const latestReport = Array.isArray(reportDetails)
-    ? reportDetails.find((r) => r.code === "ptrs")
+  const latestPtrs = Array.isArray(ptrsDetails)
+    ? ptrsDetails.find((r) => r.code === "ptrs")
     : null;
-  const reportId = latestReport?.id;
+  const ptrsId = latestPtrs?.id;
 
-  const hasReport = Array.isArray(reportDetails) && reportDetails.length > 0;
+  const hasPtrs = Array.isArray(ptrsDetails) && ptrsDetails.length > 0;
 
   // --- Add state for records ---
   const [errorRecords, setErrorRecords] = useState([]);
@@ -31,18 +32,18 @@ export default function DataConsole() {
   const updateCachedRecords = (errors, valid) => {
     setErrorRecords(errors);
     setValidPreview(valid);
-    const cacheKey = `tcp_records_${reportId}`;
+    const cacheKey = `tcp_records_${ptrsId}`;
     sessionStorage.setItem(cacheKey, JSON.stringify({ errors, valid }));
   };
 
   const refreshUploadedData = useCallback(() => {
-    console.log("Refreshing uploaded data for reportId:", reportId);
-    if (!reportId) return;
-    const cacheKey = `tcp_records_${reportId}`;
+    console.log("Refreshing uploaded data for ptrsId:", ptrsId);
+    if (!ptrsId) return;
+    const cacheKey = `tcp_records_${ptrsId}`;
 
     Promise.all([
-      tcpService.getTcpByReportId(reportId),
-      tcpService.getErrorsByReportId(reportId),
+      tcpService.getTcpByReportId(ptrsId),
+      tcpService.getErrorsByReportId(ptrsId),
     ])
       .then(([valid, errors]) => {
         console.log("Fetched valid records:", valid);
@@ -53,11 +54,11 @@ export default function DataConsole() {
       .catch((err) => {
         console.error("Error refreshing records:", err);
       });
-  }, [reportId]);
+  }, [ptrsId]);
 
-  // --- Load records for reportId ---
+  // --- Load records for ptrsId ---
   useEffect(() => {
-    const cacheKey = `tcp_records_${reportId}`;
+    const cacheKey = `tcp_records_${ptrsId}`;
     const cached = sessionStorage.getItem(cacheKey);
 
     if (cached) {
@@ -68,7 +69,7 @@ export default function DataConsole() {
     }
 
     refreshUploadedData();
-  }, [refreshUploadedData, reportId]);
+  }, [refreshUploadedData, ptrsId]);
 
   return (
     <Box
@@ -105,16 +106,16 @@ export default function DataConsole() {
             </IconButton>
           </Box>
           {!isCreateCollapsed && (
-            <CreateReport
-              reportDetails={reportDetails}
-              onSuccess={refreshReports}
-              onDelete={refreshReports}
+            <CreatePtrs
+              ptrsDetails={ptrsDetails}
+              onSuccess={refreshPtrs}
+              onDelete={refreshPtrs}
             />
           )}
         </Paper>
       </Box>
 
-      {hasReport && (
+      {hasPtrs && (
         <Box sx={{ mb: 4 }}>
           <Paper elevation={3} sx={{ padding: theme.spacing(3) }}>
             <Box

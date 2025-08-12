@@ -11,10 +11,10 @@ export const xeroService = {
 };
 
 function connect(params) {
-  // console.log("Connecting to Xero with params:", params);
-  const { reportId, createdBy, startDate, endDate } = params;
+  console.log("Connecting to Xero with params:", params);
+  const { ptrsId, createdBy, startDate, endDate } = params;
   return fetchWrapper.get(
-    `${baseUrl}/connect/${reportId}/${createdBy}/${startDate}/${endDate}`
+    `${baseUrl}/connect/${ptrsId}/${createdBy}/${startDate}/${endDate}`
   );
 }
 

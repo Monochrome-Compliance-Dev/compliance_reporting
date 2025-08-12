@@ -24,10 +24,18 @@ export const PtrsProvider = ({ children }) => {
     try {
       const user = userService.userValue;
       const result = await ptrsService.getAll({ clientId: user.clientId });
-      if (result && result.length > 0) {
-        // console.log("Fetched ptrsDetails:", result);
-        setPtrsDetails(result);
-        localStorage.setItem("ptrsDetails", JSON.stringify(result));
+      console.log("Fetched ptrsDetails:", result);
+
+      // Unwrap `{ status, data }` envelope while tolerating legacy bare-array responses
+      const rows = Array.isArray(result)
+        ? result
+        : Array.isArray(result?.data)
+          ? result.data
+          : [];
+
+      if (rows.length > 0) {
+        setPtrsDetails(rows);
+        localStorage.setItem("ptrsDetails", JSON.stringify(rows));
       } else {
         setPtrsDetails([]);
         localStorage.removeItem("ptrsDetails");
