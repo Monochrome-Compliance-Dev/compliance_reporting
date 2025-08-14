@@ -23,7 +23,7 @@ export default function PtrsDashboard() {
   const user = userService.userValue; // Get the current user
   const navigate = useNavigate();
   const theme = useTheme(); // Access the theme
-  const { ptrsDetails, refreshPtrs } = usePtrsContext();
+  const { ptrsDetails, refreshPtrs, setActivePtrsId } = usePtrsContext();
   const [error, setError] = useState(null);
 
   // Clear tags from Xero if needed
@@ -54,12 +54,19 @@ export default function PtrsDashboard() {
   ];
 
   function createPtrs(ptrs) {
-    navigate(`/ptrs/${ptrs.code}/create`);
+    // If called with a PTRS row, resume that report; otherwise create a new one
+    if (ptrs?.id) {
+      setActivePtrsId(ptrs.id);
+      navigate(`/ptrs/${ptrs.id}`);
+      return;
+    }
+    const code = ptrs?.code || "ptrs";
+    navigate(`/ptrs/${code}/create`);
   }
 
   async function continuePtrs(ptrs) {
     try {
-      // No need to fetch savedRecords or pass state; wizard loads from main route
+      setActivePtrsId(ptrs.id);
       navigate(`/ptrs/${ptrs.id}`);
     } catch (error) {
       console.error("Error continuing ptrs:", error);
@@ -181,9 +188,7 @@ export default function PtrsDashboard() {
           <Grid container spacing={3} sx={{ marginTop: theme.spacing(2) }}>
             {ptrsList.map((ptrs) => {
               const relevantPtrs = Array.isArray(ptrsDetails)
-                ? ptrsDetails.filter(
-                    (r) => r.code === ptrs.code && r.ptrsStatus === "Validated"
-                  )
+                ? ptrsDetails
                 : [];
 
               return (

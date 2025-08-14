@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
+import { useTcpContext } from "../../context/TcpContext";
 import { getExclusionFlags, getIssueFlags } from "../../lib/utils";
-import { useParams } from "react-router";
+import { usePtrsContext } from "../../context";
 import {
   Box,
   Stepper,
@@ -60,29 +61,53 @@ function enhanceWithGlossary(text) {
   return <>{parts}</>;
 }
 
-function getChangedFields(record, original) {
-  const changedFields = {};
-  for (const key in original) {
-    if (["wasChanged", "wasSaved", "original"].includes(key)) continue;
-    const norm = (v) =>
-      v === null || v === "" ? "" : v === true ? 1 : v === false ? 0 : v;
-    const origVal = norm(original[key]);
-    const currVal = norm(record[key]);
-    if (origVal !== currVal) {
-      changedFields[key] = record[key];
-    }
+// Primes records with __orig snapshot and wasChanged: false
+function primeOriginals(records) {
+  if (!Array.isArray(records)) return records;
+  return records.map((r) => {
+    const clone = { ...r };
+    delete clone.wasChanged;
+    delete clone.__orig;
+    return {
+      ...r,
+      wasChanged: false,
+      __orig: r.__orig ? r.__orig : clone,
+    };
+  });
+}
+
+// Returns changed fields between current and original, using normalization
+function diffAgainstOrig(current, orig) {
+  const changed = {};
+  if (!current || !orig) return changed;
+  const norm = (v) =>
+    v === null || v === "" ? "" : v === true ? 1 : v === false ? 0 : v;
+  for (const key in orig) {
+    if (["wasChanged", "wasSaved", "original", "__orig"].includes(key))
+      continue;
+    if (norm(current[key]) !== norm(orig[key])) changed[key] = current[key];
   }
-  return changedFields;
+  return changed;
 }
 
 export default function PtrsWizard() {
-  const { ptrsId } = useParams();
+  const { activePtrsId, ptrsDetails } = usePtrsContext();
+  const { tcpRecords: ctxRecords, refresh } = useTcpContext();
+  const [tcpRecords, setTcpRecords] = useState([]);
+
+  useEffect(() => {
+    // If no unsaved edits, or local is empty, sync from context
+    const hasUnsaved =
+      Array.isArray(tcpRecords) && tcpRecords.some((r) => r?.wasChanged);
+    if (!hasUnsaved) {
+      if (Array.isArray(ctxRecords)) setTcpRecords(primeOriginals(ctxRecords));
+    }
+  }, [ctxRecords, tcpRecords]);
+
   const [currentStep, setCurrentStep] = useState(0);
-  const [records, setRecords] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [alert, setAlert] = useState(null);
   const [isRecalculating, setIsRecalculating] = useState(false);
-  const params = useParams();
 
   const { Component } = steps[currentStep];
   const stepConfig = stepConfigs[`step${currentStep + 1}`];
@@ -117,21 +142,26 @@ export default function PtrsWizard() {
   );
 
   useEffect(() => {
-    // Initial load logic (e.g. fetch ptrs data)
     async function loadRecords() {
       try {
+        if (!activePtrsId) {
+          setIsLoading(false);
+          return;
+        }
         // Recalculate metrics before fetching records
-        await tcpService.recalculateMetrics(ptrsId);
+        await tcpService.recalculateMetrics(activePtrsId);
         const now = new Date().toISOString();
-        localStorage.setItem(`lastRecalc_${ptrsId}`, now);
+        localStorage.setItem(`lastRecalc_${activePtrsId}`, now);
 
         // Now fetch fresh recalculated records
-        const updated = await tcpService.getAllByPtrsId(ptrsId);
-        setRecords(updated || []);
+        await refresh();
 
-        const ptrs = await ptrsService.getById(params.ptrsId);
-        if (ptrs?.currentStep) {
-          setCurrentStep(Math.min(ptrs.currentStep, steps.length - 1));
+        // Derive current step from context instead of backend call
+        const ctxPtr = Array.isArray(ptrsDetails)
+          ? ptrsDetails.find((r) => r?.id === activePtrsId)
+          : null;
+        if (ctxPtr && ctxPtr.currentStep != null) {
+          setCurrentStep(Math.min(ctxPtr.currentStep, steps.length - 1));
         }
       } catch (error) {
         console.error("Error loading ptrs records:", error);
@@ -140,19 +170,29 @@ export default function PtrsWizard() {
       }
     }
     loadRecords();
-  }, [ptrsId, updateRecordsWithFlags, params.ptrsId]);
+  }, [activePtrsId, updateRecordsWithFlags, ptrsDetails, refresh]);
 
-  // Recalculate/reload when entering step 4 (currentStep === 3)
   useEffect(() => {
-    if (currentStep === 3) {
+    if (currentStep === 3 && activePtrsId) {
       const forceRecalcAndReload = async () => {
         try {
           setIsRecalculating(true);
-          await tcpService.recalculateMetrics(ptrsId);
-          const now = new Date().toISOString();
-          localStorage.setItem(`lastRecalc_${ptrsId}`, now);
-          const updated = await tcpService.getAllByPtrsId(ptrsId);
-          setRecords(updated || []);
+          await tcpService.recalculateMetrics(activePtrsId);
+          const updated = await tcpService.getAllByPtrsId(activePtrsId);
+          const rows = Array.isArray(updated)
+            ? updated
+            : Array.isArray(updated?.data)
+              ? updated.data
+              : Array.isArray(updated?.rows)
+                ? updated.rows
+                : [];
+          setTcpRecords(primeOriginals(rows));
+          try {
+            sessionStorage.setItem(
+              `tcp_records_${activePtrsId}`,
+              JSON.stringify(primeOriginals(rows))
+            );
+          } catch {}
         } catch (err) {
           console.error("Step 4 recalc failed", err);
         } finally {
@@ -161,21 +201,20 @@ export default function PtrsWizard() {
       };
       forceRecalcAndReload();
     }
-  }, [currentStep, ptrsId]);
+  }, [currentStep, activePtrsId]);
 
   const saveCurrentStep = async (step) => {
     try {
-      await ptrsService.patch(ptrsId, {
-        currentStep: step,
-      });
+      if (!activePtrsId) throw new Error("No PTRS id available");
+      await ptrsService.patch(activePtrsId, { currentStep: step });
       setAlert({
-        type: "success",
+        severity: "success",
         message: `Progress updated successfully.`,
       });
     } catch (error) {
       console.error("Failed to save current step:", error);
       setAlert({
-        type: "error",
+        severity: "error",
         message: "Failed to save current step. Please try again.",
       });
     }
@@ -183,7 +222,9 @@ export default function PtrsWizard() {
 
   const goToNext = () => {
     // Save any changes before moving to the next step
-    const changedCount = records.filter((rec) => rec.wasChanged).length;
+    const changedCount = (tcpRecords || []).filter(
+      (rec) => rec.wasChanged
+    ).length;
     if (changedCount > 0) handleSaveUpdates();
 
     const currentStepIndex = currentStep;
@@ -223,57 +264,97 @@ export default function PtrsWizard() {
 
   const handleSaveUpdates = async () => {
     try {
-      const changedRecords = records.filter((rec) => rec.wasChanged);
-      const payload = changedRecords.map((rec) => {
-        const changedFields = getChangedFields(rec, rec.original);
-        return { id: rec.id, ...changedFields, step: currentStep + 1 };
-      });
-
-      if (payload.length === 0) {
-        setAlert({ type: "info", message: "No changes to save." });
+      const changed = Array.isArray(tcpRecords)
+        ? tcpRecords.filter((r) => r && r.wasChanged)
+        : [];
+      if (changed.length === 0) {
+        setAlert({ severity: "info", message: "No changes to save." });
         return;
       }
 
-      const response = await tcpService.patchRecords(payload);
+      // Build diff payloads per record
+      const diffs = changed.map((r) => ({
+        id: r.id,
+        fields: diffAgainstOrig(r, r.__orig),
+      }));
 
-      // Handle updated records from response
-      const updatedRecordsMap = {};
-      if (Array.isArray(response?.results)) {
-        response.results.forEach((updatedRec) => {
-          updatedRecordsMap[updatedRec.id] = updatedRec;
-        });
-      } else if (response?.id) {
-        updatedRecordsMap[response.id] = response;
+      // Prefer bulk update when available
+      let successes = 0;
+      let failures = 0;
+
+      const hasBulk = typeof tcpService.patchRecords === "function";
+      const hasSingle = typeof tcpService.patchRecord === "function";
+
+      try {
+        if (hasBulk) {
+          // Common bulk shape: [{ id, ...fields }] or [{ id, fields: {...} }]
+          // We’ll support both by trying spread form first, and if it fails, retry with {id, fields}
+          const spreadPayload = diffs.map(({ id, fields }) => ({
+            id,
+            ...fields,
+          }));
+          await tcpService.patchRecords(spreadPayload);
+          successes = spreadPayload.length;
+        } else {
+          throw new Error("Bulk patch not available");
+        }
+      } catch (bulkErr) {
+        // Fallback: either bulk not available or payload shape mismatch; try {id, fields}
+        if (hasBulk) {
+          try {
+            await tcpService.patchRecords(diffs);
+            successes = diffs.length;
+          } catch (bulkShapeErr) {
+            // Final fallback: per-record
+            if (!hasSingle) throw bulkShapeErr;
+            const results = await Promise.allSettled(
+              diffs.map(({ id, fields }) => tcpService.patchRecord(id, fields))
+            );
+            failures = results.filter((r) => r.status === "rejected").length;
+            successes = results.length - failures;
+          }
+        } else if (hasSingle) {
+          const results = await Promise.allSettled(
+            diffs.map(({ id, fields }) => tcpService.patchRecord(id, fields))
+          );
+          failures = results.filter((r) => r.status === "rejected").length;
+          successes = results.length - failures;
+        } else {
+          throw bulkErr;
+        }
       }
 
-      setRecords((prevRecords) => {
-        const newRecords = prevRecords.map((rec) => {
-          if (updatedRecordsMap[rec.id]) {
-            const updatedRec = updatedRecordsMap[rec.id];
-            return {
-              ...rec,
-              wasChanged: false,
-              wasSaved: true,
-              updatedAt: updatedRec.updatedAt,
-              original: JSON.parse(
-                JSON.stringify({
-                  ...rec,
-                  ...updatedRec,
-                  wasChanged: false,
-                  wasSaved: true,
-                })
-              ),
-            };
-          }
-          return rec;
-        });
-        return newRecords;
-      });
+      // If at least one success, merge saved fields back into __orig and clear wasChanged
+      if (successes > 0) {
+        const successfulIds = new Set(
+          changed.slice(0, successes).map((r) => r.id)
+        );
+        setTcpRecords((rows) =>
+          rows.map((r) => {
+            if (!r.wasChanged || !successfulIds.has(r.id)) return r;
+            const fields = diffAgainstOrig(r, r.__orig);
+            if (Object.keys(fields).length === 0)
+              return { ...r, wasChanged: false };
+            const newOrig = { ...r.__orig, ...fields };
+            return { ...r, __orig: newOrig, wasChanged: false };
+          })
+        );
+      }
 
-      setAlert({ type: "success", message: "Changes saved successfully." });
+      if (failures > 0) {
+        setAlert({
+          severity: "warning",
+          message: `${successes} record(s) saved, ${failures} failed.`,
+        });
+      } else {
+        setAlert({
+          severity: "success",
+          message: `${successes} record(s) saved.`,
+        });
+      }
     } catch (error) {
       console.error("Failed to save updated records:", error);
-      setAlert({ type: "error", message: "Failed to save updates." });
+      setAlert({ severity: "error", message: "Failed to save updates." });
     }
   };
 
@@ -305,29 +386,52 @@ export default function PtrsWizard() {
   }
 
   const handleRecordChange = (id, field, value) => {
-    setRecords((prevRecords) =>
-      prevRecords.map((record) => {
-        if (record.id !== id) return record;
-
-        const updatedRecord = { ...record, [field]: value, wasSaved: false };
-        const changedFields = getChangedFields(updatedRecord, record.original);
-        const result = {
-          ...updatedRecord,
-          wasChanged: Object.keys(changedFields).length > 0,
-        };
-
-        return result;
-      })
+    setTcpRecords((rows) =>
+      Array.isArray(rows)
+        ? rows.map((r) => {
+            if (r?.id !== id) return r;
+            const next = { ...r, [field]: value };
+            // compute diff vs original snapshot
+            const changed = diffAgainstOrig(next, r.__orig);
+            next.wasChanged = Object.keys(changed).length > 0;
+            return next;
+          })
+        : rows
     );
   };
+  const editTcpRecord = handleRecordChange; // alias for downstream consumers expecting this name
+
+  // Recompute flags/derived fields for current PTRS
+  async function recomputeFlags() {
+    if (!activePtrsId) return;
+    try {
+      await tcpService.recalculateMetrics(activePtrsId);
+      const updated = await tcpService.getAllByPtrsId(activePtrsId);
+      const rows = Array.isArray(updated)
+        ? updated
+        : Array.isArray(updated?.data)
+          ? updated.data
+          : Array.isArray(updated?.rows)
+            ? updated.rows
+            : [];
+      setTcpRecords(primeOriginals(rows));
+      try {
+        sessionStorage.setItem(
+          `tcp_records_${activePtrsId}`,
+          JSON.stringify(primeOriginals(rows))
+        );
+      } catch {}
+    } catch (err) {
+      console.error("Recompute flags failed", err);
+      // leave state unchanged
+    }
+  }
 
   useEffect(() => {
     const handleBeforeUnload = (e) => {
-      const hasUnsavedChanges = Object.values(records).some(
-        (records) =>
-          Array.isArray(records) &&
-          records.some((rec) => rec.updatedAt > rec.createdAt)
-      );
+      const hasUnsavedChanges = Array.isArray(tcpRecords)
+        ? tcpRecords.some((rec) => rec?.wasChanged)
+        : false;
       if (hasUnsavedChanges) {
         e.preventDefault();
         e.returnValue = "";
@@ -337,7 +441,7 @@ export default function PtrsWizard() {
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [records]);
+  }, [tcpRecords]);
 
   if (isLoading) {
     return (
@@ -347,16 +451,19 @@ export default function PtrsWizard() {
     );
   }
 
-  const changedCount = records.filter((rec) => rec.wasChanged).length;
+  const changedCount = (tcpRecords || []).filter(
+    (rec) => rec.wasChanged
+  ).length;
   return (
     <PtrsContext.Provider
       value={{
-        ptrsId,
+        ptrsId: activePtrsId,
         currentStep: currentStep + 1,
-        records,
+        records: tcpRecords,
         handleRecordChange,
+        editTcpRecord,
         handleSaveUpdates,
-        updateRecordsWithFlags, // add here
+        updateRecordsWithFlags,
       }}
     >
       <Box sx={{ pt: 2, px: 3 }}>
@@ -370,24 +477,22 @@ export default function PtrsWizard() {
           </Alert>
         )}
 
-        {stepConfig.canRecalculate && records.length > 0 && (
+        {stepConfig.canRecalculate && (tcpRecords?.length || 0) > 0 && (
           <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
             <Button
               variant="outlined"
               onClick={async () => {
                 setIsRecalculating(true);
                 try {
-                  await tcpService.recalculateMetrics(ptrsId);
-                  const updated = await tcpService.getAllByPtrsId(ptrsId);
-                  setRecords(updated || []);
+                  await recomputeFlags();
                   setAlert({
-                    type: "success",
+                    severity: "success",
                     message: "Derived fields recalculated successfully.",
                   });
                 } catch (err) {
                   console.error("Recalculation failed", err);
                   setAlert({
-                    type: "error",
+                    severity: "error",
                     message: "Recalculation failed. Please try again.",
                   });
                 } finally {
@@ -406,7 +511,7 @@ export default function PtrsWizard() {
             >
               Last recalculated:{" "}
               {new Date(
-                localStorage.getItem(`lastRecalc_${ptrsId}`)
+                localStorage.getItem(`lastRecalc_${activePtrsId}`)
               ).toLocaleString()}
             </Typography>
           </Box>
@@ -418,6 +523,11 @@ export default function PtrsWizard() {
           sx={{ mb: 0.5, color: "text.secondary" }}
         >
           Step {currentStep + 1} of {steps.length}
+        </Typography>
+        <Typography variant="caption" sx={{ display: "block", mb: 1 }}>
+          {Array.isArray(tcpRecords)
+            ? `${tcpRecords.length} record(s) loaded`
+            : "0 records"}
         </Typography>
         <Stepper activeStep={currentStep} alternativeLabel sx={{ mb: 2.5 }}>
           {steps.map((step, index) => (
@@ -452,8 +562,18 @@ export default function PtrsWizard() {
             flexGrow: 1,
           }}
         >
-          {records && typeof Component === "function" ? (
-            <Component stepId={currentStep + 1} />
+          {typeof Component === "function" ? (
+            Component === StepView ? (
+              <StepView
+                stepId={currentStep + 1}
+                tcpRecords={tcpRecords}
+                editTcpRecord={editTcpRecord}
+                saveTcpUpdates={handleSaveUpdates}
+                recomputeFlags={recomputeFlags}
+              />
+            ) : (
+              <Component stepId={currentStep + 1} />
+            )
           ) : (
             <Typography color="error">
               Unable to render step: invalid component

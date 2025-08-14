@@ -19,12 +19,24 @@ export const usePtrsContext = () => {
 
 export const PtrsProvider = ({ children }) => {
   const [ptrsDetails, setPtrsDetails] = useState([]);
+  const [activePtrsId, setActivePtrsId] = useState(null);
+
+  // Persisted setter for active PTRS id
+  const setActivePtrsIdPersist = useCallback((id) => {
+    const next = id ?? null;
+    setActivePtrsId(next);
+    if (next) {
+      localStorage.setItem("activePtrsId", next);
+    } else {
+      localStorage.removeItem("activePtrsId");
+    }
+  }, []);
 
   const fetchPtrs = useCallback(async () => {
     try {
       const user = userService.userValue;
       const result = await ptrsService.getAll({ clientId: user.clientId });
-      console.log("Fetched ptrsDetails:", result);
+      // console.log("Fetched ptrsDetails:", result);
 
       // Unwrap `{ status, data }` envelope while tolerating legacy bare-array responses
       const rows = Array.isArray(result)
@@ -36,15 +48,29 @@ export const PtrsProvider = ({ children }) => {
       if (rows.length > 0) {
         setPtrsDetails(rows);
         localStorage.setItem("ptrsDetails", JSON.stringify(rows));
+
+        // Ensure active PTRS id is valid and set
+        const storedActive = localStorage.getItem("activePtrsId");
+        const storedValid =
+          storedActive && rows.some((r) => r?.id === storedActive)
+            ? storedActive
+            : null;
+        const currentValid =
+          activePtrsId && rows.some((r) => r?.id === activePtrsId)
+            ? activePtrsId
+            : null;
+        const nextId = currentValid || storedValid || rows[0]?.id || null;
+        setActivePtrsIdPersist(nextId);
       } else {
         setPtrsDetails([]);
         localStorage.removeItem("ptrsDetails");
+        setActivePtrsIdPersist(null);
       }
     } catch (err) {
       console.error("Error fetching ptrsDetails:", err);
       localStorage.removeItem("ptrsDetails");
     }
-  }, []);
+  }, [activePtrsId, setActivePtrsIdPersist]);
 
   // Load from localStorage once on mount
   useEffect(() => {
@@ -52,11 +78,19 @@ export const PtrsProvider = ({ children }) => {
 
     if (storedPtrs) {
       const parsed = JSON.parse(storedPtrs);
-      setPtrsDetails(Array.isArray(parsed) ? parsed : parsed ? [parsed] : []);
+      const rows = Array.isArray(parsed) ? parsed : parsed ? [parsed] : [];
+      setPtrsDetails(rows);
+
+      const storedActive = localStorage.getItem("activePtrsId");
+      const initialId =
+        storedActive && rows.some((r) => r?.id === storedActive)
+          ? storedActive
+          : rows[0]?.id || null;
+      setActivePtrsIdPersist(initialId);
     } else {
       fetchPtrs();
     }
-  }, [fetchPtrs]);
+  }, [fetchPtrs, setActivePtrsIdPersist]);
 
   const refreshPtrs = useCallback(async () => {
     try {
@@ -71,6 +105,8 @@ export const PtrsProvider = ({ children }) => {
     <PtrsContext.Provider
       value={{
         ptrsDetails,
+        activePtrsId,
+        setActivePtrsId: setActivePtrsIdPersist,
         refreshPtrs,
       }}
     >

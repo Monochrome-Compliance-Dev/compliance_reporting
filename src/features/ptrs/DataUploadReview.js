@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router";
 import {
   Dialog,
@@ -23,11 +23,14 @@ import {
   AccordionDetails,
   Tooltip,
   Chip,
+  Checkbox,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tcpService, dcService, ptrsService } from "../../services";
 import { useAlert } from "../../context/AlertContext";
 import PayeesMissingAbnTable from "./PayeesMissingAbnTable";
+import { getFieldLabel } from "./fieldMeta";
+import { usePtrsContext } from "../../context";
 
 const DataUploadReview = ({
   errors = [],
@@ -36,6 +39,16 @@ const DataUploadReview = ({
   onRecordsUpdated,
   onRefreshClick, // <-- new optional callback
 }) => {
+  // console.log(
+  //   "errors, validRecordsPreview, onErrorsUpdated,  onRecordsUpdated,  onRefreshClick:",
+  //   errors,
+  //   validRecordsPreview,
+  //   onErrorsUpdated,
+  //   onRecordsUpdated,
+  //   onRefreshClick
+  // );
+  const [remoteErrors, setRemoteErrors] = useState([]);
+  const [loadingErrors, setLoadingErrors] = useState(false);
   const [validRows, setValidRows] = useState(validRecordsPreview);
   const [editedRows, setEditedRows] = useState({});
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -43,46 +56,12 @@ const DataUploadReview = ({
   const [collapse, setCollapse] = useState(false);
   // Handler for confirming validation and navigating
   const navigate = useNavigate();
+  const { activePtrsId } = usePtrsContext();
 
-  // Accepts "dashboard" or "ptrs"
-  const handleConfirm = async (destination) => {
-    try {
-      // Use localStorage for ptrsDetails
-      const stored = localStorage.getItem("ptrsDetails");
-      const parsed = JSON.parse(stored);
-      const ptrsDetails = Array.isArray(parsed) ? parsed : [parsed];
-      // Get ptrsService from window (keep as is for now)
-      const latestPtrs = Array.isArray(ptrsDetails)
-        ? ptrsDetails.find((r) => r.code === "ptrs")
-        : null;
-      if (!latestPtrs?.id) return;
+  // --- Bulk selection for error rows ---
+  const [selectedRowIds, setSelectedRowIds] = useState(new Set());
 
-      await ptrsService.patch(latestPtrs.id, { ptrsStatus: "Validated" });
-
-      setConfirmOpen(false);
-      setCollapse(true);
-      if (destination === "dashboard") {
-        navigate("/user/dashboard");
-      } else {
-        navigate(`/ptrs/${latestPtrs.id}`);
-      }
-    } catch (err) {
-      console.error("Failed to update ptrs status:", err);
-      showAlert("Failed to mark ptrs as validated.", "error");
-    }
-  };
-  // abnSuggestions: { [payeeName]: { loading: bool, candidates: array, error: string|null } }
-  const [abnSuggestions, setAbnSuggestions] = useState({});
-  const { showAlert } = useAlert();
-
-  // Debounce utility
-  function debounce(fn, delay) {
-    let timer;
-    return (...args) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => fn(...args), delay);
-    };
-  }
+  const fieldLabel = (key, fallback) => getFieldLabel(key, fallback || key);
 
   const revalidateRow = (row) => {
     const issues = [];
@@ -100,8 +79,10 @@ const DataUploadReview = ({
   };
 
   const safeErrors = useMemo(() => {
-    return Array.isArray(errors) ? errors : [];
-  }, [errors]);
+    const source =
+      remoteErrors && remoteErrors.length > 0 ? remoteErrors : errors;
+    return Array.isArray(source) ? source : [];
+  }, [errors, remoteErrors]);
 
   const preValidatedErrors = useMemo(() => {
     return safeErrors.map((row) => ({
@@ -109,6 +90,102 @@ const DataUploadReview = ({
       issues: revalidateRow(row),
     }));
   }, [safeErrors]);
+
+  // Accepts "dashboard" or "ptrs"
+  const handleConfirm = async (destination) => {
+    let ptrsId = activePtrsId;
+
+    // Close dialog immediately
+    setConfirmOpen(false);
+    setCollapse(true);
+
+    // Navigate non-blocking
+    if (destination === "dashboard") {
+      navigate("/dashboard");
+    } else if (destination === "ptrs") {
+      if (ptrsId) {
+        navigate(`/ptrs/${ptrsId}`);
+      } else {
+        navigate("/dashboard");
+        showAlert(
+          "Couldn't locate your PTRS id — took you to the dashboard instead.",
+          "warning"
+        );
+      }
+    }
+
+    // Fire-and-forget status patch
+    if (ptrsId) {
+      try {
+        await ptrsService.patch(ptrsId, { ptrsStatus: "Validated" });
+      } catch (err) {
+        console.error("Failed to update ptrs status:", err);
+        showAlert(
+          "Marked validated locally, but server update failed. You can retry from the report.",
+          "error"
+        );
+      }
+    }
+  };
+
+  // abnSuggestions: { [payeeName]: { loading: bool, candidates: array, error: string|null } }
+  const [abnSuggestions, setAbnSuggestions] = useState({});
+  const { showAlert } = useAlert();
+
+  // Debounce utility
+  function debounce(fn, delay) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn(...args), delay);
+    };
+  }
+
+  // --- Bulk selection helpers ---
+  const toggleSelect = (id) => {
+    setSelectedRowIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const clearSelection = () => setSelectedRowIds(new Set());
+
+  const selectAllErrors = () => {
+    const allIds = new Set(
+      (preValidatedErrors || []).map((r) => r.id).filter(Boolean)
+    );
+    setSelectedRowIds(allIds);
+  };
+
+  const selectedRowsArray = useMemo(() => {
+    const map = new Map((preValidatedErrors || []).map((r) => [r.id, r]));
+    return Array.from(selectedRowIds)
+      .map((id) => map.get(id))
+      .filter(Boolean);
+  }, [selectedRowIds, preValidatedErrors]);
+
+  const fetchErrorsFromDb = useCallback(async () => {
+    if (!activePtrsId) return;
+    try {
+      setLoadingErrors(true);
+      const res = await tcpService.getErrorsByPtrsId(activePtrsId);
+      if (Array.isArray(res)) {
+        setRemoteErrors(res);
+        onErrorsUpdated?.(res);
+      }
+    } catch (e) {
+      console.error("Failed to fetch tcp_error rows:", e);
+    } finally {
+      setLoadingErrors(false);
+    }
+  }, [activePtrsId, onErrorsUpdated]);
+
+  useEffect(() => {
+    fetchErrorsFromDb();
+  }, [validRecordsPreview, fetchErrorsFromDb]);
 
   // useEffect(() => {
   //   // Prevent repeated alerts by only showing on mount (or initial render)
@@ -136,6 +213,17 @@ const DataUploadReview = ({
     });
     return groups;
   }, [preValidatedErrors]);
+
+  // --- Known payers for Suggest dropdown ---
+  const knownPayers = useMemo(() => {
+    const s = new Set();
+    (validRows || []).forEach((r) => {
+      if (r?.payerEntityName && typeof r.payerEntityName === "string") {
+        s.add(r.payerEntityName);
+      }
+    });
+    return Array.from(s).sort();
+  }, [validRows]);
 
   // --- Payees missing ABN grouping and fix handler ---
   const payeesMissingAbn = useMemo(() => {
@@ -284,20 +372,23 @@ const DataUploadReview = ({
             </Box>
 
             {/* Refresh Records Button with Tooltip */}
-            {safeErrors.length > 0 && (
-              <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
-                <Tooltip title="Force-refresh the records from the database, bypassing any cache.">
+            {/* {safeErrors.length > 0 && ( */}
+            <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
+              <Tooltip title="Force-refresh the records from the database, bypassing any cache.">
+                <span>
                   <Button
                     variant="outlined"
                     size="small"
                     sx={{ ml: "auto" }}
-                    onClick={onRefreshClick}
+                    onClick={onRefreshClick || fetchErrorsFromDb}
+                    disabled={loadingErrors}
                   >
-                    Refresh Records
+                    {loadingErrors ? "Refreshing…" : "Refresh Records"}
                   </Button>
-                </Tooltip>
-              </Box>
-            )}
+                </span>
+              </Tooltip>
+            </Box>
+            {/* )} */}
 
             {/* Mark as Validated Button */}
             {safeErrors.length === 0 && validRows.length > 0 && (
@@ -327,6 +418,132 @@ const DataUploadReview = ({
               onAbnFix={handleAbnFix}
             />
 
+            {preValidatedErrors.length > 0 && (
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 1,
+                  alignItems: "center",
+                  mb: 1,
+                  flexWrap: "wrap",
+                }}
+              >
+                <Button
+                  size="small"
+                  variant="outlined"
+                  onClick={selectAllErrors}
+                >
+                  Select all errors
+                </Button>
+                <Button size="small" variant="text" onClick={clearSelection}>
+                  Clear selection ({selectedRowIds.size})
+                </Button>
+                {knownPayers.length > 0 && (
+                  <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+                    <select
+                      id="bulkSuggestPayer"
+                      defaultValue=""
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        if (!val) return;
+                        // Apply suggested payer to all selected rows
+                        setEditedRows((prev) => {
+                          const copy = { ...prev };
+                          selectedRowsArray.forEach((row) => {
+                            copy[row.id] = {
+                              ...(copy[row.id] || {}),
+                              payerEntityName: val,
+                              modified: true,
+                            };
+                          });
+                          return copy;
+                        });
+                        // reset to placeholder to allow repeated use
+                        e.target.value = "";
+                      }}
+                      style={{ minWidth: 160 }}
+                    >
+                      <option value="">Bulk Suggest…</option>
+                      {knownPayers.map((p) => (
+                        <option key={p} value={p}>
+                          {p}
+                        </option>
+                      ))}
+                    </select>
+                  </Box>
+                )}
+                <Button
+                  size="small"
+                  variant="contained"
+                  onClick={async () => {
+                    // Build payload of selected rows that have no issues after edits
+                    const idSet = new Set(selectedRowIds);
+                    const rows = (preValidatedErrors || []).filter((r) =>
+                      idSet.has(r.id)
+                    );
+                    const toPromote = rows
+                      .map((row) => {
+                        const rowEdit = editedRows[row.id] || {};
+                        const merged = { ...row, ...rowEdit };
+                        const issues = revalidateRow(merged);
+                        return { merged, issues };
+                      })
+                      .filter(({ issues }) => issues.length === 0)
+                      .map(({ merged }) => {
+                        const payload = { ...merged };
+                        delete payload.issues;
+                        return payload;
+                      });
+
+                    if (toPromote.length === 0) {
+                      showAlert(
+                        "No selected rows are ready to save. Fix issues first.",
+                        "warning"
+                      );
+                      return;
+                    }
+
+                    try {
+                      const CHUNK_SIZE = 100;
+                      let saved = 0;
+                      for (let i = 0; i < toPromote.length; i += CHUNK_SIZE) {
+                        const chunk = toPromote.slice(i, i + CHUNK_SIZE);
+                        // eslint-disable-next-line no-await-in-loop
+                        await tcpService.resolveErrors(chunk);
+                        saved += chunk.length;
+                      }
+                      const promotedIds = new Set(toPromote.map((r) => r.id));
+                      const updatedErrors = safeErrors.filter(
+                        (e) => !promotedIds.has(e.id)
+                      );
+                      const updatedValid = [...validRows, ...toPromote];
+                      onRecordsUpdated?.(updatedErrors, updatedValid);
+                      // Clear edited state and selection for promoted rows
+                      setEditedRows((prev) => {
+                        const copy = { ...prev };
+                        toPromote.forEach((r) => {
+                          delete copy[r.id];
+                        });
+                        return copy;
+                      });
+                      clearSelection();
+                      onRefreshClick?.();
+                      showAlert(
+                        `Saved ${toPromote.length} record${toPromote.length === 1 ? "" : "s"}.`,
+                        "success"
+                      );
+                    } catch (err) {
+                      console.error("Bulk resolve failed:", err);
+                      showAlert("Bulk save failed. Please try again.", "error");
+                    }
+                  }}
+                  disabled={selectedRowIds.size === 0}
+                >
+                  Save selected
+                </Button>
+              </Box>
+            )}
+
             {preValidatedErrors.length > 0 ? (
               <>
                 {Object.entries(groupedErrors).map(([issueType, rows]) => (
@@ -342,11 +559,54 @@ const DataUploadReview = ({
                           <Table size="small">
                             <TableHead>
                               <TableRow>
-                                <TableCell>Payer</TableCell>
-                                <TableCell>Payee</TableCell>
-                                <TableCell>ABN</TableCell>
-                                <TableCell>Amount</TableCell>
-                                <TableCell>Date</TableCell>
+                                <TableCell padding="checkbox">
+                                  <Checkbox
+                                    indeterminate={
+                                      selectedRowIds.size > 0 &&
+                                      selectedRowIds.size <
+                                        preValidatedErrors.length
+                                    }
+                                    checked={
+                                      preValidatedErrors.length > 0 &&
+                                      selectedRowIds.size ===
+                                        preValidatedErrors.length
+                                    }
+                                    onChange={(e) => {
+                                      if (e.target.checked) selectAllErrors();
+                                      else clearSelection();
+                                    }}
+                                    inputProps={{
+                                      "aria-label": "select all error rows",
+                                    }}
+                                  />
+                                </TableCell>
+                                <TableCell>
+                                  {fieldLabel(
+                                    "payerEntityName",
+                                    "Payer Entity Name"
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  {fieldLabel(
+                                    "payeeEntityName",
+                                    "Payee Entity Name"
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  {fieldLabel(
+                                    "payeeEntityAbn",
+                                    "Payee Entity ABN"
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  {fieldLabel(
+                                    "paymentAmount",
+                                    "Payment Amount"
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  {fieldLabel("paymentDate", "Payment Date")}
+                                </TableCell>
                                 <TableCell>Issues</TableCell>
                               </TableRow>
                             </TableHead>
@@ -362,21 +622,59 @@ const DataUploadReview = ({
                                 };
                                 return (
                                   <TableRow key={row.id || index}>
-                                    <TableCell>
-                                      <input
-                                        value={rowCopy.payerEntityName || ""}
-                                        onChange={(e) => {
-                                          setEditedRows((prev) => ({
-                                            ...prev,
-                                            [row.id]: {
-                                              ...prev[row.id],
-                                              payerEntityName: e.target.value,
-                                              modified: true,
-                                            },
-                                          }));
+                                    <TableCell padding="checkbox">
+                                      <Checkbox
+                                        checked={selectedRowIds.has(row.id)}
+                                        onChange={() => toggleSelect(row.id)}
+                                        inputProps={{
+                                          "aria-label": `select row ${row.id}`,
                                         }}
-                                        style={{ width: "100%" }}
                                       />
+                                    </TableCell>
+                                    <TableCell>
+                                      <div style={{ display: "flex", gap: 8 }}>
+                                        <input
+                                          value={rowCopy.payerEntityName || ""}
+                                          onChange={(e) => {
+                                            setEditedRows((prev) => ({
+                                              ...prev,
+                                              [row.id]: {
+                                                ...prev[row.id],
+                                                payerEntityName: e.target.value,
+                                                modified: true,
+                                              },
+                                            }));
+                                          }}
+                                          style={{ width: "100%" }}
+                                        />
+                                        {knownPayers.length > 0 && (
+                                          <select
+                                            defaultValue=""
+                                            onChange={(e) => {
+                                              const val = e.target.value;
+                                              if (!val) return;
+                                              setEditedRows((prev) => ({
+                                                ...prev,
+                                                [row.id]: {
+                                                  ...prev[row.id],
+                                                  payerEntityName: val,
+                                                  modified: true,
+                                                },
+                                              }));
+                                              // reset back to placeholder so user can pick again
+                                              e.target.value = "";
+                                            }}
+                                            style={{ minWidth: 120 }}
+                                          >
+                                            <option value="">Suggest…</option>
+                                            {knownPayers.map((p) => (
+                                              <option key={p} value={p}>
+                                                {p}
+                                              </option>
+                                            ))}
+                                          </select>
+                                        )}
+                                      </div>
                                     </TableCell>
                                     <TableCell>
                                       <input
@@ -453,43 +751,80 @@ const DataUploadReview = ({
                                       </ul>
                                     </TableCell>
                                     <TableCell>
-                                      {rowCopy.issues.length === 0 &&
-                                        rowCopy.modified && (
-                                          <Button
-                                            variant="outlined"
-                                            size="small"
-                                            onClick={() => {
-                                              tcpService
-                                                .patchRecord(
-                                                  rowCopy.id,
-                                                  rowCopy
-                                                )
-                                                .then(() => {
-                                                  const updatedErrors =
-                                                    safeErrors.filter(
-                                                      (e) => e.id !== rowCopy.id
-                                                    );
-                                                  const updatedValid = [
-                                                    ...validRows,
-                                                    rowCopy,
-                                                  ];
-                                                  onRecordsUpdated?.(
-                                                    updatedErrors,
-                                                    updatedValid
-                                                  );
-                                                  setEditedRows((prev) => {
-                                                    const copy = { ...prev };
-                                                    delete copy[rowCopy.id];
-                                                    return copy;
-                                                  });
-                                                  onRefreshClick?.(); // Trigger refresh from DB
-                                                })
-                                                .catch(console.error);
-                                            }}
-                                          >
-                                            Save
-                                          </Button>
-                                        )}
+                                      {(() => {
+                                        const hasIssues =
+                                          Array.isArray(rowCopy.issues) &&
+                                          rowCopy.issues.length > 0;
+                                        const isModified = Boolean(
+                                          rowCopy.modified
+                                        );
+                                        const disabled =
+                                          hasIssues || !isModified;
+                                        const issueSummary = hasIssues
+                                          ? `Fix ${rowCopy.issues.length} issue${rowCopy.issues.length === 1 ? "" : "s"}: ${rowCopy.issues.join(", ")}`
+                                          : isModified
+                                            ? "Ready to save"
+                                            : "Edit a value to enable Save";
+                                        return (
+                                          <Tooltip title={issueSummary}>
+                                            <span>
+                                              <Button
+                                                variant="outlined"
+                                                size="small"
+                                                disabled={disabled}
+                                                onClick={() => {
+                                                  if (disabled) return;
+                                                  const payload = {
+                                                    ...rowCopy,
+                                                  };
+                                                  // Remove UI-only fields
+                                                  delete payload.issues;
+                                                  // Promote this error row into Tcp and remove from TcpError in one go
+                                                  tcpService
+                                                    .resolveErrors([payload])
+                                                    .then(() => {
+                                                      const updatedErrors =
+                                                        safeErrors.filter(
+                                                          (e) =>
+                                                            e.id !== rowCopy.id
+                                                        );
+                                                      const updatedValid = [
+                                                        ...validRows,
+                                                        rowCopy,
+                                                      ];
+                                                      onRecordsUpdated?.(
+                                                        updatedErrors,
+                                                        updatedValid
+                                                      );
+                                                      setEditedRows((prev) => {
+                                                        const copy = {
+                                                          ...prev,
+                                                        };
+                                                        delete copy[rowCopy.id];
+                                                        return copy;
+                                                      });
+                                                      setSelectedRowIds(
+                                                        (prev) => {
+                                                          const next = new Set(
+                                                            prev
+                                                          );
+                                                          next.delete(
+                                                            rowCopy.id
+                                                          );
+                                                          return next;
+                                                        }
+                                                      );
+                                                      onRefreshClick?.();
+                                                    })
+                                                    .catch(console.error);
+                                                }}
+                                              >
+                                                Save
+                                              </Button>
+                                            </span>
+                                          </Tooltip>
+                                        );
+                                      })()}
                                     </TableCell>
                                   </TableRow>
                                 );
@@ -516,11 +851,21 @@ const DataUploadReview = ({
                     <Table size="small">
                       <TableHead>
                         <TableRow>
-                          <TableCell>Payer</TableCell>
-                          <TableCell>Payee</TableCell>
-                          <TableCell>ABN</TableCell>
-                          <TableCell>Amount</TableCell>
-                          <TableCell>Date</TableCell>
+                          <TableCell>
+                            {fieldLabel("payerEntityName", "Payer Entity Name")}
+                          </TableCell>
+                          <TableCell>
+                            {fieldLabel("payeeEntityName", "Payee Entity Name")}
+                          </TableCell>
+                          <TableCell>
+                            {fieldLabel("payeeEntityAbn", "Payee Entity ABN")}
+                          </TableCell>
+                          <TableCell>
+                            {fieldLabel("paymentAmount", "Payment Amount")}
+                          </TableCell>
+                          <TableCell>
+                            {fieldLabel("paymentDate", "Payment Date")}
+                          </TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -553,10 +898,17 @@ const DataUploadReview = ({
                 go next?
               </DialogContent>
               <DialogActions>
-                <Button onClick={() => handleConfirm("dashboard")}>
+                <Button
+                  type="button"
+                  onClick={() => handleConfirm("dashboard")}
+                >
                   Dashboard
                 </Button>
-                <Button onClick={() => handleConfirm("ptrs")} autoFocus>
+                <Button
+                  type="button"
+                  onClick={() => handleConfirm("ptrs")}
+                  autoFocus
+                >
                   Go to Report
                 </Button>
               </DialogActions>

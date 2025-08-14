@@ -107,7 +107,9 @@ export const protectedRoutes = [
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <PtrsProvider>
-          <Outlet />
+          <TcpProvider>
+            <Outlet />
+          </TcpProvider>
         </PtrsProvider>
       </RequireRoles>
     ),

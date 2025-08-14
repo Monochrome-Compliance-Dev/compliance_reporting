@@ -26,8 +26,9 @@ function subscribeToProgressUpdates(onMessage, onError, onClose) {
 
   ws.onmessage = (event) => {
     try {
-      const data = JSON.parse(event.data);
-      if (onMessage) onMessage(data);
+      const raw = JSON.parse(event.data);
+      const payload = raw && raw.data ? raw.data : raw; // supports flat or { data: ... }
+      if (onMessage) onMessage(payload);
     } catch (err) {
       console.error("WebSocket message parse error:", err);
     }
@@ -39,11 +40,15 @@ function subscribeToProgressUpdates(onMessage, onError, onClose) {
   };
 
   ws.onclose = () => {
-    // console.log("WebSocket closed.");
     if (onClose) onClose();
   };
 
-  return ws;
+  // Return an unsubscribe function for proper cleanup
+  return () => {
+    try {
+      ws.close();
+    } catch (_) {}
+  };
 }
 
 function triggerExtraction(payload) {

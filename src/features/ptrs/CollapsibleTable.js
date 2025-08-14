@@ -28,7 +28,6 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { formatCurrency, formatDateForSQL } from "../../lib/utils/";
 import { getRowHighlightColor } from "../../lib/utils/highlightRow";
 import { fieldMapping } from "./fieldMapping";
-import { useReportContext } from "../../context";
 
 const maskCreditCard = (value = "") => {
   const digits = String(value).replace(/\D/g, "");
@@ -43,8 +42,21 @@ const DEFAULT_SORT_CONFIG = {
   filtersFuzzy: {},
 };
 
-export default function CollapsibleTable({ editableFields, hiddenColumns }) {
-  const { records, handleRecordChange, handleSaveUpdates } = useReportContext();
+export default function CollapsibleTable({
+  editableFields = [],
+  hiddenColumns = [],
+  records = [],
+  onRecordChange,
+  onSaveUpdates,
+}) {
+  // Normalise records in case a caller passes an object shape
+  const rows = useMemo(() => {
+    return Array.isArray(records)
+      ? records
+      : records && Array.isArray(records.data)
+        ? records.data
+        : [];
+  }, [records]);
   const theme = useTheme();
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(0);
@@ -53,7 +65,7 @@ export default function CollapsibleTable({ editableFields, hiddenColumns }) {
   const [sortConfig, setSortConfig] = useState(DEFAULT_SORT_CONFIG);
   const [upliftOpen, setUpliftOpen] = useState(false);
   // A record is "incomplete" if it has an issue or a recommended exclusion
-  const hasIncomplete = records.some((r) => {
+  const hasIncomplete = rows.some((r) => {
     return Boolean(r.hasIssue) || Boolean(r.hasExclusion);
   });
 
@@ -84,7 +96,7 @@ export default function CollapsibleTable({ editableFields, hiddenColumns }) {
   };
 
   const filteredRecords = useMemo(() => {
-    return records.filter((record) => {
+    return rows.filter((record) => {
       const passesSearch = Object.values(record)
         .join(" ")
         .toLowerCase()
@@ -111,7 +123,7 @@ export default function CollapsibleTable({ editableFields, hiddenColumns }) {
 
       return passesSearch && passesExact && passesFuzzy;
     });
-  }, [records, searchTerm, sortConfig?.filtersExact, sortConfig?.filtersFuzzy]);
+  }, [rows, searchTerm, sortConfig?.filtersExact, sortConfig?.filtersFuzzy]);
 
   const sortedRecords = useMemo(() => {
     if (!sortConfig?.key) return filteredRecords;
@@ -243,405 +255,432 @@ export default function CollapsibleTable({ editableFields, hiddenColumns }) {
           </Box>
         )}
       </Box>
-      <TableContainer
-        component={Paper}
-        sx={{
-          maxHeight: "90vh", // Increased height for more visible rows
-          p: 0,
-          backgroundColor: theme.palette.background.paper,
-        }}
-      >
-        <Table stickyHeader>
-          <TableHead>
-            <TableRow
-              sx={{
-                position: "sticky",
-                top: 0,
-                zIndex: 11,
-                backgroundColor: theme.palette.background.paper,
-              }}
-            >
-              <TableCell
-                sx={{
-                  backgroundColor: theme.palette.background.paper,
-                  color: theme.palette.text.primary,
-                  fontWeight: "bold",
-                  borderBottom: `1px solid ${theme.palette.divider}`,
-                }}
-              />
-              {Object.entries(groupedVisibleFields).map(([group, fields]) => (
-                <TableCell
-                  key={group}
-                  align="center"
-                  colSpan={collapsedGroups[group] ? 1 : fields.length}
+      {rows.length === 0 && (
+        <Paper
+          sx={{ p: 2, mb: 2, backgroundColor: theme.palette.background.paper }}
+        >
+          <Typography variant="body2" color="text.secondary">
+            No records to display. Try a different search, or go back and upload
+            data.
+          </Typography>
+        </Paper>
+      )}
+      {rows.length > 0 && (
+        <>
+          <TableContainer
+            component={Paper}
+            sx={{
+              maxHeight: "90vh", // Increased height for more visible rows
+              p: 0,
+              backgroundColor: theme.palette.background.paper,
+            }}
+          >
+            <Table stickyHeader>
+              <TableHead>
+                <TableRow
                   sx={{
+                    position: "sticky",
+                    top: 0,
+                    zIndex: 11,
                     backgroundColor: theme.palette.background.paper,
-                    color: theme.palette.text.primary,
-                    fontWeight: "bold",
-                    borderBottom: `1px solid ${theme.palette.divider}`,
-                    cursor: "pointer",
                   }}
-                  onClick={() => toggleGroup(group)}
                 >
-                  <Box
+                  <TableCell
                     sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      backgroundColor: theme.palette.background.paper,
+                      color: theme.palette.text.primary,
+                      fontWeight: "bold",
+                      borderBottom: `1px solid ${theme.palette.divider}`,
+                    }}
+                  />
+                  {Object.entries(groupedVisibleFields).map(
+                    ([group, fields]) => (
+                      <TableCell
+                        key={group}
+                        align="center"
+                        colSpan={collapsedGroups[group] ? 1 : fields.length}
+                        sx={{
+                          backgroundColor: theme.palette.background.paper,
+                          color: theme.palette.text.primary,
+                          fontWeight: "bold",
+                          borderBottom: `1px solid ${theme.palette.divider}`,
+                          cursor: "pointer",
+                        }}
+                        onClick={() => toggleGroup(group)}
+                      >
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          {group.toUpperCase()}
+                          <IconButton
+                            size="small"
+                            sx={{ ml: 1, color: theme.palette.text.primary }}
+                          >
+                            {collapsedGroups[group] ? (
+                              <KeyboardArrowRightIcon fontSize="inherit" />
+                            ) : (
+                              <KeyboardArrowDownIcon fontSize="inherit" />
+                            )}
+                          </IconButton>
+                        </Box>
+                      </TableCell>
+                    )
+                  )}
+                </TableRow>
+                <TableRow
+                  sx={{
+                    position: "sticky",
+                    top: 46,
+                    zIndex: 10,
+                    backgroundColor: theme.palette.background.paper,
+                  }}
+                >
+                  <TableCell
+                    align="center"
+                    sx={{
+                      fontWeight: "bold",
+                      verticalAlign: "bottom",
+                      backgroundColor: theme.palette.background.paper,
+                      color: theme.palette.text.primary,
                     }}
                   >
-                    {group.toUpperCase()}
-                    <IconButton
+                    ⚠️ 🧠
+                    <TextField
                       size="small"
-                      sx={{ ml: 1, color: theme.palette.text.primary }}
+                      variant="standard"
+                      placeholder="Contains..."
+                      value={sortConfig?.filtersFuzzy?.["flagStatus"] ?? ""}
+                      onClick={(e) => e.stopPropagation()}
+                      onChange={(e) => {
+                        const { value } = e.target;
+                        setSortConfig((prev) => ({
+                          ...prev,
+                          filtersFuzzy: {
+                            ...(prev.filtersFuzzy || {}),
+                            flagStatus: value,
+                          },
+                        }));
+                      }}
+                      sx={{ mb: 0.5 }}
+                    />
+                    <Select
+                      size="small"
+                      variant="standard"
+                      fullWidth
+                      displayEmpty
+                      value={sortConfig?.filtersExact?.["flagStatus"] ?? ""}
+                      onClick={(e) => e.stopPropagation()}
+                      onChange={(e) => {
+                        const { value } = e.target;
+                        setSortConfig((prev) => ({
+                          ...prev,
+                          filtersExact: {
+                            ...(prev.filtersExact || {}),
+                            flagStatus: value,
+                          },
+                        }));
+                      }}
+                      sx={{ backgroundColor: theme.palette.background.paper }}
                     >
-                      {collapsedGroups[group] ? (
-                        <KeyboardArrowRightIcon fontSize="inherit" />
-                      ) : (
-                        <KeyboardArrowDownIcon fontSize="inherit" />
-                      )}
-                    </IconButton>
-                  </Box>
-                </TableCell>
-              ))}
-            </TableRow>
-            <TableRow
-              sx={{
-                position: "sticky",
-                top: 46,
-                zIndex: 10,
-                backgroundColor: theme.palette.background.paper,
-              }}
-            >
-              <TableCell
-                align="center"
-                sx={{
-                  fontWeight: "bold",
-                  verticalAlign: "bottom",
-                  backgroundColor: theme.palette.background.paper,
-                  color: theme.palette.text.primary,
-                }}
-              >
-                ⚠️ 🧠
-                <TextField
-                  size="small"
-                  variant="standard"
-                  placeholder="Contains..."
-                  value={sortConfig?.filtersFuzzy?.["flagStatus"] ?? ""}
-                  onClick={(e) => e.stopPropagation()}
-                  onChange={(e) => {
-                    const { value } = e.target;
-                    setSortConfig((prev) => ({
-                      ...prev,
-                      filtersFuzzy: {
-                        ...(prev.filtersFuzzy || {}),
-                        flagStatus: value,
-                      },
-                    }));
-                  }}
-                  sx={{ mb: 0.5 }}
-                />
-                <Select
-                  size="small"
-                  variant="standard"
-                  fullWidth
-                  displayEmpty
-                  value={sortConfig?.filtersExact?.["flagStatus"] ?? ""}
-                  onClick={(e) => e.stopPropagation()}
-                  onChange={(e) => {
-                    const { value } = e.target;
-                    setSortConfig((prev) => ({
-                      ...prev,
-                      filtersExact: {
-                        ...(prev.filtersExact || {}),
-                        flagStatus: value,
-                      },
-                    }));
-                  }}
-                  sx={{ backgroundColor: theme.palette.background.paper }}
-                >
-                  <MenuItem value="">(All)</MenuItem>
-                  <MenuItem value="issue">Issue</MenuItem>
-                  <MenuItem value="exclusion">Exclusion</MenuItem>
-                  <MenuItem value="none">None</MenuItem>
-                </Select>
-              </TableCell>
-              {Object.entries(groupedVisibleFields).flatMap(
-                ([group, fields]) =>
-                  collapsedGroups[group]
-                    ? [
-                        <TableCell
-                          key={`${group}-collapsed`}
-                          sx={{
-                            backgroundColor: theme.palette.background.paper,
-                            color: theme.palette.text.primary,
-                          }}
-                        />,
-                      ]
-                    : fields.map((field) => {
-                        if (hiddenColumns?.includes(field.name)) return null;
-                        return (
-                          <TableCell
-                            key={field.name}
-                            onClick={() => {
-                              setSortConfig((prev) => ({
-                                ...prev,
-                                key: field.name,
-                                direction:
-                                  prev &&
-                                  prev.key === field.name &&
-                                  prev.direction === "asc"
-                                    ? "desc"
-                                    : "asc",
-                              }));
-                            }}
-                            sx={{
-                              userSelect: "none",
-                              "&:hover": {
-                                backgroundColor: theme.palette.action.hover,
-                              },
-                              verticalAlign: "bottom",
-                              backgroundColor: theme.palette.background.paper,
-                              color: theme.palette.text.primary,
-                            }}
-                          >
-                            <Tooltip title="Click to sort" placement="top-end">
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: 0.5,
-                                }}
-                              >
-                                {field.label}
-                                {sortConfig?.key === field.name && (
-                                  <Typography variant="body2">
-                                    {sortConfig.direction === "asc"
-                                      ? "🔼"
-                                      : "🔽"}
-                                  </Typography>
-                                )}
-                              </Box>
-                            </Tooltip>
-                            <TextField
-                              size="small"
-                              variant="standard"
-                              placeholder="Contains..."
-                              value={
-                                sortConfig?.filtersFuzzy?.[field.name] ?? ""
-                              }
-                              onClick={(e) => e.stopPropagation()}
-                              onChange={(e) => {
-                                const { value } = e.target;
-                                setSortConfig((prev) => ({
-                                  ...prev,
-                                  filtersFuzzy: {
-                                    ...(prev.filtersFuzzy || {}),
-                                    [field.name]: value,
-                                  },
-                                }));
-                              }}
-                              sx={{ mb: 0.5 }}
-                            />
-                            <Select
-                              size="small"
-                              variant="standard"
-                              fullWidth
-                              displayEmpty
-                              value={
-                                sortConfig?.filtersExact?.[field.name] ?? ""
-                              }
-                              onClick={(e) => e.stopPropagation()}
-                              onChange={(e) => {
-                                const { value } = e.target;
-                                setSortConfig((prev) => ({
-                                  ...prev,
-                                  filtersExact: {
-                                    ...(prev.filtersExact || {}),
-                                    [field.name]: value,
-                                  },
-                                }));
-                              }}
-                              sx={{
-                                backgroundColor: theme.palette.background.paper,
-                              }}
-                            >
-                              <MenuItem value="">(All)</MenuItem>
-                              {[
-                                ...new Set(
-                                  records.map((r) => r[field.name] || "")
-                                ),
-                              ]
-                                .filter((v) => v)
-                                .sort((a, b) =>
-                                  String(a).localeCompare(
-                                    String(b),
-                                    undefined,
-                                    { numeric: true }
-                                  )
-                                )
-                                .map((option) => (
-                                  <MenuItem key={option} value={option}>
-                                    {String(option)}
-                                  </MenuItem>
-                                ))}
-                            </Select>
-                          </TableCell>
-                        );
-                      })
-              )}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {displayedRecords.map((record) => {
-              // Calculate payment term and time for this record
-              return (
-                <TableRow
-                  key={record.id}
-                  sx={{
-                    backgroundColor: getRowHighlightColor({
-                      id: record.id,
-                      isError: false,
-                      wasChanged: record.wasChanged || false,
-                      wasSaved:
-                        new Date(record.updatedAt) > new Date(record.createdAt),
-                      partialPayment: record.partialPayment,
-                    }),
-                  }}
-                >
-                  <TableCell>
-                    {record.hasExclusion ? (
-                      <Tooltip title="Recommended Exclusion">
-                        <Typography fontWeight="bold">🧠</Typography>
-                      </Tooltip>
-                    ) : record.hasIssue ? (
-                      <Tooltip title="Issue">
-                        <Typography color="error" fontWeight="bold">
-                          ⚠️
-                        </Typography>
-                      </Tooltip>
-                    ) : null}
+                      <MenuItem value="">(All)</MenuItem>
+                      <MenuItem value="issue">Issue</MenuItem>
+                      <MenuItem value="exclusion">Exclusion</MenuItem>
+                      <MenuItem value="none">None</MenuItem>
+                    </Select>
                   </TableCell>
                   {Object.entries(groupedVisibleFields).flatMap(
                     ([group, fields]) =>
                       collapsedGroups[group]
                         ? [
                             <TableCell
-                              key={`${record.id}-${group}-collapsed`}
+                              key={`${group}-collapsed`}
+                              sx={{
+                                backgroundColor: theme.palette.background.paper,
+                                color: theme.palette.text.primary,
+                              }}
                             />,
                           ]
                         : fields.map((field) => {
                             if (hiddenColumns?.includes(field.name))
                               return null;
-                            const isEditable = editableFields?.includes(
-                              field.name
-                            );
-
-                            // Special case: mask credit card number if not editable
-                            if (
-                              field.name === "creditCardNumber" &&
-                              !isEditable
-                            ) {
-                              return (
-                                <TableCell key={`${record.id}-${field.name}`}>
-                                  {maskCreditCard(record[field.name])}
-                                </TableCell>
-                              );
-                            }
-
-                            // General-purpose fallback TableCell logic
                             return (
-                              <TableCell key={`${record.id}-${field.name}`}>
-                                {field.type === "amount" ? (
-                                  formatCurrency(record[field.name])
-                                ) : field.type === "date" ? (
-                                  record[field.name] ? (
-                                    formatDateForSQL(record[field.name]).split(
-                                      " "
-                                    )[0]
-                                  ) : (
-                                    "-"
-                                  )
-                                ) : field.type === "checkbox" ? (
-                                  isEditable ? (
-                                    <Checkbox
-                                      checked={Boolean(record[field.name])}
-                                      sx={{
-                                        color: theme.palette.text.primary,
-                                        "&.Mui-checked": {
-                                          color: theme.palette.text.primary,
-                                        },
-                                      }}
-                                      onChange={(e) =>
-                                        handleRecordChange(
-                                          record.id,
-                                          field.name,
-                                          e.target.checked
-                                        )
-                                      }
-                                    />
-                                  ) : (
-                                    <Checkbox
-                                      checked={Boolean(record[field.name])}
-                                      disabled
-                                    />
-                                  )
-                                ) : isEditable ? (
-                                  <TextField
-                                    variant="outlined"
-                                    size="small"
-                                    fullWidth
-                                    multiline={field.multiline || false}
-                                    value={record[field.name] || ""}
-                                    onChange={(e) =>
-                                      handleRecordChange(
-                                        record.id,
-                                        field.name,
-                                        e.target.value
-                                      )
-                                    }
+                              <TableCell
+                                key={field.name}
+                                onClick={() => {
+                                  setSortConfig((prev) => ({
+                                    ...prev,
+                                    key: field.name,
+                                    direction:
+                                      prev &&
+                                      prev.key === field.name &&
+                                      prev.direction === "asc"
+                                        ? "desc"
+                                        : "asc",
+                                  }));
+                                }}
+                                sx={{
+                                  userSelect: "none",
+                                  "&:hover": {
+                                    backgroundColor: theme.palette.action.hover,
+                                  },
+                                  verticalAlign: "bottom",
+                                  backgroundColor:
+                                    theme.palette.background.paper,
+                                  color: theme.palette.text.primary,
+                                }}
+                              >
+                                <Tooltip
+                                  title="Click to sort"
+                                  placement="top-end"
+                                >
+                                  <Box
                                     sx={{
-                                      minWidth: [
-                                        "tcpExclusionComment",
-                                        "creditCardNumber",
-                                      ].includes(field.name)
-                                        ? 240
-                                        : undefined,
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: 0.5,
                                     }}
-                                  />
-                                ) : (
-                                  record[field.name] || "-"
-                                )}
+                                  >
+                                    {field.label}
+                                    {sortConfig?.key === field.name && (
+                                      <Typography variant="body2">
+                                        {sortConfig.direction === "asc"
+                                          ? "🔼"
+                                          : "🔽"}
+                                      </Typography>
+                                    )}
+                                  </Box>
+                                </Tooltip>
+                                <TextField
+                                  size="small"
+                                  variant="standard"
+                                  placeholder="Contains..."
+                                  value={
+                                    sortConfig?.filtersFuzzy?.[field.name] ?? ""
+                                  }
+                                  onClick={(e) => e.stopPropagation()}
+                                  onChange={(e) => {
+                                    const { value } = e.target;
+                                    setSortConfig((prev) => ({
+                                      ...prev,
+                                      filtersFuzzy: {
+                                        ...(prev.filtersFuzzy || {}),
+                                        [field.name]: value,
+                                      },
+                                    }));
+                                  }}
+                                  sx={{ mb: 0.5 }}
+                                />
+                                <Select
+                                  size="small"
+                                  variant="standard"
+                                  fullWidth
+                                  displayEmpty
+                                  value={
+                                    sortConfig?.filtersExact?.[field.name] ?? ""
+                                  }
+                                  onClick={(e) => e.stopPropagation()}
+                                  onChange={(e) => {
+                                    const { value } = e.target;
+                                    setSortConfig((prev) => ({
+                                      ...prev,
+                                      filtersExact: {
+                                        ...(prev.filtersExact || {}),
+                                        [field.name]: value,
+                                      },
+                                    }));
+                                  }}
+                                  sx={{
+                                    backgroundColor:
+                                      theme.palette.background.paper,
+                                  }}
+                                >
+                                  <MenuItem value="">(All)</MenuItem>
+                                  {[
+                                    ...new Set(
+                                      rows.map((r) => r[field.name] || "")
+                                    ),
+                                  ]
+                                    .filter((v) => v)
+                                    .sort((a, b) =>
+                                      String(a).localeCompare(
+                                        String(b),
+                                        undefined,
+                                        { numeric: true }
+                                      )
+                                    )
+                                    .map((option) => (
+                                      <MenuItem key={option} value={option}>
+                                        {String(option)}
+                                      </MenuItem>
+                                    ))}
+                                </Select>
                               </TableCell>
                             );
                           })
                   )}
                 </TableRow>
+              </TableHead>
+              <TableBody>
+                {displayedRecords.map((record) => {
+                  // Calculate payment term and time for this record
+                  return (
+                    <TableRow
+                      key={record.id}
+                      sx={{
+                        backgroundColor: getRowHighlightColor({
+                          id: record.id,
+                          isError: false,
+                          wasChanged: record.wasChanged || false,
+                          wasSaved:
+                            new Date(record.updatedAt) >
+                            new Date(record.createdAt),
+                          partialPayment: record.partialPayment,
+                        }),
+                      }}
+                    >
+                      <TableCell>
+                        {record.hasExclusion ? (
+                          <Tooltip title="Recommended Exclusion">
+                            <Typography fontWeight="bold">🧠</Typography>
+                          </Tooltip>
+                        ) : record.hasIssue ? (
+                          <Tooltip title="Issue">
+                            <Typography color="error" fontWeight="bold">
+                              ⚠️
+                            </Typography>
+                          </Tooltip>
+                        ) : null}
+                      </TableCell>
+                      {Object.entries(groupedVisibleFields).flatMap(
+                        ([group, fields]) =>
+                          collapsedGroups[group]
+                            ? [
+                                <TableCell
+                                  key={`${record.id}-${group}-collapsed`}
+                                />,
+                              ]
+                            : fields.map((field) => {
+                                if (hiddenColumns?.includes(field.name))
+                                  return null;
+                                const isEditable = editableFields?.includes(
+                                  field.name
+                                );
+
+                                // Special case: mask credit card number if not editable
+                                if (
+                                  field.name === "creditCardNumber" &&
+                                  !isEditable
+                                ) {
+                                  return (
+                                    <TableCell
+                                      key={`${record.id}-${field.name}`}
+                                    >
+                                      {maskCreditCard(record[field.name])}
+                                    </TableCell>
+                                  );
+                                }
+
+                                // General-purpose fallback TableCell logic
+                                return (
+                                  <TableCell key={`${record.id}-${field.name}`}>
+                                    {field.type === "amount" ? (
+                                      formatCurrency(record[field.name])
+                                    ) : field.type === "date" ? (
+                                      record[field.name] ? (
+                                        formatDateForSQL(
+                                          record[field.name]
+                                        ).split(" ")[0]
+                                      ) : (
+                                        "-"
+                                      )
+                                    ) : field.type === "checkbox" ? (
+                                      isEditable ? (
+                                        <Checkbox
+                                          checked={Boolean(record[field.name])}
+                                          sx={{
+                                            color: theme.palette.text.primary,
+                                            "&.Mui-checked": {
+                                              color: theme.palette.text.primary,
+                                            },
+                                          }}
+                                          onChange={(e) =>
+                                            onRecordChange &&
+                                            onRecordChange(
+                                              record.id,
+                                              field.name,
+                                              e.target.checked
+                                            )
+                                          }
+                                        />
+                                      ) : (
+                                        <Checkbox
+                                          checked={Boolean(record[field.name])}
+                                          disabled
+                                        />
+                                      )
+                                    ) : isEditable ? (
+                                      <TextField
+                                        variant="outlined"
+                                        size="small"
+                                        fullWidth
+                                        multiline={field.multiline || false}
+                                        value={record[field.name] || ""}
+                                        onChange={(e) =>
+                                          onRecordChange &&
+                                          onRecordChange(
+                                            record.id,
+                                            field.name,
+                                            e.target.value
+                                          )
+                                        }
+                                        sx={{
+                                          minWidth: [
+                                            "tcpExclusionComment",
+                                            "creditCardNumber",
+                                          ].includes(field.name)
+                                            ? 240
+                                            : undefined,
+                                        }}
+                                      />
+                                    ) : (
+                                      record[field.name] || "-"
+                                    )}
+                                  </TableCell>
+                                );
+                              })
+                      )}
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            component="div"
+            count={filteredRecords.length}
+            page={page}
+            onPageChange={(_, newPage) => {
+              const changedRecords = displayedRecords.filter(
+                (rec) => rec.wasChanged
               );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        component="div"
-        count={filteredRecords.length}
-        page={page}
-        onPageChange={(_, newPage) => {
-          const changedRecords = displayedRecords.filter(
-            (rec) => rec.wasChanged
-          );
-          if (changedRecords.length > 0) {
-            // Save updates before changing page
-            handleSaveUpdates();
-          }
-          setPage(newPage);
-        }}
-        rowsPerPage={rowsPerPage}
-        onRowsPerPageChange={(e) =>
-          setRowsPerPage(parseInt(e.target.value, 25))
-        }
-        rowsPerPageOptions={[5, 10, 25, 50, 100]}
-      />
+              if (changedRecords.length > 0) {
+                // Save updates before changing page
+                onSaveUpdates && onSaveUpdates();
+              }
+              setPage(newPage);
+            }}
+            rowsPerPage={rowsPerPage}
+            onRowsPerPageChange={(e) =>
+              setRowsPerPage(parseInt(e.target.value, 10))
+            }
+            rowsPerPageOptions={[5, 10, 25, 50, 100]}
+          />
+        </>
+      )}
     </>
   );
 }

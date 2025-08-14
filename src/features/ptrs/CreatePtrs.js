@@ -20,7 +20,7 @@ export default function CreatePtrs({
   const theme = useTheme();
   const { code } = useParams();
   const { showAlert } = useAlert();
-  console.log("ptrsDetails in CreatePtrs:", ptrsDetails);
+  // console.log("ptrsDetails in CreatePtrs:", ptrsDetails);
 
   // Utility for formatting date as YYYY-MM-DD
   const formatDate = (value) => {

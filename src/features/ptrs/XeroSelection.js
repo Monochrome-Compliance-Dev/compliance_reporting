@@ -20,8 +20,8 @@ import {
   Alert,
   CircularProgress,
 } from "@mui/material";
-import { xeroService } from "../../services/xero/xero";
-import { useAlert } from "../../context";
+import { xeroService } from "../../services";
+import { useAlert, usePtrsContext } from "../../context";
 
 export default function XeroSelection() {
   const location = useLocation();
@@ -49,7 +49,7 @@ export default function XeroSelection() {
   const [isRemoving, setIsRemoving] = useState(false);
   const [loadingTenantId, setLoadingTenantId] = useState(null);
   const navigate = useNavigate();
-  const { reportId } = useParams();
+  const { activePtrsId: ptrsId } = usePtrsContext();
   const { showAlert } = useAlert();
 
   useEffect(() => {
@@ -99,12 +99,12 @@ export default function XeroSelection() {
     }
     const startDate = callbackData?.startDate || new Date().toISOString();
     const endDate = callbackData?.endDate || new Date().toISOString();
-    console.log("reportId:", reportId);
+    console.log("ptrsId:", ptrsId);
     console.log("Unfetched Tenant IDs:", unfetchedTenantIds);
     console.log(
       "payload:",
       // ...callbackData,
-      reportId,
+      ptrsId,
       unfetchedTenantIds,
       startDate,
       endDate
@@ -113,12 +113,12 @@ export default function XeroSelection() {
     try {
       await xeroService.triggerExtraction({
         ...callbackData,
-        reportId,
+        ptrsId,
         tenantIds: unfetchedTenantIds,
         startDate,
         endDate,
       });
-      navigate(`/reports/ptrs/${reportId}/progress`);
+      navigate(`/ptrs/${ptrsId}/progress`);
     } catch (error) {
       console.error("Error starting extract:", error);
       showAlert("Error starting data extraction. Please try again.", "error");
@@ -173,7 +173,7 @@ export default function XeroSelection() {
                   try {
                     await xeroService.triggerExtraction({
                       ...callbackData,
-                      reportId,
+                      ptrsId,
                       tenantIds: [org.tenantId],
                       startDate,
                       endDate,
@@ -222,7 +222,7 @@ export default function XeroSelection() {
       <Box display="flex" gap={2}>
         <Button
           variant="outlined"
-          onClick={() => navigate(`/reports/ptrs/${reportId}/connect`)}
+          onClick={() => navigate(`/ptrs/${ptrsId}/connect`)}
         >
           Connect Another Organisation
         </Button>
