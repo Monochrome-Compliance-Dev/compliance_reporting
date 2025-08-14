@@ -26,6 +26,7 @@
     "jspdf": "^3.0.1",
     "jspdf-autotable": "^5.0.2",
     "lodash": "^4.17.21",
+    "papaparse": "^5.5.3",
     "prop-types": "^15.8.1",
     "qrcode.react": "^4.2.0",
     "query-string": "^9.1.1",
@@ -42,6 +43,7 @@
     "rxjs": "^7.8.2",
     "socket.io-client": "^4.8.1",
     "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5",
     "yup": "^1.6.1"
   },
   "scripts": {

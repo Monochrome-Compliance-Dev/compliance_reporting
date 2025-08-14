@@ -24,7 +24,7 @@ export const PtrsProvider = ({ children }) => {
     try {
       const user = userService.userValue;
       const result = await ptrsService.getAll({ clientId: user.clientId });
-      console.log("Fetched ptrsDetails:", result);
+      // console.log("Fetched ptrsDetails:", result);
 
       // Unwrap `{ status, data }` envelope while tolerating legacy bare-array responses
       const rows = Array.isArray(result)

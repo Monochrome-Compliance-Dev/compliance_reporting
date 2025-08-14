@@ -28,6 +28,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tcpService, dcService, ptrsService } from "../../services";
 import { useAlert } from "../../context/AlertContext";
 import PayeesMissingAbnTable from "./PayeesMissingAbnTable";
+import { PTRS_FIELD_LABELS } from "./ingestConfig";
 
 const DataUploadReview = ({
   errors = [],
@@ -36,6 +37,16 @@ const DataUploadReview = ({
   onRecordsUpdated,
   onRefreshClick, // <-- new optional callback
 }) => {
+  // console.log(
+  //   "errors, validRecordsPreview, onErrorsUpdated,  onRecordsUpdated,  onRefreshClick:",
+  //   errors,
+  //   validRecordsPreview,
+  //   onErrorsUpdated,
+  //   onRecordsUpdated,
+  //   onRefreshClick
+  // );
+  const [remoteErrors, setRemoteErrors] = useState([]);
+  const [loadingErrors, setLoadingErrors] = useState(false);
   const [validRows, setValidRows] = useState(validRecordsPreview);
   const [editedRows, setEditedRows] = useState({});
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -62,7 +73,7 @@ const DataUploadReview = ({
       setConfirmOpen(false);
       setCollapse(true);
       if (destination === "dashboard") {
-        navigate("/user/dashboard");
+        navigate("/dashboard");
       } else {
         navigate(`/ptrs/${latestPtrs.id}`);
       }
@@ -84,6 +95,9 @@ const DataUploadReview = ({
     };
   }
 
+  const fieldLabel = (key, fallback) =>
+    (PTRS_FIELD_LABELS && PTRS_FIELD_LABELS[key]) || fallback || key;
+
   const revalidateRow = (row) => {
     const issues = [];
     if (!row.payerEntityName || row.payerEntityName.trim() === "")
@@ -100,8 +114,10 @@ const DataUploadReview = ({
   };
 
   const safeErrors = useMemo(() => {
-    return Array.isArray(errors) ? errors : [];
-  }, [errors]);
+    const source =
+      remoteErrors && remoteErrors.length > 0 ? remoteErrors : errors;
+    return Array.isArray(source) ? source : [];
+  }, [errors, remoteErrors]);
 
   const preValidatedErrors = useMemo(() => {
     return safeErrors.map((row) => ({
@@ -109,6 +125,39 @@ const DataUploadReview = ({
       issues: revalidateRow(row),
     }));
   }, [safeErrors]);
+
+  const currentPtrsId = useMemo(() => {
+    try {
+      const stored = localStorage.getItem("ptrsDetails");
+      const parsed = JSON.parse(stored);
+      const arr = Array.isArray(parsed) ? parsed : [parsed];
+      return arr?.find((r) => r?.code === "ptrs")?.id || null;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const fetchErrorsFromDb = async () => {
+    if (!currentPtrsId) return;
+    try {
+      setLoadingErrors(true);
+      const res = await tcpService.getErrorsByPtrsId(currentPtrsId);
+      console.log("res: ", res);
+      if (Array.isArray(res)) {
+        setRemoteErrors(res);
+        onErrorsUpdated?.(res); // notify parent if it cares
+      }
+    } catch (e) {
+      console.error("Failed to fetch tcp_error rows:", e);
+    } finally {
+      setLoadingErrors(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchErrorsFromDb();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [validRecordsPreview]);
 
   // useEffect(() => {
   //   // Prevent repeated alerts by only showing on mount (or initial render)
@@ -136,6 +185,17 @@ const DataUploadReview = ({
     });
     return groups;
   }, [preValidatedErrors]);
+
+  // --- Known payers for Suggest dropdown ---
+  const knownPayers = useMemo(() => {
+    const s = new Set();
+    (validRows || []).forEach((r) => {
+      if (r?.payerEntityName && typeof r.payerEntityName === "string") {
+        s.add(r.payerEntityName);
+      }
+    });
+    return Array.from(s).sort();
+  }, [validRows]);
 
   // --- Payees missing ABN grouping and fix handler ---
   const payeesMissingAbn = useMemo(() => {
@@ -284,20 +344,23 @@ const DataUploadReview = ({
             </Box>
 
             {/* Refresh Records Button with Tooltip */}
-            {safeErrors.length > 0 && (
-              <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
-                <Tooltip title="Force-refresh the records from the database, bypassing any cache.">
+            {/* {safeErrors.length > 0 && ( */}
+            <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
+              <Tooltip title="Force-refresh the records from the database, bypassing any cache.">
+                <span>
                   <Button
                     variant="outlined"
                     size="small"
                     sx={{ ml: "auto" }}
-                    onClick={onRefreshClick}
+                    onClick={onRefreshClick || fetchErrorsFromDb}
+                    disabled={loadingErrors}
                   >
-                    Refresh Records
+                    {loadingErrors ? "Refreshing…" : "Refresh Records"}
                   </Button>
-                </Tooltip>
-              </Box>
-            )}
+                </span>
+              </Tooltip>
+            </Box>
+            {/* )} */}
 
             {/* Mark as Validated Button */}
             {safeErrors.length === 0 && validRows.length > 0 && (
@@ -342,11 +405,33 @@ const DataUploadReview = ({
                           <Table size="small">
                             <TableHead>
                               <TableRow>
-                                <TableCell>Payer</TableCell>
-                                <TableCell>Payee</TableCell>
-                                <TableCell>ABN</TableCell>
-                                <TableCell>Amount</TableCell>
-                                <TableCell>Date</TableCell>
+                                <TableCell>
+                                  {fieldLabel(
+                                    "payerEntityName",
+                                    "Payer Entity Name"
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  {fieldLabel(
+                                    "payeeEntityName",
+                                    "Payee Entity Name"
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  {fieldLabel(
+                                    "payeeEntityAbn",
+                                    "Payee Entity ABN"
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  {fieldLabel(
+                                    "paymentAmount",
+                                    "Payment Amount"
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  {fieldLabel("paymentDate", "Payment Date")}
+                                </TableCell>
                                 <TableCell>Issues</TableCell>
                               </TableRow>
                             </TableHead>
@@ -363,20 +448,49 @@ const DataUploadReview = ({
                                 return (
                                   <TableRow key={row.id || index}>
                                     <TableCell>
-                                      <input
-                                        value={rowCopy.payerEntityName || ""}
-                                        onChange={(e) => {
-                                          setEditedRows((prev) => ({
-                                            ...prev,
-                                            [row.id]: {
-                                              ...prev[row.id],
-                                              payerEntityName: e.target.value,
-                                              modified: true,
-                                            },
-                                          }));
-                                        }}
-                                        style={{ width: "100%" }}
-                                      />
+                                      <div style={{ display: "flex", gap: 8 }}>
+                                        <input
+                                          value={rowCopy.payerEntityName || ""}
+                                          onChange={(e) => {
+                                            setEditedRows((prev) => ({
+                                              ...prev,
+                                              [row.id]: {
+                                                ...prev[row.id],
+                                                payerEntityName: e.target.value,
+                                                modified: true,
+                                              },
+                                            }));
+                                          }}
+                                          style={{ width: "100%" }}
+                                        />
+                                        {knownPayers.length > 0 && (
+                                          <select
+                                            defaultValue=""
+                                            onChange={(e) => {
+                                              const val = e.target.value;
+                                              if (!val) return;
+                                              setEditedRows((prev) => ({
+                                                ...prev,
+                                                [row.id]: {
+                                                  ...prev[row.id],
+                                                  payerEntityName: val,
+                                                  modified: true,
+                                                },
+                                              }));
+                                              // reset back to placeholder so user can pick again
+                                              e.target.value = "";
+                                            }}
+                                            style={{ minWidth: 120 }}
+                                          >
+                                            <option value="">Suggest…</option>
+                                            {knownPayers.map((p) => (
+                                              <option key={p} value={p}>
+                                                {p}
+                                              </option>
+                                            ))}
+                                          </select>
+                                        )}
+                                      </div>
                                     </TableCell>
                                     <TableCell>
                                       <input
@@ -453,43 +567,69 @@ const DataUploadReview = ({
                                       </ul>
                                     </TableCell>
                                     <TableCell>
-                                      {rowCopy.issues.length === 0 &&
-                                        rowCopy.modified && (
-                                          <Button
-                                            variant="outlined"
-                                            size="small"
-                                            onClick={() => {
-                                              tcpService
-                                                .patchRecord(
-                                                  rowCopy.id,
-                                                  rowCopy
-                                                )
-                                                .then(() => {
-                                                  const updatedErrors =
-                                                    safeErrors.filter(
-                                                      (e) => e.id !== rowCopy.id
-                                                    );
-                                                  const updatedValid = [
-                                                    ...validRows,
-                                                    rowCopy,
-                                                  ];
-                                                  onRecordsUpdated?.(
-                                                    updatedErrors,
-                                                    updatedValid
-                                                  );
-                                                  setEditedRows((prev) => {
-                                                    const copy = { ...prev };
-                                                    delete copy[rowCopy.id];
-                                                    return copy;
-                                                  });
-                                                  onRefreshClick?.(); // Trigger refresh from DB
-                                                })
-                                                .catch(console.error);
-                                            }}
-                                          >
-                                            Save
-                                          </Button>
-                                        )}
+                                      {(() => {
+                                        const hasIssues =
+                                          Array.isArray(rowCopy.issues) &&
+                                          rowCopy.issues.length > 0;
+                                        const isModified = Boolean(
+                                          rowCopy.modified
+                                        );
+                                        const disabled =
+                                          hasIssues || !isModified;
+                                        const issueSummary = hasIssues
+                                          ? `Fix ${rowCopy.issues.length} issue${rowCopy.issues.length === 1 ? "" : "s"}: ${rowCopy.issues.join(", ")}`
+                                          : isModified
+                                            ? "Ready to save"
+                                            : "Edit a value to enable Save";
+                                        return (
+                                          <Tooltip title={issueSummary}>
+                                            <span>
+                                              <Button
+                                                variant="outlined"
+                                                size="small"
+                                                disabled={disabled}
+                                                onClick={() => {
+                                                  if (disabled) return;
+                                                  const payload = {
+                                                    ...rowCopy,
+                                                  };
+                                                  // Remove UI-only fields
+                                                  delete payload.issues;
+                                                  // Promote this error row into Tcp and remove from TcpError in one go
+                                                  tcpService
+                                                    .resolveErrors([payload])
+                                                    .then(() => {
+                                                      const updatedErrors =
+                                                        safeErrors.filter(
+                                                          (e) =>
+                                                            e.id !== rowCopy.id
+                                                        );
+                                                      const updatedValid = [
+                                                        ...validRows,
+                                                        rowCopy,
+                                                      ];
+                                                      onRecordsUpdated?.(
+                                                        updatedErrors,
+                                                        updatedValid
+                                                      );
+                                                      setEditedRows((prev) => {
+                                                        const copy = {
+                                                          ...prev,
+                                                        };
+                                                        delete copy[rowCopy.id];
+                                                        return copy;
+                                                      });
+                                                      onRefreshClick?.();
+                                                    })
+                                                    .catch(console.error);
+                                                }}
+                                              >
+                                                Save
+                                              </Button>
+                                            </span>
+                                          </Tooltip>
+                                        );
+                                      })()}
                                     </TableCell>
                                   </TableRow>
                                 );
@@ -516,11 +656,21 @@ const DataUploadReview = ({
                     <Table size="small">
                       <TableHead>
                         <TableRow>
-                          <TableCell>Payer</TableCell>
-                          <TableCell>Payee</TableCell>
-                          <TableCell>ABN</TableCell>
-                          <TableCell>Amount</TableCell>
-                          <TableCell>Date</TableCell>
+                          <TableCell>
+                            {fieldLabel("payerEntityName", "Payer Entity Name")}
+                          </TableCell>
+                          <TableCell>
+                            {fieldLabel("payeeEntityName", "Payee Entity Name")}
+                          </TableCell>
+                          <TableCell>
+                            {fieldLabel("payeeEntityAbn", "Payee Entity ABN")}
+                          </TableCell>
+                          <TableCell>
+                            {fieldLabel("paymentAmount", "Payment Amount")}
+                          </TableCell>
+                          <TableCell>
+                            {fieldLabel("paymentDate", "Payment Date")}
+                          </TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
