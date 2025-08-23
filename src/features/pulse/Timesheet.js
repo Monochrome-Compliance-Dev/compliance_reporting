@@ -22,6 +22,7 @@ import { ArrowBack, ArrowForward, Delete } from "@mui/icons-material";
 import { format, addDays, startOfWeek } from "date-fns";
 import { useParams } from "react-router";
 import mockData from "./mockData.json";
+import { usePulseContext } from "../../context/PulseContext";
 
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -47,15 +48,12 @@ const Timesheet = () => {
     isValidDate ? parsedDate : new Date()
   );
 
-  const engagements = useMemo(
-    () => (Array.isArray(mockData?.engagements) ? mockData.engagements : []),
-    []
-  );
-
-  const resources = useMemo(
-    () => (Array.isArray(mockData?.resources) ? mockData.resources : []),
-    []
-  );
+  const {
+    engagements = [],
+    resources = [],
+    saveTimesheet,
+    getTimesheet,
+  } = usePulseContext();
 
   const getResourceNameById = (id) => {
     const found = resources.find((r) => r.id === id);
@@ -72,12 +70,24 @@ const Timesheet = () => {
     ];
   });
 
-  // Load rows from mock data based on resource + week key
+  // Load rows from overrides first, then mock data based on resource + week key
   useEffect(() => {
     const weekKey = makeWeekKey(currentDate);
+    const fromOverrides = getTimesheet(resourceId, weekKey);
+    if (Array.isArray(fromOverrides) && fromOverrides.length > 0) {
+      setRows(
+        fromOverrides.map((r) => ({
+          engagementId: r.engagementId || engagements[0]?.id || "",
+          hours:
+            Array.isArray(r.hours) && r.hours.length === 7
+              ? r.hours.map((h) => Number(h) || 0)
+              : [0, 0, 0, 0, 0, 0, 0],
+        }))
+      );
+      return;
+    }
     const tsByResource = mockData?.timesheets?.[resourceId];
     const rowsFromMock = tsByResource?.[weekKey];
-
     if (Array.isArray(rowsFromMock) && rowsFromMock.length > 0) {
       // Validate/normalise each row
       const normalised = rowsFromMock.map((r) => ({
@@ -97,7 +107,7 @@ const Timesheet = () => {
         },
       ]);
     }
-  }, [currentDate, resourceId, engagements]);
+  }, [currentDate, resourceId, engagements, getTimesheet]);
 
   // Add Row
   const handleAddRow = () => {
@@ -151,11 +161,15 @@ const Timesheet = () => {
   const handlePrevWeek = () => setCurrentDate(addDays(currentDate, -7));
   const handleNextWeek = () => setCurrentDate(addDays(currentDate, 7));
 
+  const weekKey = makeWeekKey(currentDate);
+  const persistRows = async () => {
+    await saveTimesheet(resourceId, weekKey, rows);
+  };
   const handleSave = () => {
-    window.alert("Timesheet saved!");
+    persistRows();
   };
   const handleSubmit = () => {
-    window.alert("Timesheet submitted!");
+    persistRows();
   };
 
   const weekDates = getWeekDates(currentDate);

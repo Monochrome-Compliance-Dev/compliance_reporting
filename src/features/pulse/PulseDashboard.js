@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Container,
   Typography,
@@ -13,13 +12,15 @@ import {
   TableRow,
   Box,
 } from "@mui/material";
-import data from "./mockData.json";
+import mockData from "./mockData.json";
+import { usePulseContext } from "../../context/PulseContext";
 import { useNavigate } from "react-router";
 
 const PulseDashboard = () => {
   const navigate = useNavigate();
 
-  const { clients, resources, engagements, timeEntries, allocations } = data;
+  const { clients = [], resources = [], engagements = [] } = usePulseContext();
+  const { timeEntries = [], allocations = [] } = mockData;
 
   const clientName = (clientId) =>
     clients.find((c) => c.id === clientId)?.name || "-";

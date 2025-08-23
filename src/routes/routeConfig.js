@@ -1,6 +1,6 @@
 import RequireRoles from "./RequireRoles";
 import Role from "../context/role";
-import { PtrsProvider, TcpProvider } from "../context/";
+import { PtrsProvider, PulseProvider, TcpProvider } from "../context/";
 import ComplianceDashboardLayout from "../components/layouts/ComplianceDashboardLayout";
 import { Outlet } from "react-router";
 
@@ -244,9 +244,11 @@ export const protectedRoutes = [
     path: "/pulse",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <ComplianceDashboardLayout title="Pulse Dashboard" module="pulse">
-          <Outlet />
-        </ComplianceDashboardLayout>
+        <PulseProvider>
+          <ComplianceDashboardLayout title="Pulse Dashboard" module="pulse">
+            <Outlet />
+          </ComplianceDashboardLayout>
+        </PulseProvider>
       </RequireRoles>
     ),
     children: [

@@ -10,8 +10,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import { useNavigate } from "react-router";
-
-import data from "./mockData.json";
+import { usePulseContext } from "../../context/PulseContext";
 
 const schema = yup.object().shape({
   clientId: yup.string().required("Client is required"),
@@ -29,6 +28,8 @@ const schema = yup.object().shape({
 });
 
 export default function Engagement() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -42,33 +43,20 @@ export default function Engagement() {
       budgetAmount: "",
     },
   });
-  const navigate = useNavigate();
+
+  // ✅ Custom hook is called **inside** the component body
+  const { clients = [], saveEngagement } = usePulseContext();
 
   const onSubmit = async (formData) => {
     const id = Date.now().toString();
-    const newEng = {
+    await saveEngagement({
       id,
       clientId: formData.clientId,
       name: formData.engagementName,
       budgetHours: Number(formData.budgetHours || 0),
       budgetAmount: formData.budgetAmount ? Number(formData.budgetAmount) : 0,
       status: "PLANNED",
-    };
-    let existing = {};
-    try {
-      const stored = localStorage.getItem("pulse_mock_overrides");
-      if (stored) {
-        existing = JSON.parse(stored);
-      }
-    } catch {}
-    const prevEngagements = Array.isArray(existing.engagements)
-      ? existing.engagements
-      : [];
-    localStorage.setItem(
-      "pulse_mock_overrides",
-      JSON.stringify({ ...existing, engagements: [...prevEngagements, newEng] })
-    );
-    window.alert("Engagement created successfully!");
+    });
     navigate("/pulse");
   };
 
@@ -93,12 +81,11 @@ export default function Engagement() {
             autoFocus
           >
             <MenuItem value="">Select a client</MenuItem>
-            {data.clients &&
-              data.clients.map((client) => (
-                <MenuItem key={client.id} value={client.id}>
-                  {client.name}
-                </MenuItem>
-              ))}
+            {clients.map((client) => (
+              <MenuItem key={client.id} value={client.id}>
+                {client.name}
+              </MenuItem>
+            ))}
           </TextField>
           <TextField
             label="Engagement Name"

@@ -16,7 +16,7 @@ import {
 import { ArrowBack, ArrowForward, Search } from "@mui/icons-material";
 import { format, startOfWeek, addDays } from "date-fns";
 import { useNavigate } from "react-router";
-import mockData from "./mockData.json";
+import { usePulseContext } from "../../context/PulseContext";
 
 function getWeekStart(date) {
   return startOfWeek(date, { weekStartsOn: 1 }); // Monday
@@ -37,9 +37,7 @@ export default function Timesheets() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [query, setQuery] = useState("");
 
-  const resources = Array.isArray(mockData?.resources)
-    ? mockData.resources
-    : [];
+  const { resources = [] } = usePulseContext();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();

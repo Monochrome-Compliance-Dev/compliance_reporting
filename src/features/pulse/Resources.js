@@ -11,19 +11,16 @@ import {
   TableCell,
   TableBody,
   Button,
-  IconButton,
 } from "@mui/material";
 import { Add, Search } from "@mui/icons-material";
 import { useNavigate } from "react-router";
-import mockData from "./mockData.json";
+import { usePulseContext } from "../../context/PulseContext";
 
 export default function Resources() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
 
-  const resources = Array.isArray(mockData?.resources)
-    ? mockData.resources
-    : [];
+  const { resources = [] } = usePulseContext();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();

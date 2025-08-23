@@ -14,13 +14,13 @@ import {
 } from "@mui/material";
 import { Add, Search } from "@mui/icons-material";
 import { useNavigate } from "react-router";
-import mockData from "./mockData.json";
+import { usePulseContext } from "../../context/PulseContext";
 
 export default function Clients() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
 
-  const clients = Array.isArray(mockData?.clients) ? mockData.clients : [];
+  const { clients = [] } = usePulseContext();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();

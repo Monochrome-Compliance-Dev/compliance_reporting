@@ -17,7 +17,8 @@ import {
   FormControl,
   InputLabel,
 } from "@mui/material";
-import data from "./mockData.json";
+import mockData from "./mockData.json";
+import { usePulseContext } from "../../context/PulseContext";
 
 function getMondayISO() {
   const now = new Date();
@@ -31,7 +32,8 @@ const Engagements = () => {
   const { engagementId } = useParams();
   const navigate = useNavigate();
 
-  const { clients, resources, engagements, allocations, timeEntries } = data;
+  const { clients = [], resources = [], engagements = [] } = usePulseContext();
+  const { allocations = [], timeEntries = [] } = mockData;
   const engagement = engagements.find(
     (e) => String(e.id) === String(engagementId)
   );

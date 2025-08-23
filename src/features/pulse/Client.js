@@ -11,7 +11,7 @@ import {
   Paper,
 } from "@mui/material";
 import { useNavigate, useParams } from "react-router";
-import mockData from "./mockData.json";
+import { usePulseContext } from "../../context/PulseContext";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -23,7 +23,10 @@ export default function Client() {
   const navigate = useNavigate();
   const { clientId } = useParams();
 
-  const client = mockData?.clients?.find((c) => c.id === clientId);
+  const { clients } = usePulseContext();
+  const client = Array.isArray(clients)
+    ? clients.find((c) => c.id === clientId)
+    : undefined;
 
   const {
     register,
@@ -49,9 +52,9 @@ export default function Client() {
     }
   }, [client, reset]);
 
-  const onSubmit = (data) => {
-    console.log("Save client:", { id: clientId, ...data });
-    window.alert("Client saved (mock only)");
+  const { saveClient } = usePulseContext();
+  const onSubmit = async (data) => {
+    await saveClient({ id: clientId, ...data });
     navigate("/pulse/clients");
   };
 

@@ -19,7 +19,8 @@ import {
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import data from "./mockData.json";
+import mockData from "./mockData.json";
+import { usePulseContext } from "../../context/PulseContext";
 
 // Helper to get ISO string for Monday of current week
 function getMondayISO() {
@@ -36,18 +37,20 @@ const Resource = () => {
   const navigate = useNavigate();
   const isNew = resourceId === "new";
 
+  const { resources = [], engagements = [], saveResource } = usePulseContext();
+
   // Find existing resource if editing
   const existing =
-    !isNew && data.resources
-      ? data.resources.find((r) => String(r.id) === String(resourceId))
+    !isNew && resources
+      ? resources.find((r) => String(r.id) === String(resourceId))
       : undefined;
 
-  // Build unique role options from data
+  // Build unique role options from resources
   let roleOptions =
-    data.resources && data.resources.length > 0
+    resources && resources.length > 0
       ? Array.from(
           new Set(
-            data.resources
+            resources
               .map((r) => r.role)
               .filter((role) => !!role && typeof role === "string")
           )
@@ -88,6 +91,7 @@ const Resource = () => {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm({
     defaultValues,
@@ -96,21 +100,33 @@ const Resource = () => {
 
   // Allocations for this resource
   let allocations = [];
-  if (!isNew && data.allocations && existing) {
-    allocations = data.allocations.filter(
+  if (!isNew && mockData.allocations && existing) {
+    allocations = mockData.allocations.filter(
       (a) => String(a.resourceId) === String(existing.id)
     );
   }
   // Helper: engagementId -> name
   const engagementMap =
-    data.engagements?.reduce((map, eng) => {
+    engagements?.reduce((map, eng) => {
       map[String(eng.id)] = eng.name;
       return map;
     }, {}) || {};
 
   // Handlers
-  const onSave = () => {
-    window.alert("Resource saved");
+  const onSave = async () => {
+    await saveResource({
+      id: isNew ? undefined : existing?.id,
+      name: getValues ? getValues("name") : defaultValues.name,
+      role: getValues ? getValues("role") : defaultValues.role,
+      hourlyRate: Number(
+        (getValues && getValues("hourlyRate")) ?? defaultValues.hourlyRate ?? 0
+      ),
+      capacityHoursPerWeek: Number(
+        (getValues && getValues("capacityHoursPerWeek")) ??
+          defaultValues.capacityHoursPerWeek ??
+          0
+      ),
+    });
     navigate("/pulse");
   };
   const onCancel = () => {
@@ -118,7 +134,7 @@ const Resource = () => {
   };
   const onTimesheet = () => {
     const mondayISO = getMondayISO();
-    navigate(`/pulse/timesheet/${resourceId}/${mondayISO}`);
+    navigate(`/pulse/timesheets/${resourceId}/${mondayISO}`);
   };
 
   return (

@@ -65,9 +65,9 @@ export default function Dashboard() {
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ cursor: "pointer" }} onClick={() => navigate("/pillar")}>
+          <Card sx={{ cursor: "pointer" }} onClick={() => navigate("/pulse")}>
             <CardContent>
-              <Typography variant="h6">Pillar</Typography>
+              <Typography variant="h6">Pulse</Typography>
               <Typography variant="body2" color="textSecondary">
                 Resource & Engagement Management
               </Typography>
