@@ -8,7 +8,7 @@ import {
   Paper,
   MenuItem,
 } from "@mui/material";
-import { clientService, userService } from "../../services";
+import { customerService, userService } from "../../services";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -22,7 +22,7 @@ export default function Login() {
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [clients, setClients] = useState([]);
+  const [customers, setCustomers] = useState([]);
   const navigate = useNavigate();
   const { showAlert } = useAlert();
 
@@ -34,21 +34,21 @@ export default function Login() {
   );
 
   useEffect(() => {
-    const loadClients = async () => {
+    const loadCustomers = async () => {
       try {
-        const response = await clientService.getAll();
-        // console.log("Loaded clients:", response);
-        setClients(response || []);
+        const response = await customerService.getAll();
+        // console.log("Loaded customers:", response);
+        setCustomers(response || []);
       } catch (err) {
-        logError("Failed to load clients", err);
-        alertCallback("Unable to load client list", "error");
+        logError("Failed to load customers", err);
+        alertCallback("Unable to load customer list", "error");
       }
     };
-    loadClients();
+    loadCustomers();
   }, [alertCallback]);
 
   const schema = yup.object().shape({
-    clientId: yup.string().required("Client is required"),
+    customerId: yup.string().required("Customer is required"),
     email: yup
       .string()
       .transform((value) => value?.trim())
@@ -140,32 +140,32 @@ export default function Login() {
             }}
           >
             <Controller
-              name="clientId"
+              name="customerId"
               control={control}
               defaultValue=""
               render={({ field }) => (
                 <TextField
                   select
-                  label="Select client *"
+                  label="Select customer *"
                   fullWidth
                   value={field.value ?? ""}
                   onChange={field.onChange}
-                  error={!!errors.clientId}
-                  helperText={errors.clientId?.message}
+                  error={!!errors.customerId}
+                  helperText={errors.customerId?.message}
                   SelectProps={{ native: false }}
                   InputLabelProps={{
                     style: { color: theme.palette.text.primary },
                   }}
                 >
-                  <MenuItem value="">-- Select client --</MenuItem>
-                  {(clients || [])
+                  <MenuItem value="">-- Select customer --</MenuItem>
+                  {(customers || [])
                     .slice()
                     .sort((a, b) =>
                       a.businessName.localeCompare(b.businessName)
                     )
-                    .map((client) => (
-                      <MenuItem key={client.id} value={client.id}>
-                        {client.businessName}
+                    .map((customer) => (
+                      <MenuItem key={customer.id} value={customer.id}>
+                        {customer.businessName}
                       </MenuItem>
                     ))}
                 </TextField>

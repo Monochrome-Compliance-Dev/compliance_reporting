@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router"; // Import useNavigate
-import { clientService } from "../../services";
+import { customerService } from "../../services";
 import { useEffect, useState } from "react";
 import {
   useTheme,
@@ -12,24 +12,24 @@ import {
   Button,
 } from "@mui/material";
 
-export default function Clients() {
-  const [clients, setClients] = useState([]);
+export default function Customers() {
+  const [customers, setCustomers] = useState([]);
   const [error, setError] = useState(null);
   const theme = useTheme();
   const navigate = useNavigate(); // Initialize navigate
 
   useEffect(() => {
-    async function fetchClients() {
+    async function fetchCustomers() {
       try {
-        const response = await clientService.getAll();
-        setClients(response || []);
+        const response = await customerService.getAll();
+        setCustomers(response || []);
       } catch (err) {
-        console.error("Error loading clients:", err);
-        setError("Failed to load clients.");
+        console.error("Error loading customers:", err);
+        setError("Failed to load customers.");
       }
     }
 
-    fetchClients();
+    fetchCustomers();
   }, []);
 
   if (error) {
@@ -58,7 +58,7 @@ export default function Clients() {
     );
   }
 
-  if (!clients || clients.length === 0) {
+  if (!customers || customers.length === 0) {
     return (
       <Box
         sx={{
@@ -77,15 +77,15 @@ export default function Clients() {
           }}
         >
           <Typography variant="h4" gutterBottom>
-            No Clients Found
+            No Customers Found
           </Typography>
           <Button
             variant="contained"
             color="primary" // Reverted to US English
-            onClick={() => navigate("/clients/register")} // Navigate to register page
+            onClick={() => navigate("/customers/register")} // Navigate to register page
             sx={{ mt: 2 }}
           >
-            Register a New Client
+            Register a New Customer
           </Button>
         </Paper>
       </Box>
@@ -110,28 +110,28 @@ export default function Clients() {
         }}
       >
         <Typography variant="h4" gutterBottom>
-          Clients
+          Customers
         </Typography>
         <Typography variant="body1" gutterBottom>
-          This is the Clients page. Below is the list of registered clients.
+          This is the Customers page. Below is the list of registered customers.
         </Typography>
         <Button
           variant="contained"
           color="primary"
-          onClick={() => navigate("/clients/register")} // Navigate to register page
+          onClick={() => navigate("/customers/register")} // Navigate to register page
           sx={{ mb: 2 }}
         >
-          Register a New Client
+          Register a New Customer
         </Button>
         <List>
-          {clients.map((client) => (
+          {customers.map((customer) => (
             <ListItem
-              key={client.id}
+              key={customer.id}
               sx={{ borderBottom: `1px solid ${theme.palette.divider}` }}
             >
               <ListItemText
-                primary={client.businessName}
-                secondary={`Email: ${client.contactEmail} | Phone: ${client.contactPhone}`}
+                primary={customer.businessName}
+                secondary={`Email: ${customer.contactEmail} | Phone: ${customer.contactPhone}`}
               />
             </ListItem>
           ))}

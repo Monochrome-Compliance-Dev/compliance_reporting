@@ -1,8 +1,8 @@
 import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
 
-const baseUrl = `${process.env.REACT_APP_API_URL}/clients`;
+const baseUrl = `${process.env.REACT_APP_API_URL}/customers`;
 
-export const clientService = {
+export const customerService = {
   getAll,
   getById,
   create,

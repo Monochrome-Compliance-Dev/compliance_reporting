@@ -18,11 +18,11 @@ import {
   FormControlLabel,
   Checkbox,
 } from "@mui/material";
-import { clientService, userService, trackingService } from "../../services";
+import { customerService, userService, trackingService } from "../../services";
 // import GoogleAddressAutocomplete from "../../components/common/GoogleAddressAutocomplete";
 import { useNavigate } from "react-router";
 
-export default function ClientRegister() {
+export default function CustomerRegister() {
   const theme = useTheme();
   const [alert, setAlert] = useState(null);
   // const navigate = useNavigate();
@@ -186,9 +186,9 @@ export default function ClientRegister() {
     }
   };
 
-  const onSubmit = async (clientDetails) => {
+  const onSubmit = async (customerDetails) => {
     // Honeypot check
-    if (clientDetails.nickname?.trim()) {
+    if (customerDetails.nickname?.trim()) {
       setAlert({
         type: "error",
         message: "Form submission failed",
@@ -200,36 +200,36 @@ export default function ClientRegister() {
       }
       return;
     }
-    clientDetails = {
-      ...clientDetails,
+    customerDetails = {
+      ...customerDetails,
       active: true,
       createdBy: userService.userValue?.id || "onlineform",
     };
     try {
-      const response = await clientService.create(clientDetails);
+      const response = await customerService.create(customerDetails);
 
       // Store user details in sessionStorage for CreateUser page to pick up
       sessionStorage.setItem(
-        "clientDetails",
+        "customerDetails",
         JSON.stringify({
           id: response.id,
-          clientName: clientDetails.businessName,
-          firstName: clientDetails.contactFirst,
-          lastName: clientDetails.contactLast,
-          company: clientDetails.businessName,
-          email: clientDetails.contactEmail,
-          phone: clientDetails.contactPhone,
-          position: clientDetails.contactPosition,
+          customerName: customerDetails.businessName,
+          firstName: customerDetails.contactFirst,
+          lastName: customerDetails.contactLast,
+          company: customerDetails.businessName,
+          email: customerDetails.contactEmail,
+          phone: customerDetails.contactPhone,
+          position: customerDetails.contactPosition,
         })
       );
 
-      navigate("/clients/register-first-user");
+      navigate("/customers/register-first-user");
     } catch (error) {
       setAlert({
         type: "error",
-        message: error.message || "Error creating client",
+        message: error.message || "Error creating customer",
       });
-      console.error("Error creating client:", error);
+      console.error("Error creating customer:", error);
     }
   };
 
@@ -264,7 +264,7 @@ export default function ClientRegister() {
         <FormProvider {...methods}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            id="register-client-form"
+            id="register-customer-form"
             style={{
               display: "flex",
               flexDirection: "column",
@@ -608,7 +608,7 @@ export default function ClientRegister() {
               fullWidth
               sx={{ mt: 2 }}
             >
-              Register Client
+              Register Customer
             </Button>
           </form>
         </FormProvider>

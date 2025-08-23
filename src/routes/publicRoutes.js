@@ -1,4 +1,4 @@
-import ClientRegister from "../features/clients/ClientRegister";
+import CustomerRegister from "../features/customers/CustomerRegister";
 
 // Publicly available
 import Contact from "../components/forms/Contact";
@@ -63,10 +63,10 @@ const allPublicRoutes = [
   { path: "/", Component: LandingPage },
   { path: "/pricing", Component: PriceTier },
   {
-    path: "/clients/register",
-    Component: ClientRegister,
+    path: "/customers/register",
+    Component: CustomerRegister,
   },
-  { path: "/clients/register-first-user", Component: FirstUserRegister },
+  { path: "/customers/register-first-user", Component: FirstUserRegister },
   {
     path: "/login",
     Component: Login,

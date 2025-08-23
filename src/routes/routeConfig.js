@@ -12,8 +12,8 @@ import UsersLayout from "../features/users/UsersLayout";
 import Users from "../features/users/Users";
 import CreateUser from "../features/users/CreateUser";
 
-import Clients from "../features/clients/Clients";
-import ClientRegister from "../features/clients/ClientRegister";
+import Customers from "../features/customers/Customers";
+import CustomerRegister from "../features/customers/CustomerRegister";
 
 import PtrsLayout from "../features/ptrs/PtrsLayout";
 import PtrsWizard from "../features/ptrs/PtrsWizard";
@@ -38,6 +38,15 @@ import MsGrievances from "../features/ms/MsGrievances";
 import MsSupplierRisks from "../features/ms/MsSupplierRisks";
 import PtrsDashboard from "../features/ptrs/PtrsDashboard";
 import PtrsMetricsDashboard from "../features/ptrs/PtrsMetricsDashboard";
+import PulseDashboard from "../features/pulse/PulseDashboard";
+import Engagements from "../features/pulse/Engagements";
+import Resource from "../features/pulse/Resource";
+import Engagement from "../features/pulse/Engagement";
+import Timesheet from "../features/pulse/Timesheet";
+import Timesheets from "../features/pulse/Timesheets";
+import Resources from "../features/pulse/Resources";
+import PulseClients from "../features/pulse/Clients";
+import PulseClient from "../features/pulse/Client";
 
 export const protectedRoutes = [
   {
@@ -81,10 +90,10 @@ export const protectedRoutes = [
     ),
     children: [
       {
-        path: "clients",
+        path: "customers",
         children: [
-          { index: true, Component: Clients },
-          { path: "register", Component: ClientRegister },
+          { index: true, Component: Customers },
+          { path: "register", Component: CustomerRegister },
         ],
       },
       {
@@ -228,6 +237,66 @@ export const protectedRoutes = [
       {
         path: "supplier-risks",
         Component: MsSupplierRisks,
+      },
+    ],
+  },
+  {
+    path: "/pulse",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <ComplianceDashboardLayout title="Pulse Dashboard" module="pulse">
+          <Outlet />
+        </ComplianceDashboardLayout>
+      </RequireRoles>
+    ),
+    children: [
+      {
+        index: true,
+        Component: PulseDashboard,
+      },
+      {
+        path: "resources",
+        Component: Resources,
+      },
+      {
+        path: "engagements",
+        Component: Engagements,
+      },
+      {
+        path: "customers",
+        Component: PulseClients,
+      },
+      {
+        path: "timesheets",
+        Component: Timesheets,
+      },
+      {
+        path: "engagements/new",
+        Component: Engagement,
+      },
+      {
+        path: "engagements/:engagementId",
+        Component: Engagements,
+      },
+      {
+        path: "customers/new",
+        Component: PulseClient,
+      },
+      {
+        path: "customers/:customerId",
+        Component: PulseClient,
+      },
+      {
+        path: "resources/new",
+        Component: Resource,
+      },
+      {
+        path: "resources/:resourceId",
+        Component: Resource,
+      },
+      {
+        path: "timesheets/:resourceId/:week",
+        Component: Timesheet,
       },
     ],
   },
