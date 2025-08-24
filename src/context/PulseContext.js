@@ -17,55 +17,34 @@ export const usePulseContext = () => {
   return context;
 };
 
-// --- helpers ---
-const safeArray = (val) => (Array.isArray(val) ? val : val ? [val] : []);
+// ---- helpers ----
+const EMPTY = {
+  clients: [],
+  resources: [],
+  engagements: [],
+  timesheets: {}, // shape: { [resourceId]: { [weekKey]: rows[] } }
+};
+
+const safeArray = (val) => (Array.isArray(val) ? val : []);
+const safeObject = (val) => (val && typeof val === "object" ? val : {});
+
 const genId = () =>
   typeof crypto !== "undefined" && crypto.randomUUID
     ? crypto.randomUUID()
     : String(Date.now());
 
-function mergeById(base = [], overrides = []) {
-  const map = new Map(base.map((item) => [String(item.id), item]));
-  for (const o of overrides) {
-    if (!o || !o.id) continue;
-    map.set(String(o.id), { ...map.get(String(o.id)), ...o });
-  }
-  // Add any brand-new items with new IDs
-  for (const o of overrides) {
-    if (!o || !o.id) continue;
-    if (!base.some((b) => String(b.id) === String(o.id))) {
-      map.set(String(o.id), o);
-    }
-  }
-  return Array.from(map.values());
-}
-
-function readOverrides() {
-  try {
-    const raw = localStorage.getItem("pulse_mock_overrides");
-    return raw ? JSON.parse(raw) : {};
-  } catch {
-    return {};
-  }
-}
-
-function writeOverrides(next) {
-  try {
-    localStorage.setItem("pulse_mock_overrides", JSON.stringify(next));
-  } catch (e) {
-    console.warn("PulseContext: failed to write overrides", e);
-  }
-}
-
 export const PulseProvider = ({ children }) => {
-  const [resources, setResources] = useState([]);
-  const [engagements, setEngagements] = useState([]);
-  const [clients, setClients] = useState([]);
+  // canonical state held in context (no network calls here)
+  const [resources, setResources] = useState(EMPTY.resources);
+  const [engagements, setEngagements] = useState(EMPTY.engagements);
+  const [clients, setClients] = useState(EMPTY.clients);
+  const [timesheets, setTimesheets] = useState(EMPTY.timesheets);
 
   const [activeResourceId, setActiveResourceId] = useState(null);
   const [activeEngagementId, setActiveEngagementId] = useState(null);
   const [activeClientId, setActiveClientId] = useState(null);
 
+  // ---- active ID persistence (ok for UX continuity) ----
   const setActiveResourceIdPersist = useCallback((id) => {
     const next = id ?? null;
     setActiveResourceId(next);
@@ -87,188 +66,148 @@ export const PulseProvider = ({ children }) => {
     else localStorage.removeItem("pulse.activeClientId");
   }, []);
 
-  const loadAll = useCallback(() => {
-    // base
-    const baseResources = safeArray(mockData?.resources);
-    const baseEngagements = safeArray(mockData?.engagements);
-    const baseClients = safeArray(mockData?.clients);
+  // ---- seeding & refresh (no external side effects) ----
+  const seedFromMock = useCallback(() => {
+    const base = {
+      clients: safeArray(mockData?.clients),
+      resources: safeArray(mockData?.resources),
+      engagements: safeArray(mockData?.engagements),
+    };
+    setClients(base.clients);
+    setResources(base.resources);
+    setEngagements(base.engagements);
+  }, []);
 
-    // overrides
-    const overrides = readOverrides();
-    const oRes = safeArray(overrides.resources);
-    const oEng = safeArray(overrides.engagements);
-    const oCli = safeArray(overrides.clients);
-
-    const mergedRes = mergeById(baseResources, oRes);
-    const mergedEng = mergeById(baseEngagements, oEng);
-    const mergedCli = mergeById(baseClients, oCli);
-
-    setResources(mergedRes);
-    setEngagements(mergedEng);
-    setClients(mergedCli);
-
-    const storedRes = localStorage.getItem("pulse.activeResourceId");
-    const storedEng = localStorage.getItem("pulse.activeEngagementId");
-    const storedCli = localStorage.getItem("pulse.activeClientId");
-
-    const resValid =
-      storedRes && mergedRes.some((r) => r?.id === storedRes)
-        ? storedRes
-        : mergedRes[0]?.id || null;
-    const engValid =
-      storedEng && mergedEng.some((e) => e?.id === storedEng)
-        ? storedEng
-        : mergedEng[0]?.id || null;
-    const cliValid =
-      storedCli && mergedCli.some((c) => c?.id === storedCli)
-        ? storedCli
-        : mergedCli[0]?.id || null;
-
-    setActiveResourceIdPersist(resValid);
-    setActiveEngagementIdPersist(engValid);
-    setActiveClientIdPersist(cliValid);
-  }, [
-    setActiveClientIdPersist,
-    setActiveEngagementIdPersist,
-    setActiveResourceIdPersist,
-  ]);
-
-  const refreshPulse = useCallback(async () => {
-    loadAll();
-  }, [loadAll]);
-
-  // init
-  useEffect(() => {
+  const refreshPulse = useCallback(() => {
+    // simple rehydrate path: prefer cached state if present; otherwise seed from mock
     try {
       const storedResources = localStorage.getItem("pulse.resources");
       const storedEngagements = localStorage.getItem("pulse.engagements");
       const storedClients = localStorage.getItem("pulse.clients");
+      const storedTimesheets = localStorage.getItem("pulse.timesheets");
 
-      if (storedResources || storedEngagements || storedClients) {
-        const res = safeArray(
-          storedResources ? JSON.parse(storedResources) : []
+      if (
+        storedResources ||
+        storedEngagements ||
+        storedClients ||
+        storedTimesheets
+      ) {
+        setResources(
+          safeArray(storedResources ? JSON.parse(storedResources) : [])
         );
-        const eng = safeArray(
-          storedEngagements ? JSON.parse(storedEngagements) : []
+        setEngagements(
+          safeArray(storedEngagements ? JSON.parse(storedEngagements) : [])
         );
-        const cls = safeArray(storedClients ? JSON.parse(storedClients) : []);
-        setResources(res);
-        setEngagements(eng);
-        setClients(cls);
+        setClients(safeArray(storedClients ? JSON.parse(storedClients) : []));
+        setTimesheets(
+          safeObject(storedTimesheets ? JSON.parse(storedTimesheets) : {})
+        );
       } else {
-        loadAll();
+        seedFromMock();
       }
-    } catch (err) {
-      console.error("Error initialising PulseContext from storage:", err);
-      loadAll();
-    }
-  }, [loadAll]);
 
-  // cache to localStorage for survivability
+      const sr = localStorage.getItem("pulse.activeResourceId");
+      const se = localStorage.getItem("pulse.activeEngagementId");
+      const sc = localStorage.getItem("pulse.activeClientId");
+      if (sr) setActiveResourceId(sr);
+      if (se) setActiveEngagementId(se);
+      if (sc) setActiveClientId(sc);
+    } catch (e) {
+      console.warn("PulseContext: refresh failed, reseeding from mock", e);
+      seedFromMock();
+    }
+  }, [seedFromMock]);
+
+  // ---- init ----
+  useEffect(() => {
+    refreshPulse();
+  }, [refreshPulse]);
+
+  // ---- survivability cache (no API) ----
   useEffect(() => {
     try {
       localStorage.setItem("pulse.resources", JSON.stringify(resources));
       localStorage.setItem("pulse.engagements", JSON.stringify(engagements));
       localStorage.setItem("pulse.clients", JSON.stringify(clients));
+      localStorage.setItem("pulse.timesheets", JSON.stringify(timesheets));
     } catch (err) {
       console.warn("PulseContext: failed to write cache to localStorage", err);
     }
-  }, [resources, engagements, clients]);
+  }, [resources, engagements, clients, timesheets]);
 
-  // --- mocked backend operations ---
-  const upsert = (arr, entity) => {
-    const id = entity.id ?? genId();
-    const idx = arr.findIndex((i) => String(i.id) === String(id));
-    if (idx >= 0) {
-      const next = [...arr];
-      next[idx] = { ...next[idx], ...entity, id };
-      return next;
-    }
-    return [...arr, { ...entity, id }];
-  };
+  // ---- pure mutators (no network or mocked backend here) ----
+  const upsertResource = useCallback((partial) => {
+    const id = partial.id ?? genId();
+    setResources((arr) => {
+      const idx = arr.findIndex((i) => String(i.id) === String(id));
+      if (idx >= 0) {
+        const next = [...arr];
+        next[idx] = { ...next[idx], ...partial, id };
+        return next;
+      }
+      return [...arr, { ...partial, id }];
+    });
+    return id;
+  }, []);
 
-  const persistOverrides = (nextPart) => {
-    const overrides = readOverrides();
-    const next = { ...overrides, ...nextPart };
-    writeOverrides(next);
-  };
+  const removeResource = useCallback((id) => {
+    setResources((arr) => arr.filter((r) => String(r.id) !== String(id)));
+  }, []);
 
-  // Clients
-  const saveClient = async (partial) => {
-    const next = upsert(safeArray(readOverrides().clients || clients), partial);
-    persistOverrides({ clients: next });
-    loadAll();
-    return (
-      next.find((c) => String(c.id) === String(partial.id)) ||
-      next[next.length - 1]
-    );
-  };
-  const deleteClient = async (id) => {
-    const current = safeArray(readOverrides().clients || clients);
-    const next = current.filter((c) => String(c.id) !== String(id));
-    persistOverrides({ clients: next });
-    loadAll();
-  };
+  const upsertClient = useCallback((partial) => {
+    const id = partial.id ?? genId();
+    setClients((arr) => {
+      const idx = arr.findIndex((i) => String(i.id) === String(id));
+      if (idx >= 0) {
+        const next = [...arr];
+        next[idx] = { ...next[idx], ...partial, id };
+        return next;
+      }
+      return [...arr, { ...partial, id }];
+    });
+    return id;
+  }, []);
 
-  // Resources
-  const saveResource = async (partial) => {
-    const next = upsert(
-      safeArray(readOverrides().resources || resources),
-      partial
-    );
-    persistOverrides({ resources: next });
-    loadAll();
-    return (
-      next.find((r) => String(r.id) === String(partial.id)) ||
-      next[next.length - 1]
-    );
-  };
-  const deleteResource = async (id) => {
-    const current = safeArray(readOverrides().resources || resources);
-    const next = current.filter((r) => String(r.id) !== String(id));
-    persistOverrides({ resources: next });
-    loadAll();
-  };
+  const removeClient = useCallback((id) => {
+    setClients((arr) => arr.filter((c) => String(c.id) !== String(id)));
+  }, []);
 
-  // Engagements
-  const saveEngagement = async (partial) => {
-    const next = upsert(
-      safeArray(readOverrides().engagements || engagements),
-      partial
-    );
-    persistOverrides({ engagements: next });
-    loadAll();
-    return (
-      next.find((e) => String(e.id) === String(partial.id)) ||
-      next[next.length - 1]
-    );
-  };
-  const deleteEngagement = async (id) => {
-    const current = safeArray(readOverrides().engagements || engagements);
-    const next = current.filter((e) => String(e.id) !== String(id));
-    persistOverrides({ engagements: next });
-    loadAll();
-  };
+  const upsertEngagement = useCallback((partial) => {
+    const id = partial.id ?? genId();
+    setEngagements((arr) => {
+      const idx = arr.findIndex((i) => String(i.id) === String(id));
+      if (idx >= 0) {
+        const next = [...arr];
+        next[idx] = { ...next[idx], ...partial, id };
+        return next;
+      }
+      return [...arr, { ...partial, id }];
+    });
+    return id;
+  }, []);
 
-  // Timesheets (stored as overrides map: timesheets[resourceId][weekKey] = rows)
-  const readTimesheets = () => {
-    const o = readOverrides();
-    return o.timesheets || {};
-  };
-  const saveTimesheet = async (resourceId, weekKey, rows) => {
-    const all = readTimesheets();
-    const byRes = all[resourceId] || {};
-    byRes[weekKey] = rows;
-    const next = { ...all, [resourceId]: byRes };
-    persistOverrides({ timesheets: next });
-    return true;
-  };
-  const getTimesheet = (resourceId, weekKey) => {
-    const all = readTimesheets();
-    return all?.[resourceId]?.[weekKey] || null;
-  };
+  const removeEngagement = useCallback((id) => {
+    setEngagements((arr) => arr.filter((e) => String(e.id) !== String(id)));
+  }, []);
 
-  // Derived actives (optional convenience)
+  // timesheet helpers kept inside state (no mocked backend)
+  const setTimesheet = useCallback((resourceId, weekKey, rows) => {
+    setTimesheets((all) => {
+      const byRes = all[resourceId] ? { ...all[resourceId] } : {};
+      byRes[weekKey] = rows;
+      return { ...all, [resourceId]: byRes };
+    });
+  }, []);
+
+  const getTimesheet = useCallback(
+    (resourceId, weekKey) => {
+      const byRes = timesheets?.[resourceId] || {};
+      return byRes?.[weekKey] || null;
+    },
+    [timesheets]
+  );
+
+  // derived actives
   const activeResource =
     resources.find((r) => String(r.id) === String(activeResourceId)) || null;
   const activeEngagement =
@@ -284,6 +223,7 @@ export const PulseProvider = ({ children }) => {
         resources,
         engagements,
         clients,
+        timesheets,
         // actives
         activeResourceId,
         activeEngagementId,
@@ -291,19 +231,22 @@ export const PulseProvider = ({ children }) => {
         activeResource,
         activeEngagement,
         activeClient,
-        // setters
+        // setters for actives
         setActiveResourceId: setActiveResourceIdPersist,
         setActiveEngagementId: setActiveEngagementIdPersist,
         setActiveClientId: setActiveClientIdPersist,
-        // ops
+        // lifecycle
+        seedFromMock,
         refreshPulse,
-        saveClient,
-        deleteClient,
-        saveResource,
-        deleteResource,
-        saveEngagement,
-        deleteEngagement,
-        saveTimesheet,
+        // pure mutators
+        upsertResource,
+        removeResource,
+        upsertClient,
+        removeClient,
+        upsertEngagement,
+        removeEngagement,
+        // timesheets in-state
+        setTimesheet,
         getTimesheet,
       }}
     >
