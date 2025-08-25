@@ -9,6 +9,7 @@ import EngagementAssignmentsEditor from "./EngagementAssignmentsEditor";
 import QuickAddClientDialog from "./QuickAddClientDialog";
 
 import { useSearchParams } from "react-router";
+import { userService } from "../../../services";
 
 export default function EngagementPage() {
   const {
@@ -49,14 +50,19 @@ export default function EngagementPage() {
 
   const handleSaveContainer = useCallback(
     async (values) => {
-      const payload = {
+      let payload = {
         id: selected ? selected.id : nanoid(10),
         name: values.name,
         clientId: values.clientId,
         startDate: values.startDate || undefined,
         endDate: values.endDate || undefined,
         budgetHours: Number(values.budgetHours || 0),
+        customerId: userService.userValue.customerId,
       };
+
+      selected
+        ? (payload = { ...payload, updatedBy: userService.userValue.id })
+        : (payload = { ...payload, createdBy: userService.userValue.id });
 
       const saved = selected
         ? await pulseService.engagements.update(String(selected.id), payload)
@@ -93,9 +99,8 @@ export default function EngagementPage() {
         clientId: String(selected.clientId || ""),
         startDate: selected.startDate || "",
         endDate: selected.endDate || "",
-        budgetHours: selected.budgetHours ?? "",
       }
-    : { name: "", clientId: "", startDate: "", endDate: "", budgetHours: "" };
+    : { name: "", clientId: "", startDate: "", endDate: "" };
 
   return (
     <Stack spacing={2}>

@@ -16,6 +16,7 @@ import {
   TextField,
   Paper,
 } from "@mui/material";
+import { userService } from "../../../services";
 
 export default function EngagementAssignmentsEditor({
   engagementId,
@@ -73,6 +74,8 @@ export default function EngagementAssignmentsEditor({
         ? Number(details[rid].rateOverride)
         : undefined,
       notes: details[rid]?.notes || undefined,
+      customerId: userService.userValue.customerId,
+      createdBy: userService.userValue.id,
     }));
     await onSave?.(assignments);
   };

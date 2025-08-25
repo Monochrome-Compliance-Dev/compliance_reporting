@@ -1,10 +1,10 @@
 // src/features/pulse/engagements/EngagementWizard.js
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router";
 import {
   Stepper,
   Step,
-  StepLabel,
+  StepButton,
   Box,
   Stack,
   Paper,
@@ -12,13 +12,16 @@ import {
   Typography,
   Chip,
 } from "@mui/material";
-import { nanoid } from "nanoid";
 import { usePulseContext } from "../../../context/PulseContext";
 import { useAlert } from "../../../context";
 import { pulseService } from "../../../services/pulse/pulse";
 import EngagementContainerForm from "./EngagementContainerForm";
 import EngagementAssignmentsEditor from "./EngagementAssignmentsEditor";
 import BudgetBuilder from "../budgets/BudgetBuilder"; // embedded
+import { userService } from "../../../services";
+
+const unwrap = (res) =>
+  res && typeof res === "object" && "data" in res ? res.data : res;
 
 function DetailsStep({ engagement, clients, onSaved, onNext, canProceed }) {
   return (
@@ -45,7 +48,10 @@ function DetailsStep({ engagement, clients, onSaved, onNext, canProceed }) {
           onSubmit={onSaved}
           onQuickAddClient={() => {}}
         />
-        <Box mt={2} display="flex" justifyContent="flex-end">
+        <Box mt={2} display="flex" justifyContent="space-between">
+          <Button variant="text" disabled>
+            Back
+          </Button>
           <Button variant="text" onClick={onNext} disabled={!canProceed}>
             Next: Budget
           </Button>
@@ -57,9 +63,9 @@ function DetailsStep({ engagement, clients, onSaved, onNext, canProceed }) {
 
 function BudgetStep({
   engagementId,
-  engagement,
   onBudgetSaved,
   onNext,
+  onBack,
   canProceed,
 }) {
   return (
@@ -72,7 +78,10 @@ function BudgetStep({
             Save details first to build the budget.
           </Typography>
         )}
-        <Box mt={2} display="flex" justifyContent="flex-end">
+        <Box mt={2} display="flex" justifyContent="space-between">
+          <Button variant="text" onClick={onBack}>
+            Back
+          </Button>
           <Button variant="text" onClick={onNext} disabled={!canProceed}>
             Next: Resources
           </Button>
@@ -88,6 +97,7 @@ function ResourcesStep({
   resources,
   onAssignmentsSaved,
   onNext,
+  onBack,
   canProceed,
 }) {
   return (
@@ -99,7 +109,10 @@ function ResourcesStep({
           initialAssignments={engagement?.assignments || []}
           onSave={onAssignmentsSaved}
         />
-        <Box mt={2} display="flex" justifyContent="flex-end">
+        <Box mt={2} display="flex" justifyContent="space-between">
+          <Button variant="text" onClick={onBack}>
+            Back
+          </Button>
           <Button variant="text" onClick={onNext} disabled={!canProceed}>
             Next: Review
           </Button>
@@ -109,7 +122,7 @@ function ResourcesStep({
   );
 }
 
-function ReviewStep({ engagement, onActivate, activating }) {
+function ReviewStep({ engagement, onActivate, onBack, activating }) {
   if (!engagement) return null;
   return (
     <Paper variant="outlined">
@@ -122,7 +135,10 @@ function ReviewStep({ engagement, onActivate, activating }) {
         <Typography variant="body2" color="text.secondary">
           Assignments: {(engagement.assignments || []).length}
         </Typography>
-        <Box mt={2}>
+        <Box mt={2} display="flex" justifyContent="space-between">
+          <Button variant="text" onClick={onBack}>
+            Back
+          </Button>
           <Button
             variant="contained"
             onClick={onActivate}
@@ -137,6 +153,21 @@ function ReviewStep({ engagement, onActivate, activating }) {
 }
 
 const steps = ["Details", "Budget", "Resources", "Review"];
+
+const canEnterStep = (idx, { engagementId, hasBudget, hasAssignments }) => {
+  switch (idx) {
+    case 0:
+      return true;
+    case 1:
+      return !!engagementId; // need created engagement to build budget
+    case 2:
+      return !!engagementId && !!hasBudget; // need budget before resources
+    case 3:
+      return !!engagementId && !!hasBudget && !!hasAssignments; // final review
+    default:
+      return false;
+  }
+};
 
 export default function EngagementWizard() {
   const { clients, resources, engagements, upsertEngagement } =
@@ -175,8 +206,7 @@ export default function EngagementWizard() {
 
   // Step 1 save
   const saveDetails = async (values, isEdit) => {
-    const payload = {
-      id: isEdit ? engagement.id : nanoid(10),
+    let payload = {
       name: values.name,
       clientId: values.clientId,
       startDate: values.startDate || undefined,
@@ -184,23 +214,36 @@ export default function EngagementWizard() {
       budgetHours: engagement?.budgetHours || 0,
       budgetAmount: engagement?.budgetAmount || 0,
       status: engagement?.status || "draft",
+      customerId: userService.userValue.customerId,
     };
     const saved = isEdit
-      ? await pulseService.engagements.update(String(engagement.id), payload)
-      : await pulseService.engagements.create(payload);
-    upsertEngagement(saved);
-    if (!isEdit) setEngagementId(saved.id);
+      ? await pulseService.engagements.update(String(engagement.id), {
+          ...payload,
+          updatedBy: userService.userValue.id,
+        })
+      : await pulseService.engagements.create({
+          ...payload,
+          createdBy: userService.userValue.id,
+        });
+
+    const entity = unwrap(saved);
+    upsertEngagement(entity);
+    if (!isEdit && entity?.id) setEngagementId(entity.id);
     showAlert(isEdit ? "Changes saved" : "Engagement created", "success");
     setActiveStep(1);
   };
 
+  // Step 2 save budget handled via BudgetBuilder (see BudgetBuilder.js)
+
   // Step 3 save assignments
   const saveAssignments = async (assignments) => {
-    const updated = { ...engagement, assignments, status: "ready" };
-    const saved = await pulseService.engagements.update(
-      String(engagement.id),
-      updated
-    );
+    console.log("Saving assignments", assignments);
+    const saved = await pulseService.engagements.patch(String(engagement.id), {
+      assignments,
+      status: "ready",
+      updatedBy: userService.userValue.id,
+      customerId: userService.userValue.customerId,
+    });
     upsertEngagement(saved);
     showAlert("Assignments saved", "success");
     setActiveStep(3);
@@ -208,11 +251,11 @@ export default function EngagementWizard() {
 
   // Step 4 activate
   const activate = async () => {
-    const updated = { ...engagement, status: "active" };
-    const saved = await pulseService.engagements.update(
-      String(engagement.id),
-      updated
-    );
+    const saved = await pulseService.engagements.patch(String(engagement.id), {
+      status: "active",
+      updatedBy: userService.userValue.id,
+      customerId: userService.userValue.customerId,
+    });
     upsertEngagement(saved);
     showAlert("Engagement activated", "success");
     navigate("/pulse/engagements");
@@ -224,17 +267,31 @@ export default function EngagementWizard() {
         <Box p={2}>
           <Typography variant="h6">Engagement Wizard</Typography>
           {engagement && (
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" component="div">
               {engagement.name} • Status{" "}
               <Chip size="small" label={engagement.status || "draft"} />
             </Typography>
           )}
-          <Stepper activeStep={activeStep} sx={{ mt: 2 }}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
+          <Stepper activeStep={activeStep} nonLinear sx={{ mt: 2 }}>
+            {steps.map((label, idx) => {
+              const allowed =
+                canEnterStep(idx, {
+                  engagementId,
+                  hasBudget,
+                  hasAssignments,
+                }) || idx <= activeStep;
+              return (
+                <Step
+                  key={label}
+                  completed={idx < activeStep}
+                  disabled={!allowed}
+                >
+                  <StepButton onClick={() => allowed && setActiveStep(idx)}>
+                    {label}
+                  </StepButton>
+                </Step>
+              );
+            })}
           </Stepper>
         </Box>
       </Paper>
@@ -257,15 +314,17 @@ export default function EngagementWizard() {
           engagement={engagement}
           onBudgetSaved={() => {
             pulseService.engagements
-              .update(String(engagementId), {
-                ...engagement,
+              .patch(String(engagementId), {
                 status: "budgeted",
+                updatedBy: userService.userValue.id,
+                customerId: userService.userValue.customerId,
               })
               .then(upsertEngagement)
               .catch(() => {});
             setActiveStep(2);
           }}
           onNext={() => setActiveStep(2)}
+          onBack={() => setActiveStep(0)}
           canProceed={hasBudget}
         />
       )}
@@ -278,13 +337,18 @@ export default function EngagementWizard() {
           resources={resources}
           onAssignmentsSaved={saveAssignments}
           onNext={() => setActiveStep(3)}
+          onBack={() => setActiveStep(1)}
           canProceed={hasAssignments}
         />
       )}
 
       {/* Step 4: Review */}
       {activeStep === 3 && (
-        <ReviewStep engagement={engagement} onActivate={activate} />
+        <ReviewStep
+          engagement={engagement}
+          onActivate={activate}
+          onBack={() => setActiveStep(2)}
+        />
       )}
     </Stack>
   );

@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import {
@@ -10,6 +10,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  FormHelperText,
   Button,
   Typography,
 } from "@mui/material";
@@ -18,8 +19,8 @@ const schema = yup
   .object({
     name: yup.string().trim().required("Name is required"),
     clientId: yup.string().required("Client is required"),
-    startDate: yup.string().optional(),
-    endDate: yup.string().optional(),
+    startDate: yup.string().required("Start date is required"),
+    endDate: yup.string().required("End date is required"),
   })
   .required();
 
@@ -36,13 +37,16 @@ export default function EngagementContainerForm({
     formState: { errors, isSubmitting },
     reset,
     watch,
+    control,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: initialValues,
   });
 
   // keep defaults fresh if parent updates initialValues
-  useMemo(() => reset(initialValues), [initialValues, reset]);
+  useEffect(() => {
+    reset(initialValues);
+  }, [initialValues, reset]);
 
   const canCreate = !!watch("name") && !!watch("clientId");
 
@@ -55,6 +59,7 @@ export default function EngagementContainerForm({
 
         <TextField
           label="Name"
+          InputLabelProps={{ shrink: !!watch("name") }}
           {...register("name")}
           error={!!errors.name}
           helperText={errors.name?.message}
@@ -66,21 +71,32 @@ export default function EngagementContainerForm({
           spacing={2}
           alignItems="flex-start"
         >
-          <FormControl fullWidth size="small">
-            <InputLabel id="clientId-label">Client</InputLabel>
-            <Select
-              labelId="clientId-label"
-              label="Client"
-              defaultValue={initialValues.clientId || ""}
-              {...register("clientId")}
-            >
-              {clients.map((c) => (
-                <MenuItem key={c.id} value={String(c.id)}>
-                  {c.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <Controller
+            name="clientId"
+            control={control}
+            render={({ field }) => (
+              <FormControl fullWidth size="small" error={!!errors.clientId}>
+                <InputLabel id="clientId-label">Client</InputLabel>
+                <Select
+                  labelId="clientId-label"
+                  label="Client"
+                  value={field.value ?? ""}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                  inputProps={{ name: field.name }}
+                >
+                  {clients.map((c) => (
+                    <MenuItem key={c.id} value={String(c.id)}>
+                      {c.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {errors.clientId && (
+                  <FormHelperText>{errors.clientId.message}</FormHelperText>
+                )}
+              </FormControl>
+            )}
+          />
           <Button
             size="small"
             variant="text"

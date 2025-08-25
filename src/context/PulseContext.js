@@ -5,7 +5,7 @@ import {
   useCallback,
   useEffect,
 } from "react";
-import mockData from "../features/pulse/mockData.json";
+import { pulseService } from "../services/pulse/pulse";
 
 export const PulseContext = createContext(null);
 
@@ -27,6 +27,13 @@ const EMPTY = {
 
 const safeArray = (val) => (Array.isArray(val) ? val : []);
 const safeObject = (val) => (val && typeof val === "object" ? val : {});
+
+const unwrap = (res) =>
+  res && typeof res === "object" && "data" in res ? res.data : res;
+const unwrapArray = (res) => {
+  const arr = unwrap(res);
+  return Array.isArray(arr) ? arr : [];
+};
 
 const genId = () =>
   typeof crypto !== "undefined" && crypto.randomUUID
@@ -66,57 +73,46 @@ export const PulseProvider = ({ children }) => {
     else localStorage.removeItem("pulse.activeClientId");
   }, []);
 
-  // ---- seeding & refresh (no external side effects) ----
-  const seedFromMock = useCallback(() => {
-    const base = {
-      clients: safeArray(mockData?.clients),
-      resources: safeArray(mockData?.resources),
-      engagements: safeArray(mockData?.engagements),
-    };
-    setClients(base.clients);
-    setResources(base.resources);
-    setEngagements(base.engagements);
-  }, []);
-
-  const refreshPulse = useCallback(() => {
-    // simple rehydrate path: prefer cached state if present; otherwise seed from mock
+  // ---- refresh (fetch from backend and cache) ----
+  const refreshPulse = useCallback(async () => {
     try {
-      const storedResources = localStorage.getItem("pulse.resources");
-      const storedEngagements = localStorage.getItem("pulse.engagements");
-      const storedClients = localStorage.getItem("pulse.clients");
-      const storedTimesheets = localStorage.getItem("pulse.timesheets");
+      const [resClients, resResources, resEngagements] = await Promise.all([
+        pulseService.clients.list(),
+        pulseService.resources.list(),
+        pulseService.engagements.list(),
+      ]);
 
-      if (
-        storedResources ||
-        storedEngagements ||
-        storedClients ||
-        storedTimesheets
-      ) {
-        setResources(
-          safeArray(storedResources ? JSON.parse(storedResources) : [])
-        );
-        setEngagements(
-          safeArray(storedEngagements ? JSON.parse(storedEngagements) : [])
-        );
-        setClients(safeArray(storedClients ? JSON.parse(storedClients) : []));
-        setTimesheets(
-          safeObject(storedTimesheets ? JSON.parse(storedTimesheets) : {})
-        );
-      } else {
-        seedFromMock();
-      }
+      const nextClients = unwrapArray(resClients);
+      const nextResources = unwrapArray(resResources);
+      const nextEngagements = unwrapArray(resEngagements);
 
-      const sr = localStorage.getItem("pulse.activeResourceId");
-      const se = localStorage.getItem("pulse.activeEngagementId");
-      const sc = localStorage.getItem("pulse.activeClientId");
-      if (sr) setActiveResourceId(sr);
-      if (se) setActiveEngagementId(se);
-      if (sc) setActiveClientId(sc);
+      setClients(nextClients);
+      setResources(nextResources);
+      setEngagements(nextEngagements);
+
+      // cache
+      localStorage.setItem("pulse.clients", JSON.stringify(nextClients));
+      localStorage.setItem("pulse.resources", JSON.stringify(nextResources));
+      localStorage.setItem(
+        "pulse.engagements",
+        JSON.stringify(nextEngagements)
+      );
     } catch (e) {
-      console.warn("PulseContext: refresh failed, reseeding from mock", e);
-      seedFromMock();
+      console.warn("PulseContext: refresh failed", e);
     }
-  }, [seedFromMock]);
+
+    // (Re)hydrate active IDs from localStorage without touching lists
+    const sr = localStorage.getItem("pulse.activeResourceId");
+    const se = localStorage.getItem("pulse.activeEngagementId");
+    const sc = localStorage.getItem("pulse.activeClientId");
+    if (sr) setActiveResourceId(sr);
+    if (se) setActiveEngagementId(se);
+    if (sc) setActiveClientId(sc);
+  }, [
+    setActiveClientIdPersist,
+    setActiveEngagementIdPersist,
+    setActiveResourceIdPersist,
+  ]);
 
   // ---- init ----
   useEffect(() => {
@@ -137,15 +133,17 @@ export const PulseProvider = ({ children }) => {
 
   // ---- pure mutators (no network or mocked backend here) ----
   const upsertResource = useCallback((partial) => {
-    const id = partial.id ?? genId();
+    const item = unwrap(partial);
+    const id = item?.id;
+    if (!id) return null;
     setResources((arr) => {
       const idx = arr.findIndex((i) => String(i.id) === String(id));
       if (idx >= 0) {
         const next = [...arr];
-        next[idx] = { ...next[idx], ...partial, id };
+        next[idx] = { ...next[idx], ...item, id };
         return next;
       }
-      return [...arr, { ...partial, id }];
+      return [...arr, { ...item, id }];
     });
     return id;
   }, []);
@@ -155,15 +153,17 @@ export const PulseProvider = ({ children }) => {
   }, []);
 
   const upsertClient = useCallback((partial) => {
-    const id = partial.id ?? genId();
+    const item = unwrap(partial);
+    const id = item?.id;
+    if (!id) return null;
     setClients((arr) => {
       const idx = arr.findIndex((i) => String(i.id) === String(id));
       if (idx >= 0) {
         const next = [...arr];
-        next[idx] = { ...next[idx], ...partial, id };
+        next[idx] = { ...next[idx], ...item, id };
         return next;
       }
-      return [...arr, { ...partial, id }];
+      return [...arr, { ...item, id }];
     });
     return id;
   }, []);
@@ -173,15 +173,17 @@ export const PulseProvider = ({ children }) => {
   }, []);
 
   const upsertEngagement = useCallback((partial) => {
-    const id = partial.id ?? genId();
+    const item = unwrap(partial);
+    const id = item?.id;
+    if (!id) return null;
     setEngagements((arr) => {
       const idx = arr.findIndex((i) => String(i.id) === String(id));
       if (idx >= 0) {
         const next = [...arr];
-        next[idx] = { ...next[idx], ...partial, id };
+        next[idx] = { ...next[idx], ...item, id };
         return next;
       }
-      return [...arr, { ...partial, id }];
+      return [...arr, { ...item, id }];
     });
     return id;
   }, []);
@@ -236,7 +238,6 @@ export const PulseProvider = ({ children }) => {
         setActiveEngagementId: setActiveEngagementIdPersist,
         setActiveClientId: setActiveClientIdPersist,
         // lifecycle
-        seedFromMock,
         refreshPulse,
         // pure mutators
         upsertResource,

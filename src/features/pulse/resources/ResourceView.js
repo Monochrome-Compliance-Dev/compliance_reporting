@@ -23,6 +23,7 @@ import {
 } from "@mui/material";
 import { useAlert, usePulseContext } from "../../../context";
 import { pulseService } from "../../../services/pulse/pulse";
+import { userService } from "../../../services";
 
 const schema = yup
   .object({
@@ -128,13 +129,20 @@ export default function ResourceView() {
 
   const onSubmit = useCallback(
     async (values) => {
-      const payload = {
+      let payload = {
         id: mode === "create" ? nanoid(10) : selected?.id,
         name: values.name,
         role: values.role,
         hourlyRate: Number(values.hourlyRate ?? 0),
         capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
+        customerId: userService.userValue.customerId,
       };
+
+      if (mode === "create") {
+        payload = { ...payload, createdBy: userService.userValue.id };
+      } else if (mode === "edit") {
+        payload = { ...payload, updatedBy: userService.userValue.id };
+      }
 
       try {
         const saved =

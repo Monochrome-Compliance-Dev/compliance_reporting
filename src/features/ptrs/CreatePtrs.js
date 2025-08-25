@@ -41,7 +41,7 @@ export default function CreatePtrs({
       status: "Created",
       currentStep: 0,
       createdBy: userService.userValue.id,
-      clientId: userService.userValue.clientId,
+      customerId: userService.userValue.customerId,
     };
 
     try {

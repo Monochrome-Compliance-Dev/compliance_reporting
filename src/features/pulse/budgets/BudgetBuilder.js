@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
-import { nanoid } from "nanoid";
 import {
   Box,
   Stack,
@@ -21,7 +20,12 @@ import {
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { usePulseContext } from "../../../context/PulseContext";
 import { useAlert } from "../../../context";
+
 import { pulseService } from "../../../services/pulse/pulse";
+import { userService } from "../../../services";
+
+const unwrap = (res) =>
+  res && typeof res === "object" && "data" in res ? res.data : res;
 
 // --- helpers ---
 const toCurrency = (n, currency = "AUD") => {
@@ -60,7 +64,6 @@ const ACTIVITY_OPTIONS = [
 ];
 
 const defaultItem = () => ({
-  id: nanoid(10),
   activity: "",
   billingType: "hourly", // 'hourly' | 'fixed'
   hours: 0, // used if hourly
@@ -68,6 +71,20 @@ const defaultItem = () => ({
   amount: 0, // used if fixed (flat amount)
   notes: "",
   billable: true,
+});
+
+const normaliseItem = (it = {}) => ({
+  ...defaultItem(),
+  ...it,
+  id: it.id,
+  engagementId: it.engagementId,
+  activity: it.activity ?? "",
+  billingType: it.billingType === "fixed" ? "fixed" : "hourly",
+  hours: it.billingType === "hourly" ? Number(it.hours ?? 0) : 0,
+  rate: it.billingType === "hourly" ? Number(it.rate ?? 0) : 0,
+  amount: it.billingType === "fixed" ? Number(it.amount ?? 0) : 0,
+  notes: it.notes ?? "",
+  billable: it.billable ?? true,
 });
 
 export default function BudgetBuilder({
@@ -104,25 +121,13 @@ export default function BudgetBuilder({
     if (engagementIdProp && String(engagementIdProp) !== String(engagementId)) {
       setEngagementId(String(engagementIdProp));
     }
-  }, [engagementIdProp]);
+  }, [engagementId, engagementIdProp]);
 
   const engagement = engagementById[String(engagementId)] || null;
 
   const [items, setItems] = useState(() =>
-    engagement?.budgetItems
-      ? engagement.budgetItems.map((it) => ({ ...defaultItem(), ...it }))
-      : []
+    engagement?.budgetItems ? engagement.budgetItems.map(normaliseItem) : []
   );
-
-  // keep items in sync if user switches engagement
-  useEffect(() => {
-    const fresh = engagementById[String(engagementId)]?.budgetItems || [];
-    setItems(
-      Array.isArray(fresh)
-        ? fresh.map((it) => ({ ...defaultItem(), ...it }))
-        : []
-    );
-  }, [engagementId, engagementById]);
 
   const totals = useMemo(() => {
     const budgetHours = items
@@ -141,25 +146,58 @@ export default function BudgetBuilder({
     []
   );
   const removeItem = useCallback(
-    (id) => setItems((prev) => prev.filter((x) => String(x.id) !== String(id))),
+    (index) => setItems((prev) => prev.filter((_, i) => i !== index)),
     []
   );
   const updateItem = useCallback(
-    (id, patch) =>
+    (index, patch) =>
       setItems((prev) =>
-        prev.map((x) => (String(x.id) === String(id) ? { ...x, ...patch } : x))
+        prev.map((x, i) => (i === index ? { ...x, ...patch } : x))
       ),
     []
   );
+
+  // Load items from server by engagement
+  const loadItems = useCallback(
+    async (id) => {
+      try {
+        if (!id) return;
+        const res = await pulseService.budgetItems.listByEngagement(String(id));
+        const rows = unwrap(res) || [];
+        setItems(Array.isArray(rows) ? rows.map(normaliseItem) : []);
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error("Failed to load budget items", e);
+        showAlert("Failed to load budget items", "error");
+      }
+    },
+    [showAlert]
+  );
+
+  // keep items in sync if user switches engagement (load from server)
+  useEffect(() => {
+    if (engagementId) {
+      loadItems(engagementId);
+    } else {
+      setItems([]);
+    }
+  }, [engagementId, loadItems]);
 
   const handleSave = useCallback(async () => {
     if (!engagementId) {
       showAlert("Choose an engagement first", "warning");
       return;
     }
-    // Normalise items
+
+    // Server state (if present on engagement)
+    const existing = Array.isArray(engagement?.budgetItems)
+      ? engagement.budgetItems
+      : [];
+
+    // Normalise local rows; new rows have no id (server will assign)
     const cleaned = items.map((it) => ({
-      id: it.id || nanoid(10),
+      id: it.id,
+      engagementId: String(engagementId),
       activity: String(it.activity || "").trim(),
       billingType: it.billingType === "fixed" ? "fixed" : "hourly",
       hours: Number(it.billingType === "hourly" ? it.hours || 0 : 0),
@@ -167,26 +205,107 @@ export default function BudgetBuilder({
       amount: Number(it.billingType === "fixed" ? it.amount || 0 : 0),
       notes: String(it.notes || "").trim() || undefined,
       billable: !!it.billable,
+      customerId: userService.userValue.customerId,
     }));
 
-    // Recalculate rollups
-    const payload = {
-      ...engagement,
-      budgetItems: cleaned,
-      budgetHours: totals.budgetHours,
-      budgetAmount: totals.budgetAmount,
-    };
+    const byId = (arr) =>
+      Object.fromEntries(
+        arr.filter((x) => x?.id).map((x) => [String(x.id), x])
+      );
+
+    const existingById = byId(existing);
+
+    const toCreate = cleaned.filter((x) => !x.id);
+    const toUpdate = cleaned.filter((x) => x.id && existingById[String(x.id)]);
+    const toDelete = existing.filter(
+      (x) => !cleaned.some((y) => String(y.id || "") === String(x.id))
+    );
 
     try {
-      const saved = await pulseService.engagements.update(
-        String(engagementId),
-        payload
+      // Create
+      const createdResults = await Promise.allSettled(
+        toCreate.map((row) =>
+          pulseService.budgetItems.create({
+            ...row,
+            createdBy: userService.userValue.id,
+          })
+        )
       );
-      upsertEngagement(saved);
+      const createdErrors = createdResults.filter(
+        (r) => r.status === "rejected"
+      );
+      if (createdErrors.length)
+        throw (
+          createdErrors[0].reason ||
+          new Error("Failed to create one or more budget items")
+        );
+
+      // Update
+      const updatedResults = await Promise.allSettled(
+        toUpdate.map((row) =>
+          pulseService.budgetItems.update(String(row.id), {
+            engagementId: String(engagementId),
+            activity: row.activity,
+            billingType: row.billingType,
+            hours: row.hours,
+            rate: row.rate,
+            amount: row.amount,
+            notes: row.notes,
+            billable: row.billable,
+            customerId: row.customerId,
+            updatedBy: userService.userValue.id,
+          })
+        )
+      );
+      const updateErrors = updatedResults.filter(
+        (r) => r.status === "rejected"
+      );
+      if (updateErrors.length)
+        throw (
+          updateErrors[0].reason ||
+          new Error("Failed to update one or more budget items")
+        );
+
+      // Delete
+      const deletedResults = await Promise.allSettled(
+        toDelete.map((row) => pulseService.budgetItems.delete(String(row.id)))
+      );
+      const deleteErrors = deletedResults.filter(
+        (r) => r.status === "rejected"
+      );
+      if (deleteErrors.length)
+        throw (
+          deleteErrors[0].reason ||
+          new Error("Failed to delete one or more budget items")
+        );
+
+      // Patch engagement rollups only (no id/createdAt/updatedAt)
+      const saved = await pulseService.engagements.patch(String(engagementId), {
+        budgetHours: cleaned
+          .filter((r) => r.billingType === "hourly")
+          .reduce((s, r) => s + (r.hours || 0), 0),
+        budgetAmount: cleaned.reduce(
+          (s, r) =>
+            s +
+            (r.billingType === "hourly"
+              ? (r.hours || 0) * (r.rate || 0)
+              : r.amount || 0),
+          0
+        ),
+        updatedBy: userService.userValue.id,
+        customerId: userService.userValue.customerId,
+      });
+
+      const entity = unwrap(saved);
+      if (!entity || !entity.id) {
+        throw new Error("Engagement update failed – no entity returned");
+      }
+      upsertEngagement(entity);
+      await loadItems(engagementId);
       showAlert("Budget saved", "success");
       onSaved?.({
-        budgetHours: totals.budgetHours,
-        budgetAmount: totals.budgetAmount,
+        budgetHours: entity.budgetHours,
+        budgetAmount: entity.budgetAmount,
       });
     } catch (e) {
       // eslint-disable-next-line no-console
@@ -197,10 +316,10 @@ export default function BudgetBuilder({
     engagementId,
     engagement,
     items,
-    totals,
     upsertEngagement,
     showAlert,
     onSaved,
+    loadItems,
   ]);
 
   const title = engagement
@@ -314,13 +433,13 @@ export default function BudgetBuilder({
                   </TableCell>
                 </TableRow>
               ) : (
-                items.map((it) => {
+                items.map((it, idx) => {
                   const rowTotal =
                     it.billingType === "hourly"
                       ? Number(it.hours || 0) * Number(it.rate || 0)
                       : Number(it.amount || 0);
                   return (
-                    <TableRow key={it.id}>
+                    <TableRow key={it.id || `${it.activity || "row"}-${idx}`}>
                       <TableCell width={260}>
                         <Stack spacing={0.75}>
                           <FormControl size="small" fullWidth>
@@ -337,7 +456,7 @@ export default function BudgetBuilder({
                                 const val = e.target.value;
                                 if (val === "Other — specify") {
                                   // enable custom input; keep existing custom text if present or use current activity
-                                  updateItem(it.id, {
+                                  updateItem(idx, {
                                     _customActivity:
                                       it._customActivity ||
                                       (ACTIVITY_OPTIONS.includes(it.activity)
@@ -346,7 +465,7 @@ export default function BudgetBuilder({
                                   });
                                 } else {
                                   // pick a standard activity and clear custom
-                                  updateItem(it.id, {
+                                  updateItem(idx, {
                                     activity: val,
                                     _customActivity: undefined,
                                   });
@@ -373,7 +492,7 @@ export default function BudgetBuilder({
                               placeholder="Describe the activity"
                               value={it._customActivity}
                               onChange={(e) =>
-                                updateItem(it.id, {
+                                updateItem(idx, {
                                   _customActivity: e.target.value,
                                   activity: e.target.value,
                                 })
@@ -388,7 +507,7 @@ export default function BudgetBuilder({
                           <Select
                             value={it.billingType}
                             onChange={(e) =>
-                              updateItem(it.id, { billingType: e.target.value })
+                              updateItem(idx, { billingType: e.target.value })
                             }
                           >
                             <MenuItem value="hourly">Hourly</MenuItem>
@@ -403,7 +522,7 @@ export default function BudgetBuilder({
                           inputProps={{ min: 0, step: 0.25 }}
                           value={it.hours}
                           onChange={(e) =>
-                            updateItem(it.id, {
+                            updateItem(idx, {
                               hours: Number(e.target.value || 0),
                             })
                           }
@@ -417,7 +536,7 @@ export default function BudgetBuilder({
                           inputProps={{ min: 0, step: 1 }}
                           value={it.rate}
                           onChange={(e) =>
-                            updateItem(it.id, {
+                            updateItem(idx, {
                               rate: Number(e.target.value || 0),
                             })
                           }
@@ -431,7 +550,7 @@ export default function BudgetBuilder({
                           inputProps={{ min: 0, step: 1 }}
                           value={it.amount}
                           onChange={(e) =>
-                            updateItem(it.id, {
+                            updateItem(idx, {
                               amount: Number(e.target.value || 0),
                             })
                           }
@@ -443,7 +562,7 @@ export default function BudgetBuilder({
                           size="small"
                           value={it.notes}
                           onChange={(e) =>
-                            updateItem(it.id, { notes: e.target.value })
+                            updateItem(idx, { notes: e.target.value })
                           }
                           fullWidth
                         />
@@ -455,7 +574,7 @@ export default function BudgetBuilder({
                         <Button
                           size="small"
                           color="error"
-                          onClick={() => removeItem(it.id)}
+                          onClick={() => removeItem(idx)}
                         >
                           Delete
                         </Button>
