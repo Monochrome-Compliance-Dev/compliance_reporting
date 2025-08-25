@@ -39,10 +39,17 @@ import MsSupplierRisks from "../features/ms/MsSupplierRisks";
 import PtrsDashboard from "../features/ptrs/PtrsDashboard";
 import PtrsMetricsDashboard from "../features/ptrs/PtrsMetricsDashboard";
 import PulseDashboard from "../features/pulse/PulseDashboard";
-import ResourceView from "../features/pulse/ResourceView";
+import ResourceView from "../features/pulse/resources/ResourceView";
 import ClientView from "../features/pulse/ClientView";
-import EngagementView from "../features/pulse/EngagementView";
-import TimesheetView from "../features/pulse/TimesheetView";
+import EngagementView from "../features/pulse/engagements/EngagementView";
+import TimesheetView from "../features/pulse/timesheets/TimesheetView";
+import PulseAdminConsole from "../features/pulse/PulseAdminConsole";
+import EngagementPage from "../features/pulse/engagements/EngagementPage";
+import Timesheet from "../features/pulse/timesheets/Timesheet";
+import ResourceAllocationView from "../features/pulse/resources/ResourceAllocationView";
+import BudgetView from "../features/pulse/budgets/BudgetView";
+import BudgetBuilder from "../features/pulse/budgets/BudgetBuilder";
+import EngagementWizard from "../features/pulse/engagements/EngagementWizard";
 
 export const protectedRoutes = [
   {
@@ -253,12 +260,21 @@ export const protectedRoutes = [
         Component: PulseDashboard,
       },
       {
+        path: "admin",
+        Component: PulseAdminConsole,
+      },
+      {
         path: "resources",
         Component: ResourceView,
       },
+      { path: "resources/allocation", Component: ResourceAllocationView },
       {
         path: "engagements",
         Component: EngagementView,
+      },
+      {
+        path: "engagements/manage",
+        Component: EngagementWizard,
       },
       {
         path: "clients",
@@ -267,6 +283,14 @@ export const protectedRoutes = [
       {
         path: "timesheets",
         Component: TimesheetView,
+      },
+      {
+        path: "budgets",
+        Component: BudgetView,
+      },
+      {
+        path: "budgets/:id",
+        Component: BudgetBuilder,
       },
     ],
   },

@@ -21,8 +21,8 @@ import {
   InputLabel,
   Select,
 } from "@mui/material";
-import { useAlert, usePulseContext } from "../../context";
-import { pulseService } from "../../services/pulse/pulse";
+import { useAlert, usePulseContext } from "../../../context";
+import { pulseService } from "../../../services/pulse/pulse";
 
 const schema = yup
   .object({
