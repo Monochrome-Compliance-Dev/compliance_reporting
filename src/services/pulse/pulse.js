@@ -1,6 +1,7 @@
 import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/pulse`;
+const dashboardBaseUrl = `${baseUrl}/dashboard`;
 
 // ---- response normalisers (service-level) ----
 const unwrap = (res) =>
@@ -86,6 +87,71 @@ export const pulseService = {
       unwrapArray(
         await fetchWrapper.get(
           `${baseUrl}/budget-items?engagementId=${encodeURIComponent(engagementId)}`
+        )
+      ),
+  },
+  // Dashboard metrics, backed by pulse_dashboard.controller.js
+  dashboard: {
+    // Full payload
+    get: async (orgId = "current") =>
+      unwrap(
+        await fetchWrapper.get(
+          `${dashboardBaseUrl}/${encodeURIComponent(orgId)}`
+        )
+      ),
+    // Individual sections
+    totals: async (orgId = "current") =>
+      unwrap(
+        await fetchWrapper.get(
+          `${dashboardBaseUrl}/${encodeURIComponent(orgId)}/totals`
+        )
+      ),
+    status: async (orgId = "current") =>
+      unwrapArray(
+        await fetchWrapper.get(
+          `${dashboardBaseUrl}/${encodeURIComponent(orgId)}/status`
+        )
+      ),
+    weeklyBurn: async (orgId = "current") =>
+      unwrapArray(
+        await fetchWrapper.get(
+          `${dashboardBaseUrl}/${encodeURIComponent(orgId)}/weekly-burn`
+        )
+      ),
+    overruns: async (orgId = "current") =>
+      unwrapArray(
+        await fetchWrapper.get(
+          `${dashboardBaseUrl}/${encodeURIComponent(orgId)}/overruns`
+        )
+      ),
+    utilisation: async (orgId = "current") =>
+      unwrapArray(
+        await fetchWrapper.get(
+          `${dashboardBaseUrl}/${encodeURIComponent(orgId)}/utilisation`
+        )
+      ),
+    billable: async (orgId = "current") =>
+      unwrapArray(
+        await fetchWrapper.get(
+          `${dashboardBaseUrl}/${encodeURIComponent(orgId)}/billable`
+        )
+      ),
+    revenue: async (orgId = "current") =>
+      unwrap(
+        await fetchWrapper.get(
+          `${dashboardBaseUrl}/${encodeURIComponent(orgId)}/revenue`
+        )
+      ),
+    timeliness: async (orgId = "current") =>
+      unwrap(
+        await fetchWrapper.get(
+          `${dashboardBaseUrl}/${encodeURIComponent(orgId)}/timeliness`
+        )
+      ),
+    turnaround: async (orgId = "current") =>
+      unwrapArray(
+        await fetchWrapper.get(
+          `${dashboardBaseUrl}/${encodeURIComponent(orgId)}/turnaround`
         )
       ),
   },

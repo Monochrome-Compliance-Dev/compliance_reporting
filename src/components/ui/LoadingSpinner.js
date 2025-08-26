@@ -1,7 +1,7 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-export const LoadingSpinner = ({ message = "Loading compliance magic…" }) => {
+export const LoadingSpinner = ({ message = "Loading magic…" }) => {
   const theme = useTheme();
 
   return (

@@ -1,13 +1,11 @@
 import {
   Container,
   Box,
-  Stack,
   Paper,
   Typography,
   Button,
   Grid,
   Divider,
-  CircularProgress,
   Table,
   TableHead,
   TableRow,
@@ -31,6 +29,10 @@ import {
   ResponsiveContainer,
   ReferenceLine,
 } from "recharts";
+import { useEffect, useMemo, useState } from "react";
+import { pulseService } from "../../services/pulse/pulse";
+import { useAlert } from "../../context/";
+import { LoadingSpinner } from "../../components/ui";
 
 // --- Layout constants ---
 const CARD_HEIGHT = 280; // total card height
@@ -120,13 +122,13 @@ const mockResources = [
 ];
 
 const sum = (arr) => arr.reduce((a, b) => a + b, 0);
-const totals = {
+const mockTotals = {
   budget: mockEngagements.reduce((a, e) => a + e.budget, 0),
   spend: mockEngagements.reduce((a, e) => a + e.spend, 0),
 };
 const spendPct = Math.min(
   100,
-  Math.round((totals.spend / totals.budget) * 100)
+  Math.round((mockTotals.spend / mockTotals.budget) * 100)
 );
 
 const statusCounts = mockEngagements.reduce((acc, e) => {
@@ -153,8 +155,11 @@ const sparkPoints = mockEngagements[0].weeklyBurn
 
 // --- Derived data for Recharts ---
 const spendData = [
-  { name: "Spend", value: Math.min(totals.spend, totals.budget) },
-  { name: "Remaining", value: Math.max(totals.budget - totals.spend, 0) },
+  { name: "Spend", value: Math.min(mockTotals.spend, mockTotals.budget) },
+  {
+    name: "Remaining",
+    value: Math.max(mockTotals.budget - mockTotals.spend, 0),
+  },
 ];
 
 const allocStackData = mockResources.map((r) => {
@@ -222,7 +227,140 @@ const turnaroundAvgWeeks = Math.round(
   turnaroundData.reduce((a, e) => a + e.weeks, 0) / (turnaroundData.length || 1)
 );
 
+// --- Live data wiring for Resource Allocation vs Capacity ---
+const PulseUtilisation = () => {
+  const { showAlert } = useAlert();
+  const [rows, setRows] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const res = await pulseService.dashboard.utilisation("current");
+        if (!alive) return;
+        // eslint-disable-next-line no-console
+        console.log("[Pulse] utilisation payload:", res);
+        setRows(res);
+        setIsLoading(false);
+      } catch (err) {
+        setIsLoading(false);
+        showAlert(`Failed to load utilisation: ${String(err)}`, "error");
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, [showAlert]);
+
+  const allocStackDataLive = useMemo(() => {
+    if (!Array.isArray(rows) || rows.length === 0) return allocStackData; // fallback to mock
+    return rows.map((r) => {
+      const name = r.name ?? r.resource_name ?? r.resource_id ?? "?";
+      const capacity = Number(r.capacity ?? r.capacityHoursPerWeek ?? 0);
+      const allocated = Number(r.allocated ?? r.allocatedHoursPerWeek ?? 0);
+      const inCap = Math.max(0, Math.min(allocated, capacity));
+      const over = Math.max(0, allocated - capacity);
+      return { name, inCap, over };
+    });
+  }, [rows]);
+
+  // Also log the derived series so we can confirm the shape the chart receives
+  useEffect(() => {
+    if (!rows) return;
+    const derived = (Array.isArray(rows) ? rows : []).map((r) => {
+      const capacity = Number(r.capacity ?? 0);
+      const allocated = Number(r.allocated ?? 0);
+      return {
+        name: r.name,
+        inCap: Math.max(0, Math.min(allocated, capacity)),
+        over: Math.max(0, allocated - capacity),
+      };
+    });
+    // eslint-disable-next-line no-console
+    console.log("[Pulse] utilisation derived allocStackData:", derived);
+  }, [rows]);
+
+  return { allocStackDataLive, isLoadingUtil: isLoading };
+};
+// --- Live data wiring for Spend vs Budget ---
+const PulseSpendTotals = () => {
+  const { showAlert } = useAlert();
+  const [totals, setTotals] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const res = await pulseService.dashboard.totals("current");
+        if (!alive) return;
+        // Log the raw payload and our derived structure for verification during hookup
+        const b = Number(res?.total_budget ?? 0);
+        const s = Number(res?.total_spend ?? 0);
+        const derived = {
+          budget: b,
+          spend: s,
+          spendPct: b ? Math.min(100, Math.round((s / b) * 100)) : 0,
+          spendData: [
+            { name: "Spend", value: Math.min(s, b) },
+            { name: "Remaining", value: Math.max(b - s, 0) },
+          ],
+        };
+        // eslint-disable-next-line no-console
+        console.log("[Pulse] totals payload & derived:", res, derived);
+        setTotals(res);
+        setIsLoading(false);
+      } catch (err) {
+        setIsLoading(false);
+        showAlert(`Failed to load totals: ${String(err)}`, "error");
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, [showAlert]);
+
+  const liveTotals = useMemo(() => {
+    if (!totals) return null;
+    return {
+      budget: Number(totals.total_budget ?? 0),
+      spend: Number(totals.total_spend ?? 0),
+    };
+  }, [totals]);
+
+  const spendDataLive = useMemo(() => {
+    if (!liveTotals) return [];
+    const b = Number(liveTotals.budget || 0);
+    const s = Number(liveTotals.spend || 0);
+    return [
+      { name: "Spend", value: Math.min(s, b) },
+      { name: "Remaining", value: Math.max(b - s, 0) },
+    ];
+  }, [liveTotals]);
+
+  const spendPctLive = useMemo(() => {
+    if (!liveTotals) return 0;
+    const b = Number(liveTotals.budget || 0);
+    const s = Number(liveTotals.spend || 0);
+    return b ? Math.min(100, Math.round((s / b) * 100)) : 0;
+  }, [liveTotals]);
+
+  return {
+    liveTotals,
+    spendDataLive,
+    spendPctLive,
+    isLoadingTotals: isLoading,
+  };
+};
+
 const PulseDashboard = () => {
+  const { liveTotals, spendDataLive, spendPctLive, isLoadingTotals } =
+    PulseSpendTotals();
+  const { allocStackDataLive, isLoadingUtil } = PulseUtilisation();
+  const [pageIdx, setPageIdx] = useState(0);
+  const [pageSize, setPageSize] = useState(8); // number of bars shown at once
+  const [showAll, setShowAll] = useState(false); // render entire set (unsafe)
   return (
     <Container>
       <Box
@@ -251,67 +389,83 @@ const PulseDashboard = () => {
             }}
           >
             <Typography variant="h6" gutterBottom>
-              Spend vs Budget (Dial)
+              Spend vs Budget
             </Typography>
             <Box display="flex" alignItems="center" gap={2}>
-              <Box position="relative" width={DONUT_SIZE} height={DONUT_SIZE}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie
-                      data={spendData}
-                      dataKey="value"
-                      nameKey="name"
-                      innerRadius="60%"
-                      outerRadius="80%"
-                      startAngle={90}
-                      endAngle={-270}
-                      isAnimationActive={false}
-                    >
-                      {spendData.map((d, i) => (
-                        <Cell
-                          key={d.name}
-                          fill={i === 0 ? "#66bb6a" : "#e0e0e0"}
-                        />
-                      ))}
-                    </Pie>
-                    <Tooltip
-                      formatter={(v, n) => [
-                        `$${Number(v).toLocaleString()}`,
-                        n,
-                      ]}
-                    />
-                  </PieChart>
-                </ResponsiveContainer>
+              {isLoadingTotals ? (
                 <Box
-                  position="absolute"
-                  top={0}
-                  left={0}
-                  right={0}
-                  bottom={0}
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
+                  sx={{
+                    width: DONUT_SIZE,
+                    height: DONUT_SIZE,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
-                  <Typography variant="h6">{spendPct}%</Typography>
+                  <LoadingSpinner message="Loading totals…" />
                 </Box>
-              </Box>
-              <Box>
-                <Typography variant="body2" color="text.secondary">
-                  Total Budget: ${totals.budget.toLocaleString()}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Total Spend: ${totals.spend.toLocaleString()}
-                </Typography>
-                <Divider sx={{ my: 1 }} />
-                <Typography variant="body2">
-                  Health:{" "}
-                  {spendPct <= 85
-                    ? "On Track"
-                    : spendPct <= 100
-                      ? "Watch"
-                      : "Over"}
-                </Typography>
-              </Box>
+              ) : (
+                <Box position="relative" width={DONUT_SIZE} height={DONUT_SIZE}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={spendDataLive}
+                        dataKey="value"
+                        nameKey="name"
+                        innerRadius="60%"
+                        outerRadius="80%"
+                        startAngle={90}
+                        endAngle={-270}
+                        isAnimationActive={false}
+                      >
+                        {spendDataLive.map((d, i) => (
+                          <Cell
+                            key={d.name}
+                            fill={i === 0 ? "#66bb6a" : "#e0e0e0"}
+                          />
+                        ))}
+                      </Pie>
+                      <Tooltip
+                        formatter={(v, n) => [
+                          `$${Number(v).toLocaleString()}`,
+                          n,
+                        ]}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <Box
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    right={0}
+                    bottom={0}
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <Typography variant="h6">{spendPctLive}%</Typography>
+                  </Box>
+                </Box>
+              )}
+              {!isLoadingTotals && liveTotals && (
+                <Box>
+                  <Typography variant="body2" color="text.secondary">
+                    Total Budget: ${liveTotals.budget.toLocaleString()}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Total Spend: ${liveTotals.spend.toLocaleString()}
+                  </Typography>
+                  <Divider sx={{ my: 1 }} />
+                  <Typography variant="body2">
+                    Health:{" "}
+                    {spendPctLive <= 85
+                      ? "On Track"
+                      : spendPctLive <= 100
+                        ? "Watch"
+                        : "Over"}
+                  </Typography>
+                </Box>
+              )}
             </Box>
           </Paper>
         </Grid>
@@ -327,38 +481,226 @@ const PulseDashboard = () => {
             }}
           >
             <Typography variant="h6" gutterBottom>
-              Resource Allocation vs Capacity (Stacked Bar)
+              Resource Allocation vs Capacity
             </Typography>
-            <Box sx={{ width: "100%", height: CHART_HEIGHT, flexGrow: 1 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={allocStackData}
-                  margin={{ top: 8, right: 16, left: -20, bottom: 8 }}
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ mb: 1 }}
+            >
+              <Typography variant="caption" color="text.secondary">
+                {(() => {
+                  let data = (
+                    Array.isArray(allocStackDataLive) ? allocStackDataLive : []
+                  )
+                    .filter((d) => d && typeof d.name === "string")
+                    .map((d) => ({
+                      name: d.name,
+                      inCap: Number.isFinite(d.inCap)
+                        ? d.inCap
+                        : Number(d.inCap ?? 0) || 0,
+                      over: Number.isFinite(d.over)
+                        ? d.over
+                        : Number(d.over ?? 0) || 0,
+                    }));
+                  const categories = data
+                    .map((d) => d.name)
+                    .filter((n) => typeof n === "string" && n.length > 0);
+                  if (categories.length !== data.length) {
+                    data = data.filter(
+                      (d) => typeof d.name === "string" && d.name.length > 0
+                    );
+                  }
+                  // Ensure category names are unique to avoid Recharts scale/domain bugs
+                  const seen = new Map();
+                  data = data.map((d) => {
+                    const count = (seen.get(d.name) || 0) + 1;
+                    seen.set(d.name, count);
+                    // Only suffix duplicates; first occurrence stays clean
+                    return count > 1
+                      ? { ...d, name: `${d.name} (${count})` }
+                      : d;
+                  });
+                  const total = data.length;
+                  const pages =
+                    pageSize > 0 ? Math.max(1, Math.ceil(total / pageSize)) : 1;
+                  const safePage = showAll
+                    ? 0
+                    : Math.min(Math.max(0, pageIdx), pages - 1);
+                  const start = showAll ? 0 : safePage * pageSize;
+                  const end = showAll
+                    ? total
+                    : Math.min(total, start + pageSize);
+                  return showAll
+                    ? "Showing all resources"
+                    : `Showing resources ${start + 1}-${end} of ${Array.isArray(data) ? data.length : 0}`;
+                })()}
+              </Typography>
+              <Box display="flex" alignItems="center" gap={1}>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  onClick={() => setPageIdx((i) => Math.max(0, i - 1))}
                 >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis
-                    dataKey="name"
-                    tick={{ fontSize: 12 }}
-                    interval={0}
-                    height={40}
-                  />
-                  <YAxis tick={{ fontSize: 12 }} />
-                  <Tooltip />
-                  <Legend />
-                  <Bar
-                    dataKey="inCap"
-                    stackId="a"
-                    name="Allocated (within capacity)"
-                    fill="#90caf9"
-                  />
-                  <Bar
-                    dataKey="over"
-                    stackId="a"
-                    name="Over-allocation"
-                    fill="#d32f2f"
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+                  Prev
+                </Button>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  onClick={() => setPageIdx((i) => i + 1)}
+                >
+                  Next
+                </Button>
+                <Button
+                  size="small"
+                  variant="text"
+                  onClick={() => setShowAll((s) => !s)}
+                >
+                  {showAll ? "Show Paged" : "Show All"}
+                </Button>
+              </Box>
+            </Box>
+            <Box sx={{ width: "100%", height: CHART_HEIGHT, flexGrow: 1 }}>
+              {isLoadingUtil ? (
+                <LoadingSpinner message="Loading resources…" />
+              ) : (
+                (() => {
+                  // existing IIFE body unchanged
+                  let data = (
+                    Array.isArray(allocStackDataLive) ? allocStackDataLive : []
+                  )
+                    .filter((d) => d && typeof d.name === "string")
+                    .map((d) => ({
+                      name: d.name,
+                      inCap: Number.isFinite(d.inCap)
+                        ? d.inCap
+                        : Number(d.inCap ?? 0) || 0,
+                      over: Number.isFinite(d.over)
+                        ? d.over
+                        : Number(d.over ?? 0) || 0,
+                    }));
+                  const categories = data
+                    .map((d) => d.name)
+                    .filter((n) => typeof n === "string" && n.length > 0);
+                  console.table([
+                    "[Pulse][utilisation] categories",
+                    ...categories,
+                  ]);
+                  if (categories.length !== data.length) {
+                    data = data.filter(
+                      (d) => typeof d.name === "string" && d.name.length > 0
+                    );
+                  }
+                  const seen = new Map();
+                  data = data.map((d) => {
+                    const count = (seen.get(d.name) || 0) + 1;
+                    seen.set(d.name, count);
+                    return count > 1
+                      ? { ...d, name: `${d.name} (${count})` }
+                      : d;
+                  });
+                  console.log(
+                    "[Pulse][utilisation] all rows & lengths:",
+                    data,
+                    "len=",
+                    data.length
+                  );
+                  const total = data.length;
+                  const pages =
+                    pageSize > 0 ? Math.max(1, Math.ceil(total / pageSize)) : 1;
+                  const safePage = showAll
+                    ? 0
+                    : Math.min(Math.max(0, pageIdx), pages - 1);
+                  const start = showAll ? 0 : safePage * pageSize;
+                  const end = showAll
+                    ? total
+                    : Math.min(total, start + pageSize);
+                  const pageData = data.slice(start, end);
+                  console.log("[Pulse][utilisation] page info:", {
+                    total,
+                    pageSize,
+                    pages,
+                    pageIdx: safePage,
+                    range: [start, end],
+                  });
+                  const maxY = Math.max(
+                    0,
+                    ...pageData.map(
+                      (d) => (Number(d.inCap) || 0) + (Number(d.over) || 0)
+                    )
+                  );
+                  const safeMaxY =
+                    Number.isFinite(maxY) && maxY > 0
+                      ? Math.ceil(maxY * 1.1)
+                      : 1;
+                  const chartKey = `alloc-${categories.length}-${start}-${end}-${safeMaxY}-${showAll ? "all" : "page"}`;
+                  if (
+                    !Array.isArray(pageData) ||
+                    pageData.length === 0 ||
+                    !Number.isFinite(safeMaxY)
+                  ) {
+                    return (
+                      <Box
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                        height="100%"
+                      >
+                        <Typography variant="body2" color="text.secondary">
+                          No utilisation data
+                        </Typography>
+                      </Box>
+                    );
+                  }
+                  return (
+                    <Box
+                      display="flex"
+                      alignItems="stretch"
+                      justifyContent="center"
+                      sx={{ width: "100%", height: "100%" }}
+                    >
+                      <BarChart
+                        key={chartKey}
+                        width={600}
+                        height={CHART_HEIGHT - 8}
+                        data={pageData}
+                        margin={{ top: 8, right: 16, left: 8, bottom: 8 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis
+                          type="category"
+                          dataKey="name"
+                          tick={{ fontSize: 12 }}
+                          interval={0}
+                          height={40}
+                          allowDuplicatedCategory={true}
+                        />
+                        <YAxis
+                          type="number"
+                          tick={{ fontSize: 12 }}
+                          domain={[0, safeMaxY]}
+                          allowDecimals
+                        />
+                        <Tooltip />
+                        <Legend />
+                        <Bar
+                          dataKey="inCap"
+                          stackId="a"
+                          name="Allocated (within capacity)"
+                          isAnimationActive={false}
+                        />
+                        <Bar
+                          dataKey="over"
+                          stackId="a"
+                          name="Over-allocation"
+                          isAnimationActive={false}
+                        />
+                      </BarChart>
+                    </Box>
+                  );
+                })()
+              )}
             </Box>
           </Paper>
         </Grid>
