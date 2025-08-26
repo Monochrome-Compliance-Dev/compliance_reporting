@@ -366,54 +366,35 @@ export default function EngagementWizard() {
         String(engagement.id)
       );
       const server = unwrap(serverRaw) || [];
-      const serverById = new Map(server.map((a) => [String(a.id), a]));
+      const serverIds = new Set(server.map((a) => String(a.id)));
 
-      // normalize UI
-      const ui = (Array.isArray(rows) ? rows : []).map((a) => ({
-        id: a.id ? String(a.id) : undefined,
-        engagementId: String(engagement.id),
-        resourceId: String(a.resourceId),
-        allocationPct: Number(a.allocationPct || 0),
-        startDate: a.startDate || undefined,
-        endDate: a.endDate || undefined,
-        role: a.role || undefined,
-        notes: a.notes || undefined,
-        customerId: userService.userValue.customerId,
-      }));
-
-      const toCreate = ui.filter((a) => !a.id);
-      const toUpdate = ui.filter((a) => a.id && serverById.has(String(a.id)));
+      const ui = Array.isArray(rows) ? rows : [];
+      const toCreate = ui.filter((r) => !r?.id);
+      const toUpdate = ui.filter((r) => !!r?.id && serverIds.has(String(r.id)));
       const toDelete = server.filter(
-        (s) => !ui.find((a) => String(a.id) === String(s.id))
+        (s) => !ui.find((r) => String(r?.id || "") === String(s.id))
       );
 
-      // create
+      // CREATE: full payloads from editor
       const createResults = await Promise.allSettled(
-        toCreate.map((row) =>
-          pulseService.assignments.create({
-            ...row,
-            createdBy: userService.userValue.id,
-          })
-        )
+        toCreate.map((row) => pulseService.assignments.create(row))
       );
       const createErr = createResults.find((r) => r.status === "rejected");
       if (createErr)
         throw createErr.reason || new Error("Failed to create assignments");
 
-      // update
+      // UPDATE: diff-only; strip id from body
       const updateResults = await Promise.allSettled(
-        toUpdate.map((row) =>
-          pulseService.assignments.update(String(row.id), {
-            ...row,
-            updatedBy: userService.userValue.id,
-          })
-        )
+        toUpdate.map((row) => {
+          const { id, ...body } = row;
+          return pulseService.assignments.patch(String(id), body);
+        })
       );
       const updateErr = updateResults.find((r) => r.status === "rejected");
       if (updateErr)
         throw updateErr.reason || new Error("Failed to update assignments");
 
-      // delete
+      // DELETE: any server rows not present in UI
       const deleteResults = await Promise.allSettled(
         toDelete.map((row) => pulseService.assignments.delete(String(row.id)))
       );
@@ -421,11 +402,18 @@ export default function EngagementWizard() {
       if (deleteErr)
         throw deleteErr.reason || new Error("Failed to delete assignments");
 
-      // reflect assignments locally for gating/UI
-      upsertEngagement({ ...engagement, assignments: ui });
+      // Refresh assignments in context
+      const refreshed = await pulseService.assignments.listByEngagement(
+        String(engagement.id)
+      );
+      const latest = unwrap(refreshed) || [];
+      const existing = Array.isArray(engagement.assignments)
+        ? engagement.assignments
+        : [];
+      const merged = latest && latest.length > 0 ? latest : existing;
+      upsertEngagement({ ...engagement, assignments: merged });
 
       showAlert("Assignments saved", "success");
-      // Do not change step or status here
     } catch (err) {
       showAlert("Failed to save assignments", "error");
     }

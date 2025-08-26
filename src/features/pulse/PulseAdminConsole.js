@@ -53,11 +53,27 @@ export default function PulseAdminConsole() {
             Timesheets
           </Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom>
-            Capture time by resource and week.
+            View, edit, and manage timesheets.
           </Typography>
-          <Button component={Link} to="/pulse/timesheets" variant="contained">
-            Open Timesheets
-          </Button>
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
+            <Button component={Link} to="/pulse/timesheets" variant="contained">
+              My Timesheets
+            </Button>
+            <Button
+              component={Link}
+              to="/pulse/timesheets/edit"
+              variant="outlined"
+            >
+              Edit Current
+            </Button>
+            <Button
+              component={Link}
+              to="/pulse/timesheets/manage"
+              variant="outlined"
+            >
+              Manage
+            </Button>
+          </Stack>
         </Paper>
       </Stack>
 

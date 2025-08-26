@@ -42,10 +42,12 @@ import PulseDashboard from "../features/pulse/PulseDashboard";
 import ResourceView from "../features/pulse/resources/ResourceView";
 import ClientView from "../features/pulse/ClientView";
 import EngagementView from "../features/pulse/engagements/EngagementView";
-import TimesheetView from "../features/pulse/timesheets/TimesheetView";
+import TimesheetEditor from "../features/pulse/timesheets/TimesheetEditor";
+import TimesheetList from "../features/pulse/timesheets/TimesheetList";
+import TimesheetManage from "../features/pulse/timesheets/TimesheetManage";
+import Timesheet from "../features/pulse/timesheets/Timesheet";
 import PulseAdminConsole from "../features/pulse/PulseAdminConsole";
 import EngagementPage from "../features/pulse/engagements/EngagementPage";
-import Timesheet from "../features/pulse/timesheets/Timesheet";
 import ResourceAllocationView from "../features/pulse/resources/ResourceAllocationView";
 import BudgetView from "../features/pulse/budgets/BudgetView";
 import BudgetBuilder from "../features/pulse/budgets/BudgetBuilder";
@@ -282,7 +284,13 @@ export const protectedRoutes = [
       },
       {
         path: "timesheets",
-        Component: TimesheetView,
+        Component: Outlet,
+        children: [
+          { index: true, Component: TimesheetList }, // /pulse/timesheets
+          { path: "edit", Component: TimesheetEditor }, // /pulse/timesheets/edit
+          { path: "manage", Component: TimesheetManage }, // /pulse/timesheets/manage
+          { path: ":timesheetId", Component: Timesheet }, // /pulse/timesheets/:timesheetId (read-only)
+        ],
       },
       {
         path: "budgets",

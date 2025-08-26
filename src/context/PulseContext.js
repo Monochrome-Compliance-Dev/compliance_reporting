@@ -17,19 +17,12 @@ export const usePulseContext = () => {
   return context;
 };
 
-// ---- helpers ----
+// ---- constants ----
 const EMPTY = {
   clients: [],
   resources: [],
   engagements: [],
   timesheets: {}, // shape: { [resourceId]: { [weekKey]: rows[] } }
-};
-
-const unwrap = (res) =>
-  res && typeof res === "object" && "data" in res ? res.data : res;
-const unwrapArray = (res) => {
-  const arr = unwrap(res);
-  return Array.isArray(arr) ? arr : [];
 };
 
 export const PulseProvider = ({ children }) => {
@@ -68,15 +61,11 @@ export const PulseProvider = ({ children }) => {
   // ---- refresh (fetch from backend and cache) ----
   const refreshPulse = useCallback(async () => {
     try {
-      const [resClients, resResources, resEngagements] = await Promise.all([
+      const [nextClients, nextResources, nextEngagements] = await Promise.all([
         pulseService.clients.list(),
         pulseService.resources.list(),
         pulseService.engagements.list(),
       ]);
-
-      const nextClients = unwrapArray(resClients);
-      const nextResources = unwrapArray(resResources);
-      const nextEngagements = unwrapArray(resEngagements);
 
       setClients(nextClients);
       setResources(nextResources);
@@ -121,7 +110,7 @@ export const PulseProvider = ({ children }) => {
 
   // ---- pure mutators (no network or mocked backend here) ----
   const upsertResource = useCallback((partial) => {
-    const item = unwrap(partial);
+    const item = partial;
     const id = item?.id;
     if (!id) return null;
     setResources((arr) => {
@@ -141,7 +130,7 @@ export const PulseProvider = ({ children }) => {
   }, []);
 
   const upsertClient = useCallback((partial) => {
-    const item = unwrap(partial);
+    const item = partial;
     const id = item?.id;
     if (!id) return null;
     setClients((arr) => {
@@ -161,7 +150,7 @@ export const PulseProvider = ({ children }) => {
   }, []);
 
   const upsertEngagement = useCallback((partial) => {
-    const item = unwrap(partial);
+    const item = partial;
     const id = item?.id;
     if (!id) return null;
     setEngagements((arr) => {

@@ -2,41 +2,91 @@ import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/pulse`;
 
-function buildCrudReal(entity) {
+// ---- response normalisers (service-level) ----
+const unwrap = (res) =>
+  res && typeof res === "object" && "data" in res ? res.data : res;
+const unwrapArray = (res) => {
+  const arr = unwrap(res);
+  if (Array.isArray(arr)) return arr;
+  if (Array.isArray(arr?.items)) return arr.items;
+  if (Array.isArray(arr?.rows)) return arr.rows;
+  if (arr && typeof arr === "object") return Object.values(arr);
+  return [];
+};
+
+function buildCrud(entity) {
   const entityUrl = `${baseUrl}/${entity}`;
   return {
-    list: async () => fetchWrapper.get(entityUrl),
-    getById: async (id) => fetchWrapper.get(`${entityUrl}/${id}`),
-    create: async (params) => fetchWrapper.post(entityUrl, params),
+    list: async () => unwrapArray(await fetchWrapper.get(entityUrl)),
+    getById: async (id) => unwrap(await fetchWrapper.get(`${entityUrl}/${id}`)),
+    create: async (params) =>
+      unwrap(await fetchWrapper.post(entityUrl, params)),
     update: async (id, params) =>
-      fetchWrapper.put(`${entityUrl}/${id}`, params),
+      unwrap(await fetchWrapper.put(`${entityUrl}/${id}`, params)),
     patch: async (id, params) =>
-      fetchWrapper.patch(`${entityUrl}/${id}`, params),
+      unwrap(await fetchWrapper.patch(`${entityUrl}/${id}`, params)),
     delete: async (id) => fetchWrapper.delete(`${entityUrl}/${id}`),
   };
 }
-
-const buildCrud = buildCrudReal;
 
 export const pulseService = {
   resources: buildCrud("resources"),
   assignments: {
     ...buildCrud("assignments"),
     listByEngagement: (engagementId) =>
-      fetchWrapper.get(
-        `${baseUrl}/assignments?engagementId=${encodeURIComponent(engagementId)}`
-      ),
+      fetchWrapper
+        .get(
+          `${baseUrl}/assignments?engagementId=${encodeURIComponent(engagementId)}`
+        )
+        .then(unwrapArray),
   },
   clients: buildCrud("clients"),
   engagements: buildCrud("engagements"),
-  timesheets: buildCrud("timesheets"),
+  timesheets: {
+    ...buildCrud("timesheets"),
+    rows: {
+      list: async (timesheetId) =>
+        unwrapArray(
+          await fetchWrapper.get(
+            `${baseUrl}/timesheets/${encodeURIComponent(timesheetId)}/rows`
+          )
+        ),
+      create: async (timesheetId, body) =>
+        unwrap(
+          await fetchWrapper.post(
+            `${baseUrl}/timesheets/${encodeURIComponent(timesheetId)}/rows`,
+            body
+          )
+        ),
+      update: async (rowId, body) =>
+        unwrap(
+          await fetchWrapper.put(
+            `${baseUrl}/timesheets/rows/${encodeURIComponent(rowId)}`,
+            body
+          )
+        ),
+      patch: async (rowId, body) =>
+        unwrap(
+          await fetchWrapper.patch(
+            `${baseUrl}/timesheets/rows/${encodeURIComponent(rowId)}`,
+            body
+          )
+        ),
+      delete: async (rowId) =>
+        fetchWrapper.delete(
+          `${baseUrl}/timesheets/rows/${encodeURIComponent(rowId)}`
+        ),
+    },
+  },
   // Matches server routes in budget.controller.js → /pulse/budget-items
   budgetItems: {
     ...buildCrud("budget-items"),
     // Convenience helper when filtering by engagement on the server
     listByEngagement: async (engagementId) =>
-      fetchWrapper.get(
-        `${baseUrl}/budget-items?engagementId=${encodeURIComponent(engagementId)}`
+      unwrapArray(
+        await fetchWrapper.get(
+          `${baseUrl}/budget-items?engagementId=${encodeURIComponent(engagementId)}`
+        )
       ),
   },
 };

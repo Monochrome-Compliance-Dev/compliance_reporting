@@ -22,14 +22,32 @@ function pct(n) {
   return Math.round(v);
 }
 
+function formatDate(d) {
+  if (!d) return "";
+  // accept YYYY-MM-DD or ISO and normalise to YYYY-MM-DD
+  return String(d).slice(0, 10);
+}
+
+function formatDateTime(dt) {
+  if (!dt) return "";
+  const s = String(dt);
+  // Trim seconds/ms and normalise 'T' to space for readability
+  const base = s.replace("T", " ");
+  const idx = base.indexOf(".");
+  return idx > -1 ? base.slice(0, idx) : base;
+}
+
+function formatMoney(n) {
+  if (n === null || n === undefined || n === "") return "";
+  const num = Number(n);
+  if (Number.isNaN(num)) return String(n);
+  return `$${num.toFixed(2)}`;
+}
+
 export default function ResourceAllocationView() {
-  const { resources = [], engagements = [], clients = [] } = usePulseContext();
+  const { resources = [], engagements = [] } = usePulseContext();
 
   const [query, setQuery] = useState("");
-  const clientById = useMemo(
-    () => Object.fromEntries((clients || []).map((c) => [String(c.id), c])),
-    [clients]
-  );
 
   // Build assignment index by resourceId
   const assignmentsByResource = useMemo(() => {
@@ -42,25 +60,26 @@ export default function ResourceAllocationView() {
         map[rid].push({
           engagementId: String(e.id),
           engagementName: e.name,
-          clientId: String(e.clientId),
-          clientName: clientById[String(e.clientId)]?.name || "",
           allocationPct: Number(a.allocationPct || 0),
+          allocatedHoursPerWeek: Number(a.allocatedHoursPerWeek || 0),
+          rateOverride: a.rateOverride ?? null,
           startDate: a.startDate || "",
           endDate: a.endDate || "",
+          dueDate: a.dueDate || "",
+          completedAt: a.completedAt || "",
           role: a.role || "",
+          notes: a.notes || "",
         });
       });
     });
-    // Sort each resource's list by client then engagement
+    // Sort each resource's list by engagement
     Object.values(map).forEach((arr) =>
-      arr.sort(
-        (x, y) =>
-          (x.clientName || "").localeCompare(y.clientName || "") ||
-          (x.engagementName || "").localeCompare(y.engagementName || "")
+      arr.sort((x, y) =>
+        (x.engagementName || "").localeCompare(y.engagementName || "")
       )
     );
     return map;
-  }, [engagements, clientById]);
+  }, [engagements]);
 
   const rows = useMemo(() => {
     return (resources || []).map((r) => {
@@ -84,11 +103,9 @@ export default function ResourceAllocationView() {
           .includes(q)
       );
       const anyAssign = items.some((it) =>
-        [it.engagementName, it.clientName].some((v) =>
-          String(v || "")
-            .toLowerCase()
-            .includes(q)
-        )
+        String(it.engagementName || "")
+          .toLowerCase()
+          .includes(q)
       );
       return base || anyAssign;
     });
@@ -100,7 +117,7 @@ export default function ResourceAllocationView() {
         <Typography variant="h5">Resource Allocation</Typography>
         <TextField
           size="small"
-          placeholder="Search by resource, client, or engagement…"
+          placeholder="Search by resource or engagement…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           inputProps={{ "aria-label": "Search resource allocation" }}
@@ -169,23 +186,62 @@ export default function ResourceAllocationView() {
                                       ? "error"
                                       : "default"
                                   }
+                                  aria-label={`Allocation ${pct(it.allocationPct)} percent`}
                                 />
+                                {Number(it.allocatedHoursPerWeek) > 0 && (
+                                  <Chip
+                                    size="small"
+                                    label={`${it.allocatedHoursPerWeek} hrs/wk`}
+                                    variant="outlined"
+                                    aria-label={`Hours per week ${it.allocatedHoursPerWeek}`}
+                                  />
+                                )}
+                                {it.rateOverride != null &&
+                                  it.rateOverride !== "" && (
+                                    <Chip
+                                      size="small"
+                                      label={`${formatMoney(it.rateOverride)} /hr override`}
+                                      variant="outlined"
+                                      aria-label={`Rate override ${formatMoney(it.rateOverride)} per hour`}
+                                    />
+                                  )}
+                                {it.dueDate && (
+                                  <Chip
+                                    size="small"
+                                    label={`Due ${formatDate(it.dueDate)}`}
+                                    aria-label={`Due date ${formatDate(it.dueDate)}`}
+                                  />
+                                )}
+                                {it.completedAt && (
+                                  <Chip
+                                    size="small"
+                                    color="success"
+                                    label={`Completed ${formatDateTime(it.completedAt)}`}
+                                    aria-label={`Completed at ${formatDateTime(it.completedAt)}`}
+                                  />
+                                )}
                                 <Typography variant="body2">
-                                  <strong>{it.clientName || "Client"}</strong> —{" "}
-                                  {it.engagementName || "Engagement"}
+                                  <strong>
+                                    {it.engagementName || "Engagement"}
+                                  </strong>
                                 </Typography>
                                 <Box flexGrow={1} />
                                 <Typography
                                   variant="caption"
                                   color="text.secondary"
                                 >
-                                  {it.startDate || ""}
+                                  {formatDate(it.startDate)}
                                   {it.startDate || it.endDate ? " → " : ""}
-                                  {it.endDate || ""}
+                                  {formatDate(it.endDate)}
                                 </Typography>
                               </Stack>
                               <Divider sx={{ my: 1 }} />
-                              <Stack direction="row" spacing={1}>
+                              <Stack
+                                direction="row"
+                                spacing={1}
+                                alignItems="center"
+                                flexWrap="wrap"
+                              >
                                 <Chip
                                   size="small"
                                   component={Link}
@@ -199,6 +255,15 @@ export default function ResourceAllocationView() {
                                     label={it.role}
                                     variant="outlined"
                                   />
+                                ) : null}
+                                {it.notes ? (
+                                  <Typography
+                                    variant="caption"
+                                    color="text.secondary"
+                                    sx={{ ml: 1 }}
+                                  >
+                                    {it.notes}
+                                  </Typography>
                                 ) : null}
                               </Stack>
                             </Paper>

@@ -1,5 +1,4 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
-import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -114,19 +113,17 @@ export default function ClientView() {
 
   const onSubmit = useCallback(
     async (values) => {
-      let payload = {
-        id: mode === "create" ? nanoid(10) : selected?.id,
+      const basePayload = {
         name: values.name,
         email: values.email || undefined,
         phone: values.phone || undefined,
         customerId: userService.userValue.customerId,
       };
 
-      if (mode === "create") {
-        payload = { ...payload, createdBy: userService.userValue.id };
-      } else if (mode === "edit") {
-        payload = { ...payload, updatedBy: userService.userValue.id };
-      }
+      const payload =
+        mode === "create"
+          ? { ...basePayload, createdBy: userService.userValue.id }
+          : { ...basePayload, updatedBy: userService.userValue.id };
 
       try {
         const saved =
