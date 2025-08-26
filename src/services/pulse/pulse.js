@@ -1,4 +1,3 @@
-import { assign } from "lodash";
 import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/pulse`;
@@ -21,7 +20,13 @@ const buildCrud = buildCrudReal;
 
 export const pulseService = {
   resources: buildCrud("resources"),
-  assignments: buildCrud("assignments"),
+  assignments: {
+    ...buildCrud("assignments"),
+    listByEngagement: (engagementId) =>
+      fetchWrapper.get(
+        `${baseUrl}/assignments?engagementId=${encodeURIComponent(engagementId)}`
+      ),
+  },
   clients: buildCrud("clients"),
   engagements: buildCrud("engagements"),
   timesheets: buildCrud("timesheets"),

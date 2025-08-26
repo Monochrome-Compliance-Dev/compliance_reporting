@@ -1,5 +1,5 @@
 // src/features/pulse/engagements/EngagementWizard.js
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router";
 import {
   Stepper,
@@ -96,26 +96,93 @@ function ResourcesStep({
   engagement,
   resources,
   onAssignmentsSaved,
+  onCompleteAssignments,
   onNext,
   onBack,
   canProceed,
 }) {
+  // --- Budget/Planned Cost helpers
+  const parseISO = (s) => {
+    if (!s) return null;
+    const d = new Date(s);
+    return Number.isNaN(d.getTime()) ? null : d;
+  };
+  const dayDiffInclusive = (a, b) => {
+    if (!a || !b) return 0;
+    const ms = b.setHours(0, 0, 0, 0) - a.setHours(0, 0, 0, 0);
+    return ms < 0 ? 0 : Math.floor(ms / (1000 * 60 * 60 * 24)) + 1;
+  };
+  const estimatePlannedCost = () => {
+    if (!engagement) return { planned: 0, remaining: 0, budget: 0 };
+    const budget = Number(engagement.budgetAmount || 0);
+    const eStart = parseISO(engagement.startDate);
+    const eEnd = parseISO(engagement.endDate);
+    if (!Array.isArray(engagement.assignments) || !eStart || !eEnd)
+      return { planned: 0, remaining: budget, budget };
+
+    let planned = 0;
+    engagement.assignments.forEach((a) => {
+      const res = (resources || []).find(
+        (r) => String(r.id) === String(a.resourceId)
+      );
+      const rate = Number(a.rateOverride ?? res?.hourlyRate ?? 0);
+      const aStart = parseISO(a.startDate);
+      const aEnd = parseISO(a.endDate);
+      if (!aStart || !aEnd) return; // require dates for estimate
+      const start = aStart > eStart ? aStart : eStart;
+      const end = aEnd < eEnd ? aEnd : eEnd;
+      const days = dayDiffInclusive(new Date(start), new Date(end));
+      if (days <= 0) return;
+      const hours = days * 8 * (Number(a.allocationPct || 0) / 100);
+      planned += hours * rate;
+    });
+    return { planned, remaining: budget - planned, budget };
+  };
+  const { planned, remaining } = estimatePlannedCost();
+
   return (
     <Paper variant="outlined">
       <Box p={2}>
+        <Box mb={1} display="flex" justifyContent="flex-end" gap={1}>
+          <Chip
+            size="small"
+            label={`Planned: $${planned.toFixed(2)}`}
+            variant="outlined"
+          />
+          <Chip
+            size="small"
+            label={`Budget remaining: $${remaining.toFixed(2)}`}
+            color={remaining < 0 ? "error" : "success"}
+            variant={remaining < 0 ? "filled" : "outlined"}
+          />
+        </Box>
         <EngagementAssignmentsEditor
           engagementId={engagementId || ""}
           resources={resources}
           initialAssignments={engagement?.assignments || []}
           onSave={onAssignmentsSaved}
         />
-        <Box mt={2} display="flex" justifyContent="space-between">
+        <Box
+          mt={2}
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           <Button variant="text" onClick={onBack}>
             Back
           </Button>
-          <Button variant="text" onClick={onNext} disabled={!canProceed}>
-            Next: Review
-          </Button>
+          <Box display="flex" gap={1}>
+            <Button
+              variant="contained"
+              onClick={onCompleteAssignments}
+              disabled={!canProceed}
+            >
+              Complete assignments
+            </Button>
+            <Button variant="text" onClick={onNext} disabled={!canProceed}>
+              Next: Review
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Paper>
@@ -173,8 +240,10 @@ export default function EngagementWizard() {
   const { clients, resources, engagements, upsertEngagement } =
     usePulseContext();
   const { showAlert } = useAlert();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+
+  const loadedAssignmentsRef = useRef(new Set());
 
   // selection (edit mode if ?id=...)
   const [engagementId, setEngagementId] = useState(
@@ -194,15 +263,71 @@ export default function EngagementWizard() {
 
   const [activeStep, setActiveStep] = useState(0);
 
-  // initial step in edit mode
+  // initial step selection: prefer ?step= if valid, else derive from status/gates
+  useEffect(() => {
+    if (!engagementId || !engagement) return;
+
+    const gates = { engagementId, hasBudget, hasAssignments };
+    const stepFromQuery = Number(searchParams.get("step"));
+    const hasStepParam = !Number.isNaN(stepFromQuery);
+
+    if (hasStepParam && canEnterStep(stepFromQuery, gates)) {
+      setActiveStep(stepFromQuery);
+      return;
+    }
+
+    if (engagement.status === "active" || engagement.status === "ready") {
+      setActiveStep(3);
+    } else if (hasAssignments) {
+      setActiveStep(2);
+    } else if (hasBudget) {
+      setActiveStep(1);
+    } else {
+      setActiveStep(0);
+    }
+  }, [engagementId, engagement, hasBudget, hasAssignments, searchParams]);
+
   useEffect(() => {
     if (!engagementId) return;
-    if (!engagement) return;
-    if (engagement.status === "active") setActiveStep(3);
-    else if (hasAssignments) setActiveStep(2);
-    else if (hasBudget) setActiveStep(1);
-    else setActiveStep(0);
-  }, [engagementId, engagement, hasBudget, hasAssignments]);
+    const params = new URLSearchParams(searchParams);
+    params.set("id", String(engagementId));
+    params.set("step", String(activeStep));
+    setSearchParams(params, { replace: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeStep, engagementId]);
+
+  // Load persisted assignments for this engagement and attach to context entity
+  const loadAssignments = async (id) => {
+    if (!id) return;
+    try {
+      const res = await pulseService.assignments.listByEngagement(String(id));
+      const rows = unwrap(res) || [];
+      // derive current entity from context to avoid identity churn
+      const current = engagements.find((e) => String(e.id) === String(id)) || {
+        id,
+      };
+      upsertEngagement({ ...current, assignments: rows });
+    } catch (e) {
+      showAlert("Failed to load assignments", "error");
+    }
+  };
+
+  // Load assignments only when entering the Resources step; prevent repeated loads
+  useEffect(() => {
+    if (!engagementId) return;
+    if (activeStep !== 2) return; // Resources step only
+    const key = String(engagementId);
+    if (loadedAssignmentsRef.current.has(key)) return;
+    loadedAssignmentsRef.current.add(key);
+    loadAssignments(key);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [engagementId, activeStep]);
+
+  useEffect(() => {
+    if (!engagementId) return;
+    const key = String(engagementId);
+    loadedAssignmentsRef.current.delete(key);
+  }, [engagementId]);
 
   // Step 1 save
   const saveDetails = async (values, isEdit) => {
@@ -233,20 +358,96 @@ export default function EngagementWizard() {
     setActiveStep(1);
   };
 
-  // Step 2 save budget handled via BudgetBuilder (see BudgetBuilder.js)
+  // Step 3 save assignments (persist to /assignments) — no status change here
+  const saveAssignments = async (rows) => {
+    try {
+      // server truth
+      const serverRaw = await pulseService.assignments.listByEngagement(
+        String(engagement.id)
+      );
+      const server = unwrap(serverRaw) || [];
+      const serverById = new Map(server.map((a) => [String(a.id), a]));
 
-  // Step 3 save assignments
-  const saveAssignments = async (assignments) => {
-    console.log("Saving assignments", assignments);
-    const saved = await pulseService.engagements.patch(String(engagement.id), {
-      assignments,
-      status: "ready",
-      updatedBy: userService.userValue.id,
-      customerId: userService.userValue.customerId,
-    });
-    upsertEngagement(saved);
-    showAlert("Assignments saved", "success");
-    setActiveStep(3);
+      // normalize UI
+      const ui = (Array.isArray(rows) ? rows : []).map((a) => ({
+        id: a.id ? String(a.id) : undefined,
+        engagementId: String(engagement.id),
+        resourceId: String(a.resourceId),
+        allocationPct: Number(a.allocationPct || 0),
+        startDate: a.startDate || undefined,
+        endDate: a.endDate || undefined,
+        role: a.role || undefined,
+        notes: a.notes || undefined,
+        customerId: userService.userValue.customerId,
+      }));
+
+      const toCreate = ui.filter((a) => !a.id);
+      const toUpdate = ui.filter((a) => a.id && serverById.has(String(a.id)));
+      const toDelete = server.filter(
+        (s) => !ui.find((a) => String(a.id) === String(s.id))
+      );
+
+      // create
+      const createResults = await Promise.allSettled(
+        toCreate.map((row) =>
+          pulseService.assignments.create({
+            ...row,
+            createdBy: userService.userValue.id,
+          })
+        )
+      );
+      const createErr = createResults.find((r) => r.status === "rejected");
+      if (createErr)
+        throw createErr.reason || new Error("Failed to create assignments");
+
+      // update
+      const updateResults = await Promise.allSettled(
+        toUpdate.map((row) =>
+          pulseService.assignments.update(String(row.id), {
+            ...row,
+            updatedBy: userService.userValue.id,
+          })
+        )
+      );
+      const updateErr = updateResults.find((r) => r.status === "rejected");
+      if (updateErr)
+        throw updateErr.reason || new Error("Failed to update assignments");
+
+      // delete
+      const deleteResults = await Promise.allSettled(
+        toDelete.map((row) => pulseService.assignments.delete(String(row.id)))
+      );
+      const deleteErr = deleteResults.find((r) => r.status === "rejected");
+      if (deleteErr)
+        throw deleteErr.reason || new Error("Failed to delete assignments");
+
+      // reflect assignments locally for gating/UI
+      upsertEngagement({ ...engagement, assignments: ui });
+
+      showAlert("Assignments saved", "success");
+      // Do not change step or status here
+    } catch (err) {
+      showAlert("Failed to save assignments", "error");
+    }
+  };
+
+  const completeAssignments = async () => {
+    try {
+      const saved = await pulseService.engagements.patch(
+        String(engagement.id),
+        {
+          status: "ready",
+          updatedBy: userService.userValue.id,
+          customerId: userService.userValue.customerId,
+        }
+      );
+      const entity = unwrap(saved);
+      upsertEngagement(entity);
+      showAlert("Assignments completed", "success");
+      setActiveStep(3);
+    } catch (e) {
+      showAlert("Failed to complete assignments", "error");
+    }
   };
 
   // Step 4 activate
@@ -336,6 +537,7 @@ export default function EngagementWizard() {
           engagement={engagement}
           resources={resources}
           onAssignmentsSaved={saveAssignments}
+          onCompleteAssignments={completeAssignments}
           onNext={() => setActiveStep(3)}
           onBack={() => setActiveStep(1)}
           canProceed={hasAssignments}

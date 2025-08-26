@@ -17,6 +17,8 @@ import {
   Paper,
 } from "@mui/material";
 import { userService } from "../../../services";
+import { nanoid } from "nanoid";
+import { useAlert } from "../../../context";
 
 export default function EngagementAssignmentsEditor({
   engagementId,
@@ -29,54 +31,144 @@ export default function EngagementAssignmentsEditor({
     [resources]
   );
 
-  const [selectedResourceIds, setSelectedResourceIds] = useState(
-    initialAssignments.map((a) => String(a.resourceId))
+  const { showAlert } = useAlert();
+
+  const [rows, setRows] = useState(() =>
+    (initialAssignments || []).map((a) => ({
+      key: nanoid(8),
+      resourceId: String(a.resourceId),
+      allocationPct: a.allocationPct ?? 0,
+      startDate: a.startDate || "",
+      endDate: a.endDate || "",
+      role: a.role || "",
+      rateOverride: a.rateOverride ?? "",
+      notes: a.notes || "",
+    }))
   );
 
-  const [details, setDetails] = useState(() => {
-    const map = {};
-    initialAssignments.forEach((a) => {
-      map[String(a.resourceId)] = {
-        allocationPct: a.allocationPct ?? 0,
-        startDate: a.startDate || "",
-        endDate: a.endDate || "",
-        role: a.role || "",
-        rateOverride: a.rateOverride ?? "",
-        notes: a.notes || "",
-      };
-    });
-    return map;
-  });
+  const [overlapKeys, setOverlapKeys] = useState([]);
+
+  const datesOverlap = (aStart, aEnd, bStart, bEnd) => {
+    if (!aStart || !aEnd || !bStart || !bEnd) return true; // open ranges considered overlapping
+    return !(aEnd < bStart || bEnd < aStart);
+  };
+
+  const computeOverlapKeys = (list) => {
+    const byRes = list.reduce((acc, r) => {
+      (acc[r.resourceId] ||= []).push(r);
+      return acc;
+    }, {});
+    const offending = new Set();
+    for (const rid of Object.keys(byRes)) {
+      const entries = byRes[rid];
+      for (let i = 0; i < entries.length; i++) {
+        for (let j = i + 1; j < entries.length; j++) {
+          const a = entries[i];
+          const b = entries[j];
+          // only evaluate when both ranges are fully specified
+          if (
+            a.startDate &&
+            a.endDate &&
+            b.startDate &&
+            b.endDate &&
+            datesOverlap(a.startDate, a.endDate, b.startDate, b.endDate)
+          ) {
+            offending.add(a.key);
+            offending.add(b.key);
+          }
+        }
+      }
+    }
+    return Array.from(offending);
+  };
+
+  const isISODate = (s) =>
+    typeof s === "string" && /^\d{4}-\d{2}-\d{2}$/.test(s);
+  const nextDay = (s) => {
+    const d = new Date(s);
+    if (Number.isNaN(d.getTime())) return "";
+    d.setDate(d.getDate() + 1);
+    return d.toISOString().slice(0, 10);
+  };
 
   const addResource = (rid) => {
-    setSelectedResourceIds((prev) =>
-      prev.includes(rid) ? prev : [...prev, rid]
-    );
+    setRows((prev) => {
+      const sameRes = prev.filter((r) => String(r.resourceId) === String(rid));
+      const lastEnd = sameRes
+        .map((r) => r.endDate)
+        .filter((d) => isISODate(d))
+        .sort()
+        .at(-1);
+      const suggestedStart = lastEnd ? nextDay(lastEnd) : "";
+
+      const newRow = {
+        key: nanoid(8),
+        resourceId: String(rid),
+        allocationPct: 0,
+        startDate: suggestedStart,
+        endDate: "",
+        role: "",
+        rateOverride: "",
+        notes: "",
+      };
+      return [...prev, newRow];
+    });
   };
-  const removeResource = (rid) => {
-    setSelectedResourceIds((prev) => prev.filter((x) => x !== rid));
-    setDetails((prev) => {
-      const next = { ...prev };
-      delete next[rid];
+
+  const removeRow = (key) => {
+    setRows((prev) => {
+      const next = prev.filter((r) => r.key !== key);
+      setOverlapKeys(computeOverlapKeys(next));
       return next;
     });
   };
 
   const handleSave = async () => {
-    const assignments = selectedResourceIds.map((rid) => ({
-      resourceId: rid,
+    // validate: no overlapping date ranges per resource
+    const byRes = rows.reduce((acc, r) => {
+      (acc[r.resourceId] ||= []).push(r);
+      return acc;
+    }, {});
+
+    const offending = new Set();
+    for (const rid of Object.keys(byRes)) {
+      const entries = byRes[rid];
+      for (let i = 0; i < entries.length; i++) {
+        for (let j = i + 1; j < entries.length; j++) {
+          const a = entries[i];
+          const b = entries[j];
+          if (datesOverlap(a.startDate, a.endDate, b.startDate, b.endDate)) {
+            offending.add(a.key);
+            offending.add(b.key);
+          }
+        }
+      }
+    }
+
+    if (offending.size > 0) {
+      setOverlapKeys(Array.from(offending));
+      showAlert(
+        "Overlapping assignments for the same resource. Set non-overlapping dates.",
+        "warning"
+      );
+      return; // abort save
+    } else {
+      setOverlapKeys([]);
+    }
+
+    const assignments = rows.map((r) => ({
+      resourceId: r.resourceId,
       engagementId,
-      allocationPct: Number(details[rid]?.allocationPct || 0),
-      startDate: details[rid]?.startDate || undefined,
-      endDate: details[rid]?.endDate || undefined,
-      role: details[rid]?.role || undefined,
-      rateOverride: details[rid]?.rateOverride
-        ? Number(details[rid].rateOverride)
-        : undefined,
-      notes: details[rid]?.notes || undefined,
+      allocationPct: Number(r.allocationPct || 0),
+      startDate: r.startDate || undefined,
+      endDate: r.endDate || undefined,
+      role: r.role || undefined,
+      rateOverride: r.rateOverride ? Number(r.rateOverride) : undefined,
+      notes: r.notes || undefined,
       customerId: userService.userValue.customerId,
       createdBy: userService.userValue.id,
     }));
+
     await onSave?.(assignments);
   };
 
@@ -122,7 +214,7 @@ export default function EngagementAssignmentsEditor({
               <Button
                 variant="contained"
                 onClick={handleSave}
-                disabled={!engagementId || selectedResourceIds.length === 0}
+                disabled={!engagementId || rows.length === 0}
               >
                 Save assignments
               </Button>
@@ -142,7 +234,7 @@ export default function EngagementAssignmentsEditor({
                 </TableRow>
               </TableHead>
               <TableBody>
-                {selectedResourceIds.length === 0 ? (
+                {rows.length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={8}>
                       <Typography color="text.secondary">
@@ -151,23 +243,37 @@ export default function EngagementAssignmentsEditor({
                     </TableCell>
                   </TableRow>
                 ) : (
-                  selectedResourceIds.map((rid) => (
-                    <TableRow key={rid}>
-                      <TableCell>{resourceById[rid]?.name || rid}</TableCell>
+                  rows.map((row) => (
+                    <TableRow
+                      key={row.key}
+                      sx={{
+                        bgcolor: overlapKeys.includes(row.key)
+                          ? (theme) => theme.palette.error.light + "33"
+                          : undefined,
+                      }}
+                    >
+                      <TableCell>
+                        {resourceById[row.resourceId]?.name || row.resourceId}
+                      </TableCell>
                       <TableCell>
                         <TextField
                           size="small"
                           type="number"
                           inputProps={{ min: 0, max: 100, step: 5 }}
-                          value={details[rid]?.allocationPct ?? ""}
+                          value={row.allocationPct}
                           onChange={(e) =>
-                            setDetails((prev) => ({
-                              ...prev,
-                              [rid]: {
-                                ...(prev[rid] || {}),
-                                allocationPct: Number(e.target.value || 0),
-                              },
-                            }))
+                            setRows((prev) =>
+                              prev.map((r) =>
+                                r.key === row.key
+                                  ? {
+                                      ...r,
+                                      allocationPct: Number(
+                                        e.target.value || 0
+                                      ),
+                                    }
+                                  : r
+                              )
+                            )
                           }
                         />
                       </TableCell>
@@ -175,15 +281,23 @@ export default function EngagementAssignmentsEditor({
                         <TextField
                           size="small"
                           type="date"
-                          value={details[rid]?.startDate || ""}
-                          onChange={(e) =>
-                            setDetails((prev) => ({
-                              ...prev,
-                              [rid]: {
-                                ...(prev[rid] || {}),
-                                startDate: e.target.value,
-                              },
-                            }))
+                          value={row.startDate}
+                          onChange={(e) => {
+                            setRows((prev) => {
+                              const next = prev.map((r) =>
+                                r.key === row.key
+                                  ? { ...r, startDate: e.target.value }
+                                  : r
+                              );
+                              setOverlapKeys(computeOverlapKeys(next));
+                              return next;
+                            });
+                          }}
+                          error={overlapKeys.includes(row.key)}
+                          helperText={
+                            overlapKeys.includes(row.key)
+                              ? "Overlaps another assignment"
+                              : undefined
                           }
                         />
                       </TableCell>
@@ -191,30 +305,38 @@ export default function EngagementAssignmentsEditor({
                         <TextField
                           size="small"
                           type="date"
-                          value={details[rid]?.endDate || ""}
-                          onChange={(e) =>
-                            setDetails((prev) => ({
-                              ...prev,
-                              [rid]: {
-                                ...(prev[rid] || {}),
-                                endDate: e.target.value,
-                              },
-                            }))
+                          value={row.endDate}
+                          onChange={(e) => {
+                            setRows((prev) => {
+                              const next = prev.map((r) =>
+                                r.key === row.key
+                                  ? { ...r, endDate: e.target.value }
+                                  : r
+                              );
+                              setOverlapKeys(computeOverlapKeys(next));
+                              return next;
+                            });
+                          }}
+                          error={overlapKeys.includes(row.key)}
+                          helperText={
+                            overlapKeys.includes(row.key)
+                              ? "Overlaps another assignment"
+                              : undefined
                           }
                         />
                       </TableCell>
                       <TableCell>
                         <TextField
                           size="small"
-                          value={details[rid]?.role || ""}
+                          value={row.role}
                           onChange={(e) =>
-                            setDetails((prev) => ({
-                              ...prev,
-                              [rid]: {
-                                ...(prev[rid] || {}),
-                                role: e.target.value,
-                              },
-                            }))
+                            setRows((prev) =>
+                              prev.map((r) =>
+                                r.key === row.key
+                                  ? { ...r, role: e.target.value }
+                                  : r
+                              )
+                            )
                           }
                         />
                       </TableCell>
@@ -223,30 +345,30 @@ export default function EngagementAssignmentsEditor({
                           size="small"
                           type="number"
                           inputProps={{ min: 0, step: 1 }}
-                          value={details[rid]?.rateOverride ?? ""}
+                          value={row.rateOverride}
                           onChange={(e) =>
-                            setDetails((prev) => ({
-                              ...prev,
-                              [rid]: {
-                                ...(prev[rid] || {}),
-                                rateOverride: e.target.value,
-                              },
-                            }))
+                            setRows((prev) =>
+                              prev.map((r) =>
+                                r.key === row.key
+                                  ? { ...r, rateOverride: e.target.value }
+                                  : r
+                              )
+                            )
                           }
                         />
                       </TableCell>
                       <TableCell>
                         <TextField
                           size="small"
-                          value={details[rid]?.notes || ""}
+                          value={row.notes}
                           onChange={(e) =>
-                            setDetails((prev) => ({
-                              ...prev,
-                              [rid]: {
-                                ...(prev[rid] || {}),
-                                notes: e.target.value,
-                              },
-                            }))
+                            setRows((prev) =>
+                              prev.map((r) =>
+                                r.key === row.key
+                                  ? { ...r, notes: e.target.value }
+                                  : r
+                              )
+                            )
                           }
                         />
                       </TableCell>
@@ -254,7 +376,7 @@ export default function EngagementAssignmentsEditor({
                         <Button
                           size="small"
                           color="error"
-                          onClick={() => removeResource(rid)}
+                          onClick={() => removeRow(row.key)}
                         >
                           Remove
                         </Button>

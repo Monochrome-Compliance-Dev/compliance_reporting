@@ -25,20 +25,12 @@ const EMPTY = {
   timesheets: {}, // shape: { [resourceId]: { [weekKey]: rows[] } }
 };
 
-const safeArray = (val) => (Array.isArray(val) ? val : []);
-const safeObject = (val) => (val && typeof val === "object" ? val : {});
-
 const unwrap = (res) =>
   res && typeof res === "object" && "data" in res ? res.data : res;
 const unwrapArray = (res) => {
   const arr = unwrap(res);
   return Array.isArray(arr) ? arr : [];
 };
-
-const genId = () =>
-  typeof crypto !== "undefined" && crypto.randomUUID
-    ? crypto.randomUUID()
-    : String(Date.now());
 
 export const PulseProvider = ({ children }) => {
   // canonical state held in context (no network calls here)
@@ -108,11 +100,7 @@ export const PulseProvider = ({ children }) => {
     if (sr) setActiveResourceId(sr);
     if (se) setActiveEngagementId(se);
     if (sc) setActiveClientId(sc);
-  }, [
-    setActiveClientIdPersist,
-    setActiveEngagementIdPersist,
-    setActiveResourceIdPersist,
-  ]);
+  }, []);
 
   // ---- init ----
   useEffect(() => {
