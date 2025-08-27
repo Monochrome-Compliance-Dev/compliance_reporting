@@ -39,6 +39,80 @@ const CARD_HEIGHT = 280; // total card height
 const CHART_HEIGHT = 200; // common chart area height
 const DONUT_SIZE = 200; // width/height for donut charts
 
+// --- Loading / Empty helpers (reusable) ---
+const LoadingBox = ({ message = "Loading…", height = CHART_HEIGHT }) => (
+  <Box
+    sx={{
+      width: "100%",
+      height,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    <LoadingSpinner message={message} />
+  </Box>
+);
+
+const NoDataBox = ({ message = "No data" }) => (
+  <Box
+    sx={{
+      width: "100%",
+      height: CHART_HEIGHT,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    <Typography variant="body2" color="text.secondary">
+      {message}
+    </Typography>
+  </Box>
+);
+
+// --- Recharts custom legend helper ---
+const renderColorLegend = (props) => {
+  const payload = Array.isArray(props?.payload) ? props.payload : [];
+  if (payload.length === 0) return null;
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 1.5,
+        alignItems: "center",
+        justifyContent: "center",
+        px: 1,
+        py: 0.5,
+      }}
+    >
+      {payload.map((entry, i) => (
+        <Box
+          key={`legend-${entry?.value ?? i}`}
+          sx={{ display: "flex", alignItems: "center", mr: 1 }}
+        >
+          <Box
+            sx={{
+              width: 10,
+              height: 10,
+              borderRadius: 1,
+              bgcolor: entry?.color || "#90a4ae",
+              mr: 0.75,
+              flex: "0 0 auto",
+            }}
+          />
+          <Typography
+            variant="caption"
+            sx={{ color: entry?.color || "text.secondary", lineHeight: 1.2 }}
+          >
+            {String(entry?.value || "")}
+          </Typography>
+        </Box>
+      ))}
+    </Box>
+  );
+};
+
 // --- Mock Data (inline for MVP demo) ---
 const mockEngagements = [
   {
@@ -139,6 +213,34 @@ const statusPalette = ["#66bb6a", "#42a5f5", "#ffa726", "#ef5350", "#ab47bc"]; /
 const statusEntries = Object.entries(statusCounts);
 const statusTotal = statusEntries.reduce((a, [, v]) => a + v, 0);
 
+// --- Engagement Status color helpers ---
+const STATUS_ORDER = [
+  "Planning",
+  "In Progress",
+  "Complete",
+  "Delayed",
+  "Cancelled",
+  "On Hold",
+  "Other",
+];
+const statusColorMap = {
+  Planning: "#66bb6a",
+  "In Progress": "#42a5f5",
+  Complete: "#66bb6a",
+  Delayed: "#ffa726",
+  Cancelled: "#ef5350",
+  "On Hold": "#ab47bc",
+  Other: "#90a4ae",
+};
+const getStatusColor = (name, idx = 0) => {
+  const key = String(name || "")
+    .replace(/_/g, " ")
+    .trim();
+  if (statusColorMap[key]) return statusColorMap[key];
+  // Fallback to palette but keep deterministic color
+  return statusPalette[idx % statusPalette.length] || "#90a4ae";
+};
+
 const overruns = [...mockEngagements]
   .map((e) => ({ ...e, variance: e.spend - e.budget }))
   .sort((a, b) => b.variance - a.variance)
@@ -227,6 +329,83 @@ const turnaroundAvgWeeks = Math.round(
   turnaroundData.reduce((a, e) => a + e.weeks, 0) / (turnaroundData.length || 1)
 );
 
+// --- Live data wiring for Budget Burn‑down Over Time ---
+const PulseWeeklyBurn = () => {
+  const { showAlert } = useAlert();
+  const [payload, setPayload] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const res = await pulseService.dashboard.weeklyBurn("current");
+        if (!alive) return;
+        // eslint-disable-next-line no-console
+        console.log("[Pulse] weekly burn payload:", res);
+        setPayload(res);
+        setIsLoading(false);
+      } catch (err) {
+        setIsLoading(false);
+        showAlert(`Failed to load weekly burn: ${String(err)}`, "error");
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, [showAlert]);
+
+  // Normalise into [{ week, burn }]
+  const burnSeriesLive = useMemo(() => {
+    if (!payload) return [];
+    // Case 1: simple array of numbers
+    if (
+      Array.isArray(payload) &&
+      payload.every((n) => Number.isFinite(Number(n)))
+    ) {
+      return payload.map((v, i, arr) => ({ week: i + 1, burn: Number(v) }));
+    }
+    // Case 2: array of objects with flexible keys
+    if (Array.isArray(payload)) {
+      return payload
+        .map((row, i) => {
+          if (!row || typeof row !== "object") return null;
+          const burn = [row.burn, row.value, row.amount, row.spend, row.total]
+            .map((x) => (x == null ? NaN : Number(x)))
+            .find((x) => Number.isFinite(x));
+
+          // Prefer explicit "week"; otherwise derive from index; otherwise try to parse date to an ordinal week bucket
+          let weekNum = Number(row.week);
+          if (!Number.isFinite(weekNum)) {
+            const d = row.date || row.period || row.weekStart || row.week_start;
+            if (d && typeof d === "string") {
+              const dt = new Date(d);
+              if (!isNaN(dt.getTime())) {
+                // Convert to ISO week number-ish (rough): 1..53
+                const jan1 = new Date(dt.getFullYear(), 0, 1);
+                const diff = Math.floor((dt - jan1) / (1000 * 60 * 60 * 24));
+                weekNum = Math.max(1, Math.floor(diff / 7) + 1);
+              }
+            }
+          }
+          if (!Number.isFinite(weekNum)) weekNum = i + 1;
+          return Number.isFinite(burn) ? { week: weekNum, burn } : null;
+        })
+        .filter(Boolean)
+        .sort((a, b) => a.week - b.week);
+    }
+    // Case 3: object map { week: value }
+    if (payload && typeof payload === "object") {
+      return Object.entries(payload)
+        .map(([k, v]) => ({ week: Number(k), burn: Number(v) }))
+        .filter((r) => Number.isFinite(r.week) && Number.isFinite(r.burn))
+        .sort((a, b) => a.week - b.week);
+    }
+    return [];
+  }, [payload]);
+
+  return { burnSeriesLive, isLoadingBurn: isLoading };
+};
 // --- Live data wiring for Resource Allocation vs Capacity ---
 const PulseUtilisation = () => {
   const { showAlert } = useAlert();
@@ -282,6 +461,86 @@ const PulseUtilisation = () => {
   }, [rows]);
 
   return { allocStackDataLive, isLoadingUtil: isLoading };
+};
+// --- Live data wiring for Engagement Status Breakdown ---
+const PulseEngagementStatus = () => {
+  const { showAlert } = useAlert();
+  const [statusPayload, setStatusPayload] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        // Try a few likely service shapes; the service should implement one of these.
+        const res = await pulseService.dashboard.status("current");
+        if (!alive) return;
+        // eslint-disable-next-line no-console
+        console.log("[Pulse] engagement status payload:", res);
+        setStatusPayload(res);
+        setIsLoading(false);
+      } catch (err) {
+        setIsLoading(false);
+        // eslint-disable-next-line no-console
+        console.warn(
+          "[Pulse] engagement status fetch failed; falling back to mock. Error:",
+          err
+        );
+        // Keep payload null so we fall back to mock below
+        showAlert?.(
+          `Failed to load engagement status: ${String(err)}`,
+          "warning"
+        );
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, [showAlert]);
+
+  // Derive a normalized breakdown in the form: [{ name, value }]
+  const statusBreakdown = useMemo(() => {
+    if (!statusPayload) return null;
+
+    // Case 1: Array of engagements with a `status` field
+    if (Array.isArray(statusPayload)) {
+      const counts = statusPayload.reduce((acc, item) => {
+        const s = String(
+          item?.status ?? item?.engagement_status ?? item?.state ?? ""
+        ).trim();
+        if (!s) return acc;
+        acc[s] = (acc[s] || 0) + 1;
+        return acc;
+      }, {});
+      return Object.entries(counts).map(([name, value]) => ({ name, value }));
+    }
+
+    // Case 2: Object with a `breakdown` map or direct map of status->count
+    const map =
+      (statusPayload && typeof statusPayload.breakdown === "object"
+        ? statusPayload.breakdown
+        : statusPayload) || {};
+    const entries = Object.entries(map)
+      .filter(([, v]) => Number.isFinite(Number(v)))
+      .map(([k, v]) => ({ name: k, value: Number(v) }));
+
+    if (entries.length > 0) return entries;
+
+    return null;
+  }, [statusPayload]);
+
+  // Helpful totals
+  const statusTotalLive = useMemo(() => {
+    return Array.isArray(statusBreakdown)
+      ? statusBreakdown.reduce((a, e) => a + (Number(e.value) || 0), 0)
+      : 0;
+  }, [statusBreakdown]);
+
+  return {
+    statusBreakdown,
+    statusTotalLive,
+    isLoadingStatus: isLoading,
+  };
 };
 // --- Live data wiring for Spend vs Budget ---
 const PulseSpendTotals = () => {
@@ -358,9 +617,12 @@ const PulseDashboard = () => {
   const { liveTotals, spendDataLive, spendPctLive, isLoadingTotals } =
     PulseSpendTotals();
   const { allocStackDataLive, isLoadingUtil } = PulseUtilisation();
+  const { statusBreakdown, statusTotalLive, isLoadingStatus } =
+    PulseEngagementStatus();
+  const { burnSeriesLive, isLoadingBurn } = PulseWeeklyBurn();
   const [pageIdx, setPageIdx] = useState(0);
   const [pageSize, setPageSize] = useState(8); // number of bars shown at once
-  const [showAll, setShowAll] = useState(false); // render entire set (unsafe)
+  const [showAll, setShowAll] = useState(true); // show all records by default
   return (
     <Container>
       <Box
@@ -538,20 +800,24 @@ const PulseDashboard = () => {
                 })()}
               </Typography>
               <Box display="flex" alignItems="center" gap={1}>
-                <Button
-                  size="small"
-                  variant="outlined"
-                  onClick={() => setPageIdx((i) => Math.max(0, i - 1))}
-                >
-                  Prev
-                </Button>
-                <Button
-                  size="small"
-                  variant="outlined"
-                  onClick={() => setPageIdx((i) => i + 1)}
-                >
-                  Next
-                </Button>
+                {!showAll && (
+                  <>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={() => setPageIdx((i) => Math.max(0, i - 1))}
+                    >
+                      Prev
+                    </Button>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={() => setPageIdx((i) => i + 1)}
+                    >
+                      Next
+                    </Button>
+                  </>
+                )}
                 <Button
                   size="small"
                   variant="text"
@@ -660,43 +926,51 @@ const PulseDashboard = () => {
                       justifyContent="center"
                       sx={{ width: "100%", height: "100%" }}
                     >
-                      <BarChart
-                        key={chartKey}
-                        width={600}
+                      <ResponsiveContainer
+                        width="100%"
                         height={CHART_HEIGHT - 8}
-                        data={pageData}
-                        margin={{ top: 8, right: 16, left: 8, bottom: 8 }}
                       >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis
-                          type="category"
-                          dataKey="name"
-                          tick={{ fontSize: 12 }}
-                          interval={0}
-                          height={40}
-                          allowDuplicatedCategory={true}
-                        />
-                        <YAxis
-                          type="number"
-                          tick={{ fontSize: 12 }}
-                          domain={[0, safeMaxY]}
-                          allowDecimals
-                        />
-                        <Tooltip />
-                        <Legend />
-                        <Bar
-                          dataKey="inCap"
-                          stackId="a"
-                          name="Allocated (within capacity)"
-                          isAnimationActive={false}
-                        />
-                        <Bar
-                          dataKey="over"
-                          stackId="a"
-                          name="Over-allocation"
-                          isAnimationActive={false}
-                        />
-                      </BarChart>
+                        <BarChart
+                          key={chartKey}
+                          data={pageData}
+                          margin={{ top: 8, right: 16, left: 8, bottom: 8 }}
+                        >
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis
+                            type="category"
+                            dataKey="name"
+                            tick={{ fontSize: 12 }}
+                            interval={0}
+                            height={40}
+                            allowDuplicatedCategory={true}
+                          />
+                          <YAxis
+                            type="number"
+                            tick={{ fontSize: 12 }}
+                            domain={[0, safeMaxY]}
+                            allowDecimals
+                          />
+                          <Tooltip />
+                          <Legend
+                            content={renderColorLegend}
+                            layout="horizontal"
+                            verticalAlign="bottom"
+                            align="center"
+                          />
+                          <Bar
+                            dataKey="inCap"
+                            stackId="a"
+                            name="Allocated (within capacity)"
+                            isAnimationActive={false}
+                          />
+                          <Bar
+                            dataKey="over"
+                            stackId="a"
+                            name="Over-allocation"
+                            isAnimationActive={false}
+                          />
+                        </BarChart>
+                      </ResponsiveContainer>
                     </Box>
                   );
                 })()
@@ -716,84 +990,177 @@ const PulseDashboard = () => {
             }}
           >
             <Typography variant="h6" gutterBottom>
-              Engagement Status Breakdown (Donut)
+              Engagement Status Breakdown
             </Typography>
             <Box display="flex" alignItems="center" gap={2}>
-              {(() => {
-                const statusData = statusEntries.map(([label, value], idx) => ({
-                  name: label,
-                  value,
-                  color: statusPalette[idx % statusPalette.length],
-                }));
-                const inProg = statusCounts["In Progress"] || 0;
-                const centreLabel = Math.round(
-                  (inProg / (statusTotal || 1)) * 100
-                );
-                return (
-                  <Box
-                    position="relative"
-                    width={DONUT_SIZE}
-                    height={DONUT_SIZE}
-                  >
-                    <PieChart width={DONUT_SIZE} height={DONUT_SIZE}>
-                      <Pie
-                        data={statusData}
-                        dataKey="value"
-                        nameKey="name"
-                        cx={DONUT_SIZE / 2}
-                        cy={DONUT_SIZE / 2}
-                        innerRadius={50}
-                        outerRadius={70}
-                        startAngle={90}
-                        endAngle={-270}
-                        isAnimationActive={false}
-                      >
-                        {statusData.map((entry, i) => (
-                          <Cell
-                            key={`cell-${entry.name}-${i}`}
-                            fill={entry.color}
-                          />
-                        ))}
-                      </Pie>
-                    </PieChart>
+              {isLoadingStatus ? (
+                <LoadingBox
+                  message="Loading engagement status…"
+                  height={DONUT_SIZE}
+                />
+              ) : (
+                (() => {
+                  // Prefer live breakdown; fall back to mock if unavailable or empty
+                  const live = Array.isArray(statusBreakdown)
+                    ? statusBreakdown.filter((d) => d && Number(d.value) > 0)
+                    : [];
+                  const fallback = statusEntries.map(([label, value]) => ({
+                    name: label,
+                    value: Number(value) || 0,
+                  }));
+                  const raw = live.length > 0 ? live : fallback;
+
+                  // Normalize names and attach colors deterministically
+                  const statusData = raw.map((d, idx) => {
+                    const name = String(d.name || d.status || "Other")
+                      .replace(/_/g, " ")
+                      .trim();
+                    return {
+                      name,
+                      value: Number(d.value) || 0,
+                      color: getStatusColor(name, idx),
+                      _order: STATUS_ORDER.indexOf(name),
+                    };
+                  });
+
+                  if (!statusData || statusData.length === 0) {
+                    return <NoDataBox message="No engagement data" />;
+                  }
+
+                  // Compute center label as % In Progress
+                  const total = statusData.reduce(
+                    (a, e) => a + (Number(e.value) || 0),
+                    0
+                  );
+                  const inProg =
+                    statusData.find(
+                      (e) => e.name.toLowerCase() === "in progress"
+                    )?.value || 0;
+                  const centreLabel = total
+                    ? Math.round((Number(inProg) / total) * 100)
+                    : 0;
+
+                  return (
                     <Box
-                      position="absolute"
-                      top={0}
-                      left={0}
-                      right={0}
-                      bottom={0}
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="center"
+                      sx={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: 2,
+                        width: "100%",
+                      }}
                     >
-                      <Typography variant="h6">{centreLabel}%</Typography>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          width: DONUT_SIZE,
+                        }}
+                      >
+                        <Box
+                          position="relative"
+                          width={DONUT_SIZE}
+                          height={DONUT_SIZE}
+                        >
+                          <PieChart width={DONUT_SIZE} height={DONUT_SIZE}>
+                            <Pie
+                              data={statusData}
+                              dataKey="value"
+                              nameKey="name"
+                              cx={DONUT_SIZE / 2}
+                              cy={DONUT_SIZE / 2}
+                              innerRadius={50}
+                              outerRadius={70}
+                              startAngle={90}
+                              endAngle={-270}
+                              isAnimationActive={false}
+                            >
+                              {statusData.map((entry, i) => (
+                                <Cell
+                                  key={`cell-${entry.name}-${i}`}
+                                  fill={entry.color}
+                                />
+                              ))}
+                            </Pie>
+                            <Tooltip formatter={(v, n) => [String(v), n]} />
+                          </PieChart>
+                          <Box
+                            position="absolute"
+                            top={0}
+                            left={0}
+                            right={0}
+                            bottom={0}
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="center"
+                          >
+                            <Typography variant="h6">{centreLabel}%</Typography>
+                          </Box>
+                        </Box>
+                        <Box sx={{ width: "100%", mt: 1 }}>
+                          {renderColorLegend({
+                            payload: statusData.map((e) => ({
+                              value: e.name,
+                              color: e.color,
+                            })),
+                          })}
+                        </Box>
+                      </Box>
+                      <Box sx={{ minWidth: 0 }}>
+                        <Typography variant="body2" color="text.secondary">
+                          Breakdown of engagement statuses.
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
-                );
-              })()}
-              <Box>
-                <Typography variant="body2" color="text.secondary">
-                  Breakdown of engagement statuses.
-                </Typography>
-              </Box>
+                  );
+                })()
+              )}
             </Box>
             <Box sx={{ mt: 1, maxHeight: CARD_HEIGHT - 210, overflow: "auto" }}>
               <Grid container spacing={1}>
-                {statusEntries.map(([label, value], idx) => (
-                  <Grid item xs={6} md={6} key={label}>
-                    <Box display="flex" alignItems="center" gap={1}>
-                      <Box
-                        width={10}
-                        height={10}
-                        borderRadius={1}
-                        bgcolor={statusPalette[idx % statusPalette.length]}
-                      />
-                      <Typography variant="body2">
-                        {label}: {value}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                ))}
+                {(() => {
+                  const live = Array.isArray(statusBreakdown)
+                    ? statusBreakdown.filter((d) => d && Number(d.value) > 0)
+                    : [];
+                  const fallback = statusEntries.map(([label, value]) => ({
+                    name: label,
+                    value: Number(value) || 0,
+                  }));
+                  const raw = live.length > 0 ? live : fallback;
+                  const items = raw
+                    .map((d, idx) => {
+                      const name = String(d.name || d.status || "Other")
+                        .replace(/_/g, " ")
+                        .trim();
+                      return {
+                        name,
+                        value: Number(d.value) || 0,
+                        color: getStatusColor(name, idx),
+                        _order: STATUS_ORDER.indexOf(name),
+                      };
+                    })
+                    .sort((a, b) => {
+                      const ao = a._order < 0 ? 999 : a._order;
+                      const bo = b._order < 0 ? 999 : b._order;
+                      return ao - bo || a.name.localeCompare(b.name);
+                    });
+
+                  return items.map((item) => (
+                    <Grid item xs={6} md={6} key={item.name}>
+                      <Box display="flex" alignItems="center" gap={1}>
+                        <Box
+                          width={10}
+                          height={10}
+                          borderRadius={1}
+                          bgcolor={item.color}
+                        />
+                        <Typography variant="body2">
+                          {item.name}: {item.value}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                  ));
+                })()}
               </Grid>
             </Box>
           </Paper>
@@ -810,26 +1177,50 @@ const PulseDashboard = () => {
             }}
           >
             <Typography variant="h6" gutterBottom>
-              Budget Burn-down Over Time (Line)
+              Budget Burn-down Over Time
             </Typography>
             <Box sx={{ width: "100%", height: CHART_HEIGHT, flexGrow: 1 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart
-                  data={burnSeries}
-                  margin={{ top: 8, right: 16, left: -10, bottom: 8 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="week" tick={{ fontSize: 12 }} />
-                  <YAxis tick={{ fontSize: 12 }} />
-                  <Tooltip />
-                  <Line
-                    type="monotone"
-                    dataKey="burn"
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
+              {isLoadingBurn ? (
+                <LoadingBox message="Loading burn series…" />
+              ) : burnSeriesLive && burnSeriesLive.length > 0 ? (
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart
+                    data={burnSeriesLive}
+                    margin={{ top: 8, right: 16, left: -10, bottom: 8 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="week" tick={{ fontSize: 12 }} />
+                    <YAxis tick={{ fontSize: 12 }} />
+                    <Tooltip formatter={(v) => [String(v), "Burn"]} />
+                    <Line
+                      type="monotone"
+                      dataKey="burn"
+                      strokeWidth={2}
+                      dot={false}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              ) : burnSeries && burnSeries.length > 0 ? (
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart
+                    data={burnSeries}
+                    margin={{ top: 8, right: 16, left: -10, bottom: 8 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="week" tick={{ fontSize: 12 }} />
+                    <YAxis tick={{ fontSize: 12 }} />
+                    <Tooltip />
+                    <Line
+                      type="monotone"
+                      dataKey="burn"
+                      strokeWidth={2}
+                      dot={false}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              ) : (
+                <NoDataBox message="No burn data" />
+              )}
             </Box>
           </Paper>
         </Grid>
@@ -847,40 +1238,46 @@ const PulseDashboard = () => {
             <Typography variant="h6" gutterBottom>
               Top 5 Budget Over-runs (Bar)
             </Typography>
-            <Box sx={{ height: CHART_HEIGHT, overflow: "auto" }}>
-              <Table size="small" stickyHeader>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Engagement</TableCell>
-                    <TableCell align="right">Budget</TableCell>
-                    <TableCell align="right">Spend</TableCell>
-                    <TableCell align="right">Variance</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {overruns.map((e) => (
-                    <TableRow key={e.id}>
-                      <TableCell>{e.name}</TableCell>
-                      <TableCell align="right">
-                        ${e.budget.toLocaleString()}
-                      </TableCell>
-                      <TableCell align="right">
-                        ${e.spend.toLocaleString()}
-                      </TableCell>
-                      <TableCell
-                        align="right"
-                        style={{
-                          color: e.variance > 0 ? "#d32f2f" : undefined,
-                        }}
-                      >
-                        {e.variance >= 0 ? "+" : ""}$
-                        {e.variance.toLocaleString()}
-                      </TableCell>
+            {false ? (
+              <LoadingBox message="Loading over‑runs…" />
+            ) : overruns && overruns.length > 0 ? (
+              <Box sx={{ height: CHART_HEIGHT, overflow: "auto" }}>
+                <Table size="small" stickyHeader>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Engagement</TableCell>
+                      <TableCell align="right">Budget</TableCell>
+                      <TableCell align="right">Spend</TableCell>
+                      <TableCell align="right">Variance</TableCell>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Box>
+                  </TableHead>
+                  <TableBody>
+                    {overruns.map((e) => (
+                      <TableRow key={e.id}>
+                        <TableCell>{e.name}</TableCell>
+                        <TableCell align="right">
+                          ${e.budget.toLocaleString()}
+                        </TableCell>
+                        <TableCell align="right">
+                          ${e.spend.toLocaleString()}
+                        </TableCell>
+                        <TableCell
+                          align="right"
+                          style={{
+                            color: e.variance > 0 ? "#d32f2f" : undefined,
+                          }}
+                        >
+                          {e.variance >= 0 ? "+" : ""}$
+                          {e.variance.toLocaleString()}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </Box>
+            ) : (
+              <NoDataBox message="No variance data" />
+            )}
           </Paper>
         </Grid>
 
@@ -899,41 +1296,52 @@ const PulseDashboard = () => {
               Resource Utilisation (Under/Over)
             </Typography>
             <Box sx={{ width: "100%", height: CHART_HEIGHT, flexGrow: 1 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={utilisationData}
-                  margin={{ top: 8, right: 16, left: -20, bottom: 8 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis
-                    dataKey="name"
-                    tick={{ fontSize: 12 }}
-                    interval={0}
-                    height={40}
-                  />
-                  <YAxis tick={{ fontSize: 12 }} unit="%" />
-                  <Tooltip formatter={(v) => [`${v}%`, "Utilisation"]} />
-                  <Legend />
-                  <Bar dataKey="util" name="Utilisation %">
-                    {utilisationData.map((d, i) => (
-                      <Cell
-                        key={`util-${d.name}-${i}`}
-                        fill={d.util > 100 ? "#d32f2f" : "#66bb6a"}
-                      />
-                    ))}
-                  </Bar>
-                  <ReferenceLine
-                    y={100}
-                    stroke="#d32f2f"
-                    strokeDasharray="4 4"
-                    label={{
-                      value: "100% cap",
-                      position: "right",
-                      fontSize: 12,
-                    }}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+              {false ? (
+                <LoadingBox message="Loading utilisation…" />
+              ) : utilisationData && utilisationData.length > 0 ? (
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={utilisationData}
+                    margin={{ top: 8, right: 16, left: -20, bottom: 8 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis
+                      dataKey="name"
+                      tick={{ fontSize: 12 }}
+                      interval={0}
+                      height={40}
+                    />
+                    <YAxis tick={{ fontSize: 12 }} unit="%" />
+                    <Tooltip formatter={(v) => [`${v}%`, "Utilisation"]} />
+                    <Legend
+                      content={renderColorLegend}
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="center"
+                    />
+                    <Bar dataKey="util" name="Utilisation %">
+                      {utilisationData.map((d, i) => (
+                        <Cell
+                          key={`util-${d.name}-${i}`}
+                          fill={d.util > 100 ? "#d32f2f" : "#66bb6a"}
+                        />
+                      ))}
+                    </Bar>
+                    <ReferenceLine
+                      y={100}
+                      stroke="#d32f2f"
+                      strokeDasharray="4 4"
+                      label={{
+                        value: "100% cap",
+                        position: "right",
+                        fontSize: 12,
+                      }}
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              ) : (
+                <NoDataBox message="No utilisation data" />
+              )}
             </Box>
           </Paper>
         </Grid>
@@ -951,56 +1359,62 @@ const PulseDashboard = () => {
             <Typography variant="h6" gutterBottom>
               Billable vs Non-Billable Time
             </Typography>
-            <Box display="flex" alignItems="center" gap={2}>
-              <Box position="relative" width={DONUT_SIZE} height={DONUT_SIZE}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie
-                      data={billablePie}
-                      dataKey="value"
-                      nameKey="name"
-                      innerRadius="60%"
-                      outerRadius="80%"
-                      startAngle={90}
-                      endAngle={-270}
-                      isAnimationActive={false}
-                    >
-                      {billablePie.map((d, i) => (
-                        <Cell
-                          key={d.name}
-                          fill={i === 0 ? "#66bb6a" : "#90a4ae"}
-                        />
-                      ))}
-                    </Pie>
-                    <Tooltip formatter={(v, n) => [`${v} hrs`, n]} />
-                  </PieChart>
-                </ResponsiveContainer>
-                <Box
-                  position="absolute"
-                  top={0}
-                  left={0}
-                  right={0}
-                  bottom={0}
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                >
-                  <Typography variant="h6">
-                    {Math.round(
-                      (billablePie[0].value /
-                        (billablePie[0].value + billablePie[1].value || 1)) *
-                        100
-                    )}
-                    %
+            {false ? (
+              <LoadingBox message="Loading hours…" height={DONUT_SIZE} />
+            ) : billablePie && billablePie.length > 0 ? (
+              <Box display="flex" alignItems="center" gap={2}>
+                <Box position="relative" width={DONUT_SIZE} height={DONUT_SIZE}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={billablePie}
+                        dataKey="value"
+                        nameKey="name"
+                        innerRadius="60%"
+                        outerRadius="80%"
+                        startAngle={90}
+                        endAngle={-270}
+                        isAnimationActive={false}
+                      >
+                        {billablePie.map((d, i) => (
+                          <Cell
+                            key={d.name}
+                            fill={i === 0 ? "#66bb6a" : "#90a4ae"}
+                          />
+                        ))}
+                      </Pie>
+                      <Tooltip formatter={(v, n) => [`${v} hrs`, n]} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <Box
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    right={0}
+                    bottom={0}
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <Typography variant="h6">
+                      {Math.round(
+                        (billablePie[0].value /
+                          (billablePie[0].value + billablePie[1].value || 1)) *
+                          100
+                      )}
+                      %
+                    </Typography>
+                  </Box>
+                </Box>
+                <Box>
+                  <Typography variant="body2" color="text.secondary">
+                    Billable vs non‑billable hours (demo).
                   </Typography>
                 </Box>
               </Box>
-              <Box>
-                <Typography variant="body2" color="text.secondary">
-                  Billable vs non‑billable hours (demo).
-                </Typography>
-              </Box>
-            </Box>
+            ) : (
+              <NoDataBox message="No hours data" />
+            )}
           </Paper>
         </Grid>
 
@@ -1018,22 +1432,36 @@ const PulseDashboard = () => {
               Revenue Potential vs Realised
             </Typography>
             <Box sx={{ width: "100%", height: CHART_HEIGHT, flexGrow: 1 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={revenueBars}
-                  margin={{ top: 8, right: 16, left: 0, bottom: 8 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" hide />
-                  <YAxis />
-                  <Tooltip
-                    formatter={(v, n) => [`$${Number(v).toLocaleString()}`, n]}
-                  />
-                  <Legend />
-                  <Bar dataKey="Potential" fill="#90caf9" />
-                  <Bar dataKey="Realised" fill="#66bb6a" />
-                </BarChart>
-              </ResponsiveContainer>
+              {false ? (
+                <LoadingBox message="Loading revenue…" />
+              ) : revenueBars && revenueBars.length > 0 ? (
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={revenueBars}
+                    margin={{ top: 8, right: 16, left: 0, bottom: 8 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" hide />
+                    <YAxis />
+                    <Tooltip
+                      formatter={(v, n) => [
+                        `$${Number(v).toLocaleString()}`,
+                        n,
+                      ]}
+                    />
+                    <Legend
+                      content={renderColorLegend}
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="center"
+                    />
+                    <Bar dataKey="Potential" fill="#90caf9" />
+                    <Bar dataKey="Realised" fill="#66bb6a" />
+                  </BarChart>
+                </ResponsiveContainer>
+              ) : (
+                <NoDataBox message="No revenue data" />
+              )}
             </Box>
           </Paper>
         </Grid>
@@ -1052,32 +1480,43 @@ const PulseDashboard = () => {
               Resource Demand Forecast
             </Typography>
             <Box sx={{ width: "100%", height: CHART_HEIGHT, flexGrow: 1 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart
-                  data={demandForecast}
-                  margin={{ top: 8, right: 16, left: 0, bottom: 8 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="sprint" tick={{ fontSize: 12 }} />
-                  <YAxis tick={{ fontSize: 12 }} />
-                  <Tooltip />
-                  <Legend />
-                  <Line
-                    type="monotone"
-                    dataKey="capacity"
-                    name="Capacity"
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="required"
-                    name="Required"
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
+              {false ? (
+                <LoadingBox message="Loading forecast…" />
+              ) : demandForecast && demandForecast.length > 0 ? (
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart
+                    data={demandForecast}
+                    margin={{ top: 8, right: 16, left: 0, bottom: 8 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="sprint" tick={{ fontSize: 12 }} />
+                    <YAxis tick={{ fontSize: 12 }} />
+                    <Tooltip />
+                    <Legend
+                      content={renderColorLegend}
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="center"
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="capacity"
+                      name="Capacity"
+                      strokeWidth={2}
+                      dot={false}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="required"
+                      name="Required"
+                      strokeWidth={2}
+                      dot={false}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              ) : (
+                <NoDataBox message="No forecast data" />
+              )}
             </Box>
           </Paper>
         </Grid>
@@ -1095,31 +1534,42 @@ const PulseDashboard = () => {
             <Typography variant="h6" gutterBottom>
               On-time vs Delayed Assignments
             </Typography>
-            <Box sx={{ width: "100%", height: CHART_HEIGHT }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={onTimeDelayed}
-                    dataKey="value"
-                    nameKey="name"
-                    innerRadius="50%"
-                    outerRadius="70%"
-                    startAngle={90}
-                    endAngle={-270}
-                    isAnimationActive={false}
-                  >
-                    {onTimeDelayed.map((d) => (
-                      <Cell
-                        key={d.name}
-                        fill={d.name === "Delayed" ? "#ffa726" : "#66bb6a"}
-                      />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                  <Legend />
-                </PieChart>
-              </ResponsiveContainer>
-            </Box>
+            {false ? (
+              <LoadingBox message="Loading assignments…" />
+            ) : onTimeDelayed && onTimeDelayed.length > 0 ? (
+              <Box sx={{ width: "100%", height: CHART_HEIGHT }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={onTimeDelayed}
+                      dataKey="value"
+                      nameKey="name"
+                      innerRadius="50%"
+                      outerRadius="70%"
+                      startAngle={90}
+                      endAngle={-270}
+                      isAnimationActive={false}
+                    >
+                      {onTimeDelayed.map((d) => (
+                        <Cell
+                          key={d.name}
+                          fill={d.name === "Delayed" ? "#ffa726" : "#66bb6a"}
+                        />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                    <Legend
+                      content={renderColorLegend}
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="center"
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
+              </Box>
+            ) : (
+              <NoDataBox message="No assignment data" />
+            )}
           </Paper>
         </Grid>
 
@@ -1137,28 +1587,34 @@ const PulseDashboard = () => {
               Average Turnaround per Engagement
             </Typography>
             <Box sx={{ width: "100%", height: CHART_HEIGHT, flexGrow: 1 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={turnaroundData}
-                  margin={{ top: 8, right: 16, left: 0, bottom: 8 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" tick={{ fontSize: 12 }} />
-                  <YAxis tick={{ fontSize: 12 }} />
-                  <Tooltip formatter={(v) => [`${v} weeks`, "Duration"]} />
-                  <Bar dataKey="weeks" name="Weeks" fill="#42a5f5" />
-                  <ReferenceLine
-                    y={turnaroundAvgWeeks}
-                    stroke="#ab47bc"
-                    strokeDasharray="4 4"
-                    label={{
-                      value: `Avg ${turnaroundAvgWeeks}w`,
-                      position: "right",
-                      fontSize: 12,
-                    }}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+              {false ? (
+                <LoadingBox message="Loading turnaround…" />
+              ) : turnaroundData && turnaroundData.length > 0 ? (
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={turnaroundData}
+                    margin={{ top: 8, right: 16, left: 0, bottom: 8 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" tick={{ fontSize: 12 }} />
+                    <YAxis tick={{ fontSize: 12 }} />
+                    <Tooltip formatter={(v) => [`${v} weeks`, "Duration"]} />
+                    <Bar dataKey="weeks" name="Weeks" fill="#42a5f5" />
+                    <ReferenceLine
+                      y={turnaroundAvgWeeks}
+                      stroke="#ab47bc"
+                      strokeDasharray="4 4"
+                      label={{
+                        value: `Avg ${turnaroundAvgWeeks}w`,
+                        position: "right",
+                        fontSize: 12,
+                      }}
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              ) : (
+                <NoDataBox message="No turnaround data" />
+              )}
             </Box>
           </Paper>
         </Grid>

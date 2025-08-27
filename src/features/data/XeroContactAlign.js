@@ -2,7 +2,20 @@ import { useEffect, useMemo, useState, useCallback } from "react";
 import Papa from "papaparse";
 import { useForm } from "react-hook-form";
 import { useAlert } from "../../context/";
-import { dcService } from "../../services/dc/dc";
+import { dcService, xeroService } from "../../services";
+
+const DEMO_TENANT_ID = "beed9345-9d79-415c-b17a-004f59a20579";
+// List provided by Darryll — tenants to dump contacts for
+const TENANT_IDS = [
+  "76d05fa1-e145-485a-b2a1-ef88a95d0f98", // Work Management Solutions Pty Ltd
+  "64601224-8069-4b73-ae9d-4653b22d3eb4", // OnPlan Technologies Pty Ltd
+  "dd389533-7eaf-41d6-a697-8d43703b94d6", // Toustone Pty Ltd
+  "5d13e4c9-13dd-4cb2-bed3-93a7808d66b7", // COSOL Limited
+  "a57dad51-9af9-491b-93e0-f984fee7d00a", // Core Asset Co Pty Ltd
+  "6eaed29d-8002-463f-bc2a-43a6c46482f9", // AssetOn Group Pty Ltd
+  "29b33698-7944-4612-b546-5031ab266f03", // COSOL Australia Pty Ltd
+  "dd1a7d55-fd65-466e-ac31-ecedeb95d06c", // Clarita Solutions Pty Ltd
+];
 
 // Small helper to safely read fields regardless of exact CSV header casing
 const pick = (obj, ...keys) =>
@@ -96,6 +109,9 @@ export default function XeroContactAlign() {
   const [selectedCandidate, setSelectedCandidate] = useState(null);
   const [isLoadingCsv, setIsLoadingCsv] = useState(false);
   const [isSuggesting, setIsSuggesting] = useState(false);
+  const [isDumping, setIsDumping] = useState(false);
+  const [dumpEvents, setDumpEvents] = useState([]); // recent WS events for UI
+  const [dumpTotals, setDumpTotals] = useState({ total: 0, perTenant: {} });
 
   const { register, watch } = useForm({
     defaultValues: { threshold: "High", dryRun: true },
@@ -167,6 +183,69 @@ export default function XeroContactAlign() {
     };
   }, [showAlert]);
 
+  // Subscribe to backend progress events for the dump process
+  useEffect(() => {
+    const unsubscribe = xeroService.subscribeToProgressUpdates((raw) => {
+      let evt = raw;
+      try {
+        // Some broadcasters send JSON strings
+        if (typeof raw === "string") evt = JSON.parse(raw);
+      } catch (e) {
+        // ignore parse errors; use raw as-is
+      }
+      if (!evt || typeof evt !== "object") return;
+      // Only react to our dump pipeline
+      if (
+        !evt.stage ||
+        (String(evt.stage).indexOf("dumpAllContacts") !== 0 &&
+          evt.stage !== "dumpContacts")
+      ) {
+        return;
+      }
+
+      // Keep a rolling log (last 30)
+      setDumpEvents((prev) => {
+        const next = [...prev, evt];
+        return next.length > 30 ? next.slice(-30) : next;
+      });
+
+      // Track totals per tenant when we receive page/inserted data
+      if (evt.inserted && evt.tenantId) {
+        setDumpTotals((prev) => {
+          const perTenant = { ...prev.perTenant };
+          const current = perTenant[evt.tenantId] || 0;
+          perTenant[evt.tenantId] = Math.max(
+            current,
+            evt.insertedTotal || current + evt.inserted
+          );
+          const all = Object.values(perTenant).reduce((a, b) => a + b, 0);
+          return { total: all, perTenant };
+        });
+      }
+
+      // Lightweight toast on key milestones
+      if (evt.stage === "dumpAllContacts:startTenant" && evt.tenantId) {
+        showAlert(`Started tenant ${evt.tenantId}`, "info");
+      }
+      if (evt.stage === "dumpAllContacts:endTenant" && evt.tenantId) {
+        showAlert(
+          `Finished tenant ${evt.tenantId} · inserted ${evt.inserted || 0}`,
+          "success"
+        );
+      }
+      if (evt.stage === "dumpAllContacts:error") {
+        showAlert(
+          `Dump error for tenant ${evt.tenantId}: ${evt.error}`,
+          "error"
+        );
+      }
+    });
+
+    return () => {
+      if (typeof unsubscribe === "function") unsubscribe();
+    };
+  }, [showAlert]);
+
   const current = rows[idx] || null;
 
   // Build proposed PATCH preview
@@ -175,9 +254,9 @@ export default function XeroContactAlign() {
     const body = {
       Contacts: [
         {
-          ContactID: current.ContactID,
-          Name: selectedCandidate.officialName || current.CurrentName,
-          TaxNumber: selectedCandidate.abn || "",
+          ContactID: "58697449-85ef-46ae-83fc-6a9446f037fb", // dummy ContactID for testing
+          Name: current.CurrentName, // keep the CSV current name
+          TaxNumber: "99999999999", // dummy ABN only
         },
       ],
     };
@@ -236,8 +315,26 @@ export default function XeroContactAlign() {
     }
   }, [showAlert, patchPreview]);
 
+  const handleDumpAll = useCallback(async () => {
+    setIsDumping(true);
+    try {
+      const res = await xeroService.dumpContacts({ tenantIds: TENANT_IDS });
+      const total = Array.isArray(res?.data?.tenants)
+        ? res.data.tenants.reduce((acc, t) => acc + (t?.inserted || 0), 0)
+        : 0;
+      showAlert(
+        `Dump started for ${TENANT_IDS.length} tenants. Inserted so far: ${total}. Check progress notifications for updates.`,
+        "success"
+      );
+    } catch (e) {
+      showAlert(e.message || String(e), "error");
+    } finally {
+      setIsDumping(false);
+    }
+  }, [showAlert]);
+
   const applyOne = useCallback(async () => {
-    // Stub for now — backend /admin/xero/contact-align/apply to be wired next
+    // Attempt to apply the PATCH via backend for the demo tenant
     if (!current || !selectedCandidate) return;
     if (!canApply) {
       showAlert(
@@ -246,15 +343,21 @@ export default function XeroContactAlign() {
       );
       return;
     }
-    if (dryRun) {
-      showAlert("Dry-run enabled. No changes sent.", "info");
-      return;
+    try {
+      const resp = await xeroService.applyXeroContactPatch({
+        tenantId: DEMO_TENANT_ID,
+        patchBody: patchPreview,
+        dryRun,
+      });
+      // Expecting backend to return { success: true, ... } or similar
+      showAlert(
+        `Apply ${dryRun ? "(dry-run) " : ""}succeeded for ContactID ${current.ContactID}`,
+        "success"
+      );
+    } catch (e) {
+      showAlert(e.message || String(e), "error");
     }
-    showAlert(
-      "Apply endpoint not wired yet. This will send the PATCH preview to the backend in the next step.",
-      "info"
-    );
-  }, [showAlert, canApply, current, dryRun, selectedCandidate]);
+  }, [showAlert, canApply, current, dryRun, selectedCandidate, patchPreview]);
 
   return (
     <div style={{ padding: 16, display: "grid", gap: 16 }}>
@@ -293,7 +396,46 @@ export default function XeroContactAlign() {
         <label style={{ marginLeft: 12 }}>
           <input type="checkbox" {...register("dryRun")} /> Dry‑run
         </label>
+        <button type="button" onClick={handleDumpAll} disabled={isDumping}>
+          {isDumping
+            ? "Dumping contacts…"
+            : `Dump all Xero contacts (${TENANT_IDS.length})`}
+        </button>
+        <span style={{ marginLeft: 8, fontSize: 12, color: "#334155" }}>
+          Inserted total (so far): <strong>{dumpTotals.total}</strong>
+        </span>
       </div>
+
+      {dumpEvents.length > 0 && (
+        <div
+          style={{ border: "1px solid #e2e8f0", borderRadius: 8, padding: 12 }}
+        >
+          <h3 style={{ marginTop: 0 }}>Dump progress</h3>
+          <div
+            style={{
+              maxHeight: 220,
+              overflowY: "auto",
+              fontFamily:
+                "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+              fontSize: 12,
+            }}
+          >
+            {dumpEvents.map((e, i) => (
+              <div key={i} style={{ padding: "2px 0" }}>
+                <code>
+                  {new Date(e.timestamp || Date.now()).toLocaleTimeString()} ·{" "}
+                  {e.stage}
+                  {e.tenantId ? ` · tenant=${e.tenantId}` : ""}
+                  {e.page != null ? ` · page=${e.page}` : ""}
+                  {e.inserted != null ? ` · inserted=${e.inserted}` : ""}
+                  {e.total != null ? ` · total=${e.total}` : ""}
+                  {e.error ? ` · error=${e.error}` : ""}
+                </code>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {current && (
         <div

@@ -7,7 +7,9 @@ export const xeroService = {
   connect,
   subscribeToProgressUpdates,
   triggerExtraction,
+  dumpContacts,
   // removeTenant,
+  applyXeroContactPatch,
 };
 
 function connect(params) {
@@ -65,6 +67,32 @@ function triggerExtraction(payload) {
     });
 }
 
+function dumpContacts({ tenantIds } = {}) {
+  const payload = {};
+  if (Array.isArray(tenantIds) && tenantIds.length > 0) {
+    payload.tenantIds = tenantIds;
+  }
+  return fetchWrapper
+    .post(`${baseUrl}/contacts/dump`, payload)
+    .then((res) => res)
+    .catch((err) => {
+      console.error("Dump contacts error:", err);
+      throw err;
+    });
+}
+
 // function removeTenant(tenantId) {
 //   return fetchWrapper.delete(`${baseUrl}/tenants/${tenantId}`);
 // }
+
+async function applyXeroContactPatch({ tenantId, patchBody, dryRun = true }) {
+  if (!tenantId) throw new Error("tenantId is required");
+  if (!patchBody || typeof patchBody !== "object") {
+    throw new Error(
+      "patchBody must be an object containing the Xero Contacts payload"
+    );
+  }
+
+  const url = `${baseUrl}/apply`;
+  return await fetchWrapper.post(url, { tenantId, dryRun, payload: patchBody });
+}
