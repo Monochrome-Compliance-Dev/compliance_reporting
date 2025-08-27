@@ -15,13 +15,10 @@ import CreateUser from "../features/users/CreateUser";
 import Customers from "../features/customers/Customers";
 import CustomerRegister from "../features/customers/CustomerRegister";
 
-import PtrsLayout from "../features/ptrs/PtrsLayout";
 import PtrsWizard from "../features/ptrs/PtrsWizard";
 import ConnectExternalSystems from "../features/ptrs/ConnectExternalSystems";
 import XeroSelection from "../features/ptrs/XeroSelection";
 import XeroConnectProgress from "../features/ptrs/XeroConnectProgress";
-import StepsOverview from "../features/ptrs/StepsOverview";
-import PtrsErrorBoundary from "../components/navigation/PtrsErrorBoundary";
 
 import DataLayout from "../features/data/DataLayout";
 import DataConsole from "../features/data/DataConsole";
@@ -47,11 +44,11 @@ import TimesheetList from "../features/pulse/timesheets/TimesheetList";
 import TimesheetManage from "../features/pulse/timesheets/TimesheetManage";
 import Timesheet from "../features/pulse/timesheets/Timesheet";
 import PulseAdminConsole from "../features/pulse/PulseAdminConsole";
-import EngagementPage from "../features/pulse/engagements/EngagementPage";
 import ResourceAllocationView from "../features/pulse/resources/ResourceAllocationView";
 import BudgetView from "../features/pulse/budgets/BudgetView";
 import BudgetBuilder from "../features/pulse/budgets/BudgetBuilder";
 import EngagementWizard from "../features/pulse/engagements/EngagementWizard";
+import XeroContactAlign from "../features/data/XeroContactAlign";
 
 export const protectedRoutes = [
   {
@@ -244,6 +241,10 @@ export const protectedRoutes = [
         Component: MsSupplierRisks,
       },
     ],
+  },
+  {
+    path: "/data-cleaning",
+    Component: XeroContactAlign,
   },
   {
     path: "/pulse",
