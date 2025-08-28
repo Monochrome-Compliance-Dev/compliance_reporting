@@ -40,7 +40,7 @@ async function sendAttachmentEmail(formData, isFormData = false) {
 }
 
 async function sendSesEmailLambda(contactEmail) {
-  const response = await fetchWrapper.post(
+  const response = await fetchWrapper.postExternal(
     "https://x4zjtsegcxfytzwiyu2rdhzc6e0qdiuk.lambda-url.us-east-1.on.aws/",
     contactEmail
   );

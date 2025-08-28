@@ -9,6 +9,7 @@ export const fetchWrapper = {
   patch,
   delete: _delete,
   postUpload,
+  postExternal,
 };
 
 async function handleRequestWithRetry(
@@ -84,6 +85,25 @@ async function _post(url, body) {
     body: JSON.stringify(body),
   };
   // console.log("Request Options:", requestOptions);
+  const response = await fetch(url, requestOptions);
+  return handleResponse(response);
+}
+
+async function postExternal(url, body) {
+  return await handleRequestWithRetry(_postExternal, [url, body]);
+}
+
+async function _postExternal(url, body) {
+  const headers = {
+    "Content-Type": "application/json",
+  };
+  const requestOptions = {
+    method: "POST",
+    headers,
+    credentials: "omit", // IMPORTANT: no cookies/credentials for cross-origin Lambda
+    mode: "cors",
+    body: JSON.stringify(body),
+  };
   const response = await fetch(url, requestOptions);
   return handleResponse(response);
 }
