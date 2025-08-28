@@ -1,24 +1,26 @@
-import { useReportContext } from "../../context";
-import { useState, useEffect, useCallback } from "react";
+import { usePtrsContext } from "../../context";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Box, Typography, Divider, Paper, IconButton } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import CreateReport from "../reports/ptrs/CreateReport";
-import ConnectExternalSystems from "../reports/ptrs/ConnectExternalSystems";
-import DataUploadReview from "../reports/ptrs/DataUploadReview";
+import CreatePtrs from "../ptrs/CreatePtrs";
+import ConnectExternalSystems from "../ptrs/ConnectExternalSystems";
+import DataUploadReview from "../ptrs/DataUploadReview";
 import { tcpService } from "../../services/";
 
 export default function DataConsole() {
   const theme = useTheme();
-  const { reportDetails, refreshReports } = useReportContext();
+  const { ptrsDetails, refreshPtrs, activePtrsId } = usePtrsContext();
+  // console.log("ptrsDetails:", ptrsDetails);
 
-  const latestReport = Array.isArray(reportDetails)
-    ? reportDetails.find((r) => r.code === "ptrs")
-    : null;
-  const reportId = latestReport?.id;
+  // Prefer the active PTRS id from context; fall back to the first item
+  const ptrsId = useMemo(
+    () => activePtrsId || ptrsDetails?.[0]?.id || null,
+    [activePtrsId, ptrsDetails]
+  );
 
-  const hasReport = Array.isArray(reportDetails) && reportDetails.length > 0;
+  const hasPtrs = Boolean(ptrsId);
 
   // --- Add state for records ---
   const [errorRecords, setErrorRecords] = useState([]);
@@ -31,44 +33,67 @@ export default function DataConsole() {
   const updateCachedRecords = (errors, valid) => {
     setErrorRecords(errors);
     setValidPreview(valid);
-    const cacheKey = `tcp_records_${reportId}`;
-    sessionStorage.setItem(cacheKey, JSON.stringify({ errors, valid }));
+    if (!ptrsId) return;
+    const cacheKey = `tcp_records_${ptrsId}`;
+    try {
+      sessionStorage.setItem(cacheKey, JSON.stringify({ errors, valid }));
+    } catch (_) {
+      /* ignore quota errors */
+    }
   };
 
-  const refreshUploadedData = useCallback(() => {
-    console.log("Refreshing uploaded data for reportId:", reportId);
-    if (!reportId) return;
-    const cacheKey = `tcp_records_${reportId}`;
+  const normalizeResult = (res) => {
+    if (Array.isArray(res)) return res;
+    if (res && Array.isArray(res.data)) return res.data;
+    return [];
+  };
 
-    Promise.all([
-      tcpService.getTcpByReportId(reportId),
-      tcpService.getErrorsByReportId(reportId),
-    ])
-      .then(([valid, errors]) => {
-        console.log("Fetched valid records:", valid);
-        setValidPreview(valid);
-        setErrorRecords(errors);
+  const refreshUploadedData = useCallback(async () => {
+    if (!ptrsId) return;
+    // console.log("Refreshing uploaded data for ptrsId:", ptrsId);
+    const cacheKey = `tcp_records_${ptrsId}`;
+    try {
+      const [validRes, errorsRes] = await Promise.all([
+        tcpService.getTcpByPtrsId(ptrsId),
+        tcpService.getErrorsByPtrsId(ptrsId),
+      ]);
+      const valid = normalizeResult(validRes);
+      const errors = normalizeResult(errorsRes);
+      setValidPreview(valid);
+      setErrorRecords(errors);
+      try {
         sessionStorage.setItem(cacheKey, JSON.stringify({ errors, valid }));
-      })
-      .catch((err) => {
-        console.error("Error refreshing records:", err);
-      });
-  }, [reportId]);
+      } catch (_) {
+        /* ignore quota */
+      }
+    } catch (err) {
+      console.error("Error refreshing records:", err);
+    }
+  }, [ptrsId]);
 
-  // --- Load records for reportId ---
+  // --- Load records for ptrsId ---
   useEffect(() => {
-    const cacheKey = `tcp_records_${reportId}`;
-    const cached = sessionStorage.getItem(cacheKey);
-
-    if (cached) {
-      const parsed = JSON.parse(cached);
-      setErrorRecords(parsed.errors || []);
-      setValidPreview(parsed.valid || []);
-      return;
+    if (!ptrsId) return; // wait until we have a concrete id
+    const cacheKey = `tcp_records_${ptrsId}`;
+    try {
+      const cached = sessionStorage.getItem(cacheKey);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        const cachedErrors = Array.isArray(parsed?.errors) ? parsed.errors : [];
+        const cachedValid = Array.isArray(parsed?.valid) ? parsed.valid : [];
+        if (cachedErrors.length > 0 || cachedValid.length > 0) {
+          setErrorRecords(cachedErrors);
+          setValidPreview(cachedValid);
+          return; // only short-circuit if cache has data
+        }
+      }
+    } catch (_) {
+      /* ignore */
     }
 
+    // No usable cache → fetch from backend
     refreshUploadedData();
-  }, [refreshUploadedData, reportId]);
+  }, [refreshUploadedData, ptrsId]);
 
   return (
     <Box
@@ -82,7 +107,7 @@ export default function DataConsole() {
         PTRS Data Console
       </Typography>
       <Typography variant="body1" gutterBottom>
-        Start by creating a report container, then prepare your dataset for
+        Start by creating a ptrs container, then prepare your dataset for
         import.
       </Typography>
 
@@ -96,7 +121,7 @@ export default function DataConsole() {
             justifyContent="space-between"
             sx={{ mb: 2 }}
           >
-            <Typography variant="h6">Create Report Container</Typography>
+            <Typography variant="h6">Create Ptrs Container</Typography>
             <IconButton
               onClick={() => setIsCreateCollapsed(!isCreateCollapsed)}
               size="small"
@@ -105,16 +130,16 @@ export default function DataConsole() {
             </IconButton>
           </Box>
           {!isCreateCollapsed && (
-            <CreateReport
-              reportDetails={reportDetails}
-              onSuccess={refreshReports}
-              onDelete={refreshReports}
+            <CreatePtrs
+              ptrsDetails={ptrsDetails}
+              onSuccess={refreshPtrs}
+              onDelete={refreshPtrs}
             />
           )}
         </Paper>
       </Box>
 
-      {hasReport && (
+      {hasPtrs && (
         <Box sx={{ mb: 4 }}>
           <Paper elevation={3} sx={{ padding: theme.spacing(3) }}>
             <Box
@@ -140,7 +165,7 @@ export default function DataConsole() {
                   sx={{ mb: 2 }}
                 >
                   Ingest, validate and enrich datasets linked to your created
-                  report.
+                  ptrs.
                 </Typography>
 
                 <Typography variant="subtitle1" sx={{ mt: 2, mb: 2 }}>

@@ -1,63 +1,101 @@
-/**
- * Refactored route structure for clearer role-based access
- */
-import Users from "../features/users/Users";
-import UsersLayout from "../features/users/UsersLayout";
-import CreateUser from "../features/users/CreateUser";
+import RequireRoles from "./RequireRoles";
+import Role from "../context/role";
+import { PtrsProvider, PulseProvider, TcpProvider } from "../context/";
+import ComplianceDashboardLayout from "../components/layouts/ComplianceDashboardLayout";
+import { Outlet } from "react-router";
+
 import Dashboard from "../features/users/Dashboard";
 import AdminDashboard from "../features/users/AdminDashboard";
 import BossDashboard from "../features/boss/BossDashboard";
-import Clients from "../features/clients/Clients";
-import ClientRegister from "../features/clients/ClientRegister";
-import ReportsLayout from "../features/reports/ReportsLayout";
-// import CreateReport from "../features/reports/ptrs/CreateReport";
-import ReportWizard from "../features/reports/ptrs/ReportWizard";
-import ConnectExternalSystems from "../features/reports/ptrs/ConnectExternalSystems";
-import XeroConnectProgress from "../features/reports/ptrs/XeroConnectProgress";
-import StepsOverview from "../features/reports/ptrs/StepsOverview";
-import ReportErrorBoundary from "../components/navigation/ReportErrorBoundary";
-import Role from "../context/role";
-import XeroSelection from "../features/reports/ptrs/XeroSelection";
+
+import UsersLayout from "../features/users/UsersLayout";
+import Users from "../features/users/Users";
+import CreateUser from "../features/users/CreateUser";
+
+import Customers from "../features/customers/Customers";
+import CustomerRegister from "../features/customers/CustomerRegister";
+
+import PtrsWizard from "../features/ptrs/PtrsWizard";
+import ConnectExternalSystems from "../features/ptrs/ConnectExternalSystems";
+import XeroSelection from "../features/ptrs/XeroSelection";
+import XeroConnectProgress from "../features/ptrs/XeroConnectProgress";
+
 import DataLayout from "../features/data/DataLayout";
-import DataErrorBoundary from "../components/navigation/DataErrorBoundary";
 import DataConsole from "../features/data/DataConsole";
+import DataErrorBoundary from "../components/navigation/DataErrorBoundary";
+
+import EsgDashboard from "../features/esg/EsgDashboard";
+import EsgReportingPeriod from "../features/esg/EsgReportingPeriod";
+import MetricDetail from "../features/esg/MetricDetail";
+import MsDashboard from "../features/ms/MsDashboard";
+import MsReportingPeriod from "../features/ms/MsReportingPeriod";
+import MsInterviewForm from "../features/ms/MsInterviewForm";
+import MsTraining from "../features/ms/MsTraining";
+import MsGrievances from "../features/ms/MsGrievances";
+import MsSupplierRisks from "../features/ms/MsSupplierRisks";
+import PtrsDashboard from "../features/ptrs/PtrsDashboard";
+import PtrsMetricsDashboard from "../features/ptrs/PtrsMetricsDashboard";
+import PulseDashboard from "../features/pulse/PulseDashboard";
+import ResourceView from "../features/pulse/resources/ResourceView";
+import ClientView from "../features/pulse/ClientView";
+import EngagementView from "../features/pulse/engagements/EngagementView";
+import TimesheetEditor from "../features/pulse/timesheets/TimesheetEditor";
+import TimesheetList from "../features/pulse/timesheets/TimesheetList";
+import TimesheetManage from "../features/pulse/timesheets/TimesheetManage";
+import Timesheet from "../features/pulse/timesheets/Timesheet";
+import PulseAdminConsole from "../features/pulse/PulseAdminConsole";
+import ResourceAllocationView from "../features/pulse/resources/ResourceAllocationView";
+import BudgetView from "../features/pulse/budgets/BudgetView";
+import BudgetBuilder from "../features/pulse/budgets/BudgetBuilder";
+import EngagementWizard from "../features/pulse/engagements/EngagementWizard";
+import XeroContactAlign from "../features/data/XeroContactAlign";
 
 export const protectedRoutes = [
-  // User-level routes
   {
-    requiredRoles: [Role.User, Role.Admin, Role.Boss],
-    path: "/user",
-    children: [{ path: "dashboard", Component: Dashboard }],
+    path: "/dashboard",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <Dashboard />
+      </RequireRoles>
+    ),
   },
-
-  // Admin-level routes (includes User access)
   {
-    requiredRoles: [Role.Admin, Role.Boss],
     path: "/admin",
+    Component: () => (
+      <RequireRoles allowed={[Role.Admin, Role.Boss]}>
+        <AdminDashboard />
+      </RequireRoles>
+    ),
     children: [
-      { index: true, Component: AdminDashboard },
       {
         path: "users",
         Component: UsersLayout,
         children: [
-          { index: true, Component: Users },
-          { path: "create", Component: CreateUser },
+          {
+            index: true,
+            Component: Users,
+          },
+          {
+            path: "create",
+            Component: CreateUser,
+          },
         ],
       },
     ],
   },
-
-  // Boss-level routes (full admin rights)
   {
-    requiredRoles: [Role.Boss],
     path: "/boss",
+    Component: () => (
+      <RequireRoles allowed={[Role.Boss]}>
+        <BossDashboard />
+      </RequireRoles>
+    ),
     children: [
-      { index: true, Component: BossDashboard },
       {
-        path: "clients",
+        path: "customers",
         children: [
-          { index: true, Component: Clients },
-          { path: "register", Component: ClientRegister },
+          { index: true, Component: Customers },
+          { path: "register", Component: CustomerRegister },
         ],
       },
       {
@@ -75,43 +113,193 @@ export const protectedRoutes = [
       },
     ],
   },
-
-  // Shared protected reports
   {
-    requiredRoles: [Role.User, Role.Admin, Role.Audit, Role.Boss],
-    path: "/reports",
+    path: "/ptrs",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <PtrsProvider>
+          <TcpProvider>
+            <Outlet />
+          </TcpProvider>
+        </PtrsProvider>
+      </RequireRoles>
+    ),
     children: [
       {
-        Component: ReportsLayout,
-        ErrorBoundary: ReportErrorBoundary,
+        index: true,
+        Component: () => (
+          <ComplianceDashboardLayout title="PTRS Dashboard" module="ptrs">
+            <PtrsDashboard />
+          </ComplianceDashboardLayout>
+        ),
+      },
+      {
+        path: ":reportingPeriodId",
         children: [
-          // { path: ":code/create", Component: CreateReport },
-          { path: ":code/:reportId", Component: ReportWizard },
           {
-            path: ":code/:reportId/connect",
+            index: true,
+            Component: PtrsWizard,
+          },
+          {
+            path: "connect",
             Component: ConnectExternalSystems,
           },
           {
-            path: ":code/:reportId/selection",
+            path: "selection",
             Component: XeroSelection,
           },
           {
-            path: ":code/:reportId/progress",
+            path: "progress",
             Component: XeroConnectProgress,
           },
-          { path: "steps", Component: StepsOverview },
         ],
+      },
+      {
+        path: "metrics",
+        Component: () => (
+          <ComplianceDashboardLayout title="PTRS Dashboard" module="ptrs">
+            <PtrsMetricsDashboard />
+          </ComplianceDashboardLayout>
+        ),
       },
     ],
   },
   {
-    requiredRoles: [Role.User, Role.Admin, Role.Boss],
     path: "/data",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <PtrsProvider>
+          <TcpProvider>
+            <DataLayout />
+          </TcpProvider>
+        </PtrsProvider>
+      </RequireRoles>
+    ),
+    errorElement: <DataErrorBoundary />,
+    children: [{ path: ":code/console", Component: DataConsole }],
+  },
+  {
+    path: "/esg",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <ComplianceDashboardLayout title="ESG Dashboard" module="esg">
+          <Outlet />
+        </ComplianceDashboardLayout>
+      </RequireRoles>
+    ),
     children: [
       {
-        Component: DataLayout,
-        ErrorBoundary: DataErrorBoundary,
-        children: [{ path: ":code/console", Component: DataConsole }],
+        index: true,
+        Component: EsgDashboard,
+      },
+      {
+        path: ":reportingPeriodId",
+        Component: EsgReportingPeriod,
+      },
+    ],
+  },
+  {
+    path: "/metrics/:metricId",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <MetricDetail />
+      </RequireRoles>
+    ),
+  },
+  {
+    path: "/ms",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <ComplianceDashboardLayout title="Modern Slavery Dashboard" module="ms">
+          <Outlet />
+        </ComplianceDashboardLayout>
+      </RequireRoles>
+    ),
+    children: [
+      {
+        index: true,
+        Component: MsDashboard,
+      },
+      {
+        path: ":reportingPeriodId",
+        Component: MsReportingPeriod,
+      },
+      {
+        path: ":reportingPeriodId/interview",
+        Component: MsInterviewForm,
+      },
+      {
+        path: "training",
+        Component: MsTraining,
+      },
+      {
+        path: "grievances",
+        Component: MsGrievances,
+      },
+      {
+        path: "supplier-risks",
+        Component: MsSupplierRisks,
+      },
+    ],
+  },
+  {
+    path: "/data-cleaning",
+    Component: XeroContactAlign,
+  },
+  {
+    path: "/pulse-solution",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <PulseProvider>
+          <ComplianceDashboardLayout title="Pulse Dashboard" module="pulse">
+            <Outlet />
+          </ComplianceDashboardLayout>
+        </PulseProvider>
+      </RequireRoles>
+    ),
+    children: [
+      {
+        index: true,
+        Component: PulseDashboard,
+      },
+      {
+        path: "admin",
+        Component: PulseAdminConsole,
+      },
+      {
+        path: "resources",
+        Component: ResourceView,
+      },
+      { path: "resources/allocation", Component: ResourceAllocationView },
+      {
+        path: "engagements",
+        Component: EngagementView,
+      },
+      {
+        path: "engagements/manage",
+        Component: EngagementWizard,
+      },
+      {
+        path: "clients",
+        Component: ClientView,
+      },
+      {
+        path: "timesheets",
+        Component: Outlet,
+        children: [
+          { index: true, Component: TimesheetList }, // /pulse/timesheets
+          { path: "edit", Component: TimesheetEditor }, // /pulse/timesheets/edit
+          { path: "manage", Component: TimesheetManage }, // /pulse/timesheets/manage
+          { path: ":timesheetId", Component: Timesheet }, // /pulse/timesheets/:timesheetId (read-only)
+        ],
+      },
+      {
+        path: "budgets",
+        Component: BudgetView,
+      },
+      {
+        path: "budgets/:id",
+        Component: BudgetBuilder,
       },
     ],
   },

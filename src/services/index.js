@@ -1,7 +1,7 @@
 export * from "./xero/xero";
 export * from "./auth/user";
-export * from "./reports/report";
-export * from "./clients/client";
+export * from "./ptrs/ptrs";
+export * from "./customer/customer";
 export * from "./tcp/tcp";
 export * from "./entity/entity";
 export * from "./booking/booking";
@@ -10,3 +10,7 @@ export * from "./tracking/tracking";
 export * from "./tcp/tcpRules";
 export * from "./dc/dc";
 export * from "./dashboard/dashboard";
+export * from "./esg/esg";
+export * from "./file/file";
+export * from "./socket/socket";
+export * from "./ms/ms";

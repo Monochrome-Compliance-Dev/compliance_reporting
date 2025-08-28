@@ -7,14 +7,16 @@ export const xeroService = {
   connect,
   subscribeToProgressUpdates,
   triggerExtraction,
+  dumpContacts,
   // removeTenant,
+  applyXeroContactPatch,
 };
 
 function connect(params) {
-  // console.log("Connecting to Xero with params:", params);
-  const { reportId, createdBy, startDate, endDate } = params;
+  console.log("Connecting to Xero with params:", params);
+  const { ptrsId, createdBy, startDate, endDate } = params;
   return fetchWrapper.get(
-    `${baseUrl}/connect/${reportId}/${createdBy}/${startDate}/${endDate}`
+    `${baseUrl}/connect/${ptrsId}/${createdBy}/${startDate}/${endDate}`
   );
 }
 
@@ -26,8 +28,9 @@ function subscribeToProgressUpdates(onMessage, onError, onClose) {
 
   ws.onmessage = (event) => {
     try {
-      const data = JSON.parse(event.data);
-      if (onMessage) onMessage(data);
+      const raw = JSON.parse(event.data);
+      const payload = raw && raw.data ? raw.data : raw; // supports flat or { data: ... }
+      if (onMessage) onMessage(payload);
     } catch (err) {
       console.error("WebSocket message parse error:", err);
     }
@@ -39,11 +42,15 @@ function subscribeToProgressUpdates(onMessage, onError, onClose) {
   };
 
   ws.onclose = () => {
-    // console.log("WebSocket closed.");
     if (onClose) onClose();
   };
 
-  return ws;
+  // Return an unsubscribe function for proper cleanup
+  return () => {
+    try {
+      ws.close();
+    } catch (_) {}
+  };
 }
 
 function triggerExtraction(payload) {
@@ -60,6 +67,32 @@ function triggerExtraction(payload) {
     });
 }
 
+function dumpContacts({ tenantIds } = {}) {
+  const payload = {};
+  if (Array.isArray(tenantIds) && tenantIds.length > 0) {
+    payload.tenantIds = tenantIds;
+  }
+  return fetchWrapper
+    .post(`${baseUrl}/contacts/dump`, payload)
+    .then((res) => res)
+    .catch((err) => {
+      console.error("Dump contacts error:", err);
+      throw err;
+    });
+}
+
 // function removeTenant(tenantId) {
 //   return fetchWrapper.delete(`${baseUrl}/tenants/${tenantId}`);
 // }
+
+async function applyXeroContactPatch({ tenantId, patchBody, dryRun = true }) {
+  if (!tenantId) throw new Error("tenantId is required");
+  if (!patchBody || typeof patchBody !== "object") {
+    throw new Error(
+      "patchBody must be an object containing the Xero Contacts payload"
+    );
+  }
+
+  const url = `${baseUrl}/apply`;
+  return await fetchWrapper.post(url, { tenantId, dryRun, payload: patchBody });
+}

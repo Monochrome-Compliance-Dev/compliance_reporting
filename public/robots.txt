@@ -1,4 +1,6 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+# Allow the special share URL for Pulse to be crawled
+Allow: /pulse-share.html
 Sitemap: https://www.monochrome-compliance.com/sitemap.xml

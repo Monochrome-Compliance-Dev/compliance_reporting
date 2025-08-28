@@ -1,96 +1,103 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import { tcpService } from "../services";
-import { useReportContext } from "./ReportContext";
+// TCP Context — state only, id comes from PtrsContext
+// Holds tcpRecords and exposes them read-only. No fetching, no flags, no snapshots.
 
-const TcpContext = createContext();
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import { usePtrsContext } from "./PtrsContext";
+import { tcpService } from "../services/";
 
-export const TcpProvider = ({ children }) => {
-  const { reportDetails } = useReportContext();
-  const selectedReport = reportDetails?.[0] || null;
-  const [tcpRecords, setTcpRecords] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+const TcpContext = createContext({
+  tcpRecords: [],
+});
 
-  // Utility functions for sessionStorage caching
-  const storageKey = (reportId) => `tcp_records_${reportId}`;
+// Helpers for tolerant cache restore
+function readJsonArray(storage, key) {
+  try {
+    const raw = storage.getItem(key);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
 
-  const cacheRecords = (records) => {
-    if (!selectedReport?.id) return;
-    sessionStorage.setItem(
-      storageKey(selectedReport.id),
-      JSON.stringify(records)
-    );
-  };
-
-  const loadCachedRecords = () => {
-    if (!selectedReport?.id) return null;
-    const key = storageKey(selectedReport.id);
-    const raw = sessionStorage.getItem(key);
-    console.log("Cached data found for", key, raw);
-    return raw ? JSON.parse(raw) : null;
-  };
-
-  const pruneOldCaches = () => {
-    const currentKey = storageKey(selectedReport.id);
-    console.log("Pruning sessionStorage. Keeping:", currentKey);
-    Object.keys(sessionStorage).forEach((k) => {
-      if (k.startsWith("tcp_records_") && k !== currentKey) {
-        sessionStorage.removeItem(k);
-      }
-    });
-  };
-
-  const updateTcpRecord = async (id, data) => {
-    try {
-      await tcpService.update(id, data);
-      setTcpRecords((prev) => {
-        const updated = prev.map((rec) =>
-          rec.id === id ? { ...rec, ...data } : rec
-        );
-        cacheRecords(updated);
-        return updated;
-      });
-    } catch (error) {
-      console.error("Failed to update TCP record", error);
-    }
-  };
-
-  useEffect(() => {
-    const hydrate = async () => {
-      if (!selectedReport?.id) return;
-
-      pruneOldCaches();
-
-      const cached = loadCachedRecords();
-      console.log("Checking cached records for reportId:", selectedReport?.id);
-      if (Array.isArray(cached) && cached.length > 0) {
-        console.log("Using cached TCP records");
-        setTcpRecords(cached);
-        return;
-      }
-
-      setIsLoading(true);
-      try {
-        const records = await tcpService.getAll(selectedReport.id);
-        console.log("Fetched TCP records:", records);
-        setTcpRecords(records);
-        cacheRecords(records);
-      } catch (err) {
-        console.error("Failed to fetch TCP records", err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    hydrate();
-  }, [selectedReport?.id]);
-
+function tryCachedRecords(id) {
+  if (!id) return null;
+  const legacyKey = `tcp_records_${id}`; // legacy Data Review key
+  const camelKey = `tcpRecords_${id}`; // newer camel key
+  // Prefer sessionStorage first, then localStorage
   return (
-    <TcpContext.Provider
-      value={{ tcpRecords, setTcpRecords, updateTcpRecord, isLoading }}
-    >
-      {children}
-    </TcpContext.Provider>
+    readJsonArray(sessionStorage, legacyKey) ||
+    readJsonArray(sessionStorage, camelKey) ||
+    readJsonArray(localStorage, legacyKey) ||
+    readJsonArray(localStorage, camelKey) ||
+    null
   );
-};
+}
 
-export const useTcp = () => useContext(TcpContext);
+export function TcpProvider({ children }) {
+  const { activePtrsId } = usePtrsContext();
+  const [tcpRecords, setTcpRecords] = useState([]);
+
+  // Expose a refresh function encapsulating the fetch/cache logic
+  const refresh = useCallback(async () => {
+    if (!activePtrsId) {
+      setTcpRecords([]);
+      return;
+    }
+
+    const cached = tryCachedRecords(activePtrsId);
+    if (cached) {
+      setTcpRecords(cached);
+      return;
+    }
+
+    let cancelled = false;
+    try {
+      const resp = await tcpService.getAllByPtrsId(activePtrsId);
+      const rows = Array.isArray(resp)
+        ? resp
+        : Array.isArray(resp?.data)
+          ? resp.data
+          : Array.isArray(resp?.rows)
+            ? resp.rows
+            : [];
+      if (!cancelled) {
+        setTcpRecords(rows);
+        try {
+          sessionStorage.setItem(
+            `tcp_records_${activePtrsId}`,
+            JSON.stringify(rows)
+          );
+        } catch {}
+      }
+    } catch {
+      if (!cancelled) setTcpRecords([]);
+    }
+  }, [activePtrsId]);
+
+  // Restore tcpRecords from tolerant cache or API when the active PTRS id changes
+  useEffect(() => {
+    (async () => {
+      await refresh();
+    })();
+    // No cleanup needed since 'cancelled' is not used
+  }, [activePtrsId, refresh]);
+
+  const value = useMemo(() => ({ tcpRecords, refresh }), [tcpRecords, refresh]);
+
+  return <TcpContext.Provider value={value}>{children}</TcpContext.Provider>;
+}
+
+export function useTcpContext() {
+  return useContext(TcpContext);
+}
+
+export default TcpContext;

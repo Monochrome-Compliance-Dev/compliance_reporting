@@ -1,6 +1,7 @@
 {
   "name": "ptr",
   "version": "0.1.0",
+  "homepage": "https://www.monochrome-compliance.com",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -9,7 +10,7 @@
     "@fontsource/inter": "^5.2.5",
     "@fontsource/roboto": "^4.5.8",
     "@hookform/resolvers": "^5.0.1",
-    "@mui/icons-material": "^5.17.1",
+    "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.125",
     "@mui/material": "^5.17.1",
     "@mui/styles": "^5.17.1",
@@ -24,6 +25,10 @@
     "html-entities": "^2.6.0",
     "jspdf": "^3.0.1",
     "jspdf-autotable": "^5.0.2",
+    "lodash": "^4.17.21",
+    "papaparse": "^5.5.3",
+    "prop-types": "^15.8.1",
+    "qrcode.react": "^4.2.0",
     "query-string": "^9.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -33,8 +38,12 @@
     "react-markdown": "^10.1.0",
     "react-router": "^7.5.2",
     "react-scripts": "5.0.1",
+    "react-to-print": "^3.1.1",
+    "recharts": "^3.1.2",
     "rxjs": "^7.8.2",
+    "socket.io-client": "^4.8.1",
     "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5",
     "yup": "^1.6.1"
   },
   "scripts": {
@@ -72,5 +81,6 @@
   "overrides": {
     "nth-check": "^2.0.1",
     "postcss": "^8.4.31"
-  }
+  },
+  "proxy": "http://localhost:4000"
 }
