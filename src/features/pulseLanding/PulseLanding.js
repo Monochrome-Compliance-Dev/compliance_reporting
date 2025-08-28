@@ -9,6 +9,8 @@ import {
   Paper,
   Typography,
   Button,
+  Divider,
+  Stack,
   useTheme,
 } from "@mui/material";
 import { useEffect } from "react";
@@ -59,32 +61,51 @@ export default function PulseLanding() {
         alignItems: "flex-start",
         minHeight: "100vh",
         backgroundColor: theme.palette.background.default,
-        padding: theme.spacing(2),
+        px: { xs: 1.5, sm: 2 },
+        py: { xs: 1.5, sm: 2 },
       }}
     >
       <Paper
         elevation={3}
         sx={{
-          p: theme.spacing(4),
+          p: { xs: 2, md: 4 },
           maxWidth: 1200,
           width: "100%",
           backgroundColor: theme.palette.background.paper,
+          borderRadius: 2,
         }}
       >
         {/* HERO */}
         <Box
           component="section"
           sx={{
-            py: { xs: 8, md: 12 },
             borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
           }}
         >
           <Container maxWidth="lg">
-            <Grid container spacing={4} alignItems="center">
-              <Grid item xs={12} md={6}>
+            <Grid
+              container
+              spacing={4}
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{ textAlign: { xs: "center", md: "left" } }}
+              >
                 <Typography
                   variant="h2"
-                  sx={{ fontWeight: 700, lineHeight: 1.1 }}
+                  sx={{
+                    fontWeight: 800,
+                    lineHeight: 1.1,
+                    letterSpacing: "-0.5px",
+                    wordBreak: "normal",
+                    hyphens: "none",
+                    overflowWrap: "anywhere",
+                    fontSize: { xs: "1.875rem", sm: "2.25rem", md: "3rem" },
+                  }}
                   gutterBottom
                 >
                   Clarity in client engagements — without the spreadsheets
@@ -92,23 +113,59 @@ export default function PulseLanding() {
                 <Typography
                   variant="h6"
                   color="text.secondary"
-                  sx={{ mb: theme.spacing(3) }}
+                  sx={{
+                    mb: theme.spacing(3),
+                    fontSize: { xs: "1rem", sm: "1.125rem", md: "1.25rem" },
+                    maxWidth: { xs: "38ch", md: "unset" },
+                    mx: { xs: "auto", md: 0 },
+                  }}
                 >
                   Pulse gives mid‑tier audit firms a clear view of engagements,
                   resources and utilisation — so partners can plan, deliver and
                   report without the admin hell.
                 </Typography>
-                <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-                  <Button variant="contained" size="large" href="/contact">
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: 2,
+                    flexWrap: "wrap",
+                    flexDirection: { xs: "column", sm: "row" },
+                    alignItems: { xs: "stretch", sm: "center" },
+                    justifyContent: { xs: "center", md: "flex-start" },
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    size="large"
+                    href="/contact"
+                    sx={{ width: { xs: "100%", sm: "auto" } }}
+                  >
                     Join early adopters
                   </Button>
-                  <Button variant="outlined" size="large" href="/pulse/pricing">
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    href="/pulse/pricing"
+                    sx={{ width: { xs: "100%", sm: "auto" } }}
+                  >
                     See founder pricing
                   </Button>
                 </Box>
               </Grid>
-              <Grid item xs={12} md={6}>
-                <Box component="figure" sx={{ m: 0 }}>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{ textAlign: { xs: "center", md: "left" } }}
+              >
+                <Box
+                  component="figure"
+                  sx={{
+                    m: 0,
+                    maxWidth: { xs: "100%", md: 640 },
+                    mx: { xs: "auto", md: 0 },
+                  }}
+                >
                   <Box
                     component="img"
                     src="/images/pulse/dashboard1.png"
@@ -124,7 +181,11 @@ export default function PulseLanding() {
                   component="figcaption"
                   variant="caption"
                   color="text.secondary"
-                  sx={{ mt: theme.spacing(1), display: "block" }}
+                  sx={{
+                    mt: theme.spacing(1),
+                    display: "block",
+                    textAlign: { xs: "center", md: "left" },
+                  }}
                 >
                   * Pulse dashboard preview — visualising spend vs budget,
                   resource allocation, and utilisation.
@@ -135,13 +196,17 @@ export default function PulseLanding() {
         </Box>
 
         {/* BENEFITS */}
-        <Box component="section" sx={{ py: { xs: 6, md: 10 } }}>
+        <Box component="section" sx={{ py: { xs: 6 } }}>
           <Container maxWidth="lg">
             <Grid container spacing={3}>
               <Grid item xs={12} md={4}>
                 <Paper
                   variant="outlined"
-                  sx={{ p: theme.spacing(3), height: "100%" }}
+                  sx={{
+                    p: theme.spacing(3),
+                    height: "100%",
+                    textAlign: { xs: "center", md: "left" },
+                  }}
                 >
                   <Typography
                     variant="h5"
@@ -159,7 +224,11 @@ export default function PulseLanding() {
               <Grid item xs={12} md={4}>
                 <Paper
                   variant="outlined"
-                  sx={{ p: theme.spacing(3), height: "100%" }}
+                  sx={{
+                    p: theme.spacing(3),
+                    height: "100%",
+                    textAlign: { xs: "center", md: "left" },
+                  }}
                 >
                   <Typography
                     variant="h5"
@@ -177,7 +246,11 @@ export default function PulseLanding() {
               <Grid item xs={12} md={4}>
                 <Paper
                   variant="outlined"
-                  sx={{ p: theme.spacing(3), height: "100%" }}
+                  sx={{
+                    p: theme.spacing(3),
+                    height: "100%",
+                    textAlign: { xs: "center", md: "left" },
+                  }}
                 >
                   <Typography
                     variant="h5"
@@ -197,19 +270,17 @@ export default function PulseLanding() {
         </Box>
 
         {/* FULL-WIDTH VISUAL */}
-        <Box
-          component="section"
-          sx={{ py: { xs: 6, md: 8 }, bgcolor: "background.paper" }}
-        >
+        <Box component="section" sx={{ bgcolor: "background.paper" }}>
           <Container maxWidth="lg">
-            <Paper
-              elevation={1}
-              sx={{ p: { xs: 2, md: 3 } }}
-              component="figure"
-            >
+            <Paper elevation={1} sx={{ p: { xs: 1, md: 3 } }}>
               <Typography
                 variant="h6"
-                sx={{ mb: theme.spacing(2), fontWeight: 700 }}
+                sx={{
+                  mb: theme.spacing(2),
+                  fontWeight: 700,
+                  fontSize: { xs: "1.125rem", sm: "1.25rem", md: "1.5rem" },
+                  textAlign: { xs: "center", md: "left" },
+                }}
               >
                 A single view of engagements and teams
               </Typography>
@@ -221,7 +292,14 @@ export default function PulseLanding() {
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
                 }}
-                sx={{ width: "100%", display: "block", borderRadius: 1 }}
+                sx={{
+                  width: { xs: "100%", sm: "100%" },
+                  maxWidth: { xs: "unset", md: 1040 },
+                  height: "auto",
+                  mx: "auto",
+                  display: "block",
+                  borderRadius: 1,
+                }}
               />
               <Typography
                 component="figcaption"
@@ -236,47 +314,86 @@ export default function PulseLanding() {
           </Container>
         </Box>
 
-        {/* PRICING */}
-        <Box id="pricing" component="section" sx={{ py: { xs: 6, md: 8 } }}>
-          <Container maxWidth="sm">
+        {/* COMBINED PRICING + CTA BAND */}
+        <Box component="section" sx={{ py: { xs: 6, md: 8 } }}>
+          <Container maxWidth="lg">
             <Paper variant="outlined" sx={{ p: { xs: 3, md: 4 } }}>
-              <Typography variant="h4" sx={{ fontWeight: 700 }} gutterBottom>
-                Founder pricing for early adopters
-              </Typography>
-              <Typography color="text.secondary" sx={{ mb: theme.spacing(3) }}>
-                We’re opening a small early‑adopter cohort (first 5 firms) with
-                discounted rates and priority onboarding. See plan details and
-                availability on the pricing page.
-              </Typography>
-              <Button
-                variant="contained"
-                size="large"
-                fullWidth
-                href="/pulse/pricing"
+              <Stack
+                direction={{ xs: "column", md: "row" }}
+                spacing={{ xs: 3, md: 4 }}
+                alignItems={{ xs: "stretch", md: "center" }}
+                justifyContent="space-between"
               >
-                View Pulse pricing
-              </Button>
-            </Paper>
-          </Container>
-        </Box>
+                {/* Left: Founder pricing */}
+                <Box sx={{ flex: 1 }}>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontWeight: 700,
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.875rem",
+                        md: "2.125rem",
+                      },
+                    }}
+                    gutterBottom
+                  >
+                    Founder pricing for early adopters
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ mb: 2 }}>
+                    We’re opening a small early‑adopter cohort (first 5 firms)
+                    with discounted rates and priority onboarding. See plan
+                    details and availability on the pricing page.
+                  </Typography>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    href="/pulse/pricing"
+                    sx={{ width: { xs: "100%", sm: "auto" } }}
+                  >
+                    View Pulse pricing
+                  </Button>
+                </Box>
 
-        {/* FINAL CTA */}
-        <Box
-          component="section"
-          sx={{ py: { xs: 8, md: 10 }, textAlign: "center" }}
-        >
-          <Container maxWidth="md">
-            <Typography variant="h4" sx={{ fontWeight: 700 }} gutterBottom>
-              Ready to get partners out of spreadsheets?
-            </Typography>
-            <Typography color="text.secondary" sx={{ mb: theme.spacing(3) }}>
-              We’re inviting a small group of mid‑tier firms to trial Pulse and
-              steer the product. If the pains above look familiar, you’re our
-              people.
-            </Typography>
-            <Button variant="contained" size="large" href="/contact">
-              Book a 15‑minute intro
-            </Button>
+                {/* Divider on desktop only */}
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  sx={{ display: { xs: "none", md: "block" } }}
+                />
+
+                {/* Right: Get partners out of spreadsheets */}
+                <Box sx={{ flex: 1 }}>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontWeight: 700,
+                      fontSize: {
+                        xs: "1.5rem",
+                        sm: "1.875rem",
+                        md: "2.125rem",
+                      },
+                    }}
+                    gutterBottom
+                  >
+                    Ready to get partners out of spreadsheets?
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ mb: 2 }}>
+                    We’re inviting a small group of mid‑tier firms to trial
+                    Pulse and steer the product. If the pains above look
+                    familiar, you’re our people.
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    href="/contact"
+                    sx={{ width: { xs: "100%", sm: "auto" } }}
+                  >
+                    Book a 15‑minute intro
+                  </Button>
+                </Box>
+              </Stack>
+            </Paper>
           </Container>
         </Box>
       </Paper>
