@@ -191,11 +191,11 @@ export default function PulsePricing() {
                       color="primary"
                       sx={{ mb: 0.5 }}
                     >
-                      3 of 5 early adopter spots filled
+                      0 of 5 early adopter spots filled
                     </Typography>
                     <LinearProgress
                       variant="determinate"
-                      value={(3 / 5) * 100}
+                      value={(0 / 5) * 100}
                       sx={{ height: 6, borderRadius: 999 }}
                     />
                   </Box>
