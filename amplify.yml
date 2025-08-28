@@ -1,12 +1,22 @@
 version: 1
+env:
+  runtime-versions:
+    nodejs: 18
 frontend:
   phases:
     preBuild:
       commands:
+        # Make toolchain deterministic and compatible with lockfile v3
+        - node -v
+        - corepack enable
+        - corepack prepare npm@10.7.0 --activate
+        - npm -v
+        # Install deps
         - npm ci
     build:
       commands:
-        # Avoid CRA treating warnings as fatal in CI
+        # CRA + CI quirks; don't fail the build on warnings
+        - echo "REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL:-<unset>}"
         - CI=false npm run build
   artifacts:
     baseDirectory: build
