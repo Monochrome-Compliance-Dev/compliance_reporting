@@ -247,7 +247,7 @@ export const protectedRoutes = [
     Component: XeroContactAlign,
   },
   {
-    path: "/pulse",
+    path: "/pulse-solution",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <PulseProvider>

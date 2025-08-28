@@ -1,4 +1,6 @@
 import CustomerRegister from "../features/customers/CustomerRegister";
+import PulseLanding from "../features/pulseLanding/PulseLanding";
+import PulsePricing from "../features/pulseLanding/PulsePricing";
 
 // Publicly available
 import Contact from "../components/forms/Contact";
@@ -57,11 +59,13 @@ import PartnersLanding from "../components/partners/PartnersLanding";
 import PartnerModernSlavery from "../components/partners/products/ModernSlavery";
 import PartnerLayout from "../components/partners/PartnerLayout";
 
-const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "false";
+const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "true";
 
 const allPublicRoutes = [
   { path: "/", Component: LandingPage },
   { path: "/pricing", Component: PriceTier },
+  { path: "/pulse", Component: PulseLanding },
+  { path: "/pulse/pricing", Component: PulsePricing },
   {
     path: "/customers/register",
     Component: CustomerRegister,
@@ -179,6 +183,8 @@ const allPublicRoutes = [
 ];
 
 const launchPublicRoutes = [
+  { path: "/pulse", Component: PulseLanding },
+  { path: "/pulse/pricing", Component: PulsePricing },
   {
     path: "compliance-navigator",
     Component: PublicComplianceNavigator,
