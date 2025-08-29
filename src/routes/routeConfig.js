@@ -49,6 +49,7 @@ import BudgetView from "../features/pulse/budgets/BudgetView";
 import BudgetBuilder from "../features/pulse/budgets/BudgetBuilder";
 import EngagementWizard from "../features/pulse/engagements/EngagementWizard";
 import XeroContactAlign from "../features/data/XeroContactAlign";
+import PulseSolutionLanding from "../features/pulse/PulseSolutionLanding";
 
 export const protectedRoutes = [
   {
@@ -251,7 +252,7 @@ export const protectedRoutes = [
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <PulseProvider>
-          <ComplianceDashboardLayout title="Pulse Dashboard" module="pulse">
+          <ComplianceDashboardLayout title="Pulse" module="pulse">
             <Outlet />
           </ComplianceDashboardLayout>
         </PulseProvider>
@@ -260,6 +261,24 @@ export const protectedRoutes = [
     children: [
       {
         index: true,
+        Component: PulseSolutionLanding,
+      },
+    ],
+  },
+  {
+    path: "/pulse",
+    Component: () => (
+      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+        <PulseProvider>
+          <ComplianceDashboardLayout title="Pulse Dashboard" module="pulse">
+            <Outlet />
+          </ComplianceDashboardLayout>
+        </PulseProvider>
+      </RequireRoles>
+    ),
+    children: [
+      {
+        path: "dashboard",
         Component: PulseDashboard,
       },
       {
@@ -287,10 +306,10 @@ export const protectedRoutes = [
         path: "timesheets",
         Component: Outlet,
         children: [
-          { index: true, Component: TimesheetList }, // /pulse/timesheets
-          { path: "edit", Component: TimesheetEditor }, // /pulse/timesheets/edit
-          { path: "manage", Component: TimesheetManage }, // /pulse/timesheets/manage
-          { path: ":timesheetId", Component: Timesheet }, // /pulse/timesheets/:timesheetId (read-only)
+          { index: true, Component: TimesheetList },
+          { path: "edit", Component: TimesheetEditor },
+          { path: "manage", Component: TimesheetManage },
+          { path: ":timesheetId", Component: Timesheet },
         ],
       },
       {

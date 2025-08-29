@@ -7,7 +7,8 @@ import LandingPage from "../components/static/LandingPage";
 import { protectedRoutes } from "../routes/routeConfig";
 import { publicRoutes } from "../routes/publicRoutes";
 
-const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "false";
+const isPublicOnlyMode =
+  String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
 
 export default function AppRouter() {
   const router = createBrowserRouter([

@@ -25,6 +25,19 @@ export default function Dashboard() {
 
       <Grid container spacing={4} sx={{ marginTop: theme.spacing(2) }}>
         <Grid item xs={12} sm={6} md={4}>
+          <Card
+            sx={{ cursor: "pointer" }}
+            onClick={() => navigate("/pulse-solution")}
+          >
+            <CardContent>
+              <Typography variant="h6">Pulse</Typography>
+              <Typography variant="body2" color="textSecondary">
+                Resource & Engagement Management
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
           <Card sx={{ cursor: "pointer" }} onClick={() => navigate("/ptrs")}>
             <CardContent>
               <Typography variant="h6">PTRS</Typography>
@@ -50,26 +63,6 @@ export default function Dashboard() {
               <Typography variant="h6">Modern Slavery</Typography>
               <Typography variant="body2" color="textSecondary">
                 Modern Slavery Compliance Reporting
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ cursor: "pointer" }}>
-            <CardContent>
-              <Typography variant="h6">Coming Soon</Typography>
-              <Typography variant="body2" color="textSecondary">
-                Future Compliance Modules
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ cursor: "pointer" }} onClick={() => navigate("/pulse")}>
-            <CardContent>
-              <Typography variant="h6">Pulse</Typography>
-              <Typography variant="body2" color="textSecondary">
-                Resource & Engagement Management
               </Typography>
             </CardContent>
           </Card>

@@ -19,7 +19,7 @@ import {
 export default function PulsePricing() {
   const theme = useTheme();
 
-  const totalFounderSlots = 5;
+  const totalFounderSlots = 10;
   const claimedFounderSlots = 1; // TODO: wire from backend later
   const remainingFounderSlots = Math.max(
     totalFounderSlots - claimedFounderSlots,
@@ -63,9 +63,10 @@ export default function PulsePricing() {
             {/* Scrolling message (left) */}
             <Box sx={{ flex: 1, overflow: "hidden" }}>
               <Box className="scrolling">
-                🚨 Only {remainingFounderSlots} founder slot
-                {remainingFounderSlots === 1 ? "" : "s"} left — act now for
-                priority onboarding! 🚨
+                🚨 Only {remainingFounderSlots} of {totalFounderSlots}{" "}
+                early‑adopter spot
+                {remainingFounderSlots === 1 ? "" : "s"} left — $250/m incl. 20
+                users. 🚨
               </Box>
             </Box>
             {/* Static CTA (right) — hidden on xs */}
@@ -108,8 +109,8 @@ export default function PulsePricing() {
               Pulse pricing
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
-              Simple, transparent pricing for mid‑tier audit firms. Early
-              adopters help shape the roadmap and get founder‑level rates.
+              Simple, transparent pricing for professional service businesses.
+              Early adopters help shape the roadmap and get founder‑level rates.
             </Typography>
           </Box>
 
@@ -201,7 +202,7 @@ export default function PulsePricing() {
                 >
                   <Box sx={{ flexGrow: 1 }}>
                     <Chip
-                      label="First 5 firms"
+                      label="First 10 firms"
                       color="primary"
                       size="small"
                       sx={{
@@ -217,45 +218,21 @@ export default function PulsePricing() {
                       sx={{ display: "flex", alignItems: "baseline", gap: 1 }}
                     >
                       <Typography variant="h4" sx={{ fontWeight: 700 }}>
-                        $500
+                        $250
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         / month
                       </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ textDecoration: "line-through", ml: 1 }}
-                      >
-                        $1,000
-                      </Typography>
                     </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "baseline",
-                        gap: 1,
-                        mt: 1,
-                      }}
-                    >
-                      <Typography variant="body1">$30</Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        / user / month
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ textDecoration: "line-through", ml: 1 }}
-                      >
-                        $50
-                      </Typography>
-                    </Box>
+                    <Typography variant="body1" sx={{ mt: 1 }}>
+                      <strong>20 users included</strong>
+                    </Typography>
                     <Typography
                       variant="body2"
                       color="text.secondary"
                       sx={{ mt: theme.spacing(2) }}
                     >
-                      Founder pricing for the first five firms. Month‑to‑month.
+                      Founder pricing for the first ten firms. Month‑to‑month.
                       Cancel anytime. Priority onboarding when we open wider.
                     </Typography>
                     <Box sx={{ mt: theme.spacing(1), mb: theme.spacing(2) }}>
@@ -264,11 +241,12 @@ export default function PulsePricing() {
                         color="primary"
                         sx={{ mb: 0.5 }}
                       >
-                        1 of 5 early adopter spots filled
+                        {claimedFounderSlots} of {totalFounderSlots}{" "}
+                        early‑adopter spots filled
                       </Typography>
                       <LinearProgress
                         variant="determinate"
-                        value={(1 / 5) * 100}
+                        value={(claimedFounderSlots / totalFounderSlots) * 100}
                         sx={{ height: 6, borderRadius: 999 }}
                       />
                     </Box>
@@ -287,8 +265,9 @@ export default function PulsePricing() {
                       color="text.secondary"
                       sx={{ display: "block", mt: 1 }}
                     >
-                      Once 5 firms are onboarded, pricing reverts to
-                      $1,000/month & $50/user/month.
+                      Once 10 firms are onboarded, pricing reverts to $500/month
+                      (20 users included). Additional users available on
+                      request.
                     </Typography>
                   </Box>
                 </Paper>
@@ -317,25 +296,21 @@ export default function PulsePricing() {
                       sx={{ fontWeight: 700 }}
                       gutterBottom
                     >
-                      $1,000
+                      $500{" "}
                       <span style={{ fontSize: 16, opacity: 0.7 }}>
                         {" "}
                         / month
                       </span>
                     </Typography>
                     <Typography variant="body1" sx={{ mb: theme.spacing(2) }}>
-                      $50
-                      <span style={{ fontSize: 14, opacity: 0.7 }}>
-                        {" "}
-                        / user / month
-                      </span>
+                      <strong>20 users included</strong>
                     </Typography>
                     <Typography
                       variant="body2"
                       color="text.secondary"
                       sx={{ mb: theme.spacing(3) }}
                     >
-                      For firms joining after the early adopter cohort.
+                      For businesses joining after the early‑adopter cohort.
                       Month‑to‑month. Cancel anytime.
                     </Typography>
                   </Box>
@@ -352,8 +327,8 @@ export default function PulsePricing() {
                     color="text.secondary"
                     sx={{ display: "block", mt: 1, visibility: "hidden" }}
                   >
-                    Once 5 firms are onboarded, pricing reverts to $1,000/month
-                    & $50/user/month.
+                    Once 10 firms are onboarded, pricing reverts to $500/month
+                    (20 users included). Additional users available on request.
                   </Typography>
                 </Paper>
               </Grid>
@@ -364,7 +339,8 @@ export default function PulsePricing() {
           <Box sx={{ mt: theme.spacing(5), textAlign: "center" }}>
             <Typography variant="body2" color="text.secondary">
               Prices in AUD, excluding GST. Fair‑use limits apply during the
-              early cohort while we scale.
+              early cohort while we scale. Additional users available on
+              request.
             </Typography>
           </Box>
         </Paper>
