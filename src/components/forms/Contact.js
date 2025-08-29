@@ -196,7 +196,7 @@ export default function Contact() {
             fullWidth
             sx={{ mb: theme.spacing(2) }}
             InputLabelProps={{ style: { color: theme.palette.text.primary } }}
-            defaultValue="Contact Us"
+            defaultValue="Pulse Early Adopter"
           >
             <MenuItem value="Contact Us">Contact Us</MenuItem>
             <MenuItem value="Sales">Sales</MenuItem>

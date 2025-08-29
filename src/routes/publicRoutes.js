@@ -58,6 +58,7 @@ import About from "../components/static/About";
 import PartnersLanding from "../components/partners/PartnersLanding";
 import PartnerModernSlavery from "../components/partners/products/ModernSlavery";
 import PartnerLayout from "../components/partners/PartnerLayout";
+import PulseJoin from "../features/pulseLanding/PulseJoin";
 
 const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "true";
 
@@ -66,6 +67,7 @@ const allPublicRoutes = [
   { path: "/pricing", Component: PriceTier },
   { path: "/pulse", Component: PulseLanding },
   { path: "/pulse/pricing", Component: PulsePricing },
+  { path: "/pulse/join", Component: PulseJoin },
   {
     path: "/customers/register",
     Component: CustomerRegister,
@@ -185,6 +187,7 @@ const allPublicRoutes = [
 const launchPublicRoutes = [
   { path: "/pulse", Component: PulseLanding },
   { path: "/pulse/pricing", Component: PulsePricing },
+  { path: "/pulse/join", Component: PulseJoin },
   {
     path: "compliance-navigator",
     Component: PublicComplianceNavigator,
