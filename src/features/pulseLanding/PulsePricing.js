@@ -2,6 +2,7 @@
 // Pulse pricing page — aligned with the global theme wrapper pattern
 // No new deps. Only MUI. Links use hrefs to avoid react-router-dom.
 
+import { useEffect } from "react";
 import {
   Box,
   Grid,
@@ -18,6 +19,42 @@ import {
 
 export default function PulsePricing() {
   const theme = useTheme();
+
+  useEffect(() => {
+    const title =
+      "Pulse Pricing — Professional Service Clarity | Monochrome Compliance";
+    const description =
+      "Transparent pricing for professional service businesses. $250/m for early adopters (20 users included), then $500/m.";
+    const pageUrl = `${window.location.origin}/pulse/pricing`;
+    const imageUrl = `${window.location.origin}/images/pulse/dashboard1.png`;
+
+    function upsertMeta(selectorKey, selectorValue, attrs) {
+      let element = document.head.querySelector(
+        `meta[${selectorKey}="${selectorValue}"]`
+      );
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(selectorKey, selectorValue);
+        document.head.appendChild(element);
+      }
+      for (const [key, value] of Object.entries(attrs)) {
+        element.setAttribute(key, value);
+      }
+    }
+
+    document.title = title;
+
+    upsertMeta("name", "description", { content: description });
+    upsertMeta("property", "og:type", { content: "website" });
+    upsertMeta("property", "og:title", { content: title });
+    upsertMeta("property", "og:description", { content: description });
+    upsertMeta("property", "og:url", { content: pageUrl });
+    upsertMeta("property", "og:image", { content: imageUrl });
+    upsertMeta("name", "twitter:card", { content: "summary_large_image" });
+    upsertMeta("name", "twitter:title", { content: title });
+    upsertMeta("name", "twitter:description", { content: description });
+    upsertMeta("name", "twitter:image", { content: imageUrl });
+  }, []);
 
   const totalFounderSlots = 10;
   const claimedFounderSlots = 1; // TODO: wire from backend later
