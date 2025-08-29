@@ -60,7 +60,8 @@ import PartnerModernSlavery from "../components/partners/products/ModernSlavery"
 import PartnerLayout from "../components/partners/PartnerLayout";
 import PulseJoin from "../features/pulseLanding/PulseJoin";
 
-const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "true";
+const isPublicOnlyMode =
+  String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
 
 const allPublicRoutes = [
   { path: "/", Component: LandingPage },

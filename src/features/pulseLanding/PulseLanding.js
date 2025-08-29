@@ -18,7 +18,7 @@ import { useEffect } from "react";
 export default function PulseLanding() {
   const theme = useTheme();
 
-  const totalFounderSlots = 5;
+  const totalFounderSlots = 10;
   const claimedFounderSlots = 1; // TODO: wire from backend later
   const remainingFounderSlots = Math.max(
     totalFounderSlots - claimedFounderSlots,
@@ -29,7 +29,7 @@ export default function PulseLanding() {
     const title =
       "Pulse — Engagement & Resource Management for Audit Firms | Monochrome Compliance";
     const description =
-      "Pulse gives mid‑tier audit firms clarity on engagements, resources and utilisation — without the admin burden.";
+      "Pulse gives professional service businesses clarity on engagements, resources and utilisation — without the admin burden.";
     const baseUrl = window.location.origin;
     const pageUrl = `${baseUrl}/pulse`;
     const imageUrl = `${baseUrl}/images/pulse/dashboard1.png`;
@@ -97,9 +97,10 @@ export default function PulseLanding() {
             {/* Scrolling message (left) */}
             <Box sx={{ flex: 1, overflow: "hidden" }}>
               <Box className="scrolling">
-                🚨 Only {remainingFounderSlots} founder slot
-                {remainingFounderSlots === 1 ? "" : "s"} left — act now for
-                priority onboarding! 🚨
+                🚨 Only {remainingFounderSlots} of {totalFounderSlots}{" "}
+                early-adopter spot
+                {remainingFounderSlots === 1 ? "" : "s"} left — $250/m incl. 20
+                users. 🚨
               </Box>
             </Box>
 
@@ -107,7 +108,7 @@ export default function PulseLanding() {
             <Button
               variant="contained"
               size="small"
-              href="/contact"
+              href="/pulse/join"
               sx={{
                 display: { xs: "none", sm: "inline-flex" },
                 boxShadow: "none",
@@ -184,8 +185,8 @@ export default function PulseLanding() {
                       mx: { xs: "auto", md: 0 },
                     }}
                   >
-                    Pulse gives mid‑tier audit firms a clear view of
-                    engagements, resources and utilisation — so partners can
+                    Pulse gives professional service businesses a clear view of
+                    engagements, resources and utilisation — so leaders can
                     plan, deliver and report without the admin hell.
                   </Typography>
                   <Box
@@ -201,7 +202,7 @@ export default function PulseLanding() {
                     <Button
                       variant="contained"
                       size="large"
-                      href="/contact"
+                      href="/pulse/join"
                       sx={{ width: { xs: "100%", sm: "auto" } }}
                     >
                       Join early adopters
@@ -403,9 +404,9 @@ export default function PulseLanding() {
                       Founder pricing for early adopters
                     </Typography>
                     <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      We’re opening a small early‑adopter cohort (first 5 firms)
-                      with discounted rates and priority onboarding. See plan
-                      details and availability on the pricing page.
+                      We’re opening a small early‑adopter cohort (first 10
+                      firms) with discounted rates and priority onboarding. See
+                      plan details and availability on the pricing page.
                     </Typography>
                     <Button
                       variant="contained"
@@ -441,9 +442,9 @@ export default function PulseLanding() {
                       Ready to get partners out of spreadsheets?
                     </Typography>
                     <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      We’re inviting a small group of mid‑tier firms to trial
-                      Pulse and steer the product. If the pains above look
-                      familiar, you’re our people.
+                      We’re inviting a small group of professional service
+                      businesses to trial Pulse and steer the product. If the
+                      pains above look familiar, you’re our people.
                     </Typography>
                     <Button
                       variant="outlined"

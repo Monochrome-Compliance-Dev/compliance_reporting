@@ -39,7 +39,8 @@ import { useTheme } from "@mui/material/styles";
 import { userService } from "../../services";
 import { useAuthContext } from "../../context/AuthContext";
 
-const isPublicOnlyMode = process.env.REACT_APP_PUBLIC_ONLY === "true";
+const isPublicOnlyMode =
+  String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
 
 export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const { user } = useAuthContext();
