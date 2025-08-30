@@ -21,6 +21,11 @@ import {
   Select,
   Drawer,
   IconButton,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useAlert, usePulseContext } from "../../../../context";
@@ -66,6 +71,15 @@ export default function ResourceView() {
 
   const [query, setQuery] = useState("");
   const [roleFilter, setRoleFilter] = useState("");
+
+  const [confirm, setConfirm] = useState({ open: false, id: null, name: "" });
+  const openConfirmDelete = useCallback((id, name) => {
+    setConfirm({ open: true, id, name: name || "" });
+  }, []);
+
+  const closeConfirm = useCallback(() => {
+    setConfirm({ open: false, id: null, name: "" });
+  }, []);
 
   const selected = useMemo(
     () => resources.find((r) => String(r.id) === String(selectedId)) || null,
@@ -226,6 +240,7 @@ export default function ResourceView() {
           setMode("edit");
           setDrawerOpen(false);
         }
+        setDrawerOpen(false);
       } catch (err) {
         // eslint-disable-next-line no-console
         console.error("Failed to save resource", err);
@@ -321,6 +336,9 @@ export default function ResourceView() {
               filteredResources.map((r) => (
                 <TableRow
                   key={r.id}
+                  hover
+                  onClick={() => startEdit(r.id)}
+                  sx={{ cursor: "pointer" }}
                   selected={String(r.id) === String(selectedId)}
                 >
                   <TableCell>{r.name}</TableCell>
@@ -335,13 +353,13 @@ export default function ResourceView() {
                       spacing={1}
                       justifyContent="flex-end"
                     >
-                      <Button size="small" onClick={() => startEdit(r.id)}>
-                        Edit
-                      </Button>
                       <Button
                         size="small"
                         color="error"
-                        onClick={() => onDelete(r.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openConfirmDelete(r.id, r.name);
+                        }}
                       >
                         Delete
                       </Button>
@@ -462,12 +480,20 @@ export default function ResourceView() {
               <Button type="submit" variant="contained" disabled={isSubmitting}>
                 {mode === "create" ? "Create" : "Save changes"}
               </Button>
+              <Button
+                type="button"
+                variant="outlined"
+                onClick={() => setDrawerOpen(false)}
+                disabled={isSubmitting}
+              >
+                Cancel
+              </Button>
               {mode === "edit" && selected && (
                 <Button
                   type="button"
                   color="error"
                   variant="outlined"
-                  onClick={() => onDelete(selected.id)}
+                  onClick={() => openConfirmDelete(selected.id, selected.name)}
                   disabled={isSubmitting}
                 >
                   Delete
@@ -486,6 +512,36 @@ export default function ResourceView() {
           </Stack>
         </Box>
       </Drawer>
+      <Dialog
+        open={confirm.open}
+        onClose={closeConfirm}
+        aria-labelledby="confirm-delete-title"
+      >
+        <DialogTitle id="confirm-delete-title">Delete resource?</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            This will permanently remove{" "}
+            <strong>{confirm.name || "this resource"}</strong>. This action
+            cannot be undone.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeConfirm} variant="text">
+            Cancel
+          </Button>
+          <Button
+            onClick={async () => {
+              await onDelete(confirm.id);
+              closeConfirm();
+            }}
+            color="error"
+            variant="contained"
+            autoFocus
+          >
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Stack>
   );
 }

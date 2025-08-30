@@ -38,7 +38,7 @@ import PtrsDashboard from "../features/ptrs/PtrsDashboard";
 import PtrsMetricsDashboard from "../features/ptrs/PtrsMetricsDashboard";
 import PulseDashboard from "../features/pulse/dashboard/PulseDashboard";
 import ResourceView from "../features/pulse/admin/resources/ResourceView";
-import ClientView from "../features/pulse/ClientView";
+import ClientView from "../features/pulse/admin/clients/ClientView";
 import EngagementView from "../features/pulse/admin/engagements/EngagementView";
 import TimesheetEditor from "../features/pulse/workspace/timesheets/TimesheetEditor";
 import TimesheetList from "../features/pulse/workspace/timesheets/TimesheetList";

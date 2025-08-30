@@ -1,4 +1,7 @@
 import { useMemo, useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import {
   Box,
   Stack,
@@ -10,18 +13,26 @@ import {
   TableCell,
   TableBody,
   TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Chip,
   Button,
+  Drawer,
+  IconButton,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Divider,
 } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router";
 import { usePulseContext } from "../../../../context/PulseContext";
+import { useAlert } from "../../../../context";
+import { pulseService } from "../../../../services/pulse/pulse";
+import { userService } from "../../../../services";
 
 // Utility: basic currency formatting (fallbacks to $)
-const fmtCurrency = (n, currency = "USD") => {
+const fmtCurrency = (n, currency = "AUD") => {
   const val = Number(n || 0);
   try {
     return new Intl.NumberFormat(undefined, {
@@ -33,11 +44,35 @@ const fmtCurrency = (n, currency = "USD") => {
   }
 };
 
+const budgetSchema = yup
+  .object({
+    budgetHours: yup
+      .number()
+      .typeError("Hours must be a number")
+      .min(0, "Must be 0 or more")
+      .optional(),
+    budgetAmount: yup
+      .number()
+      .typeError("Amount must be a number")
+      .min(0, "Must be 0 or more")
+      .optional(),
+  })
+  .required();
+
 export default function BudgetView() {
-  const { engagements = [], clients = [] } = usePulseContext();
+  const {
+    engagements = [],
+    clients = [],
+    upsertEngagement,
+    removeEngagement,
+  } = usePulseContext();
+  const { showAlert } = useAlert();
 
   const [query, setQuery] = useState("");
-  const [clientFilter, setClientFilter] = useState("");
+  const [selectedId, setSelectedId] = useState(null);
+  const [mode, setMode] = useState("edit"); // budgets attach to engagements; we only edit here
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [confirm, setConfirm] = useState({ open: false, id: null, name: "" });
 
   const clientById = useMemo(
     () => Object.fromEntries((clients || []).map((c) => [String(c.id), c])),
@@ -76,10 +111,80 @@ export default function BudgetView() {
             .toLowerCase()
             .includes(q)
         );
-      const matchesClient = !clientFilter || r.clientId === clientFilter;
-      return matchesQ && matchesClient;
+      return matchesQ;
     });
-  }, [rows, query, clientFilter]);
+  }, [rows, query]);
+
+  const selected = useMemo(
+    () =>
+      (engagements || []).find((e) => String(e.id) === String(selectedId)) ||
+      null,
+    [engagements, selectedId]
+  );
+
+  const startEdit = (id) => {
+    setSelectedId(id);
+    setMode("edit");
+    setDrawerOpen(true);
+  };
+
+  const openConfirmDelete = (id, name) =>
+    setConfirm({ open: true, id, name: name || "" });
+  const closeConfirm = () => setConfirm({ open: false, id: null, name: "" });
+
+  const { register, handleSubmit, reset, formState } = useForm({
+    resolver: yupResolver(budgetSchema),
+    defaultValues: { budgetHours: "", budgetAmount: "" },
+  });
+  const { errors, isSubmitting } = formState;
+
+  useMemo(() => {
+    if (selected) {
+      reset({
+        budgetHours: selected.budgetHours ?? "",
+        budgetAmount: selected.budgetAmount ?? "",
+      });
+    }
+  }, [selected, reset]);
+
+  const onSubmit = async (values) => {
+    try {
+      const payload = {
+        budgetHours:
+          values.budgetHours === "" ? null : Number(values.budgetHours),
+        budgetAmount:
+          values.budgetAmount === "" ? null : Number(values.budgetAmount),
+        updatedBy: userService.userValue.id,
+      };
+      const saved = await pulseService.engagements.update(
+        String(selected.id),
+        payload
+      );
+      upsertEngagement(saved);
+      showAlert("Budget updated", "success");
+      setDrawerOpen(false);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("Failed to save budget", err);
+      showAlert("Failed to save budget", "error");
+    }
+  };
+
+  const onDelete = async (id) => {
+    try {
+      await pulseService.engagements.delete(String(id));
+      removeEngagement(id);
+      if (String(selectedId) === String(id)) {
+        setSelectedId(null);
+        setDrawerOpen(false);
+      }
+      showAlert("Engagement deleted", "success");
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("Failed to delete engagement", err);
+      showAlert("Failed to delete engagement", "error");
+    }
+  };
 
   return (
     <Stack spacing={2}>
@@ -97,25 +202,7 @@ export default function BudgetView() {
             onChange={(e) => setQuery(e.target.value)}
             inputProps={{ "aria-label": "Search budgets" }}
           />
-          <FormControl size="small" sx={{ minWidth: 200 }}>
-            <InputLabel id="client-filter-label">Client</InputLabel>
-            <Select
-              labelId="client-filter-label"
-              label="Client"
-              value={clientFilter}
-              onChange={(e) => setClientFilter(e.target.value)}
-            >
-              <MenuItem value="">
-                <em>All clients</em>
-              </MenuItem>
-              {(clients || []).map((c) => (
-                <MenuItem key={c.id} value={String(c.id)}>
-                  {c.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          {/* Placeholder manage link (we'll add the builder later) */}
+          {/* Removed client filter */}
           <Button
             component={Link}
             to="/pulse-solution/engagements/manage"
@@ -152,7 +239,12 @@ export default function BudgetView() {
               </TableRow>
             ) : (
               filtered.map((r) => (
-                <TableRow key={r.id}>
+                <TableRow
+                  key={r.id}
+                  hover
+                  onClick={() => startEdit(r.id)}
+                  sx={{ cursor: "pointer" }}
+                >
                   <TableCell>
                     <Stack spacing={0.2}>
                       <Typography fontWeight={600}>{r.name}</Typography>
@@ -176,27 +268,16 @@ export default function BudgetView() {
                   </TableCell>
                   <TableCell align="right">{r.activities}</TableCell>
                   <TableCell align="right">
-                    <Stack
-                      direction="row"
-                      spacing={1}
-                      justifyContent="flex-end"
+                    <Button
+                      size="small"
+                      color="error"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openConfirmDelete(r.id, r.name);
+                      }}
                     >
-                      <Chip
-                        size="small"
-                        component={Link}
-                        to={`/pulse/budgets/manage?id=${encodeURIComponent(r.budgetId)}`}
-                        label="Manage"
-                        clickable
-                      />
-                      <Chip
-                        size="small"
-                        component={Link}
-                        to={`/pulse/engagements/manage?id=${encodeURIComponent(r.id)}`}
-                        label="Engagement"
-                        clickable
-                        variant="outlined"
-                      />
-                    </Stack>
+                      Delete
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))
@@ -204,6 +285,114 @@ export default function BudgetView() {
           </TableBody>
         </Table>
       </Paper>
+
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        PaperProps={{ sx: { width: { xs: "100%", sm: 520 } } }}
+      >
+        <Box
+          p={2}
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Typography variant="h6">
+            {selected ? `Edit Budget — ${selected.name}` : "Edit Budget"}
+          </Typography>
+          <IconButton aria-label="Close" onClick={() => setDrawerOpen(false)}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <Divider />
+        <Box
+          component="form"
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          p={2}
+        >
+          <Stack spacing={2}>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+              <TextField
+                label="Budget (hours)"
+                type="number"
+                inputProps={{ min: 0, step: 1 }}
+                {...register("budgetHours")}
+                error={!!errors.budgetHours}
+                helperText={errors.budgetHours?.message}
+                fullWidth
+              />
+              <TextField
+                label="Budget (amount)"
+                type="number"
+                inputProps={{ min: 0, step: 0.01 }}
+                {...register("budgetAmount")}
+                error={!!errors.budgetAmount}
+                helperText={errors.budgetAmount?.message}
+                fullWidth
+              />
+            </Stack>
+            <Stack direction="row" spacing={2}>
+              <Button type="submit" variant="contained" disabled={isSubmitting}>
+                Save changes
+              </Button>
+              <Button
+                type="button"
+                variant="outlined"
+                onClick={() => setDrawerOpen(false)}
+                disabled={isSubmitting}
+              >
+                Cancel
+              </Button>
+              {selected && (
+                <Button
+                  type="button"
+                  color="error"
+                  variant="outlined"
+                  onClick={() => openConfirmDelete(selected.id, selected.name)}
+                  disabled={isSubmitting}
+                >
+                  Delete
+                </Button>
+              )}
+            </Stack>
+          </Stack>
+        </Box>
+      </Drawer>
+
+      <Dialog
+        open={confirm.open}
+        onClose={closeConfirm}
+        aria-labelledby="confirm-delete-budget-title"
+      >
+        <DialogTitle id="confirm-delete-budget-title">
+          Delete engagement?
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            This will permanently remove{" "}
+            <strong>{confirm.name || "this engagement"}</strong> and its budget.
+            This action cannot be undone.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeConfirm} variant="text">
+            Cancel
+          </Button>
+          <Button
+            onClick={async () => {
+              await onDelete(confirm.id);
+              closeConfirm();
+            }}
+            color="error"
+            variant="contained"
+            autoFocus
+          >
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Stack>
   );
 }

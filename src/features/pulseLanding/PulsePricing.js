@@ -22,9 +22,9 @@ export default function PulsePricing() {
 
   useEffect(() => {
     const title =
-      "Pulse Pricing — Professional Service Clarity | Monochrome Compliance";
+      "Pulse Pricing — Launch Offer $50→$150 | Monochrome Compliance";
     const description =
-      "Transparent pricing for professional service businesses. $250/m for early adopters (20 users included), then $500/m.";
+      "Launch pricing: $50/month for your first 3 months, then $150/month (20 users included). Limited launch cohort.";
     const pageUrl = `${window.location.origin}/pulse/pricing`;
     const imageUrl = `${window.location.origin}/images/pulse/dashboard1.png`;
 
@@ -56,7 +56,7 @@ export default function PulsePricing() {
     upsertMeta("name", "twitter:image", { content: imageUrl });
   }, []);
 
-  const totalFounderSlots = 10;
+  const totalFounderSlots = 200;
   const claimedFounderSlots = 1; // TODO: wire from backend later
   const remainingFounderSlots = Math.max(
     totalFounderSlots - claimedFounderSlots,
@@ -100,10 +100,9 @@ export default function PulsePricing() {
             {/* Scrolling message (left) */}
             <Box sx={{ flex: 1, overflow: "hidden" }}>
               <Box className="scrolling">
-                🚨 Only {remainingFounderSlots} of {totalFounderSlots}{" "}
-                early‑adopter spot
-                {remainingFounderSlots === 1 ? "" : "s"} left — $250/m incl. 20
-                users. 🚨
+                ⚡ Only {remainingFounderSlots} of {totalFounderSlots}{" "}
+                launch‑cohort spots left — $50/m for 3 months, then $150/m (20
+                users included). ⚡
               </Box>
             </Box>
             {/* Static CTA (right) — hidden on xs */}
@@ -147,7 +146,6 @@ export default function PulsePricing() {
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
               Simple, transparent pricing for professional service businesses.
-              Early adopters help shape the roadmap and get founder‑level rates.
             </Typography>
           </Box>
 
@@ -217,8 +215,8 @@ export default function PulsePricing() {
             }}
           >
             <Grid container spacing={3} justifyContent="center">
-              {/* Early adopter (first 5) */}
-              <Grid item xs={12} md={5}>
+              {/* Launch cohort */}
+              <Grid item xs={12} md={4}>
                 <Paper
                   variant="outlined"
                   sx={{
@@ -239,7 +237,7 @@ export default function PulsePricing() {
                 >
                   <Box sx={{ flexGrow: 1 }}>
                     <Chip
-                      label="First 10 firms"
+                      label="First 200 firms"
                       color="primary"
                       size="small"
                       sx={{
@@ -249,18 +247,30 @@ export default function PulsePricing() {
                       }}
                     />
                     <Typography variant="overline" color="text.secondary">
-                      Early adopter
+                      Launch cohort
                     </Typography>
                     <Box
-                      sx={{ display: "flex", alignItems: "baseline", gap: 1 }}
+                      sx={{
+                        display: "flex",
+                        alignItems: "baseline",
+                        gap: 1,
+                        flexWrap: "wrap",
+                      }}
                     >
                       <Typography variant="h4" sx={{ fontWeight: 700 }}>
-                        $250
+                        $50
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        / month
+                        / month for your first 3 months
                       </Typography>
                     </Box>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ mt: 0.5 }}
+                    >
+                      then $150 / month ongoing
+                    </Typography>
                     <Typography variant="body1" sx={{ mt: 1 }}>
                       <strong>20 users included</strong>
                     </Typography>
@@ -269,8 +279,8 @@ export default function PulsePricing() {
                       color="text.secondary"
                       sx={{ mt: theme.spacing(2) }}
                     >
-                      Founder pricing for the first ten firms. Month‑to‑month.
-                      Cancel anytime. Priority onboarding when we open wider.
+                      Launch pricing for the first two hundred businesses.
+                      Month‑to‑month. Cancel anytime. Priority onboarding.
                     </Typography>
                     <Box sx={{ mt: theme.spacing(1), mb: theme.spacing(2) }}>
                       <Typography
@@ -279,7 +289,7 @@ export default function PulsePricing() {
                         sx={{ mb: 0.5 }}
                       >
                         {claimedFounderSlots} of {totalFounderSlots}{" "}
-                        early‑adopter spots filled
+                        launch‑cohort spots filled
                       </Typography>
                       <LinearProgress
                         variant="determinate"
@@ -302,16 +312,79 @@ export default function PulsePricing() {
                       color="text.secondary"
                       sx={{ display: "block", mt: 1 }}
                     >
-                      Once 10 firms are onboarded, pricing reverts to $500/month
-                      (20 users included). Additional users available on
-                      request.
+                      After the launch cohort, standard pricing applies. Your
+                      ongoing rate after month 3 is $150/month (20 users
+                      included).
                     </Typography>
                   </Box>
                 </Paper>
               </Grid>
 
-              {/* Standard plan */}
-              <Grid item xs={12} md={5}>
+              {/* Standard (Most popular) */}
+              <Grid item xs={12} md={4}>
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    p: theme.spacing(3),
+                    height: "100%",
+                    position: "relative",
+                    transition: "transform 120ms ease, box-shadow 120ms ease",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    "&:hover": { transform: "translateY(-4px)", boxShadow: 6 },
+                  }}
+                >
+                  <Chip
+                    label="Most popular"
+                    color="secondary"
+                    size="small"
+                    sx={{
+                      position: "absolute",
+                      top: theme.spacing(2),
+                      right: theme.spacing(2),
+                    }}
+                  />
+                  <Box sx={{ flexGrow: 1 }}>
+                    <Typography variant="overline" color="text.secondary">
+                      Standard
+                    </Typography>
+                    <Typography
+                      variant="h4"
+                      sx={{ fontWeight: 700 }}
+                      gutterBottom
+                    >
+                      $150{" "}
+                      <span style={{ fontSize: 16, opacity: 0.7 }}>
+                        {" "}
+                        / month
+                      </span>
+                    </Typography>
+                    <Typography variant="body1" sx={{ mb: theme.spacing(2) }}>
+                      <strong>20 users included</strong>
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ mb: theme.spacing(3) }}
+                    >
+                      Designed for small and mid‑size professional service
+                      businesses. Month‑to‑month. Cancel anytime.
+                    </Typography>
+                  </Box>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    fullWidth
+                    href="/pulse/join"
+                  >
+                    Start for $150/month
+                  </Button>
+                </Paper>
+              </Grid>
+
+              {/* Growth / Enterprise */}
+              <Grid item xs={12} md={4}>
                 <Paper
                   variant="outlined"
                   sx={{
@@ -326,29 +399,25 @@ export default function PulsePricing() {
                 >
                   <Box sx={{ flexGrow: 1 }}>
                     <Typography variant="overline" color="text.secondary">
-                      Standard
+                      Growth / Enterprise
                     </Typography>
                     <Typography
-                      variant="h4"
+                      variant="h5"
                       sx={{ fontWeight: 700 }}
                       gutterBottom
                     >
-                      $500{" "}
-                      <span style={{ fontSize: 16, opacity: 0.7 }}>
-                        {" "}
-                        / month
-                      </span>
+                      Custom pricing
                     </Typography>
                     <Typography variant="body1" sx={{ mb: theme.spacing(2) }}>
-                      <strong>20 users included</strong>
+                      Unlimited users
                     </Typography>
                     <Typography
                       variant="body2"
                       color="text.secondary"
                       sx={{ mb: theme.spacing(3) }}
                     >
-                      For businesses joining after the early‑adopter cohort.
-                      Month‑to‑month. Cancel anytime.
+                      Advanced reporting, dedicated support, and custom
+                      integrations / SSO.
                     </Typography>
                   </Box>
                   <Button
@@ -364,8 +433,7 @@ export default function PulsePricing() {
                     color="text.secondary"
                     sx={{ display: "block", mt: 1, visibility: "hidden" }}
                   >
-                    Once 10 firms are onboarded, pricing reverts to $500/month
-                    (20 users included). Additional users available on request.
+                    Contact us for a tailored plan.
                   </Typography>
                 </Paper>
               </Grid>

@@ -68,7 +68,7 @@ export default function PulseSolutionLanding() {
     {
       key: "admin",
       title: "Admin Console",
-      description: "Manage customers, resources, roles, and data settings.",
+      description: "Manage clients, engagements, budgets and resources.",
       icon: <AdminPanelSettingsIcon fontSize="large" aria-hidden />,
       to: "/pulse-solution/admin",
       roles: ["Admin", "Boss"],
