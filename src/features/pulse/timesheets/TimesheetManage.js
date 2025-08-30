@@ -59,6 +59,7 @@ export default function TimesheetManage() {
   const load = useCallback(async () => {
     try {
       const all = await pulseService.timesheets.list();
+      // TODO: later restrict to only resources where resource.managerUserId === currentUserId
       const filtered = (all || []).filter((t) => {
         const wk = String(t.weekKey) === String(week);
         const st =
@@ -132,7 +133,12 @@ export default function TimesheetManage() {
   return (
     <Stack spacing={2}>
       <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Typography variant="h5">Manage Timesheets</Typography>
+        <Typography variant="h5">
+          Manage Timesheets
+          <Typography variant="body2" color="text.secondary">
+            Showing all timesheets for this customer (tenant-wide)
+          </Typography>
+        </Typography>
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={1}

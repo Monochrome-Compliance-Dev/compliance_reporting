@@ -17,7 +17,11 @@ export default function PulseAdminConsole() {
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Add, edit, and manage staff/resources.
           </Typography>
-          <Button component={Link} to="/pulse/resources" variant="contained">
+          <Button
+            component={Link}
+            to="/pulse-solution/admin/resources"
+            variant="contained"
+          >
             Open Resources
           </Button>
         </Paper>
@@ -29,7 +33,11 @@ export default function PulseAdminConsole() {
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Add and maintain your client list.
           </Typography>
-          <Button component={Link} to="/pulse/clients" variant="contained">
+          <Button
+            component={Link}
+            to="/pulse-solution/admin/clients"
+            variant="contained"
+          >
             Open Clients
           </Button>
         </Paper>
@@ -43,7 +51,11 @@ export default function PulseAdminConsole() {
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Link clients and resources, define the work.
           </Typography>
-          <Button component={Link} to="/pulse/engagements" variant="contained">
+          <Button
+            component={Link}
+            to="/pulse-solution/admin/engagements"
+            variant="contained"
+          >
             Open Engagements
           </Button>
         </Paper>
@@ -56,19 +68,23 @@ export default function PulseAdminConsole() {
             View, edit, and manage timesheets.
           </Typography>
           <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
-            <Button component={Link} to="/pulse/timesheets" variant="contained">
+            <Button
+              component={Link}
+              to="/pulse-solution/timesheets"
+              variant="contained"
+            >
               My Timesheets
             </Button>
             <Button
               component={Link}
-              to="/pulse/timesheets/edit"
+              to="/pulse-solution/timesheets/edit"
               variant="outlined"
             >
               Edit Current
             </Button>
             <Button
               component={Link}
-              to="/pulse/timesheets/manage"
+              to="/pulse-solution/timesheets/manage"
               variant="outlined"
             >
               Manage
@@ -87,7 +103,7 @@ export default function PulseAdminConsole() {
           </Typography>
           <Button
             component={Link}
-            to="/pulse/resources/allocation"
+            to="/pulse-solution/admin/resources/allocation"
             variant="contained"
           >
             Open Allocation View
@@ -100,7 +116,11 @@ export default function PulseAdminConsole() {
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Build and review budgets.
           </Typography>
-          <Button component={Link} to="/pulse/budgets" variant="contained">
+          <Button
+            component={Link}
+            to="/pulse-solution/admin/budgets"
+            variant="contained"
+          >
             Open Budgets
           </Button>
         </Paper>

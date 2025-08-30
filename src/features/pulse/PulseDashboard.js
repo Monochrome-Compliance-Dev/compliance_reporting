@@ -633,7 +633,7 @@ const PulseDashboard = () => {
         mb={2}
       >
         <Typography variant="h4">Pulse Dashboard</Typography>
-        <Button component={Link} to="/pulse/admin" variant="outlined">
+        <Button component={Link} to="/pulse-solution/admin" variant="outlined">
           Open Admin Console
         </Button>
       </Box>

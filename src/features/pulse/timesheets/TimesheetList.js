@@ -13,10 +13,6 @@ import {
   Button,
   Chip,
   TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
 } from "@mui/material";
 import { usePulseContext, useAlert } from "../../../context";
 import { userService } from "../../../services";
@@ -39,11 +35,6 @@ const mondayOf = (dateISO) => {
   mon.setDate(d.getDate() - diff);
   return toISO(mon);
 };
-const plusDays = (iso, days) => {
-  const d = fromISO(iso);
-  d.setDate(d.getDate() + days);
-  return toISO(d);
-};
 
 export default function TimesheetList() {
   const navigate = useNavigate();
@@ -53,56 +44,54 @@ export default function TimesheetList() {
   const currentUser = userService.userValue;
   const customerId = currentUser?.customerId;
 
-  // Try to infer the user's resource
-  const resourceById = useMemo(
-    () => Object.fromEntries((resources || []).map((r) => [String(r.id), r])),
+  const [loading, setLoading] = useState(false);
+  const [timesheets, setTimesheets] = useState([]);
+  const [totals, setTotals] = useState({}); // id -> total hours
+
+  const resourceByUserId = useMemo(
+    () =>
+      Object.fromEntries((resources || []).map((r) => [String(r.userId), r])),
     [resources]
   );
 
-  const inferResourceId = useCallback(() => {
+  const myResourceId = useMemo(() => {
     if (!currentUser) return "";
-    // Prefer explicit mapping if present
-    const byUserId = (resources || []).find(
+    const byId = (resources || []).find(
       (r) => String(r.userId) === String(currentUser.id)
     );
-    if (byUserId) return String(byUserId.id);
-    // Fallback: email match
+    if (byId) return String(byId.id);
     const byEmail = (resources || []).find(
       (r) =>
         String(r.email || "").toLowerCase() ===
         String(currentUser.email || "").toLowerCase()
     );
-    if (byEmail) return String(byEmail.id);
-    // Last resort: first resource
-    return resources && resources[0] ? String(resources[0].id) : "";
+    return byEmail ? String(byEmail.id) : "";
   }, [resources, currentUser]);
 
-  const [resourceId, setResourceId] = useState("");
-  const [week, setWeek] = useState(mondayOf());
-  const [rows, setRows] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  // Initial selection
-  useEffect(() => {
-    if (!resourceId) {
-      const inferred = inferResourceId();
-      setResourceId(inferred);
-    }
-  }, [inferResourceId, resourceId]);
-
   const load = useCallback(async () => {
-    if (!resourceId) return;
+    if (!customerId || !myResourceId) return;
     setLoading(true);
     try {
       const all = await pulseService.timesheets.list();
       const mine = (all || []).filter(
-        (t) => String(t.resourceId) === String(resourceId)
+        (t) => String(t.resourceId) === String(myResourceId)
       );
-      // Sort newest first (by weekKey desc)
-      mine.sort((a, b) =>
-        a.weekKey < b.weekKey ? 1 : a.weekKey > b.weekKey ? -1 : 0
+      // Sort by weekKey desc
+      mine.sort((a, b) => (String(a.weekKey) < String(b.weekKey) ? 1 : -1));
+      setTimesheets(mine);
+
+      // Fetch totals for each sheet (sum hours)
+      const entries = await Promise.all(
+        mine.map(async (t) => {
+          const rows = await pulseService.timesheets.rows.list(String(t.id));
+          const total = (rows || []).reduce(
+            (acc, r) => acc + Number(r.hours || 0),
+            0
+          );
+          return [String(t.id), total];
+        })
       );
-      setRows(mine);
+      setTotals(Object.fromEntries(entries));
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error("TimesheetList: load failed", e);
@@ -110,191 +99,102 @@ export default function TimesheetList() {
     } finally {
       setLoading(false);
     }
-  }, [resourceId, showAlert]);
+  }, [customerId, myResourceId, showAlert]);
 
   useEffect(() => {
     load();
   }, [load]);
 
-  const openReadOnly = (id) => navigate(`/pulse/timesheets/${id}`);
-  const openEditor = () => navigate(`/pulse/timesheets/edit`);
-
-  const ensureThisWeek = useCallback(async () => {
-    if (!customerId || !resourceId) {
-      showAlert("Missing user or customer context", "error");
-      return;
-    }
+  const openCurrentWeek = useCallback(async () => {
+    if (!customerId || !myResourceId) return;
+    const thisWeek = mondayOf();
     try {
-      const all = await pulseService.timesheets.list();
-      const exists = (all || []).find(
-        (t) =>
-          String(t.resourceId) === String(resourceId) &&
-          String(t.weekKey) === String(week)
+      // Check for existing sheet
+      const existing = (timesheets || []).find(
+        (t) => String(t.weekKey) === String(thisWeek)
       );
-      if (exists) {
-        showAlert("This week's timesheet already exists", "info");
-        return String(exists.id);
+      if (existing) {
+        navigate(`/pulse-solution/timesheets/${existing.id}`);
+        return;
       }
+      // Create and navigate to editor
       const created = await pulseService.timesheets.create({
-        resourceId,
-        weekKey: week,
+        resourceId: myResourceId,
+        weekKey: thisWeek,
         status: "draft",
         customerId,
         createdBy: currentUser?.id,
       });
       showAlert("Created this week's timesheet", "success");
-      await load();
-      return String(created?.id);
+      navigate(`/pulse-solution/timesheets/${created.id}`);
     } catch (e) {
       // eslint-disable-next-line no-console
-      console.error("TimesheetList: ensureThisWeek failed", e);
-      showAlert("Failed to create timesheet", "error");
-      return "";
+      console.error("openCurrentWeek failed", e);
+      showAlert("Could not open current week", "error");
     }
-  }, [customerId, resourceId, week, currentUser, load, showAlert]);
+  }, [customerId, myResourceId, currentUser, timesheets, navigate, showAlert]);
 
-  const copyLastWeek = useCallback(async () => {
-    if (!customerId || !resourceId) {
-      showAlert("Missing user or customer context", "error");
-      return;
-    }
-    try {
-      const all = await pulseService.timesheets.list();
-      const mine = (all || []).filter(
-        (t) => String(t.resourceId) === String(resourceId)
-      );
-      if (mine.length === 0) {
-        showAlert("No prior timesheets to copy from", "info");
-        return;
-      }
-      // find latest prior week < current week
-      const prior = [...mine]
-        .filter((t) => String(t.weekKey) < String(week))
-        .sort((a, b) => (a.weekKey < b.weekKey ? 1 : -1))[0];
-      if (!prior) {
-        showAlert("No prior week to copy", "info");
-        return;
-      }
-      // Ensure target exists
-      const targetId = await ensureThisWeek();
-      if (!targetId) return;
-      // Fetch rows from prior, shift dates +7 days, create in target
-      const priorRows = await pulseService.timesheets.rows.list(
-        String(prior.id)
-      );
-      for (const r of priorRows || []) {
-        await pulseService.timesheets.rows.create(String(targetId), {
-          date: plusDays(r.date, 7),
-          hours: Number(r.hours || 0),
-          billable: !!r.billable,
-          engagementId: r.engagementId || undefined,
-          budgetItemId: r.budgetItemId || undefined,
-          notes: r.notes || undefined,
-          customerId,
-          createdBy: currentUser?.id,
-        });
-      }
-      showAlert("Copied last week into this week", "success");
-      await load();
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error("TimesheetList: copyLastWeek failed", e);
-      showAlert("Failed to copy last week", "error");
-    }
-  }, [
-    customerId,
-    resourceId,
-    week,
-    currentUser,
-    ensureThisWeek,
-    load,
-    showAlert,
-  ]);
-
-  const submit = useCallback(
-    async (id) => {
-      if (!customerId || !currentUser?.id) {
-        showAlert("Missing user or customer context", "error");
-        return;
-      }
+  const recall = useCallback(
+    async (t) => {
       try {
-        const payload = {
-          status: "submitted",
-          updatedBy: currentUser.id,
+        await pulseService.timesheets.update(String(t.id), {
+          status: "draft",
           customerId,
-          submittedBy: currentUser.id,
-          submittedAt: new Date().toISOString(),
-        };
-
-        if (typeof pulseService.timesheets.patch === "function") {
-          await pulseService.timesheets.patch(String(id), payload);
-        } else {
-          await pulseService.timesheets.update(String(id), payload);
-        }
-        showAlert("Submitted for approval", "success");
-        await load();
+          updatedBy: currentUser?.id,
+        });
+        showAlert("Timesheet recalled to draft", "success");
+        navigate(`/pulse-solution/timesheets/${t.id}`);
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.error("TimesheetList: submit failed", e);
-        showAlert("Failed to submit timesheet", "error");
+        console.error("Recall failed", e);
+        showAlert("Failed to recall timesheet", "error");
       }
     },
-    [customerId, currentUser, load, showAlert]
+    [customerId, currentUser, navigate, showAlert]
   );
 
-  const thisWeekId = useMemo(
-    () => rows.find((t) => String(t.weekKey) === String(week))?.id,
-    [rows, week]
-  );
+  const statusColor = (s) => {
+    switch (s) {
+      case "approved":
+        return "success";
+      case "submitted":
+        return "warning";
+      case "rejected":
+        return "error";
+      default:
+        return "default";
+    }
+  };
+
+  const resourceLabel = useMemo(() => {
+    const r = resourceByUserId[String(currentUser?.id)] || null;
+    return r?.name || r?.email || "";
+  }, [resourceByUserId, currentUser]);
 
   return (
     <Stack spacing={2}>
       <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Typography variant="h5">My Timesheets</Typography>
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={1}
-          alignItems={{ xs: "stretch", sm: "center" }}
-        >
-          <FormControl size="small" sx={{ minWidth: 200 }}>
-            <InputLabel id="resource-select-label">Resource</InputLabel>
-            <Select
-              labelId="resource-select-label"
-              label="Resource"
-              value={resourceId}
-              onChange={(e) => setResourceId(e.target.value)}
-            >
-              {(resources || []).map((r) => (
-                <MenuItem key={r.id} value={String(r.id)}>
-                  {r.name || r.email || r.id}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+        <Box>
+          <Typography variant="h6">My Timesheets</Typography>
+          <Typography variant="body2" color="text.secondary">
+            Resource: {resourceLabel || "(not linked)"}
+          </Typography>
+        </Box>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
           <TextField
             size="small"
-            label="Week (Monday)"
             type="date"
-            value={week}
-            onChange={(e) => setWeek(mondayOf(e.target.value))}
+            label="Week (Monday)"
+            value={mondayOf()}
             InputLabelProps={{ shrink: true }}
+            disabled
           />
           <Button
-            variant="outlined"
-            onClick={copyLastWeek}
-            disabled={!resourceId || loading}
-          >
-            Copy last week
-          </Button>
-          <Button
             variant="contained"
-            onClick={async () => {
-              const id = await ensureThisWeek();
-              if (id) openEditor();
-            }}
-            disabled={!resourceId || loading}
+            onClick={openCurrentWeek}
+            disabled={loading || !myResourceId}
           >
-            Create this week
+            Open current week
           </Button>
         </Stack>
       </Box>
@@ -306,73 +206,65 @@ export default function TimesheetList() {
               <TableRow>
                 <TableCell>Week</TableCell>
                 <TableCell>Status</TableCell>
+                <TableCell align="right">Total Hours</TableCell>
                 <TableCell align="right">Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={3}>
-                    <Typography color="text.secondary">
-                      No timesheets yet.
-                    </Typography>
-                  </TableCell>
-                </TableRow>
-              ) : (
-                rows.map((t) => (
-                  <TableRow
-                    key={t.id}
-                    selected={String(t.weekKey) === String(week)}
-                  >
+              {(timesheets || []).map((t) => {
+                const total = totals[String(t.id)] ?? 0;
+                const canRecall =
+                  t.status === "submitted" || t.status === "rejected";
+                return (
+                  <TableRow key={t.id} hover>
                     <TableCell>{t.weekKey}</TableCell>
                     <TableCell>
-                      <Chip size="small" label={t.status || "draft"} />
+                      <Chip
+                        size="small"
+                        label={t.status}
+                        color={statusColor(t.status)}
+                      />
                     </TableCell>
+                    <TableCell align="right">{total.toFixed(2)}</TableCell>
                     <TableCell align="right">
-                      <Stack
-                        direction="row"
-                        spacing={1}
-                        justifyContent="flex-end"
-                      >
-                        <Button size="small" onClick={() => openReadOnly(t.id)}>
-                          Open
-                        </Button>
+                      {t.status === "draft" ? (
                         <Button
                           size="small"
                           variant="outlined"
-                          onClick={openEditor}
+                          onClick={() =>
+                            navigate(`/pulse-solution/timesheets/${t.id}`)
+                          }
                         >
                           Edit
                         </Button>
+                      ) : (
                         <Button
                           size="small"
-                          variant="contained"
-                          disabled={t.status !== "draft"}
-                          onClick={() => submit(t.id)}
+                          variant="outlined"
+                          onClick={() =>
+                            navigate(`/pulse-solution/timesheets/view/${t.id}`)
+                          }
                         >
-                          Submit
+                          View
                         </Button>
-                      </Stack>
+                      )}
+                      {canRecall && (
+                        <Button
+                          size="small"
+                          sx={{ ml: 1 }}
+                          onClick={() => recall(t)}
+                        >
+                          Recall
+                        </Button>
+                      )}
                     </TableCell>
                   </TableRow>
-                ))
-              )}
+                );
+              })}
             </TableBody>
           </Table>
         </Box>
       </Paper>
-
-      {thisWeekId ? (
-        <Typography variant="body2" color="text.secondary">
-          This week's timesheet exists. Use <strong>Edit</strong> to capture
-          time, or <strong>Open</strong> to view.
-        </Typography>
-      ) : (
-        <Typography variant="body2" color="text.secondary">
-          No timesheet for this week. Click <strong>Create this week</strong> to
-          start.
-        </Typography>
-      )}
     </Stack>
   );
 }

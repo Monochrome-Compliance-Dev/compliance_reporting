@@ -26,6 +26,7 @@ export const userService = {
   getAllByClientId,
   getById,
   create,
+  inviteWithResource,
   update,
   delete: _delete,
   user: userSubject.asObservable(),
@@ -190,6 +191,11 @@ function getById(id) {
 // Create a new user
 function create(params) {
   return fetchWrapper.post(baseUrl, params);
+}
+
+// Invite a user and create a linked resource (composite)
+function inviteWithResource(params) {
+  return fetchWrapper.post(`${baseUrl}/invite-with-resource`, params);
 }
 
 // Update an existing user

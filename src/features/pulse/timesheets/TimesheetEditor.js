@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
+import { useNavigate, Link } from "react-router";
 import { nanoid } from "nanoid";
-import { useForm, useFieldArray, Controller } from "react-hook-form";
+import { useForm, Controller, useFieldArray, useWatch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import {
@@ -15,10 +16,6 @@ import {
   TableCell,
   TableBody,
   TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Checkbox,
 } from "@mui/material";
 import { usePulseContext, useAlert } from "../../../context";
@@ -32,14 +29,13 @@ const toISO = (d) =>
 const fromISO = (s) => {
   const [y, m, d] = String(s).split("-").map(Number);
   const dt = new Date(y, (m || 1) - 1, d || 1);
-  // normalise to local date (AEST) by zeroing time
   dt.setHours(0, 0, 0, 0);
   return dt;
 };
 const mondayOf = (dateISO) => {
   const d = dateISO ? fromISO(dateISO) : new Date();
-  const day = d.getDay(); // 0=Sun..6=Sat
-  const diff = (day + 6) % 7; // days since Monday
+  const day = d.getDay();
+  const diff = (day + 6) % 7;
   const mon = new Date(d);
   mon.setDate(d.getDate() - diff);
   return toISO(mon);
@@ -75,169 +71,264 @@ const sheetSchema = yup.object({
   rows: yup.array().of(rowSchema).default([]),
 });
 
-export default function TimesheetEditor() {
-  const {
-    resources = [],
-    engagements = [],
-    setTimesheet,
-    getTimesheet,
-  } = usePulseContext();
-  const { showAlert } = useAlert();
-  const currentUserId = userService.userValue?.id;
-  const customerId = userService.userValue?.customerId;
+// --- Row Editor (isolated to avoid cross-row races) ---
+function TimesheetRowEditor({
+  idx,
+  control,
+  isLocked,
+  days,
+  engagementOptions,
+}) {
+  const hasEngOptions = (engagementOptions || []).length > 0;
+  const engId = useWatch({ control, name: `rows.${idx}.engagementId` }) || "";
+  const [options, setOptions] = useState([]);
 
-  // top controls
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      if (!engId) {
+        if (!cancelled) setOptions([]);
+        return;
+      }
+      try {
+        const items = await pulseService.budgetItems.listByEngagement(
+          String(engId)
+        );
+        if (!cancelled) setOptions(Array.isArray(items) ? items : []);
+      } catch {
+        if (!cancelled) setOptions([]);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [engId]);
+
+  return (
+    <TableRow>
+      <TableCell width={160}>
+        <Controller
+          name={`rows.${idx}.date`}
+          control={control}
+          render={({ field: f }) => (
+            <TextField
+              type="date"
+              size="small"
+              value={f.value || days[0]}
+              onChange={(e) => f.onChange(e.target.value)}
+              inputProps={{ min: days[0], max: days[6] }}
+              disabled={isLocked || !hasEngOptions}
+            />
+          )}
+        />
+      </TableCell>
+      <TableCell width={260}>
+        <Controller
+          name={`rows.${idx}.engagementId`}
+          control={control}
+          render={({ field: f }) => (
+            <TextField
+              select
+              SelectProps={{ native: true }}
+              fullWidth
+              size="small"
+              value={f.value || ""}
+              onChange={(e) => f.onChange(String(e.target.value))}
+              disabled={isLocked || !hasEngOptions}
+              error={!f.value}
+              helperText={!f.value ? "Required" : ""}
+            >
+              <option value="" disabled>
+                {hasEngOptions
+                  ? "Select engagement"
+                  : "No engagements assigned"}
+              </option>
+              {/** Engagement options are provided via form context defaults (see parent) */}
+              {(engagementOptions || []).map((e) => (
+                <option key={e.id} value={String(e.id)}>
+                  {e.name}
+                </option>
+              ))}
+            </TextField>
+          )}
+        />
+      </TableCell>
+      <TableCell width={260}>
+        <Controller
+          name={`rows.${idx}.budgetItemId`}
+          control={control}
+          render={({ field: f }) => {
+            const current = String(f.value || "");
+            const valid = (options || []).some(
+              (bi) => String(bi.id) === current
+            );
+            const safeValue = valid ? current : "";
+            const hasOptions = (options || []).length > 0;
+            return (
+              <>
+                <TextField
+                  select
+                  SelectProps={{ native: true }}
+                  fullWidth
+                  size="small"
+                  value={safeValue}
+                  onChange={(e) => f.onChange(String(e.target.value))}
+                  disabled={isLocked || !hasOptions}
+                  key={engId}
+                  error={hasOptions && !safeValue}
+                  helperText={hasOptions ? (!safeValue ? "Required" : "") : ""}
+                >
+                  <option value="">
+                    {hasOptions ? "Select budget item" : "No items"}
+                  </option>
+                  {(options || []).map((bi) => (
+                    <option key={bi.id} value={String(bi.id)}>
+                      {bi.activity || bi.code || String(bi.id)}
+                    </option>
+                  ))}
+                </TextField>
+                {!hasOptions && engId ? (
+                  <Box mt={0.5}>
+                    <Button
+                      component={Link}
+                      to={`/pulse-solution/engagements/manage?id=${encodeURIComponent(engId)}`}
+                      size="small"
+                      variant="text"
+                    >
+                      + New budget item
+                    </Button>
+                  </Box>
+                ) : null}
+              </>
+            );
+          }}
+        />
+      </TableCell>
+      <TableCell align="right" width={140}>
+        <Controller
+          name={`rows.${idx}.hours`}
+          control={control}
+          render={({ field: f }) => (
+            <TextField
+              type="number"
+              size="small"
+              inputProps={{ step: 0.25, min: 0, max: 24 }}
+              value={f.value ?? 0}
+              onChange={(e) => f.onChange(e.target.value)}
+              disabled={isLocked || !hasEngOptions}
+              error={Number(f.value ?? 0) < 0 || Number(f.value ?? 0) > 24}
+              helperText={
+                Number(f.value ?? 0) < 0 || Number(f.value ?? 0) > 24
+                  ? "0–24 only"
+                  : ""
+              }
+            />
+          )}
+        />
+      </TableCell>
+      <TableCell width={100}>
+        <Controller
+          name={`rows.${idx}.billable`}
+          control={control}
+          render={({ field: f }) => (
+            <Checkbox
+              checked={!!f.value}
+              onChange={(e) => f.onChange(e.target.checked)}
+              disabled={isLocked || !hasEngOptions}
+            />
+          )}
+        />
+      </TableCell>
+      <TableCell>
+        <Controller
+          name={`rows.${idx}.notes`}
+          control={control}
+          render={({ field: f }) => (
+            <TextField
+              size="small"
+              value={f.value || ""}
+              onChange={(e) => f.onChange(e.target.value)}
+              fullWidth
+              disabled={isLocked || !hasEngOptions}
+            />
+          )}
+        />
+      </TableCell>
+      <TableCell align="right" width={160}>
+        {/* Per-row actions handled by parent Save */}
+      </TableCell>
+    </TableRow>
+  );
+}
+
+export default function TimesheetEditor() {
+  const navigate = useNavigate();
+  const { resources = [], engagements = [], setTimesheet } = usePulseContext();
+  const { showAlert } = useAlert();
+  const currentUser = userService.userValue;
+  const currentUserId = currentUser?.id;
+  const customerId = currentUser?.customerId;
+  const currentRole = currentUser?.role;
+
+  // infer resource from user
+  const inferResourceId = useCallback(() => {
+    if (!currentUser) return "";
+    const byUserId = (resources || []).find(
+      (r) => String(r.userId) === String(currentUser.id)
+    );
+    if (byUserId) return String(byUserId.id);
+    const byEmail = (resources || []).find(
+      (r) =>
+        String(r.email || "").toLowerCase() ===
+        String(currentUser.email || "").toLowerCase()
+    );
+    return byEmail ? String(byEmail.id) : "";
+  }, [resources, currentUser]);
+
   const [resourceId, setResourceId] = useState("");
+  useEffect(() => {
+    if (!resourceId) setResourceId(inferResourceId());
+  }, [inferResourceId, resourceId]);
+
   const [weekKey, setWeekKey] = useState(mondayOf());
   const [status, setStatus] = useState("draft");
   const [headerId, setHeaderId] = useState("");
   const isLocked = status !== "draft";
 
-  // derive engagement options (MVP: all engagements; later filter by resource)
-  const engagementOptions = useMemo(() => engagements || [], [engagements]);
-
-  const [budgetOptionsByEng, setBudgetOptionsByEng] = useState(new Map());
-  const loadBudgetItems = useCallback(
-    async (engagementId) => {
-      if (!engagementId) return [];
-      if (budgetOptionsByEng.has(engagementId))
-        return budgetOptionsByEng.get(engagementId);
-      const items =
-        await pulseService.budgetItems.listByEngagement(engagementId);
-      setBudgetOptionsByEng((prev) => {
-        const next = new Map(prev);
-        next.set(engagementId, Array.isArray(items) ? items : []);
-        return next;
-      });
-      return Array.isArray(items) ? items : [];
-    },
-    [budgetOptionsByEng]
-  );
-
-  // RHF setup
-  const {
-    control,
-    handleSubmit,
-    reset,
-    watch,
-    setValue,
-    getValues,
-    formState,
-  } = useForm({
+  // RHF
+  const { control, handleSubmit, reset, getValues } = useForm({
     resolver: yupResolver(sheetSchema),
     defaultValues: { resourceId: "", weekKey: mondayOf(), rows: [] },
     mode: "onBlur",
   });
-  const { fields, append, remove, replace } = useFieldArray({
+  const { fields, append, replace } = useFieldArray({
     name: "rows",
     control,
-    keyName: "key", // prevent collision with our business `id`
+    keyName: "key",
   });
-  const { errors, isSubmitting, dirtyFields } = formState;
-  const isRowDirty = useCallback(
-    (idx) => {
-      const d = dirtyFields?.rows?.[idx];
-      if (!d) return false;
-      return Object.values(d).some(Boolean);
-    },
-    [dirtyFields]
-  );
+  const rowsWatch = useWatch({ control, name: "rows" });
+  const hasInvalidRow = useMemo(() => {
+    const rows = Array.isArray(rowsWatch) ? rowsWatch : [];
+    return rows.some((r) => {
+      const hoursNum = Number(r?.hours);
+      const hoursBad = Number.isNaN(hoursNum) || hoursNum < 0 || hoursNum > 24;
+      return !r?.engagementId || !r?.budgetItemId || hoursBad;
+    });
+  }, [rowsWatch]);
 
-  const onSaveRow = useCallback(
-    async (idx) => {
-      if (!currentUserId || !customerId) {
-        showAlert("Missing user or customer context", "error");
-        return;
-      }
-
-      // Ensure header exists and get its id
-      const all = await pulseService.timesheets.list();
-      const existing = (all || []).find(
-        (t) =>
-          String(t.resourceId) === String(resourceId) &&
-          String(t.weekKey) === String(weekKey)
-      );
-      if (!existing) {
-        showAlert("Save the timesheet first", "warning");
-        return;
-      }
-      const headerId = String(existing.id);
-
-      const row = getValues(`rows.${idx}`);
-      if (!row?.id) {
-        showAlert(
-          "This row hasn't been created yet. Use Save to create the timesheet first.",
-          "warning"
-        );
-        return;
-      }
-
-      const d = dirtyFields?.rows?.[idx] || {};
-      const payload = { customerId, updatedBy: currentUserId }; // always include updatedBy
-      if (d.date) payload.date = row.date;
-      if (d.engagementId) payload.engagementId = row.engagementId;
-      if (d.budgetItemId) payload.budgetItemId = row.budgetItemId;
-      if (d.hours) payload.hours = Number(row.hours || 0);
-      if (d.billable) payload.billable = !!row.billable;
-      if (d.notes && typeof row.notes === "string" && row.notes.trim()) {
-        payload.notes = row.notes.trim();
-      }
-
-      // No-op guard: only updatedBy/customerId present means nothing else changed
-      if (Object.keys(payload).length <= 2) {
-        showAlert("No changes to save", "info");
-        return;
-      }
-
-      try {
-        await pulseService.timesheets.rows.patch(String(row.id), payload);
-        const freshRows = await pulseService.timesheets.rows.list(headerId);
-        const newRows = Array.isArray(freshRows) ? freshRows : [];
-        replace(newRows);
-        setTimesheet?.(resourceId, weekKey, newRows);
-        // Reset form defaults to the freshly saved values so dirty state clears
-        const current = getValues();
-        reset({ ...current, rows: newRows });
-        showAlert("Row saved", "success");
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error("Failed to save row", err);
-        showAlert("Failed to save row", "error");
-      }
-    },
-    [
-      currentUserId,
-      customerId,
-      resourceId,
-      weekKey,
-      getValues,
-      dirtyFields,
-      replace,
-      setTimesheet,
-      showAlert,
-      reset,
-    ]
-  );
-
-  // Keep RHF state in sync with selectors
+  // keep form selectors synced
   useEffect(() => {
-    reset((prev) => ({ ...prev, resourceId, weekKey }));
+    reset((p) => ({ ...p, resourceId, weekKey }));
   }, [resourceId, weekKey, reset]);
 
-  // Load existing timesheet (from context or service) when selectors change
+  // load header + rows
   useEffect(() => {
     if (!resourceId || !weekKey) return;
-    // Try context map first
-    const fromCtx = getTimesheet?.(resourceId, weekKey);
-    if (fromCtx) {
-      replace(Array.isArray(fromCtx) ? fromCtx : []);
-      setHeaderId("");
-      setStatus("draft");
-      return;
-    }
-    // Fallback to service store (mock)
     (async () => {
       try {
+        const prevFirst = getValues("rows.0") || {};
+        const prevEng = prevFirst.engagementId || "";
+        const prevBudget = prevFirst.budgetItemId || "";
         const all = await pulseService.timesheets.list();
         const existing = (all || []).find(
           (t) =>
@@ -245,279 +336,150 @@ export default function TimesheetEditor() {
             String(t.weekKey) === String(weekKey)
         );
         if (existing) {
+          if (existing.status && String(existing.status) !== "draft") {
+            navigate(`/pulse-solution/timesheets/view/${existing.id}`);
+            return;
+          }
           setHeaderId(String(existing.id));
           setStatus(existing.status || "draft");
           const rows = await pulseService.timesheets.rows.list(
             String(existing.id)
           );
           replace(Array.isArray(rows) ? rows : []);
-          // Preload budget items and sanitise budgetItemId values against available options
-          const toSanitize = Array.isArray(rows) ? rows : [];
-          Promise.all(
-            toSanitize.map(async (r, i) => {
-              if (!r?.engagementId) return null;
-              const opts = await loadBudgetItems(String(r.engagementId));
-              const has = (opts || []).some(
-                (bi) => String(bi.id) === String(r.budgetItemId)
-              );
-              if (!has) {
-                setValue(`rows.${i}.budgetItemId`, "", {
-                  shouldValidate: false,
-                  shouldDirty: false,
-                });
-              }
-              return null;
-            })
-          ).catch(() => {});
+          if (!rows || rows.length === 0) {
+            append({
+              id: nanoid(10),
+              date: weekDays(weekKey)[0],
+              engagementId: prevEng || "",
+              budgetItemId: prevBudget || "",
+              hours: 0,
+              notes: "",
+              billable: true,
+            });
+          }
         } else {
           setHeaderId("");
           setStatus("draft");
           replace([]);
+          append({
+            id: nanoid(10),
+            date: weekDays(weekKey)[0],
+            engagementId: prevEng || "",
+            budgetItemId: prevBudget || "",
+            hours: 0,
+            notes: "",
+            billable: true,
+          });
         }
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.warn("TimesheetEditor: failed to load from service", e);
+        console.warn("TimesheetEditor: load failed", e);
         setHeaderId("");
         setStatus("draft");
         replace([]);
       }
     })();
-  }, [resourceId, weekKey, getTimesheet, replace, loadBudgetItems, setValue]);
+  }, [resourceId, weekKey, replace, append, navigate, getValues]);
 
-  // Totals
-  const totalsByDay = useMemo(() => {
-    const days = weekDays(weekKey);
-    const t = Object.fromEntries(days.map((d) => [d, 0]));
-    fields.forEach((r) => {
-      t[r.date] = (t[r.date] || 0) + Number(r.hours || 0);
-    });
-    return t;
-  }, [fields, weekKey]);
+  // compute totals
+  const days = useMemo(() => weekDays(weekKey), [weekKey]);
   const weeklyTotal = useMemo(
     () => fields.reduce((sum, r) => sum + Number(r.hours || 0), 0),
     [fields]
   );
 
-  const onAddRow = useCallback(() => {
-    const days = weekDays(weekKey);
-    append({
-      id: nanoid(10),
-      date: days[0],
-      engagementId: engagementOptions[0]?.id
-        ? String(engagementOptions[0].id)
-        : "",
-      budgetItemId: "",
-      hours: 0,
-      notes: "",
-      billable: true,
-    });
-  }, [append, weekKey, engagementOptions]);
-
-  const copyLastWeek = useCallback(async () => {
-    if (!resourceId) return;
-    try {
-      const all = await pulseService.timesheets.list();
-      // find the latest sheet before current week
-      const prev = (all || [])
-        .filter(
-          (t) =>
-            String(t.resourceId) === String(resourceId) && t.weekKey < weekKey
-        )
-        .sort((a, b) => (a.weekKey < b.weekKey ? 1 : -1))[0];
-      if (!prev) {
-        showAlert("No previous week found", "info");
-        return;
-      }
-      const days = weekDays(weekKey);
-      const prevDays = weekDays(prev.weekKey);
-      const mapDay = new Map(prevDays.map((d, i) => [d, days[i]]));
-      const copied = (prev.rows || []).map((r) => ({
-        ...r,
-        id: nanoid(10),
-        date: mapDay.get(r.date) || days[0],
-      }));
-      replace(copied);
-      showAlert("Copied last week", "success");
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error(e);
-      showAlert("Failed to copy last week", "error");
-    }
-  }, [resourceId, weekKey, replace, showAlert]);
-
+  // save whole sheet (idempotent)
   const onSubmit = useCallback(
     async (values) => {
-      // Ensure we have the identifiers required by the server-side validator
       if (!currentUserId || !customerId) {
         showAlert("Missing user or customer context", "error");
         return;
       }
-
-      // Shape the body per Joi schemas:
-      const base = {
-        resourceId: values.resourceId, // string(10)
-        weekKey: values.weekKey, // DATE-only compatible
-        status: "draft", // required by schema
-        customerId, // required by schema
-        rows: values.rows.map((r) => ({
-          ...r,
-          hours: Number(r.hours || 0),
-          id: r.id || nanoid(10),
-        })),
-      };
-
       try {
-        // check if existing sheet for this resource+week
+        // header
         const all = await pulseService.timesheets.list();
         const existing = (all || []).find(
           (t) =>
             String(t.resourceId) === String(values.resourceId) &&
             String(t.weekKey) === String(values.weekKey)
         );
-
-        // Save header (create or update) and capture the header id
-        let headerId;
-        let savedHeader;
+        let id;
         if (existing) {
-          const updateBody = { ...base, updatedBy: currentUserId };
-          savedHeader = await pulseService.timesheets.update(
+          const saved = await pulseService.timesheets.update(
             String(existing.id),
-            updateBody
+            {
+              resourceId: values.resourceId,
+              weekKey: values.weekKey,
+              status: "draft",
+              customerId,
+              updatedBy: currentUserId,
+            }
           );
-          headerId = String(savedHeader?.id || existing.id);
-          setHeaderId(headerId);
-          setStatus(savedHeader?.status || existing.status || "draft");
+          id = String(saved?.id || existing.id);
+          setHeaderId(id);
+          setStatus(saved?.status || existing.status || "draft");
         } else {
-          const createBody = {
-            ...base,
+          const saved = await pulseService.timesheets.create({
+            resourceId: values.resourceId,
+            weekKey: values.weekKey,
+            status: "draft",
+            customerId,
             createdBy: currentUserId,
-          };
-          savedHeader = await pulseService.timesheets.create(createBody);
-          headerId = String(savedHeader?.id);
-          setHeaderId(headerId);
-          setStatus(savedHeader?.status || "draft");
+          });
+          id = String(saved.id);
+          setHeaderId(id);
+          setStatus(saved.status || "draft");
         }
 
-        // --- Synchronise rows with backend ---
-        // Fetch current server rows for this header
-        const serverRows = await pulseService.timesheets.rows.list(headerId);
-        const serverById = new Map(
-          (serverRows || []).map((r) => [String(r.id), r])
-        );
-        const clientRows = base.rows || [];
-        const clientIds = new Set(clientRows.map((r) => String(r.id || "")));
-
-        // Upsert current client rows
-        for (const r of clientRows) {
-          const rowPayload = {
+        // rows (clear + re-upsert for simplicity and consistency)
+        const serverRows = await pulseService.timesheets.rows.list(id);
+        for (const r of serverRows || []) {
+          await pulseService.timesheets.rows.delete(String(r.id));
+        }
+        for (const r of values.rows || []) {
+          await pulseService.timesheets.rows.create(id, {
             date: r.date,
             hours: Number(r.hours || 0),
             billable: !!r.billable,
+            engagementId: r.engagementId,
+            budgetItemId: r.budgetItemId,
+            notes: (r.notes || "").trim() || undefined,
             customerId,
-          };
-          if (r.engagementId) rowPayload.engagementId = r.engagementId;
-          if (r.budgetItemId) rowPayload.budgetItemId = r.budgetItemId;
-          if (typeof r.notes === "string" && r.notes.trim().length > 0) {
-            rowPayload.notes = r.notes.trim();
-          }
-          if (r.id && serverById.has(String(r.id))) {
-            // Update existing row
-            await pulseService.timesheets.rows.update(String(r.id), {
-              ...rowPayload,
-              updatedBy: currentUserId,
-            });
-          } else {
-            // Create new row (server will assign id)
-            await pulseService.timesheets.rows.create(headerId, {
-              ...rowPayload,
-              createdBy: currentUserId,
-            });
-          }
+            createdBy: currentUserId,
+          });
         }
-
-        // Delete server rows that the client removed
-        for (const [rowId] of serverById) {
-          if (!clientIds.has(String(rowId))) {
-            await pulseService.timesheets.rows.delete(String(rowId));
-          }
-        }
-
-        // Pull fresh rows from server to sync local state with canonical ids
-        const freshRows = await pulseService.timesheets.rows.list(headerId);
-        replace(Array.isArray(freshRows) ? freshRows : []);
+        const fresh = await pulseService.timesheets.rows.list(id);
+        replace(Array.isArray(fresh) ? fresh : []);
         setTimesheet?.(
           values.resourceId,
           values.weekKey,
-          Array.isArray(freshRows) ? freshRows : []
+          Array.isArray(fresh) ? fresh : []
         );
         showAlert("Timesheet saved", "success");
-      } catch (err) {
+      } catch (e) {
         // eslint-disable-next-line no-console
-        console.error("Failed to save timesheet", err);
+        console.error("Failed to save timesheet", e);
         showAlert("Failed to save timesheet", "error");
       }
     },
-    [setTimesheet, showAlert, currentUserId, customerId, replace]
+    [currentUserId, customerId, replace, setTimesheet, showAlert]
   );
 
-  const submitForApproval = useCallback(async () => {
-    if (!currentUserId || !customerId) {
-      showAlert("Missing user or customer context", "error");
-      return;
+  const engagementOptions = useMemo(() => {
+    const all = engagements || [];
+    if (!resourceId) return currentRole === "User" ? [] : all;
+
+    // Regular users: only engagements where they are the assigned resource
+    if (currentRole === "User") {
+      return all.filter((e) => String(e.resourceId) === String(resourceId));
     }
-    try {
-      let id = headerId;
-      if (!id) {
-        const all = await pulseService.timesheets.list();
-        const existing = (all || []).find(
-          (t) =>
-            String(t.resourceId) === String(resourceId) &&
-            String(t.weekKey) === String(weekKey)
-        );
-        if (!existing) {
-          showAlert("Save the timesheet before submitting", "warning");
-          return;
-        }
-        id = String(existing.id);
-        setHeaderId(id);
-      }
-      let saved;
-      const payload = {
-        status: "submitted",
-        updatedBy: currentUserId,
-        customerId,
-        submittedBy: currentUserId,
-        submittedAt: new Date().toISOString(),
-      };
 
-      if (typeof pulseService.timesheets.patch === "function") {
-        saved = await pulseService.timesheets.patch(String(id), payload);
-      } else {
-        saved = await pulseService.timesheets.update(String(id), payload);
-      }
-      setStatus(saved?.status || "submitted");
-      showAlert("Submitted for approval", "success");
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error("Failed to submit timesheet", e);
-      showAlert("Failed to submit timesheet", "error");
-    }
-  }, [currentUserId, customerId, headerId, resourceId, weekKey, showAlert]);
-
-  // UI helpers
-  const days = useMemo(() => weekDays(weekKey), [weekKey]);
-
-  // Disable Submit for approval if any row is invalid
-  const hasInvalidRow = fields.some((r, i) => {
-    const v = getValues(`rows.${i}`);
-    return (
-      !v?.engagementId || !v?.budgetItemId || Number.isNaN(Number(v?.hours))
-    );
-  });
+    // Admin/Boss: see all
+    return all;
+  }, [engagements, resourceId, currentRole]);
 
   return (
     <Stack spacing={2}>
-      {/* Controls */}
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Box>
           <Typography variant="h5">Timesheet Editor</Typography>
@@ -530,22 +492,15 @@ export default function TimesheetEditor() {
           spacing={1}
           alignItems={{ xs: "stretch", sm: "center" }}
         >
-          <FormControl size="small" sx={{ minWidth: 200 }}>
-            <InputLabel id="resource-select-label">Resource</InputLabel>
-            <Select
-              labelId="resource-select-label"
-              label="Resource"
-              value={resourceId}
-              onChange={(e) => setResourceId(e.target.value)}
-            >
-              {resources.map((r) => (
-                <MenuItem key={r.id} value={String(r.id)}>
-                  {r.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-
+          <Typography variant="body2" color="text.secondary">
+            Resource:{" "}
+            {(() => {
+              const r = (resources || []).find(
+                (x) => String(x.id) === String(resourceId)
+              );
+              return r?.name || r?.email || resourceId || "(not linked)";
+            })()}
+          </Typography>
           <TextField
             size="small"
             label="Week (Monday)"
@@ -554,14 +509,6 @@ export default function TimesheetEditor() {
             onChange={(e) => setWeekKey(mondayOf(e.target.value))}
             InputLabelProps={{ shrink: true }}
           />
-
-          <Button
-            variant="outlined"
-            onClick={copyLastWeek}
-            disabled={!resourceId || isLocked}
-          >
-            Copy last week
-          </Button>
           <Button
             variant="contained"
             onClick={handleSubmit(onSubmit)}
@@ -571,10 +518,36 @@ export default function TimesheetEditor() {
           </Button>
           <Button
             variant="contained"
-            onClick={submitForApproval}
             disabled={
               !resourceId || isLocked || fields.length === 0 || hasInvalidRow
             }
+            onClick={async () => {
+              await handleSubmit(onSubmit)();
+              if (!headerId) return;
+              try {
+                const saved = (await pulseService.timesheets.patch)
+                  ? await pulseService.timesheets.patch(String(headerId), {
+                      status: "submitted",
+                      updatedBy: currentUserId,
+                      customerId,
+                      submittedBy: currentUserId,
+                      submittedAt: new Date().toISOString(),
+                    })
+                  : await pulseService.timesheets.update(String(headerId), {
+                      status: "submitted",
+                      updatedBy: currentUserId,
+                      customerId,
+                      submittedBy: currentUserId,
+                      submittedAt: new Date().toISOString(),
+                    });
+                setStatus(saved?.status || "submitted");
+                showAlert("Submitted for approval", "success");
+              } catch (e) {
+                // eslint-disable-next-line no-console
+                console.error("Failed to submit", e);
+                showAlert("Failed to submit timesheet", "error");
+              }
+            }}
           >
             Submit for approval
           </Button>
@@ -609,192 +582,27 @@ export default function TimesheetEditor() {
                   </TableCell>
                 </TableRow>
               ) : (
-                fields.map((field, idx) => (
-                  <TableRow key={field.key}>
-                    <TableCell width={160}>
-                      <Controller
-                        name={`rows.${idx}.date`}
-                        control={control}
-                        render={({ field: f }) => (
-                          <TextField
-                            type="date"
-                            size="small"
-                            value={f.value || days[0]}
-                            onChange={(e) => f.onChange(e.target.value)}
-                            inputProps={{ min: days[0], max: days[6] }}
-                            disabled={isLocked}
-                          />
-                        )}
-                      />
-                    </TableCell>
-                    <TableCell width={260}>
-                      <Controller
-                        name={`rows.${idx}.engagementId`}
-                        control={control}
-                        render={({ field: f }) => (
-                          <FormControl fullWidth size="small">
-                            <Select
-                              value={f.value || ""}
-                              onChange={async (e) => {
-                                const newEngId = e.target.value;
-                                f.onChange(newEngId);
-                                const items = await loadBudgetItems(newEngId);
-                                const first =
-                                  items && items[0] ? String(items[0].id) : "";
-                                const existingBudget = String(
-                                  getValues(`rows.${idx}.budgetItemId`) || ""
-                                );
-                                const nextBudgetId = (items || []).some(
-                                  (it) => String(it.id) === existingBudget
-                                )
-                                  ? existingBudget
-                                  : first;
-                                setValue(
-                                  `rows.${idx}.budgetItemId`,
-                                  nextBudgetId,
-                                  { shouldDirty: true, shouldValidate: true }
-                                );
-                              }}
-                              disabled={isLocked}
-                            >
-                              {engagementOptions.map((e) => (
-                                <MenuItem key={e.id} value={String(e.id)}>
-                                  {e.name}
-                                </MenuItem>
-                              ))}
-                            </Select>
-                          </FormControl>
-                        )}
-                      />
-                    </TableCell>
-                    <TableCell width={260}>
-                      {(() => {
-                        const engId = watch(`rows.${idx}.engagementId`);
-                        const options = budgetOptionsByEng.get(engId) || [];
-                        return (
-                          <Controller
-                            name={`rows.${idx}.budgetItemId`}
-                            control={control}
-                            render={({ field: f }) => {
-                              const current = String(f.value || "");
-                              const valid = (options || []).some(
-                                (bi) => String(bi.id) === current
-                              );
-                              const safeValue = valid ? current : "";
-                              return (
-                                <FormControl fullWidth size="small">
-                                  <Select
-                                    value={safeValue}
-                                    onOpen={() => loadBudgetItems(engId)}
-                                    onChange={(e) => f.onChange(e.target.value)}
-                                    displayEmpty
-                                    disabled={
-                                      isLocked || (options || []).length === 0
-                                    }
-                                    renderValue={(val) =>
-                                      val ? undefined : "Select budget item"
-                                    }
-                                  >
-                                    <MenuItem value="" disabled>
-                                      Select budget item
-                                    </MenuItem>
-                                    {(options || []).map((bi) => (
-                                      <MenuItem
-                                        key={bi.id}
-                                        value={String(bi.id)}
-                                      >
-                                        {bi.activity ||
-                                          bi.code ||
-                                          String(bi.id)}
-                                      </MenuItem>
-                                    ))}
-                                  </Select>
-                                </FormControl>
-                              );
-                            }}
-                          />
-                        );
-                      })()}
-                    </TableCell>
-                    <TableCell align="right" width={140}>
-                      <Controller
-                        name={`rows.${idx}.hours`}
-                        control={control}
-                        render={({ field: f }) => (
-                          <TextField
-                            type="number"
-                            size="small"
-                            inputProps={{ step: 0.25, min: 0, max: 24 }}
-                            value={f.value ?? 0}
-                            onChange={(e) => f.onChange(e.target.value)}
-                            disabled={isLocked}
-                          />
-                        )}
-                      />
-                    </TableCell>
-                    <TableCell width={100}>
-                      <Controller
-                        name={`rows.${idx}.billable`}
-                        control={control}
-                        render={({ field: f }) => (
-                          <Checkbox
-                            checked={!!f.value}
-                            onChange={(e) => f.onChange(e.target.checked)}
-                            disabled={isLocked}
-                          />
-                        )}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <Controller
-                        name={`rows.${idx}.notes`}
-                        control={control}
-                        render={({ field: f }) => (
-                          <TextField
-                            size="small"
-                            value={f.value || ""}
-                            onChange={(e) => f.onChange(e.target.value)}
-                            fullWidth
-                            disabled={isLocked}
-                          />
-                        )}
-                      />
-                    </TableCell>
-                    <TableCell align="right" width={160}>
-                      <Stack
-                        direction="row"
-                        spacing={1}
-                        justifyContent="flex-end"
-                      >
-                        <Button
-                          size="small"
-                          variant="outlined"
-                          onClick={() => onSaveRow(idx)}
-                          disabled={!isRowDirty(idx) || isLocked}
-                        >
-                          Save
-                        </Button>
-                        <Button
-                          size="small"
-                          color="error"
-                          onClick={() => remove(idx)}
-                          disabled={isLocked}
-                        >
-                          Delete
-                        </Button>
-                      </Stack>
-                    </TableCell>
-                  </TableRow>
+                fields.map((_, idx) => (
+                  <TimesheetRowEditor
+                    key={_.key}
+                    idx={idx}
+                    control={control}
+                    isLocked={isLocked}
+                    days={weekDays(weekKey)}
+                    engagementOptions={engagementOptions}
+                  />
                 ))
               )}
-              {/* Totals row */}
               {fields.length > 0 && (
                 <TableRow>
                   <TableCell colSpan={7}>
                     <Typography variant="caption" color="text.secondary">
                       Daily totals:{" "}
-                      {days
-                        .map((d, i) => `${d}: ${totalsByDay[d] || 0}`)
+                      {weekDays(weekKey)
+                        .map(
+                          (d) =>
+                            `${d}: ${fields.filter((r) => r.date === d).reduce((s, r) => s + Number(r.hours || 0), 0)}`
+                        )
                         .join("  ·  ")}
                     </Typography>
                   </TableCell>
@@ -806,7 +614,17 @@ export default function TimesheetEditor() {
           <Box mt={2} display="flex" gap={1}>
             <Button
               variant="outlined"
-              onClick={onAddRow}
+              onClick={() =>
+                append({
+                  id: nanoid(10),
+                  date: weekDays(weekKey)[0],
+                  engagementId: "",
+                  budgetItemId: "",
+                  hours: 0,
+                  notes: "",
+                  billable: true,
+                })
+              }
               disabled={!resourceId || isLocked}
             >
               Add Row

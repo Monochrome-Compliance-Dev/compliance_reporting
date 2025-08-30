@@ -118,7 +118,7 @@ export default function BudgetView() {
           {/* Placeholder manage link (we'll add the builder later) */}
           <Button
             component={Link}
-            to="/pulse/engagements/manage"
+            to="/pulse-solution/engagements/manage"
             variant="outlined"
           >
             Open Engagements

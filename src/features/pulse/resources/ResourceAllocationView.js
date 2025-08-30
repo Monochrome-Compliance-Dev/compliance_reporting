@@ -245,7 +245,7 @@ export default function ResourceAllocationView() {
                                 <Chip
                                   size="small"
                                   component={Link}
-                                  to={`/pulse/engagements/manage?id=${encodeURIComponent(it.engagementId)}`}
+                                  to={`/pulse-solution/engagements/manage?id=${encodeURIComponent(it.engagementId)}`}
                                   label="Manage"
                                   clickable
                                 />

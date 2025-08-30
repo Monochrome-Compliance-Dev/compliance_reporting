@@ -2,6 +2,7 @@ import RequireRoles from "./RequireRoles";
 import Role from "../context/role";
 import { PtrsProvider, PulseProvider, TcpProvider } from "../context/";
 import ComplianceDashboardLayout from "../components/layouts/ComplianceDashboardLayout";
+import PulseLayout from "../components/layouts/PulseLayout";
 import { Outlet } from "react-router";
 
 import Dashboard from "../features/users/Dashboard";
@@ -42,7 +43,7 @@ import EngagementView from "../features/pulse/engagements/EngagementView";
 import TimesheetEditor from "../features/pulse/timesheets/TimesheetEditor";
 import TimesheetList from "../features/pulse/timesheets/TimesheetList";
 import TimesheetManage from "../features/pulse/timesheets/TimesheetManage";
-import Timesheet from "../features/pulse/timesheets/Timesheet";
+import TimesheetView from "../features/pulse/timesheets/TimesheetView";
 import PulseAdminConsole from "../features/pulse/PulseAdminConsole";
 import ResourceAllocationView from "../features/pulse/resources/ResourceAllocationView";
 import BudgetView from "../features/pulse/budgets/BudgetView";
@@ -50,6 +51,7 @@ import BudgetBuilder from "../features/pulse/budgets/BudgetBuilder";
 import EngagementWizard from "../features/pulse/engagements/EngagementWizard";
 import XeroContactAlign from "../features/data/XeroContactAlign";
 import PulseSolutionLanding from "../features/pulse/PulseSolutionLanding";
+import Workspace from "../features/pulse/workspace/Workspace";
 
 export const protectedRoutes = [
   {
@@ -252,73 +254,79 @@ export const protectedRoutes = [
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
         <PulseProvider>
-          <ComplianceDashboardLayout title="Pulse" module="pulse">
+          <PulseLayout title="Pulse">
             <Outlet />
-          </ComplianceDashboardLayout>
+          </PulseLayout>
         </PulseProvider>
       </RequireRoles>
     ),
     children: [
       {
         index: true,
-        Component: PulseSolutionLanding,
+        Component: () => (
+          <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+            <PulseSolutionLanding />
+          </RequireRoles>
+        ),
       },
-    ],
-  },
-  {
-    path: "/pulse",
-    Component: () => (
-      <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <PulseProvider>
-          <ComplianceDashboardLayout title="Pulse Dashboard" module="pulse">
-            <Outlet />
-          </ComplianceDashboardLayout>
-        </PulseProvider>
-      </RequireRoles>
-    ),
-    children: [
       {
         path: "dashboard",
-        Component: PulseDashboard,
+        Component: () => (
+          <RequireRoles allowed={[Role.Admin, Role.Boss]}>
+            <PulseDashboard />
+          </RequireRoles>
+        ),
       },
       {
         path: "admin",
-        Component: PulseAdminConsole,
-      },
-      {
-        path: "resources",
-        Component: ResourceView,
-      },
-      { path: "resources/allocation", Component: ResourceAllocationView },
-      {
-        path: "engagements",
-        Component: EngagementView,
-      },
-      {
-        path: "engagements/manage",
-        Component: EngagementWizard,
-      },
-      {
-        path: "clients",
-        Component: ClientView,
-      },
-      {
-        path: "timesheets",
-        Component: Outlet,
+        Component: () => (
+          <RequireRoles allowed={[Role.Admin, Role.Boss]}>
+            <Outlet />
+          </RequireRoles>
+        ),
         children: [
-          { index: true, Component: TimesheetList },
-          { path: "edit", Component: TimesheetEditor },
-          { path: "manage", Component: TimesheetManage },
-          { path: ":timesheetId", Component: Timesheet },
+          { index: true, Component: PulseAdminConsole },
+          { path: "resources", Component: ResourceView },
+          { path: "resources/allocation", Component: ResourceAllocationView },
+          { path: "engagements", Component: EngagementView },
+          { path: "engagements/manage", Component: EngagementWizard },
+          { path: "clients", Component: ClientView },
+          { path: "budgets", Component: BudgetView },
+          { path: "budgets/:id", Component: BudgetBuilder },
         ],
       },
       {
-        path: "budgets",
-        Component: BudgetView,
-      },
-      {
-        path: "budgets/:id",
-        Component: BudgetBuilder,
+        path: "workplace",
+        Component: () => (
+          <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+            <Outlet />
+          </RequireRoles>
+        ),
+        children: [
+          { index: true, Component: Workspace },
+          {
+            path: "timesheets",
+            Component: () => (
+              <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+                <Outlet />
+              </RequireRoles>
+            ),
+            children: [
+              { index: true, Component: TimesheetList },
+              { path: "current", Component: TimesheetEditor },
+              {
+                path: "manage",
+                Component: () => (
+                  <RequireRoles allowed={[Role.Admin, Role.Boss]}>
+                    <TimesheetManage />
+                  </RequireRoles>
+                ),
+              },
+              { path: "view/:id", Component: TimesheetView },
+              { path: ":id", Component: TimesheetEditor },
+            ],
+          },
+        ],
       },
     ],
   },

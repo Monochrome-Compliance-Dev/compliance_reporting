@@ -19,7 +19,10 @@ import {
   FormControl,
   InputLabel,
   Select,
+  Drawer,
+  IconButton,
 } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import { useAlert, usePulseContext } from "../../../context";
 import { pulseService } from "../../../services/pulse/pulse";
 import { userService } from "../../../services";
@@ -27,7 +30,10 @@ import { userService } from "../../../services";
 const schema = yup
   .object({
     name: yup.string().trim().required("Name is required"),
-    role: yup.string().trim().optional(),
+    role: yup
+      .string()
+      .oneOf(["User", "Admin"], "Invalid role")
+      .required("Role is required"),
     hourlyRate: yup
       .number()
       .transform((v, o) => (o === "" || Number.isNaN(v) ? undefined : v))
@@ -39,6 +45,13 @@ const schema = yup
       .min(0, "Cannot be negative")
       .max(168, "Easy there, hero")
       .optional(),
+    email: yup.string().email("Invalid email").optional(),
+    userId: yup
+      .string()
+      .trim()
+      .transform((v) => (v === "" ? null : v))
+      .nullable()
+      .optional(),
   })
   .required();
 
@@ -49,6 +62,7 @@ export default function ResourceView() {
   // Selection + mode (single view approach)
   const [selectedId, setSelectedId] = useState(null);
   const [mode, setMode] = useState("create"); // 'create' | 'edit'
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const [query, setQuery] = useState("");
   const [roleFilter, setRoleFilter] = useState("");
@@ -99,6 +113,8 @@ export default function ResourceView() {
       role: "",
       hourlyRate: "",
       capacityHoursPerWeek: "",
+      email: "",
+      userId: "",
     },
   });
 
@@ -110,38 +126,91 @@ export default function ResourceView() {
         role: selected.role ?? "",
         hourlyRate: selected.hourlyRate ?? "",
         capacityHoursPerWeek: selected.capacityHoursPerWeek ?? "",
+        email: selected.email ?? "",
+        userId: selected.userId ?? "",
       });
     } else if (mode === "create") {
-      reset({ name: "", role: "", hourlyRate: "", capacityHoursPerWeek: "" });
+      reset({
+        name: "",
+        role: "",
+        hourlyRate: "",
+        capacityHoursPerWeek: "",
+        email: "",
+        userId: "",
+      });
     }
   }, [mode, selected, reset]);
 
   const startCreate = useCallback(() => {
     setSelectedId(null);
     setMode("create");
+    setDrawerOpen(true);
   }, []);
 
   const startEdit = useCallback((id) => {
     setSelectedId(id);
     setMode("edit");
+    setDrawerOpen(true);
   }, []);
 
   const onSubmit = useCallback(
     async (values) => {
-      const basePayload = {
-        name: values.name,
-        role: values.role,
-        hourlyRate: Number(values.hourlyRate ?? 0),
-        capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
-        customerId: userService.userValue.customerId,
-      };
-
-      const payload =
-        mode === "create"
-          ? { ...basePayload, createdBy: userService.userValue.id }
-          : { ...basePayload, updatedBy: userService.userValue.id };
-
       try {
+        if (mode === "create" && !values.userId) {
+          // Composite: invite user + create linked resource atomically
+          if (!values.email) {
+            showAlert("Email is required to invite the user", "warning");
+            return;
+          }
+          const [firstName = "", ...rest] = String(values.name || "").split(
+            " "
+          );
+          const lastName = rest.join(" ");
+
+          const payload = {
+            user: {
+              email: values.email,
+              role: "User",
+              firstName,
+              lastName,
+              customerId: userService.userValue.customerId,
+            },
+            resource: {
+              name: values.name,
+              role: values.role || "",
+              hourlyRate: Number(values.hourlyRate ?? 0),
+              capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
+            },
+            createdBy: userService.userValue.id,
+          };
+
+          const { resource } = await userService.inviteWithResource(payload);
+          upsertResource(resource);
+          showAlert("Invitation sent and resource created", "success");
+          setSelectedId(resource.id);
+          setMode("edit");
+          setDrawerOpen(false);
+          return;
+        }
+
+        const normalizedUserId =
+          (values.userId && String(values.userId).trim()) || null;
+
+        // Fallback: manual link via userId, or editing existing resource
+        const basePayload = {
+          name: values.name,
+          role: values.role,
+          hourlyRate: Number(values.hourlyRate ?? 0),
+          capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
+          customerId: userService.userValue.customerId,
+          userId: normalizedUserId,
+        };
+
+        const payload =
+          mode === "create"
+            ? { ...basePayload, createdBy: userService.userValue.id }
+            : { ...basePayload, updatedBy: userService.userValue.id };
+
         const saved =
           mode === "create"
             ? await pulseService.resources.create(payload)
@@ -155,11 +224,12 @@ export default function ResourceView() {
         if (mode === "create") {
           setSelectedId(saved.id);
           setMode("edit");
+          setDrawerOpen(false);
         }
       } catch (err) {
         // eslint-disable-next-line no-console
         console.error("Failed to save resource", err);
-        showAlert("Failed to save resource", "error");
+        showAlert(err?.message || "Failed to save resource", "error");
       }
     },
     [mode, selected, upsertResource, showAlert]
@@ -233,7 +303,7 @@ export default function ResourceView() {
             <TableRow>
               <TableCell>Name</TableCell>
               <TableCell>Role</TableCell>
-              <TableCell align="right">Hourly rate</TableCell>
+              <TableCell align="right">Hourly charge-out rate</TableCell>
               <TableCell align="right">Capacity (hrs/wk)</TableCell>
               <TableCell align="right">Actions</TableCell>
             </TableRow>
@@ -286,88 +356,136 @@ export default function ResourceView() {
 
       <Divider />
 
-      {/* Inline form panel */}
-      <Paper variant="outlined">
-        <Box p={2}>
-          <Typography variant="h6" gutterBottom>
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        PaperProps={{ sx: { width: { xs: "100%", sm: 520 } } }}
+      >
+        <Box
+          p={2}
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Typography variant="h6">
             {mode === "create"
               ? "Create Resource"
               : `Edit Resource${selected ? ` — ${selected.name}` : ""}`}
           </Typography>
+          <IconButton aria-label="Close" onClick={() => setDrawerOpen(false)}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        {mode === "edit" && selected && (
+          <Box px={2} pb={1}>
+            <Typography variant="caption" color="text.secondary">
+              ID: {selected.id}
+            </Typography>
+          </Box>
+        )}
+        <Divider />
+        <Box
+          component="form"
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          p={2}
+        >
+          <Stack spacing={2}>
+            <TextField
+              label="Name"
+              {...register("name")}
+              error={!!errors.name}
+              helperText={errors.name?.message}
+              fullWidth
+            />
 
-          <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
-            <Stack spacing={2}>
+            <TextField
+              select
+              label="Role"
+              {...register("role")}
+              error={!!errors.role}
+              helperText={errors.role?.message}
+              fullWidth
+            >
+              <MenuItem value="User">User</MenuItem>
+              <MenuItem value="Admin">Admin</MenuItem>
+            </TextField>
+
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
               <TextField
-                label="Name"
-                {...register("name")}
-                error={!!errors.name}
-                helperText={errors.name?.message}
+                label="Hourly charge-out rate"
+                type="number"
+                inputProps={{ step: 1, min: 0 }}
+                {...register("hourlyRate")}
+                error={!!errors.hourlyRate}
+                helperText={errors.hourlyRate?.message}
                 fullWidth
               />
 
               <TextField
-                label="Role"
-                {...register("role")}
-                error={!!errors.role}
-                helperText={errors.role?.message}
+                label="Capacity (hrs/wk)"
+                type="number"
+                inputProps={{ step: 1, min: 0, max: 168 }}
+                {...register("capacityHoursPerWeek")}
+                error={!!errors.capacityHoursPerWeek}
+                helperText={errors.capacityHoursPerWeek?.message}
                 fullWidth
               />
+            </Stack>
 
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                <TextField
-                  label="Hourly rate"
-                  type="number"
-                  inputProps={{ step: 1, min: 0 }}
-                  {...register("hourlyRate")}
-                  error={!!errors.hourlyRate}
-                  helperText={errors.hourlyRate?.message}
-                  fullWidth
-                />
+            <TextField
+              label="Email (invite)"
+              placeholder="name@company.com"
+              {...register("email")}
+              error={!!errors.email}
+              helperText={
+                errors.email?.message ||
+                "We’ll invite this person to set a password"
+              }
+              fullWidth
+            />
 
-                <TextField
-                  label="Capacity (hrs/wk)"
-                  type="number"
-                  inputProps={{ step: 1, min: 0, max: 168 }}
-                  {...register("capacityHoursPerWeek")}
-                  error={!!errors.capacityHoursPerWeek}
-                  helperText={errors.capacityHoursPerWeek?.message}
-                  fullWidth
-                />
-              </Stack>
+            <TextField
+              label="Linked User ID (optional)"
+              placeholder="Paste the user's ID to link the user to the resource"
+              {...register("userId")}
+              error={!!errors.userId}
+              helperText={
+                errors.userId?.message ||
+                "Used to map this resource to a system user"
+              }
+              fullWidth
+            />
 
-              <Stack direction="row" spacing={2}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  disabled={isSubmitting}
-                >
-                  {mode === "create" ? "Create" : "Save changes"}
-                </Button>
-                {mode === "edit" && selected && (
-                  <Button
-                    type="button"
-                    color="error"
-                    variant="outlined"
-                    onClick={() => onDelete(selected.id)}
-                    disabled={isSubmitting}
-                  >
-                    Delete
-                  </Button>
-                )}
-                <Box flexGrow={1} />
+            <Stack direction="row" spacing={2}>
+              <Button type="submit" variant="contained" disabled={isSubmitting}>
+                {mode === "create" ? "Create" : "Save changes"}
+              </Button>
+              {mode === "edit" && selected && (
                 <Button
                   type="button"
-                  variant="text"
-                  onClick={startCreate}
+                  color="error"
+                  variant="outlined"
+                  onClick={() => onDelete(selected.id)}
                   disabled={isSubmitting}
                 >
-                  Reset / New
+                  Delete
                 </Button>
-              </Stack>
+              )}
+              <Box flexGrow={1} />
+              <Button
+                type="button"
+                variant="text"
+                onClick={startCreate}
+                disabled={isSubmitting}
+              >
+                Reset / New
+              </Button>
             </Stack>
-          </Box>
+          </Stack>
         </Box>
-      </Paper>
+      </Drawer>
     </Stack>
   );
 }

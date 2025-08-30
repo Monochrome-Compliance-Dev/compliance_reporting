@@ -331,7 +331,11 @@ export default function BudgetBuilder({
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Typography variant="h5">Budget Builder</Typography>
         <Stack direction="row" spacing={1}>
-          <Button component={Link} to="/pulse/budgets" variant="outlined">
+          <Button
+            component={Link}
+            to="/pulse-solution/budgets"
+            variant="outlined"
+          >
             Back to Budgets
           </Button>
           {engagementId ? (

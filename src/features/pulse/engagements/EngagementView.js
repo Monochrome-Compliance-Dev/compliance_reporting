@@ -138,7 +138,7 @@ export default function EngagementView() {
           </FormControl>
           <Button
             component={Link}
-            to="/pulse/engagements/manage"
+            to="/pulse-solution/engagements/manage"
             variant="contained"
           >
             New Engagement
@@ -189,7 +189,7 @@ export default function EngagementView() {
                       <Button
                         size="small"
                         component={Link}
-                        to={`/pulse/engagements/manage?id=${encodeURIComponent(e.id)}`}
+                        to={`/pulse-solution/engagements/manage?id=${encodeURIComponent(e.id)}`}
                       >
                         Edit
                       </Button>
