@@ -43,6 +43,7 @@ export const pulseService = {
   },
   clients: buildCrud("clients"),
   engagements: buildCrud("engagements"),
+  budgets: buildCrud("budgets"),
   timesheets: {
     ...buildCrud("timesheets"),
     rows: {
@@ -87,6 +88,13 @@ export const pulseService = {
       unwrapArray(
         await fetchWrapper.get(
           `${baseUrl}/budget-items?engagementId=${encodeURIComponent(engagementId)}`
+        )
+      ),
+    // Helper to list items by budget
+    listByBudget: async (budgetId) =>
+      unwrapArray(
+        await fetchWrapper.get(
+          `${baseUrl}/budget-items?budgetId=${encodeURIComponent(budgetId)}`
         )
       ),
   },

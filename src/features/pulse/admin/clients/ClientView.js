@@ -31,7 +31,11 @@ import { userService } from "../../../../services";
 const schema = yup
   .object({
     name: yup.string().trim().required("Name is required"),
-    email: yup.string().trim().email("Invalid email").optional(),
+    email: yup
+      .string()
+      .trim()
+      .email("Invalid email")
+      .required("Email is required"),
     phone: yup.string().trim().optional(),
     // Add additional fields as needed later (ABN, address, notes, etc.)
   })
@@ -121,7 +125,7 @@ export default function ClientView() {
     async (values) => {
       const basePayload = {
         name: values.name,
-        email: values.email || undefined,
+        email: values.email.trim(),
         phone: values.phone || undefined,
         customerId: userService.userValue.customerId,
       };
@@ -214,9 +218,9 @@ export default function ClientView() {
             {filteredClients.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={4}>
-                  <Typography color="text.secondary">
-                    No clients yet. Click “New Client”.
-                  </Typography>
+                  <Button variant="contained" onClick={startCreate}>
+                    New Client
+                  </Button>
                 </TableCell>
               </TableRow>
             ) : (
@@ -301,6 +305,7 @@ export default function ClientView() {
               error={!!errors.name}
               helperText={errors.name?.message}
               fullWidth
+              required
             />
 
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
@@ -311,6 +316,7 @@ export default function ClientView() {
                 error={!!errors.email}
                 helperText={errors.email?.message}
                 fullWidth
+                required
               />
               <TextField
                 label="Phone"
