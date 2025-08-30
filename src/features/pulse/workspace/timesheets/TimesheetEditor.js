@@ -18,9 +18,9 @@ import {
   TextField,
   Checkbox,
 } from "@mui/material";
-import { usePulseContext, useAlert } from "../../../context";
-import { userService } from "../../../services";
-import { pulseService } from "../../../services/pulse/pulse";
+import { usePulseContext, useAlert } from "../../../../context";
+import { userService } from "../../../../services";
+import { pulseService } from "../../../../services/pulse/pulse";
 
 // ---- date helpers ----
 const pad = (n) => (n < 10 ? `0${n}` : `${n}`);

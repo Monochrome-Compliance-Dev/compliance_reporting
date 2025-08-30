@@ -20,10 +20,10 @@ import {
 } from "@mui/material";
 
 import { useTheme } from "@mui/material/styles";
-import { userService } from "../../../services";
-import { pulseService } from "../../../services/pulse/pulse";
+import { userService } from "../../../../services";
+import { pulseService } from "../../../../services/pulse/pulse";
 import { nanoid } from "nanoid";
-import { useAlert } from "../../../context";
+import { useAlert } from "../../../../context";
 
 export default function EngagementAssignmentsEditor({
   engagementId,

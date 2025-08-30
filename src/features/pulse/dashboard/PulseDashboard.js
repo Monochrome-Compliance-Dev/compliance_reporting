@@ -30,9 +30,9 @@ import {
   ReferenceLine,
 } from "recharts";
 import { useEffect, useMemo, useState } from "react";
-import { pulseService } from "../../services/pulse/pulse";
-import { useAlert } from "../../context/";
-import { LoadingSpinner } from "../../components/ui";
+import { pulseService } from "../../../services/pulse/pulse";
+import { useAlert } from "../../../context";
+import { LoadingSpinner } from "../../../components/ui";
 
 // --- Layout constants ---
 const CARD_HEIGHT = 280; // total card height

@@ -13,10 +13,10 @@ import {
   Button,
   Chip,
 } from "@mui/material";
-import { usePulseContext } from "../../../context/PulseContext";
-import { useAlert } from "../../../context";
-import { pulseService } from "../../../services/pulse/pulse";
-import { userService } from "../../../services";
+import { usePulseContext } from "../../../../context/PulseContext";
+import { useAlert } from "../../../../context";
+import { pulseService } from "../../../../services/pulse/pulse";
+import { userService } from "../../../../services";
 
 // ---- date helpers ----
 const pad = (n) => (n < 10 ? `0${n}` : `${n}`);

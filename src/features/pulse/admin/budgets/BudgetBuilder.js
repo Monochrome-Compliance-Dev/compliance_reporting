@@ -18,11 +18,11 @@ import {
   Chip,
 } from "@mui/material";
 import { Link, useNavigate, useSearchParams } from "react-router";
-import { usePulseContext } from "../../../context/PulseContext";
-import { useAlert } from "../../../context";
+import { usePulseContext } from "../../../../context/PulseContext";
+import { useAlert } from "../../../../context";
 
-import { pulseService } from "../../../services/pulse/pulse";
-import { userService } from "../../../services";
+import { pulseService } from "../../../../services/pulse/pulse";
+import { userService } from "../../../../services";
 
 const unwrap = (res) =>
   res && typeof res === "object" && "data" in res ? res.data : res;

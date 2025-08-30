@@ -14,9 +14,9 @@ import {
   Chip,
   TextField,
 } from "@mui/material";
-import { usePulseContext, useAlert } from "../../../context";
-import { userService } from "../../../services";
-import { pulseService } from "../../../services/pulse/pulse";
+import { usePulseContext, useAlert } from "../../../../context";
+import { userService } from "../../../../services";
+import { pulseService } from "../../../../services/pulse/pulse";
 
 const pad = (n) => (n < 10 ? `0${n}` : `${n}`);
 const toISO = (d) =>

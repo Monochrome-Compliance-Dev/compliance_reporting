@@ -14,7 +14,7 @@ import {
   Divider,
 } from "@mui/material";
 import { Link } from "react-router";
-import { usePulseContext } from "../../../context/PulseContext";
+import { usePulseContext } from "../../../../context/PulseContext";
 
 function pct(n) {
   const v = Number(n || 0);

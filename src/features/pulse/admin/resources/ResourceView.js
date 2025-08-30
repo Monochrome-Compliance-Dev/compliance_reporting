@@ -23,9 +23,9 @@ import {
   IconButton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { useAlert, usePulseContext } from "../../../context";
-import { pulseService } from "../../../services/pulse/pulse";
-import { userService } from "../../../services";
+import { useAlert, usePulseContext } from "../../../../context";
+import { pulseService } from "../../../../services/pulse/pulse";
+import { userService } from "../../../../services";
 
 const schema = yup
   .object({

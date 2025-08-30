@@ -17,8 +17,8 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import { usePulseContext, useAlert } from "../../../context";
-import { pulseService } from "../../../services/pulse/pulse";
+import { usePulseContext, useAlert } from "../../../../context";
+import { pulseService } from "../../../../services/pulse/pulse";
 
 export default function EngagementView() {
   const {

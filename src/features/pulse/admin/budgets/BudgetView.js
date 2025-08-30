@@ -18,7 +18,7 @@ import {
   Button,
 } from "@mui/material";
 import { Link } from "react-router";
-import { usePulseContext } from "../../../context/PulseContext";
+import { usePulseContext } from "../../../../context/PulseContext";
 
 // Utility: basic currency formatting (fallbacks to $)
 const fmtCurrency = (n, currency = "USD") => {
