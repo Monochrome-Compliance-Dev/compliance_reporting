@@ -78,10 +78,22 @@ function TimesheetRowEditor({
   isLocked,
   days,
   engagementOptions,
+  resourceLabel,
+  onSaveRow,
 }) {
   const hasEngOptions = (engagementOptions || []).length > 0;
   const engId = useWatch({ control, name: `rows.${idx}.engagementId` }) || "";
   const [options, setOptions] = useState([]);
+
+  // Watch the full row for validity
+  const rowValue = useWatch({ control, name: `rows.${idx}` }) || {};
+  const hoursNum = Number(rowValue?.hours ?? 0);
+  const hoursOk = !Number.isNaN(hoursNum) && hoursNum >= 0 && hoursNum <= 24;
+  const rowValid =
+    hasEngOptions &&
+    !!rowValue?.engagementId &&
+    !!rowValue?.budgetItemId &&
+    hoursOk;
 
   useEffect(() => {
     let cancelled = false;
@@ -91,18 +103,117 @@ function TimesheetRowEditor({
         return;
       }
       try {
-        const items = await pulseService.budgetItems.listByEngagement(
-          String(engId)
-        );
-        if (!cancelled) setOptions(Array.isArray(items) ? items : []);
-      } catch {
+        let rows = [];
+
+        // Try a query that includes resourceLabel (position) so the server filters for us
+        if (pulseService?.budgetItems?.list) {
+          const resQ = await pulseService.budgetItems.list({
+            engagementId: String(engId),
+            resourceLabel: resourceLabel ? String(resourceLabel) : undefined,
+          });
+          rows = Array.isArray(resQ)
+            ? resQ
+            : Array.isArray(resQ?.items)
+              ? resQ.items
+              : Array.isArray(resQ?.data)
+                ? resQ.data
+                : Array.isArray(resQ?.rows)
+                  ? resQ.rows
+                  : [];
+        }
+
+        // Fallback to listByEngagement if needed
+        if (
+          (!rows || rows.length === 0) &&
+          pulseService?.budgetItems?.listByEngagement
+        ) {
+          const res1 = await pulseService.budgetItems.listByEngagement(
+            String(engId)
+          );
+          const r1 = Array.isArray(res1)
+            ? res1
+            : Array.isArray(res1?.items)
+              ? res1.items
+              : Array.isArray(res1?.data)
+                ? res1.data
+                : Array.isArray(res1?.rows)
+                  ? res1.rows
+                  : [];
+          if (r1.length) rows = r1;
+        }
+
+        // Last resort: find budget by engagement, then list items by budget
+        if (
+          (!rows || rows.length === 0) &&
+          pulseService?.budgets?.list &&
+          pulseService?.budgetItems?.list
+        ) {
+          const resB = await pulseService.budgets.list({
+            engagementId: String(engId),
+          });
+          const budgets = Array.isArray(resB)
+            ? resB
+            : Array.isArray(resB?.items)
+              ? resB.items
+              : Array.isArray(resB?.data)
+                ? resB.data
+                : Array.isArray(resB?.rows)
+                  ? resB.rows
+                  : [];
+          const b0 = budgets[0];
+          if (b0?.id) {
+            const res3 = await pulseService.budgetItems.list({
+              budgetId: String(b0.id),
+            });
+            const r3 = Array.isArray(res3)
+              ? res3
+              : Array.isArray(res3?.items)
+                ? res3.items
+                : Array.isArray(res3?.data)
+                  ? res3.data
+                  : Array.isArray(res3?.rows)
+                    ? res3.rows
+                    : [];
+            if (r3.length) rows = r3;
+          }
+        }
+
+        // Client-side filter by resourceLabel (position), then de-duplicate by display label
+        const filtered = (rows || []).filter((bi) => {
+          if (!resourceLabel) return true; // if we don't know the position, show all
+          if (!bi?.resourceLabel) return true; // allow items not tied to a specific label
+          return String(bi.resourceLabel) === String(resourceLabel);
+        });
+
+        const toLabel = (bi) =>
+          bi?.activity ||
+          bi?.name ||
+          bi?.sectionName ||
+          bi?.resourceLabel ||
+          bi?.code ||
+          String(bi?.id || "");
+        const seen = new Set();
+        const deduped = [];
+        for (const bi of filtered) {
+          const label = toLabel(bi);
+          const key = `${label}::${bi?.resourceLabel || "*"}`; // distinguish by label+resource
+          if (!seen.has(key)) {
+            seen.add(key);
+            deduped.push(bi);
+          }
+        }
+
+        if (!cancelled) setOptions(deduped);
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.warn("Failed to load budget items for engagement", engId, e);
         if (!cancelled) setOptions([]);
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, [engId]);
+  }, [engId, resourceLabel]);
 
   return (
     <TableRow>
@@ -183,7 +294,12 @@ function TimesheetRowEditor({
                   </option>
                   {(options || []).map((bi) => (
                     <option key={bi.id} value={String(bi.id)}>
-                      {bi.activity || bi.code || String(bi.id)}
+                      {bi.activity ||
+                        bi.name ||
+                        bi.sectionName ||
+                        bi.resourceLabel ||
+                        bi.code ||
+                        String(bi.id)}
                     </option>
                   ))}
                 </TextField>
@@ -255,7 +371,14 @@ function TimesheetRowEditor({
         />
       </TableCell>
       <TableCell align="right" width={160}>
-        {/* Per-row actions handled by parent Save */}
+        <Button
+          size="small"
+          variant="outlined"
+          onClick={onSaveRow}
+          disabled={isLocked || !rowValid}
+        >
+          Save row
+        </Button>
       </TableCell>
     </TableRow>
   );
@@ -286,9 +409,58 @@ export default function TimesheetEditor() {
   }, [resources, currentUser]);
 
   const [resourceId, setResourceId] = useState("");
+
   useEffect(() => {
-    if (!resourceId) setResourceId(inferResourceId());
-  }, [inferResourceId, resourceId]);
+    let alive = true;
+    (async () => {
+      if (resourceId) return; // already resolved
+
+      // 1) Try context inference first
+      const inferred = inferResourceId();
+      if (inferred) {
+        if (alive) setResourceId(inferred);
+        return;
+      }
+
+      // 2) Server fallback: find resource by current user
+      try {
+        if (currentUser?.id && pulseService?.resources?.list) {
+          const res = await pulseService.resources.list({
+            userId: currentUser.id,
+            email: currentUser.email,
+          });
+          const rows = Array.isArray(res)
+            ? res
+            : Array.isArray(res?.items)
+              ? res.items
+              : Array.isArray(res?.data)
+                ? res.data
+                : Array.isArray(res?.rows)
+                  ? res.rows
+                  : [];
+          const r = rows[0];
+          if (alive && r?.id) setResourceId(String(r.id));
+        }
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          "TimesheetEditor: failed to resolve resourceId from server",
+          e
+        );
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, [inferResourceId, resourceId, currentUser]);
+
+  // Compute current resource and its position
+  const currentResource = useMemo(
+    () => (resources || []).find((r) => String(r.id) === String(resourceId)),
+    [resources, resourceId]
+  );
+  const resourcePosition =
+    currentResource?.position || currentResource?.role || "";
 
   const [weekKey, setWeekKey] = useState(mondayOf());
   const [status, setStatus] = useState("draft");
@@ -469,9 +641,26 @@ export default function TimesheetEditor() {
     const all = engagements || [];
     if (!resourceId) return currentRole === "User" ? [] : all;
 
-    // Regular users: only engagements where they are the assigned resource
     if (currentRole === "User") {
-      return all.filter((e) => String(e.resourceId) === String(resourceId));
+      // 1) Direct field on engagement (simple model)
+      const byDirect = all.filter(
+        (e) => String(e.resourceId) === String(resourceId)
+      );
+
+      // 2) Nested assignments array on engagement (richer model)
+      const byAssignment = all.filter(
+        (e) =>
+          Array.isArray(e.assignments) &&
+          e.assignments.some((a) => String(a.resourceId) === String(resourceId))
+      );
+
+      // De-duplicate by id
+      const merged = [...byDirect, ...byAssignment].filter(
+        (e, i, arr) => arr.findIndex((x) => String(x.id) === String(e.id)) === i
+      );
+
+      // MVP guard: if nothing matched, fall back to all engagements so the UI isn't disabled
+      return merged.length ? merged : all;
     }
 
     // Admin/Boss: see all
@@ -590,6 +779,8 @@ export default function TimesheetEditor() {
                     isLocked={isLocked}
                     days={weekDays(weekKey)}
                     engagementOptions={engagementOptions}
+                    resourceLabel={resourcePosition}
+                    onSaveRow={() => handleSubmit(onSubmit)()}
                   />
                 ))
               )}

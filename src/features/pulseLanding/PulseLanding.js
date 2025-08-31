@@ -18,7 +18,7 @@ import { useEffect } from "react";
 export default function PulseLanding() {
   const theme = useTheme();
 
-  const totalFounderSlots = 10;
+  const totalFounderSlots = 200;
   const claimedFounderSlots = 1; // TODO: wire from backend later
   const remainingFounderSlots = Math.max(
     totalFounderSlots - claimedFounderSlots,
@@ -99,7 +99,7 @@ export default function PulseLanding() {
               <Box className="scrolling">
                 🚨 Only {remainingFounderSlots} of {totalFounderSlots}{" "}
                 early-adopter spot
-                {remainingFounderSlots === 1 ? "" : "s"} left — $250/m incl. 20
+                {remainingFounderSlots === 1 ? "" : "s"} left — $50/m incl. 20
                 users. 🚨
               </Box>
             </Box>
@@ -331,6 +331,195 @@ export default function PulseLanding() {
                   </Paper>
                 </Grid>
               </Grid>
+            </Container>
+          </Box>
+
+          {/* FEATURE ROWS: alternating text + image blocks */}
+          <Box component="section" sx={{ py: { xs: 6 } }}>
+            <Container maxWidth="lg">
+              {/* Row 1: Text left, Image right */}
+              <Grid
+                container
+                spacing={4}
+                alignItems="center"
+                sx={{ mb: { xs: 4, md: 6 } }}
+              >
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                >
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: 700 }}
+                    gutterBottom
+                  >
+                    Streamlined Engagement Wizard
+                  </Typography>
+                  <Typography color="text.secondary">
+                    Spin up a new engagement in a few clear steps. Scope, dates,
+                    budget and team — captured without the spreadsheet shuffle.
+                  </Typography>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                >
+                  <Box
+                    component="img"
+                    src="/images/pulse/Engagement_Wizard.png"
+                    alt="Engagement Wizard preview"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                    sx={{ width: "100%", height: "auto", borderRadius: 1 }}
+                  />
+                </Grid>
+              </Grid>
+
+              {/* Row 2: Image left, Text right */}
+              <Grid
+                container
+                spacing={4}
+                alignItems="center"
+                sx={{ mb: { xs: 4, md: 6 } }}
+              >
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                >
+                  <Box
+                    component="img"
+                    src="/images/pulse/Budget_Builder.png"
+                    alt="Budget Builder preview"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                    sx={{ width: "100%", height: "auto", borderRadius: 1 }}
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                >
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: 700 }}
+                    gutterBottom
+                  >
+                    Smarter Budget Builder
+                  </Typography>
+                  <Typography color="text.secondary">
+                    Build or link budgets without duplication. See burn and
+                    variance clearly so you can intervene early.
+                  </Typography>
+                </Grid>
+              </Grid>
+
+              {/* Row 3: Text left, Image right */}
+              <Grid
+                container
+                spacing={4}
+                alignItems="center"
+                sx={{ mb: { xs: 4, md: 6 } }}
+              >
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                >
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: 700 }}
+                    gutterBottom
+                  >
+                    Resource assignment made obvious
+                  </Typography>
+                  <Typography color="text.secondary">
+                    Assign people with confidence. Balance workloads and track
+                    utilisation without guesswork.
+                  </Typography>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                >
+                  <Box
+                    component="img"
+                    src="/images/pulse/feature-3.png"
+                    alt="Resource assignment preview"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                    sx={{ width: "100%", height: "auto", borderRadius: 1 }}
+                  />
+                </Grid>
+              </Grid>
+
+              {/* Row 4: Image left, Text right */}
+              <Grid container spacing={4} alignItems="center">
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                >
+                  <Box
+                    component="img"
+                    src="/images/pulse/feature-4.png"
+                    alt="Timesheets preview"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                    sx={{ width: "100%", height: "auto", borderRadius: 1 }}
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{ textAlign: { xs: "center", md: "left" } }}
+                >
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: 700 }}
+                    gutterBottom
+                  >
+                    Log time against engagements
+                  </Typography>
+                  <Typography color="text.secondary">
+                    Make time capture painless and contextual so actuals roll up
+                    to engagements and budgets automatically.
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Container>
+          </Box>
+
+          {/* MINI HEADING BETWEEN FEATURES AND VISUAL */}
+          <Box component="section" sx={{ pt: { xs: 4 }, pb: { xs: 2 } }}>
+            <Container maxWidth="lg">
+              <Typography
+                variant="h4"
+                sx={{ fontWeight: 800, textAlign: "center" }}
+                gutterBottom
+              >
+                Unlock insight!
+              </Typography>
             </Container>
           </Box>
 

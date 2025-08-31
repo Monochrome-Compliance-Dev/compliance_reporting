@@ -43,7 +43,40 @@ export const pulseService = {
   },
   clients: buildCrud("clients"),
   engagements: buildCrud("engagements"),
-  budgets: buildCrud("budgets"),
+  budgets: {
+    ...buildCrud("budgets"),
+    // Override list to support optional query params (e.g., { unlinked: true })
+    async list(query) {
+      if (!query || Object.keys(query).length === 0) {
+        return unwrapArray(await fetchWrapper.get(`${baseUrl}/budgets`));
+      }
+      const qs = new URLSearchParams();
+      Object.entries(query).forEach(([k, v]) => {
+        if (v !== undefined && v !== null && String(v) !== "")
+          qs.append(k, String(v));
+      });
+      return unwrapArray(
+        await fetchWrapper.get(`${baseUrl}/budgets?${qs.toString()}`)
+      );
+    },
+    // List budgets that are not linked to any engagement (engagementId IS NULL)
+    async listUnlinked() {
+      return unwrapArray(
+        await fetchWrapper.get(`${baseUrl}/budgets?unlinked=true`)
+      );
+    },
+    // Link an existing unlinked budget to a specific engagement
+    async linkToEngagement({ engagementId, budgetId }) {
+      if (!engagementId || !budgetId)
+        throw new Error("engagementId and budgetId are required");
+      return unwrap(
+        await fetchWrapper.post(
+          `${baseUrl}/engagements/${encodeURIComponent(engagementId)}/link-budget/${encodeURIComponent(budgetId)}`,
+          {}
+        )
+      );
+    },
+  },
   timesheets: {
     ...buildCrud("timesheets"),
     rows: {

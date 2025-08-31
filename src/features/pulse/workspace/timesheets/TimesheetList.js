@@ -54,18 +54,55 @@ export default function TimesheetList() {
     [resources]
   );
 
-  const myResourceId = useMemo(() => {
-    if (!currentUser) return "";
+  const [myResourceId, setMyResourceId] = useState("");
+
+  useEffect(() => {
+    if (!currentUser) {
+      setMyResourceId("");
+      return;
+    }
+    // Try to resolve from context first
     const byId = (resources || []).find(
       (r) => String(r.userId) === String(currentUser.id)
     );
-    if (byId) return String(byId.id);
     const byEmail = (resources || []).find(
       (r) =>
         String(r.email || "").toLowerCase() ===
         String(currentUser.email || "").toLowerCase()
     );
-    return byEmail ? String(byEmail.id) : "";
+    const found = byId || byEmail;
+    if (found?.id) {
+      setMyResourceId(String(found.id));
+      return;
+    }
+    // Fallback: query the API by userId/email in case context isn't hydrated yet
+    let alive = true;
+    (async () => {
+      try {
+        if (pulseService?.resources?.list) {
+          const res = await pulseService.resources.list({
+            userId: currentUser.id,
+            email: currentUser.email,
+          });
+          const rows = Array.isArray(res)
+            ? res
+            : Array.isArray(res?.items)
+              ? res.items
+              : Array.isArray(res?.data)
+                ? res.data
+                : Array.isArray(res?.rows)
+                  ? res.rows
+                  : [];
+          const r = rows[0];
+          if (alive && r?.id) setMyResourceId(String(r.id));
+        }
+      } catch (e) {
+        if (alive) setMyResourceId("");
+      }
+    })();
+    return () => {
+      alive = false;
+    };
   }, [resources, currentUser]);
 
   const load = useCallback(async () => {
@@ -114,7 +151,7 @@ export default function TimesheetList() {
         (t) => String(t.weekKey) === String(thisWeek)
       );
       if (existing) {
-        navigate(`/pulse-solution/timesheets/${existing.id}`);
+        navigate(`/pulse-solution/workplace/timesheets/${existing.id}`);
         return;
       }
       // Create and navigate to editor
@@ -126,7 +163,7 @@ export default function TimesheetList() {
         createdBy: currentUser?.id,
       });
       showAlert("Created this week's timesheet", "success");
-      navigate(`/pulse-solution/timesheets/${created.id}`);
+      navigate(`/pulse-solution/workplace/timesheets/${created.id}`);
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error("openCurrentWeek failed", e);
@@ -143,7 +180,7 @@ export default function TimesheetList() {
           updatedBy: currentUser?.id,
         });
         showAlert("Timesheet recalled to draft", "success");
-        navigate(`/pulse-solution/timesheets/${t.id}`);
+        navigate(`/pulse-solution/workplace/timesheets/${t.id}`);
       } catch (e) {
         // eslint-disable-next-line no-console
         console.error("Recall failed", e);
@@ -167,9 +204,13 @@ export default function TimesheetList() {
   };
 
   const resourceLabel = useMemo(() => {
-    const r = resourceByUserId[String(currentUser?.id)] || null;
+    const byId = (resources || []).find(
+      (r) => String(r.id) === String(myResourceId)
+    );
+    const byUser = resourceByUserId[String(currentUser?.id)] || null;
+    const r = byId || byUser || null;
     return r?.name || r?.email || "";
-  }, [resourceByUserId, currentUser]);
+  }, [resources, myResourceId, resourceByUserId, currentUser]);
 
   return (
     <Stack spacing={2}>
@@ -232,7 +273,9 @@ export default function TimesheetList() {
                           size="small"
                           variant="outlined"
                           onClick={() =>
-                            navigate(`/pulse-solution/timesheets/${t.id}`)
+                            navigate(
+                              `/pulse-solution/workplace/timesheets/${t.id}`
+                            )
                           }
                         >
                           Edit
@@ -242,7 +285,9 @@ export default function TimesheetList() {
                           size="small"
                           variant="outlined"
                           onClick={() =>
-                            navigate(`/pulse-solution/timesheets/view/${t.id}`)
+                            navigate(
+                              `/pulse-solution/workplace/timesheets/view/${t.id}`
+                            )
                           }
                         >
                           View

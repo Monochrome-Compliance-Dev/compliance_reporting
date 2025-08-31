@@ -34,21 +34,21 @@ export default function EngagementContainerForm({
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isValid },
     reset,
     watch,
     control,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: initialValues,
+    mode: "onChange",
+    criteriaMode: "all",
   });
 
   // keep defaults fresh if parent updates initialValues
   useEffect(() => {
     reset(initialValues);
   }, [initialValues, reset]);
-
-  const canCreate = !!watch("name") && !!watch("clientId");
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -64,6 +64,7 @@ export default function EngagementContainerForm({
           error={!!errors.name}
           helperText={errors.name?.message}
           fullWidth
+          required
         />
 
         <Stack
@@ -75,7 +76,12 @@ export default function EngagementContainerForm({
             name="clientId"
             control={control}
             render={({ field }) => (
-              <FormControl fullWidth size="small" error={!!errors.clientId}>
+              <FormControl
+                fullWidth
+                size="small"
+                error={!!errors.clientId}
+                required
+              >
                 <InputLabel id="clientId-label">Client</InputLabel>
                 <Select
                   labelId="clientId-label"
@@ -116,6 +122,7 @@ export default function EngagementContainerForm({
             error={!!errors.startDate}
             helperText={errors.startDate?.message}
             fullWidth
+            required
           />
           <TextField
             label="End date"
@@ -125,6 +132,7 @@ export default function EngagementContainerForm({
             error={!!errors.endDate}
             helperText={errors.endDate?.message}
             fullWidth
+            required
           />
         </Stack>
 
@@ -132,7 +140,7 @@ export default function EngagementContainerForm({
           <Button
             type="submit"
             variant="contained"
-            disabled={isSubmitting || (mode === "create" && !canCreate)}
+            disabled={!isValid || isSubmitting}
           >
             {mode === "create" ? "Create engagement" : "Save changes"}
           </Button>

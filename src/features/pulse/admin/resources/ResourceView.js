@@ -110,7 +110,7 @@ export default function ResourceView() {
     return (resources || []).filter((r) => {
       const matchesQuery =
         !q ||
-        [r.name, r.role].some((v) =>
+        [r.name, r.position].some((v) =>
           String(v || "")
             .toLowerCase()
             .includes(q)
@@ -205,17 +205,16 @@ export default function ResourceView() {
           const payload = {
             user: {
               email: values.email,
-              role: "User",
+              role: values.role || "User",
               firstName: values.firstName,
               lastName: values.lastName,
               customerId: userService.userValue.customerId,
               phone: "",
-              position: values.position || "",
               active: false,
             },
             resource: {
               name: `${values.firstName} ${values.lastName}`.trim(),
-              role: values.role || "",
+              position: values.position || "",
               hourlyRate: Number(values.hourlyRate ?? 0),
               capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
             },
@@ -237,7 +236,7 @@ export default function ResourceView() {
         // Fallback: manual link via userId, or editing existing resource
         const basePayload = {
           name: `${values.firstName} ${values.lastName}`.trim(),
-          role: values.role,
+          position: values.position,
           hourlyRate: Number(values.hourlyRate ?? 0),
           capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
           customerId: userService.userValue.customerId,
@@ -323,7 +322,7 @@ export default function ResourceView() {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>Role</TableCell>
+              <TableCell>Position</TableCell>
               <TableCell align="right">Hourly charge-out rate</TableCell>
               <TableCell align="right">Capacity (hrs/wk)</TableCell>
               <TableCell align="right">Actions</TableCell>
@@ -348,7 +347,7 @@ export default function ResourceView() {
                   selected={String(r.id) === String(selectedId)}
                 >
                   <TableCell>{r.name}</TableCell>
-                  <TableCell>{r.role}</TableCell>
+                  <TableCell>{r.position}</TableCell>
                   <TableCell align="right">{r.hourlyRate ?? "—"}</TableCell>
                   <TableCell align="right">
                     {r.capacityHoursPerWeek ?? "—"}

@@ -50,7 +50,6 @@ export default function EngagementAssignmentsEditor({
       startDate: a.startDate || "",
       endDate: a.endDate || "",
       dueDate: a.dueDate || "",
-      completedAt: a.completedAt || "",
       role: a.role || "",
       rateOverride: a.rateOverride ?? "",
       notes: a.notes || "",
@@ -130,7 +129,6 @@ export default function EngagementAssignmentsEditor({
         startDate: suggestedStart,
         endDate: "",
         dueDate: "",
-        completedAt: "",
         role: "",
         rateOverride: "",
         notes: "",
@@ -170,7 +168,6 @@ export default function EngagementAssignmentsEditor({
       startDate: toNullIfEmpty(r.startDate),
       endDate: toNullIfEmpty(r.endDate),
       dueDate: toNullIfEmpty(r.dueDate),
-      completedAt: toNullIfEmpty(r.completedAt),
       role: toNullIfEmpty(r.role),
       rateOverride: toNumberOrNull(r.rateOverride),
       notes: toNullIfEmpty(r.notes),
@@ -196,7 +193,6 @@ export default function EngagementAssignmentsEditor({
       startDate: a.startDate || "",
       endDate: a.endDate || "",
       dueDate: a.dueDate || "",
-      completedAt: a.completedAt || "",
       role: a.role || "",
       rateOverride: a.rateOverride ?? "",
       notes: a.notes || "",
@@ -289,7 +285,6 @@ export default function EngagementAssignmentsEditor({
           createdBy: userService.userValue.id,
         };
         const optional = compactPayload({
-          completedAt: norm.completedAt,
           role: norm.role,
           rateOverride: norm.rateOverride,
           notes: norm.notes,
@@ -300,7 +295,7 @@ export default function EngagementAssignmentsEditor({
       // EDIT: only send changed fields (PATCH semantics)
       const base = baselineById[String(r.assignmentId)] || {};
       const diff = {};
-      "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,completedAt,role,rateOverride,notes"
+      "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
         .split(",")
         .forEach((k) => {
           const a = norm[k];
@@ -354,7 +349,7 @@ export default function EngagementAssignmentsEditor({
     const norm = normaliseRow(row);
     const base = getBaselineForId(row.assignmentId);
     const diff = {};
-    "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,completedAt,role,rateOverride,notes"
+    "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
       .split(",")
       .forEach((k) => {
         if (norm[k] !== base[k]) diff[k] = norm[k];
@@ -619,24 +614,6 @@ export default function EngagementAssignmentsEditor({
                         <Grid item xs={6}>
                           <TextField
                             fullWidth
-                            label="Completed at"
-                            size="small"
-                            type="datetime-local"
-                            value={row.completedAt}
-                            onChange={(e) =>
-                              setRows((prev) =>
-                                prev.map((r) =>
-                                  r.key === row.key
-                                    ? { ...r, completedAt: e.target.value }
-                                    : r
-                                )
-                              )
-                            }
-                          />
-                        </Grid>
-                        <Grid item xs={6}>
-                          <TextField
-                            fullWidth
                             label="Role"
                             size="small"
                             value={row.role}
@@ -704,7 +681,6 @@ export default function EngagementAssignmentsEditor({
                       <TableCell width={140}>Start</TableCell>
                       <TableCell width={140}>End</TableCell>
                       <TableCell width={140}>Due date</TableCell>
-                      <TableCell width={160}>Completed at</TableCell>
                       <TableCell>Role</TableCell>
                       <TableCell width={120}>Rate override</TableCell>
                       <TableCell>Notes</TableCell>
@@ -860,22 +836,6 @@ export default function EngagementAssignmentsEditor({
                                 errorsByKey[row.key]?.dueDate
                                   ? "Required"
                                   : undefined
-                              }
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              size="small"
-                              type="datetime-local"
-                              value={row.completedAt}
-                              onChange={(e) =>
-                                setRows((prev) =>
-                                  prev.map((r) =>
-                                    r.key === row.key
-                                      ? { ...r, completedAt: e.target.value }
-                                      : r
-                                  )
-                                )
                               }
                             />
                           </TableCell>

@@ -15,6 +15,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  CircularProgress,
   Chip,
   Dialog,
   DialogTitle,
@@ -117,8 +118,10 @@ export default function BudgetBuilder({ onSaved }) {
 
   // Query params
   const [searchParams] = useSearchParams();
-  const budgetIdFromQuery =
-    searchParams.get("budgetId") || searchParams.get("id") || "";
+  const budgetIdFromQuery = searchParams.get("budgetId") || "";
+  const isBudgetIdFromQueryRef = useRef(!!budgetIdFromQuery);
+  const engagementIdFromQuery =
+    searchParams.get("engagementId") || searchParams.get("id") || "";
 
   // Budget meta
   const [budgetId, setBudgetId] = useState(budgetIdFromQuery);
@@ -137,6 +140,42 @@ export default function BudgetBuilder({ onSaved }) {
   const itemsSectionRef = useRef(null);
   const itemsEndRef = useRef(null);
   const prevBudgetIdRef = useRef(budgetId);
+
+  // Linkable budgets state
+  const [linkableBudgets, setLinkableBudgets] = useState([]);
+  const [linkableLoading, setLinkableLoading] = useState(false);
+  const [selectedLinkBudgetId, setSelectedLinkBudgetId] = useState("");
+  // Before a budget exists, let the user choose Create vs Link
+  const [preBudgetMode, setPreBudgetMode] = useState("create"); // 'create' | 'link'
+  // Effect to fetch unlinked budgets
+  useEffect(() => {
+    let alive = true;
+    const fetchLinkables = async () => {
+      if (budgetId || !engagementIdFromQuery) return;
+      try {
+        setLinkableLoading(true);
+        let rows;
+        if (pulseService?.budgets?.listUnlinked) {
+          rows = unwrap(await pulseService.budgets.listUnlinked());
+        } else if (pulseService?.budgets?.list) {
+          rows = unwrap(await pulseService.budgets.list({ unlinked: true }));
+        } else {
+          rows = [];
+        }
+        if (alive) setLinkableBudgets(Array.isArray(rows) ? rows : []);
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error("Failed to load unlinked budgets", e);
+        if (alive) setLinkableBudgets([]);
+      } finally {
+        if (alive) setLinkableLoading(false);
+      }
+    };
+    fetchLinkables();
+    return () => {
+      alive = false;
+    };
+  }, [budgetId, engagementIdFromQuery]);
   // Save single item callback
   const saveItem = useCallback(
     async (index) => {
@@ -160,6 +199,7 @@ export default function BudgetBuilder({ onSaved }) {
         const base = {
           budgetId,
           sectionId: it.sectionId,
+          sectionName: sections.find((s) => s.id === it.sectionId)?.name || "",
           resourceLabel: String(it.resourceLabel || "").trim(),
           notes: String(it.notes || "").trim() || undefined,
           billable: !!it.billable,
@@ -391,7 +431,9 @@ export default function BudgetBuilder({ onSaved }) {
       } catch (e) {
         // eslint-disable-next-line no-console
         console.error("Failed to load budget/sections/items", e);
-        showAlert("Failed to load budget", "error");
+        if (isBudgetIdFromQueryRef.current) {
+          showAlert("Failed to load budget", "error");
+        }
       }
     };
     load();
@@ -460,6 +502,7 @@ export default function BudgetBuilder({ onSaved }) {
         id: it.id,
         budgetId: budgetId || undefined,
         sectionId: it.sectionId || null,
+        sectionName: sections.find((s) => s.id === it.sectionId)?.name || "",
         resourceLabel: String(it.resourceLabel || "").trim(),
         activity: undefined, // deprecated
         billingType: isFixed ? "fixed" : "hourly",
@@ -612,152 +655,180 @@ export default function BudgetBuilder({ onSaved }) {
         </Stack>
       </Box>
 
-      {/* Budget meta */}
-      <Paper variant="outlined">
-        <Box p={2}>
-          <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <TextField
-              label="Budget name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              fullWidth
-              size="medium"
-            />
-            <TextField
-              label="Status"
-              value={
-                status === "draft"
-                  ? "Draft"
-                  : status === "final"
-                    ? "Final"
-                    : "Archived"
-              }
-              size="medium"
-              InputProps={{ readOnly: true }}
-              sx={{ minWidth: 160 }}
-            />
-            <TextField
-              label="Version"
-              type="number"
-              inputProps={{ min: 1, step: 1 }}
-              value={version}
-              onChange={(e) => setVersion(Number(e.target.value || 1))}
-              sx={{ width: 120 }}
-              size="medium"
-            />
-            <FormControl sx={{ minWidth: 140 }}>
-              <InputLabel id="currency-label">Currency</InputLabel>
-              <Select
-                labelId="currency-label"
-                label="Currency"
-                value={currency}
-                onChange={(e) => setCurrency(e.target.value)}
-                size="medium"
-              >
-                <MenuItem value="AUD">AUD</MenuItem>
-                <MenuItem value="USD">USD</MenuItem>
-                <MenuItem value="EUR">EUR</MenuItem>
-                <MenuItem value="GBP">GBP</MenuItem>
-              </Select>
-            </FormControl>
+      {/* Pre-budget choice: Create vs Link */}
+      {!budgetId && (
+        <Box mb={1}>
+          <Stack direction="row" spacing={2} alignItems="center">
+            <Button
+              variant={preBudgetMode === "create" ? "contained" : "text"}
+              onClick={() => setPreBudgetMode("create")}
+            >
+              Create budget
+            </Button>
+            <Button
+              variant={preBudgetMode === "link" ? "contained" : "text"}
+              onClick={() => setPreBudgetMode("link")}
+            >
+              Link budget
+            </Button>
           </Stack>
-          <Box mt={2}>
-            <TextField
-              label="Notes"
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              fullWidth
-              multiline
-              minRows={2}
-            />
-          </Box>
-          <Box mt={3}>
-            <Table size="small" sx={{ mb: 2, maxWidth: 720 }}>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Budget</TableCell>
-                  <TableCell align="right">Number of resources</TableCell>
-                  <TableCell align="right">Hours</TableCell>
-                  <TableCell align="right">Total</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell />
-                  <TableCell align="right">
-                    {budgetSummary.numResources}
-                  </TableCell>
-                  <TableCell align="right">{budgetSummary.hours}</TableCell>
-                  <TableCell align="right">
-                    {toCurrency(budgetSummary.amount, currency)}
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-            <br />
+        </Box>
+      )}
 
-            <Table size="small" sx={{ maxWidth: 720 }}>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Section</TableCell>
-                  <TableCell align="right">Number of resources</TableCell>
-                  <TableCell align="right">Hours</TableCell>
-                  <TableCell align="right">Total</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {sectionSummaries.map((s) => (
-                  <TableRow key={s.id}>
-                    <TableCell>{s.name}</TableCell>
-                    <TableCell align="right">{s.numResources}</TableCell>
-                    <TableCell align="right">{s.hours}</TableCell>
-                    <TableCell align="right">
-                      {toCurrency(s.amount, currency)}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-            <Box mt={2} display="flex" justifyContent="flex-end">
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={async () => {
-                  try {
-                    if (!budgetId) {
-                      showAlert(
-                        "Save the budget first before marking as Final.",
-                        "warning"
-                      );
-                      return;
-                    }
-                    await svc.current.updateBudget(budgetId, {
-                      name: String(name || "").trim(),
-                      status: "final",
-                      version,
-                      currency,
-                      notes,
-                      customerId: userService.userValue.customerId,
-                      updatedBy: userService.userValue.id,
-                    });
-                    setStatus("final");
-                    showAlert("Budget marked as Final", "success");
-                    navigate("/pulse-solution/admin/budgets");
-                  } catch (e) {
-                    // eslint-disable-next-line no-console
-                    console.error(e);
-                    showAlert("Failed to mark budget as Final", "error");
-                  }
-                }}
-                disabled={!budgetId || status === "final"}
-              >
-                Mark Final
-              </Button>
+      {/* Budget meta */}
+      {(budgetId || preBudgetMode === "create") && (
+        <Paper variant="outlined">
+          <Box p={2}>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+              <TextField
+                label="Budget name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                fullWidth
+                size="medium"
+              />
+              <TextField
+                label="Status"
+                value={
+                  status === "draft"
+                    ? "Draft"
+                    : status === "final"
+                      ? "Final"
+                      : "Archived"
+                }
+                size="medium"
+                InputProps={{ readOnly: true }}
+                sx={{ minWidth: 160 }}
+              />
+              <TextField
+                label="Version"
+                type="number"
+                inputProps={{ min: 1, step: 1 }}
+                value={version}
+                onChange={(e) => setVersion(Number(e.target.value || 1))}
+                sx={{ width: 120 }}
+                size="medium"
+              />
+              <FormControl sx={{ minWidth: 140 }}>
+                <InputLabel id="currency-label">Currency</InputLabel>
+                <Select
+                  labelId="currency-label"
+                  label="Currency"
+                  value={currency}
+                  onChange={(e) => setCurrency(e.target.value)}
+                  size="medium"
+                >
+                  <MenuItem value="AUD">AUD</MenuItem>
+                  <MenuItem value="USD">USD</MenuItem>
+                  <MenuItem value="EUR">EUR</MenuItem>
+                  <MenuItem value="GBP">GBP</MenuItem>
+                </Select>
+              </FormControl>
+            </Stack>
+            <Box mt={2}>
+              <TextField
+                label="Notes"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                fullWidth
+                multiline
+                minRows={2}
+              />
+            </Box>
+            <Box mt={3}>
+              {budgetId && (
+                <>
+                  <Table size="small" sx={{ mb: 2, maxWidth: 720 }}>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Budget</TableCell>
+                        <TableCell align="right">Number of resources</TableCell>
+                        <TableCell align="right">Hours</TableCell>
+                        <TableCell align="right">Total</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell />
+                        <TableCell align="right">
+                          {budgetSummary.numResources}
+                        </TableCell>
+                        <TableCell align="right">
+                          {budgetSummary.hours}
+                        </TableCell>
+                        <TableCell align="right">
+                          {toCurrency(budgetSummary.amount, currency)}
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                  <br />
+
+                  <Table size="small" sx={{ maxWidth: 720 }}>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Section</TableCell>
+                        <TableCell align="right">Number of resources</TableCell>
+                        <TableCell align="right">Hours</TableCell>
+                        <TableCell align="right">Total</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {sectionSummaries.map((s) => (
+                        <TableRow key={s.id}>
+                          <TableCell>{s.name}</TableCell>
+                          <TableCell align="right">{s.numResources}</TableCell>
+                          <TableCell align="right">{s.hours}</TableCell>
+                          <TableCell align="right">
+                            {toCurrency(s.amount, currency)}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                  <Box mt={2} display="flex" justifyContent="flex-end">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={async () => {
+                        try {
+                          if (!budgetId) {
+                            showAlert(
+                              "Save the budget first before marking as Final.",
+                              "warning"
+                            );
+                            return;
+                          }
+                          await svc.current.updateBudget(budgetId, {
+                            name: String(name || "").trim(),
+                            status: "final",
+                            version,
+                            currency,
+                            notes,
+                            customerId: userService.userValue.customerId,
+                            updatedBy: userService.userValue.id,
+                          });
+                          setStatus("final");
+                          showAlert("Budget marked as Final", "success");
+                          navigate("/pulse-solution/admin/budgets");
+                        } catch (e) {
+                          // eslint-disable-next-line no-console
+                          console.error(e);
+                          showAlert("Failed to mark budget as Final", "error");
+                        }
+                      }}
+                      disabled={!budgetId || status === "final"}
+                    >
+                      Mark Final
+                    </Button>
+                  </Box>
+                </>
+              )}
             </Box>
           </Box>
-        </Box>
-      </Paper>
+        </Paper>
+      )}
 
       {/* Two-pane: Sections (left) + Items scoped to selected section (right) */}
       {budgetId ? (
@@ -1058,16 +1129,85 @@ export default function BudgetBuilder({ onSaved }) {
             </Box>
           </Paper>
         </Stack>
-      ) : (
+      ) : preBudgetMode === "link" ? (
         <Paper variant="outlined">
           <Box p={2}>
-            <Typography color="text.secondary">
-              Create and save the budget first. Once saved, you can add sections
-              and items.
-            </Typography>
+            <Stack spacing={2}>
+              <Typography color="text.secondary">
+                Create and save a new budget, or link an existing unlinked
+                budget to this engagement.
+              </Typography>
+
+              {engagementIdFromQuery && (
+                <Stack
+                  direction={{ xs: "column", sm: "row" }}
+                  spacing={1}
+                  alignItems={{ xs: "stretch", sm: "center" }}
+                >
+                  <FormControl size="small" sx={{ minWidth: 280 }}>
+                    <InputLabel id="linkable-budget-select-label">
+                      Link existing budget
+                    </InputLabel>
+                    <Select
+                      labelId="linkable-budget-select-label"
+                      label="Link existing budget"
+                      value={selectedLinkBudgetId}
+                      onChange={(e) =>
+                        setSelectedLinkBudgetId(String(e.target.value))
+                      }
+                      disabled={
+                        linkableLoading || (linkableBudgets || []).length === 0
+                      }
+                    >
+                      {(linkableBudgets || []).map((b) => (
+                        <MenuItem key={b.id} value={String(b.id)}>
+                          {b.name || b.id}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                  <Button
+                    variant="contained"
+                    disabled={!selectedLinkBudgetId || linkableLoading}
+                    onClick={async () => {
+                      try {
+                        if (!selectedLinkBudgetId) return;
+                        if (pulseService?.budgets?.linkToEngagement) {
+                          await pulseService.budgets.linkToEngagement({
+                            engagementId: engagementIdFromQuery,
+                            budgetId: selectedLinkBudgetId,
+                          });
+                        } else {
+                          await pulseService.budgets.patch(
+                            String(selectedLinkBudgetId),
+                            {
+                              engagementId: engagementIdFromQuery,
+                              customerId: userService.userValue.customerId,
+                              updatedBy: userService.userValue.id,
+                            }
+                          );
+                        }
+                        setBudgetId(String(selectedLinkBudgetId));
+                        showAlert("Budget linked to engagement", "success");
+                      } catch (e) {
+                        // eslint-disable-next-line no-console
+                        console.error("Failed to link budget", e);
+                        showAlert("Failed to link budget", "error");
+                      }
+                    }}
+                  >
+                    {linkableLoading ? <CircularProgress size={20} /> : "Link"}
+                  </Button>
+                </Stack>
+              )}
+
+              <Typography color="text.secondary">
+                Or use the builder below to create a new budget from scratch.
+              </Typography>
+            </Stack>
           </Box>
         </Paper>
-      )}
+      ) : null}
       {/* Section Create/Rename Dialog */}
       <Dialog
         open={sectionDialog.open}

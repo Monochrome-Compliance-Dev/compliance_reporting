@@ -24,6 +24,17 @@ const unwrap = (res) =>
   res && typeof res === "object" && "data" in res ? res.data : res;
 
 function DetailsStep({ engagement, clients, onSaved, onNext, canProceed }) {
+  const handleSubmitAndNext = async (values) => {
+    try {
+      const result = await onSaved?.(values);
+      // If parent save did not explicitly fail, advance to Budget step
+      if (result !== false) {
+        onNext?.();
+      }
+    } catch (e) {
+      // Errors are surfaced by onSaved/showAlert; do not advance
+    }
+  };
   return (
     <Paper variant="outlined">
       <Box p={2}>
@@ -45,7 +56,7 @@ function DetailsStep({ engagement, clients, onSaved, onNext, canProceed }) {
                 }
           }
           clients={clients}
-          onSubmit={onSaved}
+          onSubmit={handleSubmitAndNext}
           onQuickAddClient={() => {}}
         />
         <Box mt={2} display="flex" justifyContent="space-between">
@@ -287,6 +298,8 @@ export default function EngagementWizard() {
 
   // initial step selection: prefer ?step= if valid, else derive from status/gates
   useEffect(() => {
+    // Do not auto-derive if the user (or code) has already navigated away from step 0
+    if (activeStep !== 0) return;
     if (!engagementId || !engagement) return;
 
     const gates = { engagementId, hasBudget, hasAssignments };
