@@ -32,25 +32,45 @@ import { useAlert, usePulseContext } from "../../../../context";
 import { pulseService } from "../../../../services/pulse/pulse";
 import { userService } from "../../../../services";
 
+const RESOURCE_OPTIONS = [
+  "Auditor (1st year)",
+  "Auditor (2nd year)",
+  "Auditor (3rd year)",
+  "Senior",
+  "Manager",
+  "Senior Manager",
+  "Director",
+  "Partner",
+];
+
 const schema = yup
   .object({
-    name: yup.string().trim().required("Name is required"),
+    firstName: yup.string().trim().required("First name is required"),
+    lastName: yup.string().trim().required("Last name is required"),
     role: yup
       .string()
-      .oneOf(["User", "Admin"], "Invalid role")
+      .oneOf(["User", "Admin"], "Role is required")
       .required("Role is required"),
+    position: yup
+      .string()
+      .oneOf(RESOURCE_OPTIONS, "Invalid position")
+      .required("Position is required"),
     hourlyRate: yup
       .number()
       .transform((v, o) => (o === "" || Number.isNaN(v) ? undefined : v))
       .min(0, "Cannot be negative")
-      .optional(),
+      .required("Hourly charge-out rate is required"),
     capacityHoursPerWeek: yup
       .number()
       .transform((v, o) => (o === "" || Number.isNaN(v) ? undefined : v))
       .min(0, "Cannot be negative")
       .max(168, "Easy there, hero")
-      .optional(),
-    email: yup.string().email("Invalid email").optional(),
+      .required("Capacity is required"),
+    email: yup
+      .string()
+      .email("Invalid email")
+      .trim()
+      .required("Email is required"),
     userId: yup
       .string()
       .trim()
@@ -70,7 +90,6 @@ export default function ResourceView() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const [query, setQuery] = useState("");
-  const [roleFilter, setRoleFilter] = useState("");
 
   const [confirm, setConfirm] = useState({ open: false, id: null, name: "" });
   const openConfirmDelete = useCallback((id, name) => {
@@ -86,13 +105,6 @@ export default function ResourceView() {
     [resources, selectedId]
   );
 
-  const roles = useMemo(() => {
-    const set = new Set(
-      (resources || []).map((r) => (r.role || "").trim()).filter(Boolean)
-    );
-    return Array.from(set).sort((a, b) => a.localeCompare(b));
-  }, [resources]);
-
   const filteredResources = useMemo(() => {
     const q = query.trim().toLowerCase();
     return (resources || []).filter((r) => {
@@ -103,10 +115,9 @@ export default function ResourceView() {
             .toLowerCase()
             .includes(q)
         );
-      const matchesRole = !roleFilter || String(r.role || "") === roleFilter;
-      return matchesQuery && matchesRole;
+      return matchesQuery;
     });
-  }, [resources, query, roleFilter]);
+  }, [resources, query]);
 
   useEffect(() => {
     if (
@@ -123,8 +134,10 @@ export default function ResourceView() {
   const { register, handleSubmit, reset, formState } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       role: "",
+      position: "",
       hourlyRate: "",
       capacityHoursPerWeek: "",
       email: "",
@@ -135,9 +148,19 @@ export default function ResourceView() {
   // Keep form in sync with selection/mode
   useEffect(() => {
     if (mode === "edit" && selected) {
+      // Split selected.name into firstName and lastName
+      let firstName = "";
+      let lastName = "";
+      if (selected.name) {
+        const parts = String(selected.name).trim().split(" ");
+        firstName = parts[0] || "";
+        lastName = parts.slice(1).join(" ") || "";
+      }
       reset({
-        name: selected.name ?? "",
+        firstName,
+        lastName,
         role: selected.role ?? "",
+        position: selected.position ?? "",
         hourlyRate: selected.hourlyRate ?? "",
         capacityHoursPerWeek: selected.capacityHoursPerWeek ?? "",
         email: selected.email ?? "",
@@ -145,8 +168,10 @@ export default function ResourceView() {
       });
     } else if (mode === "create") {
       reset({
-        name: "",
+        firstName: "",
+        lastName: "",
         role: "",
+        position: "",
         hourlyRate: "",
         capacityHoursPerWeek: "",
         email: "",
@@ -176,21 +201,20 @@ export default function ResourceView() {
             showAlert("Email is required to invite the user", "warning");
             return;
           }
-          const [firstName = "", ...rest] = String(values.name || "").split(
-            " "
-          );
-          const lastName = rest.join(" ");
 
           const payload = {
             user: {
               email: values.email,
               role: "User",
-              firstName,
-              lastName,
+              firstName: values.firstName,
+              lastName: values.lastName,
               customerId: userService.userValue.customerId,
+              phone: "",
+              position: values.position || "",
+              active: false,
             },
             resource: {
-              name: values.name,
+              name: `${values.firstName} ${values.lastName}`.trim(),
               role: values.role || "",
               hourlyRate: Number(values.hourlyRate ?? 0),
               capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
@@ -212,7 +236,7 @@ export default function ResourceView() {
 
         // Fallback: manual link via userId, or editing existing resource
         const basePayload = {
-          name: values.name,
+          name: `${values.firstName} ${values.lastName}`.trim(),
           role: values.role,
           hourlyRate: Number(values.hourlyRate ?? 0),
           capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
@@ -287,24 +311,6 @@ export default function ResourceView() {
             onChange={(e) => setQuery(e.target.value)}
             inputProps={{ "aria-label": "Search resources" }}
           />
-          <FormControl size="small" sx={{ minWidth: 160 }}>
-            <InputLabel id="role-filter-label">Role</InputLabel>
-            <Select
-              labelId="role-filter-label"
-              label="Role"
-              value={roleFilter}
-              onChange={(e) => setRoleFilter(e.target.value)}
-            >
-              <MenuItem value="">
-                <em>All roles</em>
-              </MenuItem>
-              {roles.map((r) => (
-                <MenuItem key={r} value={r}>
-                  {r}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
           <Button variant="contained" onClick={startCreate}>
             New Resource
           </Button>
@@ -327,9 +333,9 @@ export default function ResourceView() {
             {filteredResources.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={5}>
-                  <Typography color="text.secondary">
-                    No resources yet. Click “New Resource”.
-                  </Typography>
+                  <Button variant="contained" onClick={startCreate}>
+                    New Resource
+                  </Button>
                 </TableCell>
               </TableRow>
             ) : (
@@ -410,13 +416,22 @@ export default function ResourceView() {
           p={2}
         >
           <Stack spacing={2}>
-            <TextField
-              label="Name"
-              {...register("name")}
-              error={!!errors.name}
-              helperText={errors.name?.message}
-              fullWidth
-            />
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+              <TextField
+                label="First name"
+                {...register("firstName")}
+                error={!!errors.firstName}
+                helperText={errors.firstName?.message}
+                fullWidth
+              />
+              <TextField
+                label="Last name"
+                {...register("lastName")}
+                error={!!errors.lastName}
+                helperText={errors.lastName?.message}
+                fullWidth
+              />
+            </Stack>
 
             <TextField
               select
@@ -428,6 +443,20 @@ export default function ResourceView() {
             >
               <MenuItem value="User">User</MenuItem>
               <MenuItem value="Admin">Admin</MenuItem>
+            </TextField>
+            <TextField
+              select
+              label="Position"
+              {...register("position")}
+              error={!!errors.position}
+              helperText={errors.position?.message}
+              fullWidth
+            >
+              {RESOURCE_OPTIONS.map((opt) => (
+                <MenuItem key={opt} value={opt}>
+                  {opt}
+                </MenuItem>
+              ))}
             </TextField>
 
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>

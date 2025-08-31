@@ -35,6 +35,7 @@ export const PulseProvider = ({ children }) => {
   const [activeResourceId, setActiveResourceId] = useState(null);
   const [activeEngagementId, setActiveEngagementId] = useState(null);
   const [activeClientId, setActiveClientId] = useState(null);
+  const [serverStatus, setServerStatus] = useState("unknown"); // 'online' | 'degraded' | 'offline' | 'unknown'
 
   // ---- active ID persistence (ok for UX continuity) ----
   const setActiveResourceIdPersist = useCallback((id) => {
@@ -58,8 +59,11 @@ export const PulseProvider = ({ children }) => {
     else localStorage.removeItem("pulse.activeClientId");
   }, []);
 
+  const isValidListPayload = (arr) => Array.isArray(arr);
+
   // ---- refresh (fetch from backend and cache) ----
   const refreshPulse = useCallback(async () => {
+    // 1) Try the server first
     try {
       const [nextClients, nextResources, nextEngagements] = await Promise.all([
         pulseService.clients.list(),
@@ -67,22 +71,61 @@ export const PulseProvider = ({ children }) => {
         pulseService.engagements.list(),
       ]);
 
+      const valid =
+        isValidListPayload(nextClients) &&
+        isValidListPayload(nextResources) &&
+        isValidListPayload(nextEngagements);
+
+      if (!valid) {
+        // server responded but with unexpected shape
+        throw Object.assign(new Error("Invalid payload from server"), {
+          cause: "invalid",
+        });
+      }
+
+      // Success: set state + cache and mark ONLINE
       setClients(nextClients);
       setResources(nextResources);
       setEngagements(nextEngagements);
 
-      // cache
       localStorage.setItem("pulse.clients", JSON.stringify(nextClients));
       localStorage.setItem("pulse.resources", JSON.stringify(nextResources));
       localStorage.setItem(
         "pulse.engagements",
         JSON.stringify(nextEngagements)
       );
+
+      setServerStatus("online");
     } catch (e) {
-      console.warn("PulseContext: refresh failed", e);
+      // 2) Fall back to cache
+      const cachedClients = JSON.parse(
+        localStorage.getItem("pulse.clients") || "[]"
+      );
+      const cachedResources = JSON.parse(
+        localStorage.getItem("pulse.resources") || "[]"
+      );
+      const cachedEngagements = JSON.parse(
+        localStorage.getItem("pulse.engagements") || "[]"
+      );
+
+      setClients(cachedClients);
+      setResources(cachedResources);
+      setEngagements(cachedEngagements);
+
+      // Classify status
+      const status =
+        e && e.cause === "invalid"
+          ? "degraded" // server reachable but returned nonsense
+          : "offline"; // fetch failed or network error
+      setServerStatus(status);
+
+      console.warn("PulseContext: refresh failed, using cache", {
+        error: e,
+        status,
+      });
     }
 
-    // (Re)hydrate active IDs from localStorage without touching lists
+    // Rehydrate active IDs from localStorage (non-blocking)
     const sr = localStorage.getItem("pulse.activeResourceId");
     const se = localStorage.getItem("pulse.activeEngagementId");
     const sc = localStorage.getItem("pulse.activeClientId");
@@ -210,6 +253,7 @@ export const PulseProvider = ({ children }) => {
         activeResource,
         activeEngagement,
         activeClient,
+        serverStatus,
         // setters for actives
         setActiveResourceId: setActiveResourceIdPersist,
         setActiveEngagementId: setActiveEngagementIdPersist,
