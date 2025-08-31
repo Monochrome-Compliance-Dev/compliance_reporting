@@ -98,7 +98,46 @@ export const pulseService = {
         )
       ),
   },
-  // Dashboard metrics, backed by pulse_dashboard.controller.js
+  budgetSections: {
+    // List sections for a given budget
+    async listByBudget(budgetId) {
+      return unwrapArray(
+        await fetchWrapper.get(
+          `${baseUrl}/budgets/${encodeURIComponent(budgetId)}/sections`
+        )
+      );
+    },
+    // Create a section under a budget
+    async create(payload) {
+      const { budgetId, ...rest } = payload || {};
+      if (!budgetId) {
+        throw new Error("budgetId is required to create a section");
+      }
+      return unwrap(
+        await fetchWrapper.post(
+          `${baseUrl}/budgets/${encodeURIComponent(budgetId)}/sections`,
+          rest
+        )
+      );
+    },
+    // Update a section by id
+    async update(sectionId, body) {
+      return unwrap(
+        await fetchWrapper.patch(
+          `${baseUrl}/budget-sections/${encodeURIComponent(sectionId)}`,
+          body
+        )
+      );
+    },
+    // Delete a section by id
+    async delete(sectionId) {
+      return fetchWrapper.delete(
+        `${baseUrl}/budget-sections/${encodeURIComponent(sectionId)}`
+      );
+    },
+  },
+
+  // Dashboard metrics
   dashboard: {
     // Full payload
     get: async (orgId = "current") =>

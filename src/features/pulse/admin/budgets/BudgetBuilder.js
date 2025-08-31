@@ -16,7 +16,17 @@ import {
   Select,
   MenuItem,
   Chip,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@mui/material";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import BudgetSection from "./BudgetSection";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { useAlert } from "../../../../context";
 import { pulseService } from "../../../../services/pulse/pulse";
@@ -60,29 +70,45 @@ const ACTIVITY_OPTIONS = [
   "Other — specify",
 ];
 
-const defaultItem = () => ({
-  activity: "",
-  billingType: "hourly", // 'hourly' | 'fixed'
-  hours: 0, // used if hourly
-  rate: 0, // used if hourly (per hour)
-  amount: 0, // used if fixed (flat amount)
+// Resource levels used in the items grid
+const RESOURCE_OPTIONS = [
+  "Auditor (1st year)",
+  "Auditor (2nd year)",
+  "Auditor (3rd year)",
+  "Senior",
+  "Manager",
+  "Senior Manager",
+  "Director",
+  "Partner",
+];
+
+// Sections should be chosen from the same controlled list we previously called "activities"
+const SECTION_PRESETS = ACTIVITY_OPTIONS;
+
+const defaultItem = (sectionId = null) => ({
+  resourceLabel: "",
+  sectionId,
+  hours: 0,
+  rate: 0,
+  amount: 0, // flat amount (for fixed-fee rows)
   notes: "",
   billable: true,
+  billingType: "hourly", // will be derived on save based on values
 });
 
 const normaliseItem = (it = {}) => ({
-  ...defaultItem(),
+  ...defaultItem(it.sectionId ?? null),
   ...it,
   id: it.id,
   budgetId: it.budgetId,
   sectionId: it.sectionId ?? null,
-  activity: it.activity ?? "",
-  billingType: it.billingType === "fixed" ? "fixed" : "hourly",
-  hours: it.billingType === "hourly" ? Number(it.hours ?? 0) : 0,
-  rate: it.billingType === "hourly" ? Number(it.rate ?? 0) : 0,
-  amount: it.billingType === "fixed" ? Number(it.amount ?? 0) : 0,
+  resourceLabel: it.resourceLabel ?? it.activity ?? "",
+  hours: Number(it.hours ?? 0),
+  rate: Number(it.rate ?? 0),
+  amount: Number(it.amount ?? 0),
   notes: it.notes ?? "",
   billable: it.billable ?? true,
+  billingType: it.billingType === "fixed" ? "fixed" : "hourly",
 });
 
 export default function BudgetBuilder({ onSaved }) {
@@ -102,57 +128,243 @@ export default function BudgetBuilder({ onSaved }) {
   const [currency, setCurrency] = useState("AUD");
   const [notes, setNotes] = useState("");
 
+  // Sections
+  const [sections, setSections] = useState([]);
+  const [selectedSectionId, setSelectedSectionId] = useState("");
+  const [sectionsExpanded, setSectionsExpanded] = useState(true);
   // Items
   const [items, setItems] = useState([]);
   const itemsSectionRef = useRef(null);
   const itemsEndRef = useRef(null);
   const prevBudgetIdRef = useRef(budgetId);
+  // Save single item callback
+  const saveItem = useCallback(
+    async (index) => {
+      const it = items[index];
+      if (!it) return;
+      // basic inline validation
+      const hasResource = String(it.resourceLabel || "").trim().length > 0;
+      const hours = Number(it.hours || 0);
+      const rate = Number(it.rate || 0);
+      const amount = Number(it.amount || 0);
+      const isHourlyValid = hours > 0 && rate > 0 && amount === 0;
+      const isFixedValid = amount > 0 && (hours === 0 || rate === 0);
+      if (!hasResource || (!isHourlyValid && !isFixedValid)) {
+        showAlert(
+          "Please select a resource and enter either hours & rate OR a flat amount.",
+          "warning"
+        );
+        return;
+      }
+      const payload = (() => {
+        const base = {
+          budgetId,
+          sectionId: it.sectionId,
+          resourceLabel: String(it.resourceLabel || "").trim(),
+          notes: String(it.notes || "").trim() || undefined,
+          billable: !!it.billable,
+          customerId: userService.userValue.customerId,
+        };
+        if (isFixedValid) {
+          return { ...base, billingType: "fixed", hours: 0, rate: 0, amount };
+        }
+        return { ...base, billingType: "hourly", hours, rate, amount: 0 };
+      })();
+      try {
+        let saved;
+        if (!it.id) {
+          saved = await svc.current.createItem({
+            ...payload,
+            createdBy: userService.userValue.id,
+          });
+        } else {
+          saved = await svc.current.updateItem(String(it.id), {
+            ...payload,
+            updatedBy: userService.userValue.id,
+          });
+        }
+        setItems((prev) =>
+          prev.map((row, i) =>
+            i === index ? normaliseItem({ ...row, ...saved }) : row
+          )
+        );
+        showAlert("Item saved", "success");
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error("Failed to save item", e);
+        showAlert("Failed to save item", "error");
+      }
+    },
+    [items, budgetId, showAlert]
+  );
 
-  // Totals
+  // Items
+  // (moved above)
+
+  // Confirm dialog state
+  const [confirmState, setConfirmState] = useState({
+    open: false,
+    title: "",
+    message: "",
+    onConfirm: null,
+  });
+  const openConfirm = useCallback((title, message, onConfirm) => {
+    setConfirmState({ open: true, title, message, onConfirm });
+  }, []);
+  const closeConfirm = useCallback(() => {
+    setConfirmState((s) => ({ ...s, open: false }));
+  }, []);
+
+  // Section create/rename dialog state
+  const [sectionDialog, setSectionDialog] = useState({
+    open: false,
+    mode: "create", // 'create' | 'rename'
+    value: SECTION_PRESETS[0] || "",
+    targetId: null,
+  });
+  const openSectionDialog = useCallback(
+    (
+      mode = "create",
+      initialValue = SECTION_PRESETS[0] || "",
+      targetId = null
+    ) => {
+      setSectionDialog({ open: true, mode, value: initialValue, targetId });
+    },
+    []
+  );
+  const closeSectionDialog = useCallback(() => {
+    setSectionDialog((s) => ({ ...s, open: false }));
+  }, []);
+
+  // Section handlers for child component
+  const handleAddSection = useCallback(() => {
+    openSectionDialog("create", SECTION_PRESETS[0] || "", null);
+  }, [openSectionDialog]);
+
+  const handleRenameSection = useCallback(() => {
+    const current = sections.find((x) => x.id === selectedSectionId);
+    const initial =
+      current?.name && SECTION_PRESETS.includes(current.name)
+        ? current.name
+        : SECTION_PRESETS[0] || "";
+    openSectionDialog("rename", initial, selectedSectionId);
+  }, [sections, selectedSectionId, openSectionDialog]);
+
+  const handleDeleteSection = useCallback(() => {
+    openConfirm(
+      "Delete section",
+      "This will delete the section and all its items. Are you sure?",
+      async () => {
+        try {
+          await svc.current.deleteSection(selectedSectionId);
+          const fresh = await svc.current.listSectionsByBudget(budgetId);
+          setSections(fresh || []);
+          setSelectedSectionId((fresh || [])[0]?.id || "");
+          setItems((prev) =>
+            prev.filter((x) => x.sectionId && x.sectionId !== selectedSectionId)
+          );
+          closeConfirm();
+        } catch (e) {
+          // eslint-disable-next-line no-console
+          console.error(e);
+          showAlert("Failed to delete section", "error");
+          closeConfirm();
+        }
+      }
+    );
+  }, [selectedSectionId, budgetId, showAlert, closeConfirm, openConfirm]);
+
+  // Totals (overall and per-section)
   const totals = useMemo(() => {
-    const budgetHours = items
-      .filter((it) => it.billingType === "hourly")
-      .reduce((s, it) => s + Number(it.hours || 0), 0);
+    const budgetHours = items.reduce((s, it) => s + Number(it.hours || 0), 0);
     const budgetAmount = items.reduce((s, it) => {
-      if (it.billingType === "hourly")
-        return s + Number(it.hours || 0) * Number(it.rate || 0);
-      return s + Number(it.amount || 0);
+      return (
+        s +
+        Number(it.hours || 0) * Number(it.rate || 0) +
+        Number(it.amount || 0)
+      );
     }, 0);
     return { budgetHours, budgetAmount };
   }, [items]);
 
-  // --- Service wrappers (use budgets CRUD and budgetItems.listByBudget) ---
-  const svc = {
-    getBudget: async (id) => {
-      return unwrap(await pulseService.budgets.getById(String(id)));
-    },
-    createBudget: async (payload) => {
-      return unwrap(await pulseService.budgets.create(payload));
-    },
-    updateBudget: async (id, payload) => {
-      return unwrap(await pulseService.budgets.update(String(id), payload));
-    },
-    listItemsByBudget: async (id) => {
-      return (
-        unwrap(await pulseService.budgetItems.listByBudget(String(id))) || []
+  const sectionTotals = useMemo(() => {
+    const rows = items.filter((x) => x.sectionId === selectedSectionId);
+    const hours = rows.reduce((s, r) => s + Number(r.hours || 0), 0);
+    const amount = rows.reduce(
+      (s, r) =>
+        s + Number(r.hours || 0) * Number(r.rate || 0) + Number(r.amount || 0),
+      0
+    );
+    return { hours, amount };
+  }, [items, selectedSectionId]);
+
+  // Summaries for display in the Budget meta card
+  const budgetSummary = useMemo(() => {
+    const rows = items;
+    const numResources = rows.filter((r) =>
+      String(r.resourceLabel || "").trim()
+    ).length;
+    const hours = rows.reduce((s, r) => s + Number(r.hours || 0), 0);
+    const amount = rows.reduce(
+      (s, r) =>
+        s + Number(r.hours || 0) * Number(r.rate || 0) + Number(r.amount || 0),
+      0
+    );
+    return { numResources, hours, amount };
+  }, [items]);
+
+  const sectionSummaries = useMemo(() => {
+    return (sections || []).map((s) => {
+      const rows = items.filter((r) => r.sectionId === s.id);
+      const numResources = rows.filter((r) =>
+        String(r.resourceLabel || "").trim()
+      ).length;
+      const hours = rows.reduce((sum, r) => sum + Number(r.hours || 0), 0);
+      const amount = rows.reduce(
+        (sum, r) =>
+          sum +
+          Number(r.hours || 0) * Number(r.rate || 0) +
+          Number(r.amount || 0),
+        0
       );
-    },
+      return { id: s.id, name: s.name, numResources, hours, amount };
+    });
+  }, [sections, items]);
+
+  // --- Service wrappers (budgets, sections, items) ---
+  const svc = useRef({
+    getBudget: async (id) =>
+      unwrap(await pulseService.budgets.getById(String(id))),
+    createBudget: async (payload) =>
+      unwrap(await pulseService.budgets.create(payload)),
+    updateBudget: async (id, payload) =>
+      unwrap(await pulseService.budgets.update(String(id), payload)),
+    listItemsByBudget: async (id) =>
+      unwrap(await pulseService.budgetItems.listByBudget(String(id))) || [],
     createItem: async (row) =>
       unwrap(await pulseService.budgetItems.create(row)),
     updateItem: async (id, row) =>
       unwrap(await pulseService.budgetItems.update(String(id), row)),
     deleteItem: async (id) =>
       unwrap(await pulseService.budgetItems.delete(String(id))),
-  };
+    listSectionsByBudget: async (id) =>
+      unwrap(await pulseService.budgetSections.listByBudget(String(id))) || [],
+    createSection: async (row) =>
+      unwrap(await pulseService.budgetSections.create(row)),
+    updateSection: async (id, row) =>
+      unwrap(await pulseService.budgetSections.update(String(id), row)),
+    deleteSection: async (id) =>
+      unwrap(await pulseService.budgetSections.delete(String(id))),
+  });
 
-  // Load budget + items
+  // Load budget + sections + items
   useEffect(() => {
     let mounted = true;
     const load = async () => {
       try {
         if (budgetId) {
           // Load meta
-          const b = await svc.getBudget(budgetId);
+          const b = await svc.current.getBudget(budgetId);
           if (mounted && b) {
             setName(b.name || "");
             setStatus(b.status || "draft");
@@ -160,17 +372,25 @@ export default function BudgetBuilder({ onSaved }) {
             setCurrency(b.currency || "AUD");
             setNotes(b.notes || "");
           }
+          // Load sections
+          const secs = await svc.current.listSectionsByBudget(budgetId);
+          if (mounted) {
+            setSections(Array.isArray(secs) ? secs : []);
+            setSelectedSectionId((prev) => prev || (secs?.[0]?.id ?? ""));
+          }
           // Load items
-          const rows = await svc.listItemsByBudget(budgetId);
+          const rows = await svc.current.listItemsByBudget(budgetId);
           if (mounted)
             setItems(Array.isArray(rows) ? rows.map(normaliseItem) : []);
         } else {
           // Fresh builder
           setItems([]);
+          setSections([]);
+          setSelectedSectionId("");
         }
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.error("Failed to load budget/budget items", e);
+        console.error("Failed to load budget/sections/items", e);
         showAlert("Failed to load budget", "error");
       }
     };
@@ -182,29 +402,14 @@ export default function BudgetBuilder({ onSaved }) {
 
   // Item editing utils
   const addItem = useCallback(() => {
-    setItems((prev) => [...prev, defaultItem()]);
-    // Scroll after React commits the new row
-    setTimeout(() => {
-      if (itemsEndRef.current) {
-        itemsEndRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "end",
-        });
-      }
-    }, 0);
-  }, []);
-  // Auto-scroll to items section when a fresh budget is created/loaded
-  useEffect(() => {
-    const prev = prevBudgetIdRef.current;
-    if (!prev && budgetId && itemsSectionRef.current) {
-      // We just created/loaded a budget for the first time in this session
-      itemsSectionRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    if (!selectedSectionId) {
+      showAlert("Create or select a section first", "warning");
+      return;
     }
-    prevBudgetIdRef.current = budgetId;
-  }, [budgetId]);
+    setSectionsExpanded(false);
+    setItems((prev) => [...prev, defaultItem(selectedSectionId)]);
+  }, [selectedSectionId, showAlert]);
+
   const removeItem = useCallback(
     (index) => setItems((prev) => prev.filter((_, i) => i !== index)),
     []
@@ -217,8 +422,27 @@ export default function BudgetBuilder({ onSaved }) {
     []
   );
 
+  // Auto-scroll to items section when a fresh budget is created/loaded
+  useEffect(() => {
+    const prev = prevBudgetIdRef.current;
+    if (!prev && budgetId && itemsSectionRef.current) {
+      // We just created/loaded a budget for the first time in this session
+      itemsSectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+    prevBudgetIdRef.current = budgetId;
+  }, [budgetId]);
+
   // Save
   const handleSave = useCallback(async () => {
+    // Helper to strip id from payloads
+    const stripId = (obj) => {
+      // eslint-disable-next-line no-unused-vars
+      const { id, ...rest } = obj || {};
+      return rest;
+    };
     // Basic client validation
     const trimmedName = String(name || "").trim();
     if (!trimmedName) {
@@ -227,27 +451,34 @@ export default function BudgetBuilder({ onSaved }) {
     }
 
     // Normalise local rows; new rows have no id (server will assign)
-    const cleaned = items.map((it) => ({
-      id: it.id,
-      budgetId: budgetId || undefined,
-      sectionId: it.sectionId || null,
-      activity: String(it.activity || "").trim(),
-      billingType: it.billingType === "fixed" ? "fixed" : "hourly",
-      hours: Number(it.billingType === "hourly" ? it.hours || 0 : 0),
-      rate: Number(it.billingType === "hourly" ? it.rate || 0 : 0),
-      amount: Number(it.billingType === "fixed" ? it.amount || 0 : 0),
-      notes: String(it.notes || "").trim() || undefined,
-      billable: !!it.billable,
-      order: Number(it.order || 0),
-      customerId: userService.userValue.customerId,
-    }));
+    const cleaned = items.map((it) => {
+      const hours = Number(it.hours || 0);
+      const rate = Number(it.rate || 0);
+      const amount = Number(it.amount || 0);
+      const isFixed = amount > 0 && (hours === 0 || rate === 0);
+      return {
+        id: it.id,
+        budgetId: budgetId || undefined,
+        sectionId: it.sectionId || null,
+        resourceLabel: String(it.resourceLabel || "").trim(),
+        activity: undefined, // deprecated
+        billingType: isFixed ? "fixed" : "hourly",
+        hours: isFixed ? 0 : hours,
+        rate: isFixed ? 0 : rate,
+        amount: isFixed ? amount : 0,
+        notes: String(it.notes || "").trim() || undefined,
+        billable: !!it.billable,
+        order: Number(it.order || 0),
+        customerId: userService.userValue.customerId,
+      };
+    });
 
     try {
       let bId = budgetId;
 
       // Create/Update budget meta
       if (!bId) {
-        const created = await svc.createBudget({
+        const created = await svc.current.createBudget({
           name: trimmedName,
           status,
           version,
@@ -260,7 +491,7 @@ export default function BudgetBuilder({ onSaved }) {
         bId = String(created.id);
         setBudgetId(bId);
       } else {
-        await svc.updateBudget(bId, {
+        await svc.current.updateBudget(bId, {
           name: trimmedName,
           status,
           version,
@@ -272,7 +503,7 @@ export default function BudgetBuilder({ onSaved }) {
       }
 
       // Fetch current server items to diff (by budget)
-      const existing = await svc.listItemsByBudget(bId);
+      const existing = await svc.current.listItemsByBudget(bId);
       const byId = (arr) =>
         Object.fromEntries(
           arr.filter((x) => x?.id).map((x) => [String(x.id), x])
@@ -290,8 +521,8 @@ export default function BudgetBuilder({ onSaved }) {
       // Create
       const createdResults = await Promise.allSettled(
         toCreate.map((row) =>
-          svc.createItem({
-            ...row,
+          svc.current.createItem({
+            ...stripId(row),
             budgetId: bId,
             createdBy: userService.userValue.id,
           })
@@ -309,8 +540,8 @@ export default function BudgetBuilder({ onSaved }) {
       // Update
       const updatedResults = await Promise.allSettled(
         toUpdate.map((row) =>
-          svc.updateItem(String(row.id), {
-            ...row,
+          svc.current.updateItem(String(row.id), {
+            ...stripId(row),
             budgetId: bId,
             updatedBy: userService.userValue.id,
           })
@@ -327,7 +558,7 @@ export default function BudgetBuilder({ onSaved }) {
 
       // Delete
       const deletedResults = await Promise.allSettled(
-        toDelete.map((row) => svc.deleteItem(String(row.id)))
+        toDelete.map((row) => svc.current.deleteItem(String(row.id)))
       );
       const deleteErrors = deletedResults.filter(
         (r) => r.status === "rejected"
@@ -339,7 +570,7 @@ export default function BudgetBuilder({ onSaved }) {
         );
 
       // Reload items to reflect canonical server state
-      const fresh = await svc.listItemsByBudget(bId);
+      const fresh = await svc.current.listItemsByBudget(bId);
       setItems(Array.isArray(fresh) ? fresh.map(normaliseItem) : []);
 
       showAlert("Budget saved", "success");
@@ -391,20 +622,21 @@ export default function BudgetBuilder({ onSaved }) {
               onChange={(e) => setName(e.target.value)}
               required
               fullWidth
+              size="medium"
             />
-            <FormControl size="small" sx={{ minWidth: 160 }}>
-              <InputLabel id="status-label">Status</InputLabel>
-              <Select
-                labelId="status-label"
-                label="Status"
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-              >
-                <MenuItem value="draft">Draft</MenuItem>
-                <MenuItem value="final">Final</MenuItem>
-                <MenuItem value="archived">Archived</MenuItem>
-              </Select>
-            </FormControl>
+            <TextField
+              label="Status"
+              value={
+                status === "draft"
+                  ? "Draft"
+                  : status === "final"
+                    ? "Final"
+                    : "Archived"
+              }
+              size="medium"
+              InputProps={{ readOnly: true }}
+              sx={{ minWidth: 160 }}
+            />
             <TextField
               label="Version"
               type="number"
@@ -412,14 +644,16 @@ export default function BudgetBuilder({ onSaved }) {
               value={version}
               onChange={(e) => setVersion(Number(e.target.value || 1))}
               sx={{ width: 120 }}
+              size="medium"
             />
-            <FormControl size="small" sx={{ minWidth: 140 }}>
+            <FormControl sx={{ minWidth: 140 }}>
               <InputLabel id="currency-label">Currency</InputLabel>
               <Select
                 labelId="currency-label"
                 label="Currency"
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value)}
+                size="medium"
               >
                 <MenuItem value="AUD">AUD</MenuItem>
                 <MenuItem value="USD">USD</MenuItem>
@@ -438,255 +672,519 @@ export default function BudgetBuilder({ onSaved }) {
               minRows={2}
             />
           </Box>
-          <Box mt={2} display="flex" gap={1} flexWrap="wrap">
-            <Chip size="small" label={`Items: ${items.length}`} />
-            <Chip size="small" label={`Hours: ${totals.budgetHours}`} />
-            <Chip
-              size="small"
-              label={`Amount: ${toCurrency(totals.budgetAmount, currency)}`}
-            />
-            {budgetId ? (
-              <Chip size="small" label={`Budget ID: ${budgetId}`} />
-            ) : null}
-          </Box>
-        </Box>
-      </Paper>
-
-      {/* Items */}
-      {budgetId ? (
-        <Paper variant="outlined" ref={itemsSectionRef}>
-          <Box p={2}>
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-              mb={1}
-            >
-              <Typography variant="subtitle1">Budget items</Typography>
-              <Button variant="outlined" onClick={addItem}>
-                Add item
-              </Button>
-            </Stack>
-
-            <Table size="small">
+          <Box mt={3}>
+            <Table size="small" sx={{ mb: 2, maxWidth: 720 }}>
               <TableHead>
                 <TableRow>
-                  <TableCell sx={{ width: 280 }}>Activity</TableCell>
-                  <TableCell sx={{ width: 140 }}>Billing</TableCell>
-                  <TableCell align="right" sx={{ width: 110 }}>
-                    Hours
-                  </TableCell>
-                  <TableCell align="right" sx={{ width: 110 }}>
-                    Rate
-                  </TableCell>
-                  <TableCell align="right" sx={{ width: 140 }}>
-                    Fixed amount
-                  </TableCell>
-                  <TableCell sx={{ width: 320 }}>Notes</TableCell>
-                  <TableCell align="right" sx={{ width: 140 }}>
-                    Row total
-                  </TableCell>
-                  <TableCell align="right" sx={{ width: 120 }}>
-                    Actions
-                  </TableCell>
+                  <TableCell>Budget</TableCell>
+                  <TableCell align="right">Number of resources</TableCell>
+                  <TableCell align="right">Hours</TableCell>
+                  <TableCell align="right">Total</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {!items || items.length === 0 ? (
-                  <TableRow>
-                    <TableCell colSpan={8}>
-                      <Button variant="outlined" onClick={addItem}>
-                        Add item
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ) : (
-                  items.map((it, idx) => {
-                    const rowTotal =
-                      it.billingType === "hourly"
-                        ? Number(it.hours || 0) * Number(it.rate || 0)
-                        : Number(it.amount || 0);
-                    return (
-                      <TableRow key={it.id || `${it.activity || "row"}-${idx}`}>
-                        <TableCell sx={{ width: 280, verticalAlign: "middle" }}>
-                          <TextField
-                            select
-                            size="small"
-                            fullWidth
-                            value={it.activity || ""}
-                            onChange={(e) =>
-                              updateItem(idx, { activity: e.target.value })
-                            }
-                            SelectProps={{
-                              displayEmpty: true,
-                              renderValue: (val) =>
-                                val ? val : "Select activity",
-                            }}
-                          >
-                            <MenuItem value="">
-                              <em>Select activity</em>
-                            </MenuItem>
-                            {ACTIVITY_OPTIONS.map((opt) => (
-                              <MenuItem key={opt} value={opt}>
-                                {opt}
-                              </MenuItem>
-                            ))}
-                          </TextField>
-                        </TableCell>
-                        <TableCell sx={{ width: 140, verticalAlign: "middle" }}>
-                          <TextField
-                            select
-                            size="small"
-                            fullWidth
-                            value={it.billingType}
-                            onChange={(e) =>
-                              updateItem(idx, { billingType: e.target.value })
-                            }
-                          >
-                            <MenuItem value="hourly">Hourly</MenuItem>
-                            <MenuItem value="fixed">Fixed</MenuItem>
-                          </TextField>
-                        </TableCell>
-                        <TableCell
-                          align="right"
-                          sx={{ width: 110, verticalAlign: "middle" }}
-                        >
-                          <TextField
-                            size="small"
-                            type="number"
-                            inputProps={{ min: 0, step: 0.25 }}
-                            InputProps={{ sx: { textAlign: "right" } }}
-                            value={it.hours}
-                            onChange={(e) =>
-                              updateItem(idx, {
-                                hours: Number(e.target.value || 0),
-                              })
-                            }
-                            disabled={it.billingType !== "hourly"}
-                          />
-                        </TableCell>
-                        <TableCell
-                          align="right"
-                          sx={{ width: 110, verticalAlign: "middle" }}
-                        >
-                          <TextField
-                            size="small"
-                            type="number"
-                            inputProps={{ min: 0, step: 1 }}
-                            InputProps={{ sx: { textAlign: "right" } }}
-                            value={it.rate}
-                            onChange={(e) =>
-                              updateItem(idx, {
-                                rate: Number(e.target.value || 0),
-                              })
-                            }
-                            disabled={it.billingType !== "hourly"}
-                          />
-                        </TableCell>
-                        <TableCell
-                          align="right"
-                          sx={{ width: 140, verticalAlign: "middle" }}
-                        >
-                          <TextField
-                            size="small"
-                            type="number"
-                            inputProps={{ min: 0, step: 1 }}
-                            InputProps={{ sx: { textAlign: "right" } }}
-                            value={it.amount}
-                            onChange={(e) =>
-                              updateItem(idx, {
-                                amount: Number(e.target.value || 0),
-                              })
-                            }
-                            disabled={it.billingType !== "fixed"}
-                          />
-                        </TableCell>
-                        <TableCell sx={{ width: 320, verticalAlign: "middle" }}>
-                          <TextField
-                            size="small"
-                            value={it.notes}
-                            onChange={(e) =>
-                              updateItem(idx, { notes: e.target.value })
-                            }
-                            fullWidth
-                          />
-                        </TableCell>
-                        <TableCell
-                          align="right"
-                          sx={{ width: 140, verticalAlign: "middle" }}
-                        >
-                          {toCurrency(rowTotal, currency)}
-                        </TableCell>
-                        <TableCell
-                          align="right"
-                          sx={{ width: 120, verticalAlign: "middle" }}
-                        >
-                          <Button
-                            size="small"
-                            color="error"
-                            onClick={() => removeItem(idx)}
-                          >
-                            Delete
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })
-                )}
-                {items.length > 0 && (
-                  <TableRow>
-                    <TableCell colSpan={6} align="right">
-                      <strong>Totals</strong>
-                    </TableCell>
-                    <TableCell align="right">
-                      <strong>
-                        {toCurrency(totals.budgetAmount, currency)}
-                      </strong>
-                    </TableCell>
-                    <TableCell />
-                  </TableRow>
-                )}
-                {items.length > 0 && (
-                  <TableRow>
-                    <TableCell colSpan={6} align="right">
-                      <strong>Totals</strong>
-                    </TableCell>
-                    <TableCell align="right">
-                      <strong>
-                        {toCurrency(totals.budgetAmount, currency)}
-                      </strong>
-                    </TableCell>
-                    <TableCell />
-                  </TableRow>
-                )}
                 <TableRow>
-                  <TableCell colSpan={8}>
-                    <span ref={itemsEndRef} />
+                  <TableCell />
+                  <TableCell align="right">
+                    {budgetSummary.numResources}
+                  </TableCell>
+                  <TableCell align="right">{budgetSummary.hours}</TableCell>
+                  <TableCell align="right">
+                    {toCurrency(budgetSummary.amount, currency)}
                   </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
+            <br />
 
-            <Box mt={2} display="flex" gap={1}>
-              <Button variant="contained" onClick={handleSave}>
-                Save budget
-              </Button>
-              <Button variant="text" onClick={() => navigate(-1)}>
-                Cancel
+            <Table size="small" sx={{ maxWidth: 720 }}>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Section</TableCell>
+                  <TableCell align="right">Number of resources</TableCell>
+                  <TableCell align="right">Hours</TableCell>
+                  <TableCell align="right">Total</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {sectionSummaries.map((s) => (
+                  <TableRow key={s.id}>
+                    <TableCell>{s.name}</TableCell>
+                    <TableCell align="right">{s.numResources}</TableCell>
+                    <TableCell align="right">{s.hours}</TableCell>
+                    <TableCell align="right">
+                      {toCurrency(s.amount, currency)}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            <Box mt={2} display="flex" justifyContent="flex-end">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={async () => {
+                  try {
+                    if (!budgetId) {
+                      showAlert(
+                        "Save the budget first before marking as Final.",
+                        "warning"
+                      );
+                      return;
+                    }
+                    await svc.current.updateBudget(budgetId, {
+                      name: String(name || "").trim(),
+                      status: "final",
+                      version,
+                      currency,
+                      notes,
+                      customerId: userService.userValue.customerId,
+                      updatedBy: userService.userValue.id,
+                    });
+                    setStatus("final");
+                    showAlert("Budget marked as Final", "success");
+                    navigate("/pulse-solution/admin/budgets");
+                  } catch (e) {
+                    // eslint-disable-next-line no-console
+                    console.error(e);
+                    showAlert("Failed to mark budget as Final", "error");
+                  }
+                }}
+                disabled={!budgetId || status === "final"}
+              >
+                Mark Final
               </Button>
             </Box>
           </Box>
-        </Paper>
+        </Box>
+      </Paper>
+
+      {/* Two-pane: Sections (left) + Items scoped to selected section (right) */}
+      {budgetId ? (
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          spacing={2}
+          alignItems="stretch"
+        >
+          {/* Left: Sections panel in an Accordion */}
+          <Box
+            sx={{
+              flex: "0 0 auto",
+              width: { xs: "100%", md: sectionsExpanded ? 360 : 48 },
+              height: "100",
+              transition: (theme) =>
+                theme.transitions.create("width", {
+                  easing: theme.transitions.easing.sharp,
+                  duration: theme.transitions.duration.enteringScreen,
+                }),
+            }}
+          >
+            <Accordion
+              expanded={sectionsExpanded}
+              onChange={(_, exp) => setSectionsExpanded(exp)}
+              square
+              disableGutters
+              sx={{
+                height: "100%",
+                "& .MuiAccordion-region": { height: "100%" },
+                "& .MuiAccordionDetails-root": { height: "100%", p: 0 },
+              }}
+            >
+              <AccordionSummary
+                expandIcon={<ChevronRightIcon />}
+              ></AccordionSummary>
+              <AccordionDetails sx={{ p: 0 }}>
+                <BudgetSection
+                  sections={sections}
+                  selectedSectionId={selectedSectionId}
+                  onSelect={setSelectedSectionId}
+                  onAdd={handleAddSection}
+                  onRename={handleRenameSection}
+                  onDelete={handleDeleteSection}
+                />
+              </AccordionDetails>
+            </Accordion>
+          </Box>
+
+          {/* Right: Items for selected section */}
+          <Paper
+            variant="outlined"
+            ref={itemsSectionRef}
+            sx={{
+              flex: 1,
+              minWidth: 0,
+            }}
+          >
+            <Box p={2}>
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                mb={1}
+              >
+                <Typography variant="subtitle1">
+                  {selectedSectionId
+                    ? `Items — ${sections.find((s) => s.id === selectedSectionId)?.name || ""}`
+                    : "Items"}
+                </Typography>
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <Chip
+                    size="small"
+                    label={`Section Hours: ${sectionTotals.hours}`}
+                  />
+                  <Chip
+                    size="small"
+                    label={`Section Amount: ${toCurrency(sectionTotals.amount, currency)}`}
+                  />
+                  <Button
+                    variant="outlined"
+                    onClick={addItem}
+                    disabled={!selectedSectionId}
+                  >
+                    Add item
+                  </Button>
+                </Stack>
+              </Stack>
+
+              {selectedSectionId ? (
+                <Table size="small">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell sx={{ width: 320 }}>Resource</TableCell>
+                      <TableCell align="right" sx={{ width: 140 }}>
+                        Charge-out rate/hour
+                      </TableCell>
+                      <TableCell align="right" sx={{ width: 140 }}>
+                        Number of hours
+                      </TableCell>
+                      <TableCell align="right" sx={{ width: 160 }}>
+                        Flat amount
+                      </TableCell>
+                      <TableCell sx={{ width: 320 }}>Notes</TableCell>
+                      <TableCell align="right" sx={{ width: 160 }}>
+                        Row total
+                      </TableCell>
+                      <TableCell align="right" sx={{ width: 120 }}>
+                        Row actions
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {items
+                      .map((it, originalIndex) => ({ it, originalIndex }))
+                      .filter(({ it }) => it.sectionId === selectedSectionId)
+                      .map(({ it, originalIndex }) => {
+                        return (
+                          <TableRow
+                            key={
+                              it.id ||
+                              `${it.resourceLabel || "row"}-${originalIndex}`
+                            }
+                          >
+                            <TableCell
+                              sx={{ width: 320, verticalAlign: "middle" }}
+                            >
+                              <TextField
+                                select
+                                size="small"
+                                fullWidth
+                                value={it.resourceLabel || ""}
+                                onChange={(e) =>
+                                  updateItem(originalIndex, {
+                                    resourceLabel: e.target.value,
+                                  })
+                                }
+                                SelectProps={{
+                                  displayEmpty: true,
+                                  renderValue: (val) =>
+                                    val ? val : "Select resource",
+                                }}
+                              >
+                                <MenuItem value="">
+                                  <em>Select resource</em>
+                                </MenuItem>
+                                {RESOURCE_OPTIONS.map((opt) => (
+                                  <MenuItem key={opt} value={opt}>
+                                    {opt}
+                                  </MenuItem>
+                                ))}
+                              </TextField>
+                            </TableCell>
+                            <TableCell
+                              align="right"
+                              sx={{ width: 140, verticalAlign: "middle" }}
+                            >
+                              <TextField
+                                size="small"
+                                type="number"
+                                inputProps={{ min: 0, step: 1 }}
+                                InputProps={{ sx: { textAlign: "right" } }}
+                                value={it.rate}
+                                onChange={(e) =>
+                                  updateItem(originalIndex, {
+                                    rate: Number(e.target.value || 0),
+                                  })
+                                }
+                                disabled={Number(it.amount || 0) > 0}
+                              />
+                            </TableCell>
+                            <TableCell
+                              align="right"
+                              sx={{ width: 140, verticalAlign: "middle" }}
+                            >
+                              <TextField
+                                size="small"
+                                type="number"
+                                inputProps={{ min: 0, step: 0.25 }}
+                                InputProps={{ sx: { textAlign: "right" } }}
+                                value={it.hours}
+                                onChange={(e) =>
+                                  updateItem(originalIndex, {
+                                    hours: Number(e.target.value || 0),
+                                  })
+                                }
+                                disabled={Number(it.amount || 0) > 0}
+                              />
+                            </TableCell>
+                            <TableCell
+                              align="right"
+                              sx={{ width: 160, verticalAlign: "middle" }}
+                            >
+                              <TextField
+                                size="small"
+                                type="number"
+                                inputProps={{ min: 0, step: 1 }}
+                                InputProps={{ sx: { textAlign: "right" } }}
+                                value={it.amount}
+                                onChange={(e) =>
+                                  updateItem(originalIndex, {
+                                    amount: Number(e.target.value || 0),
+                                  })
+                                }
+                                disabled={Number(it.rate || 0) > 0}
+                              />
+                            </TableCell>
+                            <TableCell
+                              sx={{ width: 320, verticalAlign: "middle" }}
+                            >
+                              <TextField
+                                size="small"
+                                value={it.notes}
+                                onChange={(e) =>
+                                  updateItem(originalIndex, {
+                                    notes: e.target.value,
+                                  })
+                                }
+                                fullWidth
+                              />
+                            </TableCell>
+                            <TableCell
+                              align="right"
+                              sx={{ width: 160, verticalAlign: "middle" }}
+                            >
+                              {toCurrency(
+                                Number(it.hours || 0) * Number(it.rate || 0) +
+                                  Number(it.amount || 0),
+                                currency
+                              )}
+                            </TableCell>
+                            <TableCell
+                              align="right"
+                              sx={{ width: 120, verticalAlign: "middle" }}
+                            >
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                sx={{ mr: 1 }}
+                                onClick={() => saveItem(originalIndex)}
+                                disabled={!selectedSectionId}
+                              >
+                                Save
+                              </Button>
+                              <Button
+                                size="small"
+                                color="error"
+                                onClick={() => removeItem(originalIndex)}
+                              >
+                                Delete
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                        );
+                      })}
+                    {items.filter((it) => it.sectionId === selectedSectionId)
+                      .length === 0 && (
+                      <TableRow>
+                        <TableCell colSpan={7}>
+                          <Typography color="text.secondary">
+                            No items in this section yet.
+                          </Typography>
+                        </TableCell>
+                      </TableRow>
+                    )}
+                    <TableRow>
+                      <TableCell colSpan={5} align="right">
+                        <strong>Section total</strong>
+                      </TableCell>
+                      <TableCell align="right">
+                        <strong>
+                          {toCurrency(sectionTotals.amount, currency)}
+                        </strong>
+                      </TableCell>
+                      <TableCell />
+                    </TableRow>
+                    <TableRow>
+                      <TableCell colSpan={7}>
+                        <span ref={itemsEndRef} />
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              ) : (
+                <Typography color="text.secondary">
+                  Create a section from the dropdown on the left to begin adding
+                  items.
+                </Typography>
+              )}
+
+              <Box mt={2} display="flex" gap={1}>
+                <Button variant="contained" onClick={handleSave}>
+                  Save budget
+                </Button>
+                <Button variant="text" onClick={() => navigate(-1)}>
+                  Cancel
+                </Button>
+              </Box>
+            </Box>
+          </Paper>
+        </Stack>
       ) : (
         <Paper variant="outlined">
           <Box p={2}>
             <Typography color="text.secondary">
-              Create and save the budget first. Once saved, you can add budget
-              items.
+              Create and save the budget first. Once saved, you can add sections
+              and items.
             </Typography>
           </Box>
         </Paper>
       )}
+      {/* Section Create/Rename Dialog */}
+      <Dialog
+        open={sectionDialog.open}
+        onClose={closeSectionDialog}
+        aria-labelledby="section-dialog-title"
+      >
+        <DialogTitle id="section-dialog-title">
+          {sectionDialog.mode === "create" ? "Add section" : "Rename section"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText sx={{ mb: 1 }}>
+            Choose a section name from the standard list.
+          </DialogContentText>
+          <FormControl fullWidth size="small">
+            <InputLabel id="section-select-dialog-label">Section</InputLabel>
+            <Select
+              labelId="section-select-dialog-label"
+              label="Section"
+              value={sectionDialog.value}
+              onChange={(e) =>
+                setSectionDialog((s) => ({ ...s, value: e.target.value }))
+              }
+            >
+              {SECTION_PRESETS.map((opt) => (
+                <MenuItem key={opt} value={opt}>
+                  {opt}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeSectionDialog}>Cancel</Button>
+          <Button
+            variant="contained"
+            onClick={async () => {
+              const name = String(sectionDialog.value || "").trim();
+              if (!name) {
+                closeSectionDialog();
+                return;
+              }
+              try {
+                if (sectionDialog.mode === "create") {
+                  await svc.current.createSection({
+                    budgetId,
+                    name,
+                    order: sections.length,
+                    notes: "",
+                    customerId: userService.userValue.customerId,
+                    createdBy: userService.userValue.id,
+                  });
+                } else if (
+                  sectionDialog.mode === "rename" &&
+                  sectionDialog.targetId
+                ) {
+                  await svc.current.updateSection(sectionDialog.targetId, {
+                    name,
+                    customerId: userService.userValue.customerId,
+                    updatedBy: userService.userValue.id,
+                  });
+                }
+                const fresh = await svc.current.listSectionsByBudget(budgetId);
+                setSections(fresh || []);
+                setSelectedSectionId((fresh || [])[0]?.id || "");
+              } catch (e) {
+                // eslint-disable-next-line no-console
+                console.error(e);
+                showAlert(
+                  sectionDialog.mode === "create"
+                    ? "Failed to create section"
+                    : "Failed to rename section",
+                  "error"
+                );
+              } finally {
+                closeSectionDialog();
+              }
+            }}
+            autoFocus
+          >
+            {sectionDialog.mode === "create" ? "Add" : "Save"}
+          </Button>
+        </DialogActions>
+      </Dialog>
+      {/* Confirm Dialog */}
+      <Dialog
+        open={confirmState.open}
+        onClose={closeConfirm}
+        aria-labelledby="confirm-dialog-title"
+        aria-describedby="confirm-dialog-description"
+      >
+        <DialogTitle id="confirm-dialog-title">
+          {confirmState.title || "Confirm"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="confirm-dialog-description">
+            {confirmState.message || "Are you sure?"}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeConfirm}>Cancel</Button>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => {
+              const fn = confirmState.onConfirm;
+              if (typeof fn === "function") {
+                fn();
+              } else {
+                closeConfirm();
+              }
+            }}
+            autoFocus
+          >
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Stack>
   );
 }
