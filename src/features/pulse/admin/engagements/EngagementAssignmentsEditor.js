@@ -20,10 +20,10 @@ import {
 } from "@mui/material";
 
 import { useTheme } from "@mui/material/styles";
-import { userService } from "../../../services";
-import { pulseService } from "../../../services/pulse/pulse";
+import { userService } from "../../../../services";
+import { pulseService } from "../../../../services/pulse/pulse";
 import { nanoid } from "nanoid";
-import { useAlert } from "../../../context";
+import { useAlert } from "../../../../context";
 
 export default function EngagementAssignmentsEditor({
   engagementId,
@@ -50,13 +50,13 @@ export default function EngagementAssignmentsEditor({
       startDate: a.startDate || "",
       endDate: a.endDate || "",
       dueDate: a.dueDate || "",
-      completedAt: a.completedAt || "",
       role: a.role || "",
       rateOverride: a.rateOverride ?? "",
       notes: a.notes || "",
       assignmentId: a.id || undefined,
     }))
   );
+  const [errorsByKey, setErrorsByKey] = useState({});
 
   const [overlapKeys, setOverlapKeys] = useState([]);
 
@@ -103,6 +103,14 @@ export default function EngagementAssignmentsEditor({
     return d.toISOString().slice(0, 10);
   };
 
+  // Clear a specific field error for a row
+  const clearErr = (key, field) =>
+    setErrorsByKey((prev) => {
+      if (!prev[key]?.[field]) return prev;
+      const next = { ...prev, [key]: { ...(prev[key] || {}), [field]: false } };
+      return next;
+    });
+
   const addResource = (rid) => {
     setRows((prev) => {
       const sameRes = prev.filter((r) => String(r.resourceId) === String(rid));
@@ -121,7 +129,6 @@ export default function EngagementAssignmentsEditor({
         startDate: suggestedStart,
         endDate: "",
         dueDate: "",
-        completedAt: "",
         role: "",
         rateOverride: "",
         notes: "",
@@ -142,6 +149,16 @@ export default function EngagementAssignmentsEditor({
   // --- Normalisation helpers and baseline map for diffing ---
   const toNullIfEmpty = (v) => (v === "" || v == null ? null : v);
   const toNumberOrNull = (v) => (v === "" || v == null ? null : Number(v));
+  // Remove null/undefined/empty-string values from an object
+  const compactPayload = (obj) => {
+    const out = {};
+    Object.entries(obj || {}).forEach(([k, v]) => {
+      if (v === null || v === undefined) return;
+      if (typeof v === "string" && v.trim() === "") return;
+      out[k] = v;
+    });
+    return out;
+  };
 
   const normaliseRow = useCallback(
     (r) => ({
@@ -151,7 +168,6 @@ export default function EngagementAssignmentsEditor({
       startDate: toNullIfEmpty(r.startDate),
       endDate: toNullIfEmpty(r.endDate),
       dueDate: toNullIfEmpty(r.dueDate),
-      completedAt: toNullIfEmpty(r.completedAt),
       role: toNullIfEmpty(r.role),
       rateOverride: toNumberOrNull(r.rateOverride),
       notes: toNullIfEmpty(r.notes),
@@ -177,7 +193,6 @@ export default function EngagementAssignmentsEditor({
       startDate: a.startDate || "",
       endDate: a.endDate || "",
       dueDate: a.dueDate || "",
-      completedAt: a.completedAt || "",
       role: a.role || "",
       rateOverride: a.rateOverride ?? "",
       notes: a.notes || "",
@@ -195,12 +210,37 @@ export default function EngagementAssignmentsEditor({
   );
 
   const handleSave = async () => {
-    // validate: no overlapping date ranges per resource
+    // validate: required fields per row
     const byRes = rows.reduce((acc, r) => {
       (acc[r.resourceId] ||= []).push(r);
       return acc;
     }, {});
 
+    // required fields: startDate, endDate, dueDate
+    const missingMap = {};
+    let hasMissing = false;
+    for (const r of rows) {
+      const miss = {
+        startDate: !r.startDate,
+        endDate: !r.endDate,
+        dueDate: !r.dueDate,
+      };
+      if (miss.startDate || miss.endDate || miss.dueDate) {
+        missingMap[r.key] = miss;
+        hasMissing = true;
+      }
+    }
+    if (hasMissing) {
+      setErrorsByKey(missingMap);
+      showAlert(
+        "Please complete Start, End and Due date for all assignments.",
+        "warning"
+      );
+      return; // abort save
+    }
+    setErrorsByKey({});
+
+    // validate: no overlapping date ranges per resource
     const offending = new Set();
     for (const rid of Object.keys(byRes)) {
       const entries = byRes[rid];
@@ -232,8 +272,8 @@ export default function EngagementAssignmentsEditor({
       const norm = normaliseRow(r);
 
       if (!r.assignmentId) {
-        // CREATE: send full payload (nulls where blank)
-        return {
+        // CREATE: send full payload (nulls where blank), but omit optional nulls/empties
+        const base = {
           resourceId: norm.resourceId,
           engagementId,
           allocationPct: norm.allocationPct,
@@ -241,19 +281,21 @@ export default function EngagementAssignmentsEditor({
           startDate: norm.startDate,
           endDate: norm.endDate,
           dueDate: norm.dueDate,
-          completedAt: norm.completedAt,
-          role: norm.role,
-          rateOverride: norm.rateOverride,
-          notes: norm.notes,
           customerId: userService.userValue.customerId,
           createdBy: userService.userValue.id,
         };
+        const optional = compactPayload({
+          role: norm.role,
+          rateOverride: norm.rateOverride,
+          notes: norm.notes,
+        });
+        return { ...base, ...optional };
       }
 
       // EDIT: only send changed fields (PATCH semantics)
       const base = baselineById[String(r.assignmentId)] || {};
       const diff = {};
-      "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,completedAt,role,rateOverride,notes"
+      "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
         .split(",")
         .forEach((k) => {
           const a = norm[k];
@@ -262,14 +304,14 @@ export default function EngagementAssignmentsEditor({
           if (a !== b) diff[k] = a;
         });
 
-      // If nothing changed, skip this assignment (do not send a no-op {id} object)
-      if (Object.keys(diff).length === 0) {
+      // Compact diff and skip if nothing remains
+      const cleaned = compactPayload(diff);
+      if (Object.keys(cleaned).length === 0) {
         return null; // skip no-op
       }
-
       return {
         id: String(r.assignmentId),
-        ...diff,
+        ...cleaned,
         customerId: userService.userValue.customerId,
         updatedBy: userService.userValue.id,
       };
@@ -289,23 +331,39 @@ export default function EngagementAssignmentsEditor({
       return;
     }
 
+    // required field guard (single row)
+    const miss = {
+      startDate: !row.startDate,
+      endDate: !row.endDate,
+      dueDate: !row.dueDate,
+    };
+    if (miss.startDate || miss.endDate || miss.dueDate) {
+      setErrorsByKey((prev) => ({ ...prev, [row.key]: miss }));
+      showAlert(
+        "Complete Start, End and Due date before saving this row.",
+        "warning"
+      );
+      return;
+    }
+
     const norm = normaliseRow(row);
     const base = getBaselineForId(row.assignmentId);
     const diff = {};
-    "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,completedAt,role,rateOverride,notes"
+    "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
       .split(",")
       .forEach((k) => {
         if (norm[k] !== base[k]) diff[k] = norm[k];
       });
 
-    if (Object.keys(diff).length === 0) {
+    const cleaned = compactPayload(diff);
+    if (Object.keys(cleaned).length === 0) {
       showAlert("No changes to save.", "info");
       return;
     }
 
     try {
       await pulseService.assignments.patch(String(row.assignmentId), {
-        ...diff,
+        ...cleaned,
         customerId: userService.userValue.customerId,
         updatedBy: userService.userValue.id,
       });
@@ -468,7 +526,9 @@ export default function EngagementAssignmentsEditor({
                             size="small"
                             type="date"
                             value={row.startDate}
+                            required
                             onChange={(e) => {
+                              clearErr(row.key, "startDate");
                               setRows((prev) => {
                                 const next = prev.map((r) =>
                                   r.key === row.key
@@ -479,11 +539,16 @@ export default function EngagementAssignmentsEditor({
                                 return next;
                               });
                             }}
-                            error={overlapKeys.includes(row.key)}
-                            helperText={
+                            error={
+                              !!errorsByKey[row.key]?.startDate ||
                               overlapKeys.includes(row.key)
-                                ? "Overlaps another assignment"
-                                : undefined
+                            }
+                            helperText={
+                              errorsByKey[row.key]?.startDate
+                                ? "Required"
+                                : overlapKeys.includes(row.key)
+                                  ? "Overlaps another assignment"
+                                  : undefined
                             }
                           />
                         </Grid>
@@ -494,7 +559,9 @@ export default function EngagementAssignmentsEditor({
                             size="small"
                             type="date"
                             value={row.endDate}
+                            required
                             onChange={(e) => {
+                              clearErr(row.key, "endDate");
                               setRows((prev) => {
                                 const next = prev.map((r) =>
                                   r.key === row.key
@@ -505,11 +572,16 @@ export default function EngagementAssignmentsEditor({
                                 return next;
                               });
                             }}
-                            error={overlapKeys.includes(row.key)}
-                            helperText={
+                            error={
+                              !!errorsByKey[row.key]?.endDate ||
                               overlapKeys.includes(row.key)
-                                ? "Overlaps another assignment"
-                                : undefined
+                            }
+                            helperText={
+                              errorsByKey[row.key]?.endDate
+                                ? "Required"
+                                : overlapKeys.includes(row.key)
+                                  ? "Overlaps another assignment"
+                                  : undefined
                             }
                           />
                         </Grid>
@@ -520,32 +592,22 @@ export default function EngagementAssignmentsEditor({
                             size="small"
                             type="date"
                             value={row.dueDate}
-                            onChange={(e) =>
+                            required
+                            onChange={(e) => {
+                              clearErr(row.key, "dueDate");
                               setRows((prev) =>
                                 prev.map((r) =>
                                   r.key === row.key
                                     ? { ...r, dueDate: e.target.value }
                                     : r
                                 )
-                              )
-                            }
-                          />
-                        </Grid>
-                        <Grid item xs={6}>
-                          <TextField
-                            fullWidth
-                            label="Completed at"
-                            size="small"
-                            type="datetime-local"
-                            value={row.completedAt}
-                            onChange={(e) =>
-                              setRows((prev) =>
-                                prev.map((r) =>
-                                  r.key === row.key
-                                    ? { ...r, completedAt: e.target.value }
-                                    : r
-                                )
-                              )
+                              );
+                            }}
+                            error={!!errorsByKey[row.key]?.dueDate}
+                            helperText={
+                              errorsByKey[row.key]?.dueDate
+                                ? "Required"
+                                : undefined
                             }
                           />
                         </Grid>
@@ -619,7 +681,6 @@ export default function EngagementAssignmentsEditor({
                       <TableCell width={140}>Start</TableCell>
                       <TableCell width={140}>End</TableCell>
                       <TableCell width={140}>Due date</TableCell>
-                      <TableCell width={160}>Completed at</TableCell>
                       <TableCell>Role</TableCell>
                       <TableCell width={120}>Rate override</TableCell>
                       <TableCell>Notes</TableCell>
@@ -697,7 +758,9 @@ export default function EngagementAssignmentsEditor({
                               size="small"
                               type="date"
                               value={row.startDate}
+                              required
                               onChange={(e) => {
+                                clearErr(row.key, "startDate");
                                 setRows((prev) => {
                                   const next = prev.map((r) =>
                                     r.key === row.key
@@ -708,11 +771,16 @@ export default function EngagementAssignmentsEditor({
                                   return next;
                                 });
                               }}
-                              error={overlapKeys.includes(row.key)}
-                              helperText={
+                              error={
+                                !!errorsByKey[row.key]?.startDate ||
                                 overlapKeys.includes(row.key)
-                                  ? "Overlaps another assignment"
-                                  : undefined
+                              }
+                              helperText={
+                                errorsByKey[row.key]?.startDate
+                                  ? "Required"
+                                  : overlapKeys.includes(row.key)
+                                    ? "Overlaps another assignment"
+                                    : undefined
                               }
                             />
                           </TableCell>
@@ -721,7 +789,9 @@ export default function EngagementAssignmentsEditor({
                               size="small"
                               type="date"
                               value={row.endDate}
+                              required
                               onChange={(e) => {
+                                clearErr(row.key, "endDate");
                                 setRows((prev) => {
                                   const next = prev.map((r) =>
                                     r.key === row.key
@@ -732,11 +802,16 @@ export default function EngagementAssignmentsEditor({
                                   return next;
                                 });
                               }}
-                              error={overlapKeys.includes(row.key)}
-                              helperText={
+                              error={
+                                !!errorsByKey[row.key]?.endDate ||
                                 overlapKeys.includes(row.key)
-                                  ? "Overlaps another assignment"
-                                  : undefined
+                              }
+                              helperText={
+                                errorsByKey[row.key]?.endDate
+                                  ? "Required"
+                                  : overlapKeys.includes(row.key)
+                                    ? "Overlaps another assignment"
+                                    : undefined
                               }
                             />
                           </TableCell>
@@ -745,30 +820,22 @@ export default function EngagementAssignmentsEditor({
                               size="small"
                               type="date"
                               value={row.dueDate}
-                              onChange={(e) =>
+                              required
+                              onChange={(e) => {
+                                clearErr(row.key, "dueDate");
                                 setRows((prev) =>
                                   prev.map((r) =>
                                     r.key === row.key
                                       ? { ...r, dueDate: e.target.value }
                                       : r
                                   )
-                                )
-                              }
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextField
-                              size="small"
-                              type="datetime-local"
-                              value={row.completedAt}
-                              onChange={(e) =>
-                                setRows((prev) =>
-                                  prev.map((r) =>
-                                    r.key === row.key
-                                      ? { ...r, completedAt: e.target.value }
-                                      : r
-                                  )
-                                )
+                                );
+                              }}
+                              error={!!errorsByKey[row.key]?.dueDate}
+                              helperText={
+                                errorsByKey[row.key]?.dueDate
+                                  ? "Required"
+                                  : undefined
                               }
                             />
                           </TableCell>

@@ -13,12 +13,15 @@ import {
   Stack,
   useTheme,
 } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function PulseLanding() {
   const theme = useTheme();
 
-  const totalFounderSlots = 10;
+  const heroRef = useRef(null);
+  const [showMobileCta, setShowMobileCta] = useState(false);
+
+  const totalFounderSlots = 50;
   const claimedFounderSlots = 1; // TODO: wire from backend later
   const remainingFounderSlots = Math.max(
     totalFounderSlots - claimedFounderSlots,
@@ -60,6 +63,24 @@ export default function PulseLanding() {
     upsertMeta("name", "twitter:image", { content: imageUrl });
   }, [theme]);
 
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        // Show sticky CTA when hero is NOT visible
+        setShowMobileCta(!entry.isIntersecting);
+      },
+      { root: null, threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => {
+      observer.unobserve(el);
+      observer.disconnect();
+    };
+  }, [heroRef]);
+
   return (
     <>
       {/* FULL-WIDTH BANNER: scrolling scarcity notice */}
@@ -97,10 +118,9 @@ export default function PulseLanding() {
             {/* Scrolling message (left) */}
             <Box sx={{ flex: 1, overflow: "hidden" }}>
               <Box className="scrolling">
-                🚨 Only {remainingFounderSlots} of {totalFounderSlots}{" "}
-                early-adopter spot
-                {remainingFounderSlots === 1 ? "" : "s"} left — $250/m incl. 20
-                users. 🚨
+                ⚡ Only {remainingFounderSlots} of {totalFounderSlots}{" "}
+                launch‑cohort spots left — $50/m for 3 months, then $200/m (20
+                users included). ⚡
               </Box>
             </Box>
 
@@ -141,12 +161,7 @@ export default function PulseLanding() {
           }}
         >
           {/* HERO */}
-          <Box
-            component="section"
-            sx={{
-              borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
-            }}
-          >
+          <Box component="section" ref={heroRef}>
             <Container maxWidth="lg">
               <Grid
                 container
@@ -187,7 +202,7 @@ export default function PulseLanding() {
                   >
                     Pulse gives professional service businesses a clear view of
                     engagements, resources and utilisation — so leaders can
-                    plan, deliver and report without the admin hell.
+                    plan, deliver and report without the admin headache.
                   </Typography>
                   <Box
                     sx={{
@@ -241,145 +256,410 @@ export default function PulseLanding() {
                       }}
                       sx={{ width: "100%", display: "block", borderRadius: 1 }}
                     />
+                    <Typography
+                      component="figcaption"
+                      variant="caption"
+                      color="text.secondary"
+                      sx={{
+                        mt: theme.spacing(1),
+                        display: "block",
+                        textAlign: { xs: "center", md: "left" },
+                      }}
+                    >
+                      * Pulse dashboard preview — visualising spend vs budget,
+                      resource allocation, and utilisation.
+                    </Typography>
                   </Box>
+                </Grid>
+              </Grid>
+            </Container>
+          </Box>
+
+          {/* FEATURE TEASER: alternating text + image placeholders */}
+          <Box
+            component="section"
+            sx={{
+              py: { xs: 2, md: 4 },
+              mt: { xs: 4, md: 6 },
+              px: 2,
+              bgcolor: (theme) =>
+                theme.palette.mode === "light"
+                  ? "grey.50"
+                  : "background.default",
+            }}
+          >
+            <Container maxWidth="lg" disableGutters>
+              <Box
+                sx={{
+                  mb: { xs: 4, md: 6 },
+                  textAlign: { xs: "center", md: "left" },
+                }}
+              >
+                <Typography
+                  variant="overline"
+                  color="text.secondary"
+                  sx={{ letterSpacing: 1, fontWeight: 700 }}
+                >
+                  PRODUCT HIGHLIGHTS
+                </Typography>
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontWeight: 800,
+                    mt: 0.5,
+                    fontSize: { xs: "1.75rem", md: "2.25rem" },
+                  }}
+                >
+                  What you’ll use every day
+                </Typography>
+                <Typography
+                  color="text.secondary"
+                  sx={{ mt: 1, maxWidth: { xs: "38ch", md: "60ch" } }}
+                >
+                  Four core flows that remove the spreadsheet shuffle and keep
+                  teams aligned.
+                </Typography>
+                <Stack
+                  direction={{ xs: "column", sm: "row" }}
+                  spacing={2}
+                  sx={{
+                    mt: 2,
+                    justifyContent: { xs: "center", md: "flex-start" },
+                  }}
+                ></Stack>
+              </Box>
+              {/* Row 1: Text left, Image right */}
+              <Grid
+                container
+                spacing={4}
+                alignItems="center"
+                sx={{ mb: { xs: 4, md: 6 } }}
+              >
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{
+                    textAlign: { xs: "center", md: "left" },
+                    order: { xs: 1, md: 1 },
+                  }}
+                >
                   <Typography
-                    component="figcaption"
-                    variant="caption"
+                    variant="h4"
+                    sx={{
+                      fontWeight: 700,
+                      fontSize: { xs: "1.5rem", md: "1.75rem" },
+                    }}
+                    gutterBottom
+                  >
+                    Streamlined Engagement Wizard
+                  </Typography>
+                  <Typography
                     color="text.secondary"
                     sx={{
-                      mt: theme.spacing(1),
-                      display: "block",
-                      textAlign: { xs: "center", md: "left" },
+                      maxWidth: { xs: "46ch", md: "56ch" },
+                      mx: { xs: "auto", md: 0 },
                     }}
                   >
-                    * Pulse dashboard preview — visualising spend vs budget,
-                    resource allocation, and utilisation.
+                    Spin up a new engagement in a few clear steps. Scope, dates,
+                    budget and team — captured without the spreadsheet shuffle.
                   </Typography>
-                </Grid>
-              </Grid>
-            </Container>
-          </Box>
-
-          {/* BENEFITS */}
-          <Box component="section" sx={{ py: { xs: 6 } }}>
-            <Container maxWidth="lg">
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={4}>
-                  <Paper
-                    variant="outlined"
-                    sx={{
-                      p: theme.spacing(3),
-                      height: "100%",
-                      textAlign: { xs: "center", md: "left" },
-                    }}
-                  >
-                    <Typography
-                      variant="h5"
-                      sx={{ fontWeight: 700 }}
-                      gutterBottom
+                  <Box sx={{ mt: 1.5 }}>
+                    <Button
+                      href="/pulse/join"
+                      size="small"
+                      variant="text"
+                      sx={{ textTransform: "none" }}
                     >
-                      Engagement overview
-                    </Typography>
-                    <Typography color="text.secondary">
-                      Scope, status and milestones at a glance so partners stay
-                      aligned without chasing spreadsheets.
-                    </Typography>
-                  </Paper>
+                      Join early adopters →
+                    </Button>
+                  </Box>
                 </Grid>
-                <Grid item xs={12} md={4}>
-                  <Paper
-                    variant="outlined"
-                    sx={{
-                      p: theme.spacing(3),
-                      height: "100%",
-                      textAlign: { xs: "center", md: "left" },
-                    }}
-                  >
-                    <Typography
-                      variant="h5"
-                      sx={{ fontWeight: 700 }}
-                      gutterBottom
-                    >
-                      Resource & utilisation
-                    </Typography>
-                    <Typography color="text.secondary">
-                      Plan capacity and balance workloads — reduce
-                      over/under‑allocation and avoid firefighting.
-                    </Typography>
-                  </Paper>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <Paper
-                    variant="outlined"
-                    sx={{
-                      p: theme.spacing(3),
-                      height: "100%",
-                      textAlign: { xs: "center", md: "left" },
-                    }}
-                  >
-                    <Typography
-                      variant="h5"
-                      sx={{ fontWeight: 700 }}
-                      gutterBottom
-                    >
-                      Budget vs spend
-                    </Typography>
-                    <Typography color="text.secondary">
-                      Live view of budgets and burn‑down, plus top overruns, so
-                      you can intervene early.
-                    </Typography>
-                  </Paper>
-                </Grid>
-              </Grid>
-            </Container>
-          </Box>
-
-          {/* FULL-WIDTH VISUAL */}
-          <Box component="section" sx={{ bgcolor: "background.paper" }}>
-            <Container maxWidth="lg">
-              <Paper elevation={1} sx={{ p: { xs: 1, md: 3 } }}>
-                <Typography
-                  variant="h6"
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
                   sx={{
-                    mb: theme.spacing(2),
-                    fontWeight: 700,
-                    fontSize: { xs: "1.125rem", sm: "1.25rem", md: "1.5rem" },
                     textAlign: { xs: "center", md: "left" },
+                    order: { xs: 2, md: 2 },
                   }}
                 >
-                  A single view of engagements and teams
-                </Typography>
-                <Box
-                  component="img"
-                  src="/images/pulse/dashboard2.png"
-                  alt="Pulse engagement and resource charts including status breakdowns, budget burn‑down over time, and team utilisation metrics"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
+                  <Paper
+                    elevation={2}
+                    sx={{
+                      overflow: "hidden",
+                      borderRadius: 1,
+                      transition: "transform 120ms ease, box-shadow 120ms ease",
+                      "&:hover": { transform: "scale(1.01)" },
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src="/images/pulse/Engagement_Wizard.png"
+                      alt="Engagement Wizard preview"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                      sx={{
+                        width: "100%",
+                        display: "block",
+                        maxHeight: { xs: 260, sm: 300, md: 360 },
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Paper>
+                </Grid>
+              </Grid>
+
+              {/* Row 2: Image left, Text right */}
+              <Grid
+                container
+                spacing={4}
+                alignItems="center"
+                sx={{ mb: { xs: 4, md: 6 } }}
+              >
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
                   sx={{
-                    width: { xs: "100%", sm: "100%" },
-                    maxWidth: { xs: "unset", md: 1040 },
-                    height: "auto",
-                    mx: "auto",
-                    display: "block",
-                    borderRadius: 1,
+                    textAlign: { xs: "center", md: "left" },
+                    order: { xs: 2, md: 1 },
                   }}
-                />
-                <Typography
-                  component="figcaption"
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ mt: theme.spacing(1) }}
                 >
-                  * Engagement and resource charts — showing status breakdowns,
-                  budget burn‑down, and utilisation metrics.
-                </Typography>
-              </Paper>
+                  <Paper
+                    elevation={2}
+                    sx={{
+                      overflow: "hidden",
+                      borderRadius: 1,
+                      transition: "transform 120ms ease, box-shadow 120ms ease",
+                      "&:hover": { transform: "scale(1.01)" },
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src="/images/pulse/Budget_Builder2.png"
+                      alt="Budget Builder preview"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                      sx={{
+                        width: "100%",
+                        display: "block",
+                        maxHeight: { xs: 260, sm: 300, md: 360 },
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Paper>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{
+                    textAlign: { xs: "center", md: "left" },
+                    order: { xs: 1, md: 2 },
+                  }}
+                >
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontWeight: 700,
+                      fontSize: { xs: "1.5rem", md: "1.75rem" },
+                    }}
+                    gutterBottom
+                  >
+                    Smarter Budget Builder
+                  </Typography>
+                  <Typography
+                    color="text.secondary"
+                    sx={{
+                      maxWidth: { xs: "46ch", md: "56ch" },
+                      mx: { xs: "auto", md: 0 },
+                    }}
+                  >
+                    Build or link budgets without duplication. See burn and
+                    variance clearly so you can intervene early.
+                  </Typography>
+                  <Box sx={{ mt: 1.5 }}>
+                    <Button
+                      href="/pulse/join"
+                      size="small"
+                      variant="text"
+                      sx={{ textTransform: "none" }}
+                    >
+                      Join early adopters →
+                    </Button>
+                  </Box>
+                </Grid>
+              </Grid>
+
+              {/* Row 3: Text left, Image right */}
+              <Grid
+                container
+                spacing={4}
+                alignItems="center"
+                sx={{ mb: { xs: 4, md: 6 } }}
+              >
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{
+                    textAlign: { xs: "center", md: "left" },
+                    order: { xs: 1, md: 1 },
+                  }}
+                >
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontWeight: 700,
+                      fontSize: { xs: "1.5rem", md: "1.75rem" },
+                    }}
+                    gutterBottom
+                  >
+                    Resource assignment made obvious
+                  </Typography>
+                  <Typography
+                    color="text.secondary"
+                    sx={{
+                      maxWidth: { xs: "46ch", md: "56ch" },
+                      mx: { xs: "auto", md: 0 },
+                    }}
+                  >
+                    Assign people with confidence. Balance workloads and track
+                    utilisation without guesswork.
+                  </Typography>
+                  <Box sx={{ mt: 1.5 }}>
+                    <Button
+                      href="/pulse/join"
+                      size="small"
+                      variant="text"
+                      sx={{ textTransform: "none" }}
+                    >
+                      Join early adopters →
+                    </Button>
+                  </Box>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{
+                    textAlign: { xs: "center", md: "left" },
+                    order: { xs: 2, md: 2 },
+                  }}
+                >
+                  <Paper
+                    elevation={2}
+                    sx={{
+                      overflow: "hidden",
+                      borderRadius: 1,
+                      transition: "transform 120ms ease, box-shadow 120ms ease",
+                      "&:hover": { transform: "scale(1.01)" },
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src="/images/pulse/Resource_Utilisation.png"
+                      alt="Resource assignment preview"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                      sx={{
+                        width: "100%",
+                        display: "block",
+                        maxHeight: { xs: 260, sm: 300, md: 360 },
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Paper>
+                </Grid>
+              </Grid>
+
+              {/* Row 4: Image left, Text right */}
+              <Grid container spacing={4} alignItems="center">
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{
+                    textAlign: { xs: "center", md: "left" },
+                    order: { xs: 2, md: 1 },
+                  }}
+                >
+                  <Paper
+                    elevation={2}
+                    sx={{
+                      overflow: "hidden",
+                      borderRadius: 1,
+                      transition: "transform 120ms ease, box-shadow 120ms ease",
+                      "&:hover": { transform: "scale(1.01)" },
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src="/images/pulse/Timesheet.png"
+                      alt="Timesheets preview"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                      sx={{
+                        width: "100%",
+                        display: "block",
+                        maxHeight: { xs: 260, sm: 300, md: 360 },
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Paper>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  sx={{
+                    textAlign: { xs: "center", md: "left" },
+                    order: { xs: 1, md: 2 },
+                  }}
+                >
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontWeight: 700,
+                      fontSize: { xs: "1.5rem", md: "1.75rem" },
+                    }}
+                    gutterBottom
+                  >
+                    Log time against engagements
+                  </Typography>
+                  <Typography
+                    color="text.secondary"
+                    sx={{
+                      maxWidth: { xs: "46ch", md: "56ch" },
+                      mx: { xs: "auto", md: 0 },
+                    }}
+                  >
+                    Make time capture painless and contextual so actuals roll up
+                    to engagements and budgets automatically.
+                  </Typography>
+                  <Box sx={{ mt: 1.5 }}>
+                    <Button
+                      href="/pulse/join"
+                      size="small"
+                      variant="text"
+                      sx={{ textTransform: "none" }}
+                    >
+                      Join early adopters →
+                    </Button>
+                  </Box>
+                </Grid>
+              </Grid>
             </Container>
           </Box>
-
-          {/* MINI BANNER: scarcity notice */}
 
           {/* COMBINED PRICING + CTA BAND */}
           <Box component="section" sx={{ py: { xs: 6, md: 8 } }}>
@@ -394,38 +674,8 @@ export default function PulseLanding() {
                   alignItems={{ xs: "stretch", md: "center" }}
                   justifyContent="space-between"
                 >
-                  {/* Left: Founder pricing */}
-                  <Box sx={{ flex: 1 }}>
-                    <Typography
-                      variant="h4"
-                      sx={{ fontWeight: 700 }}
-                      gutterBottom
-                    >
-                      Founder pricing for early adopters
-                    </Typography>
-                    <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      We’re opening a small early‑adopter cohort (first 10
-                      firms) with discounted rates and priority onboarding. See
-                      plan details and availability on the pricing page.
-                    </Typography>
-                    <Button
-                      variant="contained"
-                      size="large"
-                      href="/pulse/pricing"
-                      sx={{ width: { xs: "100%", sm: "auto" }, mt: 2 }}
-                    >
-                      View Pulse pricing
-                    </Button>
-                  </Box>
-
-                  {/* Divider on desktop only */}
-                  <Divider
-                    orientation="vertical"
-                    flexItem
-                    sx={{ display: { xs: "none", md: "block" } }}
-                  />
-
-                  {/* Right: Get partners out of spreadsheets */}
+                  {/* Left: Ready to make the move from spreadsheets to clarity and
+                      actionable insight? */}
                   <Box sx={{ flex: 1 }}>
                     <Typography
                       variant="h4"
@@ -439,7 +689,8 @@ export default function PulseLanding() {
                       }}
                       gutterBottom
                     >
-                      Ready to get partners out of spreadsheets?
+                      Ready to make the move from spreadsheets to clarity and
+                      actionable insight?
                     </Typography>
                     <Typography color="text.secondary" sx={{ mb: 2 }}>
                       We’re inviting a small group of professional service
@@ -455,8 +706,66 @@ export default function PulseLanding() {
                       Book a 15‑minute intro
                     </Button>
                   </Box>
+
+                  {/* Divider on desktop only */}
+                  <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{ display: { xs: "none", md: "block" } }}
+                  />
+
+                  {/* Right: Founder pricing */}
+                  <Box sx={{ flex: 1 }}>
+                    <Typography
+                      variant="h4"
+                      sx={{ fontWeight: 700 }}
+                      gutterBottom
+                    >
+                      Founder pricing for early adopters
+                    </Typography>
+                    <Typography color="text.secondary" sx={{ mb: 2 }}>
+                      We’re opening a small early‑adopter cohort (first 50
+                      firms) with discounted rates and priority onboarding. See
+                      plan details and availability on the pricing page.
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      size="large"
+                      href="/pulse/pricing"
+                      sx={{ width: { xs: "100%", sm: "auto" }, mt: 2 }}
+                    >
+                      View Pulse pricing
+                    </Button>
+                  </Box>
                 </Stack>
               </Paper>
+            </Container>
+          </Box>
+          {/* Mobile sticky footer CTA: shows after hero is scrolled out */}
+          <Box
+            sx={{
+              position: "fixed",
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 1300,
+              display: { xs: showMobileCta ? "block" : "none", md: "none" },
+              bgcolor: "background.paper",
+              borderTop: (theme) => `1px solid ${theme.palette.divider}`,
+              boxShadow: 3,
+              py: 1,
+            }}
+          >
+            <Container maxWidth="lg">
+              <Button
+                href="/pulse/join"
+                variant="contained"
+                size="large"
+                fullWidth
+                sx={{ py: 1.25 }}
+              >
+                Join early adopters
+              </Button>
             </Container>
           </Box>
         </Paper>

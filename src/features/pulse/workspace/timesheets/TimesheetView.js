@@ -12,13 +12,11 @@ import {
   TableCell,
   Button,
   Chip,
-  FormControl,
-  Select,
-  MenuItem,
 } from "@mui/material";
-import { usePulseContext } from "../../../context/PulseContext";
-import { useAlert } from "../../../context";
-import { pulseService } from "../../../services/pulse/pulse";
+import { usePulseContext } from "../../../../context/PulseContext";
+import { useAlert } from "../../../../context";
+import { pulseService } from "../../../../services/pulse/pulse";
+import { userService } from "../../../../services";
 
 // ---- date helpers ----
 const pad = (n) => (n < 10 ? `0${n}` : `${n}`);
@@ -47,7 +45,7 @@ const weekDays = (weekKeyISO) => {
   });
 };
 
-export default function Timesheet() {
+export default function TimesheetView() {
   const { resources = [], engagements = [] } = usePulseContext();
   const { showAlert } = useAlert();
   const navigate = useNavigate();
@@ -68,19 +66,23 @@ export default function Timesheet() {
     [engagements]
   );
 
-  const handleBudgetItemChange = async (rowId, budgetItemId) => {
-    const updatedRows = (sheet?.rows || []).map((r) =>
-      String(r.id) === String(rowId) ? { ...r, budgetItemId } : r
-    );
-    const updatedSheet = { ...sheet, rows: updatedRows };
-    setSheet(updatedSheet);
+  const currentUser = userService.userValue;
+  const canRecall =
+    sheet && (sheet.status === "submitted" || sheet.status === "rejected");
+
+  const handleRecall = async () => {
     try {
-      await pulseService.timesheets.update(String(sheet.id), updatedSheet);
-      showAlert("Updated budget section", "success");
+      await pulseService.timesheets.update(String(sheet.id), {
+        status: "draft",
+        customerId: currentUser?.customerId,
+        updatedBy: currentUser?.id,
+      });
+      showAlert("Timesheet recalled to draft", "success");
+      navigate(`/pulse-solution/timesheets/${sheet.id}`);
     } catch (e) {
       // eslint-disable-next-line no-console
-      console.error("Failed to update budget section", e);
-      showAlert("Failed to update budget section", "error");
+      console.error("Failed to recall timesheet", e);
+      showAlert("Failed to recall timesheet", "error");
     }
   };
 
@@ -189,6 +191,11 @@ export default function Timesheet() {
             <Typography variant="body2" color="text.secondary">
               Total: {weeklyTotal} hrs
             </Typography>
+            {canRecall && (
+              <Button size="small" variant="outlined" onClick={handleRecall}>
+                Recall to Draft
+              </Button>
+            )}
           </Stack>
         </Box>
       </Paper>
@@ -224,39 +231,18 @@ export default function Timesheet() {
                         const items = Array.isArray(eng?.budgetItems)
                           ? eng.budgetItems
                           : [];
-                        const hasItems = items.length > 0;
+                        const found = items.find(
+                          (it) => String(it.id) === String(r.budgetItemId)
+                        );
                         return (
-                          <FormControl fullWidth size="small">
-                            <Select
-                              displayEmpty
-                              value={r.budgetItemId || ""}
-                              onChange={(e) =>
-                                handleBudgetItemChange(
-                                  r.id,
-                                  e.target.value || ""
-                                )
-                              }
-                              disabled={!hasItems}
-                              renderValue={(val) => {
-                                if (!val) return "Select budget item";
-                                const found = items.find(
-                                  (it) => String(it.id) === String(val)
-                                );
-                                return found
-                                  ? `${found.activity || "Item"}`
-                                  : "Select budget item";
-                              }}
-                            >
-                              <MenuItem value="">
-                                <em>Unassigned</em>
-                              </MenuItem>
-                              {items.map((it) => (
-                                <MenuItem key={it.id} value={String(it.id)}>
-                                  {`${it.activity || "Item"} ${it.billingType === "fixed" ? "(Fixed)" : "(Hourly)"}`}
-                                </MenuItem>
-                              ))}
-                            </Select>
-                          </FormControl>
+                          <Typography
+                            variant="body2"
+                            color={found ? "inherit" : "text.secondary"}
+                          >
+                            {found
+                              ? found.activity || found.code || String(found.id)
+                              : "Unassigned"}
+                          </Typography>
                         );
                       })()}
                     </TableCell>

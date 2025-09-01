@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import {
   Box,
   Stack,
@@ -12,13 +12,9 @@ import {
   TableCell,
   TableBody,
   TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
 } from "@mui/material";
-import { usePulseContext, useAlert } from "../../../context";
-import { pulseService } from "../../../services/pulse/pulse";
+import { usePulseContext, useAlert } from "../../../../context";
+import { pulseService } from "../../../../services/pulse/pulse";
 
 export default function EngagementView() {
   const {
@@ -29,10 +25,10 @@ export default function EngagementView() {
   } = usePulseContext();
   const { showAlert } = useAlert();
 
+  const navigate = useNavigate();
+
   // Search & filters
   const [query, setQuery] = useState("");
-  const [clientFilter, setClientFilter] = useState("");
-  const [resourceFilter, setResourceFilter] = useState("");
 
   const clientById = useMemo(
     () => Object.fromEntries((clients || []).map((c) => [String(c.id), c])),
@@ -56,20 +52,9 @@ export default function EngagementView() {
             .toLowerCase()
             .includes(q)
         );
-      const matchesClient =
-        !clientFilter || String(e.clientId) === clientFilter;
-      const matchesResource =
-        !resourceFilter || String(e.resourceId) === resourceFilter;
-      return matchesQuery && matchesClient && matchesResource;
+      return matchesQuery;
     });
-  }, [
-    engagements,
-    query,
-    clientFilter,
-    resourceFilter,
-    clientById,
-    resourceById,
-  ]);
+  }, [engagements, query, clientById, resourceById]);
 
   const onDelete = async (id) => {
     try {
@@ -100,45 +85,9 @@ export default function EngagementView() {
             onChange={(e) => setQuery(e.target.value)}
             inputProps={{ "aria-label": "Search engagements" }}
           />
-          <FormControl size="small" sx={{ minWidth: 200 }}>
-            <InputLabel id="client-filter-label">Client</InputLabel>
-            <Select
-              labelId="client-filter-label"
-              label="Client"
-              value={clientFilter}
-              onChange={(e) => setClientFilter(e.target.value)}
-            >
-              <MenuItem value="">
-                <em>All clients</em>
-              </MenuItem>
-              {(clients || []).map((c) => (
-                <MenuItem key={c.id} value={String(c.id)}>
-                  {c.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <FormControl size="small" sx={{ minWidth: 200 }}>
-            <InputLabel id="resource-filter-label">Resource</InputLabel>
-            <Select
-              labelId="resource-filter-label"
-              label="Resource"
-              value={resourceFilter}
-              onChange={(e) => setResourceFilter(e.target.value)}
-            >
-              <MenuItem value="">
-                <em>All resources</em>
-              </MenuItem>
-              {(resources || []).map((r) => (
-                <MenuItem key={r.id} value={String(r.id)}>
-                  {r.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
           <Button
             component={Link}
-            to="/pulse/engagements/manage"
+            to="/pulse-solution/admin/engagements/manage"
             variant="contained"
           >
             New Engagement
@@ -156,6 +105,7 @@ export default function EngagementView() {
               <TableCell>Resource</TableCell>
               <TableCell>Start</TableCell>
               <TableCell>End</TableCell>
+              <TableCell>Status</TableCell>
               <TableCell align="right">Actions</TableCell>
             </TableRow>
           </TableHead>
@@ -163,14 +113,28 @@ export default function EngagementView() {
             {filteredEngagements.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6}>
-                  <Typography color="text.secondary">
-                    No engagements yet. Click “New Engagement”.
-                  </Typography>
+                  <Button
+                    component={Link}
+                    to="/pulse-solution/admin/engagements/manage"
+                    variant="contained"
+                  >
+                    New Engagement
+                  </Button>
                 </TableCell>
               </TableRow>
             ) : (
               filteredEngagements.map((e) => (
-                <TableRow key={e.id}>
+                <TableRow
+                  key={e.id}
+                  hover
+                  sx={{ cursor: "pointer" }}
+                  onClick={() =>
+                    navigate(
+                      `/pulse-solution/admin/engagements/manage?id=${encodeURIComponent(e.id)}`
+                    )
+                  }
+                  role="button"
+                >
                   <TableCell>{e.name}</TableCell>
                   <TableCell>
                     {clientById[String(e.clientId)]?.name || "—"}
@@ -180,6 +144,7 @@ export default function EngagementView() {
                   </TableCell>
                   <TableCell>{e.startDate || "—"}</TableCell>
                   <TableCell>{e.endDate || "—"}</TableCell>
+                  <TableCell>{e.status || "—"}</TableCell>
                   <TableCell align="right">
                     <Stack
                       direction="row"
@@ -188,15 +153,11 @@ export default function EngagementView() {
                     >
                       <Button
                         size="small"
-                        component={Link}
-                        to={`/pulse/engagements/manage?id=${encodeURIComponent(e.id)}`}
-                      >
-                        Edit
-                      </Button>
-                      <Button
-                        size="small"
                         color="error"
-                        onClick={() => onDelete(e.id)}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          onDelete(e.id);
+                        }}
                       >
                         Delete
                       </Button>

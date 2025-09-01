@@ -72,7 +72,12 @@ export default function VerifyEmail() {
       .catch((error) => {
         setAlert({
           type: "error",
-          message: error || "Invalid or expired token",
+          message:
+            typeof error === "string"
+              ? error
+              : error?.message ||
+                JSON.stringify(error) ||
+                "Invalid or expired token",
         });
         setEmailStatus(EmailStatus.Failed);
       });
@@ -133,25 +138,34 @@ export default function VerifyEmail() {
         name: `${user.firstName} ${user.lastName}`,
         email: user.email,
         subject: "User Created",
-        company: user.clientId,
-        message: "",
+        company: user.customerId,
+        message: "New user created",
         to: user.email,
         from: "contact@monochrome-compliance.com",
       };
 
       await publicService.sendSesEmail(userData);
       // Login the user with their new credentials
-      await userService.login(user.email, formValues.password);
+      await userService.login({
+        email: user.email,
+        password: formValues.password,
+        customerId: user.customerId,
+      });
       setAlert({
         type: "success",
         message:
           "Password set successfully - redirecting you to your dashboard",
       });
-      navigate("/user/dashboard");
+      navigate("/dashboard");
     } catch (error) {
       setAlert({
         type: "error",
-        message: error || "Error setting your password",
+        message:
+          typeof error === "string"
+            ? error
+            : error?.message ||
+              JSON.stringify(error) ||
+              "Error setting your password",
       });
     } finally {
       setIsSubmitting(false);

@@ -1,26 +1,12 @@
 import { Box, Grid, Paper, Typography, Stack } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import BadgeIcon from "@mui/icons-material/Badge";
 import { Link } from "react-router";
+import { userService } from "../../services";
 
 // Tile-based landing for Pulse entry point.
 // Routes are configurable via the tiles array if your paths differ.
-const tiles = [
-  {
-    key: "dashboard",
-    title: "Dashboard",
-    description: "Monitor engagements, utilisation and status at a glance.",
-    icon: <DashboardIcon fontSize="large" aria-hidden />,
-    to: "/pulse/dashboard",
-  },
-  {
-    key: "admin",
-    title: "Admin Console",
-    description: "Manage customers, resources, roles, and data settings.",
-    icon: <AdminPanelSettingsIcon fontSize="large" aria-hidden />,
-    to: "/pulse/admin",
-  },
-];
 
 function Tile({ icon, title, description, to }) {
   return (
@@ -62,6 +48,43 @@ function Tile({ icon, title, description, to }) {
 }
 
 export default function PulseSolutionLanding() {
+  const user = userService.userValue; // Get the current user
+
+  const workspaceDescription =
+    user?.role === "Admin" || user?.role === "Boss"
+      ? "Update your timesheet, review history, and manage your team’s timesheets."
+      : "Update your timesheet and review your submission history.";
+
+  // All tiles defined in one place for easier updates
+  const tiles = [
+    {
+      key: "dashboard",
+      title: "Dashboard",
+      description: "Monitor engagements, utilisation and status at a glance.",
+      icon: <DashboardIcon fontSize="large" aria-hidden />,
+      to: "/pulse-solution/dashboard",
+      roles: ["Admin", "Boss"],
+    },
+    {
+      key: "admin",
+      title: "Admin Console",
+      description: "Manage clients, engagements, budgets and resources.",
+      icon: <AdminPanelSettingsIcon fontSize="large" aria-hidden />,
+      to: "/pulse-solution/admin",
+      roles: ["Admin", "Boss"],
+    },
+    {
+      key: "workplace",
+      title: "Workspace",
+      description: workspaceDescription,
+      icon: <BadgeIcon fontSize="large" aria-hidden />,
+      to: "/pulse-solution/workplace",
+      roles: ["User", "Admin", "Boss"],
+    },
+  ];
+
+  const displayedTiles = tiles.filter((t) => t.roles?.includes(user?.role));
+
   return (
     <Box
       sx={{
@@ -73,12 +96,12 @@ export default function PulseSolutionLanding() {
     >
       <Box mb={4}>
         <Typography variant="h4" component="h1" gutterBottom>
-          Welcome to Pulse
+          Welcome to Pulse, {user?.firstName} {user?.lastName}
         </Typography>
       </Box>
 
       <Grid container spacing={3}>
-        {tiles.map(({ key, ...tile }) => (
+        {displayedTiles.map(({ key, ...tile }) => (
           <Grid key={key} item xs={12} sm={6}>
             <Tile {...tile} />
           </Grid>

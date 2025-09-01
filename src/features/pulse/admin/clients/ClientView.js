@@ -15,19 +15,27 @@ import {
   TableCell,
   TableBody,
   TextField,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Select,
+  Drawer,
+  IconButton,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
 } from "@mui/material";
-import { usePulseContext, useAlert } from "../../context/";
-import { pulseService } from "../../services/pulse/pulse";
-import { userService } from "../../services";
+import CloseIcon from "@mui/icons-material/Close";
+import { usePulseContext, useAlert } from "../../../../context/";
+import { pulseService } from "../../../../services/pulse/pulse";
+import { userService } from "../../../../services";
 
 const schema = yup
   .object({
     name: yup.string().trim().required("Name is required"),
-    email: yup.string().trim().email("Invalid email").optional(),
+    email: yup
+      .string()
+      .trim()
+      .email("Invalid email")
+      .required("Email is required"),
     phone: yup.string().trim().optional(),
     // Add additional fields as needed later (ABN, address, notes, etc.)
   })
@@ -40,6 +48,16 @@ export default function ClientView() {
   // Selection + mode
   const [selectedId, setSelectedId] = useState(null);
   const [mode, setMode] = useState("create"); // 'create' | 'edit'
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const [confirm, setConfirm] = useState({ open: false, id: null, name: "" });
+  const openConfirmDelete = useCallback((id, name) => {
+    setConfirm({ open: true, id, name: name || "" });
+  }, []);
+
+  const closeConfirm = useCallback(() => {
+    setConfirm({ open: false, id: null, name: "" });
+  }, []);
 
   const selected = useMemo(
     () => clients.find((c) => String(c.id) === String(selectedId)) || null,
@@ -48,14 +66,6 @@ export default function ClientView() {
 
   // Search & filter (by role-like tag later; for now just name/email)
   const [query, setQuery] = useState("");
-  const [emailFilter, setEmailFilter] = useState("");
-
-  const knownEmails = useMemo(() => {
-    const set = new Set(
-      (clients || []).map((c) => (c.email || "").trim()).filter(Boolean)
-    );
-    return Array.from(set).sort((a, b) => a.localeCompare(b));
-  }, [clients]);
 
   const filteredClients = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -67,11 +77,9 @@ export default function ClientView() {
             .toLowerCase()
             .includes(q)
         );
-      const matchesEmail =
-        !emailFilter || String(c.email || "") === emailFilter;
-      return matchesQuery && matchesEmail;
+      return matchesQuery;
     });
-  }, [clients, query, emailFilter]);
+  }, [clients, query]);
 
   useEffect(() => {
     if (
@@ -104,18 +112,20 @@ export default function ClientView() {
   const startCreate = useCallback(() => {
     setSelectedId(null);
     setMode("create");
+    setDrawerOpen(true);
   }, []);
 
   const startEdit = useCallback((id) => {
     setSelectedId(id);
     setMode("edit");
+    setDrawerOpen(true);
   }, []);
 
   const onSubmit = useCallback(
     async (values) => {
       const basePayload = {
         name: values.name,
-        email: values.email || undefined,
+        email: values.email.trim(),
         phone: values.phone || undefined,
         customerId: userService.userValue.customerId,
       };
@@ -140,6 +150,7 @@ export default function ClientView() {
           setSelectedId(saved.id);
           setMode("edit");
         }
+        setDrawerOpen(false);
       } catch (err) {
         // eslint-disable-next-line no-console
         console.error("Failed to save client", err);
@@ -186,24 +197,6 @@ export default function ClientView() {
             onChange={(e) => setQuery(e.target.value)}
             inputProps={{ "aria-label": "Search clients" }}
           />
-          <FormControl size="small" sx={{ minWidth: 200 }}>
-            <InputLabel id="email-filter-label">Email</InputLabel>
-            <Select
-              labelId="email-filter-label"
-              label="Email"
-              value={emailFilter}
-              onChange={(e) => setEmailFilter(e.target.value)}
-            >
-              <MenuItem value="">
-                <em>All emails</em>
-              </MenuItem>
-              {knownEmails.map((em) => (
-                <MenuItem key={em} value={em}>
-                  {em}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
           <Button variant="contained" onClick={startCreate}>
             New Client
           </Button>
@@ -225,15 +218,18 @@ export default function ClientView() {
             {filteredClients.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={4}>
-                  <Typography color="text.secondary">
-                    No clients yet. Click “New Client”.
-                  </Typography>
+                  <Button variant="contained" onClick={startCreate}>
+                    New Client
+                  </Button>
                 </TableCell>
               </TableRow>
             ) : (
               filteredClients.map((c) => (
                 <TableRow
                   key={c.id}
+                  hover
+                  onClick={() => startEdit(c.id)}
+                  sx={{ cursor: "pointer" }}
                   selected={String(c.id) === String(selectedId)}
                 >
                   <TableCell>{c.name}</TableCell>
@@ -245,13 +241,13 @@ export default function ClientView() {
                       spacing={1}
                       justifyContent="flex-end"
                     >
-                      <Button size="small" onClick={() => startEdit(c.id)}>
-                        Edit
-                      </Button>
                       <Button
                         size="small"
                         color="error"
-                        onClick={() => onDelete(c.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openConfirmDelete(c.id, c.name);
+                        }}
                       >
                         Delete
                       </Button>
@@ -266,76 +262,137 @@ export default function ClientView() {
 
       <Divider />
 
-      {/* Inline form panel */}
-      <Paper variant="outlined">
-        <Box p={2}>
-          <Typography variant="h6" gutterBottom>
+      {/* Drawer for form */}
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        PaperProps={{ sx: { width: { xs: "100%", sm: 520 } } }}
+      >
+        <Box
+          p={2}
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Typography variant="h6">
             {mode === "create"
               ? "Create Client"
               : `Edit Client${selected ? ` — ${selected.name}` : ""}`}
           </Typography>
+          <IconButton aria-label="Close" onClick={() => setDrawerOpen(false)}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        {mode === "edit" && selected && (
+          <Box px={2} pb={1}>
+            <Typography variant="caption" color="text.secondary">
+              ID: {selected.id}
+            </Typography>
+          </Box>
+        )}
+        <Divider />
+        <Box
+          component="form"
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          p={2}
+        >
+          <Stack spacing={2}>
+            <TextField
+              label="Name"
+              {...register("name")}
+              error={!!errors.name}
+              helperText={errors.name?.message}
+              fullWidth
+              required
+            />
 
-          <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
-            <Stack spacing={2}>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
               <TextField
-                label="Name"
-                {...register("name")}
-                error={!!errors.name}
-                helperText={errors.name?.message}
+                label="Email"
+                type="email"
+                {...register("email")}
+                error={!!errors.email}
+                helperText={errors.email?.message}
+                fullWidth
+                required
+              />
+              <TextField
+                label="Phone"
+                {...register("phone")}
+                error={!!errors.phone}
+                helperText={errors.phone?.message}
                 fullWidth
               />
+            </Stack>
 
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                <TextField
-                  label="Email"
-                  type="email"
-                  {...register("email")}
-                  error={!!errors.email}
-                  helperText={errors.email?.message}
-                  fullWidth
-                />
-                <TextField
-                  label="Phone"
-                  {...register("phone")}
-                  error={!!errors.phone}
-                  helperText={errors.phone?.message}
-                  fullWidth
-                />
-              </Stack>
-
-              <Stack direction="row" spacing={2}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  disabled={isSubmitting}
-                >
-                  {mode === "create" ? "Create" : "Save changes"}
-                </Button>
-                {mode === "edit" && selected && (
-                  <Button
-                    type="button"
-                    color="error"
-                    variant="outlined"
-                    onClick={() => onDelete(selected.id)}
-                    disabled={isSubmitting}
-                  >
-                    Delete
-                  </Button>
-                )}
-                <Box flexGrow={1} />
+            <Stack direction="row" spacing={2}>
+              <Button type="submit" variant="contained" disabled={isSubmitting}>
+                {mode === "create" ? "Create" : "Save changes"}
+              </Button>
+              <Button
+                type="button"
+                variant="outlined"
+                onClick={() => setDrawerOpen(false)}
+                disabled={isSubmitting}
+              >
+                Cancel
+              </Button>
+              {mode === "edit" && selected && (
                 <Button
                   type="button"
-                  variant="text"
-                  onClick={startCreate}
+                  color="error"
+                  variant="outlined"
+                  onClick={() => openConfirmDelete(selected.id, selected.name)}
                   disabled={isSubmitting}
                 >
-                  Reset / New
+                  Delete
                 </Button>
-              </Stack>
+              )}
+              <Box flexGrow={1} />
+              <Button
+                type="button"
+                variant="text"
+                onClick={startCreate}
+                disabled={isSubmitting}
+              >
+                Reset / New
+              </Button>
             </Stack>
-          </Box>
+          </Stack>
         </Box>
-      </Paper>
+      </Drawer>
+      <Dialog
+        open={confirm.open}
+        onClose={closeConfirm}
+        aria-labelledby="confirm-delete-title"
+      >
+        <DialogTitle id="confirm-delete-title">Delete client?</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            This will permanently remove{" "}
+            <strong>{confirm.name || "this client"}</strong>. This action cannot
+            be undone.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeConfirm} variant="text">
+            Cancel
+          </Button>
+          <Button
+            onClick={async () => {
+              await onDelete(confirm.id);
+              closeConfirm();
+            }}
+            color="error"
+            variant="contained"
+            autoFocus
+          >
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Stack>
   );
 }

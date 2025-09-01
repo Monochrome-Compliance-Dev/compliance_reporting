@@ -30,9 +30,9 @@ import {
   ReferenceLine,
 } from "recharts";
 import { useEffect, useMemo, useState } from "react";
-import { pulseService } from "../../services/pulse/pulse";
-import { useAlert } from "../../context/";
-import { LoadingSpinner } from "../../components/ui";
+import { pulseService } from "../../../services/pulse/pulse";
+import { useAlert } from "../../../context";
+import { LoadingSpinner } from "../../../components/ui";
 
 // --- Layout constants ---
 const CARD_HEIGHT = 280; // total card height
@@ -633,7 +633,7 @@ const PulseDashboard = () => {
         mb={2}
       >
         <Typography variant="h4">Pulse Dashboard</Typography>
-        <Button component={Link} to="/pulse/admin" variant="outlined">
+        <Button component={Link} to="/pulse-solution/admin" variant="outlined">
           Open Admin Console
         </Button>
       </Box>

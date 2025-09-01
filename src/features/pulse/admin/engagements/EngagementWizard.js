@@ -12,18 +12,29 @@ import {
   Typography,
   Chip,
 } from "@mui/material";
-import { usePulseContext } from "../../../context/PulseContext";
-import { useAlert } from "../../../context";
-import { pulseService } from "../../../services/pulse/pulse";
+import { usePulseContext } from "../../../../context/PulseContext";
+import { useAlert } from "../../../../context";
+import { pulseService } from "../../../../services/pulse/pulse";
 import EngagementContainerForm from "./EngagementContainerForm";
 import EngagementAssignmentsEditor from "./EngagementAssignmentsEditor";
 import BudgetBuilder from "../budgets/BudgetBuilder"; // embedded
-import { userService } from "../../../services";
+import { userService } from "../../../../services";
 
 const unwrap = (res) =>
   res && typeof res === "object" && "data" in res ? res.data : res;
 
 function DetailsStep({ engagement, clients, onSaved, onNext, canProceed }) {
+  const handleSubmitAndNext = async (values) => {
+    try {
+      const result = await onSaved?.(values);
+      // If parent save did not explicitly fail, advance to Budget step
+      if (result !== false) {
+        onNext?.();
+      }
+    } catch (e) {
+      // Errors are surfaced by onSaved/showAlert; do not advance
+    }
+  };
   return (
     <Paper variant="outlined">
       <Box p={2}>
@@ -45,7 +56,7 @@ function DetailsStep({ engagement, clients, onSaved, onNext, canProceed }) {
                 }
           }
           clients={clients}
-          onSubmit={onSaved}
+          onSubmit={handleSubmitAndNext}
           onQuickAddClient={() => {}}
         />
         <Box mt={2} display="flex" justifyContent="space-between">
@@ -243,8 +254,6 @@ export default function EngagementWizard() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  const loadedAssignmentsRef = useRef(new Set());
-
   // selection (edit mode if ?id=...)
   const [engagementId, setEngagementId] = useState(
     searchParams.get("id") || null
@@ -255,16 +264,42 @@ export default function EngagementWizard() {
     [engagements, engagementId]
   );
 
+  const loadedAssignmentsRef = useRef(new Set());
+
+  const [activeStep, setActiveStep] = useState(0);
+
+  // Helper: Refresh budget items for current engagement and push to context
+  const refreshBudgetSnapshot = async (id) => {
+    if (!id) return;
+    try {
+      const res = await pulseService.budgetItems.listByEngagement(String(id));
+      const items = unwrap(res) || [];
+      const current = engagements.find((e) => String(e.id) === String(id)) || {
+        id,
+      };
+      upsertEngagement({ ...current, budgetItems: items });
+    } catch (e) {
+      // ignore; button state will remain based on existing context
+    }
+  };
+  // Refresh budget snapshot when entering Budget step or engagement changes
+  useEffect(() => {
+    if (!engagementId) return;
+    if (activeStep !== 1) return; // only when viewing Budget step
+    refreshBudgetSnapshot(engagementId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [engagementId, activeStep]);
+
   // derive status gates
   const hasBudget =
     (engagement?.budgetItems?.length || 0) > 0 ||
     Number(engagement?.budgetAmount || 0) > 0;
   const hasAssignments = (engagement?.assignments?.length || 0) > 0;
 
-  const [activeStep, setActiveStep] = useState(0);
-
   // initial step selection: prefer ?step= if valid, else derive from status/gates
   useEffect(() => {
+    // Do not auto-derive if the user (or code) has already navigated away from step 0
+    if (activeStep !== 0) return;
     if (!engagementId || !engagement) return;
 
     const gates = { engagementId, hasBudget, hasAssignments };
@@ -331,6 +366,18 @@ export default function EngagementWizard() {
 
   // Step 1 save
   const saveDetails = async (values, isEdit) => {
+    // --- Required fields gate for Step 1 ---
+    const reqName = (values?.name || "").trim();
+    const reqClientId = (values?.clientId || "").toString().trim();
+    const reqStart = (values?.startDate || "").toString().trim();
+    const reqEnd = (values?.endDate || "").toString().trim();
+    if (!reqName || !reqClientId || !reqStart || !reqEnd) {
+      showAlert(
+        "Please fill in all required fields: Name, Client, Start Date, End Date.",
+        "error"
+      );
+      return;
+    }
     let payload = {
       name: values.name,
       clientId: values.clientId,
@@ -447,7 +494,7 @@ export default function EngagementWizard() {
     });
     upsertEngagement(saved);
     showAlert("Engagement activated", "success");
-    navigate("/pulse/engagements");
+    navigate("/pulse-solution/engagements");
   };
 
   return (
@@ -501,15 +548,21 @@ export default function EngagementWizard() {
         <BudgetStep
           engagementId={engagementId}
           engagement={engagement}
-          onBudgetSaved={() => {
-            pulseService.engagements
-              .patch(String(engagementId), {
-                status: "budgeted",
-                updatedBy: userService.userValue.id,
-                customerId: userService.userValue.customerId,
-              })
-              .then(upsertEngagement)
-              .catch(() => {});
+          onBudgetSaved={async () => {
+            await refreshBudgetSnapshot(engagementId);
+            try {
+              const saved = await pulseService.engagements.patch(
+                String(engagementId),
+                {
+                  status: "budgeted",
+                  updatedBy: userService.userValue.id,
+                  customerId: userService.userValue.customerId,
+                }
+              );
+              upsertEngagement(saved);
+            } catch (e) {
+              // ignore patch error for navigation; user can retry later
+            }
             setActiveStep(2);
           }}
           onNext={() => setActiveStep(2)}
