@@ -3,7 +3,6 @@ import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import {
-  Alert,
   Box,
   Typography,
   Button,
@@ -19,14 +18,51 @@ import {
   Checkbox,
 } from "@mui/material";
 import { customerService, userService, trackingService } from "../../services";
-// import GoogleAddressAutocomplete from "../../components/common/GoogleAddressAutocomplete";
+import { useAlert } from "../../context/";
 import { useNavigate } from "react-router";
+
+// Dev-only prefill (set REACT_APP_PREFILL_CUSTOMER=true to enable)
+const PREFILL = process.env.REACT_APP_PREFILL_CUSTOMER === "true";
+const devDefaults = {
+  businessName: "Acme Advisory Pty Ltd",
+  abn: "12345678901", // 11 digits
+  acn: "123456789",
+  addressline1: "123 George St",
+  addressline2: "Level 10",
+  addressline3: "",
+  city: "Brisbane",
+  state: "QLD",
+  postcode: "4000",
+  country: "Australia",
+  postaladdressline1: "123 George St",
+  postaladdressline2: "Level 10",
+  postaladdressline3: "",
+  postalcity: "Brisbane",
+  postalstate: "QLD",
+  postalpostcode: "4000",
+  postalcountry: "Australia",
+  industryCode: "M6962",
+  contactFirst: "Darryll",
+  contactLast: "Robinson",
+  contactPosition: "Principal",
+  contactEmail: "test+admin@monochrome-compliance.com",
+  contactPhone: "0400123456",
+  controllingCorporationName: "Acme Holdings Pty Ltd",
+  controllingCorporationAbn: "10987654321",
+  controllingCorporationAcn: "987654321",
+  headEntityName: "Acme Group Ltd",
+  headEntityAbn: "11223344556",
+  headEntityAcn: "123123123",
+  billingType: "CUSTOMER",
+  nickname: "",
+  agreeToTerms: true,
+};
 
 export default function CustomerRegister() {
   const theme = useTheme();
-  const [alert, setAlert] = useState(null);
+  const { showAlert } = useAlert();
   // const navigate = useNavigate();
-  const [sameAsAddress, setSameAsAddress] = useState(false);
+  const [sameAsAddress, setSameAsAddress] = useState(PREFILL ? true : false);
   const navigate = useNavigate();
 
   // Yup validation schema
@@ -70,7 +106,7 @@ export default function CustomerRegister() {
       "Please enter a valid postcode"
     ),
     postalcountry: Yup.string().required("Postal Country is required"),
-    industryCode: Yup.string().required("Industry Code is required"),
+    industryCode: Yup.string(),
     contactFirst: Yup.string().required("Contact First Name is required"),
     contactLast: Yup.string().required("Contact Last Name is required"),
     contactPosition: Yup.string().required("Contact Position is required"),
@@ -92,49 +128,59 @@ export default function CustomerRegister() {
       (value) => !value || value === "" || /^\d{11}$/.test(value)
     ),
     headEntityAcn: Yup.string(),
+    billingType: Yup.string()
+      .oneOf(["CUSTOMER", "PARTNER"])
+      .required("Billing Type is required"),
     // Honeypot field
     nickname: Yup.string().test(
       "is-empty",
       "Form submission failed",
       (value) => !value || value.trim() === ""
     ),
+    agreeToTerms: Yup.boolean()
+      .oneOf([true], "You must agree to the Terms and Privacy Policy")
+      .required(),
   });
 
   const methods = useForm({
     resolver: yupResolver(validationSchema),
-    defaultValues: {
-      businessName: "",
-      abn: "",
-      acn: "",
-      addressline1: "",
-      addressline2: "",
-      addressline3: "",
-      city: "",
-      state: "",
-      postcode: "",
-      country: "",
-      postaladdressline1: "",
-      postaladdressline2: "",
-      postaladdressline3: "",
-      postalcity: "",
-      postalstate: "",
-      postalpostcode: "",
-      postalcountry: "",
-      industryCode: "",
-      contactFirst: "",
-      contactLast: "",
-      contactPosition: "",
-      contactEmail: "",
-      contactPhone: "",
-      controllingCorporationName: "",
-      controllingCorporationAbn: "",
-      controllingCorporationAcn: "",
-      headEntityName: "",
-      headEntityAbn: "",
-      headEntityAcn: "",
-      // Honeypot field
-      nickname: "",
-    },
+    defaultValues: PREFILL
+      ? devDefaults
+      : {
+          businessName: "",
+          abn: "",
+          acn: "",
+          addressline1: "",
+          addressline2: "",
+          addressline3: "",
+          city: "",
+          state: "",
+          postcode: "",
+          country: "",
+          postaladdressline1: "",
+          postaladdressline2: "",
+          postaladdressline3: "",
+          postalcity: "",
+          postalstate: "",
+          postalpostcode: "",
+          postalcountry: "",
+          industryCode: "",
+          contactFirst: "",
+          contactLast: "",
+          contactPosition: "",
+          contactEmail: "",
+          contactPhone: "",
+          controllingCorporationName: "",
+          controllingCorporationAbn: "",
+          controllingCorporationAcn: "",
+          headEntityName: "",
+          headEntityAbn: "",
+          headEntityAcn: "",
+          billingType: "CUSTOMER",
+          // Honeypot field
+          nickname: "",
+          agreeToTerms: false,
+        },
   });
   const {
     register,
@@ -189,10 +235,7 @@ export default function CustomerRegister() {
   const onSubmit = async (customerDetails) => {
     // Honeypot check
     if (customerDetails.nickname?.trim()) {
-      setAlert({
-        type: "error",
-        message: "Form submission failed",
-      });
+      showAlert("Form submission failed", "error");
       try {
         await trackingService.createHoneypot();
       } catch (logError) {
@@ -202,17 +245,22 @@ export default function CustomerRegister() {
     }
     customerDetails = {
       ...customerDetails,
+      billingType: customerDetails.billingType || "CUSTOMER",
       active: true,
       createdBy: userService.userValue?.id || "onlineform",
     };
     try {
       const response = await customerService.create(customerDetails);
+      const createdId = response?.data?.id ?? response?.id;
+      if (!createdId) {
+        throw new Error("Unexpected response from server: missing customer id");
+      }
 
       // Store user details in sessionStorage for CreateUser page to pick up
       sessionStorage.setItem(
         "customerDetails",
         JSON.stringify({
-          id: response.id,
+          id: createdId,
           customerName: customerDetails.businessName,
           firstName: customerDetails.contactFirst,
           lastName: customerDetails.contactLast,
@@ -220,15 +268,15 @@ export default function CustomerRegister() {
           email: customerDetails.contactEmail,
           phone: customerDetails.contactPhone,
           position: customerDetails.contactPosition,
+          planCode: "launch",
+          seats: 1,
         })
       );
 
+      showAlert("Customer created. Let’s set up your admin user.", "success");
       navigate("/customers/register-first-user");
     } catch (error) {
-      setAlert({
-        type: "error",
-        message: error.message || "Error creating customer",
-      });
+      showAlert(error.message || "Error creating customer", "error");
       console.error("Error creating customer:", error);
     }
   };
@@ -256,11 +304,7 @@ export default function CustomerRegister() {
         <Typography variant="h4" gutterBottom align="center">
           Register Your Business
         </Typography>
-        {alert && (
-          <Alert severity={alert.type} sx={{ mb: 2 }}>
-            {alert.message}
-          </Alert>
-        )}
+        {/* Alert rendering is now handled by AlertContext */}
         <FormProvider {...methods}>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -300,7 +344,39 @@ export default function CustomerRegister() {
                 />
               </Grid>
               <Grid item xs={12}>
-                {/* <GoogleAddressAutocomplete /> */}
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      {...register("agreeToTerms")}
+                      checked={!!watch("agreeToTerms")}
+                    />
+                  }
+                  label={
+                    <span>
+                      I agree to the{" "}
+                      <a
+                        href="http://localhost:3000/policy-documents/client-service-agreement"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Terms
+                      </a>{" "}
+                      and{" "}
+                      <a
+                        href="http://localhost:3000/policy-documents/privacy-policy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Privacy Policy
+                      </a>
+                    </span>
+                  }
+                />
+                {errors.agreeToTerms && (
+                  <Typography variant="caption" color="error">
+                    {errors.agreeToTerms.message}
+                  </Typography>
+                )}
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -484,7 +560,7 @@ export default function CustomerRegister() {
               </Grid>
               <Grid item xs={6}>
                 <TextField
-                  label="Industry Code *"
+                  label="Industry Code"
                   fullWidth
                   {...register("industryCode")}
                   error={!!errors.industryCode}
@@ -607,8 +683,9 @@ export default function CustomerRegister() {
               type="submit"
               fullWidth
               sx={{ mt: 2 }}
+              disabled={methods.formState.isSubmitting}
             >
-              Register Customer
+              {methods.formState.isSubmitting ? "Submitting..." : "Register"}
             </Button>
           </form>
         </FormProvider>

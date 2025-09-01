@@ -109,7 +109,7 @@ export default function LandingPage() {
           {[
             {
               label: "Expertise",
-              text: "Our team interprets the law and maintains up-to-date obligations across industries.",
+              text: "Our team identifies obligations and maintains up-to-date obligations across industries.",
               image: "/images/landing-page/expertise-compliance.jpg",
             },
             {
