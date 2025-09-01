@@ -15,6 +15,44 @@ const unwrapArray = (res) => {
   return [];
 };
 
+// ---- light payload sanitizers for UI safety ----
+const _isFiniteNumber = (n) => {
+  const v = Number(n);
+  return Number.isFinite(v) ? v : 0;
+};
+const _asString = (x, fallback = "") => {
+  if (x === null || x === undefined) return fallback;
+  if (typeof x === "string" || typeof x === "number" || typeof x === "boolean")
+    return String(x);
+  try {
+    return JSON.stringify(x);
+  } catch {
+    return fallback;
+  }
+};
+const _sanitizeUtilRows = (input) => {
+  if (!Array.isArray(input)) return [];
+  return input.map((r) => {
+    const byEngRaw = Array.isArray(r?.byEngagement) ? r.byEngagement : [];
+    const byEngagement = byEngRaw
+      .map((e) => ({
+        engagementId: _asString(e?.engagementId, ""),
+        engagementName: _asString(e?.engagementName, ""),
+        hours: _isFiniteNumber(e?.hours),
+      }))
+      .filter((e) => e.engagementId || e.engagementName || e.hours > 0);
+    return {
+      resourceId: _asString(r?.resourceId, _asString(r?.id, "")),
+      resourceName: _asString(r?.resourceName, _asString(r?.name, "")),
+      role: _asString(r?.role, ""),
+      capacityHours: _isFiniteNumber(r?.capacityHours),
+      loggedHours: _isFiniteNumber(r?.loggedHours),
+      utilPct: _isFiniteNumber(r?.utilPct),
+      byEngagement,
+    };
+  });
+};
+
 function buildCrud(entity) {
   const entityUrl = `${baseUrl}/${entity}`;
   return {
@@ -111,6 +149,22 @@ export const pulseService = {
         fetchWrapper.delete(
           `${baseUrl}/timesheets/rows/${encodeURIComponent(rowId)}`
         ),
+    },
+    utilisation: async ({ from, to, includeNonBillable } = {}) => {
+      const qs = new URLSearchParams();
+      if (from) qs.append("from", String(from));
+      if (to) qs.append("to", String(to));
+      if (includeNonBillable !== undefined)
+        qs.append("includeNonBillable", String(includeNonBillable));
+      return unwrapArray(
+        await fetchWrapper.get(
+          `${baseUrl}/timesheets/utilisation?${qs.toString()}`
+        )
+      );
+    },
+    utilisationSanitized: async (params = {}) => {
+      const raw = await pulseService.timesheets.utilisation(params);
+      return _sanitizeUtilRows(raw);
     },
   },
   // Matches server routes in budget.controller.js → /pulse/budget-items

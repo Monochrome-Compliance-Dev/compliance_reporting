@@ -22,9 +22,9 @@ export default function PulsePricing() {
 
   useEffect(() => {
     const title =
-      "Pulse Pricing — Launch Offer $50→$150 | Monochrome Compliance";
+      "Pulse Pricing — Launch Offer $50→$200 | Monochrome Compliance";
     const description =
-      "Launch pricing: $50/month for your first 3 months, then $150/month (20 users included). Limited launch cohort.";
+      "Launch pricing: $50/month for your first 3 months, then $200/month (20 users included). Limited launch cohort.";
     const pageUrl = `${window.location.origin}/pulse/pricing`;
     const imageUrl = `${window.location.origin}/images/pulse/dashboard1.png`;
 
@@ -56,7 +56,7 @@ export default function PulsePricing() {
     upsertMeta("name", "twitter:image", { content: imageUrl });
   }, []);
 
-  const totalFounderSlots = 200;
+  const totalFounderSlots = 50;
   const claimedFounderSlots = 1; // TODO: wire from backend later
   const remainingFounderSlots = Math.max(
     totalFounderSlots - claimedFounderSlots,
@@ -101,7 +101,7 @@ export default function PulsePricing() {
             <Box sx={{ flex: 1, overflow: "hidden" }}>
               <Box className="scrolling">
                 ⚡ Only {remainingFounderSlots} of {totalFounderSlots}{" "}
-                launch‑cohort spots left — $50/m for 3 months, then $150/m (20
+                launch‑cohort spots left — $50/m for 3 months, then $200/m (20
                 users included). ⚡
               </Box>
             </Box>
@@ -237,7 +237,7 @@ export default function PulsePricing() {
                 >
                   <Box sx={{ flexGrow: 1 }}>
                     <Chip
-                      label="First 200 firms"
+                      label="First 50 firms"
                       color="primary"
                       size="small"
                       sx={{
@@ -269,7 +269,7 @@ export default function PulsePricing() {
                       color="text.secondary"
                       sx={{ mt: 0.5 }}
                     >
-                      then $150 / month ongoing
+                      then $200 / month ongoing
                     </Typography>
                     <Typography variant="body1" sx={{ mt: 1 }}>
                       <strong>20 users included</strong>
@@ -279,7 +279,7 @@ export default function PulsePricing() {
                       color="text.secondary"
                       sx={{ mt: theme.spacing(2) }}
                     >
-                      Launch pricing for the first two hundred businesses.
+                      Launch pricing for the first fifty businesses.
                       Month‑to‑month. Cancel anytime. Priority onboarding.
                     </Typography>
                     <Box sx={{ mt: theme.spacing(1), mb: theme.spacing(2) }}>
@@ -313,7 +313,7 @@ export default function PulsePricing() {
                       sx={{ display: "block", mt: 1 }}
                     >
                       After the launch cohort, standard pricing applies. Your
-                      ongoing rate after month 3 is $150/month (20 users
+                      ongoing rate after month 3 is $200/month (20 users
                       included).
                     </Typography>
                   </Box>
@@ -354,7 +354,7 @@ export default function PulsePricing() {
                       sx={{ fontWeight: 700 }}
                       gutterBottom
                     >
-                      $150{" "}
+                      $200{" "}
                       <span style={{ fontSize: 16, opacity: 0.7 }}>
                         {" "}
                         / month
@@ -378,7 +378,7 @@ export default function PulsePricing() {
                     fullWidth
                     href="/pulse/join"
                   >
-                    Start for $150/month
+                    Start for $200/month
                   </Button>
                 </Paper>
               </Grid>
