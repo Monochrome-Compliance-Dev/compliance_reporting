@@ -62,6 +62,7 @@ export default function PulsePricing() {
     totalFounderSlots - claimedFounderSlots,
     0
   );
+  const isStandardEnabled = remainingFounderSlots === 0;
 
   return (
     <>
@@ -333,11 +334,14 @@ export default function PulsePricing() {
                     flexDirection: "column",
                     justifyContent: "space-between",
                     "&:hover": { transform: "translateY(-4px)", boxShadow: 6 },
+                    opacity: (t) => (isStandardEnabled ? 1 : 0.65),
                   }}
                 >
                   <Chip
-                    label="Most popular"
-                    color="secondary"
+                    label={
+                      isStandardEnabled ? "Most popular" : "Available soon"
+                    }
+                    color={isStandardEnabled ? "secondary" : "default"}
                     size="small"
                     sx={{
                       position: "absolute",
@@ -377,9 +381,21 @@ export default function PulsePricing() {
                     size="large"
                     fullWidth
                     href="/pulse/join"
+                    disabled={!isStandardEnabled}
                   >
-                    Start for $200/month
+                    {isStandardEnabled
+                      ? "Start for $200/month"
+                      : "Unlocks after launch cohort fills"}
                   </Button>
+                  <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    sx={{ display: "block", mt: 1 }}
+                  >
+                    {isStandardEnabled
+                      ? "Month‑to‑month. Cancel anytime."
+                      : "Standard pricing unlocks once all launch cohort spots are filled."}
+                  </Typography>
                 </Paper>
               </Grid>
 
