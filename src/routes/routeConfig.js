@@ -52,6 +52,7 @@ import EngagementWizard from "../features/pulse/admin/engagements/EngagementWiza
 import XeroContactAlign from "../features/data/XeroContactAlign";
 import PulseSolutionLanding from "../features/pulse/PulseSolutionLanding";
 import Workspace from "../features/pulse/workspace/Workspace";
+import Welcome from "../features/stripe/Welcome";
 
 export const protectedRoutes = [
   {
@@ -330,4 +331,5 @@ export const protectedRoutes = [
       },
     ],
   },
+  { path: "/welcome", Component: Welcome },
 ];

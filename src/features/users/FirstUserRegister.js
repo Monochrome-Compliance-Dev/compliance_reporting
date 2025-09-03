@@ -15,6 +15,10 @@ import {
 import { userService, billingService } from "../../services";
 import { useAlert } from "../../context/";
 
+// 👋 MVP default seat count for new customers.
+// Stripe’s subscription quantity will be updated by webhook post-checkout.
+const DEFAULT_SEATS = 20;
+
 const schema = Yup.object().shape({
   firstName: Yup.string()
     .trim()
@@ -57,8 +61,8 @@ export default function FirstUserRegister() {
       lastName: "",
       company: "",
       email: "",
-      password: "",
-      confirmPassword: "",
+      password: "Der5rdcfdk",
+      confirmPassword: "Der5rdcfdk",
       phone: "",
       position: "",
     },
@@ -120,7 +124,7 @@ export default function FirstUserRegister() {
         created?.data?.id ?? created?.id ?? userService.userValue?.id;
 
       const planCode = customer.planCode ?? "launch";
-      const seats = Number(customer.seats ?? 1);
+      const seats = DEFAULT_SEATS;
       const { data: billingData } = await billingService.createCheckoutSession({
         customerId: customer.id,
         userId: createdUserId,

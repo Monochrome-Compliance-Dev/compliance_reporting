@@ -25,7 +25,7 @@ import { useNavigate } from "react-router";
 const PREFILL = process.env.REACT_APP_PREFILL_CUSTOMER === "true";
 const devDefaults = {
   businessName: "Acme Advisory Pty Ltd",
-  abn: "12345678901", // 11 digits
+  abn: "12345678902", // 11 digits
   acn: "123456789",
   addressline1: "123 George St",
   addressline2: "Level 10",

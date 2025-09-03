@@ -9,7 +9,9 @@ export const billingService = {
 };
 
 async function createCheckoutSession(payload) {
-  return await fetchWrapper.post(`${baseUrl}/checkout-session`, payload);
+  const resp = await fetchWrapper.post(`${baseUrl}/checkout-session`, payload);
+  // Normalize to wrapped shape for legacy callers
+  return resp?.data ?? { data: resp }; // then callers can do result.data.url
 }
 
 async function verifySession(sessionId) {
