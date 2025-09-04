@@ -60,7 +60,8 @@ export default function Welcome() {
 
   const handleManageBilling = async () => {
     try {
-      const portal = await billingService.createPortalSession();
+      const returnUrl = `${window.location.origin}/welcome`;
+      const portal = await billingService.createPortalSession({ returnUrl });
       const url = portal?.url ?? portal?.data?.url;
       if (!url) {
         showAlert("Could not start the billing portal.", "error");
