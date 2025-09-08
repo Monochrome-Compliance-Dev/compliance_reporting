@@ -11,19 +11,14 @@ import {
   Chip,
 } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
-import FolderIcon from "@mui/icons-material/Folder";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import Divider from "@mui/material/Divider";
 import MenuIcon from "@mui/icons-material/Menu";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
-import Tooltip from "@mui/material/Tooltip";
 import PriceCheckIcon from "@mui/icons-material/PriceCheck";
-import DashboardIcon from "@mui/icons-material/Dashboard";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import GavelIcon from "@mui/icons-material/Gavel";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
@@ -173,6 +168,21 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <MenuItem onClick={handlePulseClose} component={Link} to="/pulse">
               <AutoGraphIcon sx={{ fontSize: 20, mr: 1 }} />
               Overview
+            </MenuItem>
+            <MenuItem
+              onClick={handlePulseClose}
+              component={Link}
+              to="/pulse/maximiser"
+            >
+              <AutoAwesomeIcon sx={{ fontSize: 20, mr: 1 }} />
+              Maximiser (AI)
+              <Chip
+                label="Beta"
+                size="small"
+                color="primary"
+                variant="outlined"
+                sx={{ ml: 1 }}
+              />
             </MenuItem>
             <MenuItem
               onClick={handlePulseClose}
@@ -488,6 +498,21 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               sx={{ color: theme.palette.text.primary }}
             >
               Pulse Pricing
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component={Link}
+              to="/pulse/maximiser"
+              sx={{ color: theme.palette.text.primary }}
+            >
+              Pulse Maximiser
+              <Chip
+                label="Beta"
+                size="small"
+                color="primary"
+                variant="outlined"
+                sx={{ ml: 1 }}
+              />
             </MenuItem>
             <Divider />
             {/* Solutions section */}
