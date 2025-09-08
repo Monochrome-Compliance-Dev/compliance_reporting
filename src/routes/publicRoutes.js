@@ -1,6 +1,7 @@
 import CustomerRegister from "../features/customers/CustomerRegister";
 import PulseLanding from "../features/pulseLanding/PulseLanding";
 import PulsePricing from "../features/pulseLanding/PulsePricing";
+import PulseMaximiser from "../features/pulseLanding/PulseMaximiserWidget";
 
 // Publicly available
 import Contact from "../components/forms/Contact";
@@ -69,6 +70,7 @@ const allPublicRoutes = [
   { path: "/pulse", Component: PulseLanding },
   { path: "/pulse/pricing", Component: PulsePricing },
   { path: "/pulse/join", Component: PulseJoin },
+  { path: "/pulse/maximiser", Component: PulseMaximiser },
   {
     path: "/customers/register",
     Component: CustomerRegister,
@@ -189,6 +191,7 @@ const launchPublicRoutes = [
   { path: "/pulse", Component: PulseLanding },
   { path: "/pulse/pricing", Component: PulsePricing },
   { path: "/pulse/join", Component: PulseJoin },
+  { path: "/pulse/maximiser", Component: PulseMaximiser },
   {
     path: "compliance-navigator",
     Component: PublicComplianceNavigator,
