@@ -51,7 +51,10 @@ import BudgetBuilder from "../features/pulse/admin/budgets/BudgetBuilder";
 import EngagementWizard from "../features/pulse/admin/engagements/EngagementWizard";
 import XeroContactAlign from "../features/data/XeroContactAlign";
 import PulseSolutionLanding from "../features/pulse/PulseSolutionLanding";
+import PulseMaximiser from "../features/pulse/maximiser/PulseMaximiser";
 import Workspace from "../features/pulse/workspace/Workspace";
+import Welcome from "../features/stripe/Welcome";
+import PulseMaximiserWidget from "../features/pulseLanding/PulseMaximiserWidget";
 
 export const protectedRoutes = [
   {
@@ -250,6 +253,10 @@ export const protectedRoutes = [
     Component: XeroContactAlign,
   },
   {
+    path: "/pulse/maximiser",
+    Component: PulseMaximiserWidget,
+  },
+  {
     path: "/pulse-solution",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
@@ -296,6 +303,14 @@ export const protectedRoutes = [
         ],
       },
       {
+        path: "maximiser",
+        Component: () => (
+          <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+            <PulseMaximiser />
+          </RequireRoles>
+        ),
+      },
+      {
         path: "workplace",
         Component: () => (
           <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
@@ -330,4 +345,5 @@ export const protectedRoutes = [
       },
     ],
   },
+  { path: "/welcome", Component: Welcome },
 ];

@@ -14,6 +14,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import { InsightCards, INSIGHT_CARDS } from "../pulse/maximiser/PulseMaximiser";
 
 export default function PulseLanding() {
   const theme = useTheme();
@@ -80,6 +81,10 @@ export default function PulseLanding() {
       observer.disconnect();
     };
   }, [heroRef]);
+
+  const maximiserPreviewItems = INSIGHT_CARDS.filter((c) =>
+    ["estimation-vs-reality", "burnout-radar", "team-trends"].includes(c.key)
+  );
 
   return (
     <>
@@ -188,7 +193,7 @@ export default function PulseLanding() {
                     }}
                     gutterBottom
                   >
-                    Clarity in client engagements — without the spreadsheets
+                    AI that turns timesheets into decisions — automatically
                   </Typography>
                   <Typography
                     variant="h6"
@@ -200,9 +205,9 @@ export default function PulseLanding() {
                       mx: { xs: "auto", md: 0 },
                     }}
                   >
-                    Pulse gives professional service businesses a clear view of
-                    engagements, resources and utilisation — so leaders can
-                    plan, deliver and report without the admin headache.
+                    Pulse analyses your past and current work to flag estimation
+                    drift, burnout signals, and planning risks — then backs it
+                    up with clear charts and workflows your team can act on.
                   </Typography>
                   <Box
                     sx={{
@@ -272,6 +277,148 @@ export default function PulseLanding() {
                   </Box>
                 </Grid>
               </Grid>
+            </Container>
+          </Box>
+
+          {/* HOW IT WORKS */}
+          <Box
+            component="section"
+            sx={{ py: { xs: 4, md: 6 }, mt: { xs: 4, md: 6 } }}
+          >
+            <Container maxWidth="lg">
+              <Stack
+                spacing={2}
+                sx={{ mb: 3, textAlign: { xs: "center", md: "left" } }}
+              >
+                <Typography
+                  variant="overline"
+                  color="text.secondary"
+                  sx={{ letterSpacing: 1, fontWeight: 700 }}
+                >
+                  HOW PULSE’S AI WORKS
+                </Typography>
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontWeight: 800,
+                    fontSize: { xs: "1.75rem", md: "2rem" },
+                  }}
+                >
+                  From raw timesheets to clear actions — in three steps
+                </Typography>
+              </Stack>
+
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={4}>
+                  <Paper variant="outlined" sx={{ p: 2, height: "100%" }}>
+                    <Stack spacing={1.5}>
+                      <Typography variant="h6">1) Upload or connect</Typography>
+                      <Typography color="text.secondary">
+                        Start with what you already have — export a CSV or
+                        connect your existing tool. No rip‑and‑replace needed.
+                      </Typography>
+                    </Stack>
+                  </Paper>
+                </Grid>
+
+                <Grid item xs={12} md={4}>
+                  <Paper variant="outlined" sx={{ p: 2, height: "100%" }}>
+                    <Stack spacing={1.5}>
+                      <Typography variant="h6">
+                        2) AI analyses & explains
+                      </Typography>
+                      <Typography color="text.secondary">
+                        Pulse’s AI spots estimation drift, sustained
+                        over‑allocation, and unusual trends, then explains them
+                        in plain English.
+                      </Typography>
+                    </Stack>
+                  </Paper>
+                </Grid>
+
+                <Grid item xs={12} md={4}>
+                  <Paper variant="outlined" sx={{ p: 2, height: "100%" }}>
+                    <Stack spacing={1.5}>
+                      <Typography variant="h6">3) Charts & actions</Typography>
+                      <Typography color="text.secondary">
+                        See the “why” with clear charts and take the next step —
+                        rebalance workload, adjust plans, or update budgets with
+                        confidence.
+                      </Typography>
+                    </Stack>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Container>
+          </Box>
+
+          {/* AI-POWERED: Pulse Maximiser (Included) */}
+          <Box
+            component="section"
+            sx={{
+              py: { xs: 4, md: 6 },
+              mt: { xs: 4, md: 6 },
+              bgcolor: (t) =>
+                t.palette.mode === "light" ? "grey.50" : "background.default",
+              borderTop: (t) => `1px solid ${t.palette.divider}`,
+              borderBottom: (t) => `1px solid ${t.palette.divider}`,
+            }}
+          >
+            <Container maxWidth="lg">
+              <Stack
+                spacing={2}
+                sx={{ mb: 3, textAlign: { xs: "center", md: "left" } }}
+              >
+                <Typography
+                  variant="overline"
+                  color="text.secondary"
+                  sx={{ letterSpacing: 1, fontWeight: 700 }}
+                >
+                  AI‑POWERED • INCLUDED WITH PULSE
+                </Typography>
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontWeight: 800,
+                    fontSize: { xs: "1.75rem", md: "2rem" },
+                  }}
+                >
+                  Pulse Maximiser (Beta) — AI‑powered insights from your
+                  timesheets
+                </Typography>
+                <Typography
+                  color="text.secondary"
+                  sx={{
+                    maxWidth: { xs: "48ch", md: "70ch" },
+                    mx: { xs: "auto", md: 0 },
+                  }}
+                >
+                  Pulse Maximiser uses AI to analyse the timesheets you already
+                  have and highlight where work took longer than planned, where
+                  people are regularly working extra hours, and how teams
+                  compare. It isn’t about micromanagement — it’s AI that helps
+                  you plan better, protect people from burnout, and deliver with
+                  more confidence.
+                </Typography>
+              </Stack>
+
+              <InsightCards items={maximiserPreviewItems} />
+
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={2}
+                sx={{
+                  mt: 3,
+                  justifyContent: { xs: "center", md: "flex-start" },
+                }}
+              >
+                <Button href="/pulse/maximiser" variant="outlined" size="large">
+                  See AI sample insights
+                </Button>
+                <Button href="/pulse/join" variant="contained" size="large">
+                  Join early adopters
+                </Button>
+              </Stack>
             </Container>
           </Box>
 
