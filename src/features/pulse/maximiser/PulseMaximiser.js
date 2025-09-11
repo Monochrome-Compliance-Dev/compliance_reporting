@@ -25,6 +25,7 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  useTheme,
 } from "@mui/material";
 import InsightsIcon from "@mui/icons-material/Insights";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
@@ -36,6 +37,45 @@ import LinkIcon from "@mui/icons-material/Link";
 import PulseMaximiserWidget from "../../pulseLanding/PulseMaximiserWidget";
 import { pulseService } from "../../../services/pulse/pulse";
 import { useAlert } from "../../../context";
+import { downloadPulseInsightsPdf } from "./maximiser_script";
+
+function ExportTeaserButton({ primer, data }) {
+  const { showAlert } = useAlert();
+  const t = useTheme();
+
+  const handleExport = async () => {
+    try {
+      await downloadPulseInsightsPdf({
+        primer,
+        data, // optional
+        brand: { product: "Pulse", company: "Monochrome Compliance" },
+        registrationUrl: "https://www.monochrome-compliance.com/pulse/join",
+        theme: {
+          mode: t.palette.mode,
+          primary: t.palette.primary.main,
+          secondary: t.palette.secondary.main,
+          textPrimary: t.palette.text.primary,
+          textSecondary: t.palette.text.secondary,
+          bgPaper: t.palette.background.paper,
+          brandBand: t.palette.primary.main, // top bar
+          legendGrey: t.palette.mode === "light" ? "#666" : "#bbb",
+          grid: t.palette.mode === "light" ? "#e6e8eb" : "#3a3a4d",
+        },
+      });
+      showAlert("Insights PDF generated.", "success");
+    } catch (err) {
+      console.error(err);
+      showAlert("Failed to generate PDF.", "error");
+    }
+  };
+
+  return (
+    <Button type="button" onClick={handleExport}>
+      Export Insights PDF
+    </Button>
+  );
+}
+
 // --- Helpers for human-first labels
 function titleCase(s) {
   if (!s) return s;
@@ -571,6 +611,29 @@ export default function PulseMaximiser() {
   const [diffOnly, setDiffOnly] = useState(true);
   const [sortBySpread, setSortBySpread] = useState(true);
 
+  const primer = useMemo(
+    () => ({
+      sector: "Healthcare",
+      audience: "Executive Director",
+      priorities: [
+        "Improve team performance",
+        "Improve planning/estimation accuracy",
+        "Reduce unresolved blockers",
+        "Balance workload across teams",
+      ],
+      successMetrics: [
+        "On-time delivery (%)",
+        "Estimation variance (%)",
+        "Avg blocker time to resolution (hours)",
+        "Load balance index (0–1)",
+      ],
+      constraints: ["Hiring freeze", "Training backlog", "Compliance windows"],
+      timeHorizon: "last_90_days",
+      notes: "Billable hours not relevant; focus on throughput & estimates.",
+    }),
+    []
+  );
+
   // persist last selection between refreshes for convenience
   useEffect(() => {
     try {
@@ -817,6 +880,10 @@ export default function PulseMaximiser() {
           <Tab label="Upload a CSV" />
           <Tab label="Compare Teams" />
         </Tabs>
+      </Box>
+
+      <Box>
+        <ExportTeaserButton primer={primer} />
       </Box>
 
       {/* Tab 0 — Server-backed quick view using dashboard endpoints */}

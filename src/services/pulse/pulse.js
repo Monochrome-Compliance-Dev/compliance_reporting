@@ -305,5 +305,10 @@ export const pulseService = {
         await fetchWrapper.get(`${baseUrl}/maximiser/compare?${qs.toString()}`)
       );
     },
+    async analyse(payload) {
+      return unwrap(
+        await fetchWrapper.post(`${baseUrl}/maximiser/analyse`, payload)
+      );
+    },
   },
 };
