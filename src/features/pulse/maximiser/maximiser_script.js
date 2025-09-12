@@ -362,8 +362,8 @@ async function paintInsightsSection(doc, title, items, data, theme) {
     for (let i = 0; i < slice.length; i += 1) {
       const ins = slice[i] || {};
       const safeText = sanitizeText(String(ins.text || ""));
-      const startX = 64;
-      const maxWidth = Math.max(0, w - startX - 48);
+      const startX = 56;
+      const maxWidth = Math.max(0, w - startX - 52);
 
       ensureOutfitFont(doc, "bold");
       doc.setFontSize(14);
@@ -374,7 +374,7 @@ async function paintInsightsSection(doc, title, items, data, theme) {
       y = textBlock(doc, safeText, startX, y - 4, maxWidth, 18, 12);
 
       // Chart per statement (compact footprint)
-      const chartW = Math.max(120, w - 140);
+      const chartW = Math.min(Math.max(220, w - 200), 480);
       await drawInsightChart(
         doc,
         ins,
@@ -382,10 +382,10 @@ async function paintInsightsSection(doc, title, items, data, theme) {
         48,
         y + 6,
         chartW,
-        90,
+        74,
         theme || {}
       );
-      y += 110 + 16;
+      y += 88 + 14;
     }
     drawFooter(
       doc,
@@ -445,7 +445,7 @@ async function drawInsightChart(doc, insight, data, x, y, w, h, theme) {
 
   // compact visual constants
   const CAPTION_H = 14;
-  const CAPTION_FS = 9;
+  const CAPTION_FS = 8;
 
   // replace heavy frame with subtle backdrop
   doc.setDrawColor(theme.mode === "light" ? 230 : 70);
