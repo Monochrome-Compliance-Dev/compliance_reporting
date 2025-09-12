@@ -289,4 +289,26 @@ export const pulseService = {
         )
       ),
   },
+  maximiser: {
+    async teams() {
+      return unwrapArray(await fetchWrapper.get(`${baseUrl}/maximiser/teams`));
+    },
+    async compare({ teamIds = [], from, to, includeNonBillable = true } = {}) {
+      const qs = new URLSearchParams();
+      if (Array.isArray(teamIds) && teamIds.length)
+        qs.append("teamIds", teamIds.join(","));
+      if (from) qs.append("from", String(from));
+      if (to) qs.append("to", String(to));
+      if (includeNonBillable !== undefined)
+        qs.append("includeNonBillable", String(includeNonBillable));
+      return unwrap(
+        await fetchWrapper.get(`${baseUrl}/maximiser/compare?${qs.toString()}`)
+      );
+    },
+    async analyse(payload) {
+      return unwrap(
+        await fetchWrapper.post(`${baseUrl}/maximiser/analyse`, payload)
+      );
+    },
+  },
 };

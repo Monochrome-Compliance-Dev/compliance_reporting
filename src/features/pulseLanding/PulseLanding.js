@@ -314,8 +314,8 @@ export default function PulseLanding() {
                     <Stack spacing={1.5}>
                       <Typography variant="h6">1) Upload or connect</Typography>
                       <Typography color="text.secondary">
-                        Start with what you already have — export a CSV or
-                        connect your existing tool. No rip‑and‑replace needed.
+                        Start with what you already have by exporting a CSV of
+                        your existing timesheets. No rip‑and‑replace needed.
                       </Typography>
                     </Stack>
                   </Paper>

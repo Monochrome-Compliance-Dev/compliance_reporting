@@ -55,6 +55,7 @@ import PulseMaximiser from "../features/pulse/maximiser/PulseMaximiser";
 import Workspace from "../features/pulse/workspace/Workspace";
 import Welcome from "../features/stripe/Welcome";
 import PulseMaximiserWidget from "../features/pulseLanding/PulseMaximiserWidget";
+import MaximiserStudio from "../features/pulse/maximiser/MaximiserStudio";
 
 export const protectedRoutes = [
   {
@@ -307,6 +308,14 @@ export const protectedRoutes = [
         Component: () => (
           <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
             <PulseMaximiser />
+          </RequireRoles>
+        ),
+      },
+      {
+        path: "maximiser/studio",
+        Component: () => (
+          <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
+            <MaximiserStudio />
           </RequireRoles>
         ),
       },
