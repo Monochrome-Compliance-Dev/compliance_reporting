@@ -312,7 +312,9 @@ export default function PulseLanding() {
                 <Grid item xs={12} md={4}>
                   <Paper variant="outlined" sx={{ p: 2, height: "100%" }}>
                     <Stack spacing={1.5}>
-                      <Typography variant="h6">1) Upload or connect</Typography>
+                      <Typography variant="h6">
+                        1) Upload your timesheets
+                      </Typography>
                       <Typography color="text.secondary">
                         Start with what you already have by exporting a CSV of
                         your existing timesheets. No rip‑and‑replace needed.
