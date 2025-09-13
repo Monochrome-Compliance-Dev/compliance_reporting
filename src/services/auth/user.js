@@ -29,6 +29,8 @@ export const userService = {
   inviteWithResource,
   update,
   delete: _delete,
+  hasFeature,
+  reloadEntitlements,
   user: userSubject.asObservable(),
   get userValue() {
     return userSubject.value;
@@ -45,6 +47,7 @@ function login(params) {
     if (!user.jwtToken) {
       throw new Error("JWT not included in response");
     }
+    // Backend is the source of truth for entitlements; user.entitlements should be included
     userSubject.next(user);
     startRefreshTokenTimer();
     return user;
@@ -99,15 +102,27 @@ function refreshToken() {
       if (!user.jwtToken) {
         throw new Error("JWT not included in response");
       }
+      // Accept entitlements from backend
       userSubject.next(user);
       startRefreshTokenTimer();
       return user;
     })
     .catch((error) => {
-      console.error("Failed to refresh token:", error.message || error);
+      const msg = String(error?.message || error || "").toLowerCase();
+      const isAuthError =
+        msg.includes("unauthorised") ||
+        msg.includes("unauthorized") ||
+        msg.includes("401");
       stopRefreshTokenTimer();
-      userSubject.next(null); // Clear user data on failure
-      throw error; // Re-throw the error for further handling
+      userSubject.next(null);
+      if (isAuthError) {
+        // No active session (e.g., after logout) — return null quietly
+        return null;
+      }
+      // Non-auth errors should still surface
+      // eslint-disable-next-line no-console
+      console.error("Failed to refresh token:", error?.message || error);
+      throw error;
     });
 }
 
@@ -229,6 +244,24 @@ function _delete(id) {
       console.error(`Failed to delete user with ID ${id}:`, error.message);
       throw error;
     });
+}
+
+function hasFeature(feature) {
+  const u = userSubject.value;
+  return Array.isArray(u?.entitlements) && u.entitlements.includes(feature);
+}
+
+async function reloadEntitlements() {
+  const u = userSubject.value;
+  if (!u) return [];
+  try {
+    const updated = await refreshToken();
+    return Array.isArray(updated?.entitlements) ? updated.entitlements : [];
+  } catch (e) {
+    return Array.isArray(userSubject.value?.entitlements)
+      ? userSubject.value.entitlements
+      : [];
+  }
 }
 
 // Helper functions

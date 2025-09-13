@@ -29,6 +29,7 @@ import ForestIcon from "@mui/icons-material/Forest";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import ArticleIcon from "@mui/icons-material/Article";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import { Link, useNavigate, useLocation } from "react-router";
 import { useTheme } from "@mui/material/styles";
 import { userService } from "../../services";
@@ -55,6 +56,9 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const handleProductsOpen = (event) => setProductsAnchor(event.currentTarget);
   const handleProductsClose = () => setProductsAnchor(null);
   const [pulseAnchor, setPulseAnchor] = useState(null);
+  const [exploreAnchor, setExploreAnchor] = useState(null);
+  const handleExploreOpen = (event) => setExploreAnchor(event.currentTarget);
+  const handleExploreClose = () => setExploreAnchor(null);
   const handlePulseOpen = (event) => setPulseAnchor(event.currentTarget);
   const handlePulseClose = () => setPulseAnchor(null);
   const handleConnectOpen = (event) => setConnectAnchor(event.currentTarget);
@@ -139,213 +143,219 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
           />
         </Typography>
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
-          {/* Pulse Button and Menu -- now appears before Solutions */}
-          <Button
-            color="inherit"
-            onClick={handlePulseOpen}
-            sx={{
-              color: theme.palette.text.primary,
-              display: "flex",
-              alignItems: "center",
-            }}
-            endIcon={<ExpandMoreIcon />}
-          >
-            Pulse
-            <Chip
-              label="New"
-              size="small"
-              color="primary"
-              variant="outlined"
-              sx={{ ml: 1 }}
-            />
-          </Button>
-          <Menu
-            anchorEl={pulseAnchor}
-            open={Boolean(pulseAnchor)}
-            onClose={handlePulseClose}
-            sx={{ mt: 1 }}
-          >
-            <MenuItem onClick={handlePulseClose} component={Link} to="/pulse">
-              <AutoGraphIcon sx={{ fontSize: 20, mr: 1 }} />
-              Overview
-            </MenuItem>
-            <MenuItem
-              onClick={handlePulseClose}
-              component={Link}
-              to="/pulse/maximiser"
-            >
-              <AutoAwesomeIcon sx={{ fontSize: 20, mr: 1 }} />
-              Maximiser (AI)
-              <Chip
-                label="Beta"
-                size="small"
-                color="primary"
-                variant="outlined"
-                sx={{ ml: 1 }}
-              />
-            </MenuItem>
-            <MenuItem
-              onClick={handlePulseClose}
-              component={Link}
-              to="/pulse/pricing"
-            >
-              <PriceCheckIcon sx={{ fontSize: 20, mr: 1 }} />
-              Pricing
-            </MenuItem>
-          </Menu>
-          {/* Solutions Button and Menu */}
-          <Button
-            color="inherit"
-            onClick={handleSolutionsOpen}
-            sx={{
-              color: theme.palette.text.primary,
-              display: "flex",
-              alignItems: "center",
-            }}
-            endIcon={<ExpandMoreIcon />}
-          >
-            Solutions
-          </Button>
-          <Menu
-            anchorEl={solutionsAnchor}
-            open={Boolean(solutionsAnchor)}
-            onClose={handleSolutionsClose}
-            sx={{ mt: 1 }}
-          >
-            <MenuItem
-              onClick={handleSolutionsClose}
-              component={Link}
-              to="/director-obligations"
-            >
-              <SupervisorAccountIcon sx={{ fontSize: 20, mr: 1 }} />
-              Director Obligations
-            </MenuItem>
-            <MenuItem
-              onClick={handleSolutionsClose}
-              component={Link}
-              to="/esg-reporting"
-            >
-              <ForestIcon sx={{ fontSize: 20, mr: 1 }} />
-              ESG Reporting
-            </MenuItem>
-            <MenuItem
-              onClick={handleSolutionsClose}
-              component={Link}
-              to="/modern-slavery"
-            >
-              <GavelIcon sx={{ fontSize: 20, mr: 1 }} />
-              Modern Slavery
-            </MenuItem>
-            <MenuItem
-              onClick={handleSolutionsClose}
-              component={Link}
-              to="/payment-times-reporting"
-            >
-              <AccessTimeIcon sx={{ fontSize: 20, mr: 1 }} />
-              PTR Solution
-            </MenuItem>
-            <MenuItem
-              onClick={handleSolutionsClose}
-              component={Link}
-              to="/risk-register"
-            >
-              <WarningIcon sx={{ fontSize: 20, mr: 1 }} />
-              Risk Register
-            </MenuItem>
-            <MenuItem
-              onClick={handleSolutionsClose}
-              component={Link}
-              to="/whistleblower-compliance"
-            >
-              <RecordVoiceOverIcon sx={{ fontSize: 20, mr: 1 }} />
-              Whistleblower Compliance
-            </MenuItem>
-            <MenuItem
-              onClick={handleSolutionsClose}
-              component={Link}
-              to="/working-capital"
-            >
-              <TrendingUpIcon sx={{ fontSize: 20, mr: 1 }} />
-              Working Capital Analysis
-            </MenuItem>
-          </Menu>
-          {/* Products Button and Menu */}
-          <Button
-            color="inherit"
-            onClick={handleProductsOpen}
-            sx={{
-              color: theme.palette.text.primary,
-              display: "flex",
-              alignItems: "center",
-            }}
-            endIcon={<ExpandMoreIcon />}
-          >
-            Products
-          </Button>
-          <Menu
-            anchorEl={productsAnchor}
-            open={Boolean(productsAnchor)}
-            onClose={handleProductsClose}
-            sx={{ mt: 1 }}
-          >
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/director-obligations"
-            >
-              <SupervisorAccountIcon sx={{ fontSize: 20, mr: 1 }} />
-              Director Obligations
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/esg-reporting"
-            >
-              <ForestIcon sx={{ fontSize: 20, mr: 1 }} />
-              ESG Reporting
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/modern-slavery"
-            >
-              <GavelIcon sx={{ fontSize: 20, mr: 1 }} />
-              Modern Slavery
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/payment-times-reporting"
-            >
-              <AccessTimeIcon sx={{ fontSize: 20, mr: 1 }} />
-              PTR Solution
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/risk-register"
-            >
-              <WarningIcon sx={{ fontSize: 20, mr: 1 }} />
-              Risk Register
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/whistleblower-compliance"
-            >
-              <RecordVoiceOverIcon sx={{ fontSize: 20, mr: 1 }} />
-              Whistleblower Compliance
-            </MenuItem>
-            <MenuItem
-              onClick={handleProductsClose}
-              component={Link}
-              to="/working-capital"
-            >
-              <TrendingUpIcon sx={{ fontSize: 20, mr: 1 }} />
-              Working Capital Analysis
-            </MenuItem>
-          </Menu>
-          {/* <Button
+          {(!isLoggedIn || isPublicOnlyMode) && (
+            <>
+              {/* Pulse Button and Menu -- now appears before Solutions */}
+              <Button
+                color="inherit"
+                onClick={handlePulseOpen}
+                sx={{
+                  color: theme.palette.text.primary,
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                endIcon={<ExpandMoreIcon />}
+              >
+                Pulse
+                <Chip
+                  label="New"
+                  size="small"
+                  color="primary"
+                  variant="outlined"
+                  sx={{ ml: 1 }}
+                />
+              </Button>
+              <Menu
+                anchorEl={pulseAnchor}
+                open={Boolean(pulseAnchor)}
+                onClose={handlePulseClose}
+                sx={{ mt: 1 }}
+              >
+                <MenuItem
+                  onClick={handlePulseClose}
+                  component={Link}
+                  to="/pulse"
+                >
+                  <AutoGraphIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Overview
+                </MenuItem>
+                <MenuItem
+                  onClick={handlePulseClose}
+                  component={Link}
+                  to="/pulse/maximiser"
+                >
+                  <AutoAwesomeIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Maximiser (AI)
+                  <Chip
+                    label="Beta"
+                    size="small"
+                    color="primary"
+                    variant="outlined"
+                    sx={{ ml: 1 }}
+                  />
+                </MenuItem>
+                <MenuItem
+                  onClick={handlePulseClose}
+                  component={Link}
+                  to="/pulse/pricing"
+                >
+                  <PriceCheckIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Pricing
+                </MenuItem>
+              </Menu>
+              {/* Solutions Button and Menu */}
+              <Button
+                color="inherit"
+                onClick={handleSolutionsOpen}
+                sx={{
+                  color: theme.palette.text.primary,
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                endIcon={<ExpandMoreIcon />}
+              >
+                Solutions
+              </Button>
+              <Menu
+                anchorEl={solutionsAnchor}
+                open={Boolean(solutionsAnchor)}
+                onClose={handleSolutionsClose}
+                sx={{ mt: 1 }}
+              >
+                <MenuItem
+                  onClick={handleSolutionsClose}
+                  component={Link}
+                  to="/director-obligations"
+                >
+                  <SupervisorAccountIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Director Obligations
+                </MenuItem>
+                <MenuItem
+                  onClick={handleSolutionsClose}
+                  component={Link}
+                  to="/esg-reporting"
+                >
+                  <ForestIcon sx={{ fontSize: 20, mr: 1 }} />
+                  ESG Reporting
+                </MenuItem>
+                <MenuItem
+                  onClick={handleSolutionsClose}
+                  component={Link}
+                  to="/modern-slavery"
+                >
+                  <GavelIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Modern Slavery
+                </MenuItem>
+                <MenuItem
+                  onClick={handleSolutionsClose}
+                  component={Link}
+                  to="/payment-times-reporting"
+                >
+                  <AccessTimeIcon sx={{ fontSize: 20, mr: 1 }} />
+                  PTR Solution
+                </MenuItem>
+                <MenuItem
+                  onClick={handleSolutionsClose}
+                  component={Link}
+                  to="/risk-register"
+                >
+                  <WarningIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Risk Register
+                </MenuItem>
+                <MenuItem
+                  onClick={handleSolutionsClose}
+                  component={Link}
+                  to="/whistleblower-compliance"
+                >
+                  <RecordVoiceOverIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Whistleblower Compliance
+                </MenuItem>
+                <MenuItem
+                  onClick={handleSolutionsClose}
+                  component={Link}
+                  to="/working-capital"
+                >
+                  <TrendingUpIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Working Capital Analysis
+                </MenuItem>
+              </Menu>
+              {/* Products Button and Menu */}
+              <Button
+                color="inherit"
+                onClick={handleProductsOpen}
+                sx={{
+                  color: theme.palette.text.primary,
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                endIcon={<ExpandMoreIcon />}
+              >
+                Products
+              </Button>
+              <Menu
+                anchorEl={productsAnchor}
+                open={Boolean(productsAnchor)}
+                onClose={handleProductsClose}
+                sx={{ mt: 1 }}
+              >
+                <MenuItem
+                  onClick={handleProductsClose}
+                  component={Link}
+                  to="/director-obligations"
+                >
+                  <SupervisorAccountIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Director Obligations
+                </MenuItem>
+                <MenuItem
+                  onClick={handleProductsClose}
+                  component={Link}
+                  to="/esg-reporting"
+                >
+                  <ForestIcon sx={{ fontSize: 20, mr: 1 }} />
+                  ESG Reporting
+                </MenuItem>
+                <MenuItem
+                  onClick={handleProductsClose}
+                  component={Link}
+                  to="/modern-slavery"
+                >
+                  <GavelIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Modern Slavery
+                </MenuItem>
+                <MenuItem
+                  onClick={handleProductsClose}
+                  component={Link}
+                  to="/payment-times-reporting"
+                >
+                  <AccessTimeIcon sx={{ fontSize: 20, mr: 1 }} />
+                  PTR Solution
+                </MenuItem>
+                <MenuItem
+                  onClick={handleProductsClose}
+                  component={Link}
+                  to="/risk-register"
+                >
+                  <WarningIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Risk Register
+                </MenuItem>
+                <MenuItem
+                  onClick={handleProductsClose}
+                  component={Link}
+                  to="/whistleblower-compliance"
+                >
+                  <RecordVoiceOverIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Whistleblower Compliance
+                </MenuItem>
+                <MenuItem
+                  onClick={handleProductsClose}
+                  component={Link}
+                  to="/working-capital"
+                >
+                  <TrendingUpIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Working Capital Analysis
+                </MenuItem>
+              </Menu>
+              {/* <Button
             color="inherit"
             onClick={handleGettingStartedOpen}
             sx={{
@@ -389,76 +399,234 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               FAQ
             </MenuItem>
           </Menu> */}
-          <Button
-            color="inherit"
-            onClick={handlePartnersOpen}
-            sx={{
-              color: theme.palette.text.primary,
-              display: "flex",
-              alignItems: "center",
-            }}
-            endIcon={<ExpandMoreIcon />}
-          >
-            Partners
-          </Button>
-          <Menu
-            anchorEl={partnersAnchor}
-            open={Boolean(partnersAnchor)}
-            onClose={handlePartnersClose}
-            sx={{ mt: 1 }}
-          >
-            <MenuItem
-              onClick={handlePartnersClose}
-              component={Link}
-              to="/partners"
-            >
-              <HandshakeIcon sx={{ fontSize: 20, mr: 1 }} />
-              Overview
-            </MenuItem>
-            <MenuItem
-              onClick={handlePartnersClose}
-              component={Link}
-              to="/partners/products/modern-slavery"
-            >
-              <GavelIcon sx={{ fontSize: 20, mr: 1 }} />
-              Modern Slavery
-            </MenuItem>
-          </Menu>
-          <Button
-            color="inherit"
-            onClick={handleConnectOpen}
-            sx={{
-              color: theme.palette.text.primary,
-              display: "flex",
-              alignItems: "center",
-            }}
-            endIcon={<ExpandMoreIcon />}
-          >
-            Connect
-          </Button>
-          <Menu
-            anchorEl={connectAnchor}
-            open={Boolean(connectAnchor)}
-            onClose={handleConnectClose}
-            sx={{ mt: 1 }}
-          >
-            <MenuItem
-              onClick={handleConnectClose}
-              component={Link}
-              to="/contact"
-            >
-              <MailOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
-              Contact
-            </MenuItem>
-            <MenuItem onClick={handleConnectClose} component={Link} to="/blog">
-              <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
-              Blog
-            </MenuItem>
-            <MenuItem onClick={handleConnectClose} component={Link} to="/about">
-              <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
-              About
-            </MenuItem>
-          </Menu>
+              <Button
+                color="inherit"
+                onClick={handlePartnersOpen}
+                sx={{
+                  color: theme.palette.text.primary,
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                endIcon={<ExpandMoreIcon />}
+              >
+                Partners
+              </Button>
+              <Menu
+                anchorEl={partnersAnchor}
+                open={Boolean(partnersAnchor)}
+                onClose={handlePartnersClose}
+                sx={{ mt: 1 }}
+              >
+                <MenuItem
+                  onClick={handlePartnersClose}
+                  component={Link}
+                  to="/partners"
+                >
+                  <HandshakeIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Overview
+                </MenuItem>
+                <MenuItem
+                  onClick={handlePartnersClose}
+                  component={Link}
+                  to="/partners/products/modern-slavery"
+                >
+                  <GavelIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Modern Slavery
+                </MenuItem>
+              </Menu>
+              <Button
+                color="inherit"
+                onClick={handleConnectOpen}
+                sx={{
+                  color: theme.palette.text.primary,
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                endIcon={<ExpandMoreIcon />}
+              >
+                Connect
+              </Button>
+              <Menu
+                anchorEl={connectAnchor}
+                open={Boolean(connectAnchor)}
+                onClose={handleConnectClose}
+                sx={{ mt: 1 }}
+              >
+                <MenuItem
+                  onClick={handleConnectClose}
+                  component={Link}
+                  to="/contact"
+                >
+                  <MailOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Contact
+                </MenuItem>
+                <MenuItem
+                  onClick={handleConnectClose}
+                  component={Link}
+                  to="/blog"
+                >
+                  <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Blog
+                </MenuItem>
+                <MenuItem
+                  onClick={handleConnectClose}
+                  component={Link}
+                  to="/about"
+                >
+                  <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+                  About
+                </MenuItem>
+              </Menu>{" "}
+            </>
+          )}
+          {isLoggedIn && !isPublicOnlyMode && (
+            <>
+              <Button
+                color="inherit"
+                onClick={handleExploreOpen}
+                sx={{
+                  color: theme.palette.text.secondary,
+                  alignItems: "center",
+                }}
+                endIcon={<ExpandMoreIcon />}
+              >
+                Explore
+              </Button>
+              <Menu
+                anchorEl={exploreAnchor}
+                open={Boolean(exploreAnchor)}
+                onClose={handleExploreClose}
+                sx={{ mt: 1 }}
+              >
+                {/* Pulse */}
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/pulse"
+                >
+                  <AutoGraphIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Pulse Overview
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/pulse/pricing"
+                >
+                  <PriceCheckIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Pulse Pricing
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/pulse/maximiser"
+                >
+                  <AutoAwesomeIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Maximiser (AI)
+                  <Chip
+                    label="Beta"
+                    size="small"
+                    color="primary"
+                    variant="outlined"
+                    sx={{ ml: 1 }}
+                  />
+                </MenuItem>
+                <Divider />
+                {/* Solutions */}
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/director-obligations"
+                >
+                  <SupervisorAccountIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Director Obligations
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/esg-reporting"
+                >
+                  <ForestIcon sx={{ fontSize: 20, mr: 1 }} />
+                  ESG Reporting
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/modern-slavery"
+                >
+                  <GavelIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Modern Slavery
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/payment-times-reporting"
+                >
+                  <AccessTimeIcon sx={{ fontSize: 20, mr: 1 }} />
+                  PTR Solution
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/risk-register"
+                >
+                  <WarningIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Risk Register
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/whistleblower-compliance"
+                >
+                  <RecordVoiceOverIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Whistleblower Compliance
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/working-capital"
+                >
+                  <TrendingUpIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Working Capital Analysis
+                </MenuItem>
+                <Divider />
+                {/* Partners */}
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/partners"
+                >
+                  <HandshakeIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Partners Overview
+                </MenuItem>
+                <Divider />
+                {/* Connect */}
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/contact"
+                >
+                  <MailOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Contact
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/blog"
+                >
+                  <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Blog
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
+                  to="/about"
+                >
+                  <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
+                  About
+                </MenuItem>
+              </Menu>
+            </>
+          )}
         </Box>
         <Box sx={{ display: { xs: "flex", md: "none" } }}>
           <IconButton
@@ -475,6 +643,18 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             onClose={handleMenuClose}
             sx={{ backgroundColor: theme.palette.background.paper }}
           >
+            {isLoggedIn && !isPublicOnlyMode && (
+              <MenuItem
+                onClick={handleMenuClose}
+                component={Link}
+                to="/dashboard"
+                sx={{ color: theme.palette.text.primary }}
+              >
+                <WorkOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
+                Open Workspace
+              </MenuItem>
+            )}
+            <Divider />
             {/* Pulse section */}
             <MenuItem
               onClick={handleMenuClose}
@@ -696,18 +876,41 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             </MenuItem>
           </Menu>
         </Box>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => navigate("/contact")}
-          sx={{
-            ml: 2,
-            fontWeight: 600,
-            display: { xs: "none", md: "inline-flex" },
-          }}
-        >
-          Book a Call
-        </Button>
+        {(!isLoggedIn || isPublicOnlyMode) && (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => navigate("/contact")}
+            sx={{
+              ml: 2,
+              fontWeight: 600,
+              display: { xs: "none", md: "inline-flex" },
+            }}
+          >
+            Book a Call
+          </Button>
+        )}
+        {isLoggedIn && !isPublicOnlyMode && (
+          <Button
+            variant="outlined"
+            color="inherit"
+            size="small"
+            onClick={() => navigate("/dashboard")}
+            startIcon={<WorkOutlineIcon sx={{ fontSize: 18 }} />}
+            aria-label="Open workspace"
+            sx={{
+              ml: 1,
+              fontWeight: 600,
+              px: 1.25,
+              py: 0.5,
+              borderColor: theme.palette.divider,
+              display: { xs: "none", md: "inline-flex" },
+              "&:hover": { borderColor: theme.palette.text.secondary },
+            }}
+          >
+            Workspace
+          </Button>
+        )}
         {/* Dynamic Login/Logout button */}
         {!isLoggedIn && !isPublicOnlyMode && (
           <Button

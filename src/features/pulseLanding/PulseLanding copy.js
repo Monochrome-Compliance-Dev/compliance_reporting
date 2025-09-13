@@ -90,7 +90,6 @@ export default function PulseLanding() {
     <>
       {/* FULL-WIDTH BANNER: scrolling scarcity notice */}
       <Box
-        data-role="scroll-banner"
         sx={{
           width: "100%",
           overflow: "hidden",
@@ -236,26 +235,6 @@ export default function PulseLanding() {
                     >
                       See founder pricing
                     </Button>
-                    {/* <Button
-                      className="screen-only"
-                      variant="text"
-                      size="small"
-                      onClick={() => window.print()}
-                      sx={{ width: { xs: "100%", sm: "auto" } }}
-                    >
-                      Print this page (PDF)
-                    </Button> */}
-                  </Box>
-                  <Box sx={{ mt: 1 }}>
-                    <Typography
-                      className="print-url"
-                      variant="caption"
-                      color="text.secondary"
-                      sx={{ display: "none" }}
-                    >
-                      Join: monochrome-compliance.com/pulse/join • Pricing:
-                      monochrome-compliance.com/pulse/pricing
-                    </Typography>
                   </Box>
                 </Grid>
                 <Grid
@@ -303,7 +282,6 @@ export default function PulseLanding() {
 
           {/* HOW IT WORKS */}
           <Box
-            data-role="sticky-cta"
             component="section"
             sx={{ py: { xs: 4, md: 6 }, mt: { xs: 4, md: 6 } }}
           >

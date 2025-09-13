@@ -60,15 +60,25 @@ export function AuthProvider({ children }) {
 
     if (!hasRefreshed) {
       hasRefreshed = true;
+
       userService
         .refreshToken()
         .then((refreshedUser) => {
           if (refreshedUser) {
             setUser(refreshedUser);
             setIsSignedIn(true);
+          } else {
+            setIsSignedIn(false);
           }
         })
-        .catch(() => {
+        .catch((err) => {
+          // Swallow unauthorised/no-session noise on public pages
+          const msg = String(err?.message || err || "").toLowerCase();
+          if (!msg.includes("unauthorised")) {
+            // Log only non-auth errors
+            // eslint-disable-next-line no-console
+            console.error("Refresh failed:", err);
+          }
           setIsSignedIn(false);
         })
         .finally(() => {
