@@ -574,14 +574,75 @@ function TypewriterLine({ text, start, speed = 42, onDone }) {
 }
 
 function MockTimesheetTable({ rows }) {
+  const containerRef = useRef(null);
+  const scrollerRef = useRef(null);
+  const [showRightFade, setShowRightFade] = useState(false);
+  const [contentWidth, setContentWidth] = useState(0);
+  // --- Scroll hint state
+  const [showHScrollHint, setShowHScrollHint] = useState(true);
+  useEffect(() => {
+    const el = containerRef.current;
+    const sc = scrollerRef.current;
+    if (!el || !sc) return;
+
+    let hideTimer;
+
+    const update = () => {
+      setContentWidth(el.scrollWidth);
+      // right-edge fade logic
+      const canScroll = el.scrollWidth > el.clientWidth + 1;
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+      setShowRightFade(canScroll && !atEnd);
+      // keep scroller position in sync
+      if (sc.scrollLeft !== el.scrollLeft) sc.scrollLeft = el.scrollLeft;
+    };
+
+    const onElScroll = () => {
+      if (sc && sc.scrollLeft !== el.scrollLeft) sc.scrollLeft = el.scrollLeft;
+      update();
+      if (showHScrollHint) setShowHScrollHint(false);
+    };
+    const onScScroll = () => {
+      if (el && el.scrollLeft !== sc.scrollLeft) el.scrollLeft = sc.scrollLeft;
+      if (showHScrollHint) setShowHScrollHint(false);
+    };
+
+    update();
+    el.addEventListener("scroll", onElScroll);
+    sc.addEventListener("scroll", onScScroll);
+    window.addEventListener("resize", update);
+    // Hide the scroll hint after timeout as fallback
+    hideTimer = setTimeout(() => setShowHScrollHint(false), 4000);
+    return () => {
+      el.removeEventListener("scroll", onElScroll);
+      sc.removeEventListener("scroll", onScScroll);
+      window.removeEventListener("resize", update);
+      clearTimeout(hideTimer);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showHScrollHint]);
   if (!rows || !rows.length) return null;
   return (
     <Paper
       variant="outlined"
-      sx={{ mb: 2, height: 260, maxHeight: 260, overflow: "auto" }}
+      sx={{
+        mb: 2,
+        height: 260,
+        maxHeight: 260,
+        overflow: "hidden", // prevent parent scroll so bottom scroller is always visible
+        position: "relative",
+      }}
     >
-      <TableContainer sx={{ maxHeight: 260 }}>
-        <Table size="small" stickyHeader aria-label="Mock timesheet">
+      <TableContainer
+        ref={containerRef}
+        sx={{ maxHeight: 246, overflowX: "auto", position: "relative" }}
+      >
+        <Table
+          size="small"
+          stickyHeader
+          aria-label="Mock timesheet"
+          sx={{ minWidth: 980 }}
+        >
           <TableHead>
             <TableRow>
               <TableCell>Date</TableCell>
@@ -635,6 +696,58 @@ function MockTimesheetTable({ rows }) {
           </TableBody>
         </Table>
       </TableContainer>
+      {/* Always-visible bottom scrollbar synced with the table */}
+      <Box
+        ref={scrollerRef}
+        sx={{
+          height: 12,
+          overflowX: "scroll",
+          overflowY: "hidden",
+          borderTop: "1px solid",
+          borderColor: "divider",
+          bgcolor: "transparent",
+        }}
+      >
+        <Box sx={{ width: contentWidth, height: 1 }} />
+      </Box>
+      {/* Subtle "Scroll →" helper; auto-hides after first horizontal scroll */}
+      <Box
+        sx={{
+          position: "absolute",
+          right: 8,
+          bottom: 20,
+          px: 1,
+          py: 0.25,
+          fontSize: 12,
+          borderRadius: 999,
+          bgcolor: "rgba(0,0,0,0.4)",
+          color: "white",
+          backdropFilter: "blur(2px)",
+          display: showRightFade && showHScrollHint ? "inline-flex" : "none",
+          alignItems: "center",
+          gap: 0.5,
+          pointerEvents: "none",
+          transition: "opacity 0.4s",
+          opacity: showHScrollHint ? 1 : 0,
+        }}
+      >
+        <span style={{ opacity: 0.9 }}>Scroll</span>
+        <span aria-hidden>→</span>
+      </Box>
+      {/* Right-edge fade to hint horizontal scroll */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: 28,
+          height: "100%",
+          pointerEvents: "none",
+          display: showRightFade ? "block" : "none",
+          background: (theme) =>
+            `linear-gradient(to right, rgba(${theme.palette.mode === "dark" ? "17,24,39" : "255,255,255"}, 0), ${theme.palette.background.paper} 60%)`,
+        }}
+      />
     </Paper>
   );
 }
@@ -642,6 +755,7 @@ function MockTimesheetTable({ rows }) {
 export default function PulseMaximiserWidget() {
   const theme = useTheme();
   const chartsRef = useRef(null);
+  const summaryTopRef = useRef(null);
   const [highlightFirst, setHighlightFirst] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [rows, setRows] = useState([]);
@@ -778,12 +892,30 @@ export default function PulseMaximiserWidget() {
           spacing={2}
           sx={{ textAlign: { xs: "center", md: "left" }, mb: 2 }}
         >
-          <Typography
-            variant="h3"
-            sx={{ fontWeight: 800, fontSize: { xs: "1.6rem", md: "2rem" } }}
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+            spacing={2}
           >
-            Try Pulse Maximiser — right here on the page
-          </Typography>
+            <Typography
+              variant="h3"
+              sx={{ fontWeight: 800, fontSize: { xs: "1.6rem", md: "2rem" } }}
+            >
+              Try Pulse Maximiser — right here on the page
+            </Typography>
+            <Button
+              href="/pulse/join"
+              variant="contained"
+              size="medium"
+              sx={{
+                display: { xs: "none", md: "inline-flex" },
+                textTransform: "none",
+              }}
+            >
+              Join early access
+            </Button>
+          </Stack>
           <Typography
             color="text.secondary"
             sx={{
@@ -795,6 +927,18 @@ export default function PulseMaximiserWidget() {
             and watch Pulse Maximiser turn it into practical insights — included
             with every Pulse plan.
           </Typography>
+          {/* Mobile CTA */}
+          <Box sx={{ display: { xs: "block", md: "none" } }}>
+            <Button
+              href="/pulse/join"
+              fullWidth
+              size="large"
+              variant="contained"
+              sx={{ mt: 1.5, textTransform: "none" }}
+            >
+              Join early access
+            </Button>
+          </Box>
         </Stack>
 
         {/* Persistent scenario bar */}
@@ -856,7 +1000,22 @@ export default function PulseMaximiserWidget() {
               variant="contained"
               size="large"
               disabled={!previewRows.length}
-              onClick={() => setRows(previewRows)}
+              onClick={() => {
+                setRows(previewRows);
+                // On small screens, scroll the summary into view
+                if (
+                  typeof window !== "undefined" &&
+                  window.matchMedia &&
+                  window.matchMedia("(max-width: 900px)").matches
+                ) {
+                  setTimeout(() => {
+                    summaryTopRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }, 50);
+                }
+              }}
               sx={{ textTransform: "none" }}
             >
               Try Maximiser
@@ -890,6 +1049,7 @@ export default function PulseMaximiserWidget() {
             xs={12}
             md={6}
             sx={{ position: { md: "sticky" }, top: { md: 96 } }}
+            ref={summaryTopRef}
           >
             {rows &&
               rows.length > 0 &&
