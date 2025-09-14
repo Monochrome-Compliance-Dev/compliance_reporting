@@ -1,4 +1,5 @@
 import RequireRoles from "./RequireRoles";
+import RequireFeature from "./RequireFeature";
 import Role from "../context/role";
 import { PtrsProvider, PulseProvider, TcpProvider } from "../context/";
 import ComplianceDashboardLayout from "../components/layouts/ComplianceDashboardLayout";
@@ -124,11 +125,13 @@ export const protectedRoutes = [
     path: "/ptrs",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <PtrsProvider>
-          <TcpProvider>
-            <Outlet />
-          </TcpProvider>
-        </PtrsProvider>
+        <RequireFeature feature="ptrs">
+          <PtrsProvider>
+            <TcpProvider>
+              <Outlet />
+            </TcpProvider>
+          </PtrsProvider>
+        </RequireFeature>
       </RequireRoles>
     ),
     children: [
@@ -189,9 +192,11 @@ export const protectedRoutes = [
     path: "/esg",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <ComplianceDashboardLayout title="ESG Dashboard" module="esg">
-          <Outlet />
-        </ComplianceDashboardLayout>
+        <RequireFeature feature="esg">
+          <ComplianceDashboardLayout title="ESG Dashboard" module="esg">
+            <Outlet />
+          </ComplianceDashboardLayout>
+        </RequireFeature>
       </RequireRoles>
     ),
     children: [
@@ -209,7 +214,9 @@ export const protectedRoutes = [
     path: "/metrics/:metricId",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <MetricDetail />
+        <RequireFeature feature="esg">
+          <MetricDetail />
+        </RequireFeature>
       </RequireRoles>
     ),
   },
@@ -217,9 +224,14 @@ export const protectedRoutes = [
     path: "/ms",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <ComplianceDashboardLayout title="Modern Slavery Dashboard" module="ms">
-          <Outlet />
-        </ComplianceDashboardLayout>
+        <RequireFeature feature="ms">
+          <ComplianceDashboardLayout
+            title="Modern Slavery Dashboard"
+            module="ms"
+          >
+            <Outlet />
+          </ComplianceDashboardLayout>
+        </RequireFeature>
       </RequireRoles>
     ),
     children: [
@@ -254,18 +266,16 @@ export const protectedRoutes = [
     Component: XeroContactAlign,
   },
   {
-    path: "/pulse/maximiser",
-    Component: PulseMaximiserWidget,
-  },
-  {
     path: "/pulse-solution",
     Component: () => (
       <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-        <PulseProvider>
-          <PulseLayout title="Pulse">
-            <Outlet />
-          </PulseLayout>
-        </PulseProvider>
+        <RequireFeature feature="pulse">
+          <PulseProvider>
+            <PulseLayout title="Pulse">
+              <Outlet />
+            </PulseLayout>
+          </PulseProvider>
+        </RequireFeature>
       </RequireRoles>
     ),
     children: [

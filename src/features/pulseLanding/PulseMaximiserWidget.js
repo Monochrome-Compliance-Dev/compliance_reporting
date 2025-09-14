@@ -11,7 +11,6 @@ import {
   Card,
   CardContent,
   CardHeader,
-  CircularProgress,
   Container,
   Divider,
   Grid,
@@ -21,9 +20,14 @@ import {
   Chip,
   LinearProgress,
   Alert,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  TableContainer,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import UploadFileIcon from "@mui/icons-material/UploadFile";
 import DownloadIcon from "@mui/icons-material/Download";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import BoltIcon from "@mui/icons-material/Bolt";
@@ -49,6 +53,195 @@ const SAMPLE_CSV = `date,team,role,person,task,estimate_hours,actual_hours,billa
 2025-08-27,API,Developer,Jo,Endpoint Y,6,6,yes
 2025-08-28,API,QA,Sam,Load Test,5,7,no
 2025-08-29,API,Designer,Eve,Icons,3,4,no`;
+// --- Seeded RNG utils (deterministic per seed)
+function mulberry32(a) {
+  let t = a >>> 0;
+  return function () {
+    t += 0x6d2b79f5;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function pick(rng, arr) {
+  return arr[Math.floor(rng() * arr.length)];
+}
+function randBetween(rng, min, max) {
+  return min + (max - min) * rng();
+}
+function addDays(base, days) {
+  const d = new Date(base);
+  d.setDate(d.getDate() + days);
+  return d;
+}
+function toISODate(d) {
+  const z = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  return z.toISOString().slice(0, 10);
+}
+
+// Scenario knobs
+const SCENARIOS = {
+  cruising: {
+    rowsMin: 35,
+    rowsMax: 45,
+    deltaScale: 1.5,
+    deltaBias: -0.4, // slightly under estimate
+    nonBillable: 0.14,
+    burnoutWeeks: 0,
+    burnoutHoursTargets: [],
+  },
+  mixed: {
+    rowsMin: 45,
+    rowsMax: 55,
+    deltaScale: 3.0,
+    deltaBias: -0.3,
+    nonBillable: 0.22,
+    burnoutWeeks: 1,
+    burnoutHoursTargets: [48],
+  },
+  onfire: {
+    rowsMin: 55,
+    rowsMax: 70,
+    deltaScale: 6.0,
+    deltaBias: -0.1,
+    nonBillable: 0.3,
+    burnoutWeeks: 2,
+    burnoutHoursTargets: [52, 58, 62],
+  },
+};
+
+// Generate rows shaped exactly like the CSV parser would produce
+function generateMockRows(scenario = "cruising", seed = Date.now()) {
+  const cfg = SCENARIOS[scenario] || SCENARIOS.cruising;
+  const rng = mulberry32((seed >>> 0) & 0xffffffff);
+
+  const teams = ["Core", "API", "Design"];
+  const roles = ["Developer", "QA", "Designer"];
+  const people = {
+    Core: ["Alice", "Bob", "Sam"],
+    API: ["Jo", "Kai"],
+    Design: ["Eve"],
+  };
+
+  // Use the last two weeks as a window
+  const today = new Date();
+  const start = addDays(today, -13);
+
+  const totalRows =
+    Math.floor(randBetween(rng, cfg.rowsMin, cfg.rowsMax + 1)) | 0;
+
+  const rows = [];
+  // Spread rows across ~10 working days
+  for (let i = 0; i < totalRows; i++) {
+    // pick a day in the last 14 days, bias toward weekdays
+    let dayOffset = Math.floor(rng() * 14);
+    let d = addDays(start, dayOffset);
+    // ensure weekday (Mon-Fri); if weekend, nudge to nearest weekday
+    const wd = d.getDay();
+    if (wd === 0) d = addDays(d, 1);
+    if (wd === 6) d = addDays(d, -1);
+
+    const team = pick(rng, teams);
+    const role = pick(rng, roles);
+    const person = pick(rng, people[team]);
+    const estimate = Math.max(1, Math.round(randBetween(rng, 2, 8)));
+    const delta = (rng() + cfg.deltaBias) * cfg.deltaScale; // negative bias makes some under
+    const actual = Math.max(0.5, estimate + delta);
+    const billable = rng() < cfg.nonBillable;
+
+    rows.push({
+      date: toISODate(d),
+      team,
+      role,
+      person,
+      task: `${team} work ${Math.floor(rng() * 900 + 100)}`,
+      estimate_hours: estimate.toFixed(2),
+      actual_hours: actual.toFixed(2),
+      billable: billable ? "yes" : "no",
+    });
+  }
+
+  // Sprinkle burnout by inflating totals for selected person-weeks
+  if (cfg.burnoutWeeks > 0) {
+    // pick some (person, week) targets and push them over the threshold by adding "Catch-up" rows
+    const burnoutCandidates = [];
+    teams.forEach((t) => {
+      people[t].forEach((p) => burnoutCandidates.push({ team: t, person: p }));
+    });
+    const chosen = new Set();
+    let attempts = 0;
+    while (chosen.size < cfg.burnoutWeeks && attempts < 10) {
+      chosen.add(pick(rng, burnoutCandidates).person + "|" + pick(rng, teams));
+      attempts++;
+    }
+    const targets = cfg.burnoutHoursTargets.length
+      ? cfg.burnoutHoursTargets
+      : [48];
+
+    const weekKey = (iso) => getWeekKey(iso);
+
+    // compute hours by person-week
+    const hoursByPW = new Map();
+    for (const r of rows) {
+      const key = `${r.person}|${weekKey(r.date)}`;
+      hoursByPW.set(key, (hoursByPW.get(key) || 0) + Number(r.actual_hours));
+    }
+
+    let tIdx = 0;
+    chosen.forEach((combo) => {
+      const [person] = combo.split("|");
+      // choose a random existing week for this person
+      const weeks = Array.from(
+        new Set(
+          rows.filter((r) => r.person === person).map((r) => weekKey(r.date))
+        )
+      );
+      if (!weeks.length) return;
+      const w = pick(rng, weeks);
+      const key = `${person}|${w}`;
+      const current = hoursByPW.get(key) || 0;
+      const target = targets[tIdx % targets.length];
+      tIdx++;
+      if (current < target) {
+        const needed = target - current;
+        // add one or two catch-up entries to reach target
+        const bump1 = Math.min(
+          needed,
+          randBetween(rng, 2.5, Math.min(6, needed))
+        );
+        const bump2 = needed - bump1;
+        const anyRow = rows.find((r) => r.person === person);
+        if (anyRow) {
+          const d = anyRow.date;
+          rows.push({
+            date: d,
+            team: anyRow.team,
+            role: anyRow.role,
+            person,
+            task: "Catch-up work",
+            estimate_hours: "0.50",
+            actual_hours: bump1.toFixed(2),
+            billable: "yes",
+          });
+          if (bump2 > 0.25) {
+            rows.push({
+              date: d,
+              team: anyRow.team,
+              role: anyRow.role,
+              person,
+              task: "Urgent support",
+              estimate_hours: "0.25",
+              actual_hours: bump2.toFixed(2),
+              billable: "no",
+            });
+          }
+        }
+      }
+    });
+  }
+
+  return rows;
+}
 
 // --- Minimal CSV parser that supports quoted fields and commas within quotes
 function parseCsv(text) {
@@ -380,13 +573,83 @@ function TypewriterLine({ text, start, speed = 42, onDone }) {
   );
 }
 
+function MockTimesheetTable({ rows }) {
+  if (!rows || !rows.length) return null;
+  return (
+    <Paper
+      variant="outlined"
+      sx={{ mb: 2, height: 260, maxHeight: 260, overflow: "auto" }}
+    >
+      <TableContainer sx={{ maxHeight: 260 }}>
+        <Table size="small" stickyHeader aria-label="Mock timesheet">
+          <TableHead>
+            <TableRow>
+              <TableCell>Date</TableCell>
+              <TableCell>Team</TableCell>
+              <TableCell>Role</TableCell>
+              <TableCell>Person</TableCell>
+              <TableCell>Task</TableCell>
+              <TableCell align="right">Estimate (h)</TableCell>
+              <TableCell align="right">Actual (h)</TableCell>
+              <TableCell align="center">Billable</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.slice(0, 25).map((r, idx) => (
+              <TableRow key={`${r.date}-${idx}`}>
+                <TableCell>{r.date}</TableCell>
+                <TableCell>{r.team}</TableCell>
+                <TableCell>{r.role}</TableCell>
+                <TableCell>{r.person}</TableCell>
+                <TableCell
+                  sx={{
+                    maxWidth: 280,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {r.task}
+                </TableCell>
+                <TableCell align="right">
+                  {Number(r.estimate_hours).toFixed(2)}
+                </TableCell>
+                <TableCell align="right">
+                  {Number(r.actual_hours).toFixed(2)}
+                </TableCell>
+                <TableCell align="center">
+                  <Chip
+                    size="small"
+                    label={
+                      String(r.billable).toLowerCase() === "yes" ? "Yes" : "No"
+                    }
+                    color={
+                      String(r.billable).toLowerCase() === "yes"
+                        ? "success"
+                        : "default"
+                    }
+                  />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Paper>
+  );
+}
+
 export default function PulseMaximiserWidget() {
   const theme = useTheme();
   const chartsRef = useRef(null);
   const [highlightFirst, setHighlightFirst] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [rows, setRows] = useState([]);
-  const [error, setError] = useState("");
+
+  // Scenario teaser state
+  const [scenario, setScenario] = useState(null); // 'cruising' | 'mixed' | 'onfire' | null
+  const [seed, setSeed] = useState(() => Date.now());
+  const [previewRows, setPreviewRows] = useState([]);
 
   const insights = useMemo(() => computeInsights(rows), [rows]);
   const summaries = useMemo(() => generateAiSummaries(insights), [insights]);
@@ -409,6 +672,16 @@ export default function PulseMaximiserWidget() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     setReduceMotion(Boolean(prefers));
   }, []);
+
+  // Generate preview rows for the selected scenario
+  useEffect(() => {
+    if (!scenario) {
+      setPreviewRows([]);
+      return;
+    }
+    const mock = generateMockRows(scenario, seed);
+    setPreviewRows(mock);
+  }, [scenario, seed]);
 
   // Reset progression when new summaries arrive
   useEffect(() => {
@@ -474,6 +747,11 @@ export default function PulseMaximiserWidget() {
     return () => clearInterval(id);
   }, [thinking, reduceMotion]);
 
+  // Auto-reveal summary when ready
+  useEffect(() => {
+    if (ready) setShowSummary(true);
+  }, [ready]);
+
   // --- Reveal summary and charts handlers (reset typing, etc)
   const revealSummary = () => {
     setShowSummary(true);
@@ -492,26 +770,6 @@ export default function PulseMaximiserWidget() {
     setHighlightFirst(true);
     setTimeout(() => setHighlightFirst(false), 1200);
   };
-
-  function handleFileChange(e) {
-    setError("");
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      try {
-        const text = String(reader.result || "");
-        const parsed = parseCsv(text);
-        setRows(parsed);
-      } catch (err) {
-        setError(
-          "Could not read that file. Please check the format and try again."
-        );
-      }
-    };
-    reader.onerror = () => setError("File read error. Please try again.");
-    reader.readAsText(file);
-  }
 
   return (
     <Box component="section" sx={{ py: { xs: 4, md: 6 } }}>
@@ -533,293 +791,261 @@ export default function PulseMaximiserWidget() {
               mx: { xs: "auto", md: 0 },
             }}
           >
-            No signup. No servers. Download a small sample file, upload it (or
-            your own CSV), and see how Pulse Maximiser turns past timesheets
-            into practical insights — included with every Pulse plan.
+            No signup. No servers. Pick a scenario, see a realistic timesheet,
+            and watch Pulse Maximiser turn it into practical insights — included
+            with every Pulse plan.
           </Typography>
         </Stack>
 
+        {/* Persistent scenario bar */}
         <Stack
-          direction={{ xs: "column", sm: "row" }}
+          direction={{ xs: "column", md: "row" }}
           spacing={2}
-          sx={{ justifyContent: "center", mb: 3 }}
+          sx={{
+            justifyContent: "center",
+            alignItems: { xs: "stretch", md: "center" },
+            mb: 2,
+          }}
         >
-          <Button
-            onClick={downloadSampleCsv}
-            startIcon={<DownloadIcon />}
-            variant="outlined"
-            size="large"
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{ alignItems: "center", flexWrap: "wrap" }}
           >
-            Download sample CSV
-          </Button>
-
-          <Button
-            component="label"
-            startIcon={<UploadFileIcon />}
-            variant="contained"
-            size="large"
-          >
-            Upload CSV
-            <input
-              type="file"
-              accept=".csv,text/csv"
-              hidden
-              onChange={handleFileChange}
+            <Typography variant="body2" color="text.secondary">
+              Scenario:
+            </Typography>
+            <Chip
+              label="Cruising"
+              color={scenario === "cruising" ? "primary" : "default"}
+              onClick={() => {
+                setScenario("cruising");
+                setSeed(Date.now());
+              }}
+              clickable
             />
-          </Button>
+            <Chip
+              label="Mixed"
+              color={scenario === "mixed" ? "primary" : "default"}
+              onClick={() => {
+                setScenario("mixed");
+                setSeed(Date.now());
+              }}
+              clickable
+            />
+            <Chip
+              label="On fire 🔥"
+              color={scenario === "onfire" ? "primary" : "default"}
+              onClick={() => {
+                setScenario("onfire");
+                setSeed(Date.now());
+              }}
+              clickable
+            />
+            <Button
+              size="small"
+              variant="text"
+              onClick={() => setSeed(Date.now())}
+              sx={{ textTransform: "none" }}
+            >
+              Regenerate
+            </Button>
+          </Stack>
+          <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
+            <Button
+              variant="contained"
+              size="large"
+              disabled={!previewRows.length}
+              onClick={() => setRows(previewRows)}
+              sx={{ textTransform: "none" }}
+            >
+              Try Maximiser
+            </Button>
+            <Button
+              onClick={downloadSampleCsv}
+              startIcon={<DownloadIcon />}
+              variant="text"
+              size="medium"
+              sx={{ textTransform: "none" }}
+            >
+              Prefer CSV? Download sample
+            </Button>
+          </Stack>
         </Stack>
 
-        {error && (
-          <Typography color="error" sx={{ textAlign: "center", mb: 2 }}>
-            {error}
-          </Typography>
-        )}
-
-        {/* Thinking cards: Summary & Charts side-by-side, stack on mobile */}
-        {rows.length > 0 && (
-          <Grid container spacing={2} sx={{ mb: 2 }}>
-            <Grid item xs={12} md={6}>
-              <Card variant="outlined" sx={{ height: "100%" }}>
-                <CardHeader
-                  title={<Typography variant="h6">AI Summary</Typography>}
-                />
-                <CardContent>
-                  {!ready ? (
-                    <Stack alignItems="center" spacing={1.5} sx={{ py: 1 }}>
-                      <CircularProgress
-                        variant={reduceMotion ? "indeterminate" : "determinate"}
-                        value={progress}
-                        size={48}
-                      />
-                      <Typography variant="body2" color="text.secondary">
-                        {reduceMotion
-                          ? "Analyzing…"
-                          : `Analyzing… ${progress}%`}
-                      </Typography>
-                    </Stack>
-                  ) : (
-                    <Stack
-                      alignItems={{ xs: "stretch", sm: "center" }}
-                      direction={{ xs: "column", sm: "row" }}
-                      spacing={1.5}
-                    >
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ flex: 1 }}
-                      >
-                        Your AI summary is ready.
-                      </Typography>
-                      <Button
-                        variant="contained"
-                        onClick={revealSummary}
-                        sx={{ textTransform: "none" }}
-                      >
-                        View summary
-                      </Button>
-                    </Stack>
-                  )}
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Card variant="outlined" sx={{ height: "100%" }}>
-                <CardHeader
-                  title={<Typography variant="h6">Charts</Typography>}
-                />
-                <CardContent>
-                  {!ready ? (
-                    <Stack alignItems="center" spacing={1.5} sx={{ py: 1 }}>
-                      <CircularProgress
-                        variant={reduceMotion ? "indeterminate" : "determinate"}
-                        value={progress}
-                        size={48}
-                      />
-                      <Typography variant="body2" color="text.secondary">
-                        {reduceMotion
-                          ? "Preparing…"
-                          : `Preparing… ${progress}%`}
-                      </Typography>
-                    </Stack>
-                  ) : (
-                    <Stack
-                      alignItems={{ xs: "stretch", sm: "center" }}
-                      direction={{ xs: "column", sm: "row" }}
-                      spacing={1.5}
-                    >
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ flex: 1 }}
-                      >
-                        Charts are ready to explore.
-                      </Typography>
-                      <Button
-                        variant="outlined"
-                        onClick={revealCharts}
-                        sx={{ textTransform: "none" }}
-                      >
-                        View charts
-                      </Button>
-                    </Stack>
-                  )}
-                </CardContent>
-              </Card>
-            </Grid>
+        <Grid container spacing={2} alignItems="flex-start" sx={{ mb: 2 }}>
+          {/* LEFT: Mock table */}
+          <Grid item xs={12} md={6}>
+            {previewRows.length > 0 && (
+              <MockTimesheetTable
+                key={`${scenario}-${seed}`}
+                rows={previewRows}
+              />
+            )}
           </Grid>
-        )}
 
-        <Grid container spacing={3} alignItems="flex-start">
-          {/* LEFT: AI monitor */}
-          <Grid item xs={12} md={5}>
-            {showSummary && summaries && summaries.length > 0 && (
-              <Paper
-                variant="outlined"
-                role="status"
-                aria-live="polite"
-                sx={{
-                  p: 0,
-                  mb: 3,
-                  overflow: "hidden",
-                  bgcolor: "#0a0f1f",
-                  color: "#e6edff",
-                  borderColor: "rgba(99, 102, 241, 0.35)",
-                  boxShadow:
-                    "0 0 0 1px rgba(99,102,241,0.35), 0 12px 32px rgba(2,6,23,0.6)",
-                  transition:
-                    "opacity 400ms ease, transform 400ms ease, max-height 400ms ease",
-                  opacity: showSummaryBox ? 1 : 0,
-                  transform: showSummaryBox
-                    ? "translateY(0)"
-                    : "translateY(6px)",
-                  position: "relative",
-                  maxHeight: collapsed ? 220 : "none",
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "repeating-linear-gradient(180deg, transparent 0, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 3px)",
-                    pointerEvents: "none",
-                  },
-                }}
-              >
-                {/* Monitor header bar */}
-                <Box
+          {/* RIGHT: Sticky panel for CTA -> AI cards */}
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{ position: { md: "sticky" }, top: { md: 96 } }}
+          >
+            {rows &&
+              rows.length > 0 &&
+              showSummary &&
+              summaries &&
+              summaries.length > 0 && (
+                <Paper
+                  variant="outlined"
+                  role="status"
+                  aria-live="polite"
                   sx={{
+                    p: 0,
+                    mb: 2,
+                    overflow: "hidden",
+                    bgcolor: "#0a0f1f",
+                    color: "#e6edff",
+                    borderColor: "rgba(99, 102, 241, 0.35)",
+                    boxShadow:
+                      "0 0 0 1px rgba(99,102,241,0.35), 0 12px 32px rgba(2,6,23,0.6)",
+                    transition:
+                      "opacity 400ms ease, transform 400ms ease, max-height 400ms ease",
+                    opacity: showSummaryBox ? 1 : 0,
+                    transform: showSummaryBox
+                      ? "translateY(0)"
+                      : "translateY(6px)",
+                    position: "relative",
+                    height: 260,
+                    maxHeight: 260,
                     display: "flex",
-                    alignItems: "center",
-                    gap: 1,
-                    px: 1.5,
-                    py: 1,
-                    bgcolor: "#0d1328",
-                    borderBottom: "1px solid rgba(99,102,241,0.25)",
+                    flexDirection: "column",
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "repeating-linear-gradient(180deg, transparent 0, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 3px)",
+                      pointerEvents: "none",
+                    },
                   }}
                 >
+                  {/* Monitor header bar */}
                   <Box
                     sx={{
-                      width: 10,
-                      height: 10,
-                      borderRadius: "50%",
-                      bgcolor: "#ff5f56",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1,
+                      px: 1.5,
+                      py: 1,
+                      bgcolor: "#0d1328",
+                      borderBottom: "1px solid rgba(99,102,241,0.25)",
                     }}
-                  />
-                  <Box
-                    sx={{
-                      width: 10,
-                      height: 10,
-                      borderRadius: "50%",
-                      bgcolor: "#ffbd2e",
-                    }}
-                  />
-                  <Box
-                    sx={{
-                      width: 10,
-                      height: 10,
-                      borderRadius: "50%",
-                      bgcolor: "#27c93f",
-                    }}
-                  />
-                  <Typography
-                    variant="overline"
-                    sx={{ ml: 1, color: "#c7d2fe", letterSpacing: 1 }}
                   >
-                    AI summary
-                  </Typography>
-                  <Box sx={{ flex: 1 }} />
-                  {doneTyping && (
-                    <Stack direction="row" spacing={1}>
-                      <Button
-                        onClick={() => setCollapsed((v) => !v)}
-                        size="small"
-                        variant="text"
-                        sx={{ color: "#c7d2fe", textTransform: "none" }}
-                      >
-                        {collapsed ? "Show all" : "Collapse"}
-                      </Button>
-                      <Button
-                        onClick={goToCharts}
-                        size="small"
-                        variant="contained"
-                        sx={{ textTransform: "none" }}
-                      >
-                        See the charts
-                      </Button>
+                    <Box
+                      sx={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: "50%",
+                        bgcolor: "#ff5f56",
+                      }}
+                    />
+                    <Box
+                      sx={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: "50%",
+                        bgcolor: "#ffbd2e",
+                      }}
+                    />
+                    <Box
+                      sx={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: "50%",
+                        bgcolor: "#27c93f",
+                      }}
+                    />
+                    <Typography
+                      variant="overline"
+                      sx={{ ml: 1, color: "#c7d2fe", letterSpacing: 1 }}
+                    >
+                      AI summary
+                    </Typography>
+                    <Box sx={{ flex: 1 }} />
+                  </Box>
+                  {/* Monitor body */}
+                  <Box sx={{ p: 2, flex: 1, overflow: "auto" }}>
+                    <Stack spacing={0.5}>
+                      {summaries.map((line, i) => {
+                        const label = `Insight ${i + 1}: ${line}`;
+                        if (i < currentLine) {
+                          return (
+                            <Typography
+                              key={i}
+                              variant="body2"
+                              sx={{
+                                fontFamily:
+                                  "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+                                color: "#eef2ff",
+                                fontSize: "0.95rem",
+                                lineHeight: 1.6,
+                              }}
+                            >
+                              {label}
+                            </Typography>
+                          );
+                        }
+                        if (i === currentLine) {
+                          return (
+                            <TypewriterLine
+                              key={i}
+                              text={label}
+                              start={showSummaryBox && !reduceMotion}
+                              speed={40}
+                              onDone={() =>
+                                setTimeout(
+                                  () =>
+                                    setCurrentLine((n) =>
+                                      Math.min(n + 1, summaries.length)
+                                    ),
+                                  300
+                                )
+                              }
+                            />
+                          );
+                        }
+                        return <Box key={i} />;
+                      })}
                     </Stack>
-                  )}
-                </Box>
-
-                {/* Monitor body */}
-                <Box sx={{ p: 2 }}>
-                  <Stack spacing={0.5}>
-                    {summaries.map((line, i) => {
-                      const label = `Insight ${i + 1}: ${line}`;
-
-                      if (i < currentLine) {
-                        return (
-                          <Typography
-                            key={i}
-                            variant="body2"
-                            sx={{
-                              fontFamily:
-                                "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-                              color: "#eef2ff",
-                              fontSize: "0.95rem",
-                              lineHeight: 1.6,
-                            }}
-                          >
-                            {label}
-                          </Typography>
-                        );
-                      }
-
-                      if (i === currentLine) {
-                        return (
-                          <TypewriterLine
-                            key={i}
-                            text={label}
-                            start={showSummaryBox && !reduceMotion}
-                            speed={40}
-                            onDone={() =>
-                              setTimeout(
-                                () =>
-                                  setCurrentLine((n) =>
-                                    Math.min(n + 1, summaries.length)
-                                  ),
-                                300
-                              )
-                            }
-                          />
-                        );
-                      }
-
-                      return <Box key={i} />;
-                    })}
-
-                    {(reduceMotion || currentLine >= summaries.length) && (
-                      <Box
-                        sx={{ mt: 1.5, textAlign: { xs: "left", sm: "right" } }}
-                      >
+                  </Box>
+                  {/* Action buttons row at bottom */}
+                  <Box
+                    sx={{
+                      mt: "auto",
+                      px: 2,
+                      py: 1.5,
+                      borderTop: "1px solid rgba(99,102,241,0.25)",
+                      bgcolor: "#0d1328",
+                    }}
+                  >
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      justifyContent="space-between"
+                      spacing={2}
+                    >
+                      {doneTyping && (
+                        <Button
+                          onClick={revealCharts}
+                          size="small"
+                          variant="contained"
+                          sx={{ textTransform: "none" }}
+                        >
+                          See the charts
+                        </Button>
+                      )}
+                      {(reduceMotion || currentLine >= summaries.length) && (
                         <Button
                           href="/pulse/join"
                           size="small"
@@ -832,163 +1058,161 @@ export default function PulseMaximiserWidget() {
                         >
                           Love this? Get Pulse — Maximiser included
                         </Button>
-                      </Box>
-                    )}
-                  </Stack>
-                </Box>
-              </Paper>
-            )}
-          </Grid>
-
-          {/* RIGHT: Charts (hidden until data available) */}
-          {showCharts && insights && (
-            <Grid item xs={12} md={7} ref={chartsRef}>
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={12}>
-                  <InsightCard
-                    icon={QueryStatsIcon}
-                    title="Estimation vs Reality"
-                    highlight={highlightFirst}
-                  >
-                    <Stack spacing={2}>
-                      <Stack
-                        direction={{ xs: "column", sm: "row" }}
-                        spacing={3}
-                        alignItems={{ xs: "flex-start", sm: "center" }}
-                      >
-                        <Kpi
-                          label="Tasks analysed"
-                          value={insights.totals.rows}
-                          reduceMotion={reduceMotion}
-                        />
-                        <Kpi
-                          label="Tasks overrun"
-                          value={insights.estimation.overrunPct}
-                          suffix="%"
-                          reduceMotion={reduceMotion}
-                        />
-                        <Kpi
-                          label="Avg error (MAPE)"
-                          value={insights.estimation.mape}
-                          suffix="%"
-                          reduceMotion={reduceMotion}
-                        />
-                      </Stack>
-                      <Box>
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{ mb: 0.5 }}
-                        >
-                          Overrun rate
-                        </Typography>
-                        <LinearProgress
-                          variant="determinate"
-                          value={Math.max(
-                            0,
-                            Math.min(100, insights.estimation.overrunPct)
-                          )}
-                          sx={{
-                            height: 8,
-                            borderRadius: 9999,
-                            "& .MuiLinearProgress-bar": {
-                              transition: reduceMotion
-                                ? "none"
-                                : "transform 800ms ease",
-                            },
-                          }}
-                        />
-                      </Box>
+                      )}
                     </Stack>
-                  </InsightCard>
-                </Grid>
+                  </Box>
+                </Paper>
+              )}
+          </Grid>
+        </Grid>
 
-                <Grid item xs={12} md={12}>
-                  <InsightCard icon={BoltIcon} title="Burnout Radar">
-                    {insights.burnout.flags.length ? (
-                      <Stack spacing={1.5}>
-                        <Alert
-                          severity="warning"
-                          icon={false}
-                          sx={{ fontWeight: 600 }}
-                        >
-                          {
-                            new Set(insights.burnout.flags.map((f) => f.person))
-                              .size
-                          }{" "}
-                          people flagged for weeks over 45h
-                        </Alert>
-                        <Typography variant="body2" color="text.secondary">
-                          Most recent signals
-                        </Typography>
-                        <Stack direction="row" spacing={1} flexWrap="wrap">
-                          {insights.burnout.flags.slice(0, 8).map((f, idx) => (
-                            <Chip
-                              key={`${f.person}-${idx}`}
-                              label={`${f.person} • ${f.week} • ${f.hours.toFixed(0)}h`}
-                            />
-                          ))}
-                        </Stack>
-                      </Stack>
-                    ) : (
-                      <Alert severity="success" icon={false}>
-                        No weeks over 45 hours detected — looking good.
-                      </Alert>
-                    )}
-                  </InsightCard>
-                </Grid>
-
-                <Grid item xs={12} md={12}>
-                  <InsightCard icon={GroupsIcon} title="Team Trends">
-                    {insights.teamTrend.length ? (
-                      <Stack spacing={1.25}>
-                        {(() => {
-                          const maxMag = Math.max(
-                            ...insights.teamTrend.map((t) =>
-                              Math.abs(t.avgOverrun)
-                            )
-                          );
-                          return insights.teamTrend.map((t) => (
-                            <Stack
-                              key={t.team}
-                              direction="row"
-                              alignItems="center"
-                              spacing={1.5}
-                            >
-                              <Typography sx={{ minWidth: 80 }}>
-                                {t.team}
-                              </Typography>
-                              <TrendBar
-                                value={t.avgOverrun}
-                                max={maxMag}
-                                reduceMotion={reduceMotion}
-                              />
-                              <Typography
-                                sx={{ minWidth: 120, textAlign: "right" }}
-                                color={
-                                  t.avgOverrun > 0
-                                    ? "error.main"
-                                    : "success.main"
-                                }
-                              >
-                                {t.avgOverrun > 0 ? "+" : ""}
-                                {t.avgOverrun.toFixed(1)}h avg overrun
-                              </Typography>
-                            </Stack>
-                          ));
-                        })()}
-                      </Stack>
-                    ) : (
-                      <Typography color="text.secondary">
-                        No team data found in this CSV.
+        {/* Charts (full width, below table + summary) */}
+        {showCharts && insights && (
+          <Box ref={chartsRef} sx={{ mt: 3 }}>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <InsightCard
+                  icon={QueryStatsIcon}
+                  title="Estimation vs Reality"
+                  highlight={highlightFirst}
+                >
+                  <Stack spacing={2}>
+                    <Stack
+                      direction={{ xs: "column", sm: "row" }}
+                      spacing={3}
+                      alignItems={{ xs: "flex-start", sm: "center" }}
+                    >
+                      <Kpi
+                        label="Tasks analysed"
+                        value={insights.totals.rows}
+                        reduceMotion={reduceMotion}
+                      />
+                      <Kpi
+                        label="Tasks overrun"
+                        value={insights.estimation.overrunPct}
+                        suffix="%"
+                        reduceMotion={reduceMotion}
+                      />
+                      <Kpi
+                        label="Avg error (MAPE)"
+                        value={insights.estimation.mape}
+                        suffix="%"
+                        reduceMotion={reduceMotion}
+                      />
+                    </Stack>
+                    <Box>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{ mb: 0.5 }}
+                      >
+                        Overrun rate
                       </Typography>
-                    )}
-                  </InsightCard>
-                </Grid>
+                      <LinearProgress
+                        variant="determinate"
+                        value={Math.max(
+                          0,
+                          Math.min(100, insights.estimation.overrunPct)
+                        )}
+                        sx={{
+                          height: 8,
+                          borderRadius: 9999,
+                          "& .MuiLinearProgress-bar": {
+                            transition: reduceMotion
+                              ? "none"
+                              : "transform 800ms ease",
+                          },
+                        }}
+                      />
+                    </Box>
+                  </Stack>
+                </InsightCard>
+              </Grid>
+              {/* Burnout Radar Card */}
+              <Grid item xs={12}>
+                <InsightCard icon={BoltIcon} title="Burnout Radar">
+                  {insights.burnout.flags.length ? (
+                    <Stack spacing={1.5}>
+                      <Alert
+                        severity="warning"
+                        icon={false}
+                        sx={{ fontWeight: 600 }}
+                      >
+                        {
+                          new Set(insights.burnout.flags.map((f) => f.person))
+                            .size
+                        }{" "}
+                        people flagged for weeks over 45h
+                      </Alert>
+                      <Typography variant="body2" color="text.secondary">
+                        Most recent signals
+                      </Typography>
+                      <Stack direction="row" spacing={1} flexWrap="wrap">
+                        {insights.burnout.flags.slice(0, 8).map((f, idx) => (
+                          <Chip
+                            key={`${f.person}-${idx}`}
+                            label={`${f.person} • ${f.week} • ${f.hours.toFixed(0)}h`}
+                          />
+                        ))}
+                      </Stack>
+                    </Stack>
+                  ) : (
+                    <Alert severity="success" icon={false}>
+                      No weeks over 45 hours detected — looking good.
+                    </Alert>
+                  )}
+                </InsightCard>
+              </Grid>
+              {/* Team Trends Card */}
+              <Grid item xs={12}>
+                <InsightCard icon={GroupsIcon} title="Team Trends">
+                  {insights.teamTrend.length ? (
+                    <Stack spacing={1.25}>
+                      {(() => {
+                        const maxMag = Math.max(
+                          ...insights.teamTrend.map((t) =>
+                            Math.abs(t.avgOverrun)
+                          ),
+                          0
+                        );
+                        return insights.teamTrend.map((t) => (
+                          <Stack
+                            key={t.team}
+                            direction="row"
+                            alignItems="center"
+                            spacing={1.5}
+                          >
+                            <Typography sx={{ minWidth: 80 }}>
+                              {t.team}
+                            </Typography>
+                            <TrendBar
+                              value={t.avgOverrun}
+                              max={maxMag || 1}
+                              reduceMotion={reduceMotion}
+                            />
+                            <Typography
+                              sx={{ minWidth: 140, textAlign: "right" }}
+                              color={
+                                t.avgOverrun > 0 ? "error.main" : "success.main"
+                              }
+                            >
+                              {t.avgOverrun > 0 ? "+" : ""}
+                              {t.avgOverrun.toFixed(1)}h avg overrun
+                            </Typography>
+                          </Stack>
+                        ));
+                      })()}
+                    </Stack>
+                  ) : (
+                    <Typography color="text.secondary">
+                      No team data found in this CSV.
+                    </Typography>
+                  )}
+                </InsightCard>
               </Grid>
             </Grid>
-          )}
-        </Grid>
+          </Box>
+        )}
 
         <Divider sx={{ my: 4 }} />
 

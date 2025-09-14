@@ -3,6 +3,7 @@ import AppRouter from "./app/AppRouter";
 import { HelmetProvider } from "react-helmet-async";
 
 import { AlertProvider, AuthProvider } from "./context/";
+import GlobalPrintStyles from "./theme/GlobalPrintStyles";
 // import { userService } from "./services";
 // import { redirect } from "react-router";
 
@@ -34,6 +35,7 @@ function startApp() {
     <HelmetProvider>
       <AuthProvider>
         <AlertProvider>
+          <GlobalPrintStyles />
           <AppRouter />
         </AlertProvider>
       </AuthProvider>

@@ -6,13 +6,12 @@ import {
   useTheme,
   IconButton,
   Paper,
-  MenuItem,
 } from "@mui/material";
-import { customerService, userService } from "../../services";
+import { userService } from "../../services";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 import { useAlert } from "../../context/AlertContext";
@@ -22,33 +21,10 @@ export default function Login() {
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [customers, setCustomers] = useState([]);
   const navigate = useNavigate();
   const { showAlert } = useAlert();
 
-  const alertCallback = useCallback(
-    (message, severity) => {
-      showAlert(message, severity);
-    },
-    [showAlert]
-  );
-
-  useEffect(() => {
-    const loadCustomers = async () => {
-      try {
-        const response = await customerService.getAll();
-        // console.log("Loaded customers:", response);
-        setCustomers(response || []);
-      } catch (err) {
-        logError("Failed to load customers", err);
-        alertCallback("Unable to load customer list", "error");
-      }
-    };
-    loadCustomers();
-  }, [alertCallback]);
-
   const schema = yup.object().shape({
-    customerId: yup.string().required("Customer is required"),
     email: yup
       .string()
       .transform((value) => value?.trim())
@@ -139,38 +115,6 @@ export default function Login() {
               gap: theme.spacing(2),
             }}
           >
-            <Controller
-              name="customerId"
-              control={control}
-              defaultValue=""
-              render={({ field }) => (
-                <TextField
-                  select
-                  label="Select customer *"
-                  fullWidth
-                  value={field.value ?? ""}
-                  onChange={field.onChange}
-                  error={!!errors.customerId}
-                  helperText={errors.customerId?.message}
-                  SelectProps={{ native: false }}
-                  InputLabelProps={{
-                    style: { color: theme.palette.text.primary },
-                  }}
-                >
-                  <MenuItem value="">-- Select customer --</MenuItem>
-                  {(customers || [])
-                    .slice()
-                    .sort((a, b) =>
-                      a.businessName.localeCompare(b.businessName)
-                    )
-                    .map((customer) => (
-                      <MenuItem key={customer.id} value={customer.id}>
-                        {customer.businessName}
-                      </MenuItem>
-                    ))}
-                </TextField>
-              )}
-            />
             <TextField
               label="Email address *"
               type="email"

@@ -13,6 +13,9 @@ import {
   Stack,
   useTheme,
 } from "@mui/material";
+import ChecklistRtlOutlinedIcon from "@mui/icons-material/ChecklistRtlOutlined";
+import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
+import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
 import { useEffect, useRef, useState } from "react";
 import { InsightCards, INSIGHT_CARDS } from "../pulse/maximiser/PulseMaximiser";
 
@@ -31,9 +34,9 @@ export default function PulseLanding() {
 
   useEffect(() => {
     const title =
-      "Pulse — Engagement & Resource Management for Audit Firms | Monochrome Compliance";
+      "Pulse — Engagement & Resource Management for Teams | Monochrome Compliance";
     const description =
-      "Pulse gives professional service businesses clarity on engagements, resources and utilisation — without the admin burden.";
+      "Pulse helps teams and businesses plan work, balance resources and deliver with confidence — without the admin burden.";
     const baseUrl = window.location.origin;
     const pageUrl = `${baseUrl}/pulse`;
     const imageUrl = `${baseUrl}/images/pulse/dashboard1.png`;
@@ -90,6 +93,7 @@ export default function PulseLanding() {
     <>
       {/* FULL-WIDTH BANNER: scrolling scarcity notice */}
       <Box
+        data-role="scroll-banner"
         sx={{
           width: "100%",
           overflow: "hidden",
@@ -105,7 +109,8 @@ export default function PulseLanding() {
           "& .scrolling": {
             display: "inline-block",
             whiteSpace: "nowrap",
-            animation: "scroll-left 15s linear infinite",
+            animation: "scroll-left 25s linear infinite",
+            animationDelay: "2s",
           },
           "@keyframes scroll-left": {
             "0%": { transform: "translateX(100%)" },
@@ -123,9 +128,8 @@ export default function PulseLanding() {
             {/* Scrolling message (left) */}
             <Box sx={{ flex: 1, overflow: "hidden" }}>
               <Box className="scrolling">
-                ⚡ Only {remainingFounderSlots} of {totalFounderSlots}{" "}
-                launch‑cohort spots left — $50/m for 3 months, then $200/m (20
-                users included). ⚡
+                ⚡ Only {remainingFounderSlots} of {totalFounderSlots} early
+                access spots — join the waitlist. ⚡
               </Box>
             </Box>
 
@@ -139,7 +143,7 @@ export default function PulseLanding() {
                 boxShadow: "none",
               }}
             >
-              Join early adopters
+              Join the waitlist
             </Button>
           </Stack>
         </Container>
@@ -193,22 +197,23 @@ export default function PulseLanding() {
                     }}
                     gutterBottom
                   >
-                    AI that turns timesheets into decisions — automatically
+                    One solution for scope, budgets, people, and time.
                   </Typography>
                   <Typography
                     variant="h6"
                     color="text.secondary"
                     sx={{
-                      mb: theme.spacing(3),
+                      mb: theme.spacing(2),
                       fontSize: { xs: "1rem", sm: "1.125rem", md: "1.25rem" },
                       maxWidth: { xs: "38ch", md: "unset" },
                       mx: { xs: "auto", md: 0 },
                     }}
                   >
-                    Pulse analyses your past and current work to flag estimation
-                    drift, burnout signals, and planning risks — then backs it
-                    up with clear charts and workflows your team can act on.
+                    Whether you run projects, teams, or whole departments, Pulse
+                    gives you a single view of plan vs actuals — and AI that
+                    tells you what needs attention
                   </Typography>
+
                   <Box
                     sx={{
                       display: "flex",
@@ -225,16 +230,36 @@ export default function PulseLanding() {
                       href="/pulse/join"
                       sx={{ width: { xs: "100%", sm: "auto" } }}
                     >
-                      Join early adopters
+                      Join the waitlist
                     </Button>
                     <Button
                       variant="outlined"
                       size="large"
-                      href="/pulse/pricing"
+                      href="/pulse/join"
                       sx={{ width: { xs: "100%", sm: "auto" } }}
                     >
-                      See founder pricing
+                      Request a walkthrough
                     </Button>
+                    {/* <Button
+                      className="screen-only"
+                      variant="text"
+                      size="small"
+                      onClick={() => window.print()}
+                      sx={{ width: { xs: "100%", sm: "auto" } }}
+                    >
+                      Print this page (PDF)
+                    </Button> */}
+                  </Box>
+                  <Box sx={{ mt: 1 }}>
+                    <Typography
+                      className="print-url"
+                      variant="caption"
+                      color="text.secondary"
+                      sx={{ display: "none" }}
+                    >
+                      Join: monochrome-compliance.com/pulse/join • Pricing:
+                      monochrome-compliance.com/pulse/pricing
+                    </Typography>
                   </Box>
                 </Grid>
                 <Grid
@@ -282,6 +307,7 @@ export default function PulseLanding() {
 
           {/* HOW IT WORKS */}
           <Box
+            data-role="sticky-cta"
             component="section"
             sx={{ py: { xs: 4, md: 6 }, mt: { xs: 4, md: 6 } }}
           >
@@ -295,7 +321,7 @@ export default function PulseLanding() {
                   color="text.secondary"
                   sx={{ letterSpacing: 1, fontWeight: 700 }}
                 >
-                  HOW PULSE’S AI WORKS
+                  HOW PULSE WORKS
                 </Typography>
                 <Typography
                   variant="h3"
@@ -304,7 +330,7 @@ export default function PulseLanding() {
                     fontSize: { xs: "1.75rem", md: "2rem" },
                   }}
                 >
-                  From raw timesheets to clear actions — in three steps
+                  From plan to improvement — in three steps
                 </Typography>
               </Stack>
 
@@ -312,12 +338,19 @@ export default function PulseLanding() {
                 <Grid item xs={12} md={4}>
                   <Paper variant="outlined" sx={{ p: 2, height: "100%" }}>
                     <Stack spacing={1.5}>
-                      <Typography variant="h6">
-                        1) Upload your timesheets
-                      </Typography>
+                      <Stack direction="row" spacing={1} alignItems="center">
+                        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                          1) Plan
+                        </Typography>
+                        <ChecklistRtlOutlinedIcon
+                          fontSize="medium"
+                          color="action"
+                          aria-hidden
+                        />
+                      </Stack>
                       <Typography color="text.secondary">
-                        Start with what you already have by exporting a CSV of
-                        your existing timesheets. No rip‑and‑replace needed.
+                        Set scope, dates, budgets and roles in minutes. Everyone
+                        starts on the same page.
                       </Typography>
                     </Stack>
                   </Paper>
@@ -326,13 +359,19 @@ export default function PulseLanding() {
                 <Grid item xs={12} md={4}>
                   <Paper variant="outlined" sx={{ p: 2, height: "100%" }}>
                     <Stack spacing={1.5}>
-                      <Typography variant="h6">
-                        2) AI analyses & explains
-                      </Typography>
+                      <Stack direction="row" spacing={1} alignItems="center">
+                        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                          2) Run
+                        </Typography>
+                        <BoltOutlinedIcon
+                          fontSize="medium"
+                          color="action"
+                          aria-hidden
+                        />
+                      </Stack>
                       <Typography color="text.secondary">
-                        Pulse’s AI spots estimation drift, sustained
-                        over‑allocation, and unusual trends, then explains them
-                        in plain English.
+                        Assign people, capture time, and keep work flowing —
+                        without the spreadsheet shuffle.
                       </Typography>
                     </Stack>
                   </Paper>
@@ -341,11 +380,19 @@ export default function PulseLanding() {
                 <Grid item xs={12} md={4}>
                   <Paper variant="outlined" sx={{ p: 2, height: "100%" }}>
                     <Stack spacing={1.5}>
-                      <Typography variant="h6">3) Charts & actions</Typography>
+                      <Stack direction="row" spacing={1} alignItems="center">
+                        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                          3) Improve
+                        </Typography>
+                        <AutoGraphOutlinedIcon
+                          fontSize="medium"
+                          color="action"
+                          aria-hidden
+                        />
+                      </Stack>
                       <Typography color="text.secondary">
-                        See the “why” with clear charts and take the next step —
-                        rebalance workload, adjust plans, or update budgets with
-                        confidence.
+                        AI flags drift, overload and risks with clear next steps
+                        so you can adjust with confidence.
                       </Typography>
                     </Stack>
                   </Paper>
@@ -402,6 +449,13 @@ export default function PulseLanding() {
                   you plan better, protect people from burnout, and deliver with
                   more confidence.
                 </Typography>
+                <Paper
+                  variant="outlined"
+                  sx={{ p: 2, mt: 2, fontStyle: "italic" }}
+                >
+                  “Pulse shows us where projects drift — without managers
+                  chasing timesheets.”
+                </Paper>
               </Stack>
 
               <InsightCards items={maximiserPreviewItems} />
@@ -418,7 +472,7 @@ export default function PulseLanding() {
                   See AI sample insights
                 </Button>
                 <Button href="/pulse/join" variant="contained" size="large">
-                  Join early adopters
+                  Join the waitlist
                 </Button>
               </Stack>
             </Container>
@@ -520,7 +574,7 @@ export default function PulseLanding() {
                       variant="text"
                       sx={{ textTransform: "none" }}
                     >
-                      Join early adopters →
+                      Join the waitlist →
                     </Button>
                   </Box>
                 </Grid>
@@ -639,7 +693,7 @@ export default function PulseLanding() {
                       variant="text"
                       sx={{ textTransform: "none" }}
                     >
-                      Join early adopters →
+                      Join the waitlist →
                     </Button>
                   </Box>
                 </Grid>
@@ -688,7 +742,7 @@ export default function PulseLanding() {
                       variant="text"
                       sx={{ textTransform: "none" }}
                     >
-                      Join early adopters →
+                      Join the waitlist →
                     </Button>
                   </Box>
                 </Grid>
@@ -802,7 +856,7 @@ export default function PulseLanding() {
                       variant="text"
                       sx={{ textTransform: "none" }}
                     >
-                      Join early adopters →
+                      Join the waitlist →
                     </Button>
                   </Box>
                 </Grid>
@@ -820,40 +874,48 @@ export default function PulseLanding() {
                 <Stack
                   direction={{ xs: "column", md: "row" }}
                   spacing={{ xs: 3, md: 4 }}
-                  alignItems={{ xs: "stretch", md: "center" }}
+                  alignItems={{ xs: "stretch", md: "stretch" }}
                   justifyContent="space-between"
                 >
                   {/* Left: Ready to make the move from spreadsheets to clarity and
                       actionable insight? */}
-                  <Box sx={{ flex: 1 }}>
-                    <Typography
-                      variant="h4"
-                      sx={{
-                        fontWeight: 700,
-                        fontSize: {
-                          xs: "1.5rem",
-                          sm: "1.875rem",
-                          md: "2.125rem",
-                        },
-                      }}
-                      gutterBottom
+                  <Box sx={{ flex: 1, display: "flex" }}>
+                    <Stack
+                      spacing={1.5}
+                      alignItems="flex-start"
+                      sx={{ height: "100%" }}
                     >
-                      Ready to make the move from spreadsheets to clarity and
-                      actionable insight?
-                    </Typography>
-                    <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      We’re inviting a small group of professional service
-                      businesses to trial Pulse and steer the product. If the
-                      pains above look familiar, you’re our people.
-                    </Typography>
-                    <Button
-                      variant="outlined"
-                      size="large"
-                      href="/contact"
-                      sx={{ width: { xs: "100%", sm: "auto" } }}
-                    >
-                      Book a 15‑minute intro
-                    </Button>
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          fontWeight: 700,
+                          fontSize: {
+                            xs: "1.5rem",
+                            sm: "1.875rem",
+                            md: "2.125rem",
+                          },
+                        }}
+                      >
+                        Ready to leave spreadsheet juggling behind?
+                      </Typography>
+                      <Typography color="text.secondary">
+                        We’re inviting a small group of teams and businesses to
+                        trial Pulse and help steer the product. Born in
+                        professional services firms, Pulse works anywhere people
+                        run projects with scope, budgets and deadlines.
+                      </Typography>
+                      <Button
+                        variant="outlined"
+                        size="large"
+                        href="/pulse/join"
+                        sx={{
+                          alignSelf: { xs: "stretch", sm: "flex-start" },
+                          mt: "auto",
+                        }}
+                      >
+                        Join the waitlist
+                      </Button>
+                    </Stack>
                   </Box>
 
                   {/* Divider on desktop only */}
@@ -864,27 +926,32 @@ export default function PulseLanding() {
                   />
 
                   {/* Right: Founder pricing */}
-                  <Box sx={{ flex: 1 }}>
-                    <Typography
-                      variant="h4"
-                      sx={{ fontWeight: 700 }}
-                      gutterBottom
+                  <Box sx={{ flex: 1, display: "flex" }}>
+                    <Stack
+                      spacing={1.5}
+                      alignItems="flex-start"
+                      sx={{ height: "100%" }}
                     >
-                      Founder pricing for early adopters
-                    </Typography>
-                    <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      We’re opening a small early‑adopter cohort (first 50
-                      firms) with discounted rates and priority onboarding. See
-                      plan details and availability on the pricing page.
-                    </Typography>
-                    <Button
-                      variant="contained"
-                      size="large"
-                      href="/pulse/pricing"
-                      sx={{ width: { xs: "100%", sm: "auto" }, mt: 2 }}
-                    >
-                      View Pulse pricing
-                    </Button>
+                      <Typography variant="h4" sx={{ fontWeight: 700 }}>
+                        Pilot pricing for early adopters
+                      </Typography>
+                      <Typography color="text.secondary">
+                        We’re opening a small early‑adopter cohort (first 50
+                        firms) with discounted rates and priority onboarding.
+                        See plan details and availability on the pricing page.
+                      </Typography>
+                      <Button
+                        variant="contained"
+                        size="large"
+                        href="/pulse/pricing"
+                        sx={{
+                          alignSelf: { xs: "stretch", sm: "flex-start" },
+                          mt: "auto",
+                        }}
+                      >
+                        View Pulse pricing
+                      </Button>
+                    </Stack>
                   </Box>
                 </Stack>
               </Paper>
@@ -913,7 +980,7 @@ export default function PulseLanding() {
                 fullWidth
                 sx={{ py: 1.25 }}
               >
-                Join early adopters
+                Join the waitlist
               </Button>
             </Container>
           </Box>
