@@ -10,8 +10,8 @@ import {
   Button,
   Typography,
   Tooltip,
-  Alert,
 } from "@mui/material";
+import { useAlert } from "../../context/AlertContext";
 import { LoadingSpinner } from "../../components/ui";
 
 import StepView from "./StepView";
@@ -23,10 +23,7 @@ import { ptrsService, tcpService } from "../../services";
 import { glossary, ptrsGuidance } from "../../constants";
 import { PtrsContext } from "../../context/PtrsContext";
 import { stepConfigs } from "../../config/stepConfigs";
-import {
-  calculatePaymentTerm,
-  calculatePaymentTime,
-} from "../../lib/calculations/ptrs";
+import { getExclusionRules as fetchExclusionRules } from "./exclusions";
 
 const steps = [
   { label: "Step 1: Confirm TCPs", Component: StepView },
@@ -96,49 +93,107 @@ export default function PtrsWizard() {
   const [tcpRecords, setTcpRecords] = useState([]);
 
   useEffect(() => {
-    // If no unsaved edits, or local is empty, sync from context
-    const hasUnsaved =
-      Array.isArray(tcpRecords) && tcpRecords.some((r) => r?.wasChanged);
-    if (!hasUnsaved) {
-      if (Array.isArray(ctxRecords)) setTcpRecords(primeOriginals(ctxRecords));
-    }
-  }, [ctxRecords, tcpRecords]);
+    if (!Array.isArray(ctxRecords)) return;
+    setTcpRecords((prev) => {
+      // If there are unsaved edits, do not clobber local changes
+      const hasUnsaved = Array.isArray(prev) && prev.some((r) => r?.wasChanged);
+      if (hasUnsaved) return prev;
+
+      const next = primeOriginals(ctxRecords);
+
+      // Avoid state updates if nothing effectively changed
+      const sameLength = Array.isArray(prev) && prev.length === next.length;
+      const sameKeys = sameLength
+        ? prev.every(
+            (r, i) =>
+              r?.id === next[i]?.id && r?.updatedAt === next[i]?.updatedAt
+          )
+        : false;
+      if (sameLength && sameKeys) return prev;
+
+      return next;
+    });
+  }, [ctxRecords]);
 
   const [currentStep, setCurrentStep] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [alert, setAlert] = useState(null);
+  // Remove local alert state, use global AlertContext instead
   const [isRecalculating, setIsRecalculating] = useState(false);
+  const [exclusionRules, setExclusionRules] = useState(
+    stepConfigs?.[`step${(currentStep || 0) + 1}`]?.exclusionRules || []
+  );
+
+  const { showAlert } = useAlert();
 
   const { Component } = steps[currentStep];
   const stepConfig = stepConfigs[`step${currentStep + 1}`];
+
+  // Load BE-driven exclusion rules per step, with fallback to stepConfigs
+  useEffect(() => {
+    let cancelled = false;
+
+    const load = async () => {
+      // Only steps 1 and 2 use exclusions
+      if (!(currentStep === 0 || currentStep === 1)) {
+        if (!cancelled) setExclusionRules([]); // clear any previous rules
+        return;
+      }
+
+      try {
+        const rules = await fetchExclusionRules(currentStep + 1, { showAlert });
+        console.log("rules: ", rules);
+        if (!cancelled) setExclusionRules(rules || []);
+      } catch (e) {
+        if (!cancelled) {
+          const fallback =
+            stepConfigs?.[`step${currentStep + 1}`]?.exclusionRules || [];
+          setExclusionRules(fallback);
+        }
+      }
+    };
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, [currentStep, showAlert]);
 
   const updateRecordsWithFlags = useCallback(
     (records) => {
       if (!records || records.length === 0) return records;
 
-      if (
-        !stepConfig.exclusionRules?.length &&
-        !stepConfig.issueRules?.length
-      ) {
-        return records; // Skip flagging altogether for steps 3 and 4
+      const hasExclusions =
+        Array.isArray(exclusionRules) && exclusionRules.length > 0;
+      const hasIssues =
+        Array.isArray(stepConfig?.issueRules) &&
+        stepConfig.issueRules.length > 0;
+      if (!hasExclusions && !hasIssues) {
+        // Skip flagging altogether for steps without any rules
+        return records;
       }
 
       let flaggedRecords = records;
 
-      if (stepConfig.exclusionRules?.length) {
+      if (hasExclusions) {
+        flaggedRecords = getExclusionFlags(flaggedRecords, exclusionRules);
+      } else if (
+        Array.isArray(stepConfig?.exclusionRules) &&
+        stepConfig.exclusionRules.length
+      ) {
+        // Safety: fallback to static config if dynamic rules are empty for some reason
         flaggedRecords = getExclusionFlags(
           flaggedRecords,
           stepConfig.exclusionRules
         );
       }
 
-      if (stepConfig.issueRules?.length) {
+      if (hasIssues) {
         flaggedRecords = getIssueFlags(flaggedRecords, stepConfig.issueRules);
       }
 
       return flaggedRecords;
     },
-    [stepConfig]
+    [exclusionRules, stepConfig]
   );
 
   useEffect(() => {
@@ -161,7 +216,8 @@ export default function PtrsWizard() {
           ? ptrsDetails.find((r) => r?.id === activePtrsId)
           : null;
         if (ctxPtr && ctxPtr.currentStep != null) {
-          setCurrentStep(Math.min(ctxPtr.currentStep, steps.length - 1));
+          const next = Math.min(ctxPtr.currentStep, steps.length - 1);
+          setCurrentStep((prev) => (prev === next ? prev : next));
         }
       } catch (error) {
         console.error("Error loading ptrs records:", error);
@@ -170,7 +226,7 @@ export default function PtrsWizard() {
       }
     }
     loadRecords();
-  }, [activePtrsId, updateRecordsWithFlags, ptrsDetails, refresh]);
+  }, [activePtrsId, ptrsDetails, refresh]);
 
   useEffect(() => {
     if (currentStep === 3 && activePtrsId) {
@@ -207,16 +263,10 @@ export default function PtrsWizard() {
     try {
       if (!activePtrsId) throw new Error("No PTRS id available");
       await ptrsService.patch(activePtrsId, { currentStep: step });
-      setAlert({
-        severity: "success",
-        message: `Progress updated successfully.`,
-      });
+      showAlert("Progress updated successfully.", "success");
     } catch (error) {
       console.error("Failed to save current step:", error);
-      setAlert({
-        severity: "error",
-        message: "Failed to save current step. Please try again.",
-      });
+      showAlert("Failed to save current step. Please try again.", "error");
     }
   };
 
@@ -268,7 +318,7 @@ export default function PtrsWizard() {
         ? tcpRecords.filter((r) => r && r.wasChanged)
         : [];
       if (changed.length === 0) {
-        setAlert({ severity: "info", message: "No changes to save." });
+        showAlert("No changes to save.", "info");
         return;
       }
 
@@ -342,19 +392,16 @@ export default function PtrsWizard() {
       }
 
       if (failures > 0) {
-        setAlert({
-          severity: "warning",
-          message: `${successes} record(s) saved, ${failures} failed.`,
-        });
+        showAlert(
+          `${successes} record(s) saved, ${failures} failed.`,
+          "warning"
+        );
       } else {
-        setAlert({
-          severity: "success",
-          message: `${successes} record(s) saved.`,
-        });
+        showAlert(`${successes} record(s) saved.`, "success");
       }
     } catch (error) {
       console.error("Failed to save updated records:", error);
-      setAlert({ severity: "error", message: "Failed to save updates." });
+      showAlert("Failed to save updates.", "error");
     }
   };
 
@@ -427,6 +474,18 @@ export default function PtrsWizard() {
     }
   }
 
+  // Apply exclusion/issue flags to records when rules or step change (Steps 1 & 2)
+  useEffect(() => {
+    const isStepNeedingFlags = currentStep === 0 || currentStep === 1;
+    if (!isStepNeedingFlags) return;
+    setTcpRecords((prev) => {
+      if (!Array.isArray(prev) || prev.length === 0) return prev;
+      // Recompute flags only; does not clobber edits or __orig
+      const next = updateRecordsWithFlags(prev);
+      return next;
+    });
+  }, [currentStep, exclusionRules, updateRecordsWithFlags]);
+
   useEffect(() => {
     const handleBeforeUnload = (e) => {
       const hasUnsavedChanges = Array.isArray(tcpRecords)
@@ -467,16 +526,6 @@ export default function PtrsWizard() {
       }}
     >
       <Box sx={{ pt: 2, px: 3 }}>
-        {alert && (
-          <Alert
-            severity={alert.severity}
-            onClose={() => setAlert(null)}
-            sx={{ mb: 2 }}
-          >
-            {alert.message}
-          </Alert>
-        )}
-
         {stepConfig.canRecalculate && (tcpRecords?.length || 0) > 0 && (
           <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
             <Button
@@ -485,16 +534,13 @@ export default function PtrsWizard() {
                 setIsRecalculating(true);
                 try {
                   await recomputeFlags();
-                  setAlert({
-                    severity: "success",
-                    message: "Derived fields recalculated successfully.",
-                  });
+                  showAlert(
+                    "Derived fields recalculated successfully.",
+                    "success"
+                  );
                 } catch (err) {
                   console.error("Recalculation failed", err);
-                  setAlert({
-                    severity: "error",
-                    message: "Recalculation failed. Please try again.",
-                  });
+                  showAlert("Recalculation failed. Please try again.", "error");
                 } finally {
                   setIsRecalculating(false);
                 }

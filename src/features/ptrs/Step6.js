@@ -16,10 +16,10 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { calculateFinalMetrics } from "../../lib/calculations/ptrs";
 import { CheckBox } from "@mui/icons-material";
-import { useReportContext } from "../../context";
+import { usePtrsContext } from "../../context";
 
 export default function Step6() {
-  const { records } = useReportContext();
+  const { records } = usePtrsContext();
 
   // Compute metrics from records if present, otherwise use empty/default
   const metrics = calculateFinalMetrics(records ?? []);

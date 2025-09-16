@@ -64,10 +64,8 @@ export default function CollapsibleTable({
   const [collapsedGroups, setCollapsedGroups] = useState({});
   const [sortConfig, setSortConfig] = useState(DEFAULT_SORT_CONFIG);
   const [upliftOpen, setUpliftOpen] = useState(false);
-  // A record is "incomplete" if it has an issue or a recommended exclusion
-  const hasIncomplete = rows.some((r) => {
-    return Boolean(r.hasIssue) || Boolean(r.hasExclusion);
-  });
+  // Show the fix button only when there are actual issues (errors), not mere exclusions
+  const hasErrors = rows.some((r) => Boolean(r.hasIssue));
 
   const toggleGroup = useCallback(
     (group) =>
@@ -105,9 +103,16 @@ export default function CollapsibleTable({
       const passesExact = Object.entries(sortConfig?.filtersExact || {}).every(
         ([key, value]) => {
           if (!value) return true;
+          const derived =
+            key === "flagStatus"
+              ? record.hasIssue
+                ? "issue"
+                : record.hasExclusion
+                  ? "exclusion"
+                  : "none"
+              : record[key];
           return (
-            String(record[key] ?? "").toLowerCase() ===
-            String(value).toLowerCase()
+            String(derived ?? "").toLowerCase() === String(value).toLowerCase()
           );
         }
       );
@@ -115,7 +120,15 @@ export default function CollapsibleTable({
       const passesFuzzy = Object.entries(sortConfig?.filtersFuzzy || {}).every(
         ([key, value]) => {
           if (!value) return true;
-          return String(record[key] ?? "")
+          const derived =
+            key === "flagStatus"
+              ? record.hasIssue
+                ? "issue"
+                : record.hasExclusion
+                  ? "exclusion"
+                  : "none"
+              : record[key];
+          return String(derived ?? "")
             .toLowerCase()
             .includes(String(value).toLowerCase());
         }
@@ -144,7 +157,7 @@ export default function CollapsibleTable({
 
   return (
     <>
-      {hasIncomplete && (
+      {hasErrors && (
         <Button
           variant="contained"
           color="primary"
@@ -348,7 +361,7 @@ export default function CollapsibleTable({
                       color: theme.palette.text.primary,
                     }}
                   >
-                    ⚠️ 🧠
+                    ⚠️ ✨
                     <TextField
                       size="small"
                       variant="standard"
@@ -545,7 +558,7 @@ export default function CollapsibleTable({
                       <TableCell>
                         {record.hasExclusion ? (
                           <Tooltip title="Recommended Exclusion">
-                            <Typography fontWeight="bold">🧠</Typography>
+                            <Typography fontWeight="bold">✨</Typography>
                           </Tooltip>
                         ) : record.hasIssue ? (
                           <Tooltip title="Issue">

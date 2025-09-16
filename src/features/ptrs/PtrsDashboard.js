@@ -109,15 +109,42 @@ export default function PtrsDashboard() {
         <TableCell>
           {new Date(row.reportingPeriodEndDate).toISOString().split("T")[0]}
         </TableCell>
-        <TableCell>{row.ptrsStatus}</TableCell>
+        <TableCell>{row.status}</TableCell>
         <TableCell>
-          {row.ptrsStatus === "Validated" ? (
+          {row.status === "Validated" ? (
             <Button
               variant="contained"
               color="primary"
               onClick={() => continuePtrs(row)}
             >
               Continue Submission
+            </Button>
+          ) : row.status === "Created" ? (
+            <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+              <Button
+                variant="contained"
+                color="primary"
+                disabled
+                title="Report was created, but no records are linked yet. Open Data Import & Review to prepare your data."
+              >
+                Resume Report
+              </Button>
+              <Button
+                variant="outlined"
+                color="primary"
+                onClick={() => navigate("/data/ptrs/console")}
+              >
+                Open Data Module
+              </Button>
+            </Box>
+          ) : row.status === "Cancelled" ? (
+            <Button
+              variant="contained"
+              color="primary"
+              disabled
+              title="This report is cancelled and cannot be resumed"
+            >
+              Resume Report
             </Button>
           ) : (
             <Button
@@ -155,25 +182,53 @@ export default function PtrsDashboard() {
         </Typography>
       )}
 
-      {/* Data Preparation Section */}
-      <Card sx={{ marginTop: theme.spacing(4) }}>
-        <CardContent>
-          <Typography variant="h5" gutterBottom>
-            Data Preparation
-          </Typography>
-          <Typography variant="body2" color="textSecondary" gutterBottom>
-            Upload and validate your payment data before creating a report.
-          </Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => navigate("/data/ptrs/console")}
-            sx={{ mt: 2 }}
-          >
-            Go to Data Import & Review
-          </Button>
-        </CardContent>
-      </Card>
+      {/* Top Row: Data Prep (left) + Metrics (right) */}
+      <Grid container spacing={3} sx={{ marginTop: theme.spacing(4) }}>
+        {/* Data Preparation Section */}
+        <Grid item xs={12} md={6}>
+          <Card>
+            <CardContent>
+              <Typography variant="h5" gutterBottom>
+                Data Preparation
+              </Typography>
+              <Typography variant="body2" color="textSecondary" gutterBottom>
+                Upload and validate your payment data before creating a report.
+              </Typography>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => navigate("/data/ptrs/console")}
+                sx={{ mt: 2 }}
+              >
+                Go to Data Import & Review
+              </Button>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Metrics Dashboard Section */}
+        <Grid item xs={12} md={6}>
+          <Card>
+            <CardContent>
+              <Typography variant="h5" gutterBottom>
+                Metrics Dashboard
+              </Typography>
+              <Typography variant="body2" color="textSecondary" gutterBottom>
+                View validation stats, record counts, and key insights for your
+                PTRS dataset.
+              </Typography>
+              <Button
+                variant="outlined"
+                color="primary"
+                onClick={() => navigate("/ptrs/metrics")}
+                sx={{ mt: 2 }}
+              >
+                Open Metrics
+              </Button>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
 
       {/* Report Management Section */}
       <Card sx={{ marginTop: theme.spacing(6) }}>

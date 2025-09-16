@@ -44,12 +44,23 @@ async function getMetricsSnapshot(reportId) {
   return await fetchWrapper.get(`${baseUrlDash}/${reportId}/snapshot`);
 }
 
-async function getDashboardSignals(reportId) {
-  const response = await fetchWrapper.get(`${baseUrlDash}/${reportId}/signals`);
-  // console.log("Dashboard signals response:", response);
+async function getDashboardSignals(reportId, params) {
+  const qs =
+    params?.start && params?.end
+      ? `?start=${encodeURIComponent(params.start)}&end=${encodeURIComponent(params.end)}`
+      : "";
+  const response = await fetchWrapper.get(
+    `${baseUrlDash}/${reportId}/signals${qs}`
+  );
   return response;
 }
 
-async function getDashboardExtendedMetrics(reportId) {
-  return await fetchWrapper.get(`${baseUrlDash}/${reportId}/extended-metrics`);
+async function getDashboardExtendedMetrics(reportId, params) {
+  const qs =
+    params?.start && params?.end
+      ? `?start=${encodeURIComponent(params.start)}&end=${encodeURIComponent(params.end)}`
+      : "";
+  return await fetchWrapper.get(
+    `${baseUrlDash}/${reportId}/extended-metrics${qs}`
+  );
 }

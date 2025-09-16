@@ -62,39 +62,111 @@ const StatCard = ({ title, value }) => {
 export default function PtrsMetricsDashboard() {
   const theme = useTheme();
   const { getDashboardSignals, getDashboardExtendedMetrics } = dashboardService;
-  const { reportDetails } = usePtrsContext();
-  const reportId = reportDetails?.[0]?.id;
+  const { ptrsDetails } = usePtrsContext();
+  const ptrsId = ptrsDetails?.[0]?.id;
+
+  // derive defaults from context
+  const ptrsStart = ptrsDetails?.[0]?.reportingPeriodStartDate || null;
+  const ptrsEnd = ptrsDetails?.[0]?.reportingPeriodEndDate || null;
+
+  const [selectedPeriod, setSelectedPeriod] = useState(() =>
+    ptrsStart && ptrsEnd
+      ? { key: "ptrs", start: ptrsStart, end: ptrsEnd }
+      : { key: "all", start: null, end: null }
+  );
+
+  const periodOptions = [
+    {
+      key: "ptrs",
+      label: "PTRS reporting period",
+      start: ptrsStart,
+      end: ptrsEnd,
+    },
+    {
+      key: "all",
+      label: "All data",
+      start: null,
+      end: null,
+    },
+    {
+      key: "jan-jun-2025",
+      label: "Jan–Jun 2025",
+      start: "2025-01-01",
+      end: "2025-06-30",
+    },
+    {
+      key: "jul-dec-2024",
+      label: "Jul–Dec 2024",
+      start: "2024-07-01",
+      end: "2024-12-31",
+    },
+    {
+      key: "jan-jun-2024",
+      label: "Jan–Jun 2024",
+      start: "2024-01-01",
+      end: "2024-06-30",
+    },
+    {
+      key: "jul-dec-2023",
+      label: "Jul–Dec 2023",
+      start: "2023-07-01",
+      end: "2023-12-31",
+    },
+  ];
+
+  const setPeriodByKey = (key) => {
+    const p = periodOptions.find((x) => x.key === key);
+    if (p) setSelectedPeriod({ key: p.key, start: p.start, end: p.end });
+  };
+
+  const normalizeDate = (d) => {
+    if (!d) return null;
+    // Accept Date or string; return YYYY-MM-DD
+    if (typeof d === "string") return d.slice(0, 10);
+    try {
+      return new Date(d).toISOString().slice(0, 10);
+    } catch {
+      return null;
+    }
+  };
 
   useEffect(() => {
-    if (!reportId) return;
+    if (!ptrsId) return;
 
-    const currentKey = `tcp_records_${reportId}`;
+    const currentKey = `tcp_records_${ptrsId}`;
     Object.keys(sessionStorage).forEach((key) => {
       if (key.startsWith("tcp_records_") && key !== currentKey) {
         sessionStorage.removeItem(key);
       }
     });
-  }, [reportId]);
-  //   console.log("Ptrs ID:", reportId);
+  }, [ptrsId]);
+  //   console.log("Ptrs ID:", ptrsId);
 
   const [signals, setSignals] = useState(null);
 
   useEffect(() => {
     const loadSignals = async () => {
       try {
+        const start = normalizeDate(selectedPeriod?.start);
+        const end = normalizeDate(selectedPeriod?.end);
+        const params = start && end ? { start, end } : undefined;
+        console.log("[PTRS Metrics] fetching with:", { ptrsId, params });
         const [core, extended] = await Promise.all([
-          getDashboardSignals(reportId),
-          getDashboardExtendedMetrics(reportId),
+          getDashboardSignals(ptrsId, params),
+          getDashboardExtendedMetrics(ptrsId, params),
         ]);
-        const merged = { ...core, ...extended };
-        console.log("Fetched dashboard signals:", merged);
-        setSignals(merged);
+        setSignals({ ...core, ...extended });
       } catch (err) {
         console.error("Failed to fetch dashboard signals:", err);
       }
     };
-    if (reportId) loadSignals();
-  }, [reportId, getDashboardSignals, getDashboardExtendedMetrics]);
+    if (ptrsId) loadSignals();
+  }, [
+    ptrsId,
+    selectedPeriod,
+    getDashboardSignals,
+    getDashboardExtendedMetrics,
+  ]);
 
   if (!signals) {
     console.log("No signals found.");
@@ -172,18 +244,25 @@ export default function PtrsMetricsDashboard() {
         </Typography>
 
         <FormControl size="small" sx={{ minWidth: 180 }}>
-          <InputLabel id="report-period-select-label">
+          <InputLabel id="ptrs-period-select-label">
             Reporting Period
           </InputLabel>
           <Select
-            labelId="report-period-select-label"
-            id="report-period-select"
-            value=""
+            labelId="ptrs-period-select-label"
+            id="ptrs-period-select"
+            value={selectedPeriod?.key || "all"}
             label="Reporting Period"
+            onChange={(e) => setPeriodByKey(e.target.value)}
           >
-            <MenuItem value="jul-dec-2024">Jul–Dec 2024</MenuItem>
-            <MenuItem value="jan-jun-2024">Jan–Jun 2024</MenuItem>
-            <MenuItem value="jul-dec-2023">Jul–Dec 2023</MenuItem>
+            {periodOptions.map((p) => (
+              <MenuItem
+                key={p.key}
+                value={p.key}
+                disabled={p.key !== "all" && (!p.start || !p.end)}
+              >
+                {p.label}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
 
