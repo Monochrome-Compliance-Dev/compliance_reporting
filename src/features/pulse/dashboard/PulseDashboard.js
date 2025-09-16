@@ -639,6 +639,41 @@ const PulseDashboard = () => {
       </Box>
 
       <Grid container spacing={2}>
+        {/* Quick Access: Maximiser */}
+        <Grid item xs={12} sm={6} lg={4}>
+          <Paper
+            variant="outlined"
+            sx={{
+              p: 3,
+              height: CARD_HEIGHT,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Typography variant="h6" gutterBottom>
+              Maximiser
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              AI‑assisted insights for timesheets and engagements.
+            </Typography>
+            <Box sx={{ mt: "auto", display: "flex", gap: 1 }}>
+              <Button
+                component={Link}
+                to="/pulse-solution/maximiser"
+                variant="contained"
+              >
+                Open Maximiser
+              </Button>
+              <Button
+                component={Link}
+                to="/pulse-solution/admin"
+                variant="text"
+              >
+                Admin Console
+              </Button>
+            </Box>
+          </Paper>
+        </Grid>
         {/* MVP Charts */}
         <Grid item xs={12} sm={6} lg={4}>
           <Paper
