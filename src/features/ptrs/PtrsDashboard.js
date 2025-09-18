@@ -43,7 +43,7 @@ export default function PtrsDashboard() {
       setError("Failed to load ptrs");
     });
   }, [refreshPtrs]);
-  console.log("ptrsDetails in Dashboard:", ptrsDetails);
+  // console.log("ptrsDetails in Dashboard:", ptrsDetails);
 
   const ptrsList = [
     {
