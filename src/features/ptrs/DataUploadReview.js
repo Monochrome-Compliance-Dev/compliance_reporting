@@ -18,6 +18,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TablePagination,
   Accordion,
   AccordionSummary,
   AccordionDetails,
@@ -43,6 +44,12 @@ const DataUploadReview = ({
   errorsTotal,
   onErrorsPageChange,
   onErrorsPageSizeChange,
+  // optional pagination props for valid records
+  validPage,
+  validPageSize,
+  validTotal,
+  onValidPageChange,
+  onValidPageSizeChange,
 }) => {
   // console.log(
   //   "errors, validRecordsPreview, onErrorsUpdated,  onRecordsUpdated,  onRefreshClick:",
@@ -70,6 +77,7 @@ const DataUploadReview = ({
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [pendingDeleteIds, setPendingDeleteIds] = useState([]);
   const [pendingDeleteType, setPendingDeleteType] = useState("error"); // "error" | "valid"
+  const [validCountOverride, setValidCountOverride] = useState(null);
   // --- Delete confirmation dialog helpers ---
   const openDeleteDialog = (ids, type = "error") => {
     if (!Array.isArray(ids) || ids.length === 0) return;
@@ -162,6 +170,20 @@ const DataUploadReview = ({
     () =>
       `⚠️ ${errorsAll} errors${errorsAll !== errorsShown ? ` (${errorsShown} shown)` : ""}`,
     [errorsAll, errorsShown]
+  );
+
+  const validShown = useMemo(
+    () => (Array.isArray(validRows) ? validRows.length : 0),
+    [validRows]
+  );
+  const validAll = useMemo(
+    () =>
+      Number.isFinite(validTotal)
+        ? Number(validTotal)
+        : Number.isFinite(validCountOverride)
+          ? Number(validCountOverride)
+          : validShown,
+    [validTotal, validCountOverride, validShown]
   );
 
   const preValidatedErrors = useMemo(() => {
@@ -275,8 +297,102 @@ const DataUploadReview = ({
   // }, [safeErrors, showAlert]); // Remove errors and showAlert from dependency array to prevent infinite loop
 
   useEffect(() => {
-    setValidRows(validRecordsPreview);
+    // If parent didn't pass validTotal, fetch a tiny page of errors to read validTotal from API
+    if (Number.isFinite(validTotal)) return;
+    if (!activePtrsId) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await tcpService.getErrorsByPtrsId(activePtrsId, {
+          page: 1,
+          pageSize: 1,
+        });
+        if (!cancelled && res && typeof res.validTotal === "number") {
+          setValidCountOverride(res.validTotal);
+        }
+      } catch (e) {
+        // noop: this is best-effort to show valid count
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [activePtrsId, validTotal]);
+
+  useEffect(() => {
+    // Only adopt the parent's preview when it actually contains rows.
+    // Prevents clobbering fetched rows with an empty [] from the parent.
+    if (Array.isArray(validRecordsPreview) && validRecordsPreview.length > 0) {
+      setValidRows(validRecordsPreview);
+    }
   }, [validRecordsPreview]);
+
+  // If parent doesn't provide validRecordsPreview, fetch a preview page of valid rows
+  useEffect(() => {
+    if (!activePtrsId) return;
+    if (!(validAll > 0)) return;
+
+    let cancelled = false;
+    (async () => {
+      try {
+        // Pick whichever service function exists in this branch
+        const fetchFn =
+          tcpService.getByPtrsId ??
+          tcpService.listByPtrsId ??
+          tcpService.getValidByPtrsId;
+
+        if (!fetchFn) {
+          console.warn(
+            "[DataUploadReview] No tcpService preview method found (expected getByPtrsId/listByPtrsId/getValidByPtrsId)"
+          );
+          setValidRows([]);
+          return;
+        }
+
+        const res = await fetchFn.call(tcpService, activePtrsId, {
+          page: validPage || 1,
+          pageSize: validPageSize || 50,
+        });
+        // console.log("[DataUploadReview] Valid rows response:", res);
+        if (cancelled) return;
+
+        // Normalise common API shapes for rows
+        const d = res?.data ?? res;
+        const rows =
+          (Array.isArray(d) && d) ||
+          (Array.isArray(d?.rows) && d.rows) ||
+          (Array.isArray(res?.rows) && res.rows) ||
+          (Array.isArray(d?.items) && d.items) ||
+          (Array.isArray(res?.items) && res.items) ||
+          [];
+
+        if (
+          (validAll || 0) > 0 &&
+          (!Array.isArray(rows) || rows.length === 0)
+        ) {
+          console.warn(
+            "[DataUploadReview] BE returned 0 valid rows for this page despite validAll>",
+            validAll,
+            { page: validPage || 1, pageSize: validPageSize || 50, d: d }
+          );
+          // Optional UX hint
+          try {
+            showAlert &&
+              showAlert("No valid rows returned for this page.", "warning");
+          } catch (_) {}
+        }
+
+        setValidRows(Array.isArray(rows) ? rows : []);
+      } catch (err) {
+        console.warn("[DataUploadReview] Failed to fetch valid preview:", err);
+        setValidRows([]);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [activePtrsId, validAll, validPage, validPageSize]);
 
   const groupedErrors = useMemo(() => {
     const groups = {};
@@ -432,7 +548,7 @@ const DataUploadReview = ({
               }}
             >
               <Chip
-                label={`✅ ${validRows.length} valid (preview)`}
+                label={`✅ ${validAll} valid${validAll !== validShown ? ` (${validShown} shown)` : ""}`}
                 color="success"
                 variant="outlined"
               />
@@ -595,12 +711,10 @@ const DataUploadReview = ({
 
                     try {
                       const CHUNK_SIZE = 100;
-                      let saved = 0;
                       for (let i = 0; i < toPromote.length; i += CHUNK_SIZE) {
                         const chunk = toPromote.slice(i, i + CHUNK_SIZE);
                         // eslint-disable-next-line no-await-in-loop
                         await tcpService.resolveErrors(chunk);
-                        saved += chunk.length;
                       }
                       const promotedIds = new Set(toPromote.map((r) => r.id));
                       const updatedErrors = safeErrors.filter(
@@ -967,11 +1081,12 @@ const DataUploadReview = ({
               </>
             ) : null}
 
-            {validRows.length > 0 && (
+            {validAll > 0 && (
               <Accordion sx={{ mt: 3 }}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                   <Typography>
-                    Preview Valid Rows ({validRows.length})
+                    Valid Rows ({validAll}
+                    {validAll !== validShown ? ` (${validShown} shown)` : ""})
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -1012,6 +1127,19 @@ const DataUploadReview = ({
                       Delete selected
                     </Button>
                   </Box>
+                  <TablePagination
+                    component="div"
+                    count={validAll}
+                    page={validPage ? validPage - 1 : 0}
+                    onPageChange={(e, newPage) =>
+                      onValidPageChange?.(newPage + 1)
+                    }
+                    rowsPerPage={validPageSize || 50}
+                    onRowsPerPageChange={(e) =>
+                      onValidPageSizeChange?.(parseInt(e.target.value, 10))
+                    }
+                    rowsPerPageOptions={[10, 25, 50, 100]}
+                  />
                   <TableContainer>
                     <Table size="small">
                       <TableHead>
