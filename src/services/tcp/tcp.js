@@ -2,6 +2,7 @@ import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
 
 // --- DIAGNOSTIC ONLY: trace who calls getErrorsByPtrsId and prevent rapid duplicates
 const __errorsInFlight = new Map();
+const __validInFlight = new Map();
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/tcp`;
 const refsBase = `${process.env.REACT_APP_API_URL}/tcp/references`;
@@ -41,6 +42,9 @@ export const tcpService = {
   downloadSummaryPtrs,
   upload,
   getErrorsByPtrsId,
+  getValidByPtrsId,
+  getByPtrsId,
+  listByPtrsId,
   recalculateMetrics,
   resolveErrors,
   // Reference Data (Gov Entities - global)
@@ -78,10 +82,35 @@ async function getAll() {
 }
 
 async function getAllByPtrsId(ptrsId, params) {
+  // Default to first page of 50 if caller didn't specify
+  if (
+    !params ||
+    (!Number.isFinite(params.page) && !Number.isFinite(params.pageSize))
+  ) {
+    params = { page: 1, pageSize: 50 };
+  }
+
   const qs = buildRangeQs(params);
-  const response = await fetchWrapper.get(`${baseUrl}/ptrs/${ptrsId}${qs}`);
-  // console.log("Fetched TCP records for ptrsId:", ptrsId, response);
-  return response;
+  // Avoid 304 (Not Modified) empty-body responses confusing our preview logic
+  const qsWithCB = qs ? `${qs}&_=${Date.now()}` : `?_=${Date.now()}`;
+  const key = `${ptrsId}|${qsWithCB}`;
+  if (__validInFlight.has(key)) {
+    return __validInFlight.get(key);
+  }
+
+  const p = (async () => {
+    try {
+      const res = await fetchWrapper.get(
+        `${baseUrl}/ptrs/${ptrsId}${qsWithCB}`
+      );
+      return res;
+    } finally {
+      __validInFlight.delete(key);
+    }
+  })();
+
+  __validInFlight.set(key, p);
+  return p;
 }
 
 async function patchRecord(id, updates) {
@@ -99,6 +128,48 @@ async function patchErrorRecord(id, updates) {
 async function getTcpByPtrsId(ptrsId, params) {
   const qs = buildRangeQs(params);
   return await fetchWrapper.get(`${baseUrl}/ptrs/${ptrsId}${qs}`);
+}
+
+async function getValidByPtrsId(ptrsId, params) {
+  // Default to first page of 50 if caller didn't specify
+  if (
+    !params ||
+    (!Number.isFinite(params.page) && !Number.isFinite(params.pageSize))
+  ) {
+    params = { page: 1, pageSize: 50 };
+  }
+
+  const qs = buildRangeQs(params);
+  // Add cache-buster to prevent browsers returning 304 with no body
+  const qsWithCB = qs ? `${qs}&_=${Date.now()}` : `?_=${Date.now()}`;
+  const key = `${ptrsId}|${qsWithCB}`;
+  if (__validInFlight.has(key)) {
+    return __validInFlight.get(key);
+  }
+
+  const p = (async () => {
+    try {
+      const url = `${baseUrl}/ptrs/${encodeURIComponent(ptrsId)}${qsWithCB}`;
+      const resp = await fetchWrapper.get(url);
+      // DIAGNOSTIC: confirm we are calling for a page of valid rows
+      try {
+      } catch (_) {}
+      return resp;
+    } finally {
+      __validInFlight.delete(key);
+    }
+  })();
+
+  __validInFlight.set(key, p);
+  return p;
+}
+
+// Back-compat: aliases for previewing valid rows
+async function getByPtrsId(ptrsId, params) {
+  return getValidByPtrsId(ptrsId, params);
+}
+async function listByPtrsId(ptrsId, params) {
+  return getValidByPtrsId(ptrsId, params);
 }
 
 async function sbiUpdate(ptrsId, params) {
@@ -174,16 +245,19 @@ async function getErrorsByPtrsId(ptrsId, params) {
   }
 
   const qs = buildRangeQs(params);
+  const qsWithCB = qs ? `${qs}&_=${Date.now()}` : `?_=${Date.now()}`;
 
   // In-flight guard to avoid overlapping duplicate requests from the same caller
-  const key = `${ptrsId}|${qs}`;
+  const key = `${ptrsId}|${qsWithCB}`;
   if (__errorsInFlight.has(key)) {
     return __errorsInFlight.get(key);
   }
 
   const p = (async () => {
     try {
-      return await fetchWrapper.get(`${baseUrl}/errors/${ptrsId}${qs}`);
+      return await fetchWrapper.get(
+        `${baseUrl}/errors/${encodeURIComponent(ptrsId)}${qsWithCB}`
+      );
     } finally {
       __errorsInFlight.delete(key);
     }
