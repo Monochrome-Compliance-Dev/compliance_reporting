@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router";
 import {
   Dialog,
@@ -27,17 +27,22 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tcpService, dcService, ptrsService } from "../../services";
-import { useAlert } from "../../context/AlertContext";
 import PayeesMissingAbnTable from "./PayeesMissingAbnTable";
 import { getFieldLabel } from "./fieldMeta";
-import { usePtrsContext } from "../../context";
+import { useAlert, usePtrsContext } from "../../context";
 
 const DataUploadReview = ({
   errors = [],
   validRecordsPreview = [],
   onErrorsUpdated,
   onRecordsUpdated,
-  onRefreshClick, // <-- new optional callback
+  onRefreshClick, // provided by parent
+  // optional pagination props from parent
+  errorsPage,
+  errorsPageSize,
+  errorsTotal,
+  onErrorsPageChange,
+  onErrorsPageSizeChange,
 }) => {
   // console.log(
   //   "errors, validRecordsPreview, onErrorsUpdated,  onRecordsUpdated,  onRefreshClick:",
@@ -47,8 +52,7 @@ const DataUploadReview = ({
   //   onRecordsUpdated,
   //   onRefreshClick
   // );
-  const [remoteErrors, setRemoteErrors] = useState([]);
-  const [loadingErrors, setLoadingErrors] = useState(false);
+  const [loadingErrors] = useState(false);
   const [validRows, setValidRows] = useState(validRecordsPreview);
   const [editedRows, setEditedRows] = useState({});
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -90,7 +94,6 @@ const DataUploadReview = ({
         const updatedErrors = safeErrors.filter((e) => !idSet.has(e.id));
         const updatedValid = (validRows || []).filter((v) => !idSet.has(v.id));
         onRecordsUpdated?.(updatedErrors, updatedValid);
-        setRemoteErrors(updatedErrors);
         onErrorsUpdated?.(updatedErrors);
 
         setSelectedRowIds((prev) => {
@@ -140,11 +143,26 @@ const DataUploadReview = ({
     return issues;
   };
 
-  const safeErrors = useMemo(() => {
-    const source =
-      remoteErrors && remoteErrors.length > 0 ? remoteErrors : errors;
-    return Array.isArray(source) ? source : [];
-  }, [errors, remoteErrors]);
+  const safeErrors = useMemo(
+    () => (Array.isArray(errors) ? errors : []),
+    [errors]
+  );
+
+  // Derive paged vs total error counts for chips
+  const errorsShown = safeErrors.length;
+  const errorsAll = useMemo(
+    () => (Number.isFinite(errorsTotal) ? Number(errorsTotal) : errorsShown),
+    [errorsTotal, errorsShown]
+  );
+  const totalRows = useMemo(
+    () => (validRows?.length || 0) + errorsAll,
+    [validRows, errorsAll]
+  );
+  const errorsChipLabel = useMemo(
+    () =>
+      `⚠️ ${errorsAll} errors${errorsAll !== errorsShown ? ` (${errorsShown} shown)` : ""}`,
+    [errorsAll, errorsShown]
+  );
 
   const preValidatedErrors = useMemo(() => {
     return safeErrors.map((row) => ({
@@ -245,26 +263,6 @@ const DataUploadReview = ({
     const all = new Set((validRows || []).map((r) => r.id).filter(Boolean));
     setSelectedValidIds(all);
   };
-
-  const fetchErrorsFromDb = useCallback(async () => {
-    if (!activePtrsId) return;
-    try {
-      setLoadingErrors(true);
-      const res = await tcpService.getErrorsByPtrsId(activePtrsId);
-      if (Array.isArray(res)) {
-        setRemoteErrors(res);
-        onErrorsUpdated?.(res);
-      }
-    } catch (e) {
-      console.error("Failed to fetch tcp_error rows:", e);
-    } finally {
-      setLoadingErrors(false);
-    }
-  }, [activePtrsId, onErrorsUpdated]);
-
-  useEffect(() => {
-    fetchErrorsFromDb();
-  }, [validRecordsPreview, fetchErrorsFromDb]);
 
   // useEffect(() => {
   //   // Prevent repeated alerts by only showing on mount (or initial render)
@@ -434,17 +432,13 @@ const DataUploadReview = ({
               }}
             >
               <Chip
-                label={`✅ ${validRows.length} valid`}
+                label={`✅ ${validRows.length} valid (preview)`}
                 color="success"
                 variant="outlined"
               />
+              <Chip label={errorsChipLabel} color="error" variant="outlined" />
               <Chip
-                label={`⚠️ ${safeErrors.length} errors`}
-                color="error"
-                variant="outlined"
-              />
-              <Chip
-                label={`📄 ${validRows.length + safeErrors.length} total`}
+                label={`📄 ${totalRows} total`}
                 color="default"
                 variant="outlined"
               />
@@ -459,7 +453,7 @@ const DataUploadReview = ({
                     variant="outlined"
                     size="small"
                     sx={{ ml: "auto" }}
-                    onClick={onRefreshClick || fetchErrorsFromDb}
+                    onClick={() => onRefreshClick && onRefreshClick()}
                     disabled={loadingErrors}
                   >
                     {loadingErrors ? "Refreshing…" : "Refresh Records"}

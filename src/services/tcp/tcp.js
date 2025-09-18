@@ -1,13 +1,24 @@
 import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
 
+// --- DIAGNOSTIC ONLY: trace who calls getErrorsByPtrsId and prevent rapid duplicates
+const __errorsInFlight = new Map();
+
 const baseUrl = `${process.env.REACT_APP_API_URL}/tcp`;
 const refsBase = `${process.env.REACT_APP_API_URL}/tcp/references`;
 
 function buildRangeQs(params) {
+  const q = [];
   if (params && params.start && params.end) {
-    return `?start=${encodeURIComponent(params.start)}&end=${encodeURIComponent(params.end)}`;
+    q.push(`start=${encodeURIComponent(params.start)}`);
+    q.push(`end=${encodeURIComponent(params.end)}`);
   }
-  return "";
+  if (params && Number.isFinite(params.page)) {
+    q.push(`page=${params.page}`);
+  }
+  if (params && Number.isFinite(params.pageSize)) {
+    q.push(`pageSize=${params.pageSize}`);
+  }
+  return q.length ? `?${q.join("&")}` : "";
 }
 
 export const tcpService = {
@@ -69,7 +80,7 @@ async function getAll() {
 async function getAllByPtrsId(ptrsId, params) {
   const qs = buildRangeQs(params);
   const response = await fetchWrapper.get(`${baseUrl}/ptrs/${ptrsId}${qs}`);
-  console.log("Fetched TCP records for ptrsId:", ptrsId, response);
+  // console.log("Fetched TCP records for ptrsId:", ptrsId, response);
   return response;
 }
 
@@ -154,8 +165,32 @@ async function upload(formData, isFormData = false) {
 }
 
 async function getErrorsByPtrsId(ptrsId, params) {
+  // Default to first page of 50 if caller didn't specify
+  if (
+    !params ||
+    (!Number.isFinite(params.page) && !Number.isFinite(params.pageSize))
+  ) {
+    params = { page: 1, pageSize: 50 };
+  }
+
   const qs = buildRangeQs(params);
-  return await fetchWrapper.get(`${baseUrl}/errors/${ptrsId}${qs}`);
+
+  // In-flight guard to avoid overlapping duplicate requests from the same caller
+  const key = `${ptrsId}|${qs}`;
+  if (__errorsInFlight.has(key)) {
+    return __errorsInFlight.get(key);
+  }
+
+  const p = (async () => {
+    try {
+      return await fetchWrapper.get(`${baseUrl}/errors/${ptrsId}${qs}`);
+    } finally {
+      __errorsInFlight.delete(key);
+    }
+  })();
+
+  __errorsInFlight.set(key, p);
+  return p;
 }
 //   for (const dir of modelDirs) {
 
