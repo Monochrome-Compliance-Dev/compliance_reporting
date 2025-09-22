@@ -580,7 +580,7 @@ const DataUploadReview = ({
             {/* )} */}
 
             {/* Mark as Validated Button */}
-            {safeErrors.length === 0 && validRows.length > 0 && (
+            {validRows.length > 0 && (
               <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
                 <Tooltip title="Mark the dataset as validated and commence the ptrs preparation.">
                   <Button

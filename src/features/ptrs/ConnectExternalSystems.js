@@ -320,6 +320,35 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
     return Array.from(new Set(picked));
   }
 
+  // Build BE-ready map: canonical (target) -> raw header
+  function buildCanonicalMap(rawToTargetMap) {
+    const out = {};
+    if (!rawToTargetMap || typeof rawToTargetMap !== "object") return out;
+    for (const [raw, target] of Object.entries(rawToTargetMap)) {
+      if (target && typeof target === "string") {
+        out[target] = raw;
+      }
+    }
+    return out;
+  }
+
+  // Ensure only one raw column maps to each canonical target
+  function dedupeTargetCollisions(rawToTargetMap) {
+    const used = new Set();
+    const cleaned = {};
+    const dropped = [];
+    for (const [raw, tgt] of Object.entries(rawToTargetMap || {})) {
+      if (!tgt) continue;
+      if (used.has(tgt)) {
+        dropped.push({ raw, tgt });
+        continue; // drop duplicate mapping for same target
+      }
+      used.add(tgt);
+      cleaned[raw] = tgt;
+    }
+    return { map: cleaned, dropped };
+  }
+
   // Read XLSX headers and sample rows, preserving blanks and true column range
   async function readXlsxHeadersAndSample(file) {
     const buffer = await file.arrayBuffer();
@@ -473,19 +502,29 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
       return new Blob([csvText], { type: "text/csv;charset=utf-8" });
     } else {
       // csv — stream-map without retaining all rows in memory, with buffered writes and throttled progress
+      // csv — stream-map without retaining all rows in memory, with buffered writes and throttled progress
       const allowedTargets = new Set([
         ...PTRS_REQUIRED_FIELDS,
         ...PTRS_OPTIONAL_FIELDS,
       ]);
-      const targetHeaders = Array.from(
-        new Set(Object.values(map).filter((v) => v && allowedTargets.has(v)))
-      );
 
-      // Precompute reverse map: target field -> raw header name
+      // Deterministic order: required (canonical order), then optional; no duplicates
+      const mapValues = Object.values(map);
+      const targetHeaders = [
+        ...PTRS_REQUIRED_FIELDS.filter((f) => mapValues.includes(f)),
+        ...PTRS_OPTIONAL_FIELDS.filter((f) => mapValues.includes(f)),
+      ];
+
+      // Precompute reverse map: target field -> first raw header name (ignore later collisions)
       const reverseMap = Object.create(null);
       for (const [raw, tgt] of Object.entries(map)) {
-        if (tgt && allowedTargets.has(tgt)) reverseMap[tgt] = raw;
+        if (!tgt || !allowedTargets.has(tgt)) continue;
+        if (!Object.prototype.hasOwnProperty.call(reverseMap, tgt)) {
+          reverseMap[tgt] = raw;
+        }
       }
+
+      console.info("[PTRS] targetHeaders →", targetHeaders);
 
       // Helper to CSV-escape a single field
       const esc = (v) => {
@@ -636,23 +675,30 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
       setUploading(true);
       setProgressMessage("Preparing file…");
       showAlert("Preparing file…", "info");
+      // Deduplicate any target collisions (e.g., two raw columns mapped to payeeEntityAbn)
+      const { map: cleanMap, dropped } = dedupeTargetCollisions(columnMap);
+      if (dropped.length) {
+        console.info("[PTRS] Dropped duplicate mappings:", dropped);
+        showAlert(
+          `Removed ${dropped.length} duplicate mapping(s) to the same target field.`,
+          "info"
+        );
+      }
+
+      console.info("[PTRS] cleanMap →", cleanMap);
       const mappedBlob = await remapFileToCsv(
         stagedFile,
         detectedType,
-        columnMap
+        cleanMap
       );
       const baseName = stagedFile.name.replace(/\.[^.]+$/, "");
 
       if (LOCAL_INGEST) {
-        const selectedHeaders = computeSelectedHeaders(columnMap);
-        console.info("[PTRS] Selected mapping (raw→target):", columnMap);
-        console.info("[PTRS] Target headers sent →", selectedHeaders);
-        await peekBlobHeader(mappedBlob);
+        console.info("[PTRS] Local ingest: CSV REMAPPED to canonical headers");
+        await peekBlobHeader(mappedBlob); // should show canonical headers
+        console.info("[PTRS] Sending canonical CSV only (no columnMap)");
         // New Big Bertha local flow (stream → start → poll)
-        const jobId = await devCommitUpload(mappedBlob, baseName, {
-          selectedHeaders,
-          columnMap,
-        });
+        const jobId = await devCommitUpload(mappedBlob, baseName);
         setProgressMessage(`Ingest started (job ${jobId}).`);
         showAlert(`Ingest started (job ${jobId}).`, "info");
         const finalJob = await pollIngest(jobId, (job) => {
@@ -666,7 +712,7 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
         });
 
         if (finalJob?.status === "failed") {
-          const errText = finalJob?.lastError || "Ingest failed";
+          const errText = finalJob?.lastError || JSON.stringify(finalJob);
           console.error("[PTRS] Ingest failed", finalJob);
           setProgressMessage(errText);
           showAlert(errText, "error");

@@ -141,7 +141,7 @@ export default function PtrsWizard() {
 
       try {
         const rules = await fetchExclusionRules(currentStep + 1, { showAlert });
-        console.log("rules: ", rules);
+        // console.log("rules: ", rules);
         if (!cancelled) setExclusionRules(rules || []);
       } catch (e) {
         if (!cancelled) {
@@ -203,13 +203,13 @@ export default function PtrsWizard() {
           setIsLoading(false);
           return;
         }
-        // Recalculate metrics before fetching records
-        await tcpService.recalculateMetrics(activePtrsId);
-        const now = new Date().toISOString();
-        localStorage.setItem(`lastRecalc_${activePtrsId}`, now);
+        // Recalc is deferred to the reporting step (Step 5 / index 4)
 
-        // Now fetch fresh recalculated records
+        // Fetch a sample page immediately so the UI can render
         await refresh();
+
+        // (Optional) when recalc finishes, you can refresh again if you want:
+        // recalcPromise.finally(() => refresh());
 
         // Derive current step from context instead of backend call
         const ctxPtr = Array.isArray(ptrsDetails)
@@ -234,13 +234,20 @@ export default function PtrsWizard() {
         try {
           setIsRecalculating(true);
           await tcpService.recalculateMetrics(activePtrsId);
-          const updated = await tcpService.getAllByPtrsId(activePtrsId);
-          const rows = Array.isArray(updated)
-            ? updated
-            : Array.isArray(updated?.data)
-              ? updated.data
-              : Array.isArray(updated?.rows)
-                ? updated.rows
+          try {
+            const now = new Date().toISOString();
+            localStorage.setItem(`lastRecalc_${activePtrsId}`, now);
+          } catch {}
+          const resp = await tcpService.getValidByPtrsId(activePtrsId, {
+            page: 1,
+            pageSize: 50,
+          });
+          const rows = Array.isArray(resp)
+            ? resp
+            : Array.isArray(resp?.data)
+              ? resp.data
+              : Array.isArray(resp?.rows)
+                ? resp.rows
                 : [];
           setTcpRecords(primeOriginals(rows));
           try {
@@ -250,7 +257,7 @@ export default function PtrsWizard() {
             );
           } catch {}
         } catch (err) {
-          console.error("Step 4 recalc failed", err);
+          console.error("Step 5 recalc failed", err);
         } finally {
           setIsRecalculating(false);
         }
@@ -453,13 +460,16 @@ export default function PtrsWizard() {
     if (!activePtrsId) return;
     try {
       await tcpService.recalculateMetrics(activePtrsId);
-      const updated = await tcpService.getAllByPtrsId(activePtrsId);
-      const rows = Array.isArray(updated)
-        ? updated
-        : Array.isArray(updated?.data)
-          ? updated.data
-          : Array.isArray(updated?.rows)
-            ? updated.rows
+      const resp = await tcpService.getValidByPtrsId(activePtrsId, {
+        page: 1,
+        pageSize: 50,
+      });
+      const rows = Array.isArray(resp)
+        ? resp
+        : Array.isArray(resp?.data)
+          ? resp.data
+          : Array.isArray(resp?.rows)
+            ? resp.rows
             : [];
       setTcpRecords(primeOriginals(rows));
       try {

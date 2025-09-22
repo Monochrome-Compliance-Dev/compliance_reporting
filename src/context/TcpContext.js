@@ -31,14 +31,34 @@ export function TcpProvider({ children }) {
 
     let cancelled = false;
     try {
-      const resp = await tcpService.getAllByPtrsId(activePtrsId);
-      const rows = Array.isArray(resp)
+      // First try 1-based page
+      let resp = await tcpService.getValidByPtrsId(activePtrsId, {
+        page: 1,
+        pageSize: 50,
+      });
+      let rows = Array.isArray(resp)
         ? resp
         : Array.isArray(resp?.data)
           ? resp.data
           : Array.isArray(resp?.rows)
             ? resp.rows
             : [];
+
+      // Fallback to 0-based page if empty
+      if (!rows || rows.length === 0) {
+        const fallback = await tcpService.getValidByPtrsId(activePtrsId, {
+          page: 0,
+          pageSize: 50,
+        });
+        rows = Array.isArray(fallback)
+          ? fallback
+          : Array.isArray(fallback?.data)
+            ? fallback.data
+            : Array.isArray(fallback?.rows)
+              ? fallback.rows
+              : [];
+      }
+
       // Hard cap to avoid blowing up memory in the browser
       const limited = Array.isArray(rows)
         ? rows.slice(0, MAX_IN_MEMORY_ROWS)
