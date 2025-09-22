@@ -40,6 +40,10 @@ export const tcpService = {
   getIncompleteSmallBusinessFlags,
   submitFinalPtrs,
   downloadSummaryPtrs,
+  // --- SBI Export/Import (backend-driven) ---
+  getSbiExportUrl,
+  downloadSbiExport,
+  sbiImport,
   upload,
   getErrorsByPtrsId,
   getValidByPtrsId,
@@ -220,6 +224,27 @@ async function submitFinalPtrs() {
 
 async function downloadSummaryPtrs() {
   return await fetchWrapper.get(`${baseUrl}/download-summary`, null, "blob");
+}
+
+// --- SBI Export/Import (backend-driven) ---
+function getSbiExportUrl(ptrsId) {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  return `${baseUrl}/ptrs/${encodeURIComponent(ptrsId)}/sbi/export`;
+}
+
+async function downloadSbiExport(ptrsId) {
+  const url = getSbiExportUrl(ptrsId);
+  // Request as blob to allow bearer/cookie auth and programmatic save
+  return await fetchWrapper.get(url, null, "blob");
+}
+
+async function sbiImport(ptrsId, file) {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!file) throw new Error("CSV file is required");
+  const url = `${baseUrl}/ptrs/${encodeURIComponent(ptrsId)}/sbi/import`;
+  const fd = new FormData();
+  fd.append("file", file, file.name || "sbi_results.csv");
+  return await fetchWrapper.postUpload(url, fd, true);
 }
 
 async function upload(formData, isFormData = false) {
