@@ -1,4 +1,6 @@
 export const PTRS_REQUIRED_FIELDS = [
+  "payerEntityName",
+  "payerEntityAbn",
   "payeeEntityName",
   "payeeEntityAbn",
   "paymentAmount",

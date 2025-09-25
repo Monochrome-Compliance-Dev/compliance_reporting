@@ -50,6 +50,7 @@ export const tcpService = {
   getByPtrsId,
   listByPtrsId,
   recalculateMetrics,
+  recalcAndFetchMetrics,
   resolveErrors,
   // Reference Data (Gov Entities - global)
   listGovEntities,
@@ -294,7 +295,15 @@ async function getErrorsByPtrsId(ptrsId, params) {
 //   for (const dir of modelDirs) {
 
 async function recalculateMetrics(ptrsId) {
-  return await fetchWrapper.put(`${baseUrl}/recalculate/${ptrsId}`);
+  const url = `${baseUrl}/recalculate/${encodeURIComponent(ptrsId)}`;
+  return await fetchWrapper.put(url);
+}
+
+// Convenience: trigger recalc and return only the metrics payload (or null)
+async function recalcAndFetchMetrics(ptrsId) {
+  const res = await recalculateMetrics(ptrsId);
+  // BE shape: { status, data: { message, metrics } }
+  return res?.data?.metrics ?? null;
 }
 
 // -----------------------------
