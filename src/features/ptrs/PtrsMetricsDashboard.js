@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { usePtrsContext } from "../../context";
 import { dashboardService } from "../../services";
 import {
@@ -14,6 +14,7 @@ import {
   Select,
   MenuItem,
   Button,
+  Tooltip,
 } from "@mui/material";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 
@@ -75,49 +76,80 @@ export default function PtrsMetricsDashboard() {
       : { key: "all", start: null, end: null }
   );
 
-  const periodOptions = [
-    {
-      key: "ptrs",
-      label: "PTRS reporting period",
-      start: ptrsStart,
-      end: ptrsEnd,
-    },
-    {
-      key: "all",
-      label: "All data",
-      start: null,
-      end: null,
-    },
-    {
-      key: "jan-jun-2025",
-      label: "Jan–Jun 2025",
-      start: "2025-01-01",
-      end: "2025-06-30",
-    },
-    {
-      key: "jul-dec-2024",
-      label: "Jul–Dec 2024",
-      start: "2024-07-01",
-      end: "2024-12-31",
-    },
-    {
-      key: "jan-jun-2024",
-      label: "Jan–Jun 2024",
-      start: "2024-01-01",
-      end: "2024-06-30",
-    },
-    {
-      key: "jul-dec-2023",
-      label: "Jul–Dec 2023",
-      start: "2023-07-01",
-      end: "2023-12-31",
-    },
-  ];
+  const periodOptions = useMemo(
+    () => [
+      {
+        key: "ptrs",
+        label: "PTRS reporting period",
+        start: ptrsStart,
+        end: ptrsEnd,
+      },
+      {
+        key: "all",
+        label: "All data",
+        start: null,
+        end: null,
+      },
+      {
+        key: "jan-jun-2025",
+        label: "Jan–Jun 2025",
+        start: "2025-01-01",
+        end: "2025-06-30",
+      },
+      {
+        key: "jul-dec-2024",
+        label: "Jul–Dec 2024",
+        start: "2024-07-01",
+        end: "2024-12-31",
+      },
+      {
+        key: "jan-jun-2024",
+        label: "Jan–Jun 2024",
+        start: "2024-01-01",
+        end: "2024-06-30",
+      },
+      {
+        key: "jul-dec-2023",
+        label: "Jul–Dec 2023",
+        start: "2023-07-01",
+        end: "2023-12-31",
+      },
+    ],
+    [ptrsStart, ptrsEnd]
+  );
 
-  const setPeriodByKey = (key) => {
-    const p = periodOptions.find((x) => x.key === key);
-    if (p) setSelectedPeriod({ key: p.key, start: p.start, end: p.end });
-  };
+  const setPeriodByKey = useCallback(
+    (key) => {
+      const p = periodOptions.find((x) => x.key === key);
+      if (p) setSelectedPeriod({ key: p.key, start: p.start, end: p.end });
+    },
+    [periodOptions]
+  );
+
+  // Read period from query string on first load
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get("period");
+      if (q) setPeriodByKey(q);
+    } catch (e) {
+      /* no-op */
+    }
+  }, [setPeriodByKey]);
+
+  // Keep URL in sync when period changes
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if ((selectedPeriod?.key || "all") !== params.get("period")) {
+        params.set("period", selectedPeriod?.key || "all");
+        const url = `${window.location.pathname}?${params.toString()}`;
+        window.history.replaceState(null, "", url);
+      }
+    } catch (e) {
+      /* no-op */
+    }
+  }, [selectedPeriod]);
 
   const normalizeDate = (d) => {
     if (!d) return null;
@@ -200,20 +232,60 @@ export default function PtrsMetricsDashboard() {
       signals?.withinTermsPct ?? signals?.pct_within_terms ?? null,
     sbValuePctOfTotal: signals?.sbValuePctOfTotal ?? null,
     sbPeppolPct: signals?.sbPeppolPct ?? null,
+    // what-if fields
+    whatIfOnTimePct: signals?.whatIfOnTimePct ?? null,
+    whatIfDaysEarlier: signals?.whatIfDaysEarlier ?? null,
+    whatIfDeltaPp: signals?.whatIfDeltaPp ?? null,
+    // average lateness + derived what-if
+    avgDaysLate: signals?.avgDaysLate ?? null,
+    avgDaysLateCeil: signals?.avgDaysLateCeil ?? null,
+    whatIfAvgOnTimePct: signals?.whatIfAvgOnTimePct ?? null,
+    whatIfAvgOnTimeCount: signals?.whatIfAvgOnTimeCount ?? null,
+    whatIfAvgDeltaPp: signals?.whatIfAvgDeltaPp ?? null,
   };
 
-  const fmt = (v) => (v == null || Number.isNaN(Number(v)) ? "—" : v);
-  const fmtPct = (v) =>
-    v == null || Number.isNaN(Number(v)) ? "—" : `${Number(v).toFixed(2)}%`;
+  // Debug: verify band inputs driving the bar heights
+  if (process.env.NODE_ENV !== "production") {
+    try {
+      const bandDebug = (metrics.invoiceBands || []).map((b) => ({
+        label: b?.label,
+        pct: b?.pct,
+        count: b?.count,
+      }));
+      console.info("[PTRS Dashboard] Band inputs:", bandDebug);
+    } catch (e) {
+      console.warn("[PTRS Dashboard] Failed to log band inputs:", e);
+    }
+  }
+
+  const nf = new Intl.NumberFormat("en-US", { useGrouping: true });
+  const n2 = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+    useGrouping: true,
+  });
+  const n0 = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+    useGrouping: true,
+  });
+  const formatWithSpace = (str) => str.replace(/,/g, " ");
+  const fmt = (v) =>
+    v == null || Number.isNaN(Number(v))
+      ? "—"
+      : formatWithSpace(nf.format(Number(v)));
   const fmt2 = (v) =>
-    v == null || Number.isNaN(Number(v)) ? "—" : Number(v).toFixed(2);
-  const fmtMoney = (v) => {
-    if (v == null || Number.isNaN(Number(v))) return "—";
-    const s = Number(v).toFixed(2);
-    // insert spaces as thousands separators
-    const withSpaces = s.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    return `$${withSpaces}`;
-  };
+    v == null || Number.isNaN(Number(v))
+      ? "—"
+      : formatWithSpace(n2.format(Number(v)));
+  const fmtPct = (v) =>
+    v == null || Number.isNaN(Number(v))
+      ? "—"
+      : `${formatWithSpace(n2.format(Number(v)))}%`;
+  const fmtMoney = (v) =>
+    v == null || Number.isNaN(Number(v))
+      ? "—"
+      : `$${formatWithSpace(n0.format(Number(v)))}`;
 
   // Report-aligned band percentages derived from invoiceBands
   const bandBy = (label) => metrics.invoiceBands.find((b) => b.label === label);
@@ -234,40 +306,42 @@ export default function PtrsMetricsDashboard() {
     return sum > 0 ? sum : b1 || b2 ? 0 : null;
   })();
 
-  // Log missing fields with reason
-  [
-    "invoicesPaidWithin30Days",
-    "valuePaidWithin30Days",
-    "avgDays",
-    "medianDays",
-    "percentile80",
-    "percentile95",
-    "sbNumPayments",
-    "sbValuePayments",
-    "sbPeppolNum",
-    "sbPeppolValue",
-    "invoiceBands",
-    "slowestPaidSuppliers",
-    "lateSbRate",
-  ].forEach((field) => {
-    if (!(field in signals)) {
-      console.warn(
-        `[PTRS Dashboard] signals is missing field '${field}' (not present in object)`
-      );
-    } else if (signals[field] === undefined) {
-      console.warn(
-        `[PTRS Dashboard] signals field '${field}' is present but undefined`
-      );
-    } else if (signals[field] === null) {
-      console.warn(
-        `[PTRS Dashboard] signals field '${field}' is present but null`
-      );
-    }
-  });
+  // Log missing fields with reason and metrics values (dev only)
+  if (process.env.NODE_ENV !== "production") {
+    [
+      "invoicesPaidWithin30Days",
+      "valuePaidWithin30Days",
+      "avgDays",
+      "medianDays",
+      "percentile80",
+      "percentile95",
+      "sbNumPayments",
+      "sbValuePayments",
+      "sbPeppolNum",
+      "sbPeppolValue",
+      "invoiceBands",
+      "slowestPaidSuppliers",
+      "lateSbRate",
+    ].forEach((field) => {
+      if (!(field in signals)) {
+        console.warn(
+          `[PTRS Dashboard] signals is missing field '${field}' (not present in object)`
+        );
+      } else if (signals[field] === undefined) {
+        console.warn(
+          `[PTRS Dashboard] signals field '${field}' is present but undefined`
+        );
+      } else if (signals[field] === null) {
+        console.warn(
+          `[PTRS Dashboard] signals field '${field}' is present but null`
+        );
+      }
+    });
 
-  Object.entries(metrics).forEach(([key, val]) => {
-    console.log(`Metric '${key}' value:`, val);
-  });
+    Object.entries(metrics).forEach(([key, val]) => {
+      console.log(`Metric '${key}' value:`, val);
+    });
+  }
 
   return (
     <Box sx={{ p: 3, backgroundColor: theme.palette.background.default }}>
@@ -477,251 +551,6 @@ export default function PtrsMetricsDashboard() {
         </Grid>
       </Grid>
 
-      <Divider sx={{ my: 3, borderColor: theme.palette.divider }} />
-
-      <Typography
-        variant="subtitle1"
-        gutterBottom
-        sx={{ color: theme.palette.primary.main, mb: 2 }}
-      >
-        Proportion of Small Business Spend
-      </Typography>
-      <Grid
-        container
-        spacing={1.5}
-        alignItems="stretch"
-        sx={{ height: "100%" }}
-      >
-        <Grid item xs={6} sm={4} md={3}>
-          {console.log("sbNumPayments", metrics.sbNumPayments)}
-          <StatCard
-            title="# Small Business Payments"
-            value={metrics.sbNumPayments}
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3}>
-          {console.log("sbValuePayments", metrics.sbValuePayments)}
-          <StatCard
-            title="Value of SB Payments"
-            value={fmtMoney(metrics.sbValuePayments)}
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3}>
-          {console.log("sbPeppolNum", metrics.sbPeppolNum)}
-          <StatCard
-            title="Peppol-enabled SB (Num)"
-            value={metrics.sbPeppolNum}
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3}>
-          {console.log("sbPeppolValue", metrics.sbPeppolValue)}
-          <StatCard
-            title="Peppol-enabled SB (Value)"
-            value={fmtMoney(metrics.sbPeppolValue)}
-          />
-        </Grid>
-      </Grid>
-
-      <Divider sx={{ my: 4, borderColor: theme.palette.divider }} />
-
-      <Typography
-        variant="subtitle1"
-        gutterBottom
-        sx={{ color: theme.palette.primary.main, mb: 2 }}
-      >
-        Visual Trends & Analysis
-      </Typography>
-
-      <Grid
-        container
-        spacing={1.5}
-        alignItems="stretch"
-        sx={{ height: "100%" }}
-      >
-        <Grid item xs={12} md={6}>
-          <Card
-            sx={{
-              backgroundColor: theme.palette.background.paper,
-              borderRadius: theme.shape.borderRadius,
-              p: 1,
-              boxShadow: theme.shadows[1],
-              minHeight: 160,
-              maxHeight: 160,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <CardContent>
-              {/* Mock bar chart */}
-              <Box
-                sx={{
-                  height: 100,
-                  display: "flex",
-                  justifyContent: "space-around",
-                  alignItems: "flex-end",
-                  pb: 0,
-                }}
-              >
-                {[45, 20, 35].map((value, idx) => (
-                  <Box
-                    key={idx}
-                    sx={{
-                      width: "15%",
-                      height: `${value}%`,
-                      backgroundColor: theme.palette.primary.main,
-                      borderRadius: 1,
-                    }}
-                  />
-                ))}
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  mt: 1,
-                }}
-              >
-                {["0–30", "31–60", "61+"].map((label, idx) => (
-                  <Typography
-                    key={idx}
-                    variant="caption"
-                    sx={{ color: theme.palette.text.secondary }}
-                  >
-                    {label}
-                  </Typography>
-                ))}
-              </Box>
-            </CardContent>
-          </Card>
-          <Typography
-            variant="body2"
-            sx={{ mt: 1, fontSize: "0.75rem", textAlign: "center" }}
-          >
-            Payment Distribution
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <Card
-            sx={{
-              backgroundColor: theme.palette.background.paper,
-              borderRadius: theme.shape.borderRadius,
-              p: 1,
-              boxShadow: theme.shadows[1],
-              height: "100%",
-              minHeight: 160,
-              maxHeight: 160,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <CardContent>
-              {/* Mock pie chart */}
-              <Box
-                sx={{
-                  height: 140,
-                  position: "relative",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 70,
-                    height: 70,
-                    borderRadius: "50%",
-                    background: `conic-gradient(${theme.palette.primary.main} 35%, ${theme.palette.grey[300]} 0)`,
-                  }}
-                />
-                <Typography
-                  variant="h6"
-                  sx={{
-                    position: "absolute",
-                    color: "#000000",
-                    fontSize: "0.875rem",
-                  }}
-                >
-                  35%
-                </Typography>
-              </Box>
-            </CardContent>
-          </Card>
-          <Typography
-            variant="body2"
-            sx={{
-              mt: 1,
-              fontSize: "0.75rem",
-              textAlign: "center",
-              color: theme.palette.text.secondary,
-            }}
-          >
-            SB Spend Breakdown
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <Card
-            sx={{
-              backgroundColor: theme.palette.background.paper,
-              borderRadius: theme.shape.borderRadius,
-              p: 1,
-              boxShadow: theme.shadows[1],
-              height: "100%",
-              minHeight: 160,
-              maxHeight: 160,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <CardContent>
-              {/* Mock donut chart for Late Payment Rate (SB Only) */}
-              <Box
-                sx={{
-                  height: 140,
-                  position: "relative",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 70,
-                    height: 70,
-                    borderRadius: "50%",
-                    background: `conic-gradient(${theme.palette.error.main} 47%, ${theme.palette.grey[300]} 0)`,
-                  }}
-                />
-                <Typography
-                  variant="h6"
-                  sx={{
-                    position: "absolute",
-                    color: theme.palette.error.main,
-                    fontSize: "0.875rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  47%
-                </Typography>
-              </Box>
-            </CardContent>
-          </Card>
-          <Typography
-            variant="body2"
-            sx={{
-              mt: 1,
-              fontSize: "0.75rem",
-              textAlign: "center",
-              color: theme.palette.error.main,
-              fontWeight: 500,
-            }}
-          >
-            Late Payment Rate (SB Only)
-          </Typography>
-        </Grid>
-      </Grid>
-
       {/* Supplier Risk & Opportunity Signals Section */}
       <Divider sx={{ my: 4, borderColor: theme.palette.divider }} />
 
@@ -734,15 +563,13 @@ export default function PtrsMetricsDashboard() {
       </Typography>
       <Grid container spacing={1.5} alignItems="stretch">
         {/* 1. Median vs Avg Gap */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={12}>
           <Card
             sx={{
               backgroundColor: theme.palette.background.paper,
-              borderRadius: theme.shape.borderRadius,
               p: 1,
               boxShadow: theme.shadows[1],
-              minHeight: 160,
-              maxHeight: 160,
+              minHeight: 200,
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -750,323 +577,199 @@ export default function PtrsMetricsDashboard() {
             }}
           >
             <CardContent sx={{ width: "100%", height: "100%", p: 0 }}>
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 120,
-                  backgroundColor: theme.palette.background.paper,
-                  borderRadius: 2,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  px: 2,
-                }}
-              >
-                <Typography
-                  variant="subtitle2"
-                  sx={{ mb: 1, color: theme.palette.text.secondary }}
-                >
-                  Median vs Avg Gap
-                </Typography>
-                {/* Horizontal bar with two markers */}
-                <Box
-                  sx={{
-                    width: "90%",
-                    height: 14,
-                    backgroundColor: theme.palette.grey[300],
-                    borderRadius: 7,
-                    position: "relative",
-                    mt: 1,
-                    mb: 1,
-                  }}
-                >
-                  {/* Median marker (blue) at 25% */}
+              <Grid container columns={20} spacing={1.5} sx={{ px: 1 }}>
+                {/* Left: visual */}
+                <Grid item xs={12} md={13}>
                   <Box
                     sx={{
-                      position: "absolute",
-                      left: "25%",
-                      top: "50%",
-                      transform: "translate(-50%, -50%)",
-                      width: 16,
-                      height: 16,
-                      borderRadius: "50%",
-                      border: `2px solid ${theme.palette.primary.main}`,
-                      backgroundColor: "#fff",
-                      zIndex: 2,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: 8,
-                        height: 8,
-                        borderRadius: "50%",
-                        backgroundColor: theme.palette.primary.main,
-                      }}
-                    />
-                  </Box>
-                  {/* Avg marker (red) at 45% */}
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      left: "45%",
-                      top: "50%",
-                      transform: "translate(-50%, -50%)",
-                      width: 16,
-                      height: 16,
-                      borderRadius: "50%",
-                      border: `2px solid ${theme.palette.error.main}`,
-                      backgroundColor: "#fff",
-                      zIndex: 2,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: 8,
-                        height: 8,
-                        borderRadius: "50%",
-                        backgroundColor: theme.palette.error.main,
-                      }}
-                    />
-                  </Box>
-                  {/* Median label */}
-                  <Typography
-                    variant="caption"
-                    sx={{
-                      position: "absolute",
-                      left: "25%",
-                      top: "110%",
-                      transform: "translate(-50%, 0)",
-                      color: theme.palette.text.primary,
-                      fontSize: "0.7rem",
-                    }}
-                  >
-                    Median
-                  </Typography>
-                  {/* Avg label */}
-                  <Typography
-                    variant="caption"
-                    sx={{
-                      position: "absolute",
-                      left: "45%",
-                      top: "110%",
-                      transform: "translate(-50%, 0)",
-                      color: theme.palette.text.secondary,
-                      fontSize: "0.7rem",
-                    }}
-                  >
-                    Avg
-                  </Typography>
-                </Box>
-                {/* Gap label */}
-                <Typography
-                  variant="h6"
-                  sx={{
-                    mt: 2,
-                    color: theme.palette.text.primary,
-                    fontWeight: 600,
-                    fontSize: "1.1rem",
-                  }}
-                >
-                  {signals.avgDays != null && signals.medianDays != null
-                    ? `+${(parseFloat(signals.avgDays) - parseFloat(signals.medianDays)).toFixed(1)}d`
-                    : "—"}
-                </Typography>
-                <Typography
-                  variant="caption"
-                  sx={{
-                    fontSize: "0.7rem",
-                    color: theme.palette.text.secondary,
-                  }}
-                >
-                  {`(Avg: ${signals.avgDays ?? "—"}d, Median: ${signals.medianDays ?? "—"}d)`}
-                </Typography>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        {/* 2. % of SB invoices paid late */}
-        <Grid item xs={12} md={6}>
-          <Card
-            sx={{
-              backgroundColor: theme.palette.background.paper,
-              borderRadius: theme.shape.borderRadius,
-              p: 1,
-              boxShadow: theme.shadows[1],
-              minHeight: 160,
-              maxHeight: 160,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <CardContent sx={{ width: "100%", height: "100%", p: 0 }}>
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 120,
-                  backgroundColor: theme.palette.background.paper,
-                  borderRadius: 2,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  px: 2,
-                }}
-              >
-                <Typography
-                  variant="subtitle2"
-                  sx={{ mb: 1, color: theme.palette.text.secondary }}
-                >
-                  % of SB invoices paid late
-                </Typography>
-                {/* Donut chart */}
-                <Box
-                  sx={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: "50%",
-                    // Use error.main for late, and text.secondary for remainder for contrast in dark mode
-                    background: `conic-gradient(${theme.palette.error.main} 0 ${(parseFloat(metrics.lateSbRate ?? 0) * 100).toFixed(0)}%, ${theme.palette.text.secondary} 0 100%)`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    position: "relative",
-                    mt: 1,
-                  }}
-                >
-                  {/* Center circle */}
-                  <Box
-                    sx={{
-                      width: 36,
-                      height: 36,
-                      borderRadius: "50%",
-                      backgroundColor: theme.palette.background.paper,
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  />
-                  {/* Center label */}
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      color: theme.palette.text.primary,
-                      fontWeight: 600,
-                      fontSize: "1.1rem",
-                    }}
-                  >
-                    {`${(parseFloat(metrics.lateSbRate ?? 0) * 100).toFixed(0)}%`}
-                  </Typography>
-                </Box>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        {/* 3. Top 10 slowest-paid SBs */}
-        <Grid item xs={12} md={6}>
-          <Card
-            sx={{
-              backgroundColor: theme.palette.background.paper,
-              borderRadius: theme.shape.borderRadius,
-              p: 1,
-              boxShadow: theme.shadows[1],
-              minHeight: 160,
-              maxHeight: 160,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <CardContent sx={{ width: "100%", height: "100%", p: 0 }}>
-              <Box
-                sx={{
-                  width: "100%",
-                  minHeight: 120,
-                  backgroundColor: theme.palette.background.paper,
-                  borderRadius: 2,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  justifyContent: "flex-start",
-                  px: 2,
-                  py: 1.5,
-                  maxHeight: 110,
-                  overflowY: "auto",
-                }}
-              >
-                <Typography
-                  variant="subtitle2"
-                  sx={{ mb: 1, color: theme.palette.text.secondary }}
-                >
-                  Top 10 slowest-paid SBs
-                </Typography>
-                {/* List of Top 10 slowest-paid SBs */}
-                {metrics.slowestPaidSuppliers.map((s, idx) => (
-                  <Box
-                    key={`slowest-paid-${s.payeeEntityAbn}-${idx}`}
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
                       width: "100%",
-                      alignItems: "center",
-                      py: 0.3,
-                      borderBottom: `1px solid ${theme.palette.divider}`,
+                      minHeight: 130,
+                      backgroundColor: theme.palette.background.paper,
+                      borderRadius: 2,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      justifyContent: "flex-start",
+                      gap: 1.25,
                     }}
                   >
                     <Typography
-                      variant="body2"
+                      variant="subtitle2"
+                      sx={{ color: theme.palette.text.primary, mb: 1 }}
+                    >
+                      Median vs average payment time gap
+                    </Typography>
+                    {/* Horizontal bar with two markers */}
+                    <Box
                       sx={{
-                        fontSize: "0.75rem",
-                        color: theme.palette.text.primary,
-                        fontWeight: 500,
+                        width: "100%",
+                        height: 14,
+                        backgroundColor: theme.palette.grey[300],
+                        borderRadius: 7,
+                        position: "relative",
+                        mt: 3.5,
+                        mb: 1.5,
                       }}
                     >
-                      {s.payeeEntityAbn}
-                    </Typography>
-                    <Typography
-                      variant="body2"
+                      {/* Median marker (blue) at 25% */}
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          left: "25%",
+                          top: "50%",
+                          transform: "translate(-50%, -50%)",
+                          width: 16,
+                          height: 16,
+                          borderRadius: "50%",
+                          border: `2px solid ${theme.palette.primary.main}`,
+                          backgroundColor: "#fff",
+                          zIndex: 2,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            width: 8,
+                            height: 8,
+                            borderRadius: "50%",
+                            backgroundColor: theme.palette.primary.main,
+                          }}
+                        />
+                      </Box>
+                      {/* Avg marker (red) at 45% */}
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          left: "45%",
+                          top: "50%",
+                          transform: "translate(-50%, -50%)",
+                          width: 16,
+                          height: 16,
+                          borderRadius: "50%",
+                          border: `2px solid ${theme.palette.error.main}`,
+                          backgroundColor: "#fff",
+                          zIndex: 2,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            width: 8,
+                            height: 8,
+                            borderRadius: "50%",
+                            backgroundColor: theme.palette.error.main,
+                          }}
+                        />
+                      </Box>
+                      {/* Labels above markers */}
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          position: "absolute",
+                          left: "25%",
+                          top: -18,
+                          transform: "translateX(-50%)",
+                          color: theme.palette.text.secondary,
+                          fontSize: "0.7rem",
+                        }}
+                      >
+                        {signals.medianDays != null
+                          ? `Median: ${Math.ceil(Number(signals.medianDays))} days`
+                          : "Median: —"}
+                      </Typography>
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          position: "absolute",
+                          left: "45%",
+                          top: -18,
+                          transform: "translateX(-50%)",
+                          color: theme.palette.text.secondary,
+                          fontSize: "0.7rem",
+                        }}
+                      >
+                        {signals.avgDays != null
+                          ? `Average: ${Math.ceil(Number(signals.avgDays))} days`
+                          : "Average: —"}
+                      </Typography>
+                    </Box>
+                    {/* Gap label */}
+                    <Box
                       sx={{
-                        fontSize: "0.75rem",
-                        color: theme.palette.text.secondary,
-                        fontWeight: 400,
-                        ml: 2,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 0.5,
+                        width: "70%",
                       }}
                     >
-                      {s.avgDays}d
-                    </Typography>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          mt: 1,
+                          color: theme.palette.text.primary,
+                          fontWeight: 600,
+                          fontSize: "1.05rem",
+                        }}
+                      >
+                        {signals.avgDays != null && signals.medianDays != null
+                          ? `+${Math.ceil(parseFloat(signals.avgDays) - parseFloat(signals.medianDays))} days`
+                          : "—"}
+                      </Typography>
+                    </Box>
                   </Box>
-                ))}
-              </Box>
+                </Grid>
+                {/* Spacer for 65/5/30 layout */}
+                <Grid
+                  item
+                  md={1}
+                  sx={{ display: { xs: "none", md: "block" } }}
+                />
+                {/* Right: explanation */}
+                <Grid item xs={12} md={6}>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ mb: 0.5, color: theme.palette.text.secondary }}
+                  >
+                    How to read this
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: theme.palette.text.primary,
+                      mb: 0.75,
+                      fontSize: "0.85rem",
+                    }}
+                  >
+                    Shows how far the average sits above the typical result. A
+                    large positive gap usually means a small number of very late
+                    invoices are dragging the average up while the median stays
+                    lower.
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{ color: theme.palette.text.secondary }}
+                  >
+                    Definition: <b>gap</b> = average days − median days.
+                  </Typography>
+                </Grid>
+              </Grid>
             </CardContent>
           </Card>
         </Grid>
-        {/* 4. SB Spend by Invoice Band */}
-        <Grid item xs={12} md={6}>
+        {/* 2+3. SB late rate + Top 5 slowest-paid SBs (combined) */}
+        {/* 2. SB invoices paid on time (with scenarios) */}
+        <Grid item xs={12} md={12}>
           <Card
             sx={{
               backgroundColor: theme.palette.background.paper,
-              borderRadius: theme.shape.borderRadius,
               p: 1,
               boxShadow: theme.shadows[1],
-              minHeight: 160,
-              maxHeight: 160,
+              minHeight: 200,
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -1074,90 +777,601 @@ export default function PtrsMetricsDashboard() {
             }}
           >
             <CardContent sx={{ width: "100%", height: "100%", p: 0 }}>
-              <Box
-                sx={{
-                  width: "100%",
-                  minHeight: 120,
-                  backgroundColor: theme.palette.background.paper,
-                  borderRadius: 2,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  px: 2,
-                  py: 2,
-                }}
-              >
-                <Typography
-                  variant="subtitle2"
-                  color={theme.palette.text.primary}
-                  sx={{ mb: 1 }}
-                >
-                  SB Spend by Invoice Band
-                </Typography>
-                {/* Horizontal bar split by size band */}
-                <Box
-                  sx={{
-                    width: "90%",
-                    height: 18,
-                    display: "flex",
-                    flexDirection: "row",
-                    borderRadius: 9,
-                    overflow: "hidden",
-                    boxShadow: 1,
-                    mb: 1.5,
-                  }}
-                >
-                  {metrics.invoiceBands.map((band, idx) =>
-                    band.pct != null ? (
-                      <Box
-                        key={`band-${band.label}-${idx}`}
-                        sx={{
-                          flex: `0 0 ${band.pct}%`,
-                          backgroundColor:
-                            idx === 0
-                              ? theme.palette.primary.light
-                              : idx === 1
-                                ? theme.palette.primary.main
-                                : idx === 2
-                                  ? theme.palette.secondary.main
-                                  : theme.palette.grey[500],
-                          height: "100%",
-                        }}
-                      />
-                    ) : null
-                  )}
-                </Box>
-                {/* Bands labels */}
-                <Box
-                  sx={{
-                    width: "90%",
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  {signals.invoiceBands.map((band, idx) => (
+              <Grid container columns={20} spacing={1.5} sx={{ px: 1 }}>
+                {/* Left: three-line on-time chart */}
+                <Grid item xs={12} md={13}>
+                  <Box
+                    sx={{
+                      width: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 1.25,
+                    }}
+                  >
                     <Typography
-                      key={`band-${band.label}-${idx}`}
+                      variant="subtitle2"
+                      sx={{ color: theme.palette.text.primary, mb: 1 }}
+                    >
+                      Small business invoices paid on time
+                    </Typography>
+                    {(() => {
+                      const onTimeNow = Math.max(
+                        0,
+                        Math.min(
+                          100,
+                          (1 - Number(metrics.lateSbRate || 0)) * 100
+                        )
+                      );
+                      const onTime6d =
+                        metrics.whatIfOnTimePct != null
+                          ? Number(metrics.whatIfOnTimePct)
+                          : null;
+                      const onTimeAvg =
+                        metrics.whatIfAvgOnTimePct != null
+                          ? Number(metrics.whatIfAvgOnTimePct)
+                          : null;
+                      const rows = [
+                        { label: "Current", value: onTimeNow },
+                        {
+                          label: `If paid ${Number(metrics.whatIfDaysEarlier ?? 6)} days earlier`,
+                          value: onTime6d,
+                        },
+                      ];
+                      if (
+                        metrics.avgDaysLateCeil != null &&
+                        onTimeAvg != null
+                      ) {
+                        rows.push({
+                          label: `If paid within average days late (${Number(metrics.avgDaysLateCeil)} days)`,
+                          value: onTimeAvg,
+                        });
+                      }
+                      return (
+                        <>
+                          {rows.map((r, idx) => (
+                            <Box
+                              key={`ontime-row-${idx}`}
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 1,
+                              }}
+                            >
+                              <Box
+                                aria-label={`${r.label}: ${r.value != null ? Math.max(0, Math.min(100, r.value)).toFixed(0) + "%" : "no data"}`}
+                                sx={{
+                                  flex: 1,
+                                  height: 20,
+                                  borderRadius: 6,
+                                  backgroundColor: theme.palette.grey[300],
+                                  position: "relative",
+                                  mb: 1,
+                                }}
+                              >
+                                <Box
+                                  sx={{
+                                    position: "absolute",
+                                    left: 0,
+                                    top: 0,
+                                    bottom: 0,
+                                    width: `${r.value != null ? Math.max(0, Math.min(100, r.value)).toFixed(0) : 0}%`,
+                                    borderRadius: 6,
+                                    backgroundColor:
+                                      idx === 0
+                                        ? theme.palette.primary.main
+                                        : idx === 1
+                                          ? theme.palette.success.main
+                                          : theme.palette.info.main,
+                                    transition: "width 280ms ease",
+                                  }}
+                                />
+                                <Typography
+                                  aria-hidden
+                                  variant="caption"
+                                  sx={{
+                                    position: "absolute",
+                                    right: 6,
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                    color: theme.palette.grey[600],
+                                    fontWeight: 600,
+                                  }}
+                                >
+                                  {r.value != null
+                                    ? `${Math.max(0, Math.min(100, r.value)).toFixed(0)}%`
+                                    : ""}
+                                </Typography>
+                              </Box>
+                            </Box>
+                          ))}
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 3,
+                              mt: 1,
+                              justifyContent: "center",
+                            }}
+                          >
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 0.75,
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  width: 10,
+                                  height: 10,
+                                  borderRadius: "50%",
+                                  backgroundColor: theme.palette.primary.main,
+                                }}
+                              />
+                              <Typography
+                                variant="caption"
+                                sx={{ color: theme.palette.text.secondary }}
+                              >
+                                Current
+                              </Typography>
+                            </Box>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 0.75,
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  width: 10,
+                                  height: 10,
+                                  borderRadius: "50%",
+                                  backgroundColor: theme.palette.success.main,
+                                }}
+                              />
+                              <Typography
+                                variant="caption"
+                                sx={{ color: theme.palette.text.secondary }}
+                              >
+                                If paid {Number(metrics.whatIfDaysEarlier ?? 6)}{" "}
+                                days earlier
+                              </Typography>
+                            </Box>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 0.75,
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  width: 10,
+                                  height: 10,
+                                  borderRadius: "50%",
+                                  backgroundColor: theme.palette.info.main,
+                                }}
+                              />
+                              <Typography
+                                variant="caption"
+                                sx={{ color: theme.palette.text.secondary }}
+                              >
+                                If paid within average days late (
+                                {Number(metrics.avgDaysLateCeil)} days across
+                                all entities)
+                              </Typography>
+                            </Box>
+                          </Box>
+                        </>
+                      );
+                    })()}
+                  </Box>
+                </Grid>
+                {/* Spacer for 65/5/30 layout */}
+                <Grid
+                  item
+                  md={1}
+                  sx={{ display: { xs: "none", md: "block" } }}
+                />
+                {/* Right: explanation */}
+                <Grid item xs={12} md={6}>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ mb: 0.5, color: theme.palette.text.secondary }}
+                  >
+                    How to read this
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: theme.palette.text.primary,
+                      mb: 0.75,
+                      fontSize: "0.85rem",
+                    }}
+                  >
+                    We track the share of <b>small‑business</b> invoices paid{" "}
+                    <b>on time</b> (within the agreed term). The two scenarios
+                    estimate how that on‑time rate would change if processing
+                    improved.
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      display: "block",
+                      mb: 0.25,
+                    }}
+                  >
+                    • Current on‑time = 100% − late rate.
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      display: "block",
+                      mb: 0.25,
+                    }}
+                  >
+                    •{" "}
+                    <b>
+                      If paid {Number(metrics.whatIfDaysEarlier ?? 6)} days
+                      earlier
+                    </b>{" "}
+                    simulates bringing each payment forward by that many days
+                    (no other changes).
+                  </Typography>
+                  {metrics.avgDaysLateCeil != null && (
+                    <Typography
                       variant="caption"
                       sx={{
-                        fontSize: "0.7rem",
                         color: theme.palette.text.secondary,
-                        width: `${band.pct}%`,
-                        textAlign:
-                          idx === 0
-                            ? "left"
-                            : idx === signals.invoiceBands.length - 1
-                              ? "right"
-                              : "center",
+                        display: "block",
                       }}
                     >
-                      {band.label}
+                      •{" "}
+                      <b>
+                        If paid within {Number(metrics.avgDaysLateCeil)} days of
+                        term
+                      </b>{" "}
+                      assumes late payments are capped at the rounded average
+                      days late.
                     </Typography>
-                  ))}
-                </Box>
-              </Box>
+                  )}
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* 4. SB Spend by Invoice Band */}
+        <Grid item xs={12} md={12}>
+          <Card
+            sx={{
+              backgroundColor: theme.palette.background.paper,
+              p: 1,
+              boxShadow: theme.shadows[1],
+              minHeight: 200,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CardContent sx={{ width: "100%", height: "100%", p: 0 }}>
+              <Grid container columns={20} spacing={1.5} sx={{ px: 1 }}>
+                {/* Left: chart */}
+                <Grid item xs={12} md={13}>
+                  <Box
+                    sx={{
+                      width: "100%",
+                      minHeight: 140,
+                      backgroundColor: theme.palette.background.paper,
+                      borderRadius: 2,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      px: 2,
+                      py: 2,
+                    }}
+                  >
+                    <Typography
+                      variant="subtitle2"
+                      sx={{
+                        color: theme.palette.text.primary,
+                        mb: 1,
+                        alignSelf: "flex-start",
+                      }}
+                    >
+                      SB invoices by payment‑time band (count)
+                    </Typography>
+                    {/* Discrete vertical bars per band with fixed-height track */}
+                    {/* Only show three bands: 0–30, 31–60, 60+ (combining 61–90 and 90+) */}
+                    <Box
+                      sx={{
+                        width: "100%",
+                        height: 200,
+                        display: "flex",
+                        alignItems: "flex-end",
+                        justifyContent: "space-between",
+                        gap: 2.5,
+                        mb: 0,
+                      }}
+                    >
+                      {(() => {
+                        // Prepare three bands: 0–30, 31–60, 60+
+                        const bandsRaw = Array.isArray(metrics.invoiceBands)
+                          ? metrics.invoiceBands
+                          : [];
+                        // Find the bands by label
+                        const band0_30 = bandsRaw.find(
+                          (b) => b.label === "0–30"
+                        ) || { label: "0–30", count: 0, pct: 0 };
+                        const band31_60 = bandsRaw.find(
+                          (b) => b.label === "31–60"
+                        ) || { label: "31–60", count: 0, pct: 0 };
+                        // Combine 61–90 and 90+ into 60+
+                        const band61_90 = bandsRaw.find(
+                          (b) => b.label === "61–90"
+                        ) || { count: 0, pct: 0 };
+                        const band90p = bandsRaw.find(
+                          (b) => b.label === "90+"
+                        ) || { count: 0, pct: 0 };
+                        const band60p = {
+                          label: "60+",
+                          count:
+                            (Number(band61_90.count) || 0) +
+                            (Number(band90p.count) || 0),
+                          pct:
+                            (Number(band61_90.pct) || 0) +
+                            (Number(band90p.pct) || 0),
+                        };
+                        const bands = [band0_30, band31_60, band60p];
+                        return bands.map((band, idx) => {
+                          const raw = Number(band.pct) || 0;
+                          const pct = raw > 1 ? raw : raw * 100;
+                          const h = Math.max(2, Math.min(100, Math.round(pct)));
+                          return (
+                            <Box
+                              key={`band-vbar-${band.label}-${idx}`}
+                              sx={{
+                                flex: 1,
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                              }}
+                            >
+                              {/* Count badge above */}
+                              <Typography
+                                variant="caption"
+                                sx={{
+                                  px: 0.75,
+                                  py: 0.25,
+                                  mb: 0.75,
+                                  borderRadius: 10,
+                                  backgroundColor:
+                                    theme.palette.background.paper,
+                                  boxShadow: 1,
+                                  color: theme.palette.text.secondary,
+                                  fontWeight: 600,
+                                }}
+                              >
+                                {band.count != null
+                                  ? nf.format(Number(band.count))
+                                  : "—"}
+                              </Typography>
+                              {/* Capsule track with gradient fill and in-bar % label */}
+                              <Tooltip
+                                title={`${band.label}: ${band.count != null ? nf.format(Number(band.count)) : "—"} (${pct.toFixed(1)}%)`}
+                                arrow
+                              >
+                                <Box
+                                  aria-label={`${band.label}: ${band.count != null ? nf.format(Number(band.count)) : "—"} (${pct.toFixed(1)}%)`}
+                                  sx={{
+                                    width: 72,
+                                    height: 110,
+                                    position: "relative",
+                                    backgroundColor: theme.palette.grey[200],
+                                    borderRadius: 12,
+                                    overflow: "hidden",
+                                    boxShadow: 1,
+                                  }}
+                                >
+                                  <Box
+                                    sx={{
+                                      position: "absolute",
+                                      left: 0,
+                                      right: 0,
+                                      bottom: 0,
+                                      height: `${h}%`,
+                                      transition: "height 320ms ease",
+                                      background:
+                                        idx === 0
+                                          ? `linear-gradient(180deg, ${theme.palette.primary.light}, ${theme.palette.primary.main})`
+                                          : idx === 1
+                                            ? `linear-gradient(180deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark || theme.palette.primary.main})`
+                                            : `linear-gradient(180deg, ${theme.palette.grey[600]}, ${theme.palette.grey[700] || theme.palette.grey[600]})`,
+                                    }}
+                                  />
+                                  <Typography
+                                    variant="caption"
+                                    sx={{
+                                      position: "absolute",
+                                      top: "50%",
+                                      left: "50%",
+                                      transform: "translate(-50%, -50%)",
+                                      color: theme.palette.text.primary,
+                                      fontWeight: 700,
+                                    }}
+                                  >
+                                    {`${pct.toFixed(1)}%`}
+                                  </Typography>
+                                </Box>
+                              </Tooltip>
+                              {/* Label under bar */}
+                              <Typography
+                                variant="body2"
+                                sx={{
+                                  color: theme.palette.text.primary,
+                                  mt: 1,
+                                  mb: 0.25,
+                                  fontSize: "0.9rem",
+                                  fontWeight: 600,
+                                }}
+                              >
+                                {band.label}
+                              </Typography>
+                            </Box>
+                          );
+                        });
+                      })()}
+                    </Box>
+                    {/* Legend: Only three entries */}
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 3,
+                        mt: 1,
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 0.75,
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            width: 10,
+                            height: 10,
+                            borderRadius: "50%",
+                            backgroundColor: theme.palette.primary.light,
+                          }}
+                        />
+                        <Typography
+                          variant="caption"
+                          sx={{ color: theme.palette.text.secondary }}
+                        >
+                          0–30 days
+                        </Typography>
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 0.75,
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            width: 10,
+                            height: 10,
+                            borderRadius: "50%",
+                            backgroundColor: theme.palette.primary.main,
+                          }}
+                        />
+                        <Typography
+                          variant="caption"
+                          sx={{ color: theme.palette.text.secondary }}
+                        >
+                          31–60 days
+                        </Typography>
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 0.75,
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            width: 10,
+                            height: 10,
+                            borderRadius: "50%",
+                            backgroundColor: theme.palette.grey[600],
+                          }}
+                        />
+                        <Typography
+                          variant="caption"
+                          sx={{ color: theme.palette.text.secondary }}
+                        >
+                          60+ days
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Grid>
+
+                {/* Spacer for 65/5/30 layout */}
+                <Grid
+                  item
+                  md={1}
+                  sx={{ display: { xs: "none", md: "block" } }}
+                />
+                {/* Right: explanation */}
+                <Grid item xs={12} md={6}>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ mb: 0.5, color: theme.palette.text.secondary }}
+                  >
+                    What this shows
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: theme.palette.text.primary,
+                      mb: 0.75,
+                      fontSize: "0.85rem",
+                    }}
+                  >
+                    Counts of <b>small‑business</b> invoices grouped by how long
+                    they took to be paid, using three bands:
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      display: "block",
+                      mb: 0.25,
+                    }}
+                  >
+                    • 0–30 = paid within 30 days (on‑time for a 30‑day term).
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      display: "block",
+                      mb: 0.25,
+                    }}
+                  >
+                    • 31–60 = paid in the second month.
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      display: "block",
+                    }}
+                  >
+                    • 60+ = paid more than 60 days after issue (late).
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      display: "block",
+                    }}
+                  >
+                    • Percentages are the share of SB invoices in each band.
+                  </Typography>
+                </Grid>
+              </Grid>
             </CardContent>
           </Card>
         </Grid>

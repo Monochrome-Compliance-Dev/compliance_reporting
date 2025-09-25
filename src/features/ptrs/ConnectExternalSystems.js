@@ -456,14 +456,20 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
   }
 
   async function remapFileToCsv(file, type, map) {
-    // Collect target headers up-front (used by CSV branch and for worker mapping)
+    // Collect target headers up-front (used by both XLSX and CSV branches)
     const allowedTargets = new Set([
       ...PTRS_REQUIRED_FIELDS,
       ...PTRS_OPTIONAL_FIELDS,
     ]);
-    const targetHeaders = Array.from(
-      new Set(Object.values(map).filter((v) => v && allowedTargets.has(v)))
-    );
+    // Use canonical, deduped order: required first (as defined), then optional
+    const targetHeaders =
+      typeof computeSelectedHeaders === "function"
+        ? computeSelectedHeaders(map)
+        : Array.from(
+            new Set(
+              Object.values(map).filter((v) => v && allowedTargets.has(v))
+            )
+          );
 
     if (type === "xlsx") {
       const buffer = await file.arrayBuffer();
@@ -505,19 +511,6 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
       return new Blob([csvText], { type: "text/csv;charset=utf-8" });
     } else {
       // csv — stream-map without retaining all rows in memory, with buffered writes and throttled progress
-      // csv — stream-map without retaining all rows in memory, with buffered writes and throttled progress
-      const allowedTargets = new Set([
-        ...PTRS_REQUIRED_FIELDS,
-        ...PTRS_OPTIONAL_FIELDS,
-      ]);
-
-      // Deterministic order: required (canonical order), then optional; no duplicates
-      const mapValues = Object.values(map);
-      const targetHeaders = [
-        ...PTRS_REQUIRED_FIELDS.filter((f) => mapValues.includes(f)),
-        ...PTRS_OPTIONAL_FIELDS.filter((f) => mapValues.includes(f)),
-      ];
-
       // Precompute reverse map: target field -> first raw header name (ignore later collisions)
       const reverseMap = Object.create(null);
       for (const [raw, tgt] of Object.entries(map)) {

@@ -178,48 +178,48 @@ export default function Step6() {
   }
 
   const sections = [
-    {
-      title: "Declaration & Entity Details",
-      fields: [
-        {
-          label:
-            "I confirm the information in the Entity Information form is still true and correct.",
-          value: "Checkbox",
-          comment:
-            "All reporting entities must ensure their entity information (provided to the Regulator in the Entity Information form) is accurate at the time of submitting a payment times report. Entity information can be updated via the Portal.",
-        },
-        {
-          label: "Entity ABN",
-          value: "82 663 593 093",
-          comment:
-            "Fields will be pre-populated based on entity's profile on the Portal.",
-        },
-        {
-          label: "Entity ACN",
-          value: "663 593 093",
-          comment:
-            "Fields will be pre-populated based on entity's profile on the Portal.",
-        },
-        {
-          label: "Entity ARBN",
-          value: "",
-          comment:
-            "Fields will be pre-populated based on entity's profile on the Portal.",
-        },
-      ],
-    },
+    // {
+    //   title: "Declaration & Entity Details",
+    //   fields: [
+    //     {
+    //       label:
+    //         "I confirm the information in the Entity Information form is still true and correct.",
+    //       value: "Checkbox",
+    //       comment:
+    //         "All reporting entities must ensure their entity information (provided to the Regulator in the Entity Information form) is accurate at the time of submitting a payment times report. Entity information can be updated via the Portal.",
+    //     },
+    //     {
+    //       label: "Entity ABN",
+    //       value: "82 663 593 093",
+    //       comment:
+    //         "Fields will be pre-populated based on entity's profile on the Portal.",
+    //     },
+    //     {
+    //       label: "Entity ACN",
+    //       value: "663 593 093",
+    //       comment:
+    //         "Fields will be pre-populated based on entity's profile on the Portal.",
+    //     },
+    //     {
+    //       label: "Entity ARBN",
+    //       value: "",
+    //       comment:
+    //         "Fields will be pre-populated based on entity's profile on the Portal.",
+    //     },
+    //   ],
+    // },
     {
       title: "Report Details",
       fields: [
         {
           label: "Report Period Start Date",
-          value: "1 January 2025",
+          value: "1 July 2024",
           comment:
             "The start date of the reporting period for which the report is being submitted.",
         },
         {
           label: "Report Period End Date",
-          value: "30 June 2025",
+          value: "31 December 2024",
           comment:
             "The end date of the reporting period for which the report is being submitted.",
         },
@@ -235,7 +235,7 @@ export default function Step6() {
         },
         {
           label: "Responsible member approval date",
-          value: "15/07/2025",
+          value: "15/06/2025",
           comment: "The date when the report was approved.",
         },
       ],
@@ -260,7 +260,7 @@ export default function Step6() {
         {
           label:
             "Do any Australian laws, voluntary codes or agreements impose requirements on the entity's payment times and practices to small businesses?",
-          value: "tbc",
+          value: "",
           comment:
             "This will be determined by in conjunction with you. Any further details must be provided in the 'Report Comments' field later in the report.",
         },
