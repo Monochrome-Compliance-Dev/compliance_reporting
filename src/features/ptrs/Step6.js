@@ -95,6 +95,12 @@ function normalizeMetrics(raw = {}) {
   const paid31To60DaysPercent = pct(btw31to60, sbTotalPayments);
   const paidOver60DaysPercent = pct(over60, sbTotalPayments);
 
+  // --- New Misc metrics ---
+  const sbValuePctOfTotal =
+    num(raw.sb_value_pct_of_total) ?? num(raw.sbValuePctOfTotal) ?? null;
+
+  const sbPeppolPct = num(raw.sb_peppol_pct) ?? num(raw.sbPeppolPct) ?? null;
+
   return {
     // Terms
     mostCommonPaymentTerm,
@@ -115,6 +121,9 @@ function normalizeMetrics(raw = {}) {
     paidWithin30DaysPercent,
     paid31To60DaysPercent,
     paidOver60DaysPercent,
+
+    sbValuePctOfTotal,
+    sbPeppolPct,
   };
 }
 
@@ -380,13 +389,13 @@ export default function Step6() {
         {
           label:
             "Small business trade credit payments as a percentage of total trade credit payments",
-          value: "",
+          value: fmt2(metrics?.sbValuePctOfTotal),
           comment:
             "Total small business trade credit payment value ÷ Total trade credit payment value × 100.",
         },
         {
           label: "Percentage of Peppol enabled small business procurement",
-          value: "",
+          value: fmt2(metrics?.sbPeppolPct),
           comment:
             "Payments marked 'Yes' in the 'Peppol invoice enabled' column ÷ Total Small Business TCP payments × 100, if applicable.",
         },
