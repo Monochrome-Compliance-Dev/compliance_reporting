@@ -25,12 +25,16 @@ import {
   Tooltip,
   Chip,
   Checkbox,
+  CircularProgress,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tcpService, dcService, ptrsService } from "../../services";
 import PayeesMissingAbnTable from "./PayeesMissingAbnTable";
 import { getFieldLabel } from "./fieldMeta";
 import { useAlert, usePtrsContext } from "../../context";
+
+// Lightweight debug logger for this component
+const DBG = (...args) => console.log("[PTRS][DataUploadReview]", ...args);
 
 const DataUploadReview = ({
   errors = [],
@@ -63,11 +67,57 @@ const DataUploadReview = ({
   const [validRows, setValidRows] = useState(validRecordsPreview);
   const [editedRows, setEditedRows] = useState({});
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [liveJob, setLiveJob] = useState(null); // { rowsProcessed, rowsValid, rowsErrored, status, ptrsId }
+  const [lastLiveAt, setLastLiveAt] = useState(null); // Date of last progress event
   // Collapsed state for hiding the card after validation
   const [collapse, setCollapse] = useState(false);
   // Handler for confirming validation and navigating
   const navigate = useNavigate();
   const { activePtrsId } = usePtrsContext();
+
+  // ——— Diagnostics: mount/unmount + initial props snapshot ———
+  useEffect(() => {
+    DBG("mount", {
+      activePtrsId,
+      props: {
+        errorsCount: Array.isArray(errors) ? errors.length : 0,
+        validPreviewCount: Array.isArray(validRecordsPreview)
+          ? validRecordsPreview.length
+          : 0,
+        errorsTotal,
+        validTotal,
+        hasErrorsTotal: Number.isFinite(errorsTotal),
+        hasValidTotal: Number.isFinite(validTotal),
+      },
+    });
+    return () => DBG("unmount");
+  }, []);
+
+  useEffect(() => {
+    function onProgress(ev) {
+      const job = ev?.detail?.job ?? null;
+      if (!job) return;
+      // only reflect progress for the active PTRS
+      if (job.ptrsId && job.ptrsId !== activePtrsId) return;
+      setLiveJob(job);
+      setLastLiveAt(new Date());
+    }
+
+    async function onComplete(ev) {
+      const job = ev?.detail?.job ?? null;
+      if (job?.ptrsId && job.ptrsId !== activePtrsId) return;
+      setLiveJob(null); // we’ll switch to persisted counts from the server
+      setLastLiveAt(null);
+      await onRefreshClick?.(); // <- your existing function that fetches valid/error totals
+    }
+
+    window.addEventListener("ptrs:ingestProgress", onProgress);
+    window.addEventListener("ptrs:ingestComplete", onComplete);
+    return () => {
+      window.removeEventListener("ptrs:ingestProgress", onProgress);
+      window.removeEventListener("ptrs:ingestComplete", onComplete);
+    };
+  }, [activePtrsId]); // re-bind if user switches PTRS
 
   // --- Bulk selection for error rows ---
   const [selectedRowIds, setSelectedRowIds] = useState(new Set());
@@ -78,6 +128,8 @@ const DataUploadReview = ({
   const [pendingDeleteIds, setPendingDeleteIds] = useState([]);
   const [pendingDeleteType, setPendingDeleteType] = useState("error"); // "error" | "valid"
   const [validCountOverride, setValidCountOverride] = useState(null);
+  // Optional override totals fetched lazily when parent doesn't supply them
+  const [errorsCountOverride, setErrorsCountOverride] = useState(null);
   // --- Delete confirmation dialog helpers ---
   const openDeleteDialog = (ids, type = "error") => {
     if (!Array.isArray(ids) || ids.length === 0) return;
@@ -159,19 +211,16 @@ const DataUploadReview = ({
   // Derive paged vs total error counts for chips
   const errorsShown = safeErrors.length;
   const errorsAll = useMemo(
-    () => (Number.isFinite(errorsTotal) ? Number(errorsTotal) : errorsShown),
-    [errorsTotal, errorsShown]
-  );
-  const totalRows = useMemo(
-    () => (validRows?.length || 0) + errorsAll,
-    [validRows, errorsAll]
-  );
-  const errorsChipLabel = useMemo(
     () =>
-      `⚠️ ${errorsAll} errors${errorsAll !== errorsShown ? ` (${errorsShown} shown)` : ""}`,
-    [errorsAll, errorsShown]
+      Number.isFinite(errorsTotal)
+        ? Number(errorsTotal)
+        : Number.isFinite(errorsCountOverride)
+          ? Number(errorsCountOverride)
+          : errorsShown,
+    [errorsTotal, errorsCountOverride, errorsShown]
   );
 
+  // --- Valid counts (shown vs total) must be computed before chip display vars ---
   const validShown = useMemo(
     () => (Array.isArray(validRows) ? validRows.length : 0),
     [validRows]
@@ -185,6 +234,121 @@ const DataUploadReview = ({
           : validShown,
     [validTotal, validCountOverride, validShown]
   );
+
+  const totalRows = useMemo(
+    () => (Number(validAll) || 0) + (Number(errorsAll) || 0),
+    [validAll, errorsAll]
+  );
+
+  // Prefer live ingest counts for chips when a job is in progress
+  const displayValidAll = Number.isFinite(liveJob?.rowsValid)
+    ? Number(liveJob.rowsValid)
+    : validAll;
+
+  const displayErrorsAll = Number.isFinite(liveJob?.rowsErrored)
+    ? Number(liveJob.rowsErrored)
+    : errorsAll;
+
+  const displayTotalRows = Number.isFinite(liveJob?.rowsProcessed)
+    ? Number(liveJob.rowsProcessed)
+    : Number.isFinite(liveJob?.rowsValid) ||
+        Number.isFinite(liveJob?.rowsErrored)
+      ? Number(liveJob?.rowsValid || 0) + Number(liveJob?.rowsErrored || 0)
+      : totalRows;
+
+  // Live updating flag must be declared before any memo that depends on it
+  const liveUpdating = Boolean(liveJob);
+  // Determine when to show placeholders instead of 0s (first load / no data yet)
+  const totalsKnown = useMemo(() => {
+    const knownValid =
+      Number.isFinite(validTotal) || Number.isFinite(validCountOverride);
+    const knownErrors =
+      Number.isFinite(errorsTotal) || Number.isFinite(errorsCountOverride);
+    return (
+      liveUpdating ||
+      knownValid ||
+      knownErrors ||
+      Number(validAll) > 0 ||
+      Number(errorsAll) > 0
+    );
+  }, [
+    liveUpdating,
+    validTotal,
+    validCountOverride,
+    errorsTotal,
+    errorsCountOverride,
+    validAll,
+    errorsAll,
+  ]);
+
+  const showPlaceholders = useMemo(
+    () => !totalsKnown && validShown === 0 && errorsShown === 0,
+    [totalsKnown, validShown, errorsShown]
+  );
+
+  const displayValidAllText = showPlaceholders ? "—" : String(displayValidAll);
+  const displayErrorsAllText = showPlaceholders
+    ? "—"
+    : String(displayErrorsAll);
+  const displayTotalRowsText = showPlaceholders
+    ? "—"
+    : String(displayTotalRows);
+
+  const errorsChipLabelDisplay = useMemo(() => {
+    if (showPlaceholders) return `⚠️ — errors`;
+    const suffix =
+      errorsShown > 0 && displayErrorsAll !== errorsShown
+        ? ` (${errorsShown} shown)`
+        : "";
+    return `⚠️ ${displayErrorsAll} errors${suffix}${liveJob ? " (live)" : ""}`;
+  }, [showPlaceholders, displayErrorsAll, errorsShown, liveJob]);
+
+  // Tooltip helpers for live update status
+  const lastLiveStr = useMemo(
+    () => (lastLiveAt ? new Date(lastLiveAt).toLocaleTimeString() : null),
+    [lastLiveAt]
+  );
+  const chipTooltipTitle = useMemo(
+    () =>
+      showPlaceholders
+        ? "Awaiting data"
+        : liveUpdating
+          ? `Updating live — last update ${lastLiveStr || "just now"}`
+          : "From server totals",
+    [showPlaceholders, liveUpdating, lastLiveStr]
+  );
+
+  const chipLiveIcon = useMemo(
+    () => (liveUpdating ? <CircularProgress size={12} thickness={5} /> : null),
+    [liveUpdating]
+  );
+
+  useEffect(() => {
+    DBG("counts", { validShown, validAll, errorsShown, errorsAll, totalRows });
+  }, [validShown, validAll, errorsShown, errorsAll, totalRows]);
+  useEffect(() => {
+    // If parent didn't pass errorsTotal, fetch a tiny page to read total from API
+    if (Number.isFinite(errorsTotal)) return;
+    if (!activePtrsId) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await tcpService.getErrorsByPtrsId(activePtrsId, {
+          page: 1,
+          pageSize: 1,
+        });
+        if (!cancelled && res && typeof res.total === "number") {
+          setErrorsCountOverride(res.total);
+          DBG("errors total override from API", res.total);
+        }
+      } catch (e) {
+        // best-effort only
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [activePtrsId, errorsTotal]);
 
   const preValidatedErrors = useMemo(() => {
     return safeErrors.map((row) => ({
@@ -547,17 +711,36 @@ const DataUploadReview = ({
                 alignItems: "center",
               }}
             >
-              <Chip
-                label={`✅ ${validAll} valid${validAll !== validShown ? ` (${validShown} shown)` : ""}`}
-                color="success"
-                variant="outlined"
-              />
-              <Chip label={errorsChipLabel} color="error" variant="outlined" />
-              <Chip
-                label={`📄 ${totalRows} total`}
-                color="default"
-                variant="outlined"
-              />
+              <Tooltip title={chipTooltipTitle}>
+                <span>
+                  <Chip
+                    icon={chipLiveIcon}
+                    label={`✅ ${displayValidAllText} valid${!showPlaceholders && validShown > 0 && displayValidAll !== validShown ? ` (${validShown} shown)` : ""}`}
+                    color="success"
+                    variant="outlined"
+                  />
+                </span>
+              </Tooltip>
+              <Tooltip title={chipTooltipTitle}>
+                <span>
+                  <Chip
+                    icon={chipLiveIcon}
+                    label={errorsChipLabelDisplay}
+                    color="error"
+                    variant="outlined"
+                  />
+                </span>
+              </Tooltip>
+              <Tooltip title={chipTooltipTitle}>
+                <span>
+                  <Chip
+                    icon={chipLiveIcon}
+                    label={`📄 ${displayTotalRowsText} total`}
+                    color="default"
+                    variant="outlined"
+                  />
+                </span>
+              </Tooltip>
             </Box>
 
             {/* Refresh Records Button with Tooltip */}
@@ -1086,7 +1269,10 @@ const DataUploadReview = ({
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                   <Typography>
                     Valid Rows ({validAll}
-                    {validAll !== validShown ? ` (${validShown} shown)` : ""})
+                    {validShown > 0 && validAll !== validShown
+                      ? ` (${validShown} shown)`
+                      : ""}
+                    )
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>

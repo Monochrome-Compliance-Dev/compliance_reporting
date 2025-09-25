@@ -22,6 +22,9 @@ import {
 
 import { getFieldLabel } from "./fieldMeta";
 
+// Lightweight debug logger for this module
+const DBG = (...args) => console.log("[PTRS][ConnectExternalSystems]", ...args);
+
 // --- API base for local ingest ---
 const LOCAL_INGEST = process.env.REACT_APP_LOCAL_INGEST === "1";
 
@@ -657,8 +660,19 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
         const r = await bigBerthaService.getIngestJob(jobId);
         const j = r?.job || r?.data?.job || r?.data || r;
         if (j) {
+          // Broadcast progress to other UI (e.g., DataUploadReview)
+          try {
+            window.dispatchEvent(
+              new CustomEvent("ptrs:ingestProgress", { detail: { job: j } })
+            );
+          } catch (_) {}
           onUpdate?.(j);
           if (j.status === "complete" || j.status === "failed") {
+            try {
+              window.dispatchEvent(
+                new CustomEvent("ptrs:ingestComplete", { detail: { job: j } })
+              );
+            } catch (_) {}
             return j; // return final job so caller can decide messaging
           }
         }
@@ -672,6 +686,11 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
 
   const handleCommitUpload = async () => {
     try {
+      DBG("commit:start", {
+        ptrsId: currentPtrsId,
+        detectedType,
+        headersCount: Array.isArray(headers) ? headers.length : 0,
+      });
       setUploading(true);
       setProgressMessage("Preparing file…");
       showAlert("Preparing file…", "info");
@@ -685,7 +704,36 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
         );
       }
 
+      // NEW: concise debug snapshot of the post-dedupe map and selected targets
+      try {
+        const selectedTargets = computeSelectedHeaders
+          ? computeSelectedHeaders(cleanMap)
+          : Object.values(cleanMap || {});
+        DBG("commit:cleanMap", {
+          selectedTargets,
+          mapSize: Object.keys(cleanMap || {}).length,
+        });
+      } catch (_) {
+        // no-op: debug only
+      }
+
       console.info("[PTRS] cleanMap →", cleanMap);
+
+      // NEW: marker right before remap begins, with quick counts
+      DBG("commit:remap_begin", {
+        type: detectedType,
+        targetCount: (() => {
+          try {
+            const selectedTargets = computeSelectedHeaders
+              ? computeSelectedHeaders(cleanMap)
+              : Object.values(cleanMap || {});
+            return selectedTargets.length;
+          } catch {
+            return Object.values(cleanMap || {}).length;
+          }
+        })(),
+      });
+
       const mappedBlob = await remapFileToCsv(
         stagedFile,
         detectedType,
@@ -952,6 +1000,16 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
             </span>
           </Tooltip>
         </Stack>
+        {/* status line */}
+        {progressMessage ? (
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{ mt: 2, display: "block", textAlign: "center" }}
+          >
+            {progressMessage}
+          </Typography>
+        ) : null}
       </CardContent>
     </Card>
   );
