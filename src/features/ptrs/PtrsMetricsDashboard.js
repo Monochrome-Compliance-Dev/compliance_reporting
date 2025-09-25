@@ -192,7 +192,47 @@ export default function PtrsMetricsDashboard() {
       ? signals.slowestPaidSuppliers
       : [],
     lateSbRate: signals?.lateSbRate ?? 0,
+    // Terms + new percentages
+    modeTerm: signals?.modeTerm ?? null,
+    termMin: signals?.termMin ?? null,
+    termMax: signals?.termMax ?? null,
+    withinTermsPct:
+      signals?.withinTermsPct ?? signals?.pct_within_terms ?? null,
+    sbValuePctOfTotal: signals?.sbValuePctOfTotal ?? null,
+    sbPeppolPct: signals?.sbPeppolPct ?? null,
   };
+
+  const fmt = (v) => (v == null || Number.isNaN(Number(v)) ? "—" : v);
+  const fmtPct = (v) =>
+    v == null || Number.isNaN(Number(v)) ? "—" : `${Number(v).toFixed(2)}%`;
+  const fmt2 = (v) =>
+    v == null || Number.isNaN(Number(v)) ? "—" : Number(v).toFixed(2);
+  const fmtMoney = (v) => {
+    if (v == null || Number.isNaN(Number(v))) return "—";
+    const s = Number(v).toFixed(2);
+    // insert spaces as thousands separators
+    const withSpaces = s.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return `$${withSpaces}`;
+  };
+
+  // Report-aligned band percentages derived from invoiceBands
+  const bandBy = (label) => metrics.invoiceBands.find((b) => b.label === label);
+  const within30Pct = (() => {
+    const b = bandBy("0–30");
+    return b && b.pct != null ? Number(b.pct) * 100 : null;
+  })();
+  const in31to60Pct = (() => {
+    const b = bandBy("31–60");
+    return b && b.pct != null ? Number(b.pct) * 100 : null;
+  })();
+  const over60Pct = (() => {
+    const b1 = bandBy("61–90");
+    const b2 = bandBy("90+");
+    const v1 = b1 && b1.pct != null ? Number(b1.pct) : 0;
+    const v2 = b2 && b2.pct != null ? Number(b2.pct) : 0;
+    const sum = (v1 + v2) * 100;
+    return sum > 0 ? sum : b1 || b2 ? 0 : null;
+  })();
 
   // Log missing fields with reason
   [
@@ -274,6 +314,56 @@ export default function PtrsMetricsDashboard() {
           Export Board Pack
         </Button>
       </Box>
+      {/* Report metrics */}
+      <Typography
+        variant="subtitle1"
+        gutterBottom
+        sx={{ color: theme.palette.primary.main, mb: 1.5 }}
+      >
+        Report metrics
+      </Typography>
+
+      {/* Payment terms */}
+      <Typography
+        variant="body2"
+        sx={{ mb: 1, color: theme.palette.text.secondary }}
+      >
+        Payment terms
+      </Typography>
+      <Grid
+        container
+        spacing={1.5}
+        mb={3}
+        alignItems="stretch"
+        sx={{ height: "100%" }}
+      >
+        <Grid item xs={6} sm={4} md={2}>
+          <StatCard
+            title="Most common payment term (statistical mode)"
+            value={fmt(metrics.modeTerm)}
+          />
+        </Grid>
+        <Grid item xs={6} sm={4} md={2}>
+          <StatCard
+            title="Range of most common payment terms – minimum"
+            value={fmt(metrics.termMin)}
+          />
+        </Grid>
+        <Grid item xs={6} sm={4} md={2}>
+          <StatCard
+            title="Range of most common payment terms – maximum"
+            value={fmt(metrics.termMax)}
+          />
+        </Grid>
+      </Grid>
+
+      {/* Payment times */}
+      <Typography
+        variant="body2"
+        sx={{ mb: 1, color: theme.palette.text.secondary }}
+      >
+        Payment times
+      </Typography>
       <Grid
         container
         spacing={1.5}
@@ -282,43 +372,108 @@ export default function PtrsMetricsDashboard() {
         sx={{ height: "100%" }}
       >
         <Grid item xs={6} sm={4} md={2}>
-          {console.log(
-            "invoicesPaidWithin30Days",
-            metrics.invoicesPaidWithin30Days
-          )}
-          <StatCard
-            title="Invoices paid within 30 days"
-            value={metrics.invoicesPaidWithin30Days}
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={2}>
-          {console.log("valuePaidWithin30Days", metrics.valuePaidWithin30Days)}
-          <StatCard
-            title="Value of invoices paid within 30 days"
-            value={metrics.valuePaidWithin30Days}
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={2}>
-          {console.log("avgPaymentTime", metrics.avgPaymentTime)}
           <StatCard
             title="Average payment time"
-            value={metrics.avgPaymentTime}
+            value={fmt2(metrics.avgPaymentTime)}
           />
         </Grid>
         <Grid item xs={6} sm={4} md={2}>
-          {console.log("medianPaymentTime", metrics.medianPaymentTime)}
           <StatCard
             title="Median payment time"
-            value={metrics.medianPaymentTime}
+            value={fmt(metrics.medianPaymentTime)}
           />
         </Grid>
         <Grid item xs={6} sm={4} md={2}>
-          {console.log("percentile80", metrics.percentile80)}
-          <StatCard title="80th" value={metrics.percentile80} />
+          <StatCard
+            title="80th percentile payment time"
+            value={fmt(metrics.percentile80)}
+          />
         </Grid>
         <Grid item xs={6} sm={4} md={2}>
-          {console.log("percentile95", metrics.percentile95)}
-          <StatCard title="95th" value={metrics.percentile95} />
+          <StatCard
+            title="95th percentile payment time"
+            value={fmt(metrics.percentile95)}
+          />
+        </Grid>
+        <Grid item xs={6} sm={4} md={2}>
+          <StatCard
+            title="Percentage paid within payment terms (SB)"
+            value={fmtPct(metrics.withinTermsPct)}
+          />
+        </Grid>
+        <Grid item xs={6} sm={4} md={2}>
+          <StatCard
+            title="Invoices paid within 30 days (%)"
+            value={fmtPct(within30Pct)}
+          />
+        </Grid>
+        <Grid item xs={6} sm={4} md={2}>
+          <StatCard
+            title="Invoices paid in 31–60 days (%)"
+            value={fmtPct(in31to60Pct)}
+          />
+        </Grid>
+        <Grid item xs={6} sm={4} md={2}>
+          <StatCard
+            title="Invoices paid over 60 days (%)"
+            value={fmtPct(over60Pct)}
+          />
+        </Grid>
+      </Grid>
+
+      {/* Misc. */}
+      <Typography
+        variant="body2"
+        sx={{ mb: 1, color: theme.palette.text.secondary }}
+      >
+        Misc.
+      </Typography>
+      <Grid
+        container
+        spacing={1.5}
+        mb={4}
+        alignItems="stretch"
+        sx={{ height: "100%" }}
+      >
+        <Grid item xs={12} sm={6} md={4}>
+          <StatCard
+            title="Small business trade credit payments as a % of total trade credit payments"
+            value={fmtPct(metrics.sbValuePctOfTotal)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <StatCard
+            title="% of Peppol enabled small business procurement"
+            value={fmtPct(metrics.sbPeppolPct)}
+          />
+        </Grid>
+      </Grid>
+
+      {/* Additional metrics */}
+      <Typography
+        variant="body2"
+        sx={{ mb: 1, color: theme.palette.text.secondary }}
+      >
+        Additional metrics
+      </Typography>
+      <Grid
+        container
+        spacing={1.5}
+        mb={4}
+        alignItems="stretch"
+        sx={{ height: "100%" }}
+      >
+        <Grid item xs={6} sm={4} md={3}>
+          <StatCard
+            title="Invoices paid within 30 days (count)"
+            value={fmt(metrics.invoicesPaidWithin30Days)}
+          />
+        </Grid>
+        <Grid item xs={6} sm={4} md={3}>
+          <StatCard
+            title="Invoices paid within 30 days (value)"
+            value={fmtMoney(metrics.valuePaidWithin30Days)}
+          />
         </Grid>
       </Grid>
 
@@ -348,7 +503,7 @@ export default function PtrsMetricsDashboard() {
           {console.log("sbValuePayments", metrics.sbValuePayments)}
           <StatCard
             title="Value of SB Payments"
-            value={metrics.sbValuePayments}
+            value={fmtMoney(metrics.sbValuePayments)}
           />
         </Grid>
         <Grid item xs={6} sm={4} md={3}>
@@ -362,7 +517,7 @@ export default function PtrsMetricsDashboard() {
           {console.log("sbPeppolValue", metrics.sbPeppolValue)}
           <StatCard
             title="Peppol-enabled SB (Value)"
-            value={metrics.sbPeppolValue}
+            value={fmtMoney(metrics.sbPeppolValue)}
           />
         </Grid>
       </Grid>
