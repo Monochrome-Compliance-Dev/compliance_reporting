@@ -24,14 +24,13 @@ import {
 import { useAlert } from "../../context";
 
 export default function Dashboard() {
-  const user = userService.userValue; // Get the current user
+  const user = userService.userValue;
   const navigate = useNavigate();
-  const theme = useTheme(); // Access the theme
+  const theme = useTheme();
   const { showAlert } = useAlert();
 
   const [customers, setCustomers] = useState([]);
   const [loadingCustomers, setLoadingCustomers] = useState(false);
-  // Removed unused customerEntitlements state
   const currentScoped = useMemo(() => getCurrentCustomer(), []);
   const [selectedCustomerId, setSelectedCustomerId] = useState(
     currentScoped?.id || ""
@@ -45,7 +44,8 @@ export default function Dashboard() {
     async function loadCustomers() {
       try {
         setLoadingCustomers(true);
-        const list = await customerService.getCustomersByAccess(user.id);
+        const list = await customerService.getAll();
+        // const list = await customerService.getCustomersByAccess(user.id);
         if (isActive && Array.isArray(list)) {
           setCustomers(list);
         }
