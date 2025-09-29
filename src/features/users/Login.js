@@ -8,7 +8,7 @@ import {
   Paper,
 } from "@mui/material";
 import { userService } from "../../services";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState } from "react";
@@ -42,7 +42,6 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
     setError,
-    control,
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {

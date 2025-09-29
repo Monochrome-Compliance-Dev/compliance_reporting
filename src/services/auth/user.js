@@ -3,6 +3,7 @@ import { protectedRoutes } from "../../routes/routeConfig";
 import { BehaviorSubject } from "rxjs";
 
 import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
+import { getScopedCustomerId } from "../../lib/utils/tenantScope";
 
 const userSubject = new BehaviorSubject(null);
 const baseUrl = `${process.env.REACT_APP_API_URL}/users`;
@@ -30,7 +31,7 @@ export const userService = {
   update,
   delete: _delete,
   hasFeature,
-  reloadEntitlements,
+  reloadCustomerEntitlements,
   user: userSubject.asObservable(),
   get userValue() {
     return userSubject.value;
@@ -251,16 +252,38 @@ function hasFeature(feature) {
   return Array.isArray(u?.entitlements) && u.entitlements.includes(feature);
 }
 
-async function reloadEntitlements() {
+async function reloadCustomerEntitlements(customerId) {
   const u = userSubject.value;
   if (!u) return [];
+
+  // Prefer explicit argument, then currently scoped customer, then home tenant
+  const scoped =
+    typeof getScopedCustomerId === "function" ? getScopedCustomerId() : null;
+  const id = customerId || scoped || u.customerId;
+
+  if (!id) {
+    const err = {
+      status: 400,
+      message: "No customerId available to load entitlements",
+    };
+    // eslint-disable-next-line no-console
+    console.warn("reloadEntitlements: ", err.message);
+    throw err;
+  }
+
   try {
-    const updated = await refreshToken();
-    return Array.isArray(updated?.entitlements) ? updated.entitlements : [];
+    const ents = await fetchWrapper.get(
+      `${process.env.REACT_APP_API_URL}/customers/${id}/customer-entitlements`
+    );
+    const updated = { ...u, entitlements: Array.isArray(ents) ? ents : [] };
+    // eslint-disable-next-line no-console
+    console.log("ents: ", ents);
+    console.log("updated CustomerEntitlements: ", updated.entitlements);
+    userSubject.next(updated);
+    return updated.entitlements;
   } catch (e) {
-    return Array.isArray(userSubject.value?.entitlements)
-      ? userSubject.value.entitlements
-      : [];
+    // Re-throw so callers (Dashboard) can surface alerts and/or rollback selection
+    throw e;
   }
 }
 

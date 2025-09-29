@@ -23,5 +23,4 @@ yarn-error.log*
 config.*
 
 # environment variables
-.env
-.env.sit
+.env*

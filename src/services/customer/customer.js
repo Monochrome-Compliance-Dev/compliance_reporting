@@ -9,6 +9,7 @@ export const customerService = {
   update,
   patch,
   delete: _delete,
+  getCustomersByAccess,
 };
 
 async function getAll() {
@@ -33,4 +34,11 @@ async function patch(id, params) {
 
 async function _delete(id) {
   return await fetchWrapper.delete(`${baseUrl}/${id}`);
+}
+
+async function getCustomersByAccess(userId) {
+  const gg = await fetchWrapper.get(`${baseUrl}/customers-by-access/${userId}`);
+  console.log(gg);
+  return gg;
+  // return fetchWrapper.get(`${baseUrl}/customers-by-access/${userId}`);
 }
