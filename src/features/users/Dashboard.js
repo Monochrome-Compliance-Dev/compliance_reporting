@@ -14,32 +14,47 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router";
 import { customerService, userService } from "../../services";
-import { useEffect, useState, useMemo, useRef } from "react";
+import { useEffect, useState } from "react";
 import {
   canSwitchCustomers,
   getCurrentCustomer,
   setCurrentCustomer,
   clearCurrentCustomer,
+  onCustomerChange,
 } from "../../lib/utils/";
 import { useAlert } from "../../context";
 
 export default function Dashboard() {
-  const user = userService.userValue;
+  const [user, setUser] = useState(userService.userValue);
+  useEffect(() => {
+    const sub = userService.user.subscribe((u) => setUser(u));
+    return () => sub.unsubscribe();
+  }, []);
   const navigate = useNavigate();
   const theme = useTheme();
   const { showAlert } = useAlert();
 
+  const hasFeature = (f) =>
+    Array.isArray(user?.entitlements) && user.entitlements.includes(f);
+
   const [customers, setCustomers] = useState([]);
   const [loadingCustomers, setLoadingCustomers] = useState(false);
-  const currentScoped = useMemo(() => getCurrentCustomer(), []);
   const [selectedCustomerId, setSelectedCustomerId] = useState(
-    currentScoped?.id || ""
+    getCurrentCustomer()?.id || ""
   );
-  const prevValidCustomerIdRef = useRef(currentScoped?.id || "");
-  const isBoss = useMemo(() => canSwitchCustomers(user), [user]);
 
   useEffect(() => {
-    if (!isBoss) return;
+    const unsubscribe = onCustomerChange?.((cust) => {
+      setSelectedCustomerId(cust?.id || "");
+    });
+    return () => {
+      if (typeof unsubscribe === "function") unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!canSwitchCustomers(user)) return;
+    console.log("user.entitlements: ", user.entitlements);
     let isActive = true;
     async function loadCustomers() {
       try {
@@ -59,50 +74,14 @@ export default function Dashboard() {
     return () => {
       isActive = false;
     };
-  }, [isBoss, showAlert, user.id]);
-
-  const refreshEntitlements = async (customerId) => {
-    const id = customerId ?? selectedCustomerId;
-    try {
-      await userService.reloadCustomerEntitlements(id);
-      // Commit this id as the last known-good selection
-      prevValidCustomerIdRef.current = id;
-    } catch (e) {
-      showAlert(
-        e?.message ||
-          "Failed to refresh customerEntitlements for the selected customer",
-        "error"
-      );
-      // Roll back selection & scope so the UI reflects the last valid tenant
-      const prevId = prevValidCustomerIdRef.current || "";
-      setSelectedCustomerId(prevId);
-      if (prevId) {
-        const prevCustomer = customers.find(
-          (c) => String(c.id) === String(prevId)
-        );
-        if (prevCustomer) {
-          setCurrentCustomer({
-            id: prevCustomer.id,
-            name: prevCustomer.businessName,
-          });
-        }
-      } else {
-        clearCurrentCustomer();
-      }
-    }
-  };
+  }, [showAlert, user]);
 
   const handleCustomerChange = (e) => {
     const value = e.target.value;
     setSelectedCustomerId(value);
     const selected = customers.find((c) => String(c.id) === String(value));
     if (selected) {
-      setCurrentCustomer({
-        id: selected.id,
-        name: selected.businessName,
-      });
-      // Trigger refresh using the newly selected id (avoid stale state)
-      refreshEntitlements(selected.id);
+      setCurrentCustomer({ id: selected.id, name: selected.businessName });
     } else {
       clearCurrentCustomer();
     }
@@ -131,7 +110,7 @@ export default function Dashboard() {
         Welcome to Your Solution Dashboard, {user?.firstName} {user?.lastName}
       </Typography>
 
-      {isBoss && (
+      {canSwitchCustomers(user) && (
         <Box sx={{ mb: 3 }}>
           <FormControl fullWidth size="small" disabled={loadingCustomers}>
             <InputLabel id="acting-as-label">Acting as customer</InputLabel>
@@ -180,8 +159,12 @@ export default function Dashboard() {
       <Grid container spacing={4} sx={{ marginTop: theme.spacing(2) }}>
         <Grid item xs={12} sm={6} md={4}>
           <Card
-            sx={{ cursor: "pointer" }}
-            {...(userService.hasFeature("pulse") && {
+            sx={{
+              cursor: hasFeature("pulse") ? "pointer" : "default",
+              opacity: hasFeature("pulse") ? 1 : 0.6,
+            }}
+            aria-disabled={!hasFeature("pulse")}
+            {...(hasFeature("pulse") && {
               onClick: () => navigate("/pulse-solution"),
             })}
           >
@@ -190,7 +173,7 @@ export default function Dashboard() {
               <Typography variant="body2" color="textSecondary">
                 Resource & Engagement Management
               </Typography>
-              {!userService.hasFeature("pulse") && (
+              {!hasFeature("pulse") && (
                 <Box sx={{ mt: 1 }}>
                   <Link
                     href={productLinks.pulse.seeMore}
@@ -218,8 +201,12 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Card
-            sx={{ cursor: "pointer" }}
-            {...(userService.hasFeature("ptrs") && {
+            sx={{
+              cursor: hasFeature("ptrs") ? "pointer" : "default",
+              opacity: hasFeature("ptrs") ? 1 : 0.6,
+            }}
+            aria-disabled={!hasFeature("ptrs")}
+            {...(hasFeature("ptrs") && {
               onClick: () => navigate("/ptrs"),
             })}
           >
@@ -228,7 +215,7 @@ export default function Dashboard() {
               <Typography variant="body2" color="textSecondary">
                 Payment Times Reporting Scheme
               </Typography>
-              {!userService.hasFeature("ptrs") && (
+              {!hasFeature("ptrs") && (
                 <Box sx={{ mt: 1 }}>
                   <Link
                     href={productLinks.ptrs.seeMore}

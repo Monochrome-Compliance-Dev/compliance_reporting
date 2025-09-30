@@ -52,6 +52,11 @@ export function AuthProvider({ children }) {
     });
   };
 
+  const handleEndSession = () => {
+    setShowWarningDialog(false);
+    userService.logout();
+  };
+
   useEffect(() => {
     const subscription = userService.user.subscribe((x) => {
       setUser(x);
@@ -113,7 +118,12 @@ export function AuthProvider({ children }) {
       <Dialog open={showWarningDialog}>
         <DialogTitle>Are you still there?</DialogTitle>
         <DialogActions>
-          <Button onClick={handleContinueSession}>Yes, I’m still here</Button>
+          <Button variant="contained" onClick={handleContinueSession}>
+            Yes, I’m still here
+          </Button>
+          <Button variant="outlined" onClick={handleEndSession}>
+            No, log me out
+          </Button>
         </DialogActions>
       </Dialog>
     </AuthContext.Provider>

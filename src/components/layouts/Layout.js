@@ -5,7 +5,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../navigation/Navbar";
 import Footer from "../navigation/Footer";
-import ProcessFlow from "../../features/ptrs/ProcessFlow";
 import { Alert, Snackbar } from "@mui/material";
 import globalTheme from "../../theme/globalTheme"; // Ensure the import matches the export
 import { useAlert } from "../../context/AlertContext";
@@ -21,16 +20,6 @@ export default function Layout() {
     const mode = isDarkTheme ? "dark" : "light"; // Determine the mode
     return globalTheme(mode); // Use the globalTheme function
   }, [isDarkTheme]);
-
-  // useEffect(() => {
-  //   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  //   setIsDarkTheme(mediaQuery.matches); // Set initial theme based on system preference
-  //
-  //   const handleChange = (event) => setIsDarkTheme(event.matches);
-  //   mediaQuery.addEventListener("change", handleChange); // Listen for system theme changes
-  //
-  //   return () => mediaQuery.removeEventListener("change", handleChange);
-  // }, []);
 
   // Scroll to the top of the screen when the pathname changes
   useEffect(() => {

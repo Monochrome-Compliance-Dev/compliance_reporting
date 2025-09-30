@@ -1,10 +1,26 @@
 // Simple, framework-agnostic tenant scope utilities.
 // Stores the user's currently selected customer in sessionStorage and emits a window event on change.
 
+import { userService } from "../../services";
+
+// Prefer the live user from userService; fall back to storage if unavailable.
+function getCurrentUserSafe() {
+  try {
+    const live = userService?.userValue;
+    if (live) return live;
+    const raw =
+      (typeof localStorage !== "undefined" && localStorage.getItem("user")) ||
+      (typeof sessionStorage !== "undefined" && sessionStorage.getItem("user"));
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
 const STORAGE_KEY = "mc.selectedCustomer";
 
 /**
- * Persist the selected customer (typically set by a Boss/Admin user after login).
+ * Persist the selected customer (only set by a Boss user after login).
  * @param {{ id: string, name?: string }} customer
  */
 export function setCurrentCustomer(customer) {
@@ -43,10 +59,27 @@ export function getCurrentCustomer() {
   }
 }
 
-/** Returns only the scoped customerId string or null if none selected. */
+/** Returns the scoped customerId for header scoping (or null if not applicable).
+ * Only Boss users can act on behalf of another customer, and we avoid sending the header
+ * when the scoped id equals the user's home tenant.
+ */
 export function getScopedCustomerId() {
-  const c = getCurrentCustomer();
-  return c?.id || null;
+  const scoped = getCurrentCustomer();
+  if (!scoped?.id) return null;
+
+  const user = getCurrentUserSafe();
+  const role = String(user?.role || "").toLowerCase();
+  const homeId = user?.customerId ? String(user.customerId) : null;
+  const scopedId = String(scoped.id);
+
+  // Only Boss can act-on-behalf; Admin/User should never send X-Customer-Id
+  if (role !== "boss") return null;
+
+  // If no home id, be conservative and return the scoped id
+  if (!homeId) return scopedId;
+
+  // Do not send header if the scoped id is the same as the home tenant
+  return scopedId === homeId ? null : scopedId;
 }
 
 /**
@@ -91,6 +124,6 @@ export function canSwitchCustomers(user) {
     }
   }
   const normalized = collected.map((r) => String(r).toLowerCase());
-  const elevated = ["boss", "owner", "admin", "superadmin"];
+  const elevated = ["boss"];
   return normalized.some((r) => elevated.includes(r));
 }
