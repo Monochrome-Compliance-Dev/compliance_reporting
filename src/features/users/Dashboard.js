@@ -54,7 +54,6 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!canSwitchCustomers(user)) return;
-    console.log("user.entitlements: ", user.entitlements);
     let isActive = true;
     async function loadCustomers() {
       try {

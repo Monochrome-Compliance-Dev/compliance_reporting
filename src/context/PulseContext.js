@@ -6,6 +6,8 @@ import {
   useEffect,
 } from "react";
 import { pulseService } from "../services/pulse/pulse";
+import { userService } from "../services";
+import { onCustomerChange } from "../lib/utils/";
 
 export const PulseContext = createContext(null);
 
@@ -63,6 +65,20 @@ export const PulseProvider = ({ children }) => {
 
   // ---- refresh (fetch from backend and cache) ----
   const refreshPulse = useCallback(async () => {
+    // Respect effective tenant entitlements (Boss acting-as or home)
+    const u = userService.userValue;
+    const canUsePulse =
+      typeof userService.hasFeature === "function"
+        ? userService.hasFeature("pulse")
+        : Array.isArray(u?.entitlements) && u.entitlements.includes("pulse");
+    if (!canUsePulse) {
+      setClients([]);
+      setResources([]);
+      setEngagements([]);
+      setServerStatus("unknown");
+      return;
+    }
+
     // 1) Try the server first
     try {
       const [nextClients, nextResources, nextEngagements] = await Promise.all([
@@ -137,6 +153,22 @@ export const PulseProvider = ({ children }) => {
   // ---- init ----
   useEffect(() => {
     refreshPulse();
+  }, [refreshPulse]);
+
+  useEffect(() => {
+    const unsubscribe = onCustomerChange?.(() => {
+      refreshPulse();
+    });
+    return () => {
+      if (typeof unsubscribe === "function") unsubscribe();
+    };
+  }, [refreshPulse]);
+
+  useEffect(() => {
+    const sub = userService.user.subscribe(() => {
+      refreshPulse();
+    });
+    return () => sub.unsubscribe();
   }, [refreshPulse]);
 
   // ---- survivability cache (no API) ----

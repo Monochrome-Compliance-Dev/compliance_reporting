@@ -7,6 +7,7 @@ import {
 } from "react";
 import { ptrsService, userService } from "../services";
 import { useAlert } from "./AlertContext";
+import { onCustomerChange } from "../lib/utils/";
 
 export const PtrsContext = createContext(null);
 
@@ -127,6 +128,16 @@ export const PtrsProvider = ({ children }) => {
       fetchPtrs();
     }
   }, [fetchPtrs, setActivePtrsIdPersist]);
+
+  useEffect(() => {
+    // Re-evaluate PTRS data whenever the acting tenant changes
+    const unsubscribe = onCustomerChange?.(() => {
+      fetchPtrs();
+    });
+    return () => {
+      if (typeof unsubscribe === "function") unsubscribe();
+    };
+  }, [fetchPtrs]);
 
   const refreshPtrs = useCallback(async () => {
     try {
