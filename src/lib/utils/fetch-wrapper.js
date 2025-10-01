@@ -13,6 +13,19 @@ export const fetchWrapper = {
   postExternal,
 };
 
+async function withTimeout(promise, ms = 10000) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), ms);
+  try {
+    const response = await promise({ signal: controller.signal });
+    clearTimeout(timeout);
+    return response;
+  } catch (error) {
+    clearTimeout(timeout);
+    throw error;
+  }
+}
+
 async function handleRequestWithRetry(
   requestFn,
   args,
@@ -36,7 +49,7 @@ async function handleRequestWithRetry(
 
 function isTransientError(error) {
   // Browser fetch network errors are usually TypeError; our handleResponse rejects with {status, message}
-  const transientStatus = [429, 500, 502, 503, 504];
+  const transientStatus = [408, 429, 500, 502, 503, 504];
   if (error && typeof error === "object") {
     if (
       typeof error.status === "number" &&
@@ -53,39 +66,52 @@ async function get(url) {
   return await handleRequestWithRetry(_get, [url]);
 }
 
-async function _get(url) {
+async function _get(url, { signal } = {}) {
   const headers = {
+    Accept: "application/json",
     "Content-Type": "application/json",
     ...authHeader(url),
     ...tenantHeader(url),
     "X-CSRF-Token": sessionStorage.getItem("csrfToken") || "",
   };
-  const requestOptions = { method: "GET", headers, credentials: "include" };
-  return fetch(url, requestOptions).then(handleResponse);
+  const requestOptions = {
+    method: "GET",
+    headers,
+    credentials: "include",
+    signal,
+  };
+  return withTimeout((opts) => fetch(url, { ...requestOptions, ...opts })).then(
+    handleResponse
+  );
 }
 
 function getDocument(url, location) {
+  const headers = {
+    Accept: "application/json, application/x-www-form-urlencoded",
+    "Content-Type": "application/json",
+    ...authHeader(url),
+    ...tenantHeader(url),
+    "X-CSRF-Token": sessionStorage.getItem("csrfToken") || "",
+  };
   const requestOptions = {
     method: "POST",
-    headers: {
-      Accept: "application/json, application/x-www-form-urlencoded",
-      "Content-Type": "application/json",
-      ...authHeader(url),
-      ...tenantHeader(url),
-    },
+    headers,
     credentials: "include",
     body: JSON.stringify(location),
   };
 
-  return fetch(url, requestOptions).then(handleResponseForDocuments);
+  return withTimeout((opts) => fetch(url, { ...requestOptions, ...opts })).then(
+    handleResponseForDocuments
+  );
 }
 
 async function post(url, body) {
-  return await handleRequestWithRetry(_post, [url, body]);
+  return await _post(url, body);
 }
 
-async function _post(url, body) {
+async function _post(url, body, { signal } = {}) {
   const headers = {
+    Accept: "application/json",
     "Content-Type": "application/json",
     ...authHeader(url),
     ...tenantHeader(url),
@@ -96,17 +122,19 @@ async function _post(url, body) {
     headers,
     credentials: "include",
     body: JSON.stringify(body),
+    signal,
   };
-  // console.log("Request Options:", requestOptions);
-  const response = await fetch(url, requestOptions);
+  const response = await withTimeout((opts) =>
+    fetch(url, { ...requestOptions, ...opts })
+  );
   return handleResponse(response);
 }
 
 async function postExternal(url, body) {
-  return await handleRequestWithRetry(_postExternal, [url, body]);
+  return await _postExternal(url, body);
 }
 
-async function _postExternal(url, body) {
+async function _postExternal(url, body, { signal } = {}) {
   const headers = {
     "Content-Type": "application/json",
   };
@@ -116,8 +144,11 @@ async function _postExternal(url, body) {
     credentials: "omit", // IMPORTANT: no cookies/credentials for cross-origin Lambda
     mode: "cors",
     body: JSON.stringify(body),
+    signal,
   };
-  const response = await fetch(url, requestOptions);
+  const response = await withTimeout((opts) =>
+    fetch(url, { ...requestOptions, ...opts })
+  );
   return handleResponse(response);
 }
 
@@ -132,10 +163,11 @@ async function postUpload(url, formData) {
     method: "POST",
     headers,
     credentials: "include",
-    body: formData,
   };
 
-  const response = await fetch(url, requestOptions);
+  const response = await withTimeout((opts) =>
+    fetch(url, { ...requestOptions, body: formData, ...opts })
+  );
   return handleResponse(response);
 }
 
@@ -161,19 +193,21 @@ async function postEmail(url, formData) {
     method: "POST",
     headers,
     credentials: "include",
-    body: formData,
   };
 
-  const response = await fetch(url, requestOptions);
+  const response = await withTimeout((opts) =>
+    fetch(url, { ...requestOptions, body: formData, ...opts })
+  );
   return handleResponse(response);
 }
 
 async function put(url, body) {
-  return await handleRequestWithRetry(_put, [url, body]);
+  return await _put(url, body);
 }
 
-async function _put(url, body) {
+async function _put(url, body, { signal } = {}) {
   const headers = {
+    Accept: "application/json",
     "Content-Type": "application/json",
     ...authHeader(url),
     ...tenantHeader(url),
@@ -184,16 +218,20 @@ async function _put(url, body) {
     headers,
     credentials: "include",
     body: JSON.stringify(body),
+    signal,
   };
-  return fetch(url, requestOptions).then(handleResponse);
+  return withTimeout((opts) => fetch(url, { ...requestOptions, ...opts })).then(
+    handleResponse
+  );
 }
 
 async function patch(url, body) {
-  return await handleRequestWithRetry(_patch, [url, body]);
+  return await _patch(url, body);
 }
 
-async function _patch(url, body) {
+async function _patch(url, body, { signal } = {}) {
   const headers = {
+    Accept: "application/json",
     "Content-Type": "application/json",
     ...authHeader(url),
     ...tenantHeader(url),
@@ -204,17 +242,21 @@ async function _patch(url, body) {
     headers,
     credentials: "include",
     body: JSON.stringify(body),
+    signal,
   };
-  const response = await fetch(url, requestOptions);
+  const response = await withTimeout((opts) =>
+    fetch(url, { ...requestOptions, ...opts })
+  );
   return handleResponse(response);
 }
 
 async function _delete(url) {
-  return await handleRequestWithRetry(_deleteRequest, [url]);
+  return await _deleteRequest(url);
 }
 
-async function _deleteRequest(url) {
+async function _deleteRequest(url, { signal } = {}) {
   const headers = {
+    Accept: "application/json",
     ...authHeader(url),
     ...tenantHeader(url),
     "X-CSRF-Token": sessionStorage.getItem("csrfToken") || "",
@@ -222,8 +264,12 @@ async function _deleteRequest(url) {
   const requestOptions = {
     method: "DELETE",
     headers,
+    credentials: "include",
+    signal,
   };
-  return fetch(url, requestOptions).then(handleResponse);
+  return withTimeout((opts) => fetch(url, { ...requestOptions, ...opts })).then(
+    handleResponse
+  );
 }
 
 // helper functions
@@ -290,7 +336,9 @@ function handleResponse(response) {
       }
 
       if (response.status === 403 && data?.reason) {
-        console.log("response: ", response);
+        if (process.env.NODE_ENV === "development") {
+          console.log("response: ", response);
+        }
         // Structured forbidden response from BE (tenantContext etc.)
         return Promise.reject({
           status: 403,
