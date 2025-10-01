@@ -242,12 +242,23 @@ function authHeader(url) {
 }
 
 function tenantHeader(url) {
+  // Attach the acting customer header for API calls when scoped.
+  // If the route already carries /customers/:id and that id differs, let the URL param win
+  // to avoid 400 "conflicting tenant IDs" from the backend contract.
   const isApiUrl = url.startsWith(process.env.REACT_APP_API_URL);
+  if (!isApiUrl) return {};
+
   const customerId = getScopedCustomerId();
-  if (isApiUrl && customerId) {
-    return { "X-Customer-Id": customerId };
+  if (!customerId) return {};
+
+  // If URL has an explicit customer id, prefer that and suppress header when mismatched
+  const match = url.match(/\/customers\/([^\/\?]+)/);
+  const paramId = match && match[1];
+  if (paramId && paramId !== customerId) {
+    return {};
   }
-  return {};
+
+  return { "X-Customer-Id": customerId };
 }
 
 function handleResponse(response) {
