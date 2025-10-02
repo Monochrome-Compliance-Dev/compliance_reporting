@@ -36,9 +36,7 @@ async function _delete(id) {
   return await fetchWrapper.delete(`${baseUrl}/${id}`);
 }
 
-async function getCustomersByAccess(userId) {
-  const gg = await fetchWrapper.get(`${baseUrl}/customers-by-access/${userId}`);
-  console.log(gg);
-  return gg;
-  // return fetchWrapper.get(`${baseUrl}/customers-by-access/${userId}`);
+async function getCustomersByAccess(_userId) {
+  // The backend derives the user from the auth token; no userId param is required.
+  return fetchWrapper.get(`${baseUrl}/access`);
 }

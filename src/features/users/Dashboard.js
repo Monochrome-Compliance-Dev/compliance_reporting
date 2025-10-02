@@ -40,7 +40,7 @@ export default function Dashboard() {
   const [customers, setCustomers] = useState([]);
   const [loadingCustomers, setLoadingCustomers] = useState(false);
   const [selectedCustomerId, setSelectedCustomerId] = useState(
-    getCurrentCustomer()?.id || ""
+    getCurrentCustomer()?.id || user?.customerId || ""
   );
 
   useEffect(() => {
@@ -52,14 +52,16 @@ export default function Dashboard() {
     };
   }, []);
 
+  const userId = user?.id;
+  const canSwitch = canSwitchCustomers(user);
+
   useEffect(() => {
-    if (!canSwitchCustomers(user)) return;
+    if (!canSwitch) return;
     let isActive = true;
     async function loadCustomers() {
       try {
         setLoadingCustomers(true);
-        const list = await customerService.getAll();
-        // const list = await customerService.getCustomersByAccess(user.id);
+        const list = await customerService.getCustomersByAccess(userId);
         if (isActive && Array.isArray(list)) {
           setCustomers(list);
         }
@@ -73,16 +75,50 @@ export default function Dashboard() {
     return () => {
       isActive = false;
     };
-  }, [showAlert, user]);
+  }, [showAlert, userId, canSwitch]);
 
-  const handleCustomerChange = (e) => {
+  useEffect(() => {
+    if (!canSwitchCustomers(user)) return;
+    if (!Array.isArray(customers) || customers.length === 0) return;
+
+    const ok = customers.some(
+      (c) => String(c.id) === String(selectedCustomerId)
+    );
+    if (!ok && selectedCustomerId) {
+      setSelectedCustomerId("");
+      clearCurrentCustomer();
+      showAlert(
+        "You no longer have access to that customer. Selection cleared.",
+        "warning"
+      );
+    }
+  }, [customers, selectedCustomerId, user, showAlert]);
+
+  const handleCustomerChange = async (e) => {
     const value = e.target.value;
     setSelectedCustomerId(value);
+
     const selected = customers.find((c) => String(c.id) === String(value));
-    if (selected) {
-      setCurrentCustomer({ id: selected.id, name: selected.businessName });
-    } else {
+    if (!selected) {
       clearCurrentCustomer();
+      showAlert("Invalid customer selection.", "error");
+      return;
+    }
+
+    // Optimistically set scoped tenant
+    setCurrentCustomer({ id: selected.id, name: selected.businessName });
+
+    try {
+      await userService.reloadCustomerEntitlements(selected.id);
+    } catch (err) {
+      // Roll back selection on failure (especially 403)
+      clearCurrentCustomer();
+      setSelectedCustomerId("");
+      const msg =
+        err?.reason === "ACTING_FORBIDDEN"
+          ? "You’re not allowed to act for that customer."
+          : err?.message || "Failed to switch customer.";
+      showAlert(msg, "error");
     }
   };
 
@@ -133,7 +169,7 @@ export default function Dashboard() {
                 return found?.businessName;
               }}
             >
-              <MenuItem value="">
+              <MenuItem value={user?.customerId}>
                 <em>None (use my default)</em>
               </MenuItem>
               {customers.map((c) => (
