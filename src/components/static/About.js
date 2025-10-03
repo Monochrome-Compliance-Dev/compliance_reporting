@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Grid, Paper } from "@mui/material";
+import { Container, Typography, Grid, Paper } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import GavelIcon from "@mui/icons-material/Gavel";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";

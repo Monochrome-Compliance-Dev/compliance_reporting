@@ -2,110 +2,20 @@
 // Uses react-router (not react-router-dom). MUI components so globalTheme drives fonts/colors/spacing.
 
 import { lazy, Suspense, useEffect } from "react";
-import { Routes, Route, Navigate, Outlet, useNavigate } from "react-router";
+import { Routes, Route, Navigate, Outlet } from "react-router";
 import { useAlert } from "../../context/";
-import {
-  Box,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  Button,
-  Stack,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { Box, Typography } from "@mui/material";
 import RequireFeature from "../../routes/RequireFeature";
 
 // If/when real screens exist, swap these out for actual imports, e.g.:
 // const DashboardV2 = lazy(() => import('../dashboard/DashboardV2'));
-// const PTRSV2 = lazy(() => import('../ptrs/PtrsV2'));
+import PtrsV2 from "../ptrs/PtrsV2";
+import ComplianceDashboardLayout from "../../components/layouts/ComplianceDashboardLayout";
+import DashboardV2 from "../dashboard/DashboardV2";
 // const PulseV2 = lazy(() => import('../pulse/PulseV2'));
 
 // Temporary themed placeholders to keep routing functional without breaking imports.
 // They use MUI + theme so the globalTheme controls typography and colors immediately.
-const DashboardV2 = lazy(async () => ({
-  default: function DashboardV2() {
-    const theme = useTheme();
-    const navigate = useNavigate();
-
-    return (
-      <Box sx={{ p: 3 }}>
-        <Typography variant="h4" sx={{ mb: 2 }}>
-          v2 Dashboard
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{ mb: 3, color: theme.palette.text.secondary }}
-        >
-          Choose a module to explore. These are wired and ready for real screens
-          to be swapped in.
-        </Typography>
-
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
-            <Card variant="outlined">
-              <CardContent>
-                <Stack spacing={1.5}>
-                  <Typography variant="h6">PTRS v2</Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Modernised PTRS workflow, aligned to regulator formulas and
-                    audit logging.
-                  </Typography>
-                  <Box>
-                    <Button
-                      variant="contained"
-                      onClick={() => navigate("/v2/ptrs")}
-                    >
-                      Open PTRS v2
-                    </Button>
-                  </Box>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <Card variant="outlined">
-              <CardContent>
-                <Stack spacing={1.5}>
-                  <Typography variant="h6">Pulse v2</Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Engagements, budgets, and timesheets — with Maximiser
-                    insights.
-                  </Typography>
-                  <Box>
-                    <Button
-                      variant="contained"
-                      onClick={() => navigate("/v2/pulse")}
-                    >
-                      Open Pulse v2
-                    </Button>
-                  </Box>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Box>
-    );
-  },
-}));
-
-const PTRSV2 = lazy(async () => ({
-  default: function PTRSV2() {
-    return (
-      <Box sx={{ p: 3 }}>
-        <Typography variant="h4" sx={{ mb: 2 }}>
-          PTRS v2
-        </Typography>
-        <Typography variant="body1" color="text.secondary">
-          Placeholder screen. Hook real PTRS v2 routes/components under{" "}
-          <code>/v2/ptrs/*</code>.
-        </Typography>
-      </Box>
-    );
-  },
-}));
 
 const PulseV2 = lazy(async () => ({
   default: function PulseV2() {
@@ -171,7 +81,9 @@ export default function AppV2() {
             path="ptrs/*"
             element={
               <RequireFeature feature="ptrs">
-                <PTRSV2 />
+                <ComplianceDashboardLayout title="PTRS v2" module="ptrs">
+                  <PtrsV2 />
+                </ComplianceDashboardLayout>
               </RequireFeature>
             }
           />

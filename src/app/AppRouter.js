@@ -1,5 +1,6 @@
-// Updated AppRouter.js to align with new /user, /admin, /boss structure
+// AppRouter.js
 import { createBrowserRouter, RouterProvider } from "react-router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Layout from "../components/layouts/Layout";
 import RootErrorBoundary from "../components/navigation/RootErrorBoundary";
 import Fallback from "../components/common/Fallback";
@@ -10,6 +11,13 @@ import AppV2 from "../v2/app/AppV2";
 
 const isPublicOnlyMode =
   String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: { retry: 1, refetchOnWindowFocus: false, staleTime: 30_000 },
+    mutations: { retry: 0 },
+  },
+});
 
 export default function AppRouter() {
   const router = createBrowserRouter([
@@ -27,5 +35,9 @@ export default function AppRouter() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
