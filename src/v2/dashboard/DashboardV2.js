@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { useAlert } from "../../context/";
+import { useAlert } from "context/";
 import {
   Box,
   Typography,
@@ -16,14 +16,14 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { customerService, userService } from "../../services";
+import { customerService, userService } from "services";
 import {
   canSwitchCustomers,
   getCurrentCustomer,
   setCurrentCustomer,
   clearCurrentCustomer,
   onCustomerChange,
-} from "../../lib/utils/";
+} from "lib/utils/";
 
 export default function DashboardV2() {
   const theme = useTheme();

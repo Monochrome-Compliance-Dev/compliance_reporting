@@ -11,13 +11,9 @@ import {
   MenuItem,
 } from "@mui/material";
 import { useNavigate } from "react-router";
-import { useAlert } from "../../../context";
-import {
-  useCreateRunMutation,
-  useRunsSearch,
-  useRunsByPeriod,
-} from "../hooks/usePtrsQueries";
-import { userService } from "../../../services";
+import { useAlert } from "context";
+import { useCreateRunMutation, useRunsByPeriod } from "../hooks/usePtrsQueries";
+import { userService } from "services";
 
 export default function CreateRunPanel() {
   const [name, setName] = useState("");

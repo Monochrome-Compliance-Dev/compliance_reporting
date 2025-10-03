@@ -7,25 +7,13 @@ import {
   Chip,
   Tooltip,
 } from "@mui/material";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate, useLocation, Outlet } from "react-router";
 import { useEffect, useState } from "react";
 
-import { usePulseContext } from "../../context/PulseContext";
-import {
-  getCurrentCustomer,
-  onCustomerChange,
-} from "../../lib/utils/tenantScope";
-import { userService } from "../../services";
+import { usePulseContext } from "context/PulseContext";
+import { getCurrentCustomer, onCustomerChange } from "lib/utils/tenantScope";
+import { userService } from "services";
 
-/**
- * Minimal layout for Pulse screens.
- * Props:
- * - title: string (required)
- * - subtitle?: string
- * - headerRight?: ReactNode (optional actions area on the right)
- * - maxWidth?: number (defaults to 1400)
- * - children: ReactNode
- */
 export default function PulseLayout({
   headerRight = null,
   maxWidth = 1400,
@@ -146,7 +134,9 @@ export default function PulseLayout({
         </Box>
       </Stack>
 
-      <Box>{children}</Box>
+      <Box sx={{ flex: 1, p: 3 }}>
+        <Outlet />
+      </Box>
     </Box>
   );
 }

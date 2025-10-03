@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, Stack, Typography, Button } from "@mui/material";
 import { useSearchParams } from "react-router";
-import { useAlert } from "../../../context";
+import { useAlert } from "context";
 import {
   useUploadStatus,
   useUploadCsvMutation,

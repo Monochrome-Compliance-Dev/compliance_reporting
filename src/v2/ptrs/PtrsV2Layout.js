@@ -6,7 +6,7 @@ import {
   useNavigate,
   useSearchParams,
 } from "react-router";
-import { useAlert } from "../../context";
+import { useAlert } from "context";
 import {
   Box,
   Typography,
@@ -17,7 +17,7 @@ import {
   StepLabel,
   Divider,
 } from "@mui/material";
-import PageMeta from "../../components/ui/PageMeta";
+import PageMeta from "components/ui/PageMeta";
 import { STEPS } from "./steps";
 import { useStepStatuses } from "./hooks/useStepStatuses";
 

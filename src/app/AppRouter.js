@@ -1,25 +1,21 @@
 // AppRouter.js
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Layout from "../components/layouts/Layout";
-import RootErrorBoundary from "../components/navigation/RootErrorBoundary";
-import Fallback from "../components/common/Fallback";
-import LandingPage from "../components/static/LandingPage";
-import { protectedRoutes } from "../routes/routeConfig";
-import { publicRoutes } from "../routes/publicRoutes";
-import AppV2 from "../v2/app/AppV2";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { queryClient } from "lib/utils/queryClient";
+import Layout from "components/layouts/Layout";
+import RootErrorBoundary from "components/navigation/RootErrorBoundary";
+import Fallback from "components/common/Fallback";
+import LandingPage from "components/static/LandingPage";
+import { protectedRoutes } from "routes/routeConfig";
+import { publicRoutes } from "routes/publicRoutes";
+import AppV2 from "v2/app/AppV2";
 
 const isPublicOnlyMode =
   String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: { retry: 1, refetchOnWindowFocus: false, staleTime: 30_000 },
-    mutations: { retry: 0 },
-  },
-});
-
 export default function AppRouter() {
+  // console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
   const router = createBrowserRouter([
     {
       path: "",
@@ -38,6 +34,12 @@ export default function AppRouter() {
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
+      {process.env.NODE_ENV === "development" && (
+        <ReactQueryDevtools
+          initialIsOpen={false}
+          buttonPosition="bottom-right"
+        />
+      )}
     </QueryClientProvider>
   );
 }

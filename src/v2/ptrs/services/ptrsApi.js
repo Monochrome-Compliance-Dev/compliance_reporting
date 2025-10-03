@@ -2,7 +2,7 @@
 // Best practice: components/hooks call this service; service calls fetch-wrapper.
 // No React imports here. .js only.
 
-import { fetchWrapper } from "../../../lib/utils/fetch-wrapper";
+import { fetchWrapper } from "lib/utils/fetch-wrapper";
 
 const API = process.env.REACT_APP_API_URL; // align with tcp service convention
 

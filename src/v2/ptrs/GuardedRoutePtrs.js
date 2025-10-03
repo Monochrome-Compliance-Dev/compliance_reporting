@@ -3,7 +3,7 @@ import { Outlet, useNavigate, useSearchParams } from "react-router";
 import { STEPS } from "./steps";
 import { useStepStatuses } from "./hooks/useStepStatuses";
 
-export default function GuardedRoute({ id }) {
+export default function GuardedRoutePtrs({ id }) {
   const [params] = useSearchParams();
   const runId = params.get("runId") || null;
   const navigate = useNavigate();
