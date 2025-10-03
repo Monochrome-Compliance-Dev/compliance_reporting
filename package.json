@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "homepage": "/",
   "private": true,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@/*": [
+        "*"
+      ]
+    }
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -28,6 +36,7 @@
     "jspdf": "^3.0.2",
     "jspdf-autotable": "^5.0.2",
     "lodash": "^4.17.21",
+    "module-alias": "^2.2.3",
     "papaparse": "^5.5.3",
     "prop-types": "^15.8.1",
     "qrcode": "^1.5.4",
