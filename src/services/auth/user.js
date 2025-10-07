@@ -1,12 +1,9 @@
-import { publicRoutes } from "../../routes/publicRoutes";
-import { protectedRoutes } from "../../routes/routeConfig";
+import { publicRoutes } from "routes/publicRoutes";
+import { protectedRoutes } from "routes/routeConfig";
 import { BehaviorSubject } from "rxjs";
 
-import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
-import {
-  getScopedCustomerId,
-  onCustomerChange,
-} from "../../lib/utils/tenantScope";
+import { fetchWrapper } from "lib/utils/fetch-wrapper";
+import { getScopedCustomerId, onCustomerChange } from "lib/utils/tenantScope";
 
 const userSubject = new BehaviorSubject(null);
 const baseUrl = `${process.env.REACT_APP_API_URL}/users`;
@@ -305,8 +302,17 @@ function create(params) {
 }
 
 // Invite a user and create a linked resource (composite)
-function inviteWithResource(params) {
-  return fetchWrapper.post(`${baseUrl}/invite-with-resource`, params);
+async function inviteWithResource(params) {
+  console.log("params for invite-with-resource", params);
+  const res = await fetchWrapper.post(
+    `${baseUrl}/invite-with-resource`,
+    params,
+    {
+      retry: 0,
+    }
+  );
+  console.log("res from invite-with-resource", res);
+  return res;
 }
 
 // Update an existing user

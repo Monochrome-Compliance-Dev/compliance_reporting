@@ -16,9 +16,6 @@ import {
   TableBody,
   TextField,
   MenuItem,
-  FormControl,
-  InputLabel,
-  Select,
   Drawer,
   IconButton,
   Dialog,
@@ -28,9 +25,16 @@ import {
   DialogActions,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { useAlert, usePulseContext } from "../../../../context";
-import { pulseService } from "../../../../services/pulse/pulse";
-import { userService } from "../../../../services";
+import { useAlert } from "context";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+
+import {
+  createResource,
+  listResources,
+  updateResource,
+  deleteResource,
+} from "../../services/pulseApi";
+import { userService } from "services";
 
 const RESOURCE_OPTIONS = [
   "Auditor (1st year)",
@@ -81,8 +85,27 @@ const schema = yup
   .required();
 
 export default function ResourceView() {
-  const { resources = [], upsertResource, removeResource } = usePulseContext();
   const { showAlert } = useAlert();
+
+  const qc = useQueryClient();
+
+  const { data: resources = [], isLoading } = useQuery({
+    queryKey: ["pulse", "resources"],
+    queryFn: listResources,
+  });
+
+  const createRes = useMutation({
+    mutationFn: createResource,
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["pulse", "resources"] }),
+  });
+  const updateRes = useMutation({
+    mutationFn: ({ id, payload }) => updateResource(id, payload),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["pulse", "resources"] }),
+  });
+  const deleteRes = useMutation({
+    mutationFn: (id) => deleteResource(id),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["pulse", "resources"] }),
+  });
 
   // Selection + mode (single view approach)
   const [selectedId, setSelectedId] = useState(null);
@@ -195,70 +218,73 @@ export default function ResourceView() {
   const onSubmit = useCallback(
     async (values) => {
       try {
+        // Invite flow: create user + resource in one go
         if (mode === "create" && !values.userId) {
-          // Composite: invite user + create linked resource atomically
-          if (!values.email) {
-            showAlert("Email is required to invite the user", "warning");
-            return;
-          }
-
           const payload = {
             user: {
-              email: values.email,
+              email: String(values.email || "").trim(),
               role: values.role || "User",
-              firstName: values.firstName,
-              lastName: values.lastName,
+              firstName: String(values.firstName || "").trim(),
+              lastName: String(values.lastName || "").trim(),
               customerId: userService.userValue.customerId,
               phone: "",
               active: false,
             },
             resource: {
-              name: `${values.firstName} ${values.lastName}`.trim(),
-              position: values.position || "",
+              name: `${String(values.firstName || "").trim()} ${String(values.lastName || "").trim()}`.trim(),
+              position: String(values.position || "").trim(),
               hourlyRate: Number(values.hourlyRate ?? 0),
               capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
             },
             createdBy: userService.userValue.id,
           };
 
-          const { resource } = await userService.inviteWithResource(payload);
-          upsertResource(resource);
+          // Helpful debug
+          // eslint-disable-next-line no-console
+          console.log("payload sent to invite-with-resource", payload);
+
+          const result = await userService.inviteWithResource(payload);
+          const invitedResource =
+            result?.data?.resource ?? result?.resource ?? null;
+          // eslint-disable-next-line no-console
+          console.log(
+            "resource received from invite-with-resource",
+            invitedResource
+          );
+          if (!invitedResource || !invitedResource.id) {
+            throw new Error("Invitation failed: no resource returned");
+          }
+
+          await qc.invalidateQueries({ queryKey: ["pulse", "resources"] });
           showAlert("Invitation sent and resource created", "success");
-          setSelectedId(resource.id);
+          setSelectedId(invitedResource.id);
           setMode("edit");
           setDrawerOpen(false);
           return;
         }
 
-        const normalizedUserId =
-          (values.userId && String(values.userId).trim()) || null;
-
-        // Fallback: manual link via userId, or editing existing resource
-        const basePayload = {
-          name: `${values.firstName} ${values.lastName}`.trim(),
-          position: values.position,
+        // Direct resource create/update (no invite)
+        const payload = {
+          name: `${String(values.firstName || "").trim()} ${String(values.lastName || "").trim()}`.trim(),
+          position: String(values.position || "").trim(),
           hourlyRate: Number(values.hourlyRate ?? 0),
           capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
-          customerId: userService.userValue.customerId,
-          userId: normalizedUserId,
+          userId: values.userId ? String(values.userId) : undefined,
+          email: values.email || undefined, // optional echo field if your model accepts it
+          role: values.role || undefined,
         };
-
-        const payload =
-          mode === "create"
-            ? { ...basePayload, createdBy: userService.userValue.id }
-            : { ...basePayload, updatedBy: userService.userValue.id };
 
         const saved =
           mode === "create"
-            ? await pulseService.resources.create(payload)
-            : await pulseService.resources.update(String(selected.id), payload);
+            ? await createRes.mutateAsync(payload)
+            : await updateRes.mutateAsync({ id: String(selected.id), payload });
 
-        upsertResource(saved);
+        await qc.invalidateQueries({ queryKey: ["pulse", "resources"] });
         showAlert(
           mode === "create" ? "Resource created" : "Resource updated",
           "success"
         );
-        if (mode === "create") {
+        if (mode === "create" && saved?.id) {
           setSelectedId(saved.id);
           setMode("edit");
           setDrawerOpen(false);
@@ -270,14 +296,14 @@ export default function ResourceView() {
         showAlert(err?.message || "Failed to save resource", "error");
       }
     },
-    [mode, selected, upsertResource, showAlert]
+    [mode, selected, qc, createRes, updateRes, showAlert]
   );
 
   const onDelete = useCallback(
     async (id) => {
       try {
-        await pulseService.resources.delete(String(id));
-        removeResource(id);
+        await deleteRes.mutateAsync(String(id));
+        await qc.invalidateQueries({ queryKey: ["pulse", "resources"] });
         if (String(selectedId) === String(id)) {
           startCreate();
         }
@@ -288,7 +314,7 @@ export default function ResourceView() {
         showAlert("Failed to delete resource", "error");
       }
     },
-    [removeResource, selectedId, startCreate, showAlert]
+    [deleteRes, qc, selectedId, startCreate, showAlert]
   );
 
   const { errors, isSubmitting } = formState;
@@ -435,22 +461,30 @@ export default function ResourceView() {
             <TextField
               select
               label="Role"
+              defaultValue=""
               {...register("role")}
               error={!!errors.role}
               helperText={errors.role?.message}
               fullWidth
             >
+              <MenuItem value="">
+                <em>Select a role…</em>
+              </MenuItem>
               <MenuItem value="User">User</MenuItem>
               <MenuItem value="Admin">Admin</MenuItem>
             </TextField>
             <TextField
               select
               label="Position"
+              defaultValue=""
               {...register("position")}
               error={!!errors.position}
               helperText={errors.position?.message}
               fullWidth
             >
+              <MenuItem value="">
+                <em>Select a position…</em>
+              </MenuItem>
               {RESOURCE_OPTIONS.map((opt) => (
                 <MenuItem key={opt} value={opt}>
                   {opt}

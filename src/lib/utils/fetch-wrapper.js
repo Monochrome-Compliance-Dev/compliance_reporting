@@ -1,6 +1,23 @@
 import { userService } from "../../services";
 import { getScopedCustomerId } from "./tenantScope";
 
+// --- Logging helpers (do NOT log Authorization or full bodies) ---
+function _redactHeaders(hdrs) {
+  const h = { ...(hdrs || {}) };
+  if (h.Authorization) h.Authorization = "<redacted>";
+  return h;
+}
+function _previewBody(body) {
+  try {
+    if (body == null) return null;
+    if (typeof body === "string") return `string(${body.length})`;
+    if (typeof body === "object") return { keys: Object.keys(body) };
+    return typeof body;
+  } catch {
+    return "<unavailable>";
+  }
+}
+
 export const fetchWrapper = {
   get,
   getDocument,
@@ -19,16 +36,42 @@ async function handleRequestWithRetry(
   retries = 3,
   baseDelay = 800
 ) {
-  for (let attempt = 0; attempt < retries; attempt++) {
+  const attempts = Math.max(1, retries);
+  for (let attempt = 0; attempt < attempts; attempt++) {
+    // Log attempt
+    console.debug(
+      "[fetch-wrapper] attempt",
+      attempt + 1,
+      "/",
+      attempts,
+      "->",
+      args && args[0]
+    );
     try {
       return await requestFn(...args);
     } catch (error) {
-      const shouldRetry = isTransientError(error) && attempt < retries - 1;
+      console.debug(
+        "[fetch-wrapper] error on",
+        args && args[0],
+        "status=",
+        error?.status,
+        "name=",
+        error?.name,
+        "message=",
+        error?.message
+      );
+      const shouldRetry = isTransientError(error) && attempt < attempts - 1;
       if (!shouldRetry) {
         throw error;
       }
       const jitter = Math.floor(Math.random() * 250);
       const delay = baseDelay * Math.pow(2, attempt) + jitter;
+      console.debug(
+        "[fetch-wrapper] retrying in",
+        `${delay}ms`,
+        "for",
+        args && args[0]
+      );
       await new Promise((resolve) => setTimeout(resolve, delay));
     }
   }
@@ -49,8 +92,13 @@ function isTransientError(error) {
   return false;
 }
 
-async function get(url) {
-  return await handleRequestWithRetry(_get, [url]);
+async function get(url, options = {}) {
+  return await handleRequestWithRetry(
+    _get,
+    [url],
+    options.retry ?? 3,
+    options.baseDelay ?? 800
+  );
 }
 
 async function _get(url) {
@@ -80,8 +128,13 @@ function getDocument(url, location) {
   return fetch(url, requestOptions).then(handleResponseForDocuments);
 }
 
-async function post(url, body) {
-  return await handleRequestWithRetry(_post, [url, body]);
+async function post(url, body, options = {}) {
+  return await handleRequestWithRetry(
+    _post,
+    [url, body],
+    options.retry ?? 3,
+    options.baseDelay ?? 800
+  );
 }
 
 async function _post(url, body) {
@@ -97,13 +150,29 @@ async function _post(url, body) {
     credentials: "include",
     body: JSON.stringify(body),
   };
-  // console.log("Request Options:", requestOptions);
+  console.debug("[fetch-wrapper] POST ->", url, {
+    headers: _redactHeaders(headers),
+    body: _previewBody(body),
+  });
   const response = await fetch(url, requestOptions);
+  console.debug(
+    "[fetch-wrapper] POST <-",
+    url,
+    "status=",
+    response.status,
+    "ct=",
+    response.headers.get("content-type")
+  );
   return handleResponse(response);
 }
 
-async function postExternal(url, body) {
-  return await handleRequestWithRetry(_postExternal, [url, body]);
+async function postExternal(url, body, options = {}) {
+  return await handleRequestWithRetry(
+    _postExternal,
+    [url, body],
+    options.retry ?? 3,
+    options.baseDelay ?? 800
+  );
 }
 
 async function _postExternal(url, body) {
@@ -121,7 +190,7 @@ async function _postExternal(url, body) {
   return handleResponse(response);
 }
 
-async function postUpload(url, formData) {
+async function postUpload(url, formData, options = {}) {
   const headers = {
     ...authHeader(url),
     ...tenantHeader(url),
@@ -135,11 +204,19 @@ async function postUpload(url, formData) {
     body: formData,
   };
 
-  const response = await fetch(url, requestOptions);
-  return handleResponse(response);
+  const run = async () => {
+    const response = await fetch(url, requestOptions);
+    return handleResponse(response);
+  };
+  return handleRequestWithRetry(
+    run,
+    [],
+    options.retry ?? 3,
+    options.baseDelay ?? 800
+  );
 }
 
-async function postEmail(url, formData) {
+async function postEmail(url, formData, options = {}) {
   const headers = {
     ...authHeader(url),
     ...tenantHeader(url),
@@ -164,12 +241,25 @@ async function postEmail(url, formData) {
     body: formData,
   };
 
-  const response = await fetch(url, requestOptions);
-  return handleResponse(response);
+  const run = async () => {
+    const response = await fetch(url, requestOptions);
+    return handleResponse(response);
+  };
+  return handleRequestWithRetry(
+    run,
+    [],
+    options.retry ?? 3,
+    options.baseDelay ?? 800
+  );
 }
 
-async function put(url, body) {
-  return await handleRequestWithRetry(_put, [url, body]);
+async function put(url, body, options = {}) {
+  return await handleRequestWithRetry(
+    _put,
+    [url, body],
+    options.retry ?? 3,
+    options.baseDelay ?? 800
+  );
 }
 
 async function _put(url, body) {
@@ -188,8 +278,13 @@ async function _put(url, body) {
   return fetch(url, requestOptions).then(handleResponse);
 }
 
-async function patch(url, body) {
-  return await handleRequestWithRetry(_patch, [url, body]);
+async function patch(url, body, options = {}) {
+  return await handleRequestWithRetry(
+    _patch,
+    [url, body],
+    options.retry ?? 3,
+    options.baseDelay ?? 800
+  );
 }
 
 async function _patch(url, body) {
@@ -209,8 +304,13 @@ async function _patch(url, body) {
   return handleResponse(response);
 }
 
-async function _delete(url) {
-  return await handleRequestWithRetry(_deleteRequest, [url]);
+async function _delete(url, options = {}) {
+  return await handleRequestWithRetry(
+    _deleteRequest,
+    [url],
+    options.retry ?? 3,
+    options.baseDelay ?? 800
+  );
 }
 
 async function _deleteRequest(url) {

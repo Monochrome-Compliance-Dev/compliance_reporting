@@ -29,12 +29,23 @@ import {
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import BudgetSection from "./BudgetSection";
 import { Link, useNavigate, useSearchParams } from "react-router";
-import { useAlert } from "../../../../context";
-import { pulseService } from "../../../../services/pulse/pulse";
-import { userService } from "../../../../services";
-
-const unwrap = (res) =>
-  res && typeof res === "object" && "data" in res ? res.data : res;
+import { useAlert } from "context";
+import { userService } from "services";
+import {
+  getBudgetById,
+  createBudget,
+  updateBudget,
+  listItemsByBudget,
+  createItem,
+  updateItem,
+  deleteItem,
+  listSectionsByBudget,
+  createSection,
+  updateSection,
+  deleteSection,
+  listUnlinkedBudgets,
+  linkBudgetToTrackable,
+} from "../../services/pulseApi";
 
 // --- helpers ---
 const toCurrency = (n, currency = "AUD") => {
@@ -95,6 +106,7 @@ const defaultItem = (sectionId = null) => ({
   notes: "",
   billable: true,
   billingType: "hourly", // will be derived on save based on values
+  order: 0,
 });
 
 const normaliseItem = (it = {}) => ({
@@ -110,6 +122,7 @@ const normaliseItem = (it = {}) => ({
   notes: it.notes ?? "",
   billable: it.billable ?? true,
   billingType: it.billingType === "fixed" ? "fixed" : "hourly",
+  order: Number(it.order ?? 0),
 });
 
 export default function BudgetBuilder({ onSaved }) {
@@ -120,8 +133,8 @@ export default function BudgetBuilder({ onSaved }) {
   const [searchParams] = useSearchParams();
   const budgetIdFromQuery = searchParams.get("budgetId") || "";
   const isBudgetIdFromQueryRef = useRef(!!budgetIdFromQuery);
-  const engagementIdFromQuery =
-    searchParams.get("engagementId") || searchParams.get("id") || "";
+  const trackableIdFromQuery =
+    searchParams.get("trackableId") || searchParams.get("id") || "";
 
   // Budget meta
   const [budgetId, setBudgetId] = useState(budgetIdFromQuery);
@@ -151,17 +164,10 @@ export default function BudgetBuilder({ onSaved }) {
   useEffect(() => {
     let alive = true;
     const fetchLinkables = async () => {
-      if (budgetId || !engagementIdFromQuery) return;
+      if (budgetId || !trackableIdFromQuery) return;
       try {
         setLinkableLoading(true);
-        let rows;
-        if (pulseService?.budgets?.listUnlinked) {
-          rows = unwrap(await pulseService.budgets.listUnlinked());
-        } else if (pulseService?.budgets?.list) {
-          rows = unwrap(await pulseService.budgets.list({ unlinked: true }));
-        } else {
-          rows = [];
-        }
+        const rows = await listUnlinkedBudgets();
         if (alive) setLinkableBudgets(Array.isArray(rows) ? rows : []);
       } catch (e) {
         // eslint-disable-next-line no-console
@@ -175,7 +181,7 @@ export default function BudgetBuilder({ onSaved }) {
     return () => {
       alive = false;
     };
-  }, [budgetId, engagementIdFromQuery]);
+  }, [budgetId, trackableIdFromQuery]);
   // Save single item callback
   const saveItem = useCallback(
     async (index) => {
@@ -204,6 +210,7 @@ export default function BudgetBuilder({ onSaved }) {
           notes: String(it.notes || "").trim() || undefined,
           billable: !!it.billable,
           customerId: userService.userValue.customerId,
+          order: Number(it.order ?? 0),
         };
         if (isFixedValid) {
           return { ...base, billingType: "fixed", hours: 0, rate: 0, amount };
@@ -235,7 +242,7 @@ export default function BudgetBuilder({ onSaved }) {
         showAlert("Failed to save item", "error");
       }
     },
-    [items, budgetId, showAlert]
+    [items, showAlert, budgetId, sections]
   );
 
   // Items
@@ -373,28 +380,17 @@ export default function BudgetBuilder({ onSaved }) {
 
   // --- Service wrappers (budgets, sections, items) ---
   const svc = useRef({
-    getBudget: async (id) =>
-      unwrap(await pulseService.budgets.getById(String(id))),
-    createBudget: async (payload) =>
-      unwrap(await pulseService.budgets.create(payload)),
-    updateBudget: async (id, payload) =>
-      unwrap(await pulseService.budgets.update(String(id), payload)),
-    listItemsByBudget: async (id) =>
-      unwrap(await pulseService.budgetItems.listByBudget(String(id))) || [],
-    createItem: async (row) =>
-      unwrap(await pulseService.budgetItems.create(row)),
-    updateItem: async (id, row) =>
-      unwrap(await pulseService.budgetItems.update(String(id), row)),
-    deleteItem: async (id) =>
-      unwrap(await pulseService.budgetItems.delete(String(id))),
-    listSectionsByBudget: async (id) =>
-      unwrap(await pulseService.budgetSections.listByBudget(String(id))) || [],
-    createSection: async (row) =>
-      unwrap(await pulseService.budgetSections.create(row)),
-    updateSection: async (id, row) =>
-      unwrap(await pulseService.budgetSections.update(String(id), row)),
-    deleteSection: async (id) =>
-      unwrap(await pulseService.budgetSections.delete(String(id))),
+    getBudget: (id) => getBudgetById(String(id)),
+    createBudget: (payload) => createBudget(payload),
+    updateBudget: (id, payload) => updateBudget(String(id), payload),
+    listItemsByBudget: (id) => listItemsByBudget(String(id)),
+    createItem: (row) => createItem(row),
+    updateItem: (id, row) => updateItem(String(id), row),
+    deleteItem: (id) => deleteItem(String(id)),
+    listSectionsByBudget: (id) => listSectionsByBudget(String(id)),
+    createSection: (bId, row) => createSection(String(bId), row),
+    updateSection: (id, row) => updateSection(String(id), row),
+    deleteSection: (id) => deleteSection(String(id)),
   });
 
   // Load budget + sections + items
@@ -415,13 +411,12 @@ export default function BudgetBuilder({ onSaved }) {
           // Load sections
           const secs = await svc.current.listSectionsByBudget(budgetId);
           if (mounted) {
-            setSections(Array.isArray(secs) ? secs : []);
+            setSections(secs || []);
             setSelectedSectionId((prev) => prev || (secs?.[0]?.id ?? ""));
           }
           // Load items
           const rows = await svc.current.listItemsByBudget(budgetId);
-          if (mounted)
-            setItems(Array.isArray(rows) ? rows.map(normaliseItem) : []);
+          if (mounted) setItems((rows || []).map(normaliseItem));
         } else {
           // Fresh builder
           setItems([]);
@@ -449,14 +444,20 @@ export default function BudgetBuilder({ onSaved }) {
       return;
     }
     setSectionsExpanded(false);
-    setItems((prev) => [...prev, defaultItem(selectedSectionId)]);
+    setItems((prev) => {
+      const maxOrder = prev
+        .filter((x) => x.sectionId === selectedSectionId)
+        .reduce((m, x) => Math.max(m, Number(x.order || 0)), -1);
+      const nextOrder = maxOrder + 1;
+      return [...prev, { ...defaultItem(selectedSectionId), order: nextOrder }];
+    });
   }, [selectedSectionId, showAlert]);
 
   const removeItem = useCallback(
     (index) => setItems((prev) => prev.filter((_, i) => i !== index)),
     []
   );
-  const updateItem = useCallback(
+  const mutateItem = useCallback(
     (index, patch) =>
       setItems((prev) =>
         prev.map((x, i) => (i === index ? { ...x, ...patch } : x))
@@ -546,12 +547,14 @@ export default function BudgetBuilder({ onSaved }) {
       }
 
       // Fetch current server items to diff (by budget)
-      const existing = await svc.current.listItemsByBudget(bId);
+      const existing = (await svc.current.listItemsByBudget(bId)) || [];
       const byId = (arr) =>
         Object.fromEntries(
-          arr.filter((x) => x?.id).map((x) => [String(x.id), x])
+          (Array.isArray(arr) ? arr : [])
+            .filter((x) => x?.id)
+            .map((x) => [String(x.id), x])
         );
-      const existingById = byId(existing || []);
+      const existingById = byId(existing);
 
       const toCreate = cleaned.filter((x) => !x.id);
       const toUpdate = cleaned.filter(
@@ -624,15 +627,16 @@ export default function BudgetBuilder({ onSaved }) {
       showAlert("Failed to save budget", "error");
     }
   }, [
-    budgetId,
     name,
+    items,
+    showAlert,
+    budgetId,
+    sections,
+    onSaved,
     status,
     version,
     currency,
     notes,
-    items,
-    showAlert,
-    onSaved,
   ]);
 
   const title = budgetId ? `Edit Budget` : "New Budget";
@@ -644,7 +648,7 @@ export default function BudgetBuilder({ onSaved }) {
         <Stack direction="row" spacing={1}>
           <Button
             component={Link}
-            to="/pulse-solution/admin/budgets"
+            to="/v2/pulse/admin/budgets"
             variant="outlined"
           >
             Back to Budgets
@@ -811,7 +815,7 @@ export default function BudgetBuilder({ onSaved }) {
                           });
                           setStatus("final");
                           showAlert("Budget marked as Final", "success");
-                          navigate("/pulse-solution/admin/budgets");
+                          navigate("/v2/pulse/admin/budgets");
                         } catch (e) {
                           // eslint-disable-next-line no-console
                           console.error(e);
@@ -944,12 +948,16 @@ export default function BudgetBuilder({ onSaved }) {
                     {items
                       .map((it, originalIndex) => ({ it, originalIndex }))
                       .filter(({ it }) => it.sectionId === selectedSectionId)
+                      .sort(
+                        (a, b) =>
+                          Number(a.it.order || 0) - Number(b.it.order || 0)
+                      )
                       .map(({ it, originalIndex }) => {
                         return (
                           <TableRow
                             key={
                               it.id ||
-                              `${it.resourceLabel || "row"}-${originalIndex}`
+                              `${it.sectionId || "sec"}-${it.order ?? originalIndex}`
                             }
                           >
                             <TableCell
@@ -961,7 +969,7 @@ export default function BudgetBuilder({ onSaved }) {
                                 fullWidth
                                 value={it.resourceLabel || ""}
                                 onChange={(e) =>
-                                  updateItem(originalIndex, {
+                                  mutateItem(originalIndex, {
                                     resourceLabel: e.target.value,
                                   })
                                 }
@@ -992,7 +1000,7 @@ export default function BudgetBuilder({ onSaved }) {
                                 InputProps={{ sx: { textAlign: "right" } }}
                                 value={it.rate}
                                 onChange={(e) =>
-                                  updateItem(originalIndex, {
+                                  mutateItem(originalIndex, {
                                     rate: Number(e.target.value || 0),
                                   })
                                 }
@@ -1010,7 +1018,7 @@ export default function BudgetBuilder({ onSaved }) {
                                 InputProps={{ sx: { textAlign: "right" } }}
                                 value={it.hours}
                                 onChange={(e) =>
-                                  updateItem(originalIndex, {
+                                  mutateItem(originalIndex, {
                                     hours: Number(e.target.value || 0),
                                   })
                                 }
@@ -1028,7 +1036,7 @@ export default function BudgetBuilder({ onSaved }) {
                                 InputProps={{ sx: { textAlign: "right" } }}
                                 value={it.amount}
                                 onChange={(e) =>
-                                  updateItem(originalIndex, {
+                                  mutateItem(originalIndex, {
                                     amount: Number(e.target.value || 0),
                                   })
                                 }
@@ -1042,7 +1050,7 @@ export default function BudgetBuilder({ onSaved }) {
                                 size="small"
                                 value={it.notes}
                                 onChange={(e) =>
-                                  updateItem(originalIndex, {
+                                  mutateItem(originalIndex, {
                                     notes: e.target.value,
                                   })
                                 }
@@ -1135,10 +1143,10 @@ export default function BudgetBuilder({ onSaved }) {
             <Stack spacing={2}>
               <Typography color="text.secondary">
                 Create and save a new budget, or link an existing unlinked
-                budget to this engagement.
+                budget to this trackable.
               </Typography>
 
-              {engagementIdFromQuery && (
+              {trackableIdFromQuery && (
                 <Stack
                   direction={{ xs: "column", sm: "row" }}
                   spacing={1}
@@ -1172,23 +1180,12 @@ export default function BudgetBuilder({ onSaved }) {
                     onClick={async () => {
                       try {
                         if (!selectedLinkBudgetId) return;
-                        if (pulseService?.budgets?.linkToEngagement) {
-                          await pulseService.budgets.linkToEngagement({
-                            engagementId: engagementIdFromQuery,
-                            budgetId: selectedLinkBudgetId,
-                          });
-                        } else {
-                          await pulseService.budgets.patch(
-                            String(selectedLinkBudgetId),
-                            {
-                              engagementId: engagementIdFromQuery,
-                              customerId: userService.userValue.customerId,
-                              updatedBy: userService.userValue.id,
-                            }
-                          );
-                        }
+                        await linkBudgetToTrackable({
+                          trackableId: trackableIdFromQuery,
+                          budgetId: selectedLinkBudgetId,
+                        });
                         setBudgetId(String(selectedLinkBudgetId));
-                        showAlert("Budget linked to engagement", "success");
+                        showAlert("Budget linked to trackable", "success");
                       } catch (e) {
                         // eslint-disable-next-line no-console
                         console.error("Failed to link budget", e);
@@ -1251,8 +1248,7 @@ export default function BudgetBuilder({ onSaved }) {
               }
               try {
                 if (sectionDialog.mode === "create") {
-                  await svc.current.createSection({
-                    budgetId,
+                  await svc.current.createSection(budgetId, {
                     name,
                     order: sections.length,
                     notes: "",

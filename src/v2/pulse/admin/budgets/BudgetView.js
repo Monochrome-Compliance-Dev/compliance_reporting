@@ -13,11 +13,11 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useNavigate } from "react-router";
-import { useAlert } from "../../../../context";
-import { pulseService } from "../../../../services/pulse/pulse";
+import { useAlert } from "context";
+import { listBudgets } from "../../services/pulseApi";
 
 // NOTE: View-only list of budgets. Editing/creating happens in BudgetBuilder.
-// Row click navigates to: /pulse-solution/admin/budgets/builder?budgetId=<id>
+// Row click navigates to: /v2/pulse/admin/budgets/builder?budgetId=<id>
 // "New Budget" button navigates to builder without a budgetId.
 
 export default function BudgetView() {
@@ -30,8 +30,8 @@ export default function BudgetView() {
   const fetchBudgets = useCallback(async () => {
     setLoading(true);
     try {
-      const data = await pulseService.budgets.list();
-      setRows(Array.isArray(data) ? data : data?.data || []);
+      const rows = await listBudgets();
+      setRows(Array.isArray(rows) ? rows : []);
     } catch (err) {
       console.error("[BudgetView] Failed to fetch budgets", err);
       showAlert("Failed to load budgets", "error");
@@ -50,9 +50,7 @@ export default function BudgetView() {
     (id) => {
       if (!id) return;
       navigate(
-        `/pulse-solution/admin/budgets/builder?budgetId=${encodeURIComponent(
-          String(id)
-        )}`
+        `/v2/pulse/admin/budgets/builder?budgetId=${encodeURIComponent(String(id))}`
       );
     },
     [navigate]
@@ -76,7 +74,7 @@ export default function BudgetView() {
         <Typography variant="h5">Budgets</Typography>
         <Button
           variant="contained"
-          onClick={() => navigate("/pulse-solution/admin/budgets/builder")}
+          onClick={() => navigate("/v2/pulse/admin/budgets/builder")}
         >
           New Budget
         </Button>
@@ -143,9 +141,7 @@ export default function BudgetView() {
               <Button
                 sx={{ mt: 2 }}
                 variant="outlined"
-                onClick={() =>
-                  navigate("/pulse-solution/admin/budgets/builder")
-                }
+                onClick={() => navigate("/v2/pulse/admin/budgets/builder")}
               >
                 Create your first budget
               </Button>

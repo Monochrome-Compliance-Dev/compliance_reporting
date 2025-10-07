@@ -26,7 +26,7 @@ export const PulseProvider = ({ children }) => {
   // One-time key migration: retire old large caches
   useEffect(() => {
     try {
-      localStorage.removeItem("pulse.timesheets");
+      localStorage.removeItem("pulse.contributions");
     } catch (_) {}
   }, []);
 

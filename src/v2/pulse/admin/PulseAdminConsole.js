@@ -6,11 +6,12 @@ export default function PulseAdminConsole() {
     <Stack spacing={2}>
       <Typography variant="h5">Pulse Admin Console</Typography>
       <Typography variant="body2" color="text.secondary">
-        Manage your clients, engagements, budgets and resources from here.
+        Manage your clients, trackables, budgets and resources from here.
       </Typography>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-        <Paper variant="outlined" sx={{ p: 2, flex: 1 }}>
+        {/* Clients not needed for now */}
+        {/* <Paper variant="outlined" sx={{ p: 2, flex: 1 }}>
           <Typography variant="subtitle1" gutterBottom>
             Clients
           </Typography>
@@ -19,23 +20,23 @@ export default function PulseAdminConsole() {
           </Typography>
           <Button
             component={Link}
-            to="/pulse-solution/admin/clients"
+            to="/v2/pulse/admin/clients"
             variant="contained"
           >
             Open Clients
           </Button>
-        </Paper>
+        </Paper> */}
 
         <Paper variant="outlined" sx={{ p: 2, flex: 1 }}>
           <Typography variant="subtitle1" gutterBottom>
             Budgets
           </Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom>
-            Build and review budgets.
+            Create, review and version budgets.
           </Typography>
           <Button
             component={Link}
-            to="/pulse-solution/admin/budgets"
+            to="/v2/pulse/admin/budgets"
             variant="contained"
           >
             Open Budgets
@@ -44,17 +45,17 @@ export default function PulseAdminConsole() {
 
         <Paper variant="outlined" sx={{ p: 2, flex: 1 }}>
           <Typography variant="subtitle1" gutterBottom>
-            Engagements
+            Trackables
           </Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom>
-            Link clients and resources, define the work.
+            Define work and group budgets under trackables.
           </Typography>
           <Button
             component={Link}
-            to="/pulse-solution/admin/engagements"
+            to="/v2/pulse/admin/trackables"
             variant="contained"
           >
-            Open Engagements
+            Open Trackables
           </Button>
         </Paper>
       </Stack>
@@ -69,7 +70,7 @@ export default function PulseAdminConsole() {
           </Typography>
           <Button
             component={Link}
-            to="/pulse-solution/admin/resources"
+            to="/v2/pulse/admin/resources"
             variant="contained"
           >
             Open Resources
@@ -78,14 +79,14 @@ export default function PulseAdminConsole() {
 
         <Paper variant="outlined" sx={{ p: 2, flex: 1 }}>
           <Typography variant="subtitle1" gutterBottom>
-            Resource Allocation
+            Allocations
           </Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom>
             See who’s on what and spot over-allocation at a glance.
           </Typography>
           <Button
             component={Link}
-            to="/pulse-solution/admin/resources/allocation"
+            to="/v2/pulse/admin/allocations"
             variant="contained"
           >
             Open Allocation View
