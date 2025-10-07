@@ -25,3 +25,4 @@ config.*
 # environment variables
 .env
 .env.sit
+.env.v2.local
