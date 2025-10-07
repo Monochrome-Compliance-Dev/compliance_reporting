@@ -1,0 +1,69 @@
+name: Sync main into long-lived branches
+
+on:
+  schedule:
+    # Every Monday 08:00 AEST (adjust as you like)
+    - cron: "0 22 * * 0" # 22:00 UTC Sunday ~= Monday 08:00 AEST
+  workflow_dispatch:
+
+permissions:
+  contents: write # push commits
+  pull-requests: write # open PRs
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        branch: ["v2/core", "compliance_framework", "sit"] # <<< your branches
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Fetch all branches
+        run: git fetch --all --prune
+
+      - name: Attempt fast-forward/merge of main into ${{ matrix.branch }}
+        id: merge
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET="${{ matrix.branch }}"
+          git checkout "$TARGET"
+          # Always update local refs
+          git reset --hard "origin/$TARGET"
+          git merge --no-ff --no-edit "origin/main" || echo "MERGE_CONFLICT" > /tmp/merge_status
+
+          if [ ! -f /tmp/merge_status ]; then
+            # No conflicts: push the merge commit
+            git push origin HEAD:"$TARGET"
+            echo "result=merged" >> "$GITHUB_OUTPUT"
+          else
+            # Conflicts: abort merge and fall back to PR
+            git merge --abort || true
+            echo "result=conflicted" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open PR from main → ${{ matrix.branch }} when conflicts block auto-merge
+        if: steps.merge.outputs.result == 'conflicted'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          BASE="${{ matrix.branch }}"
+          TITLE="Sync main → ${BASE}"
+          BODY=$'Automated weekly sync.\n\nThis PR merges **main** into **'"${BASE}"'**. Resolve conflicts, then merge to keep the branch current.'
+          # Avoid duplicate PRs if one already exists
+          if gh pr list --base "$BASE" --head "main" --state open --json number --jq 'length' | grep -q '^0$'; then
+            gh pr create --base "$BASE" --head "main" --title "$TITLE" --body "$BODY"
+          else
+            echo "An open PR from main → ${BASE} already exists; skipping."
+          fi
