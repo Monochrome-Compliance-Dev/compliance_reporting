@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useCallback } from "react";
 import { Snackbar, Alert } from "@mui/material";
 
 const AlertContext = createContext();
@@ -10,9 +10,9 @@ export const AlertProvider = ({ children }) => {
     severity: "info",
   });
 
-  const showAlert = (message, severity = "info") => {
+  const showAlert = useCallback((message, severity = "info") => {
     setAlertState({ open: true, message, severity });
-  };
+  }, []);
 
   const handleClose = () => {
     setAlertState((prev) => ({ ...prev, open: false }));

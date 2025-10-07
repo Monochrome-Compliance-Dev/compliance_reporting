@@ -30,6 +30,40 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://monochrome-compliance.com/" />
+    <!-- Canonical (site-wide) -->
+    <link rel="canonical" href="https://monochrome-compliance.com/" />
+
+    <!-- Open Graph (fallback preview) -->
+    <meta property="og:site_name" content="Monochrome Compliance" />
+    <meta
+      property="og:image"
+      content="https://monochrome-compliance.com/images/landing-page/expertise-compliance.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Compliance expertise visual — Monochrome Compliance landing page hero"
+    />
+
+    <!-- Twitter (fallback preview) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Compliance-as-a-Service | Monochrome Compliance"
+    />
+    <meta
+      name="twitter:description"
+      content="Fully managed compliance for Payment Times, ESG, Risk, Disclosures and more — from one subscription."
+    />
+    <meta
+      name="twitter:image"
+      content="https://monochrome-compliance.com/images/solutions/esg/workflows.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="ESG workflows visual — Monochrome Compliance solutions page"
+    />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
     <!--
@@ -62,18 +96,33 @@
       }
     </script>
     <!-- Google tag (gtag.js) -->
+    <!--
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-17266555248"
     ></script>
+    -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+      if (window.location.hostname !== "localhost") {
+        const script = document.createElement("script");
+        script.src =
+          "https://www.googletagmanager.com/gtag/js?id=AW-17266555248";
+        script.async = true;
+        document.head.appendChild(script);
 
-      gtag("config", "AW-17266555248");
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "AW-17266555248");
+      }
+      // Fallback: define a no-op gtag in development so it's always defined
+      if (window.location.hostname === "localhost") {
+        window.gtag = function () {
+          console.debug("gtag dev fallback called with:", arguments);
+        };
+      }
     </script>
   </head>
   <body>

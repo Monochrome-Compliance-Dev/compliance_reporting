@@ -1,0 +1,34 @@
+version: 1
+env:
+  runtime-versions:
+    nodejs: 18
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Make toolchain deterministic and compatible with lockfile v3
+        - node -v
+        - corepack enable
+        - corepack prepare npm@10.7.0 --activate
+        - npm -v
+        # Quick visibility into declared deps (no jq in build image)
+        - node -p "JSON.stringify(require('./package.json').dependencies, null, 2)" || true
+        - node -p "JSON.stringify(require('./package.json').devDependencies, null, 2)" || true
+        # Install deps
+        - npm ci
+        # Show the actually resolved versions Amplify installed
+        - npm ls react react-dom react-router || true
+        # Hunt for React 19-only import patterns after install
+        - grep -RIn "import[[:space:]]*{[[:space:]]*use[[:space:]]*}[[:space:]]*from[[:space:]]*['\"]react['\"]" node_modules || true
+    build:
+      commands:
+        # CRA + CI quirks; don't fail the build on warnings
+        - echo "REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL:-<unset>}"
+        - CI=false npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*

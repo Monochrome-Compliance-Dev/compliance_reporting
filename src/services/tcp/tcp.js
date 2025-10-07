@@ -4,11 +4,11 @@ const baseUrl = `${process.env.REACT_APP_API_URL}/tcp`;
 
 export const tcpService = {
   getAll,
-  getAllByReportId,
+  getAllByPtrsId,
   patchRecord,
   patchRecords,
   patchErrorRecord,
-  getTcpByReportId,
+  getTcpByPtrsId,
   sbiUpdate,
   partialUpdate,
   getById,
@@ -16,18 +16,25 @@ export const tcpService = {
   bulkUpdate,
   delete: _delete,
   getIncompleteSmallBusinessFlags,
-  submitFinalReport,
-  downloadSummaryReport,
+  submitFinalPtrs,
+  downloadSummaryPtrs,
   upload,
-  getErrorsByReportId,
+  getErrorsByPtrsId,
+  recalculateMetrics,
+  resolveErrors,
 };
+async function resolveErrors(records) {
+  return await fetchWrapper.post(`${baseUrl}/errors/resolve`, records);
+}
 
 async function getAll() {
   return await fetchWrapper.get(baseUrl);
 }
 
-async function getAllByReportId(reportId) {
-  return await fetchWrapper.get(`${baseUrl}/report/${reportId}`);
+async function getAllByPtrsId(ptrsId) {
+  const response = await fetchWrapper.get(`${baseUrl}/ptrs/${ptrsId}`);
+  // console.log("Fetched TCP records for ptrsId:", ptrsId, response);
+  return response;
 }
 
 async function patchRecord(id, updates) {
@@ -42,12 +49,12 @@ async function patchErrorRecord(id, updates) {
   return fetchWrapper.patch(`${baseUrl}/error/${id}`, updates);
 }
 
-async function getTcpByReportId(reportId) {
-  return await fetchWrapper.get(`${baseUrl}/tcp/${reportId}`);
+async function getTcpByPtrsId(ptrsId) {
+  return await fetchWrapper.get(`${baseUrl}/tcp/${ptrsId}`);
 }
 
-async function sbiUpdate(reportId, params) {
-  return await fetchWrapper.put(`${baseUrl}/sbi/${reportId}`, params);
+async function sbiUpdate(ptrsId, params) {
+  return await fetchWrapper.put(`${baseUrl}/sbi/${ptrsId}`, params);
 }
 
 async function partialUpdate(params) {
@@ -74,11 +81,11 @@ async function getIncompleteSmallBusinessFlags() {
   return await fetchWrapper.get(`${baseUrl}/missing-isSb`);
 }
 
-async function submitFinalReport() {
+async function submitFinalPtrs() {
   return await fetchWrapper.put(`${baseUrl}/submit-final`);
 }
 
-async function downloadSummaryReport() {
+async function downloadSummaryPtrs() {
   return await fetchWrapper.get(`${baseUrl}/download-summary`, null, "blob");
 }
 
@@ -95,7 +102,11 @@ async function upload(formData, isFormData = false) {
     });
 }
 
-async function getErrorsByReportId(reportId) {
-  return await fetchWrapper.get(`${baseUrl}/errors/${reportId}`);
+async function getErrorsByPtrsId(ptrsId) {
+  return await fetchWrapper.get(`${baseUrl}/errors/${ptrsId}`);
 }
 //   for (const dir of modelDirs) {
+
+async function recalculateMetrics(ptrsId) {
+  return await fetchWrapper.put(`${baseUrl}/recalculate/${ptrsId}`);
+}

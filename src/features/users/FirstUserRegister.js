@@ -4,7 +4,6 @@ import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import {
-  Alert,
   Box,
   Button,
   Grid,
@@ -13,7 +12,12 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { userService, publicService } from "../../services";
+import { userService, billingService } from "../../services";
+import { useAlert } from "../../context/";
+
+// 👋 MVP default seat count for new customers.
+// Stripe’s subscription quantity will be updated by webhook post-checkout.
+const DEFAULT_SEATS = 20;
 
 const schema = Yup.object().shape({
   firstName: Yup.string()
@@ -57,8 +61,8 @@ export default function FirstUserRegister() {
       lastName: "",
       company: "",
       email: "",
-      password: "",
-      confirmPassword: "",
+      password: "Der5rdcfdk",
+      confirmPassword: "Der5rdcfdk",
       phone: "",
       position: "",
     },
@@ -70,73 +74,73 @@ export default function FirstUserRegister() {
     formState: { errors },
   } = methods;
   const navigate = useNavigate();
+  const { showAlert } = useAlert();
   const [loading, setLoading] = useState(false);
-  const [alert, setAlert] = useState(null);
   const theme = useTheme();
 
   useEffect(() => {
-    const clientDetails = JSON.parse(sessionStorage.getItem("clientDetails"));
-    if (!clientDetails) {
-      setAlert({
-        type: "error",
-        message:
-          "No client information found. Please register your company first.",
-      });
+    const customerDetails = JSON.parse(
+      sessionStorage.getItem("customerDetails")
+    );
+    if (!customerDetails) {
+      showAlert(
+        "No company information found. Please register your company first.",
+        "error"
+      );
+      navigate("/customers/register");
       return;
     }
 
-    setValue("firstName", clientDetails.firstName || "");
-    setValue("lastName", clientDetails.lastName || "");
-    setValue("company", clientDetails.businessName || "");
-    setValue("email", clientDetails.email || "");
-    setValue("phone", clientDetails.phone || "");
-    setValue("position", clientDetails.position || "");
-  }, [setValue]);
+    setValue("firstName", customerDetails.firstName || "");
+    setValue("lastName", customerDetails.lastName || "");
+    setValue(
+      "company",
+      customerDetails.company ||
+        customerDetails.customerName ||
+        customerDetails.businessName ||
+        ""
+    );
+    setValue("email", customerDetails.email || "");
+    setValue("phone", customerDetails.phone || "");
+    setValue("position", customerDetails.position || "");
+  }, [setValue, showAlert, navigate]);
 
   const onSubmit = async (data) => {
     try {
       setLoading(true);
-      const client = JSON.parse(sessionStorage.getItem("clientDetails")) || {};
+      const customer =
+        JSON.parse(sessionStorage.getItem("customerDetails")) || {};
       const userDetails = {
         ...data,
         role: "Admin",
-        clientId: client.id,
+        customerId: customer.id,
         active: true,
         verified: new Date(),
         createdBy: userService.userValue?.id || "onlineform",
       };
 
-      await userService.registerFirstUser(userDetails);
-      await userService.login({
-        email: data.email,
-        password: data.password,
+      const created = await userService.registerFirstUser(userDetails);
+      const createdUserId =
+        created?.data?.id ?? created?.id ?? userService.userValue?.id;
+
+      const planCode = customer.planCode ?? "launch";
+      const seats = DEFAULT_SEATS;
+      const { data: billingData } = await billingService.createCheckoutSession({
+        customerId: customer.id,
+        userId: createdUserId,
+        planCode,
+        seats,
       });
-
-      // Send welcome email via SES
-      const userData = {
-        topic: "Admin User Created",
-        name: `${userDetails.firstName} ${userDetails.lastName}`,
-        email: userDetails.email,
-        subject: "Admin User Created",
-        company: client.company,
-        message: "Message left intentionally blank.",
-        to: userDetails.email,
-        from: "contact@monochrome-compliance.com",
-      };
-      await publicService.sendSesEmail(userData);
-
-      setAlert({
-        type: "success",
-        message: "Welcome! Your admin user has been created.",
-      });
-
-      sessionStorage.clear();
-      navigate("/admin");
+      showAlert(
+        "Admin user created. Taking you to secure checkout…",
+        "success"
+      );
+      window.location.href = billingData.url;
     } catch (error) {
-      setAlert({
-        type: "error",
-        message: error.message || "Error creating user. Please try again.",
-      });
+      showAlert(
+        error.message || "Error creating user. Please try again.",
+        "error"
+      );
     } finally {
       setLoading(false);
     }
@@ -165,11 +169,6 @@ export default function FirstUserRegister() {
         <Typography variant="h4" gutterBottom align="center">
           Create First User
         </Typography>
-        {alert && (
-          <Alert severity={alert.type} sx={{ mb: 2 }}>
-            {alert.message}
-          </Alert>
-        )}
         <FormProvider {...methods}>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -275,9 +274,11 @@ export default function FirstUserRegister() {
                 variant="contained"
                 color="primary"
                 fullWidth
-                disabled={loading}
+                disabled={loading || methods.formState.isSubmitting}
               >
-                {loading ? "Creating..." : "Create Admin User"}
+                {loading || methods.formState.isSubmitting
+                  ? "Creating..."
+                  : "Create Admin User"}
               </Button>
             </Box>
           </form>

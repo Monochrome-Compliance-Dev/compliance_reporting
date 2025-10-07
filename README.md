@@ -71,52 +71,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-# Dummy trigger
+# Deploy trigger
 
-# Clean trigger
-
-# Clean trigger
-
-# Clean trigger 2
-
-# Clean trigger 3
-
-# Clean trigger 4
-
-# Clean trigger 5
-
-# Clean trigger 6
-
-# Clean trigger 7
-
-# Clean trigger 8
-
-# Clean trigger 9
-
-# Clean trigger 10
-
-# Clean trigger 11
-
-# Clean trigger 12
-
-# Clean trigger 13
-
-# Clean trigger 14
-
-# Clean trigger 15
-
-# Clean trigger 16
-
-# Clean trigger 17
-
-# Clean trigger 18
-
-# Clean trigger 19
-
-# Clean trigger 20
-
-# Clean trigger 21
-
-# Clean trigger 22
-
-# Clean trigger 23
+Triggering deployment

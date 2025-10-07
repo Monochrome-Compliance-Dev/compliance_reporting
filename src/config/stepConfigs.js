@@ -1,4 +1,4 @@
-import { fieldMapping } from "../features/reports/ptrs/fieldMapping";
+import { fieldMapping } from "../features/ptrs/fieldMapping";
 
 export const stepConfigs = {
   step1: {
@@ -104,13 +104,6 @@ export const stepConfigs = {
     exclusionRules: [],
   },
   step5: {
-    editableFields: [],
-    hiddenColumns: [],
-    validationRules: {},
-    issueRules: [],
-    exclusionRules: [],
-  },
-  step6: {
     editableFields: [],
     hiddenColumns: [],
     validationRules: {},
