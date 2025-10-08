@@ -20,15 +20,15 @@ import {
 } from "@mui/material";
 
 import { useTheme } from "@mui/material/styles";
-import { userService } from "../../../../services";
-import { pulseService } from "../../../../services/pulse/pulse";
+import { userService } from "services";
 import { nanoid } from "nanoid";
-import { useAlert } from "../../../../context";
+import { useAlert } from "context";
+import { updateAllocation } from "../../services/pulseApi";
 
-export default function EngagementAssignmentsEditor({
-  engagementId,
+export default function TrackableAllocationsEditor({
+  trackableId,
   resources = [],
-  initialAssignments = [],
+  initialAllocations = [],
   onSave,
 }) {
   const resourceById = useMemo(
@@ -42,7 +42,7 @@ export default function EngagementAssignmentsEditor({
   const isXs = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [rows, setRows] = useState(() =>
-    (initialAssignments || []).map((a) => ({
+    (initialAllocations || []).map((a) => ({
       key: nanoid(8),
       resourceId: String(a.resourceId),
       allocationPct: a.allocationPct ?? 0,
@@ -53,7 +53,7 @@ export default function EngagementAssignmentsEditor({
       role: a.role || "",
       rateOverride: a.rateOverride ?? "",
       notes: a.notes || "",
-      assignmentId: a.id || undefined,
+      allocationId: a.id || undefined,
     }))
   );
   const [errorsByKey, setErrorsByKey] = useState({});
@@ -132,7 +132,7 @@ export default function EngagementAssignmentsEditor({
         role: "",
         rateOverride: "",
         notes: "",
-        assignmentId: undefined,
+        allocationId: undefined,
       };
       return [...prev, newRow];
     });
@@ -176,16 +176,16 @@ export default function EngagementAssignmentsEditor({
   );
 
   const baselineById = useMemo(() => {
-    const list = initialAssignments || [];
+    const list = initialAllocations || [];
     return Object.fromEntries(list.map((a) => [String(a.id), normaliseRow(a)]));
-  }, [initialAssignments, normaliseRow]);
+  }, [initialAllocations, normaliseRow]);
 
   // Local baseline override for per-row save
   const [baselineOverride, setBaselineOverride] = useState({});
 
-  // Re-hydrate rows when initialAssignments changes (e.g., after async fetch)
+  // Re-hydrate rows when initialAllocations changes (e.g., after async fetch)
   useEffect(() => {
-    const next = (initialAssignments || []).map((a) => ({
+    const next = (initialAllocations || []).map((a) => ({
       key: nanoid(8),
       resourceId: String(a.resourceId),
       allocationPct: a.allocationPct ?? 0,
@@ -196,14 +196,14 @@ export default function EngagementAssignmentsEditor({
       role: a.role || "",
       rateOverride: a.rateOverride ?? "",
       notes: a.notes || "",
-      assignmentId: a.id || undefined,
+      allocationId: a.id || undefined,
     }));
     setRows(next);
     setBaselineOverride({});
     setOverlapKeys(computeOverlapKeys(next));
-  }, [computeOverlapKeys, initialAssignments]);
+  }, [computeOverlapKeys, initialAllocations]);
 
-  // Helper to get effective baseline for a given row id (assignmentId)
+  // Helper to get effective baseline for a given row id (allocationId)
   const getBaselineForId = useCallback(
     (id) => baselineOverride[String(id)] ?? baselineById[String(id)] ?? {},
     [baselineOverride, baselineById]
@@ -233,7 +233,7 @@ export default function EngagementAssignmentsEditor({
     if (hasMissing) {
       setErrorsByKey(missingMap);
       showAlert(
-        "Please complete Start, End and Due date for all assignments.",
+        "Please complete Start, End and Due date for all allocations.",
         "warning"
       );
       return; // abort save
@@ -259,7 +259,7 @@ export default function EngagementAssignmentsEditor({
     if (offending.size > 0) {
       setOverlapKeys(Array.from(offending));
       showAlert(
-        "Overlapping assignments for the same resource. Set non-overlapping dates.",
+        "Overlapping allocations for the same resource. Set non-overlapping dates.",
         "warning"
       );
       return; // abort save
@@ -267,15 +267,15 @@ export default function EngagementAssignmentsEditor({
       setOverlapKeys([]);
     }
 
-    // Build assignments: create = full, edit = diff only
-    const assignments = rows.map((r) => {
+    // Build allocations: create = full, edit = diff only
+    const allocations = rows.map((r) => {
       const norm = normaliseRow(r);
 
-      if (!r.assignmentId) {
+      if (!r.allocationId) {
         // CREATE: send full payload (nulls where blank), but omit optional nulls/empties
         const base = {
           resourceId: norm.resourceId,
-          engagementId,
+          trackableId,
           allocationPct: norm.allocationPct,
           allocatedHoursPerWeek: norm.allocatedHoursPerWeek,
           startDate: norm.startDate,
@@ -293,7 +293,7 @@ export default function EngagementAssignmentsEditor({
       }
 
       // EDIT: only send changed fields (PATCH semantics)
-      const base = baselineById[String(r.assignmentId)] || {};
+      const base = baselineById[String(r.allocationId)] || {};
       const diff = {};
       "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
         .split(",")
@@ -310,7 +310,7 @@ export default function EngagementAssignmentsEditor({
         return null; // skip no-op
       }
       return {
-        id: String(r.assignmentId),
+        id: String(r.allocationId),
         ...cleaned,
         customerId: userService.userValue.customerId,
         updatedBy: userService.userValue.id,
@@ -318,7 +318,7 @@ export default function EngagementAssignmentsEditor({
     });
 
     // Filter out any nulls (no-op edits) before sending to onSave
-    const filtered = assignments.filter(Boolean);
+    const filtered = allocations.filter(Boolean);
     await onSave?.(filtered);
   };
 
@@ -326,8 +326,8 @@ export default function EngagementAssignmentsEditor({
   const saveRow = async (rowKey) => {
     const row = rows.find((r) => r.key === rowKey);
     if (!row) return;
-    if (!row.assignmentId) {
-      showAlert("Use 'Save assignments' to create new rows first.", "info");
+    if (!row.allocationId) {
+      showAlert("Use 'Save allocations' to create new rows first.", "info");
       return;
     }
 
@@ -347,7 +347,7 @@ export default function EngagementAssignmentsEditor({
     }
 
     const norm = normaliseRow(row);
-    const base = getBaselineForId(row.assignmentId);
+    const base = getBaselineForId(row.allocationId);
     const diff = {};
     "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
       .split(",")
@@ -362,7 +362,7 @@ export default function EngagementAssignmentsEditor({
     }
 
     try {
-      await pulseService.assignments.patch(String(row.assignmentId), {
+      await updateAllocation(String(row.allocationId), {
         ...cleaned,
         customerId: userService.userValue.customerId,
         updatedBy: userService.userValue.id,
@@ -370,7 +370,7 @@ export default function EngagementAssignmentsEditor({
       // Update local baseline so subsequent diffs are accurate
       setBaselineOverride((prev) => ({
         ...prev,
-        [String(row.assignmentId)]: norm,
+        [String(row.allocationId)]: norm,
       }));
       showAlert("Row saved.", "success");
     } catch (e) {
@@ -384,11 +384,11 @@ export default function EngagementAssignmentsEditor({
     <Paper variant="outlined">
       <Box p={2}>
         <Typography variant="h6" gutterBottom>
-          Assignments
+          Allocations
         </Typography>
-        {!engagementId ? (
+        {!trackableId ? (
           <Typography color="text.secondary">
-            Save the engagement first to assign resources.
+            Save the trackable first to allocate resources.
           </Typography>
         ) : (
           <Stack spacing={2}>
@@ -422,9 +422,9 @@ export default function EngagementAssignmentsEditor({
               <Button
                 variant="contained"
                 onClick={handleSave}
-                disabled={!engagementId || rows.length === 0}
+                disabled={!trackableId || rows.length === 0}
               >
-                Save assignments
+                Save allocations
               </Button>
             </Stack>
             {isXs ? (
@@ -432,7 +432,7 @@ export default function EngagementAssignmentsEditor({
               <Stack spacing={1}>
                 {rows.length === 0 ? (
                   <Typography color="text.secondary">
-                    No resources assigned.
+                    No resources allocateed.
                   </Typography>
                 ) : (
                   rows.map((row) => (
@@ -547,7 +547,7 @@ export default function EngagementAssignmentsEditor({
                               errorsByKey[row.key]?.startDate
                                 ? "Required"
                                 : overlapKeys.includes(row.key)
-                                  ? "Overlaps another assignment"
+                                  ? "Overlaps another allocation"
                                   : undefined
                             }
                           />
@@ -580,7 +580,7 @@ export default function EngagementAssignmentsEditor({
                               errorsByKey[row.key]?.endDate
                                 ? "Required"
                                 : overlapKeys.includes(row.key)
-                                  ? "Overlaps another assignment"
+                                  ? "Overlaps another allocation"
                                   : undefined
                             }
                           />
@@ -692,7 +692,7 @@ export default function EngagementAssignmentsEditor({
                       <TableRow>
                         <TableCell colSpan={11}>
                           <Typography color="text.secondary">
-                            No resources assigned.
+                            No resources allocateed.
                           </Typography>
                         </TableCell>
                       </TableRow>
@@ -779,7 +779,7 @@ export default function EngagementAssignmentsEditor({
                                 errorsByKey[row.key]?.startDate
                                   ? "Required"
                                   : overlapKeys.includes(row.key)
-                                    ? "Overlaps another assignment"
+                                    ? "Overlaps another allocation"
                                     : undefined
                               }
                             />
@@ -810,7 +810,7 @@ export default function EngagementAssignmentsEditor({
                                 errorsByKey[row.key]?.endDate
                                   ? "Required"
                                   : overlapKeys.includes(row.key)
-                                    ? "Overlaps another assignment"
+                                    ? "Overlaps another allocation"
                                     : undefined
                               }
                             />

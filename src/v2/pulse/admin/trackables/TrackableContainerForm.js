@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -15,22 +15,31 @@ import {
   Typography,
 } from "@mui/material";
 
-const schema = yup
-  .object({
-    name: yup.string().trim().required("Name is required"),
-    clientId: yup.string().required("Client is required"),
-    startDate: yup.string().required("Start date is required"),
-    endDate: yup.string().required("End date is required"),
-  })
-  .required();
-
-export default function EngagementContainerForm({
+export default function TrackableContainerForm({
   mode = "create",
   initialValues,
   clients = [],
+  config = {},
   onSubmit,
   onQuickAddClient,
 }) {
+  const requireClient = config?.requiresClient !== false; // default true
+
+  const schema = useMemo(
+    () =>
+      yup
+        .object({
+          name: yup.string().trim().required("Name is required"),
+          clientId: requireClient
+            ? yup.string().required("Client is required")
+            : yup.string().nullable(),
+          startDate: yup.string().required("Start date is required"),
+          endDate: yup.string().required("End date is required"),
+        })
+        .required(),
+    [requireClient]
+  );
+
   const {
     register,
     handleSubmit,
@@ -40,21 +49,33 @@ export default function EngagementContainerForm({
     control,
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: initialValues,
+    defaultValues: {
+      name: "",
+      clientId: "",
+      startDate: "",
+      endDate: "",
+      ...(initialValues || {}),
+    },
     mode: "onChange",
     criteriaMode: "all",
   });
 
   // keep defaults fresh if parent updates initialValues
   useEffect(() => {
-    reset(initialValues);
+    reset({
+      name: "",
+      clientId: "",
+      startDate: "",
+      endDate: "",
+      ...(initialValues || {}),
+    });
   }, [initialValues, reset]);
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
       <Stack spacing={2}>
         <Typography variant="h6">
-          {mode === "create" ? "Create Engagement" : "Edit Engagement"}
+          {mode === "create" ? "Create Trackable" : "Edit Trackable"}
         </Typography>
 
         <TextField
@@ -67,51 +88,53 @@ export default function EngagementContainerForm({
           required
         />
 
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={2}
-          alignItems="flex-start"
-        >
-          <Controller
-            name="clientId"
-            control={control}
-            render={({ field }) => (
-              <FormControl
-                fullWidth
-                size="small"
-                error={!!errors.clientId}
-                required
-              >
-                <InputLabel id="clientId-label">Client</InputLabel>
-                <Select
-                  labelId="clientId-label"
-                  label="Client"
-                  value={field.value ?? ""}
-                  onChange={field.onChange}
-                  onBlur={field.onBlur}
-                  inputProps={{ name: field.name }}
-                >
-                  {clients.map((c) => (
-                    <MenuItem key={c.id} value={String(c.id)}>
-                      {c.name}
-                    </MenuItem>
-                  ))}
-                </Select>
-                {errors.clientId && (
-                  <FormHelperText>{errors.clientId.message}</FormHelperText>
-                )}
-              </FormControl>
-            )}
-          />
-          <Button
-            size="small"
-            variant="text"
-            onClick={onQuickAddClient}
-            sx={{ whiteSpace: "nowrap" }}
+        {requireClient && (
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={2}
+            alignItems="flex-start"
           >
-            + Add client
-          </Button>
-        </Stack>
+            <Controller
+              name="clientId"
+              control={control}
+              render={({ field }) => (
+                <FormControl
+                  fullWidth
+                  size="small"
+                  error={!!errors.clientId}
+                  required={requireClient}
+                >
+                  <InputLabel id="clientId-label">Client</InputLabel>
+                  <Select
+                    labelId="clientId-label"
+                    label="Client"
+                    value={field.value ?? ""}
+                    onChange={field.onChange}
+                    onBlur={field.onBlur}
+                    inputProps={{ name: field.name }}
+                  >
+                    {clients.map((c) => (
+                      <MenuItem key={c.id} value={String(c.id)}>
+                        {c.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  {errors.clientId && (
+                    <FormHelperText>{errors.clientId.message}</FormHelperText>
+                  )}
+                </FormControl>
+              )}
+            />
+            <Button
+              size="small"
+              variant="text"
+              onClick={onQuickAddClient}
+              sx={{ whiteSpace: "nowrap" }}
+            >
+              + Add client
+            </Button>
+          </Stack>
+        )}
 
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
           <TextField
@@ -142,7 +165,7 @@ export default function EngagementContainerForm({
             variant="contained"
             disabled={!isValid || isSubmitting}
           >
-            {mode === "create" ? "Create engagement" : "Save changes"}
+            {mode === "create" ? "Create trackable" : "Save changes"}
           </Button>
         </Stack>
       </Stack>

@@ -13,58 +13,107 @@ import {
   TableBody,
   TextField,
 } from "@mui/material";
-import { usePulseContext, useAlert } from "../../../../context";
-import { pulseService } from "../../../../services/pulse/pulse";
+import { useAlert, usePulseContext } from "context";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+  listTrackables,
+  deleteTrackable,
+  listClients,
+  listResources,
+} from "../../services/pulseApi";
 
-export default function EngagementView() {
-  const {
-    engagements = [],
-    clients = [],
-    resources = [],
-    removeEngagement,
-  } = usePulseContext();
+export default function TrackableView() {
   const { showAlert } = useAlert();
+  const { config } = usePulseContext();
+  const showClient = config?.requiresClient !== false; // default true
+  const columnCount = 6 + (showClient ? 1 : 0); // Name, [Client], Resource, Start, End, Status, Actions
 
   const navigate = useNavigate();
+
+  const qc = useQueryClient();
+
+  const {
+    data: rawTrackables,
+    isLoading: isLoadingTrackables,
+    isError: isErrorTrackables,
+    error: trackablesError,
+  } = useQuery({
+    queryKey: ["pulse", "trackables"],
+    queryFn: listTrackables,
+  });
+  const trackables = useMemo(
+    () => (Array.isArray(rawTrackables) ? rawTrackables : []),
+    [rawTrackables]
+  );
+
+  const { data: rawClients } = useQuery({
+    queryKey: ["pulse", "clients"],
+    queryFn: listClients,
+  });
+  const clients = useMemo(
+    () => (Array.isArray(rawClients) ? rawClients : []),
+    [rawClients]
+  );
+
+  const { data: rawResources } = useQuery({
+    queryKey: ["pulse", "resources"],
+    queryFn: listResources,
+  });
+  const resources = useMemo(
+    () => (Array.isArray(rawResources) ? rawResources : []),
+    [rawResources]
+  );
+
+  if (isErrorTrackables && trackablesError) {
+    // eslint-disable-next-line no-console
+    console.error("Failed to load trackables", trackablesError);
+  }
+
+  const deleteMutation = useMutation({
+    mutationFn: (id) => deleteTrackable(String(id)),
+    onSuccess: () =>
+      qc.invalidateQueries({ queryKey: ["pulse", "trackables"] }),
+  });
 
   // Search & filters
   const [query, setQuery] = useState("");
 
   const clientById = useMemo(
-    () => Object.fromEntries((clients || []).map((c) => [String(c.id), c])),
+    () => Object.fromEntries(clients.map((c) => [String(c.id), c])),
     [clients]
   );
 
   const resourceById = useMemo(
-    () => Object.fromEntries((resources || []).map((r) => [String(r.id), r])),
+    () => Object.fromEntries(resources.map((r) => [String(r.id), r])),
     [resources]
   );
 
-  const filteredEngagements = useMemo(() => {
+  const filteredTrackables = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return (engagements || []).filter((e) => {
+    return trackables.filter((e) => {
       const clientName = clientById[String(e.clientId)]?.name || "";
       const resourceName = resourceById[String(e.resourceId)]?.name || "";
+      const haystack = [e.name, resourceName];
+      if (showClient) haystack.push(clientName);
       const matchesQuery =
         !q ||
-        [e.name, clientName, resourceName].some((v) =>
+        haystack.some((v) =>
           String(v || "")
             .toLowerCase()
             .includes(q)
         );
       return matchesQuery;
     });
-  }, [engagements, query, clientById, resourceById]);
+  }, [trackables, query, clientById, resourceById, showClient]);
 
   const onDelete = async (id) => {
     try {
-      await pulseService.engagements.delete(String(id));
-      removeEngagement(id);
-      showAlert("Engagement deleted", "success");
+      await deleteMutation.mutateAsync(String(id));
+      showAlert("Trackable deleted", "success");
     } catch (err) {
       // eslint-disable-next-line no-console
-      console.error("Failed to delete engagement", err);
-      showAlert("Failed to delete engagement", "error");
+      console.error("Failed to delete trackable", err);
+      showAlert("Failed to delete trackable", "error");
     }
   };
 
@@ -72,7 +121,7 @@ export default function EngagementView() {
     <Stack spacing={2}>
       {/* Header */}
       <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Typography variant="h5">Engagements</Typography>
+        <Typography variant="h5">Trackables</Typography>
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={1}
@@ -80,17 +129,17 @@ export default function EngagementView() {
         >
           <TextField
             size="small"
-            placeholder="Search engagements…"
+            placeholder="Search trackables…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            inputProps={{ "aria-label": "Search engagements" }}
+            inputProps={{ "aria-label": "Search trackables" }}
           />
           <Button
             component={Link}
-            to="/pulse-solution/admin/engagements/manage"
+            to="/v2/pulse/admin/trackables/new"
             variant="contained"
           >
-            New Engagement
+            New Trackable
           </Button>
         </Stack>
       </Box>
@@ -101,7 +150,7 @@ export default function EngagementView() {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>Client</TableCell>
+              {showClient && <TableCell>Client</TableCell>}
               <TableCell>Resource</TableCell>
               <TableCell>Start</TableCell>
               <TableCell>End</TableCell>
@@ -110,35 +159,43 @@ export default function EngagementView() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredEngagements.length === 0 ? (
+            {isLoadingTrackables ? (
               <TableRow>
-                <TableCell colSpan={6}>
+                <TableCell colSpan={columnCount}>
+                  <Typography variant="body2">Loading trackables…</Typography>
+                </TableCell>
+              </TableRow>
+            ) : filteredTrackables.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={columnCount}>
                   <Button
                     component={Link}
-                    to="/pulse-solution/admin/engagements/manage"
+                    to="/v2/pulse/admin/trackables/new"
                     variant="contained"
                   >
-                    New Engagement
+                    New Trackable
                   </Button>
                 </TableCell>
               </TableRow>
             ) : (
-              filteredEngagements.map((e) => (
+              filteredTrackables.map((e) => (
                 <TableRow
                   key={e.id}
                   hover
                   sx={{ cursor: "pointer" }}
                   onClick={() =>
                     navigate(
-                      `/pulse-solution/admin/engagements/manage?id=${encodeURIComponent(e.id)}`
+                      `/v2/pulse/admin/trackables/${encodeURIComponent(e.id)}`
                     )
                   }
                   role="button"
                 >
                   <TableCell>{e.name}</TableCell>
-                  <TableCell>
-                    {clientById[String(e.clientId)]?.name || "—"}
-                  </TableCell>
+                  {showClient && (
+                    <TableCell>
+                      {clientById[String(e.clientId)]?.name || "—"}
+                    </TableCell>
+                  )}
                   <TableCell>
                     {resourceById[String(e.resourceId)]?.name || "—"}
                   </TableCell>

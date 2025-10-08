@@ -1,7 +1,3 @@
-// Pulse v2 service — thin, explicit endpoints
-// Best practice: components/hooks call this service; service calls fetch-wrapper.
-// No React imports here. .js only.
-
 import { fetchWrapper } from "lib/utils/fetch-wrapper";
 
 const API = process.env.REACT_APP_API_URL || ""; // ptrsApi style base
@@ -44,8 +40,38 @@ export const listResourceUtilisation = (params = {}) => {
 // Trackables
 export const listTrackables = (params = {}) => {
   const q = new URLSearchParams(params).toString();
-  return unwrap(fetchWrapper.get(`${base}/trackables${q ? `?${q}` : ""}`));
+  return unwrap(fetchWrapper.get(`${base}/trackables${q ? `?${q}` : ""}`)).then(
+    (res) => (Array.isArray(res) ? res : [])
+  );
 };
+export const getTrackableById = (id) =>
+  unwrap(fetchWrapper.get(`${base}/trackables/${encodeURIComponent(id)}`));
+export const createTrackable = (payload) =>
+  unwrap(fetchWrapper.post(`${base}/trackables`, payload));
+export const updateTrackable = (id, payload) =>
+  unwrap(
+    fetchWrapper.put(`${base}/trackables/${encodeURIComponent(id)}`, payload)
+  );
+export const patchTrackable = (id, payload) =>
+  unwrap(
+    fetchWrapper.patch(`${base}/trackables/${encodeURIComponent(id)}`, payload)
+  );
+export const deleteTrackable = (id) =>
+  unwrap(fetchWrapper.delete(`${base}/trackables/${encodeURIComponent(id)}`));
+
+// Allocations (per trackable)
+export const listAllocationsByTrackable = (trackableId, params = {}) => {
+  const q = new URLSearchParams({ ...params, trackableId }).toString();
+  return unwrap(fetchWrapper.get(`${base}/allocations${q ? `?${q}` : ""}`));
+};
+export const createAllocation = (payload) =>
+  unwrap(fetchWrapper.post(`${base}/allocations`, payload));
+export const updateAllocation = (id, payload) =>
+  unwrap(
+    fetchWrapper.put(`${base}/allocations/${encodeURIComponent(id)}`, payload)
+  );
+export const deleteAllocation = (id) =>
+  unwrap(fetchWrapper.delete(`${base}/allocations/${encodeURIComponent(id)}`));
 
 // Budgets
 export const getActiveBudgetByTrackable = (trackableId) =>

@@ -1,4 +1,4 @@
-// src/features/pulse/engagements/EngagementWizard.js
+// src/features/pulse/trackables/TrackableWizard.js
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router";
 import {
@@ -12,41 +12,41 @@ import {
   Typography,
   Chip,
 } from "@mui/material";
-import { usePulseContext } from "../../../../context/PulseContext";
-import { useAlert } from "../../../../context";
-import { pulseService } from "../../../../services/pulse/pulse";
-import EngagementContainerForm from "./TrackableContainerForm";
-import EngagementAssignmentsEditor from "./TrackablesAllocationEditor";
-import BudgetBuilder from "../budgets/BudgetBuilder"; // embedded
-import { userService } from "../../../../services";
+import { useQuery } from "@tanstack/react-query";
+import { useAlert, usePulseContext } from "context";
+import TrackableContainerForm from "./TrackableContainerForm";
+import TrackableAllocationsEditor from "./TrackablesAllocationEditor";
+import BudgetBuilder from "../budgets/BudgetBuilder";
+import {
+  listTrackables,
+  listAllocationsByTrackable,
+  listClients,
+  listResources,
+} from "../../services/pulseApi";
+import { useTrackableOps } from "./TrackablePage";
 
-const unwrap = (res) =>
-  res && typeof res === "object" && "data" in res ? res.data : res;
-
-function DetailsStep({ engagement, clients, onSaved, onNext, canProceed }) {
+function DetailsStep({ trackable, clients, onSaved, config }) {
   const handleSubmitAndNext = async (values) => {
     try {
-      const result = await onSaved?.(values);
-      // If parent save did not explicitly fail, advance to Budget step
-      if (result !== false) {
-        onNext?.();
-      }
+      await onSaved?.(values);
+      // Parent decides whether to advance after a confirmed save
     } catch (e) {
-      // Errors are surfaced by onSaved/showAlert; do not advance
+      // Errors are surfaced by onSaved/showAlert; do not advance here
     }
   };
   return (
     <Paper variant="outlined">
       <Box p={2}>
-        <EngagementContainerForm
-          mode={engagement ? "edit" : "create"}
+        <TrackableContainerForm
+          mode={trackable ? "edit" : "create"}
+          config={config}
           initialValues={
-            engagement
+            trackable
               ? {
-                  name: engagement.name || "",
-                  clientId: String(engagement.clientId || ""),
-                  startDate: engagement.startDate || "",
-                  endDate: engagement.endDate || "",
+                  name: trackable.name || "",
+                  clientId: String(trackable.clientId || ""),
+                  startDate: trackable.startDate || "",
+                  endDate: trackable.endDate || "",
                 }
               : {
                   name: "",
@@ -63,9 +63,7 @@ function DetailsStep({ engagement, clients, onSaved, onNext, canProceed }) {
           <Button variant="text" disabled>
             Back
           </Button>
-          <Button variant="text" onClick={onNext} disabled={!canProceed}>
-            Next: Budget
-          </Button>
+          {/* Advance is controlled by parent after a confirmed save */}
         </Box>
       </Box>
     </Paper>
@@ -73,7 +71,7 @@ function DetailsStep({ engagement, clients, onSaved, onNext, canProceed }) {
 }
 
 function BudgetStep({
-  engagementId,
+  trackableId,
   onBudgetSaved,
   onNext,
   onBack,
@@ -82,8 +80,8 @@ function BudgetStep({
   return (
     <Paper variant="outlined">
       <Box p={2}>
-        {engagementId ? (
-          <BudgetBuilder engagementId={engagementId} onSaved={onBudgetSaved} />
+        {trackableId ? (
+          <BudgetBuilder trackableId={trackableId} onSaved={onBudgetSaved} />
         ) : (
           <Typography color="text.secondary">
             Save details first to build the budget.
@@ -103,11 +101,11 @@ function BudgetStep({
 }
 
 function ResourcesStep({
-  engagementId,
-  engagement,
+  trackableId,
+  trackable,
   resources,
-  onAssignmentsSaved,
-  onCompleteAssignments,
+  onAllocationsSaved,
+  onCompleteAllocations,
   onNext,
   onBack,
   canProceed,
@@ -124,15 +122,15 @@ function ResourcesStep({
     return ms < 0 ? 0 : Math.floor(ms / (1000 * 60 * 60 * 24)) + 1;
   };
   const estimatePlannedCost = () => {
-    if (!engagement) return { planned: 0, remaining: 0, budget: 0 };
-    const budget = Number(engagement.budgetAmount || 0);
-    const eStart = parseISO(engagement.startDate);
-    const eEnd = parseISO(engagement.endDate);
-    if (!Array.isArray(engagement.assignments) || !eStart || !eEnd)
+    if (!trackable) return { planned: 0, remaining: 0, budget: 0 };
+    const budget = Number(trackable.budgetAmount || 0);
+    const eStart = parseISO(trackable.startDate);
+    const eEnd = parseISO(trackable.endDate);
+    if (!Array.isArray(trackable.allocations) || !eStart || !eEnd)
       return { planned: 0, remaining: budget, budget };
 
     let planned = 0;
-    engagement.assignments.forEach((a) => {
+    trackable.allocations.forEach((a) => {
       const res = (resources || []).find(
         (r) => String(r.id) === String(a.resourceId)
       );
@@ -167,11 +165,11 @@ function ResourcesStep({
             variant={remaining < 0 ? "filled" : "outlined"}
           />
         </Box>
-        <EngagementAssignmentsEditor
-          engagementId={engagementId || ""}
+        <TrackableAllocationsEditor
+          trackableId={trackableId || ""}
           resources={resources}
-          initialAssignments={engagement?.assignments || []}
-          onSave={onAssignmentsSaved}
+          initialAllocations={trackable?.allocations || []}
+          onSave={onAllocationsSaved}
         />
         <Box
           mt={2}
@@ -185,10 +183,10 @@ function ResourcesStep({
           <Box display="flex" gap={1}>
             <Button
               variant="contained"
-              onClick={onCompleteAssignments}
+              onClick={onCompleteAllocations}
               disabled={!canProceed}
             >
-              Complete assignments
+              Complete allocations
             </Button>
             <Button variant="text" onClick={onNext} disabled={!canProceed}>
               Next: Review
@@ -200,18 +198,18 @@ function ResourcesStep({
   );
 }
 
-function ReviewStep({ engagement, onActivate, onBack, activating }) {
-  if (!engagement) return null;
+function ReviewStep({ trackable, onActivate, onBack, activating }) {
+  if (!trackable) return null;
   return (
     <Paper variant="outlined">
       <Box p={2}>
         <Typography variant="subtitle1">Review & Activate</Typography>
         <Typography variant="body2" color="text.secondary">
-          Budget: {engagement.budgetHours || 0} hrs • $
-          {engagement.budgetAmount || 0}
+          Budget: {trackable.budgetHours || 0} hrs • $
+          {trackable.budgetAmount || 0}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Assignments: {(engagement.assignments || []).length}
+          Allocations: {(trackable.allocations || []).length}
         </Typography>
         <Box mt={2} display="flex" justifyContent="space-between">
           <Button variant="text" onClick={onBack}>
@@ -220,9 +218,9 @@ function ReviewStep({ engagement, onActivate, onBack, activating }) {
           <Button
             variant="contained"
             onClick={onActivate}
-            disabled={engagement.status === "active" || activating}
+            disabled={trackable.status === "active" || activating}
           >
-            {engagement.status === "active" ? "Active" : "Activate engagement"}
+            {trackable.status === "active" ? "Active" : "Activate trackable"}
           </Button>
         </Box>
       </Box>
@@ -232,77 +230,80 @@ function ReviewStep({ engagement, onActivate, onBack, activating }) {
 
 const steps = ["Details", "Budget", "Resources", "Review"];
 
-const canEnterStep = (idx, { engagementId, hasBudget, hasAssignments }) => {
+const canEnterStep = (idx, { trackableId, hasBudget, hasAllocations }) => {
   switch (idx) {
     case 0:
       return true;
     case 1:
-      return !!engagementId; // need created engagement to build budget
+      return !!trackableId; // need created trackable to build budget
     case 2:
-      return !!engagementId && !!hasBudget; // need budget before resources
+      return !!trackableId && !!hasBudget; // need budget before resources
     case 3:
-      return !!engagementId && !!hasBudget && !!hasAssignments; // final review
+      return !!trackableId && !!hasBudget && !!hasAllocations; // final review
     default:
       return false;
   }
 };
 
-export default function EngagementWizard() {
-  const { clients, resources, engagements, upsertEngagement } =
-    usePulseContext();
+export default function TrackableWizard() {
+  const { config } = usePulseContext();
+
+  const { data: rawTrackables } = useQuery({
+    queryKey: ["pulse", "trackables"],
+    queryFn: listTrackables,
+  });
+  const trackables = useMemo(
+    () => (Array.isArray(rawTrackables) ? rawTrackables : []),
+    [rawTrackables]
+  );
+
+  const { data: rawClients } = useQuery({
+    queryKey: ["pulse", "clients"],
+    queryFn: listClients,
+  });
+  const clients = Array.isArray(rawClients) ? rawClients : [];
+
+  const { data: rawResources } = useQuery({
+    queryKey: ["pulse", "resources"],
+    queryFn: listResources,
+  });
+  const resources = Array.isArray(rawResources) ? rawResources : [];
+
+  // Use shared ops hook
+  const { saveDetails: saveDetailsOp, saveAllocations: saveAllocationsOp } =
+    useTrackableOps();
+
+  // Local cache for allocations keyed by trackable id (since we removed context mutations)
+  const [allocationsByTrackable, setAllocationsByTrackable] = useState({});
   const { showAlert } = useAlert();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
   // selection (edit mode if ?id=...)
-  const [engagementId, setEngagementId] = useState(
+  const [trackableId, setTrackableId] = useState(
     searchParams.get("id") || null
   );
-  const engagement = useMemo(
-    () =>
-      engagements.find((e) => String(e.id) === String(engagementId)) || null,
-    [engagements, engagementId]
+  const trackable = useMemo(
+    () => trackables.find((e) => String(e.id) === String(trackableId)) || null,
+    [trackables, trackableId]
   );
 
-  const loadedAssignmentsRef = useRef(new Set());
+  const loadedAllocationsRef = useRef(new Set());
 
   const [activeStep, setActiveStep] = useState(0);
 
-  // Helper: Refresh budget items for current engagement and push to context
-  const refreshBudgetSnapshot = async (id) => {
-    if (!id) return;
-    try {
-      const res = await pulseService.budgetItems.listByEngagement(String(id));
-      const items = unwrap(res) || [];
-      const current = engagements.find((e) => String(e.id) === String(id)) || {
-        id,
-      };
-      upsertEngagement({ ...current, budgetItems: items });
-    } catch (e) {
-      // ignore; button state will remain based on existing context
-    }
-  };
-  // Refresh budget snapshot when entering Budget step or engagement changes
-  useEffect(() => {
-    if (!engagementId) return;
-    if (activeStep !== 1) return; // only when viewing Budget step
-    refreshBudgetSnapshot(engagementId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [engagementId, activeStep]);
-
   // derive status gates
-  const hasBudget =
-    (engagement?.budgetItems?.length || 0) > 0 ||
-    Number(engagement?.budgetAmount || 0) > 0;
-  const hasAssignments = (engagement?.assignments?.length || 0) > 0;
+  const hasBudget = Number(trackable?.budgetAmount || 0) > 0;
+  const hasAllocations =
+    (allocationsByTrackable[String(trackableId)] || []).length > 0;
 
   // initial step selection: prefer ?step= if valid, else derive from status/gates
   useEffect(() => {
     // Do not auto-derive if the user (or code) has already navigated away from step 0
     if (activeStep !== 0) return;
-    if (!engagementId || !engagement) return;
+    if (!trackableId || !trackable) return;
 
-    const gates = { engagementId, hasBudget, hasAssignments };
+    const gates = { trackableId, hasBudget, hasAllocations };
     const stepFromQuery = Number(searchParams.get("step"));
     const hasStepParam = !Number.isNaN(stepFromQuery);
 
@@ -311,210 +312,157 @@ export default function EngagementWizard() {
       return;
     }
 
-    if (engagement.status === "active" || engagement.status === "ready") {
+    if (trackable.status === "active" || trackable.status === "ready") {
       setActiveStep(3);
-    } else if (hasAssignments) {
+    } else if (hasAllocations) {
       setActiveStep(2);
     } else if (hasBudget) {
       setActiveStep(1);
     } else {
       setActiveStep(0);
     }
-  }, [engagementId, engagement, hasBudget, hasAssignments, searchParams]);
+  }, [
+    trackableId,
+    trackable,
+    hasBudget,
+    hasAllocations,
+    searchParams,
+    activeStep,
+  ]);
 
   useEffect(() => {
-    if (!engagementId) return;
+    if (!trackableId) return;
     const params = new URLSearchParams(searchParams);
-    params.set("id", String(engagementId));
+    params.set("id", String(trackableId));
     params.set("step", String(activeStep));
     setSearchParams(params, { replace: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeStep, engagementId]);
+  }, [activeStep, trackableId]);
 
-  // Load persisted assignments for this engagement and attach to context entity
-  const loadAssignments = async (id) => {
+  // Load persisted allocations for this trackable and attach to context entity
+  const loadAllocations = async (id) => {
     if (!id) return;
     try {
-      const res = await pulseService.assignments.listByEngagement(String(id));
-      const rows = unwrap(res) || [];
-      // derive current entity from context to avoid identity churn
-      const current = engagements.find((e) => String(e.id) === String(id)) || {
-        id,
-      };
-      upsertEngagement({ ...current, assignments: rows });
+      const rows = await listAllocationsByTrackable(String(id));
+      setAllocationsByTrackable((prev) => ({
+        ...prev,
+        [String(id)]: Array.isArray(rows) ? rows : [],
+      }));
     } catch (e) {
-      showAlert("Failed to load assignments", "error");
+      showAlert("Failed to load allocations", "error");
     }
   };
 
-  // Load assignments only when entering the Resources step; prevent repeated loads
+  // Load allocations only when entering the Resources step; prevent repeated loads
   useEffect(() => {
-    if (!engagementId) return;
+    if (!trackableId) return;
     if (activeStep !== 2) return; // Resources step only
-    const key = String(engagementId);
-    if (loadedAssignmentsRef.current.has(key)) return;
-    loadedAssignmentsRef.current.add(key);
-    loadAssignments(key);
+    const key = String(trackableId);
+    if (loadedAllocationsRef.current.has(key)) return;
+    loadedAllocationsRef.current.add(key);
+    loadAllocations(key);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [engagementId, activeStep]);
+  }, [trackableId, activeStep]);
 
   useEffect(() => {
-    if (!engagementId) return;
-    const key = String(engagementId);
-    loadedAssignmentsRef.current.delete(key);
-  }, [engagementId]);
-
-  // Step 1 save
-  const saveDetails = async (values, isEdit) => {
-    // --- Required fields gate for Step 1 ---
-    const reqName = (values?.name || "").trim();
-    const reqClientId = (values?.clientId || "").toString().trim();
-    const reqStart = (values?.startDate || "").toString().trim();
-    const reqEnd = (values?.endDate || "").toString().trim();
-    if (!reqName || !reqClientId || !reqStart || !reqEnd) {
-      showAlert(
-        "Please fill in all required fields: Name, Client, Start Date, End Date.",
-        "error"
-      );
-      return;
-    }
-    let payload = {
-      name: values.name,
-      clientId: values.clientId,
-      startDate: values.startDate || undefined,
-      endDate: values.endDate || undefined,
-      budgetHours: engagement?.budgetHours || 0,
-      budgetAmount: engagement?.budgetAmount || 0,
-      status: engagement?.status || "draft",
-      customerId: userService.userValue.customerId,
-    };
-    const saved = isEdit
-      ? await pulseService.engagements.update(String(engagement.id), {
-          ...payload,
-          updatedBy: userService.userValue.id,
-        })
-      : await pulseService.engagements.create({
-          ...payload,
-          createdBy: userService.userValue.id,
-        });
-
-    const entity = unwrap(saved);
-    upsertEngagement(entity);
-    if (!isEdit && entity?.id) setEngagementId(entity.id);
-    showAlert(isEdit ? "Changes saved" : "Engagement created", "success");
-    setActiveStep(1);
-  };
-
-  // Step 3 save assignments (persist to /assignments) — no status change here
-  const saveAssignments = async (rows) => {
-    try {
-      // server truth
-      const serverRaw = await pulseService.assignments.listByEngagement(
-        String(engagement.id)
-      );
-      const server = unwrap(serverRaw) || [];
-      const serverIds = new Set(server.map((a) => String(a.id)));
-
-      const ui = Array.isArray(rows) ? rows : [];
-      const toCreate = ui.filter((r) => !r?.id);
-      const toUpdate = ui.filter((r) => !!r?.id && serverIds.has(String(r.id)));
-      const toDelete = server.filter(
-        (s) => !ui.find((r) => String(r?.id || "") === String(s.id))
-      );
-
-      // CREATE: full payloads from editor
-      const createResults = await Promise.allSettled(
-        toCreate.map((row) => pulseService.assignments.create(row))
-      );
-      const createErr = createResults.find((r) => r.status === "rejected");
-      if (createErr)
-        throw createErr.reason || new Error("Failed to create assignments");
-
-      // UPDATE: diff-only; strip id from body
-      const updateResults = await Promise.allSettled(
-        toUpdate.map((row) => {
-          const { id, ...body } = row;
-          return pulseService.assignments.patch(String(id), body);
-        })
-      );
-      const updateErr = updateResults.find((r) => r.status === "rejected");
-      if (updateErr)
-        throw updateErr.reason || new Error("Failed to update assignments");
-
-      // DELETE: any server rows not present in UI
-      const deleteResults = await Promise.allSettled(
-        toDelete.map((row) => pulseService.assignments.delete(String(row.id)))
-      );
-      const deleteErr = deleteResults.find((r) => r.status === "rejected");
-      if (deleteErr)
-        throw deleteErr.reason || new Error("Failed to delete assignments");
-
-      // Refresh assignments in context
-      const refreshed = await pulseService.assignments.listByEngagement(
-        String(engagement.id)
-      );
-      const latest = unwrap(refreshed) || [];
-      const existing = Array.isArray(engagement.assignments)
-        ? engagement.assignments
-        : [];
-      const merged = latest && latest.length > 0 ? latest : existing;
-      upsertEngagement({ ...engagement, assignments: merged });
-
-      showAlert("Assignments saved", "success");
-    } catch (err) {
-      showAlert("Failed to save assignments", "error");
-    }
-  };
-
-  const completeAssignments = async () => {
-    try {
-      const saved = await pulseService.engagements.patch(
-        String(engagement.id),
-        {
-          status: "ready",
-          updatedBy: userService.userValue.id,
-          customerId: userService.userValue.customerId,
-        }
-      );
-      const entity = unwrap(saved);
-      upsertEngagement(entity);
-      showAlert("Assignments completed", "success");
-      setActiveStep(3);
-    } catch (e) {
-      showAlert("Failed to complete assignments", "error");
-    }
-  };
-
-  // Step 4 activate
-  const activate = async () => {
-    const saved = await pulseService.engagements.patch(String(engagement.id), {
-      status: "active",
-      updatedBy: userService.userValue.id,
-      customerId: userService.userValue.customerId,
+    if (!trackableId) return;
+    const key = String(trackableId);
+    loadedAllocationsRef.current.delete(key);
+    setAllocationsByTrackable((prev) => {
+      const next = { ...prev };
+      delete next[key];
+      return next;
     });
-    upsertEngagement(saved);
-    showAlert("Engagement activated", "success");
-    navigate("/pulse-solution/engagements");
+  }, [trackableId]);
+
+  // Step 1 save (delegated to shared ops, with normalization/validation/advance)
+  const saveDetails = async (values, isEdit) => {
+    const name = (values?.name || "").trim();
+    const startDate = values?.startDate || null;
+    const endDate = values?.endDate || null;
+
+    // Optional select normalization: empty string should be omitted
+    const clientId = values?.clientId ? String(values.clientId) : undefined;
+
+    // Budget fields required by current BE validator; coerce/zero-fill
+    const budgetHours = Number(values?.budgetHours ?? 0);
+    const budgetAmount = Number(values?.budgetAmount ?? 0);
+
+    if (!name || !startDate || !endDate) {
+      showAlert("Name, start and end date are required", "error");
+      return false; // do not advance
+    }
+
+    try {
+      const saved = await saveDetailsOp({
+        values: {
+          name,
+          clientId,
+          startDate,
+          endDate,
+          budgetHours,
+          budgetAmount,
+        },
+        selected: isEdit ? trackable : null,
+      });
+
+      if (!saved || !saved.id) {
+        showAlert("Failed to save trackable", "error");
+        return false; // do not advance
+      }
+
+      if (!isEdit) setTrackableId(saved.id);
+      setActiveStep(1); // advance only on confirmed success
+      return true;
+    } catch (e) {
+      showAlert("Failed to save trackable", "error");
+      return false; // do not advance
+    }
+  };
+
+  // Step 3 save allocations (delegated to shared ops)
+  const saveAllocations = async (rows) => {
+    try {
+      const latest = await saveAllocationsOp(String(trackable.id), rows);
+      setAllocationsByTrackable((prev) => ({
+        ...prev,
+        [String(trackable.id)]: latest,
+      }));
+      showAlert("Allocations saved", "success");
+    } catch (e) {
+      showAlert("Failed to save allocations", "error");
+    }
+  };
+
+  // Step: Complete allocations (no API call, just step forward)
+  const completeAllocations = async () => {
+    setActiveStep(3);
+  };
+
+  // Step 4 activate (placeholder for now)
+  const activate = async () => {
+    showAlert("Trackable activated (mock)", "info");
+    navigate("/v2/pulse/trackables");
   };
 
   return (
     <Stack spacing={2}>
       <Paper variant="outlined">
         <Box p={2}>
-          <Typography variant="h6">Engagement Wizard</Typography>
-          {engagement && (
+          <Typography variant="h6">Trackable Wizard</Typography>
+          {trackable && (
             <Typography variant="body2" color="text.secondary" component="div">
-              {engagement.name} • Status{" "}
-              <Chip size="small" label={engagement.status || "draft"} />
+              {trackable.name} • Status{" "}
+              <Chip size="small" label={trackable.status || "draft"} />
             </Typography>
           )}
           <Stepper activeStep={activeStep} nonLinear sx={{ mt: 2 }}>
             {steps.map((label, idx) => {
               const allowed =
                 canEnterStep(idx, {
-                  engagementId,
+                  trackableId,
                   hasBudget,
-                  hasAssignments,
+                  hasAllocations,
                 }) || idx <= activeStep;
               return (
                 <Step
@@ -535,34 +483,19 @@ export default function EngagementWizard() {
       {/* Step 1: Details */}
       {activeStep === 0 && (
         <DetailsStep
-          engagement={engagement}
+          trackable={trackable}
           clients={clients}
-          onSaved={(vals) => saveDetails(vals, !!engagement)}
-          onNext={() => setActiveStep(1)}
-          canProceed={!!engagementId}
+          config={config}
+          onSaved={(vals) => saveDetails(vals, !!trackable)}
         />
       )}
 
       {/* Step 2: Budget (embed builder) */}
       {activeStep === 1 && (
         <BudgetStep
-          engagementId={engagementId}
-          engagement={engagement}
-          onBudgetSaved={async () => {
-            await refreshBudgetSnapshot(engagementId);
-            try {
-              const saved = await pulseService.engagements.patch(
-                String(engagementId),
-                {
-                  status: "budgeted",
-                  updatedBy: userService.userValue.id,
-                  customerId: userService.userValue.customerId,
-                }
-              );
-              upsertEngagement(saved);
-            } catch (e) {
-              // ignore patch error for navigation; user can retry later
-            }
+          trackableId={trackableId}
+          trackable={trackable}
+          onBudgetSaved={() => {
             setActiveStep(2);
           }}
           onNext={() => setActiveStep(2)}
@@ -574,21 +507,24 @@ export default function EngagementWizard() {
       {/* Step 3: Resources */}
       {activeStep === 2 && (
         <ResourcesStep
-          engagementId={engagementId}
-          engagement={engagement}
+          trackableId={trackableId}
+          trackable={{
+            ...trackable,
+            allocations: allocationsByTrackable[String(trackableId)] || [],
+          }}
           resources={resources}
-          onAssignmentsSaved={saveAssignments}
-          onCompleteAssignments={completeAssignments}
+          onAllocationsSaved={saveAllocations}
+          onCompleteAllocations={completeAllocations}
           onNext={() => setActiveStep(3)}
           onBack={() => setActiveStep(1)}
-          canProceed={hasAssignments}
+          canProceed={hasAllocations}
         />
       )}
 
       {/* Step 4: Review */}
       {activeStep === 3 && (
         <ReviewStep
-          engagement={engagement}
+          trackable={trackable}
           onActivate={activate}
           onBack={() => setActiveStep(2)}
         />
