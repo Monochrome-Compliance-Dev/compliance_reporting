@@ -4,6 +4,7 @@ import PulseAdminConsole from "./admin/PulseAdminConsole";
 import BudgetView from "./admin/budgets/BudgetView";
 import BudgetBuilder from "./admin/budgets/BudgetBuilder";
 import ResourceView from "./admin/resources/ResourceView";
+import ResourceAllocationView from "./admin/resources/ResourceAllocationView";
 
 const pulseRoutes = [
   {
@@ -20,7 +21,7 @@ const pulseRoutes = [
           { path: "trackables", Component: PulseAdminConsole },
           { path: "budgets", Component: BudgetView },
           { path: "budgets/builder", Component: BudgetBuilder },
-          { path: "allocations", Component: PulseAdminConsole },
+          { path: "allocations", Component: ResourceAllocationView },
           { path: "resources", Component: ResourceView },
         ],
       },

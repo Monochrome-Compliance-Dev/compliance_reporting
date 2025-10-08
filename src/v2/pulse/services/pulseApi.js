@@ -34,6 +34,12 @@ export const updateResource = (id, payload) =>
   unwrap(fetchWrapper.put(`${base}/resources/${id}`, payload));
 export const deleteResource = (id, options = {}) =>
   unwrap(fetchWrapper.delete(`${base}/resources/${id}`, options));
+export const listResourceUtilisation = (params = {}) => {
+  const q = new URLSearchParams(params).toString();
+  return unwrap(
+    fetchWrapper.get(`${base}/resource-utilisation${q ? `?${q}` : ""}`)
+  ).then((res) => (Array.isArray(res) ? res : []));
+};
 
 // Trackables
 export const listTrackables = (params = {}) => {
@@ -42,7 +48,6 @@ export const listTrackables = (params = {}) => {
 };
 
 // Budgets
-
 export const getActiveBudgetByTrackable = (trackableId) =>
   unwrap(
     fetchWrapper.get(

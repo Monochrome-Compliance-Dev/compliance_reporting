@@ -15,29 +15,10 @@ import {
   Checkbox,
 } from "@mui/material";
 import { Link } from "react-router";
-import { useAlert } from "../../../../context/AlertContext";
-import { pulseService } from "../../../../services/pulse/pulse";
+import { useAlert } from "context";
+import { useQuery } from "@tanstack/react-query";
 
-function pct(n) {
-  const v = Number(n || 0);
-  if (Number.isNaN(v)) return 0;
-  return Math.round(v);
-}
-
-function formatDate(d) {
-  if (!d) return "";
-  // accept YYYY-MM-DD or ISO and normalise to YYYY-MM-DD
-  return String(d).slice(0, 10);
-}
-
-function formatDateTime(dt) {
-  if (!dt) return "";
-  const s = String(dt);
-  // Trim seconds/ms and normalise 'T' to space for readability
-  const base = s.replace("T", " ");
-  const idx = base.indexOf(".");
-  return idx > -1 ? base.slice(0, idx) : base;
-}
+import { listResourceUtilisation } from "../../services/pulseApi";
 
 export default function ResourceAllocationView() {
   const { showAlert } = useAlert();
@@ -60,38 +41,38 @@ export default function ResourceAllocationView() {
   const [fromDate, setFromDate] = useState(toYMD(startOfWeek));
   const [toDate, setToDate] = useState(toYMD(endOfWeek));
   const [includeNonBillable, setIncludeNonBillable] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [rows, setRows] = useState([]);
   const [query, setQuery] = useState("");
 
+  const {
+    data: rows = [],
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: [
+      "pulse",
+      "resource-utilisation",
+      { fromDate, toDate, includeNonBillable },
+    ],
+    queryFn: () =>
+      listResourceUtilisation({
+        from: fromDate,
+        to: toDate,
+        includeNonBillable,
+      }),
+  });
+
   useEffect(() => {
-    const controller = new AbortController();
-    const run = async () => {
-      setLoading(true);
-      try {
-        const data = await pulseService.timesheets.utilisationSanitized({
-          from: fromDate,
-          to: toDate,
-          includeNonBillable,
-        });
-        setRows(data);
-      } catch (err) {
-        if (err.name !== "AbortError") {
-          showAlert(`Failed to load utilisation: ${err.message}`, "error");
-          setRows([]);
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-    run();
-    return () => controller.abort();
-  }, [fromDate, toDate, includeNonBillable, showAlert]);
+    if (isError && error) {
+      showAlert(`Failed to load utilisation: ${error.message}`, "error");
+    }
+  }, [isError, error, showAlert]);
 
   const filtered = useMemo(() => {
+    const data = Array.isArray(rows) ? rows : [];
     const q = query.trim().toLowerCase();
-    if (!q) return rows;
-    return rows.filter((r) => {
+    if (!q) return data;
+    return data.filter((r) => {
       const base = [r.resourceName, r.role].some((v) =>
         String(v || "")
           .toLowerCase()
@@ -160,7 +141,7 @@ export default function ResourceAllocationView() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {loading ? (
+            {isLoading ? (
               <TableRow>
                 <TableCell colSpan={3}>
                   <Box p={2}>
