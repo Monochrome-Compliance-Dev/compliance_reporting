@@ -52,18 +52,18 @@ jobs:
             echo "result=conflicted" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Open PR from main → ${{ matrix.branch }} when conflicts block auto-merge
+      - name: Open issue when conflicts block auto-merge
         if: steps.merge.outputs.result == 'conflicted'
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           set -euo pipefail
           BASE="${{ matrix.branch }}"
-          TITLE="Sync main → ${BASE}"
-          BODY=$'Automated weekly sync.\n\nThis PR merges **main** into **'"${BASE}"'**. Resolve conflicts, then merge to keep the branch current.'
-          # Avoid duplicate PRs if one already exists
-          if gh pr list --base "$BASE" --head "main" --state open --json number --jq 'length' | grep -q '^0$'; then
-            gh pr create --base "$BASE" --head "main" --title "$TITLE" --body "$BODY"
+          TITLE="Sync blocked: main → ${BASE}"
+          BODY=$'Automated sync.\n\nMerging **main** into **'"${BASE}"'** hit conflicts. Please resolve manually.'
+          # Avoid duplicate issues with the same title
+          if gh issue list --state open --search "in:title ${TITLE}" --json number --jq 'length' | grep -q '^0$'; then
+            gh issue create --title "$TITLE" --body "$BODY" --label "sync"
           else
-            echo "An open PR from main → ${BASE} already exists; skipping."
+            echo "An open issue already exists; skipping."
           fi
