@@ -55,7 +55,7 @@ jobs:
       - name: Open PR from main → ${{ matrix.branch }} when conflicts block auto-merge
         if: steps.merge.outputs.result == 'conflicted'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           set -euo pipefail
           BASE="${{ matrix.branch }}"
