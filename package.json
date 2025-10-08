@@ -9,7 +9,7 @@
     "@faker-js/faker": "^10.0.0",
     "@fontsource/inter": "^5.2.5",
     "@fontsource/roboto": "^4.5.8",
-    "@hookform/resolvers": "^5.0.1",
+    "@hookform/resolvers": "^5.2.2",
     "@mui/icons-material": "^7.3.4",
     "@mui/lab": "^6.0.0-dev.240424162023-9968b4889d",
     "@mui/material": "^7.3.4",
