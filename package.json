@@ -24,7 +24,7 @@
     "csv-parser": "^3.2.0",
     "date-fns": "^4.1.0",
     "html-entities": "^2.6.0",
-    "jspdf": "^3.0.2",
+    "jspdf": "^3.0.3",
     "jspdf-autotable": "^5.0.2",
     "lodash": "^4.17.21",
     "papaparse": "^5.5.3",
