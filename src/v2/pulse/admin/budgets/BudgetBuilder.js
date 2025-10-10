@@ -153,7 +153,7 @@ export default function BudgetBuilder({ onSaved }) {
   const [items, setItems] = useState([]);
   const itemsSectionRef = useRef(null);
   const itemsEndRef = useRef(null);
-  const prevBudgetIdRef = useRef(budgetId);
+  const didCreateOrLinkRef = useRef(false);
 
   // Linkable budgets state
   const [linkableBudgets, setLinkableBudgets] = useState([]);
@@ -494,17 +494,16 @@ export default function BudgetBuilder({ onSaved }) {
     []
   );
 
-  // Auto-scroll to items section when a fresh budget is created/loaded
+  // Auto-scroll to items section only after a fresh create/link, not on every load
   useEffect(() => {
-    const prev = prevBudgetIdRef.current;
-    if (!prev && budgetId && itemsSectionRef.current) {
-      // We just created/loaded a budget for the first time in this session
+    if (!budgetId) return;
+    if (didCreateOrLinkRef.current && itemsSectionRef.current) {
       itemsSectionRef.current.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
+      didCreateOrLinkRef.current = false;
     }
-    prevBudgetIdRef.current = budgetId;
   }, [budgetId]);
 
   // Save
@@ -563,6 +562,7 @@ export default function BudgetBuilder({ onSaved }) {
         if (!created?.id) throw new Error("Budget creation failed");
         bId = String(created.id);
         setBudgetId(bId);
+        didCreateOrLinkRef.current = true;
       } else {
         await svc.current.updateBudget(bId, {
           name: trimmedName,
@@ -875,7 +875,7 @@ export default function BudgetBuilder({ onSaved }) {
             sx={{
               flex: "0 0 auto",
               width: { xs: "100%", md: sectionsExpanded ? 360 : 48 },
-              height: "100",
+              height: "100%",
               transition: (theme) =>
                 theme.transitions.create("width", {
                   easing: theme.transitions.easing.sharp,
@@ -917,6 +917,7 @@ export default function BudgetBuilder({ onSaved }) {
             sx={{
               flex: 1,
               minWidth: 0,
+              overflowX: "auto",
             }}
           >
             <Box p={2}>
@@ -951,7 +952,7 @@ export default function BudgetBuilder({ onSaved }) {
               </Stack>
 
               {selectedSectionId ? (
-                <Table size="small">
+                <Table size="small" sx={{ minWidth: 1000 }}>
                   <TableHead>
                     <TableRow>
                       <TableCell sx={{ width: 320 }}>Resource</TableCell>
@@ -1215,6 +1216,7 @@ export default function BudgetBuilder({ onSaved }) {
                         });
                         setBudgetId(String(selectedLinkBudgetId));
                         setPreBudgetMode("create");
+                        didCreateOrLinkRef.current = true;
                         showAlert("Budget linked to trackable", "success");
                       } catch (e) {
                         // eslint-disable-next-line no-console

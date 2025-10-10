@@ -46,7 +46,7 @@ export default function TrackableAssignmentsEditor({
       key: nanoid(8),
       resourceId: String(a.resourceId),
       assignmentPct: a.assignmentPct ?? 0,
-      allocatedHoursPerWeek: a.allocatedHoursPerWeek ?? "",
+      assignedHoursPerWeek: a.assignedHoursPerWeek ?? "",
       startDate: a.startDate || "",
       endDate: a.endDate || "",
       dueDate: a.dueDate || "",
@@ -125,7 +125,7 @@ export default function TrackableAssignmentsEditor({
         key: nanoid(8),
         resourceId: String(rid),
         assignmentPct: 0,
-        allocatedHoursPerWeek: "",
+        assignedHoursPerWeek: "",
         startDate: suggestedStart,
         endDate: "",
         dueDate: "",
@@ -164,7 +164,7 @@ export default function TrackableAssignmentsEditor({
     (r) => ({
       resourceId: String(r.resourceId),
       assignmentPct: Number(r.assignmentPct || 0),
-      allocatedHoursPerWeek: toNumberOrNull(r.allocatedHoursPerWeek),
+      assignedHoursPerWeek: toNumberOrNull(r.assignedHoursPerWeek),
       startDate: toNullIfEmpty(r.startDate),
       endDate: toNullIfEmpty(r.endDate),
       dueDate: toNullIfEmpty(r.dueDate),
@@ -189,7 +189,7 @@ export default function TrackableAssignmentsEditor({
       key: nanoid(8),
       resourceId: String(a.resourceId),
       assignmentPct: a.assignmentPct ?? 0,
-      allocatedHoursPerWeek: a.allocatedHoursPerWeek ?? "",
+      assignedHoursPerWeek: a.assignedHoursPerWeek ?? "",
       startDate: a.startDate || "",
       endDate: a.endDate || "",
       dueDate: a.dueDate || "",
@@ -277,7 +277,7 @@ export default function TrackableAssignmentsEditor({
           resourceId: norm.resourceId,
           trackableId,
           assignmentPct: norm.assignmentPct,
-          allocatedHoursPerWeek: norm.allocatedHoursPerWeek,
+          assignedHoursPerWeek: norm.assignedHoursPerWeek,
           startDate: norm.startDate,
           endDate: norm.endDate,
           dueDate: norm.dueDate,
@@ -295,7 +295,7 @@ export default function TrackableAssignmentsEditor({
       // EDIT: only send changed fields (PATCH semantics)
       const base = baselineById[String(r.assignmentId)] || {};
       const diff = {};
-      "resourceId,assignmentPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
+      "resourceId,assignmentPct,assignedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
         .split(",")
         .forEach((k) => {
           const a = norm[k];
@@ -349,7 +349,7 @@ export default function TrackableAssignmentsEditor({
     const norm = normaliseRow(row);
     const base = getBaselineForId(row.assignmentId);
     const diff = {};
-    "resourceId,assignmentPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
+    "resourceId,assignmentPct,assignedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
       .split(",")
       .forEach((k) => {
         if (norm[k] !== base[k]) diff[k] = norm[k];
@@ -388,7 +388,7 @@ export default function TrackableAssignmentsEditor({
         </Typography>
         {!trackableId ? (
           <Typography color="text.secondary">
-            Save the trackable first to allocate resources.
+            Save the trackable first to assign resources.
           </Typography>
         ) : (
           <Stack spacing={2}>
@@ -432,7 +432,7 @@ export default function TrackableAssignmentsEditor({
               <Stack spacing={1}>
                 {rows.length === 0 ? (
                   <Typography color="text.secondary">
-                    No resources allocateed.
+                    No resources assigned.
                   </Typography>
                 ) : (
                   rows.map((row) => (
@@ -504,14 +504,14 @@ export default function TrackableAssignmentsEditor({
                             size="small"
                             type="number"
                             inputProps={{ min: 0, step: 1 }}
-                            value={row.allocatedHoursPerWeek}
+                            value={row.assignedHoursPerWeek}
                             onChange={(e) =>
                               setRows((prev) =>
                                 prev.map((r) =>
                                   r.key === row.key
                                     ? {
                                         ...r,
-                                        allocatedHoursPerWeek: e.target.value,
+                                        assignedHoursPerWeek: e.target.value,
                                       }
                                     : r
                                 )
@@ -692,7 +692,7 @@ export default function TrackableAssignmentsEditor({
                       <TableRow>
                         <TableCell colSpan={11}>
                           <Typography color="text.secondary">
-                            No resources allocateed.
+                            No resources assigned.
                           </Typography>
                         </TableCell>
                       </TableRow>
@@ -738,14 +738,14 @@ export default function TrackableAssignmentsEditor({
                               size="small"
                               type="number"
                               inputProps={{ min: 0, step: 1 }}
-                              value={row.allocatedHoursPerWeek}
+                              value={row.assignedHoursPerWeek}
                               onChange={(e) =>
                                 setRows((prev) =>
                                   prev.map((r) =>
                                     r.key === row.key
                                       ? {
                                           ...r,
-                                          allocatedHoursPerWeek: e.target.value,
+                                          assignedHoursPerWeek: e.target.value,
                                         }
                                       : r
                                   )

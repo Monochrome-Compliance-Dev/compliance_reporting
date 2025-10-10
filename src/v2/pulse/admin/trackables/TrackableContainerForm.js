@@ -1,4 +1,10 @@
-import { useEffect, useMemo } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -15,38 +21,42 @@ import {
   Typography,
 } from "@mui/material";
 
-export default function TrackableContainerForm({
-  mode = "create",
-  initialValues,
-  clients = [],
-  config = {},
-  onSubmit,
-  onQuickAddClient,
-}) {
-  const requireClient = config?.requiresClient !== false; // default true
+function TrackableContainerForm(
+  {
+    mode = "create",
+    initialValues,
+    clients = [],
+    config = {},
+    onSubmit,
+    onQuickAddClient,
+    onChange,
+  },
+  ref
+) {
+  const requireClient = config?.requiresClient !== false;
+  const suppressChangesRef = useRef(false);
 
   const schema = useMemo(
     () =>
-      yup
-        .object({
-          name: yup.string().trim().required("Name is required"),
-          clientId: requireClient
-            ? yup.string().required("Client is required")
-            : yup.string().nullable(),
-          startDate: yup.string().required("Start date is required"),
-          endDate: yup.string().required("End date is required"),
-        })
-        .required(),
+      yup.object({
+        name: yup.string().trim().required("Name is required"),
+        clientId: requireClient
+          ? yup.string().required("Client is required")
+          : yup.string().nullable(),
+        startDate: yup.string().required("Start date is required"),
+        endDate: yup.string().required("End date is required"),
+      }),
     [requireClient]
   );
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isValid },
+    formState: { errors },
     reset,
     watch,
     control,
+    getValues,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -60,8 +70,24 @@ export default function TrackableContainerForm({
     criteriaMode: "all",
   });
 
-  // keep defaults fresh if parent updates initialValues
+  useImperativeHandle(ref, () => ({ getValues }));
+
+  const didMountRef = useRef(false);
   useEffect(() => {
+    const sub = watch((values) => {
+      if (suppressChangesRef.current) return; // ignore resets
+      if (!didMountRef.current) {
+        didMountRef.current = true; // don’t mark dirty on first paint
+        return;
+      }
+      onChange?.(values); // real user edits
+    });
+    return () => sub?.unsubscribe?.();
+  }, [watch, onChange]);
+
+  useEffect(() => {
+    // Suppress onChange while we programmatically populate defaults
+    suppressChangesRef.current = true;
     reset({
       name: "",
       clientId: "",
@@ -69,6 +95,11 @@ export default function TrackableContainerForm({
       endDate: "",
       ...(initialValues || {}),
     });
+    // Re-enable after RHF applies values on the next tick
+    const t = setTimeout(() => {
+      suppressChangesRef.current = false;
+    }, 0);
+    return () => clearTimeout(t);
   }, [initialValues, reset]);
 
   return (
@@ -89,11 +120,7 @@ export default function TrackableContainerForm({
         />
 
         {requireClient && (
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={2}
-            alignItems="flex-start"
-          >
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
             <Controller
               name="clientId"
               control={control}
@@ -111,7 +138,6 @@ export default function TrackableContainerForm({
                     value={field.value ?? ""}
                     onChange={field.onChange}
                     onBlur={field.onBlur}
-                    inputProps={{ name: field.name }}
                   >
                     {clients.map((c) => (
                       <MenuItem key={c.id} value={String(c.id)}>
@@ -131,7 +157,7 @@ export default function TrackableContainerForm({
               onClick={onQuickAddClient}
               sx={{ whiteSpace: "nowrap" }}
             >
-              + Add client
+              Add client
             </Button>
           </Stack>
         )}
@@ -158,17 +184,9 @@ export default function TrackableContainerForm({
             required
           />
         </Stack>
-
-        <Stack direction="row" spacing={2}>
-          <Button
-            type="submit"
-            variant="contained"
-            disabled={!isValid || isSubmitting}
-          >
-            {mode === "create" ? "Create trackable" : "Save changes"}
-          </Button>
-        </Stack>
       </Stack>
     </Box>
   );
 }
+
+export default forwardRef(TrackableContainerForm);

@@ -26,7 +26,7 @@ export default function TrackableView() {
   const { showAlert } = useAlert();
   const { config } = usePulseContext();
   const showClient = config?.requiresClient !== false; // default true
-  const columnCount = 6 + (showClient ? 1 : 0); // Name, [Client], Resource, Start, End, Status, Actions
+  const columnCount = 5 + (showClient ? 1 : 0); // Name, [Client], Start, End, Status, Actions
 
   const navigate = useNavigate();
 
@@ -151,7 +151,6 @@ export default function TrackableView() {
             <TableRow>
               <TableCell>Name</TableCell>
               {showClient && <TableCell>Client</TableCell>}
-              <TableCell>Resource</TableCell>
               <TableCell>Start</TableCell>
               <TableCell>End</TableCell>
               <TableCell>Status</TableCell>
@@ -196,9 +195,6 @@ export default function TrackableView() {
                       {clientById[String(e.clientId)]?.name || "—"}
                     </TableCell>
                   )}
-                  <TableCell>
-                    {resourceById[String(e.resourceId)]?.name || "—"}
-                  </TableCell>
                   <TableCell>{e.startDate || "—"}</TableCell>
                   <TableCell>{e.endDate || "—"}</TableCell>
                   <TableCell>{e.status || "—"}</TableCell>

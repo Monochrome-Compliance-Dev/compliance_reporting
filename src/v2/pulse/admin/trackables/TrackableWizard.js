@@ -1,6 +1,6 @@
 // src/features/pulse/trackables/TrackableWizard.js
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useSearchParams, useNavigate } from "react-router";
+import { useSearchParams, useNavigate, useParams } from "react-router";
 import {
   Stepper,
   Step,
@@ -23,47 +23,135 @@ import {
   listClients,
   listResources,
 } from "../../services/pulseApi";
-import { useTrackableOps } from "./TrackablePage";
+import { useTrackableOps } from "./useTrackableOps";
 
-function DetailsStep({ trackable, clients, onSaved, config }) {
+import React from "react";
+function DetailsStep({
+  trackable,
+  clients,
+  onSaved,
+  onAdvance,
+  config,
+  step,
+  onBack,
+}) {
+  const [hasChanges, setHasChanges] = React.useState(false);
+  const [formValues, setFormValues] = React.useState(null);
+  const formRef = React.useRef();
+
+  // Helpers to compare current form vs initial values
+  const normalizeVals = (v = {}) => ({
+    name: (v?.name || "").trim(),
+    clientId: String(v?.clientId || ""),
+    startDate: v?.startDate || "",
+    endDate: v?.endDate || "",
+  });
+  const isSame = (a, b) => {
+    const A = normalizeVals(a);
+    const B = normalizeVals(b);
+    return (
+      A.name === B.name &&
+      A.clientId === B.clientId &&
+      A.startDate === B.startDate &&
+      A.endDate === B.endDate
+    );
+  };
+
+  // Memoized initial values for the form
+  const memoInitialValues = React.useMemo(() => {
+    if (trackable) {
+      return {
+        name: trackable.name || "",
+        clientId: String(trackable.clientId || ""),
+        startDate: trackable.startDate || "",
+        endDate: trackable.endDate || "",
+      };
+    }
+    return { name: "", clientId: "", startDate: "", endDate: "" };
+  }, [trackable]);
+
+  // Called when form fields change
+  const handleFormChange = (values) => {
+    setFormValues(values);
+    setHasChanges(!isSame(values, memoInitialValues));
+  };
+
+  // Effect to re-evaluate hasChanges whenever memoInitialValues changes
+  React.useEffect(() => {
+    const current = formRef.current?.getValues?.() || {};
+    setHasChanges(!isSame(current, memoInitialValues));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [memoInitialValues]);
+
+  // Save handler for "Save Changes" and "Next"
   const handleSubmitAndNext = async (values) => {
     try {
-      await onSaved?.(values);
-      // Parent decides whether to advance after a confirmed save
+      const ok = await onSaved?.(values);
+      if (ok) {
+        setHasChanges(false);
+        onAdvance?.();
+      }
     } catch (e) {
       // Errors are surfaced by onSaved/showAlert; do not advance here
     }
   };
+
+  // "Next" only saves if there are changes, else just advances
+  const handleNext = async () => {
+    if (!hasChanges) {
+      // No changes to persist; advance immediately
+      onAdvance?.();
+      return;
+    }
+    const vals = formValues || formRef.current?.getValues?.() || {};
+    await handleSubmitAndNext(vals);
+  };
+
+  // "Save Changes" only enabled if hasChanges
+  const handleSaveChanges = async () => {
+    const vals = formValues || formRef.current?.getValues?.() || {};
+    await handleSubmitAndNext(vals);
+  };
+
   return (
     <Paper variant="outlined">
       <Box p={2}>
         <TrackableContainerForm
+          ref={formRef}
           mode={trackable ? "edit" : "create"}
           config={config}
-          initialValues={
-            trackable
-              ? {
-                  name: trackable.name || "",
-                  clientId: String(trackable.clientId || ""),
-                  startDate: trackable.startDate || "",
-                  endDate: trackable.endDate || "",
-                }
-              : {
-                  name: "",
-                  clientId: "",
-                  startDate: "",
-                  endDate: "",
-                }
-          }
+          initialValues={memoInitialValues}
           clients={clients}
           onSubmit={handleSubmitAndNext}
+          onChange={handleFormChange}
           onQuickAddClient={() => {}}
         />
-        <Box mt={2} display="flex" justifyContent="space-between">
-          <Button variant="text" disabled>
-            Back
-          </Button>
-          {/* Advance is controlled by parent after a confirmed save */}
+        <Box
+          mt={2}
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          {/* Hide Back button on step 1; show otherwise */}
+          {step !== 1 ? (
+            <Button variant="text" onClick={onBack}>
+              Back
+            </Button>
+          ) : (
+            <span />
+          )}
+          <Box display="flex" gap={1}>
+            <Button
+              variant="contained"
+              onClick={handleSaveChanges}
+              disabled={!hasChanges}
+            >
+              Save Changes
+            </Button>
+            <Button variant="text" onClick={handleNext}>
+              Next
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Paper>
@@ -278,11 +366,22 @@ export default function TrackableWizard() {
   const { showAlert } = useAlert();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { id: paramId } = useParams();
 
   // selection (edit mode if ?id=...)
   const [trackableId, setTrackableId] = useState(
     searchParams.get("id") || null
   );
+  // Prefer route param (:id) over query (?id=) for edit mode
+  useEffect(() => {
+    const fromParam = paramId ? String(paramId) : null;
+    const fromQuery = searchParams.get("id") || null;
+    const preferred = fromParam || fromQuery;
+    if (preferred && preferred !== trackableId) {
+      setTrackableId(preferred);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paramId, searchParams]);
   const trackable = useMemo(
     () => trackables.find((e) => String(e.id) === String(trackableId)) || null,
     [trackables, trackableId]
@@ -384,10 +483,6 @@ export default function TrackableWizard() {
     // Optional select normalization: empty string should be omitted
     const clientId = values?.clientId ? String(values.clientId) : undefined;
 
-    // Budget fields required by current BE validator; coerce/zero-fill
-    const budgetHours = Number(values?.budgetHours ?? 0);
-    const budgetAmount = Number(values?.budgetAmount ?? 0);
-
     if (!name || !startDate || !endDate) {
       showAlert("Name, start and end date are required", "error");
       return false; // do not advance
@@ -400,8 +495,6 @@ export default function TrackableWizard() {
           clientId,
           startDate,
           endDate,
-          budgetHours,
-          budgetAmount,
         },
         selected: isEdit ? trackable : null,
       });
@@ -486,7 +579,10 @@ export default function TrackableWizard() {
           trackable={trackable}
           clients={clients}
           config={config}
-          onSaved={(vals) => saveDetails(vals, !!trackable)}
+          step={1}
+          onBack={() => {}}
+          onSaved={async (vals) => saveDetails(vals, !!trackable)}
+          onAdvance={() => setActiveStep(1)}
         />
       )}
 

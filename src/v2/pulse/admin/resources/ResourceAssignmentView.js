@@ -244,7 +244,7 @@ export default function ResourceAssignmentView() {
                         </Typography>
                         {over && (
                           <Typography variant="caption" color="error.main">
-                            Over-allocated
+                            Over-assigned
                           </Typography>
                         )}
                         {!over && capacity > 0 && logged < 0.6 * capacity && (

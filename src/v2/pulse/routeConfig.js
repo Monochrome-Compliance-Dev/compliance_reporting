@@ -7,7 +7,6 @@ import ResourceView from "./admin/resources/ResourceView";
 import ResourceAssignmentView from "./admin/resources/ResourceAssignmentView";
 import TrackableView from "./admin/trackables/TrackableView";
 import TrackableWizard from "./admin/trackables/TrackableWizard";
-import TrackablePage from "./admin/trackables/TrackablePage";
 
 const pulseRoutes = [
   {
@@ -26,16 +25,16 @@ const pulseRoutes = [
             Component: TrackableView,
           },
           {
-            path: "trackables/:id",
-            Component: TrackablePage,
+            path: "trackables/new",
+            Component: TrackableWizard,
           },
           {
-            path: "trackables/new",
+            path: "trackables/:id",
             Component: TrackableWizard,
           },
           { path: "budgets", Component: BudgetView },
           { path: "budgets/builder", Component: BudgetBuilder },
-          { path: "allocations", Component: ResourceAssignmentView },
+          { path: "assignments", Component: ResourceAssignmentView },
           { path: "resources", Component: ResourceView },
         ],
       },
