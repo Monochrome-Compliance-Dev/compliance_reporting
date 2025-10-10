@@ -45,6 +45,7 @@ import {
   deleteSection,
   listUnlinkedBudgets,
   linkBudgetToTrackable,
+  getBudgetByTrackable,
 } from "../../services/pulseApi";
 
 // --- helpers ---
@@ -178,6 +179,34 @@ export default function BudgetBuilder({ onSaved }) {
       }
     };
     fetchLinkables();
+    return () => {
+      alive = false;
+    };
+  }, [budgetId, trackableIdFromQuery]);
+
+  // If we were opened from a Trackable, check if a budget is already linked and hydrate the builder
+  useEffect(() => {
+    let alive = true;
+    const hydrateFromTrackable = async () => {
+      if (budgetId || !trackableIdFromQuery) return;
+      try {
+        const existing = await getBudgetByTrackable(trackableIdFromQuery);
+        if (alive && existing && existing.id) {
+          setBudgetId(String(existing.id));
+          setName(existing.name || "");
+          setStatus(existing.status || "draft");
+          setVersion(Number(existing.version || 1));
+          setCurrency(existing.currency || "AUD");
+          setNotes(existing.notes || "");
+          // If we found a budget, switch out of the pre-link mode
+          setPreBudgetMode("create");
+        }
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error("Failed to resolve budget for trackable", e);
+      }
+    };
+    hydrateFromTrackable();
     return () => {
       alive = false;
     };
@@ -1185,6 +1214,7 @@ export default function BudgetBuilder({ onSaved }) {
                           budgetId: selectedLinkBudgetId,
                         });
                         setBudgetId(String(selectedLinkBudgetId));
+                        setPreBudgetMode("create");
                         showAlert("Budget linked to trackable", "success");
                       } catch (e) {
                         // eslint-disable-next-line no-console

@@ -20,7 +20,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { listResourceUtilisation } from "../../services/pulseApi";
 
-export default function ResourceAllocationView() {
+export default function ResourceAssignmentView() {
   const { showAlert } = useAlert();
 
   const today = new Date();

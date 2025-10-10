@@ -59,22 +59,30 @@ export const patchTrackable = (id, payload) =>
 export const deleteTrackable = (id) =>
   unwrap(fetchWrapper.delete(`${base}/trackables/${encodeURIComponent(id)}`));
 
-// Allocations (per trackable)
-export const listAllocationsByTrackable = (trackableId, params = {}) => {
+// Assignments (per trackable)
+export const listAssignmentsByTrackable = (trackableId, params = {}) => {
   const q = new URLSearchParams({ ...params, trackableId }).toString();
-  return unwrap(fetchWrapper.get(`${base}/allocations${q ? `?${q}` : ""}`));
+  return unwrap(fetchWrapper.get(`${base}/assignments${q ? `?${q}` : ""}`));
 };
-export const createAllocation = (payload) =>
-  unwrap(fetchWrapper.post(`${base}/allocations`, payload));
-export const updateAllocation = (id, payload) =>
+export const createAssignment = (payload) =>
+  unwrap(fetchWrapper.post(`${base}/assignments`, payload));
+export const updateAssignment = (id, payload) =>
   unwrap(
-    fetchWrapper.put(`${base}/allocations/${encodeURIComponent(id)}`, payload)
+    fetchWrapper.put(`${base}/assignments/${encodeURIComponent(id)}`, payload)
   );
-export const deleteAllocation = (id) =>
-  unwrap(fetchWrapper.delete(`${base}/allocations/${encodeURIComponent(id)}`));
+export const deleteAssignment = (id) =>
+  unwrap(fetchWrapper.delete(`${base}/assignments/${encodeURIComponent(id)}`));
 
 // Budgets
 export const getActiveBudgetByTrackable = (trackableId) =>
+  unwrap(
+    fetchWrapper.get(
+      `${base}/budgets/active?trackableId=${encodeURIComponent(trackableId)}`
+    )
+  );
+
+// Convenience alias – returns the active/linked budget for a trackable (or null)
+export const getBudgetByTrackable = (trackableId) =>
   unwrap(
     fetchWrapper.get(
       `${base}/budgets/active?trackableId=${encodeURIComponent(trackableId)}`

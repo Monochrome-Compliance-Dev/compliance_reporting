@@ -15,11 +15,11 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { useAlert, usePulseContext } from "context";
 import TrackableContainerForm from "./TrackableContainerForm";
-import TrackableAllocationsEditor from "./TrackablesAllocationEditor";
+import TrackableAssignmentsEditor from "./TrackablesAssignmentEditor";
 import BudgetBuilder from "../budgets/BudgetBuilder";
 import {
   listTrackables,
-  listAllocationsByTrackable,
+  listAssignmentsByTrackable,
   listClients,
   listResources,
 } from "../../services/pulseApi";
@@ -104,8 +104,8 @@ function ResourcesStep({
   trackableId,
   trackable,
   resources,
-  onAllocationsSaved,
-  onCompleteAllocations,
+  onAssignmentsSaved,
+  onCompleteAssignments,
   onNext,
   onBack,
   canProceed,
@@ -126,11 +126,11 @@ function ResourcesStep({
     const budget = Number(trackable.budgetAmount || 0);
     const eStart = parseISO(trackable.startDate);
     const eEnd = parseISO(trackable.endDate);
-    if (!Array.isArray(trackable.allocations) || !eStart || !eEnd)
+    if (!Array.isArray(trackable.assignments) || !eStart || !eEnd)
       return { planned: 0, remaining: budget, budget };
 
     let planned = 0;
-    trackable.allocations.forEach((a) => {
+    trackable.assignments.forEach((a) => {
       const res = (resources || []).find(
         (r) => String(r.id) === String(a.resourceId)
       );
@@ -142,7 +142,7 @@ function ResourcesStep({
       const end = aEnd < eEnd ? aEnd : eEnd;
       const days = dayDiffInclusive(new Date(start), new Date(end));
       if (days <= 0) return;
-      const hours = days * 8 * (Number(a.allocationPct || 0) / 100);
+      const hours = days * 8 * (Number(a.assignmentPct || 0) / 100);
       planned += hours * rate;
     });
     return { planned, remaining: budget - planned, budget };
@@ -165,11 +165,11 @@ function ResourcesStep({
             variant={remaining < 0 ? "filled" : "outlined"}
           />
         </Box>
-        <TrackableAllocationsEditor
+        <TrackableAssignmentsEditor
           trackableId={trackableId || ""}
           resources={resources}
-          initialAllocations={trackable?.allocations || []}
-          onSave={onAllocationsSaved}
+          initialAssignments={trackable?.assignments || []}
+          onSave={onAssignmentsSaved}
         />
         <Box
           mt={2}
@@ -183,10 +183,10 @@ function ResourcesStep({
           <Box display="flex" gap={1}>
             <Button
               variant="contained"
-              onClick={onCompleteAllocations}
+              onClick={onCompleteAssignments}
               disabled={!canProceed}
             >
-              Complete allocations
+              Complete assignments
             </Button>
             <Button variant="text" onClick={onNext} disabled={!canProceed}>
               Next: Review
@@ -209,7 +209,7 @@ function ReviewStep({ trackable, onActivate, onBack, activating }) {
           {trackable.budgetAmount || 0}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Allocations: {(trackable.allocations || []).length}
+          Assignments: {(trackable.assignments || []).length}
         </Typography>
         <Box mt={2} display="flex" justifyContent="space-between">
           <Button variant="text" onClick={onBack}>
@@ -230,7 +230,7 @@ function ReviewStep({ trackable, onActivate, onBack, activating }) {
 
 const steps = ["Details", "Budget", "Resources", "Review"];
 
-const canEnterStep = (idx, { trackableId, hasBudget, hasAllocations }) => {
+const canEnterStep = (idx, { trackableId, hasBudget, hasAssignments }) => {
   switch (idx) {
     case 0:
       return true;
@@ -239,7 +239,7 @@ const canEnterStep = (idx, { trackableId, hasBudget, hasAllocations }) => {
     case 2:
       return !!trackableId && !!hasBudget; // need budget before resources
     case 3:
-      return !!trackableId && !!hasBudget && !!hasAllocations; // final review
+      return !!trackableId && !!hasBudget && !!hasAssignments; // final review
     default:
       return false;
   }
@@ -270,11 +270,11 @@ export default function TrackableWizard() {
   const resources = Array.isArray(rawResources) ? rawResources : [];
 
   // Use shared ops hook
-  const { saveDetails: saveDetailsOp, saveAllocations: saveAllocationsOp } =
+  const { saveDetails: saveDetailsOp, saveAssignments: saveAssignmentsOp } =
     useTrackableOps();
 
-  // Local cache for allocations keyed by trackable id (since we removed context mutations)
-  const [allocationsByTrackable, setAllocationsByTrackable] = useState({});
+  // Local cache for assignments keyed by trackable id (since we removed context mutations)
+  const [assignmentsByTrackable, setAssignmentsByTrackable] = useState({});
   const { showAlert } = useAlert();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -288,14 +288,14 @@ export default function TrackableWizard() {
     [trackables, trackableId]
   );
 
-  const loadedAllocationsRef = useRef(new Set());
+  const loadedAssignmentsRef = useRef(new Set());
 
   const [activeStep, setActiveStep] = useState(0);
 
   // derive status gates
   const hasBudget = Number(trackable?.budgetAmount || 0) > 0;
-  const hasAllocations =
-    (allocationsByTrackable[String(trackableId)] || []).length > 0;
+  const hasAssignments =
+    (assignmentsByTrackable[String(trackableId)] || []).length > 0;
 
   // initial step selection: prefer ?step= if valid, else derive from status/gates
   useEffect(() => {
@@ -303,7 +303,7 @@ export default function TrackableWizard() {
     if (activeStep !== 0) return;
     if (!trackableId || !trackable) return;
 
-    const gates = { trackableId, hasBudget, hasAllocations };
+    const gates = { trackableId, hasBudget, hasAssignments };
     const stepFromQuery = Number(searchParams.get("step"));
     const hasStepParam = !Number.isNaN(stepFromQuery);
 
@@ -314,7 +314,7 @@ export default function TrackableWizard() {
 
     if (trackable.status === "active" || trackable.status === "ready") {
       setActiveStep(3);
-    } else if (hasAllocations) {
+    } else if (hasAssignments) {
       setActiveStep(2);
     } else if (hasBudget) {
       setActiveStep(1);
@@ -325,7 +325,7 @@ export default function TrackableWizard() {
     trackableId,
     trackable,
     hasBudget,
-    hasAllocations,
+    hasAssignments,
     searchParams,
     activeStep,
   ]);
@@ -339,36 +339,36 @@ export default function TrackableWizard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeStep, trackableId]);
 
-  // Load persisted allocations for this trackable and attach to context entity
-  const loadAllocations = async (id) => {
+  // Load persisted assignments for this trackable and attach to context entity
+  const loadAssignments = async (id) => {
     if (!id) return;
     try {
-      const rows = await listAllocationsByTrackable(String(id));
-      setAllocationsByTrackable((prev) => ({
+      const rows = await listAssignmentsByTrackable(String(id));
+      setAssignmentsByTrackable((prev) => ({
         ...prev,
         [String(id)]: Array.isArray(rows) ? rows : [],
       }));
     } catch (e) {
-      showAlert("Failed to load allocations", "error");
+      showAlert("Failed to load assignments", "error");
     }
   };
 
-  // Load allocations only when entering the Resources step; prevent repeated loads
+  // Load assignments only when entering the Resources step; prevent repeated loads
   useEffect(() => {
     if (!trackableId) return;
     if (activeStep !== 2) return; // Resources step only
     const key = String(trackableId);
-    if (loadedAllocationsRef.current.has(key)) return;
-    loadedAllocationsRef.current.add(key);
-    loadAllocations(key);
+    if (loadedAssignmentsRef.current.has(key)) return;
+    loadedAssignmentsRef.current.add(key);
+    loadAssignments(key);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trackableId, activeStep]);
 
   useEffect(() => {
     if (!trackableId) return;
     const key = String(trackableId);
-    loadedAllocationsRef.current.delete(key);
-    setAllocationsByTrackable((prev) => {
+    loadedAssignmentsRef.current.delete(key);
+    setAssignmentsByTrackable((prev) => {
       const next = { ...prev };
       delete next[key];
       return next;
@@ -420,22 +420,22 @@ export default function TrackableWizard() {
     }
   };
 
-  // Step 3 save allocations (delegated to shared ops)
-  const saveAllocations = async (rows) => {
+  // Step 3 save assignments (delegated to shared ops)
+  const saveAssignments = async (rows) => {
     try {
-      const latest = await saveAllocationsOp(String(trackable.id), rows);
-      setAllocationsByTrackable((prev) => ({
+      const latest = await saveAssignmentsOp(String(trackable.id), rows);
+      setAssignmentsByTrackable((prev) => ({
         ...prev,
         [String(trackable.id)]: latest,
       }));
-      showAlert("Allocations saved", "success");
+      showAlert("Assignments saved", "success");
     } catch (e) {
-      showAlert("Failed to save allocations", "error");
+      showAlert("Failed to save assignments", "error");
     }
   };
 
-  // Step: Complete allocations (no API call, just step forward)
-  const completeAllocations = async () => {
+  // Step: Complete assignments (no API call, just step forward)
+  const completeAssignments = async () => {
     setActiveStep(3);
   };
 
@@ -462,7 +462,7 @@ export default function TrackableWizard() {
                 canEnterStep(idx, {
                   trackableId,
                   hasBudget,
-                  hasAllocations,
+                  hasAssignments,
                 }) || idx <= activeStep;
               return (
                 <Step
@@ -510,14 +510,14 @@ export default function TrackableWizard() {
           trackableId={trackableId}
           trackable={{
             ...trackable,
-            allocations: allocationsByTrackable[String(trackableId)] || [],
+            assignments: assignmentsByTrackable[String(trackableId)] || [],
           }}
           resources={resources}
-          onAllocationsSaved={saveAllocations}
-          onCompleteAllocations={completeAllocations}
+          onAssignmentsSaved={saveAssignments}
+          onCompleteAssignments={completeAssignments}
           onNext={() => setActiveStep(3)}
           onBack={() => setActiveStep(1)}
-          canProceed={hasAllocations}
+          canProceed={hasAssignments}
         />
       )}
 

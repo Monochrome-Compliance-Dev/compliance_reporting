@@ -24,9 +24,9 @@ import {
   DialogActions,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { usePulseContext, useAlert } from "../../../../context/";
-import { pulseService } from "../../../../services/pulse/pulse";
-import { userService } from "../../../../services";
+import { usePulseContext, useAlert } from "context/";
+import { pulseService } from "services/pulse/pulse";
+import { userService } from "services";
 
 const schema = yup
   .object({

@@ -18,8 +18,8 @@ import {
   TextField,
   Checkbox,
 } from "@mui/material";
-import { usePulseContext, useAlert } from "../../../../context";
-import { userService } from "../../../../services";
+import { usePulseContext, useAlert } from "context";
+import { userService } from "services";
 import { pulseService } from "../../../../services/pulse/pulse";
 
 // ---- date helpers ----

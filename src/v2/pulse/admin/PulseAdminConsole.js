@@ -175,17 +175,17 @@ export default function PulseAdminConsole() {
 
         <Paper variant="outlined" sx={{ p: 2, flex: 1 }}>
           <Typography variant="subtitle1" gutterBottom>
-            Allocations
+            Assignments
           </Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom>
-            See who’s on what and spot over-allocation at a glance.
+            See who’s on what and spot over-assignment at a glance.
           </Typography>
           <Button
             component={Link}
-            to="/v2/pulse/admin/allocations"
+            to="/v2/pulse/admin/assignments"
             variant="contained"
           >
-            Open Allocation View
+            Open Assignment View
           </Button>
         </Paper>
       </Stack>

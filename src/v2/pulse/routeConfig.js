@@ -4,7 +4,7 @@ import PulseAdminConsole from "./admin/PulseAdminConsole";
 import BudgetView from "./admin/budgets/BudgetView";
 import BudgetBuilder from "./admin/budgets/BudgetBuilder";
 import ResourceView from "./admin/resources/ResourceView";
-import ResourceAllocationView from "./admin/resources/ResourceAllocationView";
+import ResourceAssignmentView from "./admin/resources/ResourceAssignmentView";
 import TrackableView from "./admin/trackables/TrackableView";
 import TrackableWizard from "./admin/trackables/TrackableWizard";
 import TrackablePage from "./admin/trackables/TrackablePage";
@@ -35,7 +35,7 @@ const pulseRoutes = [
           },
           { path: "budgets", Component: BudgetView },
           { path: "budgets/builder", Component: BudgetBuilder },
-          { path: "allocations", Component: ResourceAllocationView },
+          { path: "allocations", Component: ResourceAssignmentView },
           { path: "resources", Component: ResourceView },
         ],
       },

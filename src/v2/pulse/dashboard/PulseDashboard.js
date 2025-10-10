@@ -31,8 +31,8 @@ import {
 } from "recharts";
 import { useEffect, useMemo, useState } from "react";
 import { pulseService } from "../../../services/pulse/pulse";
-import { useAlert } from "../../../context";
-import { LoadingSpinner } from "../../../components/ui";
+import { useAlert } from "context";
+import { LoadingSpinner } from "components/ui";
 
 // --- Layout constants ---
 const CARD_HEIGHT = 280; // total card height
@@ -406,7 +406,7 @@ const PulseWeeklyBurn = () => {
 
   return { burnSeriesLive, isLoadingBurn: isLoading };
 };
-// --- Live data wiring for Resource Allocation vs Capacity ---
+// --- Live data wiring for Resource Assignment vs Capacity ---
 const PulseUtilisation = () => {
   const { showAlert } = useAlert();
   const [rows, setRows] = useState(null);
@@ -778,7 +778,7 @@ const PulseDashboard = () => {
             }}
           >
             <Typography variant="h6" gutterBottom>
-              Resource Allocation vs Capacity
+              Resource Assignment vs Capacity
             </Typography>
             <Box
               display="flex"
@@ -1001,7 +1001,7 @@ const PulseDashboard = () => {
                           <Bar
                             dataKey="over"
                             stackId="a"
-                            name="Over-allocation"
+                            name="Over-assignment"
                             isAnimationActive={false}
                           />
                         </BarChart>

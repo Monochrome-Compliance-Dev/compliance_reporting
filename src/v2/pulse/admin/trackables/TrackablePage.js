@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { Box, Stack, Paper } from "@mui/material";
 import { useAlert, usePulseContext } from "context";
 import TrackableContainerForm from "./TrackableContainerForm";
-import TrackablesAllocationEditor from "./TrackablesAllocationEditor";
+import TrackablesAssignmentEditor from "./TrackablesAssignmentEditor";
 import QuickAddClientDialog from "./QuickAddClientDialog";
 
 import { useSearchParams } from "react-router";
@@ -19,11 +19,11 @@ import {
   listTrackables,
   createTrackable,
   updateTrackable,
-  // allocations
-  listAllocationsByTrackable,
-  createAllocation,
-  updateAllocation,
-  deleteAllocation,
+  // assignments
+  listAssignmentsByTrackable,
+  createAssignment,
+  updateAssignment,
+  deleteAssignment,
 } from "../../services/pulseApi";
 
 export function useTrackableOps() {
@@ -42,15 +42,15 @@ export function useTrackableOps() {
       qc.invalidateQueries({ queryKey: ["pulse", "trackables"] }),
   });
 
-  // Allocation mutations
-  const createAllocationMutation = useMutation({
-    mutationFn: (payload) => createAllocation(payload),
+  // Assignment mutations
+  const createAssignmentMutation = useMutation({
+    mutationFn: (payload) => createAssignment(payload),
   });
-  const updateAllocationMutation = useMutation({
-    mutationFn: ({ id, payload }) => updateAllocation(id, payload),
+  const updateAssignmentMutation = useMutation({
+    mutationFn: ({ id, payload }) => updateAssignment(id, payload),
   });
-  const deleteAllocationMutation = useMutation({
-    mutationFn: (id) => deleteAllocation(id),
+  const deleteAssignmentMutation = useMutation({
+    mutationFn: (id) => deleteAssignment(id),
   });
 
   // Save (create/update) details, enforcing server acknowledgement
@@ -89,10 +89,10 @@ export function useTrackableOps() {
     return saved;
   };
 
-  // Save allocations for a given trackable id
-  const saveAllocations = async (trackableId, rows) => {
+  // Save assignments for a given trackable id
+  const saveAssignments = async (trackableId, rows) => {
     const server =
-      (await listAllocationsByTrackable(String(trackableId))) || [];
+      (await listAssignmentsByTrackable(String(trackableId))) || [];
     const serverIds = new Set(server.map((a) => String(a.id)));
 
     const ui = Array.isArray(rows) ? rows : [];
@@ -104,17 +104,17 @@ export function useTrackableOps() {
 
     const createResults = await Promise.allSettled(
       toCreate.map((row) =>
-        createAllocationMutation.mutateAsync({ ...row, trackableId })
+        createAssignmentMutation.mutateAsync({ ...row, trackableId })
       )
     );
     const createErr = createResults.find((r) => r.status === "rejected");
     if (createErr)
-      throw createErr.reason || new Error("Failed to create allocations");
+      throw createErr.reason || new Error("Failed to create assignments");
 
     const updateResults = await Promise.allSettled(
       toUpdate.map((row) => {
         const { id, ...body } = row;
-        return updateAllocationMutation.mutateAsync({
+        return updateAssignmentMutation.mutateAsync({
           id: String(id),
           payload: body,
         });
@@ -122,31 +122,31 @@ export function useTrackableOps() {
     );
     const updateErr = updateResults.find((r) => r.status === "rejected");
     if (updateErr)
-      throw updateErr.reason || new Error("Failed to update allocations");
+      throw updateErr.reason || new Error("Failed to update assignments");
 
     const deleteResults = await Promise.allSettled(
       toDelete.map((row) =>
-        deleteAllocationMutation.mutateAsync(String(row.id))
+        deleteAssignmentMutation.mutateAsync(String(row.id))
       )
     );
     const deleteErr = deleteResults.find((r) => r.status === "rejected");
     if (deleteErr)
-      throw deleteErr.reason || new Error("Failed to delete allocations");
+      throw deleteErr.reason || new Error("Failed to delete assignments");
 
     const latest =
-      (await listAllocationsByTrackable(String(trackableId))) || [];
-    showAlert("Allocations saved", "success");
+      (await listAssignmentsByTrackable(String(trackableId))) || [];
+    showAlert("Assignments saved", "success");
     return Array.isArray(latest) ? latest : [];
   };
 
-  return { saveDetails, saveAllocations };
+  return { saveDetails, saveAssignments };
 }
 
 export default function TrackablePage() {
   const { showAlert } = useAlert();
   const { config } = usePulseContext();
   const qc = useQueryClient();
-  const { saveDetails: saveDetailsOp, saveAllocations: saveAllocationsOp } =
+  const { saveDetails: saveDetailsOp, saveAssignments: saveAssignmentsOp } =
     useTrackableOps();
 
   const [searchParams] = useSearchParams();
@@ -186,8 +186,8 @@ export default function TrackablePage() {
     [trackables, selectedId]
   );
 
-  // Allocations for the selected trackable
-  const [selectedAllocations, setSelectedAllocations] = useState([]);
+  // Assignments for the selected trackable
+  const [selectedAssignments, setSelectedAssignments] = useState([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -195,11 +195,11 @@ export default function TrackablePage() {
       if (!selected?.id) return;
       try {
         const list =
-          (await listAllocationsByTrackable(String(selected.id))) || [];
-        if (!cancelled) setSelectedAllocations(Array.isArray(list) ? list : []);
+          (await listAssignmentsByTrackable(String(selected.id))) || [];
+        if (!cancelled) setSelectedAssignments(Array.isArray(list) ? list : []);
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.error("Failed to load allocations", e);
+        console.error("Failed to load assignments", e);
       }
     })();
     return () => {
@@ -250,20 +250,20 @@ export default function TrackablePage() {
     [selected, saveDetailsOp, showAlert]
   );
 
-  // Save allocations
-  const handleSaveAllocations = useCallback(
+  // Save assignments
+  const handleSaveAssignments = useCallback(
     async (rows) => {
       if (!selected?.id) return;
       try {
-        const latest = await saveAllocationsOp(String(selected.id), rows);
-        setSelectedAllocations(latest);
+        const latest = await saveAssignmentsOp(String(selected.id), rows);
+        setSelectedAssignments(latest);
       } catch (err) {
         // eslint-disable-next-line no-console
-        console.error("Failed to save allocations", err);
-        showAlert("Failed to save allocations", "error");
+        console.error("Failed to save assignments", err);
+        showAlert("Failed to save assignments", "error");
       }
     },
-    [selected?.id, saveAllocationsOp, showAlert]
+    [selected?.id, saveAssignmentsOp, showAlert]
   );
 
   // Initial values for the form (respect tenant config on client field via the form itself)
@@ -293,11 +293,11 @@ export default function TrackablePage() {
         </Box>
       </Paper>
 
-      <TrackablesAllocationEditor
+      <TrackablesAssignmentEditor
         trackableId={selected ? String(selected.id) : ""}
         resources={resources}
-        initialAllocations={selectedAllocations}
-        onSave={handleSaveAllocations}
+        initialAssignments={selectedAssignments}
+        onSave={handleSaveAssignments}
       />
 
       <QuickAddClientDialog

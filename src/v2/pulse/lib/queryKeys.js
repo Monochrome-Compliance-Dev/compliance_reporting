@@ -10,6 +10,6 @@ export const qk = {
     "active",
   ],
   lines: (budgetId) => ["pulse", "budgets", budgetId, "lines"],
-  allocations: (lineId) => ["pulse", "lines", lineId, "allocations"],
+  assignments: (lineId) => ["pulse", "lines", lineId, "assignments"],
   contributions: (filters = {}) => ["pulse", "contributions", filters],
 };

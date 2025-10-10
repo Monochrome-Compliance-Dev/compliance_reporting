@@ -23,12 +23,12 @@ import { useTheme } from "@mui/material/styles";
 import { userService } from "services";
 import { nanoid } from "nanoid";
 import { useAlert } from "context";
-import { updateAllocation } from "../../services/pulseApi";
+import { updateAssignment } from "../../services/pulseApi";
 
-export default function TrackableAllocationsEditor({
+export default function TrackableAssignmentsEditor({
   trackableId,
   resources = [],
-  initialAllocations = [],
+  initialAssignments = [],
   onSave,
 }) {
   const resourceById = useMemo(
@@ -42,10 +42,10 @@ export default function TrackableAllocationsEditor({
   const isXs = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [rows, setRows] = useState(() =>
-    (initialAllocations || []).map((a) => ({
+    (initialAssignments || []).map((a) => ({
       key: nanoid(8),
       resourceId: String(a.resourceId),
-      allocationPct: a.allocationPct ?? 0,
+      assignmentPct: a.assignmentPct ?? 0,
       allocatedHoursPerWeek: a.allocatedHoursPerWeek ?? "",
       startDate: a.startDate || "",
       endDate: a.endDate || "",
@@ -53,7 +53,7 @@ export default function TrackableAllocationsEditor({
       role: a.role || "",
       rateOverride: a.rateOverride ?? "",
       notes: a.notes || "",
-      allocationId: a.id || undefined,
+      assignmentId: a.id || undefined,
     }))
   );
   const [errorsByKey, setErrorsByKey] = useState({});
@@ -124,7 +124,7 @@ export default function TrackableAllocationsEditor({
       const newRow = {
         key: nanoid(8),
         resourceId: String(rid),
-        allocationPct: 0,
+        assignmentPct: 0,
         allocatedHoursPerWeek: "",
         startDate: suggestedStart,
         endDate: "",
@@ -132,7 +132,7 @@ export default function TrackableAllocationsEditor({
         role: "",
         rateOverride: "",
         notes: "",
-        allocationId: undefined,
+        assignmentId: undefined,
       };
       return [...prev, newRow];
     });
@@ -163,7 +163,7 @@ export default function TrackableAllocationsEditor({
   const normaliseRow = useCallback(
     (r) => ({
       resourceId: String(r.resourceId),
-      allocationPct: Number(r.allocationPct || 0),
+      assignmentPct: Number(r.assignmentPct || 0),
       allocatedHoursPerWeek: toNumberOrNull(r.allocatedHoursPerWeek),
       startDate: toNullIfEmpty(r.startDate),
       endDate: toNullIfEmpty(r.endDate),
@@ -176,19 +176,19 @@ export default function TrackableAllocationsEditor({
   );
 
   const baselineById = useMemo(() => {
-    const list = initialAllocations || [];
+    const list = initialAssignments || [];
     return Object.fromEntries(list.map((a) => [String(a.id), normaliseRow(a)]));
-  }, [initialAllocations, normaliseRow]);
+  }, [initialAssignments, normaliseRow]);
 
   // Local baseline override for per-row save
   const [baselineOverride, setBaselineOverride] = useState({});
 
-  // Re-hydrate rows when initialAllocations changes (e.g., after async fetch)
+  // Re-hydrate rows when initialAssignments changes (e.g., after async fetch)
   useEffect(() => {
-    const next = (initialAllocations || []).map((a) => ({
+    const next = (initialAssignments || []).map((a) => ({
       key: nanoid(8),
       resourceId: String(a.resourceId),
-      allocationPct: a.allocationPct ?? 0,
+      assignmentPct: a.assignmentPct ?? 0,
       allocatedHoursPerWeek: a.allocatedHoursPerWeek ?? "",
       startDate: a.startDate || "",
       endDate: a.endDate || "",
@@ -196,14 +196,14 @@ export default function TrackableAllocationsEditor({
       role: a.role || "",
       rateOverride: a.rateOverride ?? "",
       notes: a.notes || "",
-      allocationId: a.id || undefined,
+      assignmentId: a.id || undefined,
     }));
     setRows(next);
     setBaselineOverride({});
     setOverlapKeys(computeOverlapKeys(next));
-  }, [computeOverlapKeys, initialAllocations]);
+  }, [computeOverlapKeys, initialAssignments]);
 
-  // Helper to get effective baseline for a given row id (allocationId)
+  // Helper to get effective baseline for a given row id (assignmentId)
   const getBaselineForId = useCallback(
     (id) => baselineOverride[String(id)] ?? baselineById[String(id)] ?? {},
     [baselineOverride, baselineById]
@@ -233,7 +233,7 @@ export default function TrackableAllocationsEditor({
     if (hasMissing) {
       setErrorsByKey(missingMap);
       showAlert(
-        "Please complete Start, End and Due date for all allocations.",
+        "Please complete Start, End and Due date for all assignments.",
         "warning"
       );
       return; // abort save
@@ -259,7 +259,7 @@ export default function TrackableAllocationsEditor({
     if (offending.size > 0) {
       setOverlapKeys(Array.from(offending));
       showAlert(
-        "Overlapping allocations for the same resource. Set non-overlapping dates.",
+        "Overlapping assignments for the same resource. Set non-overlapping dates.",
         "warning"
       );
       return; // abort save
@@ -267,16 +267,16 @@ export default function TrackableAllocationsEditor({
       setOverlapKeys([]);
     }
 
-    // Build allocations: create = full, edit = diff only
-    const allocations = rows.map((r) => {
+    // Build assignments: create = full, edit = diff only
+    const assignments = rows.map((r) => {
       const norm = normaliseRow(r);
 
-      if (!r.allocationId) {
+      if (!r.assignmentId) {
         // CREATE: send full payload (nulls where blank), but omit optional nulls/empties
         const base = {
           resourceId: norm.resourceId,
           trackableId,
-          allocationPct: norm.allocationPct,
+          assignmentPct: norm.assignmentPct,
           allocatedHoursPerWeek: norm.allocatedHoursPerWeek,
           startDate: norm.startDate,
           endDate: norm.endDate,
@@ -293,9 +293,9 @@ export default function TrackableAllocationsEditor({
       }
 
       // EDIT: only send changed fields (PATCH semantics)
-      const base = baselineById[String(r.allocationId)] || {};
+      const base = baselineById[String(r.assignmentId)] || {};
       const diff = {};
-      "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
+      "resourceId,assignmentPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
         .split(",")
         .forEach((k) => {
           const a = norm[k];
@@ -310,7 +310,7 @@ export default function TrackableAllocationsEditor({
         return null; // skip no-op
       }
       return {
-        id: String(r.allocationId),
+        id: String(r.assignmentId),
         ...cleaned,
         customerId: userService.userValue.customerId,
         updatedBy: userService.userValue.id,
@@ -318,7 +318,7 @@ export default function TrackableAllocationsEditor({
     });
 
     // Filter out any nulls (no-op edits) before sending to onSave
-    const filtered = allocations.filter(Boolean);
+    const filtered = assignments.filter(Boolean);
     await onSave?.(filtered);
   };
 
@@ -326,8 +326,8 @@ export default function TrackableAllocationsEditor({
   const saveRow = async (rowKey) => {
     const row = rows.find((r) => r.key === rowKey);
     if (!row) return;
-    if (!row.allocationId) {
-      showAlert("Use 'Save allocations' to create new rows first.", "info");
+    if (!row.assignmentId) {
+      showAlert("Use 'Save assignments' to create new rows first.", "info");
       return;
     }
 
@@ -347,9 +347,9 @@ export default function TrackableAllocationsEditor({
     }
 
     const norm = normaliseRow(row);
-    const base = getBaselineForId(row.allocationId);
+    const base = getBaselineForId(row.assignmentId);
     const diff = {};
-    "resourceId,allocationPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
+    "resourceId,assignmentPct,allocatedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
       .split(",")
       .forEach((k) => {
         if (norm[k] !== base[k]) diff[k] = norm[k];
@@ -362,7 +362,7 @@ export default function TrackableAllocationsEditor({
     }
 
     try {
-      await updateAllocation(String(row.allocationId), {
+      await updateAssignment(String(row.assignmentId), {
         ...cleaned,
         customerId: userService.userValue.customerId,
         updatedBy: userService.userValue.id,
@@ -370,7 +370,7 @@ export default function TrackableAllocationsEditor({
       // Update local baseline so subsequent diffs are accurate
       setBaselineOverride((prev) => ({
         ...prev,
-        [String(row.allocationId)]: norm,
+        [String(row.assignmentId)]: norm,
       }));
       showAlert("Row saved.", "success");
     } catch (e) {
@@ -384,7 +384,7 @@ export default function TrackableAllocationsEditor({
     <Paper variant="outlined">
       <Box p={2}>
         <Typography variant="h6" gutterBottom>
-          Allocations
+          Assignments
         </Typography>
         {!trackableId ? (
           <Typography color="text.secondary">
@@ -424,7 +424,7 @@ export default function TrackableAllocationsEditor({
                 onClick={handleSave}
                 disabled={!trackableId || rows.length === 0}
               >
-                Save allocations
+                Save assignments
               </Button>
             </Stack>
             {isXs ? (
@@ -476,18 +476,18 @@ export default function TrackableAllocationsEditor({
                         <Grid item xs={6}>
                           <TextField
                             fullWidth
-                            label="Allocation %"
+                            label="Assignment %"
                             size="small"
                             type="number"
                             inputProps={{ min: 0, max: 100, step: 5 }}
-                            value={row.allocationPct}
+                            value={row.assignmentPct}
                             onChange={(e) =>
                               setRows((prev) =>
                                 prev.map((r) =>
                                   r.key === row.key
                                     ? {
                                         ...r,
-                                        allocationPct: Number(
+                                        assignmentPct: Number(
                                           e.target.value || 0
                                         ),
                                       }
@@ -547,7 +547,7 @@ export default function TrackableAllocationsEditor({
                               errorsByKey[row.key]?.startDate
                                 ? "Required"
                                 : overlapKeys.includes(row.key)
-                                  ? "Overlaps another allocation"
+                                  ? "Overlaps another assignment"
                                   : undefined
                             }
                           />
@@ -580,7 +580,7 @@ export default function TrackableAllocationsEditor({
                               errorsByKey[row.key]?.endDate
                                 ? "Required"
                                 : overlapKeys.includes(row.key)
-                                  ? "Overlaps another allocation"
+                                  ? "Overlaps another assignment"
                                   : undefined
                             }
                           />
@@ -676,7 +676,7 @@ export default function TrackableAllocationsEditor({
                   <TableHead>
                     <TableRow>
                       <TableCell>Resource</TableCell>
-                      <TableCell width={100}>Allocation %</TableCell>
+                      <TableCell width={100}>Assignment %</TableCell>
                       <TableCell width={100}>Hours/week</TableCell>
                       <TableCell width={140}>Start</TableCell>
                       <TableCell width={140}>End</TableCell>
@@ -716,14 +716,14 @@ export default function TrackableAllocationsEditor({
                               size="small"
                               type="number"
                               inputProps={{ min: 0, max: 100, step: 5 }}
-                              value={row.allocationPct}
+                              value={row.assignmentPct}
                               onChange={(e) =>
                                 setRows((prev) =>
                                   prev.map((r) =>
                                     r.key === row.key
                                       ? {
                                           ...r,
-                                          allocationPct: Number(
+                                          assignmentPct: Number(
                                             e.target.value || 0
                                           ),
                                         }
@@ -779,7 +779,7 @@ export default function TrackableAllocationsEditor({
                                 errorsByKey[row.key]?.startDate
                                   ? "Required"
                                   : overlapKeys.includes(row.key)
-                                    ? "Overlaps another allocation"
+                                    ? "Overlaps another assignment"
                                     : undefined
                               }
                             />
@@ -810,7 +810,7 @@ export default function TrackableAllocationsEditor({
                                 errorsByKey[row.key]?.endDate
                                   ? "Required"
                                   : overlapKeys.includes(row.key)
-                                    ? "Overlaps another allocation"
+                                    ? "Overlaps another assignment"
                                     : undefined
                               }
                             />
