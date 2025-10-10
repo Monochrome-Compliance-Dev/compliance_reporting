@@ -34,9 +34,11 @@ export default function BudgetSection({
           justifyContent="space-between"
         >
           <Typography variant="subtitle1">Sections</Typography>
-          <Button size="small" variant="outlined" onClick={onAdd}>
-            Add
-          </Button>
+          {typeof onAdd === "function" && (
+            <Button size="small" variant="outlined" onClick={onAdd}>
+              Add
+            </Button>
+          )}
         </Stack>
       </Box>
       <Box sx={{ flex: 1, overflowY: "auto" }}>
@@ -55,20 +57,24 @@ export default function BudgetSection({
           ))}
         </List>
       </Box>
-      {selectedSectionId && (
+      {selectedSectionId && (onRename || onDelete) && (
         <Box sx={{ p: 2, borderTop: "1px solid", borderColor: "divider" }}>
           <Stack direction="row" spacing={1}>
-            <Button size="small" variant="text" onClick={onRename}>
-              Rename
-            </Button>
-            <Button
-              size="small"
-              color="error"
-              variant="text"
-              onClick={onDelete}
-            >
-              Delete
-            </Button>
+            {typeof onRename === "function" && (
+              <Button size="small" variant="text" onClick={onRename}>
+                Rename
+              </Button>
+            )}
+            {typeof onDelete === "function" && (
+              <Button
+                size="small"
+                color="error"
+                variant="text"
+                onClick={onDelete}
+              >
+                Delete
+              </Button>
+            )}
           </Stack>
         </Box>
       )}

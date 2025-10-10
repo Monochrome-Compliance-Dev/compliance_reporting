@@ -22,6 +22,7 @@ import {
   listAssignmentsByTrackable,
   listClients,
   listResources,
+  getBudgetByTrackable,
 } from "../../services/pulseApi";
 import { useTrackableOps } from "./useTrackableOps";
 
@@ -192,6 +193,7 @@ function ResourcesStep({
   trackableId,
   trackable,
   resources,
+  budgetForTrackable,
   onAssignmentsSaved,
   onCompleteAssignments,
   onNext,
@@ -209,16 +211,31 @@ function ResourcesStep({
     const ms = b.setHours(0, 0, 0, 0) - a.setHours(0, 0, 0, 0);
     return ms < 0 ? 0 : Math.floor(ms / (1000 * 60 * 60 * 24)) + 1;
   };
+
+  // Local state for live rows and effective assignments
+  const [liveRows, setLiveRows] = useState(null);
+  const effectiveAssignments = useMemo(
+    () => (Array.isArray(liveRows) ? liveRows : trackable?.assignments || []),
+    [liveRows, trackable]
+  );
+
+  // Prefer active budget from API (budgetForTrackable)
+  const budget = Number(
+    trackable?.budgetAmount ??
+      budgetForTrackable?.totalAmount ??
+      budgetForTrackable?.amount ??
+      0
+  );
+
   const estimatePlannedCost = () => {
     if (!trackable) return { planned: 0, remaining: 0, budget: 0 };
-    const budget = Number(trackable.budgetAmount || 0);
     const eStart = parseISO(trackable.startDate);
     const eEnd = parseISO(trackable.endDate);
-    if (!Array.isArray(trackable.assignments) || !eStart || !eEnd)
+    if (!Array.isArray(effectiveAssignments) || !eStart || !eEnd)
       return { planned: 0, remaining: budget, budget };
 
     let planned = 0;
-    trackable.assignments.forEach((a) => {
+    effectiveAssignments.forEach((a) => {
       const res = (resources || []).find(
         (r) => String(r.id) === String(a.resourceId)
       );
@@ -258,6 +275,7 @@ function ResourcesStep({
           resources={resources}
           initialAssignments={trackable?.assignments || []}
           onSave={onAssignmentsSaved}
+          onRowsChange={setLiveRows}
         />
         <Box
           mt={2}
@@ -318,23 +336,40 @@ function ReviewStep({ trackable, onActivate, onBack, activating }) {
 
 const steps = ["Details", "Budget", "Resources", "Review"];
 
-const canEnterStep = (idx, { trackableId, hasBudget, hasAssignments }) => {
-  switch (idx) {
-    case 0:
-      return true;
-    case 1:
-      return !!trackableId; // need created trackable to build budget
-    case 2:
-      return !!trackableId && !!hasBudget; // need budget before resources
-    case 3:
-      return !!trackableId && !!hasBudget && !!hasAssignments; // final review
-    default:
-      return false;
-  }
-};
-
 export default function TrackableWizard() {
   const { config } = usePulseContext();
+
+  // --- Simple step navigation helpers ---
+  const go = (delta) =>
+    setActiveStep((s) => Math.max(0, Math.min(s + delta, steps.length - 1)));
+
+  const guardNext = (current) => {
+    if (current === 0) return !!trackableId; // Details -> Budget requires saved trackable
+    if (current === 1) return !!trackableId && !!hasBudget; // Budget -> Resources requires final budget
+    if (current === 2) return !!trackableId && !!hasBudget && !!hasAssignments; // Resources -> Review requires assignments
+    return true;
+  };
+
+  const onNext = () => {
+    if (guardNext(activeStep)) {
+      go(+1);
+    } else {
+      if (activeStep === 0 && !trackableId)
+        showAlert("Save details first", "warning");
+      if (activeStep === 1 && !hasBudget)
+        showAlert("Finalize a budget first", "warning");
+      if (activeStep === 2 && !hasAssignments)
+        showAlert("Save assignments first", "warning");
+    }
+  };
+
+  const canEnter = (idx) => {
+    if (idx === 0) return true;
+    if (idx === 1) return !!trackableId;
+    if (idx === 2) return !!trackableId && !!hasBudget;
+    if (idx === 3) return !!trackableId && !!hasBudget && !!hasAssignments;
+    return false;
+  };
 
   const { data: rawTrackables } = useQuery({
     queryKey: ["pulse", "trackables"],
@@ -391,43 +426,18 @@ export default function TrackableWizard() {
 
   const [activeStep, setActiveStep] = useState(0);
 
+  // Resolve the linked budget (if any) for this trackable
+  const { data: budgetForTrackable } = useQuery({
+    queryKey: ["pulse", "budgetByTrackable", trackableId],
+    queryFn: () => getBudgetByTrackable(String(trackableId)),
+    enabled: !!trackableId,
+  });
+
   // derive status gates
-  const hasBudget = Number(trackable?.budgetAmount || 0) > 0;
+  const hasBudget =
+    !!budgetForTrackable && budgetForTrackable.status === "final";
   const hasAssignments =
     (assignmentsByTrackable[String(trackableId)] || []).length > 0;
-
-  // initial step selection: prefer ?step= if valid, else derive from status/gates
-  useEffect(() => {
-    // Do not auto-derive if the user (or code) has already navigated away from step 0
-    if (activeStep !== 0) return;
-    if (!trackableId || !trackable) return;
-
-    const gates = { trackableId, hasBudget, hasAssignments };
-    const stepFromQuery = Number(searchParams.get("step"));
-    const hasStepParam = !Number.isNaN(stepFromQuery);
-
-    if (hasStepParam && canEnterStep(stepFromQuery, gates)) {
-      setActiveStep(stepFromQuery);
-      return;
-    }
-
-    if (trackable.status === "active" || trackable.status === "ready") {
-      setActiveStep(3);
-    } else if (hasAssignments) {
-      setActiveStep(2);
-    } else if (hasBudget) {
-      setActiveStep(1);
-    } else {
-      setActiveStep(0);
-    }
-  }, [
-    trackableId,
-    trackable,
-    hasBudget,
-    hasAssignments,
-    searchParams,
-    activeStep,
-  ]);
 
   useEffect(() => {
     if (!trackableId) return;
@@ -551,19 +561,28 @@ export default function TrackableWizard() {
           )}
           <Stepper activeStep={activeStep} nonLinear sx={{ mt: 2 }}>
             {steps.map((label, idx) => {
-              const allowed =
-                canEnterStep(idx, {
-                  trackableId,
-                  hasBudget,
-                  hasAssignments,
-                }) || idx <= activeStep;
+              const allowed = canEnter(idx) || idx <= activeStep;
               return (
                 <Step
                   key={label}
                   completed={idx < activeStep}
                   disabled={!allowed}
                 >
-                  <StepButton onClick={() => allowed && setActiveStep(idx)}>
+                  <StepButton
+                    onClick={() => {
+                      if (canEnter(idx)) {
+                        setActiveStep(idx);
+                      } else {
+                        if (idx === 1 && !trackableId) {
+                          showAlert("Save details first", "info");
+                        } else if (idx === 2 && !hasBudget) {
+                          showAlert("Finalize a budget first", "info");
+                        } else if (idx === 3 && !hasAssignments) {
+                          showAlert("Save assignments first", "info");
+                        }
+                      }
+                    }}
+                  >
                     {label}
                   </StepButton>
                 </Step>
@@ -582,7 +601,7 @@ export default function TrackableWizard() {
           step={1}
           onBack={() => {}}
           onSaved={async (vals) => saveDetails(vals, !!trackable)}
-          onAdvance={() => setActiveStep(1)}
+          onAdvance={onNext}
         />
       )}
 
@@ -591,11 +610,9 @@ export default function TrackableWizard() {
         <BudgetStep
           trackableId={trackableId}
           trackable={trackable}
-          onBudgetSaved={() => {
-            setActiveStep(2);
-          }}
-          onNext={() => setActiveStep(2)}
-          onBack={() => setActiveStep(0)}
+          onBudgetSaved={onNext}
+          onNext={onNext}
+          onBack={() => go(-1)}
           canProceed={hasBudget}
         />
       )}
@@ -609,10 +626,11 @@ export default function TrackableWizard() {
             assignments: assignmentsByTrackable[String(trackableId)] || [],
           }}
           resources={resources}
+          budgetForTrackable={budgetForTrackable}
           onAssignmentsSaved={saveAssignments}
           onCompleteAssignments={completeAssignments}
-          onNext={() => setActiveStep(3)}
-          onBack={() => setActiveStep(1)}
+          onNext={onNext}
+          onBack={() => go(-1)}
           canProceed={hasAssignments}
         />
       )}
@@ -622,7 +640,7 @@ export default function TrackableWizard() {
         <ReviewStep
           trackable={trackable}
           onActivate={activate}
-          onBack={() => setActiveStep(2)}
+          onBack={() => go(-1)}
         />
       )}
     </Stack>

@@ -7,15 +7,15 @@ import {
   IconButton,
   Paper,
 } from "@mui/material";
-import { userService } from "../../services";
+import { userService } from "services";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router";
-import { useAlert } from "../../context/AlertContext";
-import { error as logError } from "../../lib/utils/logger";
+import { useAlert } from "context";
+import { error as logError } from "lib/utils/logger";
 
 export default function Login() {
   const theme = useTheme();
@@ -54,7 +54,7 @@ export default function Login() {
         navigate(lastPath);
         localStorage.removeItem("lastVisitedPath");
       } else {
-        navigate("/dashboard");
+        navigate("/v2");
       }
     } catch (error) {
       const message = error?.message || "Login failed. Please try again.";

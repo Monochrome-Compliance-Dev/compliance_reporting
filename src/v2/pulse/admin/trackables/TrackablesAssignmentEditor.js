@@ -30,6 +30,8 @@ export default function TrackableAssignmentsEditor({
   resources = [],
   initialAssignments = [],
   onSave,
+  onSummaryChange, // optional: report assigned totals
+  onRowsChange, // optional: stream live rows up
 }) {
   const resourceById = useMemo(
     () => Object.fromEntries(resources.map((r) => [String(r.id), r])),
@@ -59,6 +61,17 @@ export default function TrackableAssignmentsEditor({
   const [errorsByKey, setErrorsByKey] = useState({});
 
   const [overlapKeys, setOverlapKeys] = useState([]);
+
+  // Derived totals for parent chips
+  const assignedHoursTotal = useMemo(
+    () =>
+      (rows || []).reduce(
+        (sum, r) => sum + (Number(r.assignedHoursPerWeek) || 0),
+        0
+      ),
+    [rows]
+  );
+  const assignedCount = useMemo(() => (rows || []).length, [rows]);
 
   const datesOverlap = (aStart, aEnd, bStart, bEnd) => {
     if (!aStart || !aEnd || !bStart || !bEnd) return true; // open ranges considered overlapping
@@ -202,6 +215,20 @@ export default function TrackableAssignmentsEditor({
     setBaselineOverride({});
     setOverlapKeys(computeOverlapKeys(next));
   }, [computeOverlapKeys, initialAssignments]);
+
+  // Notify parent when totals change (keeps chips in sync in real time)
+  useEffect(() => {
+    if (typeof onSummaryChange === "function") {
+      onSummaryChange({ assignedHours: assignedHoursTotal, assignedCount });
+    }
+  }, [assignedHoursTotal, assignedCount, onSummaryChange]);
+
+  // Stream full rows up (so parent can recompute planned/remaining against budget)
+  useEffect(() => {
+    if (typeof onRowsChange === "function") {
+      onRowsChange(rows);
+    }
+  }, [rows, onRowsChange]);
 
   // Helper to get effective baseline for a given row id (assignmentId)
   const getBaselineForId = useCallback(

@@ -25,6 +25,7 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Alert,
 } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import BudgetSection from "./BudgetSection";
@@ -144,6 +145,7 @@ export default function BudgetBuilder({ onSaved }) {
   const [version, setVersion] = useState(1);
   const [currency, setCurrency] = useState("AUD");
   const [notes, setNotes] = useState("");
+  const isFinal = String(status).toLowerCase() === "final";
 
   // Sections
   const [sections, setSections] = useState([]);
@@ -214,6 +216,13 @@ export default function BudgetBuilder({ onSaved }) {
   // Save single item callback
   const saveItem = useCallback(
     async (index) => {
+      if (isFinal) {
+        showAlert(
+          "This budget is final and cannot be edited. Create a revision to make changes.",
+          "info"
+        );
+        return;
+      }
       const it = items[index];
       if (!it) return;
       // basic inline validation
@@ -271,7 +280,7 @@ export default function BudgetBuilder({ onSaved }) {
         showAlert("Failed to save item", "error");
       }
     },
-    [items, showAlert, budgetId, sections]
+    [items, showAlert, budgetId, sections, isFinal]
   );
 
   // Items
@@ -314,19 +323,40 @@ export default function BudgetBuilder({ onSaved }) {
 
   // Section handlers for child component
   const handleAddSection = useCallback(() => {
+    if (isFinal) {
+      showAlert(
+        "This budget is final and cannot be edited. Create a revision to make changes.",
+        "info"
+      );
+      return;
+    }
     openSectionDialog("create", SECTION_PRESETS[0] || "", null);
-  }, [openSectionDialog]);
+  }, [openSectionDialog, isFinal, showAlert]);
 
   const handleRenameSection = useCallback(() => {
+    if (isFinal) {
+      showAlert(
+        "This budget is final and cannot be edited. Create a revision to make changes.",
+        "info"
+      );
+      return;
+    }
     const current = sections.find((x) => x.id === selectedSectionId);
     const initial =
       current?.name && SECTION_PRESETS.includes(current.name)
         ? current.name
         : SECTION_PRESETS[0] || "";
     openSectionDialog("rename", initial, selectedSectionId);
-  }, [sections, selectedSectionId, openSectionDialog]);
+  }, [sections, selectedSectionId, openSectionDialog, isFinal, showAlert]);
 
   const handleDeleteSection = useCallback(() => {
+    if (isFinal) {
+      showAlert(
+        "This budget is final and cannot be edited. Create a revision to make changes.",
+        "info"
+      );
+      return;
+    }
     openConfirm(
       "Delete section",
       "This will delete the section and all its items. Are you sure?",
@@ -348,7 +378,14 @@ export default function BudgetBuilder({ onSaved }) {
         }
       }
     );
-  }, [selectedSectionId, budgetId, showAlert, closeConfirm, openConfirm]);
+  }, [
+    selectedSectionId,
+    budgetId,
+    showAlert,
+    closeConfirm,
+    openConfirm,
+    isFinal,
+  ]);
 
   // Totals (overall and per-section)
   const totals = useMemo(() => {
@@ -468,6 +505,13 @@ export default function BudgetBuilder({ onSaved }) {
 
   // Item editing utils
   const addItem = useCallback(() => {
+    if (isFinal) {
+      showAlert(
+        "This budget is final and cannot be edited. Create a revision to make changes.",
+        "info"
+      );
+      return;
+    }
     if (!selectedSectionId) {
       showAlert("Create or select a section first", "warning");
       return;
@@ -480,7 +524,7 @@ export default function BudgetBuilder({ onSaved }) {
       const nextOrder = maxOrder + 1;
       return [...prev, { ...defaultItem(selectedSectionId), order: nextOrder }];
     });
-  }, [selectedSectionId, showAlert]);
+  }, [selectedSectionId, showAlert, isFinal]);
 
   const removeItem = useCallback(
     (index) => setItems((prev) => prev.filter((_, i) => i !== index)),
@@ -508,6 +552,13 @@ export default function BudgetBuilder({ onSaved }) {
 
   // Save
   const handleSave = useCallback(async () => {
+    if (isFinal) {
+      showAlert(
+        "This budget is final and cannot be edited. Create a revision to make changes.",
+        "info"
+      );
+      return;
+    }
     // Helper to strip id from payloads
     const stripId = (obj) => {
       // eslint-disable-next-line no-unused-vars
@@ -666,14 +717,117 @@ export default function BudgetBuilder({ onSaved }) {
     version,
     currency,
     notes,
+    isFinal,
   ]);
 
-  const title = budgetId ? `Edit Budget` : "New Budget";
+  const cloneBudget = useCallback(async () => {
+    try {
+      if (!budgetId) return;
+      const nextVersion = Number(version || 1) + 1;
+
+      // 1) create new budget (draft)
+      const created = await svc.current.createBudget({
+        name: String(name || "").trim(),
+        status: "draft",
+        version: nextVersion,
+        currency,
+        notes,
+        customerId: userService.userValue.customerId,
+        createdBy: userService.userValue.id,
+      });
+      if (!created?.id) throw new Error("Failed to create cloned budget");
+      const newBudgetId = String(created.id);
+
+      // 2) clone sections (map old id -> new id)
+      const sectionIdMap = new Map();
+      for (const s of sections) {
+        const ns = await svc.current.createSection(newBudgetId, {
+          name: s.name,
+          order: Number(s.order || 0),
+          notes: s.notes || "",
+          customerId: userService.userValue.customerId,
+          createdBy: userService.userValue.id,
+        });
+        if (ns?.id) sectionIdMap.set(String(s.id), String(ns.id));
+      }
+
+      // 3) clone items
+      for (const it of items) {
+        const mappedSectionId = it.sectionId
+          ? sectionIdMap.get(String(it.sectionId)) || null
+          : null;
+        await svc.current.createItem({
+          budgetId: newBudgetId,
+          sectionId: mappedSectionId,
+          sectionName:
+            sections.find((x) => String(x.id) === String(it.sectionId))?.name ||
+            "",
+          resourceLabel: String(it.resourceLabel || "").trim(),
+          billingType: it.billingType === "fixed" ? "fixed" : "hourly",
+          hours: Number(it.hours || 0),
+          rate: Number(it.rate || 0),
+          amount: Number(it.amount || 0),
+          notes: String(it.notes || "").trim() || undefined,
+          billable: !!it.billable,
+          order: Number(it.order || 0),
+          customerId: userService.userValue.customerId,
+          createdBy: userService.userValue.id,
+        });
+      }
+
+      // 4) switch UI to the new draft
+      setBudgetId(newBudgetId);
+      setStatus("draft");
+      setVersion(nextVersion);
+      didCreateOrLinkRef.current = true;
+      showAlert("Revision created", "success");
+      navigate(
+        `/v2/pulse/admin/budgets?budgetId=${newBudgetId}${
+          trackableIdFromQuery ? `&trackableId=${trackableIdFromQuery}` : ""
+        }`
+      );
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(e);
+      showAlert("Failed to create revision", "error");
+    }
+  }, [
+    budgetId,
+    version,
+    name,
+    currency,
+    notes,
+    sections,
+    items,
+    showAlert,
+    navigate,
+    trackableIdFromQuery,
+  ]);
 
   return (
     <Stack spacing={2}>
-      <Box display="flex" alignItems="center" justifyContent="space-between">
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        sx={{ mb: 0.5 }}
+      >
         <Typography variant="h5">Budget Builder</Typography>
+      </Box>
+      {isFinal && (
+        <Box mb={1}>
+          <Alert severity="info" variant="outlined">
+            This budget is <strong>Final</strong> and cannot be edited. To make
+            changes, you will need to <strong>create a revision</strong> from
+            the{" "}
+            <Link to="/v2/pulse/admin/budgets" style={{ fontWeight: 500 }}>
+              Budget View
+            </Link>{" "}
+            by cloning the finalised budget.
+          </Alert>
+        </Box>
+      )}
+      {!trackableIdFromQuery && (
         <Stack direction="row" spacing={1}>
           <Button
             component={Link}
@@ -682,11 +836,17 @@ export default function BudgetBuilder({ onSaved }) {
           >
             Back to Budgets
           </Button>
-          <Button variant="contained" onClick={handleSave}>
-            Save budget
-          </Button>
+          {isFinal ? (
+            <Button variant="contained" onClick={cloneBudget}>
+              Create revision
+            </Button>
+          ) : (
+            <Button variant="contained" onClick={handleSave}>
+              Save budget
+            </Button>
+          )}
         </Stack>
-      </Box>
+      )}
 
       {/* Pre-budget choice: Create vs Link */}
       {!budgetId && (
@@ -720,6 +880,7 @@ export default function BudgetBuilder({ onSaved }) {
                 required
                 fullWidth
                 size="medium"
+                disabled={isFinal}
               />
               <TextField
                 label="Status"
@@ -742,6 +903,7 @@ export default function BudgetBuilder({ onSaved }) {
                 onChange={(e) => setVersion(Number(e.target.value || 1))}
                 sx={{ width: 120 }}
                 size="medium"
+                disabled={isFinal}
               />
               <FormControl sx={{ minWidth: 140 }}>
                 <InputLabel id="currency-label">Currency</InputLabel>
@@ -751,6 +913,7 @@ export default function BudgetBuilder({ onSaved }) {
                   value={currency}
                   onChange={(e) => setCurrency(e.target.value)}
                   size="medium"
+                  disabled={isFinal}
                 >
                   <MenuItem value="AUD">AUD</MenuItem>
                   <MenuItem value="USD">USD</MenuItem>
@@ -767,6 +930,7 @@ export default function BudgetBuilder({ onSaved }) {
                 fullWidth
                 multiline
                 minRows={2}
+                disabled={isFinal}
               />
             </Box>
             <Box mt={3}>
@@ -821,40 +985,44 @@ export default function BudgetBuilder({ onSaved }) {
                     </TableBody>
                   </Table>
                   <Box mt={2} display="flex" justifyContent="flex-end">
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={async () => {
-                        try {
-                          if (!budgetId) {
+                    {!isFinal && (
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={async () => {
+                          try {
+                            if (!budgetId) {
+                              showAlert(
+                                "Save the budget first before marking as Final.",
+                                "warning"
+                              );
+                              return;
+                            }
+                            await svc.current.updateBudget(budgetId, {
+                              name: String(name || "").trim(),
+                              status: "final",
+                              version,
+                              currency,
+                              notes,
+                              customerId: userService.userValue.customerId,
+                              updatedBy: userService.userValue.id,
+                            });
+                            setStatus("final");
+                            showAlert("Budget marked as Final", "success");
+                            navigate("/v2/pulse/admin/budgets");
+                          } catch (e) {
+                            // eslint-disable-next-line no-console
+                            console.error(e);
                             showAlert(
-                              "Save the budget first before marking as Final.",
-                              "warning"
+                              "Failed to mark budget as Final",
+                              "error"
                             );
-                            return;
                           }
-                          await svc.current.updateBudget(budgetId, {
-                            name: String(name || "").trim(),
-                            status: "final",
-                            version,
-                            currency,
-                            notes,
-                            customerId: userService.userValue.customerId,
-                            updatedBy: userService.userValue.id,
-                          });
-                          setStatus("final");
-                          showAlert("Budget marked as Final", "success");
-                          navigate("/v2/pulse/admin/budgets");
-                        } catch (e) {
-                          // eslint-disable-next-line no-console
-                          console.error(e);
-                          showAlert("Failed to mark budget as Final", "error");
-                        }
-                      }}
-                      disabled={!budgetId || status === "final"}
-                    >
-                      Mark Final
-                    </Button>
+                        }}
+                      >
+                        Mark Final
+                      </Button>
+                    )}
                   </Box>
                 </>
               )}
@@ -902,9 +1070,9 @@ export default function BudgetBuilder({ onSaved }) {
                   sections={sections}
                   selectedSectionId={selectedSectionId}
                   onSelect={setSelectedSectionId}
-                  onAdd={handleAddSection}
-                  onRename={handleRenameSection}
-                  onDelete={handleDeleteSection}
+                  onAdd={!isFinal ? handleAddSection : undefined}
+                  onRename={!isFinal ? handleRenameSection : undefined}
+                  onDelete={!isFinal ? handleDeleteSection : undefined}
                 />
               </AccordionDetails>
             </Accordion>
@@ -941,13 +1109,15 @@ export default function BudgetBuilder({ onSaved }) {
                     size="small"
                     label={`Section Amount: ${toCurrency(sectionTotals.amount, currency)}`}
                   />
-                  <Button
-                    variant="outlined"
-                    onClick={addItem}
-                    disabled={!selectedSectionId}
-                  >
-                    Add item
-                  </Button>
+                  {!isFinal && (
+                    <Button
+                      variant="outlined"
+                      onClick={addItem}
+                      disabled={!selectedSectionId}
+                    >
+                      Add item
+                    </Button>
+                  )}
                 </Stack>
               </Stack>
 
@@ -997,6 +1167,7 @@ export default function BudgetBuilder({ onSaved }) {
                                 select
                                 size="small"
                                 fullWidth
+                                disabled={isFinal}
                                 value={it.resourceLabel || ""}
                                 onChange={(e) =>
                                   mutateItem(originalIndex, {
@@ -1034,7 +1205,7 @@ export default function BudgetBuilder({ onSaved }) {
                                     rate: Number(e.target.value || 0),
                                   })
                                 }
-                                disabled={Number(it.amount || 0) > 0}
+                                disabled={isFinal || Number(it.amount || 0) > 0}
                               />
                             </TableCell>
                             <TableCell
@@ -1052,7 +1223,7 @@ export default function BudgetBuilder({ onSaved }) {
                                     hours: Number(e.target.value || 0),
                                   })
                                 }
-                                disabled={Number(it.amount || 0) > 0}
+                                disabled={isFinal || Number(it.amount || 0) > 0}
                               />
                             </TableCell>
                             <TableCell
@@ -1070,7 +1241,7 @@ export default function BudgetBuilder({ onSaved }) {
                                     amount: Number(e.target.value || 0),
                                   })
                                 }
-                                disabled={Number(it.rate || 0) > 0}
+                                disabled={isFinal || Number(it.rate || 0) > 0}
                               />
                             </TableCell>
                             <TableCell
@@ -1085,6 +1256,7 @@ export default function BudgetBuilder({ onSaved }) {
                                   })
                                 }
                                 fullWidth
+                                disabled={isFinal}
                               />
                             </TableCell>
                             <TableCell
@@ -1101,22 +1273,26 @@ export default function BudgetBuilder({ onSaved }) {
                               align="right"
                               sx={{ width: 120, verticalAlign: "middle" }}
                             >
-                              <Button
-                                size="small"
-                                variant="outlined"
-                                sx={{ mr: 1 }}
-                                onClick={() => saveItem(originalIndex)}
-                                disabled={!selectedSectionId}
-                              >
-                                Save
-                              </Button>
-                              <Button
-                                size="small"
-                                color="error"
-                                onClick={() => removeItem(originalIndex)}
-                              >
-                                Delete
-                              </Button>
+                              {!isFinal && (
+                                <>
+                                  <Button
+                                    size="small"
+                                    variant="outlined"
+                                    sx={{ mr: 1 }}
+                                    onClick={() => saveItem(originalIndex)}
+                                    disabled={!selectedSectionId}
+                                  >
+                                    Save
+                                  </Button>
+                                  <Button
+                                    size="small"
+                                    color="error"
+                                    onClick={() => removeItem(originalIndex)}
+                                  >
+                                    Delete
+                                  </Button>
+                                </>
+                              )}
                             </TableCell>
                           </TableRow>
                         );
@@ -1157,12 +1333,16 @@ export default function BudgetBuilder({ onSaved }) {
               )}
 
               <Box mt={2} display="flex" gap={1}>
-                <Button variant="contained" onClick={handleSave}>
-                  Save budget
-                </Button>
-                <Button variant="text" onClick={() => navigate(-1)}>
-                  Cancel
-                </Button>
+                {!isFinal && (
+                  <>
+                    <Button variant="contained" onClick={handleSave}>
+                      Save budget
+                    </Button>
+                    <Button variant="text" onClick={() => navigate(-1)}>
+                      Cancel
+                    </Button>
+                  </>
+                )}
               </Box>
             </Box>
           </Paper>
