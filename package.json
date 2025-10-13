@@ -18,7 +18,7 @@
     "@sentry/react": "^10.19.0",
     "@sentry/tracing": "^7.120.3",
     "@testing-library/react": "^16.2.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.6.1",
     "@uiw/react-md-editor": "^4.0.6",
     "chart.js": "^4.5.0",
     "csv-parser": "^3.2.0",
