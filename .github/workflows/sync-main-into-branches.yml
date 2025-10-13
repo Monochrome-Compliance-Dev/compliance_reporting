@@ -40,14 +40,15 @@ jobs:
           git checkout "$TARGET"
           # Always update local refs
           git reset --hard "origin/$TARGET"
-          git merge --no-ff --no-edit "origin/main" || echo "MERGE_CONFLICT" > /tmp/merge_status
 
-          if [ ! -f /tmp/merge_status ]; then
-            # No conflicts: push the merge commit
+          # Try merge; on conflict, record conflicted files, then mark status
+          if git merge --no-ff --no-edit "origin/main"; then
             git push origin HEAD:"$TARGET"
             echo "result=merged" >> "$GITHUB_OUTPUT"
           else
-            # Conflicts: abort merge and fall back to PR
+            # capture conflicted files while the merge is in-progress
+            git diff --name-only --diff-filter=U > /tmp/conflicts || true
+            # abort merge to leave branch clean
             git merge --abort || true
             echo "result=conflicted" >> "$GITHUB_OUTPUT"
           fi
@@ -56,11 +57,26 @@ jobs:
         if: steps.merge.outputs.result == 'conflicted'
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        shell: bash
         run: |
           set -euo pipefail
           BASE="${{ matrix.branch }}"
           TITLE="Sync blocked: main → ${BASE}"
-          BODY=$'Automated sync.\n\nMerging **main** into **'"${BASE}"'** hit conflicts. Please resolve manually.'
+
+          # Read conflicted files (if any were captured)
+          if [ -s /tmp/conflicts ]; then
+            CONFLICTS="$(sed 's/^/- /' /tmp/conflicts)"
+          else
+            CONFLICTS="- (could not detect conflicted files)"
+          fi
+
+          BODY=$'Automated sync.\n\nMerging **main** into **'"${BASE}"'** hit conflicts.\n\n**Conflicted files:**\n'"${CONFLICTS}"$'\n\nPlease resolve manually then rerun the workflow.'
+
+          # Ensure label "sync" exists (create if missing)
+          if ! gh label list --limit 200 --json name --jq '.[].name' | grep -Fxq sync; then
+            gh label create sync --color BFD4F2 --description "Sync conflicts"
+          fi
+
           # Avoid duplicate issues with the same title
           if gh issue list --state open --search "in:title ${TITLE}" --json number --jq 'length' | grep -q '^0$'; then
             gh issue create --title "$TITLE" --body "$BODY" --label "sync"
