@@ -19,7 +19,7 @@ jobs:
         branch: ["v2/core", "compliance_framework", "sit"] # <<< your branches
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
