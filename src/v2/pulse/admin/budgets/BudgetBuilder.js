@@ -46,7 +46,7 @@ import {
   deleteSection,
   listUnlinkedBudgets,
   linkBudgetToTrackable,
-  getBudgetByTrackable,
+  getActiveBudgetByTrackable,
 } from "../../services/pulseApi";
 
 // --- helpers ---
@@ -192,7 +192,7 @@ export default function BudgetBuilder({ onSaved }) {
     const hydrateFromTrackable = async () => {
       if (budgetId || !trackableIdFromQuery) return;
       try {
-        const existing = await getBudgetByTrackable(trackableIdFromQuery);
+        const existing = await getActiveBudgetByTrackable(trackableIdFromQuery);
         if (alive && existing && existing.id) {
           setBudgetId(String(existing.id));
           setName(existing.name || "");

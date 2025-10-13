@@ -81,14 +81,6 @@ export const getActiveBudgetByTrackable = (trackableId) =>
     )
   );
 
-// Convenience alias – returns the active/linked budget for a trackable (or null)
-export const getBudgetByTrackable = (trackableId) =>
-  unwrap(
-    fetchWrapper.get(
-      `${base}/budgets/active?trackableId=${encodeURIComponent(trackableId)}`
-    )
-  );
-
 export const listBudgetLines = (budgetId) =>
   unwrap(
     fetchWrapper.get(`${base}/budgets/${encodeURIComponent(budgetId)}/lines`)
@@ -172,3 +164,20 @@ export const updateItem = (id, payload) =>
   );
 export const deleteItem = (id) =>
   unwrap(fetchWrapper.delete(`${base}/budget-items/${encodeURIComponent(id)}`));
+
+// --- Budget Summary (computed on FE from items) ---
+export const getBudgetSummary = async (budgetId) => {
+  if (!budgetId) return { totalAmount: 0, totalHours: 0 };
+  const items = await listItemsByBudget(budgetId);
+  const arr = Array.isArray(items) ? items : [];
+  let totalAmount = 0;
+  let totalHours = 0;
+  for (const it of arr) {
+    const hours = Number(it.numberOfHours ?? it.hours ?? 0) || 0;
+    const rate = Number(it.chargeOutRate ?? it.rate ?? 0) || 0;
+    const flat = Number(it.flatAmount ?? 0) || 0;
+    totalHours += hours;
+    totalAmount += flat || hours * rate;
+  }
+  return { totalAmount, totalHours };
+};

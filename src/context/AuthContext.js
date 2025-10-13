@@ -5,8 +5,9 @@ import {
   useEffect,
   useState,
 } from "react";
-import { userService } from "../services";
+import { userService } from "services";
 import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
+import { useAlert } from "./AlertContext";
 
 const AuthContext = createContext();
 
@@ -19,6 +20,8 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isInitialising, setIsInitialising] = useState(true);
   const [showWarningDialog, setShowWarningDialog] = useState(false);
+
+  const showAlert = useAlert();
 
   const resetInactivityTimer = useCallback(() => {
     clearTimeout(logoutTimer);
@@ -57,6 +60,12 @@ export function AuthProvider({ children }) {
     userService.logout();
   };
 
+  const handleSessionExpired = useCallback(() => {
+    setShowWarningDialog(false);
+    showAlert("Your session expired. Please sign in again.", "info");
+    userService.logout();
+  }, [showAlert]);
+
   useEffect(() => {
     const subscription = userService.user.subscribe((x) => {
       setUser(x);
@@ -91,6 +100,35 @@ export function AuthProvider({ children }) {
         });
     }
 
+    const onExpired = () => {
+      console.info("[AuthContext] auth:expired event fired");
+      handleSessionExpired();
+    };
+
+    const onResume = () => {
+      console.info("[AuthContext] onResume triggered");
+      if (!user) return;
+      userService
+        .refreshToken()
+        .then(() => {
+          resetInactivityTimer();
+        })
+        .catch(() => {
+          handleSessionExpired();
+        });
+    };
+
+    const onVisibilityChange = () => {
+      console.info(
+        `[AuthContext] visibilitychange: ${document.visibilityState}`
+      );
+      if (document.visibilityState === "visible") onResume();
+    };
+
+    window.addEventListener("auth:expired", onExpired);
+    window.addEventListener("focus", onResume);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
     const activityEvents = ["mousemove", "keydown", "click", "scroll"];
     const handleActivity = resetInactivityTimer;
 
@@ -105,10 +143,13 @@ export function AuthProvider({ children }) {
       activityEvents.forEach((event) =>
         window.removeEventListener(event, handleActivity)
       );
+      window.removeEventListener("auth:expired", onExpired);
+      window.removeEventListener("focus", onResume);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       clearTimeout(logoutTimer);
       clearTimeout(warningTimer);
     };
-  }, [resetInactivityTimer]);
+  }, [resetInactivityTimer, user, handleSessionExpired]);
 
   if (isInitialising) return null;
 

@@ -322,6 +322,7 @@ async function _deleteRequest(url) {
   const requestOptions = {
     method: "DELETE",
     headers,
+    credentials: "include",
   };
   return fetch(url, requestOptions).then(handleResponse);
 }
@@ -384,13 +385,16 @@ function handleResponse(response) {
     }
 
     if (!response.ok) {
-      if (response.status === 401 && userService.userValue) {
-        // auto logout only for real unauthorised
-        userService.logout();
+      if (response.status === 401) {
+        console.info("[fetch-wrapper] 401 detected, dispatching auth:expired");
+        // Signal session expiry centrally; let AuthContext handle alert + logout
+        try {
+          window.dispatchEvent(new CustomEvent("auth:expired"));
+        } catch {}
+        return Promise.reject({ status: 401, message: "AUTH_EXPIRED" });
       }
 
       if (response.status === 403 && data?.reason) {
-        console.log("response: ", response);
         // Structured forbidden response from BE (tenantContext etc.)
         return Promise.reject({
           status: 403,
@@ -420,13 +424,25 @@ function handleResponseForDocuments(response) {
     const data = text; // && JSON.parse(text);
 
     if (!response.ok) {
-      if ([401, 403].includes(response.status) && userService.userValue) {
-        // auto logout if 401 Unauthorized or 403 Forbidden response returned from api
-        userService.logout();
+      if (response.status === 401) {
+        console.info(
+          "[fetch-wrapper] 401 detected (documents), dispatching auth:expired"
+        );
+        try {
+          window.dispatchEvent(new CustomEvent("auth:expired"));
+        } catch {}
+        return Promise.reject({ status: 401, message: "AUTH_EXPIRED" });
       }
 
-      const error = (data && data.message) || response.statusText;
-      return Promise.reject(error);
+      if (response.status === 403) {
+        const error =
+          (data && data.message) || response.statusText || "Forbidden";
+        return Promise.reject({ status: 403, message: error });
+      }
+
+      const error =
+        (data && data.message) || response.statusText || "Request failed";
+      return Promise.reject({ status: response.status, message: error });
     }
     return data;
   });

@@ -22,7 +22,8 @@ import {
   listAssignmentsByTrackable,
   listClients,
   listResources,
-  getBudgetByTrackable,
+  getActiveBudgetByTrackable,
+  getBudgetSummary,
 } from "../../services/pulseApi";
 import { useTrackableOps } from "./useTrackableOps";
 
@@ -219,13 +220,15 @@ function ResourcesStep({
     [liveRows, trackable]
   );
 
-  // Prefer active budget from API (budgetForTrackable)
-  const budget = Number(
-    trackable?.budgetAmount ??
-      budgetForTrackable?.totalAmount ??
-      budgetForTrackable?.amount ??
-      0
-  );
+  // Fetch budget summary for the budget (New World)
+  const { data: budgetSummary } = useQuery({
+    queryKey: ["pulse", "budgetSummary", budgetForTrackable?.id],
+    queryFn: () => getBudgetSummary(String(budgetForTrackable.id)),
+    enabled: !!budgetForTrackable?.id,
+  });
+
+  // Strictly use New World budget summary
+  const budget = Number(budgetSummary?.totalAmount || 0);
 
   const estimatePlannedCost = () => {
     if (!trackable) return { planned: 0, remaining: 0, budget: 0 };
@@ -429,7 +432,7 @@ export default function TrackableWizard() {
   // Resolve the linked budget (if any) for this trackable
   const { data: budgetForTrackable } = useQuery({
     queryKey: ["pulse", "budgetByTrackable", trackableId],
-    queryFn: () => getBudgetByTrackable(String(trackableId)),
+    queryFn: () => getActiveBudgetByTrackable(String(trackableId)),
     enabled: !!trackableId,
   });
 
