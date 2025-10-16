@@ -12,7 +12,7 @@ import {
   Typography,
   Chip,
 } from "@mui/material";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAlert, usePulseContext } from "context";
 import TrackableContainerForm from "./TrackableContainerForm";
 import TrackableAssignmentsEditor from "./TrackablesAssignmentEditor";
@@ -38,7 +38,7 @@ function DetailsStep({
   onBack,
 }) {
   const [hasChanges, setHasChanges] = React.useState(false);
-  const [formValues, setFormValues] = React.useState(null);
+  const [isSaving, setIsSaving] = React.useState(false);
   const formRef = React.useRef();
 
   // Helpers to compare current form vs initial values
@@ -74,7 +74,6 @@ function DetailsStep({
 
   // Called when form fields change
   const handleFormChange = (values) => {
-    setFormValues(values);
     setHasChanges(!isSame(values, memoInitialValues));
   };
 
@@ -85,34 +84,21 @@ function DetailsStep({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [memoInitialValues]);
 
-  // Save handler for "Save Changes" and "Next"
-  const handleSubmitAndNext = async (values) => {
+  const canNext = React.useMemo(() => {
+    return Boolean(trackable?.id) && !hasChanges && !isSaving;
+  }, [trackable, hasChanges, isSaving]);
+
+  // Pure save handler (does not advance)
+  const handleSaveChanges = async (values) => {
     try {
+      setIsSaving(true);
       const ok = await onSaved?.(values);
       if (ok) {
-        setHasChanges(false);
-        onAdvance?.();
+        setHasChanges(false); // enable Next after successful save
       }
-    } catch (e) {
-      // Errors are surfaced by onSaved/showAlert; do not advance here
+    } finally {
+      setIsSaving(false);
     }
-  };
-
-  // "Next" only saves if there are changes, else just advances
-  const handleNext = async () => {
-    if (!hasChanges) {
-      // No changes to persist; advance immediately
-      onAdvance?.();
-      return;
-    }
-    const vals = formValues || formRef.current?.getValues?.() || {};
-    await handleSubmitAndNext(vals);
-  };
-
-  // "Save Changes" only enabled if hasChanges
-  const handleSaveChanges = async () => {
-    const vals = formValues || formRef.current?.getValues?.() || {};
-    await handleSubmitAndNext(vals);
   };
 
   return (
@@ -124,7 +110,7 @@ function DetailsStep({
           config={config}
           initialValues={memoInitialValues}
           clients={clients}
-          onSubmit={handleSubmitAndNext}
+          onSubmit={handleSaveChanges}
           onChange={handleFormChange}
           onQuickAddClient={() => {}}
         />
@@ -145,12 +131,15 @@ function DetailsStep({
           <Box display="flex" gap={1}>
             <Button
               variant="contained"
-              onClick={handleSaveChanges}
-              disabled={!hasChanges}
+              onClick={() => {
+                const vals = formRef.current?.getValues?.() || {};
+                handleSaveChanges(vals);
+              }}
+              disabled={!hasChanges || isSaving}
             >
-              Save Changes
+              {isSaving ? "Saving…" : "Save Changes"}
             </Button>
-            <Button variant="text" onClick={handleNext}>
+            <Button variant="text" onClick={onAdvance} disabled={!canNext}>
               Next
             </Button>
           </Box>
@@ -275,6 +264,7 @@ function ResourcesStep({
         </Box>
         <TrackableAssignmentsEditor
           trackableId={trackableId || ""}
+          trackableName={trackable?.name}
           resources={resources}
           initialAssignments={trackable?.assignments || []}
           onSave={onAssignmentsSaved}
@@ -341,6 +331,7 @@ const steps = ["Details", "Budget", "Resources", "Review"];
 
 export default function TrackableWizard() {
   const { config } = usePulseContext();
+  const queryClient = useQueryClient();
 
   // --- Simple step navigation helpers ---
   const go = (delta) =>
@@ -360,7 +351,7 @@ export default function TrackableWizard() {
       if (activeStep === 0 && !trackableId)
         showAlert("Save details first", "warning");
       if (activeStep === 1 && !hasBudget)
-        showAlert("Finalize a budget first", "warning");
+        showAlert("Finalise a budget first", "warning");
       if (activeStep === 2 && !hasAssignments)
         showAlert("Save assignments first", "warning");
     }
@@ -518,7 +509,6 @@ export default function TrackableWizard() {
       }
 
       if (!isEdit) setTrackableId(saved.id);
-      setActiveStep(1); // advance only on confirmed success
       return true;
     } catch (e) {
       showAlert("Failed to save trackable", "error");
@@ -551,6 +541,19 @@ export default function TrackableWizard() {
     navigate("/v2/pulse/trackables");
   };
 
+  // Handler to invalidate budget-by-trackable query when budget is saved/finalised
+  const handleBudgetSaved = async () => {
+    try {
+      if (trackableId) {
+        await queryClient.invalidateQueries({
+          queryKey: ["pulse", "budgetByTrackable", trackableId],
+        });
+      }
+    } catch (e) {
+      // no-op: if invalidation fails, the Next button will enable after the normal refetch cycle
+    }
+  };
+
   return (
     <Stack spacing={2}>
       <Paper variant="outlined">
@@ -579,7 +582,7 @@ export default function TrackableWizard() {
                         if (idx === 1 && !trackableId) {
                           showAlert("Save details first", "info");
                         } else if (idx === 2 && !hasBudget) {
-                          showAlert("Finalize a budget first", "info");
+                          showAlert("Finalizsssssse a budget first", "info");
                         } else if (idx === 3 && !hasAssignments) {
                           showAlert("Save assignments first", "info");
                         }
@@ -613,7 +616,7 @@ export default function TrackableWizard() {
         <BudgetStep
           trackableId={trackableId}
           trackable={trackable}
-          onBudgetSaved={onNext}
+          onBudgetSaved={handleBudgetSaved}
           onNext={onNext}
           onBack={() => go(-1)}
           canProceed={hasBudget}

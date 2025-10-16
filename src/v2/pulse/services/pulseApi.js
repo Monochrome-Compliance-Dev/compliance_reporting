@@ -81,9 +81,12 @@ export const getActiveBudgetByTrackable = (trackableId) =>
     )
   );
 
-export const listBudgetLines = (budgetId) =>
+// Legacy naming: listBudgetItems points to the same endpoint as listItemsByBudget.
+export const listBudgetItems = (budgetId) =>
   unwrap(
-    fetchWrapper.get(`${base}/budgets/${encodeURIComponent(budgetId)}/lines`)
+    fetchWrapper.get(
+      `${base}/budget-items?budgetId=${encodeURIComponent(budgetId)}`
+    )
   );
 
 // Contributions
@@ -154,6 +157,14 @@ export const listItemsByBudget = (budgetId) =>
   unwrap(
     fetchWrapper.get(
       `${base}/budget-items?budgetId=${encodeURIComponent(budgetId)}`
+    )
+  );
+
+// Label projection for Assignments UI
+export const listBudgetItemLabels = (budgetId) =>
+  unwrap(
+    fetchWrapper.get(
+      `${base}/budget-items/labels?budgetId=${encodeURIComponent(budgetId)}`
     )
   );
 export const createItem = (payload) =>

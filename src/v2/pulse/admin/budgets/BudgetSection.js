@@ -16,6 +16,7 @@ export default function BudgetSection({
   onAdd,
   onRename,
   onDelete,
+  addDisabled = false,
 }) {
   return (
     <Paper
@@ -35,7 +36,12 @@ export default function BudgetSection({
         >
           <Typography variant="subtitle1">Sections</Typography>
           {typeof onAdd === "function" && (
-            <Button size="small" variant="outlined" onClick={onAdd}>
+            <Button
+              size="small"
+              variant="outlined"
+              onClick={onAdd}
+              disabled={addDisabled}
+            >
               Add
             </Button>
           )}

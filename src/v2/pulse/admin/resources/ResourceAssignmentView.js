@@ -78,12 +78,12 @@ export default function ResourceAssignmentView() {
           .toLowerCase()
           .includes(q)
       );
-      const anyEng = (r.byEngagement || []).some((e) =>
+      const anyTrack = (r.byEngagement || []).some((e) =>
         String(e.engagementName || "")
           .toLowerCase()
           .includes(q)
       );
-      return base || anyEng;
+      return base || anyTrack;
     });
   }, [rows, query]);
 
@@ -123,7 +123,7 @@ export default function ResourceAssignmentView() {
           />
           <TextField
             size="small"
-            placeholder="Search by resource or engagement…"
+            placeholder="Search by resource or trackable…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             inputProps={{ "aria-label": "Search resource utilisation" }}
@@ -136,7 +136,7 @@ export default function ResourceAssignmentView() {
           <TableHead>
             <TableRow>
               <TableCell>Resource</TableCell>
-              <TableCell>Engagement hours (selected range)</TableCell>
+              <TableCell>Trackable hours (selected range)</TableCell>
               <TableCell align="right">Utilisation</TableCell>
             </TableRow>
           </TableHead>
@@ -213,14 +213,14 @@ export default function ResourceAssignmentView() {
                                   />
                                   <Typography variant="body2">
                                     <strong>
-                                      {it.engagementName || "Engagement"}
+                                      {it.engagementName || "Trackable"}
                                     </strong>
                                   </Typography>
                                   <Box flexGrow={1} />
                                   <Chip
                                     size="small"
                                     component={Link}
-                                    to={`/pulse-solution/admin/engagements/manage?id=${encodeURIComponent(it.engagementId)}`}
+                                    to={`/v2/pulse/admin/trackables/manage?id=${encodeURIComponent(it.engagementId)}`}
                                     label="Manage"
                                     clickable
                                   />

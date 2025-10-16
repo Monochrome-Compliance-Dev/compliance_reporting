@@ -33,7 +33,7 @@ function TrackableContainerForm(
   },
   ref
 ) {
-  const requireClient = config?.requiresClient !== false;
+  const requireClient = Boolean(config?.requiresClient);
   const suppressChangesRef = useRef(false);
 
   const schema = useMemo(
@@ -61,7 +61,7 @@ function TrackableContainerForm(
     resolver: yupResolver(schema),
     defaultValues: {
       name: "",
-      clientId: "",
+      clientId: requireClient ? "" : null,
       startDate: "",
       endDate: "",
       ...(initialValues || {}),
@@ -90,7 +90,7 @@ function TrackableContainerForm(
     suppressChangesRef.current = true;
     reset({
       name: "",
-      clientId: "",
+      clientId: requireClient ? "" : null,
       startDate: "",
       endDate: "",
       ...(initialValues || {}),
@@ -100,7 +100,7 @@ function TrackableContainerForm(
       suppressChangesRef.current = false;
     }, 0);
     return () => clearTimeout(t);
-  }, [initialValues, reset]);
+  }, [initialValues, reset, requireClient]);
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -135,7 +135,7 @@ function TrackableContainerForm(
                   <Select
                     labelId="clientId-label"
                     label="Client"
-                    value={field.value ?? ""}
+                    value={field.value ? String(field.value) : ""}
                     onChange={field.onChange}
                     onBlur={field.onBlur}
                   >

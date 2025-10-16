@@ -15,7 +15,6 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  CircularProgress,
   Chip,
   Dialog,
   DialogTitle,
@@ -146,11 +145,25 @@ export default function BudgetBuilder({ onSaved }) {
   const [currency, setCurrency] = useState("AUD");
   const [notes, setNotes] = useState("");
   const isFinal = String(status).toLowerCase() === "final";
+  const isCreateDisabled = !String(name || "").trim();
 
   // Sections
   const [sections, setSections] = useState([]);
   const [selectedSectionId, setSelectedSectionId] = useState("");
   const [sectionsExpanded, setSectionsExpanded] = useState(true);
+  // Derive available section names (exclude ones already created; case-insensitive)
+  const existingSectionNames = useMemo(
+    () =>
+      new Set((sections || []).map((s) => String(s.name || "").toLowerCase())),
+    [sections]
+  );
+  const availableSectionOptions = useMemo(
+    () =>
+      SECTION_PRESETS.filter(
+        (opt) => !existingSectionNames.has(String(opt).toLowerCase())
+      ),
+    [existingSectionNames]
+  );
   // Items
   const [items, setItems] = useState([]);
   const itemsSectionRef = useRef(null);
@@ -304,7 +317,7 @@ export default function BudgetBuilder({ onSaved }) {
   const [sectionDialog, setSectionDialog] = useState({
     open: false,
     mode: "create", // 'create' | 'rename'
-    value: SECTION_PRESETS[0] || "",
+    value: "",
     targetId: null,
   });
   const openSectionDialog = useCallback(
@@ -330,8 +343,12 @@ export default function BudgetBuilder({ onSaved }) {
       );
       return;
     }
-    openSectionDialog("create", SECTION_PRESETS[0] || "", null);
-  }, [openSectionDialog, isFinal, showAlert]);
+    if (availableSectionOptions.length === 0) {
+      showAlert("All standard sections have already been added.", "info");
+      return;
+    }
+    openSectionDialog("create", availableSectionOptions[0] || "", null);
+  }, [openSectionDialog, isFinal, showAlert, availableSectionOptions]);
 
   const handleRenameSection = useCallback(() => {
     if (isFinal) {
@@ -386,19 +403,6 @@ export default function BudgetBuilder({ onSaved }) {
     openConfirm,
     isFinal,
   ]);
-
-  // Totals (overall and per-section)
-  const totals = useMemo(() => {
-    const budgetHours = items.reduce((s, it) => s + Number(it.hours || 0), 0);
-    const budgetAmount = items.reduce((s, it) => {
-      return (
-        s +
-        Number(it.hours || 0) * Number(it.rate || 0) +
-        Number(it.amount || 0)
-      );
-    }, 0);
-    return { budgetHours, budgetAmount };
-  }, [items]);
 
   const sectionTotals = useMemo(() => {
     const rows = items.filter((x) => x.sectionId === selectedSectionId);
@@ -480,8 +484,10 @@ export default function BudgetBuilder({ onSaved }) {
             setSections(secs || []);
             setSelectedSectionId((prev) => prev || (secs?.[0]?.id ?? ""));
           }
+          console.log("Loaded secs", { secs });
           // Load items
           const rows = await svc.current.listItemsByBudget(budgetId);
+          console.log("Loaded items", { rows });
           if (mounted) setItems((rows || []).map(normaliseItem));
         } else {
           // Fresh builder
@@ -552,6 +558,12 @@ export default function BudgetBuilder({ onSaved }) {
 
   // Save
   const handleSave = useCallback(async () => {
+    // --- LOG: Entry point for handleSave ---
+    console.log("[BudgetBuilder] handleSave called", {
+      name,
+      budgetId,
+      trackableIdFromQuery,
+    });
     if (isFinal) {
       showAlert(
         "This budget is final and cannot be edited. Create a revision to make changes.",
@@ -601,6 +613,13 @@ export default function BudgetBuilder({ onSaved }) {
 
       // Create/Update budget meta
       if (!bId) {
+        // --- LOG: About to create new budget ---
+        console.log("[BudgetBuilder] Creating new budget", {
+          name: trimmedName,
+          status,
+          version,
+          currency,
+        });
         const created = await svc.current.createBudget({
           name: trimmedName,
           status,
@@ -610,10 +629,43 @@ export default function BudgetBuilder({ onSaved }) {
           customerId: userService.userValue.customerId,
           createdBy: userService.userValue.id,
         });
+        // --- LOG: Budget created result ---
+        console.log("[BudgetBuilder] Budget created:", created);
         if (!created?.id) throw new Error("Budget creation failed");
         bId = String(created.id);
         setBudgetId(bId);
-        didCreateOrLinkRef.current = true;
+
+        // NEW: if we're in the Trackable flow, auto-link the newly created budget
+        if (trackableIdFromQuery) {
+          // --- LOG: About to attempt auto-link ---
+          console.log(
+            "[BudgetBuilder] Attempting to auto-link budget to trackable",
+            {
+              trackableIdFromQuery,
+              bId,
+            }
+          );
+          try {
+            await linkBudgetToTrackable({
+              trackableId: trackableIdFromQuery,
+              budgetId: bId,
+            });
+            // --- LOG: Successfully linked budget to trackable ---
+            console.log(
+              "[BudgetBuilder] Successfully linked budget to trackable"
+            );
+            // leave pre-link mode and enable the sections/items UI
+            setPreBudgetMode("create");
+            didCreateOrLinkRef.current = true;
+            showAlert("Budget created and linked to trackable", "success");
+          } catch (e) {
+            // --- LOG: Auto-link failed ---
+            console.error("[BudgetBuilder] Auto-link failed", e);
+            showAlert("Budget was created but could not be linked.", "warning");
+          }
+        } else {
+          didCreateOrLinkRef.current = true;
+        }
       } else {
         await svc.current.updateBudget(bId, {
           name: trimmedName,
@@ -699,6 +751,10 @@ export default function BudgetBuilder({ onSaved }) {
       const fresh = await svc.current.listItemsByBudget(bId);
       setItems(Array.isArray(fresh) ? fresh.map(normaliseItem) : []);
 
+      // --- LOG: All save steps completed, showing alert ---
+      console.log(
+        "[BudgetBuilder] All save steps completed, showing success alert"
+      );
       showAlert("Budget saved", "success");
       onSaved?.();
     } catch (e) {
@@ -708,16 +764,17 @@ export default function BudgetBuilder({ onSaved }) {
     }
   }, [
     name,
+    budgetId,
+    trackableIdFromQuery,
+    isFinal,
     items,
     showAlert,
-    budgetId,
     sections,
     onSaved,
     status,
     version,
     currency,
     notes,
-    isFinal,
   ]);
 
   const cloneBudget = useCallback(async () => {
@@ -804,6 +861,35 @@ export default function BudgetBuilder({ onSaved }) {
     trackableIdFromQuery,
   ]);
 
+  // Link selected budget to trackable
+  const linkSelectedBudget = useCallback(async () => {
+    // --- LOG: Entry: linkSelectedBudget ---
+    console.log("[BudgetBuilder] linkSelectedBudget called", {
+      selectedLinkBudgetId,
+      trackableIdFromQuery,
+    });
+    try {
+      if (!selectedLinkBudgetId) return;
+      await linkBudgetToTrackable({
+        trackableId: trackableIdFromQuery,
+        budgetId: selectedLinkBudgetId,
+      });
+      setBudgetId(String(selectedLinkBudgetId));
+      setPreBudgetMode("create");
+      didCreateOrLinkRef.current = true;
+      showAlert("Budget linked to trackable", "success");
+      // --- LOG: linkSelectedBudget completed successfully ---
+      console.log("[BudgetBuilder] linkSelectedBudget completed", {
+        selectedLinkBudgetId,
+        trackableIdFromQuery,
+      });
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error("Failed to link budget", e);
+      showAlert("Failed to link budget", "error");
+    }
+  }, [selectedLinkBudgetId, trackableIdFromQuery, showAlert]);
+
   return (
     <Stack spacing={2}>
       <Box
@@ -836,36 +922,12 @@ export default function BudgetBuilder({ onSaved }) {
           >
             Back to Budgets
           </Button>
-          {isFinal ? (
+          {isFinal && (
             <Button variant="contained" onClick={cloneBudget}>
               Create revision
             </Button>
-          ) : (
-            <Button variant="contained" onClick={handleSave}>
-              Save budget
-            </Button>
           )}
         </Stack>
-      )}
-
-      {/* Pre-budget choice: Create vs Link */}
-      {!budgetId && (
-        <Box mb={1}>
-          <Stack direction="row" spacing={2} alignItems="center">
-            <Button
-              variant={preBudgetMode === "create" ? "contained" : "text"}
-              onClick={() => setPreBudgetMode("create")}
-            >
-              Create budget
-            </Button>
-            <Button
-              variant={preBudgetMode === "link" ? "contained" : "text"}
-              onClick={() => setPreBudgetMode("link")}
-            >
-              Link budget
-            </Button>
-          </Stack>
-        </Box>
       )}
 
       {/* Budget meta */}
@@ -993,7 +1055,7 @@ export default function BudgetBuilder({ onSaved }) {
                           try {
                             if (!budgetId) {
                               showAlert(
-                                "Save the budget first before marking as Final.",
+                                "Save the budget first before marking as final.",
                                 "warning"
                               );
                               return;
@@ -1008,13 +1070,21 @@ export default function BudgetBuilder({ onSaved }) {
                               updatedBy: userService.userValue.id,
                             });
                             setStatus("final");
-                            showAlert("Budget marked as Final", "success");
-                            navigate("/v2/pulse/admin/budgets");
+                            showAlert("Budget finalised", "success");
+
+                            // If we're **not** in the Trackable Wizard, return to the Budgets list.
+                            // Otherwise stay on the page so the user can click Next to go to Resources.
+                            if (!trackableIdFromQuery) {
+                              navigate("/v2/pulse/admin/budgets");
+                            } else {
+                              // Optionally notify parent to refresh wizard controls
+                              onSaved?.();
+                            }
                           } catch (e) {
                             // eslint-disable-next-line no-console
                             console.error(e);
                             showAlert(
-                              "Failed to mark budget as Final",
+                              "Failed to mark budget as final",
                               "error"
                             );
                           }
@@ -1332,18 +1402,7 @@ export default function BudgetBuilder({ onSaved }) {
                 </Typography>
               )}
 
-              <Box mt={2} display="flex" gap={1}>
-                {!isFinal && (
-                  <>
-                    <Button variant="contained" onClick={handleSave}>
-                      Save budget
-                    </Button>
-                    <Button variant="text" onClick={() => navigate(-1)}>
-                      Cancel
-                    </Button>
-                  </>
-                )}
-              </Box>
+              {/* Bottom action buttons removed as per request */}
             </Box>
           </Paper>
         </Stack>
@@ -1355,7 +1414,6 @@ export default function BudgetBuilder({ onSaved }) {
                 Create and save a new budget, or link an existing unlinked
                 budget to this trackable.
               </Typography>
-
               {trackableIdFromQuery && (
                 <Stack
                   direction={{ xs: "column", sm: "row" }}
@@ -1384,32 +1442,8 @@ export default function BudgetBuilder({ onSaved }) {
                       ))}
                     </Select>
                   </FormControl>
-                  <Button
-                    variant="contained"
-                    disabled={!selectedLinkBudgetId || linkableLoading}
-                    onClick={async () => {
-                      try {
-                        if (!selectedLinkBudgetId) return;
-                        await linkBudgetToTrackable({
-                          trackableId: trackableIdFromQuery,
-                          budgetId: selectedLinkBudgetId,
-                        });
-                        setBudgetId(String(selectedLinkBudgetId));
-                        setPreBudgetMode("create");
-                        didCreateOrLinkRef.current = true;
-                        showAlert("Budget linked to trackable", "success");
-                      } catch (e) {
-                        // eslint-disable-next-line no-console
-                        console.error("Failed to link budget", e);
-                        showAlert("Failed to link budget", "error");
-                      }
-                    }}
-                  >
-                    {linkableLoading ? <CircularProgress size={20} /> : "Link"}
-                  </Button>
                 </Stack>
               )}
-
               <Typography color="text.secondary">
                 Or use the builder below to create a new budget from scratch.
               </Typography>
@@ -1435,12 +1469,16 @@ export default function BudgetBuilder({ onSaved }) {
             <Select
               labelId="section-select-dialog-label"
               label="Section"
-              value={sectionDialog.value}
+              value={
+                availableSectionOptions.includes(sectionDialog.value)
+                  ? sectionDialog.value
+                  : ""
+              }
               onChange={(e) =>
                 setSectionDialog((s) => ({ ...s, value: e.target.value }))
               }
             >
-              {SECTION_PRESETS.map((opt) => (
+              {availableSectionOptions.map((opt) => (
                 <MenuItem key={opt} value={opt}>
                   {opt}
                 </MenuItem>
@@ -1456,6 +1494,17 @@ export default function BudgetBuilder({ onSaved }) {
               const name = String(sectionDialog.value || "").trim();
               if (!name) {
                 closeSectionDialog();
+                return;
+              }
+              // Prevent duplicate section names (case-insensitive); allow same name for the same target on rename
+              const duplicateExists = (sections || []).some(
+                (s) =>
+                  String(s.name || "").toLowerCase() === name.toLowerCase() &&
+                  (sectionDialog.mode === "create" ||
+                    String(s.id) !== String(sectionDialog.targetId))
+              );
+              if (duplicateExists) {
+                showAlert("Section already exists", "warning");
                 return;
               }
               try {
@@ -1479,7 +1528,23 @@ export default function BudgetBuilder({ onSaved }) {
                 }
                 const fresh = await svc.current.listSectionsByBudget(budgetId);
                 setSections(fresh || []);
-                setSelectedSectionId((fresh || [])[0]?.id || "");
+                const newId =
+                  (fresh || []).find(
+                    (s) =>
+                      String(s.name || "").toLowerCase() ===
+                      String(name).toLowerCase()
+                  )?.id ||
+                  (fresh || [])[0]?.id ||
+                  "";
+                setSelectedSectionId(newId);
+                // Collapse the Sections panel and scroll Items into view after section add/rename
+                setSectionsExpanded(false);
+                if (itemsSectionRef.current) {
+                  itemsSectionRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
               } catch (e) {
                 // eslint-disable-next-line no-console
                 console.error(e);
@@ -1533,6 +1598,52 @@ export default function BudgetBuilder({ onSaved }) {
           </Button>
         </DialogActions>
       </Dialog>
+
+      {/* Pre-budget actions: Save (create) and optionally Link (wizard only) */}
+      {!budgetId && (
+        <Box mb={1} justifyContent="right" display="flex">
+          <Stack direction="row" spacing={2} alignItems="center">
+            {preBudgetMode === "link" ? (
+              <>
+                <Button
+                  variant="contained"
+                  onClick={linkSelectedBudget}
+                  disabled={!selectedLinkBudgetId || linkableLoading}
+                >
+                  Link budget
+                </Button>
+                <Button
+                  variant="text"
+                  onClick={() => {
+                    setSelectedLinkBudgetId("");
+                    setPreBudgetMode("create");
+                  }}
+                >
+                  Create budget
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  variant="contained"
+                  onClick={handleSave}
+                  disabled={isCreateDisabled}
+                >
+                  Create budget
+                </Button>
+                {trackableIdFromQuery && (
+                  <Button
+                    variant="text"
+                    onClick={() => setPreBudgetMode("link")}
+                  >
+                    Link budget
+                  </Button>
+                )}
+              </>
+            )}
+          </Stack>
+        </Box>
+      )}
     </Stack>
   );
 }

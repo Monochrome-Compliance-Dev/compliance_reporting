@@ -27,34 +27,54 @@ import {
   updateAssignment,
   createAssignment,
   getActiveBudgetByTrackable,
-  listBudgetLines,
+  listBudgetItems,
 } from "../../services/pulseApi";
 
 export default function TrackableAssignmentsEditor({
   trackableId,
+  trackableName,
   resources = [],
   initialAssignments = [],
   onSave,
   onSummaryChange, // optional: report assigned totals
   onRowsChange, // optional: stream live rows up
 }) {
-  const resourceById = useMemo(
-    () => Object.fromEntries(resources.map((r) => [String(r.id), r])),
-    [resources]
-  );
+  if (!trackableName) {
+    throw new Error("TrackableAssignmentsEditor requires trackableName prop");
+  }
 
   const { showAlert } = useAlert();
 
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down("sm"));
-  const [budgetLines, setBudgetLines] = useState([]);
-  const [loadingBudgetLines, setLoadingBudgetLines] = useState(false);
+  const [budgetItems, setBudgetItems] = useState([]);
+  const [loadingBudgetItems, setLoadingBudgetItems] = useState(false);
+
+  const budgetItemById = useMemo(
+    () => Object.fromEntries((budgetItems || []).map((i) => [String(i.id), i])),
+    [budgetItems]
+  );
+
+  const filterResourcesByRow = useCallback(
+    (row) => {
+      const bi = budgetItemById[String(row.budgetItemId)];
+      if (!bi) return [];
+      const label = bi.budgetItemLabel;
+      if (!label) return [];
+      // Match your resource "role" field. If your resources use `position`, keep as-is;
+      // change to `r.role` if that’s the correct field in your data.
+      return (resources || []).filter(
+        (r) => String(r.position || "") === String(label)
+      );
+    },
+    [budgetItemById, resources]
+  );
 
   const [rows, setRows] = useState(() =>
     (initialAssignments || []).map((a) => ({
       key: nanoid(8),
       resourceId: String(a.resourceId),
-      budgetLineId: a.budgetLineId || "",
+      budgetItemId: a.budgetItemId || "",
       assignmentPct: a.assignmentPct ?? 0,
       assignedHoursPerWeek: a.assignedHoursPerWeek ?? "",
       startDate: a.startDate || "",
@@ -114,16 +134,6 @@ export default function TrackableAssignmentsEditor({
     }
     return Array.from(offending);
   }, []);
-
-  const isISODate = (s) =>
-    typeof s === "string" && /^\d{4}-\d{2}-\d{2}$/.test(s);
-  const nextDay = (s) => {
-    const d = new Date(s);
-    if (Number.isNaN(d.getTime())) return "";
-    d.setDate(d.getDate() + 1);
-    return d.toISOString().slice(0, 10);
-  };
-
   // Clear a specific field error for a row
   const clearErr = (key, field) =>
     setErrorsByKey((prev) => {
@@ -132,23 +142,15 @@ export default function TrackableAssignmentsEditor({
       return next;
     });
 
-  const addResource = (rid) => {
+  const addBudgetItem = (budgetItemId) => {
     setRows((prev) => {
-      const sameRes = prev.filter((r) => String(r.resourceId) === String(rid));
-      const lastEnd = sameRes
-        .map((r) => r.endDate)
-        .filter((d) => isISODate(d))
-        .sort()
-        .at(-1);
-      const suggestedStart = lastEnd ? nextDay(lastEnd) : "";
-
       const newRow = {
         key: nanoid(8),
-        resourceId: String(rid),
-        budgetLineId: budgetLines.length === 1 ? String(budgetLines[0].id) : "",
+        resourceId: "", // user will pick a resource now
+        budgetItemId: String(budgetItemId),
         assignmentPct: 0,
         assignedHoursPerWeek: "",
-        startDate: suggestedStart,
+        startDate: "",
         endDate: "",
         dueDate: "",
         role: "",
@@ -185,7 +187,7 @@ export default function TrackableAssignmentsEditor({
   const normaliseRow = useCallback(
     (r) => ({
       resourceId: String(r.resourceId),
-      budgetLineId: r.budgetLineId ? String(r.budgetLineId) : "",
+      budgetItemId: r.budgetItemId ? String(r.budgetItemId) : "",
       assignmentPct: Number(r.assignmentPct || 0),
       assignedHoursPerWeek: toNumberOrNull(r.assignedHoursPerWeek),
       startDate: toNullIfEmpty(r.startDate),
@@ -211,7 +213,7 @@ export default function TrackableAssignmentsEditor({
     const next = (initialAssignments || []).map((a) => ({
       key: nanoid(8),
       resourceId: String(a.resourceId),
-      budgetLineId: a.budgetLineId || "",
+      budgetItemId: a.budgetItemId || "",
       assignmentPct: a.assignmentPct ?? 0,
       assignedHoursPerWeek: a.assignedHoursPerWeek ?? "",
       startDate: a.startDate || "",
@@ -231,24 +233,24 @@ export default function TrackableAssignmentsEditor({
     let ignore = false;
     (async () => {
       if (!trackableId) {
-        setBudgetLines([]);
+        setBudgetItems([]);
         return;
       }
       try {
-        setLoadingBudgetLines(true);
+        setLoadingBudgetItems(true);
         const b = await getActiveBudgetByTrackable(String(trackableId));
         if (!b?.id) {
-          if (!ignore) setBudgetLines([]);
+          if (!ignore) setBudgetItems([]);
           return;
         }
-        const lines = await listBudgetLines(String(b.id));
-        if (!ignore) setBudgetLines(Array.isArray(lines) ? lines : []);
+        const items = await listBudgetItems(String(b.id));
+        if (!ignore) setBudgetItems(Array.isArray(items) ? items : []);
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.error("Failed to load budget lines", e);
-        if (!ignore) setBudgetLines([]);
+        console.error("Failed to load budget items", e);
+        if (!ignore) setBudgetItems([]);
       } finally {
-        if (!ignore) setLoadingBudgetLines(false);
+        if (!ignore) setLoadingBudgetItems(false);
       }
     })();
     return () => {
@@ -283,17 +285,17 @@ export default function TrackableAssignmentsEditor({
       return acc;
     }, {});
 
-    // required fields: startDate, endDate, dueDate
+    // required fields: resourceId, startDate, endDate, dueDate
     const missingMap = {};
     let hasMissing = false;
     for (const r of rows) {
       const miss = {
-        budgetLineId: !r.budgetLineId,
+        resourceId: !r.resourceId,
         startDate: !r.startDate,
         endDate: !r.endDate,
         dueDate: !r.dueDate,
       };
-      if (miss.startDate || miss.endDate || miss.dueDate) {
+      if (miss.resourceId || miss.startDate || miss.endDate || miss.dueDate) {
         missingMap[r.key] = miss;
         hasMissing = true;
       }
@@ -301,7 +303,7 @@ export default function TrackableAssignmentsEditor({
     if (hasMissing) {
       setErrorsByKey(missingMap);
       showAlert(
-        "Please select a Budget line and complete Start, End and Due dates for all assignments.",
+        "Please select a Resource and complete Start, End and Due dates for all assignments.",
         "warning"
       );
       return; // abort save
@@ -343,7 +345,7 @@ export default function TrackableAssignmentsEditor({
         // CREATE: send full payload (nulls where blank), but omit optional nulls/empties
         const base = {
           resourceId: norm.resourceId,
-          budgetLineId: norm.budgetLineId,
+          budgetItemId: norm.budgetItemId,
           trackableId,
           assignmentPct: norm.assignmentPct,
           assignedHoursPerWeek: norm.assignedHoursPerWeek,
@@ -364,12 +366,11 @@ export default function TrackableAssignmentsEditor({
       // EDIT: only send changed fields (PATCH semantics)
       const base = baselineById[String(r.assignmentId)] || {};
       const diff = {};
-      "resourceId,assignmentPct,assignedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
+      "resourceId,budgetItemId,assignmentPct,assignedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
         .split(",")
         .forEach((k) => {
           const a = norm[k];
           const b = base[k];
-          // compare primitives and nulls directly
           if (a !== b) diff[k] = a;
         });
 
@@ -403,15 +404,15 @@ export default function TrackableAssignmentsEditor({
       // create new assignment for this row
       const norm = normaliseRow(row);
       const miss = {
-        budgetLineId: !norm.budgetLineId,
+        resourceId: !norm.resourceId,
         startDate: !row.startDate,
         endDate: !row.endDate,
         dueDate: !row.dueDate,
       };
-      if (miss.budgetLineId || miss.startDate || miss.endDate || miss.dueDate) {
+      if (miss.resourceId || miss.startDate || miss.endDate || miss.dueDate) {
         setErrorsByKey((prev) => ({ ...prev, [row.key]: miss }));
         showAlert(
-          "Select a Budget line and complete Start, End and Due date before saving this row.",
+          "Select a Resource and complete Start, End and Due date before saving this row.",
           "warning"
         );
         return;
@@ -419,7 +420,7 @@ export default function TrackableAssignmentsEditor({
       try {
         const created = await createAssignment({
           resourceId: norm.resourceId,
-          budgetLineId: norm.budgetLineId,
+          budgetItemId: norm.budgetItemId,
           trackableId,
           assignmentPct: norm.assignmentPct,
           assignedHoursPerWeek: norm.assignedHoursPerWeek,
@@ -468,7 +469,7 @@ export default function TrackableAssignmentsEditor({
     const norm = normaliseRow(row);
     const base = getBaselineForId(row.assignmentId);
     const diff = {};
-    "resourceId,budgetLineId,assignmentPct,assignedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
+    "resourceId,budgetItemId,assignmentPct,assignedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
       .split(",")
       .forEach((k) => {
         if (norm[k] !== base[k]) diff[k] = norm[k];
@@ -516,24 +517,28 @@ export default function TrackableAssignmentsEditor({
               spacing={2}
               alignItems={{ xs: "stretch", sm: "center" }}
             >
-              <FormControl size="small" sx={{ minWidth: 220 }}>
-                <InputLabel id="resource-add-label">Add resource</InputLabel>
+              <FormControl
+                size="small"
+                sx={{ minWidth: 260 }}
+                disabled={loadingBudgetItems}
+              >
+                <InputLabel id="item-add-label">Add budget item</InputLabel>
                 <Select
-                  labelId="resource-add-label"
-                  label="Add resource"
+                  labelId="item-add-label"
+                  label="Add budget item"
                   value=""
                   onChange={(e) => {
-                    const rid = String(e.target.value);
-                    if (!rid) return;
-                    addResource(rid);
+                    const bid = String(e.target.value);
+                    if (!bid) return;
+                    addBudgetItem(bid);
                   }}
                 >
                   <MenuItem value="">
                     <em>Select…</em>
                   </MenuItem>
-                  {resources.map((r) => (
-                    <MenuItem key={r.id} value={String(r.id)}>
-                      {r.name}
+                  {budgetItems.map((bl) => (
+                    <MenuItem key={bl.id} value={String(bl.id)}>
+                      {`${trackableName} — ${bl.sectionName} — ${bl.budgetItemLabel}`}
                     </MenuItem>
                   ))}
                 </Select>
@@ -572,7 +577,12 @@ export default function TrackableAssignmentsEditor({
                         sx={{ mb: 1 }}
                       >
                         <Typography variant="subtitle2">
-                          {resourceById[row.resourceId]?.name || row.resourceId}
+                          {(() => {
+                            const bi = budgetItemById[String(row.budgetItemId)];
+                            return bi
+                              ? `${trackableName} — ${bi.sectionName} — ${bi.budgetItemLabel}`
+                              : row.budgetItemId;
+                          })()}
                         </Typography>
                         <Stack direction="row" spacing={1}>
                           <Button
@@ -592,91 +602,35 @@ export default function TrackableAssignmentsEditor({
                         </Stack>
                       </Stack>
                       <Grid container spacing={1}>
-                        <Grid item xs={6}>
-                          <TextField
-                            fullWidth
-                            label="Assignment %"
-                            size="small"
-                            type="number"
-                            inputProps={{ min: 0, max: 100, step: 5 }}
-                            value={row.assignmentPct}
-                            onChange={(e) =>
-                              setRows((prev) =>
-                                prev.map((r) =>
-                                  r.key === row.key
-                                    ? {
-                                        ...r,
-                                        assignmentPct: Number(
-                                          e.target.value || 0
-                                        ),
-                                      }
-                                    : r
-                                )
-                              )
-                            }
-                          />
-                        </Grid>
-                        <Grid item xs={6}>
-                          <TextField
-                            fullWidth
-                            label="Hours/week"
-                            size="small"
-                            type="number"
-                            inputProps={{ min: 0, step: 1 }}
-                            value={row.assignedHoursPerWeek}
-                            onChange={(e) =>
-                              setRows((prev) =>
-                                prev.map((r) =>
-                                  r.key === row.key
-                                    ? {
-                                        ...r,
-                                        assignedHoursPerWeek: e.target.value,
-                                      }
-                                    : r
-                                )
-                              )
-                            }
-                          />
-                        </Grid>
-
                         <Grid item xs={12}>
-                          <FormControl
-                            fullWidth
-                            size="small"
-                            required
-                            disabled={loadingBudgetLines}
-                          >
-                            <InputLabel id={`bl-${row.key}`}>
-                              Budget line
+                          <FormControl fullWidth size="small" required>
+                            <InputLabel id={`res-${row.key}`}>
+                              Resource
                             </InputLabel>
                             <Select
-                              labelId={`bl-${row.key}`}
-                              label="Budget line"
-                              value={row.budgetLineId}
+                              labelId={`res-${row.key}`}
+                              label="Resource"
+                              value={row.resourceId}
                               onChange={(e) =>
                                 setRows((prev) =>
                                   prev.map((r) =>
                                     r.key === row.key
                                       ? {
                                           ...r,
-                                          budgetLineId: String(e.target.value),
+                                          resourceId: String(e.target.value),
                                         }
                                       : r
                                   )
                                 )
                               }
-                              error={!!errorsByKey[row.key]?.budgetLineId}
+                              error={!!errorsByKey[row.key]?.resourceId}
                             >
                               <MenuItem value="">
                                 <em>Select…</em>
                               </MenuItem>
-                              {budgetLines.map((bl) => (
-                                <MenuItem key={bl.id} value={String(bl.id)}>
-                                  {bl.name ||
-                                    bl.title ||
-                                    bl.description ||
-                                    bl.code ||
-                                    bl.id}
+                              {filterResourcesByRow(row).map((r) => (
+                                <MenuItem key={r.id} value={String(r.id)}>
+                                  {r.name}
                                 </MenuItem>
                               ))}
                             </Select>
@@ -839,8 +793,8 @@ export default function TrackableAssignmentsEditor({
                 <Table size="small" sx={{ tableLayout: "auto", minWidth: 900 }}>
                   <TableHead>
                     <TableRow>
+                      <TableCell>Budget item</TableCell>
                       <TableCell>Resource</TableCell>
-                      <TableCell>Budget line</TableCell>
                       <TableCell width={100}>Assignment %</TableCell>
                       <TableCell width={100}>Hours/week</TableCell>
                       <TableCell width={140}>Start</TableCell>
@@ -871,20 +825,23 @@ export default function TrackableAssignmentsEditor({
                               : undefined,
                           }}
                         >
-                          {/* existing desktop cells (unchanged) */}
                           <TableCell>
-                            {resourceById[row.resourceId]?.name ||
-                              row.resourceId}
+                            {(() => {
+                              const bi =
+                                budgetItemById[String(row.budgetItemId)];
+                              return bi
+                                ? `${trackableName} — ${bi.sectionName} — ${bi.budgetItemLabel}`
+                                : row.budgetItemId;
+                            })()}
                           </TableCell>
                           <TableCell>
                             <FormControl
                               size="small"
                               required
                               sx={{ minWidth: 200 }}
-                              disabled={loadingBudgetLines}
                             >
                               <Select
-                                value={row.budgetLineId}
+                                value={row.resourceId}
                                 displayEmpty
                                 onChange={(e) =>
                                   setRows((prev) =>
@@ -892,26 +849,20 @@ export default function TrackableAssignmentsEditor({
                                       r.key === row.key
                                         ? {
                                             ...r,
-                                            budgetLineId: String(
-                                              e.target.value
-                                            ),
+                                            resourceId: String(e.target.value),
                                           }
                                         : r
                                     )
                                   )
                                 }
-                                error={!!errorsByKey[row.key]?.budgetLineId}
+                                error={!!errorsByKey[row.key]?.resourceId}
                               >
                                 <MenuItem value="">
                                   <em>Select…</em>
                                 </MenuItem>
-                                {budgetLines.map((bl) => (
-                                  <MenuItem key={bl.id} value={String(bl.id)}>
-                                    {bl.name ||
-                                      bl.title ||
-                                      bl.description ||
-                                      bl.code ||
-                                      bl.id}
+                                {filterResourcesByRow(row).map((r) => (
+                                  <MenuItem key={r.id} value={String(r.id)}>
+                                    {r.name}
                                   </MenuItem>
                                 ))}
                               </Select>
