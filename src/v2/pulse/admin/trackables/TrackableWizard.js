@@ -231,7 +231,29 @@ function ResourcesStep({
       const res = (resources || []).find(
         (r) => String(r.id) === String(a.resourceId)
       );
-      const rate = Number(a.rateOverride ?? res?.hourlyRate ?? 0);
+      // Prefer explicit override, otherwise fall back to common rate field names
+      const baseRate =
+        res?.hourlyRate ??
+        res?.chargeOutRate ??
+        res?.chargeOutRatePerHour ??
+        res?.rate ??
+        res?.chargeRate ??
+        0;
+      const rate = Number(
+        a?.rateOverride !== undefined &&
+          a?.rateOverride !== null &&
+          a?.rateOverride !== ""
+          ? a.rateOverride
+          : baseRate
+      );
+      if (!rate) {
+        // eslint-disable-next-line no-console
+        console.debug("[ResourcesStep] Missing rate for assignment", {
+          assignmentId: a?.id,
+          resourceId: a?.resourceId,
+          resolvedRate: baseRate,
+        });
+      }
       const aStart = parseISO(a.startDate);
       const aEnd = parseISO(a.endDate);
       if (!aStart || !aEnd) return; // require dates for estimate
@@ -582,7 +604,7 @@ export default function TrackableWizard() {
                         if (idx === 1 && !trackableId) {
                           showAlert("Save details first", "info");
                         } else if (idx === 2 && !hasBudget) {
-                          showAlert("Finalizsssssse a budget first", "info");
+                          showAlert("Finalise a budget first", "info");
                         } else if (idx === 3 && !hasAssignments) {
                           showAlert("Save assignments first", "info");
                         }

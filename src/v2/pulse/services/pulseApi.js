@@ -90,9 +90,9 @@ export const listBudgetItems = (budgetId) =>
   );
 
 // Contributions
-export const listContributions = ({ budgetLineId, resourceId } = {}) => {
+export const listContributions = ({ budgetItemId, resourceId } = {}) => {
   const params = new URLSearchParams();
-  if (budgetLineId) params.append("budgetLineId", budgetLineId);
+  if (budgetItemId) params.append("budgetItemId", budgetItemId);
   if (resourceId) params.append("resourceId", resourceId);
   const qs = params.toString();
   return unwrap(fetchWrapper.get(`${base}/contributions${qs ? `?${qs}` : ""}`));

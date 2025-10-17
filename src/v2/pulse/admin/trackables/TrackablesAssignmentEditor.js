@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { payloadSanitiser, diffObjects } from "lib/utils/payloadSanitiser";
 import {
   Box,
   Stack,
@@ -27,7 +28,7 @@ import {
   updateAssignment,
   createAssignment,
   getActiveBudgetByTrackable,
-  listBudgetItems,
+  listBudgetItemLabels,
 } from "../../services/pulseApi";
 
 export default function TrackableAssignmentsEditor({
@@ -174,15 +175,20 @@ export default function TrackableAssignmentsEditor({
   const toNullIfEmpty = (v) => (v === "" || v == null ? null : v);
   const toNumberOrNull = (v) => (v === "" || v == null ? null : Number(v));
   // Remove null/undefined/empty-string values from an object
-  const compactPayload = (obj) => {
-    const out = {};
-    Object.entries(obj || {}).forEach(([k, v]) => {
-      if (v === null || v === undefined) return;
-      if (typeof v === "string" && v.trim() === "") return;
-      out[k] = v;
-    });
-    return out;
-  };
+
+  // Assignment field config for payloadSanitiser
+  const assignmentFieldConfig = [
+    { key: "resourceId", inputType: "text" },
+    { key: "budgetItemId", inputType: "text" },
+    { key: "assignmentPct", inputType: "text" },
+    { key: "assignedHoursPerWeek", inputType: "text" },
+    { key: "startDate", inputType: "date" },
+    { key: "endDate", inputType: "date" },
+    { key: "dueDate", inputType: "date" },
+    { key: "role", inputType: "text" },
+    { key: "rateOverride", inputType: "text" },
+    { key: "notes", inputType: "text" },
+  ];
 
   const normaliseRow = useCallback(
     (r) => ({
@@ -243,7 +249,7 @@ export default function TrackableAssignmentsEditor({
           if (!ignore) setBudgetItems([]);
           return;
         }
-        const items = await listBudgetItems(String(b.id));
+        const items = await listBudgetItemLabels(String(b.id));
         if (!ignore) setBudgetItems(Array.isArray(items) ? items : []);
       } catch (e) {
         // eslint-disable-next-line no-console
@@ -285,17 +291,29 @@ export default function TrackableAssignmentsEditor({
       return acc;
     }, {});
 
-    // required fields: resourceId, startDate, endDate, dueDate
+    // required fields: resourceId, assignmentPct, startDate, endDate, dueDate
     const missingMap = {};
     let hasMissing = false;
     for (const r of rows) {
       const miss = {
         resourceId: !r.resourceId,
+        assignmentPct:
+          r.assignmentPct === "" ||
+          r.assignmentPct === null ||
+          Number.isNaN(Number(r.assignmentPct)) ||
+          Number(r.assignmentPct) <= 0 ||
+          Number(r.assignmentPct) > 100,
         startDate: !r.startDate,
         endDate: !r.endDate,
         dueDate: !r.dueDate,
       };
-      if (miss.resourceId || miss.startDate || miss.endDate || miss.dueDate) {
+      if (
+        miss.resourceId ||
+        miss.assignmentPct ||
+        miss.startDate ||
+        miss.endDate ||
+        miss.dueDate
+      ) {
         missingMap[r.key] = miss;
         hasMissing = true;
       }
@@ -303,7 +321,7 @@ export default function TrackableAssignmentsEditor({
     if (hasMissing) {
       setErrorsByKey(missingMap);
       showAlert(
-        "Please select a Resource and complete Start, End and Due dates for all assignments.",
+        "Please select a Resource, set Assignment % between 1 and 100, and complete Start, End and Due dates for all assignments.",
         "warning"
       );
       return; // abort save
@@ -337,51 +355,59 @@ export default function TrackableAssignmentsEditor({
       setOverlapKeys([]);
     }
 
-    // Build assignments: create = full, edit = diff only
+    // Build assignments: create = full, edit = diff only, using payloadSanitiser and filtering out null/empty
     const assignments = rows.map((r) => {
       const norm = normaliseRow(r);
 
       if (!r.assignmentId) {
-        // CREATE: send full payload (nulls where blank), but omit optional nulls/empties
-        const base = {
+        // CREATE: send full payload, sanitised, filter out null/empty
+        const raw = {
           resourceId: norm.resourceId,
           budgetItemId: norm.budgetItemId,
-          trackableId,
+          // trackableId removed from payload
           assignmentPct: norm.assignmentPct,
           assignedHoursPerWeek: norm.assignedHoursPerWeek,
           startDate: norm.startDate,
           endDate: norm.endDate,
           dueDate: norm.dueDate,
-          customerId: userService.userValue.customerId,
-          createdBy: userService.userValue.id,
-        };
-        const optional = compactPayload({
           role: norm.role,
           rateOverride: norm.rateOverride,
           notes: norm.notes,
-        });
-        return { ...base, ...optional };
+        };
+        const sanitised = payloadSanitiser(raw, assignmentFieldConfig);
+        // Remove null or empty string keys
+        const filtered = Object.fromEntries(
+          Object.entries(sanitised).filter(([, v]) => v !== null && v !== "")
+        );
+        return {
+          ...filtered,
+          customerId: userService.userValue.customerId,
+          createdBy: userService.userValue.id,
+        };
       }
 
       // EDIT: only send changed fields (PATCH semantics)
       const base = baselineById[String(r.assignmentId)] || {};
-      const diff = {};
-      "resourceId,budgetItemId,assignmentPct,assignedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
-        .split(",")
-        .forEach((k) => {
-          const a = norm[k];
-          const b = base[k];
-          if (a !== b) diff[k] = a;
-        });
-
-      // Compact diff and skip if nothing remains
-      const cleaned = compactPayload(diff);
-      if (Object.keys(cleaned).length === 0) {
+      const diff = diffObjects(norm, base);
+      // Always include required foreign keys for PUT validators
+      const core = {
+        resourceId: norm.resourceId,
+        budgetItemId: norm.budgetItemId,
+        assignmentPct: norm.assignmentPct, // always include for PUT validation
+      };
+      const sanitised = payloadSanitiser(
+        { ...core, ...diff },
+        assignmentFieldConfig
+      );
+      const filtered = Object.fromEntries(
+        Object.entries(sanitised).filter(([, v]) => v !== null && v !== "")
+      );
+      if (Object.keys(filtered).length === 0) {
         return null; // skip no-op
       }
       return {
         id: String(r.assignmentId),
-        ...cleaned,
+        ...filtered,
         customerId: userService.userValue.customerId,
         updatedBy: userService.userValue.id,
       };
@@ -396,32 +422,41 @@ export default function TrackableAssignmentsEditor({
   const saveRow = async (rowKey) => {
     const row = rows.find((r) => r.key === rowKey);
     if (!row) return;
-    if (!row.assignmentId) {
-      showAlert("Use 'Save assignments' to create new rows first.", "info");
-      return;
-    }
+    // Removed early guard that prevented creating new rows
     if (!row.assignmentId) {
       // create new assignment for this row
       const norm = normaliseRow(row);
       const miss = {
         resourceId: !norm.resourceId,
+        assignmentPct:
+          row.assignmentPct === "" ||
+          row.assignmentPct === null ||
+          Number.isNaN(Number(row.assignmentPct)) ||
+          Number(row.assignmentPct) <= 0 ||
+          Number(row.assignmentPct) > 100,
         startDate: !row.startDate,
         endDate: !row.endDate,
         dueDate: !row.dueDate,
       };
-      if (miss.resourceId || miss.startDate || miss.endDate || miss.dueDate) {
+      if (
+        miss.resourceId ||
+        miss.assignmentPct ||
+        miss.startDate ||
+        miss.endDate ||
+        miss.dueDate
+      ) {
         setErrorsByKey((prev) => ({ ...prev, [row.key]: miss }));
         showAlert(
-          "Select a Resource and complete Start, End and Due date before saving this row.",
+          "Select a Resource, set Assignment % between 1 and 100, and complete Start, End and Due date before saving this row.",
           "warning"
         );
         return;
       }
       try {
-        const created = await createAssignment({
+        const raw = {
           resourceId: norm.resourceId,
           budgetItemId: norm.budgetItemId,
-          trackableId,
+          // trackableId removed from payload
           assignmentPct: norm.assignmentPct,
           assignedHoursPerWeek: norm.assignedHoursPerWeek,
           startDate: norm.startDate,
@@ -430,6 +465,13 @@ export default function TrackableAssignmentsEditor({
           role: norm.role,
           rateOverride: norm.rateOverride,
           notes: norm.notes,
+        };
+        const sanitised = payloadSanitiser(raw, assignmentFieldConfig);
+        const filtered = Object.fromEntries(
+          Object.entries(sanitised).filter(([, v]) => v !== null && v !== "")
+        );
+        const created = await createAssignment({
+          ...filtered,
           customerId: userService.userValue.customerId,
           createdBy: userService.userValue.id,
         });
@@ -453,14 +495,27 @@ export default function TrackableAssignmentsEditor({
 
     // required field guard (single row)
     const miss = {
+      resourceId: !row.resourceId,
+      assignmentPct:
+        row.assignmentPct === "" ||
+        row.assignmentPct === null ||
+        Number.isNaN(Number(row.assignmentPct)) ||
+        Number(row.assignmentPct) <= 0 ||
+        Number(row.assignmentPct) > 100,
       startDate: !row.startDate,
       endDate: !row.endDate,
       dueDate: !row.dueDate,
     };
-    if (miss.startDate || miss.endDate || miss.dueDate) {
+    if (
+      miss.resourceId ||
+      miss.assignmentPct ||
+      miss.startDate ||
+      miss.endDate ||
+      miss.dueDate
+    ) {
       setErrorsByKey((prev) => ({ ...prev, [row.key]: miss }));
       showAlert(
-        "Complete Start, End and Due date before saving this row.",
+        "Select a Resource, set Assignment % between 1 and 100, and complete Start, End and Due date before saving this row.",
         "warning"
       );
       return;
@@ -468,22 +523,27 @@ export default function TrackableAssignmentsEditor({
 
     const norm = normaliseRow(row);
     const base = getBaselineForId(row.assignmentId);
-    const diff = {};
-    "resourceId,budgetItemId,assignmentPct,assignedHoursPerWeek,startDate,endDate,dueDate,role,rateOverride,notes"
-      .split(",")
-      .forEach((k) => {
-        if (norm[k] !== base[k]) diff[k] = norm[k];
-      });
-
-    const cleaned = compactPayload(diff);
-    if (Object.keys(cleaned).length === 0) {
+    const diff = diffObjects(norm, base);
+    const core = {
+      resourceId: norm.resourceId,
+      budgetItemId: norm.budgetItemId,
+      assignmentPct: norm.assignmentPct, // ensure present on updates
+    };
+    const sanitised = payloadSanitiser(
+      { ...core, ...diff },
+      assignmentFieldConfig
+    );
+    const filtered = Object.fromEntries(
+      Object.entries(sanitised).filter(([, v]) => v !== null && v !== "")
+    );
+    if (Object.keys(filtered).length === 0) {
       showAlert("No changes to save.", "info");
       return;
     }
 
     try {
       await updateAssignment(String(row.assignmentId), {
-        ...cleaned,
+        ...filtered,
         customerId: userService.userValue.customerId,
         updatedBy: userService.userValue.id,
       });
@@ -607,33 +667,51 @@ export default function TrackableAssignmentsEditor({
                             <InputLabel id={`res-${row.key}`}>
                               Resource
                             </InputLabel>
-                            <Select
-                              labelId={`res-${row.key}`}
-                              label="Resource"
-                              value={row.resourceId}
-                              onChange={(e) =>
-                                setRows((prev) =>
-                                  prev.map((r) =>
-                                    r.key === row.key
-                                      ? {
-                                          ...r,
-                                          resourceId: String(e.target.value),
-                                        }
-                                      : r
-                                  )
-                                )
-                              }
-                              error={!!errorsByKey[row.key]?.resourceId}
-                            >
-                              <MenuItem value="">
-                                <em>Select…</em>
-                              </MenuItem>
-                              {filterResourcesByRow(row).map((r) => (
-                                <MenuItem key={r.id} value={String(r.id)}>
-                                  {r.name}
-                                </MenuItem>
-                              ))}
-                            </Select>
+                            {(() => {
+                              const resOptions = filterResourcesByRow(row);
+                              const safeResourceId = resOptions.some(
+                                (opt) =>
+                                  String(opt.id) === String(row.resourceId)
+                              )
+                                ? row.resourceId
+                                : "";
+                              return (
+                                <Select
+                                  labelId={`res-${row.key}`}
+                                  label="Resource"
+                                  value={safeResourceId}
+                                  displayEmpty
+                                  disabled={
+                                    loadingBudgetItems ||
+                                    resOptions.length === 0
+                                  }
+                                  onChange={(e) =>
+                                    setRows((prev) =>
+                                      prev.map((r) =>
+                                        r.key === row.key
+                                          ? {
+                                              ...r,
+                                              resourceId: String(
+                                                e.target.value
+                                              ),
+                                            }
+                                          : r
+                                      )
+                                    )
+                                  }
+                                  error={!!errorsByKey[row.key]?.resourceId}
+                                >
+                                  <MenuItem value="">
+                                    <em>Select…</em>
+                                  </MenuItem>
+                                  {resOptions.map((r) => (
+                                    <MenuItem key={r.id} value={String(r.id)}>
+                                      {r.name}
+                                    </MenuItem>
+                                  ))}
+                                </Select>
+                              );
+                            })()}
                           </FormControl>
                         </Grid>
 
@@ -840,32 +918,49 @@ export default function TrackableAssignmentsEditor({
                               required
                               sx={{ minWidth: 200 }}
                             >
-                              <Select
-                                value={row.resourceId}
-                                displayEmpty
-                                onChange={(e) =>
-                                  setRows((prev) =>
-                                    prev.map((r) =>
-                                      r.key === row.key
-                                        ? {
-                                            ...r,
-                                            resourceId: String(e.target.value),
-                                          }
-                                        : r
-                                    )
-                                  )
-                                }
-                                error={!!errorsByKey[row.key]?.resourceId}
-                              >
-                                <MenuItem value="">
-                                  <em>Select…</em>
-                                </MenuItem>
-                                {filterResourcesByRow(row).map((r) => (
-                                  <MenuItem key={r.id} value={String(r.id)}>
-                                    {r.name}
-                                  </MenuItem>
-                                ))}
-                              </Select>
+                              {(() => {
+                                const resOptions = filterResourcesByRow(row);
+                                const safeResourceId = resOptions.some(
+                                  (opt) =>
+                                    String(opt.id) === String(row.resourceId)
+                                )
+                                  ? row.resourceId
+                                  : "";
+                                return (
+                                  <Select
+                                    value={safeResourceId}
+                                    displayEmpty
+                                    disabled={
+                                      loadingBudgetItems ||
+                                      resOptions.length === 0
+                                    }
+                                    onChange={(e) =>
+                                      setRows((prev) =>
+                                        prev.map((r) =>
+                                          r.key === row.key
+                                            ? {
+                                                ...r,
+                                                resourceId: String(
+                                                  e.target.value
+                                                ),
+                                              }
+                                            : r
+                                        )
+                                      )
+                                    }
+                                    error={!!errorsByKey[row.key]?.resourceId}
+                                  >
+                                    <MenuItem value="">
+                                      <em>Select…</em>
+                                    </MenuItem>
+                                    {resOptions.map((r) => (
+                                      <MenuItem key={r.id} value={String(r.id)}>
+                                        {r.name}
+                                      </MenuItem>
+                                    ))}
+                                  </Select>
+                                );
+                              })()}
                             </FormControl>
                           </TableCell>
                           <TableCell>
@@ -873,6 +968,8 @@ export default function TrackableAssignmentsEditor({
                               size="small"
                               type="number"
                               inputProps={{ min: 0, max: 100, step: 5 }}
+                              required
+                              error={!!errorsByKey[row.key]?.assignmentPct}
                               value={row.assignmentPct}
                               onChange={(e) =>
                                 setRows((prev) =>
