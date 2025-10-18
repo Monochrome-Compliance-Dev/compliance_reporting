@@ -32,8 +32,8 @@ export default function AssignmentSection({
       <Paper
         variant="outlined"
         sx={{
-          flex: "0 0 52px",
-          width: 52,
+          flex: "0 0 48px",
+          width: 48,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -64,10 +64,11 @@ export default function AssignmentSection({
     <Paper
       variant="outlined"
       sx={{
-        flex: "0 0 360px",
-        width: { xs: "100%", md: 330 },
+        flex: "1 1 auto",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
+        boxSizing: "border-box",
       }}
     >
       <Box sx={{ p: 2, borderBottom: "1px solid", borderColor: "divider" }}>
@@ -76,22 +77,7 @@ export default function AssignmentSection({
           alignItems="center"
           justifyContent="space-between"
         >
-          <Stack direction="row" spacing={1} alignItems="center">
-            <IconButton size="small" onClick={onToggleCollapse}>
-              <ChevronLeftIcon fontSize="small" />
-            </IconButton>
-            <Typography variant="subtitle1">Sections</Typography>
-          </Stack>
-          {typeof onAdd === "function" && (
-            <Button
-              size="small"
-              variant="outlined"
-              onClick={onAdd}
-              disabled={addDisabled}
-            >
-              Add
-            </Button>
-          )}
+          <Typography variant="subtitle1">Sections</Typography>
         </Stack>
       </Box>
 

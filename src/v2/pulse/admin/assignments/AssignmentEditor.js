@@ -11,30 +11,23 @@ import {
   TableCell,
   TableBody,
   FormControl,
-  FormHelperText,
-  InputLabel,
   Select,
   MenuItem,
   TextField,
   Paper,
-  useMediaQuery,
   Chip,
   Divider,
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Menu,
   IconButton,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
+  Collapse,
 } from "@mui/material";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AddIcon from "@mui/icons-material/Add";
 import AssignmentSection from "./AssignmentSection";
 
-import { useTheme } from "@mui/material/styles";
 import { userService } from "services";
 import { nanoid } from "nanoid";
 import { useAlert } from "context";
@@ -43,8 +36,8 @@ import {
   createAssignment,
   getActiveBudgetByTrackable,
   listBudgetItemLabels,
-  createResource,
 } from "../../services/pulseApi";
+import ResourceQuickDialog from "../resources/ResourceQuickDialog";
 
 export default function TrackableAssignmentsEditor({
   trackableId,
@@ -77,21 +70,28 @@ export default function TrackableAssignmentsEditor({
     setLocalResources(resources || []);
   }, [resources]);
 
-  const theme = useTheme();
-  const isXs = useMediaQuery(theme.breakpoints.down("sm"));
   const [budgetItems, setBudgetItems] = useState([]);
-  const [loadingBudgetItems, setLoadingBudgetItems] = useState(false);
+  const [, setLoadingBudgetItems] = useState(false);
   const [sectionsCollapsed, setSectionsCollapsed] = useState(false);
+  const [budgetCurrency, setBudgetCurrency] = useState("");
+  const formatCurrency = useMemo(() => {
+    return (v) => {
+      if (typeof v !== "number" || Number.isNaN(v)) return "";
 
-  const [addAnchor, setAddAnchor] = useState(null);
-  const addMenuOpen = Boolean(addAnchor);
-  const openAddMenu = (e) => setAddAnchor(e.currentTarget);
-  const closeAddMenu = () => setAddAnchor(null);
-  const handleAddBudgetItem = (bid) => {
-    if (!bid) return;
-    addBudgetItem(String(bid));
-    closeAddMenu();
-  };
+      try {
+        return new Intl.NumberFormat(undefined, {
+          style: "currency",
+          currency: budgetCurrency || "USD",
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }).format(v);
+      } catch {
+        return `$${v.toFixed(2)}`;
+      }
+    };
+  }, [budgetCurrency]);
+
+  // (Top-add menu state and handlers removed)
 
   // Section filtering derived from budget items
   const [selectedSection, setSelectedSection] = useState("");
@@ -137,14 +137,6 @@ export default function TrackableAssignmentsEditor({
   );
 
   // Memoized selector for addable budget items for the selected section
-  const addableForSelected = useMemo(
-    () =>
-      (budgetItemsForSection || []).filter(
-        (bi) =>
-          !(rows || []).some((r) => String(r.budgetItemId) === String(bi.id))
-      ),
-    [budgetItemsForSection, rows]
-  );
 
   const budgetItemById = useMemo(
     () => Object.fromEntries((budgetItems || []).map((i) => [String(i.id), i])),
@@ -158,6 +150,19 @@ export default function TrackableAssignmentsEditor({
       return bi && String(bi.sectionName) === String(selectedSection);
     });
   }, [rows, budgetItemById, selectedSection]);
+
+  const rowsByBudgetItemId = useMemo(() => {
+    const map = {};
+    (rows || []).forEach((r) => {
+      const id = String(r.budgetItemId || "");
+      (map[id] ||= []).push(r);
+    });
+    return map;
+  }, [rows]);
+
+  const [expandedMap, setExpandedMap] = useState({});
+  const toggleExpanded = (id) =>
+    setExpandedMap((m) => ({ ...m, [String(id)]: !m[String(id)] }));
 
   const selectedAssignedHours = useMemo(
     () =>
@@ -203,23 +208,30 @@ export default function TrackableAssignmentsEditor({
     },
     [budgetItemById, localResources]
   );
+  const rateByResourceId = useCallback(
+    (id) => {
+      const r = (localResources || []).find((x) => String(x.id) === String(id));
+      const raw = r?.hourlyRate ?? r?.rate ?? r?.chargeOutRate;
+      const n = Number(raw);
+      return Number.isFinite(n) ? n : 0;
+    },
+    [localResources]
+  );
+
   const [errorsByKey, setErrorsByKey] = useState({});
 
   const [overlapKeys, setOverlapKeys] = useState([]);
 
   // Quick-add Resource modal state
   const [addResOpen, setAddResOpen] = useState(false);
+  const collapseSections = useCallback(() => setSectionsCollapsed(true), []);
   const [addResDefaults, setAddResDefaults] = useState({
     role: "",
     rowKey: null,
     budgetItemId: "",
   });
-  const [addResForm, setAddResForm] = useState({
-    name: "",
-    email: "",
-    roleTitle: "",
-    hourlyRate: "",
-  });
+
+  // Validators for Add Resource dialog
 
   const openAddResourceForRow = (row) => {
     const bi = budgetItemById[String(row.budgetItemId)];
@@ -229,75 +241,9 @@ export default function TrackableAssignmentsEditor({
       rowKey: row.key,
       budgetItemId: String(row.budgetItemId || ""),
     });
-    setAddResForm({ name: "", email: "", roleTitle: label, hourlyRate: "" });
     setAddResOpen(true);
   };
   const closeAddResource = () => setAddResOpen(false);
-
-  const handleCreateResource = async () => {
-    // Use parent hook if provided, otherwise call API directly
-    const creator =
-      typeof onQuickAddResource === "function"
-        ? onQuickAddResource
-        : async (p) =>
-            createResource({
-              ...p,
-              customerId: userService.userValue.customerId,
-              createdBy: userService.userValue.id,
-            });
-
-    try {
-      const payload = {
-        name: addResForm.name?.trim(),
-        email: addResForm.email?.trim() || undefined,
-        roleTitle: addResForm.roleTitle?.trim() || addResDefaults.role,
-        position: addResForm.roleTitle?.trim() || addResDefaults.role,
-        hourlyRate:
-          addResForm.hourlyRate === ""
-            ? undefined
-            : Number(addResForm.hourlyRate),
-      };
-
-      const created = await creator(payload);
-      if (!created || !created.id) {
-        showAlert("Failed to create resource.", "error");
-        return;
-      }
-
-      // Add to in-memory list and auto-select for the originating row
-      setLocalResources((prev) => {
-        const exists = (prev || []).some(
-          (r) => String(r.id) === String(created.id)
-        );
-        return exists ? prev : [...(prev || []), created];
-      });
-      if (addResDefaults.rowKey) {
-        setRows((prev) =>
-          prev.map((r) =>
-            r.key === addResDefaults.rowKey
-              ? { ...r, resourceId: String(created.id) }
-              : r
-          )
-        );
-        // Tiny UX nicety: flash and focus the resource select on the newly updated row
-        setFlashRowKey(addResDefaults.rowKey);
-        setTimeout(() => {
-          const el = selectRefs.current?.[addResDefaults.rowKey];
-          if (el) {
-            try {
-              el.focus();
-            } catch {}
-          }
-        }, 0);
-      }
-      setAddResOpen(false);
-      showAlert("Resource added.", "success");
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error("Quick resource add failed", e);
-      showAlert("Failed to add resource.", "error");
-    }
-  };
 
   // Derived totals for parent chips
   const assignedHoursTotal = useMemo(
@@ -457,6 +403,7 @@ export default function TrackableAssignmentsEditor({
           if (!ignore) setBudgetItems([]);
           return;
         }
+        if (!ignore) setBudgetCurrency(String(b.currency || ""));
         const items = await listBudgetItemLabels(String(b.id));
         if (!ignore) setBudgetItems(Array.isArray(items) ? items : []);
       } catch (e) {
@@ -491,140 +438,6 @@ export default function TrackableAssignmentsEditor({
     (id) => baselineOverride[String(id)] ?? baselineById[String(id)] ?? {},
     [baselineOverride, baselineById]
   );
-
-  const handleSave = async () => {
-    // validate: required fields per row
-    const byRes = rows.reduce((acc, r) => {
-      (acc[r.resourceId] ||= []).push(r);
-      return acc;
-    }, {});
-
-    // required fields: resourceId, assignmentPct, startDate, endDate, dueDate
-    const missingMap = {};
-    let hasMissing = false;
-    for (const r of rows) {
-      const miss = {
-        resourceId: !r.resourceId,
-        assignmentPct:
-          r.assignmentPct === "" ||
-          r.assignmentPct === null ||
-          Number.isNaN(Number(r.assignmentPct)) ||
-          Number(r.assignmentPct) <= 0 ||
-          Number(r.assignmentPct) > 100,
-        startDate: !r.startDate,
-        endDate: !r.endDate,
-        dueDate: !r.dueDate,
-      };
-      if (
-        miss.resourceId ||
-        miss.assignmentPct ||
-        miss.startDate ||
-        miss.endDate ||
-        miss.dueDate
-      ) {
-        missingMap[r.key] = miss;
-        hasMissing = true;
-      }
-    }
-    if (hasMissing) {
-      setErrorsByKey(missingMap);
-      showAlert(
-        "Please select a Resource, set Assignment % between 1 and 100, and complete Start, End and Due dates for all assignments.",
-        "warning"
-      );
-      return; // abort save
-    }
-    setErrorsByKey({});
-
-    // validate: no overlapping date ranges per resource
-    const offending = new Set();
-    for (const rid of Object.keys(byRes)) {
-      const entries = byRes[rid];
-      for (let i = 0; i < entries.length; i++) {
-        for (let j = i + 1; j < entries.length; j++) {
-          const a = entries[i];
-          const b = entries[j];
-          if (datesOverlap(a.startDate, a.endDate, b.startDate, b.endDate)) {
-            offending.add(a.key);
-            offending.add(b.key);
-          }
-        }
-      }
-    }
-
-    if (offending.size > 0) {
-      setOverlapKeys(Array.from(offending));
-      showAlert(
-        "Overlapping assignments for the same resource. Set non-overlapping dates.",
-        "warning"
-      );
-      return; // abort save
-    } else {
-      setOverlapKeys([]);
-    }
-
-    // Build assignments: create = full, edit = diff only, using payloadSanitiser and filtering out null/empty
-    const assignments = rows.map((r) => {
-      const norm = normaliseRow(r);
-
-      if (!r.assignmentId) {
-        // CREATE: send full payload, sanitised, filter out null/empty
-        const raw = {
-          resourceId: norm.resourceId,
-          budgetItemId: norm.budgetItemId,
-          // trackableId removed from payload
-          assignmentPct: norm.assignmentPct,
-          assignedHoursPerWeek: norm.assignedHoursPerWeek,
-          startDate: norm.startDate,
-          endDate: norm.endDate,
-          dueDate: norm.dueDate,
-          role: norm.role,
-          rateOverride: norm.rateOverride,
-          notes: norm.notes,
-        };
-        const sanitised = payloadSanitiser(raw, assignmentFieldConfig);
-        // Remove null or empty string keys
-        const filtered = Object.fromEntries(
-          Object.entries(sanitised).filter(([, v]) => v !== null && v !== "")
-        );
-        return {
-          ...filtered,
-          customerId: userService.userValue.customerId,
-          createdBy: userService.userValue.id,
-        };
-      }
-
-      // EDIT: only send changed fields (PATCH semantics)
-      const base = baselineById[String(r.assignmentId)] || {};
-      const diff = diffObjects(norm, base);
-      // Always include required foreign keys for PUT validators
-      const core = {
-        resourceId: norm.resourceId,
-        budgetItemId: norm.budgetItemId,
-        assignmentPct: norm.assignmentPct, // always include for PUT validation
-      };
-      const sanitised = payloadSanitiser(
-        { ...core, ...diff },
-        assignmentFieldConfig
-      );
-      const filtered = Object.fromEntries(
-        Object.entries(sanitised).filter(([, v]) => v !== null && v !== "")
-      );
-      if (Object.keys(filtered).length === 0) {
-        return null; // skip no-op
-      }
-      return {
-        id: String(r.assignmentId),
-        ...filtered,
-        customerId: userService.userValue.customerId,
-        updatedBy: userService.userValue.id,
-      };
-    });
-
-    // Filter out any nulls (no-op edits) before sending to onSave
-    const filtered = assignments.filter(Boolean);
-    await onSave?.(filtered);
-  };
 
   // Per-row save handler (PATCHes only changed fields, updates local baseline)
   const saveRow = async (rowKey) => {
@@ -790,8 +603,9 @@ export default function TrackableAssignmentsEditor({
               <Box
                 sx={{
                   flex: "0 0 auto",
-                  width: { xs: "100%", md: sectionsCollapsed ? 48 : 360 },
+                  width: { xs: "100%", md: sectionsCollapsed ? 48 : 220 },
                   height: "100%",
+                  position: "relative",
                   transition: (theme) =>
                     theme.transitions.create("width", {
                       easing: theme.transitions.easing.sharp,
@@ -843,9 +657,7 @@ export default function TrackableAssignmentsEditor({
                         <Typography
                           variant="subtitle1"
                           sx={{ fontWeight: 600 }}
-                        >
-                          {`Items — ${String(selectedSection)}`}
-                        </Typography>
+                        >{`Items — ${String(selectedSection)}`}</Typography>
                         <Stack
                           direction="row"
                           spacing={1}
@@ -861,441 +673,623 @@ export default function TrackableAssignmentsEditor({
                             size="small"
                             label={`Hours/week: ${selectedAssignedHours}`}
                           />
-                          <IconButton
-                            size="small"
-                            onClick={openAddMenu}
-                            aria-controls={
-                              addMenuOpen ? "assignments-add-menu" : undefined
-                            }
-                            aria-haspopup="true"
-                            aria-expanded={addMenuOpen ? "true" : undefined}
-                          >
-                            <AddIcon />
-                          </IconButton>
+                          {(() => {
+                            const sectionAssignedDollars = (
+                              rowsForSelected || []
+                            ).reduce((sum, r) => {
+                              const hrs = Number(r.assignedHoursPerWeek) || 0;
+                              const rate = rateByResourceId(r.resourceId);
+                              return sum + hrs * rate;
+                            }, 0);
+                            const sectionBudgetDollars = (
+                              budgetItemsForSection || []
+                            ).reduce((sum, bi) => {
+                              const h = Number(bi.hours);
+                              const rt = Number(bi.rate);
+                              return Number.isFinite(h) && Number.isFinite(rt)
+                                ? sum + h * rt
+                                : sum;
+                            }, 0);
+                            const hasBudget$ = sectionBudgetDollars > 0;
+                            const label = hasBudget$
+                              ? `Assigned $ / Budget $: ${formatCurrency(sectionAssignedDollars)} / ${formatCurrency(sectionBudgetDollars)}`
+                              : `Assigned $/week: ${formatCurrency(sectionAssignedDollars)}`;
+                            return <Chip size="small" label={label} />;
+                          })()}
                         </Stack>
                       </Stack>
                       <Divider sx={{ my: 1 }} />
 
-                      <Menu
-                        id="assignments-add-menu"
-                        anchorEl={addAnchor}
-                        open={addMenuOpen}
-                        onClose={closeAddMenu}
-                        keepMounted
-                      >
-                        {addableForSelected.length === 0 ? (
-                          <MenuItem disabled>
-                            No budget items available
-                          </MenuItem>
-                        ) : (
-                          addableForSelected.map((bi) => (
-                            <MenuItem
-                              key={bi.id}
-                              onClick={() => handleAddBudgetItem(bi.id)}
-                            >
-                              {`${trackableName} — ${bi.sectionName} — ${bi.budgetItemLabel}`}
-                            </MenuItem>
-                          ))
-                        )}
-                      </Menu>
-
-                      <Table
-                        size="small"
-                        sx={{ tableLayout: "auto", minWidth: 1000 }}
-                        stickyHeader
-                      >
-                        <TableHead>
-                          <TableRow>
-                            {[
-                              "Budget item",
-                              "Resource",
-                              "Assignment %",
-                              "Hours/week",
-                              "Start",
-                              "End",
-                              "Due date",
-                              "Role",
-                              "Rate override",
-                              "Notes",
-                              "Actions",
-                            ].map((label, idx) => (
-                              <TableCell
-                                key={label}
-                                align={idx >= 2 && idx <= 5 ? "right" : "left"}
+                      {(budgetItemsForSection || []).length === 0 ? (
+                        <Typography color="text.secondary">
+                          No budget items in this section.
+                        </Typography>
+                      ) : (
+                        <Stack spacing={2}>
+                          {budgetItemsForSection.map((bi) => {
+                            const list =
+                              rowsByBudgetItemId[String(bi.id)] || [];
+                            const hrs = list.reduce(
+                              (s, r) =>
+                                s + (Number(r.assignedHoursPerWeek) || 0),
+                              0
+                            );
+                            const isOpen = !!expandedMap[String(bi.id)];
+                            return (
+                              <Paper
+                                key={bi.id}
+                                variant="outlined"
+                                sx={{ overflowX: "auto" }}
                               >
-                                {label}
-                              </TableCell>
-                            ))}
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {rowsForSelected.length === 0 ? (
-                            <TableRow>
-                              <TableCell colSpan={11}>
-                                <Box display="flex" alignItems="center" gap={1}>
-                                  <Typography color="text.secondary">
-                                    No assignments for this section.
-                                  </Typography>
-                                  <Button
-                                    size="small"
-                                    startIcon={<AddIcon />}
-                                    onClick={openAddMenu}
-                                  >
-                                    Add budget item
-                                  </Button>
-                                </Box>
-                              </TableCell>
-                            </TableRow>
-                          ) : (
-                            rowsForSelected.map((row) => {
-                              const bi =
-                                budgetItemById[String(row.budgetItemId)];
-                              const resOptions = filterResourcesByRow(row);
-                              const safeResourceId = (resOptions || []).some(
-                                (opt) =>
-                                  String(opt.id) === String(row.resourceId)
-                              )
-                                ? String(row.resourceId)
-                                : "";
-                              return (
-                                <TableRow
-                                  key={row.key}
+                                <Box
                                   sx={{
-                                    backgroundColor:
-                                      flashRowKey === row.key
-                                        ? (theme) =>
-                                            theme.palette.success.light + "33"
-                                        : overlapKeys.includes(row.key)
-                                          ? (theme) =>
-                                              theme.palette.error.light + "33"
-                                          : undefined,
-                                    transition: "background-color 300ms",
+                                    px: 2,
+                                    py: 1,
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "space-between",
+                                    backgroundColor: (t) =>
+                                      t.palette.action.hover,
                                   }}
                                 >
-                                  <TableCell sx={{ minWidth: 280 }}>
-                                    {bi
-                                      ? `${trackableName} — ${bi.sectionName} — ${bi.budgetItemLabel}`
-                                      : row.budgetItemId}
-                                  </TableCell>
-                                  <TableCell sx={{ minWidth: 220 }}>
-                                    <FormControl
-                                      fullWidth
-                                      size="small"
-                                      required
+                                  <Stack spacing={0.25}>
+                                    <Typography
+                                      variant="subtitle2"
+                                      sx={{ fontWeight: 600 }}
                                     >
-                                      <InputLabel id={`res-${row.key}`} shrink>
-                                        Resource
-                                      </InputLabel>
-                                      <Select
-                                        labelId={`res-${row.key}`}
-                                        label="Resource"
-                                        value={safeResourceId}
-                                        displayEmpty
-                                        disabled={
-                                          loadingBudgetItems ||
-                                          resOptions.length === 0
-                                        }
-                                        inputRef={(el) => {
-                                          if (el)
-                                            selectRefs.current[row.key] = el;
+                                      {bi.budgetItemLabel}
+                                    </Typography>
+                                    {bi.purpose ? (
+                                      <Typography
+                                        variant="caption"
+                                        color="text.secondary"
+                                      >
+                                        Purpose: {bi.purpose}
+                                      </Typography>
+                                    ) : null}
+                                  </Stack>
+                                  <Stack
+                                    direction="row"
+                                    spacing={1}
+                                    alignItems="center"
+                                  >
+                                    <Chip
+                                      size="small"
+                                      label={`Assignments: ${list.length}`}
+                                    />
+                                    <Chip
+                                      size="small"
+                                      label={`Hours/week: ${hrs}`}
+                                    />
+                                    {(() => {
+                                      // Assigned $/week across rows for this item
+                                      const assignedDollars = (
+                                        list || []
+                                      ).reduce((s, r) => {
+                                        const hrs =
+                                          Number(r.assignedHoursPerWeek) || 0;
+                                        const rate = rateByResourceId(
+                                          r.resourceId
+                                        );
+                                        return s + hrs * rate;
+                                      }, 0);
+                                      // Budget $ target if `hours` and `rate` are available on the budget item
+                                      const hasBudget =
+                                        Number.isFinite(Number(bi.hours)) &&
+                                        Number.isFinite(Number(bi.rate));
+                                      const budgetDollars = hasBudget
+                                        ? Number(bi.hours) * Number(bi.rate)
+                                        : null;
+                                      const label = hasBudget
+                                        ? `${formatCurrency(assignedDollars)} / ${formatCurrency(budgetDollars)}`
+                                        : `${formatCurrency(assignedDollars)}`;
+                                      return (
+                                        <Chip
+                                          size="small"
+                                          label={
+                                            hasBudget
+                                              ? `Assigned $ / Budget $: ${label}`
+                                              : `Assigned $/week: ${label}`
+                                          }
+                                        />
+                                      );
+                                    })()}
+                                    <IconButton
+                                      size="small"
+                                      onClick={() => toggleExpanded(bi.id)}
+                                      aria-label={
+                                        isOpen ? "Collapse" : "Expand"
+                                      }
+                                    >
+                                      <ExpandMore
+                                        sx={{
+                                          transform: isOpen
+                                            ? "rotate(180deg)"
+                                            : "rotate(0deg)",
+                                          transition: "transform 150ms",
                                         }}
-                                        onChange={(e) => {
-                                          const val = String(
-                                            e.target.value || ""
-                                          );
-                                          clearErr(row.key, "resourceId");
-                                          setRows((prev) =>
-                                            prev.map((r) =>
-                                              r.key === row.key
-                                                ? { ...r, resourceId: val }
-                                                : r
+                                      />
+                                    </IconButton>
+                                  </Stack>
+                                </Box>
+                                <Collapse
+                                  in={isOpen}
+                                  timeout="auto"
+                                  unmountOnExit
+                                >
+                                  <Box
+                                    sx={{
+                                      px: 2,
+                                      py: 1,
+                                      overflowX: "auto",
+                                      overflowY: "auto",
+                                      maxHeight: 420,
+                                    }}
+                                  >
+                                    <Table
+                                      stickyHeader
+                                      size="small"
+                                      sx={{
+                                        tableLayout: "auto",
+                                        minWidth: 960,
+                                      }}
+                                    >
+                                      <TableHead>
+                                        <TableRow>
+                                          {[
+                                            "Resource",
+                                            "Assignment\u00A0%",
+                                            "Hours/week",
+                                            "Start",
+                                            "End",
+                                            "Due date",
+                                            "Notes",
+                                            "Actions",
+                                          ].map((label) => (
+                                            <TableCell
+                                              key={label}
+                                              align={"left"}
+                                            >
+                                              {label}
+                                            </TableCell>
+                                          ))}
+                                        </TableRow>
+                                      </TableHead>
+                                      <TableBody>
+                                        {list.length === 0 ? (
+                                          <TableRow>
+                                            <TableCell colSpan={8}>
+                                              <Typography color="text.secondary">
+                                                No assignments for this budget
+                                                item.
+                                              </Typography>
+                                            </TableCell>
+                                          </TableRow>
+                                        ) : (
+                                          list.map((row) => {
+                                            const resOptions =
+                                              filterResourcesByRow(row);
+                                            const safeResourceId = (
+                                              resOptions || []
+                                            ).some(
+                                              (opt) =>
+                                                String(opt.id) ===
+                                                String(row.resourceId)
                                             )
-                                          );
-                                        }}
-                                        error={
-                                          !!errorsByKey[row.key]?.resourceId
-                                        }
-                                        renderValue={(val) => {
-                                          if (!val)
+                                              ? String(row.resourceId)
+                                              : "";
                                             return (
-                                              <em>
-                                                {resOptions.length === 0
-                                                  ? "No matching resources"
-                                                  : "Select…"}
-                                              </em>
+                                              <TableRow
+                                                key={row.key}
+                                                sx={{
+                                                  backgroundColor:
+                                                    flashRowKey === row.key
+                                                      ? (theme) =>
+                                                          theme.palette.success
+                                                            .light + "33"
+                                                      : overlapKeys.includes(
+                                                            row.key
+                                                          )
+                                                        ? (theme) =>
+                                                            theme.palette.error
+                                                              .light + "33"
+                                                        : undefined,
+                                                  transition:
+                                                    "background-color 300ms",
+                                                }}
+                                              >
+                                                <TableCell
+                                                  sx={{ minWidth: 220 }}
+                                                >
+                                                  {resOptions.length > 0 ? (
+                                                    <FormControl
+                                                      fullWidth
+                                                      size="small"
+                                                      required
+                                                    >
+                                                      <Select
+                                                        value={safeResourceId}
+                                                        displayEmpty
+                                                        inputRef={(el) => {
+                                                          if (el)
+                                                            selectRefs.current[
+                                                              row.key
+                                                            ] = el;
+                                                        }}
+                                                        onChange={(e) => {
+                                                          const val = String(
+                                                            e.target.value || ""
+                                                          );
+                                                          if (
+                                                            val === "__add__"
+                                                          ) {
+                                                            // open dialog without changing selection
+                                                            openAddResourceForRow(
+                                                              row
+                                                            );
+                                                            return;
+                                                          }
+                                                          clearErr(
+                                                            row.key,
+                                                            "resourceId"
+                                                          );
+                                                          setRows((prev) =>
+                                                            prev.map((r) =>
+                                                              r.key === row.key
+                                                                ? {
+                                                                    ...r,
+                                                                    resourceId:
+                                                                      val,
+                                                                  }
+                                                                : r
+                                                            )
+                                                          );
+                                                        }}
+                                                        error={
+                                                          !!errorsByKey[row.key]
+                                                            ?.resourceId
+                                                        }
+                                                      >
+                                                        <MenuItem value="">
+                                                          <em>Select…</em>
+                                                        </MenuItem>
+                                                        {resOptions.map((r) => (
+                                                          <MenuItem
+                                                            key={r.id}
+                                                            value={String(r.id)}
+                                                          >
+                                                            {r.name}
+                                                          </MenuItem>
+                                                        ))}
+                                                        <MenuItem value="__add__">
+                                                          <em>Add resource…</em>
+                                                        </MenuItem>
+                                                      </Select>
+                                                    </FormControl>
+                                                  ) : (
+                                                    <Box>
+                                                      <Typography
+                                                        variant="body2"
+                                                        color="text.secondary"
+                                                      >
+                                                        No resources match the
+                                                        role for this budget
+                                                        item.
+                                                      </Typography>
+                                                      <Button
+                                                        size="small"
+                                                        sx={{
+                                                          ml: 0,
+                                                          mt: 0.5,
+                                                          p: 0,
+                                                        }}
+                                                        onClick={() =>
+                                                          openAddResourceForRow(
+                                                            row
+                                                          )
+                                                        }
+                                                      >
+                                                        Add resource…
+                                                      </Button>
+                                                    </Box>
+                                                  )}
+                                                </TableCell>
+                                                <TableCell
+                                                  align="right"
+                                                  sx={{ width: 120 }}
+                                                >
+                                                  <TextField
+                                                    fullWidth
+                                                    size="small"
+                                                    type="number"
+                                                    inputProps={{
+                                                      min: 1,
+                                                      max: 100,
+                                                      step: 1,
+                                                    }}
+                                                    value={row.assignmentPct}
+                                                    onChange={(e) => {
+                                                      const v = e.target.value;
+                                                      clearErr(
+                                                        row.key,
+                                                        "assignmentPct"
+                                                      );
+                                                      setRows((prev) =>
+                                                        prev.map((r) =>
+                                                          r.key === row.key
+                                                            ? {
+                                                                ...r,
+                                                                assignmentPct:
+                                                                  v,
+                                                              }
+                                                            : r
+                                                        )
+                                                      );
+                                                    }}
+                                                    error={
+                                                      !!errorsByKey[row.key]
+                                                        ?.assignmentPct
+                                                    }
+                                                  />
+                                                </TableCell>
+                                                <TableCell
+                                                  align="right"
+                                                  sx={{ width: 120 }}
+                                                >
+                                                  <TextField
+                                                    fullWidth
+                                                    size="small"
+                                                    type="number"
+                                                    inputProps={{
+                                                      min: 0,
+                                                      step: 0.5,
+                                                    }}
+                                                    value={
+                                                      row.assignedHoursPerWeek
+                                                    }
+                                                    onChange={(e) =>
+                                                      setRows((prev) =>
+                                                        prev.map((r) =>
+                                                          r.key === row.key
+                                                            ? {
+                                                                ...r,
+                                                                assignedHoursPerWeek:
+                                                                  e.target
+                                                                    .value,
+                                                              }
+                                                            : r
+                                                        )
+                                                      )
+                                                    }
+                                                  />
+                                                </TableCell>
+                                                <TableCell
+                                                  align="right"
+                                                  sx={{ width: 150 }}
+                                                >
+                                                  <TextField
+                                                    fullWidth
+                                                    size="small"
+                                                    type="date"
+                                                    value={row.startDate}
+                                                    InputLabelProps={{
+                                                      shrink: true,
+                                                    }}
+                                                    onChange={(e) => {
+                                                      clearErr(
+                                                        row.key,
+                                                        "startDate"
+                                                      );
+                                                      setRows((prev) => {
+                                                        const next = prev.map(
+                                                          (r) =>
+                                                            r.key === row.key
+                                                              ? {
+                                                                  ...r,
+                                                                  startDate:
+                                                                    e.target
+                                                                      .value,
+                                                                }
+                                                              : r
+                                                        );
+                                                        setOverlapKeys(
+                                                          computeOverlapKeys(
+                                                            next
+                                                          )
+                                                        );
+                                                        return next;
+                                                      });
+                                                    }}
+                                                    error={
+                                                      !!errorsByKey[row.key]
+                                                        ?.startDate ||
+                                                      overlapKeys.includes(
+                                                        row.key
+                                                      )
+                                                    }
+                                                    helperText={
+                                                      errorsByKey[row.key]
+                                                        ?.startDate
+                                                        ? "Required"
+                                                        : overlapKeys.includes(
+                                                              row.key
+                                                            )
+                                                          ? "Overlaps another assignment"
+                                                          : undefined
+                                                    }
+                                                  />
+                                                </TableCell>
+                                                <TableCell
+                                                  align="right"
+                                                  sx={{ width: 150 }}
+                                                >
+                                                  <TextField
+                                                    fullWidth
+                                                    size="small"
+                                                    type="date"
+                                                    value={row.endDate}
+                                                    InputLabelProps={{
+                                                      shrink: true,
+                                                    }}
+                                                    onChange={(e) => {
+                                                      clearErr(
+                                                        row.key,
+                                                        "endDate"
+                                                      );
+                                                      setRows((prev) => {
+                                                        const next = prev.map(
+                                                          (r) =>
+                                                            r.key === row.key
+                                                              ? {
+                                                                  ...r,
+                                                                  endDate:
+                                                                    e.target
+                                                                      .value,
+                                                                }
+                                                              : r
+                                                        );
+                                                        setOverlapKeys(
+                                                          computeOverlapKeys(
+                                                            next
+                                                          )
+                                                        );
+                                                        return next;
+                                                      });
+                                                    }}
+                                                    error={
+                                                      !!errorsByKey[row.key]
+                                                        ?.endDate ||
+                                                      overlapKeys.includes(
+                                                        row.key
+                                                      )
+                                                    }
+                                                    helperText={
+                                                      errorsByKey[row.key]
+                                                        ?.endDate
+                                                        ? "Required"
+                                                        : overlapKeys.includes[
+                                                              row.key
+                                                            ]
+                                                          ? "Overlaps another assignment"
+                                                          : undefined
+                                                    }
+                                                  />
+                                                </TableCell>
+                                                <TableCell sx={{ width: 150 }}>
+                                                  <TextField
+                                                    fullWidth
+                                                    size="small"
+                                                    type="date"
+                                                    value={row.dueDate}
+                                                    InputLabelProps={{
+                                                      shrink: true,
+                                                    }}
+                                                    onChange={(e) => {
+                                                      clearErr(
+                                                        row.key,
+                                                        "dueDate"
+                                                      );
+                                                      setRows((prev) =>
+                                                        prev.map((r) =>
+                                                          r.key === row.key
+                                                            ? {
+                                                                ...r,
+                                                                dueDate:
+                                                                  e.target
+                                                                    .value,
+                                                              }
+                                                            : r
+                                                        )
+                                                      );
+                                                    }}
+                                                    error={
+                                                      !!errorsByKey[row.key]
+                                                        ?.dueDate
+                                                    }
+                                                    helperText={
+                                                      errorsByKey[row.key]
+                                                        ?.dueDate
+                                                        ? "Required"
+                                                        : undefined
+                                                    }
+                                                  />
+                                                </TableCell>
+                                                <TableCell
+                                                  sx={{ minWidth: 240 }}
+                                                >
+                                                  <TextField
+                                                    fullWidth
+                                                    size="small"
+                                                    value={row.notes}
+                                                    onChange={(e) =>
+                                                      setRows((prev) =>
+                                                        prev.map((r) =>
+                                                          r.key === row.key
+                                                            ? {
+                                                                ...r,
+                                                                notes:
+                                                                  e.target
+                                                                    .value,
+                                                              }
+                                                            : r
+                                                        )
+                                                      )
+                                                    }
+                                                  />
+                                                </TableCell>
+                                                <TableCell
+                                                  sx={{ whiteSpace: "nowrap" }}
+                                                >
+                                                  <Stack
+                                                    direction="row"
+                                                    spacing={1}
+                                                  >
+                                                    <Button
+                                                      size="small"
+                                                      variant="contained"
+                                                      onClick={() =>
+                                                        saveRow(row.key)
+                                                      }
+                                                    >
+                                                      Save
+                                                    </Button>
+                                                    <Button
+                                                      size="small"
+                                                      color="error"
+                                                      onClick={() =>
+                                                        removeRow(row.key)
+                                                      }
+                                                    >
+                                                      Remove
+                                                    </Button>
+                                                  </Stack>
+                                                </TableCell>
+                                              </TableRow>
                                             );
-                                          const opt = (resOptions || []).find(
-                                            (o) => String(o.id) === String(val)
-                                          );
-                                          return opt ? opt.name : "";
-                                        }}
-                                      >
-                                        <MenuItem
-                                          value=""
-                                          disabled={resOptions.length === 0}
-                                        >
-                                          <em>
-                                            {resOptions.length === 0
-                                              ? "No matching resources"
-                                              : "Select…"}
-                                          </em>
-                                        </MenuItem>
-                                        {resOptions.map((r) => (
-                                          <MenuItem
-                                            key={r.id}
-                                            value={String(r.id)}
-                                          >
-                                            {r.name}
-                                          </MenuItem>
-                                        ))}
-                                      </Select>
-                                      {resOptions.length === 0 && (
-                                        <FormHelperText>
-                                          No resources match the role for this
-                                          budget item.
-                                          <Button
-                                            size="small"
-                                            sx={{ ml: 1, mt: 0.5, p: 0 }}
-                                            onClick={() =>
-                                              openAddResourceForRow(row)
-                                            }
-                                          >
-                                            Add resource…
-                                          </Button>
-                                        </FormHelperText>
-                                      )}
-                                    </FormControl>
-                                  </TableCell>
-                                  <TableCell align="right" sx={{ width: 140 }}>
-                                    <TextField
-                                      fullWidth
-                                      size="small"
-                                      type="number"
-                                      inputProps={{ min: 1, max: 100, step: 1 }}
-                                      value={row.assignmentPct}
-                                      onChange={(e) => {
-                                        const v = e.target.value;
-                                        clearErr(row.key, "assignmentPct");
-                                        setRows((prev) =>
-                                          prev.map((r) =>
-                                            r.key === row.key
-                                              ? { ...r, assignmentPct: v }
-                                              : r
-                                          )
-                                        );
-                                      }}
-                                      error={
-                                        !!errorsByKey[row.key]?.assignmentPct
-                                      }
-                                    />
-                                  </TableCell>
-                                  <TableCell align="right" sx={{ width: 140 }}>
-                                    <TextField
-                                      fullWidth
-                                      size="small"
-                                      type="number"
-                                      inputProps={{ min: 0, step: 0.5 }}
-                                      value={row.assignedHoursPerWeek}
-                                      onChange={(e) =>
-                                        setRows((prev) =>
-                                          prev.map((r) =>
-                                            r.key === row.key
-                                              ? {
-                                                  ...r,
-                                                  assignedHoursPerWeek:
-                                                    e.target.value,
-                                                }
-                                              : r
-                                          )
-                                        )
-                                      }
-                                    />
-                                  </TableCell>
-                                  <TableCell sx={{ width: 150 }} align="right">
-                                    <TextField
-                                      fullWidth
-                                      label="Start"
-                                      size="small"
-                                      type="date"
-                                      value={row.startDate}
-                                      InputLabelProps={{ shrink: true }}
-                                      onChange={(e) => {
-                                        clearErr(row.key, "startDate");
-                                        setRows((prev) => {
-                                          const next = prev.map((r) =>
-                                            r.key === row.key
-                                              ? {
-                                                  ...r,
-                                                  startDate: e.target.value,
-                                                }
-                                              : r
-                                          );
-                                          setOverlapKeys(
-                                            computeOverlapKeys(next)
-                                          );
-                                          return next;
-                                        });
-                                      }}
-                                      error={
-                                        !!errorsByKey[row.key]?.startDate ||
-                                        overlapKeys.includes(row.key)
-                                      }
-                                      helperText={
-                                        errorsByKey[row.key]?.startDate
-                                          ? "Required"
-                                          : overlapKeys.includes(row.key)
-                                            ? "Overlaps another assignment"
-                                            : undefined
-                                      }
-                                    />
-                                  </TableCell>
-                                  <TableCell sx={{ width: 150 }} align="right">
-                                    <TextField
-                                      fullWidth
-                                      label="End"
-                                      size="small"
-                                      type="date"
-                                      value={row.endDate}
-                                      InputLabelProps={{ shrink: true }}
-                                      onChange={(e) => {
-                                        clearErr(row.key, "endDate");
-                                        setRows((prev) => {
-                                          const next = prev.map((r) =>
-                                            r.key === row.key
-                                              ? {
-                                                  ...r,
-                                                  endDate: e.target.value,
-                                                }
-                                              : r
-                                          );
-                                          setOverlapKeys(
-                                            computeOverlapKeys(next)
-                                          );
-                                          return next;
-                                        });
-                                      }}
-                                      error={
-                                        !!errorsByKey[row.key]?.endDate ||
-                                        overlapKeys.includes(row.key)
-                                      }
-                                      helperText={
-                                        errorsByKey[row.key]?.endDate
-                                          ? "Required"
-                                          : overlapKeys.includes(row.key)
-                                            ? "Overlaps another assignment"
-                                            : undefined
-                                      }
-                                    />
-                                  </TableCell>
-                                  <TableCell sx={{ width: 150 }}>
-                                    <TextField
-                                      fullWidth
-                                      label="Due date"
-                                      size="small"
-                                      type="date"
-                                      value={row.dueDate}
-                                      InputLabelProps={{ shrink: true }}
-                                      onChange={(e) => {
-                                        clearErr(row.key, "dueDate");
-                                        setRows((prev) =>
-                                          prev.map((r) =>
-                                            r.key === row.key
-                                              ? {
-                                                  ...r,
-                                                  dueDate: e.target.value,
-                                                }
-                                              : r
-                                          )
-                                        );
-                                      }}
-                                      error={!!errorsByKey[row.key]?.dueDate}
-                                      helperText={
-                                        errorsByKey[row.key]?.dueDate
-                                          ? "Required"
-                                          : undefined
-                                      }
-                                    />
-                                  </TableCell>
-                                  <TableCell sx={{ width: 180 }}>
-                                    <TextField
-                                      fullWidth
-                                      label="Role"
-                                      size="small"
-                                      value={row.role}
-                                      onChange={(e) =>
-                                        setRows((prev) =>
-                                          prev.map((r) =>
-                                            r.key === row.key
-                                              ? { ...r, role: e.target.value }
-                                              : r
-                                          )
-                                        )
-                                      }
-                                    />
-                                  </TableCell>
-                                  <TableCell sx={{ width: 160 }} align="right">
-                                    <TextField
-                                      fullWidth
-                                      label="Rate override"
-                                      size="small"
-                                      type="number"
-                                      inputProps={{ min: 0, step: 1 }}
-                                      value={row.rateOverride}
-                                      onChange={(e) =>
-                                        setRows((prev) =>
-                                          prev.map((r) =>
-                                            r.key === row.key
-                                              ? {
-                                                  ...r,
-                                                  rateOverride: e.target.value,
-                                                }
-                                              : r
-                                          )
-                                        )
-                                      }
-                                    />
-                                  </TableCell>
-                                  <TableCell sx={{ minWidth: 240 }}>
-                                    <TextField
-                                      fullWidth
-                                      label="Notes"
-                                      size="small"
-                                      value={row.notes}
-                                      onChange={(e) =>
-                                        setRows((prev) =>
-                                          prev.map((r) =>
-                                            r.key === row.key
-                                              ? { ...r, notes: e.target.value }
-                                              : r
-                                          )
-                                        )
-                                      }
-                                    />
-                                  </TableCell>
-                                  <TableCell sx={{ whiteSpace: "nowrap" }}>
-                                    <Stack direction="row" spacing={1}>
-                                      <Button
-                                        size="small"
-                                        variant="contained"
-                                        onClick={() => saveRow(row.key)}
-                                      >
-                                        Save
-                                      </Button>
-                                      <Button
-                                        size="small"
-                                        color="error"
-                                        onClick={() => removeRow(row.key)}
-                                      >
-                                        Remove
-                                      </Button>
-                                    </Stack>
-                                  </TableCell>
-                                </TableRow>
-                              );
-                            })
-                          )}
-                        </TableBody>
-                      </Table>
+                                          })
+                                        )}
+                                        <TableRow>
+                                          <TableCell colSpan={8}>
+                                            <Button
+                                              size="small"
+                                              startIcon={<AddIcon />}
+                                              onClick={() =>
+                                                addBudgetItem(bi.id)
+                                              }
+                                            >
+                                              Add assignment
+                                            </Button>
+                                          </TableCell>
+                                        </TableRow>
+                                      </TableBody>
+                                    </Table>
+                                  </Box>
+                                </Collapse>
+                              </Paper>
+                            );
+                          })}
+                        </Stack>
+                      )}
                     </>
                   )}
                 </Box>
@@ -1305,70 +1299,35 @@ export default function TrackableAssignmentsEditor({
         )}
       </Box>
       {/* Quick Add Resource Dialog */}
-      <Dialog
+      <ResourceQuickDialog
         open={addResOpen}
+        defaults={addResDefaults}
         onClose={closeAddResource}
-        fullWidth
-        maxWidth="sm"
-      >
-        <DialogTitle>Add resource</DialogTitle>
-        <DialogContent dividers>
-          <Stack spacing={2} sx={{ mt: 1 }}>
-            <TextField
-              label="Name"
-              value={addResForm.name}
-              onChange={(e) =>
-                setAddResForm((f) => ({ ...f, name: e.target.value }))
-              }
-              required
-              fullWidth
-            />
-            <TextField
-              label="Role / Title"
-              value={addResForm.roleTitle}
-              onChange={(e) =>
-                setAddResForm((f) => ({ ...f, roleTitle: e.target.value }))
-              }
-              helperText={
-                addResDefaults.role
-                  ? `Suggested: ${addResDefaults.role}`
-                  : undefined
-              }
-              fullWidth
-            />
-            <TextField
-              label="Email"
-              type="email"
-              value={addResForm.email}
-              onChange={(e) =>
-                setAddResForm((f) => ({ ...f, email: e.target.value }))
-              }
-              fullWidth
-              required
-            />
-            <TextField
-              label="Hourly rate (optional)"
-              type="number"
-              inputProps={{ min: 0, step: 1 }}
-              value={addResForm.hourlyRate}
-              onChange={(e) =>
-                setAddResForm((f) => ({ ...f, hourlyRate: e.target.value }))
-              }
-              fullWidth
-            />
-          </Stack>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={closeAddResource}>Cancel</Button>
-          <Button
-            variant="contained"
-            onClick={handleCreateResource}
-            disabled={!addResForm.name?.trim()}
-          >
-            Add resource
-          </Button>
-        </DialogActions>
-      </Dialog>
+        onCreated={(created) => {
+          setLocalResources((prev) => {
+            const exists = (prev || []).some(
+              (r) => String(r.id) === String(created.id)
+            );
+            return exists ? prev : [...(prev || []), created];
+          });
+          if (addResDefaults.rowKey) {
+            setRows((prev) =>
+              prev.map((r) =>
+                r.key === addResDefaults.rowKey
+                  ? { ...r, resourceId: String(created.id) }
+                  : r
+              )
+            );
+            setFlashRowKey(addResDefaults.rowKey);
+            setTimeout(() => {
+              const el = selectRefs.current?.[addResDefaults.rowKey];
+              try {
+                el && el.focus();
+              } catch {}
+            }, 0);
+          }
+        }}
+      />
     </Paper>
   );
 }

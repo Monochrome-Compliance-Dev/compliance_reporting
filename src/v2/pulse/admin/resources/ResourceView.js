@@ -18,11 +18,6 @@ import {
   MenuItem,
   Drawer,
   IconButton,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useAlert } from "context";
@@ -32,64 +27,18 @@ import {
   createResource,
   listResources,
   updateResource,
-  deleteResource,
 } from "../../services/pulseApi";
 import { userService } from "services";
-
-const RESOURCE_OPTIONS = [
-  "Auditor (1st year)",
-  "Auditor (2nd year)",
-  "Auditor (3rd year)",
-  "Senior",
-  "Manager",
-  "Senior Manager",
-  "Director",
-  "Partner",
-];
-
-const schema = yup
-  .object({
-    firstName: yup.string().trim().required("First name is required"),
-    lastName: yup.string().trim().required("Last name is required"),
-    role: yup
-      .string()
-      .oneOf(["User", "Admin"], "Role is required")
-      .required("Role is required"),
-    position: yup
-      .string()
-      .oneOf(RESOURCE_OPTIONS, "Invalid position")
-      .required("Position is required"),
-    hourlyRate: yup
-      .number()
-      .transform((v, o) => (o === "" || Number.isNaN(v) ? undefined : v))
-      .min(0, "Cannot be negative")
-      .required("Hourly charge-out rate is required"),
-    capacityHoursPerWeek: yup
-      .number()
-      .transform((v, o) => (o === "" || Number.isNaN(v) ? undefined : v))
-      .min(0, "Cannot be negative")
-      .max(168, "Easy there, hero")
-      .required("Capacity is required"),
-    email: yup
-      .string()
-      .email("Invalid email")
-      .trim()
-      .required("Email is required"),
-    userId: yup
-      .string()
-      .trim()
-      .transform((v) => (v === "" ? null : v))
-      .nullable()
-      .optional(),
-  })
-  .required();
+import ResourceQuickDialog from "./ResourceQuickDialog";
+import { RESOURCE_OPTIONS, resourceSchema } from "./ResourceQuickDialog";
 
 export default function ResourceView() {
+  const [quickOpen, setQuickOpen] = useState(false);
   const { showAlert } = useAlert();
 
   const qc = useQueryClient();
 
-  const { data: resources = [], isLoading } = useQuery({
+  const { data: resources = [] } = useQuery({
     queryKey: ["pulse", "resources"],
     queryFn: listResources,
   });
@@ -102,10 +51,6 @@ export default function ResourceView() {
     mutationFn: ({ id, payload }) => updateResource(id, payload),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["pulse", "resources"] }),
   });
-  const deleteRes = useMutation({
-    mutationFn: (id) => deleteResource(id),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["pulse", "resources"] }),
-  });
 
   // Selection + mode (single view approach)
   const [selectedId, setSelectedId] = useState(null);
@@ -114,13 +59,9 @@ export default function ResourceView() {
 
   const [query, setQuery] = useState("");
 
-  const [confirm, setConfirm] = useState({ open: false, id: null, name: "" });
+  const [, setConfirm] = useState({ open: false, id: null, name: "" });
   const openConfirmDelete = useCallback((id, name) => {
     setConfirm({ open: true, id, name: name || "" });
-  }, []);
-
-  const closeConfirm = useCallback(() => {
-    setConfirm({ open: false, id: null, name: "" });
   }, []);
 
   const selected = useMemo(
@@ -155,7 +96,7 @@ export default function ResourceView() {
 
   // Form setup
   const { register, handleSubmit, reset, formState } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(resourceSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -297,24 +238,6 @@ export default function ResourceView() {
       }
     },
     [mode, selected, qc, createRes, updateRes, showAlert]
-  );
-
-  const onDelete = useCallback(
-    async (id) => {
-      try {
-        await deleteRes.mutateAsync(String(id));
-        await qc.invalidateQueries({ queryKey: ["pulse", "resources"] });
-        if (String(selectedId) === String(id)) {
-          startCreate();
-        }
-        showAlert("Resource deleted", "success");
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error("Failed to delete resource", err);
-        showAlert("Failed to delete resource", "error");
-      }
-    },
-    [deleteRes, qc, selectedId, startCreate, showAlert]
   );
 
   const { errors, isSubmitting } = formState;
@@ -574,36 +497,15 @@ export default function ResourceView() {
           </Stack>
         </Box>
       </Drawer>
-      <Dialog
-        open={confirm.open}
-        onClose={closeConfirm}
-        aria-labelledby="confirm-delete-title"
-      >
-        <DialogTitle id="confirm-delete-title">Delete resource?</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            This will permanently remove{" "}
-            <strong>{confirm.name || "this resource"}</strong>. This action
-            cannot be undone.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={closeConfirm} variant="text">
-            Cancel
-          </Button>
-          <Button
-            onClick={async () => {
-              await onDelete(confirm.id);
-              closeConfirm();
-            }}
-            color="error"
-            variant="contained"
-            autoFocus
-          >
-            Delete
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <ResourceQuickDialog
+        open={quickOpen}
+        defaults={{ role: "" }}
+        onClose={() => setQuickOpen(false)}
+        onCreated={async () => {
+          await qc.invalidateQueries({ queryKey: ["pulse", "resources"] });
+          setQuickOpen(false);
+        }}
+      />
     </Stack>
   );
 }

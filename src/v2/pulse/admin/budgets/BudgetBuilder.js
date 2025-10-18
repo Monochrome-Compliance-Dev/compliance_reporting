@@ -103,10 +103,9 @@ const defaultItem = (sectionId = null) => ({
   sectionId,
   hours: 0,
   rate: 0,
-  amount: 0, // flat amount (for fixed-fee rows)
   notes: "",
+  purpose: "",
   billable: true,
-  billingType: "hourly", // will be derived on save based on values
   order: 0,
 });
 
@@ -119,10 +118,11 @@ const normaliseItem = (it = {}) => ({
   resourceLabel: it.resourceLabel ?? it.activity ?? "",
   hours: Number(it.hours ?? 0),
   rate: Number(it.rate ?? 0),
-  amount: Number(it.amount ?? 0),
+  // amount: Number(it.amount ?? 0),
   notes: it.notes ?? "",
+  purpose: it.purpose ?? "",
   billable: it.billable ?? true,
-  billingType: it.billingType === "fixed" ? "fixed" : "hourly",
+  // billingType: it.billingType === "fixed" ? "fixed" : "hourly",
   order: Number(it.order ?? 0),
 });
 
@@ -240,34 +240,34 @@ export default function BudgetBuilder({ onSaved }) {
       if (!it) return;
       // basic inline validation
       const hasResource = String(it.resourceLabel || "").trim().length > 0;
+      const hasPurpose = String(it.purpose || "").trim().length > 0;
       const hours = Number(it.hours || 0);
       const rate = Number(it.rate || 0);
-      const amount = Number(it.amount || 0);
-      const isHourlyValid = hours > 0 && rate > 0 && amount === 0;
-      const isFixedValid = amount > 0 && (hours === 0 || rate === 0);
-      if (!hasResource || (!isHourlyValid && !isFixedValid)) {
+      // const amount = Number(it.amount || 0);
+      const isHourlyValid = hours > 0 && rate > 0; // && amount === 0;
+      // const isFixedValid = amount > 0 && (hours === 0 || rate === 0);
+      if (!hasResource || !hasPurpose || !isHourlyValid) {
         showAlert(
-          "Please select a resource and enter either hours & rate OR a flat amount.",
+          "Please select a resource, enter a Purpose, and provide both hours and rate.",
           "warning"
         );
         return;
       }
-      const payload = (() => {
-        const base = {
-          budgetId,
-          sectionId: it.sectionId,
-          sectionName: sections.find((s) => s.id === it.sectionId)?.name || "",
-          resourceLabel: String(it.resourceLabel || "").trim(),
-          notes: String(it.notes || "").trim() || undefined,
-          billable: !!it.billable,
-          customerId: userService.userValue.customerId,
-          order: Number(it.order ?? 0),
-        };
-        if (isFixedValid) {
-          return { ...base, billingType: "fixed", hours: 0, rate: 0, amount };
-        }
-        return { ...base, billingType: "hourly", hours, rate, amount: 0 };
-      })();
+      const payload = {
+        budgetId,
+        sectionId: it.sectionId,
+        sectionName: sections.find((s) => s.id === it.sectionId)?.name || "",
+        resourceLabel: String(it.resourceLabel || "").trim(),
+        billingType: "hourly",
+        purpose: String(it.purpose || "").trim(),
+        notes: String(it.notes || "").trim() || undefined,
+        billable: !!it.billable,
+        customerId: userService.userValue.customerId,
+        order: Number(it.order ?? 0),
+        hours,
+        rate,
+        amount: 0,
+      };
       try {
         let saved;
         if (!it.id) {
@@ -408,8 +408,7 @@ export default function BudgetBuilder({ onSaved }) {
     const rows = items.filter((x) => x.sectionId === selectedSectionId);
     const hours = rows.reduce((s, r) => s + Number(r.hours || 0), 0);
     const amount = rows.reduce(
-      (s, r) =>
-        s + Number(r.hours || 0) * Number(r.rate || 0) + Number(r.amount || 0),
+      (s, r) => s + Number(r.hours || 0) * Number(r.rate || 0),
       0
     );
     return { hours, amount };
@@ -423,8 +422,7 @@ export default function BudgetBuilder({ onSaved }) {
     ).length;
     const hours = rows.reduce((s, r) => s + Number(r.hours || 0), 0);
     const amount = rows.reduce(
-      (s, r) =>
-        s + Number(r.hours || 0) * Number(r.rate || 0) + Number(r.amount || 0),
+      (s, r) => s + Number(r.hours || 0) * Number(r.rate || 0),
       0
     );
     return { numResources, hours, amount };
@@ -438,10 +436,7 @@ export default function BudgetBuilder({ onSaved }) {
       ).length;
       const hours = rows.reduce((sum, r) => sum + Number(r.hours || 0), 0);
       const amount = rows.reduce(
-        (sum, r) =>
-          sum +
-          Number(r.hours || 0) * Number(r.rate || 0) +
-          Number(r.amount || 0),
+        (sum, r) => sum + Number(r.hours || 0) * Number(r.rate || 0),
         0
       );
       return { id: s.id, name: s.name, numResources, hours, amount };
@@ -588,25 +583,36 @@ export default function BudgetBuilder({ onSaved }) {
     const cleaned = items.map((it) => {
       const hours = Number(it.hours || 0);
       const rate = Number(it.rate || 0);
-      const amount = Number(it.amount || 0);
-      const isFixed = amount > 0 && (hours === 0 || rate === 0);
+      // const amount = Number(it.amount || 0);
+      // const isFixed = amount > 0 && (hours === 0 || rate === 0);
       return {
         id: it.id,
         budgetId: budgetId || undefined,
         sectionId: it.sectionId || null,
         sectionName: sections.find((s) => s.id === it.sectionId)?.name || "",
         resourceLabel: String(it.resourceLabel || "").trim(),
-        activity: undefined, // deprecated
-        billingType: isFixed ? "fixed" : "hourly",
-        hours: isFixed ? 0 : hours,
-        rate: isFixed ? 0 : rate,
-        amount: isFixed ? amount : 0,
+        billingType: "hourly",
+        hours,
+        rate,
+        amount: 0,
         notes: String(it.notes || "").trim() || undefined,
+        purpose: String(it.purpose || "").trim(),
         billable: !!it.billable,
         order: Number(it.order || 0),
         customerId: userService.userValue.customerId,
       };
     });
+
+    const missingPurpose = cleaned.some(
+      (row) => !row.resourceLabel || !row.purpose
+    );
+    if (missingPurpose) {
+      showAlert(
+        "Each item must have a Resource and a Purpose before saving the budget.",
+        "warning"
+      );
+      return;
+    }
 
     try {
       let bId = budgetId;
@@ -820,10 +826,9 @@ export default function BudgetBuilder({ onSaved }) {
             sections.find((x) => String(x.id) === String(it.sectionId))?.name ||
             "",
           resourceLabel: String(it.resourceLabel || "").trim(),
-          billingType: it.billingType === "fixed" ? "fixed" : "hourly",
           hours: Number(it.hours || 0),
           rate: Number(it.rate || 0),
-          amount: Number(it.amount || 0),
+          amount: 0,
           notes: String(it.notes || "").trim() || undefined,
           billable: !!it.billable,
           order: Number(it.order || 0),
@@ -1112,8 +1117,9 @@ export default function BudgetBuilder({ onSaved }) {
           <Box
             sx={{
               flex: "0 0 auto",
-              width: { xs: "100%", md: sectionsExpanded ? 360 : 48 },
+              width: { xs: "100%", md: sectionsExpanded ? 220 : 48 },
               height: "100%",
+              position: "relative",
               transition: (theme) =>
                 theme.transitions.create("width", {
                   easing: theme.transitions.easing.sharp,
@@ -1202,9 +1208,10 @@ export default function BudgetBuilder({ onSaved }) {
                       <TableCell align="right" sx={{ width: 140 }}>
                         Number of hours
                       </TableCell>
-                      <TableCell align="right" sx={{ width: 160 }}>
+                      {/* <TableCell align="right" sx={{ width: 160 }}>
                         Flat amount
-                      </TableCell>
+                      </TableCell> */}
+                      <TableCell sx={{ width: 320 }}>Purpose</TableCell>
                       <TableCell sx={{ width: 320 }}>Notes</TableCell>
                       <TableCell align="right" sx={{ width: 160 }}>
                         Row total
@@ -1275,7 +1282,7 @@ export default function BudgetBuilder({ onSaved }) {
                                     rate: Number(e.target.value || 0),
                                   })
                                 }
-                                disabled={isFinal || Number(it.amount || 0) > 0}
+                                disabled={isFinal}
                               />
                             </TableCell>
                             <TableCell
@@ -1293,10 +1300,10 @@ export default function BudgetBuilder({ onSaved }) {
                                     hours: Number(e.target.value || 0),
                                   })
                                 }
-                                disabled={isFinal || Number(it.amount || 0) > 0}
+                                disabled={isFinal}
                               />
                             </TableCell>
-                            <TableCell
+                            {/* <TableCell
                               align="right"
                               sx={{ width: 160, verticalAlign: "middle" }}
                             >
@@ -1312,6 +1319,21 @@ export default function BudgetBuilder({ onSaved }) {
                                   })
                                 }
                                 disabled={isFinal || Number(it.rate || 0) > 0}
+                              />
+                            </TableCell> */}
+                            <TableCell
+                              sx={{ width: 320, verticalAlign: "middle" }}
+                            >
+                              <TextField
+                                size="small"
+                                value={it.purpose}
+                                onChange={(e) =>
+                                  mutateItem(originalIndex, {
+                                    purpose: e.target.value,
+                                  })
+                                }
+                                fullWidth
+                                disabled={isFinal}
                               />
                             </TableCell>
                             <TableCell
@@ -1334,8 +1356,7 @@ export default function BudgetBuilder({ onSaved }) {
                               sx={{ width: 160, verticalAlign: "middle" }}
                             >
                               {toCurrency(
-                                Number(it.hours || 0) * Number(it.rate || 0) +
-                                  Number(it.amount || 0),
+                                Number(it.hours || 0) * Number(it.rate || 0),
                                 currency
                               )}
                             </TableCell>

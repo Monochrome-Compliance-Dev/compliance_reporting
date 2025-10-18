@@ -22,10 +22,11 @@ export default function BudgetSection({
     <Paper
       variant="outlined"
       sx={{
-        flex: "0 0 360px",
-        width: { xs: "100%", md: 330 },
+        flex: "1 1 auto",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
+        boxSizing: "border-box",
       }}
     >
       <Box sx={{ p: 2, borderBottom: "1px solid", borderColor: "divider" }}>
@@ -35,16 +36,6 @@ export default function BudgetSection({
           justifyContent="space-between"
         >
           <Typography variant="subtitle1">Sections</Typography>
-          {typeof onAdd === "function" && (
-            <Button
-              size="small"
-              variant="outlined"
-              onClick={onAdd}
-              disabled={addDisabled}
-            >
-              Add
-            </Button>
-          )}
         </Stack>
       </Box>
       <Box sx={{ flex: 1, overflowY: "auto" }}>
@@ -63,6 +54,18 @@ export default function BudgetSection({
           ))}
         </List>
       </Box>
+
+      {typeof onAdd === "function" && (
+        <Button
+          size="small"
+          variant="outlined"
+          onClick={onAdd}
+          disabled={addDisabled}
+        >
+          Add
+        </Button>
+      )}
+
       {selectedSectionId && (onRename || onDelete) && (
         <Box sx={{ p: 2, borderTop: "1px solid", borderColor: "divider" }}>
           <Stack direction="row" spacing={1}>
