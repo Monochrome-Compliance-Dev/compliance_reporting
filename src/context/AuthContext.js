@@ -4,6 +4,7 @@ import {
   useContext,
   useEffect,
   useState,
+  useRef,
 } from "react";
 import { userService } from "services";
 import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
@@ -14,12 +15,16 @@ const AuthContext = createContext();
 let logoutTimer;
 let warningTimer;
 let hasRefreshed = false;
+const WARNING_MS = 14 * 60 * 1000;
+const LOGOUT_MS = 15 * 60 * 1000;
 
 export function AuthProvider({ children }) {
   const [isSignedIn, setIsSignedIn] = useState(null); // null = loading
   const [user, setUser] = useState(null);
   const [isInitialising, setIsInitialising] = useState(true);
   const [showWarningDialog, setShowWarningDialog] = useState(false);
+
+  const lastActiveRef = useRef(Date.now());
 
   const { showAlert } = useAlert();
 
@@ -29,22 +34,28 @@ export function AuthProvider({ children }) {
 
     if (!user) return;
 
-    // Show warning at 14 min
-    warningTimer = setTimeout(
-      () => {
-        setShowWarningDialog(true);
-      },
-      14 * 60 * 1000
-    );
+    const now = Date.now();
+    const elapsed = now - lastActiveRef.current;
+    const warnIn = Math.max(WARNING_MS - elapsed, 0);
+    const logoutIn = Math.max(LOGOUT_MS - elapsed, 0);
 
-    // Auto logout at 15 min
-    logoutTimer = setTimeout(
-      () => {
-        setShowWarningDialog(false);
-        userService.logout();
-      },
-      15 * 60 * 1000
-    );
+    // If limits already exceeded while tab was hidden/asleep, act immediately
+    if (logoutIn === 0) {
+      setShowWarningDialog(false);
+      userService.logout();
+      return;
+    }
+
+    if (warnIn === 0) {
+      setShowWarningDialog(true);
+    } else {
+      warningTimer = setTimeout(() => setShowWarningDialog(true), warnIn);
+    }
+
+    logoutTimer = setTimeout(() => {
+      setShowWarningDialog(false);
+      userService.logout();
+    }, logoutIn);
   }, [user]);
 
   const handleContinueSession = () => {
@@ -123,14 +134,20 @@ export function AuthProvider({ children }) {
     const onResume = () => {
       console.info("[AuthContext] onResume triggered");
       if (!user) return;
-      userService
-        .refreshToken()
-        .then(() => {
-          resetInactivityTimer();
-        })
-        .catch(() => {
-          handleSessionExpired();
-        });
+
+      const elapsed = Date.now() - lastActiveRef.current;
+      if (elapsed >= LOGOUT_MS) {
+        handleSessionExpired();
+        return;
+      }
+      if (elapsed >= WARNING_MS) {
+        setShowWarningDialog(true);
+      }
+
+      userService.refreshToken().finally(() => {
+        // whether refresh succeeded or not, reschedule based on now
+        resetInactivityTimer();
+      });
     };
 
     const onVisibilityChange = () => {
@@ -145,12 +162,16 @@ export function AuthProvider({ children }) {
     document.addEventListener("visibilitychange", onVisibilityChange);
 
     const activityEvents = ["mousemove", "keydown", "click", "scroll"];
-    const handleActivity = resetInactivityTimer;
+    const handleActivity = () => {
+      lastActiveRef.current = Date.now();
+      resetInactivityTimer();
+    };
 
     activityEvents.forEach((event) =>
       window.addEventListener(event, handleActivity)
     );
 
+    lastActiveRef.current = Date.now();
     resetInactivityTimer();
 
     return () => {
