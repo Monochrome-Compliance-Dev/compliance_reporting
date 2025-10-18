@@ -14,11 +14,7 @@ import { usePulseContext } from "context/PulseContext";
 import { getCurrentCustomer, onCustomerChange } from "lib/utils/tenantScope";
 import { userService } from "services";
 
-export default function PulseLayout({
-  headerRight = null,
-  maxWidth = 1400,
-  children,
-}) {
+export default function PulseLayout({ headerRight = null, maxWidth = 1400 }) {
   const navigate = useNavigate();
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);

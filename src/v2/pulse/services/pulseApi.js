@@ -24,8 +24,28 @@ export const updateClient = (id, payload) =>
 // Resources
 export const listResources = () =>
   unwrap(fetchWrapper.get(`${base}/resources`));
-export const createResource = (payload) =>
-  unwrap(fetchWrapper.post(`${base}/resources`, payload));
+
+export const createResource = (payload = {}) => {
+  const body = {
+    ...payload,
+    name: typeof payload.name === "string" ? payload.name.trim() : payload.name,
+    email:
+      typeof payload.email === "string" ? payload.email.trim() : payload.email,
+    roleTitle:
+      typeof payload.roleTitle === "string"
+        ? payload.roleTitle.trim()
+        : payload.roleTitle,
+    position:
+      typeof payload.position === "string"
+        ? payload.position.trim()
+        : payload.position,
+    hourlyRate:
+      payload.hourlyRate === "" || payload.hourlyRate == null
+        ? undefined
+        : Number(payload.hourlyRate),
+  };
+  return unwrap(fetchWrapper.post(`${base}/resources`, body));
+};
 export const updateResource = (id, payload) =>
   unwrap(fetchWrapper.put(`${base}/resources/${id}`, payload));
 export const deleteResource = (id, options = {}) =>

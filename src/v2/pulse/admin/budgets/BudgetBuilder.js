@@ -484,10 +484,10 @@ export default function BudgetBuilder({ onSaved }) {
             setSections(secs || []);
             setSelectedSectionId((prev) => prev || (secs?.[0]?.id ?? ""));
           }
-          console.log("Loaded secs", { secs });
+          // console.log("Loaded secs", { secs });
           // Load items
           const rows = await svc.current.listItemsByBudget(budgetId);
-          console.log("Loaded items", { rows });
+          // console.log("Loaded items", { rows });
           if (mounted) setItems((rows || []).map(normaliseItem));
         } else {
           // Fresh builder

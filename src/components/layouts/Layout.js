@@ -1,20 +1,21 @@
 import { useEffect, useState, useMemo, Suspense } from "react";
-import { Outlet, useLocation } from "react-router";
+import { Outlet, useLocation, useNavigate } from "react-router";
 import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../navigation/Navbar";
 import Footer from "../navigation/Footer";
 import { Alert, Snackbar } from "@mui/material";
-import globalTheme from "../../theme/globalTheme"; // Ensure the import matches the export
-import { useAlert } from "../../context/AlertContext";
+import globalTheme from "theme/globalTheme"; // Ensure the import matches the export
+import { useAlert } from "context/AlertContext";
 import { LoadingSpinner } from "../ui/"; // If you have a spinner component
-import useGtagPageview from "../../hooks/useGtagPageview";
+import useGtagPageview from "hooks/useGtagPageview";
 
 export default function Layout() {
   useGtagPageview();
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const theme = useMemo(() => {
     const mode = isDarkTheme ? "dark" : "light"; // Determine the mode
@@ -25,6 +26,16 @@ export default function Layout() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const onGoLogin = () => {
+      if (window.location.pathname !== "/login") {
+        navigate("/login", { replace: true });
+      }
+    };
+    window.addEventListener("auth:go-login", onGoLogin);
+    return () => window.removeEventListener("auth:go-login", onGoLogin);
+  }, [navigate]);
 
   const toggleTheme = () => setIsDarkTheme((prev) => !prev); // Toggle between light and dark modes
 

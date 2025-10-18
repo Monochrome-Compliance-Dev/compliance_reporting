@@ -15,7 +15,7 @@ import {
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAlert, usePulseContext } from "context";
 import TrackableContainerForm from "./TrackableContainerForm";
-import TrackableAssignmentsEditor from "./TrackablesAssignmentEditor";
+import TrackableAssignmentsEditor from "../assignments/AssignmentEditor";
 import BudgetBuilder from "../budgets/BudgetBuilder";
 import {
   listTrackables,

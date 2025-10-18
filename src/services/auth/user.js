@@ -8,6 +8,8 @@ import { getScopedCustomerId, onCustomerChange } from "lib/utils/tenantScope";
 const userSubject = new BehaviorSubject(null);
 const baseUrl = `${process.env.REACT_APP_API_URL}/users`;
 
+let _refreshInFlight = null; // Promise or null
+
 // --- Acting-as helpers & guards ---
 let didWireTenantChange = false;
 let lastAppliedKey = ""; // `${jwtToken}:${scopedId || ""}` to dedupe reloads
@@ -150,9 +152,7 @@ function logout() {
   }
   // Revoke the refresh token using the cookie
   fetchWrapper
-    .post(`${baseUrl}/revoke-token`, {
-      refreshToken: getCookie("refreshToken"),
-    })
+    .post(`${baseUrl}/revoke-token`, {}, { retry: 0 })
     .catch((error) => {
       console.error(
         "Failed to revoke token during logout:",
@@ -163,23 +163,17 @@ function logout() {
   userSubject.next(null);
 }
 
-// Helper to read a cookie by name
-function getCookie(name) {
-  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
-  if (match) return match[2];
-}
-
 // Refresh the user's JWT token
 async function refreshToken() {
-  return fetchWrapper
-    .post(`${baseUrl}/refresh-token`, {})
+  if (_refreshInFlight) return _refreshInFlight;
+
+  _refreshInFlight = fetchWrapper
+    .post(`${baseUrl}/refresh-token`, {}, { retry: 0 })
     .then(async (user) => {
       if (!user.jwtToken) {
         throw new Error("JWT not included in response");
       }
-      // Accept entitlements from backend
       userSubject.next(user);
-      // Re-apply acting entitlements after token refresh (Boss only)
       wireTenantChangeListener();
       const scopedIdOnRefresh = getScopedIdIfBoss();
       if (scopedIdOnRefresh) {
@@ -189,7 +183,6 @@ async function refreshToken() {
           try {
             await reloadCustomerEntitlements(scopedIdOnRefresh);
           } catch (e) {
-            // eslint-disable-next-line no-console
             console.warn(
               "Failed to load acting entitlements after refresh:",
               e?.message || e
@@ -209,14 +202,17 @@ async function refreshToken() {
       stopRefreshTokenTimer();
       userSubject.next(null);
       if (isAuthError) {
-        // No active session (e.g., after logout) — return null quietly
+        // No active session — return null quietly
         return null;
       }
-      // Non-auth errors should still surface
-      // eslint-disable-next-line no-console
       console.error("Failed to refresh token:", error?.message || error);
       throw error;
+    })
+    .finally(() => {
+      _refreshInFlight = null;
     });
+
+  return _refreshInFlight;
 }
 
 // Register a new user
@@ -405,7 +401,7 @@ let refreshTokenTimeout;
 function startRefreshTokenTimer() {
   const jwtToken = JSON.parse(atob(userSubject.value.jwtToken.split(".")[1]));
   const expires = new Date(jwtToken.exp * 1000);
-  const timeout = expires.getTime() - Date.now() - 60 * 1000;
+  const timeout = Math.max(expires.getTime() - Date.now() - 60 * 1000, 5000);
   refreshTokenTimeout = setTimeout(refreshToken, timeout);
 }
 

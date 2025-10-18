@@ -2,11 +2,8 @@ import { Box, Typography, Breadcrumbs, Link as MuiLink } from "@mui/material";
 import { useNavigate, useLocation } from "react-router";
 import { PeriodFilterDropdown } from "../shared/compliance/PeriodFilterDropdown";
 import { cloneElement, useEffect, useState } from "react";
-import { esgService, msService, userService } from "../../services/";
-import {
-  getCurrentCustomer,
-  onCustomerChange,
-} from "../../lib/utils/tenantScope";
+import { esgService, msService, userService } from "services/";
+import { getCurrentCustomer, onCustomerChange } from "lib/utils/tenantScope";
 
 export default function ComplianceDashboardLayout({ title, children, module }) {
   const [reportingPeriods, setReportingPeriods] = useState([]);

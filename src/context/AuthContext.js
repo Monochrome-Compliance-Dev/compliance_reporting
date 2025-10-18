@@ -21,7 +21,7 @@ export function AuthProvider({ children }) {
   const [isInitialising, setIsInitialising] = useState(true);
   const [showWarningDialog, setShowWarningDialog] = useState(false);
 
-  const showAlert = useAlert();
+  const { showAlert } = useAlert();
 
   const resetInactivityTimer = useCallback(() => {
     clearTimeout(logoutTimer);
@@ -70,6 +70,21 @@ export function AuthProvider({ children }) {
     const subscription = userService.user.subscribe((x) => {
       setUser(x);
       setIsSignedIn(!!x);
+
+      // If session ended while app is running, ask the Layout to navigate to /login
+      if (!x) {
+        const path = window.location.pathname;
+        const isAuthPage =
+          path === "/login" ||
+          path.startsWith("/verify") ||
+          path.startsWith("/reset-password");
+        if (!isAuthPage) {
+          try {
+            localStorage.setItem("lastVisitedPath", path);
+          } catch {}
+          window.dispatchEvent(new Event("auth:go-login"));
+        }
+      }
     });
 
     if (!hasRefreshed) {
