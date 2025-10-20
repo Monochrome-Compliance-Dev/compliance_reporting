@@ -10,7 +10,7 @@
     "@fontsource/inter": "^5.2.8",
     "@fontsource/roboto": "^5.2.8",
     "@hookform/resolvers": "^5.2.2",
-    "@mui/icons-material": "^5.11.16",
+    "@mui/icons-material": "^7.3.4",
     "@mui/lab": "^5.0.0-alpha.125",
     "@mui/material": "^7.3.4",
     "@mui/styles": "^6.4.8",
