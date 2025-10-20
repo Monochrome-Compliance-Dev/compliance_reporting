@@ -22,6 +22,7 @@ import {
   AccordionDetails,
   IconButton,
   Collapse,
+  FormHelperText,
 } from "@mui/material";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -38,6 +39,7 @@ import {
   listBudgetItemLabels,
 } from "../../services/pulseApi";
 import ResourceQuickDialog from "../resources/ResourceQuickDialog";
+import * as yup from "yup";
 
 export default function TrackableAssignmentsEditor({
   trackableId,
@@ -297,6 +299,14 @@ export default function TrackableAssignmentsEditor({
       return next;
     });
 
+  const clearRowErrors = (key) =>
+    setErrorsByKey((prev) => {
+      if (!prev[key]) return prev;
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
+
   const addBudgetItem = (budgetItemId) => {
     setRows((prev) => {
       const newRow = {
@@ -326,6 +336,66 @@ export default function TrackableAssignmentsEditor({
   };
 
   // --- Normalisation helpers and baseline map for diffing ---
+
+  // Yup schema: require resourceId and either assignmentPct (1–100) or assignedHoursPerWeek (>0); require dates
+  const assignmentRowSchema = yup
+    .object({
+      resourceId: yup.string().trim().required("Resource is required"),
+      budgetItemId: yup.string().trim().required(),
+      assignmentPct: yup
+        .number()
+        .transform((v, o) => (o === "" || o === null ? undefined : v))
+        .min(1, "% must be 1–100")
+        .max(100, "% must be 1–100")
+        .nullable(),
+      assignedHoursPerWeek: yup
+        .number()
+        .transform((v, o) => (o === "" || o === null ? undefined : v))
+        .moreThan(0, "Hours/week must be > 0")
+        .nullable(),
+      startDate: yup.string().trim().required("Start date required"),
+      endDate: yup.string().trim().required("End date required"),
+      dueDate: yup.string().trim().required("Due date required"),
+      role: yup.string().nullable(),
+      rateOverride: yup.number().nullable(),
+      notes: yup.string().nullable(),
+    })
+    .test(
+      "eitherPctOrHours",
+      "Enter either Assignment % (1–100) or Hours/week (> 0)",
+      (val) => {
+        const hasPct =
+          typeof val?.assignmentPct === "number" &&
+          val.assignmentPct > 0 &&
+          val.assignmentPct <= 100;
+        const hasHrs =
+          typeof val?.assignedHoursPerWeek === "number" &&
+          val.assignedHoursPerWeek > 0;
+        return hasPct || hasHrs;
+      }
+    );
+
+  const validateRow = async (row) => {
+    try {
+      await assignmentRowSchema.validate(row, { abortEarly: false });
+      return { ok: true, errors: {} };
+    } catch (err) {
+      const fe = {};
+      if (err?.inner && Array.isArray(err.inner)) {
+        err.inner.forEach((e) => {
+          if (e?.path) fe[e.path] = true;
+        });
+      } else if (err?.path) {
+        fe[err.path] = true;
+      }
+      // Coerce either/or markers into field flags
+      if (fe.eitherPctOrHours) {
+        fe.assignmentPct = fe.assignmentPct || true;
+        fe.assignedHoursPerWeek = fe.assignedHoursPerWeek || true;
+      }
+      return { ok: false, errors: fe };
+    }
+  };
   const toNullIfEmpty = (v) => (v === "" || v == null ? null : v);
   const toNumberOrNull = (v) => (v === "" || v == null ? null : Number(v));
   // Remove null/undefined/empty-string values from an object
@@ -443,34 +513,15 @@ export default function TrackableAssignmentsEditor({
   const saveRow = async (rowKey) => {
     const row = rows.find((r) => r.key === rowKey);
     if (!row) return;
-    // Removed early guard that prevented creating new rows
     if (!row.assignmentId) {
       // create new assignment for this row
       const norm = normaliseRow(row);
-      const miss = {
-        resourceId: !norm.resourceId,
-        assignmentPct:
-          row.assignmentPct === "" ||
-          row.assignmentPct === null ||
-          Number.isNaN(Number(row.assignmentPct)) ||
-          Number(row.assignmentPct) <= 0 ||
-          Number(row.assignmentPct) > 100,
-        startDate: !row.startDate,
-        endDate: !row.endDate,
-        dueDate: !row.dueDate,
-      };
-      if (
-        miss.resourceId ||
-        miss.assignmentPct ||
-        miss.startDate ||
-        miss.endDate ||
-        miss.dueDate
-      ) {
-        setErrorsByKey((prev) => ({ ...prev, [row.key]: miss }));
-        showAlert(
-          "Select a Resource, set Assignment % between 1 and 100, and complete Start, End and Due date before saving this row.",
-          "warning"
-        );
+      const { ok, errors } = await validateRow(norm);
+      if (!ok) {
+        setErrorsByKey((prev) => ({
+          ...prev,
+          [row.key]: { ...(prev[row.key] || {}), ...errors },
+        }));
         return;
       }
       try {
@@ -504,6 +555,7 @@ export default function TrackableAssignmentsEditor({
           )
         );
         setBaselineOverride((prev) => ({ ...prev, [String(newId)]: norm }));
+        clearRowErrors(row.key);
         showAlert("Row created.", "success");
         return;
       } catch (e) {
@@ -514,31 +566,13 @@ export default function TrackableAssignmentsEditor({
       }
     }
 
-    // required field guard (single row)
-    const miss = {
-      resourceId: !row.resourceId,
-      assignmentPct:
-        row.assignmentPct === "" ||
-        row.assignmentPct === null ||
-        Number.isNaN(Number(row.assignmentPct)) ||
-        Number(row.assignmentPct) <= 0 ||
-        Number(row.assignmentPct) > 100,
-      startDate: !row.startDate,
-      endDate: !row.endDate,
-      dueDate: !row.dueDate,
-    };
-    if (
-      miss.resourceId ||
-      miss.assignmentPct ||
-      miss.startDate ||
-      miss.endDate ||
-      miss.dueDate
-    ) {
-      setErrorsByKey((prev) => ({ ...prev, [row.key]: miss }));
-      showAlert(
-        "Select a Resource, set Assignment % between 1 and 100, and complete Start, End and Due date before saving this row.",
-        "warning"
-      );
+    // update path: validate row with Yup
+    const { ok, errors } = await validateRow(row);
+    if (!ok) {
+      setErrorsByKey((prev) => ({
+        ...prev,
+        [row.key]: { ...(prev[row.key] || {}), ...errors },
+      }));
       return;
     }
 
@@ -548,7 +582,8 @@ export default function TrackableAssignmentsEditor({
     const core = {
       resourceId: norm.resourceId,
       budgetItemId: norm.budgetItemId,
-      assignmentPct: norm.assignmentPct, // ensure present on updates
+      assignmentPct: norm.assignmentPct,
+      assignedHoursPerWeek: norm.assignedHoursPerWeek,
     };
     const sanitised = payloadSanitiser(
       { ...core, ...diff },
@@ -574,6 +609,7 @@ export default function TrackableAssignmentsEditor({
         [String(row.assignmentId)]: norm,
       }));
       showAlert("Row saved.", "success");
+      clearRowErrors(row.key);
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error("Failed to save row", e);
@@ -910,6 +946,9 @@ export default function TrackableAssignmentsEditor({
                                                       <Select
                                                         value={safeResourceId}
                                                         displayEmpty
+                                                        onFocus={
+                                                          collapseSections
+                                                        }
                                                         inputRef={(el) => {
                                                           if (el)
                                                             selectRefs.current[
@@ -965,6 +1004,12 @@ export default function TrackableAssignmentsEditor({
                                                           <em>Add resource…</em>
                                                         </MenuItem>
                                                       </Select>
+                                                      {errorsByKey[row.key]
+                                                        ?.resourceId ? (
+                                                        <FormHelperText error>
+                                                          Required
+                                                        </FormHelperText>
+                                                      ) : null}
                                                     </FormControl>
                                                   ) : (
                                                     <Box>
@@ -991,6 +1036,19 @@ export default function TrackableAssignmentsEditor({
                                                       >
                                                         Add resource…
                                                       </Button>
+                                                      {errorsByKey[row.key]
+                                                        ?.resourceId ? (
+                                                        <Typography
+                                                          variant="caption"
+                                                          color="error"
+                                                          sx={{
+                                                            display: "block",
+                                                            mt: 0.5,
+                                                          }}
+                                                        >
+                                                          Resource is required
+                                                        </Typography>
+                                                      ) : null}
                                                     </Box>
                                                   )}
                                                 </TableCell>
@@ -1008,11 +1066,16 @@ export default function TrackableAssignmentsEditor({
                                                       step: 1,
                                                     }}
                                                     value={row.assignmentPct}
+                                                    onFocus={collapseSections}
                                                     onChange={(e) => {
                                                       const v = e.target.value;
                                                       clearErr(
                                                         row.key,
                                                         "assignmentPct"
+                                                      );
+                                                      clearErr(
+                                                        row.key,
+                                                        "assignedHoursPerWeek"
                                                       );
                                                       setRows((prev) =>
                                                         prev.map((r) =>
@@ -1021,6 +1084,10 @@ export default function TrackableAssignmentsEditor({
                                                                 ...r,
                                                                 assignmentPct:
                                                                   v,
+                                                                assignedHoursPerWeek:
+                                                                  v
+                                                                    ? ""
+                                                                    : r.assignedHoursPerWeek,
                                                               }
                                                             : r
                                                         )
@@ -1029,6 +1096,15 @@ export default function TrackableAssignmentsEditor({
                                                     error={
                                                       !!errorsByKey[row.key]
                                                         ?.assignmentPct
+                                                    }
+                                                    helperText={
+                                                      !!errorsByKey[row.key]
+                                                        ?.assignmentPct
+                                                        ? "Enter % or Hours/week"
+                                                        : undefined
+                                                    }
+                                                    disabled={
+                                                      !!row.assignedHoursPerWeek
                                                     }
                                                   />
                                                 </TableCell>
@@ -1047,19 +1123,44 @@ export default function TrackableAssignmentsEditor({
                                                     value={
                                                       row.assignedHoursPerWeek
                                                     }
-                                                    onChange={(e) =>
+                                                    onFocus={collapseSections}
+                                                    onChange={(e) => {
+                                                      clearErr(
+                                                        row.key,
+                                                        "assignedHoursPerWeek"
+                                                      );
+                                                      clearErr(
+                                                        row.key,
+                                                        "assignmentPct"
+                                                      );
+                                                      const v = e.target.value;
                                                       setRows((prev) =>
                                                         prev.map((r) =>
                                                           r.key === row.key
                                                             ? {
                                                                 ...r,
                                                                 assignedHoursPerWeek:
-                                                                  e.target
-                                                                    .value,
+                                                                  v,
+                                                                assignmentPct: v
+                                                                  ? ""
+                                                                  : r.assignmentPct,
                                                               }
                                                             : r
                                                         )
-                                                      )
+                                                      );
+                                                    }}
+                                                    error={
+                                                      !!errorsByKey[row.key]
+                                                        ?.assignedHoursPerWeek
+                                                    }
+                                                    helperText={
+                                                      !!errorsByKey[row.key]
+                                                        ?.assignedHoursPerWeek
+                                                        ? "Enter Hours/week or %"
+                                                        : undefined
+                                                    }
+                                                    disabled={
+                                                      !!row.assignmentPct
                                                     }
                                                   />
                                                 </TableCell>
@@ -1068,6 +1169,7 @@ export default function TrackableAssignmentsEditor({
                                                   sx={{ width: 150 }}
                                                 >
                                                   <TextField
+                                                    onFocus={collapseSections}
                                                     fullWidth
                                                     size="small"
                                                     type="date"
@@ -1124,6 +1226,7 @@ export default function TrackableAssignmentsEditor({
                                                   sx={{ width: 150 }}
                                                 >
                                                   <TextField
+                                                    onFocus={collapseSections}
                                                     fullWidth
                                                     size="small"
                                                     type="date"
@@ -1167,9 +1270,9 @@ export default function TrackableAssignmentsEditor({
                                                       errorsByKey[row.key]
                                                         ?.endDate
                                                         ? "Required"
-                                                        : overlapKeys.includes[
+                                                        : overlapKeys.includes(
                                                               row.key
-                                                            ]
+                                                            )
                                                           ? "Overlaps another assignment"
                                                           : undefined
                                                     }
@@ -1177,6 +1280,7 @@ export default function TrackableAssignmentsEditor({
                                                 </TableCell>
                                                 <TableCell sx={{ width: 150 }}>
                                                   <TextField
+                                                    onFocus={collapseSections}
                                                     fullWidth
                                                     size="small"
                                                     type="date"
@@ -1218,6 +1322,7 @@ export default function TrackableAssignmentsEditor({
                                                   sx={{ minWidth: 240 }}
                                                 >
                                                   <TextField
+                                                    onFocus={collapseSections}
                                                     fullWidth
                                                     size="small"
                                                     value={row.notes}
