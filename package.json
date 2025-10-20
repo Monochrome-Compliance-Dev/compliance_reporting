@@ -13,7 +13,7 @@
     "@mui/icons-material": "^7.3.4",
     "@mui/lab": "^6.0.0-dev.240424162023-9968b4889d",
     "@mui/material": "^7.3.4",
-    "@mui/styles": "^5.17.1",
+    "@mui/styles": "^6.4.8",
     "@mui/x-date-pickers": "^8.14.1",
     "@sentry/react": "^10.20.0",
     "@sentry/tracing": "^7.120.3",
