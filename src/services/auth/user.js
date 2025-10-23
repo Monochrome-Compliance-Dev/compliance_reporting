@@ -299,7 +299,6 @@ function create(params) {
 
 // Invite a user and create a linked resource (composite)
 async function inviteWithResource(params) {
-  console.log("params for invite-with-resource", params);
   const res = await fetchWrapper.post(
     `${baseUrl}/invite-with-resource`,
     params,
@@ -307,7 +306,6 @@ async function inviteWithResource(params) {
       retry: 0,
     }
   );
-  console.log("res from invite-with-resource", res);
   return res;
 }
 

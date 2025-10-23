@@ -59,6 +59,7 @@ export default function TrackableAssignmentsEditor({
 
   // Row select focus + "freshly-added" highlight nicety
   const selectRefs = useRef({});
+  const lastFocusedElRef = useRef(null);
   const [flashRowKey, setFlashRowKey] = useState(null);
   useEffect(() => {
     if (!flashRowKey) return;
@@ -69,7 +70,18 @@ export default function TrackableAssignmentsEditor({
   // Maintain a local, mutable copy of resources so we can append newly created ones
   const [localResources, setLocalResources] = useState(resources || []);
   useEffect(() => {
-    setLocalResources(resources || []);
+    setLocalResources((prev) => {
+      const incoming = resources || [];
+      if (!Array.isArray(incoming) || incoming.length === 0) return prev || [];
+      const byId = new Map();
+      (prev || []).forEach((r) => {
+        if (r && r.id != null) byId.set(String(r.id), r);
+      });
+      incoming.forEach((r) => {
+        if (r && r.id != null) byId.set(String(r.id), r);
+      });
+      return Array.from(byId.values());
+    });
   }, [resources]);
 
   const [budgetItems, setBudgetItems] = useState([]);
@@ -186,6 +198,17 @@ export default function TrackableAssignmentsEditor({
     });
   }, [sectionNames, rows, budgetItemById]);
 
+  const roleMatchesLabel = useCallback((res, label) => {
+    if (!res || !label) return false;
+    const lab = String(label).trim();
+    const fields = [res.position, res.role, res.roleTitle, res.title]
+      .map((v) => (v == null ? "" : String(v).trim()))
+      .filter(Boolean);
+    return fields.some(
+      (f) => f.localeCompare(lab, undefined, { sensitivity: "base" }) === 0
+    );
+  }, []);
+
   const filterResourcesByRow = useCallback(
     (row) => {
       const bi = budgetItemById[String(row.budgetItemId)];
@@ -193,22 +216,9 @@ export default function TrackableAssignmentsEditor({
       const label = (bi.budgetItemLabel || "").trim();
       const pool = localResources || [];
       if (!label) return pool;
-
-      // Try a few common fields that might carry the role/position name
-      const matches = pool.filter((r) => {
-        const fields = [r.position, r.role, r.roleTitle, r.title]
-          .map((v) => (v == null ? "" : String(v)))
-          .filter(Boolean);
-        return fields.some(
-          (f) =>
-            f.localeCompare(label, undefined, { sensitivity: "accent" }) === 0
-        );
-      });
-
-      // Only return matches (do not fall back to pool)
-      return matches;
+      return pool.filter((r) => roleMatchesLabel(r, label));
     },
-    [budgetItemById, localResources]
+    [budgetItemById, localResources, roleMatchesLabel]
   );
   const rateByResourceId = useCallback(
     (id) => {
@@ -217,6 +227,11 @@ export default function TrackableAssignmentsEditor({
       const n = Number(raw);
       return Number.isFinite(n) ? n : 0;
     },
+    [localResources]
+  );
+
+  const resourceById = useCallback(
+    (id) => (localResources || []).find((x) => String(x.id) === String(id)),
     [localResources]
   );
 
@@ -236,6 +251,16 @@ export default function TrackableAssignmentsEditor({
   // Validators for Add Resource dialog
 
   const openAddResourceForRow = (row) => {
+    // Remember and blur current focus before opening modal to avoid aria-hidden warning
+    lastFocusedElRef.current = document.activeElement || null;
+    try {
+      if (
+        document.activeElement &&
+        typeof document.activeElement.blur === "function"
+      ) {
+        document.activeElement.blur();
+      }
+    } catch {}
     const bi = budgetItemById[String(row.budgetItemId)];
     const label = (bi?.budgetItemLabel || "").trim();
     setAddResDefaults({
@@ -245,7 +270,17 @@ export default function TrackableAssignmentsEditor({
     });
     setAddResOpen(true);
   };
-  const closeAddResource = () => setAddResOpen(false);
+  const closeAddResource = () => {
+    setAddResOpen(false);
+    // Restore focus to the last focused element if possible
+    setTimeout(() => {
+      try {
+        lastFocusedElRef.current &&
+          typeof lastFocusedElRef.current.focus === "function" &&
+          lastFocusedElRef.current.focus();
+      } catch {}
+    }, 0);
+  };
 
   // Derived totals for parent chips
   const assignedHoursTotal = useMemo(
@@ -354,7 +389,19 @@ export default function TrackableAssignmentsEditor({
         .moreThan(0, "Hours/week must be > 0")
         .nullable(),
       startDate: yup.string().trim().required("Start date required"),
-      endDate: yup.string().trim().required("End date required"),
+      endDate: yup
+        .string()
+        .trim()
+        .required("End date required")
+        .test(
+          "after-start",
+          "End date must be after start date",
+          function (value) {
+            const { startDate } = this.parent || {};
+            if (!startDate || !value) return true;
+            return String(value) > String(startDate);
+          }
+        ),
       dueDate: yup.string().trim().required("Due date required"),
       role: yup.string().nullable(),
       rateOverride: yup.number().nullable(),
@@ -616,6 +663,18 @@ export default function TrackableAssignmentsEditor({
       showAlert("Failed to save row.", "error");
     }
   };
+
+  // Helper: check if any row in list is incomplete (for Add assignment button disabling)
+  const hasIncompleteRows = useCallback(() => {
+    return (rows || []).some(
+      (r) =>
+        !r.resourceId ||
+        (!r.assignmentPct && !r.assignedHoursPerWeek) ||
+        !r.startDate ||
+        !r.endDate ||
+        !r.dueDate
+    );
+  }, [rows]);
 
   return (
     <Paper variant="outlined">
@@ -905,15 +964,27 @@ export default function TrackableAssignmentsEditor({
                                           list.map((row) => {
                                             const resOptions =
                                               filterResourcesByRow(row);
-                                            const safeResourceId = (
+                                            const currentValue = String(
+                                              row.resourceId || ""
+                                            );
+                                            const hasInOptions = (
                                               resOptions || []
                                             ).some(
                                               (opt) =>
-                                                String(opt.id) ===
-                                                String(row.resourceId)
-                                            )
-                                              ? String(row.resourceId)
-                                              : "";
+                                                String(opt.id) === currentValue
+                                            );
+                                            const extraSelected =
+                                              !hasInOptions && currentValue
+                                                ? resourceById(currentValue)
+                                                : null;
+                                            const selectValue = currentValue; // always keep selected value
+                                            const biForRow =
+                                              budgetItemById[
+                                                String(row.budgetItemId)
+                                              ];
+                                            const budgetLabel = (
+                                              biForRow?.budgetItemLabel || ""
+                                            ).trim();
                                             return (
                                               <TableRow
                                                 key={row.key}
@@ -937,14 +1008,15 @@ export default function TrackableAssignmentsEditor({
                                                 <TableCell
                                                   sx={{ minWidth: 220 }}
                                                 >
-                                                  {resOptions.length > 0 ? (
+                                                  {resOptions.length > 0 ||
+                                                  selectValue ? (
                                                     <FormControl
                                                       fullWidth
                                                       size="small"
                                                       required
                                                     >
                                                       <Select
-                                                        value={safeResourceId}
+                                                        value={selectValue}
                                                         displayEmpty
                                                         onFocus={
                                                           collapseSections
@@ -962,6 +1034,18 @@ export default function TrackableAssignmentsEditor({
                                                           if (
                                                             val === "__add__"
                                                           ) {
+                                                            // Blur before opening dialog to avoid aria-hidden warning
+                                                            try {
+                                                              if (
+                                                                document.activeElement &&
+                                                                typeof document
+                                                                  .activeElement
+                                                                  .blur ===
+                                                                  "function"
+                                                              ) {
+                                                                document.activeElement.blur();
+                                                              }
+                                                            } catch {}
                                                             // open dialog without changing selection
                                                             openAddResourceForRow(
                                                               row
@@ -984,14 +1068,37 @@ export default function TrackableAssignmentsEditor({
                                                             )
                                                           );
                                                         }}
-                                                        error={
-                                                          !!errorsByKey[row.key]
+                                                        error={Boolean(
+                                                          errorsByKey[row.key]
                                                             ?.resourceId
-                                                        }
+                                                        )}
                                                       >
                                                         <MenuItem value="">
                                                           <em>Select…</em>
                                                         </MenuItem>
+                                                        {extraSelected ? (
+                                                          <MenuItem
+                                                            value={String(
+                                                              extraSelected.id
+                                                            )}
+                                                          >
+                                                            {extraSelected.name}
+                                                            {!roleMatchesLabel(
+                                                              extraSelected,
+                                                              budgetLabel
+                                                            ) && (
+                                                              <Typography
+                                                                component="span"
+                                                                variant="caption"
+                                                                sx={{ ml: 0.5 }}
+                                                                color="text.secondary"
+                                                              >
+                                                                (doesn’t match
+                                                                this role)
+                                                              </Typography>
+                                                            )}
+                                                          </MenuItem>
+                                                        ) : null}
                                                         {resOptions.map((r) => (
                                                           <MenuItem
                                                             key={r.id}
@@ -1093,10 +1200,10 @@ export default function TrackableAssignmentsEditor({
                                                         )
                                                       );
                                                     }}
-                                                    error={
-                                                      !!errorsByKey[row.key]
+                                                    error={Boolean(
+                                                      errorsByKey[row.key]
                                                         ?.assignmentPct
-                                                    }
+                                                    )}
                                                     helperText={
                                                       !!errorsByKey[row.key]
                                                         ?.assignmentPct
@@ -1149,10 +1256,10 @@ export default function TrackableAssignmentsEditor({
                                                         )
                                                       );
                                                     }}
-                                                    error={
-                                                      !!errorsByKey[row.key]
+                                                    error={Boolean(
+                                                      errorsByKey[row.key]
                                                         ?.assignedHoursPerWeek
-                                                    }
+                                                    )}
                                                     helperText={
                                                       !!errorsByKey[row.key]
                                                         ?.assignedHoursPerWeek
@@ -1203,10 +1310,14 @@ export default function TrackableAssignmentsEditor({
                                                       });
                                                     }}
                                                     error={
-                                                      !!errorsByKey[row.key]
-                                                        ?.startDate ||
-                                                      overlapKeys.includes(
-                                                        row.key
+                                                      Boolean(
+                                                        errorsByKey[row.key]
+                                                          ?.startDate
+                                                      ) ||
+                                                      Boolean(
+                                                        overlapKeys.includes(
+                                                          row.key
+                                                        )
                                                       )
                                                     }
                                                     helperText={
@@ -1260,21 +1371,36 @@ export default function TrackableAssignmentsEditor({
                                                       });
                                                     }}
                                                     error={
-                                                      !!errorsByKey[row.key]
-                                                        ?.endDate ||
-                                                      overlapKeys.includes(
-                                                        row.key
+                                                      Boolean(
+                                                        errorsByKey[row.key]
+                                                          ?.endDate
+                                                      ) ||
+                                                      Boolean(
+                                                        overlapKeys.includes(
+                                                          row.key
+                                                        )
+                                                      ) ||
+                                                      Boolean(
+                                                        row.startDate &&
+                                                          row.endDate &&
+                                                          row.endDate <=
+                                                            row.startDate
                                                       )
                                                     }
                                                     helperText={
-                                                      errorsByKey[row.key]
-                                                        ?.endDate
-                                                        ? "Required"
-                                                        : overlapKeys.includes(
-                                                              row.key
-                                                            )
-                                                          ? "Overlaps another assignment"
-                                                          : undefined
+                                                      row.startDate &&
+                                                      row.endDate &&
+                                                      row.endDate <=
+                                                        row.startDate
+                                                        ? "End date must be after start date"
+                                                        : errorsByKey[row.key]
+                                                              ?.endDate
+                                                          ? "Required"
+                                                          : overlapKeys.includes(
+                                                                row.key
+                                                              )
+                                                            ? "Overlaps another assignment"
+                                                            : undefined
                                                     }
                                                   />
                                                 </TableCell>
@@ -1306,10 +1432,10 @@ export default function TrackableAssignmentsEditor({
                                                         )
                                                       );
                                                     }}
-                                                    error={
-                                                      !!errorsByKey[row.key]
+                                                    error={Boolean(
+                                                      errorsByKey[row.key]
                                                         ?.dueDate
-                                                    }
+                                                    )}
                                                     helperText={
                                                       errorsByKey[row.key]
                                                         ?.dueDate
@@ -1378,6 +1504,19 @@ export default function TrackableAssignmentsEditor({
                                             <Button
                                               size="small"
                                               startIcon={<AddIcon />}
+                                              disabled={(
+                                                rowsByBudgetItemId[
+                                                  String(bi.id)
+                                                ] || []
+                                              ).some(
+                                                (r) =>
+                                                  !r.resourceId ||
+                                                  (!r.assignmentPct &&
+                                                    !r.assignedHoursPerWeek) ||
+                                                  !r.startDate ||
+                                                  !r.endDate ||
+                                                  !r.dueDate
+                                              )}
                                               onClick={() =>
                                                 addBudgetItem(bi.id)
                                               }
@@ -1409,28 +1548,62 @@ export default function TrackableAssignmentsEditor({
         defaults={addResDefaults}
         onClose={closeAddResource}
         onCreated={(created) => {
+          // Normalise shape coming back from invite/create
+          const normalised =
+            created && created.id != null
+              ? {
+                  id: String(created.id),
+                  name: created.name || created.fullName || "",
+                  position:
+                    created.position ||
+                    addResDefaults?.role ||
+                    created.roleTitle ||
+                    created.title ||
+                    "",
+                  hourlyRate:
+                    created.hourlyRate ??
+                    created.rate ??
+                    created.chargeOutRate ??
+                    0,
+                  capacityHoursPerWeek:
+                    created.capacityHoursPerWeek ??
+                    created.capacity ??
+                    created.weeklyCapacity ??
+                    0,
+                }
+              : null;
+          if (!normalised) return;
+
+          // Merge into localResources (id wins)
           setLocalResources((prev) => {
-            const exists = (prev || []).some(
-              (r) => String(r.id) === String(created.id)
-            );
-            return exists ? prev : [...(prev || []), created];
+            const byId = new Map();
+            (prev || []).forEach((r) => {
+              if (r && r.id != null) byId.set(String(r.id), r);
+            });
+            byId.set(String(normalised.id), {
+              ...byId.get(String(normalised.id)),
+              ...normalised,
+            });
+            return Array.from(byId.values());
           });
-          if (addResDefaults.rowKey) {
+
+          // Auto-select on the row that initiated the dialog
+          if (addResDefaults?.rowKey) {
             setRows((prev) =>
               prev.map((r) =>
                 r.key === addResDefaults.rowKey
-                  ? { ...r, resourceId: String(created.id) }
+                  ? { ...r, resourceId: String(normalised.id) }
                   : r
               )
             );
             setFlashRowKey(addResDefaults.rowKey);
-            setTimeout(() => {
-              const el = selectRefs.current?.[addResDefaults.rowKey];
-              try {
-                el && el.focus();
-              } catch {}
-            }, 0);
+            const ref = selectRefs.current[addResDefaults.rowKey];
+            if (ref && typeof ref.focus === "function") {
+              setTimeout(() => ref.focus(), 0);
+            }
           }
+
+          closeAddResource();
         }}
       />
     </Paper>

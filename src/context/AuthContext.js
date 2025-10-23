@@ -18,41 +18,6 @@ let hasRefreshed = false;
 const WARNING_MS = 14 * 60 * 1000;
 const LOGOUT_MS = 15 * 60 * 1000;
 
-// Cross-tab refresh debounce/lock helpers
-let lastRefreshAttempt = 0;
-const REFRESH_LOCK_KEY = "auth:refresh-lock";
-const REFRESH_LOCK_TTL = 5000; // ms
-
-function tryAcquireRefreshLock() {
-  try {
-    const now = Date.now();
-    const raw = localStorage.getItem(REFRESH_LOCK_KEY);
-    const ts = raw ? Number(raw) : 0;
-    if (ts && now - ts < REFRESH_LOCK_TTL) return false;
-    localStorage.setItem(REFRESH_LOCK_KEY, String(now));
-    return true;
-  } catch {
-    return true; // if storage fails, don't block
-  }
-}
-
-function releaseRefreshLock() {
-  try {
-    const raw = localStorage.getItem(REFRESH_LOCK_KEY);
-    if (raw) localStorage.removeItem(REFRESH_LOCK_KEY);
-  } catch {}
-}
-
-async function safeRefreshToken() {
-  const now = Date.now();
-  if (now - lastRefreshAttempt < 2000) {
-    console.warn("[AuthContext] Skipping rapid duplicate refresh");
-    return null;
-  }
-  lastRefreshAttempt = now;
-  return userService.refreshToken();
-}
-
 export function AuthProvider({ children }) {
   const [isSignedIn, setIsSignedIn] = useState(null); // null = loading
   const [user, setUser] = useState(null);
@@ -116,8 +81,6 @@ export function AuthProvider({ children }) {
     const subscription = userService.user.subscribe((x) => {
       setUser(x);
       setIsSignedIn(!!x);
-
-      // If session ended while app is running, ask the Layout to navigate to /login
       if (!x) {
         const path = window.location.pathname;
         const isAuthPage =
@@ -128,71 +91,33 @@ export function AuthProvider({ children }) {
           try {
             localStorage.setItem("lastVisitedPath", path);
           } catch {}
-          window.dispatchEvent(new Event("auth:go-login"));
         }
       }
     });
 
     if (!hasRefreshed) {
       hasRefreshed = true;
-
-      if (tryAcquireRefreshLock()) {
-        safeRefreshToken()
-          .then((refreshedUser) => {
-            if (refreshedUser) {
-              setUser(refreshedUser);
-              setIsSignedIn(true);
-            } else {
-              setIsSignedIn(false);
-            }
-          })
-          .catch((err) => {
-            // Swallow unauthorised/no-session noise on public pages
-            const msg = String(err?.message || err || "").toLowerCase();
-            if (!msg.includes("unauthorised")) {
-              // Log only non-auth errors
-              // eslint-disable-next-line no-console
-              console.error("Refresh failed:", err);
-            }
+      userService
+        .refreshToken()
+        .then((refreshedUser) => {
+          if (refreshedUser) {
+            setUser(refreshedUser);
+            setIsSignedIn(true);
+          } else {
             setIsSignedIn(false);
-          })
-          .finally(() => {
-            setIsInitialising(false);
-            releaseRefreshLock();
-          });
-      } else {
-        // Another tab is refreshing; don’t double-fire
-        setIsInitialising(false);
-      }
+          }
+        })
+        .catch((err) => {
+          const msg = String(err?.message || err || "").toLowerCase();
+          if (!msg.includes("unauthorised")) {
+            console.error("Refresh failed:", err);
+          }
+          setIsSignedIn(false);
+        })
+        .finally(() => {
+          setIsInitialising(false);
+        });
     }
-
-    const onExpired = () => {
-      console.info("[AuthContext] auth:expired event fired");
-      handleSessionExpired();
-    };
-
-    const onResume = () => {
-      console.info("[AuthContext] onResume triggered");
-      if (!user) return;
-
-      const elapsed = Date.now() - lastActiveRef.current;
-      if (elapsed >= LOGOUT_MS) {
-        handleSessionExpired();
-        return;
-      }
-      if (elapsed >= WARNING_MS) {
-        setShowWarningDialog(true);
-      }
-
-      if (!tryAcquireRefreshLock()) return; // another tab just refreshed
-      safeRefreshToken().finally(() => {
-        resetInactivityTimer();
-        releaseRefreshLock();
-      });
-    };
-
-    window.addEventListener("auth:expired", onExpired);
-    window.addEventListener("focus", onResume);
 
     const activityEvents = ["mousemove", "keydown", "click", "scroll"];
     const handleActivity = () => {
@@ -212,12 +137,10 @@ export function AuthProvider({ children }) {
       activityEvents.forEach((event) =>
         window.removeEventListener(event, handleActivity)
       );
-      window.removeEventListener("auth:expired", onExpired);
-      window.removeEventListener("focus", onResume);
       clearTimeout(logoutTimer);
       clearTimeout(warningTimer);
     };
-  }, [resetInactivityTimer, user, handleSessionExpired]);
+  }, [resetInactivityTimer]);
 
   if (isInitialising) return null;
 

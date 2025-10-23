@@ -9,7 +9,7 @@ import {
   Stack,
   MenuItem,
 } from "@mui/material";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAlert } from "context";
@@ -72,12 +72,12 @@ export default function ResourceQuickDialog({
 }) {
   const { showAlert } = useAlert();
 
-  const { register, handleSubmit, reset, formState } = useForm({
+  const { register, handleSubmit, reset, control, formState } = useForm({
     resolver: yupResolver(resourceSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
-      role: "",
+      role: "User",
       position: defaults?.role || "",
       hourlyRate: "",
       capacityHoursPerWeek: "",
@@ -87,17 +87,19 @@ export default function ResourceQuickDialog({
   });
 
   useEffect(() => {
-    reset({
-      firstName: "",
-      lastName: "",
-      role: "",
-      position: defaults?.role || "",
-      hourlyRate: "",
-      capacityHoursPerWeek: "",
-      email: "",
-      userId: "",
-    });
-  }, [open, defaults?.role, reset]);
+    if (open) {
+      reset({
+        firstName: "",
+        lastName: "",
+        role: "User",
+        position: defaults?.role || "",
+        hourlyRate: "",
+        capacityHoursPerWeek: "",
+        email: "",
+        userId: "",
+      });
+    }
+  }, [open, defaults, reset]);
 
   const onSubmit = async (values) => {
     try {
@@ -118,6 +120,7 @@ export default function ResourceQuickDialog({
             position: String(values.position || "").trim(),
             hourlyRate: Number(values.hourlyRate ?? 0),
             capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
+            customerId: userService.userValue.customerId,
           },
           createdBy: userService.userValue.id,
         };
@@ -140,6 +143,7 @@ export default function ResourceQuickDialog({
         position: String(values.position || "").trim(),
         hourlyRate: Number(values.hourlyRate ?? 0),
         capacityHoursPerWeek: Number(values.capacityHoursPerWeek ?? 0),
+        customerId: userService.userValue.customerId,
         userId: values.userId ? String(values.userId) : undefined,
         email: values.email || undefined,
         role: values.role || undefined,
@@ -152,7 +156,6 @@ export default function ResourceQuickDialog({
       onClose?.();
     } catch (err) {
       // eslint-disable-next-line no-console
-      console.error("ResourceQuickDialog save failed", err);
       showAlert(err?.message || "Failed to save resource", "error");
     }
   };
@@ -181,40 +184,47 @@ export default function ResourceQuickDialog({
             />
           </Stack>
 
-          <TextField
-            select
-            label="Role"
-            defaultValue=""
-            {...register("role")}
-            error={!!errors.role}
-            helperText={errors.role?.message}
-            fullWidth
-          >
-            <MenuItem value="">
-              <em>Select a role…</em>
-            </MenuItem>
-            <MenuItem value="User">User</MenuItem>
-            <MenuItem value="Admin">Admin</MenuItem>
-          </TextField>
+          <Controller
+            name="role"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                select
+                label="Role"
+                {...field}
+                error={!!errors.role}
+                helperText={errors.role?.message}
+                fullWidth
+              >
+                <MenuItem value="User">User</MenuItem>
+                <MenuItem value="Admin">Admin</MenuItem>
+              </TextField>
+            )}
+          />
 
-          <TextField
-            select
-            label="Position"
-            defaultValue=""
-            {...register("position")}
-            error={!!errors.position}
-            helperText={errors.position?.message}
-            fullWidth
-          >
-            <MenuItem value="">
-              <em>Select a position…</em>
-            </MenuItem>
-            {RESOURCE_OPTIONS.map((opt) => (
-              <MenuItem key={opt} value={opt}>
-                {opt}
-              </MenuItem>
-            ))}
-          </TextField>
+          <Controller
+            name="position"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                select
+                label="Position"
+                {...field}
+                error={!!errors.position}
+                helperText={errors.position?.message}
+                fullWidth
+              >
+                <MenuItem value="">
+                  <em>Select a position…</em>
+                </MenuItem>
+                {RESOURCE_OPTIONS.map((opt) => (
+                  <MenuItem key={opt} value={opt}>
+                    {opt}
+                  </MenuItem>
+                ))}
+              </TextField>
+            )}
+          />
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
             <TextField

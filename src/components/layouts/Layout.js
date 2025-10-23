@@ -7,7 +7,7 @@ import Navbar from "../navigation/Navbar";
 import Footer from "../navigation/Footer";
 import { Alert, Snackbar } from "@mui/material";
 import globalTheme from "theme/globalTheme"; // Ensure the import matches the export
-import { useAlert } from "context/AlertContext";
+import { useAlert, useAuthContext } from "context";
 import { LoadingSpinner } from "../ui/"; // If you have a spinner component
 import useGtagPageview from "hooks/useGtagPageview";
 
@@ -16,6 +16,7 @@ export default function Layout() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { isSignedIn } = useAuthContext();
 
   const theme = useMemo(() => {
     const mode = isDarkTheme ? "dark" : "light"; // Determine the mode
@@ -28,14 +29,16 @@ export default function Layout() {
   }, [location.pathname]);
 
   useEffect(() => {
-    const onGoLogin = () => {
-      if (window.location.pathname !== "/login") {
-        navigate("/login", { replace: true });
-      }
-    };
-    window.addEventListener("auth:go-login", onGoLogin);
-    return () => window.removeEventListener("auth:go-login", onGoLogin);
-  }, [navigate]);
+    const path = window.location.pathname;
+    const isAuthPage =
+      path === "/login" ||
+      path.startsWith("/verify") ||
+      path.startsWith("/reset-password");
+
+    if (isSignedIn === false && !isAuthPage) {
+      navigate("/login", { replace: true });
+    }
+  }, [isSignedIn, navigate]);
 
   const toggleTheme = () => setIsDarkTheme((prev) => !prev); // Toggle between light and dark modes
 
