@@ -1,8 +1,7 @@
 import PtrsV2Layout from "./PtrsV2Layout";
 import GuardedRoutePtrs from "./GuardedRoutePtrs";
 import CreateRunPanel from "./panels/CreateRunPanel";
-import UploadPanel from "./panels/UploadPanel";
-import PlaceholderPanel from "./panels/PlaceholderPanel";
+import MapPanel from "./panels/MapPanel";
 import { Navigate } from "react-router";
 
 const ptrsRoutes = [
@@ -14,24 +13,15 @@ const ptrsRoutes = [
         children: [{ path: "create", Component: CreateRunPanel }],
       },
       {
-        Component: () => <GuardedRoutePtrs id="upload" />,
-        children: [{ path: "upload", Component: UploadPanel }],
-      },
-      {
         Component: () => <GuardedRoutePtrs id="map" />,
-        children: [
-          {
-            path: "map",
-            Component: () => <PlaceholderPanel title="Map columns" />,
-          },
-        ],
+        children: [{ path: "map", Component: MapPanel }],
       },
       {
         Component: () => <GuardedRoutePtrs id="validate" />,
         children: [
           {
             path: "validate",
-            Component: () => <PlaceholderPanel title="Validate & fix errors" />,
+            Component: () => <div>Validate &amp; fix errors</div>,
           },
         ],
       },
@@ -40,9 +30,7 @@ const ptrsRoutes = [
         children: [
           {
             path: "rules",
-            Component: () => (
-              <PlaceholderPanel title="Apply exclusions & transforms" />
-            ),
+            Component: () => <div>Apply exclusions &amp; transforms</div>,
           },
         ],
       },
@@ -51,7 +39,7 @@ const ptrsRoutes = [
         children: [
           {
             path: "sbi",
-            Component: () => <PlaceholderPanel title="SBI export/import" />,
+            Component: () => <div>SBI export/import</div>,
           },
         ],
       },
@@ -60,7 +48,7 @@ const ptrsRoutes = [
         children: [
           {
             path: "metrics",
-            Component: () => <PlaceholderPanel title="Metrics snapshot" />,
+            Component: () => <div>Metrics snapshot</div>,
           },
         ],
       },
@@ -69,9 +57,7 @@ const ptrsRoutes = [
         children: [
           {
             path: "report",
-            Component: () => (
-              <PlaceholderPanel title="Compose & export report" />
-            ),
+            Component: () => <div>Compose &amp; export report</div>,
           },
         ],
       },

@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import {
   useRunStatus,
-  useUploadStatus,
-  useColumnMapStatus,
+  useRunUploadStatus,
+  useRunMapStatus,
   useValidationStatus,
   useRulesStatus,
   useSbiStatus,
@@ -14,8 +14,8 @@ export function useStepStatuses(runId, step) {
   const enable = (ids) => !!runId && ids.includes(step);
 
   const run = useRunStatus(runId, { enabled: !!runId }); // always okay to fetch
-  const upload = useUploadStatus(runId, { enabled: enable(["upload"]) }); // only on Upload
-  const map = useColumnMapStatus(runId, { enabled: enable(["upload", "map"]) }); // map shown during Upload/Map
+  const runUpload = useRunUploadStatus(runId, { enabled: enable(["upload"]) }); // only on Upload
+  const map = useRunMapStatus(runId, { enabled: enable(["upload", "map"]) }); // map shown during Upload/Map
   const validate = useValidationStatus(runId, {
     enabled: enable(["validate"]),
   });
@@ -28,8 +28,8 @@ export function useStepStatuses(runId, step) {
     () => ({
       create: !!run?.exists,
       upload:
-        upload?.status === "completed" &&
-        (upload?.rowCounts?.ingested ?? 0) > 0,
+        runUpload?.status === "completed" &&
+        (runUpload?.rowCounts?.ingested ?? 0) > 0,
       map: !!map?.selected && map?.schemaCompatible === true,
       validate: ["clean", "clean_with_warnings"].includes(validate?.status),
       rules: rules?.status === "applied" && !!rules?.datasetVersionId,
@@ -39,8 +39,8 @@ export function useStepStatuses(runId, step) {
         report?.state || ""
       ),
     }),
-    [run, upload, map, validate, rules, sbi, metrics, report]
+    [run, runUpload, map, validate, rules, sbi, metrics, report]
   );
 
-  return { run, upload, map, validate, rules, sbi, metrics, report, gates };
+  return { run, runUpload, map, validate, rules, sbi, metrics, report, gates };
 }

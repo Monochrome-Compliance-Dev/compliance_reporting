@@ -2,35 +2,36 @@ import { useState } from "react";
 import { Box, Stack, Typography, Button } from "@mui/material";
 import { useSearchParams } from "react-router";
 import { useAlert } from "context";
-import {
-  useUploadStatus,
-  useUploadCsvMutation,
-  useColumnMapStatus,
-  useSelectMapMutation,
-} from "../hooks/usePtrsQueries";
+import { useTheme } from "@mui/material/styles";
+import { uploadCsv, getRunSample } from "v2/ptrs/services/ptrsApi";
 
 export default function UploadPanel() {
+  const theme = useTheme();
   const [params] = useSearchParams();
   const runId = params.get("runId");
   const { showAlert } = useAlert();
 
-  const status = useUploadStatus(runId);
-  const mapStatus = useColumnMapStatus(runId);
-
-  const uploadCsv = useUploadCsvMutation(runId);
-  const selectMap = useSelectMapMutation(runId);
-
   const [file, setFile] = useState(null);
+  const [lastSample, setLastSample] = useState(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   const onFileChange = (e) => setFile(e.target.files?.[0] || null);
 
   const onUpload = async () => {
+    if (!runId) return showAlert("Missing runId in URL", "error");
     if (!file) return showAlert("Choose a CSV first", "info");
     try {
-      await uploadCsv.mutateAsync({ file, columnMapId: mapStatus?.mapId });
-      showAlert("Upload started", "info");
+      setIsUploading(true);
+      const res = await uploadCsv(runId, file);
+      const inserted = res?.data?.rowsInserted ?? 0;
+      showAlert(`Ingested ${inserted} rows`, "success");
+      // Fetch a small sample to confirm rows landed
+      const sampleRes = await getRunSample(runId, { limit: 10, offset: 0 });
+      setLastSample(sampleRes?.data || null);
     } catch (e) {
       showAlert(e?.message || "Upload failed", "error");
+    } finally {
+      setIsUploading(false);
     }
   };
 
@@ -41,38 +42,37 @@ export default function UploadPanel() {
       </Typography>
 
       <Stack spacing={2} sx={{ maxWidth: 720 }}>
-        {/* Map selector placeholder */}
-        <Stack direction="row" spacing={1} alignItems="center">
-          <Typography variant="body2">
-            Column map:{" "}
-            {mapStatus?.selected
-              ? `#${mapStatus?.mapId} (v${mapStatus?.version})`
-              : "None selected"}
-          </Typography>
-          <Button
-            size="small"
-            variant="outlined"
-            onClick={() => selectMap.mutateAsync("latest")}
-          >
-            Use latest saved map
-          </Button>
-        </Stack>
+        <Typography variant="body2" color="text.secondary">
+          Run ID: {runId || <em>none</em>}
+        </Typography>
 
-        {/* File picker */}
         <input type="file" accept=".csv,text/csv" onChange={onFileChange} />
         <Button
           variant="contained"
           onClick={onUpload}
-          disabled={!runId || uploadCsv.isLoading}
+          disabled={!runId || isUploading}
         >
-          {uploadCsv.isLoading ? "Uploading…" : "Start ingest"}
+          {isUploading ? "Uploading…" : "Start ingest"}
         </Button>
 
-        {/* Status */}
-        <Typography variant="body2">
-          Status: {status?.status} · Rows ingested:{" "}
-          {status?.rowCounts?.ingested ?? 0}
-        </Typography>
+        {lastSample && (
+          <Box>
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              Sample rows received: {lastSample?.rows?.length || 0} • total
+              staged ~ {lastSample?.total ?? 0}
+            </Typography>
+            <Box
+              component="pre"
+              sx={{
+                p: 1,
+                bgcolor: theme.palette.action.hover,
+                overflowX: "auto",
+              }}
+            >
+              {JSON.stringify(lastSample, null, 2)}
+            </Box>
+          </Box>
+        )}
       </Stack>
     </Box>
   );
