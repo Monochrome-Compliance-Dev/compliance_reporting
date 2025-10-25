@@ -27,6 +27,8 @@ export default function PtrsV2Layout() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const isLanding = /\/v2\/ptrs\/landing(?:\/|$)/.test(location.pathname);
+
   const runId = params.get("runId") || null;
 
   useEffect(() => {
@@ -35,10 +37,11 @@ export default function PtrsV2Layout() {
   }, [showAlert]);
 
   const currentStepId = useMemo(() => {
+    if (isLanding) return "landing";
     const parts = location.pathname.split("/").filter(Boolean);
     const maybe = parts[parts.length - 1];
     return STEPS.some((s) => s.id === maybe) ? maybe : "create";
-  }, [location.pathname]);
+  }, [location.pathname, isLanding]);
 
   const { gates } = useStepStatuses(runId, currentStepId);
 
@@ -53,7 +56,8 @@ export default function PtrsV2Layout() {
 
   function goToStep(index) {
     const target = STEPS[index]?.id || "create";
-    navigate(`/v2/ptrs/${target}${runId ? `?runId=${runId}` : ""}`);
+    const qs = params.toString(); // preserve all current query params (e.g., runId, profileId)
+    navigate(`/v2/ptrs/${target}${qs ? `?${qs}` : ""}`);
   }
 
   const stepDisabled = (id) => {
@@ -90,24 +94,28 @@ export default function PtrsV2Layout() {
         </Stack>
       </Box>
 
-      <Box sx={{ px: 3, py: 2 }}>
-        <Stepper activeStep={currentIndex} alternativeLabel>
-          {STEPS.map((s, idx) => (
-            <Step
-              key={s.id}
-              completed={Boolean(gates[s.id])}
-              disabled={stepDisabled(s.id)}
-            >
-              <StepLabel
-                onClick={() => !stepDisabled(s.id) && goToStep(idx)}
-                sx={{ cursor: stepDisabled(s.id) ? "not-allowed" : "pointer" }}
+      {!isLanding && (
+        <Box sx={{ px: 3, py: 2 }}>
+          <Stepper activeStep={currentIndex} alternativeLabel>
+            {STEPS.map((s, idx) => (
+              <Step
+                key={s.id}
+                completed={Boolean(gates[s.id])}
+                disabled={stepDisabled(s.id)}
               >
-                {s.label}
-              </StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-      </Box>
+                <StepLabel
+                  onClick={() => !stepDisabled(s.id) && goToStep(idx)}
+                  sx={{
+                    cursor: stepDisabled(s.id) ? "not-allowed" : "pointer",
+                  }}
+                >
+                  {s.label}
+                </StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </Box>
+      )}
 
       <Divider />
 
@@ -115,33 +123,35 @@ export default function PtrsV2Layout() {
         <Outlet />
       </Box>
 
-      <Box
-        sx={{
-          px: 3,
-          py: 2,
-          borderTop: (t) => `1px solid ${t.palette.divider}`,
-        }}
-      >
-        <Stack direction="row" justifyContent="space-between">
-          <Button
-            variant="text"
-            disabled={currentIndex === 0}
-            onClick={() => goToStep(currentIndex - 1)}
-          >
-            Back
-          </Button>
-          <Button
-            variant="contained"
-            disabled={
-              currentIndex >= STEPS.length - 1 ||
-              stepDisabled(STEPS[currentIndex + 1].id)
-            }
-            onClick={() => goToStep(currentIndex + 1)}
-          >
-            Next
-          </Button>
-        </Stack>
-      </Box>
+      {!isLanding && (
+        <Box
+          sx={{
+            px: 3,
+            py: 2,
+            borderTop: (t) => `1px solid ${t.palette.divider}`,
+          }}
+        >
+          <Stack direction="row" justifyContent="space-between">
+            <Button
+              variant="text"
+              disabled={currentIndex === 0}
+              onClick={() => goToStep(currentIndex - 1)}
+            >
+              Back
+            </Button>
+            <Button
+              variant="contained"
+              disabled={
+                currentIndex >= STEPS.length - 1 ||
+                stepDisabled(STEPS[currentIndex + 1].id)
+              }
+              onClick={() => goToStep(currentIndex + 1)}
+            >
+              Next
+            </Button>
+          </Stack>
+        </Box>
+      )}
     </Box>
   );
 }

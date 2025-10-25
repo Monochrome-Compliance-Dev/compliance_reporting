@@ -11,17 +11,38 @@ import {
   IconButton,
   Tooltip,
   TextField,
+  Drawer,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Badge,
 } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useTheme } from "@mui/material/styles";
 import { useSearchParams } from "react-router";
 import { useAlert } from "context";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ClearIcon from "@mui/icons-material/Clear";
+import SearchIcon from "@mui/icons-material/Search";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import ContentPasteGoIcon from "@mui/icons-material/ContentPasteGo";
+import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
+import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+
 import {
   getRunSample,
   getRunMap,
   saveRunMap,
   listRuns,
   extractMappingsFromAny,
+  getBlueprint,
 } from "v2/ptrs/services/ptrsApi";
 import {
   PTRS_REQUIRED_FIELDS,
@@ -29,32 +50,38 @@ import {
   FIELD_SYNONYMS,
 } from "features/ptrs/ingestConfig";
 import { getFieldLabel } from "features/ptrs/fieldMeta";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import ClearIcon from "@mui/icons-material/Clear";
+import SupportingDatasetsSection from "v2/ptrs/panels/SupportingDatasetsSection";
 
 export default function MapPanel() {
   const theme = useTheme();
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
   const runId = params.get("runId");
+  const profileId = params.get("profileId");
 
+  const [blueprint, setBlueprint] = useState(null);
   const [headers, setHeaders] = useState([]);
   const [sampleRows, setSampleRows] = useState([]);
   const [examples, setExamples] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const fileInputRef = useRef(null);
-  const [copyRunInput, setCopyRunInput] = useState("");
-
   const [runsWithMaps, setRunsWithMaps] = useState([]);
   const [selectedCopyRun, setSelectedCopyRun] = useState(null);
+  const fileInputRef = useRef(null);
 
   // target -> source (result of drag or select)
   const [assign, setAssign] = useState({});
   const [showOptional, setShowOptional] = useState(false);
+  const [showDatasets, setShowDatasets] = useState(false);
+  // user-defined placeholder targets
+  const [customFields, setCustomFields] = useState([]);
+  const [newCustomName, setNewCustomName] = useState("");
 
-  // Load headers + any existing saved map
+  // sources pane
+  const [search, setSearch] = useState("");
+  const [importOpen, setImportOpen] = useState(false);
+
+  // --- Load headers + any existing saved map
   useEffect(() => {
     let mounted = true;
     async function load() {
@@ -63,13 +90,20 @@ export default function MapPanel() {
       try {
         const sample = await getRunSample(runId, { limit: 5, offset: 0 });
         const mapRes = await getRunMap(runId);
-        const inferred = sample.headers;
-        const rows = sample.rows;
-        const existing = mapRes.mappings || null;
+        const bp = await getBlueprint({ profileId });
 
         if (!mounted) return;
+        setBlueprint(bp || null);
+
+        const inferred = sample.headers;
+        const rows = sample.rows;
+        // Accept both shapes: { mappings: {...} } or { map: { mappings: {...} } }
+        const existing =
+          (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || null;
+
         setHeaders(inferred);
         setSampleRows(rows);
+
         // build examples map: header -> first non-empty value
         const ex = {};
         for (const h of inferred) {
@@ -93,11 +127,27 @@ export default function MapPanel() {
           }
         }
         setAssign(toTargetSource);
+
+        // collect any targets not in required/optional as custom placeholders
+        const known = new Set([
+          ...PTRS_REQUIRED_FIELDS,
+          ...PTRS_OPTIONAL_FIELDS,
+        ]);
+        const discovered = new Set();
+        if (existing && typeof existing === "object") {
+          for (const [, cfg] of Object.entries(existing)) {
+            const field = cfg?.field;
+            if (field && !known.has(field)) discovered.add(field);
+          }
+        }
+        if (discovered.size)
+          setCustomFields((prev) => [...new Set([...prev, ...discovered])]);
+
         try {
           const lr = await listRuns({ hasMap: true });
           setRunsWithMaps(lr.items || []);
         } catch {
-          // ignore listing errors; UI still works
+          // ignore listing errors
         }
       } catch (e) {
         showAlert(e?.message || "Failed to load mapping info", "error");
@@ -108,29 +158,18 @@ export default function MapPanel() {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [runId]);
-  const copyFromRunId = async (otherRunId) => {
-    try {
-      const res = await getRunMap(otherRunId);
-      const obj = res.mappings || {};
-      const applied = applyIncomingMap(obj);
-      if (applied > 0) {
-        showAlert(`Copied ${applied} mapping(s) from ${otherRunId}`, "success");
-      } else {
-        showAlert(`No compatible mappings found on run ${otherRunId}`, "info");
-      }
-    } catch (e) {
-      showAlert(e?.message || "Failed to load map from that run", "error");
-    }
-  };
 
+  // quick helpers
   const usedSources = useMemo(
     () => new Set(Object.values(assign || {})),
     [assign]
   );
-  const unmappedHeaders = useMemo(
-    () => (headers || []).filter((h) => !usedSources.has(h)),
-    [headers, usedSources]
-  );
+  const filteredSources = useMemo(() => {
+    const needle = search.trim().toLowerCase();
+    const all = headers || [];
+    if (!needle) return all;
+    return all.filter((h) => h.toLowerCase().includes(needle));
+  }, [headers, search]);
 
   // HTML5 DnD
   const onDragStart = (e, sourceHeader) => {
@@ -165,6 +204,61 @@ export default function MapPanel() {
     });
   const clearAll = () => setAssign({});
 
+  // --- Custom fields helpers ---
+  const addCustomField = (name) => {
+    const safe = String(name || "").trim();
+    if (!safe) return;
+    const existsInCore =
+      PTRS_REQUIRED_FIELDS.includes(safe) ||
+      PTRS_OPTIONAL_FIELDS.includes(safe);
+    if (existsInCore) {
+      showAlert("That field name already exists in the core schema.", "info");
+      return;
+    }
+    setCustomFields((prev) => {
+      const next = [...new Set([...prev, safe])];
+      return next;
+    });
+    setNewCustomName("");
+  };
+
+  const removeCustomField = (name) => {
+    setCustomFields((prev) => prev.filter((f) => f !== name));
+    setAssign((prev) => {
+      const n = { ...prev };
+      if (n[name]) delete n[name];
+      return n;
+    });
+  };
+
+  // Generate a safe, unique custom field name from a source header
+  const makeUniqueCustomName = (raw) => {
+    const knownCore = new Set([
+      ...PTRS_REQUIRED_FIELDS,
+      ...PTRS_OPTIONAL_FIELDS,
+    ]);
+    const sanitize = (s) =>
+      String(s || "")
+        .trim()
+        .replace(/\s+/g, "_")
+        .replace(/[^A-Za-z0-9_]/g, "")
+        .replace(/^_+|_+$/g, "");
+    let base = sanitize(raw) || "CustomField";
+    // Avoid starting with a number
+    if (/^[0-9]/.test(base)) base = `F_${base}`;
+    // Avoid core collisions
+    if (knownCore.has(base)) base = `${base}_1`;
+    // Ensure uniqueness against existing custom fields too
+    let name = base;
+    let i = 1;
+    const exists = (n) => knownCore.has(n) || customFields.includes(n);
+    while (exists(name)) {
+      i += 1;
+      name = `${base}_${i}`;
+    }
+    return name;
+  };
+
   // --- Auto-suggest helpers ---
   const norm = (s) =>
     String(s || "")
@@ -175,12 +269,13 @@ export default function MapPanel() {
   const aliasesFor = (fieldId) => {
     const label = getFieldLabel(fieldId, fieldId);
     const custom = FIELD_SYNONYMS?.[fieldId] || [];
-    // prefer fieldId and label, then any synonyms
-    return [fieldId, label, ...custom].map(norm).filter(Boolean);
+    const bpSyns =
+      (blueprint?.fields || []).find((f) => f.field === fieldId)?.synonyms ||
+      [];
+    return [fieldId, label, ...bpSyns, ...custom].map(norm).filter(Boolean);
   };
 
   const autoSuggest = () => {
-    // Build quick lookup of available sources by normalized header
     const available = headers.filter((h) => !usedSources.has(h));
     const byNorm = new Map();
     for (const h of available) byNorm.set(norm(h), h);
@@ -228,7 +323,6 @@ export default function MapPanel() {
           applied += 1;
         }
       }
-      // toast after state update
       if (applied > 0) {
         showAlert(`Auto-suggest mapped ${applied} field(s)`, "success");
       } else {
@@ -241,36 +335,141 @@ export default function MapPanel() {
     });
   };
 
-  // Convert BE map object -> assign (target->source), validating headers
+  // Resolve a header name against current headers with loose matching:
+  // 1) exact
+  // 2) case-insensitive + trim
+  // 3) "normalized" (collapse spaces & strip non-alphanum)
+  const resolveHeader = (headersArr, sourceName) => {
+    if (!sourceName) return null;
+    const exactSet = new Set(headersArr || []);
+    if (exactSet.has(sourceName)) return sourceName;
+    const srcTrim = String(sourceName).trim();
+    for (const h of headersArr || []) {
+      if (String(h).trim() === srcTrim) return h;
+    }
+    const toNorm = (s) =>
+      String(s || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "");
+    const srcNorm = toNorm(srcTrim);
+    for (const h of headersArr || []) {
+      if (toNorm(h) === srcNorm) return h;
+    }
+    return null;
+  };
+
+  // Convert BE map object -> assign (target->source), validating headers with loose resolving
   const applyIncomingMap = (obj) => {
-    console.log("obj: ", obj);
     if (!obj || typeof obj !== "object") return 0;
-    const validHeaders = new Set(headers || []);
+    const validHeaders = Array.isArray(headers) ? headers : [];
     const next = { ...assign };
     let applied = 0;
-    for (const [source, cfg] of Object.entries(obj)) {
-      if (!validHeaders.has(source)) continue; // ignore unknown headers
+
+    // DEBUG: inspect why saved maps are considered incompatible
+    // eslint-disable-next-line no-console
+    // console.groupCollapsed("[applyIncomingMap] Start — headers vs saved map");
+    // eslint-disable-next-line no-console
+    // console.log("Current headers:", validHeaders);
+
+    for (let [source, cfg] of Object.entries(obj)) {
       const target = cfg?.field;
-      if (!target) continue;
-      // ensure source is unique
+      if (!target) {
+        // eslint-disable-next-line no-console
+        console.warn("❌ Skipped mapping: no target for", source, cfg);
+        continue;
+      }
+
+      // try to resolve the source header against current headers
+      const resolved = resolveHeader(validHeaders, source);
+      if (!resolved) {
+        // eslint-disable-next-line no-console
+        console.warn("⚠️ Could not resolve header:", { source, target });
+        continue;
+      }
+
+      // ensure a source maps to one target only
       for (const k of Object.keys(next))
-        if (next[k] === source) next[k] = undefined;
+        if (next[k] === resolved) next[k] = undefined;
+
       if (!next[target]) {
-        next[target] = source;
+        next[target] = resolved;
         applied += 1;
+        // eslint-disable-next-line no-console
+        // console.log("✅ Mapped:", { source, resolved, target });
+      } else {
+        // eslint-disable-next-line no-console
+        console.log("⤵️ Already had target assigned; keeping existing:", {
+          target,
+          existing: next[target],
+          incoming: resolved,
+        });
       }
     }
+
+    // Register unknown targets as custom fields
+    const known = new Set([...PTRS_REQUIRED_FIELDS, ...PTRS_OPTIONAL_FIELDS]);
+    const discovered = new Set();
+    for (const [, cfg] of Object.entries(obj)) {
+      const t = cfg?.field;
+      if (t && !known.has(t)) discovered.add(t);
+    }
+    if (discovered.size) {
+      setCustomFields((prev) => [...new Set([...prev, ...discovered])]);
+    }
+
+    // eslint-disable-next-line no-console
+    // console.log(
+    //   "Discovered custom fields (if any):",
+    //   Array.from(discovered.values?.() || discovered)
+    // );
+    // eslint-disable-next-line no-console
+    // console.log("Applied count:", applied, "Final assign:", next);
+    // eslint-disable-next-line no-console
+    console.groupEnd();
+
     setAssign(next);
     return applied;
   };
 
-  const handleImportJson = async (e) => {
-    const file = e.target.files?.[0];
+  const validateMap = () => {
+    const missing = PTRS_REQUIRED_FIELDS.filter((f) => !assign[f]);
+    // check duplicate sources (shouldn't happen but double-check)
+    const seen = new Set();
+    const dups = [];
+    Object.values(assign).forEach((src) => {
+      if (!src) return;
+      if (seen.has(src)) dups.push(src);
+      else seen.add(src);
+    });
+    if (missing.length || dups.length) {
+      showAlert(
+        [
+          missing.length ? `Missing required: ${missing.join(", ")}` : null,
+          dups.length
+            ? `Duplicate sources: ${[...new Set(dups)].join(", ")}`
+            : null,
+        ]
+          .filter(Boolean)
+          .join(" • "),
+        "info"
+      );
+      return false;
+    }
+    showAlert("Map looks good", "success");
+    return true;
+  };
+
+  const handleImportJson = async (file) => {
     if (!file) return;
     try {
       const text = await file.text();
       const raw = JSON.parse(text);
       const mappings = extractMappingsFromAny(raw);
+      // eslint-disable-next-line no-console
+      console.log(
+        "[handleImportJson] Extracted mappings keys:",
+        Object.keys(mappings || {})
+      );
       if (!mappings || typeof mappings !== "object") {
         showAlert("No usable mappings found in file", "info");
       } else {
@@ -281,28 +480,28 @@ export default function MapPanel() {
           showAlert("No compatible headers found in this file", "info");
         }
       }
-    } catch (err) {
+    } catch {
       showAlert("Invalid JSON mapping file", "error");
-    } finally {
-      // reset input so selecting the same file again re-triggers
-      if (fileInputRef.current) fileInputRef.current.value = "";
     }
   };
 
-  const copyFromRun = async () => {
-    const otherRun = (copyRunInput || "").trim();
-    if (!otherRun) {
-      showAlert("Enter a runId to copy from", "info");
-      return;
-    }
+  const copyFromRunId = async (otherRunId) => {
     try {
-      const res = await getRunMap(otherRun);
-      const obj = res.mappings || {};
+      const res = await getRunMap(otherRunId);
+      const obj = (res && (res.mappings || res.map?.mappings)) || {};
+      // eslint-disable-next-line no-console
+      // console.log("[copyFromRunId] Loaded map shape:", {
+      //   keys: Object.keys(res || {}),
+      //   hasMap: !!res?.map,
+      //   hasMappings: !!res?.mappings,
+      //   appliedFrom: otherRunId,
+      // });
       const applied = applyIncomingMap(obj);
       if (applied > 0) {
-        showAlert(`Copied ${applied} mapping(s) from ${otherRun}`, "success");
+        showAlert(`Copied ${applied} mapping(s) from ${otherRunId}`, "success");
+        setImportOpen(false);
       } else {
-        showAlert(`No compatible mappings found on run ${otherRun}`, "info");
+        showAlert(`No compatible mappings found on run ${otherRunId}`, "info");
       }
     } catch (e) {
       showAlert(e?.message || "Failed to load map from that run", "error");
@@ -312,47 +511,56 @@ export default function MapPanel() {
   const save = async () => {
     if (!runId) return showAlert("Missing runId", "error");
     try {
-      // Convert target->source to BE shape: { "<source>": { field: "<target>", type: "string" } }
+      // Convert target->source to BE shape and include custom placeholders
       const payload = {};
+      const allowedTargets = new Set([
+        ...PTRS_REQUIRED_FIELDS,
+        ...PTRS_OPTIONAL_FIELDS,
+        ...customFields,
+      ]);
+      // Soft sanity: ignore empty/unknown targets, allow partial maps
       for (const [tgt, src] of Object.entries(assign)) {
         if (!src) continue;
+        if (!allowedTargets.has(tgt)) continue; // skip stray keys
         payload[src] = { field: tgt, type: "string" };
       }
-      const res = await saveRunMap(runId, payload);
-      const count = Object.keys(res.mappings || payload).length;
-      showAlert(`Saved map (${count} fields)`, "success");
+      const count = Object.keys(payload).length;
+      if (count === 0) {
+        showAlert(
+          "Map is empty — assign at least one field before saving.",
+          "info"
+        );
+        return;
+      }
+      const res = await saveRunMap(runId, { mappings: payload, profileId });
+      const savedCount = Object.keys(res.mappings || payload).length;
+      showAlert(
+        `Saved map (${savedCount} field${savedCount === 1 ? "" : "s"})`,
+        "success"
+      );
     } catch (e) {
       showAlert(e?.message || "Failed to save map", "error");
     }
   };
 
-  const Section = ({ title, children, actions, sticky = false }) => (
-    <Box
-      sx={{
-        mb: 2,
-        position: sticky ? "sticky" : "static",
-        top: sticky ? theme.spacing(1) : "auto",
-        zIndex: sticky ? 2 : "auto",
-      }}
-    >
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        sx={{ mb: 1, bgcolor: sticky ? "background.paper" : "transparent" }}
-      >
-        <Typography variant="subtitle2">{title}</Typography>
-        {actions}
-      </Stack>
-      <Paper variant="outlined" sx={{ p: 2 }}>
-        {children}
-      </Paper>
-    </Box>
-  );
-
+  // UI bits
+  const stageData = async () => {
+    if (!runId) return showAlert("Missing runId", "error");
+    try {
+      // Future: send map and dataset metadata to BE to initialise staging
+      // For now, just log and simulate navigation
+      showAlert("Staging data... preparing records for processing", "info");
+      console.log("Staging payload:", { runId, assign, customFields });
+      // In final version, BE will:
+      // 1. Combine core upload and supporting datasets.
+      // 2. Apply mappings to normalise field names.
+      // 3. Persist staged table ready for rule application and metrics.
+    } catch (err) {
+      showAlert(err?.message || "Failed to stage data", "error");
+    }
+  };
   const TargetBin = ({ field }) => {
     const assigned = assign[field] || null;
-    // Options include all headers so user can reselect current value too
     const options = headers;
     const getLabel = (h) =>
       h ? (examples[h] ? `${h} — e.g. ${examples[h]}` : h) : "";
@@ -380,12 +588,19 @@ export default function MapPanel() {
                 label={assigned}
                 onDelete={() => clearTarget(field)}
                 deleteIcon={<ClearIcon />}
+                size="small"
               />
               {examples[assigned] && (
                 <Typography variant="caption" color="text.secondary">
                   e.g. {examples[assigned]}
                 </Typography>
               )}
+              <Chip
+                label="Mapped"
+                size="small"
+                color="success"
+                variant="outlined"
+              />
             </Stack>
           ) : (
             <Typography variant="body2" color="text.secondary" sx={{ mr: 1 }}>
@@ -413,39 +628,418 @@ export default function MapPanel() {
     );
   };
 
-  return (
-    <Box>
-      <Typography variant="h5" gutterBottom>
-        Map columns
-      </Typography>
+  const requiredMappedCount = PTRS_REQUIRED_FIELDS.filter(
+    (f) => !!assign[f]
+  ).length;
+  const optionalMappedCount = PTRS_OPTIONAL_FIELDS.filter(
+    (f) => !PTRS_REQUIRED_FIELDS.includes(f) && !!assign[f]
+  ).length;
 
-      {/* Unmapped sources (sticky) */}
-      <Section
-        title={`Unmapped source columns (${unmappedHeaders.length})`}
-        sticky
-        actions={
-          <Stack direction="row" spacing={1} alignItems="center">
-            <Button size="small" onClick={autoSuggest}>
-              Auto-suggest
-            </Button>
-            <Button
+  // right pane sources item
+  const SourceToken = ({ h }) => {
+    const used = usedSources.has(h);
+    return (
+      <Paper
+        key={h}
+        draggable
+        onDragStart={(e) => onDragStart(e, h)}
+        variant="outlined"
+        sx={{
+          p: 1,
+          mb: 1,
+          opacity: used ? 0.4 : 1,
+          cursor: "grab",
+        }}
+      >
+        <Typography variant="body2">{h}</Typography>
+        {examples[h] && (
+          <Typography variant="caption" color="text.secondary">
+            e.g. {examples[h]}
+          </Typography>
+        )}
+      </Paper>
+    );
+  };
+
+  return (
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: { xs: "1fr", lg: "2fr 1fr" },
+        gap: 2,
+      }}
+    >
+      {/* LEFT: targets/workspace */}
+      <Box>
+        <Typography variant="h5" gutterBottom>
+          Map columns
+        </Typography>
+
+        {/* Required */}
+        <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+            sx={{ mb: 1 }}
+          >
+            <Typography variant="subtitle2">Required fields</Typography>
+            <Chip
               size="small"
-              onClick={() =>
-                fileInputRef.current && fileInputRef.current.click()
-              }
-            >
-              Import JSON
-            </Button>
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="application/json,.json"
-              onChange={handleImportJson}
-              style={{ display: "none" }}
+              label={`${requiredMappedCount}/${PTRS_REQUIRED_FIELDS.length} mapped`}
             />
+          </Stack>
+          <Stack spacing={1}>
+            {PTRS_REQUIRED_FIELDS.map((f) => (
+              <TargetBin key={f} field={f} />
+            ))}
+          </Stack>
+        </Paper>
+
+        {/* Optional accordion */}
+        <Accordion elevation={0} defaultExpanded={false}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Typography variant="subtitle2">Optional fields</Typography>
+              <Chip size="small" label={`${optionalMappedCount} mapped`} />
+            </Stack>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Stack spacing={1}>
+              {PTRS_OPTIONAL_FIELDS.filter(
+                (f) => !PTRS_REQUIRED_FIELDS.includes(f)
+              ).map((f) => (
+                <TargetBin key={f} field={f} />
+              ))}
+            </Stack>
+          </AccordionDetails>
+        </Accordion>
+
+        {/* Custom fields */}
+        <Accordion elevation={0} sx={{ mt: 2 }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Typography variant="subtitle2">Custom fields</Typography>
+              <Chip size="small" label={`${customFields.length} added`} />
+            </Stack>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Stack spacing={1.5}>
+              {/* Drag-to-create placeholder */}
+              <Box
+                onDragOver={allowDrop}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  const source = e.dataTransfer.getData("text/plain");
+                  if (!source) return;
+                  const newName = makeUniqueCustomName(source);
+                  if (!customFields.includes(newName)) {
+                    setCustomFields((prev) => [...prev, newName]);
+                  }
+                  assignSourceToTarget(source, newName);
+                  showAlert(
+                    `Created "${newName}" and mapped from "${source}"`,
+                    "success"
+                  );
+                }}
+                sx={{
+                  p: 2,
+                  border: "1px dashed",
+                  borderColor: theme.palette.divider,
+                  borderRadius: 1,
+                  textAlign: "center",
+                  color: theme.palette.text.secondary,
+                  fontStyle: "italic",
+                  mb: 1.5,
+                  bgcolor: theme.palette.action.hover,
+                  cursor: "copy",
+                }}
+              >
+                Drag a source column here to create a new placeholder field
+              </Box>
+              <Stack direction="row" spacing={1} alignItems="center">
+                <TextField
+                  id="customFieldInput"
+                  size="small"
+                  value={newCustomName}
+                  onChange={(e) => setNewCustomName(e.target.value)}
+                  placeholder="Add a placeholder (e.g. DocumentType)"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      addCustomField(newCustomName);
+                    }
+                  }}
+                  sx={{ maxWidth: 360 }}
+                />
+                <Button
+                  variant="outlined"
+                  size="small"
+                  onClick={() => addCustomField(newCustomName)}
+                >
+                  Add
+                </Button>
+              </Stack>
+
+              {customFields.length > 0 && (
+                <Stack spacing={1}>
+                  {customFields.map((f) => (
+                    <Paper
+                      key={f}
+                      variant="outlined"
+                      sx={{ p: 1, borderStyle: "dashed" }}
+                      onDragOver={allowDrop}
+                      onDrop={(e) => handleDrop(e, f)}
+                    >
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        spacing={1}
+                        justifyContent="space-between"
+                      >
+                        <Typography
+                          sx={{ fontWeight: 600, pr: 2, minWidth: 200 }}
+                        >
+                          {getFieldLabel(f, f)}
+                        </Typography>
+                        <Stack
+                          direction="row"
+                          spacing={1}
+                          alignItems="center"
+                          sx={{ flex: 1 }}
+                        >
+                          {assign[f] ? (
+                            <Stack
+                              direction="row"
+                              spacing={1}
+                              alignItems="center"
+                            >
+                              <Chip
+                                label={assign[f]}
+                                onDelete={() => clearTarget(f)}
+                                deleteIcon={<ClearIcon />}
+                                size="small"
+                              />
+                              {examples[assign[f]] && (
+                                <Typography
+                                  variant="caption"
+                                  color="text.secondary"
+                                >
+                                  e.g. {examples[assign[f]]}
+                                </Typography>
+                              )}
+                              <Chip
+                                label="Mapped"
+                                size="small"
+                                color="success"
+                                variant="outlined"
+                              />
+                            </Stack>
+                          ) : (
+                            <Typography
+                              variant="body2"
+                              color="text.secondary"
+                              sx={{ mr: 1 }}
+                            >
+                              Drag a source column here
+                            </Typography>
+                          )}
+                          <Autocomplete
+                            disablePortal
+                            fullWidth
+                            size="small"
+                            options={headers}
+                            value={assign[f] || null}
+                            onChange={(e, val) =>
+                              assignSourceToTarget(val || undefined, f)
+                            }
+                            getOptionLabel={(h) =>
+                              h
+                                ? examples[h]
+                                  ? `${h} — e.g. ${examples[h]}`
+                                  : h
+                                : ""
+                            }
+                            renderInput={(params) => (
+                              <TextField
+                                {...params}
+                                label="Assign"
+                                placeholder="Type to search…"
+                              />
+                            )}
+                          />
+                          <Tooltip title="Remove placeholder">
+                            <IconButton
+                              size="small"
+                              onClick={() => removeCustomField(f)}
+                            >
+                              <ClearIcon fontSize="small" />
+                            </IconButton>
+                          </Tooltip>
+                        </Stack>
+                      </Stack>
+                    </Paper>
+                  ))}
+                </Stack>
+              )}
+            </Stack>
+          </AccordionDetails>
+        </Accordion>
+
+        {/* Supporting datasets */}
+        <Accordion elevation={0} sx={{ mt: 2 }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Typography variant="subtitle2">Supporting datasets</Typography>
+              {/* Readiness chips could be computed later based on listDatasets */}
+            </Stack>
+          </AccordionSummary>
+          <AccordionDetails>
+            <SupportingDatasetsSection runId={runId} onChanged={() => {}} />
+          </AccordionDetails>
+        </Accordion>
+
+        <Divider sx={{ my: 2 }} />
+
+        {/* Sticky action bar */}
+        <Box
+          sx={{
+            position: "sticky",
+            bottom: 0,
+            py: 1,
+            bgcolor: theme.palette.background.paper,
+            zIndex: 10,
+            borderTop: (t) => `1px solid ${t.palette.divider}`,
+            boxShadow: (t) => t.shadows[2],
+          }}
+        >
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Stack direction="row" spacing={1}>
+              <Button
+                size="small"
+                startIcon={<DeleteSweepIcon />}
+                onClick={clearAll}
+                disabled={!Object.keys(assign).length}
+              >
+                Clear all
+              </Button>
+              <Button
+                size="small"
+                startIcon={<AutoFixHighIcon />}
+                onClick={autoSuggest}
+              >
+                Auto-suggest
+              </Button>
+              <Button
+                size="small"
+                startIcon={<ContentPasteGoIcon />}
+                onClick={() => setImportOpen(true)}
+              >
+                Import / Copy map
+              </Button>
+            </Stack>
+            <Stack direction="row" spacing={1}>
+              <Button
+                variant="contained"
+                onClick={save}
+                disabled={loading || !runId}
+              >
+                Save map
+              </Button>
+              <Button
+                variant="contained"
+                endIcon={<NavigateNextIcon />}
+                onClick={stageData}
+                disabled={!Object.keys(assign).length}
+              >
+                Next: Stage data
+              </Button>
+            </Stack>
+          </Stack>
+        </Box>
+      </Box>
+
+      {/* RIGHT: sources */}
+      <Box
+        sx={{
+          position: { lg: "sticky" },
+          top: { lg: theme.spacing(2) },
+          height: "fit-content",
+        }}
+      >
+        <Paper variant="outlined" sx={{ p: 2 }}>
+          <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
+            <SearchIcon fontSize="small" />
+            <TextField
+              size="small"
+              placeholder="Search source columns"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              fullWidth
+            />
+            <Tooltip title="Auto-suggest">
+              <IconButton onClick={autoSuggest} size="small">
+                <AutoFixHighIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Import / Copy map">
+              <IconButton onClick={() => setImportOpen(true)} size="small">
+                <ContentPasteGoIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+          </Stack>
+          <Divider sx={{ mb: 1 }} />
+          <Box sx={{ maxHeight: 520, overflowY: "auto" }}>
+            {filteredSources.length === 0 ? (
+              <Typography variant="body2" color="text.secondary">
+                No headers match your search.
+              </Typography>
+            ) : (
+              filteredSources.map((h) => <SourceToken key={h} h={h} />)
+            )}
+          </Box>
+        </Paper>
+      </Box>
+
+      {/* Import/Copy dialog */}
+      <Dialog
+        open={importOpen}
+        onClose={() => setImportOpen(false)}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>Import / Copy map</DialogTitle>
+        <DialogContent dividers>
+          <Stack spacing={2}>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Button
+                variant="outlined"
+                startIcon={<FileUploadIcon />}
+                component="label"
+              >
+                Import JSON
+                <input
+                  type="file"
+                  hidden
+                  accept="application/json,.json"
+                  onChange={(e) => {
+                    const f = e.target.files?.[0] || null;
+                    e.target.value = "";
+                    if (f) handleImportJson(f);
+                  }}
+                />
+              </Button>
+            </Stack>
+            <Divider />
+            <Typography variant="body2" color="text.secondary">
+              Or copy a map from a previous run:
+            </Typography>
             <Autocomplete
               size="small"
-              sx={{ width: 320 }}
               options={runsWithMaps}
               getOptionLabel={(opt) =>
                 opt?.fileName
@@ -462,92 +1056,23 @@ export default function MapPanel() {
                 />
               )}
             />
-            <Button
-              size="small"
-              onClick={() =>
-                selectedCopyRun
-                  ? copyFromRunId(selectedCopyRun.id)
-                  : showAlert("Pick a run to copy from", "info")
-              }
-            >
-              Copy
-            </Button>
-            <Button
-              size="small"
-              onClick={clearAll}
-              disabled={!Object.keys(assign).length}
-            >
-              Clear all
-            </Button>
           </Stack>
-        }
-      >
-        <Stack
-          direction="row"
-          spacing={1}
-          sx={{ flexWrap: "wrap", maxHeight: 160, overflowY: "auto" }}
-        >
-          {unmappedHeaders.map((h) => (
-            <Tooltip
-              key={h}
-              title={
-                examples[h] ? `e.g. ${examples[h]}` : "No example in sample"
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setImportOpen(false)}>Close</Button>
+          <Button
+            onClick={() => {
+              if (selectedCopyRun) {
+                copyFromRunId(selectedCopyRun.id);
+              } else {
+                showAlert("Pick a run to copy from", "info");
               }
-              arrow
-            >
-              <Chip
-                label={h}
-                draggable
-                onDragStart={(e) => onDragStart(e, h)}
-                sx={{ mb: 1 }}
-              />
-            </Tooltip>
-          ))}
-          {!unmappedHeaders.length && (
-            <Typography variant="body2" color="text.secondary">
-              All headers are mapped.
-            </Typography>
-          )}
-        </Stack>
-      </Section>
-
-      {/* Required targets */}
-      <Section title="Required fields">
-        <Stack spacing={1}>
-          {PTRS_REQUIRED_FIELDS.map((f) => (
-            <TargetBin key={f} field={f} />
-          ))}
-        </Stack>
-      </Section>
-
-      {/* Optional targets */}
-      <Section
-        title="Optional fields"
-        actions={
-          <Tooltip title={showOptional ? "Hide optional" : "Show optional"}>
-            <IconButton onClick={() => setShowOptional((v) => !v)} size="small">
-              {showOptional ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </IconButton>
-          </Tooltip>
-        }
-      >
-        <Collapse in={showOptional}>
-          <Stack spacing={1}>
-            {PTRS_OPTIONAL_FIELDS.filter(
-              (f) => !PTRS_REQUIRED_FIELDS.includes(f)
-            ).map((f) => (
-              <TargetBin key={f} field={f} />
-            ))}
-          </Stack>
-        </Collapse>
-      </Section>
-
-      <Divider sx={{ my: 2 }} />
-      <Stack direction="row" spacing={2}>
-        <Button variant="contained" onClick={save} disabled={loading || !runId}>
-          Save map
-        </Button>
-      </Stack>
+            }}
+          >
+            Copy
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }

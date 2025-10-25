@@ -1,7 +1,9 @@
 import PtrsV2Layout from "./PtrsV2Layout";
 import GuardedRoutePtrs from "./GuardedRoutePtrs";
 import CreateRunPanel from "./panels/CreateRunPanel";
+import DataConsole from "./panels/DataConsole";
 import MapPanel from "./panels/MapPanel";
+import LandingPanel from "./panels/LandingPanel";
 import { Navigate } from "react-router";
 
 const ptrsRoutes = [
@@ -9,8 +11,16 @@ const ptrsRoutes = [
     Component: PtrsV2Layout,
     children: [
       {
+        Component: () => <GuardedRoutePtrs id="landing" />,
+        children: [{ path: "landing", Component: LandingPanel }],
+      },
+      {
         Component: () => <GuardedRoutePtrs id="create" />,
         children: [{ path: "create", Component: CreateRunPanel }],
+      },
+      {
+        Component: () => <GuardedRoutePtrs id="data" />,
+        children: [{ path: "data", Component: DataConsole }],
       },
       {
         Component: () => <GuardedRoutePtrs id="map" />,
@@ -61,8 +71,8 @@ const ptrsRoutes = [
           },
         ],
       },
-      { index: true, Component: () => <Navigate to="create" replace /> },
-      { path: "*", Component: () => <Navigate to="create" replace /> },
+      { index: true, Component: () => <Navigate to="landing" replace /> },
+      { path: "*", Component: () => <Navigate to="landing" replace /> },
     ],
   },
 ];

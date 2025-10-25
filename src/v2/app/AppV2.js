@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, Navigate, Outlet } from "react-router";
-import { PulseProvider, useAlert } from "context";
+import { PtrsProvider, PulseProvider, useAlert } from "context";
 import { Box, Typography } from "@mui/material";
 import RequireFeature from "routes/RequireFeature";
 
@@ -46,11 +46,13 @@ export default function AppV2() {
           <Route
             path="ptrs/*"
             element={
-              <RequireFeature feature="ptrs">
-                <ComplianceDashboardLayout title="PTRS v2" module="ptrs">
-                  <PtrsV2 />
-                </ComplianceDashboardLayout>
-              </RequireFeature>
+              <PtrsProvider>
+                <RequireFeature feature="ptrs">
+                  <ComplianceDashboardLayout title="PTRS v2" module="ptrs">
+                    <PtrsV2 />
+                  </ComplianceDashboardLayout>
+                </RequireFeature>
+              </PtrsProvider>
             }
           />
 
