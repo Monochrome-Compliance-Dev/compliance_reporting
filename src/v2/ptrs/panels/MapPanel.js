@@ -23,7 +23,7 @@ import {
 } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useTheme } from "@mui/material/styles";
-import { useSearchParams } from "react-router";
+import { useSearchParams, useNavigate } from "react-router";
 import { useAlert } from "context";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
@@ -544,19 +544,13 @@ export default function MapPanel() {
   };
 
   // UI bits
+  const navigate = useNavigate();
   const stageData = async () => {
     if (!runId) return showAlert("Missing runId", "error");
     try {
-      // Future: send map and dataset metadata to BE to initialise staging
-      // For now, just log and simulate navigation
-      showAlert("Staging data... preparing records for processing", "info");
-      console.log("Staging payload:", { runId, assign, customFields });
-      // In final version, BE will:
-      // 1. Combine core upload and supporting datasets.
-      // 2. Apply mappings to normalise field names.
-      // 3. Persist staged table ready for rule application and metrics.
+      navigate(`/v2/ptrs/stage?runId=${runId}&profileId=${profileId}`);
     } catch (err) {
-      showAlert(err?.message || "Failed to stage data", "error");
+      showAlert(err?.message || "Failed to navigate to staging", "error");
     }
   };
   const TargetBin = ({ field }) => {

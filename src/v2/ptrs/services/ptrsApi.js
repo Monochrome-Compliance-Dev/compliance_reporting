@@ -259,6 +259,17 @@ export const previewRun = async (runId, { steps = [], limit = 50 } = {}) => {
   return normPreview(pickData(res));
 };
 
+// -------------------- Staging (route: /runs/:id/stage) -------
+export const stageRun = async (runId, { profileId = "" } = {}) => {
+  if (!runId) throw new Error("runId is required");
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/runs/${runId}/stage`,
+    { profileId }
+  );
+  // BE returns: { rowsIn, rowsOut, tookMs }
+  return pickData(res);
+};
+
 // -------------------- Blueprint (route: /blueprint) -----------
 export const getBlueprint = async ({ profileId = "" } = {}) => {
   const q = profileId ? `?profileId=${encodeURIComponent(profileId)}` : "";

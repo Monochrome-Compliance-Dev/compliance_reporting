@@ -55,7 +55,7 @@ export default function PtrsV2Layout() {
   );
 
   function goToStep(index) {
-    const target = STEPS[index]?.id || "create";
+    const target = STEPS[index]?.id || "landing";
     const qs = params.toString(); // preserve all current query params (e.g., runId, profileId)
     navigate(`/v2/ptrs/${target}${qs ? `?${qs}` : ""}`);
   }

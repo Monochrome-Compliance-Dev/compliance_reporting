@@ -5,6 +5,7 @@ import DataConsole from "./panels/DataConsole";
 import MapPanel from "./panels/MapPanel";
 import LandingPanel from "./panels/LandingPanel";
 import { Navigate } from "react-router";
+import StagePanel from "./panels/StagePanel";
 
 const ptrsRoutes = [
   {
@@ -25,6 +26,11 @@ const ptrsRoutes = [
       {
         Component: () => <GuardedRoutePtrs id="map" />,
         children: [{ path: "map", Component: MapPanel }],
+      },
+
+      {
+        Component: () => <GuardedRoutePtrs id="stage" />,
+        children: [{ path: "stage", Component: StagePanel }],
       },
       {
         Component: () => <GuardedRoutePtrs id="validate" />,
