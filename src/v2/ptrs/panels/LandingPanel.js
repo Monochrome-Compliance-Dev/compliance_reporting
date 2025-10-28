@@ -1,7 +1,8 @@
 // PTRS v2 Landing — pick up an existing run or jump into the Data Console
 
 import { useEffect, useMemo, useState } from "react";
-import { useSearchParams, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
+import { usePtrsV2Context } from "v2/ptrs/hooks/usePtrsQueries";
 import {
   Box,
   Paper,
@@ -32,10 +33,9 @@ function formatDate(iso) {
 export default function LandingPanel() {
   const theme = useTheme();
   const navigate = useNavigate();
-  const [params] = useSearchParams();
+  const { profileId } = usePtrsV2Context();
   const { showAlert } = useAlert();
 
-  const profileId = params.get("profileId") || ""; // no implicit defaults
   const [runs, setRuns] = useState([]);
   const [q, setQ] = useState("");
   const [isLoading, setIsLoading] = useState(false);

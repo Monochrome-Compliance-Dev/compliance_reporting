@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { usePtrsV2Context } from "v2/ptrs/hooks/usePtrsQueries";
 import {
   Box,
   Typography,
@@ -6,51 +7,136 @@ import {
   Button,
   Paper,
   CircularProgress,
+  Divider,
+  Chip,
+  TextField,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Tooltip,
 } from "@mui/material";
 import { useSearchParams, useNavigate } from "react-router";
 import { useAlert } from "context";
-import { stageRun } from "v2/ptrs/services/ptrsApi";
+import {
+  stageRun,
+  getRun,
+  listDatasets,
+  getStagePreview,
+} from "v2/ptrs/services/ptrsApi";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ReplayIcon from "@mui/icons-material/Replay";
 
 export default function StagePanel() {
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
   const navigate = useNavigate();
   const runId = params.get("runId");
-  const profileId = params.get("profileId");
+  const { profileId } = usePtrsV2Context();
+
+  console.log("[StagePanel] mount", { runId, profileId });
 
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
+  const [datasets, setDatasets] = useState([]);
+  const [runMeta, setRunMeta] = useState(null);
+  const [preview, setPreview] = useState({ rows: [], headers: [] });
+  const [showPreview, setShowPreview] = useState(false);
 
-  // robust mounted guard (don’t mutate a local var inside effects)
   const mountedRef = useRef(true);
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       mountedRef.current = false;
-    };
-  }, []);
+    },
+    []
+  );
+
+  // Initial load – fetch run meta and dataset statuses
+  useEffect(() => {
+    if (!runId) return;
+    (async () => {
+      try {
+        const [run, ds] = await Promise.all([
+          getRun(runId).catch(() => null),
+          listDatasets(runId).catch(() => ({ items: [] })),
+        ]);
+        console.log("[StagePanel] getRun:", run);
+        console.log("[StagePanel] listDatasets:", ds);
+        if (mountedRef.current) {
+          setRunMeta(run);
+          setDatasets(ds?.items || []);
+        }
+      } catch (_) {
+        console.warn("[StagePanel] initial load failed", _);
+      }
+    })();
+  }, [runId]);
+
+  const datasetSummary = useMemo(() => {
+    if (!datasets || !datasets.length) return [];
+    // Expect each item like { id, role, fileName, meta, createdAt }
+    // Group by role and pick latest
+    const map = new Map();
+    datasets.forEach((d) => {
+      const prev = map.get(d.role);
+      if (!prev || new Date(d.createdAt) > new Date(prev.createdAt)) {
+        map.set(d.role, d);
+      }
+    });
+    const summary = Array.from(map.values());
+    console.log("[StagePanel] datasetSummary:", summary);
+    return summary;
+  }, [datasets]);
 
   const handleStage = async () => {
     if (!runId) {
       showAlert("Missing runId", "error");
       return;
     }
-    if (mountedRef.current) setLoading(true);
+    console.log("[StagePanel] stageRun ->", { runId, profileId });
+    setLoading(true);
     try {
-      const res = await stageRun(runId, { profileId });
-      if (mountedRef.current) setResult(res);
-      if (mountedRef.current)
-        showAlert(`Staged ${res.rowsOut || 0} rows`, "success");
+      const res = await stageRun(runId, {
+        profileId: profileId || null,
+        persist: true,
+      });
+      console.log("[StagePanel] stageRun result:", res);
+      if (!mountedRef.current) return;
+      setResult(res);
+      showAlert(`Staged ${res.rowsOut || 0} rows`, "success");
+      // Eager-load a tiny preview for confidence
+      try {
+        const pv = await getStagePreview(runId, { limit: 20 });
+        console.log("[StagePanel] getStagePreview:", {
+          headers: pv?.headers?.length || 0,
+          rows: pv?.rows?.length || 0,
+          sample: Array.isArray(pv?.rows) ? pv.rows[0] : undefined,
+        });
+        if (mountedRef.current && pv) setPreview(pv);
+      } catch (_) {}
     } catch (err) {
-      if (mountedRef.current)
+      console.error("[StagePanel] stageRun error:", err);
+      if (mountedRef.current) {
         showAlert(err?.message || "Failed to stage data", "error");
+      }
     } finally {
       if (mountedRef.current) setLoading(false);
     }
   };
 
-  // IMPORTANT: do NOT auto-run staging on mount — only when user clicks the button.
+  const headers = preview?.headers || [];
+  const rows = preview?.rows || [];
+
+  useEffect(() => {
+    if (!headers.length && !rows.length) return;
+    console.log("[StagePanel] preview updated", {
+      headersCount: headers.length,
+      rowsCount: rows.length,
+      firstRow: rows[0],
+    });
+  }, [headers, rows]);
 
   return (
     <Box sx={{ p: 3 }}>
@@ -58,15 +144,78 @@ export default function StagePanel() {
         Stage data
       </Typography>
       <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-        Combining uploaded datasets and applying your mapping to prepare the
-        data for rule processing.
+        Merge the uploaded datasets (e.g. Vendor Master, Payment Term Changes,
+        Holdings) and apply your column map to produce a clean, unified staging
+        table for the PTRS run. You can re-run staging at any time – it is
+        idempotent.
       </Typography>
 
+      {/* Datasets checklist */}
+      <Paper sx={{ p: 2, mb: 2 }}>
+        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
+          <Typography variant="subtitle1">Inputs detected</Typography>
+          <Chip size="small" label={datasetSummary.length} />
+        </Stack>
+        {datasetSummary.length === 0 ? (
+          <Typography variant="body2" color="text.secondary">
+            No supporting datasets uploaded yet. You can still stage with just
+            the primary CSV, but some enrichments/calculations may be
+            unavailable.
+          </Typography>
+        ) : (
+          <Stack spacing={1}>
+            {datasetSummary.map((d) => (
+              <Stack key={d.id} direction="row" spacing={2} alignItems="center">
+                <CheckCircleIcon color="success" fontSize="small" />
+                <Typography sx={{ minWidth: 220 }}>{d.role}</Typography>
+                <Typography sx={{ flex: 1 }} color="text.secondary">
+                  {d.fileName}
+                </Typography>
+                <Chip size="small" label={`${d.meta?.rowsCount ?? "?"} rows`} />
+                <Typography variant="caption" color="text.secondary">
+                  {new Date(d.createdAt).toLocaleString()}
+                </Typography>
+              </Stack>
+            ))}
+          </Stack>
+        )}
+      </Paper>
+
+      {/* Profile selector */}
+      <Paper sx={{ p: 2, mb: 2 }}>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={2}
+          alignItems={{ sm: "center" }}
+        >
+          <Typography variant="subtitle1" sx={{ minWidth: 180 }}>
+            Processing profile
+          </Typography>
+          <Tooltip title="Choose the customer/profile specific logic to use when staging and applying rules.">
+            <TextField
+              size="small"
+              placeholder="e.g. veolia"
+              value={profileId || ""}
+              disabled
+              sx={{ width: 280 }}
+            />
+          </Tooltip>
+          {runMeta?.label && (
+            <Chip
+              size="small"
+              variant="outlined"
+              label={`Run: ${runMeta.label}`}
+            />
+          )}
+        </Stack>
+      </Paper>
+
+      {/* Action + Status */}
       <Paper sx={{ p: 2, mb: 3 }}>
         {loading ? (
           <Stack alignItems="center" spacing={2}>
             <CircularProgress />
-            <Typography>Preparing staged dataset...</Typography>
+            <Typography>Preparing staged dataset…</Typography>
           </Stack>
         ) : result ? (
           <Stack spacing={1}>
@@ -75,37 +224,95 @@ export default function StagePanel() {
               <Typography variant="subtitle1">Staging complete</Typography>
             </Stack>
             <Typography variant="body2">
-              {result.rowsIn || 0} source rows processed into{" "}
-              {result.rowsOut || 0} staged rows.
+              {result.rowsIn || 0} input rows → {result.rowsOut || 0} staged
+              rows.
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Duration: {result.tookMs ? `${result.tookMs} ms` : "N/A"}
-            </Typography>
+            {result.tookMs != null && (
+              <Typography variant="body2" color="text.secondary">
+                Duration: {result.tookMs} ms
+              </Typography>
+            )}
           </Stack>
         ) : (
-          <Stack spacing={1}>
-            <Typography variant="body2" color="text.secondary">
-              Nothing staged yet. Click below to run staging.
-            </Typography>
-          </Stack>
+          <Typography variant="body2" color="text.secondary">
+            Nothing staged yet. Click below to run staging.
+          </Typography>
         )}
       </Paper>
 
-      <Stack direction="row" spacing={2}>
-        <Button variant="outlined" disabled={loading} onClick={handleStage}>
+      {/* Preview */}
+      <Paper sx={{ p: 2, mb: 3 }}>
+        <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 1 }}>
+          <Typography variant="subtitle1">Preview</Typography>
+          <Button size="small" onClick={() => setShowPreview((s) => !s)}>
+            {showPreview ? "Hide" : "Show"} preview
+          </Button>
+        </Stack>
+        {showPreview &&
+          (rows.length ? (
+            <Box sx={{ overflow: "auto", maxHeight: 360 }}>
+              <Table size="small" stickyHeader>
+                <TableHead>
+                  <TableRow>
+                    {headers.map((c) => (
+                      <TableCell key={c}>{c}</TableCell>
+                    ))}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows.map((r, idx) => (
+                    <TableRow key={idx}>
+                      {headers.map((c) => (
+                        <TableCell key={c}>{r[c]}</TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </Box>
+          ) : (
+            <Typography variant="body2" color="text.secondary">
+              No preview available yet. Run staging to generate a sample.
+            </Typography>
+          ))}
+      </Paper>
+
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+        <Button
+          variant="outlined"
+          startIcon={<ReplayIcon />}
+          disabled={loading}
+          onClick={handleStage}
+        >
           {result ? "Run again" : "Run staging"}
         </Button>
         <Button
           variant="contained"
           endIcon={<NavigateNextIcon />}
           disabled={loading || !result}
-          onClick={() =>
-            navigate(`/v2/ptrs/apply?runId=${runId}&profileId=${profileId}`)
-          }
+          onClick={() => {
+            const qs = new URLSearchParams();
+            qs.set("runId", runId);
+            if (profileId) qs.set("profileId", profileId);
+            navigate(`/v2/ptrs/apply?${qs.toString()}`);
+          }}
         >
           Next: Apply rules
         </Button>
       </Stack>
+
+      <Divider sx={{ my: 3 }} />
+      <Button
+        variant="text"
+        onClick={() => {
+          const qs = new URLSearchParams();
+          qs.set("runId", runId);
+          if (profileId) qs.set("profileId", profileId);
+          navigate(`/v2/ptrs/map?${qs.toString()}`);
+        }}
+      >
+        Back
+      </Button>
     </Box>
   );
 }

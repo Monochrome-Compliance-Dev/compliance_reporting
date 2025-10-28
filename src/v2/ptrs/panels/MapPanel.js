@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Box,
   Stack,
@@ -7,11 +7,9 @@ import {
   Chip,
   Paper,
   Divider,
-  Collapse,
   IconButton,
   Tooltip,
   TextField,
-  Drawer,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -19,17 +17,15 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Badge,
 } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useTheme } from "@mui/material/styles";
 import { useSearchParams, useNavigate } from "react-router";
+import { usePtrsV2Context } from "v2/ptrs/hooks/usePtrsQueries";
 import { useAlert } from "context";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ClearIcon from "@mui/icons-material/Clear";
 import SearchIcon from "@mui/icons-material/Search";
-import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import ContentPasteGoIcon from "@mui/icons-material/ContentPasteGo";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
@@ -51,13 +47,14 @@ import {
 } from "features/ptrs/ingestConfig";
 import { getFieldLabel } from "features/ptrs/fieldMeta";
 import SupportingDatasetsSection from "v2/ptrs/panels/SupportingDatasetsSection";
+import JoinsDesigner from "../components/JoinsDesigner";
 
 export default function MapPanel() {
   const theme = useTheme();
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
   const runId = params.get("runId");
-  const profileId = params.get("profileId");
+  const { profileId } = usePtrsV2Context();
 
   const [blueprint, setBlueprint] = useState(null);
   const [headers, setHeaders] = useState([]);
@@ -67,15 +64,13 @@ export default function MapPanel() {
 
   const [runsWithMaps, setRunsWithMaps] = useState([]);
   const [selectedCopyRun, setSelectedCopyRun] = useState(null);
-  const fileInputRef = useRef(null);
 
   // target -> source (result of drag or select)
   const [assign, setAssign] = useState({});
-  const [showOptional, setShowOptional] = useState(false);
-  const [showDatasets, setShowDatasets] = useState(false);
   // user-defined placeholder targets
   const [customFields, setCustomFields] = useState([]);
   const [newCustomName, setNewCustomName] = useState("");
+  const [joins, setJoins] = useState([]);
 
   // sources pane
   const [search, setSearch] = useState("");
@@ -100,6 +95,10 @@ export default function MapPanel() {
         // Accept both shapes: { mappings: {...} } or { map: { mappings: {...} } }
         const existing =
           (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || null;
+
+        const existingJoins =
+          (mapRes && (mapRes.joins || mapRes.map?.joins)) || [];
+        setJoins(Array.isArray(existingJoins) ? existingJoins : []);
 
         setHeaders(inferred);
         setSampleRows(rows);
@@ -170,6 +169,14 @@ export default function MapPanel() {
     if (!needle) return all;
     return all.filter((h) => h.toLowerCase().includes(needle));
   }, [headers, search]);
+
+  const mappingForDesigner = useMemo(() => {
+    const obj = {};
+    for (const [target, source] of Object.entries(assign || {})) {
+      if (source) obj[source] = { field: target };
+    }
+    return obj;
+  }, [assign]);
 
   // HTML5 DnD
   const onDragStart = (e, sourceHeader) => {
@@ -431,34 +438,6 @@ export default function MapPanel() {
     return applied;
   };
 
-  const validateMap = () => {
-    const missing = PTRS_REQUIRED_FIELDS.filter((f) => !assign[f]);
-    // check duplicate sources (shouldn't happen but double-check)
-    const seen = new Set();
-    const dups = [];
-    Object.values(assign).forEach((src) => {
-      if (!src) return;
-      if (seen.has(src)) dups.push(src);
-      else seen.add(src);
-    });
-    if (missing.length || dups.length) {
-      showAlert(
-        [
-          missing.length ? `Missing required: ${missing.join(", ")}` : null,
-          dups.length
-            ? `Duplicate sources: ${[...new Set(dups)].join(", ")}`
-            : null,
-        ]
-          .filter(Boolean)
-          .join(" • "),
-        "info"
-      );
-      return false;
-    }
-    showAlert("Map looks good", "success");
-    return true;
-  };
-
   const handleImportJson = async (file) => {
     if (!file) return;
     try {
@@ -532,7 +511,11 @@ export default function MapPanel() {
         );
         return;
       }
-      const res = await saveRunMap(runId, { mappings: payload, profileId });
+      const res = await saveRunMap(runId, {
+        mappings: payload,
+        joins,
+        profileId,
+      });
       const savedCount = Object.keys(res.mappings || payload).length;
       showAlert(
         `Saved map (${savedCount} field${savedCount === 1 ? "" : "s"})`,
@@ -548,7 +531,11 @@ export default function MapPanel() {
   const stageData = async () => {
     if (!runId) return showAlert("Missing runId", "error");
     try {
-      navigate(`/v2/ptrs/stage?runId=${runId}&profileId=${profileId}`);
+      // Always use context profileId
+      const qs = new URLSearchParams();
+      qs.set("runId", runId);
+      if (profileId) qs.set("profileId", profileId);
+      navigate(`/v2/ptrs/stage?${qs.toString()}`);
     } catch (err) {
       showAlert(err?.message || "Failed to navigate to staging", "error");
     }
@@ -890,6 +877,24 @@ export default function MapPanel() {
           </AccordionSummary>
           <AccordionDetails>
             <SupportingDatasetsSection runId={runId} onChanged={() => {}} />
+          </AccordionDetails>
+        </Accordion>
+
+        {/* Joins designer */}
+        <Accordion elevation={0} sx={{ mt: 2 }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Typography variant="subtitle2">Joins</Typography>
+              <Chip size="small" label={`${joins?.length || 0} defined`} />
+            </Stack>
+          </AccordionSummary>
+          <AccordionDetails>
+            <JoinsDesigner
+              runId={runId}
+              mapping={mappingForDesigner}
+              joins={joins}
+              onChange={(next) => setJoins(next || [])}
+            />
           </AccordionDetails>
         </Accordion>
 

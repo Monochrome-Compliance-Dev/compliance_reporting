@@ -13,7 +13,7 @@ import useGtagPageview from "hooks/useGtagPageview";
 
 export default function Layout() {
   useGtagPageview();
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(true); // true for dark mode, false for light mode
   const location = useLocation();
   const navigate = useNavigate();
   const { isSignedIn } = useAuthContext();

@@ -3,6 +3,7 @@ import GuardedRoutePtrs from "./GuardedRoutePtrs";
 import CreateRunPanel from "./panels/CreateRunPanel";
 import DataConsole from "./panels/DataConsole";
 import MapPanel from "./panels/MapPanel";
+import TablesAndJoinsPanel from "v2/ptrs/panels/TablesAndJoinsPanel";
 import LandingPanel from "./panels/LandingPanel";
 import { Navigate } from "react-router";
 import StagePanel from "./panels/StagePanel";
@@ -22,6 +23,10 @@ const ptrsRoutes = [
       {
         Component: () => <GuardedRoutePtrs id="data" />,
         children: [{ path: "data", Component: DataConsole }],
+      },
+      {
+        Component: () => <GuardedRoutePtrs id="tables" />,
+        children: [{ path: "tables", Component: TablesAndJoinsPanel }],
       },
       {
         Component: () => <GuardedRoutePtrs id="map" />,

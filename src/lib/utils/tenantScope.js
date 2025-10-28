@@ -21,13 +21,15 @@ const STORAGE_KEY = "mc.selectedCustomer";
 
 /**
  * Persist the selected customer (only set by a Boss user after login).
- * @param {{ id: string, name?: string }} customer
+ * Also stores the active profileId for PTRS v2 when provided.
+ * @param {{ id: string, name?: string, profileId?: string|null }} customer
  */
 export function setCurrentCustomer(customer) {
   if (!customer || !customer.id) return;
   const payload = {
     id: String(customer.id),
     name: customer.name || "",
+    profileId: customer.profileId ?? null,
     ts: Date.now(),
   };
   try {

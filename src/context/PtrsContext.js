@@ -5,9 +5,9 @@ import {
   useCallback,
   useEffect,
 } from "react";
-import { ptrsService, userService } from "../services";
+import { ptrsService, userService } from "services";
 import { useAlert } from "./AlertContext";
-import { onCustomerChange } from "../lib/utils/";
+import { onCustomerChange } from "lib/utils/";
 
 export const PtrsContext = createContext(null);
 

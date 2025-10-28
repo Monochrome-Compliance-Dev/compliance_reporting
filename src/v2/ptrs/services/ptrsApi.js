@@ -26,35 +26,49 @@ const normList = (arr = []) => arr.map(normRun);
 
 // Map payloads can include extended config; keep everything surfaced
 const normMap = (x = {}) => {
-  // Accept and normalise mappings so MapPanel never rejects same-map headers
-  const mappingsIn = x.mappings || x.map?.mappings || x || {};
+  // prefer nested .map first since the controller returns { map, headers }
+  const src = x.map && typeof x.map === "object" ? x.map : x;
+
+  const mappingsIn = src.mappings || {};
   const normalizeKey = (s) =>
     String(s || "")
       .trim()
-      .replace(/\s+/g, " ")
       .replace(/\u00A0/g, " ")
       .replace(/\s+/g, " ")
       .trim();
+
   const outMappings = {};
-  for (const [src, cfg] of Object.entries(mappingsIn)) {
-    const cleanSrc = normalizeKey(src);
+  for (const [sourceHeader, cfg] of Object.entries(mappingsIn)) {
+    const cleanSrc = normalizeKey(sourceHeader);
     if (typeof cfg === "string") {
       outMappings[cleanSrc] = { field: cfg, type: "string" };
     } else if (cfg && typeof cfg === "object" && "field" in cfg) {
-      outMappings[cleanSrc] = {
-        field: cfg.field,
-        type: cfg.type || "string",
-      };
+      outMappings[cleanSrc] = { field: cfg.field, type: cfg.type || "string" };
     }
   }
+
+  // helper to parse JSON-ish fields that might arrive as strings
+  const parseMaybeJson = (v) => {
+    if (v == null) return null;
+    if (typeof v !== "string") return v;
+    try {
+      const parsed = JSON.parse(v);
+      return parsed ?? v;
+    } catch {
+      return v; // keep original if not valid JSON
+    }
+  };
+
   return {
     mappings: outMappings,
-    extras: x.extras || null,
-    fallbacks: x.fallbacks || null,
-    defaults: x.defaults || null,
-    joins: x.joins || null,
-    rowRules: x.rowRules || null,
-    profileId: x.profileId || null,
+    extras: parseMaybeJson(src.extras) || null,
+    fallbacks: parseMaybeJson(src.fallbacks) || null,
+    defaults: parseMaybeJson(src.defaults) || null,
+    joins: Array.isArray(src.joins)
+      ? src.joins
+      : parseMaybeJson(src.joins) || null,
+    rowRules: parseMaybeJson(src.rowRules) || null,
+    profileId: src.profileId || null,
   };
 };
 
@@ -159,6 +173,13 @@ export const listRuns = async ({ hasMap = false } = {}) => {
   return { items: normList(items) };
 };
 
+// New function: getRun
+export const getRun = async (runId) => {
+  if (!runId) throw new Error("runId is required");
+  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/runs/${runId}`);
+  return normRun(pickData(res));
+};
+
 // -------------------- Ingest (routes: /runs/:id/import|sample)
 export const uploadCsv = async (runId, file) => {
   const fd = new FormData();
@@ -244,7 +265,7 @@ export const listDatasets = async (runId) => {
 export const removeDataset = async (runId, datasetId) => {
   if (!runId) throw new Error("runId is required");
   if (!datasetId) throw new Error("datasetId is required");
-  const res = await fetchWrapper.del(
+  const res = await fetchWrapper.delete(
     `${API_ROOT}/v2/ptrs/runs/${runId}/datasets/${datasetId}`
   );
   return pickData(res); // { ok: true }
@@ -259,6 +280,32 @@ export const previewRun = async (runId, { steps = [], limit = 50 } = {}) => {
   return normPreview(pickData(res));
 };
 
+// New function: getStagePreview
+export const getStagePreview = async (
+  runId,
+  { limit = 20, profileId = null } = {}
+) => {
+  if (!runId) throw new Error("runId is required");
+  const q = new URLSearchParams();
+  q.set("limit", String(limit));
+  if (profileId) q.set("profileId", String(profileId));
+  try {
+    const res = await fetchWrapper.get(
+      `${API_ROOT}/v2/ptrs/runs/${runId}/stage/preview?${q.toString()}`
+    );
+    return normPreview(pickData(res));
+  } catch (err) {
+    // fallback to generic preview if BE doesn't expose stage/preview yet
+    const body = { steps: ["stage"], limit };
+    if (profileId) body.profileId = profileId;
+    const res2 = await fetchWrapper.post(
+      `${API_ROOT}/v2/ptrs/runs/${runId}/preview`,
+      body
+    );
+    return normPreview(pickData(res2));
+  }
+};
+
 // -------------------- Staging (route: /runs/:id/stage) -------
 export const stageRun = async (runId, { profileId = "" } = {}) => {
   if (!runId) throw new Error("runId is required");
@@ -270,6 +317,72 @@ export const stageRun = async (runId, { profileId = "" } = {}) => {
   return pickData(res);
 };
 
+// -------------------- Profiles (route: /v2/ptrs/profiles) ----
+const normProfile = (x = {}) => ({
+  id: x.id,
+  customerId: x.customerId,
+  name: x.name || x.label || x.profileName || null,
+  code: x.code || null,
+  isDefault: Boolean(x.isDefault || x.default || false),
+  // carry-through any extra metadata we may need later
+  meta: x.meta || null,
+});
+
+export const listProfiles = async (customerId) => {
+  if (!customerId) throw new Error("customerId is required");
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/profiles?customerId=${encodeURIComponent(customerId)}`
+  );
+  // console.log("res: ", res);
+  const d = pickData(res);
+  const items = d.items || d || [];
+  return { items: (items || []).map(normProfile) };
+};
+
+// Create a new profile (tenant-scoped)
+export const createProfile = async (customerId, payload = {}) => {
+  if (!customerId) throw new Error("customerId is required");
+  const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/profiles`, {
+    customerId,
+    ...payload,
+  });
+  return normProfile(pickData(res));
+};
+
+// Read a single profile
+export const getProfile = async (id) => {
+  if (!id) throw new Error("id is required");
+  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/profiles/${id}`);
+  return normProfile(pickData(res));
+};
+
+// Partially update a profile (PATCH)
+export const updateProfile = async (id, payload = {}) => {
+  if (!id) throw new Error("id is required");
+  const res = await fetchWrapper.patch(
+    `${API_ROOT}/v2/ptrs/profiles/${id}`,
+    payload
+  );
+  return normProfile(pickData(res));
+};
+
+// Fully replace a profile (PUT)
+export const replaceProfile = async (id, payload = {}) => {
+  if (!id) throw new Error("id is required");
+  const res = await fetchWrapper.put(
+    `${API_ROOT}/v2/ptrs/profiles/${id}`,
+    payload
+  );
+  return normProfile(pickData(res));
+};
+
+// Delete a profile
+export const deleteProfile = async (id) => {
+  if (!id) throw new Error("id is required");
+  const res = await fetchWrapper.delete(`${API_ROOT}/v2/ptrs/profiles/${id}`);
+  return pickData(res); // { ok: true }
+};
+
 // -------------------- Blueprint (route: /blueprint) -----------
 export const getBlueprint = async ({ profileId = "" } = {}) => {
   const q = profileId ? `?profileId=${encodeURIComponent(profileId)}` : "";
@@ -277,7 +390,7 @@ export const getBlueprint = async ({ profileId = "" } = {}) => {
   return pickData(res); // already a plain JSON object with fields/fallbacks/etc.
 };
 
-// -------------------- SBI (future) ----------------------------
+// -------------------- SBI (future - BE routes may not exist yet) ----------------------------
 export const exportSbi = async (runId) => {
   const res = await fetchWrapper.get(
     `${API_ROOT}/v2/ptrs/runs/${runId}/sbi/export`

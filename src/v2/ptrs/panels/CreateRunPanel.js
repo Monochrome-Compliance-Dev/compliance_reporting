@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { usePtrsV2Context } from "v2/ptrs/hooks/usePtrsQueries";
 import {
   Box,
   Stack,
@@ -12,17 +13,16 @@ import {
   InputLabel,
 } from "@mui/material";
 import { useAlert } from "context";
-import { useTheme } from "@mui/material/styles";
 import { createRun, uploadCsv } from "v2/ptrs/services/ptrsApi";
 
 export default function CreateRunPanel() {
-  const theme = useTheme();
   const [name, setName] = useState("");
   const [file, setFile] = useState(null);
   const [period, setPeriod] = useState("");
   const [busy, setBusy] = useState(false);
   const navigate = useNavigate();
   const { showAlert } = useAlert();
+  const { profileId } = usePtrsV2Context();
 
   const periods = [
     {
@@ -80,6 +80,7 @@ export default function CreateRunPanel() {
         mimeType,
         periodStart,
         periodEnd,
+        profileId: profileId || undefined,
       });
       const runId = res?.data?.id || res?.id;
       if (!runId) {
@@ -89,7 +90,11 @@ export default function CreateRunPanel() {
       const ingest = await uploadCsv(runId, file);
       const inserted = ingest?.data?.rowsInserted ?? 0;
       showAlert(`Run created and ${inserted} rows ingested`, "success");
-      navigate(`/v2/ptrs/map?runId=${runId}`);
+      // Always append profileId from context
+      const qs = new URLSearchParams();
+      qs.set("runId", runId);
+      if (profileId) qs.set("profileId", profileId);
+      navigate(`/v2/ptrs/map?${qs.toString()}`);
     } catch (e) {
       showAlert(e?.message || "Error creating or uploading run", "error");
     } finally {

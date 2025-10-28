@@ -4,6 +4,7 @@
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import * as api from "../services/ptrsApi";
+import { useOutletContext } from "react-router";
 
 // ---- Keys (per run) ---------------------------------------------------------
 const K = {
@@ -141,4 +142,16 @@ export function useReportMutations() {
   const changeState = useMutation({ mutationFn: async () => ({}) });
   const downloadPdf = useMutation({ mutationFn: async () => ({}) });
   return { createDraft, changeState, downloadPdf };
+}
+
+// ---- Shared context hook --------------------------------------------------
+// Access profileId and other outlet-provided PTRS v2 context values.
+export function usePtrsV2Context() {
+  const ctx = useOutletContext?.() || {};
+
+  return {
+    profileId: ctx.profileId || null,
+    profiles: ctx.profiles || [],
+    setProfileId: ctx.setProfileId || (() => {}),
+  };
 }
