@@ -12,25 +12,26 @@ import {
 
 export function useStepStatuses(runId, step) {
   const enable = (ids) => !!runId && (!step || ids.includes(step));
-
-  // --- debug: which step is active & what will be fetched this render
-  // (remove once routing is stable)
-  console.groupCollapsed("[useStepStatuses]", { runId, step });
-  console.log("enabled:", {
-    upload: !!runId && (!step || ["upload"].includes(step)),
-    map: !!runId && (!step || ["upload", "map"].includes(step)),
-    validate: !!runId && (!step || ["validate"].includes(step)),
-    rules: !!runId && (!step || ["rules"].includes(step)),
-    sbi: !!runId && (!step || ["sbi"].includes(step)),
-    metrics: !!runId && (!step || ["metrics"].includes(step)),
-    report: !!runId && (!step || ["report"].includes(step)),
-  });
-  console.groupEnd();
+  // Debug: show which queries are enabled for this render
+  if (process.env.NODE_ENV !== "production") {
+    console.groupCollapsed("[useStepStatuses]", { runId, step });
+    console.log("enabled:", {
+      data: enable(["data"]),
+      tables: enable(["tables"]),
+      map: enable(["tables", "map", "stage"]),
+      validate: enable(["validate"]),
+      rules: enable(["rules"]),
+      sbi: enable(["sbi"]),
+      metrics: enable(["metrics"]),
+      report: enable(["report"]),
+    });
+    console.groupEnd();
+  }
 
   const run = useRunStatus(runId, { enabled: !!runId }); // always
   const runUpload = useRunUploadStatus(runId, {
     // we need upload status while on Upload, Tables, and Map
-    enabled: enable(["upload", "tables", "map"]),
+    enabled: enable(["data", "tables", "map"]),
   });
   const map = useRunMapStatus(runId, {
     // schema/mappings are needed from Tables onward
@@ -46,15 +47,22 @@ export function useStepStatuses(runId, step) {
 
   const gates = useMemo(
     () => ({
-      create: !!run?.exists,
+      // convenience locals
+      // (kept inside useMemo so they stay in the dependency graph)
+      ...(() => {
+        const uploadDone = runUpload?.status === "completed";
+        const ingestedCount = runUpload?.rowCounts?.ingested ?? 0;
+        const hasPrimary = uploadDone && ingestedCount > 0;
+        return { uploadDone, ingestedCount, hasPrimary };
+      })(),
 
-      // initial upload must be completed and have rows
-      upload:
+      // NOTE: 'create' step removed; first step is now 'data'. No back-compat alias.
+
+      // require completed upload with ingested rows
+      data:
         runUpload?.status === "completed" &&
         (runUpload?.rowCounts?.ingested ?? 0) > 0,
 
-      // Tables becomes available once upload is completed.
-      // (Later we can refine to require supporting datasets/joins.)
       tables:
         runUpload?.status === "completed" &&
         (runUpload?.rowCounts?.ingested ?? 0) > 0,

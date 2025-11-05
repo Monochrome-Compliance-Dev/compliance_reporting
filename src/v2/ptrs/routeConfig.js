@@ -1,7 +1,7 @@
 // src/v2/ptrs/routeConfig.js
 import PtrsV2Layout from "./PtrsV2Layout";
 import LandingPanel from "./panels/LandingPanel";
-import CreateRunPanel from "./panels/CreateRunPanel";
+import DataConsole from "./panels/DataConsole";
 import TablesAndJoinsPanel from "./panels/TablesAndJoinsPanel";
 import MapPanel from "./panels/MapPanel";
 import StagePanel from "./panels/StagePanel";
@@ -14,7 +14,7 @@ const ptrsRoutes = [
       { index: true, Component: LandingPanel },
 
       // Wizard steps
-      { path: "create", Component: CreateRunPanel },
+      { path: "data", Component: DataConsole },
       { path: "tables", Component: TablesAndJoinsPanel },
       { path: "map", Component: MapPanel },
       { path: "stage", Component: StagePanel },

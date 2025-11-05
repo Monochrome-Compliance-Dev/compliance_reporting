@@ -79,7 +79,7 @@ export default function LandingPanel() {
   const goNew = () => {
     const qs = new URLSearchParams();
     if (profileId) qs.set("profileId", profileId);
-    navigate(`/v2/ptrs/create?${qs.toString()}`);
+    navigate(`/v2/ptrs/data?${qs.toString()}`);
   };
 
   return (

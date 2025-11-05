@@ -26,7 +26,7 @@ export default function CreateRunPanel() {
   const navigate = useNavigate();
   const { showAlert } = useAlert();
   const { profileId } = usePtrsV2Context();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   // read runId from URL; after we create a run we’ll write it here too
   const runId = searchParams.get("runId") || "";
@@ -111,7 +111,7 @@ export default function CreateRunPanel() {
       const qs = new URLSearchParams();
       qs.set("runId", newRunId);
       if (profileId) qs.set("profileId", profileId);
-      navigate(`/v2/ptrs/tables?${qs.toString()}`, { replace: true });
+      navigate(`/v2/ptrs/data?${qs.toString()}`, { replace: true });
     } catch (e) {
       showAlert(e?.message || "Error creating or uploading run", "error");
     } finally {

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
 import {
   Box,
   TextField,
@@ -43,9 +42,7 @@ const PERIODS = [
 ];
 
 export default function CreateRunCard({ onSuccess }) {
-  const theme = useTheme();
   const { showAlert } = useAlert();
-  const navigate = useNavigate();
   const [label, setLabel] = useState("");
   const [periodIdx, setPeriodIdx] = useState(0);
   const [file, setFile] = useState(null);
@@ -89,16 +86,15 @@ export default function CreateRunCard({ onSuccess }) {
       if (file) {
         try {
           const ingest = await uploadCsv(runId, file);
-          const inserted =
-            ingest?.data?.rowsInserted ?? ingest?.rowsInserted ?? 0;
+          const inserted = ingest.rowsInserted;
           showAlert(`Run created and ${inserted} rows ingested`, "success");
-          // Jump straight to mapping for the new run
-          navigate(`/v2/ptrs/map?runId=${encodeURIComponent(runId)}`);
         } catch (e2) {
           // eslint-disable-next-line no-console
           console.error(e2);
           showAlert("Run created but file upload failed", "error");
         }
+
+        if (onSuccess) onSuccess(runId);
       }
 
       if (onSuccess) onSuccess(res);
@@ -159,10 +155,6 @@ export default function CreateRunCard({ onSuccess }) {
 
         <Grid item xs={12}>
           <Stack spacing={1}>
-            <Typography variant="body2" color="text.secondary">
-              Optional: pick a CSV now and we’ll upload it right after the run
-              is created.
-            </Typography>
             <input
               type="file"
               accept=".csv,text/csv"

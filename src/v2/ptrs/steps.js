@@ -1,5 +1,5 @@
 export const STEPS = [
-  { id: "create", label: "Create run" },
+  { id: "data", label: "Upload files" },
   { id: "tables", label: "Link tables" },
   { id: "map", label: "Map columns" },
   { id: "stage", label: "Stage data" },

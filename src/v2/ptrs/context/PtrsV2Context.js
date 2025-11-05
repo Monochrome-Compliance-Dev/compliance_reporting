@@ -8,6 +8,17 @@ import React, {
 import { useSearchParams } from "react-router";
 import { getRun, listDatasets, getRunMap } from "v2/ptrs/services/ptrsApi";
 
+const toRunId = (val) => {
+  if (!val) return null;
+  if (typeof val === "string") return val;
+  if (typeof val === "object") {
+    if (typeof val.id === "string") return val.id;
+    if (typeof val.runId === "string") return val.runId;
+    if (val.data && typeof val.data.id === "string") return val.data.id;
+  }
+  return null;
+};
+
 const PtrsV2Context = createContext(null);
 
 export function usePtrsV2Context() {
@@ -20,10 +31,14 @@ export function usePtrsV2Context() {
 export function PtrsV2Provider({ children }) {
   const [params] = useSearchParams();
 
-  const [runId, setRunId] = useState(() => params.get("runId") || null);
+  const [runId, _setRunId] = useState(() => toRunId(params.get("runId")));
+  const setRunId = useCallback((val) => {
+    _setRunId(toRunId(val));
+  }, []);
   const [profileId, setProfileId] = useState(
     () => params.get("profileId") || null
   );
+  console.log("PtrsV2Provider render, runId=", runId, "profileId=", profileId);
 
   const [runMeta, setRunMeta] = useState(null);
   const [datasets, setDatasets] = useState([]);
@@ -33,7 +48,7 @@ export function PtrsV2Provider({ children }) {
   const [error, setError] = useState(null);
 
   const refreshRunMeta = useCallback(async () => {
-    if (!runId) return;
+    if (!runId || typeof runId !== "string") return;
     try {
       setLoading(true);
       const res = await getRun(runId);
@@ -47,7 +62,7 @@ export function PtrsV2Provider({ children }) {
   }, [runId]);
 
   const refreshDatasets = useCallback(async () => {
-    if (!runId) return;
+    if (!runId || typeof runId !== "string") return;
     try {
       setLoading(true);
       const res = await listDatasets(runId);
@@ -61,7 +76,7 @@ export function PtrsV2Provider({ children }) {
   }, [runId]);
 
   const refreshRunMap = useCallback(async () => {
-    if (!runId) return;
+    if (!runId || typeof runId !== "string") return;
     try {
       setLoading(true);
       const res = await getRunMap(runId);
