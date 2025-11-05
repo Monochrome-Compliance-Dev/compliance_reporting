@@ -1,12 +1,13 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, Navigate, Outlet } from "react-router";
-import { PtrsProvider, PulseProvider, useAlert } from "context";
+import { PulseProvider, useAlert } from "context";
 import { Box, Typography } from "@mui/material";
 import RequireFeature from "routes/RequireFeature";
 
 import PtrsV2 from "../ptrs/PtrsV2";
 import ComplianceDashboardLayout from "components/layouts/ComplianceDashboardLayout";
 import DashboardV2 from "../dashboard/DashboardV2";
+import { PtrsV2Provider } from "../ptrs/context/PtrsV2Context";
 const PulseV2 = lazy(() => import("../pulse/PulseV2"));
 
 function V2Layout() {
@@ -46,13 +47,13 @@ export default function AppV2() {
           <Route
             path="ptrs/*"
             element={
-              <PtrsProvider>
+              <PtrsV2Provider>
                 <RequireFeature feature="ptrs">
                   <ComplianceDashboardLayout title="PTRS v2" module="ptrs">
                     <PtrsV2 />
                   </ComplianceDashboardLayout>
                 </RequireFeature>
-              </PtrsProvider>
+              </PtrsV2Provider>
             }
           />
 

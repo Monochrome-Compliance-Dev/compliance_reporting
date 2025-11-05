@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   Outlet,
   useNavigate,
@@ -7,48 +7,82 @@ import {
 } from "react-router";
 import { STEPS } from "./steps";
 import { useStepStatuses } from "./hooks/useStepStatuses";
+import { usePtrsV2Context } from "./context/PtrsV2Context";
 
 export default function GuardedRoutePtrs({ id }) {
   const [params] = useSearchParams();
-  const runId = params.get("runId") || null;
+  const paramRunId = params.get("runId") || null;
+
   const navigate = useNavigate();
-  const { gates } = useStepStatuses(runId, id);
   const parentCtx = useOutletContext();
 
+  const { runId: ctxRunId } = usePtrsV2Context();
+  const runId = paramRunId || ctxRunId || null;
+
+  const { gates } = useStepStatuses(runId, id);
+
+  const lastRedirectRef = useRef(null);
+  const lastGatesRef = useRef(null);
+
   useEffect(() => {
-    // Compute the ordered step list and the index of the current step
+    // Prevent infinite loops from trivial object identity changes
+    const gatesString = JSON.stringify(gates);
+    if (lastGatesRef.current === gatesString) return;
+    lastGatesRef.current = gatesString;
+
     const order = STEPS.map((s) => s.id);
     const idx = order.indexOf(id);
 
-    // Debug: what did we get and in what order will we check?
-    // console.groupCollapsed(`[GuardedRoutePtrs] step="%s" render`, id);
-    // console.log("runId:", runId);
-    // console.log("gates:", gates);
-    // console.log("order:", order);
-    // console.log("currentIndex:", idx);
-    // console.groupEnd();
+    // Debug
+    console.groupCollapsed(`[GuardedRoutePtrs] step="${id}"`);
+    console.log("runId:", runId);
+    console.log("gates:", gates);
+    console.log("order:", order);
+    console.log("currentIndex:", idx);
+    console.groupEnd();
 
-    // If we already have a runId, treat the "create" gate as satisfied.
+    // Skip redirect logic for landing route
+    if (id === "landing") return;
+
     const derivedGates = {
       ...gates,
       create: Boolean(runId) || Boolean(gates?.create),
     };
 
-    // Enforce prerequisite gates only for steps before the current one
+    // find missing prereq
+    let firstMissing = null;
     for (let i = 0; i < idx; i++) {
       const prereq = order[i];
       if (!derivedGates[prereq]) {
-        const target = `/v2/ptrs/${prereq}${runId ? `?runId=${runId}` : ""}`;
-        console.warn(
-          `[GuardedRoutePtrs] redirecting -> %s (gate "%s" not satisfied)`,
-          target,
-          prereq
-        );
-        navigate(target, { replace: true });
-        return;
+        firstMissing = prereq;
+        break;
       }
     }
-  }, [id, gates, navigate, runId]);
+
+    if (firstMissing) {
+      const target = `/v2/ptrs/${firstMissing}${runId ? `?runId=${runId}` : ""}`;
+      if (lastRedirectRef.current !== target) {
+        console.warn(`[GuardedRoutePtrs] redirecting -> ${target}`);
+        lastRedirectRef.current = target;
+        navigate(target, { replace: true });
+      }
+      return;
+    }
+
+    if (id === "create" && runId) {
+      const next = "data";
+      const target = `/v2/ptrs/${next}?runId=${runId}`;
+      if (lastRedirectRef.current !== target) {
+        console.warn(`[GuardedRoutePtrs] advancing from create -> ${target}`);
+        lastRedirectRef.current = target;
+        navigate(target, { replace: true });
+      }
+      return;
+    }
+
+    // Reset redirect marker when settled
+    lastRedirectRef.current = null;
+  }, [id, navigate, runId, gates]);
 
   return <Outlet context={parentCtx} />;
 }

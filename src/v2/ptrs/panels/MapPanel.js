@@ -47,7 +47,6 @@ import {
 } from "features/ptrs/ingestConfig";
 import { getFieldLabel } from "features/ptrs/fieldMeta";
 import SupportingDatasetsSection from "v2/ptrs/panels/SupportingDatasetsSection";
-import JoinsDesigner from "../components/JoinsDesigner";
 
 export default function MapPanel() {
   const theme = useTheme();
@@ -880,24 +879,6 @@ export default function MapPanel() {
           </AccordionDetails>
         </Accordion>
 
-        {/* Joins designer */}
-        <Accordion elevation={0} sx={{ mt: 2 }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Stack direction="row" spacing={1} alignItems="center">
-              <Typography variant="subtitle2">Joins</Typography>
-              <Chip size="small" label={`${joins?.length || 0} defined`} />
-            </Stack>
-          </AccordionSummary>
-          <AccordionDetails>
-            <JoinsDesigner
-              runId={runId}
-              mapping={mappingForDesigner}
-              joins={joins}
-              onChange={(next) => setJoins(next || [])}
-            />
-          </AccordionDetails>
-        </Accordion>
-
         <Divider sx={{ my: 2 }} />
 
         {/* Sticky action bar */}
@@ -953,7 +934,7 @@ export default function MapPanel() {
                 variant="contained"
                 endIcon={<NavigateNextIcon />}
                 onClick={stageData}
-                disabled={!Object.keys(assign).length}
+                disabled={requiredMappedCount < PTRS_REQUIRED_FIELDS.length}
               >
                 Next: Stage data
               </Button>

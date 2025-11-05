@@ -97,11 +97,23 @@ export default function TablesAndJoinsPanel() {
 
   const saveJoins = async () => {
     if (!runId) return showAlert("Missing runId", "error");
+    setLoading(true);
     try {
-      await saveRunMap(runId, { joins, profileId });
+      // Load any existing mappings so we don't overwrite them when saving joins
+      const mapRes = await getRunMap(runId).catch(() => ({}));
+      const existingMappings =
+        (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || {};
+
+      const payload = { mappings: existingMappings, joins, profileId };
+      // eslint-disable-next-line no-console
+      console.log("[TablesAndJoinsPanel] saveJoins payload", payload);
+
+      await saveRunMap(runId, payload);
       showAlert("Saved joins", "success");
     } catch (e) {
       showAlert(e?.message || "Failed to save joins", "error");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -154,7 +166,10 @@ export default function TablesAndJoinsPanel() {
           justifyContent="space-between"
           sx={{ mb: 1 }}
         >
-          <Typography variant="subtitle2">Joins</Typography>
+          <Stack direction="row" spacing={1} alignItems="center">
+            <Typography variant="subtitle2">Joins</Typography>
+            <Chip size="small" label={`${joins.length} defined`} />
+          </Stack>
           <Stack direction="row" spacing={1}>
             <Button
               size="small"
@@ -163,7 +178,12 @@ export default function TablesAndJoinsPanel() {
             >
               Save joins
             </Button>
-            <Button variant="contained" size="small" onClick={goToMap}>
+            <Button
+              variant="contained"
+              size="small"
+              onClick={goToMap}
+              disabled={joins.length === 0 || loading || !runId}
+            >
               Next: Map columns
             </Button>
           </Stack>
