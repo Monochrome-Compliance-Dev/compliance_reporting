@@ -13,20 +13,20 @@ import {
 export function useStepStatuses(runId, step) {
   const enable = (ids) => !!runId && (!step || ids.includes(step));
   // Debug: show which queries are enabled for this render
-  if (process.env.NODE_ENV !== "production") {
-    console.groupCollapsed("[useStepStatuses]", { runId, step });
-    console.log("enabled:", {
-      data: enable(["data"]),
-      tables: enable(["tables"]),
-      map: enable(["tables", "map", "stage"]),
-      validate: enable(["validate"]),
-      rules: enable(["rules"]),
-      sbi: enable(["sbi"]),
-      metrics: enable(["metrics"]),
-      report: enable(["report"]),
-    });
-    console.groupEnd();
-  }
+  // if (process.env.NODE_ENV !== "production") {
+  //   console.groupCollapsed("[useStepStatuses]", { runId, step });
+  //   console.log("enabled:", {
+  //     data: enable(["data"]),
+  //     tables: enable(["tables"]),
+  //     map: enable(["tables", "map", "stage"]),
+  //     validate: enable(["validate"]),
+  //     rules: enable(["rules"]),
+  //     sbi: enable(["sbi"]),
+  //     metrics: enable(["metrics"]),
+  //     report: enable(["report"]),
+  //   });
+  //   console.groupEnd();
+  // }
 
   const run = useRunStatus(runId, { enabled: !!runId }); // always
   const runUpload = useRunUploadStatus(runId, {
@@ -80,8 +80,8 @@ export function useStepStatuses(runId, step) {
           report?.state || ""
         ),
     }),
-    [run, runUpload, map, validate, rules, sbi, metrics, report]
+    [runUpload, map, validate, rules, sbi, metrics, report]
   );
-  console.log("report state", report?.state, "metrics", metrics?.status);
+  // console.log("report state", report?.state, "metrics", metrics?.status);
   return { run, runUpload, map, validate, rules, sbi, metrics, report, gates };
 }

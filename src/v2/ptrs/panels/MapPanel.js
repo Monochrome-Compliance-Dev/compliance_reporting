@@ -39,6 +39,8 @@ import {
   listRuns,
   extractMappingsFromAny,
   getBlueprint,
+  getStagePreview,
+  getUnifiedSample,
 } from "v2/ptrs/services/ptrsApi";
 import {
   PTRS_REQUIRED_FIELDS,
@@ -78,25 +80,66 @@ export default function MapPanel() {
   // --- Load headers + any existing saved map
   useEffect(() => {
     let mounted = true;
+    // Helper to safely get cell value from row with possible {data:{}} or flat
+    function pickCell(row, h) {
+      if (row && typeof row === "object") {
+        if (row.data && typeof row.data === "object" && h in row.data)
+          return row.data[h];
+        if (h in row) return row[h];
+      }
+      return undefined;
+    }
     async function load() {
       if (!runId) return;
       setLoading(true);
       try {
-        const sample = await getRunSample(runId, { limit: 5, offset: 0 });
+        // 1) Load map first to know if any mappings exist
         const mapRes = await getRunMap(runId);
+        const existing =
+          (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || null;
+        const existingJoins =
+          (mapRes && (mapRes.joins || mapRes.map?.joins)) || [];
+        const hasAnyMappings =
+          existing && typeof existing === "object"
+            ? Object.keys(existing).length > 0
+            : false;
+
+        // 2) Preferred: unified sample (merged headers/rows from main + supporting)
+        //    Fallback: previous logic (stage preview or simple sample)
+        let unified = null;
+        try {
+          unified = await getUnifiedSample(runId, { limit: 5, offset: 0 });
+        } catch {
+          unified = null;
+        }
+
+        let preview = null;
+        if (!unified) {
+          if (hasAnyMappings) {
+            try {
+              preview = await getStagePreview(runId, { limit: 5, profileId });
+            } catch {
+              // fallback to sample if BE rejects stage preview
+              preview = await getRunSample(runId, { limit: 5, offset: 0 });
+            }
+          } else {
+            preview = await getRunSample(runId, { limit: 5, offset: 0 });
+          }
+        }
+
+        // 3) Load blueprint last
         const bp = await getBlueprint({ profileId });
 
         if (!mounted) return;
         setBlueprint(bp || null);
 
-        const inferred = sample.headers;
-        const rows = sample.rows;
-        // Accept both shapes: { mappings: {...} } or { map: { mappings: {...} } }
-        const existing =
-          (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || null;
+        // headers: use unified if present, otherwise preview
+        const inferred =
+          (unified?.headers?.length ? unified.headers : preview?.headers) || [];
+        const rows =
+          (unified?.rows?.length ? unified.rows : preview?.rows) || [];
 
-        const existingJoins =
-          (mapRes && (mapRes.joins || mapRes.map?.joins)) || [];
+        // existing mappings/joins already computed above
         setJoins(Array.isArray(existingJoins) ? existingJoins : []);
 
         setHeaders(inferred);
@@ -106,7 +149,7 @@ export default function MapPanel() {
         const ex = {};
         for (const h of inferred) {
           for (const r of rows) {
-            const v = r?.data?.[h];
+            const v = pickCell(r, h);
             if (v !== undefined && v !== null && String(v).trim() !== "") {
               ex[h] = String(v);
               break;

@@ -17,10 +17,13 @@ import {
   getRunMap,
   saveRunMap,
   getRunSample,
+  getDatasetSample,
 } from "v2/ptrs/services/ptrsApi";
 
 export default function TablesAndJoinsPanel() {
   const [params] = useSearchParams();
+  const debugJoins =
+    params.get("debug") === "1" || params.get("debug") === "joins";
   const navigate = useNavigate();
   const { showAlert } = useAlert();
   const { profileId } = usePtrsV2Context();
@@ -56,6 +59,8 @@ export default function TablesAndJoinsPanel() {
         const inferred = sample?.headers || [];
         const rows = sample?.rows || [];
         const ex = {};
+
+        // Build examples for main dataset columns
         for (const h of inferred) {
           for (const r of rows) {
             const v = r?.data?.[h];
@@ -66,6 +71,43 @@ export default function TablesAndJoinsPanel() {
           }
           if (!ex[h]) ex[h] = "";
         }
+
+        // Also build examples for each supporting dataset
+        try {
+          const perDatasetSamples = await Promise.all(
+            (items || []).map(async (d) => {
+              try {
+                const s = await getDatasetSample(d.id, { limit: 5, offset: 0 });
+                return { id: d.id, role: d.role, sample: s };
+              } catch (e) {
+                return {
+                  id: d.id,
+                  role: d.role,
+                  sample: { headers: [], rows: [] },
+                };
+              }
+            })
+          );
+
+          for (const { sample: dsSample } of perDatasetSamples) {
+            const dsHeaders = dsSample?.headers || [];
+            const dsRows = dsSample?.rows || [];
+            for (const h of dsHeaders) {
+              if (ex[h]) continue; // keep main example if present
+              for (const r of dsRows) {
+                const v = r?.[h] ?? r?.data?.[h];
+                if (v !== undefined && v !== null && String(v).trim() !== "") {
+                  ex[h] = String(v);
+                  break;
+                }
+              }
+              if (!ex[h]) ex[h] = "";
+            }
+          }
+        } catch (_) {
+          // best-effort only; ignore sampling failures for supporting datasets
+        }
+
         setHeaders(inferred);
         setExamples(ex);
         console.log("[TablesAndJoinsPanel] loaded data", {
@@ -191,11 +233,12 @@ export default function TablesAndJoinsPanel() {
         <Divider sx={{ mb: 2 }} />
         <JoinsDesigner
           runId={runId}
-          mapping={{}}
           joins={joins}
           onChange={(next) => setJoins(next || [])}
           headers={headers}
           examples={examples}
+          leftHeaders={headers}
+          debug={debugJoins}
         />
       </Paper>
     </Box>

@@ -198,6 +198,34 @@ export const getRunSample = async (runId, { limit = 10, offset = 0 } = {}) => {
   return normSample(pickData(res));
 };
 
+// Unified sample: returns merged headers + examples from all datasets
+export const getUnifiedSample = async (
+  runId,
+  { limit = 10, offset = 0 } = {}
+) => {
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/runs/${runId}/unified-sample?limit=${limit}&offset=${offset}`
+  );
+  const d = pickData(res);
+  return {
+    headers: d.headers || [],
+    rows: d.rows || [],
+    total: d.total || 0,
+    headerMeta: d.headerMeta || {},
+  };
+};
+
+export const getDatasetSample = async (
+  datasetId,
+  { limit = 5, offset = 0 } = {}
+) => {
+  if (!datasetId) throw new Error("datasetId is required");
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?limit=${limit}&offset=${offset}`
+  );
+  return normSample(pickData(res)); // { headers:[], rows:[] }
+};
+
 // -------------------- Column map (routes: /runs/:id/map) ------
 export const getRunMap = async (runId) => {
   const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/runs/${runId}/map`);
