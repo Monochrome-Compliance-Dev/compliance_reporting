@@ -43,7 +43,8 @@ const normMap = (x = {}) => {
     if (typeof cfg === "string") {
       outMappings[cleanSrc] = { field: cfg, type: "string" };
     } else if (cfg && typeof cfg === "object" && "field" in cfg) {
-      outMappings[cleanSrc] = { field: cfg.field, type: cfg.type || "string" };
+      const { field, type = "string", ...rest } = cfg;
+      outMappings[cleanSrc] = { field, type, ...rest };
     }
   }
 
@@ -135,8 +136,9 @@ export const extractMappingsFromAny = (raw) => {
         for (const [src, cfg] of entries) {
           if (typeof cfg === "string") {
             out[src] = { field: cfg, type: "string" };
-          } else {
-            out[src] = { field: cfg.field, type: cfg.type || "string" };
+          } else if (cfg && typeof cfg === "object" && "field" in cfg) {
+            const { field, type = "string", ...rest } = cfg;
+            out[src] = { field, type, ...rest };
           }
         }
         return out;
@@ -150,7 +152,14 @@ export const extractMappingsFromAny = (raw) => {
     for (const row of raw) {
       const src = row?.source || row?.header || row?.name;
       const field = row?.field;
-      if (src && field) out[src] = { field, type: row?.type || "string" };
+      if (src && field) {
+        const { type = "string", ...rest } = row || {};
+        // Remove alias keys that identify the source name to avoid duplication
+        delete rest.source;
+        delete rest.header;
+        delete rest.name;
+        out[src] = { field, type, ...rest };
+      }
     }
     return Object.keys(out).length ? out : null;
   }
@@ -321,6 +330,7 @@ export const getStagePreview = async (
     const res = await fetchWrapper.get(
       `${API_ROOT}/v2/ptrs/runs/${runId}/stage/preview?${q.toString()}`
     );
+    console.log("res: ", res);
     return normPreview(pickData(res));
   } catch (err) {
     // fallback to generic preview if BE doesn't expose stage/preview yet

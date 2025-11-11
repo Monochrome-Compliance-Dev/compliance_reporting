@@ -52,8 +52,6 @@ export default function StagePanel() {
   const runId = params.get("runId");
   const { profileId } = usePtrsV2Context();
 
-  console.log("[StagePanel] mount", { runId, profileId });
-
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [datasets, setDatasets] = useState([]);
@@ -89,8 +87,8 @@ export default function StagePanel() {
           getRun(runId).catch(() => null),
           listDatasets(runId).catch(() => ({ items: [] })),
         ]);
-        console.log("[StagePanel] getRun:", run);
-        console.log("[StagePanel] listDatasets:", ds);
+        // console.log("[StagePanel] getRun:", run);
+        // console.log("[StagePanel] listDatasets:", ds);
         if (mountedRef.current) {
           setRunMeta(run);
           setDatasets(ds?.items || []);
@@ -156,8 +154,8 @@ export default function StagePanel() {
     }
   };
 
-  const headers = preview?.headers || [];
-  const rows = preview?.rows || [];
+  const headers = useMemo(() => preview?.headers || [], [preview?.headers]);
+  const rows = useMemo(() => preview?.rows || [], [preview?.rows]);
 
   useEffect(() => {
     if (!headers.length && !rows.length) return;

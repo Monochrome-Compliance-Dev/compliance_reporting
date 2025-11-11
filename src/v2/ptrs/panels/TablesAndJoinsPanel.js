@@ -16,8 +16,7 @@ import {
   listDatasets,
   getRunMap,
   saveRunMap,
-  getRunSample,
-  getDatasetSample,
+  getUnifiedSample,
 } from "v2/ptrs/services/ptrsApi";
 
 export default function TablesAndJoinsPanel() {
@@ -33,6 +32,7 @@ export default function TablesAndJoinsPanel() {
   const [datasets, setDatasets] = useState([]);
   const [joins, setJoins] = useState([]);
   const [headers, setHeaders] = useState([]);
+  const [mainHeaders, setMainHeaders] = useState([]);
   const [examples, setExamples] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -54,67 +54,37 @@ export default function TablesAndJoinsPanel() {
           (mapRes && (mapRes.joins || mapRes.map?.joins)) || [];
         setJoins(Array.isArray(existingJoins) ? existingJoins : []);
 
-        // Sample for header/examples
-        const sample = await getRunSample(runId, { limit: 5, offset: 0 });
-        const inferred = sample?.headers || [];
-        const rows = sample?.rows || [];
+        // Unified sample for headers/examples (main + supporting)
+        const unified = await getUnifiedSample(runId, { limit: 5, offset: 0 });
+        const inferred = unified?.headers || [];
+        const headerMeta = unified?.headerMeta || {};
+        // Derive main-only headers from unified headerMeta (those sourced from the main import)
+        const mains = (unified?.headers || []).filter((h) => {
+          const srcs = headerMeta[h]?.sources || [];
+          return Array.isArray(srcs) && srcs.includes("main");
+        });
+        setMainHeaders(mains);
         const ex = {};
 
-        // Build examples for main dataset columns
         for (const h of inferred) {
-          for (const r of rows) {
-            const v = r?.data?.[h];
-            if (v !== undefined && v !== null && String(v).trim() !== "") {
-              ex[h] = String(v);
-              break;
-            }
-          }
-          if (!ex[h]) ex[h] = "";
-        }
-
-        // Also build examples for each supporting dataset
-        try {
-          const perDatasetSamples = await Promise.all(
-            (items || []).map(async (d) => {
-              try {
-                const s = await getDatasetSample(d.id, { limit: 5, offset: 0 });
-                return { id: d.id, role: d.role, sample: s };
-              } catch (e) {
-                return {
-                  id: d.id,
-                  role: d.role,
-                  sample: { headers: [], rows: [] },
-                };
-              }
-            })
-          );
-
-          for (const { sample: dsSample } of perDatasetSamples) {
-            const dsHeaders = dsSample?.headers || [];
-            const dsRows = dsSample?.rows || [];
-            for (const h of dsHeaders) {
-              if (ex[h]) continue; // keep main example if present
-              for (const r of dsRows) {
-                const v = r?.[h] ?? r?.data?.[h];
-                if (v !== undefined && v !== null && String(v).trim() !== "") {
-                  ex[h] = String(v);
-                  break;
-                }
-              }
-              if (!ex[h]) ex[h] = "";
-            }
-          }
-        } catch (_) {
-          // best-effort only; ignore sampling failures for supporting datasets
+          const meta = headerMeta[h] || {};
+          const example =
+            meta.example ??
+            (meta.examples
+              ? (meta.examples.main ?? Object.values(meta.examples)[0])
+              : "");
+          ex[h] = example == null ? "" : String(example);
         }
 
         setHeaders(inferred);
         setExamples(ex);
+
         console.log("[TablesAndJoinsPanel] loaded data", {
           datasets: items,
           joins: existingJoins,
           headers: inferred,
           examples: ex,
+          mainHeaders: mains,
         });
       } catch (e) {
         showAlert(e?.message || "Failed to load tables & joins", "error");
@@ -237,7 +207,7 @@ export default function TablesAndJoinsPanel() {
           onChange={(next) => setJoins(next || [])}
           headers={headers}
           examples={examples}
-          leftHeaders={headers}
+          leftHeaders={mainHeaders}
           debug={debugJoins}
         />
       </Paper>
