@@ -80,7 +80,18 @@ export function PtrsV2Provider({ children }) {
     try {
       setLoading(true);
       const res = await getRunMap(runId);
-      if (res?.data) setRunMap(res.data);
+      // Be defensive about the shape coming back from ptrsApi
+      console.log("[PtrsV2Context] getRunMap response:", res);
+      const mapData = (res && res.data) || (res && res.map) || res || null;
+      if (mapData) {
+        setRunMap(mapData);
+      } else {
+        console.warn(
+          "[PtrsV2Context] getRunMap returned empty payload for runId:",
+          runId
+        );
+        setRunMap(null);
+      }
     } catch (err) {
       console.error("[PtrsV2Context] getRunMap failed:", err);
       setError(err.message);

@@ -5,6 +5,7 @@ import DataConsole from "./panels/DataConsole";
 import TablesAndJoinsPanel from "./panels/TablesAndJoinsPanel";
 import MapPanel from "./panels/MapPanel";
 import StagePanel from "./panels/StagePanel";
+import RulesPanel from "./panels/RulesPanel";
 
 const ptrsRoutes = [
   {
@@ -18,15 +19,12 @@ const ptrsRoutes = [
       { path: "tables", Component: TablesAndJoinsPanel },
       { path: "map", Component: MapPanel },
       { path: "stage", Component: StagePanel },
+      { path: "rules", Component: RulesPanel },
 
       // Future steps (placeholders)
       {
         path: "validate",
         Component: () => <div>Validate &amp; fix errors</div>,
-      },
-      {
-        path: "rules",
-        Component: () => <div>Apply exclusions &amp; transforms</div>,
       },
       { path: "sbi", Component: () => <div>SBI export/import</div> },
       { path: "metrics", Component: () => <div>Metrics snapshot</div> },

@@ -330,7 +330,6 @@ export const getStagePreview = async (
     const res = await fetchWrapper.get(
       `${API_ROOT}/v2/ptrs/runs/${runId}/stage/preview?${q.toString()}`
     );
-    console.log("res: ", res);
     return normPreview(pickData(res));
   } catch (err) {
     // fallback to generic preview if BE doesn't expose stage/preview yet
@@ -342,6 +341,28 @@ export const getStagePreview = async (
     );
     return normPreview(pickData(res2));
   }
+};
+
+// -------------------- Rules (routes: /runs/:id/rules/...) ---
+export const previewRules = async (runId, { limit = 50 } = {}) => {
+  if (!runId) throw new Error("runId is required");
+  const q = new URLSearchParams();
+  q.set("limit", String(limit));
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/runs/${runId}/rules/preview?${q.toString()}`
+  );
+  return normPreview(pickData(res)); // { headers, rows, stats }
+};
+
+export const applyRules = async (runId, { profileId = null } = {}) => {
+  if (!runId) throw new Error("runId is required");
+  const body = {};
+  if (profileId) body.profileId = profileId;
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/runs/${runId}/rules/apply`,
+    body
+  );
+  return pickData(res); // { ok, stats, persisted }
 };
 
 // -------------------- Staging (route: /runs/:id/stage) -------

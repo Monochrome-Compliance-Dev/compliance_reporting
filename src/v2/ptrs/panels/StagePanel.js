@@ -137,11 +137,11 @@ export default function StagePanel() {
           limit: 20,
           profileId: profileId || null,
         });
-        console.log("[StagePanel] getStagePreview:", {
-          headers: pv?.headers?.length || 0,
-          rows: pv?.rows?.length || 0,
-          sample: Array.isArray(pv?.rows) ? pv.rows[0] : undefined,
-        });
+        // console.log("[StagePanel] getStagePreview:", {
+        //   headers: pv?.headers?.length || 0,
+        //   rows: pv?.rows?.length || 0,
+        //   sample: Array.isArray(pv?.rows) ? pv.rows[0] : undefined,
+        // });
         if (mountedRef.current && pv) setPreview(pv);
       } catch (_) {}
     } catch (err) {
@@ -159,16 +159,16 @@ export default function StagePanel() {
 
   useEffect(() => {
     if (!headers.length && !rows.length) return;
-    console.log("[StagePanel] preview updated", {
-      headersCount: headers.length,
-      rowsCount: rows.length,
-      firstRow: rows[0]
-        ? headers.reduce((acc, h) => {
-            acc[h] = pickCell(rows[0], h);
-            return acc;
-          }, {})
-        : undefined,
-    });
+    // console.log("[StagePanel] preview updated", {
+    //   headersCount: headers.length,
+    //   rowsCount: rows.length,
+    //   firstRow: rows[0]
+    //     ? headers.reduce((acc, h) => {
+    //         acc[h] = pickCell(rows[0], h);
+    //         return acc;
+    //       }, {})
+    //     : undefined,
+    // });
   }, [headers, rows]);
 
   return (
@@ -327,7 +327,7 @@ export default function StagePanel() {
             const qs = new URLSearchParams();
             qs.set("runId", runId);
             if (profileId) qs.set("profileId", profileId);
-            navigate(`/v2/ptrs/apply?${qs.toString()}`);
+            navigate(`/v2/ptrs/rules?${qs.toString()}`);
           }}
         >
           Next: Apply rules
