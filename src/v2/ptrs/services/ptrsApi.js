@@ -335,14 +335,34 @@ export const getStagePreview = async (
 };
 
 // -------------------- Staging (route: /runs/:id/stage) -------
-export const stageRun = async (runId, { profileId = "" } = {}) => {
+export const stageRun = async (
+  runId,
+  { profileId = "", persist = false } = {}
+) => {
   if (!runId) throw new Error("runId is required");
+
+  // Build payload: always include profileId, optionally include persist
+  const payload = { profileId };
+  if (persist != null) payload.persist = Boolean(persist);
+
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/runs/${runId}/stage`,
-    { profileId }
+    payload
   );
-  // BE returns: { rowsIn, rowsOut, tookMs }
-  return pickData(res);
+
+  // Normalise the response so the UI can rely on a stable shape
+  const d = pickData(res) || {};
+  const rowsIn = d.rowsIn ?? d.affectedCount ?? d.inputCount ?? d.inCount ?? 0;
+  const rowsOut =
+    d.rowsOut ?? d.persistedCount ?? d.outputCount ?? d.outCount ?? 0;
+
+  return {
+    rowsIn,
+    rowsOut,
+    tookMs: d.tookMs ?? d.durationMs ?? null,
+    sample: d.sample || null,
+    stats: d.stats || null,
+  };
 };
 
 // -------------------- Profiles (route: /v2/ptrs/profiles) ----

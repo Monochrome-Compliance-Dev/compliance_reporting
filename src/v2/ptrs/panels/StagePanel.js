@@ -25,9 +25,25 @@ import {
   listDatasets,
   getStagePreview,
 } from "v2/ptrs/services/ptrsApi";
+
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ReplayIcon from "@mui/icons-material/Replay";
+
+// Convert snake_case (or other separators) to human-friendly labels
+const prettifyHeader = (key) => {
+  if (key == null) return "";
+  const s = String(key)
+    .replace(/[_\-]+/g, " ")
+    .trim();
+  return s
+    .split(/\s+/)
+    .map((w) => {
+      if (/^(abn|acn|id|vat)$/i.test(w)) return w.toUpperCase();
+      return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+    })
+    .join(" ");
+};
 
 export default function StagePanel() {
   const { showAlert } = useAlert();
@@ -44,6 +60,17 @@ export default function StagePanel() {
   const [runMeta, setRunMeta] = useState(null);
   const [preview, setPreview] = useState({ rows: [], headers: [] });
   const [showPreview, setShowPreview] = useState(false);
+
+  // Safely pick a value from a row that may be flat or wrapped as { data: {...} }
+  const pickCell = (row, header) => {
+    if (row && typeof row === "object") {
+      if (row.data && typeof row.data === "object" && header in row.data) {
+        return row.data[header];
+      }
+      if (header in row) return row[header];
+    }
+    return undefined;
+  };
 
   const mountedRef = useRef(true);
   useEffect(
@@ -108,7 +135,10 @@ export default function StagePanel() {
       showAlert(`Staged ${res.rowsOut || 0} rows`, "success");
       // Eager-load a tiny preview for confidence
       try {
-        const pv = await getStagePreview(runId, { limit: 20 });
+        const pv = await getStagePreview(runId, {
+          limit: 20,
+          profileId: profileId || null,
+        });
         console.log("[StagePanel] getStagePreview:", {
           headers: pv?.headers?.length || 0,
           rows: pv?.rows?.length || 0,
@@ -134,7 +164,12 @@ export default function StagePanel() {
     console.log("[StagePanel] preview updated", {
       headersCount: headers.length,
       rowsCount: rows.length,
-      firstRow: rows[0],
+      firstRow: rows[0]
+        ? headers.reduce((acc, h) => {
+            acc[h] = pickCell(rows[0], h);
+            return acc;
+          }, {})
+        : undefined,
     });
   }, [headers, rows]);
 
@@ -255,7 +290,7 @@ export default function StagePanel() {
                 <TableHead>
                   <TableRow>
                     {headers.map((c) => (
-                      <TableCell key={c}>{c}</TableCell>
+                      <TableCell key={c}>{prettifyHeader(c)}</TableCell>
                     ))}
                   </TableRow>
                 </TableHead>
@@ -263,7 +298,7 @@ export default function StagePanel() {
                   {rows.map((r, idx) => (
                     <TableRow key={idx}>
                       {headers.map((c) => (
-                        <TableCell key={c}>{r[c]}</TableCell>
+                        <TableCell key={c}>{pickCell(r, c)}</TableCell>
                       ))}
                     </TableRow>
                   ))}
