@@ -365,6 +365,34 @@ export const applyRules = async (runId, { profileId = null } = {}) => {
   return pickData(res); // { ok, stats, persisted }
 };
 
+export const getRunRules = async (runId) => {
+  if (!runId) throw new Error("runId is required");
+  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/runs/${runId}/rules`);
+  const d = pickData(res);
+  const data = d?.data || d || {};
+  return {
+    rowRules: data.rowRules || [],
+    crossRowRules: data.crossRowRules || [],
+  };
+};
+
+export const saveRunRules = async (
+  runId,
+  { rowRules = [], crossRowRules = [] } = {}
+) => {
+  if (!runId) throw new Error("runId is required");
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/runs/${runId}/rules`,
+    { rowRules, crossRowRules }
+  );
+  const d = pickData(res);
+  const data = d?.data || d || {};
+  return {
+    rowRules: data.rowRules || [],
+    crossRowRules: data.crossRowRules || [],
+  };
+};
+
 // -------------------- Staging (route: /runs/:id/stage) -------
 export const stageRun = async (
   runId,
