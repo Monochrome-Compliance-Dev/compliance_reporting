@@ -133,47 +133,109 @@ export default function RulesPanel() {
     };
   }, [runId, ctxRunMap]);
 
-  // keep in sync if map updates externally, but only seed if rulesState is empty
+  // keep in sync if map updates externally, but only seed if we don't already have rules
   useEffect(() => {
-    if (Array.isArray(ctxRunMap?.rowRules) && rulesState.length === 0) {
+    if (
+      runId &&
+      Array.isArray(ctxRunMap?.rowRules) &&
+      ctxRunMap.rowRules.length > 0 &&
+      rulesState.length === 0
+    ) {
       setRulesState(
         ctxRunMap.rowRules.map((r, idx) => ({
           id: r.id || `r${idx + 1}`,
-          type: "row",
+          type: r.type || "row",
           ...r,
         }))
       );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ctxRunMap?.rowRules]);
+  }, [runId, ctxRunMap, rulesState.length]);
 
-  // Load rules from backend on mount or when runId changes
+  // hydrate from backend rules (rowRules + crossRowRules) on mount / run change
   useEffect(() => {
+    if (!runId) return;
+
     let cancelled = false;
-    (async () => {
-      if (!runId) return;
+
+    const loadRules = async () => {
       try {
         const { rowRules = [], crossRowRules = [] } = await getRunRules(runId);
+
         if (cancelled) return;
-        const rows = rowRules.map((r, i) => ({
-          id: r.id || `r${i + 1}`,
-          type: "row",
-          ...r,
-        }));
-        const crosses = crossRowRules.map((r, j) => ({
-          id: r.id || `x${j + 1}`,
-          type: "crossRow",
-          ...r,
-        }));
-        setRulesState([...rows, ...crosses]);
+
+        const rows = Array.isArray(rowRules)
+          ? rowRules.map((r, i) => ({
+              id: r.id || `r${i + 1}`,
+              type: r.type || "row",
+              ...r,
+            }))
+          : [];
+
+        const crosses = Array.isArray(crossRowRules)
+          ? crossRowRules.map((r, j) => ({
+              id: r.id || `x${j + 1}`,
+              type: "crossRow",
+              ...r,
+            }))
+          : [];
+
+        if (rows.length || crosses.length) {
+          setRulesState([...rows, ...crosses]);
+        }
       } catch (e) {
-        // no alert; non-blocking
+        // non-blocking: if it fails, user can still define rules locally
       }
-    })();
+    };
+
+    loadRules();
+
     return () => {
       cancelled = true;
     };
   }, [runId]);
+
+  // Update headers with fields referenced in rulesState
+  useEffect(() => {
+    if (!Array.isArray(rulesState) || rulesState.length === 0) return;
+
+    const collect = new Set();
+
+    for (const r of rulesState) {
+      // row rule when condition
+      if (r.when?.[0]?.field) collect.add(toSnake(r.when[0].field));
+
+      // row rule add action
+      if (Array.isArray(r.then)) {
+        for (const a of r.then) {
+          if (a.field) collect.add(toSnake(a.field));
+          if (a.valueField) collect.add(toSnake(a.valueField));
+        }
+      }
+
+      // cross-row match and where
+      if (r.target) {
+        const m = r.target.match?.[0];
+        if (m?.targetField) collect.add(toSnake(m.targetField));
+        if (m?.currentField) collect.add(toSnake(m.currentField));
+
+        const w = r.target.where?.[0];
+        if (w?.field) collect.add(toSnake(w.field));
+      }
+
+      // cross-row action
+      if (r.action) {
+        if (r.action.field) collect.add(toSnake(r.action.field));
+        if (r.action.valueFieldFromCurrent)
+          collect.add(toSnake(r.action.valueFieldFromCurrent));
+      }
+    }
+
+    setHeaders((prev) => {
+      const merged = new Set(prev);
+      for (const f of collect) merged.add(f);
+      return Array.from(merged);
+    });
+  }, [rulesState]);
 
   const canApply = useMemo(() => {
     // Require that mapping exists and staging has run; relax further as needed
@@ -420,7 +482,147 @@ export default function RulesPanel() {
     }
   };
 
+  // --- Pseudo-SQL builder for cross-row rules (for debugging only) ---
+  const sqlEscape = (v) => String(v ?? "").replace(/'/g, "''");
+
+  const buildSqlCondition = (field, op, value) => {
+    const col = toSnake(field || "");
+    const val = sqlEscape(value);
+
+    switch (op) {
+      case "eq":
+        return `${col} = '${val}'`;
+      case "neq":
+        return `${col} <> '${val}'`;
+      case "gt":
+        return `${col} > '${val}'`;
+      case "gte":
+        return `${col} >= '${val}'`;
+      case "lt":
+        return `${col} < '${val}'`;
+      case "lte":
+        return `${col} <= '${val}'`;
+      case "in":
+        // simple comma-separated values "A,B,C"
+        return `${col} IN (${String(value)
+          .split(",")
+          .map((v) => `'${sqlEscape(v.trim())}'`)
+          .join(", ")})`;
+      case "nin":
+        return `${col} NOT IN (${String(value)
+          .split(",")
+          .map((v) => `'${sqlEscape(v.trim())}'`)
+          .join(", ")})`;
+      case "is_null":
+        return `${col} IS NULL`;
+      case "not_null":
+        return `${col} IS NOT NULL`;
+      default:
+        return "-- unsupported op in preview";
+    }
+  };
+
+  const buildCrossRowSql = (rule) => {
+    const table = "ptrs_stage_row"; // adjust if your actual table name differs
+
+    const cur = rule.when?.[0] || {};
+    const match = rule.target?.match?.[0] || {};
+    const where = rule.target?.where?.[0] || null;
+    const action = rule.action || {};
+
+    const curField = toSnake(cur.field || "");
+    const curCond =
+      curField && cur.op
+        ? buildSqlCondition(cur.field, cur.op, cur.value)
+        : "-- no current-row condition";
+
+    const targetField = toSnake(match.targetField || "");
+    const currentField = toSnake(match.currentField || "");
+
+    const whereCond =
+      where && where.field && where.op
+        ? buildSqlCondition(where.field, where.op, where.value)
+        : null;
+
+    const actionTarget = toSnake(action.field || "");
+    const actionSource = toSnake(action.valueFieldFromCurrent || "");
+    const actionOp = action.op || "sub";
+
+    let sql = "";
+
+    // 1) Current rows
+    sql += '-- Current rows ("current" side of the cross-row rule)\n';
+    sql += `SELECT *\nFROM ${table} c\n`;
+    if (!curCond.startsWith("--")) {
+      sql += `WHERE ${curCond};\n\n`;
+    } else {
+      sql += `-- WHERE ${curCond}\n\n`;
+    }
+
+    // 2) Target rows matched to current
+    sql += "-- Target rows matched to each current row\n";
+    sql += `SELECT t.*\n`;
+    sql += `FROM ${table} t\n`;
+    sql += `JOIN ${table} c\n`;
+    if (targetField && currentField) {
+      sql += `  ON t.${targetField} = c.${currentField}\n`;
+    } else {
+      sql += `  -- ON t.<targetField> = c.<currentField>  -- missing match fields\n`;
+    }
+
+    const whereParts = [];
+    if (!curCond.startsWith("--")) {
+      // ensure we only join on rows that already satisfy the current condition
+      whereParts.push(curCond.replace(/(^|\n)/g, "")); // inline version
+    }
+    if (whereCond) {
+      whereParts.push(whereCond);
+    }
+
+    if (whereParts.length) {
+      sql += `WHERE ${whereParts.join(" AND ")};\n\n`;
+    } else {
+      sql += `-- WHERE <optional filters>\n\n`;
+    }
+
+    // 3) Action description
+    if (actionTarget && actionSource) {
+      sql += "-- Action preview (conceptual, not executable SQL)\n";
+      sql += `-- For each (t, c) pair, apply:\n`;
+      sql += `--   t.${actionTarget} = `;
+      switch (actionOp) {
+        case "add":
+          sql += `t.${actionTarget} + c.${actionSource};\n`;
+          break;
+        case "sub":
+          sql += `t.${actionTarget} - c.${actionSource};\n`;
+          break;
+        case "mul":
+          sql += `t.${actionTarget} * c.${actionSource};\n`;
+          break;
+        case "div":
+          sql += `t.${actionTarget} / NULLIF(c.${actionSource}, 0);\n`;
+          break;
+        case "assign":
+          sql += `c.${actionSource};\n`;
+          break;
+        default:
+          sql += `/* unsupported op: ${actionOp} */;\n`;
+          break;
+      }
+    }
+
+    return sql;
+  };
+
   const mockPreviewCrossRow = async (rule) => {
+    // Log pseudo-SQL so you can copy/paste into Postgres
+    try {
+      const sql = buildCrossRowSql(rule);
+      console.log("[PTRS v2] Cross-row pseudo SQL:\n" + sql);
+    } catch (e) {
+      console.warn("[PTRS v2] Failed to build cross-row pseudo SQL", e);
+    }
     const prev = await getStagePreview(runId, { limit: 5000 });
     const rows = prev?.rows || [];
     const curWhen = rule.when?.[0] || {};
@@ -586,6 +788,49 @@ export default function RulesPanel() {
                 round: 2,
               };
               const excludeOn = (r.then || []).some((a) => a.op === "exclude");
+
+              // Guard select values so MUI never sees an out-of-range value
+              const whenFieldRaw = r.when?.[0]?.field || "";
+              const whenField = headers.includes(whenFieldRaw)
+                ? whenFieldRaw
+                : "";
+
+              const addTargetRaw = addAct.field || "";
+              const addTarget = headers.includes(addTargetRaw)
+                ? addTargetRaw
+                : "";
+
+              const addSourceRaw = addAct.valueField || "";
+              const addSource = headers.includes(addSourceRaw)
+                ? addSourceRaw
+                : "";
+
+              const crMatchTargetRaw = r.target?.match?.[0]?.targetField || "";
+              const crMatchTarget = headers.includes(crMatchTargetRaw)
+                ? crMatchTargetRaw
+                : "";
+
+              const crMatchCurrentRaw =
+                r.target?.match?.[0]?.currentField || "";
+              const crMatchCurrent = headers.includes(crMatchCurrentRaw)
+                ? crMatchCurrentRaw
+                : "";
+
+              const crWhereFieldRaw = r.target?.where?.[0]?.field || "";
+              const crWhereField = headers.includes(crWhereFieldRaw)
+                ? crWhereFieldRaw
+                : "";
+
+              const crActionFieldRaw = r.action?.field || "";
+              const crActionField = headers.includes(crActionFieldRaw)
+                ? crActionFieldRaw
+                : "";
+
+              const crActionSrcRaw = r.action?.valueFieldFromCurrent || "";
+              const crActionSrc = headers.includes(crActionSrcRaw)
+                ? crActionSrcRaw
+                : "";
+
               return (
                 <Paper key={r.id} variant="outlined" sx={{ p: 2 }}>
                   <Stack spacing={2}>
@@ -629,7 +874,7 @@ export default function RulesPanel() {
                         <Select
                           labelId={`when-field-${idx}`}
                           label="Field"
-                          value={r.when?.[0]?.field || ""}
+                          value={whenField}
                           onChange={(e) =>
                             updateRuleWhen(idx, { field: e.target.value })
                           }
@@ -688,7 +933,7 @@ export default function RulesPanel() {
                             <Select
                               labelId={`add-target-${idx}`}
                               label="Add to field"
-                              value={addAct.field || ""}
+                              value={addTarget}
                               onChange={(e) =>
                                 updateRuleAddAction(idx, {
                                   field: e.target.value,
@@ -710,7 +955,7 @@ export default function RulesPanel() {
                             <Select
                               labelId={`add-src-${idx}`}
                               label="Value from field"
-                              value={addAct.valueField || ""}
+                              value={addSource}
                               onChange={(e) =>
                                 updateRuleAddAction(idx, {
                                   valueField: e.target.value,
@@ -774,7 +1019,7 @@ export default function RulesPanel() {
                             <Select
                               labelId={`cr-match-target-${idx}`}
                               label="Target field"
-                              value={r.target?.match?.[0]?.targetField || ""}
+                              value={crMatchTarget}
                               onChange={(e) =>
                                 updateCrossTargetMatch(idx, {
                                   targetField: e.target.value,
@@ -807,7 +1052,7 @@ export default function RulesPanel() {
                             <Select
                               labelId={`cr-match-current-${idx}`}
                               label="Current row field"
-                              value={r.target?.match?.[0]?.currentField || ""}
+                              value={crMatchCurrent}
                               onChange={(e) =>
                                 updateCrossTargetMatch(idx, {
                                   currentField: e.target.value,
@@ -835,7 +1080,7 @@ export default function RulesPanel() {
                             <Select
                               labelId={`cr-where-field-${idx}`}
                               label="Filter field (optional)"
-                              value={r.target?.where?.[0]?.field || ""}
+                              value={crWhereField}
                               onChange={(e) =>
                                 updateCrossTargetWhere(idx, {
                                   field: e.target.value,
@@ -924,7 +1169,7 @@ export default function RulesPanel() {
                             <Select
                               labelId={`cr-action-field-${idx}`}
                               label="Target field"
-                              value={r.action?.field || ""}
+                              value={crActionField}
                               onChange={(e) =>
                                 updateCrossAction(idx, {
                                   field: e.target.value,
@@ -946,7 +1191,7 @@ export default function RulesPanel() {
                             <Select
                               labelId={`cr-action-src-${idx}`}
                               label="Value from current field"
-                              value={r.action?.valueFieldFromCurrent || ""}
+                              value={crActionSrc}
                               onChange={(e) =>
                                 updateCrossAction(idx, {
                                   valueFieldFromCurrent: e.target.value,
