@@ -1064,11 +1064,19 @@ export default function MapPanel() {
             <Autocomplete
               size="small"
               options={runsWithMaps}
+              isOptionEqualToValue={(opt, val) => opt.id === val.id}
               getOptionLabel={(opt) =>
                 opt?.fileName
                   ? `${opt.fileName} — ${new Date(opt.createdAt).toLocaleDateString()}`
                   : opt?.id || ""
               }
+              renderOption={(props, option) => (
+                <li {...props} key={option.id}>
+                  {option.fileName
+                    ? `${option.fileName} — ${new Date(option.createdAt).toLocaleDateString()}`
+                    : option.id}
+                </li>
+              )}
               value={selectedCopyRun}
               onChange={(e, val) => setSelectedCopyRun(val)}
               renderInput={(params) => (

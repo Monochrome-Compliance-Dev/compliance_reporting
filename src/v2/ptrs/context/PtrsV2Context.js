@@ -6,17 +6,32 @@ import React, {
   useCallback,
 } from "react";
 import { useSearchParams } from "react-router";
-import { getRun, listDatasets, getRunMap } from "v2/ptrs/services/ptrsApi";
+import {
+  getPtrs,
+  listDatasets,
+  getPtrsMap,
+  listProfiles,
+} from "v2/ptrs/services/ptrsApi";
 
-const toRunId = (val) => {
+const normaliseId = (val) => {
   if (!val) return null;
   if (typeof val === "string") return val;
   if (typeof val === "object") {
+    if (typeof val.ptrsId === "string") return val.ptrsId;
     if (typeof val.id === "string") return val.id;
-    if (typeof val.runId === "string") return val.runId;
     if (val.data && typeof val.data.id === "string") return val.data.id;
   }
   return null;
+};
+
+const getInitialIdsFromParams = (params) => {
+  const ptrsFromParams = params.get("ptrsId");
+  const profileFromParams = params.get("profileId");
+
+  return {
+    ptrsId: ptrsFromParams || null,
+    profileId: profileFromParams || null,
+  };
 };
 
 const PtrsV2Context = createContext(null);
@@ -29,43 +44,84 @@ export function usePtrsV2Context() {
 }
 
 export function PtrsV2Provider({ children }) {
-  const [params] = useSearchParams();
+  const [params, setParams] = useSearchParams();
 
-  const [runId, _setRunId] = useState(() => toRunId(params.get("runId")));
-  const setRunId = useCallback((val) => {
-    _setRunId(toRunId(val));
+  const initialIds = getInitialIdsFromParams(params);
+
+  const [ptrsId, _setPtrsId] = useState(initialIds.ptrsId);
+  const [profileId, _setProfileId] = useState(initialIds.profileId);
+
+  const setPtrsId = useCallback((val) => {
+    _setPtrsId(normaliseId(val));
   }, []);
-  const [profileId, setProfileId] = useState(
-    () => params.get("profileId") || null
-  );
-  console.log("PtrsV2Provider render, runId=", runId, "profileId=", profileId);
 
-  const [runMeta, setRunMeta] = useState(null);
+  const setProfileId = useCallback((val) => {
+    _setProfileId(val || null);
+  }, []);
+
+  console.log(
+    "PtrsV2Provider render, ptrsId=",
+    ptrsId,
+    "profileId=",
+    profileId
+  );
+
+  // Keep ptrsId/profileId in sync with the URL query string.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const search = window.location.search || "";
+    const current = new URLSearchParams(search);
+
+    if (ptrsId && typeof ptrsId === "string") {
+      current.set("ptrsId", ptrsId);
+    } else {
+      current.delete("ptrsId");
+    }
+
+    if (profileId && typeof profileId === "string") {
+      current.set("profileId", profileId);
+    } else {
+      current.delete("profileId");
+    }
+
+    const nextStr = current.toString();
+    const currentStr =
+      search && search.startsWith("?") ? search.substring(1) : search;
+
+    if (nextStr !== currentStr) {
+      setParams(current, { replace: true });
+    }
+  }, [ptrsId, profileId, setParams]);
+
+  const [ptrsMeta, setPtrsMeta] = useState(null);
   const [datasets, setDatasets] = useState([]);
-  const [runMap, setRunMap] = useState(null);
+  const [ptrsMap, setPtrsMap] = useState(null);
+  const [profiles, setProfiles] = useState([]);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const refreshRunMeta = useCallback(async () => {
-    if (!runId || typeof runId !== "string") return;
+  const refreshPtrsMeta = useCallback(async () => {
+    if (!ptrsId || typeof ptrsId !== "string") return;
     try {
       setLoading(true);
-      const res = await getRun(runId);
-      if (res?.data) setRunMeta(res.data);
+      const res = await getPtrs(ptrsId);
+      setPtrsMeta(res || null);
     } catch (err) {
-      console.error("[PtrsV2Context] getRun failed:", err);
+      console.error("[PtrsV2Context] getPtrs failed:", err);
       setError(err.message);
+      setPtrsMeta(null);
     } finally {
       setLoading(false);
     }
-  }, [runId]);
+  }, [ptrsId]);
 
   const refreshDatasets = useCallback(async () => {
-    if (!runId || typeof runId !== "string") return;
+    if (!ptrsId || typeof ptrsId !== "string") return;
     try {
       setLoading(true);
-      const res = await listDatasets(runId);
+      const res = await listDatasets(ptrsId);
       if (res?.items) setDatasets(res.items);
     } catch (err) {
       console.error("[PtrsV2Context] listDatasets failed:", err);
@@ -73,60 +129,88 @@ export function PtrsV2Provider({ children }) {
     } finally {
       setLoading(false);
     }
-  }, [runId]);
+  }, [ptrsId]);
 
-  const refreshRunMap = useCallback(async () => {
-    if (!runId || typeof runId !== "string") return;
+  const loadProfilesForCustomer = useCallback(async (customerId) => {
+    if (!customerId) {
+      setProfiles([]);
+      return;
+    }
+
     try {
       setLoading(true);
-      const res = await getRunMap(runId);
-      // Be defensive about the shape coming back from ptrsApi
-      console.log("[PtrsV2Context] getRunMap response:", res);
-      const mapData = (res && res.data) || (res && res.map) || res || null;
+      const res = await listProfiles(customerId);
+      const items = (res && res.items) || [];
+      setProfiles(items);
+    } catch (err) {
+      console.error("[PtrsV2Context] listProfiles failed:", err);
+      setError(err.message);
+      setProfiles([]);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  const refreshPtrsMap = useCallback(async () => {
+    if (!ptrsId || typeof ptrsId !== "string") return;
+    try {
+      setLoading(true);
+      const res = await getPtrsMap(ptrsId);
+      console.log("[PtrsV2Context] getPtrsMap response:", res);
+      const mapData = res || null;
       if (mapData) {
-        setRunMap(mapData);
+        setPtrsMap(mapData);
       } else {
         console.warn(
-          "[PtrsV2Context] getRunMap returned empty payload for runId:",
-          runId
+          "[PtrsV2Context] getPtrsMap returned empty payload for ptrsId:",
+          ptrsId
         );
-        setRunMap(null);
+        setPtrsMap(null);
       }
     } catch (err) {
-      console.error("[PtrsV2Context] getRunMap failed:", err);
+      console.error("[PtrsV2Context] getPtrsMap failed:", err);
       setError(err.message);
     } finally {
       setLoading(false);
     }
-  }, [runId]);
+  }, [ptrsId]);
 
   const clearCache = useCallback(() => {
-    setRunMeta(null);
+    setPtrsMeta(null);
     setDatasets([]);
-    setRunMap(null);
+    setPtrsMap(null);
     setError(null);
   }, []);
 
   useEffect(() => {
-    if (runId) {
-      refreshRunMeta();
+    if (ptrsId) {
+      refreshPtrsMeta();
       refreshDatasets();
-      refreshRunMap();
+      refreshPtrsMap();
+    } else {
+      clearCache();
     }
-  }, [runId, refreshRunMeta, refreshDatasets, refreshRunMap]);
+  }, [ptrsId, refreshPtrsMeta, refreshDatasets, refreshPtrsMap, clearCache]);
 
   const value = {
-    runId,
-    setRunId,
+    // new canonical identifiers
+    ptrsId,
+    setPtrsId,
+    // profile selection
     profileId,
     setProfileId,
-    runMeta,
+    profiles,
+    loadProfilesForCustomer,
+    // loaded resources
+    ptrsMeta,
     datasets,
-    runMap,
-    refreshRunMeta,
+    ptrsMap,
+    // refresh helpers
+    refreshPtrsMeta,
     refreshDatasets,
-    refreshRunMap,
+    refreshPtrsMap,
     clearCache,
+    // state flags
     loading,
     error,
   };

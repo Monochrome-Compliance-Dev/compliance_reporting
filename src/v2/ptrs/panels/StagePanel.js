@@ -59,14 +59,51 @@ export default function StagePanel() {
   const [preview, setPreview] = useState({ rows: [], headers: [] });
   const [showPreview, setShowPreview] = useState(false);
 
-  // Safely pick a value from a row that may be flat or wrapped as { data: {...} }
+  // Safely pick a value from a row that may be flat or split across data / standard / custom
   const pickCell = (row, header) => {
-    if (row && typeof row === "object") {
-      if (row.data && typeof row.data === "object" && header in row.data) {
-        return row.data[header];
+    if (!row) return undefined;
+
+    const normaliseKey = (key) =>
+      String(key)
+        // camelCase -> snake_case
+        .replace(/([a-z0-9])([A-Z])/g, "$1_$2")
+        // spaces / dashes -> underscores
+        .replace(/[\s\-]+/g, "_")
+        .toLowerCase();
+
+    const materialiseObj = (value) => {
+      if (!value) return undefined;
+      if (typeof value === "string") {
+        try {
+          const parsed = JSON.parse(value);
+          return parsed && typeof parsed === "object" ? parsed : undefined;
+        } catch {
+          return undefined;
+        }
       }
-      if (header in row) return row[header];
+      if (typeof value === "object") return value;
+      return undefined;
+    };
+
+    const tryGet = (obj, key) => {
+      const o = materialiseObj(obj);
+      if (!o) return undefined;
+
+      if (key in o) return o[key];
+
+      const snake = normaliseKey(key);
+      if (snake in o) return o[snake];
+
+      return undefined;
+    };
+
+    const sources = [row.data, row.standard, row.custom, row];
+
+    for (const src of sources) {
+      const value = tryGet(src, header);
+      if (value !== undefined) return value;
     }
+
     return undefined;
   };
 
@@ -137,11 +174,12 @@ export default function StagePanel() {
           limit: 20,
           profileId: profileId || null,
         });
-        // console.log("[StagePanel] getStagePreview:", {
-        //   headers: pv?.headers?.length || 0,
-        //   rows: pv?.rows?.length || 0,
-        //   sample: Array.isArray(pv?.rows) ? pv.rows[0] : undefined,
-        // });
+        console.log("[StagePanel] getStagePreview raw:", pv);
+        console.log("[StagePanel] getStagePreview summary:", {
+          headersCount: pv?.headers?.length || 0,
+          rowsCount: pv?.rows?.length || 0,
+          firstRowRaw: Array.isArray(pv?.rows) ? pv.rows[0] : undefined,
+        });
         if (mountedRef.current && pv) setPreview(pv);
       } catch (_) {}
     } catch (err) {
@@ -159,16 +197,17 @@ export default function StagePanel() {
 
   useEffect(() => {
     if (!headers.length && !rows.length) return;
-    // console.log("[StagePanel] preview updated", {
-    //   headersCount: headers.length,
-    //   rowsCount: rows.length,
-    //   firstRow: rows[0]
-    //     ? headers.reduce((acc, h) => {
-    //         acc[h] = pickCell(rows[0], h);
-    //         return acc;
-    //       }, {})
-    //     : undefined,
-    // });
+    console.log("[StagePanel] preview updated", {
+      headers,
+      rowsCount: rows.length,
+      firstRowRaw: rows[0],
+      firstRowResolved: rows[0]
+        ? headers.reduce((acc, h) => {
+            acc[h] = pickCell(rows[0], h);
+            return acc;
+          }, {})
+        : undefined,
+    });
   }, [headers, rows]);
 
   return (

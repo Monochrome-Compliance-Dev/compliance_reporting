@@ -1,11 +1,6 @@
 // PTRS v2 Layout: stepper + chrome only (no Create/Switch header button)
-import { useEffect, useMemo, useState, useCallback } from "react";
-import {
-  Outlet,
-  useLocation,
-  useNavigate,
-  useSearchParams,
-} from "react-router";
+import { useEffect, useMemo, useCallback, useState } from "react";
+import { Outlet, useLocation, useNavigate } from "react-router";
 import { useAlert } from "context";
 import {
   Chip,
@@ -17,9 +12,7 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
-  CircularProgress,
 } from "@mui/material";
-import { listProfiles as listPtrsProfiles } from "v2/ptrs/services/ptrsApi";
 import { getCurrentCustomer, setCurrentCustomer } from "lib/utils";
 import {
   Box,
@@ -34,60 +27,27 @@ import {
 import PageMeta from "components/ui/PageMeta";
 import { STEPS } from "./steps";
 import { useStepStatuses } from "./hooks/useStepStatuses";
+import { usePtrsV2Context } from "./context/PtrsV2Context";
 
 export default function PtrsV2Layout() {
   const { showAlert } = useAlert();
-  const [params] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
 
-  // --- Profiles state (kept in v2 Layout, PtrsContext remains v1-only) ---
-  const [profiles, setProfiles] = useState([]);
-  const [loadingProfiles, setLoadingProfiles] = useState(false);
-  const [selectedProfileId, setSelectedProfileId] = useState(
-    () => getCurrentCustomer()?.profileId || null
-  );
-  const [profileDialogOpen, setProfileDialogOpen] = useState(false);
+  const { ptrsId, profileId, setProfileId, profiles, loadProfilesForCustomer } =
+    usePtrsV2Context();
+
+  const profilesArray = Array.isArray(profiles) ? profiles : [];
 
   const currentCustomerId = getCurrentCustomer()?.id || null;
 
-  const loadProfilesForCustomer = useCallback(
-    async (customerId) => {
-      if (!customerId) return;
-      setLoadingProfiles(true);
-      try {
-        const { items: list = [] } = await listPtrsProfiles(customerId);
-        setProfiles(Array.isArray(list) ? list : []);
-        // keep existing selection if still present; else fallback to default or first
-        const existing = getCurrentCustomer()?.profileId || selectedProfileId;
-        // console.log("[Profiles]", {
-        //   fetched: list.map((p) => String(p.id)),
-        //   stored: String(getCurrentCustomer()?.profileId ?? ""),
-        //   localState: String(selectedProfileId ?? ""),
-        // });
+  const loadProfiles = useCallback(() => {
+    if (currentCustomerId) {
+      loadProfilesForCustomer(currentCustomerId);
+    }
+  }, [currentCustomerId, loadProfilesForCustomer]);
 
-        const exists = list.find((p) => String(p.id) === String(existing));
-        const fallback = list.find((p) => p.isDefault) || list[0] || null;
-        const nextId = exists ? exists.id : fallback?.id || null;
-        setSelectedProfileId(nextId);
-        const cur = getCurrentCustomer() || {};
-        setCurrentCustomer({
-          id: cur.id || customerId,
-          name: cur.name,
-          profileId: nextId,
-        });
-      } catch (e) {
-        // non-fatal; user can proceed without a profile
-      } finally {
-        setLoadingProfiles(false);
-      }
-    },
-    [selectedProfileId]
-  );
-
-  const isLanding = /\/v2\/ptrs\/landing(?:\/|$)/.test(location.pathname);
-
-  const runId = params.get("runId") || null;
+  const isLanding = /^\/v2\/ptrs(?:\/landing)?\/?$/.test(location.pathname);
 
   useEffect(() => {
     if (typeof showAlert === "function")
@@ -95,11 +55,8 @@ export default function PtrsV2Layout() {
   }, [showAlert]);
 
   useEffect(() => {
-    // Load profiles whenever tenant (customer) changes
-    if (currentCustomerId) {
-      loadProfilesForCustomer(currentCustomerId);
-    }
-  }, [currentCustomerId, loadProfilesForCustomer]);
+    loadProfiles();
+  }, [loadProfiles]);
 
   const currentStepId = useMemo(() => {
     if (isLanding) return "landing";
@@ -108,7 +65,7 @@ export default function PtrsV2Layout() {
     return STEPS.some((s) => s.id === maybe) ? maybe : "create";
   }, [location.pathname, isLanding]);
 
-  const { gates } = useStepStatuses(runId, currentStepId);
+  const { gates } = useStepStatuses(ptrsId, currentStepId);
 
   const currentIndex = useMemo(
     () =>
@@ -121,18 +78,15 @@ export default function PtrsV2Layout() {
 
   function goToStep(index) {
     const target = STEPS[index]?.id || "landing";
-    const qs = new URLSearchParams(params);
-    // ensure runId is preserved but do not stuff profileId into the URL anymore
     const allowed = new URLSearchParams();
-    const run = qs.get("runId");
-    if (run) allowed.set("runId", run);
+    if (ptrsId) allowed.set("ptrsId", ptrsId);
     const tail = allowed.toString();
     navigate(`/v2/ptrs/${target}${tail ? `?${tail}` : ""}`);
   }
 
   const stepDisabled = (id) => {
     if (id === "create") return false;
-    if (!runId) return true;
+    if (!ptrsId) return true;
     const order = STEPS.map((s) => s.id);
     const targetIdx = order.indexOf(id);
     for (let i = 0; i < targetIdx; i++) {
@@ -140,6 +94,8 @@ export default function PtrsV2Layout() {
     }
     return false;
   };
+
+  const [profileDialogOpen, setProfileDialogOpen] = useState(false);
 
   return (
     <Box sx={{ minHeight: "100%", display: "flex", flexDirection: "column" }}>
@@ -164,9 +120,9 @@ export default function PtrsV2Layout() {
             <Chip
               size="small"
               label={
-                loadingProfiles
-                  ? "Profile: loading…"
-                  : `Profile: ${profiles.find((p) => String(p.id) === String(selectedProfileId))?.name || "None"}`
+                profilesArray.length
+                  ? `Profile: ${profilesArray.find((p) => String(p.id) === String(profileId))?.name || "None"}`
+                  : "Profile: None"
               }
             />
             <Link
@@ -176,7 +132,7 @@ export default function PtrsV2Layout() {
               sx={{ fontSize: 12 }}
               onClick={() => setProfileDialogOpen(true)}
             >
-              {profiles.length ? "Change" : "Choose"}
+              {profilesArray.length ? "Change" : "Choose"}
             </Link>
           </Stack>
         </Stack>
@@ -210,9 +166,9 @@ export default function PtrsV2Layout() {
       <Box sx={{ flex: 1, p: 3 }}>
         <Outlet
           context={{
-            profileId: selectedProfileId,
-            profiles,
-            setProfileId: setSelectedProfileId,
+            profileId,
+            profiles: profilesArray,
+            setProfileId,
           }}
         />
       </Box>
@@ -255,18 +211,17 @@ export default function PtrsV2Layout() {
       >
         <DialogTitle>Select PTRS profile</DialogTitle>
         <DialogContent>
-          {loadingProfiles ? (
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1, py: 1 }}>
-              <CircularProgress size={16} />
-              <Typography variant="body2">Loading profiles…</Typography>
-            </Box>
-          ) : profiles.length ? (
+          {!profilesArray.length ? (
+            <Typography variant="body2" color="text.secondary">
+              No profiles yet. Create one in PTRS v2 → Profiles.
+            </Typography>
+          ) : (
             <RadioGroup
               name="profileChoice"
-              value={selectedProfileId || ""}
-              onChange={(e) => setSelectedProfileId(e.target.value || null)}
+              value={profileId || ""}
+              onChange={(e) => setProfileId(e.target.value || null)}
             >
-              {profiles.map((p) => (
+              {profilesArray.map((p) => (
                 <FormControlLabel
                   key={p.id}
                   value={p.id}
@@ -275,10 +230,6 @@ export default function PtrsV2Layout() {
                 />
               ))}
             </RadioGroup>
-          ) : (
-            <Typography variant="body2" color="text.secondary">
-              No profiles yet. Create one in PTRS v2 → Profiles.
-            </Typography>
           )}
         </DialogContent>
         <DialogActions>
@@ -290,13 +241,11 @@ export default function PtrsV2Layout() {
               setCurrentCustomer({
                 id: cur.id,
                 name: cur.name,
-                profileId: selectedProfileId || null,
+                profileId: profileId || null,
               });
               setProfileDialogOpen(false);
             }}
-            disabled={
-              loadingProfiles || (!selectedProfileId && profiles.length > 0)
-            }
+            disabled={!profileId && profilesArray.length > 0}
           >
             Save
           </Button>

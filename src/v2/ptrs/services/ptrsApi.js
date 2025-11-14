@@ -11,7 +11,7 @@ const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 const pickData = (res) =>
   (res && res.data && res.data.data) || res?.data || res || {};
 
-const normRun = (x = {}) => ({
+const normPtrs = (x = {}) => ({
   id: x.id,
   customerId: x.customerId,
   fileName: x.fileName,
@@ -22,7 +22,7 @@ const normRun = (x = {}) => ({
   createdAt: x.createdAt,
   updatedAt: x.updatedAt,
 });
-const normList = (arr = []) => arr.map(normRun);
+// const normList = (arr = []) => arr.map(normPtrs);
 
 // Map payloads can include extended config; keep everything surfaced
 const normMap = (x = {}) => {
@@ -73,26 +73,26 @@ const normMap = (x = {}) => {
   };
 };
 
-const normSample = (x = {}) => ({
-  headers: x.headers || [],
-  rows: x.rows || [],
-});
+// const normSample = (x = {}) => ({
+//   headers: x.headers || [],
+//   rows: x.rows || [],
+// });
 
-const normIngest = (x = {}) => ({
-  rowsInserted: x.rowsInserted ?? x.inserted ?? 0,
-});
+// const normIngest = (x = {}) => ({
+//   rowsInserted: x.rowsInserted ?? x.inserted ?? 0,
+// });
 
-const normPreview = (x = {}) => ({
-  headers: x.headers || [],
-  rows: x.rows || [],
-  stats: x.stats || null,
-});
+// const normPreview = (x = {}) => ({
+//   headers: x.headers || [],
+//   rows: x.rows || [],
+//   stats: x.stats || null,
+// });
 
 // Datasets
 const normDataset = (x = {}) => ({
   id: x.id,
   customerId: x.customerId,
-  runId: x.runId,
+  ptrsId: x.ptrsId,
   role: x.role,
   sourceName: x.sourceName,
   fileName: x.fileName,
@@ -105,324 +105,321 @@ const normDataset = (x = {}) => ({
 });
 const normDatasetList = (arr = []) => arr.map(normDataset);
 
-// -------------------- Map import compatibility ----------------
-// Accepts a variety of shapes and returns a plain mappings object or null.
-export const extractMappingsFromAny = (raw) => {
-  if (!raw) return null;
-  // Unwrap common envelopes
-  const candidates = [
-    raw?.mappings,
-    raw?.map?.mappings,
-    raw?.data?.mappings,
-    raw?.data?.map?.mappings,
-    raw?.data?.data?.mappings,
-    raw?.data?.data?.map?.mappings,
-    raw, // allow raw mappings object already
-  ].filter(Boolean);
+// // -------------------- Map import compatibility ----------------
+// // Accepts a variety of shapes and returns a plain mappings object or null.
+// export const extractMappingsFromAny = (raw) => {
+//   if (!raw) return null;
+//   // Unwrap common envelopes
+//   const candidates = [
+//     raw?.mappings,
+//     raw?.map?.mappings,
+//     raw?.data?.mappings,
+//     raw?.data?.map?.mappings,
+//     raw?.data?.data?.mappings,
+//     raw?.data?.data?.map?.mappings,
+//     raw, // allow raw mappings object already
+//   ].filter(Boolean);
 
-  // First candidate that looks like an object of mappings wins
-  for (const m of candidates) {
-    if (m && typeof m === "object" && !Array.isArray(m)) {
-      const entries = Object.entries(m);
-      if (!entries.length) return {};
-      const looksOk = entries.every(([k, v]) => {
-        if (!k) return false;
-        if (typeof v === "string") return true;
-        if (v && typeof v === "object") return "field" in v;
-        return false;
-      });
-      if (looksOk) {
-        const out = {};
-        for (const [src, cfg] of entries) {
-          if (typeof cfg === "string") {
-            out[src] = { field: cfg, type: "string" };
-          } else if (cfg && typeof cfg === "object" && "field" in cfg) {
-            const { field, type = "string", ...rest } = cfg;
-            out[src] = { field, type, ...rest };
-          }
-        }
-        return out;
-      }
-    }
-  }
+//   // First candidate that looks like an object of mappings wins
+//   for (const m of candidates) {
+//     if (m && typeof m === "object" && !Array.isArray(m)) {
+//       const entries = Object.entries(m);
+//       if (!entries.length) return {};
+//       const looksOk = entries.every(([k, v]) => {
+//         if (!k) return false;
+//         if (typeof v === "string") return true;
+//         if (v && typeof v === "object") return "field" in v;
+//         return false;
+//       });
+//       if (looksOk) {
+//         const out = {};
+//         for (const [src, cfg] of entries) {
+//           if (typeof cfg === "string") {
+//             out[src] = { field: cfg, type: "string" };
+//           } else if (cfg && typeof cfg === "object" && "field" in cfg) {
+//             const { field, type = "string", ...rest } = cfg;
+//             out[src] = { field, type, ...rest };
+//           }
+//         }
+//         return out;
+//       }
+//     }
+//   }
 
-  // Also accept array form: [{ source/header/name, field, type? }]
-  if (Array.isArray(raw)) {
-    const out = {};
-    for (const row of raw) {
-      const src = row?.source || row?.header || row?.name;
-      const field = row?.field;
-      if (src && field) {
-        const { type = "string", ...rest } = row || {};
-        // Remove alias keys that identify the source name to avoid duplication
-        delete rest.source;
-        delete rest.header;
-        delete rest.name;
-        out[src] = { field, type, ...rest };
-      }
-    }
-    return Object.keys(out).length ? out : null;
-  }
+//   // Also accept array form: [{ source/header/name, field, type? }]
+//   if (Array.isArray(raw)) {
+//     const out = {};
+//     for (const row of raw) {
+//       const src = row?.source || row?.header || row?.name;
+//       const field = row?.field;
+//       if (src && field) {
+//         const { type = "string", ...rest } = row || {};
+//         // Remove alias keys that identify the source name to avoid duplication
+//         delete rest.source;
+//         delete rest.header;
+//         delete rest.name;
+//         out[src] = { field, type, ...rest };
+//       }
+//     }
+//     return Object.keys(out).length ? out : null;
+//   }
 
-  return null;
+//   return null;
+// };
+
+// // -------------------- Ptrss (routes: /v2/ptrs) ------------
+// export const createPtrs = async (payload) => {
+//   const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs`, payload);
+//   return normPtrs(pickData(res));
+// };
+
+// export const listPtrss = async ({ hasMap = false } = {}) => {
+//   const res = await fetchWrapper.get(
+//     `${API_ROOT}/v2/ptrs${hasMap ? "?hasMap=true" : ""}`
+//   );
+//   const d = pickData(res);
+//   const items = d.items || d;
+//   return { items: normList(items) };
+// };
+
+export const getPtrs = async (ptrsId) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/${ptrsId}`);
+  return normPtrs(pickData(res));
 };
 
-// -------------------- Runs (routes: /v2/ptrs/runs) ------------
-export const createRun = async (payload) => {
-  const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/runs`, payload);
-  return normRun(pickData(res));
-};
+// // -------------------- Ingest (routes: /ptrs/:id/import|sample)
+// export const uploadCsv = async (ptrsId, file) => {
+//   const fd = new FormData();
+//   fd.append("file", file);
+//   const res = await fetchWrapper.postUpload(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/import`,
+//     fd
+//   );
+//   return normIngest(pickData(res));
+// };
 
-export const listRuns = async ({ hasMap = false } = {}) => {
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/runs${hasMap ? "?hasMap=true" : ""}`
-  );
-  const d = pickData(res);
-  const items = d.items || d;
-  return { items: normList(items) };
-};
+// export const getPtrsSample = async (ptrsId, { limit = 10, offset = 0 } = {}) => {
+//   const res = await fetchWrapper.get(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`
+//   );
+//   return normSample(pickData(res));
+// };
 
-// New function: getRun
-export const getRun = async (runId) => {
-  if (!runId) throw new Error("runId is required");
-  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/runs/${runId}`);
-  return normRun(pickData(res));
-};
+// // Unified sample: returns merged headers + examples from all datasets
+// export const getUnifiedSample = async (
+//   ptrsId,
+//   { limit = 10, offset = 0 } = {}
+// ) => {
+//   const res = await fetchWrapper.get(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/unified-sample?limit=${limit}&offset=${offset}`
+//   );
+//   const d = pickData(res);
+//   return {
+//     headers: d.headers || [],
+//     rows: d.rows || [],
+//     total: d.total || 0,
+//     headerMeta: d.headerMeta || {},
+//   };
+// };
 
-// -------------------- Ingest (routes: /runs/:id/import|sample)
-export const uploadCsv = async (runId, file) => {
-  const fd = new FormData();
-  fd.append("file", file);
-  const res = await fetchWrapper.postUpload(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/import`,
-    fd
-  );
-  return normIngest(pickData(res));
-};
+// export const getDatasetSample = async (
+//   datasetId,
+//   { limit = 5, offset = 0 } = {}
+// ) => {
+//   if (!datasetId) throw new Error("datasetId is required");
+//   const res = await fetchWrapper.get(
+//     `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?limit=${limit}&offset=${offset}`
+//   );
+//   return normSample(pickData(res)); // { headers:[], rows:[] }
+// };
 
-export const getRunSample = async (runId, { limit = 10, offset = 0 } = {}) => {
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/sample?limit=${limit}&offset=${offset}`
-  );
-  return normSample(pickData(res));
-};
-
-// Unified sample: returns merged headers + examples from all datasets
-export const getUnifiedSample = async (
-  runId,
-  { limit = 10, offset = 0 } = {}
-) => {
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/unified-sample?limit=${limit}&offset=${offset}`
-  );
-  const d = pickData(res);
-  return {
-    headers: d.headers || [],
-    rows: d.rows || [],
-    total: d.total || 0,
-    headerMeta: d.headerMeta || {},
-  };
-};
-
-export const getDatasetSample = async (
-  datasetId,
-  { limit = 5, offset = 0 } = {}
-) => {
-  if (!datasetId) throw new Error("datasetId is required");
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?limit=${limit}&offset=${offset}`
-  );
-  return normSample(pickData(res)); // { headers:[], rows:[] }
-};
-
-// -------------------- Column map (routes: /runs/:id/map) ------
-export const getRunMap = async (runId) => {
-  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/runs/${runId}/map`);
+// -------------------- Column map (routes: /ptrs/:id/map) ------
+export const getPtrsMap = async (ptrsId) => {
+  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/${ptrsId}/map`);
   return normMap(pickData(res));
 };
 
-// Save full map config (mappings are required; others optional)
-export const saveRunMap = async (
-  runId,
-  {
-    mappings,
-    extras = null,
-    fallbacks = null,
-    defaults = null,
-    joins = null,
-    rowRules = null,
-    profileId = null,
-  }
-) => {
-  const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/runs/${runId}/map`, {
-    mappings,
-    extras,
-    fallbacks,
-    defaults,
-    joins,
-    rowRules,
-    profileId,
-  });
-  return normMap(pickData(res));
-};
+// // Save full map config (mappings are required; others optional)
+// export const savePtrsMap = async (
+//   ptrsId,
+//   {
+//     mappings,
+//     extras = null,
+//     fallbacks = null,
+//     defaults = null,
+//     joins = null,
+//     rowRules = null,
+//     profileId = null,
+//   }
+// ) => {
+//   const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/${ptrsId}/map`, {
+//     mappings,
+//     extras,
+//     fallbacks,
+//     defaults,
+//     joins,
+//     rowRules,
+//     profileId,
+//   });
+//   return normMap(pickData(res));
+// };
 
-// -------------------- Datasets (routes: /runs/:id/datasets) --
-// Upload an auxiliary dataset (vendorMaster, termsChanges, entityStructure, other)
-export const addDataset = async (
-  runId,
-  file,
-  { role, sourceName = "" } = {}
-) => {
-  if (!runId) throw new Error("runId is required");
-  if (!file) throw new Error("file is required");
-  if (!role) throw new Error("role is required");
-  const fd = new FormData();
-  fd.append("file", file);
-  fd.append("role", role);
-  if (sourceName) fd.append("sourceName", sourceName);
-  const res = await fetchWrapper.postUpload(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/datasets`,
-    fd
-  );
-  return normDataset(pickData(res));
-};
+// // -------------------- Datasets (routes: /ptrs/:id/datasets) --
+// // Upload an auxiliary dataset (vendorMaster, termsChanges, entityStructure, other)
+// export const addDataset = async (
+//   ptrsId,
+//   file,
+//   { role, sourceName = "" } = {}
+// ) => {
+//   if (!ptrsId) throw new Error("ptrsId is required");
+//   if (!file) throw new Error("file is required");
+//   if (!role) throw new Error("role is required");
+//   const fd = new FormData();
+//   fd.append("file", file);
+//   fd.append("role", role);
+//   if (sourceName) fd.append("sourceName", sourceName);
+//   const res = await fetchWrapper.postUpload(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/datasets`,
+//     fd
+//   );
+//   return normDataset(pickData(res));
+// };
 
-// List datasets attached to a run
-export const listDatasets = async (runId) => {
-  if (!runId) throw new Error("runId is required");
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/datasets`
-  );
+// List datasets attached to a ptrs
+export const listDatasets = async (ptrsId) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/${ptrsId}/datasets`);
   const d = pickData(res);
   const items = d.items || d;
   return { items: normDatasetList(items) };
 };
 
-// Remove a dataset
-export const removeDataset = async (runId, datasetId) => {
-  if (!runId) throw new Error("runId is required");
-  if (!datasetId) throw new Error("datasetId is required");
-  const res = await fetchWrapper.delete(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/datasets/${datasetId}`
-  );
-  return pickData(res); // { ok: true }
-};
+// // Remove a dataset
+// export const removeDataset = async (ptrsId, datasetId) => {
+//   if (!ptrsId) throw new Error("ptrsId is required");
+//   if (!datasetId) throw new Error("datasetId is required");
+//   const res = await fetchWrapper.delete(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/datasets/${datasetId}`
+//   );
+//   return pickData(res); // { ok: true }
+// };
 
-// -------------------- Preview (route: /runs/:id/preview) ------
-export const previewRun = async (runId, { steps = [], limit = 50 } = {}) => {
-  const res = await fetchWrapper.post(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/preview`,
-    { steps, limit }
-  );
-  return normPreview(pickData(res));
-};
+// // -------------------- Preview (route: /ptrs/:id/preview) ------
+// export const previewPtrs = async (ptrsId, { steps = [], limit = 50 } = {}) => {
+//   const res = await fetchWrapper.post(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/preview`,
+//     { steps, limit }
+//   );
+//   return normPreview(pickData(res));
+// };
 
-// New function: getStagePreview
-export const getStagePreview = async (
-  runId,
-  { limit = 20, profileId = null } = {}
-) => {
-  if (!runId) throw new Error("runId is required");
-  const q = new URLSearchParams();
-  q.set("limit", String(limit));
-  if (profileId) q.set("profileId", String(profileId));
-  try {
-    const res = await fetchWrapper.get(
-      `${API_ROOT}/v2/ptrs/runs/${runId}/stage/preview?${q.toString()}`
-    );
-    return normPreview(pickData(res));
-  } catch (err) {
-    // fallback to generic preview if BE doesn't expose stage/preview yet
-    const body = { steps: ["stage"], limit };
-    if (profileId) body.profileId = profileId;
-    const res2 = await fetchWrapper.post(
-      `${API_ROOT}/v2/ptrs/runs/${runId}/preview`,
-      body
-    );
-    return normPreview(pickData(res2));
-  }
-};
+// // New function: getStagePreview
+// export const getStagePreview = async (
+//   ptrsId,
+//   { limit = 20, profileId = null } = {}
+// ) => {
+//   if (!ptrsId) throw new Error("ptrsId is required");
+//   const q = new URLSearchParams();
+//   q.set("limit", String(limit));
+//   if (profileId) q.set("profileId", String(profileId));
+//   try {
+//     const res = await fetchWrapper.get(
+//       `${API_ROOT}/v2/ptrs/${ptrsId}/stage/preview?${q.toString()}`
+//     );
+//     return normPreview(pickData(res));
+//   } catch (err) {
+//     // fallback to generic preview if BE doesn't expose stage/preview yet
+//     const body = { steps: ["stage"], limit };
+//     if (profileId) body.profileId = profileId;
+//     const res2 = await fetchWrapper.post(
+//       `${API_ROOT}/v2/ptrs/${ptrsId}/preview`,
+//       body
+//     );
+//     return normPreview(pickData(res2));
+//   }
+// };
 
-// -------------------- Rules (routes: /runs/:id/rules/...) ---
-export const previewRules = async (runId, { limit = 50 } = {}) => {
-  if (!runId) throw new Error("runId is required");
-  const q = new URLSearchParams();
-  q.set("limit", String(limit));
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/rules/preview?${q.toString()}`
-  );
-  return normPreview(pickData(res)); // { headers, rows, stats }
-};
+// // -------------------- Rules (routes: /ptrs/:id/rules/...) ---
+// export const previewRules = async (ptrsId, { limit = 50 } = {}) => {
+//   if (!ptrsId) throw new Error("ptrsId is required");
+//   const q = new URLSearchParams();
+//   q.set("limit", String(limit));
+//   const res = await fetchWrapper.get(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/rules/preview?${q.toString()}`
+//   );
+//   return normPreview(pickData(res)); // { headers, rows, stats }
+// };
 
-export const applyRules = async (runId, { profileId = null } = {}) => {
-  if (!runId) throw new Error("runId is required");
-  const body = {};
-  if (profileId) body.profileId = profileId;
-  const res = await fetchWrapper.post(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/rules/apply`,
-    body
-  );
-  return pickData(res); // { ok, stats, persisted }
-};
+// export const applyRules = async (ptrsId, { profileId = null } = {}) => {
+//   if (!ptrsId) throw new Error("ptrsId is required");
+//   const body = {};
+//   if (profileId) body.profileId = profileId;
+//   const res = await fetchWrapper.post(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/rules/apply`,
+//     body
+//   );
+//   return pickData(res); // { ok, stats, persisted }
+// };
 
-export const getRunRules = async (runId) => {
-  if (!runId) throw new Error("runId is required");
-  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/runs/${runId}/rules`);
-  const d = pickData(res);
-  const data = d?.data || d || {};
-  return {
-    rowRules: data.rowRules || [],
-    crossRowRules: data.crossRowRules || [],
-  };
-};
+// export const getPtrsRules = async (ptrsId) => {
+//   if (!ptrsId) throw new Error("ptrsId is required");
+//   const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/${ptrsId}/rules`);
+//   const d = pickData(res);
+//   const data = d?.data || d || {};
+//   return {
+//     rowRules: data.rowRules || [],
+//     crossRowRules: data.crossRowRules || [],
+//   };
+// };
 
-export const saveRunRules = async (
-  runId,
-  { rowRules = [], crossRowRules = [] } = {}
-) => {
-  if (!runId) throw new Error("runId is required");
-  const res = await fetchWrapper.post(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/rules`,
-    { rowRules, crossRowRules }
-  );
-  const d = pickData(res);
-  const data = d?.data || d || {};
-  return {
-    rowRules: data.rowRules || [],
-    crossRowRules: data.crossRowRules || [],
-  };
-};
+// export const savePtrsRules = async (
+//   ptrsId,
+//   { rowRules = [], crossRowRules = [] } = {}
+// ) => {
+//   if (!ptrsId) throw new Error("ptrsId is required");
+//   const res = await fetchWrapper.post(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/rules`,
+//     { rowRules, crossRowRules }
+//   );
+//   const d = pickData(res);
+//   const data = d?.data || d || {};
+//   return {
+//     rowRules: data.rowRules || [],
+//     crossRowRules: data.crossRowRules || [],
+//   };
+// };
 
-// -------------------- Staging (route: /runs/:id/stage) -------
-export const stageRun = async (
-  runId,
-  { profileId = "", persist = false } = {}
-) => {
-  if (!runId) throw new Error("runId is required");
+// // -------------------- Staging (route: /ptrs/:id/stage) -------
+// export const stagePtrs = async (
+//   ptrsId,
+//   { profileId = "", persist = false } = {}
+// ) => {
+//   if (!ptrsId) throw new Error("ptrsId is required");
 
-  // Build payload: always include profileId, optionally include persist
-  const payload = { profileId };
-  if (persist != null) payload.persist = Boolean(persist);
+//   // Build payload: always include profileId, optionally include persist
+//   const payload = { profileId };
+//   if (persist != null) payload.persist = Boolean(persist);
 
-  const res = await fetchWrapper.post(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/stage`,
-    payload
-  );
+//   const res = await fetchWrapper.post(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/stage`,
+//     payload
+//   );
 
-  // Normalise the response so the UI can rely on a stable shape
-  const d = pickData(res) || {};
-  const rowsIn = d.rowsIn ?? d.affectedCount ?? d.inputCount ?? d.inCount ?? 0;
-  const rowsOut =
-    d.rowsOut ?? d.persistedCount ?? d.outputCount ?? d.outCount ?? 0;
+//   // Normalise the response so the UI can rely on a stable shape
+//   const d = pickData(res) || {};
+//   const rowsIn = d.rowsIn ?? d.affectedCount ?? d.inputCount ?? d.inCount ?? 0;
+//   const rowsOut =
+//     d.rowsOut ?? d.persistedCount ?? d.outputCount ?? d.outCount ?? 0;
 
-  return {
-    rowsIn,
-    rowsOut,
-    tookMs: d.tookMs ?? d.durationMs ?? null,
-    sample: d.sample || null,
-    stats: d.stats || null,
-  };
-};
+//   return {
+//     rowsIn,
+//     rowsOut,
+//     tookMs: d.tookMs ?? d.durationMs ?? null,
+//     sample: d.sample || null,
+//     stats: d.stats || null,
+//   };
+// };
 
 // -------------------- Profiles (route: /v2/ptrs/profiles) ----
 const normProfile = (x = {}) => ({
@@ -446,71 +443,71 @@ export const listProfiles = async (customerId) => {
   return { items: (items || []).map(normProfile) };
 };
 
-// Create a new profile (tenant-scoped)
-export const createProfile = async (customerId, payload = {}) => {
-  if (!customerId) throw new Error("customerId is required");
-  const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/profiles`, {
-    customerId,
-    ...payload,
-  });
-  return normProfile(pickData(res));
-};
+// // Create a new profile (tenant-scoped)
+// export const createProfile = async (customerId, payload = {}) => {
+//   if (!customerId) throw new Error("customerId is required");
+//   const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/profiles`, {
+//     customerId,
+//     ...payload,
+//   });
+//   return normProfile(pickData(res));
+// };
 
-// Read a single profile
-export const getProfile = async (id) => {
-  if (!id) throw new Error("id is required");
-  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/profiles/${id}`);
-  return normProfile(pickData(res));
-};
+// // Read a single profile
+// export const getProfile = async (id) => {
+//   if (!id) throw new Error("id is required");
+//   const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/profiles/${id}`);
+//   return normProfile(pickData(res));
+// };
 
-// Partially update a profile (PATCH)
-export const updateProfile = async (id, payload = {}) => {
-  if (!id) throw new Error("id is required");
-  const res = await fetchWrapper.patch(
-    `${API_ROOT}/v2/ptrs/profiles/${id}`,
-    payload
-  );
-  return normProfile(pickData(res));
-};
+// // Partially update a profile (PATCH)
+// export const updateProfile = async (id, payload = {}) => {
+//   if (!id) throw new Error("id is required");
+//   const res = await fetchWrapper.patch(
+//     `${API_ROOT}/v2/ptrs/profiles/${id}`,
+//     payload
+//   );
+//   return normProfile(pickData(res));
+// };
 
-// Fully replace a profile (PUT)
-export const replaceProfile = async (id, payload = {}) => {
-  if (!id) throw new Error("id is required");
-  const res = await fetchWrapper.put(
-    `${API_ROOT}/v2/ptrs/profiles/${id}`,
-    payload
-  );
-  return normProfile(pickData(res));
-};
+// // Fully replace a profile (PUT)
+// export const replaceProfile = async (id, payload = {}) => {
+//   if (!id) throw new Error("id is required");
+//   const res = await fetchWrapper.put(
+//     `${API_ROOT}/v2/ptrs/profiles/${id}`,
+//     payload
+//   );
+//   return normProfile(pickData(res));
+// };
 
-// Delete a profile
-export const deleteProfile = async (id) => {
-  if (!id) throw new Error("id is required");
-  const res = await fetchWrapper.delete(`${API_ROOT}/v2/ptrs/profiles/${id}`);
-  return pickData(res); // { ok: true }
-};
+// // Delete a profile
+// export const deleteProfile = async (id) => {
+//   if (!id) throw new Error("id is required");
+//   const res = await fetchWrapper.delete(`${API_ROOT}/v2/ptrs/profiles/${id}`);
+//   return pickData(res); // { ok: true }
+// };
 
-// -------------------- Blueprint (route: /blueprint) -----------
-export const getBlueprint = async ({ profileId = "" } = {}) => {
-  const q = profileId ? `?profileId=${encodeURIComponent(profileId)}` : "";
-  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/blueprint${q}`);
-  return pickData(res); // already a plain JSON object with fields/fallbacks/etc.
-};
+// // -------------------- Blueprint (route: /blueprint) -----------
+// export const getBlueprint = async ({ profileId = "" } = {}) => {
+//   const q = profileId ? `?profileId=${encodeURIComponent(profileId)}` : "";
+//   const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/blueprint${q}`);
+//   return pickData(res); // already a plain JSON object with fields/fallbacks/etc.
+// };
 
-// -------------------- SBI (future - BE routes may not exist yet) ----------------------------
-export const exportSbi = async (runId) => {
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/sbi/export`
-  );
-  return pickData(res);
-};
+// // -------------------- SBI (future - BE routes may not exist yet) ----------------------------
+// export const exportSbi = async (ptrsId) => {
+//   const res = await fetchWrapper.get(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/sbi/export`
+//   );
+//   return pickData(res);
+// };
 
-export const importSbi = async (runId, file) => {
-  const fd = new FormData();
-  fd.append("file", file);
-  const res = await fetchWrapper.postUpload(
-    `${API_ROOT}/v2/ptrs/runs/${runId}/sbi/import`,
-    fd
-  );
-  return pickData(res);
-};
+// export const importSbi = async (ptrsId, file) => {
+//   const fd = new FormData();
+//   fd.append("file", file);
+//   const res = await fetchWrapper.postUpload(
+//     `${API_ROOT}/v2/ptrs/${ptrsId}/sbi/import`,
+//     fd
+//   );
+//   return pickData(res);
+// };
