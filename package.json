@@ -41,7 +41,7 @@
     "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.66.0",
     "react-markdown": "^10.1.0",
-    "react-router": "^7.9.5",
+    "react-router": "^7.9.6",
     "react-scripts": "5.0.1",
     "react-to-print": "^3.2.0",
     "recharts": "^3.4.0",
