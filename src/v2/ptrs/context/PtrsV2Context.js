@@ -15,13 +15,7 @@ import {
 
 const normaliseId = (val) => {
   if (!val) return null;
-  if (typeof val === "string") return val;
-  if (typeof val === "object") {
-    if (typeof val.ptrsId === "string") return val.ptrsId;
-    if (typeof val.id === "string") return val.id;
-    if (val.data && typeof val.data.id === "string") return val.data.id;
-  }
-  return null;
+  return typeof val === "string" ? val : null;
 };
 
 const getInitialIdsFromParams = (params) => {

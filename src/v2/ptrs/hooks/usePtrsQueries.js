@@ -1,44 +1,46 @@
 // .js only; react-router (no dom). Centralised PTRS v2 queries & mutations.
 // Aligned to the new upload-centric backend. We keep the same hook names to
-// avoid ripples, but interpret runId === uploadId.
+// avoid ripples, but interpret ptrsId === uploadId.
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import * as api from "../services/ptrsApi";
 import { useOutletContext } from "react-router";
 
-// ---- Keys (per run) ---------------------------------------------------------
+// ---- Keys (per ptrs) ---------------------------------------------------------
 const K = {
-  run: (id) => ["ptrs", "v2", "run", id],
+  data: (id) => ["ptrs", "v2", "data", id],
+  tables: (id) => ["ptrs", "v2", "tables", id],
   map: (id) => ["ptrs", "v2", "map", id],
-  valid: (id) => ["ptrs", "v2", "validation", id],
+  stage: (id) => ["ptrs", "v2", "stage", id],
   rules: (id) => ["ptrs", "v2", "rules", id],
+  validate: (id) => ["ptrs", "v2", "validate", id],
   sbi: (id) => ["ptrs", "v2", "sbi", id],
-  summary: (id) => ["ptrs", "v2", "summary", id],
+  metrics: (id) => ["ptrs", "v2", "metrics", id],
   report: (id) => ["ptrs", "v2", "report", id],
 };
 
 // ---- Minimal search/list stubs (not used in v2 flow yet) ----------------------
-export function useRunsSearch() {
+export function usePtrsSearch() {
   return [];
 }
-export function useRunsByPeriod() {
+export function usePtrsByPeriod() {
   return [];
 }
 
 // ---- Status queries ------------------------------------------------------------
 // Existence check: if we have an id, consider it "exists" (we created it client-side).
-export function useRunStatus(runId) {
-  const exists = !!runId;
-  return { exists, runId };
+export function usePtrsStatus(ptrsId) {
+  const exists = !!ptrsId;
+  return { exists, ptrsId };
 }
 
-// Run upload status derived from sample count
-export function useRunUploadStatus(runId) {
-  const enabled = !!runId;
+// Ptrs upload status derived from sample count
+export function usePtrsUploadStatus(ptrsId) {
+  const enabled = !!ptrsId;
   const query = useQuery({
-    queryKey: K.run(runId),
+    queryKey: K.data(ptrsId),
     queryFn: async () => {
-      const res = await api.getRunSample(runId, { limit: 1, offset: 0 });
+      const res = await api.getPtrsSample(ptrsId, { limit: 1, offset: 0 });
       const total = res?.data?.total ?? 0;
       return {
         status: total > 0 ? "completed" : "idle",
@@ -57,12 +59,12 @@ export function useRunUploadStatus(runId) {
 }
 
 // Map status from /map endpoint
-export function useRunMapStatus(runId) {
-  const enabled = !!runId;
+export function usePtrsMapStatus(ptrsId) {
+  const enabled = !!ptrsId;
   const query = useQuery({
-    queryKey: K.map(runId),
+    queryKey: K.map(ptrsId),
     queryFn: async () => {
-      const res = await api.getRunMap(runId);
+      const res = await api.getPtrsMap(ptrsId);
       const map = res?.data?.map || null;
       return {
         selected: !!map,
@@ -75,45 +77,53 @@ export function useRunMapStatus(runId) {
   return query.data ?? { selected: false, schemaCompatible: false };
 }
 
+export function usePtrsTablesStatus(ptrsId) {
+  return { status: "idle", tablesCount: 0 };
+}
+
+export function usePtrsStageStatus(ptrsId) {
+  return { status: "idle" };
+}
+
 // The rest of the statuses are not wired yet in v2; return inert placeholders.
-export function useValidationStatus() {
+export function usePtrsValidateStatus() {
   return { status: "pending", errorsCount: 0, warningsCount: 0 };
 }
-export function useRulesStatus() {
+export function usePtrsRulesStatus() {
   return { status: "idle", datasetVersionId: null };
 }
-export function useSbiStatus() {
+export function usePtrsSbiStatus() {
   return { lastImport: { status: "idle" }, status: "idle" };
 }
-export function useMetricsStatus() {
+export function usePtrsMetricsStatus() {
   return { status: "idle", snapshotId: null };
 }
-export function useReportStatus() {
+export function usePtrsReportStatus() {
   return { state: "draft" };
 }
 
 // ---- Mutations (v2 minimal set) -----------------------------------------------
-export function useCreateRunMutation() {
+export function useCreatePtrsMutation() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: (payload) => api.createRun(payload).then((res) => res?.data),
+    mutationFn: (payload) => api.createPtrs(payload).then((res) => res?.data),
     onSuccess: (row) => {
       const id = row?.id;
       if (id) {
-        qc.invalidateQueries({ queryKey: K.run(id) });
+        qc.invalidateQueries({ queryKey: K.data(id) });
       }
     },
   });
 }
 
-export function useUploadCsvMutation(runId) {
+export function useUploadCsvMutation(ptrsId) {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: ({ file }) =>
-      api.uploadCsv(runId, file).then((res) => res?.data),
+      api.uploadCsv(ptrsId, file).then((res) => res?.data),
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: K.run(runId) });
-      qc.invalidateQueries({ queryKey: K.map(runId) });
+      qc.invalidateQueries({ queryKey: K.data(ptrsId) });
+      qc.invalidateQueries({ queryKey: K.map(ptrsId) });
     },
   });
 }
@@ -142,16 +152,4 @@ export function useReportMutations() {
   const changeState = useMutation({ mutationFn: async () => ({}) });
   const downloadPdf = useMutation({ mutationFn: async () => ({}) });
   return { createDraft, changeState, downloadPdf };
-}
-
-// ---- Shared context hook --------------------------------------------------
-// Access profileId and other outlet-provided PTRS v2 context values.
-export function usePtrsV2Context() {
-  const ctx = useOutletContext?.() || {};
-
-  return {
-    profileId: ctx.profileId || null,
-    profiles: ctx.profiles || [],
-    setProfileId: ctx.setProfileId || (() => {}),
-  };
 }
