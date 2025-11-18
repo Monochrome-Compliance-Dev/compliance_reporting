@@ -2,16 +2,16 @@ import { useMemo } from "react";
 import {
   usePtrsStatus,
   usePtrsUploadStatus,
-  usePtrsMapStatus,
-  usePtrsValidateStatus,
-  usePtrsRulesStatus,
-  usePtrsSbiStatus,
-  usePtrsMetricsStatus,
-  usePtrsReportStatus,
+  // usePtrsMapStatus,
+  // usePtrsValidateStatus,
+  // usePtrsRulesStatus,
+  // usePtrsSbiStatus,
+  // usePtrsMetricsStatus,
+  // usePtrsReportStatus,
 } from "./usePtrsQueries";
 
 export function useStepStatuses(ptrsId, step) {
-  const hasId = !!ptrsId;
+  // const hasId = !!ptrsId;
 
   // ---- Always call hooks (never conditional) ----
   const ptrs = usePtrsStatus(ptrsId);
@@ -20,12 +20,12 @@ export function useStepStatuses(ptrsId, step) {
 
   // For map, validate, rules, etc., we pass enabled:false instead
   // (React Query supports disabling the fetch while keeping the hook order intact)
-  const mapStatus = usePtrsMapStatus(ptrsId, { enabled: hasId });
-  const validate = usePtrsValidateStatus(ptrsId, { enabled: hasId });
-  const rules = usePtrsRulesStatus(ptrsId, { enabled: hasId });
-  const sbi = usePtrsSbiStatus(ptrsId, { enabled: hasId });
-  const metrics = usePtrsMetricsStatus(ptrsId, { enabled: hasId });
-  const report = usePtrsReportStatus(ptrsId, { enabled: hasId });
+  // const mapStatus = usePtrsMapStatus(ptrsId, { enabled: hasId });
+  // const validate = usePtrsValidateStatus(ptrsId, { enabled: hasId });
+  // const rules = usePtrsRulesStatus(ptrsId, { enabled: hasId });
+  // const sbi = usePtrsSbiStatus(ptrsId, { enabled: hasId });
+  // const metrics = usePtrsMetricsStatus(ptrsId, { enabled: hasId });
+  // const report = usePtrsReportStatus(ptrsId, { enabled: hasId });
 
   // ---- Gates ----
   const gates = useMemo(() => {
@@ -43,35 +43,35 @@ export function useStepStatuses(ptrsId, step) {
 
       tables: uploadDone && ingestedCount > 0,
 
-      map: !!mapStatus?.selected,
+      // map: !!mapStatus?.selected,
 
-      stage: !!mapStatus?.selected && uploadDone && ingestedCount > 0,
+      // stage: !!mapStatus?.selected && uploadDone && ingestedCount > 0,
 
-      validate: ["clean", "clean_with_warnings"].includes(validate?.status),
+      // validate: ["clean", "clean_with_warnings"].includes(validate?.status),
 
-      rules: rules?.status === "applied" && !!rules?.datasetVersionId,
+      // rules: rules?.status === "applied" && !!rules?.datasetVersionId,
 
-      sbi: sbi?.lastImport?.status === "completed",
+      // sbi: sbi?.lastImport?.status === "completed",
 
-      metrics: metrics?.status === "ready",
+      // metrics: metrics?.status === "ready",
 
-      report:
-        metrics?.status === "ready" &&
-        ["ready_for_review", "approved", "submitted"].includes(
-          report?.state || ""
-        ),
+      // report:
+      //   metrics?.status === "ready" &&
+      //   ["ready_for_review", "approved", "submitted"].includes(
+      //     report?.state || ""
+      //   ),
     };
-  }, [upload, mapStatus, validate, rules, sbi, metrics, report]);
+  }, [upload]);
 
   return {
     ptrs,
     upload,
-    map: mapStatus,
-    validate,
-    rules,
-    sbi,
-    metrics,
-    report,
+    // map: mapStatus,
+    // validate,
+    // rules,
+    // sbi,
+    // metrics,
+    // report,
     gates,
   };
 }

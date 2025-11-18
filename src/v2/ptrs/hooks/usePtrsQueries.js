@@ -4,7 +4,6 @@
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import * as api from "../services/ptrsApi";
-import { useOutletContext } from "react-router";
 
 // ---- Keys (per ptrs) ---------------------------------------------------------
 const K = {
@@ -59,23 +58,23 @@ export function usePtrsUploadStatus(ptrsId) {
 }
 
 // Map status from /map endpoint
-export function usePtrsMapStatus(ptrsId) {
-  const enabled = !!ptrsId;
-  const query = useQuery({
-    queryKey: K.map(ptrsId),
-    queryFn: async () => {
-      const res = await api.getPtrsMap(ptrsId);
-      const map = res?.data?.map || null;
-      return {
-        selected: !!map,
-        schemaCompatible: true, // assume ok for now
-      };
-    },
-    enabled,
-    staleTime: 10_000,
-  });
-  return query.data ?? { selected: false, schemaCompatible: false };
-}
+// export function usePtrsMapStatus(ptrsId) {
+//   const enabled = !!ptrsId;
+//   const query = useQuery({
+//     queryKey: K.map(ptrsId),
+//     queryFn: async () => {
+//       const res = await api.getPtrsMap(ptrsId);
+//       const map = res?.data?.map || null;
+//       return {
+//         selected: !!map,
+//         schemaCompatible: true, // assume ok for now
+//       };
+//     },
+//     enabled,
+//     staleTime: 10_000,
+//   });
+//   return query.data ?? { selected: false, schemaCompatible: false };
+// }
 
 export function usePtrsTablesStatus(ptrsId) {
   return { status: "idle", tablesCount: 0 };

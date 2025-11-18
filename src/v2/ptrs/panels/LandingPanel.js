@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
-import { usePtrsV2Context } from "v2/ptrs/hooks/usePtrsQueries";
+import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
 import {
   Box,
   Paper,
@@ -21,7 +21,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useAlert } from "context";
-import { listRuns } from "../services/ptrsApi";
+import { listPtrs } from "../services/ptrsApi";
 
 function formatDate(iso) {
   if (!iso) return "";
@@ -33,7 +33,7 @@ function formatDate(iso) {
 export default function LandingPanel() {
   const theme = useTheme();
   const navigate = useNavigate();
-  const { profileId } = usePtrsV2Context();
+  const { profileId, setPtrsId } = usePtrsV2Context();
   const { showAlert } = useAlert();
 
   const [runs, setRuns] = useState([]);
@@ -43,7 +43,7 @@ export default function LandingPanel() {
   const fetchRuns = async () => {
     setIsLoading(true);
     try {
-      const { items } = await listRuns();
+      const { items } = await listPtrs();
       setRuns(items || []);
     } catch (e) {
       // eslint-disable-next-line no-console
@@ -69,9 +69,13 @@ export default function LandingPanel() {
     );
   }, [q, runs]);
 
-  const goResume = (runId) => {
+  const goResume = (ptrsId) => {
+    // Set the active PTRS in context so downstream panels don’t
+    // depend solely on the URL.
+    setPtrsId(ptrsId);
+
     const qs = new URLSearchParams();
-    qs.set("runId", runId);
+    qs.set("ptrsId", ptrsId);
     if (profileId) qs.set("profileId", profileId);
     navigate(`/v2/ptrs/map?${qs.toString()}`);
   };

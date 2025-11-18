@@ -1,5 +1,5 @@
 // PTRS v2 Layout: stepper + chrome only (no Create/Switch header button)
-import { useEffect, useMemo, useCallback, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router";
 import { useAlert } from "context";
 import {
@@ -13,7 +13,7 @@ import {
   FormControlLabel,
   Radio,
 } from "@mui/material";
-import { getCurrentCustomer, setCurrentCustomer } from "lib/utils";
+import { getCurrentCustomer } from "lib/utils";
 import {
   Box,
   Typography,
@@ -34,18 +34,10 @@ export default function PtrsV2Layout() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { ptrsId, profileId, setProfileId, profiles, loadProfilesForCustomer } =
+  const { loadProfilesForCustomer, ptrsId, profileId, setProfileId, profiles } =
     usePtrsV2Context();
 
   const profilesArray = Array.isArray(profiles) ? profiles : [];
-
-  const currentCustomerId = getCurrentCustomer()?.id || null;
-
-  const loadProfiles = useCallback(() => {
-    if (currentCustomerId) {
-      loadProfilesForCustomer(currentCustomerId);
-    }
-  }, [currentCustomerId, loadProfilesForCustomer]);
 
   const isLanding = /^\/v2\/ptrs(?:\/landing)?\/?$/.test(location.pathname);
 
@@ -55,8 +47,16 @@ export default function PtrsV2Layout() {
   }, [showAlert]);
 
   useEffect(() => {
-    loadProfiles();
-  }, [loadProfiles]);
+    const customer = getCurrentCustomer();
+    const customerId = customer?.id || null;
+
+    if (customerId) {
+      loadProfilesForCustomer(customerId);
+    } else {
+      // No scoped customer – let the context clear profiles via its own logic
+      loadProfilesForCustomer(null);
+    }
+  }, [loadProfilesForCustomer]);
 
   const currentStepId = useMemo(() => {
     if (isLanding) return "landing";
@@ -238,11 +238,11 @@ export default function PtrsV2Layout() {
             variant="contained"
             onClick={() => {
               const cur = getCurrentCustomer() || {};
-              setCurrentCustomer({
-                id: cur.id,
-                name: cur.name,
-                profileId: profileId || null,
-              });
+              // setCurrentCustomer({
+              //   id: cur.id,
+              //   name: cur.name,
+              //   profileId: profileId || null,
+              // });
               setProfileDialogOpen(false);
             }}
             disabled={!profileId && profilesArray.length > 0}

@@ -12,6 +12,11 @@ import {
   getPtrsMap,
   listProfiles,
 } from "v2/ptrs/services/ptrsApi";
+import {
+  getCurrentCustomer,
+  setCurrentCustomer,
+  onCustomerChange,
+} from "lib/utils/";
 
 const normaliseId = (val) => {
   if (!val) return null;
@@ -20,11 +25,12 @@ const normaliseId = (val) => {
 
 const getInitialIdsFromParams = (params) => {
   const ptrsFromParams = params.get("ptrsId");
-  const profileFromParams = params.get("profileId");
+  const customer = getCurrentCustomer();
 
   return {
     ptrsId: ptrsFromParams || null,
-    profileId: profileFromParams || null,
+    // profileId now comes from the global tenant scope, not the URL
+    profileId: customer?.profileId ?? null,
   };
 };
 
@@ -50,7 +56,24 @@ export function PtrsV2Provider({ children }) {
   }, []);
 
   const setProfileId = useCallback((val) => {
-    _setProfileId(val || null);
+    const next = val || null;
+    _setProfileId(next);
+
+    // Also persist into the global tenant scope so other modules can see it
+    try {
+      const current = getCurrentCustomer();
+      if (current && current.id) {
+        setCurrentCustomer({
+          ...current,
+          profileId: next,
+        });
+      }
+    } catch (err) {
+      console.error(
+        "[PtrsV2Context] failed to persist profileId to tenant scope:",
+        err
+      );
+    }
   }, []);
 
   console.log(
@@ -60,7 +83,7 @@ export function PtrsV2Provider({ children }) {
     profileId
   );
 
-  // Keep ptrsId/profileId in sync with the URL query string.
+  // Keep ptrsId in sync with the URL query string. profileId now lives in tenant scope only.
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -73,12 +96,6 @@ export function PtrsV2Provider({ children }) {
       current.delete("ptrsId");
     }
 
-    if (profileId && typeof profileId === "string") {
-      current.set("profileId", profileId);
-    } else {
-      current.delete("profileId");
-    }
-
     const nextStr = current.toString();
     const currentStr =
       search && search.startsWith("?") ? search.substring(1) : search;
@@ -86,7 +103,21 @@ export function PtrsV2Provider({ children }) {
     if (nextStr !== currentStr) {
       setParams(current, { replace: true });
     }
-  }, [ptrsId, profileId, setParams]);
+  }, [ptrsId, setParams]);
+
+  // When the global tenant selection changes, adopt its profileId into local state.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const unsubscribe = onCustomerChange?.((cust) => {
+      const nextProfileId = cust?.profileId ?? null;
+      _setProfileId(nextProfileId);
+    });
+
+    return () => {
+      if (typeof unsubscribe === "function") unsubscribe();
+    };
+  }, []);
 
   const [ptrsMeta, setPtrsMeta] = useState(null);
   const [datasets, setDatasets] = useState([]);

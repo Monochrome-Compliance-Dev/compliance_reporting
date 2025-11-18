@@ -1,6 +1,6 @@
 // src/v2/ptrs/routeConfig.js
 import PtrsV2Layout from "./PtrsV2Layout";
-// import LandingPanel from "./panels/LandingPanel";
+import LandingPanel from "./panels/LandingPanel";
 // import DataConsole from "./panels/DataConsole";
 // import TablesAndJoinsPanel from "./panels/TablesAndJoinsPanel";
 // import MapPanel from "./panels/MapPanel";
@@ -12,7 +12,7 @@ const ptrsRoutes = [
     Component: PtrsV2Layout,
     children: [
       // Show Landing at /v2/ptrs
-      // { index: true, Component: LandingPanel },
+      { index: true, Component: LandingPanel },
       // Wizard steps
       // { path: "data", Component: DataConsole },
       // { path: "tables", Component: TablesAndJoinsPanel },

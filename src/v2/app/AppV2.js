@@ -42,7 +42,11 @@ export default function AppV2() {
     <Suspense fallback={<Box sx={{ p: 3 }}>Loading…</Box>}>
       <Routes>
         <Route element={<V2Layout />}>
+          {/* /v2 */}
           <Route index element={<DashboardV2 />} />
+
+          {/* /v2/dashboard – explicit alias */}
+          <Route path="dashboard" element={<DashboardV2 />} />
 
           <Route
             path="ptrs/*"
@@ -68,7 +72,8 @@ export default function AppV2() {
             }
           />
 
-          <Route path="*" element={<Navigate to="." replace />} />
+          {/* Catch-all under /v2 → send back to /v2 */}
+          <Route path="*" element={<Navigate to="/v2" replace />} />
         </Route>
       </Routes>
     </Suspense>

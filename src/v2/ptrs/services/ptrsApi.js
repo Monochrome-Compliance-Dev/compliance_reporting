@@ -22,7 +22,7 @@ const normPtrs = (x = {}) => ({
   createdAt: x.createdAt,
   updatedAt: x.updatedAt,
 });
-// const normList = (arr = []) => arr.map(normPtrs);
+const normList = (arr = []) => arr.map(normPtrs);
 
 // Map payloads can include extended config; keep everything surfaced
 const normMap = (x = {}) => {
@@ -73,14 +73,14 @@ const normMap = (x = {}) => {
   };
 };
 
-// const normSample = (x = {}) => ({
-//   headers: x.headers || [],
-//   rows: x.rows || [],
-// });
+const normSample = (x = {}) => ({
+  headers: x.headers || [],
+  rows: x.rows || [],
+});
 
-// const normIngest = (x = {}) => ({
-//   rowsInserted: x.rowsInserted ?? x.inserted ?? 0,
-// });
+const normIngest = (x = {}) => ({
+  rowsInserted: x.rowsInserted ?? x.inserted ?? 0,
+});
 
 // const normPreview = (x = {}) => ({
 //   headers: x.headers || [],
@@ -167,20 +167,20 @@ const normDatasetList = (arr = []) => arr.map(normDataset);
 //   return null;
 // };
 
-// // -------------------- Ptrss (routes: /v2/ptrs) ------------
-// export const createPtrs = async (payload) => {
-//   const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs`, payload);
-//   return normPtrs(pickData(res));
-// };
+// -------------------- Ptrss (routes: /v2/ptrs) ------------
+export const createPtrs = async (payload) => {
+  const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs`, payload);
+  return normPtrs(pickData(res));
+};
 
-// export const listPtrss = async ({ hasMap = false } = {}) => {
-//   const res = await fetchWrapper.get(
-//     `${API_ROOT}/v2/ptrs${hasMap ? "?hasMap=true" : ""}`
-//   );
-//   const d = pickData(res);
-//   const items = d.items || d;
-//   return { items: normList(items) };
-// };
+export const listPtrs = async ({ hasMap = false } = {}) => {
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs${hasMap ? "?hasMap=true" : ""}`
+  );
+  const d = pickData(res);
+  const items = d.items || d;
+  return { items: normList(items) };
+};
 
 export const getPtrs = async (ptrsId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
@@ -188,23 +188,26 @@ export const getPtrs = async (ptrsId) => {
   return normPtrs(pickData(res));
 };
 
-// // -------------------- Ingest (routes: /ptrs/:id/import|sample)
-// export const uploadCsv = async (ptrsId, file) => {
-//   const fd = new FormData();
-//   fd.append("file", file);
-//   const res = await fetchWrapper.postUpload(
-//     `${API_ROOT}/v2/ptrs/${ptrsId}/import`,
-//     fd
-//   );
-//   return normIngest(pickData(res));
-// };
+// -------------------- Ingest (routes: /ptrs/:id/import|sample)
+export const uploadCsv = async (ptrsId, file) => {
+  const fd = new FormData();
+  fd.append("file", file);
+  const res = await fetchWrapper.postUpload(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/import`,
+    fd
+  );
+  return normIngest(pickData(res));
+};
 
-// export const getPtrsSample = async (ptrsId, { limit = 10, offset = 0 } = {}) => {
-//   const res = await fetchWrapper.get(
-//     `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`
-//   );
-//   return normSample(pickData(res));
-// };
+export const getPtrsSample = async (
+  ptrsId,
+  { limit = 10, offset = 0 } = {}
+) => {
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`
+  );
+  return normSample(pickData(res));
+};
 
 // // Unified sample: returns merged headers + examples from all datasets
 // export const getUnifiedSample = async (
@@ -437,7 +440,7 @@ export const listProfiles = async (customerId) => {
   const res = await fetchWrapper.get(
     `${API_ROOT}/v2/ptrs/profiles?customerId=${encodeURIComponent(customerId)}`
   );
-  // console.log("res: ", res);
+  console.log("res: ", res);
   const d = pickData(res);
   const items = d.items || d || [];
   return { items: (items || []).map(normProfile) };

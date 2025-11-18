@@ -26,6 +26,7 @@ const STORAGE_KEY = "mc.selectedCustomer";
  */
 export function setCurrentCustomer(customer) {
   if (!customer || !customer.id) return;
+  console.log("customer: ", customer);
   const payload = {
     id: String(customer.id),
     name: customer.name || "",
