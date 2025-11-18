@@ -4,10 +4,12 @@ import { PulseProvider, useAlert } from "context";
 import { Box, Typography } from "@mui/material";
 import RequireFeature from "routes/RequireFeature";
 
+import DashboardV2 from "../landing/LandingV2";
+import BossLayout from "../layouts/BossLayout";
+import { getBossRoutes } from "../routes/bossRoutes";
 import PtrsV2 from "../ptrs/PtrsV2";
-import ComplianceDashboardLayout from "components/layouts/ComplianceDashboardLayout";
-import DashboardV2 from "../dashboard/DashboardV2";
 import { PtrsV2Provider } from "../ptrs/context/PtrsV2Context";
+import ComplianceDashboardLayout from "components/layouts/ComplianceDashboardLayout";
 const PulseV2 = lazy(() => import("../pulse/PulseV2"));
 
 function V2Layout() {
@@ -71,6 +73,10 @@ export default function AppV2() {
               </PulseProvider>
             }
           />
+
+          <Route path="boss" element={<BossLayout />}>
+            {getBossRoutes()}
+          </Route>
 
           {/* Catch-all under /v2 → send back to /v2 */}
           <Route path="*" element={<Navigate to="/v2" replace />} />

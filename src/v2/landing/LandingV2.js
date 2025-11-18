@@ -25,7 +25,7 @@ import {
   onCustomerChange,
 } from "lib/utils/";
 
-export default function DashboardV2() {
+export default function LandingV2() {
   const theme = useTheme();
   const navigate = useNavigate();
   const { showAlert } = useAlert();
@@ -126,16 +126,16 @@ export default function DashboardV2() {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h4" sx={{ mb: 2 }}>
-        v2 Dashboard
+    <Box sx={{ p: theme.spacing(3) }}>
+      <Typography variant="h4" sx={{ mb: 1 }}>
+        Work hub
       </Typography>
       <Typography
         variant="body1"
         sx={{ mb: 3, color: theme.palette.text.secondary }}
       >
-        Choose a module to explore. These are wired and ready for real screens
-        to be swapped in.
+        Use the customer selector and tiles below to jump into PTRS or Pulse in
+        the new v2 experience.
       </Typography>
 
       {canSwitch && (
@@ -246,6 +246,30 @@ export default function DashboardV2() {
           </Card>
         </Grid>
       </Grid>
+
+      {canSwitch && (
+        <Box sx={{ mt: 3 }}>
+          <Card variant="outlined">
+            <CardContent>
+              <Stack spacing={1.5}>
+                <Typography variant="subtitle1">Boss tools</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Manage customers, and later access and entitlements, for the
+                  organisations you support.
+                </Typography>
+                <Box>
+                  <Button
+                    variant="text"
+                    onClick={() => navigate("/v2/boss/customers")}
+                  >
+                    Open customer admin
+                  </Button>
+                </Box>
+              </Stack>
+            </CardContent>
+          </Card>
+        </Box>
+      )}
     </Box>
   );
 }
