@@ -32,6 +32,14 @@ function CustomerAdminPage() {
     });
   };
 
+  const handleProfiles = (customer) => {
+    if (!customer || !customer.id) return;
+
+    navigate(`/v2/boss/customers/${customer.id}/profiles`, {
+      state: { customer },
+    });
+  };
+
   const handleCreateClick = () => {
     setDialogMode("create");
     setSelectedCustomer(null);
@@ -119,6 +127,7 @@ function CustomerAdminPage() {
             onEdit={handleEdit}
             onDelete={handleDelete}
             onEntitlements={handleEntitlements}
+            onProfiles={handleProfiles}
           />
         )}
       </Paper>

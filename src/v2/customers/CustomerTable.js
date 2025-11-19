@@ -12,8 +12,16 @@ import { useTheme } from "@mui/material/styles";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SettingsIcon from "@mui/icons-material/Settings";
+import PeopleIcon from "@mui/icons-material/People";
 
-function CustomerTable({ rows, loading, onEdit, onDelete, onEntitlements }) {
+function CustomerTable({
+  rows,
+  loading,
+  onEdit,
+  onDelete,
+  onEntitlements,
+  onProfiles,
+}) {
   const theme = useTheme();
 
   return (
@@ -60,6 +68,15 @@ function CustomerTable({ rows, loading, onEdit, onDelete, onEntitlements }) {
                       sx={{ marginRight: theme.spacing(1) }}
                     >
                       <SettingsIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Manage profiles">
+                    <IconButton
+                      size="small"
+                      onClick={() => onProfiles && onProfiles(row)}
+                      sx={{ marginRight: theme.spacing(1) }}
+                    >
+                      <PeopleIcon fontSize="small" />
                     </IconButton>
                   </Tooltip>
                   <Tooltip title="Delete customer">

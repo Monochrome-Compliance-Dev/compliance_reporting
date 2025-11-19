@@ -3,6 +3,7 @@
 import { Route, Navigate } from "react-router";
 import CustomerAdminPage from "../customers/CustomerAdminPage";
 import CustomerEntitlementsPage from "../customers/CustomerEntitlementsPage";
+import CustomerProfilesPage from "../customers/profiles/CustomerProfilesPage";
 
 export function getBossRoutes() {
   return (
@@ -13,6 +14,10 @@ export function getBossRoutes() {
       <Route
         path="customers/:customerId/entitlements"
         element={<CustomerEntitlementsPage />}
+      />
+      <Route
+        path="customers/:customerId/profiles"
+        element={<CustomerProfilesPage />}
       />
       {/* Catch-all under /v2/boss -> send back to customers */}
       <Route path="*" element={<Navigate to="/v2/boss/customers" replace />} />

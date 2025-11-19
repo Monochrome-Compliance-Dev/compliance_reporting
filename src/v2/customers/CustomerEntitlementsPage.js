@@ -36,7 +36,7 @@ function CustomerEntitlementsPage() {
   const { entitlementsQuery, saveEntitlements, isSaving } =
     useCustomerEntitlements(customerId);
 
-  const { data: entitlements = [], isLoading } = entitlementsQuery;
+  const { data, isLoading } = entitlementsQuery;
 
   const [featureState, setFeatureState] = useState({});
 
@@ -45,16 +45,15 @@ function CustomerEntitlementsPage() {
     customerFromState?.businessName || customerFromState?.name || "";
 
   useEffect(() => {
-    if (Array.isArray(entitlements)) {
-      const next = {};
-      entitlements.forEach((e) => {
-        if (e.feature) {
-          next[e.feature] = true;
-        }
-      });
-      setFeatureState(next);
-    }
-  }, [entitlements]);
+    if (!Array.isArray(data)) return;
+    const next = {};
+    data.forEach((e) => {
+      if (e.feature) {
+        next[e.feature] = true;
+      }
+    });
+    setFeatureState(next);
+  }, [data]);
 
   const handleToggle = (feature) => (event) => {
     const checked = event.target.checked;
