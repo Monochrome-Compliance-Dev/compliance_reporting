@@ -174,12 +174,21 @@ export const createPtrs = async (payload) => {
 };
 
 export const listPtrs = async ({ hasMap = false } = {}) => {
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs${hasMap ? "?hasMap=true" : ""}`
-  );
-  const d = pickData(res);
-  const items = d.items || d;
-  return { items: normList(items) };
+  try {
+    const res = await fetchWrapper.get(
+      `${API_ROOT}/v2/ptrs${hasMap ? "?hasMap=true" : ""}`
+    );
+    const data = pickData(res);
+    const items = Array.isArray(data) ? data : data?.items || [];
+
+    return { items: normList(items) };
+  } catch (err) {
+    // No PTRS runs yet for this customer – just return an empty list
+    if (err?.status === 404 || err?.response?.status === 404) {
+      return { items: [] };
+    }
+    throw err;
+  }
 };
 
 export const getPtrs = async (ptrsId) => {
@@ -192,6 +201,7 @@ export const getPtrs = async (ptrsId) => {
 export const uploadCsv = async (ptrsId, file) => {
   const fd = new FormData();
   fd.append("file", file);
+  console.log(`Hitting ${API_ROOT}/v2/ptrs/${ptrsId}/import`);
   const res = await fetchWrapper.postUpload(
     `${API_ROOT}/v2/ptrs/${ptrsId}/import`,
     fd
@@ -268,26 +278,26 @@ export const getPtrsMap = async (ptrsId) => {
 //   return normMap(pickData(res));
 // };
 
-// // -------------------- Datasets (routes: /ptrs/:id/datasets) --
-// // Upload an auxiliary dataset (vendorMaster, termsChanges, entityStructure, other)
-// export const addDataset = async (
-//   ptrsId,
-//   file,
-//   { role, sourceName = "" } = {}
-// ) => {
-//   if (!ptrsId) throw new Error("ptrsId is required");
-//   if (!file) throw new Error("file is required");
-//   if (!role) throw new Error("role is required");
-//   const fd = new FormData();
-//   fd.append("file", file);
-//   fd.append("role", role);
-//   if (sourceName) fd.append("sourceName", sourceName);
-//   const res = await fetchWrapper.postUpload(
-//     `${API_ROOT}/v2/ptrs/${ptrsId}/datasets`,
-//     fd
-//   );
-//   return normDataset(pickData(res));
-// };
+// -------------------- Datasets (routes: /ptrs/:id/datasets) --
+// Upload an auxiliary dataset (vendorMaster, termsChanges, entityStructure, other)
+export const addDataset = async (
+  ptrsId,
+  file,
+  { role, sourceName = "" } = {}
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!file) throw new Error("file is required");
+  if (!role) throw new Error("role is required");
+  const fd = new FormData();
+  fd.append("file", file);
+  fd.append("role", role);
+  if (sourceName) fd.append("sourceName", sourceName);
+  const res = await fetchWrapper.postUpload(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/datasets`,
+    fd
+  );
+  return normDataset(pickData(res));
+};
 
 // List datasets attached to a ptrs
 export const listDatasets = async (ptrsId) => {
@@ -298,15 +308,15 @@ export const listDatasets = async (ptrsId) => {
   return { items: normDatasetList(items) };
 };
 
-// // Remove a dataset
-// export const removeDataset = async (ptrsId, datasetId) => {
-//   if (!ptrsId) throw new Error("ptrsId is required");
-//   if (!datasetId) throw new Error("datasetId is required");
-//   const res = await fetchWrapper.delete(
-//     `${API_ROOT}/v2/ptrs/${ptrsId}/datasets/${datasetId}`
-//   );
-//   return pickData(res); // { ok: true }
-// };
+// Remove a dataset
+export const removeDataset = async (ptrsId, datasetId) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!datasetId) throw new Error("datasetId is required");
+  const res = await fetchWrapper.delete(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/datasets/${datasetId}`
+  );
+  return pickData(res); // { ok: true }
+};
 
 // // -------------------- Preview (route: /ptrs/:id/preview) ------
 // export const previewPtrs = async (ptrsId, { steps = [], limit = 50 } = {}) => {
@@ -437,13 +447,15 @@ const normProfile = (x = {}) => ({
 
 export const listProfiles = async (customerId) => {
   if (!customerId) throw new Error("customerId is required");
+
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/profiles?customerId=${encodeURIComponent(customerId)}`
+    `${API_ROOT}/v2/customers/${encodeURIComponent(customerId)}/profiles`
   );
-  console.log("res: ", res);
-  const d = pickData(res);
-  const items = d.items || d || [];
-  return { items: (items || []).map(normProfile) };
+
+  const data = pickData(res);
+  const items = Array.isArray(data) ? data : data?.items || [];
+
+  return { items: items.map(normProfile) };
 };
 
 // // Create a new profile (tenant-scoped)

@@ -10,7 +10,8 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
-import { createRun, uploadCsv } from "v2/ptrs/services/ptrsApi";
+import { createPtrs, uploadCsv } from "v2/ptrs/services/ptrsApi";
+import { usePtrsV2Context } from "../context/PtrsV2Context";
 
 // Fixed five reporting periods starting 2025, half-yearly
 const PERIODS = [
@@ -41,8 +42,16 @@ const PERIODS = [
   },
 ];
 
-export default function CreateRunCard({ onSuccess }) {
+export default function CreatePtrsCard({ onSuccess }) {
+  const theme = useTheme();
   const { showAlert } = useAlert();
+
+  const { profiles, profileId, setProfileId } = usePtrsV2Context();
+
+  const safeProfileId = profiles.some((p) => p.id === profileId)
+    ? profileId
+    : "";
+
   const [label, setLabel] = useState("");
   const [periodIdx, setPeriodIdx] = useState(0);
   const [file, setFile] = useState(null);
@@ -51,83 +60,91 @@ export default function CreateRunCard({ onSuccess }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const p = PERIODS[periodIdx];
-    setSubmitting(true);
+
     if (!file) {
-      showAlert("Choose a CSV file to create a run.", "info");
-      setSubmitting(false);
+      showAlert("Choose a CSV file to create a PTRS report.", "info");
       return;
     }
+
+    if (!profileId) {
+      showAlert("Choose a PTRS profile before creating a PTRS report.", "info");
+      return;
+    }
+
+    setSubmitting(true);
+
     try {
-      // Send both field aliases for maximum BE compatibility
       const payload = {
         label: label || null,
         reportingPeriodStartDate: p.start,
         reportingPeriodEndDate: p.end,
         periodStart: p.start,
         periodEnd: p.end,
+        profileId, // <- required for BE to link to the right profile
       };
-      // If a file is provided, include optional metadata (some BEs require fileName)
+
+      // Include optional metadata about the initial upload
       if (file) {
         payload.fileName = file.name || (label ? `${label}.csv` : "upload.csv");
         payload.fileSize = file.size ?? null;
         payload.mimeType = file.type || "text/csv";
       }
 
-      const res = await createRun(payload);
+      const res = await createPtrs(payload);
+
       // Prefer an id from common shapes
-      const runId = res?.data?.id || res?.id || res?.runId;
-      if (!runId) {
-        showAlert("Run created but no id returned — refresh the list.", "info");
+      const ptrsId = res?.data?.id || res?.id || res?.ptrsId;
+      if (!ptrsId) {
+        showAlert(
+          "PTRS created but no id returned — refresh the list.",
+          "info"
+        );
         if (onSuccess) onSuccess(res);
         return;
       }
 
-      // If a file was provided, immediately upload it as the primary transactions CSV
+      // Upload the primary transactions CSV
       if (file) {
         try {
-          const ingest = await uploadCsv(runId, file);
+          const ingest = await uploadCsv(ptrsId, file);
           const inserted = ingest.rowsInserted;
-          showAlert(`Run created and ${inserted} rows ingested`, "success");
+          showAlert(
+            `PTRS created for profile and ${inserted} rows ingested`,
+            "success"
+          );
         } catch (e2) {
-          // eslint-disable-next-line no-console
           console.error(e2);
-          showAlert("Run created but file upload failed", "error");
+          showAlert("PTRS created but file upload failed", "error");
         }
 
-        if (onSuccess) onSuccess(runId);
+        if (onSuccess) onSuccess(ptrsId);
+        return;
       }
 
       if (onSuccess) onSuccess(res);
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error(err);
-      // If the BE still requires a filename, guide the user without blocking the flow
       const msg =
         (err && (err.message || err.error || err.statusText)) ||
-        "Failed to create run";
-      if (String(msg).toLowerCase().includes("filename")) {
-        showAlert(
-          "This environment requires a CSV when creating a run. Please choose a file and try again.",
-          "info"
-        );
-      } else {
-        showAlert(msg, "error");
-      }
+        "Failed to create PTRS report";
+      showAlert(msg, "error");
     } finally {
       setSubmitting(false);
     }
   };
 
+  const canSubmit = Boolean(file && profileId && !submitting);
+
   return (
     <Box
       component="form"
       onSubmit={handleSubmit}
-      sx={{ width: "100%", maxWidth: 560 }}
+      sx={{ width: "100%", maxWidth: 560, mt: theme.spacing(2) }}
     >
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography variant="subtitle1" sx={{ mb: 1 }}>
-            Create a new PTRS run
+            Create a new PTRS report
           </Typography>
           <TextField
             label="Optional label"
@@ -144,10 +161,32 @@ export default function CreateRunCard({ onSuccess }) {
             size="small"
             value={periodIdx}
             onChange={(e) => setPeriodIdx(Number(e.target.value))}
+            sx={{ mb: 2 }}
           >
             {PERIODS.map((p, idx) => (
               <MenuItem key={p.start} value={idx}>
                 {p.label}
+              </MenuItem>
+            ))}
+          </TextField>
+
+          <TextField
+            select
+            label="PTRS profile"
+            fullWidth
+            size="small"
+            value={safeProfileId}
+            onChange={(e) => setProfileId(e.target.value)}
+            disabled={!profiles.length}
+            helperText={
+              profiles.length
+                ? "Choose which profile this PTRS report belongs to."
+                : "No profiles found for this customer."
+            }
+          >
+            {profiles.map((p) => (
+              <MenuItem key={p.id} value={p.id}>
+                {p.name || p.code || p.id}
               </MenuItem>
             ))}
           </TextField>
@@ -168,9 +207,9 @@ export default function CreateRunCard({ onSuccess }) {
             type="submit"
             variant="contained"
             fullWidth
-            disabled={submitting || !file}
+            disabled={!canSubmit}
           >
-            {submitting ? "Creating..." : "Create run & upload"}
+            {submitting ? "Creating..." : "Create PTRS report & upload"}
           </Button>
         </Grid>
       </Grid>

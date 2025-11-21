@@ -1,6 +1,6 @@
 import { useAlert } from "context";
 import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Box,
   Typography,
@@ -41,16 +41,13 @@ export default function DataConsole() {
   const theme = useTheme();
   const { showAlert } = useAlert();
   const {
-    runId,
-    setRunId,
+    ptrsId,
+    setPtrsId,
     refreshDatasets: refreshCtxDatasets,
   } = usePtrsV2Context();
 
-  console.log("DataConsole render, runId=", runId);
+  console.log("DataConsole render, ptrsId=", ptrsId);
 
-  // Prefer the active PTRS id from context; fall back to the first item
-  const ptrsId = useMemo(() => runId || null, [runId]);
-  console.log("DataConsole ptrsId=", ptrsId);
   const hasPtrs = Boolean(ptrsId);
 
   // Collapsibles
@@ -63,17 +60,16 @@ export default function DataConsole() {
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
 
-  const refreshDatasets = async () => {
+  const refreshDatasets = useCallback(async () => {
     if (!ptrsId) return;
     try {
       const { items } = await listDatasets(ptrsId);
       setDatasets(items || []);
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error(err);
       showAlert("Failed to load datasets", "error");
     }
-  };
+  }, [ptrsId, showAlert]);
 
   useEffect(() => {
     if (!ptrsId) return;
@@ -84,12 +80,11 @@ export default function DataConsole() {
         await refreshCtxDatasets?.();
       }
     })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ptrsId, refreshCtxDatasets]);
+  }, [ptrsId, refreshCtxDatasets, refreshDatasets]);
 
   const doUpload = async () => {
     if (!ptrsId) {
-      showAlert("Create a run first", "info");
+      showAlert("Create a PTRS first", "info");
       return;
     }
     if (!file) {
@@ -112,7 +107,6 @@ export default function DataConsole() {
         return;
       }
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error(err);
       showAlert(err?.message || "Upload failed", "error");
     } finally {
@@ -126,7 +120,6 @@ export default function DataConsole() {
       await refreshDatasets();
       showAlert("Dataset removed", "success");
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error(err);
       showAlert("Failed to remove dataset", "error");
     }
@@ -135,7 +128,7 @@ export default function DataConsole() {
   const goToTables = () => {
     // Keep your existing routing scheme; adjust path if needed
     window.location.assign(
-      `/v2/ptrs/tables?runId=${encodeURIComponent(ptrsId)}`
+      `/v2/ptrs/tables?ptrsId=${encodeURIComponent(ptrsId)}`
     );
   };
 
@@ -151,13 +144,13 @@ export default function DataConsole() {
         PTRS Data Console (v2)
       </Typography>
       <Typography variant="body1" gutterBottom>
-        Create a run, upload related datasets (transactions, vendor master,
+        Create a PTRS, upload related datasets (transactions, vendor master,
         terms), then proceed to mapping.
       </Typography>
 
       <Divider sx={{ my: 4 }} />
 
-      {/* Create run */}
+      {/* Create PTRS */}
       <Box sx={{ mb: 4 }}>
         <Paper elevation={3} sx={{ padding: theme.spacing(3) }}>
           <Box
@@ -166,7 +159,7 @@ export default function DataConsole() {
             justifyContent="space-between"
             sx={{ mb: 2 }}
           >
-            <Typography variant="h6">Create Run</Typography>
+            <Typography variant="h6">Create PTRS</Typography>
             <IconButton
               onClick={() => setIsCreateCollapsed(!isCreateCollapsed)}
               size="small"
@@ -176,8 +169,8 @@ export default function DataConsole() {
           </Box>
           {!isCreateCollapsed && (
             <CreateRunCard
-              onSuccess={(newRunId) => {
-                if (newRunId) setRunId(newRunId);
+              onSuccess={(newPtrsId) => {
+                if (newPtrsId) setPtrsId(newPtrsId);
               }}
             />
           )}

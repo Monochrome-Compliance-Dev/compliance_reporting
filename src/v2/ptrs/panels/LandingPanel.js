@@ -1,6 +1,6 @@
 // PTRS v2 Landing — pick up an existing run or jump into the Data Console
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import { useNavigate } from "react-router";
 import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
 import {
@@ -33,31 +33,29 @@ function formatDate(iso) {
 export default function LandingPanel() {
   const theme = useTheme();
   const navigate = useNavigate();
-  const { profileId, setPtrsId } = usePtrsV2Context();
+  const { setPtrsId } = usePtrsV2Context();
   const { showAlert } = useAlert();
 
   const [runs, setRuns] = useState([]);
   const [q, setQ] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchRuns = async () => {
+  const fetchRuns = useCallback(async () => {
     setIsLoading(true);
     try {
       const { items } = await listPtrs();
       setRuns(items || []);
     } catch (e) {
-      // eslint-disable-next-line no-console
       console.error(e);
       showAlert("Failed to load PTRS runs", "error");
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [showAlert]);
 
   useEffect(() => {
     fetchRuns();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchRuns]);
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
@@ -69,21 +67,35 @@ export default function LandingPanel() {
     );
   }, [q, runs]);
 
-  const goResume = (ptrsId) => {
+  const goResume = (run) => {
+    if (!run || !run.id) return;
+
+    const ptrsId = run.id;
     // Set the active PTRS in context so downstream panels don’t
     // depend solely on the URL.
     setPtrsId(ptrsId);
 
     const qs = new URLSearchParams();
     qs.set("ptrsId", ptrsId);
-    if (profileId) qs.set("profileId", profileId);
-    navigate(`/v2/ptrs/map?${qs.toString()}`);
+
+    const step = String(run.currentStep).toLowerCase();
+    let segment = "map"; // sensible default
+
+    if (step === "data" || step === "upload") {
+      segment = "data";
+    } else if (step === "map" || step === "mapping") {
+      segment = "map";
+    } else if (step === "rules") {
+      segment = "rules";
+    } else if (step === "stage" || step === "staging") {
+      segment = "stage";
+    }
+
+    navigate(`/v2/ptrs/${segment}?${qs.toString()}`);
   };
 
   const goNew = () => {
-    const qs = new URLSearchParams();
-    if (profileId) qs.set("profileId", profileId);
-    navigate(`/v2/ptrs/data?${qs.toString()}`);
+    navigate("/v2/ptrs/data");
   };
 
   return (
@@ -189,7 +201,7 @@ export default function LandingPanel() {
                 <Button
                   variant="text"
                   endIcon={<ArrowForwardIcon />}
-                  onClick={() => goResume(r.id)}
+                  onClick={() => goResume(r)}
                 >
                   Resume
                 </Button>
