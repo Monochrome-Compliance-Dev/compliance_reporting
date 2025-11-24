@@ -89,20 +89,36 @@ const normIngest = (x = {}) => ({
 // });
 
 // Datasets
-const normDataset = (x = {}) => ({
-  id: x.id,
-  customerId: x.customerId,
-  ptrsId: x.ptrsId,
-  role: x.role,
-  sourceName: x.sourceName,
-  fileName: x.fileName,
-  fileSize: x.fileSize,
-  mimeType: x.mimeType,
-  storageRef: x.storageRef,
-  meta: x.meta || null, // { headers:[], rowsCount:n }
-  createdAt: x.createdAt,
-  updatedAt: x.updatedAt,
-});
+const normDataset = (x = {}) => {
+  const rawMeta = x.meta || {};
+  const headers = Array.isArray(rawMeta.headers) ? rawMeta.headers : [];
+  const rowsCount =
+    typeof rawMeta.rowsCount === "number"
+      ? rawMeta.rowsCount
+      : typeof x.rowsCount === "number"
+        ? x.rowsCount
+        : null;
+
+  return {
+    id: x.id,
+    customerId: x.customerId,
+    ptrsId: x.ptrsId,
+    role: x.role,
+    sourceName: x.sourceName,
+    fileName: x.fileName,
+    fileSize: x.fileSize,
+    mimeType: x.mimeType,
+    storageRef: x.storageRef,
+    // keep raw meta in case we need extra stats later
+    meta: rawMeta && Object.keys(rawMeta).length ? rawMeta : null,
+    // normalised, flat fields for UI consumption
+    rowsCount,
+    headersCount: headers.length,
+    headers,
+    createdAt: x.createdAt,
+    updatedAt: x.updatedAt,
+  };
+};
 const normDatasetList = (arr = []) => arr.map(normDataset);
 
 // // -------------------- Map import compatibility ----------------

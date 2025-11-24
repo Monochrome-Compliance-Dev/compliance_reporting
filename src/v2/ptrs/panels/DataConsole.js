@@ -27,7 +27,7 @@ import {
   addDataset,
   listDatasets,
   removeDataset,
-} from "../services/datasetsClient";
+} from "v2/ptrs/services/ptrsApi";
 
 const ROLE_OPTIONS = [
   { value: "transactions", label: "Transactions (primary)" },
@@ -45,8 +45,6 @@ export default function DataConsole() {
     setPtrsId,
     refreshDatasets: refreshCtxDatasets,
   } = usePtrsV2Context();
-
-  console.log("DataConsole render, ptrsId=", ptrsId);
 
   const hasPtrs = Boolean(ptrsId);
 
@@ -287,9 +285,8 @@ export default function DataConsole() {
                               {d.sourceName || d.fileName || "Dataset"}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                              Role: <b>{d.role}</b> • Rows:{" "}
-                              {d.meta?.rowsCount ?? "?"} • Headers:{" "}
-                              {d.meta?.headers?.length ?? 0}
+                              Role: <b>{d.role}</b> • Rows: {d.rowsCount ?? "?"}{" "}
+                              • Headers: {d.headersCount ?? 0}
                             </Typography>
                           </Box>
                           <IconButton
