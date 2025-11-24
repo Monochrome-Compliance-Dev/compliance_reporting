@@ -201,7 +201,6 @@ export const getPtrs = async (ptrsId) => {
 export const uploadCsv = async (ptrsId, file) => {
   const fd = new FormData();
   fd.append("file", file);
-  console.log(`Hitting ${API_ROOT}/v2/ptrs/${ptrsId}/import`);
   const res = await fetchWrapper.postUpload(
     `${API_ROOT}/v2/ptrs/${ptrsId}/import`,
     fd

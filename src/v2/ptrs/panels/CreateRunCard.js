@@ -85,8 +85,9 @@ export default function CreatePtrsCard({ onSuccess }) {
 
       // Include optional metadata about the initial upload
       if (file) {
-        payload.fileName = file.name || (label ? `${label}.csv` : "upload.csv");
-        payload.fileSize = file.size ?? null;
+        payload.originalName =
+          file.name || (label ? `${label}.csv` : "upload.csv");
+        payload.sizeBytes = file.size ?? null;
         payload.mimeType = file.type || "text/csv";
       }
 
