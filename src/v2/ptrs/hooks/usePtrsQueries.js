@@ -105,7 +105,8 @@ export function usePtrsReportStatus() {
 export function useCreatePtrsMutation() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: (payload) => api.createPtrs(payload).then((res) => res?.data),
+    // createPtrs already returns a normalised PTRS row
+    mutationFn: (payload) => api.createPtrs(payload),
     onSuccess: (row) => {
       const id = row?.id;
       if (id) {
@@ -118,11 +119,27 @@ export function useCreatePtrsMutation() {
 export function useUploadCsvMutation(ptrsId) {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: ({ file }) =>
-      api.uploadCsv(ptrsId, file).then((res) => res?.data),
+    // uploadCsv already returns a normalised ingest summary
+    mutationFn: ({ file }) => api.uploadCsv(ptrsId, file),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: K.data(ptrsId) });
       qc.invalidateQueries({ queryKey: K.map(ptrsId) });
+    },
+  });
+}
+
+export function useUpdatePtrsMutation(ptrsId) {
+  const qc = useQueryClient();
+  return useMutation({
+    // updatePtrs already returns the updated PTRS row (plain object)
+    mutationFn: (payload) => api.updatePtrs(ptrsId, payload),
+    onSuccess: (row) => {
+      const id = row?.id ?? ptrsId;
+      if (id) {
+        qc.invalidateQueries({ queryKey: K.data(id) });
+        qc.invalidateQueries({ queryKey: K.stage(id) });
+        qc.invalidateQueries({ queryKey: K.map(id) });
+      }
     },
   });
 }

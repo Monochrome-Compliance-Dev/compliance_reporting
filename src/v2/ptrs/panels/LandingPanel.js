@@ -45,6 +45,7 @@ export default function LandingPanel() {
     try {
       const { items } = await listPtrs();
       setRuns(items || []);
+      console.log("[LandingPanel] fetched runs", items);
     } catch (e) {
       console.error(e);
       showAlert("Failed to load PTRS runs", "error");
@@ -79,19 +80,8 @@ export default function LandingPanel() {
     qs.set("ptrsId", ptrsId);
 
     const step = String(run.currentStep).toLowerCase();
-    let segment = "map"; // sensible default
 
-    if (step === "data" || step === "upload") {
-      segment = "data";
-    } else if (step === "map" || step === "mapping") {
-      segment = "map";
-    } else if (step === "rules") {
-      segment = "rules";
-    } else if (step === "stage" || step === "staging") {
-      segment = "stage";
-    }
-
-    navigate(`/v2/ptrs/${segment}?${qs.toString()}`);
+    navigate(`/v2/ptrs/${step}?${qs.toString()}`);
   };
 
   const goNew = () => {

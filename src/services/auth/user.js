@@ -48,7 +48,6 @@ function wireTenantChangeListener() {
         try {
           await reloadCustomerEntitlements(scopedId);
         } catch (e) {
-          // eslint-disable-next-line no-console
           console.warn(
             "Failed to reload entitlements on tenant change:",
             e?.message || e
@@ -59,7 +58,6 @@ function wireTenantChangeListener() {
       }
     });
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.warn("Failed wiring onCustomerChange listener:", e?.message || e);
   }
 }
@@ -118,7 +116,6 @@ async function login(params) {
           try {
             await reloadCustomerEntitlements(scopedIdOnLogin);
           } catch (e) {
-            // eslint-disable-next-line no-console
             console.warn(
               "Failed to load acting entitlements after login:",
               e?.message || e
@@ -144,9 +141,11 @@ function logout() {
   // May need to update over time if routes change
   const excludedPaths = ["/login", "/verify", "/reset-password"];
   const currentPath = window.location.pathname;
+  const currentSearch = window.location.search || "";
+  const fullPath = `${currentPath}${currentSearch}`;
 
   if (!excludedPaths.includes(currentPath) && allPaths.includes(currentPath)) {
-    localStorage.setItem("lastVisitedPath", currentPath);
+    localStorage.setItem("lastVisitedPath", fullPath);
   } else {
     localStorage.removeItem("lastVisitedPath");
   }

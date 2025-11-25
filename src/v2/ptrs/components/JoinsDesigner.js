@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import {
   Box,
   Stack,
@@ -10,6 +10,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import { listDatasets, getDatasetSample } from "v2/ptrs/services/ptrsApi";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 /**
  * Fancy Joins Designer (Option B)
@@ -20,7 +21,7 @@ import { listDatasets, getDatasetSample } from "v2/ptrs/services/ptrsApi";
  * - Emits `onChange(joins[])` where joins: [{ from:{role,column}, to:{role,column} }]
  */
 export default function JoinsDesigner({
-  runId,
+  ptrsId,
   leftHeaders = [],
   examples = {},
   joins = [],
@@ -28,7 +29,6 @@ export default function JoinsDesigner({
   debug = false,
 }) {
   const [datasets, setDatasets] = useState([]);
-  const [hover, setHover] = useState(null);
   const [pending, setPending] = useState(null); // { role, column }
   const [links, setLinks] = useState(joins || []);
   const [examplesByRole, setExamplesByRole] = useState({});
@@ -48,13 +48,13 @@ export default function JoinsDesigner({
 
   // Load datasets and cache header lists
   useEffect(() => {
-    if (!runId) return;
-    listDatasets(runId)
+    if (!ptrsId) return;
+    listDatasets(ptrsId)
       .then((res) => {
         setDatasets(res?.items || []);
       })
       .catch(() => setDatasets([]));
-  }, [runId]);
+  }, [ptrsId]);
 
   // Build left-side main dataset columns as [{key, label}] objects
   const leftFields = useMemo(() => {
@@ -176,7 +176,7 @@ export default function JoinsDesigner({
   }, [datasets, mainRole, links]);
 
   // Recalculate absolute positions for endpoints used by SVG when DOM changes
-  const computePositions = () => {
+  const computePositions = useCallback(() => {
     const pos = {};
     const capture = (container) => {
       if (!container) return;
@@ -199,7 +199,7 @@ export default function JoinsDesigner({
       // eslint-disable-next-line no-console
       console.log("[JoinsDesigner][debug] endpoints", Object.keys(pos));
     }
-  };
+  }, [debug]);
 
   useEffect(() => {
     computePositions();
@@ -211,7 +211,12 @@ export default function JoinsDesigner({
       obs.disconnect();
       window.removeEventListener("scroll", computePositions, true);
     };
-  }, [leftFields.length, rightColumns.length, datasets.length]);
+  }, [
+    leftFields.length,
+    rightColumns.length,
+    datasets.length,
+    computePositions,
+  ]);
 
   const beginLink = (column) => {
     // Allow creating a link even if we couldn't detect a main role; use a stable fallback
@@ -228,12 +233,6 @@ export default function JoinsDesigner({
     ];
     setLinks(next);
     setPending(null);
-    onChange && onChange(next);
-    setTimeout(computePositions, 0);
-  };
-  const removeLink = (idx) => {
-    const next = links.filter((_, i) => i !== idx);
-    setLinks(next);
     onChange && onChange(next);
     setTimeout(computePositions, 0);
   };
@@ -256,10 +255,6 @@ export default function JoinsDesigner({
               <Box
                 key={key}
                 data-endpoint={keyL(effectiveMainRole, key)}
-                onMouseEnter={() =>
-                  setHover({ side: "L", key: keyL(effectiveMainRole, key) })
-                }
-                onMouseLeave={() => setHover(null)}
                 onClick={() => beginLink(key)}
                 sx={{
                   px: 1,
@@ -306,7 +301,10 @@ export default function JoinsDesigner({
             <Typography variant="subtitle1">Datasets</Typography>
             <Chip size="small" label={rightColumns.length} />
             <Tooltip title="Click a column on the left, then a column on the right to create a join.">
-              <span />
+              <InfoOutlinedIcon
+                fontSize="small"
+                sx={{ cursor: "help", color: "text.secondary" }}
+              />
             </Tooltip>
           </Stack>
           <Stack
@@ -335,10 +333,6 @@ export default function JoinsDesigner({
                     <Box
                       key={`${role}:${h}`}
                       data-endpoint={keyR(role, h)}
-                      onMouseEnter={() =>
-                        setHover({ side: "R", key: keyR(role, h) })
-                      }
-                      onMouseLeave={() => setHover(null)}
                       onClick={() => completeLink(role, h)}
                       sx={{
                         px: 1,

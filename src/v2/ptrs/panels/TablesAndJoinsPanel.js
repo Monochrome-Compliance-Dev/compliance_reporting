@@ -10,14 +10,15 @@ import {
 } from "@mui/material";
 import { useSearchParams, useNavigate } from "react-router";
 import { useAlert } from "context";
-import { usePtrsV2Context } from "v2/ptrs/hooks/usePtrsQueries";
+import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
 import JoinsDesigner from "v2/ptrs/components/JoinsDesigner";
 import {
   listDatasets,
-  getRunMap,
-  saveRunMap,
+  getPtrsMap,
+  savePtrsMap,
   getUnifiedSample,
 } from "v2/ptrs/services/ptrsApi";
+import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 export default function TablesAndJoinsPanel() {
   const [params] = useSearchParams();
@@ -27,7 +28,8 @@ export default function TablesAndJoinsPanel() {
   const { showAlert } = useAlert();
   const { profileId } = usePtrsV2Context();
 
-  const runId = params.get("runId");
+  const ptrsId = params.get("ptrsId");
+  const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
 
   const [datasets, setDatasets] = useState([]);
   const [joins, setJoins] = useState([]);
@@ -39,23 +41,23 @@ export default function TablesAndJoinsPanel() {
   useEffect(() => {
     let mounted = true;
     async function load() {
-      if (!runId) return;
+      if (!ptrsId) return;
       setLoading(true);
       try {
         // Datasets
-        const dsRes = await listDatasets(runId);
+        const dsRes = await listDatasets(ptrsId);
         const items = dsRes?.items || [];
         if (!mounted) return;
         setDatasets(items);
 
         // Existing joins
-        const mapRes = await getRunMap(runId);
+        const mapRes = await getPtrsMap(ptrsId);
         const existingJoins =
           (mapRes && (mapRes.joins || mapRes.map?.joins)) || [];
         setJoins(Array.isArray(existingJoins) ? existingJoins : []);
 
         // Unified sample for headers/examples (main + supporting)
-        const unified = await getUnifiedSample(runId, { limit: 5, offset: 0 });
+        const unified = await getUnifiedSample(ptrsId, { limit: 5, offset: 0 });
         const inferred = unified?.headers || [];
         const headerMeta = unified?.headerMeta || {};
         // Derive main-only headers from unified headerMeta (those sourced from the main import)
@@ -96,7 +98,7 @@ export default function TablesAndJoinsPanel() {
     return () => {
       mounted = false;
     };
-  }, [runId, showAlert]);
+  }, [ptrsId, showAlert]);
 
   const datasetSummary = useMemo(() => {
     return (datasets || []).map((d) => ({
@@ -108,19 +110,18 @@ export default function TablesAndJoinsPanel() {
   }, [datasets]);
 
   const saveJoins = async () => {
-    if (!runId) return showAlert("Missing runId", "error");
+    if (!ptrsId) return showAlert("Missing ptrsId", "error");
     setLoading(true);
     try {
       // Load any existing mappings so we don't overwrite them when saving joins
-      const mapRes = await getRunMap(runId).catch(() => ({}));
+      const mapRes = await getPtrsMap(ptrsId).catch(() => ({}));
       const existingMappings =
         (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || {};
 
       const payload = { mappings: existingMappings, joins, profileId };
-      // eslint-disable-next-line no-console
       console.log("[TablesAndJoinsPanel] saveJoins payload", payload);
 
-      await saveRunMap(runId, payload);
+      await savePtrsMap(ptrsId, payload);
       showAlert("Saved joins", "success");
     } catch (e) {
       showAlert(e?.message || "Failed to save joins", "error");
@@ -129,9 +130,21 @@ export default function TablesAndJoinsPanel() {
     }
   };
 
-  const goToMap = () => {
+  const goToMap = async () => {
+    if (!ptrsId) {
+      showAlert("Missing ptrsId", "error");
+      return;
+    }
+
+    try {
+      await updatePtrsStep.mutateAsync({ currentStep: "map" });
+    } catch (e) {
+      // Surface the error but still allow navigation so the user isn't blocked
+      showAlert(e?.message || "Failed to update PTRS step", "error");
+    }
+
     const qs = new URLSearchParams();
-    if (runId) qs.set("runId", runId);
+    qs.set("ptrsId", ptrsId);
     if (profileId) qs.set("profileId", profileId);
     navigate(`/v2/ptrs/map?${qs.toString()}`);
   };
@@ -186,7 +199,7 @@ export default function TablesAndJoinsPanel() {
             <Button
               size="small"
               onClick={saveJoins}
-              disabled={loading || !runId}
+              disabled={loading || !ptrsId}
             >
               Save joins
             </Button>
@@ -194,7 +207,7 @@ export default function TablesAndJoinsPanel() {
               variant="contained"
               size="small"
               onClick={goToMap}
-              disabled={joins.length === 0 || loading || !runId}
+              disabled={joins.length === 0 || loading || !ptrsId}
             >
               Next: Map columns
             </Button>
@@ -202,7 +215,7 @@ export default function TablesAndJoinsPanel() {
         </Stack>
         <Divider sx={{ mb: 2 }} />
         <JoinsDesigner
-          runId={runId}
+          ptrsId={ptrsId}
           joins={joins}
           onChange={(next) => setJoins(next || [])}
           headers={headers}

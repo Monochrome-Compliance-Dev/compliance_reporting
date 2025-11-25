@@ -10,13 +10,29 @@
 // 9. Report	/v2/ptrs/report	(future)	Generate and export compliance report.
 
 export const STEPS = [
-  { id: "data", label: "Upload files" },
-  { id: "tables", label: "Link tables" },
-  { id: "map", label: "Map columns" },
-  { id: "stage", label: "Stage data" },
-  { id: "rules", label: "Apply rules" },
-  { id: "validate", label: "Validate" },
-  { id: "sbi", label: "SBI check" },
-  { id: "metrics", label: "Metrics" },
-  { id: "report", label: "Report" },
+  { id: "data", label: "Upload files", order: 1 },
+  { id: "tables", label: "Link tables", order: 2 },
+  { id: "map", label: "Map columns", order: 3 },
+  { id: "stage", label: "Stage data", order: 4 },
+  { id: "rules", label: "Apply rules", order: 5 },
+  { id: "validate", label: "Validate", order: 6 },
+  { id: "sbi", label: "SBI check", order: 7 },
+  { id: "metrics", label: "Metrics", order: 8 },
+  { id: "report", label: "Report", order: 9 },
 ];
+
+export function getStepById(id) {
+  return STEPS.find((s) => s.id === id) || null;
+}
+
+export function getNextStepId(currentStepId) {
+  if (!currentStepId) {
+    return STEPS[0]?.id ?? null;
+  }
+  const idx = STEPS.findIndex((s) => s.id === currentStepId);
+  if (idx === -1) {
+    return STEPS[0]?.id ?? null;
+  }
+  const next = STEPS[idx + 1];
+  return next ? next.id : null;
+}

@@ -2,8 +2,8 @@
 import PtrsV2Layout from "./PtrsV2Layout";
 import LandingPanel from "./panels/LandingPanel";
 import DataConsole from "./panels/DataConsole";
-// import TablesAndJoinsPanel from "./panels/TablesAndJoinsPanel";
-// import MapPanel from "./panels/MapPanel";
+import TablesAndJoinsPanel from "./panels/TablesAndJoinsPanel";
+import MapPanel from "./panels/MapPanel";
 // import StagePanel from "./panels/StagePanel";
 // import RulesPanel from "./panels/RulesPanel";
 
@@ -15,8 +15,8 @@ const ptrsRoutes = [
       { index: true, Component: LandingPanel },
       // Wizard steps
       { path: "data", Component: DataConsole },
-      // { path: "tables", Component: TablesAndJoinsPanel },
-      // { path: "map", Component: MapPanel },
+      { path: "tables", Component: TablesAndJoinsPanel },
+      { path: "map", Component: MapPanel },
       // { path: "stage", Component: StagePanel },
       // { path: "rules", Component: RulesPanel },
       // // Future steps (placeholders)

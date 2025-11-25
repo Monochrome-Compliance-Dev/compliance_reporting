@@ -42,6 +42,34 @@ export default function PtrsV2Layout() {
   const isLanding = /^\/v2\/ptrs(?:\/landing)?\/?$/.test(location.pathname);
 
   useEffect(() => {
+    const excludedPaths = ["/login", "/verify", "/reset-password"];
+    const path = location.pathname;
+    if (excludedPaths.includes(path)) return;
+    const search = location.search || "";
+    const fullPath = `${path}${search}`;
+    localStorage.setItem("lastVisitedPath", fullPath);
+  }, [location.pathname, location.search]);
+
+  // Safety rail: if we land on a PTRS step route without any ptrsId
+  // in the URL or context (e.g. after a forced re-login), send the user
+  // back to the landing page so they can choose a PTRS run again.
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const urlPtrsId = params.get("ptrsId");
+
+    // If the URL already contains a ptrsId, let the context rehydrate from it.
+    if (urlPtrsId) return;
+
+    // If we're on the landing route, no need to redirect.
+    if (isLanding) return;
+
+    // No ptrsId in URL and none in context => lost PTRS context; reset to landing.
+    if (!ptrsId) {
+      navigate("/v2/ptrs/landing", { replace: true });
+    }
+  }, [location.search, isLanding, ptrsId, navigate]);
+
+  useEffect(() => {
     if (typeof showAlert === "function")
       showAlert("PTRS v2 workspace loaded", "info");
   }, [showAlert]);

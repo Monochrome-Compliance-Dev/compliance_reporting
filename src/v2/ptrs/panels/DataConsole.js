@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useNavigate } from "react-router";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
@@ -28,6 +29,7 @@ import {
   listDatasets,
   removeDataset,
 } from "v2/ptrs/services/ptrsApi";
+import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 const ROLE_OPTIONS = [
   { value: "transactions", label: "Transactions (primary)" },
@@ -39,12 +41,15 @@ const ROLE_OPTIONS = [
 
 export default function DataConsole() {
   const theme = useTheme();
+  const navigate = useNavigate();
   const { showAlert } = useAlert();
   const {
     ptrsId,
     setPtrsId,
     refreshDatasets: refreshCtxDatasets,
   } = usePtrsV2Context();
+
+  const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
 
   const hasPtrs = Boolean(ptrsId);
 
@@ -123,11 +128,25 @@ export default function DataConsole() {
     }
   };
 
-  const goToTables = () => {
-    // Keep your existing routing scheme; adjust path if needed
-    window.location.assign(
-      `/v2/ptrs/tables?ptrsId=${encodeURIComponent(ptrsId)}`
-    );
+  const goToTables = async () => {
+    if (!ptrsId) {
+      showAlert("Create a PTRS first", "info");
+      return;
+    }
+
+    try {
+      // Mark this PTRS as having completed the data step and moving to tables
+      await updatePtrsStep.mutateAsync({ currentStep: "tables" });
+    } catch (err) {
+      console.error(err);
+      // Don't block navigation if the step update fails
+      showAlert(
+        "Failed to update PTRS step. Continuing to Tables & Joins.",
+        "warning"
+      );
+    }
+
+    navigate(`/v2/ptrs/tables?ptrsId=${encodeURIComponent(ptrsId)}`);
   };
 
   return (

@@ -189,15 +189,14 @@ export const createPtrs = async (payload) => {
   return normPtrs(pickData(res));
 };
 
-export const listPtrs = async ({ hasMap = false } = {}) => {
+export const listPtrs = async () => {
   try {
-    const res = await fetchWrapper.get(
-      `${API_ROOT}/v2/ptrs${hasMap ? "?hasMap=true" : ""}`
-    );
+    const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs`);
     const data = pickData(res);
+    // Controller may return an array directly or wrap in { items }
     const items = Array.isArray(data) ? data : data?.items || [];
-
-    return { items: normList(items) };
+    // Return raw items so all fields (label, periodStart, currentStep, etc.) are available to the UI
+    return { items };
   } catch (err) {
     // No PTRS runs yet for this customer – just return an empty list
     if (err?.status === 404 || err?.response?.status === 404) {
@@ -207,10 +206,26 @@ export const listPtrs = async ({ hasMap = false } = {}) => {
   }
 };
 
+export const listPtrsWithMap = async () => {
+  return { items: [] }; // Placeholder implementation
+};
+
 export const getPtrs = async (ptrsId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/${ptrsId}`);
   return normPtrs(pickData(res));
+};
+
+export const updatePtrs = async (ptrsId, payload = {}) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!payload || typeof payload !== "object") {
+    throw new Error("payload object is required");
+  }
+
+  const res = await fetchWrapper.put(`${API_ROOT}/v2/ptrs/${ptrsId}`, payload);
+
+  // Controller returns the updated PTRS record; return it raw so callers can decide how to use it
+  return pickData(res);
 };
 
 // -------------------- Ingest (routes: /ptrs/:id/import|sample)
@@ -234,33 +249,33 @@ export const getPtrsSample = async (
   return normSample(pickData(res));
 };
 
-// // Unified sample: returns merged headers + examples from all datasets
-// export const getUnifiedSample = async (
-//   ptrsId,
-//   { limit = 10, offset = 0 } = {}
-// ) => {
-//   const res = await fetchWrapper.get(
-//     `${API_ROOT}/v2/ptrs/${ptrsId}/unified-sample?limit=${limit}&offset=${offset}`
-//   );
-//   const d = pickData(res);
-//   return {
-//     headers: d.headers || [],
-//     rows: d.rows || [],
-//     total: d.total || 0,
-//     headerMeta: d.headerMeta || {},
-//   };
-// };
+// Unified sample: returns merged headers + examples from all datasets
+export const getUnifiedSample = async (
+  ptrsId,
+  { limit = 10, offset = 0 } = {}
+) => {
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/unified-sample?limit=${limit}&offset=${offset}`
+  );
+  const d = pickData(res);
+  return {
+    headers: d.headers || [],
+    rows: d.rows || [],
+    total: d.total || 0,
+    headerMeta: d.headerMeta || {},
+  };
+};
 
-// export const getDatasetSample = async (
-//   datasetId,
-//   { limit = 5, offset = 0 } = {}
-// ) => {
-//   if (!datasetId) throw new Error("datasetId is required");
-//   const res = await fetchWrapper.get(
-//     `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?limit=${limit}&offset=${offset}`
-//   );
-//   return normSample(pickData(res)); // { headers:[], rows:[] }
-// };
+export const getDatasetSample = async (
+  datasetId,
+  { limit = 5, offset = 0 } = {}
+) => {
+  if (!datasetId) throw new Error("datasetId is required");
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?limit=${limit}&offset=${offset}`
+  );
+  return normSample(pickData(res)); // { headers:[], rows:[] }
+};
 
 // -------------------- Column map (routes: /ptrs/:id/map) ------
 export const getPtrsMap = async (ptrsId) => {
@@ -268,30 +283,30 @@ export const getPtrsMap = async (ptrsId) => {
   return normMap(pickData(res));
 };
 
-// // Save full map config (mappings are required; others optional)
-// export const savePtrsMap = async (
-//   ptrsId,
-//   {
-//     mappings,
-//     extras = null,
-//     fallbacks = null,
-//     defaults = null,
-//     joins = null,
-//     rowRules = null,
-//     profileId = null,
-//   }
-// ) => {
-//   const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/${ptrsId}/map`, {
-//     mappings,
-//     extras,
-//     fallbacks,
-//     defaults,
-//     joins,
-//     rowRules,
-//     profileId,
-//   });
-//   return normMap(pickData(res));
-// };
+// Save full map config (mappings are required; others optional)
+export const savePtrsMap = async (
+  ptrsId,
+  {
+    mappings,
+    extras = null,
+    fallbacks = null,
+    defaults = null,
+    joins = null,
+    rowRules = null,
+    profileId = null,
+  }
+) => {
+  const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/${ptrsId}/map`, {
+    mappings,
+    extras,
+    fallbacks,
+    defaults,
+    joins,
+    rowRules,
+    profileId,
+  });
+  return normMap(pickData(res));
+};
 
 // -------------------- Datasets (routes: /ptrs/:id/datasets) --
 // Upload an auxiliary dataset (vendorMaster, termsChanges, entityStructure, other)
