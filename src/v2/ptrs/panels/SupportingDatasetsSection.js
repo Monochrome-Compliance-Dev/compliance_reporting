@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import * as XLSX from "xlsx";
 import {
   Box,
@@ -11,7 +11,6 @@ import {
   Chip,
   Divider,
 } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import RefreshIcon from "@mui/icons-material/Refresh";
@@ -33,29 +32,31 @@ const ROLES = [
   { value: "other", label: "Other", required: false },
 ];
 
-export default function SupportingDatasetsSection({ runId, onChanged }) {
-  const theme = useTheme();
+export default function SupportingDatasetsSection({
+  ptrsId,
+  onChanged,
+  onTotalChange,
+}) {
   const { showAlert } = useAlert();
   const [items, setItems] = useState([]);
   const [busyRole, setBusyRole] = useState(null);
   const fileInputs = useRef({});
 
-  const refresh = async () => {
-    if (!runId) return;
+  const refresh = useCallback(async () => {
+    if (!ptrsId) return;
     try {
-      const { items } = await listDatasets(runId);
+      const { items } = await listDatasets(ptrsId);
+      console.log("items: ", items);
       setItems(items || []);
     } catch (e) {
-      // eslint-disable-next-line no-console
       console.error(e);
       showAlert("Failed to load datasets", "error");
     }
-  };
+  }, [ptrsId, showAlert]);
 
   useEffect(() => {
     refresh();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [runId]);
+  }, [refresh]);
 
   const byRole = useMemo(() => {
     const map = new Map();
@@ -67,6 +68,14 @@ export default function SupportingDatasetsSection({ runId, onChanged }) {
     }
     return map;
   }, [items]);
+
+  const totalDatasets = items.length;
+
+  useEffect(() => {
+    if (typeof onTotalChange === "function") {
+      onTotalChange(totalDatasets);
+    }
+  }, [onTotalChange, totalDatasets]);
 
   const statusChips = (
     <Stack direction="row" spacing={1} sx={{ mb: 1, flexWrap: "wrap" }}>
@@ -138,22 +147,20 @@ export default function SupportingDatasetsSection({ runId, onChanged }) {
       };
       reader.readAsArrayBuffer(file);
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error(err);
       showAlert("Failed to read Excel file", "error");
     }
   };
 
   const upload = async (role, file) => {
-    if (!runId) return showAlert("Missing runId", "error");
+    if (!ptrsId) return showAlert("Missing ptrsId", "error");
     setBusyRole(role);
     try {
-      await addDataset(runId, file, { role, sourceName: file.name });
+      await addDataset(ptrsId, file, { role, sourceName: file.name });
       await refresh();
       showAlert(`${rLabel(role)} uploaded`, "success");
       if (onChanged) onChanged();
     } catch (e) {
-      // eslint-disable-next-line no-console
       console.error(e);
       showAlert("Upload failed", "error");
     } finally {
@@ -165,12 +172,11 @@ export default function SupportingDatasetsSection({ runId, onChanged }) {
 
   const onDelete = async (id) => {
     try {
-      await removeDataset(runId, id);
+      await removeDataset(ptrsId, id);
       await refresh();
       showAlert("Dataset removed", "success");
       if (onChanged) onChanged();
     } catch (e) {
-      // eslint-disable-next-line no-console
       console.error(e);
       showAlert("Failed to remove dataset", "error");
     }

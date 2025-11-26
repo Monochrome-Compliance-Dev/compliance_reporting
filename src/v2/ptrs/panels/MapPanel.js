@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import {
   Box,
   Stack,
@@ -36,12 +36,14 @@ import {
   getPtrsSample,
   getPtrsMap,
   savePtrsMap,
-  listPtrs,
+  listPtrsWithMap,
   extractMappingsFromAny,
   getBlueprint,
   getStagePreview,
   getUnifiedSample,
 } from "v2/ptrs/services/ptrsApi";
+
+import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 import {
   PTRS_REQUIRED_FIELDS,
   PTRS_OPTIONAL_FIELDS,
@@ -57,10 +59,12 @@ export default function MapPanel() {
   const ptrsId = params.get("ptrsId");
   const { profileId } = usePtrsV2Context();
 
+  const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
+
   const [blueprint, setBlueprint] = useState(null);
   const [headers, setHeaders] = useState([]);
-  const [sampleRows, setSampleRows] = useState([]);
   const [examples, setExamples] = useState({});
+  const [headerMeta, setHeaderMeta] = useState({});
   const [loading, setLoading] = useState(false);
 
   const [ptrssWithMaps, setPtrssWithMaps] = useState([]);
@@ -73,9 +77,49 @@ export default function MapPanel() {
   const [newCustomName, setNewCustomName] = useState("");
   const [joins, setJoins] = useState([]);
 
+  const [supportingDatasetsCount, setSupportingDatasetsCount] = useState(0);
+
   // sources pane
   const [search, setSearch] = useState("");
   const [importOpen, setImportOpen] = useState(false);
+
+  // Helper to open the import dialog and blur the triggering element
+  const openImportDialog = (event) => {
+    // Move focus off the triggering element before the dialog mounts
+    if (
+      event &&
+      event.currentTarget &&
+      typeof event.currentTarget.blur === "function"
+    ) {
+      event.currentTarget.blur();
+    }
+    setImportOpen(true);
+  };
+
+  // Count how many mappings from a saved map could apply to the current headers
+  const countCompatibleMappings = useCallback((headersArr, mappingsObj) => {
+    if (!headersArr || !headersArr.length) return 0;
+    if (!mappingsObj || typeof mappingsObj !== "object") return 0;
+
+    const validHeaders = Array.isArray(headersArr) ? headersArr : [];
+    const seenSources = new Set();
+    let applied = 0;
+
+    for (const [source, cfg] of Object.entries(mappingsObj)) {
+      const target = cfg?.field;
+      if (!target) continue;
+
+      const resolved = resolveHeader(validHeaders, source);
+      if (!resolved) continue;
+
+      // ensure a source header only counts once
+      if (seenSources.has(resolved)) continue;
+      seenSources.add(resolved);
+      applied += 1;
+    }
+
+    return applied;
+  }, []);
 
   // --- Load headers + any existing saved map
   useEffect(() => {
@@ -138,12 +182,21 @@ export default function MapPanel() {
           (unified?.headers?.length ? unified.headers : preview?.headers) || [];
         const rows =
           (unified?.rows?.length ? unified.rows : preview?.rows) || [];
+        // capture header meta if unified sample provided it
+        if (
+          unified &&
+          unified.headerMeta &&
+          typeof unified.headerMeta === "object"
+        ) {
+          setHeaderMeta(unified.headerMeta);
+        } else {
+          setHeaderMeta({});
+        }
 
         // existing mappings/joins already computed above
         setJoins(Array.isArray(existingJoins) ? existingJoins : []);
 
         setHeaders(inferred);
-        setSampleRows(rows);
 
         // build examples map: header -> first non-empty value
         const ex = {};
@@ -184,11 +237,30 @@ export default function MapPanel() {
         if (discovered.size)
           setCustomFields((prev) => [...new Set([...prev, ...discovered])]);
 
+        // Finally: load PTRS runs that have maps and pre-filter by compatibility
         try {
-          const lr = await listPtrs({ hasMap: true });
-          setPtrssWithMaps(lr.items || []);
+          const lr = await listPtrsWithMap();
+          const allPtrss = lr.items || [];
+
+          const compatible = [];
+
+          for (const run of allPtrss) {
+            try {
+              const res = await getPtrsMap(run.id);
+              const mapObj = (res && (res.mappings || res.map?.mappings)) || {};
+              const count = countCompatibleMappings(inferred, mapObj);
+              if (count > 0) {
+                compatible.push({ ...run, compatibleCount: count });
+              }
+            } catch {
+              // if one run fails to load, just skip it
+            }
+          }
+
+          setPtrssWithMaps(compatible);
         } catch {
           // ignore listing errors
+          setPtrssWithMaps([]);
         }
       } catch (e) {
         showAlert(e?.message || "Failed to load mapping info", "error");
@@ -197,8 +269,7 @@ export default function MapPanel() {
       }
     }
     load();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ptrsId]);
+  }, [countCompatibleMappings, profileId, ptrsId, showAlert]);
 
   // quick helpers
   const usedSources = useMemo(
@@ -211,14 +282,6 @@ export default function MapPanel() {
     if (!needle) return all;
     return all.filter((h) => h.toLowerCase().includes(needle));
   }, [headers, search]);
-
-  const mappingForDesigner = useMemo(() => {
-    const obj = {};
-    for (const [target, source] of Object.entries(assign || {})) {
-      if (source) obj[source] = { field: target };
-    }
-    return obj;
-  }, [assign]);
 
   // HTML5 DnD
   const onDragStart = (e, sourceHeader) => {
@@ -577,7 +640,18 @@ export default function MapPanel() {
   // UI bits
   const navigate = useNavigate();
   const stageData = async () => {
-    if (!ptrsId) return showAlert("Missing ptrsId", "error");
+    if (!ptrsId) {
+      showAlert("Missing ptrsId", "error");
+      return;
+    }
+
+    try {
+      await updatePtrsStep.mutateAsync({ currentStep: "stage" });
+    } catch (e) {
+      // Surface the error but still allow navigation so the user isn't blocked
+      showAlert(e?.message || "Failed to update PTRS step", "error");
+    }
+
     try {
       // Always use context profileId
       const qs = new URLSearchParams();
@@ -667,6 +741,25 @@ export default function MapPanel() {
   // right pane sources item
   const SourceToken = ({ h }) => {
     const used = usedSources.has(h);
+    const meta = headerMeta?.[h];
+    let sourceLabel = "";
+    if (meta && Array.isArray(meta.sources) && meta.sources.length) {
+      const hasMain = meta.sources.some((s) => s?.kind === "main");
+      const datasetLabels = new Set();
+      meta.sources.forEach((s) => {
+        if (s?.fileName) datasetLabels.add(s.fileName);
+        else if (s?.role) datasetLabels.add(s.role);
+      });
+      const dsList = Array.from(datasetLabels);
+      if (hasMain && dsList.length) {
+        sourceLabel = `Source: Main dataset + ${dsList.join(", ")}`;
+      } else if (hasMain) {
+        sourceLabel = "Source: Main dataset";
+      } else if (dsList.length) {
+        sourceLabel = `Source: ${dsList.join(", ")}`;
+      }
+    }
+
     return (
       <Paper
         key={h}
@@ -682,8 +775,21 @@ export default function MapPanel() {
       >
         <Typography variant="body2">{h}</Typography>
         {examples[h] && (
-          <Typography variant="caption" color="text.secondary">
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{ display: "block" }}
+          >
             e.g. {examples[h]}
+          </Typography>
+        )}
+        {sourceLabel && (
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{ display: "block", mt: 0.25 }}
+          >
+            {sourceLabel}
           </Typography>
         )}
       </Paper>
@@ -920,11 +1026,20 @@ export default function MapPanel() {
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Stack direction="row" spacing={1} alignItems="center">
               <Typography variant="subtitle2">Supporting datasets</Typography>
-              {/* Readiness chips could be computed later based on listDatasets */}
+              {supportingDatasetsCount > 0 && (
+                <Chip
+                  size="small"
+                  label={`Total datasets: ${supportingDatasetsCount}`}
+                />
+              )}
             </Stack>
           </AccordionSummary>
           <AccordionDetails>
-            <SupportingDatasetsSection ptrsId={ptrsId} onChanged={() => {}} />
+            <SupportingDatasetsSection
+              ptrsId={ptrsId}
+              onChanged={() => {}}
+              onTotalChange={setSupportingDatasetsCount}
+            />
           </AccordionDetails>
         </Accordion>
 
@@ -966,7 +1081,7 @@ export default function MapPanel() {
               <Button
                 size="small"
                 startIcon={<ContentPasteGoIcon />}
-                onClick={() => setImportOpen(true)}
+                onClick={openImportDialog}
               >
                 Import / Copy map
               </Button>
@@ -1016,7 +1131,7 @@ export default function MapPanel() {
               </IconButton>
             </Tooltip>
             <Tooltip title="Import / Copy map">
-              <IconButton onClick={() => setImportOpen(true)} size="small">
+              <IconButton onClick={openImportDialog} size="small">
                 <ContentPasteGoIcon fontSize="small" />
               </IconButton>
             </Tooltip>
@@ -1037,7 +1152,10 @@ export default function MapPanel() {
       {/* Import/Copy dialog */}
       <Dialog
         open={importOpen}
-        onClose={() => setImportOpen(false)}
+        onClose={(event, reason) => {
+          if (reason === "backdropClick") return;
+          setImportOpen(false);
+        }}
         maxWidth="sm"
         fullWidth
       >
@@ -1064,40 +1182,72 @@ export default function MapPanel() {
               </Button>
             </Stack>
             <Divider />
-            <Typography variant="body2" color="text.secondary">
-              Or copy a map from a previous ptrs:
-            </Typography>
-            <Autocomplete
-              size="small"
-              options={ptrssWithMaps}
-              isOptionEqualToValue={(opt, val) => opt.id === val.id}
-              getOptionLabel={(opt) =>
-                opt?.fileName
-                  ? `${opt.fileName} — ${new Date(opt.createdAt).toLocaleDateString()}`
-                  : opt?.id || ""
-              }
-              renderOption={(props, option) => (
-                <li {...props} key={option.id}>
-                  {option.fileName
-                    ? `${option.fileName} — ${new Date(option.createdAt).toLocaleDateString()}`
-                    : option.id}
-                </li>
-              )}
-              value={selectedCopyPtrs}
-              onChange={(e, val) => setSelectedCopyPtrs(val)}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Copy map from…"
-                  placeholder="Pick a previous ptrs"
-                />
-              )}
-            />
+            {ptrssWithMaps.length > 0 && (
+              <Typography variant="body2" color="text.secondary">
+                Or copy a map from a previous ptrs:
+              </Typography>
+            )}
+            {ptrssWithMaps.length === 0 ? (
+              <Typography variant="body2" color="text.secondary">
+                No compatible maps found for this dataset yet.
+              </Typography>
+            ) : (
+              <Autocomplete
+                size="small"
+                options={ptrssWithMaps}
+                isOptionEqualToValue={(opt, val) => opt.id === val.id}
+                getOptionLabel={(opt) => {
+                  if (!opt) return "";
+                  const base = opt.fileName
+                    ? `${opt.fileName} — ${new Date(opt.createdAt).toLocaleDateString()}`
+                    : opt.id;
+                  const count =
+                    typeof opt.compatibleCount === "number"
+                      ? ` — ${opt.compatibleCount} matching field${
+                          opt.compatibleCount === 1 ? "" : "s"
+                        }`
+                      : "";
+                  return `${base}${count}`;
+                }}
+                renderOption={(props, option) => (
+                  <li {...props} key={option.id}>
+                    {option.fileName
+                      ? `${option.fileName} — ${new Date(
+                          option.createdAt
+                        ).toLocaleDateString()}`
+                      : option.id}
+                    {typeof option.compatibleCount === "number" &&
+                      option.compatibleCount > 0 && (
+                        <span
+                          style={{
+                            marginLeft: 8,
+                            opacity: 0.7,
+                            fontSize: "0.8rem",
+                          }}
+                        >
+                          ({option.compatibleCount} matching
+                          {option.compatibleCount === 1 ? " field" : " fields"})
+                        </span>
+                      )}
+                  </li>
+                )}
+                value={selectedCopyPtrs}
+                onChange={(e, val) => setSelectedCopyPtrs(val)}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Copy map from…"
+                    placeholder="Pick a previous ptrs"
+                  />
+                )}
+              />
+            )}
           </Stack>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setImportOpen(false)}>Close</Button>
           <Button
+            disabled={ptrssWithMaps.length === 0}
             onClick={() => {
               if (selectedCopyPtrs) {
                 copyFromPtrsId(selectedCopyPtrs.id);
