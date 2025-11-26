@@ -82,11 +82,11 @@ const normIngest = (x = {}) => ({
   rowsInserted: x.rowsInserted ?? x.inserted ?? 0,
 });
 
-// const normPreview = (x = {}) => ({
-//   headers: x.headers || [],
-//   rows: x.rows || [],
-//   stats: x.stats || null,
-// });
+const normPreview = (x = {}) => ({
+  headers: x.headers || [],
+  rows: x.rows || [],
+  stats: x.stats || null,
+});
 
 // Datasets
 const normDataset = (x = {}) => {
@@ -121,67 +121,67 @@ const normDataset = (x = {}) => {
 };
 const normDatasetList = (arr = []) => arr.map(normDataset);
 
-// // -------------------- Map import compatibility ----------------
-// // Accepts a variety of shapes and returns a plain mappings object or null.
-// export const extractMappingsFromAny = (raw) => {
-//   if (!raw) return null;
-//   // Unwrap common envelopes
-//   const candidates = [
-//     raw?.mappings,
-//     raw?.map?.mappings,
-//     raw?.data?.mappings,
-//     raw?.data?.map?.mappings,
-//     raw?.data?.data?.mappings,
-//     raw?.data?.data?.map?.mappings,
-//     raw, // allow raw mappings object already
-//   ].filter(Boolean);
+// -------------------- Map import compatibility ----------------
+// Accepts a variety of shapes and returns a plain mappings object or null.
+export const extractMappingsFromAny = (raw) => {
+  if (!raw) return null;
+  // Unwrap common envelopes
+  const candidates = [
+    raw?.mappings,
+    raw?.map?.mappings,
+    raw?.data?.mappings,
+    raw?.data?.map?.mappings,
+    raw?.data?.data?.mappings,
+    raw?.data?.data?.map?.mappings,
+    raw, // allow raw mappings object already
+  ].filter(Boolean);
 
-//   // First candidate that looks like an object of mappings wins
-//   for (const m of candidates) {
-//     if (m && typeof m === "object" && !Array.isArray(m)) {
-//       const entries = Object.entries(m);
-//       if (!entries.length) return {};
-//       const looksOk = entries.every(([k, v]) => {
-//         if (!k) return false;
-//         if (typeof v === "string") return true;
-//         if (v && typeof v === "object") return "field" in v;
-//         return false;
-//       });
-//       if (looksOk) {
-//         const out = {};
-//         for (const [src, cfg] of entries) {
-//           if (typeof cfg === "string") {
-//             out[src] = { field: cfg, type: "string" };
-//           } else if (cfg && typeof cfg === "object" && "field" in cfg) {
-//             const { field, type = "string", ...rest } = cfg;
-//             out[src] = { field, type, ...rest };
-//           }
-//         }
-//         return out;
-//       }
-//     }
-//   }
+  // First candidate that looks like an object of mappings wins
+  for (const m of candidates) {
+    if (m && typeof m === "object" && !Array.isArray(m)) {
+      const entries = Object.entries(m);
+      if (!entries.length) return {};
+      const looksOk = entries.every(([k, v]) => {
+        if (!k) return false;
+        if (typeof v === "string") return true;
+        if (v && typeof v === "object") return "field" in v;
+        return false;
+      });
+      if (looksOk) {
+        const out = {};
+        for (const [src, cfg] of entries) {
+          if (typeof cfg === "string") {
+            out[src] = { field: cfg, type: "string" };
+          } else if (cfg && typeof cfg === "object" && "field" in cfg) {
+            const { field, type = "string", ...rest } = cfg;
+            out[src] = { field, type, ...rest };
+          }
+        }
+        return out;
+      }
+    }
+  }
 
-//   // Also accept array form: [{ source/header/name, field, type? }]
-//   if (Array.isArray(raw)) {
-//     const out = {};
-//     for (const row of raw) {
-//       const src = row?.source || row?.header || row?.name;
-//       const field = row?.field;
-//       if (src && field) {
-//         const { type = "string", ...rest } = row || {};
-//         // Remove alias keys that identify the source name to avoid duplication
-//         delete rest.source;
-//         delete rest.header;
-//         delete rest.name;
-//         out[src] = { field, type, ...rest };
-//       }
-//     }
-//     return Object.keys(out).length ? out : null;
-//   }
+  // Also accept array form: [{ source/header/name, field, type? }]
+  if (Array.isArray(raw)) {
+    const out = {};
+    for (const row of raw) {
+      const src = row?.source || row?.header || row?.name;
+      const field = row?.field;
+      if (src && field) {
+        const { type = "string", ...rest } = row || {};
+        // Remove alias keys that identify the source name to avoid duplication
+        delete rest.source;
+        delete rest.header;
+        delete rest.name;
+        out[src] = { field, type, ...rest };
+      }
+    }
+    return Object.keys(out).length ? out : null;
+  }
 
-//   return null;
-// };
+  return null;
+};
 
 // -------------------- Ptrss (routes: /v2/ptrs) ------------
 export const createPtrs = async (payload) => {
@@ -357,31 +357,31 @@ export const removeDataset = async (ptrsId, datasetId) => {
 //   return normPreview(pickData(res));
 // };
 
-// // New function: getStagePreview
-// export const getStagePreview = async (
-//   ptrsId,
-//   { limit = 20, profileId = null } = {}
-// ) => {
-//   if (!ptrsId) throw new Error("ptrsId is required");
-//   const q = new URLSearchParams();
-//   q.set("limit", String(limit));
-//   if (profileId) q.set("profileId", String(profileId));
-//   try {
-//     const res = await fetchWrapper.get(
-//       `${API_ROOT}/v2/ptrs/${ptrsId}/stage/preview?${q.toString()}`
-//     );
-//     return normPreview(pickData(res));
-//   } catch (err) {
-//     // fallback to generic preview if BE doesn't expose stage/preview yet
-//     const body = { steps: ["stage"], limit };
-//     if (profileId) body.profileId = profileId;
-//     const res2 = await fetchWrapper.post(
-//       `${API_ROOT}/v2/ptrs/${ptrsId}/preview`,
-//       body
-//     );
-//     return normPreview(pickData(res2));
-//   }
-// };
+// New function: getStagePreview
+export const getStagePreview = async (
+  ptrsId,
+  { limit = 20, profileId = null } = {}
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  const q = new URLSearchParams();
+  q.set("limit", String(limit));
+  if (profileId) q.set("profileId", String(profileId));
+  try {
+    const res = await fetchWrapper.get(
+      `${API_ROOT}/v2/ptrs/${ptrsId}/stage/preview?${q.toString()}`
+    );
+    return normPreview(pickData(res));
+  } catch (err) {
+    // fallback to generic preview if BE doesn't expose stage/preview yet
+    const body = { steps: ["stage"], limit };
+    if (profileId) body.profileId = profileId;
+    const res2 = await fetchWrapper.post(
+      `${API_ROOT}/v2/ptrs/${ptrsId}/preview`,
+      body
+    );
+    return normPreview(pickData(res2));
+  }
+};
 
 // // -------------------- Rules (routes: /ptrs/:id/rules/...) ---
 // export const previewRules = async (ptrsId, { limit = 50 } = {}) => {
@@ -532,12 +532,12 @@ export const listProfiles = async (customerId) => {
 //   return pickData(res); // { ok: true }
 // };
 
-// // -------------------- Blueprint (route: /blueprint) -----------
-// export const getBlueprint = async ({ profileId = "" } = {}) => {
-//   const q = profileId ? `?profileId=${encodeURIComponent(profileId)}` : "";
-//   const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/blueprint${q}`);
-//   return pickData(res); // already a plain JSON object with fields/fallbacks/etc.
-// };
+// -------------------- Blueprint (route: /blueprint) -----------
+export const getBlueprint = async ({ profileId = "" } = {}) => {
+  const q = profileId ? `?profileId=${encodeURIComponent(profileId)}` : "";
+  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/blueprint${q}`);
+  return pickData(res); // already a plain JSON object with fields/fallbacks/etc.
+};
 
 // // -------------------- SBI (future - BE routes may not exist yet) ----------------------------
 // export const exportSbi = async (ptrsId) => {

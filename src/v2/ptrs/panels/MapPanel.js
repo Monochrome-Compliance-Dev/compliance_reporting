@@ -21,7 +21,7 @@ import {
 import Autocomplete from "@mui/material/Autocomplete";
 import { useTheme } from "@mui/material/styles";
 import { useSearchParams, useNavigate } from "react-router";
-import { usePtrsV2Context } from "v2/ptrs/hooks/usePtrsQueries";
+import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
 import { useAlert } from "context";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -33,10 +33,10 @@ import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 import {
-  getRunSample,
-  getRunMap,
-  saveRunMap,
-  listRuns,
+  getPtrsSample,
+  getPtrsMap,
+  savePtrsMap,
+  listPtrs,
   extractMappingsFromAny,
   getBlueprint,
   getStagePreview,
@@ -54,7 +54,7 @@ export default function MapPanel() {
   const theme = useTheme();
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
-  const runId = params.get("runId");
+  const ptrsId = params.get("ptrsId");
   const { profileId } = usePtrsV2Context();
 
   const [blueprint, setBlueprint] = useState(null);
@@ -63,8 +63,8 @@ export default function MapPanel() {
   const [examples, setExamples] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const [runsWithMaps, setRunsWithMaps] = useState([]);
-  const [selectedCopyRun, setSelectedCopyRun] = useState(null);
+  const [ptrssWithMaps, setPtrssWithMaps] = useState([]);
+  const [selectedCopyPtrs, setSelectedCopyPtrs] = useState(null);
 
   // target -> source (result of drag or select)
   const [assign, setAssign] = useState({});
@@ -90,11 +90,11 @@ export default function MapPanel() {
       return undefined;
     }
     async function load() {
-      if (!runId) return;
+      if (!ptrsId) return;
       setLoading(true);
       try {
         // 1) Load map first to know if any mappings exist
-        const mapRes = await getRunMap(runId);
+        const mapRes = await getPtrsMap(ptrsId);
         const existing =
           (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || null;
         const existingJoins =
@@ -108,7 +108,7 @@ export default function MapPanel() {
         //    Fallback: previous logic (stage preview or simple sample)
         let unified = null;
         try {
-          unified = await getUnifiedSample(runId, { limit: 5, offset: 0 });
+          unified = await getUnifiedSample(ptrsId, { limit: 5, offset: 0 });
         } catch {
           unified = null;
         }
@@ -117,13 +117,13 @@ export default function MapPanel() {
         if (!unified) {
           if (hasAnyMappings) {
             try {
-              preview = await getStagePreview(runId, { limit: 5, profileId });
+              preview = await getStagePreview(ptrsId, { limit: 5, profileId });
             } catch {
               // fallback to sample if BE rejects stage preview
-              preview = await getRunSample(runId, { limit: 5, offset: 0 });
+              preview = await getPtrsSample(ptrsId, { limit: 5, offset: 0 });
             }
           } else {
-            preview = await getRunSample(runId, { limit: 5, offset: 0 });
+            preview = await getPtrsSample(ptrsId, { limit: 5, offset: 0 });
           }
         }
 
@@ -185,8 +185,8 @@ export default function MapPanel() {
           setCustomFields((prev) => [...new Set([...prev, ...discovered])]);
 
         try {
-          const lr = await listRuns({ hasMap: true });
-          setRunsWithMaps(lr.items || []);
+          const lr = await listPtrs({ hasMap: true });
+          setPtrssWithMaps(lr.items || []);
         } catch {
           // ignore listing errors
         }
@@ -198,7 +198,7 @@ export default function MapPanel() {
     }
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [runId]);
+  }, [ptrsId]);
 
   // quick helpers
   const usedSources = useMemo(
@@ -506,31 +506,37 @@ export default function MapPanel() {
     }
   };
 
-  const copyFromRunId = async (otherRunId) => {
+  const copyFromPtrsId = async (otherPtrsId) => {
     try {
-      const res = await getRunMap(otherRunId);
+      const res = await getPtrsMap(otherPtrsId);
       const obj = (res && (res.mappings || res.map?.mappings)) || {};
       // eslint-disable-next-line no-console
-      // console.log("[copyFromRunId] Loaded map shape:", {
+      // console.log("[copyFromPtrsId] Loaded map shape:", {
       //   keys: Object.keys(res || {}),
       //   hasMap: !!res?.map,
       //   hasMappings: !!res?.mappings,
-      //   appliedFrom: otherRunId,
+      //   appliedFrom: otherPtrsId,
       // });
       const applied = applyIncomingMap(obj);
       if (applied > 0) {
-        showAlert(`Copied ${applied} mapping(s) from ${otherRunId}`, "success");
+        showAlert(
+          `Copied ${applied} mapping(s) from ${otherPtrsId}`,
+          "success"
+        );
         setImportOpen(false);
       } else {
-        showAlert(`No compatible mappings found on run ${otherRunId}`, "info");
+        showAlert(
+          `No compatible mappings found on ptrs ${otherPtrsId}`,
+          "info"
+        );
       }
     } catch (e) {
-      showAlert(e?.message || "Failed to load map from that run", "error");
+      showAlert(e?.message || "Failed to load map from that ptrs", "error");
     }
   };
 
   const save = async () => {
-    if (!runId) return showAlert("Missing runId", "error");
+    if (!ptrsId) return showAlert("Missing ptrsId", "error");
     try {
       // Convert target->source to BE shape and include custom placeholders
       const payload = {};
@@ -553,7 +559,7 @@ export default function MapPanel() {
         );
         return;
       }
-      const res = await saveRunMap(runId, {
+      const res = await savePtrsMap(ptrsId, {
         mappings: payload,
         joins,
         profileId,
@@ -571,11 +577,11 @@ export default function MapPanel() {
   // UI bits
   const navigate = useNavigate();
   const stageData = async () => {
-    if (!runId) return showAlert("Missing runId", "error");
+    if (!ptrsId) return showAlert("Missing ptrsId", "error");
     try {
       // Always use context profileId
       const qs = new URLSearchParams();
-      qs.set("runId", runId);
+      qs.set("ptrsId", ptrsId);
       if (profileId) qs.set("profileId", profileId);
       navigate(`/v2/ptrs/stage?${qs.toString()}`);
     } catch (err) {
@@ -918,7 +924,7 @@ export default function MapPanel() {
             </Stack>
           </AccordionSummary>
           <AccordionDetails>
-            <SupportingDatasetsSection runId={runId} onChanged={() => {}} />
+            <SupportingDatasetsSection ptrsId={ptrsId} onChanged={() => {}} />
           </AccordionDetails>
         </Accordion>
 
@@ -969,7 +975,7 @@ export default function MapPanel() {
               <Button
                 variant="contained"
                 onClick={save}
-                disabled={loading || !runId}
+                disabled={loading || !ptrsId}
               >
                 Save map
               </Button>
@@ -1059,11 +1065,11 @@ export default function MapPanel() {
             </Stack>
             <Divider />
             <Typography variant="body2" color="text.secondary">
-              Or copy a map from a previous run:
+              Or copy a map from a previous ptrs:
             </Typography>
             <Autocomplete
               size="small"
-              options={runsWithMaps}
+              options={ptrssWithMaps}
               isOptionEqualToValue={(opt, val) => opt.id === val.id}
               getOptionLabel={(opt) =>
                 opt?.fileName
@@ -1077,13 +1083,13 @@ export default function MapPanel() {
                     : option.id}
                 </li>
               )}
-              value={selectedCopyRun}
-              onChange={(e, val) => setSelectedCopyRun(val)}
+              value={selectedCopyPtrs}
+              onChange={(e, val) => setSelectedCopyPtrs(val)}
               renderInput={(params) => (
                 <TextField
                   {...params}
                   label="Copy map from…"
-                  placeholder="Pick a previous run"
+                  placeholder="Pick a previous ptrs"
                 />
               )}
             />
@@ -1093,10 +1099,10 @@ export default function MapPanel() {
           <Button onClick={() => setImportOpen(false)}>Close</Button>
           <Button
             onClick={() => {
-              if (selectedCopyRun) {
-                copyFromRunId(selectedCopyRun.id);
+              if (selectedCopyPtrs) {
+                copyFromPtrsId(selectedCopyPtrs.id);
               } else {
-                showAlert("Pick a run to copy from", "info");
+                showAlert("Pick a ptrs to copy from", "info");
               }
             }}
           >

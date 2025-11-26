@@ -20,7 +20,7 @@ import {
   addDataset,
   listDatasets,
   removeDataset,
-} from "v2/ptrs/services/datasetsClient";
+} from "v2/ptrs/services/ptrsApi";
 
 const ROLES = [
   { value: "vendorMaster", label: "Vendor Master", required: false },
