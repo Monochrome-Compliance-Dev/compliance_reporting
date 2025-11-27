@@ -559,7 +559,11 @@ export default function MapPanel() {
       } else {
         const applied = applyIncomingMap(mappings);
         if (applied > 0) {
-          showAlert(`Imported mapping for ${applied} field(s)`, "success");
+          await save(true);
+          showAlert(
+            `Imported mapping for ${applied} field(s) and auto-saved the map`,
+            "success"
+          );
         } else {
           showAlert("No compatible headers found in this file", "info");
         }
@@ -582,8 +586,9 @@ export default function MapPanel() {
       // });
       const applied = applyIncomingMap(obj);
       if (applied > 0) {
+        await save(true);
         showAlert(
-          `Copied ${applied} mapping(s) from ${otherPtrsId}`,
+          `Copied ${applied} mapping(s) from ${otherPtrsId} and auto-saved the map`,
           "success"
         );
         setImportOpen(false);
@@ -598,8 +603,11 @@ export default function MapPanel() {
     }
   };
 
-  const save = async () => {
-    if (!ptrsId) return showAlert("Missing ptrsId", "error");
+  async function save(auto = false) {
+    if (!ptrsId) {
+      showAlert("Missing ptrsId", "error");
+      return;
+    }
     try {
       // Convert target->source to BE shape and include custom placeholders
       const payload = {};
@@ -616,10 +624,12 @@ export default function MapPanel() {
       }
       const count = Object.keys(payload).length;
       if (count === 0) {
-        showAlert(
-          "Map is empty — assign at least one field before saving.",
-          "info"
-        );
+        if (!auto) {
+          showAlert(
+            "Map is empty — assign at least one field before saving.",
+            "info"
+          );
+        }
         return;
       }
       const res = await savePtrsMap(ptrsId, {
@@ -628,14 +638,16 @@ export default function MapPanel() {
         profileId,
       });
       const savedCount = Object.keys(res.mappings || payload).length;
-      showAlert(
-        `Saved map (${savedCount} field${savedCount === 1 ? "" : "s"})`,
-        "success"
-      );
+      if (!auto) {
+        showAlert(
+          `Saved map (${savedCount} field${savedCount === 1 ? "" : "s"})`,
+          "success"
+        );
+      }
     } catch (e) {
       showAlert(e?.message || "Failed to save map", "error");
     }
-  };
+  }
 
   // UI bits
   const navigate = useNavigate();

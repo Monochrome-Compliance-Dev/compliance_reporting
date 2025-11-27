@@ -430,6 +430,10 @@ export const savePtrsMap = async (
     profileId = null,
   }
 ) => {
+  console.log("savePtrsMap called with:", {
+    ptrsId,
+    mappings,
+  });
   const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/${ptrsId}/map`, {
     mappings,
     extras,
@@ -567,36 +571,36 @@ export const getStagePreview = async (
 //   };
 // };
 
-// // -------------------- Staging (route: /ptrs/:id/stage) -------
-// export const stagePtrs = async (
-//   ptrsId,
-//   { profileId = "", persist = false } = {}
-// ) => {
-//   if (!ptrsId) throw new Error("ptrsId is required");
+// -------------------- Staging (route: /ptrs/:id/stage) -------
+export const stagePtrs = async (
+  ptrsId,
+  { profileId = "", persist = false } = {}
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
 
-//   // Build payload: always include profileId, optionally include persist
-//   const payload = { profileId };
-//   if (persist != null) payload.persist = Boolean(persist);
+  // Build payload: always include profileId, optionally include persist
+  const payload = { profileId };
+  if (persist != null) payload.persist = Boolean(persist);
 
-//   const res = await fetchWrapper.post(
-//     `${API_ROOT}/v2/ptrs/${ptrsId}/stage`,
-//     payload
-//   );
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/stage`,
+    payload
+  );
 
-//   // Normalise the response so the UI can rely on a stable shape
-//   const d = pickData(res) || {};
-//   const rowsIn = d.rowsIn ?? d.affectedCount ?? d.inputCount ?? d.inCount ?? 0;
-//   const rowsOut =
-//     d.rowsOut ?? d.persistedCount ?? d.outputCount ?? d.outCount ?? 0;
+  // Normalise the response so the UI can rely on a stable shape
+  const d = pickData(res) || {};
+  const rowsIn = d.rowsIn ?? d.affectedCount ?? d.inputCount ?? d.inCount ?? 0;
+  const rowsOut =
+    d.rowsOut ?? d.persistedCount ?? d.outputCount ?? d.outCount ?? 0;
 
-//   return {
-//     rowsIn,
-//     rowsOut,
-//     tookMs: d.tookMs ?? d.durationMs ?? null,
-//     sample: d.sample || null,
-//     stats: d.stats || null,
-//   };
-// };
+  return {
+    rowsIn,
+    rowsOut,
+    tookMs: d.tookMs ?? d.durationMs ?? null,
+    sample: d.sample || null,
+    stats: d.stats || null,
+  };
+};
 
 // -------------------- Profiles (route: /v2/ptrs/profiles) ----
 const normProfile = (x = {}) => ({

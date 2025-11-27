@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { usePtrsV2Context } from "v2/ptrs/hooks/usePtrsQueries";
+import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
 import {
   Box,
   Typography,
@@ -20,11 +20,13 @@ import {
 import { useSearchParams, useNavigate } from "react-router";
 import { useAlert } from "context";
 import {
-  stageRun,
-  getRun,
+  stagePtrs,
+  getPtrs,
   listDatasets,
   getStagePreview,
 } from "v2/ptrs/services/ptrsApi";
+
+import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -49,13 +51,13 @@ export default function StagePanel() {
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
   const navigate = useNavigate();
-  const runId = params.get("runId");
+  const ptrsId = params.get("ptrsId");
   const { profileId } = usePtrsV2Context();
 
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [datasets, setDatasets] = useState([]);
-  const [runMeta, setRunMeta] = useState(null);
+  const [ptrsMeta, setPtrsMeta] = useState(null);
   const [preview, setPreview] = useState({ rows: [], headers: [] });
   const [showPreview, setShowPreview] = useState(false);
 
@@ -115,26 +117,26 @@ export default function StagePanel() {
     []
   );
 
-  // Initial load – fetch run meta and dataset statuses
+  // Initial load – fetch ptrs meta and dataset statuses
   useEffect(() => {
-    if (!runId) return;
+    if (!ptrsId) return;
     (async () => {
       try {
-        const [run, ds] = await Promise.all([
-          getRun(runId).catch(() => null),
-          listDatasets(runId).catch(() => ({ items: [] })),
+        const [ptrs, ds] = await Promise.all([
+          getPtrs(ptrsId).catch(() => null),
+          listDatasets(ptrsId).catch(() => ({ items: [] })),
         ]);
-        // console.log("[StagePanel] getRun:", run);
+        // console.log("[StagePanel] getPtrs:", ptrs);
         // console.log("[StagePanel] listDatasets:", ds);
         if (mountedRef.current) {
-          setRunMeta(run);
+          setPtrsMeta(ptrs);
           setDatasets(ds?.items || []);
         }
       } catch (_) {
         console.warn("[StagePanel] initial load failed", _);
       }
     })();
-  }, [runId]);
+  }, [ptrsId]);
 
   const datasetSummary = useMemo(() => {
     if (!datasets || !datasets.length) return [];
@@ -153,24 +155,24 @@ export default function StagePanel() {
   }, [datasets]);
 
   const handleStage = async () => {
-    if (!runId) {
-      showAlert("Missing runId", "error");
+    if (!ptrsId) {
+      showAlert("Missing ptrsId", "error");
       return;
     }
-    console.log("[StagePanel] stageRun ->", { runId, profileId });
+    console.log("[StagePanel] stagePtrs ->", { ptrsId, profileId });
     setLoading(true);
     try {
-      const res = await stageRun(runId, {
+      const res = await stagePtrs(ptrsId, {
         profileId: profileId || null,
         persist: true,
       });
-      console.log("[StagePanel] stageRun result:", res);
+      console.log("[StagePanel] stagePtrs result:", res);
       if (!mountedRef.current) return;
       setResult(res);
       showAlert(`Staged ${res.rowsOut || 0} rows`, "success");
       // Eager-load a tiny preview for confidence
       try {
-        const pv = await getStagePreview(runId, {
+        const pv = await getStagePreview(ptrsId, {
           limit: 20,
           profileId: profileId || null,
         });
@@ -183,7 +185,7 @@ export default function StagePanel() {
         if (mountedRef.current && pv) setPreview(pv);
       } catch (_) {}
     } catch (err) {
-      console.error("[StagePanel] stageRun error:", err);
+      console.error("[StagePanel] stagePtrs error:", err);
       if (mountedRef.current) {
         showAlert(err?.message || "Failed to stage data", "error");
       }
@@ -218,7 +220,7 @@ export default function StagePanel() {
       <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
         Merge the uploaded datasets (e.g. Vendor Master, Payment Term Changes,
         Holdings) and apply your column map to produce a clean, unified staging
-        table for the PTRS run. You can re-run staging at any time – it is
+        table for the PTRS report. You can re-run staging at any time – it is
         idempotent.
       </Typography>
 
@@ -272,11 +274,11 @@ export default function StagePanel() {
               sx={{ width: 280 }}
             />
           </Tooltip>
-          {runMeta?.label && (
+          {ptrsMeta?.label && (
             <Chip
               size="small"
               variant="outlined"
-              label={`Run: ${runMeta.label}`}
+              label={`Ptrs: ${ptrsMeta.label}`}
             />
           )}
         </Stack>
@@ -307,7 +309,7 @@ export default function StagePanel() {
           </Stack>
         ) : (
           <Typography variant="body2" color="text.secondary">
-            Nothing staged yet. Click below to run staging.
+            Nothing staged yet. Click below to ptrs staging.
           </Typography>
         )}
       </Paper>
@@ -364,7 +366,7 @@ export default function StagePanel() {
           disabled={loading || !result}
           onClick={() => {
             const qs = new URLSearchParams();
-            qs.set("runId", runId);
+            qs.set("ptrsId", ptrsId);
             if (profileId) qs.set("profileId", profileId);
             navigate(`/v2/ptrs/rules?${qs.toString()}`);
           }}
@@ -378,7 +380,7 @@ export default function StagePanel() {
         variant="text"
         onClick={() => {
           const qs = new URLSearchParams();
-          qs.set("runId", runId);
+          qs.set("ptrsId", ptrsId);
           if (profileId) qs.set("profileId", profileId);
           navigate(`/v2/ptrs/map?${qs.toString()}`);
         }}

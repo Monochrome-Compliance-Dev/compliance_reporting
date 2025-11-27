@@ -40,6 +40,7 @@ export default function PtrsV2Layout() {
   const profilesArray = Array.isArray(profiles) ? profiles : [];
 
   const isLanding = /^\/v2\/ptrs(?:\/landing)?\/?$/.test(location.pathname);
+  const isDataConsole = /^\/v2\/ptrs\/data\/?$/.test(location.pathname);
 
   useEffect(() => {
     const excludedPaths = ["/login", "/verify", "/reset-password"];
@@ -60,14 +61,16 @@ export default function PtrsV2Layout() {
     // If the URL already contains a ptrsId, let the context rehydrate from it.
     if (urlPtrsId) return;
 
-    // If we're on the landing route, no need to redirect.
-    if (isLanding) return;
+    // If we're on a route that is allowed without a ptrsId (landing or data console),
+    // don't redirect. This is where a new PTRS run is created.
+    if (isLanding || isDataConsole) return;
 
-    // No ptrsId in URL and none in context => lost PTRS context; reset to landing.
+    // No ptrsId in URL and none in context on a step that requires it
+    // => reset to landing so the user can pick a run again.
     if (!ptrsId) {
       navigate("/v2/ptrs/landing", { replace: true });
     }
-  }, [location.search, isLanding, ptrsId, navigate]);
+  }, [location.search, isLanding, isDataConsole, ptrsId, navigate]);
 
   useEffect(() => {
     if (typeof showAlert === "function")

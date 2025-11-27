@@ -60,14 +60,17 @@ export default function TablesAndJoinsPanel() {
         const unified = await getUnifiedSample(ptrsId, { limit: 5, offset: 0 });
         const inferred = unified?.headers || [];
         const headerMeta = unified?.headerMeta || {};
-        // Derive main-only headers from unified headerMeta (those sourced from the main import)
-        const mains = (unified?.headers || []).filter((h) => {
+
+        // Derive main-only headers from unified headerMeta:
+        // keep headers that have at least one source with kind === "main"
+        const mains = inferred.filter((h) => {
           const srcs = headerMeta[h]?.sources || [];
-          return Array.isArray(srcs) && srcs.includes("main");
+          if (!Array.isArray(srcs) || !srcs.length) return false;
+          return srcs.some((s) => s && s.kind === "main");
         });
         setMainHeaders(mains);
-        const ex = {};
 
+        const ex = {};
         for (const h of inferred) {
           const meta = headerMeta[h] || {};
           const example =
