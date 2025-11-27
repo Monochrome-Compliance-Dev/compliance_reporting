@@ -5,7 +5,7 @@ import DataConsole from "./panels/DataConsole";
 import TablesAndJoinsPanel from "./panels/TablesAndJoinsPanel";
 import MapPanel from "./panels/MapPanel";
 import StagePanel from "./panels/StagePanel";
-// import RulesPanel from "./panels/RulesPanel";
+import RulesPanel from "./panels/RulesPanel";
 
 const ptrsRoutes = [
   {
@@ -18,7 +18,7 @@ const ptrsRoutes = [
       { path: "tables", Component: TablesAndJoinsPanel },
       { path: "map", Component: MapPanel },
       { path: "stage", Component: StagePanel },
-      // { path: "rules", Component: RulesPanel },
+      { path: "rules", Component: RulesPanel },
       // // Future steps (placeholders)
       // {
       //   path: "validate",

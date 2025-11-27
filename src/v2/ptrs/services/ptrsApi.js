@@ -521,55 +521,55 @@ export const getStagePreview = async (
   }
 };
 
-// // -------------------- Rules (routes: /ptrs/:id/rules/...) ---
-// export const previewRules = async (ptrsId, { limit = 50 } = {}) => {
-//   if (!ptrsId) throw new Error("ptrsId is required");
-//   const q = new URLSearchParams();
-//   q.set("limit", String(limit));
-//   const res = await fetchWrapper.get(
-//     `${API_ROOT}/v2/ptrs/${ptrsId}/rules/preview?${q.toString()}`
-//   );
-//   return normPreview(pickData(res)); // { headers, rows, stats }
-// };
+// -------------------- Rules (routes: /ptrs/:id/rules/...) ---
+export const previewRules = async (ptrsId, { limit = 50 } = {}) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  const q = new URLSearchParams();
+  q.set("limit", String(limit));
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/rules/preview?${q.toString()}`
+  );
+  return normPreview(pickData(res)); // { headers, rows, stats }
+};
 
-// export const applyRules = async (ptrsId, { profileId = null } = {}) => {
-//   if (!ptrsId) throw new Error("ptrsId is required");
-//   const body = {};
-//   if (profileId) body.profileId = profileId;
-//   const res = await fetchWrapper.post(
-//     `${API_ROOT}/v2/ptrs/${ptrsId}/rules/apply`,
-//     body
-//   );
-//   return pickData(res); // { ok, stats, persisted }
-// };
+export const applyRules = async (ptrsId, { profileId = null } = {}) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  const body = {};
+  if (profileId) body.profileId = profileId;
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/rules/apply`,
+    body
+  );
+  return pickData(res); // { ok, stats, persisted }
+};
 
-// export const getPtrsRules = async (ptrsId) => {
-//   if (!ptrsId) throw new Error("ptrsId is required");
-//   const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/${ptrsId}/rules`);
-//   const d = pickData(res);
-//   const data = d?.data || d || {};
-//   return {
-//     rowRules: data.rowRules || [],
-//     crossRowRules: data.crossRowRules || [],
-//   };
-// };
+export const getPtrsRules = async (ptrsId) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/${ptrsId}/rules`);
+  const d = pickData(res);
+  const data = d?.data || d || {};
+  return {
+    rowRules: data.rowRules || [],
+    crossRowRules: data.crossRowRules || [],
+  };
+};
 
-// export const savePtrsRules = async (
-//   ptrsId,
-//   { rowRules = [], crossRowRules = [] } = {}
-// ) => {
-//   if (!ptrsId) throw new Error("ptrsId is required");
-//   const res = await fetchWrapper.post(
-//     `${API_ROOT}/v2/ptrs/${ptrsId}/rules`,
-//     { rowRules, crossRowRules }
-//   );
-//   const d = pickData(res);
-//   const data = d?.data || d || {};
-//   return {
-//     rowRules: data.rowRules || [],
-//     crossRowRules: data.crossRowRules || [],
-//   };
-// };
+export const savePtrsRules = async (
+  ptrsId,
+  { rowRules = [], crossRowRules = [] } = {}
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/${ptrsId}/rules`, {
+    rowRules,
+    crossRowRules,
+  });
+  const d = pickData(res);
+  const data = d?.data || d || {};
+  return {
+    rowRules: data.rowRules || [],
+    crossRowRules: data.crossRowRules || [],
+  };
+};
 
 // -------------------- Staging (route: /ptrs/:id/stage) -------
 export const stagePtrs = async (

@@ -1,4 +1,4 @@
-import { usePtrsV2Context } from "../context/PtrsV2Context";
+import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
 import {
   Box,
   Stack,
@@ -23,9 +23,11 @@ import {
   previewRules,
   applyRules,
   getStagePreview,
-  saveRunRules,
-  getRunRules,
+  savePtrsRules,
+  getPtrsRules,
 } from "../services/ptrsApi";
+
+import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 import { useState, useMemo, useEffect, useRef } from "react";
 // --- Friendly operators + helpers (panel-only) ---
@@ -59,34 +61,34 @@ export default function RulesPanel() {
   const theme = useTheme();
   const { showAlert } = useAlert();
   const {
-    runId: ctxRunId,
+    ptrsId: ctxPtrsId,
     profileId: ctxProfileId,
-    runMap: ctxRunMap,
+    ptrsMap: ctxPtrsMap,
   } = usePtrsV2Context();
-  const runId = ctxRunId || "";
+  const ptrsId = ctxPtrsId || "";
   const profileId = ctxProfileId || null;
   console.log(
-    "[RulesPanel] render, runId=",
-    runId,
+    "[RulesPanel] render, ptrsId=",
+    ptrsId,
     "profileId=",
     profileId,
     "map=",
-    ctxRunMap
+    ctxPtrsMap
   );
 
   // Load step/status context so we can enable/disable actions appropriately
-  const { gates, rules, validate, map } = useStepStatuses(runId, "rules");
+  const { gates, rules, validate, map } = useStepStatuses(ptrsId, "rules");
   const hasCtxMap = !!(
-    ctxRunMap &&
-    ctxRunMap.mappings &&
-    Object.keys(ctxRunMap.mappings || {}).length
+    ctxPtrsMap &&
+    ctxPtrsMap.mappings &&
+    Object.keys(ctxPtrsMap.mappings || {}).length
   );
   const hasHookMap = !!(
     map &&
     map.mappings &&
     Object.keys(map.mappings || {}).length
   );
-  const effectiveMap = hasCtxMap ? ctxRunMap : hasHookMap ? map : null;
+  const effectiveMap = hasCtxMap ? ctxPtrsMap : hasHookMap ? map : null;
 
   const [isPreviewing, setIsPreviewing] = useState(false);
   const [isApplying, setIsApplying] = useState(false);
@@ -94,8 +96,8 @@ export default function RulesPanel() {
   const [headers, setHeaders] = useState([]);
   const [rowsPreviewed, setRowsPreviewed] = useState(0);
   const [rulesState, setRulesState] = useState(() => {
-    const initial = Array.isArray(ctxRunMap?.rowRules)
-      ? ctxRunMap.rowRules
+    const initial = Array.isArray(ctxPtrsMap?.rowRules)
+      ? ctxPtrsMap.rowRules
       : [];
     return initial.map((r, idx) => ({ id: r.id || `r${idx + 1}`, ...r }));
   });
@@ -107,17 +109,17 @@ export default function RulesPanel() {
     let mounted = true;
 
     // Seed from map immediately so the dropdown isn't empty
-    const seed = deriveHeadersFromMap(ctxRunMap);
+    const seed = deriveHeadersFromMap(ctxPtrsMap);
     if (seed.length) setHeaders(seed);
 
     (async () => {
-      if (!runId) return;
+      if (!ptrsId) return;
       // Avoid duplicate fetches in dev double-render or route churn
-      if (fetchedOnceRef.current[runId]) return;
-      fetchedOnceRef.current[runId] = true;
+      if (fetchedOnceRef.current[ptrsId]) return;
+      fetchedOnceRef.current[ptrsId] = true;
 
       try {
-        const prev = await getStagePreview(runId, { limit: 1 });
+        const prev = await getStagePreview(ptrsId, { limit: 1 });
         if (!mounted) return;
         const fromSrv = Array.isArray(prev?.headers) ? prev.headers : [];
         const combined = fromSrv.length ? fromSrv : seed;
@@ -131,35 +133,36 @@ export default function RulesPanel() {
     return () => {
       mounted = false;
     };
-  }, [runId, ctxRunMap]);
+  }, [ptrsId, ctxPtrsMap]);
 
   // keep in sync if map updates externally, but only seed if we don't already have rules
   useEffect(() => {
     if (
-      runId &&
-      Array.isArray(ctxRunMap?.rowRules) &&
-      ctxRunMap.rowRules.length > 0 &&
+      ptrsId &&
+      Array.isArray(ctxPtrsMap?.rowRules) &&
+      ctxPtrsMap.rowRules.length > 0 &&
       rulesState.length === 0
     ) {
       setRulesState(
-        ctxRunMap.rowRules.map((r, idx) => ({
+        ctxPtrsMap.rowRules.map((r, idx) => ({
           id: r.id || `r${idx + 1}`,
           type: r.type || "row",
           ...r,
         }))
       );
     }
-  }, [runId, ctxRunMap, rulesState.length]);
+  }, [ptrsId, ctxPtrsMap, rulesState.length]);
 
-  // hydrate from backend rules (rowRules + crossRowRules) on mount / run change
+  // hydrate from backend rules (rowRules + crossRowRules) on mount / ptrs change
   useEffect(() => {
-    if (!runId) return;
+    if (!ptrsId) return;
 
     let cancelled = false;
 
     const loadRules = async () => {
       try {
-        const { rowRules = [], crossRowRules = [] } = await getRunRules(runId);
+        const { rowRules = [], crossRowRules = [] } =
+          await getPtrsRules(ptrsId);
 
         if (cancelled) return;
 
@@ -192,7 +195,7 @@ export default function RulesPanel() {
     return () => {
       cancelled = true;
     };
-  }, [runId]);
+  }, [ptrsId]);
 
   // Update headers with fields referenced in rulesState
   useEffect(() => {
@@ -238,7 +241,7 @@ export default function RulesPanel() {
   }, [rulesState]);
 
   const canApply = useMemo(() => {
-    // Require that mapping exists and staging has run; relax further as needed
+    // Require that mapping exists and staging has ptrs; relax further as needed
     return Boolean(
       effectiveMap?.mappings && Object.keys(effectiveMap.mappings).length > 0
     );
@@ -248,8 +251,8 @@ export default function RulesPanel() {
     hasCtxMap,
     hasHookMap,
     canApply,
-    ctxMapKeys: ctxRunMap?.mappings
-      ? Object.keys(ctxRunMap.mappings).length
+    ctxMapKeys: ctxPtrsMap?.mappings
+      ? Object.keys(ctxPtrsMap.mappings).length
       : 0,
     hookMapKeys: map?.mappings ? Object.keys(map.mappings).length : 0,
   });
@@ -401,7 +404,7 @@ export default function RulesPanel() {
         return;
       }
       // Pull a small header set for the builder later (not shown yet)
-      const prev = await previewRules(runId, { limit: 20 });
+      const prev = await previewRules(ptrsId, { limit: 20 });
       const actions = prev?.stats?.rules?.actions ?? 0;
       const affected = prev?.stats?.rules?.rowsAffected ?? 0;
       showAlert(
@@ -419,7 +422,7 @@ export default function RulesPanel() {
     setIsApplying(true);
     try {
       showAlert("Applying rules and transformations…", "info");
-      const res = await applyRules(runId, {});
+      const res = await applyRules(ptrsId, {});
       const persisted = res?.persisted ?? res?.rowsOut ?? 0;
       const actions = res?.stats?.rules?.actions ?? 0;
       const affected = res?.stats?.rules?.rowsAffected ?? 0;
@@ -464,7 +467,7 @@ export default function RulesPanel() {
         }
       }
 
-      await saveRunRules(runId, {
+      await savePtrsRules(ptrsId, {
         rowRules: rowRulesSupported,
         crossRowRules,
       });
@@ -623,7 +626,7 @@ export default function RulesPanel() {
     } catch (e) {
       console.warn("[PTRS v2] Failed to build cross-row pseudo SQL", e);
     }
-    const prev = await getStagePreview(runId, { limit: 5000 });
+    const prev = await getStagePreview(ptrsId, { limit: 5000 });
     const rows = prev?.rows || [];
     const curWhen = rule.when?.[0] || {};
     // 1) pick current rows (e.g., document_type = ET)
@@ -738,7 +741,7 @@ export default function RulesPanel() {
           variant="body2"
           sx={{ color: theme.palette.text.secondary }}
         >
-          Run: {runId || "—"}
+          Ptrs: {ptrsId || "—"}
         </Typography>
       </Stack>
 
@@ -749,7 +752,7 @@ export default function RulesPanel() {
           variant="body1"
           sx={{ color: theme.palette.text.secondary }}
         >
-          Configure and run your PTRS rules. We’ll add field-level transforms,
+          Configure and ptrs your PTRS rules. We’ll add field-level transforms,
           exclusions, and dataset operations here in the next pass.
         </Typography>
 
@@ -1295,7 +1298,7 @@ export default function RulesPanel() {
             variant="caption"
             sx={{ color: theme.palette.warning.main }}
           >
-            You’ll need a saved column map (and staged data) before running
+            You’ll need a saved column map (and staged data) before ptrsning
             rules.
           </Typography>
         )}
