@@ -54,6 +54,8 @@ export default function StagePanel() {
   const ptrsId = params.get("ptrsId");
   const { profileId } = usePtrsV2Context();
 
+  const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
+
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [datasets, setDatasets] = useState([]);
@@ -212,6 +214,25 @@ export default function StagePanel() {
     });
   }, [headers, rows]);
 
+  const handleGoToRules = async () => {
+    if (!ptrsId) {
+      showAlert("Missing ptrsId", "error");
+      return;
+    }
+
+    try {
+      await updatePtrsStep.mutateAsync({ currentStep: "rules" });
+    } catch (err) {
+      console.error(err);
+      showAlert("Failed to update PTRS step. Continuing to Rules.", "warning");
+    }
+
+    const qs = new URLSearchParams();
+    qs.set("ptrsId", ptrsId);
+    if (profileId) qs.set("profileId", profileId);
+    navigate(`/v2/ptrs/rules?${qs.toString()}`);
+  };
+
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h5" gutterBottom>
@@ -364,12 +385,7 @@ export default function StagePanel() {
           variant="contained"
           endIcon={<NavigateNextIcon />}
           disabled={loading || !result}
-          onClick={() => {
-            const qs = new URLSearchParams();
-            qs.set("ptrsId", ptrsId);
-            if (profileId) qs.set("profileId", profileId);
-            navigate(`/v2/ptrs/rules?${qs.toString()}`);
-          }}
+          onClick={handleGoToRules}
         >
           Next: Apply rules
         </Button>
