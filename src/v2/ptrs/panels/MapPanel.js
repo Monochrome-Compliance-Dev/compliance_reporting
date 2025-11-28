@@ -32,16 +32,17 @@ import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
+// mapping-specific stuff
 import {
-  getPtrsSample,
   getPtrsMap,
   savePtrsMap,
   listPtrsWithMap,
   extractMappingsFromAny,
-  getBlueprint,
-  getStagePreview,
   getUnifiedSample,
-} from "v2/ptrs/services/ptrsApi";
+} from "v2/ptrs/services/tablesAndMaps.ptrsApi";
+
+// core run/blueprint stuff
+import { getBlueprint, getStagePreview } from "v2/ptrs/services/ptrsApi";
 
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 import {
@@ -161,13 +162,17 @@ export default function MapPanel() {
         if (!unified) {
           if (hasAnyMappings) {
             try {
-              preview = await getStagePreview(ptrsId, { limit: 5, profileId });
+              preview = await getStagePreview(ptrsId, {
+                limit: 5,
+                profileId,
+              });
             } catch {
-              // fallback to sample if BE rejects stage preview
-              preview = await getPtrsSample(ptrsId, { limit: 5, offset: 0 });
+              // If stage preview fails, leave preview as null and rely on unified sample only
+              preview = null;
             }
           } else {
-            preview = await getPtrsSample(ptrsId, { limit: 5, offset: 0 });
+            // No unified sample and no existing mappings; skip preview fallback
+            preview = null;
           }
         }
 

@@ -122,68 +122,6 @@ export const normDataset = (x = {}) => {
 
 export const normDatasetList = (arr = []) => arr.map(normDataset);
 
-// -------------------- Map import compatibility ----------------
-// Accepts a variety of shapes and returns a plain mappings object or null.
-export const extractMappingsFromAny = (raw) => {
-  if (!raw) return null;
-  // Unwrap common envelopes
-  const candidates = [
-    raw?.mappings,
-    raw?.map?.mappings,
-    raw?.data?.mappings,
-    raw?.data?.map?.mappings,
-    raw?.data?.data?.mappings,
-    raw?.data?.data?.map?.mappings,
-    raw, // allow raw mappings object already
-  ].filter(Boolean);
-
-  // First candidate that looks like an object of mappings wins
-  for (const m of candidates) {
-    if (m && typeof m === "object" && !Array.isArray(m)) {
-      const entries = Object.entries(m);
-      if (!entries.length) return {};
-      const looksOk = entries.every(([k, v]) => {
-        if (!k) return false;
-        if (typeof v === "string") return true;
-        if (v && typeof v === "object") return "field" in v;
-        return false;
-      });
-      if (looksOk) {
-        const out = {};
-        for (const [src, cfg] of entries) {
-          if (typeof cfg === "string") {
-            out[src] = { field: cfg, type: "string" };
-          } else if (cfg && typeof cfg === "object" && "field" in cfg) {
-            const { field, type = "string", ...rest } = cfg;
-            out[src] = { field, type, ...rest };
-          }
-        }
-        return out;
-      }
-    }
-  }
-
-  // Also accept array form: [{ source/header/name, field, type? }]
-  if (Array.isArray(raw)) {
-    const out = {};
-    for (const row of raw) {
-      const src = row?.source || row?.header || row?.name;
-      const field = row?.field;
-      if (src && field) {
-        const { type = "string", ...rest } = row || {};
-        // Remove alias keys that identify the source name to avoid duplication
-        delete rest.source;
-        delete rest.header;
-        delete rest.name;
-        out[src] = { field, type, ...rest };
-      }
-    }
-    return Object.keys(out).length ? out : null;
-  }
-
-  return null;
-};
-
 // -------------------- Ptrss (routes: /v2/ptrs) ------------
 export const createPtrs = async (payload) => {
   const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs`, payload);
@@ -200,23 +138,6 @@ export const listPtrs = async () => {
     return { items };
   } catch (err) {
     // No PTRS runs yet for this customer – just return an empty list
-    if (err?.status === 404 || err?.response?.status === 404) {
-      return { items: [] };
-    }
-    throw err;
-  }
-};
-
-export const listPtrsWithMap = async () => {
-  try {
-    const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/with-map`);
-    const data = pickData(res);
-    // Controller may return an array directly or wrap in { items }
-    const items = Array.isArray(data) ? data : data?.items || [];
-    // Return raw items so all fields (label, periodStart, currentStep, etc.) are available to the UI
-    return { items };
-  } catch (err) {
-    // No mapped PTRS runs yet for this customer – just return an empty list
     if (err?.status === 404 || err?.response?.status === 404) {
       return { items: [] };
     }

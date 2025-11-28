@@ -17,7 +17,7 @@ import {
   getPtrsMap,
   savePtrsMap,
   getUnifiedSample,
-} from "@/v2/ptrs/services/tablesAndMaps.ptrsApi";
+} from "v2/ptrs/services/tablesAndMaps.ptrsApi";
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 export default function TablesAndJoinsPanel() {
