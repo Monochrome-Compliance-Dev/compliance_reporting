@@ -431,7 +431,26 @@ export default function RulesPanel() {
         "success"
       );
     } catch (err) {
-      showAlert(err?.message || "Failed to apply rules.", "error");
+      console.error("[RulesPanel] applyRules failed", err);
+
+      const status =
+        err?.response?.status ??
+        err?.status ??
+        err?.statusCode ??
+        err?.data?.statusCode ??
+        err?.error?.statusCode ??
+        null;
+
+      if (status === 413) {
+        const backendMessage =
+          err?.response?.data?.message ||
+          err?.data?.message ||
+          err?.message ||
+          "Dataset is too large to apply rules in a single pass. Try narrowing your dataset or contact support.";
+        showAlert(backendMessage, "warning");
+      } else {
+        showAlert(err?.message || "Failed to apply rules.", "error");
+      }
     } finally {
       setIsApplying(false);
     }
@@ -472,13 +491,22 @@ export default function RulesPanel() {
         crossRowRules,
       });
 
-      const msgParts = [];
-      msgParts.push(`Saved ${rowRulesSupported.length} rule(s).`);
-      if (crossRowRules.length) {
-        msgParts.push(
-          `${crossRowRules.length} cross-row rule(s) stored in extras for now.`
-        );
+      const rowCount = rowRulesSupported.length;
+      const crossCount = crossRowRules.length;
+
+      if (!rowCount && !crossCount) {
+        showAlert("No rules to save.", "info");
+        return;
       }
+
+      const msgParts = [];
+      if (rowCount) {
+        msgParts.push(`Saved ${rowCount} row rule(s).`);
+      }
+      if (crossCount) {
+        msgParts.push(`${crossCount} cross-row rule(s) saved.`);
+      }
+
       showAlert(msgParts.join(" "), "success");
     } catch (err) {
       showAlert(err?.message || "Failed to save rules.", "error");

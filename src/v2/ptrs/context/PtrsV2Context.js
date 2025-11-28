@@ -6,12 +6,9 @@ import React, {
   useCallback,
 } from "react";
 import { useSearchParams } from "react-router";
-import {
-  getPtrs,
-  listDatasets,
-  getPtrsMap,
-  listProfiles,
-} from "v2/ptrs/services/ptrsApi";
+import { getPtrs, listProfiles } from "v2/ptrs/services/ptrsApi";
+import { getPtrsMap } from "v2/ptrs/services/tablesAndMaps.ptrsApi";
+import { listDatasets } from "v2/ptrs/services/data.ptrsApi";
 import {
   getCurrentCustomer,
   setCurrentCustomer,

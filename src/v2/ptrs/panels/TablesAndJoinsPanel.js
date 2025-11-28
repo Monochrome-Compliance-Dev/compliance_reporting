@@ -12,12 +12,12 @@ import { useSearchParams, useNavigate } from "react-router";
 import { useAlert } from "context";
 import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
 import JoinsDesigner from "v2/ptrs/components/JoinsDesigner";
+import { listDatasets } from "v2/ptrs/services/data.ptrsApi";
 import {
-  listDatasets,
   getPtrsMap,
   savePtrsMap,
   getUnifiedSample,
-} from "v2/ptrs/services/ptrsApi";
+} from "@/v2/ptrs/services/tablesAndMaps.ptrsApi";
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 export default function TablesAndJoinsPanel() {
@@ -57,6 +57,8 @@ export default function TablesAndJoinsPanel() {
         setJoins(Array.isArray(existingJoins) ? existingJoins : []);
 
         // Unified sample for headers/examples (main + supporting)
+        // Why do we need unified here? Because joins can reference columns
+        // from any dataset, so we need to know all possible headers.
         const unified = await getUnifiedSample(ptrsId, { limit: 5, offset: 0 });
         const inferred = unified?.headers || [];
         const headerMeta = unified?.headerMeta || {};

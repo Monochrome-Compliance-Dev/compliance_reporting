@@ -9,7 +9,8 @@ import {
   Divider,
   Tooltip,
 } from "@mui/material";
-import { listDatasets, getDatasetSample } from "v2/ptrs/services/ptrsApi";
+import { getDatasetSample } from "v2/ptrs/services/ptrsApi";
+import { listDatasets } from "v2/ptrs/services/data.ptrsApi";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 /**

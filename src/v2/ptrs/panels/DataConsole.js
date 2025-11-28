@@ -28,7 +28,7 @@ import {
   addDataset,
   listDatasets,
   removeDataset,
-} from "v2/ptrs/services/ptrsApi";
+} from "v2/ptrs/services/data.ptrsApi";
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 const ROLE_OPTIONS = [
