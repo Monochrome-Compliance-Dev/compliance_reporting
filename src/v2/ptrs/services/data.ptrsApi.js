@@ -3,7 +3,7 @@
 // All methods return plain objects. .js only.
 
 import { fetchWrapper } from "lib/utils/fetch-wrapper";
-import { normDataset, normDatasetList, pickData } from "./ptrsApi";
+import { normDataset, normDatasetList, normSample, pickData } from "./ptrsApi";
 
 // Avoid trailing slashes
 const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
@@ -46,4 +46,15 @@ export const removeDataset = async (ptrsId, datasetId) => {
     `${API_ROOT}/v2/ptrs/${ptrsId}/datasets/${datasetId}`
   );
   return pickData(res); // { ok: true }
+};
+
+export const getDatasetSample = async (
+  datasetId,
+  { limit = 5, offset = 0 } = {}
+) => {
+  if (!datasetId) throw new Error("datasetId is required");
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?limit=${limit}&offset=${offset}`
+  );
+  return normSample(pickData(res)); // { headers:[], rows:[] }
 };

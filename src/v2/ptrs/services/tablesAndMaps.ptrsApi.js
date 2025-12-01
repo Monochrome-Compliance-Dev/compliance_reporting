@@ -1,6 +1,6 @@
 import { fetchWrapper } from "lib/utils/fetch-wrapper";
-import { getDatasetSample, getPtrsSample, normMap, pickData } from "./ptrsApi";
-import { listDatasets } from "./data.ptrsApi";
+import { normMap, normSample, pickData } from "./ptrsApi";
+import { getDatasetSample, listDatasets } from "./data.ptrsApi";
 
 // Avoid trailing slashes
 const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
@@ -255,4 +255,14 @@ export const extractMappingsFromAny = (raw) => {
   }
 
   return null;
+};
+
+export const getPtrsSample = async (
+  ptrsId,
+  { limit = 10, offset = 0 } = {}
+) => {
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`
+  );
+  return normSample(pickData(res));
 };

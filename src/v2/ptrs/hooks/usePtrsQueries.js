@@ -1,4 +1,4 @@
-// .js only; react-router (no dom). Centralised PTRS v2 queries & mutations.
+// Centralised PTRS v2 queries & mutations.
 // Aligned to the new upload-centric backend. We keep the same hook names to
 // avoid ripples, but interpret ptrsId === uploadId.
 

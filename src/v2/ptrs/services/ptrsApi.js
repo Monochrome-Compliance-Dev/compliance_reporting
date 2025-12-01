@@ -73,7 +73,7 @@ export const normMap = (x = {}) => {
   };
 };
 
-const normSample = (x = {}) => ({
+export const normSample = (x = {}) => ({
   headers: x.headers || [],
   rows: x.rows || [],
 });
@@ -172,27 +172,6 @@ export const uploadCsv = async (ptrsId, file) => {
     fd
   );
   return normIngest(pickData(res));
-};
-
-export const getPtrsSample = async (
-  ptrsId,
-  { limit = 10, offset = 0 } = {}
-) => {
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`
-  );
-  return normSample(pickData(res));
-};
-
-export const getDatasetSample = async (
-  datasetId,
-  { limit = 5, offset = 0 } = {}
-) => {
-  if (!datasetId) throw new Error("datasetId is required");
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?limit=${limit}&offset=${offset}`
-  );
-  return normSample(pickData(res)); // { headers:[], rows:[] }
 };
 
 // // -------------------- Preview (route: /ptrs/:id/preview) ------
