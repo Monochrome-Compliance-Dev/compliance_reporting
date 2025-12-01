@@ -1,7 +1,3 @@
-// PTRS v2 service for TablesAndJoins and JoinsDesigner — aligned to /api/v2/ptrs endpoints
-// This client NORMALISES all responses so the FE never has to peel envelopes.
-// All methods return plain objects. .js only.
-
 import { fetchWrapper } from "lib/utils/fetch-wrapper";
 import { getDatasetSample, getPtrsSample, normMap, pickData } from "./ptrsApi";
 import { listDatasets } from "./data.ptrsApi";

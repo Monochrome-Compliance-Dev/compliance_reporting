@@ -33,28 +33,15 @@ export function usePtrsStatus(ptrsId) {
   return { exists, ptrsId };
 }
 
-// Ptrs upload status derived from sample count
 export function usePtrsUploadStatus(ptrsId) {
-  const enabled = !!ptrsId;
-  const query = useQuery({
-    queryKey: K.data(ptrsId),
-    queryFn: async () => {
-      const res = await api.getPtrsSample(ptrsId, { limit: 1, offset: 0 });
-      const total = res?.data?.total ?? 0;
-      return {
-        status: total > 0 ? "completed" : "idle",
-        rowCounts: { ingested: total },
-      };
-    },
-    enabled,
-    staleTime: 10_000,
-  });
-  return (
-    query.data ?? {
-      status: "idle",
-      rowCounts: { ingested: 0 },
-    }
-  );
+  if (!ptrsId) {
+    return { status: "idle", rowCounts: { ingested: 0 } };
+  }
+
+  // MVP assumption: if a PTRS run exists and we got here,
+  // we treat upload as "completed" and let the data/map steps
+  // show any real problems.
+  return { status: "completed", rowCounts: { ingested: 0 } };
 }
 
 // Map status from /map endpoint

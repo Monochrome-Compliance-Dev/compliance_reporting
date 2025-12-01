@@ -1,5 +1,3 @@
-// PTRS v2 Landing — pick up an existing run or jump into the Data Console
-
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useNavigate } from "react-router";
 import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
@@ -45,7 +43,6 @@ export default function LandingPanel() {
     try {
       const { items } = await listPtrs();
       setRuns(items || []);
-      console.log("[LandingPanel] fetched runs", items);
     } catch (e) {
       console.error(e);
       showAlert("Failed to load PTRS runs", "error");
@@ -85,6 +82,12 @@ export default function LandingPanel() {
   };
 
   const goNew = () => {
+    // Start a truly new run: clear any existing PTRS context so
+    // downstream panels don’t try to reuse an old ptrsId.
+    setPtrsId(null);
+
+    // Navigate without any query string (e.g. ?ptrsId=...), so the
+    // Data Console knows this is a fresh run, not a resume.
     navigate("/v2/ptrs/data");
   };
 
@@ -184,8 +187,8 @@ export default function LandingPanel() {
                     {r.fileName || r.id}
                   </Typography>
                   <Typography variant="caption" color="text.secondary" noWrap>
-                    Run ID: {r.id} • Status: {r.status || "New"} • Created:{" "}
-                    {formatDate(r.createdAt)}
+                    PTRS ID: {r.id} • Current Step: {r.currentStep} • Status:{" "}
+                    {r.status || "New"} • Created: {formatDate(r.createdAt)}
                   </Typography>
                 </Box>
                 <Button

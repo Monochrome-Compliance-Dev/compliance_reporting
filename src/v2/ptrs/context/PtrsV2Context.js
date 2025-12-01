@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useCallback,
 } from "react";
-import { useSearchParams } from "react-router";
+import { useSearchParams, useLocation } from "react-router";
 import { getPtrs, listProfiles } from "v2/ptrs/services/ptrsApi";
 import { getPtrsMap } from "v2/ptrs/services/tablesAndMaps.ptrsApi";
 import { listDatasets } from "v2/ptrs/services/data.ptrsApi";
@@ -20,9 +20,15 @@ const normaliseId = (val) => {
   return typeof val === "string" ? val : null;
 };
 
-const getInitialIdsFromParams = (params) => {
-  const ptrsFromParams = params.get("ptrsId");
+const getInitialIdsFromParams = (params, pathname) => {
+  const rawPtrsFromParams = params.get("ptrsId");
   const customer = getCurrentCustomer();
+
+  // On the landing route, we deliberately ignore any ptrsId that might be
+  // present in the URL. Landing should always start "clean" and let the
+  // user either create a new run or explicitly resume one, rather than
+  // implicitly restoring state from a query param.
+  const ptrsFromParams = pathname === "/v2/ptrs" ? null : rawPtrsFromParams;
 
   return {
     ptrsId: ptrsFromParams || null,
@@ -41,9 +47,12 @@ export function usePtrsV2Context() {
 }
 
 export function PtrsV2Provider({ children }) {
+  const location = useLocation();
+  const isLanding = location.pathname === "/v2/ptrs";
+
   const [params, setParams] = useSearchParams();
 
-  const initialIds = getInitialIdsFromParams(params);
+  const initialIds = getInitialIdsFromParams(params, location.pathname);
 
   const [ptrsId, _setPtrsId] = useState(initialIds.ptrsId);
   const [profileId, _setProfileId] = useState(initialIds.profileId);
@@ -73,19 +82,24 @@ export function PtrsV2Provider({ children }) {
     }
   }, []);
 
-  console.log(
-    "PtrsV2Provider render, ptrsId=",
-    ptrsId,
-    "profileId=",
-    profileId
-  );
-
   // Keep ptrsId in sync with the URL query string. profileId now lives in tenant scope only.
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const search = window.location.search || "";
     const current = new URLSearchParams(search);
+
+    // Only scrub ptrsId from the URL on the landing route when there is
+    // no active ptrsId in context. This avoids fighting against a recent
+    // navigation triggered by Resume, which sets ptrsId and then moves
+    // to a working step route.
+    if (isLanding && !ptrsId) {
+      if (current.has("ptrsId")) {
+        current.delete("ptrsId");
+        setParams(current, { replace: true });
+      }
+      return;
+    }
 
     if (ptrsId && typeof ptrsId === "string") {
       current.set("ptrsId", ptrsId);
@@ -100,7 +114,7 @@ export function PtrsV2Provider({ children }) {
     if (nextStr !== currentStr) {
       setParams(current, { replace: true });
     }
-  }, [ptrsId, setParams]);
+  }, [ptrsId, setParams, location.pathname, isLanding]);
 
   // When the global tenant selection changes, adopt its profileId into local state.
   useEffect(() => {
@@ -178,7 +192,6 @@ export function PtrsV2Provider({ children }) {
     try {
       setLoading(true);
       const res = await getPtrsMap(ptrsId);
-      console.log("[PtrsV2Context] getPtrsMap response:", res);
       const mapData = res || null;
       if (mapData) {
         setPtrsMap(mapData);
@@ -205,14 +218,26 @@ export function PtrsV2Provider({ children }) {
   }, []);
 
   useEffect(() => {
-    if (ptrsId) {
-      refreshPtrsMeta();
-      refreshDatasets();
-      refreshPtrsMap();
-    } else {
+    if (!ptrsId) {
       clearCache();
+      return;
     }
-  }, [ptrsId, refreshPtrsMeta, refreshDatasets, refreshPtrsMap, clearCache]);
+
+    if (isLanding) {
+      return;
+    }
+
+    refreshPtrsMeta();
+    refreshDatasets();
+    refreshPtrsMap();
+  }, [
+    ptrsId,
+    refreshPtrsMeta,
+    refreshDatasets,
+    isLanding,
+    refreshPtrsMap,
+    clearCache,
+  ]);
 
   const value = {
     // new canonical identifiers

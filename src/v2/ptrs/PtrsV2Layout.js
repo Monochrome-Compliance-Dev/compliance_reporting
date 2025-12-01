@@ -59,7 +59,9 @@ export default function PtrsV2Layout() {
     const urlPtrsId = params.get("ptrsId");
 
     // If the URL already contains a ptrsId, let the context rehydrate from it.
-    if (urlPtrsId) return;
+    if (urlPtrsId) {
+      return;
+    }
 
     // If we're on a route that is allowed without a ptrsId (landing or data console),
     // don't redirect. This is where a new PTRS run is created.
@@ -70,7 +72,14 @@ export default function PtrsV2Layout() {
     if (!ptrsId) {
       navigate("/v2/ptrs/landing", { replace: true });
     }
-  }, [location.search, isLanding, isDataConsole, ptrsId, navigate]);
+  }, [
+    location.search,
+    isLanding,
+    location.pathname,
+    isDataConsole,
+    ptrsId,
+    navigate,
+  ]);
 
   useEffect(() => {
     if (typeof showAlert === "function")
@@ -268,7 +277,7 @@ export default function PtrsV2Layout() {
           <Button
             variant="contained"
             onClick={() => {
-              const cur = getCurrentCustomer() || {};
+              // const cur = getCurrentCustomer() || {};
               // setCurrentCustomer({
               //   id: cur.id,
               //   name: cur.name,

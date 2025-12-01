@@ -14,6 +14,7 @@ const ptrsRoutes = [
       // Show Landing at /v2/ptrs
       { index: true, Component: LandingPanel },
       // Wizard steps
+      { path: "create", Component: DataConsole },
       { path: "data", Component: DataConsole },
       { path: "tables", Component: TablesAndJoinsPanel },
       { path: "map", Component: MapPanel },
