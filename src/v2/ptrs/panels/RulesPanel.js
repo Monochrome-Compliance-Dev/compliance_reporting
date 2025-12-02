@@ -15,6 +15,11 @@ import {
   FormControlLabel,
   Chip,
   Paper,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Autocomplete,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
@@ -24,7 +29,8 @@ import {
   applyRules,
   savePtrsRules,
   getPtrsRules,
-} from "../services/ptrsApi";
+  listRuleSources,
+} from "../services/rules.ptrsApi";
 import { getStagePreview } from "v2/ptrs/services/stage.ptrsApi";
 
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
@@ -94,7 +100,9 @@ export default function RulesPanel() {
   const [isApplying, setIsApplying] = useState(false);
 
   const [headers, setHeaders] = useState([]);
-  const [rowsPreviewed, setRowsPreviewed] = useState(0);
+  const [ruleSources, setRuleSources] = useState([]);
+  const [importOpen, setImportOpen] = useState(false);
+  const [selectedRuleSource, setSelectedRuleSource] = useState(null);
   const [rulesState, setRulesState] = useState(() => {
     const initial = Array.isArray(ctxPtrsMap?.rowRules)
       ? ctxPtrsMap.rowRules
@@ -103,6 +111,17 @@ export default function RulesPanel() {
   });
 
   const fetchedOnceRef = useRef({});
+
+  const openImportDialog = (event) => {
+    if (
+      event &&
+      event.currentTarget &&
+      typeof event.currentTarget.blur === "function"
+    ) {
+      event.currentTarget.blur();
+    }
+    setImportOpen(true);
+  };
 
   // load staged headers for field pickers (seed from map; then try server)
   useEffect(() => {
@@ -197,6 +216,28 @@ export default function RulesPanel() {
     };
   }, [ptrsId]);
 
+  // fetch any existing rule sources for this customer/profile so the UI
+  // can later offer "import rules from previous report" behaviour
+  useEffect(() => {
+    if (!ptrsId) return;
+
+    let cancelled = false;
+
+    const loadRuleSources = async () => {
+      try {
+        const sources = await listRuleSources(ptrsId);
+        if (!cancelled) setRuleSources(sources);
+      } catch (e) {
+        // non-blocking: ignore failures
+      }
+    };
+
+    loadRuleSources();
+    return () => {
+      cancelled = true;
+    };
+  }, [ptrsId, profileId]);
+
   // Update headers with fields referenced in rulesState
   useEffect(() => {
     if (!Array.isArray(rulesState) || rulesState.length === 0) return;
@@ -255,6 +296,7 @@ export default function RulesPanel() {
       ? Object.keys(ctxPtrsMap.mappings).length
       : 0,
     hookMapKeys: map?.mappings ? Object.keys(map.mappings).length : 0,
+    ruleSourcesCount: ruleSources.length,
   });
 
   const blankRule = () => ({
@@ -387,6 +429,51 @@ export default function RulesPanel() {
     });
   };
 
+  const copyRulesFromPtrsId = async (otherPtrsId) => {
+    if (!otherPtrsId) {
+      showAlert("Pick a PTRS run to copy rules from", "info");
+      return;
+    }
+
+    try {
+      const { rowRules = [], crossRowRules = [] } =
+        await getPtrsRules(otherPtrsId);
+
+      const rows = Array.isArray(rowRules)
+        ? rowRules.map((r, i) => ({
+            id: r.id || `r${i + 1}`,
+            type: r.type || "row",
+            ...r,
+          }))
+        : [];
+
+      const crosses = Array.isArray(crossRowRules)
+        ? crossRowRules.map((r, j) => ({
+            id: r.id || `x${j + 1}`,
+            type: "crossRow",
+            ...r,
+          }))
+        : [];
+
+      if (!rows.length && !crosses.length) {
+        showAlert("No rules found on that PTRS run.", "info");
+        return;
+      }
+
+      setRulesState([...rows, ...crosses]);
+      setImportOpen(false);
+      showAlert(
+        `Copied ${rows.length} row rule(s) and ${crosses.length} cross-row rule(s).`,
+        "success"
+      );
+    } catch (e) {
+      showAlert(
+        e?.message || "Failed to copy rules from that PTRS run.",
+        "error"
+      );
+    }
+  };
+
   const handlePreview = async () => {
     setIsPreviewing(true);
     try {
@@ -400,7 +487,6 @@ export default function RulesPanel() {
           `Preview ready — ${res.count} target row(s) would be adjusted.`,
           "success"
         );
-        setRowsPreviewed(res.count);
         return;
       }
       // Pull a small header set for the builder later (not shown yet)
@@ -794,12 +880,17 @@ export default function RulesPanel() {
             <Typography variant="subtitle1" fontWeight={600}>
               Row rules
             </Typography>
-            <Button
-              size="small"
-              onClick={() => setRulesState((r) => [...r, blankRule()])}
-            >
-              Add rule
-            </Button>
+            <Stack direction="row" spacing={1}>
+              <Button size="small" onClick={openImportDialog}>
+                Import / Copy rules
+              </Button>
+              <Button
+                size="small"
+                onClick={() => setRulesState((r) => [...r, blankRule()])}
+              >
+                Add rule
+              </Button>
+            </Stack>
           </Stack>
 
           <Stack spacing={2}>
@@ -1331,6 +1422,79 @@ export default function RulesPanel() {
           </Typography>
         )}
       </Stack>
+
+      <Dialog
+        open={importOpen}
+        onClose={(event, reason) => {
+          if (reason === "backdropClick") return;
+          setImportOpen(false);
+        }}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>Import / Copy rules</DialogTitle>
+        <DialogContent dividers>
+          <Stack spacing={2}>
+            {ruleSources.length === 0 ? (
+              <Typography variant="body2" color="text.secondary">
+                No existing rule sets found for this profile yet.
+              </Typography>
+            ) : (
+              <>
+                <Typography variant="body2" color="text.secondary">
+                  Copy rules from a previous PTRS run:
+                </Typography>
+                <Autocomplete
+                  size="small"
+                  options={ruleSources}
+                  isOptionEqualToValue={(opt, val) =>
+                    (opt.id || opt.ptrsId) === (val?.id || val?.ptrsId)
+                  }
+                  getOptionLabel={(opt) => {
+                    if (!opt) return "";
+                    const id = opt.id || opt.ptrsId || "";
+                    const fileName = opt.fileName || "";
+                    const createdAt = opt.createdAt
+                      ? new Date(opt.createdAt).toLocaleDateString()
+                      : "";
+                    if (fileName && createdAt) {
+                      return `${fileName} — ${createdAt}`;
+                    }
+                    if (fileName) return fileName;
+                    return String(id);
+                  }}
+                  value={selectedRuleSource}
+                  onChange={(e, val) => setSelectedRuleSource(val)}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="Copy rules from…"
+                      placeholder="Pick a previous PTRS"
+                    />
+                  )}
+                />
+              </>
+            )}
+          </Stack>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setImportOpen(false)}>Close</Button>
+          <Button
+            disabled={ruleSources.length === 0}
+            onClick={() => {
+              if (selectedRuleSource) {
+                const otherId =
+                  selectedRuleSource.id || selectedRuleSource.ptrsId;
+                copyRulesFromPtrsId(otherId);
+              } else {
+                showAlert("Pick a PTRS run to copy rules from", "info");
+              }
+            }}
+          >
+            Copy
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }
