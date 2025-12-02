@@ -19,7 +19,8 @@ import {
 } from "@mui/material";
 import { useSearchParams, useNavigate } from "react-router";
 import { useAlert } from "context";
-import { stagePtrs, getPtrs, getStagePreview } from "v2/ptrs/services/ptrsApi";
+import { getPtrs } from "v2/ptrs/services/ptrsApi";
+import { stagePtrs, getStagePreview } from "v2/ptrs/services/stage.ptrsApi";
 import { listDatasets } from "v2/ptrs/services/data.ptrsApi";
 
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";

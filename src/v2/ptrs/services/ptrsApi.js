@@ -82,7 +82,7 @@ const normIngest = (x = {}) => ({
   rowsInserted: x.rowsInserted ?? x.inserted ?? 0,
 });
 
-const normPreview = (x = {}) => ({
+export const normPreview = (x = {}) => ({
   headers: x.headers || [],
   rows: x.rows || [],
   stats: x.stats || null,
@@ -183,32 +183,6 @@ export const uploadCsv = async (ptrsId, file) => {
 //   return normPreview(pickData(res));
 // };
 
-// New function: getStagePreview
-export const getStagePreview = async (
-  ptrsId,
-  { limit = 20, profileId = null } = {}
-) => {
-  if (!ptrsId) throw new Error("ptrsId is required");
-  const q = new URLSearchParams();
-  q.set("limit", String(limit));
-  if (profileId) q.set("profileId", String(profileId));
-  try {
-    const res = await fetchWrapper.get(
-      `${API_ROOT}/v2/ptrs/${ptrsId}/stage/preview?${q.toString()}`
-    );
-    return normPreview(pickData(res));
-  } catch (err) {
-    // fallback to generic preview if BE doesn't expose stage/preview yet
-    const body = { steps: ["stage"], limit };
-    if (profileId) body.profileId = profileId;
-    const res2 = await fetchWrapper.post(
-      `${API_ROOT}/v2/ptrs/${ptrsId}/preview`,
-      body
-    );
-    return normPreview(pickData(res2));
-  }
-};
-
 // -------------------- Rules (routes: /ptrs/:id/rules/...) ---
 export const previewRules = async (ptrsId, { limit = 50 } = {}) => {
   if (!ptrsId) throw new Error("ptrsId is required");
@@ -256,37 +230,6 @@ export const savePtrsRules = async (
   return {
     rowRules: data.rowRules || [],
     crossRowRules: data.crossRowRules || [],
-  };
-};
-
-// -------------------- Staging (route: /ptrs/:id/stage) -------
-export const stagePtrs = async (
-  ptrsId,
-  { profileId = "", persist = false } = {}
-) => {
-  if (!ptrsId) throw new Error("ptrsId is required");
-
-  // Build payload: always include profileId, optionally include persist
-  const payload = { profileId };
-  if (persist != null) payload.persist = Boolean(persist);
-
-  const res = await fetchWrapper.post(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/stage`,
-    payload
-  );
-
-  // Normalise the response so the UI can rely on a stable shape
-  const d = pickData(res) || {};
-  const rowsIn = d.rowsIn ?? d.affectedCount ?? d.inputCount ?? d.inCount ?? 0;
-  const rowsOut =
-    d.rowsOut ?? d.persistedCount ?? d.outputCount ?? d.outCount ?? 0;
-
-  return {
-    rowsIn,
-    rowsOut,
-    tookMs: d.tookMs ?? d.durationMs ?? null,
-    sample: d.sample || null,
-    stats: d.stats || null,
   };
 };
 

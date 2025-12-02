@@ -22,10 +22,10 @@ import { useStepStatuses } from "../hooks/useStepStatuses";
 import {
   previewRules,
   applyRules,
-  getStagePreview,
   savePtrsRules,
   getPtrsRules,
 } from "../services/ptrsApi";
+import { getStagePreview } from "v2/ptrs/services/stage.ptrsApi";
 
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 

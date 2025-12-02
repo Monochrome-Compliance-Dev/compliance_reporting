@@ -41,8 +41,11 @@ import {
   getUnifiedSample,
 } from "v2/ptrs/services/tablesAndMaps.ptrsApi";
 
+// Map stuff
+import { getStagePreview } from "v2/ptrs/services/stage.ptrsApi";
+
 // core run/blueprint stuff
-import { getBlueprint, getStagePreview } from "v2/ptrs/services/ptrsApi";
+import { getBlueprint } from "v2/ptrs/services/ptrsApi";
 
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 import {
