@@ -1448,7 +1448,10 @@ export default function RulesPanel() {
                   size="small"
                   options={ruleSources}
                   isOptionEqualToValue={(opt, val) =>
-                    (opt.id || opt.ptrsId) === (val?.id || val?.ptrsId)
+                    !!opt &&
+                    !!val &&
+                    typeof opt.ptrsId === "string" &&
+                    opt.ptrsId === val.ptrsId
                   }
                   getOptionLabel={(opt) => {
                     if (!opt) return "";
@@ -1482,13 +1485,22 @@ export default function RulesPanel() {
           <Button
             disabled={ruleSources.length === 0}
             onClick={() => {
-              if (selectedRuleSource) {
-                const otherId =
-                  selectedRuleSource.id || selectedRuleSource.ptrsId;
-                copyRulesFromPtrsId(otherId);
-              } else {
+              if (!selectedRuleSource) {
                 showAlert("Pick a PTRS run to copy rules from", "info");
+                return;
               }
+
+              const otherPtrsId = selectedRuleSource.ptrsId;
+
+              if (!otherPtrsId) {
+                showAlert(
+                  "Selected rule source is missing a PTRS run id.",
+                  "error"
+                );
+                return;
+              }
+
+              copyRulesFromPtrsId(otherPtrsId);
             }}
           >
             Copy
