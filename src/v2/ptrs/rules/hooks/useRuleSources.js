@@ -12,7 +12,11 @@ export default function useRuleSources(ptrsId, profileId) {
       setLoading(true);
       try {
         const data = await listRuleSources(ptrsId, profileId);
-        setSources(data || []);
+        // Do not normalise here – API layer is responsible for shaping data
+        setSources(data);
+      } catch {
+        // On error, expose the failure by clearing sources but do not guess shape
+        setSources(undefined);
       } finally {
         setLoading(false);
       }

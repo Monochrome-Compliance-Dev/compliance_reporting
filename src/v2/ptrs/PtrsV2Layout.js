@@ -26,7 +26,6 @@ import {
 } from "@mui/material";
 import PageMeta from "components/ui/PageMeta";
 import { STEPS } from "./steps";
-import { useStepStatuses } from "./hooks/useStepStatuses";
 import { usePtrsV2Context } from "./context/PtrsV2Context";
 
 export default function PtrsV2Layout() {
@@ -105,8 +104,6 @@ export default function PtrsV2Layout() {
     return STEPS.some((s) => s.id === maybe) ? maybe : "create";
   }, [location.pathname, isLanding]);
 
-  const { gates } = useStepStatuses(ptrsId, currentStepId);
-
   const currentIndex = useMemo(
     () =>
       Math.max(
@@ -115,6 +112,21 @@ export default function PtrsV2Layout() {
       ),
     [currentStepId]
   );
+
+  const gates = useMemo(() => {
+    const result = {};
+    STEPS.forEach((s) => {
+      if (s.id === "landing") {
+        result[s.id] = true;
+      } else if (!ptrsId) {
+        result[s.id] = false;
+      } else {
+        // For MVP, once a ptrsId exists, allow all steps.
+        result[s.id] = true;
+      }
+    });
+    return result;
+  }, [ptrsId]);
 
   function goToStep(index) {
     const target = STEPS[index]?.id || "landing";
@@ -184,7 +196,7 @@ export default function PtrsV2Layout() {
             {STEPS.map((s, idx) => (
               <Step
                 key={s.id}
-                completed={Boolean(gates[s.id])}
+                completed={idx < currentIndex}
                 disabled={stepDisabled(s.id)}
               >
                 <StepLabel

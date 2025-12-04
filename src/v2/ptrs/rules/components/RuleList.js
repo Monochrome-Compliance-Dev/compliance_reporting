@@ -13,7 +13,11 @@ export default function RuleList({ rules, headers, onUpdate, onRemove }) {
   return (
     <Stack spacing={2}>
       {rules.map((rule, idx) => (
-        <Paper key={rule.id} variant="outlined" sx={{ p: 2 }}>
+        <Paper
+          key={rule.cid || rule.id || idx}
+          variant="outlined"
+          sx={{ p: 2 }}
+        >
           <RuleCard
             rule={rule}
             index={idx}

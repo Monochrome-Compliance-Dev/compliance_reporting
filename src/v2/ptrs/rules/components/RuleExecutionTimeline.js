@@ -1,9 +1,10 @@
 import { Stack, Paper, Typography } from "@mui/material";
 
 export default function RuleExecutionTimeline({ history }) {
-  if (!history || !history.length) {
+  // FE must not normalise backend shape, but it must render defensively.
+  if (!Array.isArray(history) || history.length === 0) {
     return (
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body2" color="text.secondary" sx={{ mt: 3 }}>
         No transformation history recorded yet.
       </Typography>
     );
@@ -14,12 +15,16 @@ export default function RuleExecutionTimeline({ history }) {
       {history.map((step) => (
         <Paper key={step.id} variant="outlined" sx={{ p: 2 }}>
           <Typography variant="subtitle2">{step.label}</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {step.description}
-          </Typography>
-          <Typography variant="caption">
-            {new Date(step.createdAt).toLocaleString()}
-          </Typography>
+          {step.description && (
+            <Typography variant="body2" color="text.secondary">
+              {step.description}
+            </Typography>
+          )}
+          {step.createdAt && (
+            <Typography variant="caption">
+              {new Date(step.createdAt).toLocaleString()}
+            </Typography>
+          )}
         </Paper>
       ))}
     </Stack>

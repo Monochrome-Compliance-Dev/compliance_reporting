@@ -1,4 +1,4 @@
-import { Stack, Typography, Button } from "@mui/material";
+import { Stack, Button } from "@mui/material";
 import RuleMetaSection from "./RuleMetaSection";
 import RulePurposeSelect from "./RulePurposeSelect";
 import RuleConditionBuilder from "./RuleConditionBuilder";

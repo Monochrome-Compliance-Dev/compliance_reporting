@@ -12,11 +12,14 @@ export default function useRuleExecutionHistory(ptrsId) {
       setLoading(true);
       try {
         const data = await getPtrsHistory(ptrsId);
-        setHistory(data || []);
+        setHistory(data); // ← raw, unmodified
+      } catch {
+        setHistory(undefined); // ← FE can't normalise BE shape
       } finally {
         setLoading(false);
       }
     };
+
     load();
   }, [ptrsId]);
 

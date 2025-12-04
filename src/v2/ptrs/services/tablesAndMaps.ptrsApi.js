@@ -40,6 +40,27 @@ export const savePtrsMap = async (
   return normMap(pickData(res));
 };
 
+// Build and persist the mapped + joined dataset for this PTRS run
+export const buildPtrsMappedDataset = async (ptrsId) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/map/build-mapped`,
+    {}
+  );
+
+  const data = pickData(res) || {};
+
+  const count =
+    typeof data.count === "number" && Number.isFinite(data.count)
+      ? data.count
+      : 0;
+
+  const headers = Array.isArray(data.headers) ? data.headers : [];
+
+  return { count, headers };
+};
+
 // Unified sample: returns merged headers + examples from main + supporting datasets
 export const getUnifiedSample = async (
   ptrsId,

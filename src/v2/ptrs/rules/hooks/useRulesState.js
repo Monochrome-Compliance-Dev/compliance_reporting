@@ -4,18 +4,40 @@ export default function useRulesState(initialRules = []) {
   const [rules, setRules] = useState(initialRules);
   const [isSaving, setIsSaving] = useState(false);
 
+  const resetRules = (nextRules) => {
+    setRules(Array.isArray(nextRules) ? nextRules : []);
+  };
+
   const addRule = () => {
     setRules((prev) => [
       ...prev,
       {
-        id: crypto.randomUUID(),
+        // Client-only identifier
+        cid: crypto.randomUUID(),
+        id: undefined,
+
+        // Meta
         label: "",
         description: "",
         enabled: true,
         type: "row",
+
+        // Conditions
         when: [],
-        target: {},
-        action: {},
+
+        // Relationship (safe empty structure)
+        target: {
+          match: [],
+          where: [],
+        },
+
+        // Action – IMPORTANT: give selects a valid initial value
+        action: {
+          op: "add", // one of: add | sub | mul | div | assign
+          field: "", // '' is allowed by MUI as “no selection yet”
+          valueFieldFromCurrent: "", // same
+          round: 2,
+        },
       },
     ]);
   };
@@ -41,6 +63,7 @@ export default function useRulesState(initialRules = []) {
 
   return {
     rules,
+    resetRules,
     addRule,
     updateRule,
     removeRule,

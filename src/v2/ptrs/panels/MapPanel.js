@@ -39,6 +39,7 @@ import {
   listPtrsWithMap,
   extractMappingsFromAny,
   getUnifiedSample,
+  buildPtrsMappedDataset,
 } from "v2/ptrs/services/tablesAndMaps.ptrsApi";
 
 // Map stuff
@@ -659,29 +660,54 @@ export default function MapPanel() {
 
   // UI bits
   const navigate = useNavigate();
+
   const stageData = async () => {
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
     }
 
+    setLoading(true);
     try {
-      await updatePtrsStep.mutateAsync({ currentStep: "stage" });
-    } catch (e) {
-      // Surface the error but still allow navigation so the user isn't blocked
-      showAlert(e?.message || "Failed to update PTRS step", "error");
-    }
+      // Ensure the latest mapping is persisted before building the dataset
+      await save(true);
 
-    try {
-      // Always use context profileId
-      const qs = new URLSearchParams();
-      qs.set("ptrsId", ptrsId);
-      if (profileId) qs.set("profileId", profileId);
-      navigate(`/v2/ptrs/stage?${qs.toString()}`);
-    } catch (err) {
-      showAlert(err?.message || "Failed to navigate to staging", "error");
+      // Build the mapped + joined dataset snapshot for this PTRS run
+      const { count } = await buildPtrsMappedDataset(ptrsId);
+
+      showAlert(
+        `Built mapped dataset with ${count} row${count === 1 ? "" : "s"}`,
+        "success"
+      );
+
+      // Advance PTRS step to 'stage'
+      try {
+        await updatePtrsStep.mutateAsync({ currentStep: "stage" });
+      } catch (e) {
+        // Surface the error and bail; don't pretend this worked
+        showAlert(e?.message || "Failed to update PTRS step", "error");
+        return;
+      }
+
+      // Navigate to staging view, always using context profileId
+      try {
+        const qs = new URLSearchParams();
+        qs.set("ptrsId", ptrsId);
+        if (profileId) qs.set("profileId", profileId);
+        navigate(`/v2/ptrs/stage?${qs.toString()}`);
+      } catch (err) {
+        showAlert(err?.message || "Failed to navigate to staging", "error");
+      }
+    } catch (error) {
+      showAlert(
+        error?.message || "Failed to build mapped dataset for this PTRS run",
+        "error"
+      );
+    } finally {
+      setLoading(false);
     }
   };
+
   const TargetBin = ({ field }) => {
     const assigned = assign[field] || null;
     const options = headers;

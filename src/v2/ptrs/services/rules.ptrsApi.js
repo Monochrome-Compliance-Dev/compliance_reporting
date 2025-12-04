@@ -80,3 +80,16 @@ export const savePtrsRules = async (
     crossRowRules: data.crossRowRules || [],
   };
 };
+
+export const previewRulesSandbox = async (
+  ptrsId,
+  { filters = [], limit = 50 } = {}
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/rules/sandbox/preview`,
+    { filters, limit }
+  );
+  const d = pickData(res);
+  return d || {};
+};

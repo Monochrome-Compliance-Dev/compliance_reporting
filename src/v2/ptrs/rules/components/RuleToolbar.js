@@ -1,6 +1,4 @@
 import { Stack, Button } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import { useAlert } from "context";
 
 export default function RuleToolbar({
   onImport,
@@ -12,9 +10,6 @@ export default function RuleToolbar({
   isApplying,
   canApply,
 }) {
-  const theme = useTheme();
-  const { showAlert } = useAlert();
-
   return (
     <Stack direction="row" spacing={1} sx={{ mb: 2 }}>
       <Button size="small" onClick={onImport}>
