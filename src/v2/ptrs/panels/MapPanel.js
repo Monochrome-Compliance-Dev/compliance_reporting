@@ -71,6 +71,7 @@ export default function MapPanel() {
   const [examples, setExamples] = useState({});
   const [headerMeta, setHeaderMeta] = useState({});
   const [loading, setLoading] = useState(false);
+  const [staging, setStaging] = useState(false);
 
   const [ptrssWithMaps, setPtrssWithMaps] = useState([]);
   const [selectedCopyPtrs, setSelectedCopyPtrs] = useState(null);
@@ -667,6 +668,13 @@ export default function MapPanel() {
       return;
     }
 
+    // Let the user know this might be slow
+    showAlert(
+      "Building the mapped dataset now. This step can take a while for large datasets — feel free to grab a coffee while it runs.",
+      "info"
+    );
+
+    setStaging(true);
     setLoading(true);
     try {
       // Ensure the latest mapping is persisted before building the dataset
@@ -704,6 +712,7 @@ export default function MapPanel() {
         "error"
       );
     } finally {
+      setStaging(false);
       setLoading(false);
     }
   };
@@ -1108,35 +1117,47 @@ export default function MapPanel() {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Stack direction="row" spacing={1}>
-              <Button
-                size="small"
-                startIcon={<DeleteSweepIcon />}
-                onClick={clearAll}
-                disabled={!Object.keys(assign).length}
+            {!staging && (
+              <Stack direction="row" spacing={1}>
+                <Button
+                  size="small"
+                  startIcon={<DeleteSweepIcon />}
+                  onClick={clearAll}
+                  disabled={!Object.keys(assign).length}
+                >
+                  Clear all
+                </Button>
+                <Button
+                  size="small"
+                  startIcon={<AutoFixHighIcon />}
+                  onClick={autoSuggest}
+                >
+                  Auto-suggest
+                </Button>
+                <Button
+                  size="small"
+                  startIcon={<ContentPasteGoIcon />}
+                  onClick={openImportDialog}
+                >
+                  Import / Copy map
+                </Button>
+              </Stack>
+            )}
+
+            {staging && (
+              <Typography
+                variant="caption"
+                color="text.secondary"
+                sx={{ ml: 1 }}
               >
-                Clear all
-              </Button>
-              <Button
-                size="small"
-                startIcon={<AutoFixHighIcon />}
-                onClick={autoSuggest}
-              >
-                Auto-suggest
-              </Button>
-              <Button
-                size="small"
-                startIcon={<ContentPasteGoIcon />}
-                onClick={openImportDialog}
-              >
-                Import / Copy map
-              </Button>
-            </Stack>
+                Building mapped dataset… this can take a while for large files.
+              </Typography>
+            )}
             <Stack direction="row" spacing={1}>
               <Button
                 variant="contained"
                 onClick={save}
-                disabled={loading || !ptrsId}
+                disabled={loading || !ptrsId || staging}
               >
                 Save map
               </Button>
@@ -1144,7 +1165,9 @@ export default function MapPanel() {
                 variant="contained"
                 endIcon={<NavigateNextIcon />}
                 onClick={stageData}
-                disabled={requiredMappedCount < PTRS_REQUIRED_FIELDS.length}
+                disabled={
+                  requiredMappedCount < PTRS_REQUIRED_FIELDS.length || staging
+                }
               >
                 Next: Stage data
               </Button>

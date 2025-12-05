@@ -181,7 +181,10 @@ export default function StagePanel() {
           rowsCount: pv?.rows?.length || 0,
           firstRowRaw: Array.isArray(pv?.rows) ? pv.rows[0] : undefined,
         });
-        if (mountedRef.current && pv) setPreview(pv);
+        if (mountedRef.current && pv) {
+          setPreview(pv);
+          setShowPreview(true);
+        }
       } catch (_) {}
     } catch (err) {
       console.error("[StagePanel] stagePtrs error:", err);
@@ -235,7 +238,7 @@ export default function StagePanel() {
       <Typography variant="h5" gutterBottom>
         Stage data
       </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+      <Typography variant="body1" sx={{ mb: 2 }}>
         Merge the uploaded datasets (e.g. Vendor Master, Payment Term Changes,
         Holdings) and apply your column map to produce a clean, unified staging
         table for the PTRS report. You can re-run staging at any time – it is
@@ -304,32 +307,67 @@ export default function StagePanel() {
 
       {/* Action + Status */}
       <Paper sx={{ p: 2, mb: 3 }}>
-        {loading ? (
-          <Stack alignItems="center" spacing={2}>
-            <CircularProgress />
-            <Typography>Preparing staged dataset…</Typography>
-          </Stack>
-        ) : result ? (
-          <Stack spacing={1}>
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <CheckCircleIcon color="success" />
-              <Typography variant="subtitle1">Staging complete</Typography>
-            </Stack>
-            <Typography variant="body2">
-              {result.rowsIn || 0} input rows → {result.rowsOut || 0} staged
-              rows.
-            </Typography>
-            {result.tookMs != null && (
-              <Typography variant="body2" color="text.secondary">
-                Duration: {result.tookMs} ms
-              </Typography>
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          spacing={2}
+          justifyContent="space-between"
+          alignItems={{ md: "center" }}
+        >
+          <Box sx={{ flex: 1 }}>
+            {loading ? (
+              <Stack alignItems="center" spacing={2}>
+                <CircularProgress />
+                <Typography>Preparing staged dataset…</Typography>
+              </Stack>
+            ) : result ? (
+              <Stack spacing={1}>
+                <Stack direction="row" alignItems="center" spacing={1}>
+                  <CheckCircleIcon color="success" />
+                  <Typography variant="subtitle1">Staging complete</Typography>
+                </Stack>
+                <Typography variant="body2">
+                  {result.rowsIn || 0} input rows → {result.rowsOut || 0} staged
+                  rows.
+                </Typography>
+                {result.tookMs != null && (
+                  <Typography variant="body2" color="text.secondary">
+                    Duration: {result.tookMs} ms
+                  </Typography>
+                )}
+              </Stack>
+            ) : (
+              <Stack spacing={1}>
+                <Typography variant="subtitle1">
+                  Build your staged dataset
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Run staging to merge your mapped PTRS rows with the latest
+                  uploaded datasets and create the clean staging table used by
+                  the rules engine. You can safely re-run this at any time.
+                </Typography>
+              </Stack>
             )}
+          </Box>
+
+          <Stack direction="row" spacing={1}>
+            <Button
+              variant="outlined"
+              startIcon={<ReplayIcon />}
+              disabled={loading}
+              onClick={handleStage}
+            >
+              {result ? "Run again" : "Run staging"}
+            </Button>
+            <Button
+              variant="contained"
+              endIcon={<NavigateNextIcon />}
+              disabled={loading || !result}
+              onClick={handleGoToRules}
+            >
+              Next: Apply rules
+            </Button>
           </Stack>
-        ) : (
-          <Typography variant="body2" color="text.secondary">
-            Nothing staged yet. Click below to ptrs staging.
-          </Typography>
-        )}
+        </Stack>
       </Paper>
 
       {/* Preview */}
@@ -368,25 +406,6 @@ export default function StagePanel() {
             </Typography>
           ))}
       </Paper>
-
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-        <Button
-          variant="outlined"
-          startIcon={<ReplayIcon />}
-          disabled={loading}
-          onClick={handleStage}
-        >
-          {result ? "Run again" : "Run staging"}
-        </Button>
-        <Button
-          variant="contained"
-          endIcon={<NavigateNextIcon />}
-          disabled={loading || !result}
-          onClick={handleGoToRules}
-        >
-          Next: Apply rules
-        </Button>
-      </Stack>
 
       <Divider sx={{ my: 3 }} />
       <Button
