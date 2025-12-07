@@ -49,59 +49,9 @@ const operatorOptions = [
   { value: "lte", label: "less or equal" },
   { value: "in", label: "in list" },
   { value: "nin", label: "not in list" },
+  { value: "is_null", label: "is empty / null" },
+  { value: "not_null", label: "is not empty / null" },
 ];
-
-const applyFilter = (rows, { field, op, value }) => {
-  if (!field || !op) return rows;
-  const val = String(value ?? "").trim();
-  if (!val && !["is_null", "not_null"].includes(op)) return rows;
-
-  const toNum = (v) => {
-    const n = Number(String(v).replace(/[, ]+/g, ""));
-    return Number.isFinite(n) ? n : NaN;
-  };
-
-  return rows.filter((row) => {
-    const raw = row[field];
-    const s = raw == null ? "" : String(raw);
-
-    switch (op) {
-      case "eq":
-        return s === val;
-      case "neq":
-        return s !== val;
-      case "gt":
-        return toNum(raw) > toNum(val);
-      case "gte":
-        return toNum(raw) >= toNum(val);
-      case "lt":
-        return toNum(raw) < toNum(val);
-      case "lte":
-        return toNum(raw) <= toNum(val);
-      case "in": {
-        const parts = val
-          .split(",")
-          .map((p) => p.trim())
-          .filter(Boolean);
-        return parts.includes(s);
-      }
-      case "nin": {
-        const parts = val
-          .split(",")
-          .map((p) => p.trim())
-          .filter(Boolean);
-        return !parts.includes(s);
-      }
-      default:
-        return true;
-    }
-  });
-};
-
-const applyFilters = (rows, filters) => {
-  if (!Array.isArray(filters) || !filters.length) return rows;
-  return filters.reduce((current, f) => applyFilter(current, f), rows);
-};
 
 export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
   const theme = useTheme();
@@ -147,19 +97,31 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
       return;
     }
 
+    const effectiveLimit = Number(limit) || DEFAULT_LIMIT;
+
+    const payloadFilters = filters.filter((f) => {
+      const hasFieldAndOp = f.field && f.op;
+      const rawVal = f.value ?? "";
+      const trimmed = String(rawVal).trim();
+      const isNullOp = f.op === "is_null" || f.op === "not_null";
+      return hasFieldAndOp && (trimmed || isNullOp);
+    });
+
     setLoading(true);
     try {
-      const prev = await previewRulesSandbox(ptrsId, { limit: 2000 });
-      const allRows = prev?.rows || [];
-      const filtered = applyFilters(allRows, filters);
-      const limited = filtered.slice(0, Number(limit) || DEFAULT_LIMIT);
+      const prev = await previewRulesSandbox(ptrsId, {
+        filters: payloadFilters,
+        limit: effectiveLimit,
+      });
 
-      setRows(limited);
-      setTotalCount(filtered.length);
+      const allRows = prev?.rows || [];
+      const total = prev?.stats?.totalMatching ?? allRows.length;
+      const shown = allRows.length;
+
+      setRows(allRows);
+      setTotalCount(total);
       setPreviewHeaders(normaliseHeaders(prev?.headers || headers));
 
-      const total = filtered.length;
-      const shown = limited.length;
       showAlert(
         `Previewing ${shown} of ${total} matching row(s) for this filter.`,
         "info"
@@ -172,7 +134,7 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
     }
   };
 
-  const handleUseAsRule = () => {
+  const handleUseAsRule = (kind = "row") => {
     if (!hasFilter) {
       showAlert(
         "Define at least one condition before creating a rule.",
@@ -196,15 +158,25 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
     }
 
     onSeedRule({
-      field: primary.field,
-      op: primary.op,
-      value: primary.value,
+      kind,
+      condition: {
+        field: primary.field,
+        op: primary.op,
+        value: primary.value,
+      },
     });
 
-    showAlert(
-      "Added a new rule based on the first condition. You can refine it in the rule editor.",
-      "success"
-    );
+    if (kind === "crossRow") {
+      showAlert(
+        "Added a new cross-row adjustment. You can wire the matching fields and amounts in the rule editor.",
+        "success"
+      );
+    } else {
+      showAlert(
+        "Added a new rule based on the first condition. You can refine it in the rule editor.",
+        "success"
+      );
+    }
   };
 
   const handleClear = () => {
@@ -335,10 +307,18 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
           </Button>
           <Button
             variant="outlined"
-            onClick={handleUseAsRule}
+            onClick={() => handleUseAsRule("row")}
             disabled={!hasFilter}
           >
             Use as new rule
+          </Button>
+          <Button
+            variant="outlined"
+            onClick={() => handleUseAsRule("crossRow")}
+            disabled={!hasFilter}
+            sx={{ ml: 0 }}
+          >
+            Use as cross-row adjustment
           </Button>
           <Button variant="text" onClick={handleClear}>
             Clear

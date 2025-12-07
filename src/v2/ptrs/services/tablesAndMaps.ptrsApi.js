@@ -11,7 +11,7 @@ export const getPtrsMap = async (ptrsId) => {
   return normMap(pickData(res));
 };
 
-// Save full map config (mappings are required; others optional)
+// Save full map config (mappings are required; others optional, including joins.conditions and joins.computedFields)
 export const savePtrsMap = async (
   ptrsId,
   {
@@ -22,11 +22,13 @@ export const savePtrsMap = async (
     joins = null,
     rowRules = null,
     profileId = null,
+    customFields = null,
   }
 ) => {
   console.log("savePtrsMap called with:", {
     ptrsId,
     mappings,
+    customFields,
   });
   const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/${ptrsId}/map`, {
     mappings,
@@ -36,6 +38,7 @@ export const savePtrsMap = async (
     joins,
     rowRules,
     profileId,
+    customFields,
   });
   return normMap(pickData(res));
 };

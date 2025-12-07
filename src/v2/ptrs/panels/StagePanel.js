@@ -137,6 +137,44 @@ export default function StagePanel() {
     })();
   }, [ptrsId]);
 
+  // Initial preview load – if staging has already been run for this PTRS, show it
+  useEffect(() => {
+    if (!ptrsId) return;
+    // If we already have a staging result in memory, don't re-fetch
+    if (result) return;
+
+    (async () => {
+      try {
+        const pv = await getStagePreview(ptrsId, {
+          limit: 20,
+          profileId: profileId || null,
+        });
+        if (!mountedRef.current) return;
+
+        if (pv && Array.isArray(pv.rows) && pv.rows.length) {
+          setPreview(pv);
+          setShowPreview(true);
+
+          // If there is already staged data in tbl_ptrs_stage_row, synthesise a
+          // lightweight result object so the UI shows "Staging complete" and
+          // enables the "Next: Apply rules" button without requiring the user
+          // to re-run staging.
+          const stagedCount = pv.totalRows ?? pv.rows.length;
+          setResult(
+            (prev) =>
+              prev || {
+                rowsIn: stagedCount,
+                rowsOut: stagedCount,
+                tookMs: null,
+              }
+          );
+        }
+      } catch (err) {
+        console.warn("[StagePanel] initial stage preview load failed", err);
+      }
+    })();
+  }, [ptrsId, profileId, result]);
+
   const datasetSummary = useMemo(() => {
     if (!datasets || !datasets.length) return [];
     // Expect each item like { id, role, fileName, meta, createdAt }
@@ -158,6 +196,12 @@ export default function StagePanel() {
       showAlert("Missing ptrsId", "error");
       return;
     }
+
+    showAlert(
+      "Running staging for this dataset. If it's a big one, it might take ages — get comfy while we crunch the numbers.",
+      "info"
+    );
+
     console.log("[StagePanel] stagePtrs ->", { ptrsId, profileId });
     setLoading(true);
     try {
@@ -198,6 +242,7 @@ export default function StagePanel() {
 
   const headers = useMemo(() => preview?.headers || [], [preview?.headers]);
   const rows = useMemo(() => preview?.rows || [], [preview?.rows]);
+  const totalRows = preview?.totalRows ?? rows.length;
 
   useEffect(() => {
     if (!headers.length && !rows.length) return;
@@ -326,7 +371,8 @@ export default function StagePanel() {
                   <Typography variant="subtitle1">Staging complete</Typography>
                 </Stack>
                 <Typography variant="body2">
-                  {result.rowsIn || 0} input rows → {result.rowsOut || 0} staged
+                  {result.rowsIn || 0} input rows →{" "}
+                  {(totalRows || result.rowsOut || 0).toLocaleString()} staged
                   rows.
                 </Typography>
                 {result.tookMs != null && (
@@ -374,32 +420,43 @@ export default function StagePanel() {
       <Paper sx={{ p: 2, mb: 3 }}>
         <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 1 }}>
           <Typography variant="subtitle1">Preview</Typography>
-          <Button size="small" onClick={() => setShowPreview((s) => !s)}>
+          <Button
+            size="small"
+            disabled={loading}
+            onClick={() => setShowPreview((s) => !s)}
+          >
             {showPreview ? "Hide" : "Show"} preview
           </Button>
         </Stack>
         {showPreview &&
           (rows.length ? (
-            <Box sx={{ overflow: "auto", maxHeight: 360 }}>
-              <Table size="small" stickyHeader>
-                <TableHead>
-                  <TableRow>
-                    {headers.map((c) => (
-                      <TableCell key={c}>{prettifyHeader(c)}</TableCell>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {rows.map((r, idx) => (
-                    <TableRow key={idx}>
+            <>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                Showing {rows.length.toLocaleString()} of{" "}
+                {totalRows.toLocaleString()} staged row
+                {totalRows === 1 ? "" : "s"}.
+              </Typography>
+              <Box sx={{ overflow: "auto", maxHeight: 360 }}>
+                <Table size="small" stickyHeader>
+                  <TableHead>
+                    <TableRow>
                       {headers.map((c) => (
-                        <TableCell key={c}>{pickCell(r, c)}</TableCell>
+                        <TableCell key={c}>{prettifyHeader(c)}</TableCell>
                       ))}
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Box>
+                  </TableHead>
+                  <TableBody>
+                    {rows.map((r, idx) => (
+                      <TableRow key={idx}>
+                        {headers.map((c) => (
+                          <TableCell key={c}>{pickCell(r, c)}</TableCell>
+                        ))}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </Box>
+            </>
           ) : (
             <Typography variant="body2" color="text.secondary">
               No preview available yet. Run staging to generate a sample.
@@ -410,6 +467,7 @@ export default function StagePanel() {
       <Divider sx={{ my: 3 }} />
       <Button
         variant="text"
+        disabled={loading}
         onClick={() => {
           const qs = new URLSearchParams();
           qs.set("ptrsId", ptrsId);

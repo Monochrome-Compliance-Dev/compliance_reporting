@@ -80,6 +80,7 @@ export default function MapPanel() {
   const [assign, setAssign] = useState({});
   // user-defined placeholder targets
   const [customFields, setCustomFields] = useState([]);
+  const [customFieldConfig, setCustomFieldConfig] = useState(null);
   const [newCustomName, setNewCustomName] = useState("");
   const [joins, setJoins] = useState([]);
 
@@ -149,6 +150,19 @@ export default function MapPanel() {
           (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || null;
         const existingJoins =
           (mapRes && (mapRes.joins || mapRes.map?.joins)) || [];
+        const existingCustomField =
+          (mapRes && (mapRes.customField || mapRes.map?.customField)) || null;
+
+        const initialCustomFields = Array.isArray(existingCustomField)
+          ? existingCustomField
+              .map((cf) =>
+                cf && typeof cf === "object"
+                  ? cf.name || cf.field || null
+                  : null
+              )
+              .filter((n) => n && typeof n === "string")
+          : [];
+
         const hasAnyMappings =
           existing && typeof existing === "object"
             ? Object.keys(existing).length > 0
@@ -203,8 +217,11 @@ export default function MapPanel() {
           setHeaderMeta({});
         }
 
-        // existing mappings/joins already computed above
+        // existing mappings/joins/customField already computed above
         setJoins(Array.isArray(existingJoins) ? existingJoins : []);
+        setCustomFieldConfig(
+          Array.isArray(existingCustomField) ? existingCustomField : null
+        );
 
         setHeaders(inferred);
 
@@ -232,20 +249,24 @@ export default function MapPanel() {
         }
         setAssign(toTargetSource);
 
-        // collect any targets not in required/optional as custom placeholders
+        // collect any targets not in required/optional as custom placeholders,
+        // seeded from any existing customField config
         const known = new Set([
           ...PTRS_REQUIRED_FIELDS,
           ...PTRS_OPTIONAL_FIELDS,
         ]);
-        const discovered = new Set();
+        const discovered = new Set(initialCustomFields);
+
         if (existing && typeof existing === "object") {
           for (const [, cfg] of Object.entries(existing)) {
             const field = cfg?.field;
             if (field && !known.has(field)) discovered.add(field);
           }
         }
-        if (discovered.size)
-          setCustomFields((prev) => [...new Set([...prev, ...discovered])]);
+
+        setCustomFields((prev) => [
+          ...new Set([...prev, ...Array.from(discovered)]),
+        ]);
 
         // Finally: load PTRS runs that have maps and pre-filter by compatibility
         try {
@@ -642,11 +663,14 @@ export default function MapPanel() {
         }
         return;
       }
+
       const res = await savePtrsMap(ptrsId, {
         mappings: payload,
         joins,
         profileId,
+        customField: customFieldConfig || null,
       });
+
       const savedCount = Object.keys(res.mappings || payload).length;
       if (!auto) {
         showAlert(

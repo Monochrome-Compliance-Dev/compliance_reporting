@@ -52,6 +52,7 @@ export const getStagePreview = async (
     const res = await fetchWrapper.get(
       `${API_ROOT}/v2/ptrs/${ptrsId}/stage/preview?${q.toString()}`
     );
+    // BE returns { headers, rows, totalRows, stats }
     return normPreview(pickData(res));
   } catch (err) {
     // fallback to generic preview if BE doesn't expose stage/preview yet

@@ -32,7 +32,7 @@ export default function TablesAndJoinsPanel() {
   const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
 
   const [datasets, setDatasets] = useState([]);
-  const [joins, setJoins] = useState([]);
+  const [joins, setJoins] = useState({ conditions: [], customFields: [] });
   const [headers, setHeaders] = useState([]);
   const [mainHeaders, setMainHeaders] = useState([]);
   const [examples, setExamples] = useState({});
@@ -53,8 +53,22 @@ export default function TablesAndJoinsPanel() {
         // Existing joins
         const mapRes = await getPtrsMap(ptrsId);
         const existingJoins =
-          (mapRes && (mapRes.joins || mapRes.map?.joins)) || [];
-        setJoins(Array.isArray(existingJoins) ? existingJoins : []);
+          (mapRes && (mapRes.joins || mapRes.map?.joins)) || {};
+
+        const initialConditions = Array.isArray(existingJoins.conditions)
+          ? existingJoins.conditions
+          : [];
+
+        const initialCustomFields = Array.isArray(mapRes?.customFields)
+          ? mapRes.customFields
+          : Array.isArray(existingJoins.customFields)
+            ? existingJoins.customFields
+            : [];
+
+        setJoins({
+          conditions: initialConditions,
+          customFields: initialCustomFields,
+        });
 
         // Unified sample for headers/examples (main + supporting)
         // Why do we need unified here? Because joins can reference columns
@@ -114,6 +128,10 @@ export default function TablesAndJoinsPanel() {
     }));
   }, [datasets]);
 
+  const joinsCount = Array.isArray(joins?.conditions)
+    ? joins.conditions.length
+    : 0;
+
   const saveJoins = async () => {
     if (!ptrsId) return showAlert("Missing ptrsId", "error");
     setLoading(true);
@@ -123,11 +141,26 @@ export default function TablesAndJoinsPanel() {
       const existingMappings =
         (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || {};
 
-      const payload = { mappings: existingMappings, joins, profileId };
+      const conditions = Array.isArray(joins?.conditions)
+        ? joins.conditions
+        : [];
+      const customFields = Array.isArray(joins?.customFields)
+        ? joins.customFields
+        : [];
+
+      const payload = {
+        mappings: existingMappings,
+        joins: { conditions },
+        customFields,
+        profileId,
+      };
       console.log("[TablesAndJoinsPanel] saveJoins payload", payload);
 
       await savePtrsMap(ptrsId, payload);
       showAlert("Saved joins", "success");
+      const joinsCount = Array.isArray(joins?.conditions)
+        ? joins.conditions.length
+        : 0;
     } catch (e) {
       showAlert(e?.message || "Failed to save joins", "error");
     } finally {
@@ -198,7 +231,7 @@ export default function TablesAndJoinsPanel() {
         >
           <Stack direction="row" spacing={1} alignItems="center">
             <Typography variant="subtitle2">Joins</Typography>
-            <Chip size="small" label={`${joins.length} defined`} />
+            <Chip size="small" label={`${joinsCount} defined`} />
           </Stack>
           <Stack direction="row" spacing={1}>
             <Button
@@ -212,7 +245,7 @@ export default function TablesAndJoinsPanel() {
               variant="contained"
               size="small"
               onClick={goToMap}
-              disabled={joins.length === 0 || loading || !ptrsId}
+              disabled={joinsCount === 0 || loading || !ptrsId}
             >
               Next: Map columns
             </Button>
@@ -222,7 +255,18 @@ export default function TablesAndJoinsPanel() {
         <JoinsDesigner
           ptrsId={ptrsId}
           joins={joins}
-          onChange={(next) => setJoins(next || [])}
+          onChange={(next) => {
+            if (!next || typeof next !== "object") {
+              setJoins({ conditions: [], customFields: [] });
+              return;
+            }
+            setJoins({
+              conditions: Array.isArray(next.conditions) ? next.conditions : [],
+              customFields: Array.isArray(next.customFields)
+                ? next.customFields
+                : [],
+            });
+          }}
           headers={headers}
           examples={examples}
           leftHeaders={mainHeaders}

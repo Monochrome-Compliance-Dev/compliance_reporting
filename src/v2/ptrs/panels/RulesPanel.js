@@ -114,29 +114,50 @@ export default function RulesPanel() {
     []
   );
 
-  // Handler to seed a rule from a sandbox filter
-  const seedRuleFromFilter = (condition) => {
+  // Helper to create a row rule from a single condition
+  const createRowRuleFromCondition = (condition) => ({
+    cid: makeCid(),
+    id: undefined,
+    label: "",
+    description: "",
+    enabled: true,
+    type: "row",
+    when: [condition],
+    target: { match: [], where: [] },
+    action: { op: "add", field: "", valueFieldFromCurrent: "", round: 2 },
+  });
+
+  // Helper to create a cross-row rule template from a condition
+  const createCrossRowRuleTemplate = (condition) => ({
+    cid: makeCid(),
+    id: undefined,
+    label: "",
+    description: "",
+    enabled: true,
+    type: "crossRow",
+    when: [condition],
+    target: { match: [{ currentField: "", targetField: "" }], where: [] },
+    action: {
+      op: "add",
+      field: "invoice_amount",
+      valueFieldFromCurrent: "invoice_amount",
+      round: 2,
+    },
+    alsoExcludeCurrent: true,
+  });
+
+  // Handler to seed a rule from a sandbox filter (supports row and cross-row)
+  const seedRuleFromFilter = (payload) => {
+    const { condition, kind = "row" } = payload || {};
     if (!condition || !condition.field || !condition.op) {
       return;
     }
-
-    const newRule = {
-      cid: makeCid(),
-      id: undefined,
-      label: "",
-      description: "",
-      enabled: true,
-      type: "row",
-      when: [condition],
-      target: { match: [], where: [] },
-      action: {
-        op: "add",
-        field: "",
-        valueFieldFromCurrent: "",
-        round: 2,
-      },
-    };
-
+    let newRule;
+    if (kind === "crossRow") {
+      newRule = createCrossRowRuleTemplate(condition);
+    } else {
+      newRule = createRowRuleFromCondition(condition);
+    }
     resetRules([...rules, newRule]);
   };
 

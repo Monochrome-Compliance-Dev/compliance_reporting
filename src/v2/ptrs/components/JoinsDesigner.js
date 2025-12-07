@@ -8,6 +8,9 @@ import {
   Button,
   Divider,
   Tooltip,
+  MenuItem,
+  Select,
+  TextField,
 } from "@mui/material";
 import { getDatasetSample, listDatasets } from "v2/ptrs/services/data.ptrsApi";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -24,13 +27,23 @@ export default function JoinsDesigner({
   ptrsId,
   leftHeaders = [],
   examples = {},
-  joins = [],
+  joins = {},
+  customFields: customFieldsProp,
   onChange,
   debug = false,
 }) {
   const [datasets, setDatasets] = useState([]);
   const [pending, setPending] = useState(null); // { role, column }
-  const [links, setLinks] = useState(joins || []);
+  const [links, setLinks] = useState(
+    Array.isArray(joins?.conditions) ? joins.conditions : []
+  );
+  const [customFields, setCustomFields] = useState(
+    Array.isArray(customFieldsProp)
+      ? customFieldsProp
+      : Array.isArray(joins?.customFields)
+        ? joins.customFields
+        : []
+  );
   const [examplesByRole, setExamplesByRole] = useState({});
 
   const leftRef = useRef(null);
@@ -38,7 +51,34 @@ export default function JoinsDesigner({
   const svgRef = useRef(null);
   const [positions, setPositions] = useState({}); // key -> {x,y}
 
-  useEffect(() => setLinks(joins || []), [joins]);
+  const emitChange = useCallback(
+    (nextLinks, nextCustomFields) => {
+      if (!onChange) return;
+
+      const safeLinks = Array.isArray(nextLinks) ? nextLinks : [];
+      const safeCustomFields = Array.isArray(nextCustomFields)
+        ? nextCustomFields
+        : [];
+
+      // Emit conditions and customFields as top-level keys, not nested under joins.
+      onChange({
+        conditions: safeLinks,
+        customFields: safeCustomFields,
+      });
+    },
+    [onChange]
+  );
+
+  useEffect(() => {
+    setLinks(Array.isArray(joins?.conditions) ? joins.conditions : []);
+    setCustomFields(
+      Array.isArray(customFieldsProp)
+        ? customFieldsProp
+        : Array.isArray(joins?.customFields)
+          ? joins.customFields
+          : []
+    );
+  }, [joins, customFieldsProp]);
 
   useEffect(() => {
     if (!debug) return;
@@ -233,7 +273,7 @@ export default function JoinsDesigner({
     ];
     setLinks(next);
     setPending(null);
-    onChange && onChange(next);
+    emitChange(next, customFields);
     setTimeout(computePositions, 0);
   };
 
@@ -453,6 +493,199 @@ export default function JoinsDesigner({
         </svg>
       </Box>
 
+      {/* Computed fields (concat) */}
+      <Paper variant="outlined" sx={{ p: 2, mt: 2 }}>
+        <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+          <Typography variant="subtitle2">Computed fields (concat)</Typography>
+          <Chip size="small" label={customFields.length} />
+          <Tooltip title="Define custom columns built from multiple fields, e.g. a join key.">
+            <InfoOutlinedIcon
+              fontSize="small"
+              sx={{ cursor: "help", color: "text.secondary" }}
+            />
+          </Tooltip>
+        </Stack>
+
+        <Stack spacing={2}>
+          {customFields.map((cf, idx) => {
+            const segments = Array.isArray(cf.segments) ? cf.segments : [];
+            const allFieldOptions = leftFields.map((f) => f.key);
+
+            const updateField = (patch) => {
+              const next = customFields.map((item, i) =>
+                i === idx ? { ...item, ...patch } : item
+              );
+              setCustomFields(next);
+              emitChange(links, next);
+            };
+
+            const updateSegment = (segIdx, patch) => {
+              const nextSegments = segments.map((seg, i) =>
+                i === segIdx ? { ...seg, ...patch } : seg
+              );
+              updateField({ segments: nextSegments });
+            };
+
+            const addSegment = (kind) => {
+              const baseSegment =
+                kind === "field"
+                  ? {
+                      kind: "field",
+                      name: allFieldOptions[0] || "",
+                    }
+                  : { kind: "literal", value: "" };
+              updateField({ segments: [...segments, baseSegment] });
+            };
+
+            const removeSegment = (segIdx) => {
+              const nextSegments = segments.filter((_, i) => i !== segIdx);
+              updateField({ segments: nextSegments });
+            };
+
+            const removeField = () => {
+              const next = customFields.filter((_, i) => i !== idx);
+              setCustomFields(next);
+              emitChange(links, next);
+            };
+
+            return (
+              <Paper key={idx} variant="outlined" sx={{ p: 1.5 }}>
+                <Stack spacing={1}>
+                  <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
+                    <TextField
+                      label="Field name"
+                      size="small"
+                      value={cf.key || ""}
+                      onChange={(e) =>
+                        updateField({
+                          key: e.target.value,
+                          type: cf.type || "concat",
+                        })
+                      }
+                      sx={{ flex: 1 }}
+                    />
+                    <Button
+                      size="small"
+                      onClick={removeField}
+                      sx={{ whiteSpace: "nowrap" }}
+                    >
+                      Remove field
+                    </Button>
+                  </Stack>
+
+                  <Stack spacing={1}>
+                    {segments.length === 0 ? (
+                      <Typography variant="body2" color="text.secondary">
+                        No segments yet. Add a field or literal part below.
+                      </Typography>
+                    ) : (
+                      segments.map((seg, segIdx) => (
+                        <Stack
+                          key={segIdx}
+                          direction={{ xs: "column", sm: "row" }}
+                          spacing={1}
+                          alignItems={{ sm: "center" }}
+                        >
+                          <Select
+                            size="small"
+                            value={seg.kind === "literal" ? "literal" : "field"}
+                            onChange={(e) => {
+                              const kind = e.target.value;
+                              if (kind === "field") {
+                                updateSegment(segIdx, {
+                                  kind: "field",
+                                  name: seg.name || allFieldOptions[0] || "",
+                                  value: undefined,
+                                });
+                              } else {
+                                updateSegment(segIdx, {
+                                  kind: "literal",
+                                  value: seg.value || "",
+                                  name: undefined,
+                                });
+                              }
+                            }}
+                            sx={{ minWidth: 120 }}
+                          >
+                            <MenuItem value="field">Field</MenuItem>
+                            <MenuItem value="literal">Literal</MenuItem>
+                          </Select>
+
+                          {seg.kind === "literal" ? (
+                            <TextField
+                              size="small"
+                              label="Literal"
+                              value={seg.value || ""}
+                              onChange={(e) =>
+                                updateSegment(segIdx, {
+                                  value: e.target.value,
+                                })
+                              }
+                              sx={{ flex: 1 }}
+                            />
+                          ) : (
+                            <Select
+                              size="small"
+                              value={seg.name || ""}
+                              onChange={(e) =>
+                                updateSegment(segIdx, {
+                                  name: e.target.value,
+                                })
+                              }
+                              sx={{ flex: 1 }}
+                            >
+                              {allFieldOptions.map((opt) => (
+                                <MenuItem key={opt} value={opt}>
+                                  {opt}
+                                </MenuItem>
+                              ))}
+                            </Select>
+                          )}
+
+                          <Button
+                            size="small"
+                            onClick={() => removeSegment(segIdx)}
+                          >
+                            Remove
+                          </Button>
+                        </Stack>
+                      ))
+                    )}
+                  </Stack>
+
+                  <Stack direction="row" spacing={1}>
+                    <Button
+                      size="small"
+                      onClick={() => addSegment("field")}
+                      disabled={!leftFields.length}
+                    >
+                      Add field segment
+                    </Button>
+                    <Button size="small" onClick={() => addSegment("literal")}>
+                      Add literal
+                    </Button>
+                  </Stack>
+                </Stack>
+              </Paper>
+            );
+          })}
+
+          <Button
+            size="small"
+            onClick={() => {
+              const next = [
+                ...customFields,
+                { key: "", type: "concat", segments: [] },
+              ];
+              setCustomFields(next);
+              emitChange(links, next);
+            }}
+          >
+            Add computed field
+          </Button>
+        </Stack>
+      </Paper>
+
       {/* Footer actions */}
       <Divider sx={{ my: 2 }} />
       <Stack
@@ -472,7 +705,8 @@ export default function JoinsDesigner({
             size="small"
             onClick={() => {
               setLinks([]);
-              onChange && onChange([]);
+              setCustomFields([]);
+              emitChange([], []);
             }}
           >
             Clear

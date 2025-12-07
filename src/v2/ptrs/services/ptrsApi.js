@@ -22,7 +22,7 @@ const normPtrs = (x = {}) => ({
   createdAt: x.createdAt,
   updatedAt: x.updatedAt,
 });
-const normList = (arr = []) => arr.map(normPtrs);
+// const normList = (arr = []) => arr.map(normPtrs);
 
 // Map payloads can include extended config; keep everything surfaced
 export const normMap = (x = {}) => {
@@ -82,11 +82,42 @@ const normIngest = (x = {}) => ({
   rowsInserted: x.rowsInserted ?? x.inserted ?? 0,
 });
 
-export const normPreview = (x = {}) => ({
-  headers: x.headers || [],
-  rows: x.rows || [],
-  stats: x.stats || null,
-});
+export const normPreview = (raw = {}) => {
+  // Support both { status, data: {...} } and bare objects
+  const data = raw && raw.data != null ? raw.data : raw;
+
+  // Rows: staged/rules preview.
+  const rows = Array.isArray(data.rows)
+    ? data.rows
+    : Array.isArray(data.sample)
+      ? data.sample
+      : [];
+
+  // Headers: prefer explicit, otherwise infer from first row's data
+  let headers = Array.isArray(data.headers) ? data.headers : [];
+  if (!headers.length && rows.length) {
+    const first = rows[0];
+    const candidate =
+      first && typeof first.data === "object" && first.data
+        ? first.data
+        : first;
+    headers = Object.keys(candidate || {});
+  }
+
+  // Total rows: prefer explicit count from BE, fall back to rows.length
+  const totalRows =
+    data.totalRows ??
+    data.total ??
+    data.count ??
+    (typeof data.rowsCount === "number" ? data.rowsCount : rows.length);
+
+  return {
+    headers,
+    rows,
+    totalRows,
+    stats: data.stats ?? null,
+  };
+};
 
 // Datasets
 export const normDataset = (x = {}) => {
