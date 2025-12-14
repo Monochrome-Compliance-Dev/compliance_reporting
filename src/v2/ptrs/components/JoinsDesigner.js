@@ -60,25 +60,45 @@ export default function JoinsDesigner({
         ? nextCustomFields
         : [];
 
-      // Emit conditions and customFields as top-level keys, not nested under joins.
+      if (debug) {
+        // eslint-disable-next-line no-console
+        console.log("[JoinsDesigner][debug] emitChange", {
+          conditionsCount: safeLinks.length,
+          customFieldsCount: safeCustomFields.length,
+          conditions: safeLinks,
+          customFields: safeCustomFields,
+        });
+      }
+
       onChange({
         conditions: safeLinks,
         customFields: safeCustomFields,
       });
     },
-    [onChange]
+    [onChange, debug]
   );
 
   useEffect(() => {
-    setLinks(Array.isArray(joins?.conditions) ? joins.conditions : []);
-    setCustomFields(
-      Array.isArray(customFieldsProp)
-        ? customFieldsProp
-        : Array.isArray(joins?.customFields)
-          ? joins.customFields
-          : []
-    );
-  }, [joins, customFieldsProp]);
+    const nextLinks = Array.isArray(joins?.conditions) ? joins.conditions : [];
+    const nextCustomFields = Array.isArray(customFieldsProp)
+      ? customFieldsProp
+      : Array.isArray(joins?.customFields)
+        ? joins.customFields
+        : [];
+
+    setLinks(nextLinks);
+    setCustomFields(nextCustomFields);
+
+    if (debug) {
+      // eslint-disable-next-line no-console
+      console.log("[JoinsDesigner][debug] sync from props", {
+        joinsProp: joins,
+        customFieldsProp,
+        nextLinks,
+        nextCustomFields,
+      });
+    }
+  }, [joins, customFieldsProp, debug]);
 
   useEffect(() => {
     if (!debug) return;
@@ -624,22 +644,32 @@ export default function JoinsDesigner({
                               sx={{ flex: 1 }}
                             />
                           ) : (
-                            <Select
-                              size="small"
-                              value={seg.name || ""}
-                              onChange={(e) =>
-                                updateSegment(segIdx, {
-                                  name: e.target.value,
-                                })
-                              }
-                              sx={{ flex: 1 }}
-                            >
-                              {allFieldOptions.map((opt) => (
-                                <MenuItem key={opt} value={opt}>
-                                  {opt}
-                                </MenuItem>
-                              ))}
-                            </Select>
+                            (() => {
+                              const safeValue =
+                                seg &&
+                                typeof seg.name === "string" &&
+                                allFieldOptions.includes(seg.name)
+                                  ? seg.name
+                                  : "";
+                              return (
+                                <Select
+                                  size="small"
+                                  value={safeValue}
+                                  onChange={(e) =>
+                                    updateSegment(segIdx, {
+                                      name: e.target.value,
+                                    })
+                                  }
+                                  sx={{ flex: 1 }}
+                                >
+                                  {allFieldOptions.map((opt) => (
+                                    <MenuItem key={opt} value={opt}>
+                                      {opt}
+                                    </MenuItem>
+                                  ))}
+                                </Select>
+                              );
+                            })()
                           )}
 
                           <Button

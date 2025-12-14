@@ -50,24 +50,72 @@ export default function TablesAndJoinsPanel() {
         if (!mounted) return;
         setDatasets(items);
 
-        // Existing joins
+        // Existing joins + custom fields
         const mapRes = await getPtrsMap(ptrsId);
-        const existingJoins =
-          (mapRes && (mapRes.joins || mapRes.map?.joins)) || {};
 
-        const initialConditions = Array.isArray(existingJoins.conditions)
-          ? existingJoins.conditions
-          : [];
+        // Normalise joins from any of the historical shapes into { conditions: [], customFields: [] }
+        const normaliseJoins = (raw) => {
+          if (!raw || typeof raw !== "object") {
+            return { conditions: [], customFields: [] };
+          }
 
-        const initialCustomFields = Array.isArray(mapRes?.customFields)
-          ? mapRes.customFields
-          : Array.isArray(existingJoins.customFields)
-            ? existingJoins.customFields
-            : [];
+          // joins can be:
+          // - an array of conditions (new shape)
+          // - an object with { conditions, customFields }
+          // - nested under map.joins
+          const joinsSource = raw.joins ||
+            raw.map?.joins || {
+              conditions: [],
+              customFields: [],
+            };
+
+          let conditions = [];
+          let customFields = [];
+
+          if (Array.isArray(joinsSource)) {
+            // already an array of conditions
+            conditions = joinsSource;
+          } else if (joinsSource && typeof joinsSource === "object") {
+            if (Array.isArray(joinsSource.conditions)) {
+              conditions = joinsSource.conditions;
+            }
+            if (Array.isArray(joinsSource.customFields)) {
+              customFields = joinsSource.customFields;
+            }
+          }
+
+          // Top-level customFields take precedence if present
+          const topLevelCustomFields =
+            raw.customFields || raw.map?.customFields || null;
+          if (Array.isArray(topLevelCustomFields)) {
+            customFields = topLevelCustomFields;
+          }
+
+          return {
+            conditions,
+            customFields,
+          };
+        };
+
+        const {
+          conditions: initialConditions,
+          customFields: initialCustomFields,
+        } = normaliseJoins(mapRes || {});
+
+        console.log("[TablesAndJoinsPanel] existing map", mapRes);
+        console.log("[TablesAndJoinsPanel] initial joins/customFields", {
+          initialConditions,
+          initialCustomFields,
+        });
 
         setJoins({
           conditions: initialConditions,
           customFields: initialCustomFields,
+        });
+
+        console.log("[TablesAndJoinsPanel] joins state after load", {
+          conditionsCount: initialConditions.length,
+          customFieldsCount: initialCustomFields.length,
         });
 
         // Unified sample for headers/examples (main + supporting)
@@ -102,7 +150,7 @@ export default function TablesAndJoinsPanel() {
 
         console.log("[TablesAndJoinsPanel] loaded data", {
           datasets: items,
-          joins: existingJoins,
+          // joins: existingJoins,
           headers: inferred,
           examples: ex,
           mainHeaders: mains,
@@ -157,10 +205,9 @@ export default function TablesAndJoinsPanel() {
       console.log("[TablesAndJoinsPanel] saveJoins payload", payload);
 
       await savePtrsMap(ptrsId, payload);
+
+      console.log("[TablesAndJoinsPanel] saveJoins completed");
       showAlert("Saved joins", "success");
-      const joinsCount = Array.isArray(joins?.conditions)
-        ? joins.conditions.length
-        : 0;
     } catch (e) {
       showAlert(e?.message || "Failed to save joins", "error");
     } finally {

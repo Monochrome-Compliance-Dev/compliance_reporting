@@ -8,7 +8,68 @@ const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 // -------------------- Column map (routes: /ptrs/:id/map) ------
 export const getPtrsMap = async (ptrsId) => {
   const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/${ptrsId}/map`);
-  return normMap(pickData(res));
+  const raw = pickData(res) || {};
+  const base = normMap(raw) || {};
+
+  // ---- normalise joins into a simple array of conditions ----
+  let joins = null;
+
+  // top-level array (new shape)
+  if (Array.isArray(raw.joins)) {
+    joins = raw.joins;
+  }
+  // top-level object with { conditions }
+  else if (raw.joins && Array.isArray(raw.joins.conditions)) {
+    joins = raw.joins.conditions;
+  }
+  // nested under map.joins as array
+  else if (raw.map && Array.isArray(raw.map.joins)) {
+    joins = raw.map.joins;
+  }
+  // nested under map.joins.conditions
+  else if (
+    raw.map &&
+    raw.map.joins &&
+    Array.isArray(raw.map.joins.conditions)
+  ) {
+    joins = raw.map.joins.conditions;
+  }
+  // whatever normMap produced
+  else if (Array.isArray(base.joins)) {
+    joins = base.joins;
+  } else if (base.joins && Array.isArray(base.joins.conditions)) {
+    joins = base.joins.conditions;
+  }
+
+  // ---- normalise customFields into a plain array ----
+  let customFields = null;
+
+  // preferred: top-level customFields
+  if (Array.isArray(raw.customFields)) {
+    customFields = raw.customFields;
+  } else if (raw.map && Array.isArray(raw.map.customFields)) {
+    customFields = raw.map.customFields;
+  }
+  // sometimes stuck on joins
+  else if (raw.joins && Array.isArray(raw.joins.customFields)) {
+    customFields = raw.joins.customFields;
+  } else if (
+    raw.map &&
+    raw.map.joins &&
+    Array.isArray(raw.map.joins.customFields)
+  ) {
+    customFields = raw.map.joins.customFields;
+  }
+  // fallback to whatever normMap did
+  else if (Array.isArray(base.customFields)) {
+    customFields = base.customFields;
+  }
+
+  return {
+    ...base,
+    joins: Array.isArray(joins) ? joins : [],
+    customFields: Array.isArray(customFields) ? customFields : null,
+  };
 };
 
 // Save full map config (mappings are required; others optional, including joins.conditions and joins.computedFields)

@@ -146,19 +146,71 @@ export default function MapPanel() {
       try {
         // 1) Load map first to know if any mappings exist
         const mapRes = await getPtrsMap(ptrsId);
+        // eslint-disable-next-line no-console
+        console.log("[MapPanel] getPtrsMap raw:", mapRes);
+        // eslint-disable-next-line no-console
+        console.log(
+          "[MapPanel] getPtrsMap shapes:",
+          mapRes
+            ? {
+                keys: Object.keys(mapRes),
+                mappingsKeys: mapRes.mappings
+                  ? Object.keys(mapRes.mappings)
+                  : null,
+                joinsKeys: mapRes.joins ? Object.keys(mapRes.joins) : null,
+                customFields: mapRes.customFields || null,
+                mapKeys: mapRes.map ? Object.keys(mapRes.map) : null,
+              }
+            : null
+        );
+
         const existing =
           (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || null;
-        const existingJoins =
-          (mapRes && (mapRes.joins || mapRes.map?.joins)) || [];
-        const existingCustomField =
-          (mapRes && (mapRes.customField || mapRes.map?.customField)) || null;
 
-        const initialCustomFields = Array.isArray(existingCustomField)
-          ? existingCustomField
+        // Normalise joins/customFields across old and new shapes
+        const normaliseJoins = (raw) => {
+          if (!raw) return { joins: [], customFields: null };
+
+          // joins can be an array (new) or an object with { conditions, customFields }
+          const joinsSource = raw.joins || raw.map?.joins || null;
+          let joinsArr = [];
+          let customFieldsArr = null;
+
+          if (Array.isArray(joinsSource)) {
+            joinsArr = joinsSource;
+          } else if (
+            joinsSource &&
+            typeof joinsSource === "object" &&
+            Array.isArray(joinsSource.conditions)
+          ) {
+            joinsArr = joinsSource.conditions;
+            if (Array.isArray(joinsSource.customFields)) {
+              customFieldsArr = joinsSource.customFields;
+            }
+          }
+
+          // Top-level customFields (preferred)
+          const topLevelCustomFields =
+            raw.customFields || raw.map?.customFields || null;
+          if (Array.isArray(topLevelCustomFields)) {
+            customFieldsArr = topLevelCustomFields;
+          }
+
+          return {
+            joins: joinsArr,
+            customFields: Array.isArray(customFieldsArr)
+              ? customFieldsArr
+              : null,
+          };
+        };
+
+        const { joins: existingJoins, customFields: existingCustomFields } =
+          normaliseJoins(mapRes || {});
+
+        const initialCustomFields = Array.isArray(existingCustomFields)
+          ? existingCustomFields
               .map((cf) =>
-                cf && typeof cf === "object"
-                  ? cf.name || cf.field || null
-                  : null
+                cf && typeof cf === "object" ? cf.key || cf.field || null : null
               )
               .filter((n) => n && typeof n === "string")
           : [];
@@ -167,6 +219,12 @@ export default function MapPanel() {
           existing && typeof existing === "object"
             ? Object.keys(existing).length > 0
             : false;
+        // eslint-disable-next-line no-console
+        console.log("[MapPanel] derived map pieces:", {
+          existing,
+          existingJoins,
+          existingCustomFields,
+        });
 
         // 2) Preferred: unified sample (merged headers/rows from main + supporting)
         //    Fallback: previous logic (stage preview or simple sample)
@@ -220,7 +278,7 @@ export default function MapPanel() {
         // existing mappings/joins/customField already computed above
         setJoins(Array.isArray(existingJoins) ? existingJoins : []);
         setCustomFieldConfig(
-          Array.isArray(existingCustomField) ? existingCustomField : null
+          Array.isArray(existingCustomFields) ? existingCustomFields : null
         );
 
         setHeaders(inferred);
@@ -503,7 +561,8 @@ export default function MapPanel() {
 
   // Convert BE map object -> assign (target->source), validating headers with loose resolving
   const applyIncomingMap = (obj) => {
-    if (!obj || typeof obj !== "object") return 0;
+    if (!obj || typeof obj !== "object")
+      return { applied: 0, nextAssign: assign };
     const validHeaders = Array.isArray(headers) ? headers : [];
     const next = { ...assign };
     let applied = 0;
@@ -571,7 +630,7 @@ export default function MapPanel() {
     console.groupEnd();
 
     setAssign(next);
-    return applied;
+    return { applied, nextAssign: next };
   };
 
   const handleImportJson = async (file) => {
@@ -588,9 +647,9 @@ export default function MapPanel() {
       if (!mappings || typeof mappings !== "object") {
         showAlert("No usable mappings found in file", "info");
       } else {
-        const applied = applyIncomingMap(mappings);
+        const { applied, nextAssign } = applyIncomingMap(mappings);
         if (applied > 0) {
-          await save(true);
+          await save(true, nextAssign);
           showAlert(
             `Imported mapping for ${applied} field(s) and auto-saved the map`,
             "success"
@@ -615,9 +674,9 @@ export default function MapPanel() {
       //   hasMappings: !!res?.mappings,
       //   appliedFrom: otherPtrsId,
       // });
-      const applied = applyIncomingMap(obj);
+      const { applied, nextAssign } = applyIncomingMap(obj);
       if (applied > 0) {
-        await save(true);
+        await save(true, nextAssign);
         showAlert(
           `Copied ${applied} mapping(s) from ${otherPtrsId} and auto-saved the map`,
           "success"
@@ -634,7 +693,8 @@ export default function MapPanel() {
     }
   };
 
-  async function save(auto = false) {
+  async function save(auto = false, assignOverride) {
+    const effectiveAssign = assignOverride || assign;
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
@@ -648,7 +708,7 @@ export default function MapPanel() {
         ...customFields,
       ]);
       // Soft sanity: ignore empty/unknown targets, allow partial maps
-      for (const [tgt, src] of Object.entries(assign)) {
+      for (const [tgt, src] of Object.entries(effectiveAssign)) {
         if (!src) continue;
         if (!allowedTargets.has(tgt)) continue; // skip stray keys
         payload[src] = { field: tgt, type: "string" };
@@ -668,7 +728,7 @@ export default function MapPanel() {
         mappings: payload,
         joins,
         profileId,
-        customField: customFieldConfig || null,
+        customFields: customFieldConfig || null,
       });
 
       const savedCount = Object.keys(res.mappings || payload).length;
@@ -686,59 +746,12 @@ export default function MapPanel() {
   // UI bits
   const navigate = useNavigate();
 
-  const stageData = async () => {
-    if (!ptrsId) {
-      showAlert("Missing ptrsId", "error");
-      return;
-    }
-
-    // Let the user know this might be slow
-    showAlert(
-      "Building the mapped dataset now. This step can take a while for large datasets — feel free to grab a coffee while it runs.",
-      "info"
-    );
-
-    setStaging(true);
-    setLoading(true);
-    try {
-      // Ensure the latest mapping is persisted before building the dataset
-      await save(true);
-
-      // Build the mapped + joined dataset snapshot for this PTRS run
-      const { count } = await buildPtrsMappedDataset(ptrsId);
-
-      showAlert(
-        `Built mapped dataset with ${count} row${count === 1 ? "" : "s"}`,
-        "success"
-      );
-
-      // Advance PTRS step to 'stage'
-      try {
-        await updatePtrsStep.mutateAsync({ currentStep: "stage" });
-      } catch (e) {
-        // Surface the error and bail; don't pretend this worked
-        showAlert(e?.message || "Failed to update PTRS step", "error");
-        return;
-      }
-
-      // Navigate to staging view, always using context profileId
-      try {
-        const qs = new URLSearchParams();
-        qs.set("ptrsId", ptrsId);
-        if (profileId) qs.set("profileId", profileId);
-        navigate(`/v2/ptrs/stage?${qs.toString()}`);
-      } catch (err) {
-        showAlert(err?.message || "Failed to navigate to staging", "error");
-      }
-    } catch (error) {
-      showAlert(
-        error?.message || "Failed to build mapped dataset for this PTRS run",
-        "error"
-      );
-    } finally {
-      setStaging(false);
-      setLoading(false);
-    }
+  const stageData = () => {
+    // Staging moved to StagePanel auto-run on first load; MapPanel no longer triggers staging.
+    const qs = new URLSearchParams();
+    qs.set("ptrsId", ptrsId);
+    if (profileId) qs.set("profileId", profileId);
+    navigate(`/v2/ptrs/stage?${qs.toString()}`);
   };
 
   const TargetBin = ({ field }) => {

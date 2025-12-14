@@ -59,6 +59,7 @@ export default function StagePanel() {
   const [ptrsMeta, setPtrsMeta] = useState(null);
   const [preview, setPreview] = useState({ rows: [], headers: [] });
   const [showPreview, setShowPreview] = useState(false);
+  const [autoStageAttempted, setAutoStageAttempted] = useState(false);
 
   // Safely pick a value from a row that may be flat or split across data / standard / custom
   const pickCell = (row, header) => {
@@ -137,28 +138,30 @@ export default function StagePanel() {
     })();
   }, [ptrsId]);
 
-  // Initial preview load – if staging has already been run for this PTRS, show it
+  // Initial preview load – if staging has already been run for this PTRS, show it.
+  // If not, automatically run staging once so the user doesn't have to.
   useEffect(() => {
     if (!ptrsId) return;
-    // If we already have a staging result in memory, don't re-fetch
+    // If we already have a staging result in memory, don't re-fetch or auto-stage
     if (result) return;
+    console.log("Got here 1");
 
     (async () => {
       try {
+        setLoading(true);
         const pv = await getStagePreview(ptrsId, {
           limit: 20,
           profileId: profileId || null,
         });
         if (!mountedRef.current) return;
+        console.log("Got here 2");
 
         if (pv && Array.isArray(pv.rows) && pv.rows.length) {
+          // Staging has already been run at least once – just hydrate the preview/result
           setPreview(pv);
           setShowPreview(true);
+          console.log("Got here 3");
 
-          // If there is already staged data in tbl_ptrs_stage_row, synthesise a
-          // lightweight result object so the UI shows "Staging complete" and
-          // enables the "Next: Apply rules" button without requiring the user
-          // to re-run staging.
           const stagedCount = pv.totalRows ?? pv.rows.length;
           setResult(
             (prev) =>
@@ -168,12 +171,76 @@ export default function StagePanel() {
                 tookMs: null,
               }
           );
+          console.log("Got here 4");
+        } else if (!autoStageAttempted) {
+          // No staged rows yet – automatically run staging once
+          console.log("Got here 5");
+
+          setAutoStageAttempted(true);
+          showAlert(
+            "Preparing staged dataset for the first time. For large files this may take a while.",
+            "info"
+          );
+
+          console.log("[StagePanel] auto-staging on first visit", {
+            ptrsId,
+            profileId,
+          });
+
+          try {
+            console.log("Got here 6");
+            const res = await stagePtrs(ptrsId, {
+              profileId: profileId || null,
+              persist: true,
+            });
+            console.log("Got here 7");
+
+            if (!mountedRef.current) return;
+            console.log("Got here 8");
+
+            setResult(res);
+
+            // After staging, eagerly fetch a small preview
+            try {
+              console.log("Got here 9");
+              const pv2 = await getStagePreview(ptrsId, {
+                limit: 20,
+                profileId: profileId || null,
+              });
+              if (!mountedRef.current) return;
+
+              if (pv2 && Array.isArray(pv2.rows) && pv2.rows.length) {
+                setPreview(pv2);
+                setShowPreview(true);
+                console.log("[StagePanel] auto-stage preview loaded", {
+                  headersCount: pv2.headers?.length || 0,
+                  rowsCount: pv2.rows?.length || 0,
+                });
+              }
+            } catch (innerErr) {
+              console.warn(
+                "[StagePanel] getStagePreview after auto-stage failed",
+                innerErr
+              );
+            }
+          } catch (stageErr) {
+            console.error("[StagePanel] auto-stage error:", stageErr);
+            if (mountedRef.current) {
+              showAlert(
+                stageErr?.message ||
+                  "Failed to stage data automatically. You can try running staging again manually.",
+                "error"
+              );
+            }
+          }
         }
       } catch (err) {
         console.warn("[StagePanel] initial stage preview load failed", err);
+      } finally {
+        if (mountedRef.current) setLoading(false);
       }
     })();
-  }, [ptrsId, profileId, result]);
+  }, [ptrsId, profileId, result, autoStageAttempted, showAlert]);
 
   const datasetSummary = useMemo(() => {
     if (!datasets || !datasets.length) return [];

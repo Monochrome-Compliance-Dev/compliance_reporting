@@ -60,16 +60,26 @@ export const normMap = (x = {}) => {
     }
   };
 
+  // Parse all JSON-ish fields into local variables
+  const parsedExtras = parseMaybeJson(src.extras) || null;
+  const parsedFallbacks = parseMaybeJson(src.fallbacks) || null;
+  const parsedDefaults = parseMaybeJson(src.defaults) || null;
+  const parsedJoins = Array.isArray(src.joins)
+    ? src.joins
+    : parseMaybeJson(src.joins) || null;
+  const parsedRowRules = parseMaybeJson(src.rowRules) || null;
+  const parsedCustomFields = parseMaybeJson(src.customFields) || null;
+
   return {
     mappings: outMappings,
-    extras: parseMaybeJson(src.extras) || null,
-    fallbacks: parseMaybeJson(src.fallbacks) || null,
-    defaults: parseMaybeJson(src.defaults) || null,
-    joins: Array.isArray(src.joins)
-      ? src.joins
-      : parseMaybeJson(src.joins) || null,
-    rowRules: parseMaybeJson(src.rowRules) || null,
+    extras: parsedExtras,
+    fallbacks: parsedFallbacks,
+    defaults: parsedDefaults,
+    joins: parsedJoins,
+    rowRules: parsedRowRules,
     profileId: src.profileId || null,
+    customFields: parsedCustomFields,
+    raw: src,
   };
 };
 
