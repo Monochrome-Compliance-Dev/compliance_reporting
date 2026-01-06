@@ -365,6 +365,7 @@ export default function MapPanel() {
     () => new Set(Object.values(assign || {})),
     [assign]
   );
+
   const filteredSources = useMemo(() => {
     const needle = search.trim().toLowerCase();
     const all = headers || [];
@@ -378,12 +379,14 @@ export default function MapPanel() {
       e.dataTransfer.setData("text/plain", sourceHeader);
     } catch {}
   };
+
   const handleDrop = (e, targetField) => {
     e.preventDefault();
     const source = e.dataTransfer.getData("text/plain");
     if (!source) return;
     assignSourceToTarget(source, targetField);
   };
+
   const allowDrop = (e) => e.preventDefault();
 
   // Assign helper: ensures a source is only mapped to a single target
@@ -403,6 +406,7 @@ export default function MapPanel() {
       delete next[targetField];
       return next;
     });
+
   const clearAll = () => setAssign({});
 
   // --- Custom fields helpers ---
@@ -693,7 +697,8 @@ export default function MapPanel() {
     }
   };
 
-  async function save(auto = false, assignOverride) {
+  async function save(autoOrEvent = false, assignOverride) {
+    const auto = typeof autoOrEvent === "boolean" ? autoOrEvent : false;
     const effectiveAssign = assignOverride || assign;
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
@@ -746,12 +751,54 @@ export default function MapPanel() {
   // UI bits
   const navigate = useNavigate();
 
-  const stageData = () => {
-    // Staging moved to StagePanel auto-run on first load; MapPanel no longer triggers staging.
-    const qs = new URLSearchParams();
-    qs.set("ptrsId", ptrsId);
-    if (profileId) qs.set("profileId", profileId);
-    navigate(`/v2/ptrs/stage?${qs.toString()}`);
+  const stageData = async () => {
+    // Build mapped rows BEFORE navigating to StagePanel.
+    // If this fails, keep the user on MapPanel and show the error.
+    if (!ptrsId) {
+      showAlert("Missing ptrsId", "error");
+      return;
+    }
+
+    setStaging(true);
+
+    try {
+      // Best effort: persist current mapping changes before building.
+      // If nothing changed, this is effectively a no-op.
+      await save(true);
+
+      const result = await buildPtrsMappedDataset(ptrsId);
+
+      const builtCount = Number.isFinite(result?.count) ? result.count : 0;
+      if (!builtCount) {
+        showAlert(
+          "No mapped rows were created. Check your uploads and mappings, then try again.",
+          "error"
+        );
+        return;
+      }
+
+      try {
+        await updatePtrsStep.mutateAsync({ currentStep: "stage" });
+      } catch (err) {
+        console.error(err);
+        showAlert(
+          "Failed to update PTRS step. Continuing to Staging.",
+          "warning"
+        );
+      }
+
+      const qs = new URLSearchParams();
+      qs.set("ptrsId", ptrsId);
+      if (profileId) qs.set("profileId", profileId);
+      navigate(`/v2/ptrs/stage?${qs.toString()}`);
+    } catch (e) {
+      showAlert(
+        e?.message || "Failed to build mapped rows. Please try again.",
+        "error"
+      );
+    } finally {
+      setStaging(false);
+    }
   };
 
   const TargetBin = ({ field }) => {
@@ -826,6 +873,7 @@ export default function MapPanel() {
   const requiredMappedCount = PTRS_REQUIRED_FIELDS.filter(
     (f) => !!assign[f]
   ).length;
+
   const optionalMappedCount = PTRS_OPTIONAL_FIELDS.filter(
     (f) => !PTRS_REQUIRED_FIELDS.includes(f) && !!assign[f]
   ).length;
@@ -1193,11 +1241,15 @@ export default function MapPanel() {
             <Stack direction="row" spacing={1}>
               <Button
                 variant="contained"
-                onClick={save}
+                onClick={() => save(false)}
                 disabled={loading || !ptrsId || staging}
               >
                 Save map
               </Button>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                When you continue, we’ll build your mapped rows (including
+                joins/custom fields). This can take a minute on larger files.
+              </Typography>
               <Button
                 variant="contained"
                 endIcon={<NavigateNextIcon />}
@@ -1206,7 +1258,7 @@ export default function MapPanel() {
                   requiredMappedCount < PTRS_REQUIRED_FIELDS.length || staging
                 }
               >
-                Next: Stage data
+                Next: Build & stage data
               </Button>
             </Stack>
           </Stack>

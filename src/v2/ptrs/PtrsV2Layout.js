@@ -13,7 +13,7 @@ import {
   FormControlLabel,
   Radio,
 } from "@mui/material";
-import { getCurrentCustomer } from "lib/utils";
+import { getCurrentCustomer, setCurrentCustomer } from "lib/utils";
 import {
   Box,
   Typography,
@@ -40,6 +40,7 @@ export default function PtrsV2Layout() {
 
   const isLanding = /^\/v2\/ptrs(?:\/landing)?\/?$/.test(location.pathname);
   const isDataConsole = /^\/v2\/ptrs\/data\/?$/.test(location.pathname);
+  const requiresProfile = !isLanding && !isDataConsole;
 
   // Safety rail: if we land on a PTRS step route without any ptrsId
   // in the URL or context (e.g. after a forced re-login), send the user
@@ -75,6 +76,17 @@ export default function PtrsV2Layout() {
     if (typeof showAlert === "function")
       showAlert("PTRS v2 workspace loaded", "info");
   }, [showAlert]);
+
+  useEffect(() => {
+    if (!requiresProfile) return;
+    if (profileId) return;
+
+    // Force the user to pick a profile before they can proceed.
+    setProfileDialogOpen(true);
+    if (typeof showAlert === "function") {
+      showAlert("Choose a PTRS profile to continue.", "warning");
+    }
+  }, [requiresProfile, profileId, showAlert]);
 
   useEffect(() => {
     const customer = getCurrentCustomer();
@@ -227,7 +239,7 @@ export default function PtrsV2Layout() {
           <Stack direction="row" justifyContent="space-between">
             <Button
               variant="text"
-              disabled={currentIndex === 0}
+              disabled={currentIndex === 0 || (requiresProfile && !profileId)}
               onClick={() => goToStep(currentIndex - 1)}
             >
               Back
@@ -235,6 +247,7 @@ export default function PtrsV2Layout() {
             <Button
               variant="contained"
               disabled={
+                (requiresProfile && !profileId) ||
                 currentIndex >= STEPS.length - 1 ||
                 stepDisabled(STEPS[currentIndex + 1].id)
               }
@@ -280,12 +293,16 @@ export default function PtrsV2Layout() {
           <Button
             variant="contained"
             onClick={() => {
-              // const cur = getCurrentCustomer() || {};
-              // setCurrentCustomer({
-              //   id: cur.id,
-              //   name: cur.name,
-              //   profileId: profileId || null,
-              // });
+              // Persist profile selection into tenant scope so all PTRS API calls can include it.
+              const cur = getCurrentCustomer() || {};
+              if (cur?.id) {
+                setCurrentCustomer({
+                  id: cur.id,
+                  name: cur.name,
+                  profileId: profileId || null,
+                });
+              }
+
               setProfileDialogOpen(false);
             }}
             disabled={!profileId && profilesArray.length > 0}

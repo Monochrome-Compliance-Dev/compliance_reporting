@@ -22,6 +22,7 @@ import {
   useRuleSources,
   useRuleExecutionHistory,
 } from "../rules/hooks";
+import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 // helpers
 const toSnake = (s) =>

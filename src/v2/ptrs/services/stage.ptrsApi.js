@@ -65,3 +65,17 @@ export const getStagePreview = async (
     return normPreview(pickData(res2));
   }
 };
+
+// -------------------- Execution runs (route: /ptrs/:id/execution-runs) -------
+export const getLatestExecutionRun = async (ptrsId, { step } = {}) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+
+  const q = new URLSearchParams();
+  if (step) q.set("step", String(step));
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/execution-runs/latest?${q.toString()}`
+  );
+
+  return pickData(res) || null;
+};

@@ -24,11 +24,8 @@ const getInitialIdsFromParams = (params, pathname) => {
   const rawPtrsFromParams = params.get("ptrsId");
   const customer = getCurrentCustomer();
 
-  // On the landing route, we deliberately ignore any ptrsId that might be
-  // present in the URL. Landing should always start "clean" and let the
-  // user either create a new run or explicitly resume one, rather than
-  // implicitly restoring state from a query param.
-  const ptrsFromParams = pathname === "/v2/ptrs" ? null : rawPtrsFromParams;
+  const onLanding = /^\/v2\/ptrs(?:\/landing)?\/?$/.test(pathname);
+  const ptrsFromParams = onLanding ? null : rawPtrsFromParams;
 
   return {
     ptrsId: ptrsFromParams || null,
@@ -48,7 +45,7 @@ export function usePtrsV2Context() {
 
 export function PtrsV2Provider({ children }) {
   const location = useLocation();
-  const isLanding = location.pathname === "/v2/ptrs";
+  const isLanding = /^\/v2\/ptrs(?:\/landing)?\/?$/.test(location.pathname);
 
   const [params, setParams] = useSearchParams();
 
