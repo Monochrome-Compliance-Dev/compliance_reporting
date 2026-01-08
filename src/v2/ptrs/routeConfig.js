@@ -6,13 +6,15 @@ import TablesAndJoinsPanel from "./panels/TablesAndJoinsPanel";
 import MapPanel from "./panels/MapPanel";
 import StagePanel from "./panels/StagePanel";
 import RulesPanel from "./panels/RulesPanel";
+import SbiPanel from "./panels/SbiPanel";
 
 const ptrsRoutes = [
   {
     Component: PtrsV2Layout,
     children: [
-      // Show Landing at /v2/ptrs
+      // Show Landing at /v2/ptrs and /v2/ptrs/landing
       { index: true, Component: LandingPanel },
+      { path: "landing", Component: LandingPanel },
       // Wizard steps
       { path: "create", Component: DataConsole },
       { path: "data", Component: DataConsole },
@@ -20,12 +22,12 @@ const ptrsRoutes = [
       { path: "map", Component: MapPanel },
       { path: "stage", Component: StagePanel },
       { path: "rules", Component: RulesPanel },
+      { path: "sbi", Component: SbiPanel },
       // // Future steps (placeholders)
       // {
       //   path: "validate",
       //   Component: () => <div>Validate &amp; fix errors</div>,
       // },
-      // { path: "sbi", Component: () => <div>SBI export/import</div> },
       // { path: "metrics", Component: () => <div>Metrics snapshot</div> },
       // {
       //   path: "report",

@@ -1,5 +1,5 @@
 import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
-import { Box, Stack, Typography, Divider } from "@mui/material";
+import { Box, Stack, Typography, Divider, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
 import {
@@ -23,6 +23,9 @@ import {
   useRuleExecutionHistory,
 } from "../rules/hooks";
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
+
+import { useNavigate } from "react-router";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 // helpers
 const toSnake = (s) =>
@@ -94,6 +97,8 @@ export default function RulesPanel() {
   const ptrsId = ctxPtrsId || "";
   const profileId = ctxProfileId || null;
 
+  const navigate = useNavigate();
+
   const hasCtxMap = !!(
     ctxPtrsMap &&
     ctxPtrsMap.mappings &&
@@ -114,6 +119,8 @@ export default function RulesPanel() {
   const { rules, resetRules, addRule, updateRule, removeRule } = useRulesState(
     []
   );
+
+  const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
 
   // Helper to create a row rule from a single condition
   const createRowRuleFromCondition = (condition) => ({
@@ -332,6 +339,28 @@ export default function RulesPanel() {
     } finally {
       setIsApplying(false);
     }
+  };
+
+  const handleGoToSbi = async () => {
+    if (!ptrsId) {
+      showAlert("Missing ptrsId", "error");
+      return;
+    }
+
+    try {
+      await updatePtrsStep.mutateAsync({ currentStep: "sbi" });
+    } catch (err) {
+      console.error(err);
+      showAlert(
+        "Failed to update PTRS step. Continuing to SBI Check.",
+        "warning"
+      );
+    }
+
+    const qs = new URLSearchParams();
+    qs.set("ptrsId", ptrsId);
+    if (profileId) qs.set("profileId", profileId);
+    navigate(`/v2/ptrs/sbi?${qs.toString()}`);
   };
 
   const handleSaveRules = async () => {
@@ -670,16 +699,34 @@ export default function RulesPanel() {
         />
 
         <Box>
-          <RuleToolbar
-            onImport={openImportDialog}
-            onAddRule={addRule}
-            onSave={handleSaveRules}
-            onPreview={handlePreview}
-            onApply={handleApply}
-            isPreviewing={isPreviewing}
-            isApplying={isApplying}
-            canApply={canApply}
-          />
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={2}
+            justifyContent="space-between"
+            alignItems={{ md: "center" }}
+            sx={{ mb: 1 }}
+          >
+            <RuleToolbar
+              onImport={openImportDialog}
+              onAddRule={addRule}
+              onSave={handleSaveRules}
+              onPreview={handlePreview}
+              onApply={handleApply}
+              isPreviewing={isPreviewing}
+              isApplying={isApplying}
+              canApply={canApply}
+            />
+
+            <Button
+              variant="contained"
+              endIcon={<NavigateNextIcon />}
+              disabled={!ptrsId}
+              onClick={handleGoToSbi}
+            >
+              Next: SBI Check
+            </Button>
+          </Stack>
+
           <RuleList
             rules={rules}
             headers={headers}

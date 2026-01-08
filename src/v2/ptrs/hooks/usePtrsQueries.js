@@ -4,6 +4,7 @@
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import * as api from "../services/ptrsApi";
+import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 
 // ---- Keys (per ptrs) ---------------------------------------------------------
 const K = {
@@ -12,8 +13,8 @@ const K = {
   map: (id) => ["ptrs", "v2", "map", id],
   stage: (id) => ["ptrs", "v2", "stage", id],
   rules: (id) => ["ptrs", "v2", "rules", id],
-  validate: (id) => ["ptrs", "v2", "validate", id],
   sbi: (id) => ["ptrs", "v2", "sbi", id],
+  validate: (id) => ["ptrs", "v2", "validate", id],
   metrics: (id) => ["ptrs", "v2", "metrics", id],
   report: (id) => ["ptrs", "v2", "report", id],
 };
@@ -71,19 +72,50 @@ export function usePtrsStageStatus(ptrsId) {
   return { status: "idle" };
 }
 
-// The rest of the statuses are not wired yet in v2; return inert placeholders.
-export function usePtrsValidateStatus() {
-  return { status: "pending", errorsCount: 0, warningsCount: 0 };
-}
 export function usePtrsRulesStatus() {
   return { status: "idle", datasetVersionId: null };
 }
-export function usePtrsSbiStatus() {
-  return { lastImport: { status: "idle" }, status: "idle" };
+
+export function usePtrsSbiStatus(ptrsId) {
+  const enabled = !!ptrsId;
+
+  const query = useQuery({
+    queryKey: K.sbi(ptrsId),
+    queryFn: async () => getSbiStatus(ptrsId),
+    enabled,
+    staleTime: 10_000,
+  });
+
+  const latest = query.data?.latestUpload || null;
+
+  if (!enabled) {
+    return { status: "idle", lastImport: null };
+  }
+
+  if (query.isLoading) {
+    return { status: "loading", lastImport: null };
+  }
+
+  if (query.isError) {
+    return {
+      status: "error",
+      lastImport: null,
+      error: query.error?.message || "Failed to load SBI status",
+    };
+  }
+
+  return {
+    status: latest?.status || "not_started",
+    lastImport: latest,
+  };
 }
+
+// The rest of the statuses are not wired yet in v2; return inert placeholders.
+
 export function usePtrsMetricsStatus() {
   return { status: "idle", snapshotId: null };
 }
+
 export function usePtrsReportStatus() {
   return { state: "draft" };
 }
@@ -135,21 +167,36 @@ export function useUpdatePtrsMutation(ptrsId) {
 export function useSelectMapMutation() {
   return useMutation({ mutationFn: async () => ({}) });
 }
+
 export function useValidateMutation() {
   return useMutation({ mutationFn: async () => ({}) });
 }
+
 export function useApplyRulesMutation() {
   return useMutation({ mutationFn: async () => ({}) });
 }
+
 export function useSbiExportMutation() {
   return useMutation({ mutationFn: async () => ({}) });
 }
-export function useSbiImportMutation() {
-  return useMutation({ mutationFn: async () => ({}) });
+
+export function useSbiImportMutation(ptrsId) {
+  const qc = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ file }) => importSbiResults(ptrsId, file),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: K.sbi(ptrsId) });
+      qc.invalidateQueries({ queryKey: K.stage(ptrsId) });
+      qc.invalidateQueries({ queryKey: K.validate(ptrsId) });
+    },
+  });
 }
+
 export function useRecomputeMetricsMutation() {
   return useMutation({ mutationFn: async () => ({}) });
 }
+
 export function useReportMutations() {
   const createDraft = useMutation({ mutationFn: async () => ({}) });
   const changeState = useMutation({ mutationFn: async () => ({}) });
