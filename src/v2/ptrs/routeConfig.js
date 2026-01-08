@@ -7,6 +7,7 @@ import MapPanel from "./panels/MapPanel";
 import StagePanel from "./panels/StagePanel";
 import RulesPanel from "./panels/RulesPanel";
 import SbiPanel from "./panels/SbiPanel";
+import ValidatePanel from "./panels/ValidatePanel";
 
 const ptrsRoutes = [
   {
@@ -23,11 +24,11 @@ const ptrsRoutes = [
       { path: "stage", Component: StagePanel },
       { path: "rules", Component: RulesPanel },
       { path: "sbi", Component: SbiPanel },
+      {
+        path: "validate",
+        Component: ValidatePanel,
+      },
       // // Future steps (placeholders)
-      // {
-      //   path: "validate",
-      //   Component: () => <div>Validate &amp; fix errors</div>,
-      // },
       // { path: "metrics", Component: () => <div>Metrics snapshot</div> },
       // {
       //   path: "report",

@@ -5,6 +5,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import * as api from "../services/ptrsApi";
 import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
+import { getValidate, runValidate } from "../services/validate.ptrsApi";
 
 // ---- Keys (per ptrs) ---------------------------------------------------------
 const K = {
@@ -110,6 +111,35 @@ export function usePtrsSbiStatus(ptrsId) {
   };
 }
 
+export function usePtrsValidateSummary(ptrsId) {
+  const enabled = !!ptrsId;
+
+  const query = useQuery({
+    queryKey: K.validate(ptrsId),
+    queryFn: async () => getValidate(ptrsId),
+    enabled,
+    staleTime: 10_000,
+  });
+
+  if (!enabled) {
+    return { status: "idle", data: null, error: null };
+  }
+
+  if (query.isLoading) {
+    return { status: "loading", data: null, error: null };
+  }
+
+  if (query.isError) {
+    return {
+      status: "error",
+      data: null,
+      error: query.error?.message || "Failed to load Validate summary",
+    };
+  }
+
+  return { status: "success", data: query.data || null, error: null };
+}
+
 // The rest of the statuses are not wired yet in v2; return inert placeholders.
 
 export function usePtrsMetricsStatus() {
@@ -168,8 +198,15 @@ export function useSelectMapMutation() {
   return useMutation({ mutationFn: async () => ({}) });
 }
 
-export function useValidateMutation() {
-  return useMutation({ mutationFn: async () => ({}) });
+export function useValidateMutation(ptrsId) {
+  const qc = useQueryClient();
+
+  return useMutation({
+    mutationFn: async () => runValidate(ptrsId),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: K.validate(ptrsId) });
+    },
+  });
 }
 
 export function useApplyRulesMutation() {
