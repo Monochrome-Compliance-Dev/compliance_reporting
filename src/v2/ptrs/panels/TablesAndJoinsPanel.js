@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import {
   Box,
   Paper,
@@ -37,6 +37,107 @@ export default function TablesAndJoinsPanel() {
   const [mainHeaders, setMainHeaders] = useState([]);
   const [examples, setExamples] = useState({});
   const [loading, setLoading] = useState(false);
+
+  // ---- Autosave (joins + computed fields) ----
+  const saveTimerRef = useRef(null);
+  const lastSavedHashRef = useRef(null);
+  const dirtyRef = useRef(false);
+  const autosaveNoticeShownRef = useRef(false);
+  const isSavingRef = useRef(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const savePromiseRef = useRef(null);
+
+  const computeJoinsHash = (j) => {
+    const safe = {
+      conditions: Array.isArray(j?.conditions) ? j.conditions : [],
+      customFields: Array.isArray(j?.customFields) ? j.customFields : [],
+    };
+    return JSON.stringify(safe);
+  };
+
+  const performSave = async (nextJoins, opts = {}) => {
+    if (!ptrsId) return;
+    if (isSavingRef.current) return;
+
+    const { silent = true } = opts;
+
+    const targetJoins = nextJoins || joins;
+    const nextHash = computeJoinsHash(targetJoins);
+    if (lastSavedHashRef.current === nextHash) {
+      dirtyRef.current = false;
+      return;
+    }
+
+    isSavingRef.current = true;
+    setIsSaving(true);
+
+    let resolveSave;
+    savePromiseRef.current = new Promise((resolve) => {
+      resolveSave = resolve;
+    });
+
+    try {
+      // Load existing mappings so we don't overwrite them when saving joins
+      const mapRes = await getPtrsMap(ptrsId).catch(() => ({}));
+      const existingMappings =
+        (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || {};
+
+      const conditions = Array.isArray(targetJoins?.conditions)
+        ? targetJoins.conditions
+        : [];
+      const customFields = Array.isArray(targetJoins?.customFields)
+        ? targetJoins.customFields
+        : [];
+
+      const payload = {
+        mappings: existingMappings,
+        joins: { conditions },
+        customFields,
+        profileId,
+      };
+
+      await savePtrsMap(ptrsId, payload);
+
+      lastSavedHashRef.current = nextHash;
+      dirtyRef.current = false;
+
+      if (!silent) {
+        showAlert("Saved joins", "success");
+      }
+    } catch (e) {
+      // Autosave should never be silent on failure.
+      showAlert(e?.message || "Failed to save joins", "error");
+    } finally {
+      isSavingRef.current = false;
+      setIsSaving(false);
+
+      if (savePromiseRef.current) {
+        // Resolve anyone awaiting the in-flight save
+        savePromiseRef.current = null;
+        resolveSave?.();
+      }
+    }
+  };
+
+  const scheduleAutosave = (nextJoins) => {
+    if (!ptrsId) return;
+
+    // One-time info notice so the user understands what’s happening.
+    if (!autosaveNoticeShownRef.current) {
+      autosaveNoticeShownRef.current = true;
+      showAlert("Joins and computed fields are autosaved.", "info");
+    }
+
+    dirtyRef.current = true;
+
+    if (saveTimerRef.current) {
+      clearTimeout(saveTimerRef.current);
+    }
+
+    saveTimerRef.current = setTimeout(() => {
+      performSave(nextJoins, { silent: true });
+    }, 800);
+  };
 
   useEffect(() => {
     let mounted = true;
@@ -113,6 +214,13 @@ export default function TablesAndJoinsPanel() {
           customFields: initialCustomFields,
         });
 
+        const initialHash = computeJoinsHash({
+          conditions: initialConditions,
+          customFields: initialCustomFields,
+        });
+        lastSavedHashRef.current = initialHash;
+        dirtyRef.current = false;
+
         console.log("[TablesAndJoinsPanel] joins state after load", {
           conditionsCount: initialConditions.length,
           customFieldsCount: initialCustomFields.length,
@@ -164,6 +272,9 @@ export default function TablesAndJoinsPanel() {
     load();
     return () => {
       mounted = false;
+      if (saveTimerRef.current) {
+        clearTimeout(saveTimerRef.current);
+      }
     };
   }, [ptrsId, showAlert]);
 
@@ -184,32 +295,7 @@ export default function TablesAndJoinsPanel() {
     if (!ptrsId) return showAlert("Missing ptrsId", "error");
     setLoading(true);
     try {
-      // Load any existing mappings so we don't overwrite them when saving joins
-      const mapRes = await getPtrsMap(ptrsId).catch(() => ({}));
-      const existingMappings =
-        (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || {};
-
-      const conditions = Array.isArray(joins?.conditions)
-        ? joins.conditions
-        : [];
-      const customFields = Array.isArray(joins?.customFields)
-        ? joins.customFields
-        : [];
-
-      const payload = {
-        mappings: existingMappings,
-        joins: { conditions },
-        customFields,
-        profileId,
-      };
-      console.log("[TablesAndJoinsPanel] saveJoins payload", payload);
-
-      await savePtrsMap(ptrsId, payload);
-
-      console.log("[TablesAndJoinsPanel] saveJoins completed");
-      showAlert("Saved joins", "success");
-    } catch (e) {
-      showAlert(e?.message || "Failed to save joins", "error");
+      await performSave(joins, { silent: false });
     } finally {
       setLoading(false);
     }
@@ -219,6 +305,19 @@ export default function TablesAndJoinsPanel() {
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
+    }
+
+    // Flush any pending autosave and ensure joins/custom fields are saved before moving on.
+    if (saveTimerRef.current) {
+      clearTimeout(saveTimerRef.current);
+      saveTimerRef.current = null;
+    }
+
+    if (dirtyRef.current) {
+      await performSave(joins, { silent: true });
+    } else if (isSavingRef.current && savePromiseRef.current) {
+      // If a save is in-flight, await its completion.
+      await savePromiseRef.current;
     }
 
     try {
@@ -284,9 +383,9 @@ export default function TablesAndJoinsPanel() {
             <Button
               size="small"
               onClick={saveJoins}
-              disabled={loading || !ptrsId}
+              disabled={loading || isSaving || !ptrsId}
             >
-              Save joins
+              {isSaving ? "Saving…" : "Save joins"}
             </Button>
             <Button
               variant="contained"
@@ -304,15 +403,21 @@ export default function TablesAndJoinsPanel() {
           joins={joins}
           onChange={(next) => {
             if (!next || typeof next !== "object") {
-              setJoins({ conditions: [], customFields: [] });
+              const cleared = { conditions: [], customFields: [] };
+              setJoins(cleared);
+              scheduleAutosave(cleared);
               return;
             }
-            setJoins({
+
+            const nextJoins = {
               conditions: Array.isArray(next.conditions) ? next.conditions : [],
               customFields: Array.isArray(next.customFields)
                 ? next.customFields
                 : [],
-            });
+            };
+
+            setJoins(nextJoins);
+            scheduleAutosave(nextJoins);
           }}
           headers={headers}
           examples={examples}

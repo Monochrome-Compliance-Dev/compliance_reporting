@@ -8,6 +8,7 @@ import StagePanel from "./panels/StagePanel";
 import RulesPanel from "./panels/RulesPanel";
 import SbiPanel from "./panels/SbiPanel";
 import ValidatePanel from "./panels/ValidatePanel";
+import MetricsPanel from "./panels/MetricsPanel";
 
 const ptrsRoutes = [
   {
@@ -28,12 +29,11 @@ const ptrsRoutes = [
         path: "validate",
         Component: ValidatePanel,
       },
-      // // Future steps (placeholders)
-      // { path: "metrics", Component: () => <div>Metrics snapshot</div> },
-      // {
-      //   path: "report",
-      //   Component: () => <div>Compose &amp; export report</div>,
-      // },
+      { path: "metrics", Component: MetricsPanel },
+      {
+        path: "report",
+        Component: () => <div>Compose &amp; export report</div>,
+      },
       // Optional: catch-all can just show Landing as well (no Navigate)
       // { path: "*", Component: LandingPanel },
     ],

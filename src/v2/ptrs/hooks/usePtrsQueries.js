@@ -6,6 +6,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import * as api from "../services/ptrsApi";
 import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 import { getValidate, runValidate } from "../services/validate.ptrsApi";
+import { getMetrics, updateMetricsDraft } from "../services/metrics.ptrsApi";
 
 // ---- Keys (per ptrs) ---------------------------------------------------------
 const K = {
@@ -140,10 +141,46 @@ export function usePtrsValidateSummary(ptrsId) {
   return { status: "success", data: query.data || null, error: null };
 }
 
-// The rest of the statuses are not wired yet in v2; return inert placeholders.
+export function usePtrsMetricsSummary(ptrsId) {
+  const enabled = !!ptrsId;
 
-export function usePtrsMetricsStatus() {
-  return { status: "idle", snapshotId: null };
+  const query = useQuery({
+    queryKey: K.metrics(ptrsId),
+    queryFn: async () => getMetrics(ptrsId),
+    enabled,
+    staleTime: 10_000,
+  });
+
+  if (!enabled) {
+    return { status: "idle", data: null, error: null };
+  }
+
+  if (query.isLoading) {
+    return { status: "loading", data: null, error: null };
+  }
+
+  if (query.isError) {
+    return {
+      status: "error",
+      data: null,
+      error: query.error?.message || "Failed to load Metrics",
+    };
+  }
+
+  return { status: "success", data: query.data || null, error: null };
+}
+
+export function usePtrsMetricsStatus(ptrsId) {
+  const q = usePtrsMetricsSummary(ptrsId);
+  if (q.status !== "success") return { status: q.status, snapshotId: null };
+
+  const reportId = q.data?.header?.reportId || null;
+  const basedOnRowCount = q.data?.quality?.basedOnRowCount || 0;
+
+  return {
+    status: basedOnRowCount > 0 ? "ready" : "empty",
+    snapshotId: reportId,
+  };
 }
 
 export function usePtrsReportStatus() {
@@ -189,6 +226,17 @@ export function useUpdatePtrsMutation(ptrsId) {
         qc.invalidateQueries({ queryKey: K.stage(id) });
         qc.invalidateQueries({ queryKey: K.map(id) });
       }
+    },
+  });
+}
+
+export function useUpdateMetricsDraftMutation(ptrsId) {
+  const qc = useQueryClient();
+
+  return useMutation({
+    mutationFn: (patch) => updateMetricsDraft(ptrsId, patch),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: K.metrics(ptrsId) });
     },
   });
 }
