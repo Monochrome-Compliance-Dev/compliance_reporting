@@ -78,7 +78,12 @@ export default function MetricsPanel() {
   const ptrsId = ctxPtrsId || "";
   const profileId = ctxProfileId || null;
 
-  const { status: loadStatus, data, error } = usePtrsMetricsSummary(ptrsId);
+  const {
+    status: loadStatus,
+    data,
+    error,
+    refetch,
+  } = usePtrsMetricsSummary(ptrsId);
 
   const updateDraft = useUpdateMetricsDraftMutation(ptrsId);
   const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
@@ -162,14 +167,18 @@ export default function MetricsPanel() {
   const refresh = useCallback(async () => {
     setIsManualRefreshing(true);
     try {
-      const qs = new URLSearchParams();
-      if (ptrsId) qs.set("ptrsId", ptrsId);
-      if (profileId) qs.set("profileId", profileId);
-      navigate(`/v2/ptrs/metrics?${qs.toString()}`, { replace: true });
+      if (typeof refetch === "function") {
+        await refetch();
+        showAlert("Metrics refreshed.", "success");
+      } else {
+        showAlert("Refresh is unavailable (refetch missing).", "warning");
+      }
+    } catch (err) {
+      showAlert(err?.message || "Failed to refresh metrics.", "error");
     } finally {
-      setTimeout(() => setIsManualRefreshing(false), 250);
+      setIsManualRefreshing(false);
     }
-  }, [navigate, ptrsId, profileId]);
+  }, [refetch, showAlert]);
 
   const onSave = useCallback(
     async (values) => {

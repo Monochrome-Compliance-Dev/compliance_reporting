@@ -152,11 +152,16 @@ export function usePtrsMetricsSummary(ptrsId) {
   });
 
   if (!enabled) {
-    return { status: "idle", data: null, error: null };
+    return { status: "idle", data: null, error: null, refetch: null };
   }
 
   if (query.isLoading) {
-    return { status: "loading", data: null, error: null };
+    return {
+      status: "loading",
+      data: null,
+      error: null,
+      refetch: query.refetch,
+    };
   }
 
   if (query.isError) {
@@ -164,10 +169,16 @@ export function usePtrsMetricsSummary(ptrsId) {
       status: "error",
       data: null,
       error: query.error?.message || "Failed to load Metrics",
+      refetch: query.refetch,
     };
   }
 
-  return { status: "success", data: query.data || null, error: null };
+  return {
+    status: "success",
+    data: query.data || null,
+    error: null,
+    refetch: query.refetch,
+  };
 }
 
 export function usePtrsMetricsStatus(ptrsId) {
