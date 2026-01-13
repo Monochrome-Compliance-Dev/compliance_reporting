@@ -63,6 +63,13 @@ const fmtDays = (v) => {
   return `${Math.round(n)}`;
 };
 
+const fmtNum = (v, decimals = 2) => {
+  if (v == null || v === "") return "—";
+  const n = Number(v);
+  if (!Number.isFinite(n)) return "—";
+  return n.toFixed(decimals);
+};
+
 const boolLabel = (v) => {
   if (v === true) return "Yes";
   if (v === false) return "No";
@@ -245,7 +252,7 @@ export default function MetricsPanel() {
       },
       {
         label: "Average Payment Time (days)",
-        value: fmtDays(computed?.averagePaymentTimeDays),
+        value: fmtNum(computed?.averagePaymentTimeDays, 2),
       },
       {
         label: "Median Payment Time (days)",

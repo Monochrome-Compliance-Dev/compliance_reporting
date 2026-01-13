@@ -46,3 +46,39 @@ export const runValidate = async (ptrsId) => {
     warnings: Array.isArray(data?.warnings) ? data.warnings : [],
   };
 };
+
+export const setStageRowExcluded = async (
+  ptrsId,
+  stageRowId,
+  { exclude, comment } = {}
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!stageRowId) throw new Error("stageRowId is required");
+
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/stage-rows/${stageRowId}/exclude`,
+    {
+      exclude: Boolean(exclude),
+      comment: comment != null ? String(comment) : null,
+    }
+  );
+
+  const d = pickData(res);
+  const data = d?.data || d || {};
+
+  return data;
+};
+
+export const getStageRowById = async (ptrsId, stageRowId) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!stageRowId) throw new Error("stageRowId is required");
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/stage-rows/${stageRowId}`
+  );
+
+  const d = pickData(res);
+  const data = d?.data || d || {};
+
+  return data;
+};

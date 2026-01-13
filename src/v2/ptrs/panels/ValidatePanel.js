@@ -7,6 +7,11 @@ import {
   Divider,
   Stack,
   Typography,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import RefreshIcon from "@mui/icons-material/Refresh";
@@ -19,13 +24,16 @@ import { useAlert } from "context";
 import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
 import { LoadingSpinner } from "components/ui/";
 import {
+  getStageRowById,
+  getValidate,
+  setStageRowExcluded,
+} from "v2/ptrs/services/validate.ptrsApi";
+import { useCallback, useMemo, useState } from "react";
+import {
   usePtrsValidateSummary,
-  useValidateMutation,
   useUpdatePtrsMutation,
-} from "v2/ptrs/hooks/usePtrsQueries";
-import { useState } from "react";
-import { useMemo } from "react";
-import { useCallback } from "react";
+  useValidateMutation,
+} from "../hooks/usePtrsQueries";
 
 const formatStatus = (status) => {
   if (!status) return "—";
@@ -40,7 +48,7 @@ const formatStatus = (status) => {
     .join(" ");
 };
 
-const IssueAccordion = ({ title, items, color }) => {
+const IssueAccordion = ({ title, items, color, onExclude, onViewRow }) => {
   const count = items?.length || 0;
 
   return (
@@ -76,10 +84,39 @@ const IssueAccordion = ({ title, items, color }) => {
                   border: (t) => `1px solid ${t.palette.divider}`,
                 }}
               >
-                <Typography variant="body2" fontWeight={600} sx={{ color }}>
-                  {it.code || "ISSUE"}
-                  {typeof it.rowNo === "number" ? ` (row ${it.rowNo})` : ""}
-                </Typography>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  spacing={1}
+                >
+                  <Typography variant="body2" fontWeight={600} sx={{ color }}>
+                    {it.code || "ISSUE"}
+                    {typeof it.rowNo === "number" ? ` (row ${it.rowNo})` : ""}
+                  </Typography>
+
+                  <Stack direction="row" spacing={1}>
+                    {typeof onViewRow === "function" && it?.stageRowId ? (
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        onClick={() => onViewRow(it)}
+                      >
+                        View row
+                      </Button>
+                    ) : null}
+
+                    {typeof onExclude === "function" && it?.stageRowId ? (
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        onClick={() => onExclude(it)}
+                      >
+                        Exclude
+                      </Button>
+                    ) : null}
+                  </Stack>
+                </Stack>
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
                   {it.message || "—"}
                 </Typography>
@@ -116,13 +153,26 @@ export default function ValidatePanel() {
   const isBusy =
     runMut.isPending || updatePtrsStep.isPending || isManualRefreshing;
 
-  const counts = data?.counts || {};
-  const blockers = data?.blockers || [];
-  const warnings = data?.warnings || [];
+  const [overrideValidate, setOverrideValidate] = useState(null);
+  const effectiveValidate = overrideValidate || data || null;
+
+  const [excludeOpen, setExcludeOpen] = useState(false);
+  const [excludeTarget, setExcludeTarget] = useState(null);
+  const [excludeComment, setExcludeComment] = useState("");
+
+  const [viewOpen, setViewOpen] = useState(false);
+  const [viewTarget, setViewTarget] = useState(null);
+  const [viewRowLoading, setViewRowLoading] = useState(false);
+  const [viewRowError, setViewRowError] = useState("");
+  const [viewRowData, setViewRowData] = useState(null);
+
+  const counts = effectiveValidate?.counts || {};
+  const blockers = effectiveValidate?.blockers || [];
+  const warnings = effectiveValidate?.warnings || [];
 
   const statusText = useMemo(
-    () => formatStatus(data?.status || (ptrsId ? "—" : "")),
-    [data?.status, ptrsId]
+    () => formatStatus(effectiveValidate?.status || (ptrsId ? "—" : "")),
+    [effectiveValidate?.status, ptrsId]
   );
 
   const onRunValidate = useCallback(async () => {
@@ -134,6 +184,7 @@ export default function ValidatePanel() {
     try {
       showAlert("Running validation…", "info");
       const res = await runMut.mutateAsync();
+      setOverrideValidate(res);
       const s = res?.status || "unknown";
 
       if (s === "BLOCKED") {
@@ -153,6 +204,74 @@ export default function ValidatePanel() {
       showAlert(err?.message || "Failed to run validation.", "error");
     }
   }, [ptrsId, runMut, showAlert, updatePtrsStep]);
+  const onOpenExclude = useCallback((issue) => {
+    setExcludeTarget(issue);
+    setExcludeComment("");
+    setExcludeOpen(true);
+  }, []);
+
+  const onOpenViewRow = useCallback(
+    async (issue) => {
+      if (!ptrsId || !issue?.stageRowId) {
+        showAlert("Missing ptrsId or stage row id", "error");
+        return;
+      }
+
+      setViewTarget(issue);
+      setViewRowError("");
+      setViewRowData(null);
+      setViewOpen(true);
+      setViewRowLoading(true);
+
+      try {
+        const row = await getStageRowById(ptrsId, issue.stageRowId);
+        setViewRowData(row);
+      } catch (err) {
+        setViewRowError(err?.message || "Failed to load staged row");
+      } finally {
+        setViewRowLoading(false);
+      }
+    },
+    [ptrsId, showAlert]
+  );
+
+  const onCloseExclude = useCallback(() => {
+    setExcludeOpen(false);
+    setExcludeTarget(null);
+    setExcludeComment("");
+  }, []);
+
+  const onCloseViewRow = useCallback(() => {
+    setViewOpen(false);
+    setViewTarget(null);
+    setViewRowError("");
+    setViewRowData(null);
+    setViewRowLoading(false);
+  }, []);
+
+  const onConfirmExclude = useCallback(async () => {
+    if (!ptrsId || !excludeTarget?.stageRowId) {
+      showAlert("Missing ptrsId or stage row id", "error");
+      return;
+    }
+
+    try {
+      showAlert("Excluding row from validation + metrics…", "info");
+      await setStageRowExcluded(ptrsId, excludeTarget.stageRowId, {
+        exclude: true,
+        comment: excludeComment,
+      });
+
+      // Reload validate summary so UI reflects the exclusion immediately.
+      const next = await getValidate(ptrsId);
+      setOverrideValidate(next);
+
+      showAlert("Row excluded.", "success");
+      onCloseExclude();
+    } catch (err) {
+      showAlert(err?.message || "Failed to exclude row.", "error");
+    }
+  }, [ptrsId, excludeTarget, excludeComment, showAlert, onCloseExclude]);
 
   const goBackToSbi = useCallback(() => {
     const qs = new URLSearchParams();
@@ -196,163 +315,276 @@ export default function ValidatePanel() {
   }, [navigate, ptrsId, profileId]);
 
   return (
-    <Box sx={{ p: 3, maxWidth: 1200, mx: "auto" }}>
-      <Stack
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        sx={{ mb: 2 }}
-      >
-        <Typography variant="h5" fontWeight={600}>
-          Validate
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ color: theme.palette.text.secondary }}
-        >
-          Ptrs: {ptrsId || "—"}
-        </Typography>
-      </Stack>
-
-      <Divider sx={{ mb: 2 }} />
-
-      <Stack spacing={2}>
-        <Typography
-          variant="body1"
-          sx={{ color: theme.palette.text.secondary }}
-        >
-          This step checks report readiness across your staged rows. It does not
-          change data — it flags what would make the report unsafe or
-          misleading.
-        </Typography>
-
+    <>
+      <Box sx={{ p: 3, maxWidth: 1200, mx: "auto" }}>
         <Stack
-          direction={{ xs: "column", md: "row" }}
-          spacing={2}
-          alignItems={{ md: "center" }}
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          sx={{ mb: 2 }}
         >
-          <Button
-            variant="outlined"
-            startIcon={<ArrowBackIcon />}
-            onClick={goBackToSbi}
-            disabled={isBusy}
+          <Typography variant="h5" fontWeight={600}>
+            Validate
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ color: theme.palette.text.secondary }}
           >
-            Back: SBI Check
-          </Button>
-
-          <Button
-            variant="contained"
-            startIcon={<RefreshIcon />}
-            onClick={onRunValidate}
-            disabled={!ptrsId || isBusy}
-          >
-            Run validation
-          </Button>
-
-          <Button
-            variant="contained"
-            endIcon={<NavigateNextIcon />}
-            onClick={goToMetrics}
-            disabled={!ptrsId || isBusy}
-          >
-            Next: Metrics
-          </Button>
-
-          <Button
-            variant="outlined"
-            onClick={refresh}
-            disabled={!ptrsId || isBusy}
-          >
-            Refresh
-          </Button>
-
-          {isBusy ? <LoadingSpinner /> : null}
+            Ptrs: {ptrsId || "—"}
+          </Typography>
         </Stack>
 
-        <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: `1px solid ${theme.palette.divider}`,
-            backgroundColor: theme.palette.background.paper,
-          }}
-        >
-          <Stack spacing={1}>
-            <Typography variant="subtitle1" fontWeight={600}>
-              Summary
+        <Divider sx={{ mb: 2 }} />
+
+        <Stack spacing={2}>
+          <Typography
+            variant="body1"
+            sx={{ color: theme.palette.text.secondary }}
+          >
+            This step checks report readiness across your staged rows. It does
+            not change data — it flags what would make the report unsafe or
+            misleading.
+          </Typography>
+
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={2}
+            alignItems={{ md: "center" }}
+          >
+            <Button
+              variant="outlined"
+              startIcon={<ArrowBackIcon />}
+              onClick={goBackToSbi}
+              disabled={isBusy}
+            >
+              Back: SBI Check
+            </Button>
+
+            <Button
+              variant="contained"
+              startIcon={<RefreshIcon />}
+              onClick={onRunValidate}
+              disabled={!ptrsId || isBusy}
+            >
+              Run validation
+            </Button>
+
+            <Button
+              variant="contained"
+              endIcon={<NavigateNextIcon />}
+              onClick={goToMetrics}
+              disabled={!ptrsId || isBusy}
+            >
+              Next: Metrics
+            </Button>
+
+            <Button
+              variant="outlined"
+              onClick={refresh}
+              disabled={!ptrsId || isBusy}
+            >
+              Refresh
+            </Button>
+
+            {isBusy ? <LoadingSpinner /> : null}
+          </Stack>
+
+          <Box
+            sx={{
+              p: 2,
+              borderRadius: 2,
+              border: `1px solid ${theme.palette.divider}`,
+              backgroundColor: theme.palette.background.paper,
+            }}
+          >
+            <Stack spacing={1}>
+              <Typography variant="subtitle1" fontWeight={600}>
+                Summary
+              </Typography>
+
+              {!ptrsId ? (
+                <Typography
+                  variant="body2"
+                  sx={{ color: theme.palette.text.secondary }}
+                >
+                  Select or resume a PTRS run to validate.
+                </Typography>
+              ) : loadStatus === "loading" ? (
+                <Typography
+                  variant="body2"
+                  sx={{ color: theme.palette.text.secondary }}
+                >
+                  Loading validation summary…
+                </Typography>
+              ) : loadStatus === "error" ? (
+                <Typography
+                  variant="body2"
+                  sx={{ color: theme.palette.error.main }}
+                >
+                  {error || "Failed to load validation summary"}
+                </Typography>
+              ) : (
+                <Stack spacing={0.5}>
+                  <Typography variant="body2">
+                    Status: <b>{statusText}</b>
+                  </Typography>
+
+                  <Typography variant="body2">
+                    Rows: {counts.totalRows ?? "—"} (excluded:{" "}
+                    {counts.excludedRows ?? "—"})
+                  </Typography>
+
+                  <Typography variant="body2">
+                    Blockers: {counts.blockers ?? blockers.length ?? 0} •
+                    Warnings: {counts.warnings ?? warnings.length ?? 0}
+                  </Typography>
+
+                  {typeof counts.duplicatesSuspectedCount === "number" ? (
+                    <Typography
+                      variant="body2"
+                      sx={{ color: theme.palette.text.secondary }}
+                    >
+                      Duplicates suspected: {counts.duplicatesSuspectedCount}
+                    </Typography>
+                  ) : null}
+
+                  {typeof counts.smallBusinessUnknownCount === "number" ? (
+                    <Typography
+                      variant="body2"
+                      sx={{ color: theme.palette.text.secondary }}
+                    >
+                      Small business unknown: {counts.smallBusinessUnknownCount}
+                    </Typography>
+                  ) : null}
+                </Stack>
+              )}
+            </Stack>
+          </Box>
+
+          <IssueAccordion
+            title="Blockers"
+            items={blockers}
+            color={theme.palette.error.main}
+            onExclude={onOpenExclude}
+            onViewRow={onOpenViewRow}
+          />
+
+          <IssueAccordion
+            title="Warnings"
+            items={warnings}
+            color={theme.palette.warning.main}
+            onExclude={onOpenExclude}
+            onViewRow={onOpenViewRow}
+          />
+        </Stack>
+      </Box>
+
+      <Dialog open={viewOpen} onClose={onCloseViewRow} fullWidth maxWidth="md">
+        <DialogTitle>Staged row</DialogTitle>
+        <DialogContent>
+          <Stack spacing={1.5} sx={{ mt: 1 }}>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+              {viewTarget ? (
+                <>
+                  From <b>{viewTarget.code || "ISSUE"}</b>
+                  {typeof viewTarget.rowNo === "number"
+                    ? ` (row ${viewTarget.rowNo})`
+                    : ""}
+                </>
+              ) : (
+                ""
+              )}
             </Typography>
 
-            {!ptrsId ? (
-              <Typography
-                variant="body2"
-                sx={{ color: theme.palette.text.secondary }}
-              >
-                Select or resume a PTRS run to validate.
-              </Typography>
-            ) : loadStatus === "loading" ? (
-              <Typography
-                variant="body2"
-                sx={{ color: theme.palette.text.secondary }}
-              >
-                Loading validation summary…
-              </Typography>
-            ) : loadStatus === "error" ? (
+            {viewRowLoading ? (
+              <Stack direction="row" alignItems="center" spacing={1}>
+                <LoadingSpinner />
+                <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                  Loading staged row…
+                </Typography>
+              </Stack>
+            ) : viewRowError ? (
               <Typography
                 variant="body2"
                 sx={{ color: theme.palette.error.main }}
               >
-                {error || "Failed to load validation summary"}
+                {viewRowError}
               </Typography>
+            ) : viewRowData ? (
+              <Box
+                sx={{
+                  p: 1.5,
+                  borderRadius: 1,
+                  border: `1px solid ${theme.palette.divider}`,
+                  backgroundColor: theme.palette.background.paper,
+                  overflow: "auto",
+                  maxHeight: 420,
+                }}
+              >
+                <pre style={{ margin: 0, whiteSpace: "pre-wrap" }}>
+                  {JSON.stringify(viewRowData, null, 2)}
+                </pre>
+              </Box>
             ) : (
-              <Stack spacing={0.5}>
-                <Typography variant="body2">
-                  Status: <b>{statusText}</b>
-                </Typography>
-
-                <Typography variant="body2">
-                  Rows: {counts.totalRows ?? "—"} (excluded:{" "}
-                  {counts.excludedRows ?? "—"})
-                </Typography>
-
-                <Typography variant="body2">
-                  Blockers: {counts.blockers ?? blockers.length ?? 0} •
-                  Warnings: {counts.warnings ?? warnings.length ?? 0}
-                </Typography>
-
-                {typeof counts.duplicatesSuspectedCount === "number" ? (
-                  <Typography
-                    variant="body2"
-                    sx={{ color: theme.palette.text.secondary }}
-                  >
-                    Duplicates suspected: {counts.duplicatesSuspectedCount}
-                  </Typography>
-                ) : null}
-
-                {typeof counts.smallBusinessUnknownCount === "number" ? (
-                  <Typography
-                    variant="body2"
-                    sx={{ color: theme.palette.text.secondary }}
-                  >
-                    Small business unknown: {counts.smallBusinessUnknownCount}
-                  </Typography>
-                ) : null}
-              </Stack>
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                No data.
+              </Typography>
             )}
           </Stack>
-        </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={onCloseViewRow} disabled={isBusy}>
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
 
-        <IssueAccordion
-          title="Blockers"
-          items={blockers}
-          color={theme.palette.error.main}
-        />
+      <Dialog
+        open={excludeOpen}
+        onClose={onCloseExclude}
+        fullWidth
+        maxWidth="sm"
+      >
+        <DialogTitle>Exclude row</DialogTitle>
+        <DialogContent>
+          <Stack spacing={1.5} sx={{ mt: 1 }}>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+              This will exclude the row from validation and metrics, but it will
+              remain in staging for audit.
+            </Typography>
 
-        <IssueAccordion
-          title="Warnings"
-          items={warnings}
-          color={theme.palette.warning.main}
-        />
-      </Stack>
-    </Box>
+            {excludeTarget ? (
+              <Typography variant="body2">
+                Target: <b>{excludeTarget.code || "ISSUE"}</b>
+                {typeof excludeTarget.rowNo === "number"
+                  ? ` (row ${excludeTarget.rowNo})`
+                  : ""}
+              </Typography>
+            ) : null}
+
+            <TextField
+              label="Reason (optional)"
+              value={excludeComment}
+              onChange={(e) => setExcludeComment(e.target.value)}
+              multiline
+              minRows={3}
+              placeholder="e.g. Bad ABN in source extract; excluding for MVP submission"
+            />
+          </Stack>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={onCloseExclude} disabled={isBusy}>
+            Cancel
+          </Button>
+          <Button
+            variant="contained"
+            onClick={onConfirmExclude}
+            disabled={isBusy}
+          >
+            Exclude
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
   );
 }
