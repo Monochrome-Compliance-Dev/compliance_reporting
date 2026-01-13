@@ -91,9 +91,44 @@ export const savePtrsMap = async (
     mappings,
     customFields,
   });
+
+  // Always include mapMeta inside extras for server-side compatibility listing
+  const normHeaderKey = (s) =>
+    String(s || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, "")
+      .trim();
+
+  const sourceHeaders =
+    mappings && typeof mappings === "object" ? Object.keys(mappings) : [];
+  const sourceHeadersNorm = sourceHeaders.map(normHeaderKey).filter(Boolean);
+
+  const targets = Array.from(
+    new Set(
+      Object.values(mappings || {})
+        .map((cfg) => cfg?.field)
+        .filter(Boolean)
+        .map((v) => String(v).trim())
+        .filter(Boolean)
+    )
+  );
+
+  const nextExtras = {
+    ...(extras && typeof extras === "object" && !Array.isArray(extras)
+      ? extras
+      : {}),
+    mapMeta: {
+      version: 1,
+      sourceHeaders,
+      sourceHeadersNorm,
+      targets,
+      updatedAt: new Date().toISOString(),
+    },
+  };
+
   const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/${ptrsId}/map`, {
     mappings,
-    extras,
+    extras: nextExtras,
     fallbacks,
     defaults,
     joins,
@@ -265,14 +300,11 @@ export const getUnifiedSample = async (
 
 export const listPtrsWithMap = async () => {
   try {
-    const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/with-map`);
-    const data = pickData(res);
-    // Controller may return an array directly or wrap in { items }
-    const items = Array.isArray(data) ? data : data?.items || [];
-    // Return raw items so all fields (label, periodStart, currentStep, etc.) are available to the UI
+    const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/compatible-maps`);
+    const data = pickData(res) || {};
+    const items = Array.isArray(data.items) ? data.items : [];
     return { items };
   } catch (err) {
-    // No mapped PTRS runs yet for this customer – just return an empty list
     if (err?.status === 404 || err?.response?.status === 404) {
       return { items: [] };
     }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Box,
   Stack,
@@ -102,31 +102,6 @@ export default function MapPanel() {
     }
     setImportOpen(true);
   };
-
-  // Count how many mappings from a saved map could apply to the current headers
-  const countCompatibleMappings = useCallback((headersArr, mappingsObj) => {
-    if (!headersArr || !headersArr.length) return 0;
-    if (!mappingsObj || typeof mappingsObj !== "object") return 0;
-
-    const validHeaders = Array.isArray(headersArr) ? headersArr : [];
-    const seenSources = new Set();
-    let applied = 0;
-
-    for (const [source, cfg] of Object.entries(mappingsObj)) {
-      const target = cfg?.field;
-      if (!target) continue;
-
-      const resolved = resolveHeader(validHeaders, source);
-      if (!resolved) continue;
-
-      // ensure a source header only counts once
-      if (seenSources.has(resolved)) continue;
-      seenSources.add(resolved);
-      applied += 1;
-    }
-
-    return applied;
-  }, []);
 
   // --- Load headers + any existing saved map
   useEffect(() => {
@@ -326,29 +301,86 @@ export default function MapPanel() {
           ...new Set([...prev, ...Array.from(discovered)]),
         ]);
 
-        // Finally: load PTRS runs that have maps and pre-filter by compatibility
+        // Finally: load PTRS runs that have maps and pre-filter by compatibility.
+        // Prefer server-saved metadata (extras.mapMeta) to avoid N+1 getPtrsMap calls.
         try {
           const lr = await listPtrsWithMap();
           const allPtrss = lr.items || [];
 
-          const compatible = [];
+          const normHeaderKey = (s) =>
+            String(s || "")
+              .toLowerCase()
+              .replace(/[^a-z0-9]/g, "")
+              .trim();
+
+          const inferredNormSet = new Set(
+            (inferred || []).map(normHeaderKey).filter(Boolean)
+          );
+
+          const fromMeta = [];
+          let metaSeen = false;
 
           for (const run of allPtrss) {
-            try {
-              const res = await getPtrsMap(run.id);
-              const mapObj = (res && (res.mappings || res.map?.mappings)) || {};
-              const count = countCompatibleMappings(inferred, mapObj);
-              if (count > 0) {
-                compatible.push({ ...run, compatibleCount: count });
-              }
-            } catch {
-              // if one run fails to load, just skip it
+            const meta = run?.mapMeta || run?.extras?.mapMeta;
+            const srcNorm = Array.isArray(meta?.sourceHeadersNorm)
+              ? meta.sourceHeadersNorm
+              : null;
+            if (srcNorm) metaSeen = true;
+
+            if (!srcNorm || !srcNorm.length) continue;
+
+            let count = 0;
+            for (const h of srcNorm) {
+              if (inferredNormSet.has(String(h || "").trim())) count += 1;
             }
+            if (count > 0) fromMeta.push({ ...run, compatibleCount: count });
           }
 
-          setPtrssWithMaps(compatible);
+          if (metaSeen) {
+            fromMeta.sort(
+              (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0)
+            );
+            setPtrssWithMaps(fromMeta);
+          } else {
+            // Temporary fallback: older maps may not have metadata yet.
+            // Avoid 429s by doing a capped, sequential compatibility scan.
+            const MAX_SCAN = 25;
+            const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+            const compatible = [];
+            const scanList = allPtrss.slice(0, MAX_SCAN);
+
+            for (const run of scanList) {
+              try {
+                const res = await getPtrsMap(run.id);
+                const mapObj =
+                  (res && (res.mappings || res.map?.mappings)) || {};
+
+                const srcHeaders = Object.keys(mapObj || {});
+                const srcNorm = srcHeaders.map(normHeaderKey).filter(Boolean);
+
+                let count = 0;
+                for (const h of srcNorm) {
+                  if (inferredNormSet.has(h)) count += 1;
+                }
+
+                if (count > 0)
+                  compatible.push({ ...run, compatibleCount: count });
+
+                // small delay to reduce rate-limit risk
+                await sleep(120);
+              } catch (err) {
+                // If we hit rate limiting, stop scanning immediately.
+                if (err?.status === 429 || err?.response?.status === 429) break;
+              }
+            }
+
+            compatible.sort(
+              (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0)
+            );
+            setPtrssWithMaps(compatible);
+          }
         } catch {
-          // ignore listing errors
           setPtrssWithMaps([]);
         }
       } catch (e) {
@@ -358,7 +390,7 @@ export default function MapPanel() {
       }
     }
     load();
-  }, [countCompatibleMappings, profileId, ptrsId, showAlert]);
+  }, [profileId, ptrsId, showAlert]);
 
   // quick helpers
   const usedSources = useMemo(

@@ -115,6 +115,45 @@ export default function StagePanel() {
     return undefined;
   };
 
+  // MUI TableCell children must be a ReactNode. Stage values can be objects/arrays, so normalise.
+  const renderCellValue = (value) => {
+    if (value === null || value === undefined) return "";
+
+    if (typeof value === "string" || typeof value === "number") return value;
+
+    if (typeof value === "boolean") return value ? "Yes" : "No";
+
+    if (value instanceof Date) return value.toISOString();
+
+    if (Array.isArray(value)) {
+      // render arrays as a simple comma-separated string
+      return value
+        .map((v) => {
+          if (v === null || v === undefined) return "";
+          if (typeof v === "string" || typeof v === "number") return String(v);
+          if (typeof v === "boolean") return v ? "Yes" : "No";
+          if (v instanceof Date) return v.toISOString();
+          try {
+            return JSON.stringify(v);
+          } catch {
+            return String(v);
+          }
+        })
+        .filter((s) => String(s).trim() !== "")
+        .join(", ");
+    }
+
+    if (typeof value === "object") {
+      try {
+        return JSON.stringify(value);
+      } catch {
+        return String(value);
+      }
+    }
+
+    return String(value);
+  };
+
   const mountedRef = useRef(true);
   useEffect(
     () => () => {
@@ -667,7 +706,9 @@ export default function StagePanel() {
                     {rows.map((r, idx) => (
                       <TableRow key={idx}>
                         {headers.map((c) => (
-                          <TableCell key={c}>{pickCell(r, c)}</TableCell>
+                          <TableCell key={c}>
+                            {renderCellValue(pickCell(r, c))}
+                          </TableCell>
                         ))}
                       </TableRow>
                     ))}
