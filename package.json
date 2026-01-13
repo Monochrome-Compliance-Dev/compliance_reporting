@@ -25,7 +25,7 @@
     "date-fns": "^4.1.0",
     "html-entities": "^2.6.0",
     "jspdf": "^4.0.0",
-    "jspdf-autotable": "^5.0.2",
+    "jspdf-autotable": "^5.0.7",
     "lodash": "^4.17.21",
     "papaparse": "^5.5.3",
     "prop-types": "^15.8.1",
