@@ -791,6 +791,34 @@ export default function MapPanel() {
       return;
     }
 
+    // Guard: if joins are configured, ensure the main-side join columns are actually mapped
+    // (i.e. the source header is assigned to any target). We only enforce this when the
+    // user proceeds to Stage, to avoid nagging during mapping.
+    const joinConditions = Array.isArray(joins) ? joins : [];
+    const requiredMainJoinHeaders = joinConditions
+      .filter((c) => c?.from?.role === "main" && c?.from?.column)
+      .map((c) => c.from.column)
+      .filter(Boolean);
+
+    if (requiredMainJoinHeaders.length) {
+      const assignedSourceHeaders = new Set(
+        Object.values(assign || {}).filter((v) => typeof v === "string" && v)
+      );
+      const missingJoinHeaders = requiredMainJoinHeaders.filter(
+        (h) => !assignedSourceHeaders.has(h)
+      );
+
+      if (missingJoinHeaders.length) {
+        showAlert(
+          `Before staging, please map the join key column(s): ${missingJoinHeaders.join(
+            ", "
+          )}`,
+          "error"
+        );
+        return;
+      }
+    }
+
     setStaging(true);
 
     try {

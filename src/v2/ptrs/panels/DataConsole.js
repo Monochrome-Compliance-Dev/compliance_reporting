@@ -33,9 +33,9 @@ import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 const ROLE_OPTIONS = [
   { value: "transactions", label: "Transactions (primary)" },
-  { value: "vendorMaster", label: "Vendor Master" },
-  { value: "termsChanges", label: "Payment Terms Changes" },
-  { value: "entityStructure", label: "Entity Structure" },
+  { value: "vendormaster", label: "Vendor Master" },
+  { value: "termschanges", label: "Payment Terms Changes" },
+  { value: "entitystructure", label: "Entity Structure" },
   { value: "other", label: "Other" },
 ];
 
@@ -100,7 +100,10 @@ export default function DataConsole() {
     }
     setIsUploading(true);
     try {
-      await addDataset(ptrsId, file, { role, sourceName: file.name });
+      await addDataset(ptrsId, file, {
+        role: String(role || "").toLowerCase(),
+        sourceName: file.name,
+      });
       setFile(null);
       await refreshDatasets();
       await refreshCtxDatasets?.();
