@@ -1,5 +1,5 @@
 // Step	Route	Component	Description
-// 1. Create run	/v2/ptrs/create	CreateRunPanel	User selects reporting period and uploads their main PTRS CSV.
+// 1. Create run	/v2/ptrs/create	CreateRunPanel	User selects reporting period and uploads their main Transactions dataset (CSV) or imports it from Xero.
 // 2. Link tables	/v2/ptrs/tables	TablesAndJoinsPanel	User uploads/links supporting datasets (vendor master, entities, etc.).
 // 3. Map columns	/v2/ptrs/map	MapPanel	User maps columns across joined tables to PTRS schema.
 // 4. Stage data	/v2/ptrs/stage	StagePanel	Combined dataset preview before applying rules.

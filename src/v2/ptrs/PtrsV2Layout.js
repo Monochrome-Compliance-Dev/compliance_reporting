@@ -104,7 +104,11 @@ export default function PtrsV2Layout() {
     if (isLanding) return "landing";
     const parts = location.pathname.split("/").filter(Boolean);
     const maybe = parts[parts.length - 1];
-    return STEPS.some((s) => s.id === maybe) ? maybe : "create";
+    return STEPS.some((s) => s.id === maybe)
+      ? maybe
+      : maybe === "xero"
+        ? "create"
+        : "create";
   }, [location.pathname, isLanding]);
 
   const currentIndex = useMemo(

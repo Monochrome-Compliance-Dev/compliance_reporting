@@ -23,6 +23,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import TableChartIcon from "@mui/icons-material/TableChart";
+import LinkIcon from "@mui/icons-material/Link";
 import CreateRunCard from "v2/ptrs/panels/CreateRunCard";
 import {
   addDataset,
@@ -152,6 +153,27 @@ export default function DataConsole() {
     navigate(`/v2/ptrs/tables?ptrsId=${encodeURIComponent(ptrsId)}`);
   };
 
+  const goToXero = async () => {
+    if (!ptrsId) {
+      showAlert("Create a PTRS first", "info");
+      return;
+    }
+
+    try {
+      // Treat Xero import as part of the data step (Step 1)
+      await updatePtrsStep.mutateAsync({ currentStep: "data" });
+    } catch (err) {
+      console.error(err);
+      // Don't block navigation if the step update fails
+      showAlert(
+        "Failed to update PTRS step. Continuing to Xero import.",
+        "warning"
+      );
+    }
+
+    navigate(`/v2/ptrs/xero?ptrsId=${encodeURIComponent(ptrsId)}`);
+  };
+
   return (
     <Box
       sx={{
@@ -260,6 +282,14 @@ export default function DataConsole() {
                       type="file"
                       onChange={(e) => setFile(e.target.files?.[0] || null)}
                     />
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    startIcon={<LinkIcon />}
+                    onClick={goToXero}
+                    disabled={isUploading || role !== "transactions"}
+                  >
+                    Import from Xero
                   </Button>
                   <Tooltip title={file ? file.name : "No file chosen"}>
                     <Chip
