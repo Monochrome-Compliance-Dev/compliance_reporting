@@ -11,6 +11,7 @@ import { useTheme } from "@mui/material/styles";
 import { LoadingSpinner } from "components/ui/LoadingSpinner";
 import { useAlert } from "context";
 import { useStartXeroImport } from "../hooks/useStartXeroImport";
+import { usePtrsV2Context } from "../context/PtrsV2Context";
 
 /**
  * Step 1 alternative to CSV upload: Import payment records from Xero.
@@ -22,11 +23,14 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
   const theme = useTheme();
   const { showAlert } = useAlert();
 
+  const { ptrsId: ctxPtrsId } = usePtrsV2Context();
+  const effectivePtrsId = ptrsId || ctxPtrsId || null;
+
   const [forceRefresh, setForceRefresh] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
 
   const { startImport, isStarting, status, isStatusLoading, refetchStatus } =
-    useStartXeroImport(ptrsId, {
+    useStartXeroImport(effectivePtrsId, {
       poll: hasStarted,
       refetchIntervalMs: 2000,
     });
@@ -52,9 +56,9 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
   }, [derivedStatus]);
 
   async function handleStart() {
-    if (!ptrsId) {
+    if (!effectivePtrsId) {
       showAlert(
-        "No PTRS run found (ptrsId missing). Please create/resume a run first.",
+        "No PTRS run found. Please create/resume a run first.",
         "error"
       );
       return;
@@ -75,7 +79,9 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
     if (typeof onImported === "function") onImported();
   }
 
-  const disableAll = isStarting || isRunning || isStatusLoading;
+  // Only disable controls while we are actively starting/running an import.
+  // Status polling/loading should not block the user from starting an import.
+  const disableAll = isStarting || isRunning;
 
   return (
     <Box
@@ -114,7 +120,7 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
           <Button
             variant="contained"
             onClick={handleStart}
-            disabled={disableAll || !ptrsId}
+            disabled={disableAll}
           >
             Start Xero import
           </Button>
@@ -122,7 +128,7 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
           <Button
             variant="outlined"
             onClick={() => refetchStatus()}
-            disabled={!ptrsId || disableAll}
+            disabled={!effectivePtrsId || disableAll}
           >
             Refresh status
           </Button>

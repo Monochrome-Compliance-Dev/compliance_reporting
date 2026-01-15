@@ -21,6 +21,7 @@ export default function CreateRunPanel() {
   const [name, setName] = useState("");
   const [file, setFile] = useState(null);
   const [period, setPeriod] = useState("");
+  const [dataSource, setDataSource] = useState("csv");
   const [busy, setBusy] = useState(false);
 
   const navigate = useNavigate();
@@ -40,6 +41,16 @@ export default function CreateRunPanel() {
   );
 
   const periods = [
+    {
+      label: "1 Jan 2024 to 30 June 2024",
+      start: "2024-01-01",
+      end: "2024-06-30",
+    },
+    {
+      label: "1 July 2024 to 31 Dec 2024",
+      start: "2024-07-01",
+      end: "2024-12-31",
+    },
     {
       label: "1 Jan 2025 to 30 June 2025",
       start: "2025-01-01",
@@ -71,6 +82,8 @@ export default function CreateRunPanel() {
   const periodStart = selectedPeriod?.start || "";
   const periodEnd = selectedPeriod?.end || "";
 
+  const requiresCsv = useMemo(() => dataSource === "csv", [dataSource]);
+
   const onCreateAndUpload = async () => {
     if (busy) return;
     setBusy(true);
@@ -79,15 +92,20 @@ export default function CreateRunPanel() {
         showAlert("Please select a reporting period.", "info");
         return;
       }
-      if (!file) {
-        showAlert("Please select a CSV file to upload.", "info");
+      if (requiresCsv && !file) {
+        showAlert(
+          "Please select a CSV file, or switch to Xero import.",
+          "info"
+        );
         return;
       }
 
       const fileName =
-        file?.name || (name?.trim() ? `${name.trim()}.csv` : "untitled.csv");
-      const fileSize = file?.size ?? null;
-      const mimeType = file?.type || "text/csv";
+        requiresCsv && file
+          ? file?.name || (name?.trim() ? `${name.trim()}.csv` : "untitled.csv")
+          : "xero_import";
+      const fileSize = requiresCsv && file ? (file?.size ?? null) : null;
+      const mimeType = requiresCsv && file ? file?.type || "text/csv" : null;
 
       const res = await createRun({
         fileName,
@@ -103,15 +121,23 @@ export default function CreateRunPanel() {
         return;
       }
 
-      // Upload now
-      const ingest = await uploadCsv(newRunId, file);
-      const inserted = ingest.rowsInserted;
-      showAlert(`Run created and ${inserted} rows ingested`, "success");
+      if (requiresCsv && file) {
+        // Upload now
+        const ingest = await uploadCsv(newRunId, file);
+        const inserted = ingest.rowsInserted;
+        showAlert(`Run created and ${inserted} rows ingested`, "success");
+      } else {
+        showAlert("Run created. Continue to import from Xero.", "success");
+      }
 
       const qs = new URLSearchParams();
       qs.set("runId", newRunId);
       if (profileId) qs.set("profileId", profileId);
       navigate(`/v2/ptrs/data?${qs.toString()}`, { replace: true });
+
+      if (!requiresCsv) {
+        navigate(`/v2/ptrs/xero?ptrsId=${encodeURIComponent(newRunId)}`);
+      }
     } catch (e) {
       showAlert(e?.message || "Error creating or uploading run", "error");
     } finally {
@@ -157,16 +183,35 @@ export default function CreateRunPanel() {
           </Select>
         </FormControl>
 
+        <FormControl fullWidth>
+          <InputLabel id="data-source-label">Main dataset source</InputLabel>
+          <Select
+            labelId="data-source-label"
+            value={dataSource}
+            label="Main dataset source"
+            onChange={(e) => setDataSource(e.target.value)}
+          >
+            <MenuItem value="csv">Upload CSV</MenuItem>
+            <MenuItem value="xero">Import from Xero</MenuItem>
+          </Select>
+        </FormControl>
+
         <Stack spacing={1}>
           <Typography variant="body2" color="text.secondary">
             Select your PTRS CSV file. It will be uploaded immediately after the
             run is created.
           </Typography>
-          <input
-            type="file"
-            accept=".csv,text/csv"
-            onChange={(e) => setFile(e.target.files?.[0] || null)}
-          />
+          {requiresCsv ? (
+            <input
+              type="file"
+              accept=".csv,text/csv"
+              onChange={(e) => setFile(e.target.files?.[0] || null)}
+            />
+          ) : (
+            <Typography variant="body2" color="text.secondary">
+              You’ll import Transactions from Xero after creating the run.
+            </Typography>
+          )}
         </Stack>
 
         <Stack direction="row" spacing={1}>
