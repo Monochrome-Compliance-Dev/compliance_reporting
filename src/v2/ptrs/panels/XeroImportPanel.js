@@ -39,10 +39,7 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
 
   const { startImport, isStarting, status, refetchStatus } = useStartXeroImport(
     effectivePtrsId,
-    {
-      poll: hasStarted,
-      refetchIntervalMs: 2000,
-    }
+    { poll: false }
   );
 
   const derivedStatus = useMemo(() => {
@@ -109,6 +106,11 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
       await startImport({ forceRefresh });
       showAlert("Xero import started.", "success");
       refetchStatus();
+
+      // Take the user to the progress page so they can see updates.
+      navigate(
+        `/v2/ptrs/xero/progress?ptrsId=${encodeURIComponent(effectivePtrsId)}`
+      );
     } catch (err) {
       setHasStarted(false);
 

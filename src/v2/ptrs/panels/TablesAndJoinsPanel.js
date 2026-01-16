@@ -291,6 +291,16 @@ export default function TablesAndJoinsPanel() {
     ? joins.conditions.length
     : 0;
 
+  const hasSupportingDatasets = useMemo(() => {
+    return (datasets || []).some((d) => {
+      const role = String(d?.role || "").toLowerCase();
+      return role && role !== "main";
+    });
+  }, [datasets]);
+
+  const mustHaveJoin = hasSupportingDatasets;
+  const canProceedToMap = !mustHaveJoin || joinsCount > 0;
+
   const saveJoins = async () => {
     if (!ptrsId) return showAlert("Missing ptrsId", "error");
     setLoading(true);
@@ -391,13 +401,19 @@ export default function TablesAndJoinsPanel() {
               variant="contained"
               size="small"
               onClick={goToMap}
-              disabled={joinsCount === 0 || loading || !ptrsId}
+              disabled={!canProceedToMap || loading || !ptrsId}
             >
               Next: Map columns
             </Button>
           </Stack>
         </Stack>
         <Divider sx={{ mb: 2 }} />
+        {mustHaveJoin && joinsCount === 0 ? (
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+            You’ve uploaded supporting datasets, so you need to define at least
+            one join before you can continue.
+          </Typography>
+        ) : null}
         <JoinsDesigner
           ptrsId={ptrsId}
           joins={joins}

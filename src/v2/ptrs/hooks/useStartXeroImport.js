@@ -7,8 +7,17 @@ function statusUpper(d) {
   return typeof s === "string" ? s.toUpperCase() : "";
 }
 
-function isCompleteStatus(s) {
-  return ["COMPLETE", "COMPLETED", "DONE", "SUCCESS"].includes(s);
+function isTerminalStatus(s) {
+  return [
+    "COMPLETE",
+    "COMPLETED",
+    "DONE",
+    "SUCCESS",
+    "FAILED",
+    "ERROR",
+    "NOT_IMPLEMENTED",
+    "NOT_STARTED",
+  ].includes(s);
 }
 
 function looksLike429(err) {
@@ -34,7 +43,7 @@ export function useStartXeroImport(ptrsId, options = {}) {
       const s = statusUpper(data);
 
       // Stop polling once complete
-      if (isCompleteStatus(s)) return false;
+      if (isTerminalStatus(s)) return false;
 
       const base = options.refetchIntervalMs ?? 2000;
 

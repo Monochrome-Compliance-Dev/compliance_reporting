@@ -11,6 +11,8 @@ import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
 import { usePtrsV2Context } from "../context/PtrsV2Context";
 import { useStartXeroImport } from "../hooks/useStartXeroImport";
+import TableChartIcon from "@mui/icons-material/TableChart";
+import { useUpdatePtrsMutation } from "../hooks/usePtrsQueries";
 
 export default function XeroConnectProgressPanel() {
   const theme = useTheme();
@@ -22,50 +24,145 @@ export default function XeroConnectProgressPanel() {
   const ptrsIdFromQuery = searchParams.get("ptrsId") || null;
   const effectivePtrsId = ptrsId || ptrsIdFromQuery || null;
 
+  const updatePtrsStep = useUpdatePtrsMutation(effectivePtrsId);
+
+  const goToTables = async () => {
+    if (!effectivePtrsId) {
+      showAlert("Create a PTRS first", "info");
+      return;
+    }
+
+    try {
+      await updatePtrsStep.mutateAsync({ currentStep: "tables" });
+    } catch (err) {
+      console.error(err);
+      // Don't block navigation if the step update fails
+      showAlert(
+        "Failed to update PTRS step. Continuing to Tables & Joins.",
+        "warning"
+      );
+    }
+
+    navigate(`/v2/ptrs/tables?ptrsId=${encodeURIComponent(effectivePtrsId)}`);
+  };
+
   const startedAtRef = useRef(null);
+  const elapsedTimerRef = useRef(null);
 
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
 
-  // Passive mode: no polling here. We only read cached status + allow manual refresh.
-  const { status, refetchStatus, isStatusLoading } = useStartXeroImport(
-    effectivePtrsId,
-    { poll: false }
-  );
+  const [pollEnabled, setPollEnabled] = useState(true);
+
+  const { status, refetchStatus, isStatusLoading, statusError } =
+    useStartXeroImport(effectivePtrsId, {
+      poll: pollEnabled,
+      refetchIntervalMs: 2000,
+    });
 
   const derivedStatus = useMemo(() => {
     const s = status?.status || status?.state || status?.stage || "";
     return typeof s === "string" ? s : "";
   }, [status]);
 
+  const statusUpper = useMemo(
+    () => derivedStatus.toUpperCase(),
+    [derivedStatus]
+  );
+
+  const isComplete = useMemo(
+    () => ["COMPLETE", "COMPLETED", "DONE", "SUCCESS"].includes(statusUpper),
+    [statusUpper]
+  );
+
+  const isFailed = useMemo(
+    () => ["FAILED", "ERROR"].includes(statusUpper),
+    [statusUpper]
+  );
+
+  const isTerminal = useMemo(
+    () => isComplete || isFailed,
+    [isComplete, isFailed]
+  );
+
   const progress = useMemo(() => {
     const p = status?.progress;
     if (!p) return null;
 
-    const current =
-      p.current ?? p.done ?? p.processed ?? p.count ?? p.completed ?? 0;
-    const total = p.total ?? p.max ?? p.expected ?? 0;
+    // Prefer tenant progress (org-by-org) while running.
+    const tenantTotal = Number(p.tenantCount || 0);
+    const tenantCurrent = Number(p.currentTenantIndex || 0);
 
-    if (!total || Number(total) <= 0) return { current, total: 0, pct: 0 };
+    if (tenantTotal > 0) {
+      const total = tenantTotal;
 
-    const pct = Math.max(
-      0,
-      Math.min(100, Math.round((Number(current) / Number(total)) * 100))
-    );
+      // If the run is complete/failed, treat progress as 100% even if the last
+      // status payload doesn't advance currentTenantIndex.
+      if (isTerminal) {
+        return { current: total, total, pct: 100 };
+      }
 
-    return { current: Number(current) || 0, total: Number(total) || 0, pct };
-  }, [status]);
+      const current = Math.min(Math.max(tenantCurrent, 0), total);
+      const pct = Math.max(
+        0,
+        Math.min(100, Math.round((current / total) * 100))
+      );
+      return { current, total, pct };
+    }
+
+    // Fallback to extract counters if present.
+    const extractTotal = Number(p.extractLimit || 0);
+    const extractCurrent = Number(p.extractedCount || 0);
+
+    if (extractTotal > 0) {
+      const total = extractTotal;
+
+      if (isTerminal) {
+        return { current: total, total, pct: 100 };
+      }
+
+      const current = Math.min(Math.max(extractCurrent, 0), total);
+      const pct = Math.max(
+        0,
+        Math.min(100, Math.round((current / total) * 100))
+      );
+      return { current, total, pct };
+    }
+
+    // No meaningful total available; use indeterminate.
+    return { current: 0, total: 0, pct: 0 };
+  }, [status, isTerminal]);
 
   useEffect(() => {
     if (!effectivePtrsId) return;
 
+    // Once we hit a terminal status, stop the timer.
+    if (isTerminal) {
+      if (elapsedTimerRef.current) {
+        clearInterval(elapsedTimerRef.current);
+        elapsedTimerRef.current = null;
+      }
+      return;
+    }
+
     if (!startedAtRef.current) startedAtRef.current = Date.now();
 
-    const t = setInterval(() => {
+    // Ensure we only ever have one timer running.
+    if (elapsedTimerRef.current) {
+      clearInterval(elapsedTimerRef.current);
+      elapsedTimerRef.current = null;
+    }
+
+    elapsedTimerRef.current = setInterval(() => {
       setElapsedSeconds(Math.floor((Date.now() - startedAtRef.current) / 1000));
     }, 1000);
 
-    return () => clearInterval(t);
-  }, [effectivePtrsId]);
+    return () => {
+      if (elapsedTimerRef.current) {
+        clearInterval(elapsedTimerRef.current);
+        elapsedTimerRef.current = null;
+      }
+    };
+  }, [effectivePtrsId, isTerminal]);
 
   // If refetch throws, show a friendly error (do not auto-loop here)
   async function handleRefresh() {
@@ -76,11 +173,6 @@ export default function XeroConnectProgressPanel() {
       showAlert(err?.message || "Failed to fetch status.", "error");
     }
   }
-
-  const statusUpper = derivedStatus.toUpperCase();
-  const isComplete = ["COMPLETE", "COMPLETED", "DONE", "SUCCESS"].includes(
-    statusUpper
-  );
 
   return (
     <Container
@@ -104,7 +196,8 @@ export default function XeroConnectProgressPanel() {
       {effectivePtrsId && (
         <>
           <Typography variant="body1" sx={{ mb: theme.spacing(2) }}>
-            {status?.message ||
+            {statusError?.message ||
+              status?.message ||
               (derivedStatus
                 ? `Status: ${derivedStatus}`
                 : "Waiting for updates…")}
@@ -125,8 +218,14 @@ export default function XeroConnectProgressPanel() {
               }}
             >
               <LinearProgress
-                variant={progress?.total ? "determinate" : "indeterminate"}
-                value={progress?.total ? progress.pct : 0}
+                variant={
+                  isTerminal
+                    ? "determinate"
+                    : progress?.total
+                      ? "determinate"
+                      : "indeterminate"
+                }
+                value={isTerminal ? 100 : progress?.total ? progress.pct : 0}
                 sx={{ height: 10, borderRadius: 1 }}
               />
             </Box>
@@ -172,8 +271,17 @@ export default function XeroConnectProgressPanel() {
 
             <Button
               variant="contained"
-              onClick={() => navigate("/v2/ptrs")}
+              startIcon={<TableChartIcon />}
+              onClick={goToTables}
               disabled={!isComplete}
+            >
+              Go to Tables & Joins
+            </Button>
+
+            <Button
+              variant="contained"
+              onClick={() => navigate("/v2/ptrs")}
+              disabled={!isTerminal}
             >
               Return to PTRS
             </Button>

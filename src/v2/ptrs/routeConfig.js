@@ -25,7 +25,10 @@ const ptrsRoutes = [
       {
         path: "xero",
         children: [
+          // Import page (index) and explicit alias for direct navigation
           { index: true, Component: XeroImportPanel },
+          { path: "import", Component: XeroImportPanel },
+
           { path: "select", Component: XeroTenantSelectionPanel },
           { path: "progress", Component: XeroConnectProgressPanel },
         ],

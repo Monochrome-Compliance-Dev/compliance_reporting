@@ -160,8 +160,8 @@ export default function XeroTenantSelectionPanel() {
       showAlert("Organisation selection saved.", "success");
       navigate(
         effectivePtrsId
-          ? `/v2/ptrs/xero/progress?ptrsId=${encodeURIComponent(effectivePtrsId)}`
-          : "/v2/ptrs/xero/progress"
+          ? `/v2/ptrs/xero?ptrsId=${encodeURIComponent(effectivePtrsId)}`
+          : "/v2/ptrs/xero"
       );
     } catch (err) {
       showAlert(
