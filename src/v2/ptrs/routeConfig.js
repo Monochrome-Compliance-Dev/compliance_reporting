@@ -3,6 +3,8 @@ import PtrsV2Layout from "./PtrsV2Layout";
 import LandingPanel from "./panels/LandingPanel";
 import DataConsole from "./panels/DataConsole";
 import XeroImportPanel from "./panels/XeroImportPanel";
+import XeroTenantSelectionPanel from "./panels/XeroTenantSelectionPanel";
+import XeroConnectProgressPanel from "./panels/XeroConnectProgressPanel";
 import TablesAndJoinsPanel from "./panels/TablesAndJoinsPanel";
 import MapPanel from "./panels/MapPanel";
 import StagePanel from "./panels/StagePanel";
@@ -20,7 +22,14 @@ const ptrsRoutes = [
       { path: "landing", Component: LandingPanel },
       // Wizard steps
       { path: "create", Component: DataConsole },
-      { path: "xero", Component: XeroImportPanel },
+      {
+        path: "xero",
+        children: [
+          { index: true, Component: XeroImportPanel },
+          { path: "select", Component: XeroTenantSelectionPanel },
+          { path: "progress", Component: XeroConnectProgressPanel },
+        ],
+      },
       { path: "data", Component: DataConsole },
       { path: "tables", Component: TablesAndJoinsPanel },
       { path: "map", Component: MapPanel },

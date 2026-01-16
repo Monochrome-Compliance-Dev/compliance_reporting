@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router";
 import {
   Box,
   Button,
@@ -12,15 +13,21 @@ import { LoadingSpinner } from "components/ui/LoadingSpinner";
 import { useAlert } from "context";
 import { useStartXeroImport } from "../hooks/useStartXeroImport";
 import { usePtrsV2Context } from "../context/PtrsV2Context";
+import { connectXero } from "../services/ptrsXero.api";
 
 /**
  * Step 1 alternative to CSV upload: Import payment records from Xero.
  *
  * This must end by populating tbl_ptrs_import_raw for the given ptrsId so the existing
  * "Link tables / custom fields" step (immediately after upload/import) can remain unchanged.
+ *
+ * Flow:
+ * 1) Connect to Xero (OAuth) -> selection (if needed) -> progress
+ * 2) Start Import (uses cached tenant/token)
  */
 export default function XeroImportPanel({ ptrsId, onImported }) {
   const theme = useTheme();
+  const navigate = useNavigate();
   const { showAlert } = useAlert();
 
   const { ptrsId: ctxPtrsId } = usePtrsV2Context();
@@ -28,12 +35,15 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
 
   const [forceRefresh, setForceRefresh] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [isConnecting, setIsConnecting] = useState(false);
 
-  const { startImport, isStarting, status, isStatusLoading, refetchStatus } =
-    useStartXeroImport(effectivePtrsId, {
+  const { startImport, isStarting, status, refetchStatus } = useStartXeroImport(
+    effectivePtrsId,
+    {
       poll: hasStarted,
       refetchIntervalMs: 2000,
-    });
+    }
+  );
 
   const derivedStatus = useMemo(() => {
     const s = status?.status || status?.state || status?.stage || "";
@@ -55,6 +65,36 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
     return ["FAILED", "ERROR"].includes(s);
   }, [derivedStatus]);
 
+  async function handleConnect() {
+    if (!effectivePtrsId) {
+      showAlert(
+        "No PTRS run found. Please create/resume a run first.",
+        "error"
+      );
+      return;
+    }
+
+    setIsConnecting(true);
+    showAlert("Connecting to Xero…", "info");
+
+    try {
+      // Keep callback data minimal; BE should infer customer/user from auth.
+      localStorage.setItem(
+        "ptrsXeroCallback",
+        JSON.stringify({
+          ptrsId: effectivePtrsId,
+          createdAt: Date.now(),
+        })
+      );
+
+      const { authUrl } = await connectXero(effectivePtrsId);
+      window.location.href = authUrl;
+    } catch (err) {
+      showAlert(err?.message || "Failed to connect to Xero.", "error");
+      setIsConnecting(false);
+    }
+  }
+
   async function handleStart() {
     if (!effectivePtrsId) {
       showAlert(
@@ -71,7 +111,14 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
       refetchStatus();
     } catch (err) {
       setHasStarted(false);
-      showAlert(err?.message || "Failed to start Xero import.", "error");
+
+      const msg = err?.message || "Failed to start Xero import.";
+      showAlert(msg, "error");
+
+      // If tenant isn't linked, nudge user to connect.
+      if (/No active Xero tenant/i.test(msg)) {
+        showAlert("Connect to Xero first, then try import again.", "info");
+      }
     }
   }
 
@@ -79,9 +126,8 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
     if (typeof onImported === "function") onImported();
   }
 
-  // Only disable controls while we are actively starting/running an import.
-  // Status polling/loading should not block the user from starting an import.
-  const disableAll = isStarting || isRunning;
+  // Only disable controls while we are actively connecting/starting/running an import.
+  const disableAll = isConnecting || isStarting || isRunning;
 
   return (
     <Box
@@ -93,12 +139,55 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
         </Typography>
 
         <Typography variant="body2" sx={{ mb: theme.spacing(2) }}>
-          This will pull payment records from Xero and build your main dataset
-          so the next step (link tables and custom fields) works the same as a
-          CSV upload.
+          Connect to Xero once per customer, then import payments to build your
+          main dataset. The next step (link tables and custom fields) stays
+          unchanged.
         </Typography>
 
+        <Box sx={{ display: "flex", gap: theme.spacing(2), flexWrap: "wrap" }}>
+          <Button
+            variant="outlined"
+            onClick={handleConnect}
+            disabled={disableAll}
+          >
+            {isConnecting ? "Connecting…" : "Connect to Xero"}
+          </Button>
+
+          <Button
+            variant="text"
+            onClick={() =>
+              navigate(
+                effectivePtrsId
+                  ? `/v2/ptrs/xero/select?ptrsId=${encodeURIComponent(
+                      effectivePtrsId
+                    )}`
+                  : "/v2/ptrs/xero/select"
+              )
+            }
+            disabled={!effectivePtrsId || disableAll}
+          >
+            Select organisation
+          </Button>
+
+          <Button
+            variant="text"
+            onClick={() =>
+              navigate(
+                effectivePtrsId
+                  ? `/v2/ptrs/xero/progress?ptrsId=${encodeURIComponent(
+                      effectivePtrsId
+                    )}`
+                  : "/v2/ptrs/xero/progress"
+              )
+            }
+            disabled={!effectivePtrsId || disableAll}
+          >
+            View progress
+          </Button>
+        </Box>
+
         <FormControlLabel
+          sx={{ mt: theme.spacing(2) }}
           control={
             <Checkbox
               checked={forceRefresh}
@@ -140,7 +229,7 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
           Import status
         </Typography>
 
-        {(isStarting || isRunning) && (
+        {(isConnecting || isStarting || isRunning) && (
           <Box
             sx={{
               display: "flex",
@@ -150,12 +239,12 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
           >
             <LoadingSpinner />
             <Typography variant="body2">
-              Import in progress{derivedStatus ? ` (${derivedStatus})` : ""}…
+              Working{derivedStatus ? ` (${derivedStatus})` : ""}…
             </Typography>
           </Box>
         )}
 
-        {!isStarting && !isRunning && (
+        {!isConnecting && !isStarting && !isRunning && (
           <Typography variant="body2">
             {derivedStatus
               ? `Status: ${derivedStatus}`
