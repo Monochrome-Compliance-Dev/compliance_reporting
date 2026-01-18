@@ -52,12 +52,16 @@ import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 import {
   PTRS_REQUIRED_FIELDS,
   PTRS_OPTIONAL_FIELDS,
+  PTRS_FIELD_LABELS,
   FIELD_SYNONYMS,
+  PTRS_REQUIRED_FIELD_GROUPS,
 } from "features/ptrs/ingestConfig";
 import { getFieldLabel } from "features/ptrs/fieldMeta";
 import SupportingDatasetsSection from "v2/ptrs/panels/SupportingDatasetsSection";
 
 export default function MapPanel() {
+  const labelFor = (fieldId) =>
+    PTRS_FIELD_LABELS?.[fieldId] || getFieldLabel(fieldId, fieldId);
   const theme = useTheme();
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
@@ -819,6 +823,14 @@ export default function MapPanel() {
       }
     }
 
+    if (groupedRequirementFailures.length > 0) {
+      const messages = groupedRequirementFailures.map(
+        (g) => `${g.label} (map at least one)`
+      );
+      showAlert(`Before staging, please map: ${messages.join(", ")}`, "error");
+      return;
+    }
+
     setStaging(true);
 
     try {
@@ -881,7 +893,7 @@ export default function MapPanel() {
         }}
       >
         <Typography sx={{ fontWeight: 600, pr: 2, minWidth: 260 }}>
-          {getFieldLabel(field, field)}
+          {labelFor(field)}
         </Typography>
         <Stack direction="row" spacing={1} alignItems="center" sx={{ flex: 1 }}>
           {assigned ? (
@@ -933,6 +945,13 @@ export default function MapPanel() {
   const requiredMappedCount = PTRS_REQUIRED_FIELDS.filter(
     (f) => !!assign[f]
   ).length;
+
+  const groupedRequirementFailures = (PTRS_REQUIRED_FIELD_GROUPS || []).filter(
+    (group) => {
+      const mappedCount = group.fields.filter((f) => !!assign[f]).length;
+      return mappedCount < (group.minRequired || 1);
+    }
+  );
 
   const optionalMappedCount = PTRS_OPTIONAL_FIELDS.filter(
     (f) => !PTRS_REQUIRED_FIELDS.includes(f) && !!assign[f]
@@ -1135,7 +1154,7 @@ export default function MapPanel() {
                         <Typography
                           sx={{ fontWeight: 600, pr: 2, minWidth: 200 }}
                         >
-                          {getFieldLabel(f, f)}
+                          {labelFor(f)}
                         </Typography>
                         <Stack
                           direction="row"
@@ -1315,7 +1334,9 @@ export default function MapPanel() {
                 endIcon={<NavigateNextIcon />}
                 onClick={stageData}
                 disabled={
-                  requiredMappedCount < PTRS_REQUIRED_FIELDS.length || staging
+                  requiredMappedCount < PTRS_REQUIRED_FIELDS.length ||
+                  groupedRequirementFailures.length > 0 ||
+                  staging
                 }
               >
                 Next: Build & stage data
