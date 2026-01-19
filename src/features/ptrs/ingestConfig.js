@@ -16,10 +16,11 @@ export const PTRS_REQUIRED_FIELDS = [
   "payerEntityAbn",
   "payeeEntityName",
   "payeeEntityAbn",
-  "invoiceReferenceNumber",
-  // Amounts + dates for payment time
+
+  // Amounts + key dates
   "paymentAmount",
   "paymentDate",
+  "invoiceDueDate",
 ];
 
 // -----------------------------------------------------------------------------
@@ -41,7 +42,6 @@ export const PTRS_OPTIONAL_FIELDS = [
   "noticeForPaymentIssueDate",
   "invoiceIssueDate",
   "invoiceReceiptDate",
-  "invoiceDueDate",
 
   // Provenance / explainability
   "paymentTimeReferenceKind",
@@ -89,8 +89,12 @@ export const PTRS_REQUIRED_FIELD_GROUPS = [
     id: "paymentClockStart",
     label: "Payment timing start date",
     description:
-      "At least one of these dates is required to calculate payment time.",
+      "Map at least one date that can be used as the start date for calculating payment time (for MVP, invoice due date is acceptable).",
     fields: [
+      // User-friendly MVP options
+      "invoiceDueDate",
+
+      // Canonical raw dates (used to derive paymentTimeReferenceDate)
       "invoiceIssueDate",
       "invoiceReceiptDate",
       "noticeForPaymentIssueDate",

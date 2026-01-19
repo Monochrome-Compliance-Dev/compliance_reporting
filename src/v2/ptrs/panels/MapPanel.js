@@ -795,6 +795,20 @@ export default function MapPanel() {
       return;
     }
 
+    // Guard: ensure all required canonical targets are mapped before staging
+    const missingRequired = (PTRS_REQUIRED_FIELDS || []).filter(
+      (field) => !assign?.[field]
+    );
+
+    if (missingRequired.length > 0) {
+      const labels = missingRequired.map((f) => labelFor(f));
+      showAlert(
+        `Before staging, please map the required field(s): ${labels.join(", ")}`,
+        "error"
+      );
+      return;
+    }
+
     // Guard: if joins are configured, ensure the main-side join columns are actually mapped
     // (i.e. the source header is assigned to any target). We only enforce this when the
     // user proceeds to Stage, to avoid nagging during mapping.
@@ -1335,7 +1349,7 @@ export default function MapPanel() {
                 onClick={stageData}
                 disabled={
                   requiredMappedCount < PTRS_REQUIRED_FIELDS.length ||
-                  groupedRequirementFailures.length > 0 ||
+                  // groupedRequirementFailures.length > 0 ||
                   staging
                 }
               >
