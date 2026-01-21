@@ -35,14 +35,14 @@ export default function JoinsDesigner({
   const [datasets, setDatasets] = useState([]);
   const [pending, setPending] = useState(null); // { role, column }
   const [links, setLinks] = useState(
-    Array.isArray(joins?.conditions) ? joins.conditions : []
+    Array.isArray(joins?.conditions) ? joins.conditions : [],
   );
   const [customFields, setCustomFields] = useState(
     Array.isArray(customFieldsProp)
       ? customFieldsProp
       : Array.isArray(joins?.customFields)
         ? joins.customFields
-        : []
+        : [],
   );
   const [examplesByRole, setExamplesByRole] = useState({});
 
@@ -75,7 +75,7 @@ export default function JoinsDesigner({
         customFields: safeCustomFields,
       });
     },
-    [onChange, debug]
+    [onChange, debug],
   );
 
   useEffect(() => {
@@ -132,7 +132,7 @@ export default function JoinsDesigner({
     });
 
     return Array.from(map.values()).sort((a, b) =>
-      a.label.localeCompare(b.label)
+      a.label.localeCompare(b.label),
     );
   }, [leftHeaders, links]);
 
@@ -153,7 +153,7 @@ export default function JoinsDesigner({
     }
 
     const targets = (datasets || []).filter(
-      (d) => !mainRole || d.role !== mainRole
+      (d) => !mainRole || d.role !== mainRole,
     );
 
     const firstExample = (rows, colIdx) => {
@@ -170,8 +170,8 @@ export default function JoinsDesigner({
       const roleMap = {};
       const results = await Promise.allSettled(
         targets.map((d) =>
-          getDatasetSample(d.id, { limit: 5 }).then((s) => ({ d, s }))
-        )
+          getDatasetSample(d.id, { limit: 5 }).then((s) => ({ d, s })),
+        ),
       );
       for (const r of results) {
         if (r.status !== "fulfilled") continue;
@@ -198,7 +198,7 @@ export default function JoinsDesigner({
         id: d.id,
         role: d.role,
         name: d.sourceName || d.fileName,
-      }))
+      })),
     );
     // eslint-disable-next-line no-console
     console.log("[JoinsDesigner][debug] mainRole", mainRole);
@@ -513,10 +513,10 @@ export default function JoinsDesigner({
         </svg>
       </Box>
 
-      {/* Computed fields (concat) */}
+      {/* Custom fields (concat) */}
       <Paper variant="outlined" sx={{ p: 2, mt: 2 }}>
         <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
-          <Typography variant="subtitle2">Computed fields (concat)</Typography>
+          <Typography variant="subtitle2">Custom fields (concat)</Typography>
           <Chip size="small" label={customFields.length} />
           <Tooltip title="Define custom columns built from multiple fields, e.g. a join key.">
             <InfoOutlinedIcon
@@ -533,7 +533,7 @@ export default function JoinsDesigner({
 
             const updateField = (patch) => {
               const next = customFields.map((item, i) =>
-                i === idx ? { ...item, ...patch } : item
+                i === idx ? { ...item, ...patch } : item,
               );
               setCustomFields(next);
               emitChange(links, next);
@@ -541,7 +541,7 @@ export default function JoinsDesigner({
 
             const updateSegment = (segIdx, patch) => {
               const nextSegments = segments.map((seg, i) =>
-                i === segIdx ? { ...seg, ...patch } : seg
+                i === segIdx ? { ...seg, ...patch } : seg,
               );
               updateField({ segments: nextSegments });
             };
@@ -711,7 +711,7 @@ export default function JoinsDesigner({
               emitChange(links, next);
             }}
           >
-            Add computed field
+            Add custom field
           </Button>
         </Stack>
       </Paper>

@@ -51,12 +51,12 @@ export default function XeroConnectProgressPanel() {
 
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
 
-  const [pollEnabled, setPollEnabled] = useState(true);
+  // Polling is handled in this component (not inside the hook) so we can control rate limits.
+  const pollEnabled = false;
 
   const { status, refetchStatus, isStatusLoading, statusError } =
     useStartXeroImport(effectivePtrsId, {
       poll: pollEnabled,
-      refetchIntervalMs: 2000,
     });
 
   const derivedStatus = useMemo(() => {
@@ -83,6 +83,40 @@ export default function XeroConnectProgressPanel() {
     () => isComplete || isFailed,
     [isComplete, isFailed]
   );
+
+  useEffect(() => {
+    if (!effectivePtrsId || isTerminal) return;
+
+    let cancelled = false;
+    let timeoutId = null;
+
+    // Start with a gentle cadence and back off a bit over time.
+    // 5s -> 7.5s -> 10s -> 12.5s -> 15s (cap)
+    let delayMs = 5000;
+
+    const tick = async () => {
+      if (cancelled) return;
+
+      try {
+        await refetchStatus();
+      } catch (err) {
+        // Don't spam alerts here; manual refresh button is the escape hatch.
+        // We still continue polling with backoff.
+        console.warn("Failed to refetch Xero status", err);
+      }
+
+      if (cancelled) return;
+      delayMs = Math.min(15000, Math.round(delayMs * 1.5));
+      timeoutId = setTimeout(tick, delayMs);
+    };
+
+    timeoutId = setTimeout(tick, delayMs);
+
+    return () => {
+      cancelled = true;
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [effectivePtrsId, isTerminal, refetchStatus]);
 
   const progress = useMemo(() => {
     const p = status?.progress;
@@ -131,6 +165,25 @@ export default function XeroConnectProgressPanel() {
     // No meaningful total available; use indeterminate.
     return { current: 0, total: 0, pct: 0 };
   }, [status, isTerminal]);
+
+  const warnings = useMemo(() => {
+    const p = status?.progress || {};
+    const invoiceFails = Number(p.invoiceFetchFailedCount || 0);
+    const contactFails = Number(p.contactFetchFailedCount || 0);
+    const bankTxFails = Number(p.bankTxFetchFailedCount || 0);
+
+    const hasAny = invoiceFails > 0 || contactFails > 0 || bankTxFails > 0;
+
+    return {
+      hasAny,
+      invoiceFails,
+      contactFails,
+      bankTxFails,
+      invoiceSample: Array.isArray(p.invoiceFetchFailedSample)
+        ? p.invoiceFetchFailedSample
+        : [],
+    };
+  }, [status]);
 
   useEffect(() => {
     if (!effectivePtrsId) return;
@@ -202,6 +255,23 @@ export default function XeroConnectProgressPanel() {
                 ? `Status: ${derivedStatus}`
                 : "Waiting for updates…")}
           </Typography>
+
+          {warnings.hasAny ? (
+            <Typography
+              variant="body2"
+              sx={{ mb: theme.spacing(2) }}
+              color="warning.main"
+            >
+              Import warnings: {warnings.invoiceFails} invoice fetch failures
+              {warnings.contactFails
+                ? `, ${warnings.contactFails} contact fetch failures`
+                : ""}
+              {warnings.bankTxFails
+                ? `, ${warnings.bankTxFails} bank transaction fetch failures`
+                : ""}
+              . The import will continue, but some rows may be missing details.
+            </Typography>
+          ) : null}
 
           <Box mt={2}>
             <Typography variant="body2" sx={{ mb: theme.spacing(1) }}>
