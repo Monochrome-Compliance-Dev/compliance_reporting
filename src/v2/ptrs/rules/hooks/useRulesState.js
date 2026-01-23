@@ -1,65 +1,56 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 export default function useRulesState(initialRules = []) {
   const [rules, setRules] = useState(initialRules);
   const [isSaving, setIsSaving] = useState(false);
 
-  const resetRules = (nextRules) => {
+  const resetRules = useCallback((nextRules) => {
     setRules(Array.isArray(nextRules) ? nextRules : []);
-  };
+  }, []);
 
-  const addRule = () => {
+  const addRule = useCallback(() => {
     setRules((prev) => [
       ...prev,
       {
-        // Client-only identifier
         cid: crypto.randomUUID(),
         id: undefined,
-
-        // Meta
         label: "",
         description: "",
         enabled: true,
         type: "row",
-
-        // Conditions
         when: [],
-
-        // Relationship (safe empty structure)
-        target: {
-          match: [],
-          where: [],
-        },
-
-        // Action – IMPORTANT: give selects a valid initial value
+        target: { match: [], where: [] },
         action: {
-          op: "add", // one of: add | sub | mul | div | assign
-          field: "", // '' is allowed by MUI as “no selection yet”
-          valueFieldFromCurrent: "", // same
+          op: "add",
+          field: "",
+          valueFieldFromCurrent: "",
           round: 2,
         },
       },
     ]);
-  };
+  }, []);
 
-  const updateRule = (index, patch) => {
+  const updateRule = useCallback((index, patch) => {
     setRules((prev) =>
-      prev.map((r, i) => (i === index ? { ...r, ...patch } : r))
+      prev.map((r, i) => (i === index ? { ...r, ...patch } : r)),
     );
-  };
+  }, []);
 
-  const removeRule = (index) => {
+  const removeRule = useCallback((index) => {
     setRules((prev) => prev.filter((_, i) => i !== index));
-  };
+  }, []);
 
-  const saveRules = async (saveFn) => {
-    setIsSaving(true);
-    try {
-      await saveFn(rules);
-    } finally {
-      setIsSaving(false);
-    }
-  };
+  const saveRules = useCallback(
+    async (saveFn) => {
+      setIsSaving(true);
+      try {
+        await saveFn(rules);
+      } finally {
+        setIsSaving(false);
+      }
+    },
+    [rules],
+  );
 
   return {
     rules,

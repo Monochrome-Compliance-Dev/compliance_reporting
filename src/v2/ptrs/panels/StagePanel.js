@@ -26,6 +26,7 @@ import {
   getLatestExecutionRun,
 } from "v2/ptrs/services/stage.ptrsApi";
 import { listDatasets } from "v2/ptrs/services/data.ptrsApi";
+import { getPtrsMap } from "v2/ptrs/services/tablesAndMaps.ptrsApi";
 
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 import { LoadingSpinner } from "components/ui/LoadingSpinner";
@@ -66,6 +67,16 @@ export default function StagePanel() {
   const [showPreview, setShowPreview] = useState(false);
   const [autoStageAttempted, setAutoStageAttempted] = useState(false);
   const [latestStageRun, setLatestStageRun] = useState(null);
+  const [autoStaging, setAutoStaging] = useState(false);
+  const [autoStageMessage, setAutoStageMessage] = useState("");
+  const [mapMeta, setMapMeta] = useState(null);
+
+  const mapUpdatedAt = useMemo(() => {
+    const ts = mapMeta?.updatedAt || null;
+    if (!ts) return null;
+    const dt = new Date(ts);
+    return Number.isNaN(dt.getTime()) ? null : dt;
+  }, [mapMeta]);
 
   // Safely pick a value from a row that may be flat or split across data / standard / custom
   const pickCell = (row, header) => {
@@ -155,29 +166,32 @@ export default function StagePanel() {
   };
 
   const mountedRef = useRef(true);
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    return () => {
       mountedRef.current = false;
-    },
-    []
-  );
+    };
+  }, []);
 
   // Initial load – fetch ptrs meta and dataset statuses
   useEffect(() => {
     if (!ptrsId) return;
     (async () => {
       try {
-        const [ptrs, ds, latestRun] = await Promise.all([
+        const [ptrs, ds, latestRun, map] = await Promise.all([
           getPtrs(ptrsId).catch(() => null),
           listDatasets(ptrsId).catch(() => ({ items: [] })),
           getLatestExecutionRun(ptrsId, { step: "stage" }).catch(() => null),
+          getPtrsMap(ptrsId).catch(() => null),
         ]);
-        // console.log("[StagePanel] getPtrs:", ptrs);
-        // console.log("[StagePanel] listDatasets:", ds);
+
         if (mountedRef.current) {
           setPtrsMeta(ptrs);
           setDatasets(ds?.items || []);
           setLatestStageRun(latestRun);
+
+          const meta =
+            map?.extras?.mapMeta || map?.map?.extras?.mapMeta || null;
+          setMapMeta(meta);
         }
       } catch (_) {
         console.warn("[StagePanel] initial load failed", _);
@@ -185,61 +199,126 @@ export default function StagePanel() {
     })();
   }, [ptrsId]);
 
+  const needsStageRebuild = () => {
+    if (!latestStageRun) return true;
+
+    const status = String(latestStageRun?.status || "").toLowerCase();
+    if (["pending", "running", "failed", "error"].includes(status)) return true;
+
+    const stageStartedAt = latestStageRun?.startedAt
+      ? new Date(latestStageRun.startedAt)
+      : null;
+
+    if (!stageStartedAt || Number.isNaN(stageStartedAt.getTime())) return true;
+
+    // Inputs that should invalidate stage:
+    // - supporting datasets changed
+    // - map changed (mapMeta.updatedAt bumped when signature changes)
+    const inputsMax = (() => {
+      let max = stageStartedAt; // baseline
+      if (datasetsMaxUpdatedAt && datasetsMaxUpdatedAt > max)
+        max = datasetsMaxUpdatedAt;
+      if (mapUpdatedAt && mapUpdatedAt > max) max = mapUpdatedAt;
+      return max;
+    })();
+
+    return inputsMax > stageStartedAt;
+  };
+
+  const datasetsMaxUpdatedAt = useMemo(() => {
+    if (!Array.isArray(datasets) || datasets.length === 0) return null;
+
+    let max = null;
+    for (const d of datasets) {
+      const ts = d?.updatedAt || d?.createdAt || null;
+      if (!ts) continue;
+      const dt = new Date(ts);
+      if (Number.isNaN(dt.getTime())) continue;
+      if (!max || dt > max) max = dt;
+    }
+
+    return max;
+  }, [datasets]);
+
   // Initial preview load – if staging has already been run for this PTRS, show it.
   // If not, automatically run staging once so the user doesn't have to.
   useEffect(() => {
     if (!ptrsId) return;
-    // If we already have a staging result in memory, don't re-fetch or auto-stage
     if (result) return;
-    console.log("Got here 1");
-
-    // --- Helper logic for deciding if we need to auto-stage ---
-    const needsStageRebuild = () => {
-      // If we can't determine run recency, don't force rebuild.
-      // Prefer a conservative approach: only rebuild when we have strong signals.
-      if (!latestStageRun) return true; // no run recorded yet
-
-      const status = String(latestStageRun?.status || "").toLowerCase();
-      if (["pending", "running", "failed", "error"].includes(status))
-        return true;
-
-      const ptrsUpdatedAt = ptrsMeta?.updatedAt
-        ? new Date(ptrsMeta.updatedAt)
-        : null;
-      const stageStartedAt = latestStageRun?.startedAt
-        ? new Date(latestStageRun.startedAt)
-        : null;
-
-      // If PTRS was updated after the last staging run began, assume configuration changed
-      // (map saved, mapped build run, etc.) and rebuild stage.
-      if (ptrsUpdatedAt && stageStartedAt) {
-        return ptrsUpdatedAt > stageStartedAt;
-      }
-
-      return false;
-    };
 
     const shouldAutoStage = () => {
       if (autoStageAttempted) return false;
       return needsStageRebuild();
     };
 
-    (async () => {
+    const runAutoStage = async ({ reason }) => {
+      if (!ptrsId) return;
+
+      const msg =
+        reason === "stale"
+          ? "Showing the last staged snapshot. Rebuilding staging in the background — this may take a while."
+          : "Preparing staged dataset for the first time. This may take a while for large files.";
+
+      setAutoStageAttempted(true);
+      setAutoStaging(true);
+      setAutoStageMessage(msg);
+      showAlert(msg, "info");
+
       try {
-        setLoading(true);
-        const pv = await getStagePreview(ptrsId, {
-          limit: 20,
-          profileId: profileId || null,
+        const res = await stagePtrs(ptrsId, {
+          profileId: profileId,
+          persist: true,
         });
         if (!mountedRef.current) return;
-        console.log("Got here 2");
 
-        if (pv && Array.isArray(pv.rows) && pv.rows.length) {
-          // We have staged rows already. Hydrate the preview/result,
-          // but re-run staging automatically if we believe the stage is stale.
+        setResult(res);
+
+        try {
+          const latestRun = await getLatestExecutionRun(ptrsId, {
+            step: "stage",
+          });
+          if (mountedRef.current) setLatestStageRun(latestRun);
+        } catch (_) {}
+
+        try {
+          const pv2 = await getStagePreview(ptrsId, {
+            limit: 20,
+            profileId: profileId,
+          });
+          if (!mountedRef.current) return;
+          if (pv2?.rows?.length) {
+            setPreview(pv2);
+            setShowPreview(true);
+          }
+        } catch (_) {}
+
+        showAlert(`Staged ${res?.rowsOut || 0} rows`, "success");
+      } catch (stageErr) {
+        console.error("[StagePanel] auto-stage error:", stageErr);
+        if (mountedRef.current) {
+          showAlert(
+            stageErr?.message ||
+              "Failed to stage data automatically. You can try running staging again manually.",
+            "error",
+          );
+        }
+      } finally {
+        if (mountedRef.current) setAutoStaging(false);
+      }
+    };
+
+    (async () => {
+      setLoading(true);
+      try {
+        const pv = await getStagePreview(ptrsId, {
+          limit: 20,
+          profileId: profileId,
+        });
+        if (!mountedRef.current) return;
+
+        if (pv?.rows?.length) {
           setPreview(pv);
           setShowPreview(true);
-          console.log("Got here 3");
 
           const stagedCount = pv.totalRows ?? pv.rows.length;
           setResult(
@@ -248,148 +327,15 @@ export default function StagePanel() {
                 rowsIn: stagedCount,
                 rowsOut: stagedCount,
                 tookMs: null,
-              }
+              },
           );
-          console.log("Got here 4");
 
           if (shouldAutoStage()) {
-            console.log(
-              "[StagePanel] staged preview exists but appears stale; auto-staging",
-              {
-                ptrsId,
-                profileId,
-                ptrsUpdatedAt: ptrsMeta?.updatedAt || null,
-                latestStageRun,
-              }
-            );
-
-            setAutoStageAttempted(true);
-            showAlert(
-              "Your staging data looks out of date (mapping/config changed). Rebuilding staging now — this may take a while.",
-              "info"
-            );
-
-            try {
-              const res = await stagePtrs(ptrsId, {
-                profileId: profileId || null,
-                persist: true,
-              });
-              if (!mountedRef.current) return;
-              setResult(res);
-
-              try {
-                const latestRun = await getLatestExecutionRun(ptrsId, {
-                  step: "stage",
-                });
-                if (mountedRef.current) setLatestStageRun(latestRun);
-              } catch (_) {}
-
-              try {
-                const pv2 = await getStagePreview(ptrsId, {
-                  limit: 20,
-                  profileId: profileId || null,
-                });
-                if (!mountedRef.current) return;
-
-                if (pv2 && Array.isArray(pv2.rows) && pv2.rows.length) {
-                  setPreview(pv2);
-                  setShowPreview(true);
-                  console.log(
-                    "[StagePanel] stale-stage rebuild preview loaded",
-                    {
-                      headersCount: pv2.headers?.length || 0,
-                      rowsCount: pv2.rows?.length || 0,
-                    }
-                  );
-                }
-              } catch (innerErr) {
-                console.warn(
-                  "[StagePanel] getStagePreview after stale-stage auto-run failed",
-                  innerErr
-                );
-              }
-            } catch (stageErr) {
-              console.error(
-                "[StagePanel] stale-stage auto-run error:",
-                stageErr
-              );
-              if (mountedRef.current) {
-                showAlert(
-                  stageErr?.message ||
-                    "Failed to rebuild staging automatically. You can try running staging again manually.",
-                  "error"
-                );
-              }
-            }
+            // don’t block UI — kick off in background
+            void runAutoStage({ reason: "stale" });
           }
         } else if (shouldAutoStage()) {
-          // No staged rows yet – automatically run staging once
-          console.log("Got here 5");
-
-          setAutoStageAttempted(true);
-          showAlert(
-            "Preparing staged dataset for the first time. For large files this may take a while.",
-            "info"
-          );
-
-          console.log("[StagePanel] auto-staging on first visit", {
-            ptrsId,
-            profileId,
-          });
-
-          try {
-            console.log("Got here 6");
-            const res = await stagePtrs(ptrsId, {
-              profileId: profileId || null,
-              persist: true,
-            });
-            console.log("Got here 7");
-
-            if (!mountedRef.current) return;
-            console.log("Got here 8");
-
-            setResult(res);
-
-            try {
-              const latestRun = await getLatestExecutionRun(ptrsId, {
-                step: "stage",
-              });
-              if (mountedRef.current) setLatestStageRun(latestRun);
-            } catch (_) {}
-
-            // After staging, eagerly fetch a small preview
-            try {
-              console.log("Got here 9");
-              const pv2 = await getStagePreview(ptrsId, {
-                limit: 20,
-                profileId: profileId || null,
-              });
-              if (!mountedRef.current) return;
-
-              if (pv2 && Array.isArray(pv2.rows) && pv2.rows.length) {
-                setPreview(pv2);
-                setShowPreview(true);
-                console.log("[StagePanel] auto-stage preview loaded", {
-                  headersCount: pv2.headers?.length || 0,
-                  rowsCount: pv2.rows?.length || 0,
-                });
-              }
-            } catch (innerErr) {
-              console.warn(
-                "[StagePanel] getStagePreview after auto-stage failed",
-                innerErr
-              );
-            }
-          } catch (stageErr) {
-            console.error("[StagePanel] auto-stage error:", stageErr);
-            if (mountedRef.current) {
-              showAlert(
-                stageErr?.message ||
-                  "Failed to stage data automatically. You can try running staging again manually.",
-                "error"
-              );
-            }
-          }
+          void runAutoStage({ reason: "first" });
         }
       } catch (err) {
         console.warn("[StagePanel] initial stage preview load failed", err);
@@ -404,7 +350,8 @@ export default function StagePanel() {
     autoStageAttempted,
     showAlert,
     latestStageRun,
-    ptrsMeta,
+    datasetsMaxUpdatedAt,
+    mapUpdatedAt,
   ]);
 
   const datasetSummary = useMemo(() => {
@@ -431,14 +378,17 @@ export default function StagePanel() {
 
     showAlert(
       "Running staging for this dataset. If it's a big one, it might take ages — get comfy while we crunch the numbers.",
-      "info"
+      "info",
     );
 
     console.log("[StagePanel] stagePtrs ->", { ptrsId, profileId });
-    setLoading(true);
+    setAutoStageMessage(
+      "Running staging… this can take a minute for large files.",
+    );
+    setAutoStaging(true);
     try {
       const res = await stagePtrs(ptrsId, {
-        profileId: profileId || null,
+        profileId: profileId,
         persist: true,
       });
       console.log("[StagePanel] stagePtrs result:", res);
@@ -456,7 +406,7 @@ export default function StagePanel() {
       try {
         const pv = await getStagePreview(ptrsId, {
           limit: 20,
-          profileId: profileId || null,
+          profileId: profileId,
         });
         console.log("[StagePanel] getStagePreview raw:", pv);
         console.log("[StagePanel] getStagePreview summary:", {
@@ -475,7 +425,7 @@ export default function StagePanel() {
         showAlert(err?.message || "Failed to stage data", "error");
       }
     } finally {
-      if (mountedRef.current) setLoading(false);
+      if (mountedRef.current) setAutoStaging(false);
     }
   };
 
@@ -518,10 +468,10 @@ export default function StagePanel() {
   };
 
   if (!ptrsId) return null;
-  if (loading) {
-    return (
-      <LoadingSpinner message="Preparing staged dataset… this can take a little while." />
-    );
+  const hasPreview = Array.isArray(preview?.rows) && preview.rows.length > 0;
+
+  if (loading && !result && !hasPreview) {
+    return <LoadingSpinner message="Loading stage preview…" />;
   }
 
   return (
@@ -605,10 +555,18 @@ export default function StagePanel() {
           alignItems={{ md: "center" }}
         >
           <Box sx={{ flex: 1 }}>
-            {loading ? (
-              <Stack alignItems="center" spacing={2}>
-                <CircularProgress />
-                <Typography>Preparing staged dataset…</Typography>
+            {autoStaging ? (
+              <Stack spacing={1}>
+                <Stack direction="row" alignItems="center" spacing={2}>
+                  <CircularProgress size={18} />
+                  <Typography variant="subtitle1">
+                    Auto-staging in progress
+                  </Typography>
+                </Stack>
+                <Typography variant="body2" color="text.secondary">
+                  {autoStageMessage ||
+                    "Running staging… this can take a minute for large files."}
+                </Typography>
               </Stack>
             ) : result ? (
               <Stack spacing={1}>
@@ -656,7 +614,7 @@ export default function StagePanel() {
             <Button
               variant="outlined"
               startIcon={<ReplayIcon />}
-              disabled={loading}
+              disabled={loading || autoStaging}
               onClick={handleStage}
             >
               {result ? "Run again" : "Run staging"}
@@ -664,7 +622,7 @@ export default function StagePanel() {
             <Button
               variant="contained"
               endIcon={<NavigateNextIcon />}
-              disabled={loading || !result}
+              disabled={loading || autoStaging || !result}
               onClick={handleGoToRules}
             >
               Next: Apply rules
@@ -679,7 +637,7 @@ export default function StagePanel() {
           <Typography variant="subtitle1">Preview</Typography>
           <Button
             size="small"
-            disabled={loading}
+            disabled={loading || autoStaging}
             onClick={() => setShowPreview((s) => !s)}
           >
             {showPreview ? "Hide" : "Show"} preview
@@ -726,7 +684,7 @@ export default function StagePanel() {
       <Divider sx={{ my: 3 }} />
       <Button
         variant="text"
-        disabled={loading}
+        disabled={loading || autoStaging}
         onClick={() => {
           const qs = new URLSearchParams();
           qs.set("ptrsId", ptrsId);

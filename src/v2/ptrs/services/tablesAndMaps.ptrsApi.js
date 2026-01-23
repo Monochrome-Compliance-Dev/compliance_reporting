@@ -5,6 +5,53 @@ import { getDatasetSample, listDatasets } from "./data.ptrsApi";
 // Avoid trailing slashes
 const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 
+// -------------------- Map meta helpers (stable signature) --------------------
+const stableStringify = (value) => {
+  const seen = new WeakSet();
+
+  const norm = (v) => {
+    if (v === null || typeof v !== "object") return v;
+    if (seen.has(v)) return "[Circular]";
+    seen.add(v);
+
+    if (Array.isArray(v)) return v.map(norm);
+
+    const out = {};
+    for (const k of Object.keys(v).sort()) out[k] = norm(v[k]);
+    return out;
+  };
+
+  return JSON.stringify(norm(value));
+};
+
+// Simple deterministic hash (NOT crypto)
+const hashString = (str) => {
+  let h = 5381;
+  const s = String(str || "");
+  for (let i = 0; i < s.length; i += 1) h = (h * 33) ^ s.charCodeAt(i);
+  return (h >>> 0).toString(16);
+};
+
+const buildMapSignature = ({
+  mappings,
+  joins,
+  defaults,
+  fallbacks,
+  rowRules,
+  customFields,
+}) => {
+  const payload = {
+    mappings: mappings || {},
+    joins: joins || null,
+    defaults: defaults || null,
+    fallbacks: fallbacks || null,
+    rowRules: rowRules || null,
+    customFields: customFields || null,
+  };
+
+  return `v1_${hashString(stableStringify(payload))}`;
+};
+
 // -------------------- Column map (routes: /ptrs/:id/map) ------
 export const getPtrsMap = async (ptrsId) => {
   const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/${ptrsId}/map`);
@@ -84,7 +131,7 @@ export const savePtrsMap = async (
     rowRules = null,
     profileId = null,
     customFields = null,
-  }
+  },
 ) => {
   console.log("savePtrsMap called with:", {
     ptrsId,
@@ -109,20 +156,47 @@ export const savePtrsMap = async (
         .map((cfg) => cfg?.field)
         .filter(Boolean)
         .map((v) => String(v).trim())
-        .filter(Boolean)
-    )
+        .filter(Boolean),
+    ),
   );
+
+  const signature = buildMapSignature({
+    mappings,
+    joins,
+    defaults,
+    fallbacks,
+    rowRules,
+    customFields,
+  });
+
+  const prevMapMeta =
+    extras && typeof extras === "object" && !Array.isArray(extras)
+      ? extras.mapMeta
+      : null;
+
+  const prevSignature = prevMapMeta?.signature || null;
+  const prevUpdatedAt = prevMapMeta?.updatedAt || null;
+  const prevVersion =
+    typeof prevMapMeta?.version === "number" &&
+    Number.isFinite(prevMapMeta.version)
+      ? prevMapMeta.version
+      : 1;
+
+  const didChange = !prevSignature || prevSignature !== signature;
 
   const nextExtras = {
     ...(extras && typeof extras === "object" && !Array.isArray(extras)
       ? extras
       : {}),
     mapMeta: {
-      version: 1,
+      version: didChange ? prevVersion + 1 : prevVersion,
       sourceHeaders,
       sourceHeadersNorm,
       targets,
-      updatedAt: new Date().toISOString(),
+      signature,
+      updatedAt: didChange
+        ? new Date().toISOString()
+        : prevUpdatedAt || new Date().toISOString(),
     },
   };
 
@@ -145,7 +219,7 @@ export const buildPtrsMappedDataset = async (ptrsId) => {
 
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/map/build-mapped`,
-    {}
+    {},
   );
 
   const data = pickData(res) || {};
@@ -163,7 +237,7 @@ export const buildPtrsMappedDataset = async (ptrsId) => {
 // Unified sample: returns merged headers + examples from main + supporting datasets
 export const getUnifiedSample = async (
   ptrsId,
-  { limit = 10, offset = 0 } = {}
+  { limit = 10, offset = 0 } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
 
@@ -206,7 +280,7 @@ export const getUnifiedSample = async (
         dataset: ds,
         sample,
       };
-    })
+    }),
   );
 
   // 4) Merge headers + build headerMeta
@@ -376,10 +450,10 @@ export const extractMappingsFromAny = (raw) => {
 
 export const getPtrsSample = async (
   ptrsId,
-  { limit = 10, offset = 0 } = {}
+  { limit = 10, offset = 0 } = {},
 ) => {
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`
+    `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`,
   );
   return normSample(pickData(res));
 };

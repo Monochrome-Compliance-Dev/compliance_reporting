@@ -18,6 +18,7 @@ export default function RuleRelationshipBuilder({
     currentField: "",
   };
   const where = rule.target?.where?.[0] || { field: "", op: "eq", value: "" };
+  const safeHeaderValue = (v) => (headers.includes(v) ? v : "");
 
   return (
     <Stack spacing={2}>
@@ -29,7 +30,7 @@ export default function RuleRelationshipBuilder({
           <Select
             labelId={`rel-target-${index}`}
             label="Target field"
-            value={match.targetField}
+            value={safeHeaderValue(match.targetField)}
             onChange={(e) =>
               onUpdate(index, {
                 target: {
@@ -52,7 +53,7 @@ export default function RuleRelationshipBuilder({
           <Select
             labelId={`rel-current-${index}`}
             label="Current field"
-            value={match.currentField}
+            value={safeHeaderValue(match.currentField)}
             onChange={(e) =>
               onUpdate(index, {
                 target: {
@@ -79,7 +80,7 @@ export default function RuleRelationshipBuilder({
           <Select
             labelId={`rel-where-field-${index}`}
             label="Field"
-            value={where.field}
+            value={safeHeaderValue(where.field)}
             onChange={(e) =>
               onUpdate(index, {
                 target: {

@@ -25,6 +25,7 @@ export default function RuleConditionBuilder({
   onUpdate,
 }) {
   const cond = rule.when?.[0] || { field: "", op: "eq", value: "" };
+  const safeHeaderValue = (v) => (headers.includes(v) ? v : "");
 
   return (
     <Stack spacing={1}>
@@ -35,7 +36,7 @@ export default function RuleConditionBuilder({
           <Select
             labelId={`when-field-${index}`}
             label="Field"
-            value={cond.field || ""}
+            value={safeHeaderValue(cond.field || "")}
             onChange={(e) =>
               onUpdate(index, { when: [{ ...cond, field: e.target.value }] })
             }

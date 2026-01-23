@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import {
   Box,
   Stack,
@@ -32,14 +32,16 @@ import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
+import { LoadingSpinner } from "components/ui/";
+
 // mapping-specific stuff
 import {
   getPtrsMap,
   savePtrsMap,
+  buildPtrsMappedDataset,
   listPtrsWithMap,
   extractMappingsFromAny,
   getUnifiedSample,
-  buildPtrsMappedDataset,
 } from "v2/ptrs/services/tablesAndMaps.ptrsApi";
 
 // Map stuff
@@ -76,6 +78,24 @@ export default function MapPanel() {
   const [headerMeta, setHeaderMeta] = useState({});
   const [loading, setLoading] = useState(false);
   const [staging, setStaging] = useState(false);
+  const [mapExtras, setMapExtras] = useState(null);
+  const [isDirty, setIsDirty] = useState(false);
+
+  const [savingMap, setSavingMap] = useState(false);
+  const [buildingMapped, setBuildingMapped] = useState(false);
+
+  const isBusy = loading || staging || savingMap || buildingMapped;
+
+  const getMapMetaUpdatedAt = (extras) => {
+    if (!extras || typeof extras !== "object" || Array.isArray(extras))
+      return null;
+    const meta = extras.mapMeta;
+    if (!meta || typeof meta !== "object") return null;
+    return meta.updatedAt || null;
+  };
+
+  // prevent double-submit / re-entrancy
+  const stagingRef = useRef(false);
 
   const [ptrssWithMaps, setPtrssWithMaps] = useState([]);
   const [selectedCopyPtrs, setSelectedCopyPtrs] = useState(null);
@@ -125,6 +145,8 @@ export default function MapPanel() {
       try {
         // 1) Load map first to know if any mappings exist
         const mapRes = await getPtrsMap(ptrsId);
+        const existingExtras = mapRes?.extras || mapRes?.map?.extras || null;
+        setMapExtras(existingExtras);
         // eslint-disable-next-line no-console
         console.log("[MapPanel] getPtrsMap raw:", mapRes);
         // eslint-disable-next-line no-console
@@ -140,7 +162,7 @@ export default function MapPanel() {
                 customFields: mapRes.customFields || null,
                 mapKeys: mapRes.map ? Object.keys(mapRes.map) : null,
               }
-            : null
+            : null,
         );
 
         const existing =
@@ -189,7 +211,9 @@ export default function MapPanel() {
         const initialCustomFields = Array.isArray(existingCustomFields)
           ? existingCustomFields
               .map((cf) =>
-                cf && typeof cf === "object" ? cf.key || cf.field || null : null
+                cf && typeof cf === "object"
+                  ? cf.key || cf.field || null
+                  : null,
               )
               .filter((n) => n && typeof n === "string")
           : [];
@@ -257,7 +281,7 @@ export default function MapPanel() {
         // existing mappings/joins/customField already computed above
         setJoins(Array.isArray(existingJoins) ? existingJoins : []);
         setCustomFieldConfig(
-          Array.isArray(existingCustomFields) ? existingCustomFields : null
+          Array.isArray(existingCustomFields) ? existingCustomFields : null,
         );
 
         setHeaders(inferred);
@@ -318,7 +342,7 @@ export default function MapPanel() {
               .trim();
 
           const inferredNormSet = new Set(
-            (inferred || []).map(normHeaderKey).filter(Boolean)
+            (inferred || []).map(normHeaderKey).filter(Boolean),
           );
 
           const fromMeta = [];
@@ -342,7 +366,7 @@ export default function MapPanel() {
 
           if (metaSeen) {
             fromMeta.sort(
-              (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0)
+              (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0),
             );
             setPtrssWithMaps(fromMeta);
           } else {
@@ -380,7 +404,7 @@ export default function MapPanel() {
             }
 
             compatible.sort(
-              (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0)
+              (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0),
             );
             setPtrssWithMaps(compatible);
           }
@@ -399,7 +423,7 @@ export default function MapPanel() {
   // quick helpers
   const usedSources = useMemo(
     () => new Set(Object.values(assign || {})),
-    [assign]
+    [assign],
   );
 
   const filteredSources = useMemo(() => {
@@ -429,9 +453,14 @@ export default function MapPanel() {
   const assignSourceToTarget = (source, targetField) => {
     setAssign((prev) => {
       const next = { ...prev };
-      for (const k of Object.keys(next))
+
+      // Ensure a source is only mapped to a single target
+      for (const k of Object.keys(next)) {
         if (next[k] === source) next[k] = undefined;
+      }
+
       next[targetField] = source || undefined;
+      setIsDirty(true);
       return next;
     });
   };
@@ -440,10 +469,14 @@ export default function MapPanel() {
     setAssign((prev) => {
       const next = { ...prev };
       delete next[targetField];
+      setIsDirty(true);
       return next;
     });
 
-  const clearAll = () => setAssign({});
+  const clearAll = () => {
+    setAssign({});
+    setIsDirty(true);
+  };
 
   // --- Custom fields helpers ---
   const addCustomField = (name) => {
@@ -456,10 +489,12 @@ export default function MapPanel() {
       showAlert("That field name already exists in the core schema.", "info");
       return;
     }
+
     setCustomFields((prev) => {
       const next = [...new Set([...prev, safe])];
       return next;
     });
+    setIsDirty(true);
     setNewCustomName("");
   };
 
@@ -470,6 +505,7 @@ export default function MapPanel() {
       if (n[name]) delete n[name];
       return n;
     });
+    setIsDirty(true);
   };
 
   // Generate a safe, unique custom field name from a source header
@@ -529,7 +565,7 @@ export default function MapPanel() {
       const allTargets = [
         ...PTRS_REQUIRED_FIELDS,
         ...PTRS_OPTIONAL_FIELDS.filter(
-          (f) => !PTRS_REQUIRED_FIELDS.includes(f)
+          (f) => !PTRS_REQUIRED_FIELDS.includes(f),
         ),
       ];
 
@@ -550,7 +586,7 @@ export default function MapPanel() {
         if (!chosen) {
           for (const a of candidates) {
             const found = available.find(
-              (h) => !alreadyUsed.has(h) && norm(h).includes(a)
+              (h) => !alreadyUsed.has(h) && norm(h).includes(a),
             );
             if (found) {
               chosen = found;
@@ -569,7 +605,7 @@ export default function MapPanel() {
       } else {
         showAlert(
           "No suggestions found — try mapping a few fields first",
-          "info"
+          "info",
         );
       }
       return next;
@@ -667,7 +703,7 @@ export default function MapPanel() {
     // eslint-disable-next-line no-console
     // console.log("Applied count:", applied, "Final assign:", next);
     // eslint-disable-next-line no-console
-    console.groupEnd();
+    // console.groupEnd();
 
     setAssign(next);
     return { applied, nextAssign: next };
@@ -682,7 +718,7 @@ export default function MapPanel() {
       // eslint-disable-next-line no-console
       console.log(
         "[handleImportJson] Extracted mappings keys:",
-        Object.keys(mappings || {})
+        Object.keys(mappings || {}),
       );
       if (!mappings || typeof mappings !== "object") {
         showAlert("No usable mappings found in file", "info");
@@ -692,7 +728,7 @@ export default function MapPanel() {
           await save(true, nextAssign);
           showAlert(
             `Imported mapping for ${applied} field(s) and auto-saved the map`,
-            "success"
+            "success",
           );
         } else {
           showAlert("No compatible headers found in this file", "info");
@@ -719,13 +755,13 @@ export default function MapPanel() {
         await save(true, nextAssign);
         showAlert(
           `Copied ${applied} mapping(s) from ${otherPtrsId} and auto-saved the map`,
-          "success"
+          "success",
         );
         setImportOpen(false);
       } else {
         showAlert(
           `No compatible mappings found on ptrs ${otherPtrsId}`,
-          "info"
+          "info",
         );
       }
     } catch (e) {
@@ -736,51 +772,112 @@ export default function MapPanel() {
   async function save(autoOrEvent = false, assignOverride) {
     const auto = typeof autoOrEvent === "boolean" ? autoOrEvent : false;
     const effectiveAssign = assignOverride || assign;
+
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
-      return;
+      return null;
     }
+
+    if (!isDirty && !assignOverride) {
+      if (!auto) showAlert("No mapping changes to save.", "info");
+      return null;
+    }
+
+    // Prevent double-submit
+    if (savingMap) return null;
+
+    setSavingMap(true);
+
     try {
-      // Convert target->source to BE shape and include custom placeholders
+      // Convert target->source to BE shape
       const payload = {};
+
       const allowedTargets = new Set([
         ...PTRS_REQUIRED_FIELDS,
         ...PTRS_OPTIONAL_FIELDS,
         ...customFields,
+        ...Object.keys(effectiveAssign || {}),
       ]);
-      // Soft sanity: ignore empty/unknown targets, allow partial maps
-      for (const [tgt, src] of Object.entries(effectiveAssign)) {
+
+      for (const [tgt, src] of Object.entries(effectiveAssign || {})) {
         if (!src) continue;
-        if (!allowedTargets.has(tgt)) continue; // skip stray keys
+        if (!tgt) continue;
+        if (!allowedTargets.has(tgt)) continue;
         payload[src] = { field: tgt, type: "string" };
       }
+
       const count = Object.keys(payload).length;
       if (count === 0) {
         if (!auto) {
           showAlert(
             "Map is empty — assign at least one field before saving.",
-            "info"
+            "info",
           );
         }
-        return;
+        return null;
       }
+
+      // Compare mapMeta.updatedAt before/after to decide if map materially changed
+      const prevMapUpdatedAt = getMapMetaUpdatedAt(mapExtras);
 
       const res = await savePtrsMap(ptrsId, {
         mappings: payload,
+        extras: mapExtras,
         joins,
         profileId,
         customFields: customFieldConfig || null,
       });
 
-      const savedCount = Object.keys(res.mappings || payload).length;
+      // Keep latest extras (important so next save can truly be a no-op)
+      let nextExtras = mapExtras || null;
+      try {
+        nextExtras = res?.extras || res?.map?.extras || nextExtras || null;
+        setMapExtras(nextExtras);
+      } catch {
+        // ignore
+      }
+
+      const nextMapUpdatedAt = getMapMetaUpdatedAt(nextExtras);
+      const didMaterialChange =
+        !!nextMapUpdatedAt && nextMapUpdatedAt !== prevMapUpdatedAt;
+
+      // If map changed, rebuild mapped rows now
+      if (didMaterialChange) {
+        setBuildingMapped(true);
+        try {
+          await buildPtrsMappedDataset(ptrsId);
+        } catch (err) {
+          // Don’t brick the user — Stage can still decide what to do,
+          // but we should at least warn loudly.
+          // eslint-disable-next-line no-console
+          console.error("Failed to build mapped dataset", err);
+          if (!auto) {
+            showAlert(
+              err?.message ||
+                "Saved map, but failed to rebuild mapped rows. You can still proceed to Stage.",
+              "warning",
+            );
+          }
+        } finally {
+          setBuildingMapped(false);
+        }
+      }
+
+      const savedCount = Object.keys(res?.mappings || payload).length;
       if (!auto) {
         showAlert(
           `Saved map (${savedCount} field${savedCount === 1 ? "" : "s"})`,
-          "success"
+          "success",
         );
       }
+
+      setIsDirty(false);
+      return res || { mappings: payload, extras: nextExtras };
     } catch (e) {
       showAlert(e?.message || "Failed to save map", "error");
+      return null;
+    } finally {
+      setSavingMap(false);
     }
   }
 
@@ -788,23 +885,31 @@ export default function MapPanel() {
   const navigate = useNavigate();
 
   const stageData = async () => {
-    // Build mapped rows BEFORE navigating to StagePanel.
-    // If this fails, keep the user on MapPanel and show the error.
+    if (isBusy) return;
+    // Move to StagePanel (server will handle build/reuse if needed).
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
     }
 
+    if (stagingRef.current) return;
+    stagingRef.current = true;
+
+    const abortStage = (message) => {
+      showAlert(message, "error");
+      setStaging(false);
+      stagingRef.current = false;
+    };
+
     // Guard: ensure all required canonical targets are mapped before staging
     const missingRequired = (PTRS_REQUIRED_FIELDS || []).filter(
-      (field) => !assign?.[field]
+      (field) => !assign?.[field],
     );
 
     if (missingRequired.length > 0) {
       const labels = missingRequired.map((f) => labelFor(f));
-      showAlert(
+      abortStage(
         `Before staging, please map the required field(s): ${labels.join(", ")}`,
-        "error"
       );
       return;
     }
@@ -820,18 +925,17 @@ export default function MapPanel() {
 
     if (requiredMainJoinHeaders.length) {
       const assignedSourceHeaders = new Set(
-        Object.values(assign || {}).filter((v) => typeof v === "string" && v)
+        Object.values(assign || {}).filter((v) => typeof v === "string" && v),
       );
       const missingJoinHeaders = requiredMainJoinHeaders.filter(
-        (h) => !assignedSourceHeaders.has(h)
+        (h) => !assignedSourceHeaders.has(h),
       );
 
       if (missingJoinHeaders.length) {
-        showAlert(
+        abortStage(
           `Before staging, please map the join key column(s): ${missingJoinHeaders.join(
-            ", "
+            ", ",
           )}`,
-          "error"
         );
         return;
       }
@@ -839,29 +943,36 @@ export default function MapPanel() {
 
     if (groupedRequirementFailures.length > 0) {
       const messages = groupedRequirementFailures.map(
-        (g) => `${g.label} (map at least one)`
+        (g) => `${g.label} (map at least one)`,
       );
-      showAlert(`Before staging, please map: ${messages.join(", ")}`, "error");
+      abortStage(`Before staging, please map: ${messages.join(", ")}`);
       return;
     }
 
     setStaging(true);
 
     try {
-      // Best effort: persist current mapping changes before building.
-      // If nothing changed, this is effectively a no-op.
-      await save(true);
-
-      const result = await buildPtrsMappedDataset(ptrsId);
-
-      const builtCount = Number.isFinite(result?.count) ? result.count : 0;
-      if (!builtCount) {
-        showAlert(
-          "No mapped rows were created. Check your uploads and mappings, then try again.",
-          "error"
-        );
-        return;
+      if (isDirty) {
+        await save(true);
       }
+
+      // 🔥 Kick off mapped-row rebuild without blocking navigation.
+      // The Stage screen can show the latest snapshot while the rebuild runs.
+      // Server should also short-circuit if nothing materially changed.
+      try {
+        buildPtrsMappedDataset(ptrsId).catch((err) => {
+          showAlert(err?.message || "Failed to rebuild mapped rows", "error");
+        });
+      } catch (err) {
+        // If the call setup itself fails, still allow navigation.
+        showAlert(
+          err?.message || "Failed to start mapped-row rebuild",
+          "warning",
+        );
+      }
+
+      // No heavy build work here.
+      // Stage step will decide whether to rebuild or reuse server-side based on the saved map and inputs.
 
       try {
         await updatePtrsStep.mutateAsync({ currentStep: "stage" });
@@ -869,21 +980,24 @@ export default function MapPanel() {
         console.error(err);
         showAlert(
           "Failed to update PTRS step. Continuing to Staging.",
-          "warning"
+          "warning",
         );
       }
 
       const qs = new URLSearchParams();
       qs.set("ptrsId", ptrsId);
       if (profileId) qs.set("profileId", profileId);
+
+      // Navigate immediately (don’t wait for 200k-row work)
       navigate(`/v2/ptrs/stage?${qs.toString()}`);
     } catch (e) {
       showAlert(
-        e?.message || "Failed to build mapped rows. Please try again.",
-        "error"
+        e?.message || "Failed to stage data. Please try again.",
+        "error",
       );
     } finally {
       setStaging(false);
+      stagingRef.current = false;
     }
   };
 
@@ -957,18 +1071,18 @@ export default function MapPanel() {
   };
 
   const requiredMappedCount = PTRS_REQUIRED_FIELDS.filter(
-    (f) => !!assign[f]
+    (f) => !!assign[f],
   ).length;
 
   const groupedRequirementFailures = (PTRS_REQUIRED_FIELD_GROUPS || []).filter(
     (group) => {
       const mappedCount = group.fields.filter((f) => !!assign[f]).length;
       return mappedCount < (group.minRequired || 1);
-    }
+    },
   );
 
   const optionalMappedCount = PTRS_OPTIONAL_FIELDS.filter(
-    (f) => !PTRS_REQUIRED_FIELDS.includes(f) && !!assign[f]
+    (f) => !PTRS_REQUIRED_FIELDS.includes(f) && !!assign[f],
   ).length;
 
   // right pane sources item
@@ -1075,7 +1189,7 @@ export default function MapPanel() {
           <AccordionDetails>
             <Stack spacing={1}>
               {PTRS_OPTIONAL_FIELDS.filter(
-                (f) => !PTRS_REQUIRED_FIELDS.includes(f)
+                (f) => !PTRS_REQUIRED_FIELDS.includes(f),
               ).map((f) => (
                 <TargetBin key={f} field={f} />
               ))}
@@ -1105,9 +1219,10 @@ export default function MapPanel() {
                     setCustomFields((prev) => [...prev, newName]);
                   }
                   assignSourceToTarget(source, newName);
+                  setIsDirty(true);
                   showAlert(
                     `Created "${newName}" and mapped from "${source}"`,
-                    "success"
+                    "success",
                   );
                 }}
                 sx={{
@@ -1290,6 +1405,14 @@ export default function MapPanel() {
             boxShadow: (t) => t.shadows[2],
           }}
         >
+          {(savingMap || buildingMapped) && (
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+              <LoadingSpinner size={20} />
+              <Typography variant="body2">
+                {savingMap ? "Saving map…" : "Rebuilding mapped rows…"}
+              </Typography>
+            </Box>
+          )}
           <Stack
             direction="row"
             justifyContent="space-between"
@@ -1322,38 +1445,21 @@ export default function MapPanel() {
               </Stack>
             )}
 
-            {staging && (
-              <Typography
-                variant="caption"
-                color="text.secondary"
-                sx={{ ml: 1 }}
-              >
-                Building mapped dataset… this can take a while for large files.
-              </Typography>
-            )}
             <Stack direction="row" spacing={1}>
               <Button
                 variant="contained"
                 onClick={() => save(false)}
-                disabled={loading || !ptrsId || staging}
+                disabled={isBusy || !isDirty}
               >
                 Save map
               </Button>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                When you continue, we’ll build your mapped rows (including
-                joins/custom fields). This can take a minute on larger files.
-              </Typography>
               <Button
                 variant="contained"
                 endIcon={<NavigateNextIcon />}
                 onClick={stageData}
-                disabled={
-                  requiredMappedCount < PTRS_REQUIRED_FIELDS.length ||
-                  // groupedRequirementFailures.length > 0 ||
-                  staging
-                }
+                disabled={isBusy}
               >
-                Next: Build & stage data
+                Next: Stage data
               </Button>
             </Stack>
           </Stack>
@@ -1466,7 +1572,7 @@ export default function MapPanel() {
                   <li {...props} key={option.id}>
                     {option.fileName
                       ? `${option.fileName} — ${new Date(
-                          option.createdAt
+                          option.createdAt,
                         ).toLocaleDateString()}`
                       : option.id}
                     {typeof option.compatibleCount === "number" &&

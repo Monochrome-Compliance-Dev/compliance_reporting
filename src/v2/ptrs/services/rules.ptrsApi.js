@@ -14,15 +14,15 @@ export const previewRules = async (ptrsId, { limit = 50 } = {}) => {
   const q = new URLSearchParams();
   q.set("limit", String(limit));
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/rules/preview?${q.toString()}`
+    `${API_ROOT}/v2/ptrs/${ptrsId}/rules/preview?${q.toString()}`,
   );
-  return normPreview(pickData(res)); // { headers, rows, stats }
+  return pickData(res); // returns the full preview contract as is
 };
 
 export const listRuleSources = async (ptrsId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/rules/sources`
+    `${API_ROOT}/v2/ptrs/${ptrsId}/rules/sources`,
   );
   const d = pickData(res);
   const data = d?.data || d || [];
@@ -35,7 +35,7 @@ export const applyRules = async (ptrsId, { profileId = null } = {}) => {
   if (profileId) body.profileId = profileId;
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/rules/apply`,
-    body
+    body,
   );
   return pickData(res); // { ok, stats, persisted }
 };
@@ -54,7 +54,7 @@ export const getPtrsRules = async (ptrsId) => {
 export const getProfileRules = async (profileId) => {
   if (!profileId) throw new Error("profileId is required");
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/rules/profiles/${profileId}`
+    `${API_ROOT}/v2/ptrs/rules/profiles/${profileId}`,
   );
   const d = pickData(res);
   const data = d?.data || d || {};
@@ -66,7 +66,7 @@ export const getProfileRules = async (profileId) => {
 
 export const savePtrsRules = async (
   ptrsId,
-  { rowRules = [], crossRowRules = [] } = {}
+  { rowRules = [], crossRowRules = [] } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   const res = await fetchWrapper.post(`${API_ROOT}/v2/ptrs/${ptrsId}/rules`, {
@@ -83,12 +83,12 @@ export const savePtrsRules = async (
 
 export const previewRulesSandbox = async (
   ptrsId,
-  { filters = [], limit = 50 } = {}
+  { filters = [], limit = 50 } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/rules/sandbox/preview`,
-    { filters, limit }
+    { filters, limit },
   );
   const d = pickData(res);
   return d || {};

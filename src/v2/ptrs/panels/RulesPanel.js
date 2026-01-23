@@ -26,6 +26,8 @@ import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 import { useNavigate } from "react-router";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { useRef } from "react";
+import { LoadingSpinner } from "components/ui/LoadingSpinner";
 
 // helpers
 const toSnake = (s) =>
@@ -40,6 +42,19 @@ const makeCid = () =>
   typeof crypto !== "undefined" && crypto.randomUUID
     ? crypto.randomUUID()
     : `rule_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+
+// Helper: detect if a cross-row rule is dangerously broad (no match, no positive where)
+const isBroadCrossRowRule = (rule) => {
+  if ((rule?.type || "row") !== "crossRow") return false;
+
+  const match = Array.isArray(rule?.target?.match) ? rule.target.match : [];
+  const where = Array.isArray(rule?.target?.where) ? rule.target.where : [];
+
+  if (match.length > 0) return false;
+
+  const hasPositiveWhere = where.some((w) => ["eq", "in"].includes(w?.op));
+  return !hasPositiveWhere;
+};
 
 const normalisePtrsRules = (rowRules = [], crossRowRules = []) => {
   const rows = Array.isArray(rowRules)
@@ -109,6 +124,7 @@ export default function RulesPanel() {
 
   const [isPreviewing, setIsPreviewing] = useState(false);
   const [isApplying, setIsApplying] = useState(false);
+  const isBusy = isPreviewing || isApplying;
   const [importOpen, setImportOpen] = useState(false);
   const [selectedRuleSource, setSelectedRuleSource] = useState(null);
 
@@ -117,15 +133,20 @@ export default function RulesPanel() {
   const { history } = useRuleExecutionHistory(ptrsId);
 
   const { rules, resetRules, addRule, updateRule, removeRule } = useRulesState(
-    []
+    [],
   );
+
+  const [lastPreview, setLastPreview] = useState(null);
+  const [lastPreviewExamples, setLastPreviewExamples] = useState([]);
+
+  const rulesLoadedRef = useRef(false);
 
   const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
 
   // Helper to create a row rule from a single condition
   const createRowRuleFromCondition = (condition) => ({
     cid: makeCid(),
-    id: undefined,
+    id: makeCid(),
     label: "",
     description: "",
     enabled: true,
@@ -138,7 +159,7 @@ export default function RulesPanel() {
   // Helper to create a cross-row rule template from a condition
   const createCrossRowRuleTemplate = (condition) => ({
     cid: makeCid(),
-    id: undefined,
+    id: makeCid(),
     label: "",
     description: "",
     enabled: true,
@@ -169,30 +190,42 @@ export default function RulesPanel() {
     resetRules([...rules, newRule]);
   };
 
-  console.log(
-    "[RulesPanel] render, ptrsId=",
-    ptrsId,
-    "profileId=",
-    profileId,
-    "map=",
-    ctxPtrsMap
-  );
-
   const canApply = useMemo(() => {
     return Boolean(
-      effectiveMap?.mappings && Object.keys(effectiveMap.mappings).length > 0
+      effectiveMap?.mappings && Object.keys(effectiveMap.mappings).length > 0,
     );
   }, [effectiveMap]);
 
-  console.log("[RulesPanel] gate", {
+  // Lightweight debug log: only fires when ptrsId/profileId/map keys change
+  const debugKeyRef = useRef("");
+  useEffect(() => {
+    const mapKeys = ctxPtrsMap?.mappings
+      ? Object.keys(ctxPtrsMap.mappings).length
+      : 0;
+    const key = `${ptrsId}|${profileId || ""}|${mapKeys}`;
+    if (debugKeyRef.current === key) return;
+    debugKeyRef.current = key;
+    // eslint-disable-next-line no-console
+    console.log("[RulesPanel] state", {
+      ptrsId,
+      profileId,
+      hasCtxMap,
+      canApply,
+      ctxMapKeys: mapKeys,
+      headersCount: Array.isArray(headers) ? headers.length : 0,
+      ruleSourcesCount: Array.isArray(ruleSources) ? ruleSources.length : 0,
+      rulesCount: Array.isArray(rules) ? rules.length : 0,
+    });
+  }, [
+    ptrsId,
+    profileId,
+    ctxPtrsMap,
     hasCtxMap,
     canApply,
-    ctxMapKeys: ctxPtrsMap?.mappings
-      ? Object.keys(ctxPtrsMap.mappings).length
-      : 0,
-    hookMapKeys: 0,
-    ruleSourcesCount: Array.isArray(ruleSources) ? ruleSources.length : 0,
-  });
+    headers,
+    ruleSources,
+    rules,
+  ]);
 
   const openImportDialog = (event) => {
     if (
@@ -219,6 +252,7 @@ export default function RulesPanel() {
 
   useEffect(() => {
     if (!ptrsId) return;
+    if (rulesLoadedRef.current) return;
 
     let cancelled = false;
 
@@ -230,10 +264,11 @@ export default function RulesPanel() {
         if (cancelled) return;
 
         const normalised = normalisePtrsRules(rowRules, crossRowRules);
-        if (normalised.length) {
-          resetRules(normalised);
-        }
-      } catch (e) {}
+        resetRules(normalised);
+        rulesLoadedRef.current = true;
+      } catch (e) {
+        // deliberately no retry — prevents request storms
+      }
     };
 
     loadRules();
@@ -264,37 +299,58 @@ export default function RulesPanel() {
       setImportOpen(false);
       showAlert(
         `Copied ${normalised.length} rule(s) from the selected PTRS run.`,
-        "success"
+        "success",
       );
     } catch (e) {
       showAlert(
         e?.message || "Failed to copy rules from that PTRS run.",
-        "error"
+        "error",
       );
     }
   };
 
   const handlePreview = async () => {
     setIsPreviewing(true);
+    setLastPreview(null);
+    setLastPreviewExamples([]);
+
     try {
       showAlert("Generating rules preview…", "info");
       const cross = rules.find((r) => (r.type || "row") === "crossRow");
       if (cross) {
-        const res = await mockPreviewCrossRow(cross, ptrsId);
-        console.table(res.examples);
+        // Backend preview performs SELECTs over the full dataset and returns counts + examples.
+        const prev = await previewRules(ptrsId, { mode: "full" });
+        const affected = prev?.summary?.rowsAffected ?? 0;
+        const examples = Array.isArray(prev?.examples) ? prev.examples : [];
+
+        setLastPreview({
+          kind: "crossRow",
+          count: affected,
+          generatedAt: new Date().toISOString(),
+        });
+        setLastPreviewExamples(examples);
+
         showAlert(
-          `Preview ready — ${res.count} target row(s) would be adjusted.`,
-          "success"
+          `Preview ready — ${affected} target row(s) would be adjusted.`,
+          "success",
         );
         return;
       }
 
       const prev = await previewRules(ptrsId, { limit: 20 });
-      const actions = prev?.stats?.rules?.actions ?? 0;
-      const affected = prev?.stats?.rules?.rowsAffected ?? 0;
+      const actions = prev?.summary?.actions ?? 0;
+      const affected = prev?.summary?.rowsAffected ?? 0;
+
+      setLastPreview({
+        kind: "row",
+        affected,
+        actions,
+        generatedAt: new Date().toISOString(),
+      });
+
       showAlert(
         `Preview ready — ${affected} row(s) affected, ${actions} action(s).`,
-        "success"
+        "success",
       );
     } catch (err) {
       showAlert(err?.message || "Failed to generate preview.", "error");
@@ -313,7 +369,7 @@ export default function RulesPanel() {
       const affected = res?.stats?.rules?.rowsAffected ?? 0;
       showAlert(
         `Rules applied — persisted ${persisted} row(s), ${affected} affected, ${actions} action(s).`,
-        "success"
+        "success",
       );
     } catch (err) {
       console.error("[RulesPanel] applyRules failed", err);
@@ -353,7 +409,7 @@ export default function RulesPanel() {
       console.error(err);
       showAlert(
         "Failed to update PTRS step. Continuing to SBI Check.",
-        "warning"
+        "warning",
       );
     }
 
@@ -369,9 +425,10 @@ export default function RulesPanel() {
       const crossRowRules = [];
 
       for (const r of rules) {
+        const stableId = r.id || r.cid || makeCid();
         const base = {
-          id: r.id,
-          label: r.label || r.id,
+          id: stableId,
+          label: r.label || stableId,
           description: r.description || "",
           enabled: r.enabled !== false,
           when: r.when,
@@ -692,6 +749,19 @@ export default function RulesPanel() {
           exclusions, and dataset operations will be recorded for audit.
         </Typography>
 
+        <Typography
+          variant="subtitle2"
+          sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
+        >
+          Sandbox — what data?
+        </Typography>
+        <Typography
+          variant="body2"
+          sx={{ color: theme.palette.text.secondary, mb: 1 }}
+        >
+          Use the sandbox to explore and filter staged data safely. No rules are
+          applied and no data is changed.
+        </Typography>
         <RulesSandbox
           ptrsId={ptrsId}
           headers={headers}
@@ -699,6 +769,26 @@ export default function RulesPanel() {
         />
 
         <Box>
+          {rules.some(isBroadCrossRowRule) && (
+            <Box
+              sx={{
+                mb: 2,
+                p: 2,
+                borderRadius: 1,
+                border: `1px solid ${theme.palette.warning.main}`,
+                backgroundColor: theme.palette.warning.light,
+              }}
+            >
+              <Typography variant="subtitle2" fontWeight={600}>
+                ⚠ Target scope may be too broad
+              </Typography>
+              <Typography variant="body2">
+                One or more cross-row rules rely only on exclusions and may
+                affect more rows than intended. Consider adding a match key or a
+                positive target condition.
+              </Typography>
+            </Box>
+          )}
           <Stack
             direction={{ xs: "column", md: "row" }}
             spacing={2}
@@ -706,6 +796,19 @@ export default function RulesPanel() {
             alignItems={{ md: "center" }}
             sx={{ mb: 1 }}
           >
+            <Typography
+              variant="subtitle2"
+              sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
+            >
+              Preview — what impact?
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ color: theme.palette.text.secondary, mb: 1 }}
+            >
+              Preview simulates the effect of your rules and shows how many rows
+              would be affected. No data is written until you apply.
+            </Typography>
             <RuleToolbar
               onImport={openImportDialog}
               onAddRule={addRule}
@@ -720,19 +823,137 @@ export default function RulesPanel() {
             <Button
               variant="contained"
               endIcon={<NavigateNextIcon />}
-              disabled={!ptrsId}
+              disabled={!ptrsId || isBusy}
               onClick={handleGoToSbi}
             >
               Next: SBI Check
             </Button>
           </Stack>
 
-          <RuleList
-            rules={rules}
-            headers={headers}
-            onUpdate={updateRule}
-            onRemove={removeRule}
-          />
+          {isApplying && (
+            <Box
+              sx={{
+                mt: 2,
+                p: 2,
+                borderRadius: 1,
+                border: `1px solid ${theme.palette.divider}`,
+                backgroundColor: theme.palette.background.paper,
+              }}
+            >
+              <Stack direction="row" spacing={2} alignItems="center">
+                <LoadingSpinner size={20} />
+                <Box>
+                  <Typography variant="subtitle2" fontWeight={600}>
+                    Applying rules…
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: theme.palette.text.secondary }}
+                  >
+                    This can take a while on large datasets. Please don’t
+                    refresh or navigate away.
+                  </Typography>
+                </Box>
+              </Stack>
+            </Box>
+          )}
+
+          {lastPreview && (
+            <Box
+              sx={{
+                mt: 2,
+                p: 2,
+                borderRadius: 1,
+                border: `1px solid ${theme.palette.divider}`,
+                backgroundColor: theme.palette.background.paper,
+              }}
+            >
+              <Stack
+                direction={{ xs: "column", md: "row" }}
+                spacing={1}
+                justifyContent="space-between"
+                alignItems={{ md: "center" }}
+              >
+                <Box>
+                  <Typography variant="subtitle2" fontWeight={600}>
+                    Preview results
+                  </Typography>
+
+                  {lastPreview.kind === "crossRow" ? (
+                    <Typography
+                      variant="body2"
+                      sx={{ color: theme.palette.text.secondary }}
+                    >
+                      {lastPreview.count} target row(s) would be adjusted.
+                    </Typography>
+                  ) : (
+                    <Typography
+                      variant="body2"
+                      sx={{ color: theme.palette.text.secondary }}
+                    >
+                      {lastPreview.affected} row(s) affected,{" "}
+                      {lastPreview.actions} action(s).
+                    </Typography>
+                  )}
+                </Box>
+
+                <Button
+                  size="small"
+                  variant="outlined"
+                  disabled={isBusy}
+                  onClick={() => {
+                    setLastPreview(null);
+                    setLastPreviewExamples([]);
+                  }}
+                >
+                  Clear
+                </Button>
+              </Stack>
+
+              {lastPreview.kind === "crossRow" &&
+                lastPreviewExamples.length > 0 && (
+                  <Box sx={{ mt: 2 }}>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: theme.palette.text.secondary,
+                        display: "block",
+                        mb: 1,
+                      }}
+                    >
+                      Examples (first {Math.min(lastPreviewExamples.length, 5)}
+                      ):
+                    </Typography>
+
+                    <Stack spacing={0.75}>
+                      {lastPreviewExamples.slice(0, 5).map((ex, idx) => (
+                        <Box
+                          key={`${ex.ref || "ref"}-${ex.target_rowNo || idx}-${idx}`}
+                          sx={{
+                            fontFamily: "monospace",
+                            fontSize: 12,
+                            opacity: 0.9,
+                            overflowX: "auto",
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          {`ref=${ex.ref} rowNo=${ex.target_rowNo} doc=${ex.target_doc_type} ${ex.field}: ${ex.before} → ${ex.after}`}
+                        </Box>
+                      ))}
+                    </Stack>
+                  </Box>
+                )}
+            </Box>
+          )}
+
+          {effectiveMap && headers.length > 0 && (
+            <RuleList
+              rules={rules}
+              headers={headers}
+              onUpdate={updateRule}
+              onRemove={removeRule}
+            />
+          )}
         </Box>
 
         {!canApply && (
@@ -765,7 +986,7 @@ export default function RulesPanel() {
           if (!otherPtrsId) {
             showAlert(
               "Selected rule source is missing a PTRS run id.",
-              "error"
+              "error",
             );
             return;
           }

@@ -14,6 +14,7 @@ export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
     valueFieldFromCurrent: "",
     round: 2,
   };
+  const safeHeaderValue = (v) => (headers.includes(v) ? v : "");
 
   return (
     <Stack spacing={1}>
@@ -43,7 +44,7 @@ export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
           <Select
             labelId={`act-field-${index}`}
             label="Target field"
-            value={action.field}
+            value={safeHeaderValue(action.field)}
             onChange={(e) =>
               onUpdate(index, { action: { ...action, field: e.target.value } })
             }
@@ -61,7 +62,7 @@ export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
           <Select
             labelId={`act-src-${index}`}
             label="Value from"
-            value={action.valueFieldFromCurrent}
+            value={safeHeaderValue(action.valueFieldFromCurrent)}
             onChange={(e) =>
               onUpdate(index, {
                 action: { ...action, valueFieldFromCurrent: e.target.value },
@@ -86,7 +87,7 @@ export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
               action: { ...action, round: Number(e.target.value || 0) },
             })
           }
-          sx={{ width: 120 }}
+          sx={{ width: 300 }}
         />
       </Stack>
     </Stack>
