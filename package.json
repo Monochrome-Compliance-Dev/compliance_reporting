@@ -15,7 +15,7 @@
     "@mui/material": "^7.3.7",
     "@mui/styles": "^6.4.8",
     "@mui/x-date-pickers": "^8.26.0",
-    "@sentry/react": "^10.32.1",
+    "@sentry/react": "^10.36.0",
     "@sentry/tracing": "^7.120.3",
     "@tanstack/react-query": "^5.90.20",
     "@tanstack/react-query-devtools": "^5.91.2",
