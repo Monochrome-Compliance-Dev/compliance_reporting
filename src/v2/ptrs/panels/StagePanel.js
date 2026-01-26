@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePtrsV2Context } from "v2/ptrs/context/PtrsV2Context";
 import {
   Box,
@@ -66,7 +66,9 @@ export default function StagePanel() {
   const [preview, setPreview] = useState({ rows: [], headers: [] });
   const [showPreview, setShowPreview] = useState(false);
   const [autoStageAttempted, setAutoStageAttempted] = useState(false);
-  const [latestStageRun, setLatestStageRun] = useState(null);
+  // `undefined` means "not loaded yet". `null` means "loaded and there is no run".
+  const [latestStageRun, setLatestStageRun] = useState(undefined);
+  const [inputsLoaded, setInputsLoaded] = useState(false);
   const [autoStaging, setAutoStaging] = useState(false);
   const [autoStageMessage, setAutoStageMessage] = useState("");
   const [mapMeta, setMapMeta] = useState(null);
@@ -187,43 +189,22 @@ export default function StagePanel() {
         if (mountedRef.current) {
           setPtrsMeta(ptrs);
           setDatasets(ds?.items || []);
-          setLatestStageRun(latestRun);
+
+          // Keep a tri-state: undefined (not loaded), null (loaded but none), or an object.
+          setLatestStageRun(latestRun ?? null);
 
           const meta =
             map?.extras?.mapMeta || map?.map?.extras?.mapMeta || null;
           setMapMeta(meta);
+
+          // Mark that the initial inputs are now known.
+          setInputsLoaded(true);
         }
       } catch (_) {
         console.warn("[StagePanel] initial load failed", _);
       }
     })();
   }, [ptrsId]);
-
-  const needsStageRebuild = () => {
-    if (!latestStageRun) return true;
-
-    const status = String(latestStageRun?.status || "").toLowerCase();
-    if (["pending", "running", "failed", "error"].includes(status)) return true;
-
-    const stageStartedAt = latestStageRun?.startedAt
-      ? new Date(latestStageRun.startedAt)
-      : null;
-
-    if (!stageStartedAt || Number.isNaN(stageStartedAt.getTime())) return true;
-
-    // Inputs that should invalidate stage:
-    // - supporting datasets changed
-    // - map changed (mapMeta.updatedAt bumped when signature changes)
-    const inputsMax = (() => {
-      let max = stageStartedAt; // baseline
-      if (datasetsMaxUpdatedAt && datasetsMaxUpdatedAt > max)
-        max = datasetsMaxUpdatedAt;
-      if (mapUpdatedAt && mapUpdatedAt > max) max = mapUpdatedAt;
-      return max;
-    })();
-
-    return inputsMax > stageStartedAt;
-  };
 
   const datasetsMaxUpdatedAt = useMemo(() => {
     if (!Array.isArray(datasets) || datasets.length === 0) return null;
@@ -240,14 +221,56 @@ export default function StagePanel() {
     return max;
   }, [datasets]);
 
+  const needsStageRebuild = useCallback(() => {
+    // If we haven't loaded inputs yet, we can't decide staleness reliably.
+    // Returning false here prevents auto-staging loops while navigating.
+    if (latestStageRun === undefined) return false;
+
+    // If we loaded and there is no known last run, we need to build.
+    if (latestStageRun === null) return true;
+
+    const status = String(latestStageRun?.status || "").toLowerCase();
+    if (["pending", "running", "failed", "error"].includes(status)) return true;
+
+    const stageStartedAt = latestStageRun?.startedAt
+      ? new Date(latestStageRun.startedAt)
+      : null;
+
+    if (!stageStartedAt || Number.isNaN(stageStartedAt.getTime())) return true;
+
+    // Inputs that should invalidate stage:
+    // - supporting datasets changed
+    // - map changed (mapMeta.updatedAt bumped when signature changes)
+    let inputsMax = stageStartedAt; // baseline
+    if (datasetsMaxUpdatedAt && datasetsMaxUpdatedAt > inputsMax) {
+      inputsMax = datasetsMaxUpdatedAt;
+    }
+    if (mapUpdatedAt && mapUpdatedAt > inputsMax) {
+      inputsMax = mapUpdatedAt;
+    }
+
+    return inputsMax > stageStartedAt;
+  }, [latestStageRun, datasetsMaxUpdatedAt, mapUpdatedAt]);
+
   // Initial preview load – if staging has already been run for this PTRS, show it.
   // If not, automatically run staging once so the user doesn't have to.
+  // IMPORTANT: don't permanently skip this effect just because `result` was set from a preview.
+  // We still need to re-evaluate staleness once map/dataset timestamps are loaded.
+  const previewLoadedRef = useRef(false);
+
   useEffect(() => {
     if (!ptrsId) return;
-    if (result) return;
 
-    const shouldAutoStage = () => {
+    const shouldAutoStage = ({ hasPreview }) => {
       if (autoStageAttempted) return false;
+
+      // If we already have a preview snapshot, wait until the initial inputs have loaded
+      // before doing a staleness-driven rebuild.
+      if (hasPreview && !inputsLoaded) return false;
+
+      // If we DON'T have any preview yet, allow first-time staging immediately.
+      if (!hasPreview && !inputsLoaded) return true;
+
       return needsStageRebuild();
     };
 
@@ -289,6 +312,7 @@ export default function StagePanel() {
           if (pv2?.rows?.length) {
             setPreview(pv2);
             setShowPreview(true);
+            previewLoadedRef.current = true;
           }
         } catch (_) {}
 
@@ -308,6 +332,15 @@ export default function StagePanel() {
     };
 
     (async () => {
+      // If we've already loaded a preview, don't re-fetch it on every dependency change.
+      // BUT do allow a stale-check to kick off auto-staging once inputs timestamps are known.
+      if (previewLoadedRef.current) {
+        if (shouldAutoStage({ hasPreview: true })) {
+          void runAutoStage({ reason: "stale" });
+        }
+        return;
+      }
+
       setLoading(true);
       try {
         const pv = await getStagePreview(ptrsId, {
@@ -319,8 +352,11 @@ export default function StagePanel() {
         if (pv?.rows?.length) {
           setPreview(pv);
           setShowPreview(true);
+          previewLoadedRef.current = true;
 
           const stagedCount = pv.totalRows ?? pv.rows.length;
+
+          // Only set a lightweight result if we don't already have a real one.
           setResult(
             (prev) =>
               prev || {
@@ -330,11 +366,11 @@ export default function StagePanel() {
               },
           );
 
-          if (shouldAutoStage()) {
+          if (shouldAutoStage({ hasPreview: true })) {
             // don’t block UI — kick off in background
             void runAutoStage({ reason: "stale" });
           }
-        } else if (shouldAutoStage()) {
+        } else if (shouldAutoStage({ hasPreview: false })) {
           void runAutoStage({ reason: "first" });
         }
       } catch (err) {
@@ -346,12 +382,10 @@ export default function StagePanel() {
   }, [
     ptrsId,
     profileId,
-    result,
     autoStageAttempted,
     showAlert,
-    latestStageRun,
-    datasetsMaxUpdatedAt,
-    mapUpdatedAt,
+    needsStageRebuild,
+    inputsLoaded,
   ]);
 
   const datasetSummary = useMemo(() => {
