@@ -1,89 +1,21 @@
 version: 2
 updates:
-  # ────────────────────────────────
-  # NPM / Node.js dependencies
-  # ────────────────────────────────
-
+  # NPM / Node.js dependencies (MAIN ONLY)
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     target-branch: "main"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 2
     commit-message:
       prefix: "deps"
-    reviewers:
-      - "MonochromeCompliance"
 
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    target-branch: "v2/core"
-    open-pull-requests-limit: 10
-    commit-message:
-      prefix: "deps"
-    reviewers:
-      - "MonochromeCompliance"
-
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    target-branch: "compliance_framework"
-    open-pull-requests-limit: 10
-    commit-message:
-      prefix: "deps"
-    reviewers:
-      - "MonochromeCompliance"
-
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    target-branch: "sit"
-    open-pull-requests-limit: 10
-    commit-message:
-      prefix: "deps"
-    reviewers:
-      - "MonochromeCompliance"
-
-  # ────────────────────────────────
-  # GitHub Actions workflows
-  # ────────────────────────────────
-
+  # GitHub Actions dependencies (MAIN ONLY)
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     target-branch: "main"
-    open-pull-requests-limit: 5
-    commit-message:
-      prefix: "deps"
-
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    target-branch: "v2/core"
-    open-pull-requests-limit: 5
-    commit-message:
-      prefix: "deps"
-
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    target-branch: "compliance_framework"
-    open-pull-requests-limit: 5
-    commit-message:
-      prefix: "deps"
-
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    target-branch: "sit"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 1
     commit-message:
       prefix: "deps"
