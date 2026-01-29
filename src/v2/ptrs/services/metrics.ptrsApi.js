@@ -36,7 +36,7 @@ export const updateMetricsDraft = async (ptrsId, patch) => {
 
   const res = await fetchWrapper.patch(
     `${API_ROOT}/v2/ptrs/${ptrsId}/metrics`,
-    patch || {}
+    patch || {},
   );
 
   const d = pickData(res);

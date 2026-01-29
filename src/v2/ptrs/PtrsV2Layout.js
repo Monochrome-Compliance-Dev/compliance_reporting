@@ -40,7 +40,14 @@ export default function PtrsV2Layout() {
 
   const isLanding = /^\/v2\/ptrs(?:\/landing)?\/?$/.test(location.pathname);
   const isDataConsole = /^\/v2\/ptrs\/data\/?$/.test(location.pathname);
-  const requiresProfile = !isLanding && !isDataConsole;
+  const isDashboard = /^\/v2\/ptrs\/dashboard\/?$/.test(location.pathname);
+
+  // Wizard flow surfaces (stepper + Back/Next). Dashboard is intentionally NOT part of the wizard.
+  const isWizard = !isLanding && !isDashboard;
+
+  // Profile selection is required for wizard steps that operate on a PTRS profile.
+  // Dashboard can render an empty / read-only state without forcing a profile selection.
+  const requiresProfile = !isLanding && !isDataConsole && !isDashboard;
 
   // Safety rail: if we land on a PTRS step route without any ptrsId
   // in the URL or context (e.g. after a forced re-login), send the user
@@ -54,9 +61,9 @@ export default function PtrsV2Layout() {
       return;
     }
 
-    // If we're on a route that is allowed without a ptrsId (landing or data console),
-    // don't redirect. This is where a new PTRS run is created.
-    if (isLanding || isDataConsole) return;
+    // If we're on a route that is allowed without a ptrsId (landing, data console, or dashboard),
+    // don't redirect. Dashboard can render an empty state and prompt the user to select a run.
+    if (isLanding || isDataConsole || isDashboard) return;
 
     // No ptrsId in URL and none in context on a step that requires it
     // => reset to landing so the user can pick a run again.
@@ -68,6 +75,7 @@ export default function PtrsV2Layout() {
     isLanding,
     location.pathname,
     isDataConsole,
+    isDashboard,
     ptrsId,
     navigate,
   ]);
@@ -104,6 +112,10 @@ export default function PtrsV2Layout() {
     if (isLanding) return "landing";
     const parts = location.pathname.split("/").filter(Boolean);
     const maybe = parts[parts.length - 1];
+
+    // Dashboard is a read-only review surface; anchor it to the closest step for the stepper.
+    if (maybe === "dashboard") return "metrics";
+
     return STEPS.some((s) => s.id === maybe)
       ? maybe
       : maybe === "xero"
@@ -115,9 +127,9 @@ export default function PtrsV2Layout() {
     () =>
       Math.max(
         0,
-        STEPS.findIndex((s) => s.id === currentStepId)
+        STEPS.findIndex((s) => s.id === currentStepId),
       ),
-    [currentStepId]
+    [currentStepId],
   );
 
   const gates = useMemo(() => {
@@ -197,7 +209,7 @@ export default function PtrsV2Layout() {
         </Stack>
       </Box>
 
-      {!isLanding && (
+      {isWizard && (
         <Box sx={{ px: 3, py: 2 }}>
           <Stepper activeStep={currentIndex} alternativeLabel>
             {STEPS.map((s, idx) => (
@@ -232,7 +244,7 @@ export default function PtrsV2Layout() {
         />
       </Box>
 
-      {!isLanding && (
+      {isWizard && (
         <Box
           sx={{
             px: 3,

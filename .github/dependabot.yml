@@ -1,23 +1,21 @@
 version: 2
 updates:
-  # NPM / Node.js dependencies
+  # NPM / Node.js dependencies (MAIN ONLY)
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"   # could be daily, weekly, or monthly
-    open-pull-requests-limit: 10
-    target-branch: "*"      # ensure all branches are checked
+      interval: "monthly"
+    target-branch: "main"
+    open-pull-requests-limit: 2
     commit-message:
       prefix: "deps"
-    reviewers:
-      - "MonochromeCompliance"
 
-  # GitHub Actions dependencies
+  # GitHub Actions dependencies (MAIN ONLY)
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    target-branch: "*"
+      interval: "monthly"
+    target-branch: "main"
+    open-pull-requests-limit: 1
     commit-message:
       prefix: "deps"

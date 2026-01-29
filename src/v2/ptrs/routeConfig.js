@@ -12,6 +12,7 @@ import RulesPanel from "./panels/RulesPanel";
 import SbiPanel from "./panels/SbiPanel";
 import ValidatePanel from "./panels/ValidatePanel";
 import MetricsPanel from "./panels/MetricsPanel";
+import PtrsMetricsDashboard from "./screens/PtrsMetricsDashboard";
 
 const ptrsRoutes = [
   {
@@ -44,6 +45,7 @@ const ptrsRoutes = [
         Component: ValidatePanel,
       },
       { path: "metrics", Component: MetricsPanel },
+      { path: "dashboard", Component: PtrsMetricsDashboard },
       {
         path: "report",
         Component: () => <div>Compose &amp; export report</div>,

@@ -61,6 +61,10 @@ import PartnerModernSlavery from "../components/partners/products/ModernSlavery"
 import PartnerLayout from "../components/partners/PartnerLayout";
 import PulseJoin from "../features/pulseLanding/PulseJoin";
 
+// V2 routing
+import PaymentTimesReporting from "../v2/landing/solutions/PaymentTimesReporting";
+import PaymentTimesReportingPrint from "../v2/landing/solutions/PaymentTimesReporting.print";
+
 const isPublicOnlyMode =
   String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
 
@@ -164,7 +168,16 @@ const allPublicRoutes = [
 
   // Products
   { path: "/user/reset-password", Component: ResetPassword },
-  { path: "payment-times-reporting", Component: PTRSolution },
+  // { path: "payment-times-reporting", Component: PTRSolution }, // old v1 solution
+  // New v2 solution route
+  {
+    path: "payment-times-reporting",
+    Component: PaymentTimesReporting,
+  },
+  {
+    path: "payment-times-reporting/print",
+    Component: PaymentTimesReportingPrint,
+  },
   { path: "modern-slavery", Component: ModernSlavery },
   { path: "whistleblower-compliance", Component: WhistleBlower },
   { path: "director-obligations", Component: DirectorObligations },
@@ -216,6 +229,10 @@ const launchPublicRoutes = [
   {
     path: "payment-times-reporting",
     Component: PTRSolution,
+  },
+  {
+    path: "payment-times-reporting/print",
+    Component: PaymentTimesReportingPrint,
   },
   {
     path: "overview",
