@@ -16,9 +16,9 @@ import { useEffect } from "react";
 export default function PaymentTimesReportingPrint() {
   const printedDateAu = new Date().toLocaleDateString("en-AU");
 
-  //   useEffect(() => {
-  //     window.print();
-  //   }, []);
+  useEffect(() => {
+    window.print();
+  }, []);
 
   return (
     <>
@@ -37,34 +37,16 @@ export default function PaymentTimesReportingPrint() {
               WebkitPrintColorAdjust: "exact",
               printColorAdjust: "exact",
             },
-            "header, nav": {
-              display: "none !important",
+            "body *": {
+              visibility: "hidden",
             },
-            ".MuiAppBar-root, .MuiToolbar-root": {
-              display: "none !important",
+            "#ptrs-print-canvas, #ptrs-print-canvas *": {
+              visibility: "visible",
             },
-            ".MuiDrawer-root, .MuiBackdrop-root": {
-              display: "none !important",
-            },
-            "#react-devtools, #react-devtools-root, #react-devtools-container":
-              {
-                display: "none !important",
-              },
-            ".react-devtools, .ReactQueryDevtools, .react-query-devtools": {
-              display: "none !important",
-            },
-            ".tsqd-open-btn, .tsqd-parent-container, .tsqd-panel": {
-              display: "none !important",
-            },
-            "[class*='tsqd-']": {
-              display: "none !important",
-            },
-            "[data-testid='react-query-devtools']": {
-              display: "none !important",
-            },
-
-            // Ensure the print canvas occupies the full printable area.
             "#ptrs-print-canvas": {
+              position: "fixed",
+              left: 0,
+              top: 0,
               width: "186mm", // 210mm - 2*12mm margin
               minHeight: "273mm", // 297mm - 2*12mm margin
               margin: 0,
@@ -73,6 +55,7 @@ export default function PaymentTimesReportingPrint() {
               boxShadow: "none",
               borderRadius: 0,
               border: "none",
+              overflow: "hidden",
             },
 
             // Footer sits at the bottom of each printed page.
@@ -81,18 +64,18 @@ export default function PaymentTimesReportingPrint() {
               left: 0,
               right: 0,
               bottom: 0,
-              padding: "2mm 0",
-              borderTop: "0.3mm solid #d9d9d9",
-              fontSize: "9px",
-              lineHeight: 1.2,
+              padding: "1mm 0",
+              borderTop: "0.25mm solid #d9d9d9",
+              fontSize: "8px",
+              lineHeight: 1.05,
               background: "#fff",
             },
             ".ptrs-print-footer__row": {
               margin: "0 12mm",
               display: "flex",
               justifyContent: "space-between",
-              alignItems: "flex-start",
-              gap: "8mm",
+              alignItems: "center", // was flex-start
+              gap: "3mm",
             },
             ".ptrs-print-footer__left": {
               display: "flex",
@@ -106,6 +89,9 @@ export default function PaymentTimesReportingPrint() {
 
             // Hide anything marked screen-only when printing.
             ".screen-only": {
+              display: "none !important",
+            },
+            footer: {
               display: "none !important",
             },
           },
@@ -147,27 +133,30 @@ export default function PaymentTimesReportingPrint() {
             boxSizing: "border-box",
             width: "186mm",
             minHeight: "273mm",
-            padding: "10mm 0 12mm 0", // leave room visually for footer in preview
+            // Uniform left/right padding so the content block aligns perfectly in print
+            padding: "4mm 12mm 10mm 12mm", // reserve space so the fixed footer never overlaps content
             display: "grid",
-            gridTemplateColumns: "72mm 114mm", // left + right = 186mm
+            // Available inner width = 186mm - (12mm*2) = 162mm.
+            // Account for 8mm column gap => columns sum to 154mm.
+            gridTemplateColumns: "74mm 80mm",
             gridTemplateRows: "auto auto auto auto auto 1fr",
             gridTemplateAreas: `
   "logo logo"
-  "what who"
-  "what whatImage"
-  "howImage how"
+  "what what"
+  "who whatImage"
   "love love"
+  "how how"
   "cta cta"
 `,
             columnGap: "8mm",
-            rowGap: "7mm",
+            rowGap: "4mm",
           }}
         >
           {/* LOGO (full-width) */}
           <Box
             sx={{
               gridArea: "logo",
-              padding: "2mm 12mm 4mm 12mm",
+              padding: "2mm 0 4mm 0",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -216,7 +205,7 @@ export default function PaymentTimesReportingPrint() {
           </Box>
 
           {/* WHO */}
-          <Box sx={{ gridArea: "who", paddingRight: "12mm" }}>
+          <Box sx={{ gridArea: "who" }}>
             <Typography
               sx={{
                 fontSize: "9pt",
@@ -229,7 +218,7 @@ export default function PaymentTimesReportingPrint() {
               Who this is for
             </Typography>
 
-            <Typography
+            {/* <Typography
               sx={{
                 fontSize: "9.5pt",
                 color: "#222",
@@ -239,7 +228,7 @@ export default function PaymentTimesReportingPrint() {
             >
               Finance teams who want Payment Times Reporting to feel calm,
               predictable, and genuinely taken care of.
-            </Typography>
+            </Typography> */}
 
             <Typography
               sx={{
@@ -268,9 +257,7 @@ export default function PaymentTimesReportingPrint() {
           </Box>
 
           {/* WHAT */}
-          <Box
-            sx={{ gridArea: "what", paddingLeft: "12mm", paddingTop: "2mm" }}
-          >
+          <Box sx={{ gridArea: "what" }}>
             <Typography
               sx={{
                 fontSize: "26pt",
@@ -296,23 +283,31 @@ export default function PaymentTimesReportingPrint() {
           <Box
             sx={{
               gridArea: "whatImage",
-              marginRight: "12mm",
-              border: "0.4mm solid #e0e0e0",
-              borderRadius: "4mm",
-              padding: "4mm",
-              minHeight: "48mm",
               display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              flexDirection: "column",
+              gap: "2mm",
             }}
           >
+            <Typography
+              sx={{
+                fontSize: "9pt",
+                fontWeight: 900,
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+                color: "#222",
+                paddingBottom: "2mm",
+              }}
+            >
+              Insight Dashboard preview
+            </Typography>
             <Box
               component="img"
               src="/images/solutions/ptrs/ptrs-full-dashboard-light.png"
               alt="PTRS metrics dashboard preview"
               sx={{
                 width: "100%",
-                height: "100%",
+                height: "auto",
+                maxHeight: "36mm",
                 objectFit: "contain",
                 objectPosition: "center top",
                 borderRadius: "2mm",
@@ -321,79 +316,8 @@ export default function PaymentTimesReportingPrint() {
             />
           </Box>
 
-          {/* HOW IMAGE */}
-          <Box
-            sx={{
-              gridArea: "howImage",
-              marginLeft: "12mm",
-              border: "0.4mm solid #e0e0e0",
-              borderRadius: "4mm",
-              padding: "6mm",
-              minHeight: "44mm",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <Box sx={{ width: "100%" }}>
-              <Stepper
-                alternativeLabel
-                activeStep={3}
-                sx={{
-                  width: "100%",
-                  "& .MuiStepLabel-label": {
-                    fontSize: "8.5pt",
-                    color: "#222",
-                    lineHeight: 1.2,
-                    marginTop: "2mm",
-                  },
-                  "& .MuiStepLabel-label.Mui-active, & .MuiStepLabel-label.Mui-completed":
-                    {
-                      fontWeight: 700,
-                    },
-                  "& .MuiStepIcon-root": {
-                    fontSize: "18pt",
-                    color: "#cfcfcf",
-                  },
-                  "& .MuiStepIcon-root.Mui-active, & .MuiStepIcon-root.Mui-completed":
-                    {
-                      color: "#111",
-                    },
-                  "& .MuiStepConnector-line": {
-                    borderColor: "#e0e0e0",
-                    borderTopWidth: "0.6mm",
-                  },
-                }}
-              >
-                <Step>
-                  <StepLabel>Review your data</StepLabel>
-                </Step>
-                <Step>
-                  <StepLabel>Prepare draft report</StepLabel>
-                </Step>
-                <Step>
-                  <StepLabel>Walk through insights</StepLabel>
-                </Step>
-                <Step>
-                  <StepLabel>Submit with confidence</StepLabel>
-                </Step>
-              </Stepper>
-
-              <Typography
-                sx={{
-                  fontSize: "8.5pt",
-                  color: "#666",
-                  textAlign: "center",
-                  marginTop: "3mm",
-                  lineHeight: 1.2,
-                }}
-              >
-                A calm, guided process — built for sign‑off.
-              </Typography>
-            </Box>
-          </Box>
-
-          {/* HOW */}
-          <Box sx={{ gridArea: "how", paddingRight: "12mm" }}>
+          {/* HOW IMAGE & TEXT */}
+          <Box sx={{ gridArea: "how" }}>
             <Typography
               sx={{
                 fontSize: "9pt",
@@ -405,63 +329,222 @@ export default function PaymentTimesReportingPrint() {
             >
               How the engagement works
             </Typography>
-            <Typography
+
+            <Stepper activeStep={-1} orientation="horizontal" alternativeLabel>
+              <Step>
+                <StepLabel>We review your data together</StepLabel>
+              </Step>
+
+              <Step>
+                <StepLabel>We prepare your draft PTRS report</StepLabel>
+              </Step>
+
+              <Step>
+                <StepLabel>We review the draft with you</StepLabel>
+              </Step>
+
+              <Step>
+                <StepLabel>You submit with confidence</StepLabel>
+              </Step>
+            </Stepper>
+
+            {/* PROCESS STRIP (comparison) */}
+            {/* <Box
               sx={{
-                fontSize: "9.5pt",
-                color: "#444",
-                marginTop: "2mm",
-                lineHeight: 1.35,
+                marginTop: "6mm",
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: "6mm",
               }}
             >
-              Simple, repeatable, and handled end‑to‑end.
-            </Typography>
+              {[
+                { step: "1", label: "Review your data" },
+                { step: "2", label: "Prepare a draft report" },
+                { step: "3", label: "Review outcomes & insights" },
+                { step: "4", label: "Submit with confidence" },
+              ].map((item) => (
+                <Box
+                  key={item.step}
+                  sx={{
+                    border: "0.3mm solid #e0e0e0",
+                    borderRadius: "3mm",
+                    padding: "4mm",
+                    textAlign: "center",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: "8mm",
+                      height: "8mm",
+                      borderRadius: "50%",
+                      border: "0.4mm solid #222",
+                      margin: "0 auto 2mm auto",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "9pt",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {item.step}
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontSize: "9pt",
+                      fontWeight: 600,
+                      lineHeight: 1.3,
+                      color: "#222",
+                    }}
+                  >
+                    {item.label}
+                  </Typography>
+                </Box>
+              ))}
+            </Box> */}
           </Box>
 
-          {/* CUSTOMER LOVE */}
+          {/* PROOF / WHAT MOVES THE NEEDLE */}
           <Box
             sx={{
               gridArea: "love",
-              margin: "0 12mm",
+              margin: 0,
               border: "0.4mm solid #e0e0e0",
               borderRadius: "4mm",
               padding: "7mm",
+              background: "#fff",
             }}
           >
-            <Typography
-              sx={{
-                fontSize: "10.5pt",
-                fontStyle: "italic",
-                color: "#111",
-                lineHeight: 1.35,
-              }}
-            >
-              Placeholder quote: “Clear, calm, and no surprises — we knew
-              exactly what we were signing.”
-            </Typography>
-            <Typography
-              sx={{ fontSize: "9pt", color: "#666", marginTop: "2mm" }}
-            >
-              Placeholder attribution (optional): CFO, Large Enterprise
-            </Typography>
-          </Box>
-
-          {/* CTA */}
-          <Box sx={{ gridArea: "cta", margin: "0 12mm" }}>
             <Typography
               sx={{
                 fontSize: "9pt",
                 fontWeight: 900,
                 textTransform: "uppercase",
                 letterSpacing: "0.06em",
+                color: "#222",
               }}
             >
-              Talk to us
+              What moved the needle
+            </Typography>
+
+            <Typography
+              sx={{
+                fontSize: "9.5pt",
+                color: "#222",
+                marginTop: "2.5mm",
+                lineHeight: 1.4,
+              }}
+            >
+              In one engagement, we found that paying invoices just six days
+              earlier materially changed the on-time payment result for small
+              businesses — without changing systems or renegotiating supplier
+              terms.
+            </Typography>
+
+            <Box
+              sx={{
+                marginTop: "5mm",
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)",
+                gap: "5mm",
+              }}
+            >
+              {[
+                { value: "40%", label: "Current position" },
+                { value: "72%", label: "If paid 6 days earlier" },
+                { value: "86%", label: "If paid within typical delay" },
+              ].map((item) => (
+                <Box
+                  key={item.label}
+                  sx={{
+                    border: "0.3mm solid #e6e6e6",
+                    borderRadius: "3mm",
+                    padding: "4mm",
+                    textAlign: "center",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "18pt",
+                      fontWeight: 900,
+                      letterSpacing: "-0.02em",
+                      color: "#111",
+                      lineHeight: 1.05,
+                    }}
+                  >
+                    {item.value}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "9pt",
+                      color: "#666",
+                      marginTop: "1.5mm",
+                      lineHeight: 1.25,
+                    }}
+                  >
+                    {item.label}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
+
+            <Typography
+              sx={{
+                fontSize: "9pt",
+                color: "#666",
+                marginTop: "4mm",
+                lineHeight: 1.35,
+              }}
+            >
+              The point isn’t the exact numbers. It’s that small timing and
+              classification details often drive what gets reported — and we
+              surface those drivers early so you can review and sign off with
+              confidence.
+            </Typography>
+
+            <Typography
+              sx={{
+                fontSize: "8.5pt",
+                color: "#777",
+                marginTop: "3mm",
+                lineHeight: 1.3,
+                fontStyle: "italic",
+              }}
+            >
+              Illustrative example only.
+            </Typography>
+          </Box>
+
+          {/* CTA */}
+          <Box sx={{ gridArea: "cta" }}>
+            <Typography
+              sx={{
+                fontSize: "9pt",
+                fontWeight: 900,
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+                marginTop: "6mm",
+              }}
+            >
+              Let us help you
             </Typography>
             <Typography
               sx={{ fontSize: "9.5pt", color: "#222", marginTop: "2mm" }}
             >
-              Placeholder: A short conversation is usually enough to confirm
-              scope and timing.
+              We’ll take the stress out of PTRS and guide you to a clean,
+              defensible sign-off.
+            </Typography>
+
+            <Typography
+              sx={{
+                fontSize: "9pt",
+                color: "#444",
+                marginTop: "2mm",
+                lineHeight: 1.35,
+              }}
+            >
+              <strong>Price:</strong> $7,000 per report submission
+              <span style={{ padding: "0 6px", color: "#999" }}>•</span>
+              <strong>Talk to us:</strong> contact@monochrome-compliance.com
             </Typography>
           </Box>
         </Box>
@@ -470,36 +553,40 @@ export default function PaymentTimesReportingPrint() {
         <Box className="ptrs-print-footer">
           <Box className="ptrs-print-footer__row">
             <Box className="ptrs-print-footer__left">
-              <span>{new Date().getFullYear()} Monochrome Compliance</span>
-              <span className="ptrs-print-footer__sep">•</span>
-              <span>PTRS Marketing v1.0</span>
-              <span className="ptrs-print-footer__sep">•</span>
-              <span>Printed: {printedDateAu}</span>
-              <span className="ptrs-print-footer__sep">•</span>
-              <span>ABN 20687127386</span>
-            </Box>
-            <Box sx={{ textAlign: "right" }}>
-              <span>
-                <Typography
-                  sx={{
-                    fontSize: "9pt",
-                    color: "#555",
-                    marginTop: "2mm",
-                  }}
-                >
-                  Practical, defensible Payment Times Reporting
-                </Typography>
-              </span>
-              <br />
-              <span style={{ fontWeight: 700 }}>Talk to us:</span>{" "}
-              contact@monochrome-compliance.com
+              <Typography sx={{ fontSize: "9px", color: "#222" }}>
+                {new Date().getFullYear()} Monochrome Compliance
+              </Typography>
+              <Typography
+                className="ptrs-print-footer__sep"
+                sx={{ fontSize: "9px" }}
+              >
+                •
+              </Typography>
+              <Typography sx={{ fontSize: "9px", color: "#222" }}>
+                PTRS Marketing v1.0
+              </Typography>
+              <Typography
+                className="ptrs-print-footer__sep"
+                sx={{ fontSize: "9px" }}
+              >
+                •
+              </Typography>
+              <Typography sx={{ fontSize: "9px", color: "#222" }}>
+                Printed: {printedDateAu}
+              </Typography>
+              <Typography
+                className="ptrs-print-footer__sep"
+                sx={{ fontSize: "9px" }}
+              >
+                •
+              </Typography>
+              <Typography sx={{ fontSize: "9px", color: "#222" }}>
+                ABN 20687127386
+              </Typography>
             </Box>
           </Box>
         </Box>
       </Box>
-
-      {/* When printing, Chrome will use @media print styles; keeping an always-present canvas ensures it prints reliably. */}
-      <Box id="ptrs-print-canvas" sx={{ display: "none" }} />
     </>
   );
 }
