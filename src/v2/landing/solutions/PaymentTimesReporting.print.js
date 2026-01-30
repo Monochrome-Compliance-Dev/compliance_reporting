@@ -161,7 +161,7 @@ export default function PaymentTimesReportingPrint() {
               alignItems: "center",
               justifyContent: "space-between",
               gap: "8mm",
-              borderBottom: "0.4mm solid #e6e6e6",
+              borderBottom: "0.4mm solid #2f3a44",
             }}
           >
             <Box
@@ -199,7 +199,7 @@ export default function PaymentTimesReportingPrint() {
                   marginTop: "1mm",
                 }}
               >
-                Practical, defensible compliance reporting
+                Trusted by locally and internationally listed entities
               </Typography>
             </Box>
           </Box>
@@ -288,18 +288,28 @@ export default function PaymentTimesReportingPrint() {
               gap: "2mm",
             }}
           >
-            <Typography
+            <Box
               sx={{
-                fontSize: "9pt",
-                fontWeight: 900,
-                textTransform: "uppercase",
-                letterSpacing: "0.06em",
-                color: "#222",
+                display: "flex",
+                alignItems: "baseline",
+                justifyContent: "space-between",
+                gap: "4mm",
                 paddingBottom: "2mm",
               }}
             >
-              Insight Dashboard preview
-            </Typography>
+              <Typography
+                sx={{
+                  fontSize: "9pt",
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.06em",
+                  color: "#222",
+                }}
+              >
+                Insight Dashboard example
+              </Typography>
+            </Box>
+
             <Box
               component="img"
               src="/images/solutions/ptrs/ptrs-full-dashboard-light.png"
@@ -486,32 +496,6 @@ export default function PaymentTimesReportingPrint() {
                 </Box>
               ))}
             </Box>
-
-            <Typography
-              sx={{
-                fontSize: "9pt",
-                color: "#666",
-                marginTop: "4mm",
-                lineHeight: 1.35,
-              }}
-            >
-              The point isn’t the exact numbers. It’s that small timing and
-              classification details often drive what gets reported — and we
-              surface those drivers early so you can review and sign off with
-              confidence.
-            </Typography>
-
-            <Typography
-              sx={{
-                fontSize: "8.5pt",
-                color: "#777",
-                marginTop: "3mm",
-                lineHeight: 1.3,
-                fontStyle: "italic",
-              }}
-            >
-              Illustrative example only.
-            </Typography>
           </Box>
 
           {/* CTA */}
@@ -542,8 +526,11 @@ export default function PaymentTimesReportingPrint() {
                 lineHeight: 1.35,
               }}
             >
-              <strong>Price:</strong> $7,000 per report submission
-              <span style={{ padding: "0 6px", color: "#999" }}>•</span>
+              <strong>Price:</strong> $7,000 per report submission{" "}
+              <span style={{ color: "#777" }}>
+                (subject to scope confirmation)
+              </span>
+              <br />
               <strong>Talk to us:</strong> contact@monochrome-compliance.com
             </Typography>
           </Box>
@@ -572,7 +559,7 @@ export default function PaymentTimesReportingPrint() {
                 •
               </Typography>
               <Typography sx={{ fontSize: "9px", color: "#222" }}>
-                Printed: {printedDateAu}
+                Version: Jan 2026
               </Typography>
               <Typography
                 className="ptrs-print-footer__sep"
