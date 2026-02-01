@@ -215,20 +215,8 @@ export default function PaymentTimesReportingPrint() {
                 color: "#222",
               }}
             >
-              Who this is for
+              Who is this for?
             </Typography>
-
-            {/* <Typography
-              sx={{
-                fontSize: "9.5pt",
-                color: "#222",
-                marginTop: "2mm",
-                lineHeight: 1.4,
-              }}
-            >
-              Finance teams who want Payment Times Reporting to feel calm,
-              predictable, and genuinely taken care of.
-            </Typography> */}
 
             <Typography
               sx={{
@@ -239,7 +227,7 @@ export default function PaymentTimesReportingPrint() {
               }}
             >
               We work with CFOs and senior finance leaders responsible for PTRS
-              sign-off who value trust, clarity, and knowing the details have
+              sign-off, who value trust, clarity, and knowing the details have
               been handled properly.
             </Typography>
 
@@ -251,8 +239,8 @@ export default function PaymentTimesReportingPrint() {
                 lineHeight: 1.4,
               }}
             >
-              Our role is to make PTRS something you don’t have to stress about
-              — ever.
+              Monochrome Compliance makes PTRS something you don’t have to
+              stress about — ever.
             </Typography>
           </Box>
 
@@ -267,14 +255,14 @@ export default function PaymentTimesReportingPrint() {
                 color: "#111",
               }}
             >
-              We prepare your Payment Times Report and surface the insights that
-              matter.
+              Let us prepare your Payment Times Report, and highlight the
+              insights that matter.
             </Typography>
             <Typography
               sx={{ fontSize: "10pt", color: "#444", marginTop: "4mm" }}
             >
-              We prepare your Payment Times Report and walk you through the
-              outcomes, drivers, and key decisions — early enough to feel calm,
+              We'll prepare your Payment Times Report and walk you through the
+              outcomes, drivers and key insights — early enough to feel calm,
               confident, and in control.
             </Typography>
           </Box>
@@ -350,7 +338,9 @@ export default function PaymentTimesReportingPrint() {
               </Step>
 
               <Step>
-                <StepLabel>We review the draft with you</StepLabel>
+                <StepLabel>
+                  We review the draft with you and detail key takeaways
+                </StepLabel>
               </Step>
 
               <Step>
@@ -433,7 +423,7 @@ export default function PaymentTimesReportingPrint() {
                 color: "#222",
               }}
             >
-              What moved the needle
+              Moving the needle
             </Typography>
 
             <Typography
@@ -444,10 +434,9 @@ export default function PaymentTimesReportingPrint() {
                 lineHeight: 1.4,
               }}
             >
-              In one engagement, we found that paying invoices just six days
-              earlier materially changed the on-time payment result for small
-              businesses — without changing systems or renegotiating supplier
-              terms.
+              In one engagement, we found that paying small business invoices
+              just six days earlier materially changed the on-time payment
+              result — without changing systems or renegotiating supplier terms.
             </Typography>
 
             <Box

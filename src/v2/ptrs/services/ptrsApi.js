@@ -12,6 +12,11 @@ export const pickData = (res) =>
   (res && res.data && res.data.data) || res?.data || res || {};
 
 const normPtrs = (x = {}) => ({
+  // keep everything the controller returns so the UI can evolve without
+  // constantly revisiting this normaliser
+  ...x,
+
+  // ensure our core fields are present and consistently named
   id: x.id,
   customerId: x.customerId,
   fileName: x.fileName,
@@ -210,7 +215,7 @@ export const uploadCsv = async (ptrsId, file) => {
   fd.append("file", file);
   const res = await fetchWrapper.postUpload(
     `${API_ROOT}/v2/ptrs/${ptrsId}/import`,
-    fd
+    fd,
   );
   return normIngest(pickData(res));
 };
@@ -239,7 +244,7 @@ export const listProfiles = async (customerId) => {
   if (!customerId) throw new Error("customerId is required");
 
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/customers/${encodeURIComponent(customerId)}/profiles`
+    `${API_ROOT}/v2/customers/${encodeURIComponent(customerId)}/profiles`,
   );
 
   const data = pickData(res);

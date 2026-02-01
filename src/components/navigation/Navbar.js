@@ -647,7 +647,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
               <MenuItem
                 onClick={handleMenuClose}
                 component={Link}
-                to="/dashboard"
+                to="/v2/dashboard"
                 sx={{ color: theme.palette.text.primary }}
               >
                 <WorkOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
@@ -895,7 +895,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             variant="outlined"
             color="inherit"
             size="small"
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate("/v2/dashboard")}
             startIcon={<WorkOutlineIcon sx={{ fontSize: 18 }} />}
             aria-label="Open workspace"
             sx={{

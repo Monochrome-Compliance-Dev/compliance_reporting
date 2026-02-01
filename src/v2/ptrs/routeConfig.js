@@ -12,6 +12,7 @@ import RulesPanel from "./panels/RulesPanel";
 import SbiPanel from "./panels/SbiPanel";
 import ValidatePanel from "./panels/ValidatePanel";
 import MetricsPanel from "./panels/MetricsPanel";
+import ReportPanel from "./panels/ReportPanel";
 import PtrsMetricsDashboard from "./screens/PtrsMetricsDashboard";
 
 const ptrsRoutes = [
@@ -46,9 +47,10 @@ const ptrsRoutes = [
       },
       { path: "metrics", Component: MetricsPanel },
       { path: "dashboard", Component: PtrsMetricsDashboard },
+      { path: "report", Component: ReportPanel },
       {
-        path: "report",
-        Component: () => <div>Compose &amp; export report</div>,
+        path: "pack",
+        Component: () => <div>Board Pack export (MVP placeholder)</div>,
       },
       // Optional: catch-all can just show Landing as well (no Navigate)
       // { path: "*", Component: LandingPanel },

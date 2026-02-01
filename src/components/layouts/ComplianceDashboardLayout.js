@@ -44,7 +44,7 @@ export default function ComplianceDashboardLayout({ title, children, module }) {
         <MuiLink
           underline="hover"
           color="inherit"
-          onClick={() => navigate("/dashboard")}
+          onClick={() => navigate("/v2/dashboard")}
           sx={{ cursor: "pointer" }}
         >
           Dashboard

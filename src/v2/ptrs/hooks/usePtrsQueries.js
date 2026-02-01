@@ -7,6 +7,7 @@ import * as api from "../services/ptrsApi";
 import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 import { getValidate, runValidate } from "../services/validate.ptrsApi";
 import { getMetrics, updateMetricsDraft } from "../services/metrics.ptrsApi";
+import { getReportSnapshot } from "../services/report.ptrsApi";
 
 // ---- Keys (per ptrs) ---------------------------------------------------------
 const K = {
@@ -169,6 +170,46 @@ export function usePtrsMetricsSummary(ptrsId) {
       status: "error",
       data: null,
       error: query.error?.message || "Failed to load Metrics",
+      refetch: query.refetch,
+    };
+  }
+
+  return {
+    status: "success",
+    data: query.data || null,
+    error: null,
+    refetch: query.refetch,
+  };
+}
+
+export function usePtrsReportSummary(ptrsId) {
+  const enabled = !!ptrsId;
+
+  const query = useQuery({
+    queryKey: K.report(ptrsId),
+    queryFn: async () => getReportSnapshot(ptrsId),
+    enabled,
+    staleTime: 10_000,
+  });
+
+  if (!enabled) {
+    return { status: "idle", data: null, error: null, refetch: null };
+  }
+
+  if (query.isLoading) {
+    return {
+      status: "loading",
+      data: null,
+      error: null,
+      refetch: query.refetch,
+    };
+  }
+
+  if (query.isError) {
+    return {
+      status: "error",
+      data: null,
+      error: query.error?.message || "Failed to load Report snapshot",
       refetch: query.refetch,
     };
   }
