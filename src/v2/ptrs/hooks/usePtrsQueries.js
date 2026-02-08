@@ -5,6 +5,7 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { ptrsTraffic } from "./ptrsTrafficController";
 import * as api from "../services/ptrsApi";
+import { applyExclusions } from "../services/exclusions.ptrsApi";
 import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 import { getValidate, runValidate } from "../services/validate.ptrsApi";
 import { getMetrics, updateMetricsDraft } from "../services/metrics.ptrsApi";
@@ -326,4 +327,17 @@ export function useReportMutations() {
   const changeState = useMutation({ mutationFn: async () => ({}) });
   const downloadPdf = useMutation({ mutationFn: async () => ({}) });
   return { createDraft, changeState, downloadPdf };
+}
+
+// Exclusions mutation (mirrors rules pattern)
+export function useApplyExclusionsMutation(ptrsId) {
+  return useMutation({
+    mutationFn: ({ profileId = null } = {}) =>
+      applyExclusions(ptrsId, { profileId }),
+    onSuccess: () => {
+      if (ptrsId) {
+        ptrsTraffic.emit(ptrsId, { reason: "exclusions_applied" });
+      }
+    },
+  });
 }

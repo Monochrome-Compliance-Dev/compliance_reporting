@@ -72,6 +72,15 @@ function processEvents(ptrsId, events) {
         keysToInvalidate.add(["ptrs", "v2", "stage", ptrsId]);
         break;
 
+      case "exclusions_applied":
+        // Exclusions changes which rows are eligible for downstream steps.
+        keysToInvalidate.add(["ptrs", "v2", "stage", ptrsId]);
+        keysToInvalidate.add(["ptrs", "v2", "sbi", ptrsId]);
+        keysToInvalidate.add(["ptrs", "v2", "validate", ptrsId]);
+        keysToInvalidate.add(["ptrs", "v2", "metrics", ptrsId]);
+        keysToInvalidate.add(["ptrs", "v2", "report", ptrsId]);
+        break;
+
       case "sbi_imported":
         // Preserve existing behaviour from usePtrsQueries.js.
         keysToInvalidate.add(["ptrs", "v2", "sbi", ptrsId]);

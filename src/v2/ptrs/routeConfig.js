@@ -8,6 +8,7 @@ import XeroConnectProgressPanel from "./panels/XeroConnectProgressPanel";
 import TablesAndJoinsPanel from "./panels/TablesAndJoinsPanel";
 import MapPanel from "./panels/MapPanel";
 import StagePanel from "./panels/StagePanel";
+import ExclusionsPanel from "./panels/ExclusionsPanel";
 import RulesPanel from "./panels/RulesPanel";
 import SbiPanel from "./panels/SbiPanel";
 import ValidatePanel from "./panels/ValidatePanel";
@@ -40,6 +41,7 @@ const ptrsRoutes = [
       { path: "tables", Component: TablesAndJoinsPanel },
       { path: "map", Component: MapPanel },
       { path: "stage", Component: StagePanel },
+      { path: "exclusions", Component: ExclusionsPanel },
       { path: "rules", Component: RulesPanel },
       { path: "sbi", Component: SbiPanel },
       {
