@@ -5,7 +5,10 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { ptrsTraffic } from "./ptrsTrafficController";
 import * as api from "../services/ptrsApi";
-import { applyExclusions } from "../services/exclusions.ptrsApi";
+import {
+  applyExclusions,
+  previewExclusions,
+} from "../services/exclusions.ptrsApi";
 import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 import { getValidate, runValidate } from "../services/validate.ptrsApi";
 import { getMetrics, updateMetricsDraft } from "../services/metrics.ptrsApi";
@@ -17,6 +20,16 @@ const K = {
   tables: (id) => ["ptrs", "v2", "tables", id],
   map: (id) => ["ptrs", "v2", "map", id],
   stage: (id) => ["ptrs", "v2", "stage", id],
+  exclusionsPreview: (id, { category, profileId, limit }) => [
+    "ptrs",
+    "v2",
+    "exclusions",
+    "preview",
+    id,
+    category || "all",
+    profileId || "none",
+    Number(limit) || 10,
+  ],
   rules: (id) => ["ptrs", "v2", "rules", id],
   sbi: (id) => ["ptrs", "v2", "sbi", id],
   validate: (id) => ["ptrs", "v2", "validate", id],
@@ -75,6 +88,21 @@ export function usePtrsTablesStatus(ptrsId) {
 
 export function usePtrsStageStatus(ptrsId) {
   return { status: "idle" };
+}
+
+export function useExclusionsPreviewQuery(
+  ptrsId,
+  { profileId = null, category = "all", limit = 10 } = {},
+) {
+  const enabled = !!ptrsId;
+
+  return useQuery({
+    queryKey: K.exclusionsPreview(ptrsId, { category, profileId, limit }),
+    queryFn: async () =>
+      previewExclusions(ptrsId, { profileId, category, limit }),
+    enabled,
+    staleTime: 0,
+  });
 }
 
 export function usePtrsRulesStatus() {
@@ -329,11 +357,12 @@ export function useReportMutations() {
   return { createDraft, changeState, downloadPdf };
 }
 
-// Exclusions mutation (mirrors rules pattern)
+// Removed legacy mutation-based preview hook to prevent duplicate calls.
+
 export function useApplyExclusionsMutation(ptrsId) {
   return useMutation({
-    mutationFn: ({ profileId = null } = {}) =>
-      applyExclusions(ptrsId, { profileId }),
+    mutationFn: ({ profileId = null, category = "all" } = {}) =>
+      applyExclusions(ptrsId, { profileId, category }),
     onSuccess: () => {
       if (ptrsId) {
         ptrsTraffic.emit(ptrsId, { reason: "exclusions_applied" });
