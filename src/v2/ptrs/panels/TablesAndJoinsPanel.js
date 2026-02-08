@@ -36,6 +36,7 @@ export default function TablesAndJoinsPanel() {
   const [headers, setHeaders] = useState([]);
   const [mainHeaders, setMainHeaders] = useState([]);
   const [examples, setExamples] = useState({});
+  const [mainHeadersByRole, setMainHeadersByRole] = useState({});
   const [loading, setLoading] = useState(false);
 
   // ---- Autosave (joins + computed fields) ----
@@ -233,13 +234,40 @@ export default function TablesAndJoinsPanel() {
         const inferred = unified?.headers || [];
         const headerMeta = unified?.headerMeta || {};
 
-        // Derive main-only headers from unified headerMeta:
-        // keep headers that have at least one source with kind === "main"
-        const mains = inferred.filter((h) => {
+        // Derive main-only headers per main role from unified headerMeta.
+        // We need this because supporting datasets may be linked to only one of the main datasets.
+        const byRole = {};
+        for (const h of inferred) {
           const srcs = headerMeta[h]?.sources || [];
-          if (!Array.isArray(srcs) || !srcs.length) return false;
-          return srcs.some((s) => s && s.kind === "main");
-        });
+          if (!Array.isArray(srcs) || !srcs.length) continue;
+
+          // Any source with kind === "main" is a main dataset column.
+          // Track which main roles it belongs to (e.g. main_xero vs main_excel).
+          const mainSrcs = srcs.filter((s) => s && s.kind === "main" && s.role);
+          if (!mainSrcs.length) continue;
+
+          for (const s of mainSrcs) {
+            const role = String(s.role);
+            if (!byRole[role]) byRole[role] = new Set();
+            byRole[role].add(h);
+          }
+        }
+
+        const finalByRole = {};
+        for (const [role, set] of Object.entries(byRole)) {
+          finalByRole[role] = Array.from(set).sort((a, b) =>
+            a.localeCompare(b),
+          );
+        }
+
+        // Backwards/defensive: if something goes wrong, fall back to inferred headers.
+        setMainHeadersByRole(finalByRole);
+
+        // Keep `mainHeaders` for any legacy callers, but prefer role-scoped headers in JoinsDesigner.
+        // This is the union of all main-role headers.
+        const mains = Array.from(
+          new Set(Object.values(finalByRole).flatMap((arr) => arr || [])),
+        );
         setMainHeaders(mains);
 
         const ex = {};
@@ -262,6 +290,7 @@ export default function TablesAndJoinsPanel() {
           headers: inferred,
           examples: ex,
           mainHeaders: mains,
+          mainHeadersByRole: finalByRole,
         });
       } catch (e) {
         showAlert(e?.message || "Failed to load tables & joins", "error");
@@ -438,6 +467,7 @@ export default function TablesAndJoinsPanel() {
           headers={headers}
           examples={examples}
           leftHeaders={mainHeaders}
+          leftHeadersByRole={mainHeadersByRole}
           debug={debugJoins}
         />
       </Paper>

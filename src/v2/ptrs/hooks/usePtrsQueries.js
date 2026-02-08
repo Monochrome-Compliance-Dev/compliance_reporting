@@ -2,7 +2,8 @@
 // Aligned to the new upload-centric backend. We keep the same hook names to
 // avoid ripples, but interpret ptrsId === uploadId.
 
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { ptrsTraffic } from "./ptrsTrafficController";
 import * as api from "../services/ptrsApi";
 import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 import { getValidate, runValidate } from "../services/validate.ptrsApi";
@@ -241,54 +242,46 @@ export function usePtrsReportStatus() {
 
 // ---- Mutations (v2 minimal set) -----------------------------------------------
 export function useCreatePtrsMutation() {
-  const qc = useQueryClient();
   return useMutation({
     // createPtrs already returns a normalised PTRS row
     mutationFn: (payload) => api.createPtrs(payload),
     onSuccess: (row) => {
       const id = row?.id;
       if (id) {
-        qc.invalidateQueries({ queryKey: K.data(id) });
+        ptrsTraffic.emit(id, { reason: "ptrs_created" });
       }
     },
   });
 }
 
 export function useUploadCsvMutation(ptrsId) {
-  const qc = useQueryClient();
   return useMutation({
     // uploadCsv already returns a normalised ingest summary
     mutationFn: ({ file }) => api.uploadCsv(ptrsId, file),
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: K.data(ptrsId) });
-      qc.invalidateQueries({ queryKey: K.map(ptrsId) });
+      ptrsTraffic.emit(ptrsId, { reason: "datasets_uploaded" });
     },
   });
 }
 
 export function useUpdatePtrsMutation(ptrsId) {
-  const qc = useQueryClient();
   return useMutation({
     // updatePtrs already returns the updated PTRS row (plain object)
     mutationFn: (payload) => api.updatePtrs(ptrsId, payload),
     onSuccess: (row) => {
       const id = row?.id ?? ptrsId;
       if (id) {
-        qc.invalidateQueries({ queryKey: K.data(id) });
-        qc.invalidateQueries({ queryKey: K.stage(id) });
-        qc.invalidateQueries({ queryKey: K.map(id) });
+        ptrsTraffic.emit(id, { reason: "ptrs_updated" });
       }
     },
   });
 }
 
 export function useUpdateMetricsDraftMutation(ptrsId) {
-  const qc = useQueryClient();
-
   return useMutation({
     mutationFn: (patch) => updateMetricsDraft(ptrsId, patch),
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: K.metrics(ptrsId) });
+      ptrsTraffic.emit(ptrsId, { reason: "metrics_draft_updated" });
     },
   });
 }
@@ -299,12 +292,10 @@ export function useSelectMapMutation() {
 }
 
 export function useValidateMutation(ptrsId) {
-  const qc = useQueryClient();
-
   return useMutation({
     mutationFn: async () => runValidate(ptrsId),
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: K.validate(ptrsId) });
+      ptrsTraffic.emit(ptrsId, { reason: "validate_ran" });
     },
   });
 }
@@ -318,14 +309,10 @@ export function useSbiExportMutation() {
 }
 
 export function useSbiImportMutation(ptrsId) {
-  const qc = useQueryClient();
-
   return useMutation({
     mutationFn: ({ file }) => importSbiResults(ptrsId, file),
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: K.sbi(ptrsId) });
-      qc.invalidateQueries({ queryKey: K.stage(ptrsId) });
-      qc.invalidateQueries({ queryKey: K.validate(ptrsId) });
+      ptrsTraffic.emit(ptrsId, { reason: "sbi_imported" });
     },
   });
 }

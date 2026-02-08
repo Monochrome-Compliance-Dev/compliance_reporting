@@ -18,6 +18,7 @@ import { createRun, uploadCsv } from "v2/ptrs/services/ptrsApi";
 import { useStepStatuses } from "v2/ptrs/hooks/useStepStatuses";
 
 export default function CreateRunPanel() {
+  console.log("CreateRunPanel rendered");
   const [name, setName] = useState("");
   const [file, setFile] = useState(null);
   const [period, setPeriod] = useState("");
@@ -37,7 +38,7 @@ export default function CreateRunPanel() {
 
   const ingested = useMemo(
     () => runUpload?.rowCounts?.ingested ?? 0,
-    [runUpload]
+    [runUpload],
   );
 
   const periods = [
@@ -82,7 +83,20 @@ export default function CreateRunPanel() {
   const periodStart = selectedPeriod?.start || "";
   const periodEnd = selectedPeriod?.end || "";
 
-  const requiresCsv = useMemo(() => dataSource === "csv", [dataSource]);
+  const requiresCsv = useMemo(
+    () => dataSource === "csv" || dataSource === "both",
+    [dataSource],
+  );
+
+  const isBoth = useMemo(() => dataSource === "both", [dataSource]);
+
+  const canCreate = useMemo(() => {
+    if (busy) return false;
+    if (!profileId) return false;
+    if (!periodStart || !periodEnd) return false;
+    if (requiresCsv && !file) return false;
+    return true;
+  }, [busy, profileId, periodStart, periodEnd, requiresCsv, file]);
 
   const onCreateAndUpload = async () => {
     if (busy) return;
@@ -92,10 +106,14 @@ export default function CreateRunPanel() {
         showAlert("Please select a reporting period.", "info");
         return;
       }
+      if (!profileId) {
+        showAlert("Please select a PTRS profile.", "info");
+        return;
+      }
       if (requiresCsv && !file) {
         showAlert(
           "Please select a CSV file, or switch to Xero import.",
-          "info"
+          "info",
         );
         return;
       }
@@ -126,6 +144,12 @@ export default function CreateRunPanel() {
         const ingest = await uploadCsv(newRunId, file);
         const inserted = ingest.rowsInserted;
         showAlert(`Run created and ${inserted} rows ingested`, "success");
+
+        if (isBoth) {
+          showAlert("CSV uploaded. Continue to import from Xero.", "success");
+          navigate(`/v2/ptrs/xero?ptrsId=${encodeURIComponent(newRunId)}`);
+          return;
+        }
       } else {
         showAlert("Run created. Continue to import from Xero.", "success");
       }
@@ -192,6 +216,7 @@ export default function CreateRunPanel() {
             onChange={(e) => setDataSource(e.target.value)}
           >
             <MenuItem value="csv">Upload CSV</MenuItem>
+            <MenuItem value="both">CSV + Xero (roll-up)</MenuItem>
             <MenuItem value="xero">Import from Xero</MenuItem>
           </Select>
         </FormControl>
@@ -218,9 +243,15 @@ export default function CreateRunPanel() {
           <Button
             variant="contained"
             onClick={onCreateAndUpload}
-            disabled={busy}
+            disabled={!canCreate}
           >
-            {busy ? "Working…" : runId ? "Re-upload" : "Create and Upload"}
+            {busy
+              ? "Working…"
+              : runId
+                ? "Re-upload"
+                : requiresCsv
+                  ? "Create and Upload"
+                  : "Create and Continue"}
           </Button>
 
           <Button

@@ -241,15 +241,7 @@ export const getUnifiedSample = async (
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
 
-  // 1) Get main sample (cheap, indexed on tbl_ptrs_import_raw)
-  let mainSample = null;
-  try {
-    mainSample = await getPtrsSample(ptrsId, { limit, offset });
-  } catch {
-    mainSample = null;
-  }
-
-  // 2) Get supporting datasets list
+  // 1) Load datasets so we can treat multiple mains correctly
   let datasets = [];
   try {
     const { items } = await listDatasets(ptrsId);
@@ -258,9 +250,29 @@ export const getUnifiedSample = async (
     datasets = [];
   }
 
-  // 3) For each dataset, grab headers (prefer meta.headers to avoid extra BE work)
+  const isMainRole = (role) => {
+    const r = String(role || "");
+    return r === "main" || r.startsWith("main_");
+  };
+
+  const mainDatasets = datasets.filter((d) => isMainRole(d?.role));
+  const supportingDatasets = datasets.filter((d) => !isMainRole(d?.role));
+
+  // 2) Get samples for each main dataset (lightweight)
+  const mainSamples = await Promise.all(
+    mainDatasets.map(async (ds) => {
+      try {
+        const s = await getDatasetSample(ds.id, { limit, offset });
+        return { dataset: ds, sample: s };
+      } catch {
+        return { dataset: ds, sample: { headers: [], rows: [] } };
+      }
+    }),
+  );
+
+  // 3) For each supporting dataset, grab headers (prefer meta.headers to avoid extra BE work)
   const datasetSamples = await Promise.all(
-    datasets.map(async (ds) => {
+    supportingDatasets.map(async (ds) => {
       const metaHeaders =
         ds?.meta && Array.isArray(ds.meta.headers) ? ds.meta.headers : null;
 
@@ -284,7 +296,7 @@ export const getUnifiedSample = async (
   );
 
   // 4) Merge headers + build headerMeta
-  const headersSet = new Set(mainSample?.headers || []);
+  const headersSet = new Set();
   const headerMeta = {};
 
   const registerHeader = (header, sourceInfo) => {
@@ -297,12 +309,21 @@ export const getUnifiedSample = async (
     headerMeta[key].sources.push(sourceInfo);
   };
 
-  // Main sample headers
-  for (const h of mainSample?.headers || []) {
-    registerHeader(h, { kind: "main" });
+  // Main sample headers (multiple mains supported)
+  for (const { dataset, sample } of mainSamples) {
+    const srcRole = dataset?.role || null;
+    const srcFile = dataset?.fileName || null;
+    for (const h of sample?.headers || []) {
+      registerHeader(h, {
+        kind: "main",
+        datasetId: dataset?.id,
+        role: srcRole,
+        fileName: srcFile,
+      });
+    }
   }
 
-  // Dataset headers
+  // Supporting dataset headers
   for (const { dataset, sample } of datasetSamples) {
     const srcRole = dataset?.role || null;
     const srcFile = dataset?.fileName || null;
@@ -318,7 +339,7 @@ export const getUnifiedSample = async (
 
   const allHeaders = Array.from(headersSet);
 
-  // 5) Build example values per header (from main first, then datasets)
+  // 5) Build example values per header (from all mains first, then supporting datasets)
   const examples = {};
 
   const pickCell = (row, h) => {
@@ -345,10 +366,12 @@ export const getUnifiedSample = async (
     }
   };
 
-  // Prefer examples from main
-  if (mainSample) fillExamplesFromSample(mainSample, "main");
+  // Prefer examples from all mains first
+  for (const { sample } of mainSamples) {
+    if (sample) fillExamplesFromSample(sample, "main");
+  }
 
-  // Then fill gaps from datasets
+  // Then fill gaps from supporting datasets
   for (const { sample } of datasetSamples) {
     fillExamplesFromSample(sample, "dataset");
   }
@@ -363,11 +386,17 @@ export const getUnifiedSample = async (
 
   const rows = Object.keys(combinedRow).length ? [combinedRow] : [];
 
+  const totalMainRows = mainSamples.reduce((acc, { sample }) => {
+    const n =
+      sample?.total ?? (Array.isArray(sample?.rows) ? sample.rows.length : 0);
+    return acc + (Number.isFinite(n) ? n : 0);
+  }, 0);
+
   return {
     headers: allHeaders,
     rows,
     // total is mostly relevant to main; we expose it in case someone cares later
-    total: mainSample?.total || mainSample?.rows?.length || 0,
+    total: totalMainRows,
     headerMeta,
   };
 };

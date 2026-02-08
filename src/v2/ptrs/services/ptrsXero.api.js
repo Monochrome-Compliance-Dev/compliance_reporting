@@ -30,7 +30,7 @@ export const connectXero = async (ptrsId, payload = {}) => {
 
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/xero/connect`,
-    payload
+    payload,
   );
 
   const d = pickData(res);
@@ -45,7 +45,7 @@ export const getXeroOrganisations = async (ptrsId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
 
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/xero/organisations`
+    `${API_ROOT}/v2/ptrs/${ptrsId}/xero/organisations`,
   );
 
   const d = pickData(res);
@@ -57,7 +57,7 @@ export const selectXeroOrganisations = async (ptrsId, tenantIds = []) => {
 
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/xero/organisations`,
-    { tenantIds }
+    { tenantIds },
   );
 
   const d = pickData(res);
@@ -69,7 +69,7 @@ export const startXeroImport = async (ptrsId, { forceRefresh } = {}) => {
 
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/xero/import`,
-    { forceRefresh: Boolean(forceRefresh) }
+    { forceRefresh: Boolean(forceRefresh) },
   );
 
   const d = pickData(res);
@@ -80,7 +80,7 @@ export const getXeroImportStatus = async (ptrsId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
 
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/xero/status`
+    `${API_ROOT}/v2/ptrs/${ptrsId}/xero/status`,
   );
 
   const d = pickData(res);
@@ -93,10 +93,42 @@ export const removeXeroOrganisation = async (ptrsId, tenantId) => {
 
   const res = await fetchWrapper.del(
     `${API_ROOT}/v2/ptrs/${ptrsId}/xero/organisations/${encodeURIComponent(
-      tenantId
-    )}`
+      tenantId,
+    )}`,
   );
 
   const d = pickData(res);
   return normaliseStatus(d, ptrsId);
+};
+
+export const downloadXeroImportExceptions = async (ptrsId) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/xero/import/exceptions.csv`,
+  );
+
+  // fetchWrapper.get returns parsed JSON if ct is json, otherwise returns raw text.
+  // Our export endpoint is `text/csv`, so this should be the CSV string.
+  if (typeof res !== "string") {
+    const d = pickData(res);
+    return d?.data || d || "";
+  }
+
+  return res;
+};
+
+export const getXeroImportExceptionsSummary = async (ptrsId) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/xero/import/exceptions/summary`,
+  );
+
+  const d = pickData(res);
+  const data = d?.data || d || {};
+
+  const rawCount = data?.count;
+  const count = Number(rawCount);
+  return { count: Number.isFinite(count) ? count : 0 };
 };

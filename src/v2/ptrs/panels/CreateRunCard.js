@@ -71,14 +71,19 @@ export default function CreatePtrsCard({ onSuccess }) {
 
   const navigate = useNavigate();
 
-  const requiresCsv = useMemo(() => dataSource === "csv", [dataSource]);
+  const requiresFile = useMemo(
+    () => dataSource === "csv" || dataSource === "both",
+    [dataSource],
+  );
+
+  const isBoth = useMemo(() => dataSource === "both", [dataSource]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const p = PERIODS[periodIdx];
 
-    if (requiresCsv && !file) {
-      showAlert("Choose a CSV file or switch to Xero import.", "info");
+    if (requiresFile && !file) {
+      showAlert("Choose a file to upload, or switch to Xero import.", "info");
       return;
     }
 
@@ -99,8 +104,8 @@ export default function CreatePtrsCard({ onSuccess }) {
         profileId, // <- required for BE to link to the right profile
       };
 
-      // Include optional metadata about the initial upload (CSV only)
-      if (requiresCsv && file) {
+      // Include optional metadata about the initial upload (file-based sources)
+      if (requiresFile && file) {
         payload.originalName =
           file.name || (label ? `${label}.csv` : "upload.csv");
         payload.sizeBytes = file.size ?? null;
@@ -114,36 +119,46 @@ export default function CreatePtrsCard({ onSuccess }) {
       if (!ptrsId) {
         showAlert(
           "PTRS created but no id returned — refresh the list.",
-          "info"
+          "info",
         );
         if (onSuccess) onSuccess(res);
         return;
       }
 
-      // Seed the main dataset (CSV upload or Xero import)
-      if (requiresCsv && file) {
+      // Seed the main dataset
+      // - csv: uses existing CSV ingest endpoint
+      // - both: upload csv first, then send user to Xero import to add main_xero
+      if ((dataSource === "csv" || isBoth) && file) {
         try {
           const ingest = await uploadCsv(ptrsId, file);
           const inserted = ingest.rowsInserted;
           showAlert(
             `PTRS created for profile and ${inserted} rows ingested`,
-            "success"
+            "success",
           );
         } catch (e2) {
           console.error(e2);
           showAlert("PTRS created but file upload failed", "error");
+          if (onSuccess) onSuccess(ptrsId);
+          return;
+        }
+
+        if (isBoth) {
+          showAlert("CSV uploaded. Continue to import from Xero.", "success");
+          if (onSuccess) onSuccess(ptrsId);
+          navigate(`/v2/ptrs/xero?ptrsId=${encodeURIComponent(ptrsId)}`);
+          return;
         }
 
         if (onSuccess) onSuccess(ptrsId);
         return;
       }
 
-      if (!requiresCsv) {
-        showAlert("PTRS created. Continue to import from Xero.", "success");
-        if (onSuccess) onSuccess(ptrsId);
-        navigate(`/v2/ptrs/xero?ptrsId=${encodeURIComponent(ptrsId)}`);
-        return;
-      }
+      // Xero-only
+      showAlert("PTRS created. Continue to import from Xero.", "success");
+      if (onSuccess) onSuccess(ptrsId);
+      navigate(`/v2/ptrs/xero?ptrsId=${encodeURIComponent(ptrsId)}`);
+      return;
 
       if (onSuccess) onSuccess(res);
     } catch (err) {
@@ -158,7 +173,7 @@ export default function CreatePtrsCard({ onSuccess }) {
   };
 
   const canSubmit = Boolean(
-    profileId && !submitting && (requiresCsv ? Boolean(file) : true)
+    profileId && !submitting && (requiresFile ? Boolean(file) : true),
   );
 
   return (
@@ -227,13 +242,14 @@ export default function CreatePtrsCard({ onSuccess }) {
             helperText="Choose how to seed the main Transactions dataset for Step 1."
           >
             <MenuItem value="csv">Upload CSV</MenuItem>
+            <MenuItem value="both">CSV + Xero (roll-up)</MenuItem>
             <MenuItem value="xero">Import from Xero</MenuItem>
           </TextField>
         </Grid>
 
         <Grid item xs={12}>
           <Stack spacing={1}>
-            {requiresCsv ? (
+            {requiresFile ? (
               <input
                 type="file"
                 accept=".csv,text/csv"
@@ -257,7 +273,7 @@ export default function CreatePtrsCard({ onSuccess }) {
           >
             {submitting
               ? "Creating..."
-              : requiresCsv
+              : requiresFile
                 ? "Create PTRS report & upload"
                 : "Create PTRS report & continue"}
           </Button>

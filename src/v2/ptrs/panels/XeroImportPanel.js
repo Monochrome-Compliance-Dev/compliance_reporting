@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import {
   Box,
@@ -11,9 +11,13 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { LoadingSpinner } from "components/ui/LoadingSpinner";
 import { useAlert } from "context";
+import {
+  connectXero,
+  downloadXeroImportExceptions,
+  getXeroImportExceptionsSummary,
+} from "../services/ptrsXero.api";
 import { useStartXeroImport } from "../hooks/useStartXeroImport";
 import { usePtrsV2Context } from "../context/PtrsV2Context";
-import { connectXero } from "../services/ptrsXero.api";
 
 /**
  * Step 1 alternative to CSV upload: Import payment records from Xero.
@@ -37,9 +41,11 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
   const [hasStarted, setHasStarted] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
 
+  const [exceptionsCount, setExceptionsCount] = useState(null);
+
   const { startImport, isStarting, status, refetchStatus } = useStartXeroImport(
     effectivePtrsId,
-    { poll: false }
+    { poll: false },
   );
 
   const derivedStatus = useMemo(() => {
@@ -62,11 +68,36 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
     return ["FAILED", "ERROR"].includes(s);
   }, [derivedStatus]);
 
+  useEffect(() => {
+    let cancelled = false;
+
+    async function run() {
+      if (!effectivePtrsId) {
+        setExceptionsCount(null);
+        return;
+      }
+
+      try {
+        const { count } = await getXeroImportExceptionsSummary(effectivePtrsId);
+        if (!cancelled) setExceptionsCount(count);
+      } catch (_) {
+        // If auth/session is temporarily unavailable, don't brick the UI.
+        if (!cancelled) setExceptionsCount(null);
+      }
+    }
+
+    run();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [effectivePtrsId, derivedStatus]);
+
   async function handleConnect() {
     if (!effectivePtrsId) {
       showAlert(
         "No PTRS run found. Please create/resume a run first.",
-        "error"
+        "error",
       );
       return;
     }
@@ -81,7 +112,7 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
         JSON.stringify({
           ptrsId: effectivePtrsId,
           createdAt: Date.now(),
-        })
+        }),
       );
 
       const { authUrl } = await connectXero(effectivePtrsId);
@@ -96,7 +127,7 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
     if (!effectivePtrsId) {
       showAlert(
         "No PTRS run found. Please create/resume a run first.",
-        "error"
+        "error",
       );
       return;
     }
@@ -109,7 +140,7 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
 
       // Take the user to the progress page so they can see updates.
       navigate(
-        `/v2/ptrs/xero/progress?ptrsId=${encodeURIComponent(effectivePtrsId)}`
+        `/v2/ptrs/xero/progress?ptrsId=${encodeURIComponent(effectivePtrsId)}`,
       );
     } catch (err) {
       setHasStarted(false);
@@ -126,6 +157,46 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
 
   async function handleContinue() {
     if (typeof onImported === "function") onImported();
+  }
+
+  async function handleDownloadExceptions() {
+    if (!effectivePtrsId) {
+      showAlert("No PTRS run found.", "error");
+      return;
+    }
+
+    try {
+      showAlert("Preparing import exceptions…", "info");
+
+      const csvText = await downloadXeroImportExceptions(effectivePtrsId);
+      if (!csvText || typeof csvText !== "string") {
+        throw new Error("Export returned no data");
+      }
+
+      const blob = new Blob([csvText], { type: "text/csv;charset=utf-8" });
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, "0");
+      const dd = String(today.getDate()).padStart(2, "0");
+
+      a.download = `ptrs_import_exceptions_${effectivePtrsId}_${yyyy}-${mm}-${dd}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+
+      showAlert("Import exceptions downloaded.", "success");
+    } catch (err) {
+      showAlert(
+        err?.message || "Failed to download import exceptions.",
+        "error",
+      );
+    }
   }
 
   // Only disable controls while we are actively connecting/starting/running an import.
@@ -161,9 +232,9 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
               navigate(
                 effectivePtrsId
                   ? `/v2/ptrs/xero/select?ptrsId=${encodeURIComponent(
-                      effectivePtrsId
+                      effectivePtrsId,
                     )}`
-                  : "/v2/ptrs/xero/select"
+                  : "/v2/ptrs/xero/select",
               )
             }
             disabled={!effectivePtrsId || disableAll}
@@ -177,9 +248,9 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
               navigate(
                 effectivePtrsId
                   ? `/v2/ptrs/xero/progress?ptrsId=${encodeURIComponent(
-                      effectivePtrsId
+                      effectivePtrsId,
                     )}`
-                  : "/v2/ptrs/xero/progress"
+                  : "/v2/ptrs/xero/progress",
               )
             }
             disabled={!effectivePtrsId || disableAll}
@@ -263,6 +334,14 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
         <Box
           sx={{ display: "flex", gap: theme.spacing(2), mt: theme.spacing(2) }}
         >
+          <Button
+            variant="outlined"
+            onClick={handleDownloadExceptions}
+            disabled={!effectivePtrsId || exceptionsCount === 0}
+          >
+            Download import exceptions
+          </Button>
+
           <Button
             variant="contained"
             onClick={handleContinue}

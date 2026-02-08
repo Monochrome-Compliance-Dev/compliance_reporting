@@ -1,7 +1,3 @@
-// PTRS v2 service for DataConsole — aligned to /api/v2/ptrs endpoints
-// This client NORMALISES all responses so the FE never has to peel envelopes.
-// All methods return plain objects. .js only.
-
 import { fetchWrapper } from "lib/utils/fetch-wrapper";
 import { normDataset, normDatasetList, normSample, pickData } from "./ptrsApi";
 
@@ -13,7 +9,7 @@ const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 export const addDataset = async (
   ptrsId,
   file,
-  { role, sourceName = "" } = {}
+  { role, sourceName = "" } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!file) throw new Error("file is required");
@@ -24,7 +20,7 @@ export const addDataset = async (
   if (sourceName) fd.append("sourceName", sourceName);
   const res = await fetchWrapper.postUpload(
     `${API_ROOT}/v2/ptrs/${ptrsId}/datasets`,
-    fd
+    fd,
   );
   return normDataset(pickData(res));
 };
@@ -43,18 +39,18 @@ export const removeDataset = async (ptrsId, datasetId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!datasetId) throw new Error("datasetId is required");
   const res = await fetchWrapper.delete(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/datasets/${datasetId}`
+    `${API_ROOT}/v2/ptrs/${ptrsId}/datasets/${datasetId}`,
   );
   return pickData(res); // { ok: true }
 };
 
 export const getDatasetSample = async (
   datasetId,
-  { limit = 5, offset = 0 } = {}
+  { limit = 5, offset = 0 } = {},
 ) => {
   if (!datasetId) throw new Error("datasetId is required");
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?limit=${limit}&offset=${offset}`
+    `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?limit=${limit}&offset=${offset}`,
   );
   return normSample(pickData(res)); // { headers:[], rows:[] }
 };

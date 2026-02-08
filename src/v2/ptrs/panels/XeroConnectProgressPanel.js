@@ -1,3 +1,4 @@
+import { io } from "socket.io-client";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import {
@@ -39,7 +40,7 @@ export default function XeroConnectProgressPanel() {
       // Don't block navigation if the step update fails
       showAlert(
         "Failed to update PTRS step. Continuing to Tables & Joins.",
-        "warning"
+        "warning",
       );
     }
 
@@ -59,67 +60,78 @@ export default function XeroConnectProgressPanel() {
       poll: pollEnabled,
     });
 
-  const derivedStatus = useMemo(() => {
-    const s = status?.status || status?.state || status?.stage || "";
-    return typeof s === "string" ? s : "";
+  const [liveStatus, setLiveStatus] = useState(null);
+
+  useEffect(() => {
+    // Keep in sync with the initial HTTP status payload.
+    if (status) setLiveStatus(status);
   }, [status]);
+
+  const derivedStatus = useMemo(() => {
+    const s =
+      liveStatus?.status || liveStatus?.state || liveStatus?.stage || "";
+    return typeof s === "string" ? s : "";
+  }, [liveStatus]);
 
   const statusUpper = useMemo(
     () => derivedStatus.toUpperCase(),
-    [derivedStatus]
+    [derivedStatus],
   );
 
   const isComplete = useMemo(
     () => ["COMPLETE", "COMPLETED", "DONE", "SUCCESS"].includes(statusUpper),
-    [statusUpper]
+    [statusUpper],
   );
 
   const isFailed = useMemo(
     () => ["FAILED", "ERROR"].includes(statusUpper),
-    [statusUpper]
+    [statusUpper],
   );
 
   const isTerminal = useMemo(
     () => isComplete || isFailed,
-    [isComplete, isFailed]
+    [isComplete, isFailed],
   );
 
   useEffect(() => {
-    if (!effectivePtrsId || isTerminal) return;
+    if (!effectivePtrsId) return;
 
-    let cancelled = false;
-    let timeoutId = null;
+    // Socket.IO must connect to the server root (NOT the REST /api base).
+    // If REACT_APP_SOCKET_URL is provided, use it. Otherwise derive from REACT_APP_API_URL by stripping trailing /api.
+    const socketBaseUrl =
+      process.env.REACT_APP_SOCKET_URL ||
+      (process.env.REACT_APP_API_URL
+        ? process.env.REACT_APP_API_URL.replace(/\/api\/?$/, "")
+        : "http://localhost:4000");
 
-    // Start with a gentle cadence and back off a bit over time.
-    // 5s -> 7.5s -> 10s -> 12.5s -> 15s (cap)
-    let delayMs = 5000;
+    const socket = io(socketBaseUrl, {
+      withCredentials: true,
+      transports: ["websocket", "polling"],
+    });
 
-    const tick = async () => {
-      if (cancelled) return;
-
-      try {
-        await refetchStatus();
-      } catch (err) {
-        // Don't spam alerts here; manual refresh button is the escape hatch.
-        // We still continue polling with backoff.
-        console.warn("Failed to refetch Xero status", err);
-      }
-
-      if (cancelled) return;
-      delayMs = Math.min(15000, Math.round(delayMs * 1.5));
-      timeoutId = setTimeout(tick, delayMs);
+    const onStatus = (payload) => {
+      // Only accept payloads for this PTRS
+      if (!payload || payload.ptrsId !== effectivePtrsId) return;
+      setLiveStatus(payload);
     };
 
-    timeoutId = setTimeout(tick, delayMs);
+    socket.on("connect", () => {
+      socket.emit("ptrs:join", { ptrsId: effectivePtrsId });
+    });
+
+    socket.on("ptrs:xeroImportStatus", onStatus);
 
     return () => {
-      cancelled = true;
-      if (timeoutId) clearTimeout(timeoutId);
+      try {
+        socket.emit("ptrs:leave", { ptrsId: effectivePtrsId });
+      } catch (_) {}
+      socket.off("ptrs:xeroImportStatus", onStatus);
+      socket.disconnect();
     };
-  }, [effectivePtrsId, isTerminal, refetchStatus]);
+  }, [effectivePtrsId]);
 
   const progress = useMemo(() => {
-    const p = status?.progress;
+    const p = liveStatus?.progress;
     if (!p) return null;
 
     // Prefer tenant progress (org-by-org) while running.
@@ -138,7 +150,7 @@ export default function XeroConnectProgressPanel() {
       const current = Math.min(Math.max(tenantCurrent, 0), total);
       const pct = Math.max(
         0,
-        Math.min(100, Math.round((current / total) * 100))
+        Math.min(100, Math.round((current / total) * 100)),
       );
       return { current, total, pct };
     }
@@ -157,17 +169,17 @@ export default function XeroConnectProgressPanel() {
       const current = Math.min(Math.max(extractCurrent, 0), total);
       const pct = Math.max(
         0,
-        Math.min(100, Math.round((current / total) * 100))
+        Math.min(100, Math.round((current / total) * 100)),
       );
       return { current, total, pct };
     }
 
     // No meaningful total available; use indeterminate.
     return { current: 0, total: 0, pct: 0 };
-  }, [status, isTerminal]);
+  }, [liveStatus, isTerminal]);
 
   const warnings = useMemo(() => {
-    const p = status?.progress || {};
+    const p = liveStatus?.progress || {};
     const invoiceFails = Number(p.invoiceFetchFailedCount || 0);
     const contactFails = Number(p.contactFetchFailedCount || 0);
     const bankTxFails = Number(p.bankTxFetchFailedCount || 0);
@@ -183,7 +195,7 @@ export default function XeroConnectProgressPanel() {
         ? p.invoiceFetchFailedSample
         : [],
     };
-  }, [status]);
+  }, [liveStatus]);
 
   useEffect(() => {
     if (!effectivePtrsId) return;
@@ -222,6 +234,7 @@ export default function XeroConnectProgressPanel() {
     if (!effectivePtrsId) return;
     try {
       await refetchStatus();
+      // refetchStatus updates `status`, which will sync into liveStatus via the effect
     } catch (err) {
       showAlert(err?.message || "Failed to fetch status.", "error");
     }
@@ -250,7 +263,7 @@ export default function XeroConnectProgressPanel() {
         <>
           <Typography variant="body1" sx={{ mb: theme.spacing(2) }}>
             {statusError?.message ||
-              status?.message ||
+              liveStatus?.message ||
               (derivedStatus
                 ? `Status: ${derivedStatus}`
                 : "Waiting for updates…")}
@@ -321,10 +334,8 @@ export default function XeroConnectProgressPanel() {
               onClick={() =>
                 navigate(
                   effectivePtrsId
-                    ? `/v2/ptrs/xero/import?ptrsId=${encodeURIComponent(
-                        effectivePtrsId
-                      )}`
-                    : "/v2/ptrs/xero/import"
+                    ? `/v2/ptrs/xero/import?ptrsId=${encodeURIComponent(effectivePtrsId)}`
+                    : "/v2/ptrs/xero/import",
                 )
               }
             >
@@ -345,7 +356,7 @@ export default function XeroConnectProgressPanel() {
               onClick={goToTables}
               disabled={!isComplete}
             >
-              Go to Tables & Joins
+              Continue to Tables &amp; Joins
             </Button>
 
             <Button

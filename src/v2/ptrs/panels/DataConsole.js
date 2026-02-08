@@ -33,12 +33,25 @@ import {
 import { useUpdatePtrsMutation } from "v2/ptrs/hooks/usePtrsQueries";
 
 const ROLE_OPTIONS = [
-  { value: "transactions", label: "Transactions (primary)" },
+  { value: "main_xero", label: "Transactions — Xero" },
+  { value: "main_csv", label: "Transactions — Excel (MYOB export)" },
+  // Legacy single-main role (keep for now)
+  { value: "transactions", label: "Transactions (legacy)" },
   { value: "vendormaster", label: "Vendor Master" },
   { value: "termschanges", label: "Payment Terms Changes" },
   { value: "entitystructure", label: "Entity Structure" },
   { value: "other", label: "Other" },
 ];
+
+const isMainRole = (r) => {
+  const v = String(r || "").toLowerCase();
+  return v === "main" || v === "transactions" || v.startsWith("main_");
+};
+
+const isXeroMainRole = (r) => {
+  const v = String(r || "").toLowerCase();
+  return v === "main_xero" || v === "transactions";
+};
 
 export default function DataConsole() {
   const theme = useTheme();
@@ -60,7 +73,7 @@ export default function DataConsole() {
 
   // Datasets state
   const [datasets, setDatasets] = useState([]);
-  const [role, setRole] = useState("transactions");
+  const [role, setRole] = useState("main_xero");
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
 
@@ -109,7 +122,7 @@ export default function DataConsole() {
       await refreshDatasets();
       await refreshCtxDatasets?.();
       showAlert("Dataset uploaded", "success");
-      if (role === "transactions") {
+      if (isMainRole(role)) {
         goToTables();
         return;
       }
@@ -146,7 +159,7 @@ export default function DataConsole() {
       // Don't block navigation if the step update fails
       showAlert(
         "Failed to update PTRS step. Continuing to Tables & Joins.",
-        "warning"
+        "warning",
       );
     }
 
@@ -167,7 +180,7 @@ export default function DataConsole() {
       // Don't block navigation if the step update fails
       showAlert(
         "Failed to update PTRS step. Continuing to Xero import.",
-        "warning"
+        "warning",
       );
     }
 
@@ -186,8 +199,9 @@ export default function DataConsole() {
         PTRS Data Console (v2)
       </Typography>
       <Typography variant="body1" gutterBottom>
-        Create a PTRS, upload related datasets (transactions, vendor master,
-        terms), then proceed to mapping.
+        Create a PTRS, upload one or more Transactions datasets (CSV and/or
+        Xero), upload supporting datasets (vendor master, terms), then proceed
+        to mapping.
       </Typography>
 
       <Divider sx={{ my: 4 }} />
@@ -287,7 +301,7 @@ export default function DataConsole() {
                     variant="outlined"
                     startIcon={<LinkIcon />}
                     onClick={goToXero}
-                    disabled={isUploading || role !== "transactions"}
+                    disabled={isUploading || !isXeroMainRole(role)}
                   >
                     Import from Xero
                   </Button>

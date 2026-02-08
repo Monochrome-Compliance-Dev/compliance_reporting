@@ -26,6 +26,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 export default function JoinsDesigner({
   ptrsId,
   leftHeaders = [],
+  leftHeadersByRole = {},
   examples = {},
   joins = {},
   customFields: customFieldsProp,
@@ -116,15 +117,30 @@ export default function JoinsDesigner({
       .catch(() => setDatasets([]));
   }, [ptrsId]);
 
+  // Choose a main role for the left-side links when multiple mains exist.
+  const [selectedMainRole, setSelectedMainRole] = useState(null);
+
   // Build left-side main dataset columns as [{key, label}] objects
   const leftFields = useMemo(() => {
-    const base = Array.isArray(leftHeaders)
-      ? leftHeaders.map((col) => ({ key: col, label: col }))
+    const roleHeaders =
+      selectedMainRole &&
+      leftHeadersByRole &&
+      typeof leftHeadersByRole === "object" &&
+      Array.isArray(leftHeadersByRole[selectedMainRole])
+        ? leftHeadersByRole[selectedMainRole]
+        : leftHeaders;
+
+    const base = Array.isArray(roleHeaders)
+      ? roleHeaders.map((col) => ({ key: col, label: col }))
       : [];
     const map = new Map(base.map((f) => [f.key, f]));
 
-    // Ensure columns referenced in saved joins are present on the left
+    // Ensure columns referenced in saved joins for the selected main role are present on the left
     (links || []).forEach((j) => {
+      const isThisMain =
+        String(j?.from?.role || "") === String(selectedMainRole || "main");
+      if (!isThisMain) return;
+
       const key = j?.from?.column;
       if (key && !map.has(key)) {
         map.set(key, { key, label: key });
@@ -134,17 +150,22 @@ export default function JoinsDesigner({
     return Array.from(map.values()).sort((a, b) =>
       a.label.localeCompare(b.label),
     );
-  }, [leftHeaders, links]);
+  }, [leftHeaders, leftHeadersByRole, selectedMainRole, links]);
 
-  // Determine main dataset role (transactions, primary, main). If none match, don't exclude anything
-  const mainRole = useMemo(() => {
-    const roles = (datasets || []).map((d) => d.role).filter(Boolean);
-    const preferred = ["transactions", "primary", "main"];
-    return preferred.find((r) => roles.includes(r)) || null;
+  // Determine main dataset roles. We treat `main` and any role starting with `main_` as main datasets.
+  const mainRoles = useMemo(() => {
+    const roles = (datasets || [])
+      .map((d) => String(d?.role || ""))
+      .filter(Boolean);
+    return Array.from(
+      new Set(roles.filter((r) => r === "main" || r.startsWith("main_"))),
+    );
   }, [datasets]);
 
-  // Use a stable fallback when we can't positively identify a main dataset role
-  const effectiveMainRole = mainRole || "main";
+  useEffect(() => {
+    if (selectedMainRole && mainRoles.includes(selectedMainRole)) return;
+    setSelectedMainRole(mainRoles[0] || "main");
+  }, [mainRoles, selectedMainRole]);
 
   useEffect(() => {
     if (!datasets || !datasets.length) {
@@ -152,9 +173,10 @@ export default function JoinsDesigner({
       return;
     }
 
-    const targets = (datasets || []).filter(
-      (d) => !mainRole || d.role !== mainRole,
-    );
+    const targets = (datasets || []).filter((d) => {
+      const role = String(d?.role || "");
+      return !(role === "main" || role.startsWith("main_"));
+    });
 
     const firstExample = (rows, colIdx) => {
       for (const r of rows || []) {
@@ -187,7 +209,7 @@ export default function JoinsDesigner({
       }
       setExamplesByRole(roleMap);
     })();
-  }, [datasets, mainRole]);
+  }, [datasets, mainRoles]);
 
   useEffect(() => {
     if (!debug) return;
@@ -201,17 +223,29 @@ export default function JoinsDesigner({
       })),
     );
     // eslint-disable-next-line no-console
-    console.log("[JoinsDesigner][debug] mainRole", mainRole);
-  }, [debug, datasets, mainRole]);
+    console.log("[JoinsDesigner][debug] mainRoles", mainRoles);
+    // eslint-disable-next-line no-console
+    console.log("[JoinsDesigner][debug] selectedMainRole", selectedMainRole);
+    // eslint-disable-next-line no-console
+    console.log(
+      "[JoinsDesigner][debug] leftHeadersByRole counts",
+      Object.fromEntries(
+        Object.entries(leftHeadersByRole || {}).map(([k, v]) => [
+          k,
+          Array.isArray(v) ? v.length : 0,
+        ]),
+      ),
+    );
+  }, [debug, datasets, mainRoles, selectedMainRole, leftHeadersByRole]);
 
-  // Build right-side: group headers by dataset role excluding mainRole
+  // Build right-side: group headers by dataset role excluding all mainRoles
   const rightColumns = useMemo(() => {
     const byRole = new Map();
 
     (datasets || []).forEach((d) => {
       const role = d.role || "dataset";
-      // Only exclude a dataset if we positively identified the main role
-      if (mainRole && role === mainRole) return;
+      // Exclude all main datasets from the right side
+      if (role === "main" || String(role).startsWith("main_")) return;
 
       const baseHeaders = (d.meta?.headers || d.headers || [])
         .filter(Boolean)
@@ -233,7 +267,7 @@ export default function JoinsDesigner({
       role,
       headers: Array.from(set).sort((a, b) => a.localeCompare(b)),
     }));
-  }, [datasets, mainRole, links]);
+  }, [datasets, links]);
 
   // Recalculate absolute positions for endpoints used by SVG when DOM changes
   const computePositions = useCallback(() => {
@@ -279,8 +313,7 @@ export default function JoinsDesigner({
   ]);
 
   const beginLink = (column) => {
-    // Allow creating a link even if we couldn't detect a main role; use a stable fallback
-    setPending({ role: effectiveMainRole, column });
+    setPending({ role: selectedMainRole || "main", column });
   };
   const completeLink = (role, column) => {
     if (!pending?.column || !pending?.role) return;
@@ -309,12 +342,27 @@ export default function JoinsDesigner({
           <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
             <Typography variant="subtitle1">Main dataset columns</Typography>
             <Chip size="small" label={leftFields.length} />
+
+            {mainRoles.length > 1 ? (
+              <Select
+                size="small"
+                value={selectedMainRole || "main"}
+                onChange={(e) => setSelectedMainRole(e.target.value)}
+                sx={{ ml: 1, minWidth: 160 }}
+              >
+                {mainRoles.map((r) => (
+                  <MenuItem key={r} value={r}>
+                    {r}
+                  </MenuItem>
+                ))}
+              </Select>
+            ) : null}
           </Stack>
           <Stack spacing={0.5}>
             {leftFields.map(({ key, label }) => (
               <Box
                 key={key}
-                data-endpoint={keyL(effectiveMainRole, key)}
+                data-endpoint={keyL(selectedMainRole || "main", key)}
                 onClick={() => beginLink(key)}
                 sx={{
                   px: 1,
@@ -323,7 +371,7 @@ export default function JoinsDesigner({
                   cursor: "crosshair",
                   bgcolor:
                     pending?.column === key &&
-                    pending?.role === effectiveMainRole
+                    pending?.role === (selectedMainRole || "main")
                       ? "action.selected"
                       : "transparent",
                   "&:hover": { bgcolor: "action.hover" },
@@ -347,7 +395,7 @@ export default function JoinsDesigner({
                   )}
                 {debug && (
                   <Typography variant="caption" color="text.secondary">
-                    {keyL(effectiveMainRole, key)}
+                    {keyL(selectedMainRole || "main", key)}
                   </Typography>
                 )}
               </Box>
@@ -446,9 +494,12 @@ export default function JoinsDesigner({
             // Prefer the exact role stored in the link, but if we didn't detect a mainRole
             // we also try a stable fallback role ("main") so lines can render.
             const leftKeyPrimary = keyL(ln.from?.role, ln.from?.column);
-            const leftKeyFallback = !mainRole
-              ? keyL("main", ln.from?.column)
-              : null;
+            // If the UI role selector has changed since the join was created, render a fallback
+            // to the currently selected main role so lines don't disappear during edits.
+            const leftKeyFallback =
+              !positions[leftKeyPrimary] && (selectedMainRole || "main")
+                ? keyL(selectedMainRole || "main", ln.from?.column)
+                : null;
             const rightKey = keyR(ln.to?.role, ln.to?.column);
 
             let a = positions[leftKeyPrimary];

@@ -14,6 +14,7 @@ import ValidatePanel from "./panels/ValidatePanel";
 import MetricsPanel from "./panels/MetricsPanel";
 import ReportPanel from "./panels/ReportPanel";
 import PtrsMetricsDashboard from "./screens/PtrsMetricsDashboard";
+import PackPanel from "./panels/PackPanel";
 
 const ptrsRoutes = [
   {
@@ -50,7 +51,7 @@ const ptrsRoutes = [
       { path: "report", Component: ReportPanel },
       {
         path: "pack",
-        Component: () => <div>Board Pack export (MVP placeholder)</div>,
+        Component: PackPanel,
       },
       // Optional: catch-all can just show Landing as well (no Navigate)
       // { path: "*", Component: LandingPanel },
