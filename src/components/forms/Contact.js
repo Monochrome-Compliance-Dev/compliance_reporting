@@ -10,14 +10,14 @@ import {
   CircularProgress,
   MenuItem,
 } from "@mui/material";
-import { publicService } from "../../services";
+import { publicService } from "services";
 import { useNavigate, useLocation } from "react-router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useAlert } from "../../context/AlertContext";
-import { error as logError } from "../../lib/utils/logger";
-import { sanitiseInput } from "../../lib/utils/sanitiseInput";
+import { useAlert } from "context";
+import { error as logError } from "lib/utils/logger";
+import { sanitiseInput } from "lib/utils/sanitiseInput";
 
 // Yup schema moved outside the component and updated to use yup.object({ ... }) directly
 const schema = yup.object({
@@ -45,8 +45,8 @@ const schema = yup.object({
   topic: yup
     .string()
     .oneOf(
-      ["Contact Us", "Sales", "Support", "Pulse Early Adopter"],
-      "Select a valid topic"
+      ["Payment Times Reporting", "Sales", "Support", "General"],
+      "Select a valid topic",
     )
     .required("Topic is required"),
 });
@@ -72,12 +72,12 @@ export default function Contact() {
       name: "",
       email: "",
       company: "",
-      subject: "Contact Us",
+      subject: "Payment Times Reporting",
       message: "",
       to: "contact@monochrome-compliance.com",
       cc: "contact@monochrome-compliance.com",
       from: "contact@monochrome-compliance.com",
-      topic: "Contact Us",
+      topic: "Payment Times Reporting",
       website: "",
     },
     mode: "onChange",
@@ -90,8 +90,8 @@ export default function Contact() {
       const current = getValues();
       reset({
         ...current,
-        topic: "Pulse Early Adopter",
-        subject: "[PULSE EA] Contact",
+        topic: "Sales",
+        subject: "[PULSE] Contact",
       });
     }
   }, [location.search, reset, getValues]);
@@ -196,12 +196,13 @@ export default function Contact() {
             fullWidth
             sx={{ mb: theme.spacing(2) }}
             InputLabelProps={{ style: { color: theme.palette.text.primary } }}
-            defaultValue="Pulse Early Adopter"
           >
-            <MenuItem value="Contact Us">Contact Us</MenuItem>
+            <MenuItem value="Payment Times Reporting">
+              Payment Times Reporting
+            </MenuItem>
             <MenuItem value="Sales">Sales</MenuItem>
             <MenuItem value="Support">Support</MenuItem>
-            <MenuItem value="Pulse Early Adopter">Pulse Early Adopter</MenuItem>
+            <MenuItem value="General">General</MenuItem>
           </TextField>
           <TextField
             label="Name *"

@@ -1,127 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Core site pages -->
   <url>
     <loc>https://www.monochrome-compliance.com/</loc>
-    <lastmod>2025-08-28</lastmod>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.monochrome-compliance.com/payment-times-reporting</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.monochrome-compliance.com/pricing</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.monochrome-compliance.com/about</loc>
-    <lastmod>2025-08-28</lastmod>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.monochrome-compliance.com/contact</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/blog</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- Blog content -->
-  <url>
-    <loc>https://www.monochrome-compliance.com/blog/how-to-submit-ptr-report</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/blog/improve-data-quality</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/blog/ptr-legislation-2025</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/blog/ptr-reporting-deadlines</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/blog/ptr-submission-mistakes</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/blog/using-sbi-tool-for-ptr</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/blog/who-needs-to-report-ptr</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/blog/hidden-cost-of-compliance</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- Pulse pages -->
-  <url>
-    <loc>https://www.monochrome-compliance.com/pulse</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/pulse-share.html</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/pulse/pricing</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- Compliance solutions and pricing -->
-  <url>
-    <loc>https://www.monochrome-compliance.com/solutions</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <!-- Compliance products -->
-  <url>
-    <loc>https://www.monochrome-compliance.com/payment-times-reporting</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/modern-slavery</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/director-obligations</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/whistleblower-compliance</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/risk-register</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/working-capital</loc>
-    <lastmod>2025-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.monochrome-compliance.com/esg-reporting</loc>
-    <lastmod>2025-08-28</lastmod>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
