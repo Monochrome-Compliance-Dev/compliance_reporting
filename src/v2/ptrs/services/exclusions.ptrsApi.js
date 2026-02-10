@@ -37,3 +37,66 @@ export const previewExclusions = async (
   );
   return pickData(res);
 };
+
+export const listExclusionKeywords = async (ptrsId, { profileId } = {}) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!profileId) throw new Error("profileId is required");
+
+  const q = new URLSearchParams();
+  q.set("profileId", String(profileId));
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions/keywords?${q.toString()}`,
+  );
+  return pickData(res); // { rows: [] }
+};
+
+export const createExclusionKeyword = async (
+  ptrsId,
+  { profileId, keyword, field, matchType, notes } = {},
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!profileId) throw new Error("profileId is required");
+  if (!field) throw new Error("field is required");
+  if (!matchType) throw new Error("matchType is required");
+
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions/keywords`,
+    { profileId, keyword, field, matchType, notes },
+  );
+  return pickData(res);
+};
+
+export const updateExclusionKeyword = async (
+  ptrsId,
+  { profileId, keywordId, keyword, field, matchType, notes } = {},
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!profileId) throw new Error("profileId is required");
+  if (!keywordId) throw new Error("keywordId is required");
+  if (!field) throw new Error("field is required");
+  if (!matchType) throw new Error("matchType is required");
+
+  const res = await fetchWrapper.put(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions/keywords/${keywordId}`,
+    { profileId, keyword, field, matchType, notes },
+  );
+  return pickData(res);
+};
+
+export const deleteExclusionKeyword = async (
+  ptrsId,
+  { profileId, keywordId } = {},
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!profileId) throw new Error("profileId is required");
+  if (!keywordId) throw new Error("keywordId is required");
+
+  const q = new URLSearchParams();
+  q.set("profileId", String(profileId));
+
+  const res = await fetchWrapper.del(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions/keywords/${keywordId}?${q.toString()}`,
+  );
+  return pickData(res);
+};

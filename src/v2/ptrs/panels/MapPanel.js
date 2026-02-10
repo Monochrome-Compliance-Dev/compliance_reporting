@@ -553,6 +553,7 @@ export default function MapPanel() {
   };
 
   const autoSuggest = () => {
+    let didChange = false;
     const available = headers.filter((h) => !usedSources.has(h));
     const byNorm = new Map();
     for (const h of available) byNorm.set(norm(h), h);
@@ -601,6 +602,7 @@ export default function MapPanel() {
         }
       }
       if (applied > 0) {
+        didChange = true;
         showAlert(`Auto-suggest mapped ${applied} field(s)`, "success");
       } else {
         showAlert(
@@ -610,6 +612,7 @@ export default function MapPanel() {
       }
       return next;
     });
+    if (didChange) setIsDirty(true);
   };
 
   // Resolve a header name against current headers with loose matching:

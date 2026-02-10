@@ -482,23 +482,26 @@ export default function StagePanel() {
     });
   }, [headers, rows]);
 
-  const handleGoToRules = async () => {
+  const handleGoToExclusions = async () => {
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
     }
 
     try {
-      await updatePtrsStep.mutateAsync({ currentStep: "rules" });
+      await updatePtrsStep.mutateAsync({ currentStep: "exclusions" });
     } catch (err) {
       console.error(err);
-      showAlert("Failed to update PTRS step. Continuing to Rules.", "warning");
+      showAlert(
+        "Failed to update PTRS step. Continuing to Exclusions.",
+        "warning",
+      );
     }
 
     const qs = new URLSearchParams();
     qs.set("ptrsId", ptrsId);
     if (profileId) qs.set("profileId", profileId);
-    navigate(`/v2/ptrs/rules?${qs.toString()}`);
+    navigate(`/v2/ptrs/exclusions?${qs.toString()}`);
   };
 
   if (!ptrsId) return null;
@@ -657,9 +660,9 @@ export default function StagePanel() {
               variant="contained"
               endIcon={<NavigateNextIcon />}
               disabled={loading || autoStaging || !result}
-              onClick={handleGoToRules}
+              onClick={handleGoToExclusions}
             >
-              Next: Apply rules
+              Next: Exclusions
             </Button>
           </Stack>
         </Stack>

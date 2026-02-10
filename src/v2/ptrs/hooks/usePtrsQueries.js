@@ -8,6 +8,10 @@ import * as api from "../services/ptrsApi";
 import {
   applyExclusions,
   previewExclusions,
+  listExclusionKeywords,
+  createExclusionKeyword,
+  deleteExclusionKeyword,
+  updateExclusionKeyword,
 } from "../services/exclusions.ptrsApi";
 import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 import { getValidate, runValidate } from "../services/validate.ptrsApi";
@@ -29,6 +33,14 @@ const K = {
     category || "all",
     profileId || "none",
     Number(limit) || 10,
+  ],
+  exclusionKeywords: (id, { profileId }) => [
+    "ptrs",
+    "v2",
+    "exclusions",
+    "keywords",
+    id,
+    profileId || "none",
   ],
   rules: (id) => ["ptrs", "v2", "rules", id],
   sbi: (id) => ["ptrs", "v2", "sbi", id],
@@ -102,6 +114,51 @@ export function useExclusionsPreviewQuery(
       previewExclusions(ptrsId, { profileId, category, limit }),
     enabled,
     staleTime: 0,
+  });
+}
+
+export function useExclusionKeywordsQuery(ptrsId, { profileId } = {}) {
+  const enabled = !!ptrsId && !!profileId;
+
+  return useQuery({
+    queryKey: K.exclusionKeywords(ptrsId, { profileId }),
+    queryFn: async () => listExclusionKeywords(ptrsId, { profileId }),
+    enabled,
+    staleTime: 0,
+  });
+}
+
+export function useCreateExclusionKeywordMutation(ptrsId) {
+  return useMutation({
+    mutationFn: ({ profileId, keyword, field, matchType, notes }) =>
+      createExclusionKeyword(ptrsId, {
+        profileId,
+        keyword,
+        field,
+        matchType,
+        notes,
+      }),
+  });
+}
+
+export function useUpdateExclusionKeywordMutation(ptrsId) {
+  return useMutation({
+    mutationFn: ({ profileId, keywordId, keyword, field, matchType, notes }) =>
+      updateExclusionKeyword(ptrsId, {
+        profileId,
+        keywordId,
+        keyword,
+        field,
+        matchType,
+        notes,
+      }),
+  });
+}
+
+export function useDeleteExclusionKeywordMutation(ptrsId) {
+  return useMutation({
+    mutationFn: ({ profileId, keywordId }) =>
+      deleteExclusionKeyword(ptrsId, { profileId, keywordId }),
   });
 }
 
