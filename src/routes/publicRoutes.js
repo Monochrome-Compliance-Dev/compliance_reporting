@@ -70,7 +70,7 @@ const isPublicOnlyMode =
 
 const allPublicRoutes = [
   { path: "/", Component: LandingPage },
-  { path: "/pricing", Component: PriceTier },
+  { path: "pricing", Component: PriceTier },
   { path: "/pulse", Component: PulseLanding },
   { path: "/pulse/pricing", Component: PulsePricing },
   { path: "/pulse/join", Component: PulseJoin },
@@ -137,7 +137,6 @@ const allPublicRoutes = [
     path: "thankyou-booking",
     Component: BookingThankyou,
   },
-  { path: "pricing", Component: PriceTier },
   { path: "/signup", Component: SignUp },
   { path: "thankyou-signup", Component: SignUpThankyou },
   { path: "about", Component: About },
@@ -205,6 +204,7 @@ const launchPublicRoutes = [
   { path: "/pulse/pricing", Component: PulsePricing },
   { path: "/pulse/join", Component: PulseJoin },
   { path: "/pulse/maximiser", Component: PulseMaximiser },
+  { path: "pricing", Component: PriceTier },
   {
     path: "compliance-navigator",
     Component: PublicComplianceNavigator,
@@ -228,11 +228,7 @@ const launchPublicRoutes = [
   },
   {
     path: "payment-times-reporting",
-    Component: PTRSolution,
-  },
-  {
-    path: "payment-times-reporting/print",
-    Component: PaymentTimesReportingPrint,
+    Component: PaymentTimesReporting,
   },
   {
     path: "overview",
@@ -282,7 +278,13 @@ const launchPublicRoutes = [
   // Super secret routes for boss access
   {
     path: "/bossmode",
-    children: [{ path: "login", Component: Login }],
+    children: [
+      { path: "login", Component: Login },
+      {
+        path: "payment-times-reporting/print",
+        Component: PaymentTimesReportingPrint,
+      },
+    ],
   },
 ];
 

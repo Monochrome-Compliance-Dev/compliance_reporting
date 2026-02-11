@@ -63,7 +63,16 @@ export default function Layout() {
         }}
       >
         <Box sx={{ flex: 1 }}>
-          <Navbar isDarkTheme={isDarkTheme} onToggleTheme={toggleTheme} />
+          <Box
+            sx={{
+              position: "sticky",
+              top: 0,
+              zIndex: theme.zIndex.appBar,
+              backgroundColor: theme.palette.background.default,
+            }}
+          >
+            <Navbar isDarkTheme={isDarkTheme} onToggleTheme={toggleTheme} />
+          </Box>
           <Suspense fallback={<LoadingSpinner />}>
             <Outlet />
           </Suspense>

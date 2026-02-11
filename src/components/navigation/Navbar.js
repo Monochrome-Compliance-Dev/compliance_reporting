@@ -71,6 +71,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const isMarketingRoute =
     location.pathname === "/" ||
     location.pathname.startsWith("/payment-times-reporting") ||
+    location.pathname.startsWith("/pricing") ||
     location.pathname.startsWith("/about") ||
     location.pathname.startsWith("/contact");
 
@@ -438,7 +439,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
           </Button>
         )}
         {/* Dynamic Login/Logout button */}
-        {!isLoggedIn && !isPublicOnlyMode && (
+        {!isPublicOnlyMode && !isLoggedIn && (
           <Button
             variant="outlined"
             color="primary"

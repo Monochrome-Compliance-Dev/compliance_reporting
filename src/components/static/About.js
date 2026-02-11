@@ -1,4 +1,5 @@
-import { Container, Typography, Grid, Paper } from "@mui/material";
+import { Container, Typography, Paper } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import GavelIcon from "@mui/icons-material/Gavel";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
@@ -28,7 +29,7 @@ const About = () => {
         </Typography>
 
         <Grid container spacing={4} sx={{ mt: 4 }}>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Paper sx={{ p: 3, textAlign: "center" }}>
               <GavelIcon fontSize="large" color="primary" />
               <Typography variant="h6" sx={{ mt: 2 }}>
@@ -40,7 +41,8 @@ const About = () => {
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} md={4}>
+
+          <Grid size={{ xs: 12, md: 4 }}>
             <Paper sx={{ p: 3, textAlign: "center" }}>
               <VerifiedUserIcon fontSize="large" color="primary" />
               <Typography variant="h6" sx={{ mt: 2 }}>
@@ -52,7 +54,8 @@ const About = () => {
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} md={4}>
+
+          <Grid size={{ xs: 12, md: 4 }}>
             <Paper sx={{ p: 3, textAlign: "center" }}>
               <AccountCircleIcon fontSize="large" color="primary" />
               <Typography variant="h6" sx={{ mt: 2 }}>
