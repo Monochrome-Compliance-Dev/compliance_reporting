@@ -113,6 +113,8 @@ export default function Contact() {
       subject: data.subject,
     };
 
+    console.log("Sanitised contact email data:", safe);
+
     const topicTag = safe.topic?.toLowerCase().includes("pulse")
       ? safe.subject?.toLowerCase().includes("ea")
         ? "[PULSE EA]"
@@ -124,16 +126,26 @@ export default function Contact() {
     const contactEmail = {
       to: data.to || "contact@monochrome-compliance.com",
       subject,
+
+      // Message content (duplicate keys for compatibility with different handlers)
       message: safe.message,
+      body: safe.message,
+      text: safe.message,
+      messageBody: safe.message,
+
       name: safe.name,
       email: safe.email,
+      company: safe.company,
+      topic: safe.topic,
+
+      // Optional metadata (if provided by future UI)
       date: data.date,
       time: data.time,
-      company: safe.company,
+
+      // Email routing overrides
       from: data.from || safe.email,
       cc: data.cc,
       bcc: data.bcc,
-      topic: safe.topic,
     };
 
     try {
@@ -144,9 +156,7 @@ export default function Contact() {
       if (response?.status === 200) {
         reset();
         showAlert("Message sent successfully!", "success");
-        setTimeout(() => {
-          navigate("/thankyou-contact");
-        }, 1500);
+        navigate("/thankyou-contact", { replace: true });
         return;
       }
     } catch (error) {

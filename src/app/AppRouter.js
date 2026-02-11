@@ -22,7 +22,6 @@ export default function AppRouter() {
     {
       path: "",
       Component: Layout,
-      HydrateFallback: Fallback,
       ErrorBoundary: RootErrorBoundary,
       children: [
         { index: true, Component: LandingPage },
@@ -35,7 +34,7 @@ export default function AppRouter() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} fallbackElement={<Fallback />} />
       {process.env.NODE_ENV === "development" && (
         <ReactQueryDevtools
           initialIsOpen={false}
