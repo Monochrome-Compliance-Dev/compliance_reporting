@@ -1,12 +1,36 @@
 import { io } from "socket.io-client";
 
-// 🔥 This file handles the real-time socket.io connection for file upload progress and related events.
-// It connects to the server, listens for various progress and result events, and dispatches them
-// to specific handlers for clarity and maintainability.
+// IMPORTANT:
+// - Do NOT hardcode localhost (breaks SIT/prod and causes endless CORS noise)
+// - Do NOT auto-connect on import (public pages can import this file indirectly)
+//
+// Enable sockets explicitly when needed (e.g. full platform launch / specific panels):
+//   REACT_APP_ENABLE_SOCKETS=true
+const ENABLE_SOCKETS = process.env.REACT_APP_ENABLE_SOCKETS === "true";
 
-// console.log("🔥 socket.js loaded");
+// Socket.IO must connect to the server root (NOT the REST /api base).
+// Priority:
+//  1) REACT_APP_SOCKET_URL (explicit)
+//  2) REACT_APP_API_URL with trailing /api stripped
+//  3) window.location.origin (same-origin) as a safe default
+const socketBaseUrl =
+  process.env.REACT_APP_SOCKET_URL ||
+  (process.env.REACT_APP_API_URL
+    ? process.env.REACT_APP_API_URL.replace(/\/api\/?$/, "")
+    : typeof window !== "undefined"
+      ? window.location.origin
+      : "");
 
-const socket = io("http://localhost:4000");
+// Create the client but do not connect unless explicitly enabled.
+const socket = io(socketBaseUrl, {
+  withCredentials: true,
+  transports: ["websocket", "polling"],
+  autoConnect: false,
+});
+
+if (ENABLE_SOCKETS) {
+  socket.connect();
+}
 
 // --- Connection lifecycle events ---
 socket.on("connect", () => {
@@ -65,7 +89,7 @@ const handlers = {
 socket.on("statusUpdate", ({ type, stage, payload }) => {
   console.log(
     `🔄 statusUpdate received | type: ${type} | stage: ${stage} | payload:`,
-    payload
+    payload,
   );
 
   if (handlers[type]) {
@@ -76,7 +100,7 @@ socket.on("statusUpdate", ({ type, stage, payload }) => {
       type,
       "stage:",
       stage,
-      payload
+      payload,
     );
   }
 });
