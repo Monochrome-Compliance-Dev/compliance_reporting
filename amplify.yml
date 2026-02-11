@@ -1,7 +1,7 @@
 version: 1
 env:
   runtime-versions:
-    nodejs: 18
+    nodejs: 20
 frontend:
   phases:
     preBuild:
@@ -15,7 +15,7 @@ frontend:
         - node -p "JSON.stringify(require('./package.json').dependencies, null, 2)" || true
         - node -p "JSON.stringify(require('./package.json').devDependencies, null, 2)" || true
         # Install deps
-        - npm ci
+        - npm ci --legacy-peer-deps
         # Show the actually resolved versions Amplify installed
         - npm ls react react-dom react-router || true
         # Hunt for React 19-only import patterns after install
