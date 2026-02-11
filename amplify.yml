@@ -1,12 +1,13 @@
 version: 1
 env:
   runtime-versions:
-    nodejs: 18
+    nodejs: 20
 frontend:
   phases:
     preBuild:
       commands:
         # Make toolchain deterministic and compatible with lockfile v3
+        - echo "USING amplify.yml (node20 + legacy-peer-deps)"
         - node -v
         - corepack enable
         - corepack prepare npm@10.7.0 --activate
@@ -14,7 +15,8 @@ frontend:
         # Quick visibility into declared deps (no jq in build image)
         - node -p "JSON.stringify(require('./package.json').dependencies, null, 2)" || true
         - node -p "JSON.stringify(require('./package.json').devDependencies, null, 2)" || true
-        # Install deps
+        # Install deps (force legacy peer deps so npm cannot fail the build on React 19 peer mismatches)
+        - npm config set legacy-peer-deps true
         - npm ci
         # Show the actually resolved versions Amplify installed
         - npm ls react react-dom react-router || true

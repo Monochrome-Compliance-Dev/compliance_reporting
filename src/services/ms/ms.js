@@ -39,7 +39,10 @@ function buildQueryParams(params) {
 
 // Reporting Periods
 async function getReportingPeriods() {
-  return await fetchWrapper.get(`${baseUrl}/reporting-periods`);
+  const periods = await fetchWrapper.get(`${baseUrl}/reporting-periods`);
+  console.log("Fetched reporting periods:", periods);
+  return periods;
+  // return await fetchWrapper.get(`${baseUrl}/reporting-periods`);
 }
 
 async function getReportingPeriodById(id) {
@@ -53,14 +56,14 @@ async function createReportingPeriod(params) {
 // Interview Responses
 async function getInterviewResponses(reportingPeriodId) {
   return await fetchWrapper.get(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/interview`
+    `${baseUrl}/reporting-periods/${reportingPeriodId}/interview`,
   );
 }
 
 async function submitInterviewResponses(reportingPeriodId, params) {
   return await fetchWrapper.post(
     `${baseUrl}/reporting-periods/${reportingPeriodId}/interview`,
-    params
+    params,
   );
 }
 
@@ -68,7 +71,7 @@ async function submitInterviewResponses(reportingPeriodId, params) {
 async function getSupplierRisks(startDate, endDate) {
   const query = buildQueryParams({ startDate, endDate });
   return await fetchWrapper.get(
-    `${baseUrl}/supplier-risks${query ? `?${query}` : ""}`
+    `${baseUrl}/supplier-risks${query ? `?${query}` : ""}`,
   );
 }
 
@@ -88,7 +91,7 @@ async function deleteSupplierRisk(riskId) {
 async function getTraining(startDate, endDate) {
   const query = buildQueryParams({ startDate, endDate });
   return await fetchWrapper.get(
-    `${baseUrl}/training${query ? `?${query}` : ""}`
+    `${baseUrl}/training${query ? `?${query}` : ""}`,
   );
 }
 
@@ -108,7 +111,7 @@ async function deleteTraining(recordId) {
 async function getGrievances(startDate, endDate) {
   const query = buildQueryParams({ startDate, endDate });
   return await fetchWrapper.get(
-    `${baseUrl}/grievances${query ? `?${query}` : ""}`
+    `${baseUrl}/grievances${query ? `?${query}` : ""}`,
   );
 }
 
@@ -127,7 +130,7 @@ async function deleteGrievance(grievanceId) {
 // Generate Statement
 async function generateStatement(reportingPeriodId) {
   return await fetchWrapper.post(
-    `${baseUrl}/reporting-periods/${reportingPeriodId}/statement`
+    `${baseUrl}/reporting-periods/${reportingPeriodId}/statement`,
   );
 }
 
@@ -140,7 +143,7 @@ async function getSupplierRiskSummary(params = {}) {
   console.log("Calling getSupplierRiskSummary with ", params);
   const query = buildQueryParams(params);
   return await fetchWrapper.get(
-    `${baseUrl}/dashboard/supplier-risk-summary${query ? `?${query}` : ""}`
+    `${baseUrl}/dashboard/supplier-risk-summary${query ? `?${query}` : ""}`,
   );
 }
 
@@ -151,7 +154,7 @@ async function getSupplierRiskSummary(params = {}) {
 async function getTrainingStats(params = {}) {
   const query = buildQueryParams(params);
   return await fetchWrapper.get(
-    `${baseUrl}/dashboard/training-stats${query ? `?${query}` : ""}`
+    `${baseUrl}/dashboard/training-stats${query ? `?${query}` : ""}`,
   );
 }
 
@@ -162,6 +165,6 @@ async function getTrainingStats(params = {}) {
 async function getGrievanceSummary(params = {}) {
   const query = buildQueryParams(params);
   return await fetchWrapper.get(
-    `${baseUrl}/dashboard/grievance-summary${query ? `?${query}` : ""}`
+    `${baseUrl}/dashboard/grievance-summary${query ? `?${query}` : ""}`,
   );
 }

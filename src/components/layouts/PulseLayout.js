@@ -7,29 +7,30 @@ import {
   Chip,
   Tooltip,
 } from "@mui/material";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate, useLocation, Outlet } from "react-router";
+import { useEffect, useState } from "react";
 
-import { usePulseContext } from "../../context/PulseContext";
+import { usePulseContext } from "context/PulseContext";
+import { getCurrentCustomer, onCustomerChange } from "lib/utils/tenantScope";
+import { userService } from "services";
 
-/**
- * Minimal layout for Pulse screens.
- * Props:
- * - title: string (required)
- * - subtitle?: string
- * - headerRight?: ReactNode (optional actions area on the right)
- * - maxWidth?: number (defaults to 1400)
- * - children: ReactNode
- */
-export default function PulseLayout({
-  title,
-  subtitle,
-  headerRight = null,
-  maxWidth = 1400,
-  children,
-}) {
+export default function PulseLayout({ headerRight = null, maxWidth = 1400 }) {
   const navigate = useNavigate();
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
+
+  const [actingFor, setActingFor] = useState(() => getCurrentCustomer());
+  useEffect(() => {
+    const unsubscribe =
+      typeof onCustomerChange === "function"
+        ? onCustomerChange((cust) => setActingFor(cust))
+        : null;
+    return () => {
+      if (typeof unsubscribe === "function") unsubscribe();
+    };
+  }, []);
+
+  const user = userService.userValue;
 
   const { serverStatus } = usePulseContext();
   const statusLabel =
@@ -109,15 +110,29 @@ export default function PulseLayout({
           })}
         </Breadcrumbs>
 
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+            flexWrap: "wrap",
+          }}
+        >
           <Tooltip title={statusTooltip}>
             <Chip size="small" color={statusColor} label={statusLabel} />
           </Tooltip>
+          {user.role === "Boss" && actingFor?.id && (
+            <Typography variant="body2" color="text.secondary">
+              Acting on behalf of: <strong>{actingFor.name}</strong>
+            </Typography>
+          )}
           {headerRight}
         </Box>
       </Stack>
 
-      <Box>{children}</Box>
+      <Box sx={{ flex: 1, p: 3 }}>
+        <Outlet />
+      </Box>
     </Box>
   );
 }

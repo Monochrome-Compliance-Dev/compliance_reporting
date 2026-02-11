@@ -3,8 +3,6 @@ import { tcpService, xeroService } from "../../services";
 import {
   Button,
   Typography,
-  Alert,
-  Snackbar,
   Tooltip,
   Paper,
   Stack,
@@ -13,8 +11,8 @@ import {
   TextField,
   MenuItem,
 } from "@mui/material";
-import { usePtrsContext } from "../../context";
-import { userService } from "../../services";
+import { useAlert, usePtrsContext } from "../../context";
+import { bigBerthaService, userService } from "../../services";
 import Papa from "papaparse";
 import {
   PTRS_REQUIRED_FIELDS,
@@ -24,9 +22,15 @@ import {
 
 import { getFieldLabel } from "./fieldMeta";
 
+// Lightweight debug logger for this module
+const DBG = (...args) => console.log("[PTRS][ConnectExternalSystems]", ...args);
+
+// --- API base for local ingest ---
+const LOCAL_INGEST = process.env.REACT_APP_LOCAL_INGEST === "1";
+
 export default function ConnectExternalSystems({ onUploadComplete }) {
   const { ptrsDetails, activePtrsId } = usePtrsContext();
-  const [alert] = useState(null);
+  const { showAlert } = useAlert();
   const [progressMessage, setProgressMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef();
@@ -40,10 +44,13 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
   const [columnMap, setColumnMap] = useState({}); // rawHeader -> MC field
 
   // ---- Guardrails: file constraints ----
-  const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10 MB cap
+  const MAX_FILE_BYTES = LOCAL_INGEST
+    ? Number.POSITIVE_INFINITY
+    : 10 * 1024 * 1024; // dev: no cap; prod: 10 MB
   const MAX_CELL_BUDGET = 210_000; // rows * cols limit for XLSX preview/mapping
 
   const workerRef = useRef(null);
+  const lastProgressToastRef = useRef(0);
 
   function ensureWorker() {
     if (workerRef.current && workerRef.current._alive) return workerRef.current;
@@ -104,6 +111,7 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
   const handleXeroConnect = async () => {
     setIsLoading(true);
     setProgressMessage("Connecting to Xero...");
+    showAlert("Connecting to Xero...", "info");
     try {
       const resp = await xeroService.connect({
         ptrsId: currentPtrsId,
@@ -133,6 +141,7 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
     } catch (error) {
       console.error("Error connecting to Xero:", error);
       setProgressMessage("Error occurred while connecting to Xero.");
+      showAlert("Error occurred while connecting to Xero.", "error");
       setIsLoading(false);
     }
   };
@@ -149,21 +158,25 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
     const gate = isAllowedFile(file);
     if (!gate.ok) {
       setProgressMessage(gate.reason);
+      showAlert(gate.reason, "warning");
       if (event?.target) event.target.value = "";
       return;
     }
 
     setUploading(true);
     setProgressMessage("Profiling file…");
+    showAlert("Profiling file…", "info");
 
     try {
       setDetectedType(gate.kind);
       await stageAndProfile(file, gate.kind);
       setProgressMessage("Ready to review.");
+      showAlert("Ready to review.", "info");
       setMode("review");
     } catch (error) {
       console.error("Staging failed:", error);
       setProgressMessage(error?.message || "Could not read file.");
+      showAlert(error?.message || "Could not read file.", "error");
     } finally {
       setUploading(false);
       if (event?.target) event.target.value = ""; // reset the file input
@@ -290,6 +303,55 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
     return out;
   }
 
+  // Compute the selected headers (targets) from the current columnMap, preserving order
+  function computeSelectedHeaders(map) {
+    const allowedTargets = new Set([
+      ...PTRS_REQUIRED_FIELDS,
+      ...PTRS_OPTIONAL_FIELDS,
+    ]);
+    // preserve order: required first (in PTRS_REQUIRED_FIELDS order), then optionals
+    const picked = [];
+    for (const f of PTRS_REQUIRED_FIELDS) {
+      // find any raw column that maps to f
+      const raw = Object.keys(map).find((rk) => map[rk] === f);
+      if (raw && allowedTargets.has(f)) picked.push(f);
+    }
+    for (const f of PTRS_OPTIONAL_FIELDS) {
+      const raw = Object.keys(map).find((rk) => map[rk] === f);
+      if (raw && allowedTargets.has(f)) picked.push(f);
+    }
+    return Array.from(new Set(picked));
+  }
+
+  // Build BE-ready map: canonical (target) -> raw header
+  function buildCanonicalMap(rawToTargetMap) {
+    const out = {};
+    if (!rawToTargetMap || typeof rawToTargetMap !== "object") return out;
+    for (const [raw, target] of Object.entries(rawToTargetMap)) {
+      if (target && typeof target === "string") {
+        out[target] = raw;
+      }
+    }
+    return out;
+  }
+
+  // Ensure only one raw column maps to each canonical target
+  function dedupeTargetCollisions(rawToTargetMap) {
+    const used = new Set();
+    const cleaned = {};
+    const dropped = [];
+    for (const [raw, tgt] of Object.entries(rawToTargetMap || {})) {
+      if (!tgt) continue;
+      if (used.has(tgt)) {
+        dropped.push({ raw, tgt });
+        continue; // drop duplicate mapping for same target
+      }
+      used.add(tgt);
+      cleaned[raw] = tgt;
+    }
+    return { map: cleaned, dropped };
+  }
+
   // Read XLSX headers and sample rows, preserving blanks and true column range
   async function readXlsxHeadersAndSample(file) {
     const buffer = await file.arrayBuffer();
@@ -368,17 +430,47 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
     return PTRS_REQUIRED_FIELDS.every((req) => mappedTargets.has(req));
   }
 
+  // Throttle helper for UI progress feedback
+  function throttle(fn, ms) {
+    let last = 0;
+    return (...args) => {
+      const now = Date.now();
+      if (now - last >= ms) {
+        last = now;
+        fn(...args);
+      }
+    };
+  }
+
+  // Peek at the first line of a Blob (CSV header preview)
+  async function peekBlobHeader(blob) {
+    try {
+      const text = await blob.slice(0, 4096).text();
+      const firstLine = (text.split(/\r?\n/)[0] || "").replace(/\r$/, "");
+      console.info("[PTRS] CSV header preview →", firstLine);
+      return firstLine;
+    } catch (e) {
+      console.warn("[PTRS] Failed to peek CSV header", e);
+      return "";
+    }
+  }
+
   async function remapFileToCsv(file, type, map) {
-    // Collect target headers up-front (used by CSV branch and for worker mapping)
+    // Collect target headers up-front (used by both XLSX and CSV branches)
     const allowedTargets = new Set([
       ...PTRS_REQUIRED_FIELDS,
       ...PTRS_OPTIONAL_FIELDS,
     ]);
-    const targetHeaders = Array.from(
-      new Set(Object.values(map).filter((v) => v && allowedTargets.has(v)))
-    );
+    // Use canonical, deduped order: required first (as defined), then optional
+    const targetHeaders =
+      typeof computeSelectedHeaders === "function"
+        ? computeSelectedHeaders(map)
+        : Array.from(
+            new Set(
+              Object.values(map).filter((v) => v && allowedTargets.has(v))
+            )
+          );
 
-    let rows = [];
     if (type === "xlsx") {
       const buffer = await file.arrayBuffer();
       const w = ensureWorker();
@@ -418,14 +510,59 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
 
       return new Blob([csvText], { type: "text/csv;charset=utf-8" });
     } else {
-      // csv
-      rows = await new Promise((resolve, reject) => {
-        const out = [];
+      // csv — stream-map without retaining all rows in memory, with buffered writes and throttled progress
+      // Precompute reverse map: target field -> first raw header name (ignore later collisions)
+      const reverseMap = Object.create(null);
+      for (const [raw, tgt] of Object.entries(map)) {
+        if (!tgt || !allowedTargets.has(tgt)) continue;
+        if (!Object.prototype.hasOwnProperty.call(reverseMap, tgt)) {
+          reverseMap[tgt] = raw;
+        }
+      }
+
+      console.info("[PTRS] targetHeaders →", targetHeaders);
+
+      // Helper to CSV-escape a single field
+      const esc = (v) => {
+        const s = v == null ? "" : String(v);
+        if (/[",\n\r]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+        return s;
+      };
+
+      const chunks = [];
+      const encoder = new TextEncoder();
+      // Buffered writer to reduce small allocations
+      let buf = "";
+      let sinceFlush = 0;
+      let totalRows = 0;
+      const FLUSH_EVERY = 5000; // encode & push every 5k rows
+      const flush = () => {
+        if (buf.length > 0) {
+          chunks.push(encoder.encode(buf));
+          buf = "";
+          sinceFlush = 0;
+        }
+      };
+      // header once
+      buf += targetHeaders.join(",") + "\n";
+
+      const tick = throttle((n) => {
+        const msg = `Mapping rows… ${n.toLocaleString()}`;
+        setProgressMessage(msg);
+        const now = Date.now();
+        if (now - lastProgressToastRef.current >= 5000) {
+          lastProgressToastRef.current = now;
+          showAlert(msg, "info");
+        }
+      }, 500);
+
+      await new Promise((resolve, reject) => {
         let hdrs = [];
         let rawHdrs = [];
         Papa.parse(file, {
           header: true,
           skipEmptyLines: "greedy",
+          chunkSize: 1024 * 256, // 256KB chunks
           chunk: (chunk, parser) => {
             if (hdrs.length === 0) {
               rawHdrs =
@@ -436,54 +573,207 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
                   : `__BLANK_COL_${i}`
               );
             }
+            // Cache raw header indexes for fast lookup
+            const rawIdxByName = Object.create(null);
+            for (let i = 0; i < rawHdrs.length; i++)
+              rawIdxByName[rawHdrs[i]] = i;
+
             for (const row of chunk.data) {
-              const rawObj = {};
-              for (let i = 0; i < hdrs.length; i++) {
-                const originalKey = rawHdrs[i] || "";
-                rawObj[hdrs[i]] = Object.prototype.hasOwnProperty.call(
-                  row,
-                  originalKey
-                )
-                  ? row[originalKey]
-                  : undefined;
+              const mapped = new Array(targetHeaders.length);
+              for (let i = 0; i < targetHeaders.length; i++) {
+                const tgt = targetHeaders[i];
+                const rawFrom = reverseMap[tgt];
+                if (!rawFrom) {
+                  mapped[i] = "";
+                  continue;
+                }
+                const idx = rawIdxByName[rawFrom];
+                const key = idx >= 0 && idx != null ? rawHdrs[idx] : rawFrom;
+                const val = Object.prototype.hasOwnProperty.call(row, key)
+                  ? row[key]
+                  : "";
+                mapped[i] = esc(val);
               }
-              const mapped = {};
-              for (const [rawH, target] of Object.entries(map)) {
-                if (target && allowedTargets.has(target))
-                  mapped[target] = rawObj[rawH];
-              }
-              out.push(mapped);
+              buf += mapped.join(",") + "\n";
+              sinceFlush++;
+              totalRows++;
+              if (sinceFlush >= FLUSH_EVERY) flush();
             }
+            tick(totalRows);
           },
-          complete: () => resolve(out),
-          error: reject,
+          complete: () => {
+            flush();
+            resolve();
+          },
+          error: (e) => {
+            flush();
+            reject(e);
+          },
         });
       });
-    }
 
-    // Use Papa to unparse to CSV text
-    const csvText = Papa.unparse({
-      fields: targetHeaders,
-      data: rows.map((r) => targetHeaders.map((h) => r[h] ?? "")),
-    });
-    return new Blob([csvText], { type: "text/csv;charset=utf-8" });
+      return new Blob(chunks, { type: "text/csv;charset=utf-8" });
+    }
+  }
+
+  // --- Local ingest helpers ---
+  async function devCommitUpload(mappedBlob, baseName, meta = {}) {
+    // 1) Stream to local file store via service
+    const fd = new FormData();
+    fd.append("file", mappedBlob, `mapped_${baseName}.csv`);
+    const upJson = await bigBerthaService.uploadLocal(fd, currentPtrsId);
+
+    // 2) Start ingest job via service
+    const customerId =
+      userService.userValue?.customerId ||
+      userService.userValue?.clientId ||
+      "unknown";
+
+    const st = await bigBerthaService.startIngest(
+      {
+        filePath: upJson.filePath,
+        customerId,
+        ptrsId: currentPtrsId,
+        originalName: upJson.originalName || `mapped_${baseName}.csv`,
+        sizeBytes: upJson.sizeBytes || mappedBlob.size,
+        format: "csv",
+      },
+      meta
+    );
+    const jobId = st?.jobId || st?.data?.jobId || st?.data?.id || st?.id;
+    if (!jobId) throw new Error("Start ingest response missing jobId");
+    return jobId;
+  }
+
+  // Simple polling of ingest status for UX feedback
+  async function pollIngest(jobId, onUpdate) {
+    const delay = (ms) => new Promise((r) => setTimeout(r, ms));
+    for (;;) {
+      try {
+        const r = await bigBerthaService.getIngestJob(jobId);
+        const j = r?.job || r?.data?.job || r?.data || r;
+        if (j) {
+          // Broadcast progress to other UI (e.g., DataUploadReview)
+          try {
+            window.dispatchEvent(
+              new CustomEvent("ptrs:ingestProgress", { detail: { job: j } })
+            );
+          } catch (_) {}
+          onUpdate?.(j);
+          if (j.status === "complete" || j.status === "failed") {
+            try {
+              window.dispatchEvent(
+                new CustomEvent("ptrs:ingestComplete", { detail: { job: j } })
+              );
+            } catch (_) {}
+            return j; // return final job so caller can decide messaging
+          }
+        }
+      } catch (err) {
+        // surface transient fetch errors but keep polling a couple of times
+        console.warn("[pollIngest] transient error", err);
+      }
+      await delay(1500);
+    }
   }
 
   const handleCommitUpload = async () => {
     try {
+      DBG("commit:start", {
+        ptrsId: currentPtrsId,
+        detectedType,
+        headersCount: Array.isArray(headers) ? headers.length : 0,
+      });
       setUploading(true);
       setProgressMessage("Preparing file…");
+      showAlert("Preparing file…", "info");
+      // Deduplicate any target collisions (e.g., two raw columns mapped to payeeEntityAbn)
+      const { map: cleanMap, dropped } = dedupeTargetCollisions(columnMap);
+      if (dropped.length) {
+        console.info("[PTRS] Dropped duplicate mappings:", dropped);
+        showAlert(
+          `Removed ${dropped.length} duplicate mapping(s) to the same target field.`,
+          "info"
+        );
+      }
+
+      // NEW: concise debug snapshot of the post-dedupe map and selected targets
+      try {
+        const selectedTargets = computeSelectedHeaders
+          ? computeSelectedHeaders(cleanMap)
+          : Object.values(cleanMap || {});
+        DBG("commit:cleanMap", {
+          selectedTargets,
+          mapSize: Object.keys(cleanMap || {}).length,
+        });
+      } catch (_) {
+        // no-op: debug only
+      }
+
+      console.info("[PTRS] cleanMap →", cleanMap);
+
+      // NEW: marker right before remap begins, with quick counts
+      DBG("commit:remap_begin", {
+        type: detectedType,
+        targetCount: (() => {
+          try {
+            const selectedTargets = computeSelectedHeaders
+              ? computeSelectedHeaders(cleanMap)
+              : Object.values(cleanMap || {});
+            return selectedTargets.length;
+          } catch {
+            return Object.values(cleanMap || {}).length;
+          }
+        })(),
+      });
+
       const mappedBlob = await remapFileToCsv(
         stagedFile,
         detectedType,
-        columnMap
+        cleanMap
       );
-      const formData = new FormData();
       const baseName = stagedFile.name.replace(/\.[^.]+$/, "");
-      formData.append("file", mappedBlob, `mapped_${baseName}.csv`);
-      formData.append("ptrsId", currentPtrsId);
-      await tcpService.upload(formData, true);
-      setProgressMessage("Upload successful.");
+
+      if (LOCAL_INGEST) {
+        console.info("[PTRS] Local ingest: CSV REMAPPED to canonical headers");
+        await peekBlobHeader(mappedBlob); // should show canonical headers
+        console.info("[PTRS] Sending canonical CSV only (no columnMap)");
+        // New Big Bertha local flow (stream → start → poll)
+        const jobId = await devCommitUpload(mappedBlob, baseName);
+        setProgressMessage(`Ingest started (job ${jobId}).`);
+        showAlert(`Ingest started (job ${jobId}).`, "info");
+        const finalJob = await pollIngest(jobId, (job) => {
+          const msg = `${(job?.rowsProcessed ?? 0).toLocaleString()} processed • ${(job?.rowsValid ?? 0).toLocaleString()} valid • ${(job?.rowsErrored ?? 0).toLocaleString()} errors • ${job?.status}`;
+          setProgressMessage(msg);
+          const now = Date.now();
+          if (now - lastProgressToastRef.current >= 5000) {
+            lastProgressToastRef.current = now;
+            showAlert(msg, "info");
+          }
+        });
+
+        if (finalJob?.status === "failed") {
+          const errText = finalJob?.lastError || JSON.stringify(finalJob);
+          console.error("[PTRS] Ingest failed", finalJob);
+          setProgressMessage(errText);
+          showAlert(errText, "error");
+          // Do not reset UI state; let user adjust mapping or try again
+          return; // exit early on failure
+        }
+
+        // success
+        setProgressMessage("Ingest complete.");
+        showAlert("Ingest complete.", "success");
+      } else {
+        // Existing small-file path (API upload via tcpService)
+        const formData = new FormData();
+        formData.append("file", mappedBlob, `mapped_${baseName}.csv`);
+        formData.append("ptrsId", currentPtrsId);
+        await tcpService.upload(formData, true);
+        setProgressMessage("Upload successful.");
+        showAlert("Upload successful.", "success");
+      }
+
       if (onUploadComplete) onUploadComplete();
       setMode("idle");
       setStagedFile(null);
@@ -492,7 +782,8 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
       setColumnMap({});
     } catch (error) {
       console.error("Upload failed:", error);
-      setProgressMessage("Upload failed.");
+      setProgressMessage(error?.message || "Upload failed.");
+      showAlert(error?.message || "Upload failed.", "error");
     } finally {
       setUploading(false);
     }
@@ -501,11 +792,6 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
   return (
     <Card variant="outlined" sx={{ mt: 2 }}>
       <CardContent>
-        {alert && (
-          <Alert severity={alert.type} sx={{ mb: 2 }}>
-            {alert.message}
-          </Alert>
-        )}
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           Select a provider or upload a CSV extract to get started.
         </Typography>
@@ -607,6 +893,10 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
                   setProgressMessage(
                     ok ? "Mapping saved." : "Could not save mapping."
                   );
+                  showAlert(
+                    ok ? "Mapping saved." : "Could not save mapping.",
+                    ok ? "success" : "error"
+                  );
                 }}
               >
                 Save mapping
@@ -623,8 +913,10 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
                   if (loaded) {
                     setColumnMap((prev) => ({ ...prev, ...loaded }));
                     setProgressMessage("Mapping loaded.");
+                    showAlert("Mapping loaded.", "success");
                   } else {
                     setProgressMessage("No saved mapping found.");
+                    showAlert("No saved mapping found.", "warning");
                   }
                 }}
               >
@@ -701,14 +993,16 @@ export default function ConnectExternalSystems({ onUploadComplete }) {
             </span>
           </Tooltip>
         </Stack>
-
-        <Snackbar
-          open={!!progressMessage}
-          message={progressMessage}
-          autoHideDuration={3000}
-          onClose={() => setProgressMessage("")}
-          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        />
+        {/* status line */}
+        {progressMessage ? (
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{ mt: 2, display: "block", textAlign: "center" }}
+          >
+            {progressMessage}
+          </Typography>
+        ) : null}
       </CardContent>
     </Card>
   );

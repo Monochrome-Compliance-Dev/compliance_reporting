@@ -74,6 +74,14 @@ export default function PulseSolutionLanding() {
       roles: ["Admin", "Boss"],
     },
     {
+      key: "maximiser",
+      title: "Maximiser",
+      description: "AI-assisted insights for timesheets and engagements.",
+      icon: <DashboardIcon fontSize="large" aria-hidden />,
+      to: "/pulse-solution/maximiser",
+      roles: ["User", "Admin", "Boss"],
+    },
+    {
       key: "workplace",
       title: "Workspace",
       description: workspaceDescription,

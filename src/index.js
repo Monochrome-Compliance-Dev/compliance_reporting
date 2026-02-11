@@ -33,12 +33,12 @@ startApp();
 function startApp() {
   ReactDOM.createRoot(document.getElementById("root")).render(
     <HelmetProvider>
-      <AuthProvider>
-        <AlertProvider>
+      <AlertProvider>
+        <AuthProvider>
           <GlobalPrintStyles />
           <AppRouter />
-        </AlertProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </AlertProvider>
     </HelmetProvider>
   );
 }

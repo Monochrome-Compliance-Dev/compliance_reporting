@@ -14,3 +14,4 @@ export * from "./payloadSanitiser";
 export * from "./usePrintComponent";
 export * from "./summaryUtils";
 export * from "./periodUtils";
+export * from "./tenantScope";

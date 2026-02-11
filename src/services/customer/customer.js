@@ -9,6 +9,7 @@ export const customerService = {
   update,
   patch,
   delete: _delete,
+  getCustomersByAccess,
 };
 
 async function getAll() {
@@ -33,4 +34,9 @@ async function patch(id, params) {
 
 async function _delete(id) {
   return await fetchWrapper.delete(`${baseUrl}/${id}`);
+}
+
+async function getCustomersByAccess(_userId) {
+  // The backend derives the user from the auth token; no userId param is required.
+  return fetchWrapper.get(`${baseUrl}/access`);
 }

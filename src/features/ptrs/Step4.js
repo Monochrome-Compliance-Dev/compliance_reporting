@@ -16,7 +16,6 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router";
 import { getRowHighlightColor } from "../../../lib/utils/";
-import { calculatePaymentTime } from "../../../lib/calculations/ptrs";
 
 export default function Step4({
   savedRecords = [],
@@ -36,12 +35,7 @@ export default function Step4({
   // Use savedRecords or tcpDataset as appropriate for the dataset
   const dataset =
     tcpDataset && tcpDataset.length > 0 ? tcpDataset : savedRecords;
-  const [records, setRecords] = useState(
-    dataset.map((record) => ({
-      ...record,
-      paymentTime: calculatePaymentTime(record), // Add calculated paymentTime field
-    }))
-  );
+  const [records, setRecords] = useState(dataset);
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -53,17 +47,12 @@ export default function Step4({
     setSearchTerm(lowerCaseSearchTerm);
 
     setRecords(
-      tcpDataset
-        .map((record) => ({
-          ...record,
-          paymentTime: calculatePaymentTime(record),
-        }))
-        .filter((record) =>
-          Object.values(record)
-            .join(" ")
-            .toLowerCase()
-            .includes(lowerCaseSearchTerm)
-        )
+      tcpDataset.filter((record) =>
+        Object.values(record)
+          .join(" ")
+          .toLowerCase()
+          .includes(lowerCaseSearchTerm)
+      )
     );
   };
 

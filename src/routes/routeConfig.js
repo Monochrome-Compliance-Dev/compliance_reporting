@@ -55,7 +55,6 @@ import PulseSolutionLanding from "../features/pulse/PulseSolutionLanding";
 import PulseMaximiser from "../features/pulse/maximiser/PulseMaximiser";
 import Workspace from "../features/pulse/workspace/Workspace";
 import Welcome from "../features/stripe/Welcome";
-import PulseMaximiserWidget from "../features/pulseLanding/PulseMaximiserWidget";
 import MaximiserStudio from "../features/pulse/maximiser/MaximiserStudio";
 
 export const protectedRoutes = [

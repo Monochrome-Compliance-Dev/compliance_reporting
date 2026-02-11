@@ -15,3 +15,4 @@ export * from "./file/file";
 export * from "./socket/socket";
 export * from "./ms/ms";
 export * from "./billing/billing";
+export * from "./bigBertha/bigBertha";

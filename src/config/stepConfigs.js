@@ -55,7 +55,8 @@ export const stepConfigs = {
       "rcti",
       "creditCardPayment",
       "creditCardNumber",
-      "partialPayment",
+      "excludedTcp",
+      "explanatoryComments1",
     ],
     hiddenColumns: fieldMapping
       .filter(

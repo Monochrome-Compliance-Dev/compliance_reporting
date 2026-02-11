@@ -44,6 +44,7 @@ const globalTheme = (mode) => {
     palette: {
       mode, // Ensure mode is either "light" or "dark"
       ...(mode === "light" ? lightPalette : darkPalette),
+      neutral: { main: "#6f7e8c", light: "#a3adb8", dark: "#495566" },
     },
     // Status color extension
     status: {
@@ -247,6 +248,11 @@ const globalTheme = (mode) => {
             fontWeight: 600,
             backgroundColor: mode === "light" ? "#f5f5f5" : "#1f1f2e",
           },
+        },
+      },
+      MuiCardHeader: {
+        styleOverrides: {
+          title: { fontWeight: 600 },
         },
       },
     },

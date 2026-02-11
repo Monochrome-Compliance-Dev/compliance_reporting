@@ -1,59 +1,92 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import {
   Box,
   Typography,
   Button,
-  Alert,
   Card,
   CardContent,
   Paper,
 } from "@mui/material";
 import { tcpService } from "../../services";
 import { Download, Upload, OpenInNew } from "@mui/icons-material";
+import { useAlert } from "../../context/AlertContext";
 
-export default function Step3({
-  savedRecords = [],
-  tcpDataset = [],
-  onNext,
-  onBack,
-  reportId,
-  reportStatus,
-}) {
-  const [alert, setAlert] = useState(null);
-  // Use savedRecords or tcpDataset as appropriate for the dataset
-  const dataset =
-    tcpDataset && tcpDataset.length > 0 ? tcpDataset : savedRecords;
+export default function Step3({ ptrsId, ptrsStatus }) {
+  const { showAlert } = useAlert();
+  const isLocked = ptrsStatus === "Submitted";
+  const params = useParams();
+  const effectivePtrsId =
+    ptrsId ||
+    params?.ptrsId ||
+    (typeof window !== "undefined" &&
+      window.localStorage.getItem("activePtrsId")) ||
+    (typeof window !== "undefined" &&
+      window.sessionStorage.getItem("activePtrsId")) ||
+    null;
+
+  useEffect(() => {
+    if (isLocked) {
+      showAlert(
+        "This report has already been submitted and cannot be edited.",
+        "info"
+      );
+    }
+  }, [isLocked, showAlert]);
+
   const [uploadedFile, setUploadedFile] = useState(null);
   const [downloadedFile, setDownloadedFile] = useState(false);
-  const [isFileUploaded, setIsFileUploaded] = useState(false); // Track successful upload
-
-  const isLocked = reportStatus === "Submitted";
+  const [isPickingFile, setIsPickingFile] = useState(false);
+  const [isImporting, setIsImporting] = useState(false);
 
   const handleDownload = async () => {
-    // Extract only the payerEntityAbn field
-    const csvHeaders = "Payee Entity ABN";
-    const csvRows = dataset.map((record) => `"${record.payeeEntityAbn}"`);
-    const csvContent = [csvHeaders, ...csvRows].join("\n");
+    if (!effectivePtrsId) {
+      showAlert(
+        "No PTRS ID available. Please reopen this PTRS from the console and try again.",
+        "warning"
+      );
+      return;
+    }
+    try {
+      const raw = await tcpService.downloadSbiExport(effectivePtrsId);
 
-    // Create and download the CSV file
-    const blob = new Blob([csvContent], { type: "text/csv" });
-    let today = new Date();
-    const dateString = today.toISOString().split("T")[0];
-    const fileName = `tcp_dataset_${dateString}.csv`;
-    const fileHandle = await window.showSaveFilePicker({
-      suggestedName: fileName,
-      types: [
-        {
-          description: "CSV Files",
-          accept: { "text/csv": [".csv"] },
-        },
-      ],
-    });
+      // Normalise to a Blob regardless of what the service returns
+      let blob;
+      if (raw instanceof Blob) {
+        blob = raw;
+      } else if (raw && raw.data instanceof Blob) {
+        blob = raw.data;
+      } else if (raw && raw.data) {
+        // axios-style: data may be ArrayBuffer or string
+        blob = new Blob([raw.data], { type: "text/csv;charset=utf-8" });
+      } else if (raw instanceof ArrayBuffer) {
+        blob = new Blob([raw], { type: "text/csv;charset=utf-8" });
+      } else if (typeof raw === "string") {
+        blob = new Blob([raw], { type: "text/csv;charset=utf-8" });
+      } else {
+        // last resort: stringify
+        blob = new Blob([JSON.stringify(raw ?? {})], {
+          type: "text/csv;charset=utf-8",
+        });
+      }
 
-    const writableStream = await fileHandle.createWritable();
-    await writableStream.write(blob);
-    await writableStream.close();
-    setDownloadedFile(true);
+      const url = URL.createObjectURL(blob);
+      const today = new Date();
+      const dateString = today.toISOString().split("T")[0];
+      const fileName = `sbi_export_${effectivePtrsId || "ptrs"}_${dateString}.csv`;
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      setDownloadedFile(true);
+      showAlert("SBI export started.", "info");
+    } catch (err) {
+      console.error("SBI export failed", err);
+      showAlert("Failed to export SBI ABNs.", "error");
+    }
   };
 
   const handleFileUpload = (event) => {
@@ -61,113 +94,40 @@ export default function Step3({
     setUploadedFile(file);
   };
 
-  const validateCsvFile = async (file) => {
-    const errors = [];
-    const text = await file.text();
-    const rows = text.split("\n").map((row) => row.trim());
-
-    const chunkSize = 1000; // Process rows in chunks
-    for (let i = 0; i < rows.length; i += chunkSize) {
-      const chunk = rows.slice(i, i + chunkSize);
-      chunk.forEach((row, index) => {
-        const globalIndex = i + index;
-        if (globalIndex === 0) {
-          if (row !== "Payee Entity ABN") {
-            errors.push(
-              `Row ${globalIndex + 1}: Header must be "Payee Entity ABN".`
-            );
-          }
-          return;
-        }
-
-        if (!row) return;
-
-        const fields = row.split(",");
-        if (fields.length !== 1) {
-          errors.push(
-            `Row ${globalIndex + 1}: Must contain exactly one field.`
-          );
-        } else if (!/^\d{11}$/.test(fields[0].trim())) {
-          errors.push(
-            `Row ${globalIndex + 1}: Value "${fields[0]}" must be an 11-digit number.`
-          );
-        }
-      });
-    }
-
-    if (rows.length <= 1) {
-      errors.push("The file must contain at least one valid data row.");
-    }
-
-    return errors;
-  };
-
   const handleSubmit = async () => {
     if (!uploadedFile) {
-      setAlert({ type: "warning", message: "Please upload a file." });
+      showAlert("Please upload a file.", "warning");
       return;
     }
-
+    if (!effectivePtrsId) {
+      showAlert(
+        "No PTRS ID available. Please reopen this PTRS from the console and try again.",
+        "warning"
+      );
+      return;
+    }
     try {
-      const errors = await validateCsvFile(uploadedFile);
-      if (errors.length > 0) {
-        setAlert({
-          type: "error",
-          message: `Validation failed:\n${errors.join("\n")}`,
-        });
-        return;
-      }
-
-      // Collect valid rows (excluding the header row)
-      const text = await uploadedFile.text();
-      const rows = text
-        .split("\n")
-        .filter((row, index) => row.trim() && index > 0); // Exclude header and empty rows
-
-      const validRecords = rows.map((row) => {
-        const payeeEntityAbn = row.trim(); // Extract the ABN
-        return {
-          payeeEntityAbn,
-          // Placeholder for future: e.g., paymentDate: formatDateForMySQL(record.paymentDate)
-        };
-      });
-
-      // Send valid records to the backend
-      try {
-        await tcpService.sbiUpdate(reportId, validRecords);
-        setAlert({
-          type: "success",
-          message: `File uploaded successfully! ${validRecords.length} records were uploaded and processed.`,
-        });
-        setIsFileUploaded(true); // Mark file as successfully uploaded
-      } catch (error) {
-        console.error("Error updating backend:", error);
-        setAlert({
-          type: "error",
-          message: "Failed to update the backend with the uploaded records.",
-        });
-      }
+      setIsImporting(true);
+      showAlert("Importing SBI results...", "info");
+      const resp = await tcpService.sbiImport(effectivePtrsId, uploadedFile);
+      const data = resp?.data || resp; // tolerate either shape
+      const total = data?.totalRows ?? data?.total ?? 0;
+      const smallBiz = data?.smallBusinessRows ?? data?.matched ?? 0;
+      const updated = data?.updated ?? smallBiz;
+      showAlert(
+        `SBI results imported. Total rows: ${total}. Small-business rows: ${smallBiz}. Updated: ${updated}.`,
+        "success"
+      );
     } catch (error) {
-      console.error("Error validating file:", error);
-      setAlert({
-        type: "error",
-        message: "An unexpected error occurred during validation.",
-      });
+      console.error("Error importing SBI CSV:", error);
+      showAlert("Failed to import SBI results.", "error");
+    } finally {
+      setIsImporting(false);
     }
   };
 
   return (
     <Paper sx={{ p: 3, mb: 4 }}>
-      {isLocked && (
-        <Alert severity="info" sx={{ mb: 2 }}>
-          This report has already been submitted and cannot be edited.
-        </Alert>
-      )}
-      {alert && (
-        <Alert severity={alert.type} sx={{ mb: 2 }}>
-          {alert.message}
-        </Alert>
-      )}
       <Typography variant="h5" sx={{ marginBottom: 2 }}>
         Step 3: Upload Comparison File
       </Typography>
@@ -219,13 +179,17 @@ export default function Step3({
               component="label"
               startIcon={<Upload />}
               disabled={isLocked}
+              onClick={() => setIsPickingFile(true)}
             >
               Upload SBI File
               <input
                 type="file"
                 hidden
                 accept=".csv"
-                onChange={handleFileUpload}
+                onChange={(e) => {
+                  handleFileUpload(e);
+                  setIsPickingFile(false);
+                }}
                 disabled={isLocked}
               />
             </Button>
@@ -236,11 +200,20 @@ export default function Step3({
               variant="contained"
               color="secondary"
               onClick={handleSubmit}
-              disabled={!uploadedFile || isLocked}
+              disabled={
+                !uploadedFile || isLocked || isPickingFile || isImporting
+              }
             >
-              Submit
+              {isImporting ? "Submitting..." : "Submit"}
             </Button>
           </Box>
+          {isImporting && (
+            <Box sx={{ mt: 2 }}>
+              <Typography variant="body2">
+                Processing SBI file… this can take a moment for large datasets.
+              </Typography>
+            </Box>
+          )}
         </CardContent>
       </Card>
     </Paper>
