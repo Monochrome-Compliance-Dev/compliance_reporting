@@ -96,13 +96,16 @@ export default function XeroConnectProgressPanel() {
   useEffect(() => {
     if (!effectivePtrsId) return;
 
+    const ENABLE_SOCKETS = process.env.REACT_APP_ENABLE_SOCKETS === "true";
+    if (!ENABLE_SOCKETS) return;
+
     // Socket.IO must connect to the server root (NOT the REST /api base).
     // If REACT_APP_SOCKET_URL is provided, use it. Otherwise derive from REACT_APP_API_URL by stripping trailing /api.
     const socketBaseUrl =
       process.env.REACT_APP_SOCKET_URL ||
       (process.env.REACT_APP_API_URL
         ? process.env.REACT_APP_API_URL.replace(/\/api\/?$/, "")
-        : "http://localhost:4000");
+        : window.location.origin);
 
     const socket = io(socketBaseUrl, {
       withCredentials: true,
