@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo, Suspense } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { Helmet } from "react-helmet-async";
@@ -7,7 +7,7 @@ import Navbar from "../navigation/Navbar";
 import Footer from "../navigation/Footer";
 import { Alert, Snackbar } from "@mui/material";
 import globalTheme from "theme/globalTheme"; // Ensure the import matches the export
-import { useAlert, useAuthContext } from "context";
+import { useAlert } from "context";
 import { LoadingSpinner } from "../ui/"; // If you have a spinner component
 import useGtagPageview from "hooks/useGtagPageview";
 
@@ -15,8 +15,6 @@ export default function Layout() {
   useGtagPageview();
   const [isDarkTheme, setIsDarkTheme] = useState(true); // true for dark mode, false for light mode
   const location = useLocation();
-  const navigate = useNavigate();
-  const { isSignedIn } = useAuthContext();
 
   const theme = useMemo(() => {
     const mode = isDarkTheme ? "dark" : "light"; // Determine the mode
@@ -27,18 +25,6 @@ export default function Layout() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
-
-  useEffect(() => {
-    const path = window.location.pathname;
-    const isAuthPage =
-      path === "/login" ||
-      path.startsWith("/verify") ||
-      path.startsWith("/reset-password");
-
-    if (isSignedIn === false && !isAuthPage) {
-      navigate("/login", { replace: true });
-    }
-  }, [isSignedIn, navigate]);
 
   const toggleTheme = () => setIsDarkTheme((prev) => !prev); // Toggle between light and dark modes
 

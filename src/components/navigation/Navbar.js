@@ -189,7 +189,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             </Box>
           )}
           {isLoggedIn && !showPublicMarketingNav && !isPublicOnlyMode && (
-            <>
+            <Box sx={{ display: "contents" }}>
               <Button
                 color="inherit"
                 onClick={handleExploreOpen}
@@ -334,7 +334,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                   About
                 </MenuItem>
               </Menu>
-            </>
+            </Box>
           )}
         </Box>
         <Box sx={{ display: { xs: "flex", md: "none" } }}>

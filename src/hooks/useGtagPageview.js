@@ -6,12 +6,11 @@ export default function useGtagPageview() {
   const location = useLocation();
 
   useEffect(() => {
-    if (typeof window.gtag === "function") {
-      window.gtag("config", "AW-17266555248", {
-        page_path: location.pathname,
-      });
-    } else {
-      console.warn("gtag is not defined");
-    }
-  }, [location]);
+    const gtagFn = typeof window !== "undefined" ? window.gtag : undefined;
+    if (typeof gtagFn !== "function") return;
+
+    gtagFn("config", "AW-17266555248", {
+      page_path: location.pathname,
+    });
+  }, [location.pathname]);
 }
