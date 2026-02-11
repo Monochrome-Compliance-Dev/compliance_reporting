@@ -1,3 +1,8 @@
+// NOTE:
+// This file provides global, non-layout print hygiene.
+// Document-specific print layouts (A4 sizing, grids, footers)
+// should define their own GlobalStyles locally.
+//
 import { GlobalStyles } from "@mui/material";
 
 export default function GlobalPrintStyles() {

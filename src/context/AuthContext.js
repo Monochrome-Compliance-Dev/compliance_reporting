@@ -4,15 +4,19 @@ import {
   useContext,
   useEffect,
   useState,
+  useRef,
 } from "react";
-import { userService } from "../services";
+import { userService } from "services";
 import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
+import { useAlert } from "./AlertContext";
 
 const AuthContext = createContext();
 
 let logoutTimer;
 let warningTimer;
 let hasRefreshed = false;
+const WARNING_MS = 14 * 60 * 1000;
+const LOGOUT_MS = 15 * 60 * 1000;
 
 export function AuthProvider({ children }) {
   const [isSignedIn, setIsSignedIn] = useState(null); // null = loading
@@ -20,28 +24,38 @@ export function AuthProvider({ children }) {
   const [isInitialising, setIsInitialising] = useState(true);
   const [showWarningDialog, setShowWarningDialog] = useState(false);
 
+  const lastActiveRef = useRef(Date.now());
+
+  const { showAlert } = useAlert();
+
   const resetInactivityTimer = useCallback(() => {
     clearTimeout(logoutTimer);
     clearTimeout(warningTimer);
 
     if (!user) return;
 
-    // Show warning at 14 min
-    warningTimer = setTimeout(
-      () => {
-        setShowWarningDialog(true);
-      },
-      14 * 60 * 1000
-    );
+    const now = Date.now();
+    const elapsed = now - lastActiveRef.current;
+    const warnIn = Math.max(WARNING_MS - elapsed, 0);
+    const logoutIn = Math.max(LOGOUT_MS - elapsed, 0);
 
-    // Auto logout at 15 min
-    logoutTimer = setTimeout(
-      () => {
-        setShowWarningDialog(false);
-        userService.logout();
-      },
-      15 * 60 * 1000
-    );
+    // If limits already exceeded while tab was hidden/asleep, act immediately
+    if (logoutIn === 0) {
+      setShowWarningDialog(false);
+      userService.logout();
+      return;
+    }
+
+    if (warnIn === 0) {
+      setShowWarningDialog(true);
+    } else {
+      warningTimer = setTimeout(() => setShowWarningDialog(true), warnIn);
+    }
+
+    logoutTimer = setTimeout(() => {
+      setShowWarningDialog(false);
+      userService.logout();
+    }, logoutIn);
   }, [user]);
 
   const handleContinueSession = () => {
@@ -52,15 +66,37 @@ export function AuthProvider({ children }) {
     });
   };
 
+  const handleEndSession = () => {
+    setShowWarningDialog(false);
+    userService.logout();
+  };
+
+  const handleSessionExpired = useCallback(() => {
+    setShowWarningDialog(false);
+    showAlert("Your session expired. Please sign in again.", "info");
+    userService.logout();
+  }, [showAlert]);
+
   useEffect(() => {
     const subscription = userService.user.subscribe((x) => {
       setUser(x);
       setIsSignedIn(!!x);
+      if (!x) {
+        const path = window.location.pathname;
+        const isAuthPage =
+          path === "/login" ||
+          path.startsWith("/verify") ||
+          path.startsWith("/reset-password");
+        if (!isAuthPage) {
+          try {
+            localStorage.setItem("lastVisitedPath", path);
+          } catch {}
+        }
+      }
     });
 
     if (!hasRefreshed) {
       hasRefreshed = true;
-
       userService
         .refreshToken()
         .then((refreshedUser) => {
@@ -72,11 +108,8 @@ export function AuthProvider({ children }) {
           }
         })
         .catch((err) => {
-          // Swallow unauthorised/no-session noise on public pages
           const msg = String(err?.message || err || "").toLowerCase();
           if (!msg.includes("unauthorised")) {
-            // Log only non-auth errors
-            // eslint-disable-next-line no-console
             console.error("Refresh failed:", err);
           }
           setIsSignedIn(false);
@@ -87,12 +120,16 @@ export function AuthProvider({ children }) {
     }
 
     const activityEvents = ["mousemove", "keydown", "click", "scroll"];
-    const handleActivity = resetInactivityTimer;
+    const handleActivity = () => {
+      lastActiveRef.current = Date.now();
+      resetInactivityTimer();
+    };
 
     activityEvents.forEach((event) =>
       window.addEventListener(event, handleActivity)
     );
 
+    lastActiveRef.current = Date.now();
     resetInactivityTimer();
 
     return () => {
@@ -113,7 +150,12 @@ export function AuthProvider({ children }) {
       <Dialog open={showWarningDialog}>
         <DialogTitle>Are you still there?</DialogTitle>
         <DialogActions>
-          <Button onClick={handleContinueSession}>Yes, I’m still here</Button>
+          <Button variant="contained" onClick={handleContinueSession}>
+            Yes, I’m still here
+          </Button>
+          <Button variant="outlined" onClick={handleEndSession}>
+            No, log me out
+          </Button>
         </DialogActions>
       </Dialog>
     </AuthContext.Provider>

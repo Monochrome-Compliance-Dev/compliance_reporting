@@ -5,7 +5,9 @@ import {
   useCallback,
   useEffect,
 } from "react";
-import { ptrsService, userService } from "../services";
+import { ptrsService, userService } from "services";
+import { useAlert } from "./AlertContext";
+import { onCustomerChange } from "lib/utils/";
 
 export const PtrsContext = createContext(null);
 
@@ -21,6 +23,8 @@ export const PtrsProvider = ({ children }) => {
   const [ptrsDetails, setPtrsDetails] = useState([]);
   const [activePtrsId, setActivePtrsId] = useState(null);
 
+  const { showAlert } = useAlert();
+
   // Persisted setter for active PTRS id
   const setActivePtrsIdPersist = useCallback((id) => {
     const next = id ?? null;
@@ -35,6 +39,25 @@ export const PtrsProvider = ({ children }) => {
   const fetchPtrs = useCallback(async () => {
     try {
       const user = userService.userValue;
+
+      const canUsePTRS =
+        typeof userService.hasFeature === "function"
+          ? userService.hasFeature("ptrs")
+          : Array.isArray(user?.entitlements) &&
+            user.entitlements.includes("ptrs");
+
+      if (!canUsePTRS) {
+        // Clear any cached data and active selection; inform the user
+        setPtrsDetails([]);
+        localStorage.removeItem("ptrsDetails");
+        setActivePtrsIdPersist(null);
+        showAlert(
+          "This customer doesn’t have PTRS enabled. Select a different customer or return to your default.",
+          "warning"
+        );
+        return;
+      }
+
       const result = await ptrsService.getAll({ clientId: user.clientId });
       // console.log("Fetched ptrsDetails:", result);
 
@@ -70,10 +93,24 @@ export const PtrsProvider = ({ children }) => {
       console.error("Error fetching ptrsDetails:", err);
       localStorage.removeItem("ptrsDetails");
     }
-  }, [activePtrsId, setActivePtrsIdPersist]);
+  }, [activePtrsId, setActivePtrsIdPersist, showAlert]);
 
   // Load from localStorage once on mount
   useEffect(() => {
+    // Skip loading/fetching if the effective tenant lacks PTRS
+    const user = userService.userValue;
+    const canUsePTRS =
+      typeof userService.hasFeature === "function"
+        ? userService.hasFeature("ptrs")
+        : Array.isArray(user?.entitlements) &&
+          user.entitlements.includes("ptrs");
+    if (!canUsePTRS) {
+      setPtrsDetails([]);
+      localStorage.removeItem("ptrsDetails");
+      setActivePtrsIdPersist(null);
+      return;
+    }
+
     const storedPtrs = localStorage.getItem("ptrsDetails");
 
     if (storedPtrs) {
@@ -91,6 +128,16 @@ export const PtrsProvider = ({ children }) => {
       fetchPtrs();
     }
   }, [fetchPtrs, setActivePtrsIdPersist]);
+
+  useEffect(() => {
+    // Re-evaluate PTRS data whenever the acting tenant changes
+    const unsubscribe = onCustomerChange?.(() => {
+      fetchPtrs();
+    });
+    return () => {
+      if (typeof unsubscribe === "function") unsubscribe();
+    };
+  }, [fetchPtrs]);
 
   const refreshPtrs = useCallback(async () => {
     try {

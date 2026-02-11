@@ -1,0 +1,676 @@
+// src/features/pulse/trackables/TrackableWizard.js
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams, useNavigate, useParams } from "react-router";
+import {
+  Stepper,
+  Step,
+  StepButton,
+  Box,
+  Stack,
+  Paper,
+  Button,
+  Typography,
+  Chip,
+} from "@mui/material";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useAlert, usePulseContext } from "context";
+import TrackableContainerForm from "./TrackableContainerForm";
+import TrackableAssignmentsEditor from "../assignments/AssignmentEditor";
+import BudgetBuilder from "../budgets/BudgetBuilder";
+import {
+  listTrackables,
+  listAssignmentsByTrackable,
+  listClients,
+  listResources,
+  getActiveBudgetByTrackable,
+  getBudgetSummary,
+} from "../../services/pulseApi";
+import { useTrackableOps } from "./useTrackableOps";
+
+import React from "react";
+function DetailsStep({
+  trackable,
+  clients,
+  onSaved,
+  onAdvance,
+  config,
+  step,
+  onBack,
+}) {
+  const [hasChanges, setHasChanges] = React.useState(false);
+  const [isSaving, setIsSaving] = React.useState(false);
+  const formRef = React.useRef();
+
+  // Helpers to compare current form vs initial values
+  const normalizeVals = (v = {}) => ({
+    name: (v?.name || "").trim(),
+    clientId: String(v?.clientId || ""),
+    startDate: v?.startDate || "",
+    endDate: v?.endDate || "",
+  });
+  const isSame = (a, b) => {
+    const A = normalizeVals(a);
+    const B = normalizeVals(b);
+    return (
+      A.name === B.name &&
+      A.clientId === B.clientId &&
+      A.startDate === B.startDate &&
+      A.endDate === B.endDate
+    );
+  };
+
+  // Memoized initial values for the form
+  const memoInitialValues = React.useMemo(() => {
+    if (trackable) {
+      return {
+        name: trackable.name || "",
+        clientId: String(trackable.clientId || ""),
+        startDate: trackable.startDate || "",
+        endDate: trackable.endDate || "",
+      };
+    }
+    return { name: "", clientId: "", startDate: "", endDate: "" };
+  }, [trackable]);
+
+  // Called when form fields change
+  const handleFormChange = (values) => {
+    setHasChanges(!isSame(values, memoInitialValues));
+  };
+
+  // Effect to re-evaluate hasChanges whenever memoInitialValues changes
+  React.useEffect(() => {
+    const current = formRef.current?.getValues?.() || {};
+    setHasChanges(!isSame(current, memoInitialValues));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [memoInitialValues]);
+
+  const canNext = React.useMemo(() => {
+    return Boolean(trackable?.id) && !hasChanges && !isSaving;
+  }, [trackable, hasChanges, isSaving]);
+
+  // Pure save handler (does not advance)
+  const handleSaveChanges = async (values) => {
+    try {
+      setIsSaving(true);
+      const ok = await onSaved?.(values);
+      if (ok) {
+        setHasChanges(false); // enable Next after successful save
+      }
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  return (
+    <Paper variant="outlined">
+      <Box p={2}>
+        <TrackableContainerForm
+          ref={formRef}
+          mode={trackable ? "edit" : "create"}
+          config={config}
+          initialValues={memoInitialValues}
+          clients={clients}
+          onSubmit={handleSaveChanges}
+          onChange={handleFormChange}
+          onQuickAddClient={() => {}}
+        />
+        <Box
+          mt={2}
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          {/* Hide Back button on step 1; show otherwise */}
+          {step !== 1 ? (
+            <Button variant="text" onClick={onBack}>
+              Back
+            </Button>
+          ) : (
+            <span />
+          )}
+          <Box display="flex" gap={1}>
+            <Button
+              variant="contained"
+              onClick={() => {
+                const vals = formRef.current?.getValues?.() || {};
+                handleSaveChanges(vals);
+              }}
+              disabled={!hasChanges || isSaving}
+            >
+              {isSaving ? "Saving…" : "Save Changes"}
+            </Button>
+            <Button variant="text" onClick={onAdvance} disabled={!canNext}>
+              Next
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+    </Paper>
+  );
+}
+
+function BudgetStep({
+  trackableId,
+  onBudgetSaved,
+  onNext,
+  onBack,
+  canProceed,
+}) {
+  return (
+    <Paper variant="outlined">
+      <Box p={2}>
+        {trackableId ? (
+          <BudgetBuilder trackableId={trackableId} onSaved={onBudgetSaved} />
+        ) : (
+          <Typography color="text.secondary">
+            Save details first to build the budget.
+          </Typography>
+        )}
+        <Box mt={2} display="flex" justifyContent="space-between">
+          <Button variant="text" onClick={onBack}>
+            Back
+          </Button>
+          <Button variant="text" onClick={onNext} disabled={!canProceed}>
+            Next: Resources
+          </Button>
+        </Box>
+      </Box>
+    </Paper>
+  );
+}
+
+function ResourcesStep({
+  trackableId,
+  trackable,
+  resources,
+  budgetForTrackable,
+  onAssignmentsSaved,
+  onCompleteAssignments,
+  onNext,
+  onBack,
+  canProceed,
+}) {
+  // --- Budget/Planned Cost helpers
+  const parseISO = (s) => {
+    if (!s) return null;
+    const d = new Date(s);
+    return Number.isNaN(d.getTime()) ? null : d;
+  };
+  const dayDiffInclusive = (a, b) => {
+    if (!a || !b) return 0;
+    const ms = b.setHours(0, 0, 0, 0) - a.setHours(0, 0, 0, 0);
+    return ms < 0 ? 0 : Math.floor(ms / (1000 * 60 * 60 * 24)) + 1;
+  };
+
+  // Local state for live rows and effective assignments
+  const [liveRows, setLiveRows] = useState(null);
+  const effectiveAssignments = useMemo(
+    () => (Array.isArray(liveRows) ? liveRows : trackable?.assignments || []),
+    [liveRows, trackable]
+  );
+
+  // Fetch budget summary for the budget (New World)
+  const { data: budgetSummary } = useQuery({
+    queryKey: ["pulse", "budgetSummary", budgetForTrackable?.id],
+    queryFn: () => getBudgetSummary(String(budgetForTrackable.id)),
+    enabled: !!budgetForTrackable?.id,
+  });
+
+  // Strictly use New World budget summary
+  const budget = Number(budgetSummary?.totalAmount || 0);
+
+  const estimatePlannedCost = () => {
+    if (!trackable) return { planned: 0, remaining: 0, budget: 0 };
+    const eStart = parseISO(trackable.startDate);
+    const eEnd = parseISO(trackable.endDate);
+    if (!Array.isArray(effectiveAssignments) || !eStart || !eEnd)
+      return { planned: 0, remaining: budget, budget };
+
+    let planned = 0;
+    effectiveAssignments.forEach((a) => {
+      const res = (resources || []).find(
+        (r) => String(r.id) === String(a.resourceId)
+      );
+      // Prefer explicit override, otherwise fall back to common rate field names
+      const baseRate =
+        res?.hourlyRate ??
+        res?.chargeOutRate ??
+        res?.chargeOutRatePerHour ??
+        res?.rate ??
+        res?.chargeRate ??
+        0;
+      const rate = Number(
+        a?.rateOverride !== undefined &&
+          a?.rateOverride !== null &&
+          a?.rateOverride !== ""
+          ? a.rateOverride
+          : baseRate
+      );
+      if (!rate) {
+        // eslint-disable-next-line no-console
+        console.debug("[ResourcesStep] Missing rate for assignment", {
+          assignmentId: a?.id,
+          resourceId: a?.resourceId,
+          resolvedRate: baseRate,
+        });
+      }
+      const aStart = parseISO(a.startDate);
+      const aEnd = parseISO(a.endDate);
+      if (!aStart || !aEnd) return; // require dates for estimate
+      const start = aStart > eStart ? aStart : eStart;
+      const end = aEnd < eEnd ? aEnd : eEnd;
+      const days = dayDiffInclusive(new Date(start), new Date(end));
+      if (days <= 0) return;
+      const hours = days * 8 * (Number(a.assignmentPct || 0) / 100);
+      planned += hours * rate;
+    });
+    return { planned, remaining: budget - planned, budget };
+  };
+  const { planned, remaining } = estimatePlannedCost();
+
+  return (
+    <Paper variant="outlined">
+      <Box p={2}>
+        <Box mb={1} display="flex" justifyContent="flex-end" gap={1}>
+          <Chip
+            size="small"
+            label={`Planned: $${planned.toFixed(2)}`}
+            variant="outlined"
+          />
+          <Chip
+            size="small"
+            label={`Budget remaining: $${remaining.toFixed(2)}`}
+            color={remaining < 0 ? "error" : "success"}
+            variant={remaining < 0 ? "filled" : "outlined"}
+          />
+        </Box>
+        <TrackableAssignmentsEditor
+          trackableId={trackableId || ""}
+          trackableName={trackable?.name}
+          resources={resources}
+          initialAssignments={trackable?.assignments || []}
+          onSave={onAssignmentsSaved}
+          onRowsChange={setLiveRows}
+        />
+        <Box
+          mt={2}
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Button variant="text" onClick={onBack}>
+            Back
+          </Button>
+          <Box display="flex" gap={1}>
+            <Button
+              variant="contained"
+              onClick={onCompleteAssignments}
+              disabled={!canProceed}
+            >
+              Complete assignments
+            </Button>
+            <Button variant="text" onClick={onNext} disabled={!canProceed}>
+              Next: Review
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+    </Paper>
+  );
+}
+
+function ReviewStep({ trackable, onActivate, onBack, activating }) {
+  if (!trackable) return null;
+  return (
+    <Paper variant="outlined">
+      <Box p={2}>
+        <Typography variant="subtitle1">Review & Activate</Typography>
+        <Typography variant="body2" color="text.secondary">
+          Budget: {trackable.budgetHours || 0} hrs • $
+          {trackable.budgetAmount || 0}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Assignments: {(trackable.assignments || []).length}
+        </Typography>
+        <Box mt={2} display="flex" justifyContent="space-between">
+          <Button variant="text" onClick={onBack}>
+            Back
+          </Button>
+          <Button
+            variant="contained"
+            onClick={onActivate}
+            disabled={trackable.status === "active" || activating}
+          >
+            {trackable.status === "active" ? "Active" : "Activate trackable"}
+          </Button>
+        </Box>
+      </Box>
+    </Paper>
+  );
+}
+
+const steps = ["Details", "Budget", "Resources", "Review"];
+
+export default function TrackableWizard() {
+  const { config } = usePulseContext();
+  const queryClient = useQueryClient();
+
+  // --- Simple step navigation helpers ---
+  const go = (delta) =>
+    setActiveStep((s) => Math.max(0, Math.min(s + delta, steps.length - 1)));
+
+  const guardNext = (current) => {
+    if (current === 0) return !!trackableId; // Details -> Budget requires saved trackable
+    if (current === 1) return !!trackableId && !!hasBudget; // Budget -> Resources requires final budget
+    if (current === 2) return !!trackableId && !!hasBudget && !!hasAssignments; // Resources -> Review requires assignments
+    return true;
+  };
+
+  const onNext = () => {
+    if (guardNext(activeStep)) {
+      go(+1);
+    } else {
+      if (activeStep === 0 && !trackableId)
+        showAlert("Save details first", "warning");
+      if (activeStep === 1 && !hasBudget)
+        showAlert("Finalise a budget first", "warning");
+      if (activeStep === 2 && !hasAssignments)
+        showAlert("Save assignments first", "warning");
+    }
+  };
+
+  const canEnter = (idx) => {
+    if (idx === 0) return true;
+    if (idx === 1) return !!trackableId;
+    if (idx === 2) return !!trackableId && !!hasBudget;
+    if (idx === 3) return !!trackableId && !!hasBudget && !!hasAssignments;
+    return false;
+  };
+
+  const { data: rawTrackables } = useQuery({
+    queryKey: ["pulse", "trackables"],
+    queryFn: listTrackables,
+  });
+  const trackables = useMemo(
+    () => (Array.isArray(rawTrackables) ? rawTrackables : []),
+    [rawTrackables]
+  );
+
+  const { data: rawClients } = useQuery({
+    queryKey: ["pulse", "clients"],
+    queryFn: listClients,
+  });
+  const clients = Array.isArray(rawClients) ? rawClients : [];
+
+  const { data: rawResources } = useQuery({
+    queryKey: ["pulse", "resources"],
+    queryFn: listResources,
+  });
+  const resources = Array.isArray(rawResources) ? rawResources : [];
+
+  // Use shared ops hook
+  const { saveDetails: saveDetailsOp, saveAssignments: saveAssignmentsOp } =
+    useTrackableOps();
+
+  // Local cache for assignments keyed by trackable id (since we removed context mutations)
+  const [assignmentsByTrackable, setAssignmentsByTrackable] = useState({});
+  const { showAlert } = useAlert();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const { id: paramId } = useParams();
+
+  // selection (edit mode if ?id=...)
+  const [trackableId, setTrackableId] = useState(
+    searchParams.get("id") || null
+  );
+  // Prefer route param (:id) over query (?id=) for edit mode
+  useEffect(() => {
+    const fromParam = paramId ? String(paramId) : null;
+    const fromQuery = searchParams.get("id") || null;
+    const preferred = fromParam || fromQuery;
+    if (preferred && preferred !== trackableId) {
+      setTrackableId(preferred);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paramId, searchParams]);
+  const trackable = useMemo(
+    () => trackables.find((e) => String(e.id) === String(trackableId)) || null,
+    [trackables, trackableId]
+  );
+
+  const loadedAssignmentsRef = useRef(new Set());
+
+  const [activeStep, setActiveStep] = useState(0);
+
+  // Resolve the linked budget (if any) for this trackable
+  const { data: budgetForTrackable } = useQuery({
+    queryKey: ["pulse", "budgetByTrackable", trackableId],
+    queryFn: () => getActiveBudgetByTrackable(String(trackableId)),
+    enabled: !!trackableId,
+  });
+
+  // derive status gates
+  const hasBudget =
+    !!budgetForTrackable && budgetForTrackable.status === "final";
+  const hasAssignments =
+    (assignmentsByTrackable[String(trackableId)] || []).length > 0;
+
+  useEffect(() => {
+    if (!trackableId) return;
+    const params = new URLSearchParams(searchParams);
+    params.set("id", String(trackableId));
+    params.set("step", String(activeStep));
+    setSearchParams(params, { replace: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeStep, trackableId]);
+
+  // Load persisted assignments for this trackable and attach to context entity
+  const loadAssignments = async (id) => {
+    if (!id) return;
+    try {
+      const rows = await listAssignmentsByTrackable(String(id));
+      setAssignmentsByTrackable((prev) => ({
+        ...prev,
+        [String(id)]: Array.isArray(rows) ? rows : [],
+      }));
+    } catch (e) {
+      showAlert("Failed to load assignments", "error");
+    }
+  };
+
+  // Load assignments only when entering the Resources step; prevent repeated loads
+  useEffect(() => {
+    if (!trackableId) return;
+    if (activeStep !== 2) return; // Resources step only
+    const key = String(trackableId);
+    if (loadedAssignmentsRef.current.has(key)) return;
+    loadedAssignmentsRef.current.add(key);
+    loadAssignments(key);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [trackableId, activeStep]);
+
+  useEffect(() => {
+    if (!trackableId) return;
+    const key = String(trackableId);
+    loadedAssignmentsRef.current.delete(key);
+    setAssignmentsByTrackable((prev) => {
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
+  }, [trackableId]);
+
+  // Step 1 save (delegated to shared ops, with normalization/validation/advance)
+  const saveDetails = async (values, isEdit) => {
+    const name = (values?.name || "").trim();
+    const startDate = values?.startDate || null;
+    const endDate = values?.endDate || null;
+
+    // Optional select normalization: empty string should be omitted
+    const clientId = values?.clientId ? String(values.clientId) : undefined;
+
+    if (!name || !startDate || !endDate) {
+      showAlert("Name, start and end date are required", "error");
+      return false; // do not advance
+    }
+
+    try {
+      const saved = await saveDetailsOp({
+        values: {
+          name,
+          clientId,
+          startDate,
+          endDate,
+        },
+        selected: isEdit ? trackable : null,
+      });
+
+      if (!saved || !saved.id) {
+        showAlert("Failed to save trackable", "error");
+        return false; // do not advance
+      }
+
+      if (!isEdit) setTrackableId(saved.id);
+      return true;
+    } catch (e) {
+      showAlert("Failed to save trackable", "error");
+      return false; // do not advance
+    }
+  };
+
+  // Step 3 save assignments (delegated to shared ops)
+  const saveAssignments = async (rows) => {
+    try {
+      const latest = await saveAssignmentsOp(String(trackable.id), rows);
+      setAssignmentsByTrackable((prev) => ({
+        ...prev,
+        [String(trackable.id)]: latest,
+      }));
+      showAlert("Assignments saved", "success");
+    } catch (e) {
+      showAlert("Failed to save assignments", "error");
+    }
+  };
+
+  // Step: Complete assignments (no API call, just step forward)
+  const completeAssignments = async () => {
+    setActiveStep(3);
+  };
+
+  // Step 4 activate (placeholder for now)
+  const activate = async () => {
+    showAlert("Trackable activated (mock)", "info");
+    navigate("/v2/pulse/trackables");
+  };
+
+  // Handler to invalidate budget-by-trackable query when budget is saved/finalised
+  const handleBudgetSaved = async () => {
+    try {
+      if (trackableId) {
+        await queryClient.invalidateQueries({
+          queryKey: ["pulse", "budgetByTrackable", trackableId],
+        });
+      }
+    } catch (e) {
+      // no-op: if invalidation fails, the Next button will enable after the normal refetch cycle
+    }
+  };
+
+  return (
+    <Stack spacing={2}>
+      <Paper variant="outlined">
+        <Box p={2}>
+          <Typography variant="h6">Trackable Wizard</Typography>
+          {trackable && (
+            <Typography variant="body2" color="text.secondary" component="div">
+              {trackable.name} • Status{" "}
+              <Chip size="small" label={trackable.status || "draft"} />
+            </Typography>
+          )}
+          <Stepper activeStep={activeStep} nonLinear sx={{ mt: 2 }}>
+            {steps.map((label, idx) => {
+              const allowed = canEnter(idx) || idx <= activeStep;
+              return (
+                <Step
+                  key={label}
+                  completed={idx < activeStep}
+                  disabled={!allowed}
+                >
+                  <StepButton
+                    onClick={() => {
+                      if (canEnter(idx)) {
+                        setActiveStep(idx);
+                      } else {
+                        if (idx === 1 && !trackableId) {
+                          showAlert("Save details first", "info");
+                        } else if (idx === 2 && !hasBudget) {
+                          showAlert("Finalise a budget first", "info");
+                        } else if (idx === 3 && !hasAssignments) {
+                          showAlert("Save assignments first", "info");
+                        }
+                      }
+                    }}
+                  >
+                    {label}
+                  </StepButton>
+                </Step>
+              );
+            })}
+          </Stepper>
+        </Box>
+      </Paper>
+
+      {/* Step 1: Details */}
+      {activeStep === 0 && (
+        <DetailsStep
+          trackable={trackable}
+          clients={clients}
+          config={config}
+          step={1}
+          onBack={() => {}}
+          onSaved={async (vals) => saveDetails(vals, !!trackable)}
+          onAdvance={onNext}
+        />
+      )}
+
+      {/* Step 2: Budget (embed builder) */}
+      {activeStep === 1 && (
+        <BudgetStep
+          trackableId={trackableId}
+          trackable={trackable}
+          onBudgetSaved={handleBudgetSaved}
+          onNext={onNext}
+          onBack={() => go(-1)}
+          canProceed={hasBudget}
+        />
+      )}
+
+      {/* Step 3: Resources */}
+      {activeStep === 2 && (
+        <ResourcesStep
+          trackableId={trackableId}
+          trackable={{
+            ...trackable,
+            assignments: assignmentsByTrackable[String(trackableId)] || [],
+          }}
+          resources={resources}
+          budgetForTrackable={budgetForTrackable}
+          onAssignmentsSaved={saveAssignments}
+          onCompleteAssignments={completeAssignments}
+          onNext={onNext}
+          onBack={() => go(-1)}
+          canProceed={hasAssignments}
+        />
+      )}
+
+      {/* Step 4: Review */}
+      {activeStep === 3 && (
+        <ReviewStep
+          trackable={trackable}
+          onActivate={activate}
+          onBack={() => go(-1)}
+        />
+      )}
+    </Stack>
+  );
+}

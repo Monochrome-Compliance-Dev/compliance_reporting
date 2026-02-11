@@ -1,41 +1,44 @@
 import { useEffect, useState, useMemo, Suspense } from "react";
-import { Outlet, useLocation } from "react-router";
+import { Outlet, useLocation, useNavigate } from "react-router";
 import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../navigation/Navbar";
 import Footer from "../navigation/Footer";
-import ProcessFlow from "../../features/ptrs/ProcessFlow";
 import { Alert, Snackbar } from "@mui/material";
-import globalTheme from "../../theme/globalTheme"; // Ensure the import matches the export
-import { useAlert } from "../../context/AlertContext";
+import globalTheme from "theme/globalTheme"; // Ensure the import matches the export
+import { useAlert, useAuthContext } from "context";
 import { LoadingSpinner } from "../ui/"; // If you have a spinner component
-import useGtagPageview from "../../hooks/useGtagPageview";
+import useGtagPageview from "hooks/useGtagPageview";
 
 export default function Layout() {
   useGtagPageview();
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(true); // true for dark mode, false for light mode
   const location = useLocation();
+  const navigate = useNavigate();
+  const { isSignedIn } = useAuthContext();
 
   const theme = useMemo(() => {
     const mode = isDarkTheme ? "dark" : "light"; // Determine the mode
     return globalTheme(mode); // Use the globalTheme function
   }, [isDarkTheme]);
 
-  // useEffect(() => {
-  //   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  //   setIsDarkTheme(mediaQuery.matches); // Set initial theme based on system preference
-  //
-  //   const handleChange = (event) => setIsDarkTheme(event.matches);
-  //   mediaQuery.addEventListener("change", handleChange); // Listen for system theme changes
-  //
-  //   return () => mediaQuery.removeEventListener("change", handleChange);
-  // }, []);
-
   // Scroll to the top of the screen when the pathname changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    const isAuthPage =
+      path === "/login" ||
+      path.startsWith("/verify") ||
+      path.startsWith("/reset-password");
+
+    if (isSignedIn === false && !isAuthPage) {
+      navigate("/login", { replace: true });
+    }
+  }, [isSignedIn, navigate]);
 
   const toggleTheme = () => setIsDarkTheme((prev) => !prev); // Toggle between light and dark modes
 

@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router";
 import {
   Dialog,
@@ -18,26 +18,42 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TablePagination,
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Tooltip,
   Chip,
   Checkbox,
+  CircularProgress,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tcpService, dcService, ptrsService } from "../../services";
-import { useAlert } from "../../context/AlertContext";
 import PayeesMissingAbnTable from "./PayeesMissingAbnTable";
 import { getFieldLabel } from "./fieldMeta";
-import { usePtrsContext } from "../../context";
+import { useAlert, usePtrsContext } from "../../context";
+
+// Lightweight debug logger for this component
+const DBG = (...args) => console.log("[PTRS][DataUploadReview]", ...args);
 
 const DataUploadReview = ({
   errors = [],
   validRecordsPreview = [],
   onErrorsUpdated,
   onRecordsUpdated,
-  onRefreshClick, // <-- new optional callback
+  onRefreshClick, // provided by parent
+  // optional pagination props from parent
+  errorsPage,
+  errorsPageSize,
+  errorsTotal,
+  onErrorsPageChange,
+  onErrorsPageSizeChange,
+  // optional pagination props for valid records
+  validPage,
+  validPageSize,
+  validTotal,
+  onValidPageChange,
+  onValidPageSizeChange,
 }) => {
   // console.log(
   //   "errors, validRecordsPreview, onErrorsUpdated,  onRecordsUpdated,  onRefreshClick:",
@@ -47,19 +63,128 @@ const DataUploadReview = ({
   //   onRecordsUpdated,
   //   onRefreshClick
   // );
-  const [remoteErrors, setRemoteErrors] = useState([]);
-  const [loadingErrors, setLoadingErrors] = useState(false);
+  const [loadingErrors] = useState(false);
   const [validRows, setValidRows] = useState(validRecordsPreview);
   const [editedRows, setEditedRows] = useState({});
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [liveJob, setLiveJob] = useState(null); // { rowsProcessed, rowsValid, rowsErrored, status, ptrsId }
+  const [lastLiveAt, setLastLiveAt] = useState(null); // Date of last progress event
   // Collapsed state for hiding the card after validation
   const [collapse, setCollapse] = useState(false);
   // Handler for confirming validation and navigating
   const navigate = useNavigate();
   const { activePtrsId } = usePtrsContext();
 
+  // ——— Diagnostics: mount/unmount + initial props snapshot ———
+  useEffect(() => {
+    DBG("mount", {
+      activePtrsId,
+      props: {
+        errorsCount: Array.isArray(errors) ? errors.length : 0,
+        validPreviewCount: Array.isArray(validRecordsPreview)
+          ? validRecordsPreview.length
+          : 0,
+        errorsTotal,
+        validTotal,
+        hasErrorsTotal: Number.isFinite(errorsTotal),
+        hasValidTotal: Number.isFinite(validTotal),
+      },
+    });
+    return () => DBG("unmount");
+  }, []);
+
+  useEffect(() => {
+    function onProgress(ev) {
+      const job = ev?.detail?.job ?? null;
+      if (!job) return;
+      // only reflect progress for the active PTRS
+      if (job.ptrsId && job.ptrsId !== activePtrsId) return;
+      setLiveJob(job);
+      setLastLiveAt(new Date());
+    }
+
+    async function onComplete(ev) {
+      const job = ev?.detail?.job ?? null;
+      if (job?.ptrsId && job.ptrsId !== activePtrsId) return;
+      setLiveJob(null); // we’ll switch to persisted counts from the server
+      setLastLiveAt(null);
+      await onRefreshClick?.(); // <- your existing function that fetches valid/error totals
+    }
+
+    window.addEventListener("ptrs:ingestProgress", onProgress);
+    window.addEventListener("ptrs:ingestComplete", onComplete);
+    return () => {
+      window.removeEventListener("ptrs:ingestProgress", onProgress);
+      window.removeEventListener("ptrs:ingestComplete", onComplete);
+    };
+  }, [activePtrsId]); // re-bind if user switches PTRS
+
   // --- Bulk selection for error rows ---
   const [selectedRowIds, setSelectedRowIds] = useState(new Set());
+  const [deleting, setDeleting] = useState(false);
+  const [deletingIds, setDeletingIds] = useState(new Set());
+  const [selectedValidIds, setSelectedValidIds] = useState(new Set());
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [pendingDeleteIds, setPendingDeleteIds] = useState([]);
+  const [pendingDeleteType, setPendingDeleteType] = useState("error"); // "error" | "valid"
+  const [validCountOverride, setValidCountOverride] = useState(null);
+  // Optional override totals fetched lazily when parent doesn't supply them
+  const [errorsCountOverride, setErrorsCountOverride] = useState(null);
+  // --- Delete confirmation dialog helpers ---
+  const openDeleteDialog = (ids, type = "error") => {
+    if (!Array.isArray(ids) || ids.length === 0) return;
+    setPendingDeleteIds(ids);
+    setPendingDeleteType(type);
+    setDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!activePtrsId || pendingDeleteIds.length === 0) {
+      setDeleteDialogOpen(false);
+      return;
+    }
+    try {
+      setDeleting(true);
+
+      if (pendingDeleteType === "error") {
+        // Delete from tcp_error (errors tab)
+        await tcpService.bulkDeleteErrors(activePtrsId, pendingDeleteIds);
+
+        const idSet = new Set(pendingDeleteIds);
+        const updatedErrors = safeErrors.filter((e) => !idSet.has(e.id));
+        const updatedValid = (validRows || []).filter((v) => !idSet.has(v.id));
+        onRecordsUpdated?.(updatedErrors, updatedValid);
+        onErrorsUpdated?.(updatedErrors);
+
+        setSelectedRowIds((prev) => {
+          const next = new Set(prev);
+          pendingDeleteIds.forEach((id) => next.delete(id));
+          return next;
+        });
+      } else {
+        // Delete from tcp (valid rows)
+        await tcpService.bulkDelete(activePtrsId, pendingDeleteIds);
+
+        const idSet = new Set(pendingDeleteIds);
+        const updatedValid = (validRows || []).filter((v) => !idSet.has(v.id));
+        setValidRows(updatedValid);
+        onRecordsUpdated?.(safeErrors, updatedValid);
+        setSelectedValidIds(new Set());
+      }
+
+      onRefreshClick?.();
+      const n = pendingDeleteIds.length;
+      showAlert(`Deleted ${n} record${n === 1 ? "" : "s"}.`, "success");
+    } catch (err) {
+      console.error("Bulk delete failed:", err);
+      showAlert("Delete failed. Please try again.", "error");
+    } finally {
+      setDeleting(false);
+      setDeletingIds(new Set());
+      setPendingDeleteIds([]);
+      setDeleteDialogOpen(false);
+    }
+  };
 
   const fieldLabel = (key, fallback) => getFieldLabel(key, fallback || key);
 
@@ -78,11 +203,152 @@ const DataUploadReview = ({
     return issues;
   };
 
-  const safeErrors = useMemo(() => {
-    const source =
-      remoteErrors && remoteErrors.length > 0 ? remoteErrors : errors;
-    return Array.isArray(source) ? source : [];
-  }, [errors, remoteErrors]);
+  const safeErrors = useMemo(
+    () => (Array.isArray(errors) ? errors : []),
+    [errors]
+  );
+
+  // Derive paged vs total error counts for chips
+  const errorsShown = safeErrors.length;
+  const errorsAll = useMemo(
+    () =>
+      Number.isFinite(errorsTotal)
+        ? Number(errorsTotal)
+        : Number.isFinite(errorsCountOverride)
+          ? Number(errorsCountOverride)
+          : errorsShown,
+    [errorsTotal, errorsCountOverride, errorsShown]
+  );
+
+  // --- Valid counts (shown vs total) must be computed before chip display vars ---
+  const validShown = useMemo(
+    () => (Array.isArray(validRows) ? validRows.length : 0),
+    [validRows]
+  );
+  const validAll = useMemo(
+    () =>
+      Number.isFinite(validTotal)
+        ? Number(validTotal)
+        : Number.isFinite(validCountOverride)
+          ? Number(validCountOverride)
+          : validShown,
+    [validTotal, validCountOverride, validShown]
+  );
+
+  const totalRows = useMemo(
+    () => (Number(validAll) || 0) + (Number(errorsAll) || 0),
+    [validAll, errorsAll]
+  );
+
+  // Prefer live ingest counts for chips when a job is in progress
+  const displayValidAll = Number.isFinite(liveJob?.rowsValid)
+    ? Number(liveJob.rowsValid)
+    : validAll;
+
+  const displayErrorsAll = Number.isFinite(liveJob?.rowsErrored)
+    ? Number(liveJob.rowsErrored)
+    : errorsAll;
+
+  const displayTotalRows = Number.isFinite(liveJob?.rowsProcessed)
+    ? Number(liveJob.rowsProcessed)
+    : Number.isFinite(liveJob?.rowsValid) ||
+        Number.isFinite(liveJob?.rowsErrored)
+      ? Number(liveJob?.rowsValid || 0) + Number(liveJob?.rowsErrored || 0)
+      : totalRows;
+
+  // Live updating flag must be declared before any memo that depends on it
+  const liveUpdating = Boolean(liveJob);
+  // Determine when to show placeholders instead of 0s (first load / no data yet)
+  const totalsKnown = useMemo(() => {
+    const knownValid =
+      Number.isFinite(validTotal) || Number.isFinite(validCountOverride);
+    const knownErrors =
+      Number.isFinite(errorsTotal) || Number.isFinite(errorsCountOverride);
+    return (
+      liveUpdating ||
+      knownValid ||
+      knownErrors ||
+      Number(validAll) > 0 ||
+      Number(errorsAll) > 0
+    );
+  }, [
+    liveUpdating,
+    validTotal,
+    validCountOverride,
+    errorsTotal,
+    errorsCountOverride,
+    validAll,
+    errorsAll,
+  ]);
+
+  const showPlaceholders = useMemo(
+    () => !totalsKnown && validShown === 0 && errorsShown === 0,
+    [totalsKnown, validShown, errorsShown]
+  );
+
+  const displayValidAllText = showPlaceholders ? "—" : String(displayValidAll);
+  const displayErrorsAllText = showPlaceholders
+    ? "—"
+    : String(displayErrorsAll);
+  const displayTotalRowsText = showPlaceholders
+    ? "—"
+    : String(displayTotalRows);
+
+  const errorsChipLabelDisplay = useMemo(() => {
+    if (showPlaceholders) return `⚠️ — errors`;
+    const suffix =
+      errorsShown > 0 && displayErrorsAll !== errorsShown
+        ? ` (${errorsShown} shown)`
+        : "";
+    return `⚠️ ${displayErrorsAll} errors${suffix}${liveJob ? " (live)" : ""}`;
+  }, [showPlaceholders, displayErrorsAll, errorsShown, liveJob]);
+
+  // Tooltip helpers for live update status
+  const lastLiveStr = useMemo(
+    () => (lastLiveAt ? new Date(lastLiveAt).toLocaleTimeString() : null),
+    [lastLiveAt]
+  );
+  const chipTooltipTitle = useMemo(
+    () =>
+      showPlaceholders
+        ? "Awaiting data"
+        : liveUpdating
+          ? `Updating live — last update ${lastLiveStr || "just now"}`
+          : "From server totals",
+    [showPlaceholders, liveUpdating, lastLiveStr]
+  );
+
+  const chipLiveIcon = useMemo(
+    () => (liveUpdating ? <CircularProgress size={12} thickness={5} /> : null),
+    [liveUpdating]
+  );
+
+  useEffect(() => {
+    DBG("counts", { validShown, validAll, errorsShown, errorsAll, totalRows });
+  }, [validShown, validAll, errorsShown, errorsAll, totalRows]);
+  useEffect(() => {
+    // If parent didn't pass errorsTotal, fetch a tiny page to read total from API
+    if (Number.isFinite(errorsTotal)) return;
+    if (!activePtrsId) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await tcpService.getErrorsByPtrsId(activePtrsId, {
+          page: 1,
+          pageSize: 1,
+        });
+        if (!cancelled && res && typeof res.total === "number") {
+          setErrorsCountOverride(res.total);
+          DBG("errors total override from API", res.total);
+        }
+      } catch (e) {
+        // best-effort only
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [activePtrsId, errorsTotal]);
 
   const preValidatedErrors = useMemo(() => {
     return safeErrors.map((row) => ({
@@ -101,12 +367,12 @@ const DataUploadReview = ({
 
     // Navigate non-blocking
     if (destination === "dashboard") {
-      navigate("/dashboard");
+      navigate("/ptrs");
     } else if (destination === "ptrs") {
       if (ptrsId) {
         navigate(`/ptrs/${ptrsId}`);
       } else {
-        navigate("/dashboard");
+        navigate("/ptrs");
         showAlert(
           "Couldn't locate your PTRS id — took you to the dashboard instead.",
           "warning"
@@ -117,7 +383,7 @@ const DataUploadReview = ({
     // Fire-and-forget status patch
     if (ptrsId) {
       try {
-        await ptrsService.patch(ptrsId, { ptrsStatus: "Validated" });
+        await ptrsService.patch(ptrsId, { status: "Validated" });
       } catch (err) {
         console.error("Failed to update ptrs status:", err);
         showAlert(
@@ -167,25 +433,22 @@ const DataUploadReview = ({
       .filter(Boolean);
   }, [selectedRowIds, preValidatedErrors]);
 
-  const fetchErrorsFromDb = useCallback(async () => {
-    if (!activePtrsId) return;
-    try {
-      setLoadingErrors(true);
-      const res = await tcpService.getErrorsByPtrsId(activePtrsId);
-      if (Array.isArray(res)) {
-        setRemoteErrors(res);
-        onErrorsUpdated?.(res);
-      }
-    } catch (e) {
-      console.error("Failed to fetch tcp_error rows:", e);
-    } finally {
-      setLoadingErrors(false);
-    }
-  }, [activePtrsId, onErrorsUpdated]);
+  // --- Bulk selection helpers for valid rows ---
+  const toggleSelectValid = (id) => {
+    setSelectedValidIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
 
-  useEffect(() => {
-    fetchErrorsFromDb();
-  }, [validRecordsPreview, fetchErrorsFromDb]);
+  const clearValidSelection = () => setSelectedValidIds(new Set());
+
+  const selectAllValid = () => {
+    const all = new Set((validRows || []).map((r) => r.id).filter(Boolean));
+    setSelectedValidIds(all);
+  };
 
   // useEffect(() => {
   //   // Prevent repeated alerts by only showing on mount (or initial render)
@@ -198,8 +461,102 @@ const DataUploadReview = ({
   // }, [safeErrors, showAlert]); // Remove errors and showAlert from dependency array to prevent infinite loop
 
   useEffect(() => {
-    setValidRows(validRecordsPreview);
+    // If parent didn't pass validTotal, fetch a tiny page of errors to read validTotal from API
+    if (Number.isFinite(validTotal)) return;
+    if (!activePtrsId) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await tcpService.getErrorsByPtrsId(activePtrsId, {
+          page: 1,
+          pageSize: 1,
+        });
+        if (!cancelled && res && typeof res.validTotal === "number") {
+          setValidCountOverride(res.validTotal);
+        }
+      } catch (e) {
+        // noop: this is best-effort to show valid count
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [activePtrsId, validTotal]);
+
+  useEffect(() => {
+    // Only adopt the parent's preview when it actually contains rows.
+    // Prevents clobbering fetched rows with an empty [] from the parent.
+    if (Array.isArray(validRecordsPreview) && validRecordsPreview.length > 0) {
+      setValidRows(validRecordsPreview);
+    }
   }, [validRecordsPreview]);
+
+  // If parent doesn't provide validRecordsPreview, fetch a preview page of valid rows
+  useEffect(() => {
+    if (!activePtrsId) return;
+    if (!(validAll > 0)) return;
+
+    let cancelled = false;
+    (async () => {
+      try {
+        // Pick whichever service function exists in this branch
+        const fetchFn =
+          tcpService.getByPtrsId ??
+          tcpService.listByPtrsId ??
+          tcpService.getValidByPtrsId;
+
+        if (!fetchFn) {
+          console.warn(
+            "[DataUploadReview] No tcpService preview method found (expected getByPtrsId/listByPtrsId/getValidByPtrsId)"
+          );
+          setValidRows([]);
+          return;
+        }
+
+        const res = await fetchFn.call(tcpService, activePtrsId, {
+          page: validPage || 1,
+          pageSize: validPageSize || 50,
+        });
+        // console.log("[DataUploadReview] Valid rows response:", res);
+        if (cancelled) return;
+
+        // Normalise common API shapes for rows
+        const d = res?.data ?? res;
+        const rows =
+          (Array.isArray(d) && d) ||
+          (Array.isArray(d?.rows) && d.rows) ||
+          (Array.isArray(res?.rows) && res.rows) ||
+          (Array.isArray(d?.items) && d.items) ||
+          (Array.isArray(res?.items) && res.items) ||
+          [];
+
+        if (
+          (validAll || 0) > 0 &&
+          (!Array.isArray(rows) || rows.length === 0)
+        ) {
+          console.warn(
+            "[DataUploadReview] BE returned 0 valid rows for this page despite validAll>",
+            validAll,
+            { page: validPage || 1, pageSize: validPageSize || 50, d: d }
+          );
+          // Optional UX hint
+          try {
+            showAlert &&
+              showAlert("No valid rows returned for this page.", "warning");
+          } catch (_) {}
+        }
+
+        setValidRows(Array.isArray(rows) ? rows : []);
+      } catch (err) {
+        console.warn("[DataUploadReview] Failed to fetch valid preview:", err);
+        setValidRows([]);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [activePtrsId, validAll, validPage, validPageSize]);
 
   const groupedErrors = useMemo(() => {
     const groups = {};
@@ -354,21 +711,36 @@ const DataUploadReview = ({
                 alignItems: "center",
               }}
             >
-              <Chip
-                label={`✅ ${validRows.length} valid`}
-                color="success"
-                variant="outlined"
-              />
-              <Chip
-                label={`⚠️ ${safeErrors.length} errors`}
-                color="error"
-                variant="outlined"
-              />
-              <Chip
-                label={`📄 ${validRows.length + safeErrors.length} total`}
-                color="default"
-                variant="outlined"
-              />
+              <Tooltip title={chipTooltipTitle}>
+                <span>
+                  <Chip
+                    icon={chipLiveIcon}
+                    label={`✅ ${displayValidAllText} valid${!showPlaceholders && validShown > 0 && displayValidAll !== validShown ? ` (${validShown} shown)` : ""}`}
+                    color="success"
+                    variant="outlined"
+                  />
+                </span>
+              </Tooltip>
+              <Tooltip title={chipTooltipTitle}>
+                <span>
+                  <Chip
+                    icon={chipLiveIcon}
+                    label={errorsChipLabelDisplay}
+                    color="error"
+                    variant="outlined"
+                  />
+                </span>
+              </Tooltip>
+              <Tooltip title={chipTooltipTitle}>
+                <span>
+                  <Chip
+                    icon={chipLiveIcon}
+                    label={`📄 ${displayTotalRowsText} total`}
+                    color="default"
+                    variant="outlined"
+                  />
+                </span>
+              </Tooltip>
             </Box>
 
             {/* Refresh Records Button with Tooltip */}
@@ -380,7 +752,7 @@ const DataUploadReview = ({
                     variant="outlined"
                     size="small"
                     sx={{ ml: "auto" }}
-                    onClick={onRefreshClick || fetchErrorsFromDb}
+                    onClick={() => onRefreshClick && onRefreshClick()}
                     disabled={loadingErrors}
                   >
                     {loadingErrors ? "Refreshing…" : "Refresh Records"}
@@ -391,7 +763,7 @@ const DataUploadReview = ({
             {/* )} */}
 
             {/* Mark as Validated Button */}
-            {safeErrors.length === 0 && validRows.length > 0 && (
+            {validRows.length > 0 && (
               <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
                 <Tooltip title="Mark the dataset as validated and commence the ptrs preparation.">
                   <Button
@@ -474,6 +846,23 @@ const DataUploadReview = ({
                 )}
                 <Button
                   size="small"
+                  variant="outlined"
+                  color="error"
+                  onClick={async () => {
+                    if (selectedRowIds.size === 0) return;
+                    if (!activePtrsId) {
+                      showAlert("No active PTRS selected.", "error");
+                      return;
+                    }
+                    const ids = Array.from(selectedRowIds);
+                    openDeleteDialog(ids);
+                  }}
+                  disabled={selectedRowIds.size === 0 || deleting}
+                >
+                  Delete selected
+                </Button>
+                <Button
+                  size="small"
                   variant="contained"
                   onClick={async () => {
                     // Build payload of selected rows that have no issues after edits
@@ -505,12 +894,10 @@ const DataUploadReview = ({
 
                     try {
                       const CHUNK_SIZE = 100;
-                      let saved = 0;
                       for (let i = 0; i < toPromote.length; i += CHUNK_SIZE) {
                         const chunk = toPromote.slice(i, i + CHUNK_SIZE);
                         // eslint-disable-next-line no-await-in-loop
                         await tcpService.resolveErrors(chunk);
-                        saved += chunk.length;
                       }
                       const promotedIds = new Set(toPromote.map((r) => r.id));
                       const updatedErrors = safeErrors.filter(
@@ -537,7 +924,7 @@ const DataUploadReview = ({
                       showAlert("Bulk save failed. Please try again.", "error");
                     }
                   }}
-                  disabled={selectedRowIds.size === 0}
+                  disabled={selectedRowIds.size === 0 || deleting}
                 >
                   Save selected
                 </Button>
@@ -766,63 +1153,101 @@ const DataUploadReview = ({
                                             ? "Ready to save"
                                             : "Edit a value to enable Save";
                                         return (
-                                          <Tooltip title={issueSummary}>
-                                            <span>
-                                              <Button
-                                                variant="outlined"
-                                                size="small"
-                                                disabled={disabled}
-                                                onClick={() => {
-                                                  if (disabled) return;
-                                                  const payload = {
-                                                    ...rowCopy,
-                                                  };
-                                                  // Remove UI-only fields
-                                                  delete payload.issues;
-                                                  // Promote this error row into Tcp and remove from TcpError in one go
-                                                  tcpService
-                                                    .resolveErrors([payload])
-                                                    .then(() => {
-                                                      const updatedErrors =
-                                                        safeErrors.filter(
-                                                          (e) =>
-                                                            e.id !== rowCopy.id
+                                          <>
+                                            <Tooltip title={issueSummary}>
+                                              <span>
+                                                <Button
+                                                  variant="outlined"
+                                                  size="small"
+                                                  disabled={disabled}
+                                                  onClick={() => {
+                                                    if (disabled) return;
+                                                    const payload = {
+                                                      ...rowCopy,
+                                                    };
+                                                    // Remove UI-only fields
+                                                    delete payload.issues;
+                                                    // Promote this error row into Tcp and remove from TcpError in one go
+                                                    tcpService
+                                                      .resolveErrors([payload])
+                                                      .then(() => {
+                                                        const updatedErrors =
+                                                          safeErrors.filter(
+                                                            (e) =>
+                                                              e.id !==
+                                                              rowCopy.id
+                                                          );
+                                                        const updatedValid = [
+                                                          ...validRows,
+                                                          rowCopy,
+                                                        ];
+                                                        onRecordsUpdated?.(
+                                                          updatedErrors,
+                                                          updatedValid
                                                         );
-                                                      const updatedValid = [
-                                                        ...validRows,
-                                                        rowCopy,
-                                                      ];
-                                                      onRecordsUpdated?.(
-                                                        updatedErrors,
-                                                        updatedValid
+                                                        setEditedRows(
+                                                          (prev) => {
+                                                            const copy = {
+                                                              ...prev,
+                                                            };
+                                                            delete copy[
+                                                              rowCopy.id
+                                                            ];
+                                                            return copy;
+                                                          }
+                                                        );
+                                                        setSelectedRowIds(
+                                                          (prev) => {
+                                                            const next =
+                                                              new Set(prev);
+                                                            next.delete(
+                                                              rowCopy.id
+                                                            );
+                                                            return next;
+                                                          }
+                                                        );
+                                                        onRefreshClick?.();
+                                                      })
+                                                      .catch(console.error);
+                                                  }}
+                                                >
+                                                  Save
+                                                </Button>
+                                              </span>
+                                            </Tooltip>
+                                            <Tooltip title="Delete this row">
+                                              <span>
+                                                <Button
+                                                  variant="text"
+                                                  color="error"
+                                                  size="small"
+                                                  disabled={deletingIds.has(
+                                                    rowCopy.id
+                                                  )}
+                                                  onClick={async () => {
+                                                    if (!rowCopy.id) return;
+                                                    if (!activePtrsId) {
+                                                      showAlert(
+                                                        "No active PTRS selected.",
+                                                        "error"
                                                       );
-                                                      setEditedRows((prev) => {
-                                                        const copy = {
-                                                          ...prev,
-                                                        };
-                                                        delete copy[rowCopy.id];
-                                                        return copy;
-                                                      });
-                                                      setSelectedRowIds(
-                                                        (prev) => {
-                                                          const next = new Set(
-                                                            prev
-                                                          );
-                                                          next.delete(
-                                                            rowCopy.id
-                                                          );
-                                                          return next;
-                                                        }
-                                                      );
-                                                      onRefreshClick?.();
-                                                    })
-                                                    .catch(console.error);
-                                                }}
-                                              >
-                                                Save
-                                              </Button>
-                                            </span>
-                                          </Tooltip>
+                                                      return;
+                                                    }
+                                                    setDeletingIds((prev) =>
+                                                      new Set(prev).add(
+                                                        rowCopy.id
+                                                      )
+                                                    );
+                                                    openDeleteDialog([
+                                                      rowCopy.id,
+                                                    ]);
+                                                  }}
+                                                >
+                                                  Delete
+                                                </Button>
+                                              </span>
+                                            </Tooltip>
+                                          </>
                                         );
                                       })()}
                                     </TableCell>
@@ -839,18 +1264,92 @@ const DataUploadReview = ({
               </>
             ) : null}
 
-            {validRows.length > 0 && (
+            {validAll > 0 && (
               <Accordion sx={{ mt: 3 }}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                   <Typography>
-                    Preview Valid Rows ({validRows.length})
+                    Valid Rows ({validAll}
+                    {validShown > 0 && validAll !== validShown
+                      ? ` (${validShown} shown)`
+                      : ""}
+                    )
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      gap: 1,
+                      alignItems: "center",
+                      mb: 1,
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={selectAllValid}
+                    >
+                      Select all
+                    </Button>
+                    <Button
+                      size="small"
+                      variant="text"
+                      onClick={clearValidSelection}
+                    >
+                      Clear selection ({selectedValidIds.size})
+                    </Button>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      color="error"
+                      onClick={() => {
+                        if (selectedValidIds.size === 0) return;
+                        const ids = Array.from(selectedValidIds);
+                        openDeleteDialog(ids, "valid");
+                      }}
+                      disabled={selectedValidIds.size === 0 || deleting}
+                    >
+                      Delete selected
+                    </Button>
+                  </Box>
+                  <TablePagination
+                    component="div"
+                    count={validAll}
+                    page={validPage ? validPage - 1 : 0}
+                    onPageChange={(e, newPage) =>
+                      onValidPageChange?.(newPage + 1)
+                    }
+                    rowsPerPage={validPageSize || 50}
+                    onRowsPerPageChange={(e) =>
+                      onValidPageSizeChange?.(parseInt(e.target.value, 10))
+                    }
+                    rowsPerPageOptions={[10, 25, 50, 100]}
+                  />
                   <TableContainer>
                     <Table size="small">
                       <TableHead>
                         <TableRow>
+                          <TableCell padding="checkbox">
+                            <Checkbox
+                              indeterminate={
+                                selectedValidIds.size > 0 &&
+                                selectedValidIds.size < (validRows || []).length
+                              }
+                              checked={
+                                (validRows || []).length > 0 &&
+                                selectedValidIds.size ===
+                                  (validRows || []).length
+                              }
+                              onChange={(e) => {
+                                if (e.target.checked) selectAllValid();
+                                else clearValidSelection();
+                              }}
+                              inputProps={{
+                                "aria-label": "select all valid rows",
+                              }}
+                            />
+                          </TableCell>
                           <TableCell>
                             {fieldLabel("payerEntityName", "Payer Entity Name")}
                           </TableCell>
@@ -866,11 +1365,21 @@ const DataUploadReview = ({
                           <TableCell>
                             {fieldLabel("paymentDate", "Payment Date")}
                           </TableCell>
+                          <TableCell>Actions</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
                         {validRows.map((row, index) => (
-                          <TableRow key={index}>
+                          <TableRow key={row.id || index}>
+                            <TableCell padding="checkbox">
+                              <Checkbox
+                                checked={selectedValidIds.has(row.id)}
+                                onChange={() => toggleSelectValid(row.id)}
+                                inputProps={{
+                                  "aria-label": `select valid row ${row.id}`,
+                                }}
+                              />
+                            </TableCell>
                             <TableCell>{row.payerEntityName}</TableCell>
                             <TableCell>{row.payeeEntityName}</TableCell>
                             <TableCell>{row.payeeEntityAbn}</TableCell>
@@ -882,6 +1391,32 @@ const DataUploadReview = ({
                                     .split("T")[0]
                                 : ""}
                             </TableCell>
+                            <TableCell>
+                              <Tooltip title="Delete this row">
+                                <span>
+                                  <Button
+                                    variant="text"
+                                    color="error"
+                                    size="small"
+                                    disabled={deletingIds.has(row.id)}
+                                    onClick={() => {
+                                      if (!row.id) return;
+                                      setDeletingIds((prev) =>
+                                        new Set(prev).add(row.id)
+                                      );
+                                      openDeleteDialog([row.id], "valid");
+                                      setSelectedValidIds((prev) => {
+                                        const next = new Set(prev);
+                                        next.delete(row.id);
+                                        return next;
+                                      });
+                                    }}
+                                  >
+                                    Delete
+                                  </Button>
+                                </span>
+                              </Tooltip>
+                            </TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
@@ -890,6 +1425,37 @@ const DataUploadReview = ({
                 </AccordionDetails>
               </Accordion>
             )}
+            {/* Confirm Delete Dialog */}
+            <Dialog
+              open={deleteDialogOpen}
+              onClose={() => setDeleteDialogOpen(false)}
+            >
+              <DialogTitle>
+                Delete {pendingDeleteIds.length} record
+                {pendingDeleteIds.length === 1 ? "" : "s"}?
+              </DialogTitle>
+              <DialogContent>
+                This action cannot be undone. The selected record
+                {pendingDeleteIds.length === 1 ? "" : "s"} will be permanently
+                removed from the dataset.
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  onClick={() => setDeleteDialogOpen(false)}
+                  disabled={deleting}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  color="error"
+                  variant="contained"
+                  onClick={handleConfirmDelete}
+                  disabled={deleting}
+                >
+                  {deleting ? "Deleting…" : "Delete"}
+                </Button>
+              </DialogActions>
+            </Dialog>
             {/* Confirm Validation Dialog */}
             <Dialog open={confirmOpen} onClose={() => setConfirmOpen(false)}>
               <DialogTitle>Confirm Validation</DialogTitle>

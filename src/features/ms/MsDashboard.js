@@ -67,27 +67,27 @@ const MsDashboard = ({ selectedPeriod }) => {
   // Determine active period range
   const activePeriod =
     selectedPeriod !== "all"
-      ? reportingPeriods.find((p) => p.id === selectedPeriod)
+      ? reportingPeriods?.find((p) => p.id === selectedPeriod)
       : null;
 
   const filteredRisks = useMemo(() => {
     if (!activePeriod) return supplierRisks;
     return supplierRisks.filter((r) =>
-      isWithinRange(r.createdAt, activePeriod.startDate, activePeriod.endDate)
+      isWithinRange(r.createdAt, activePeriod.startDate, activePeriod.endDate),
     );
   }, [supplierRisks, activePeriod]);
 
   const filteredTrainingStats = useMemo(() => {
     if (!activePeriod) return trainingStats;
     return trainingStats.filter((t) =>
-      isWithinRange(t.createdAt, activePeriod.startDate, activePeriod.endDate)
+      isWithinRange(t.createdAt, activePeriod.startDate, activePeriod.endDate),
     );
   }, [trainingStats, activePeriod]);
 
   const filteredGrievanceStats = useMemo(() => {
     if (!activePeriod) return grievanceStats;
     return grievanceStats.filter((g) =>
-      isWithinRange(g.reportedAt, activePeriod.startDate, activePeriod.endDate)
+      isWithinRange(g.reportedAt, activePeriod.startDate, activePeriod.endDate),
     );
   }, [grievanceStats, activePeriod]);
 
@@ -106,7 +106,7 @@ const MsDashboard = ({ selectedPeriod }) => {
         acc.total += 1;
         return acc;
       },
-      { completed: 0, total: 0 }
+      { completed: 0, total: 0 },
     );
   }, [filteredTrainingStats]);
   const trainingChartData = useMemo(() => {
@@ -114,7 +114,7 @@ const MsDashboard = ({ selectedPeriod }) => {
 
     return reportingPeriods.map((p) => {
       const records = trainingStats.filter((t) =>
-        isWithinRange(t.createdAt, p.startDate, p.endDate)
+        isWithinRange(t.createdAt, p.startDate, p.endDate),
       );
       const completed = records.filter((t) => t.completed).length;
       return {
@@ -137,7 +137,7 @@ const MsDashboard = ({ selectedPeriod }) => {
 
     return reportingPeriods.map((p) => {
       const periodGrievances = grievanceStats.filter((g) =>
-        isWithinRange(g.reportedAt, p.startDate, p.endDate)
+        isWithinRange(g.reportedAt, p.startDate, p.endDate),
       );
       const counts = periodGrievances.reduce((acc, g) => {
         const status = g.status || "Unknown";
@@ -158,7 +158,7 @@ const MsDashboard = ({ selectedPeriod }) => {
 
     return reportingPeriods.map((p) => {
       const periodRisks = supplierRisks.filter((r) =>
-        isWithinRange(r.createdAt, p.startDate, p.endDate)
+        isWithinRange(r.createdAt, p.startDate, p.endDate),
       );
       const counts = periodRisks.reduce((acc, r) => {
         const risk = (r.risk || "").trim().toLowerCase();
@@ -309,17 +309,17 @@ const MsDashboard = ({ selectedPeriod }) => {
                               e.stopPropagation();
                               try {
                                 await msService.cloneTemplatesForReportingPeriod(
-                                  period.id
+                                  period.id,
                                 );
                                 showAlert(
                                   "Templates generated successfully",
-                                  "success"
+                                  "success",
                                 );
                                 fetchDashboardData();
                               } catch (err) {
                                 showAlert(
                                   "Failed to generate templates",
-                                  "error"
+                                  "error",
                                 );
                               }
                             }}

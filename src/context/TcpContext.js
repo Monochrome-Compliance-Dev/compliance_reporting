@@ -16,31 +16,7 @@ const TcpContext = createContext({
   tcpRecords: [],
 });
 
-// Helpers for tolerant cache restore
-function readJsonArray(storage, key) {
-  try {
-    const raw = storage.getItem(key);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : null;
-  } catch {
-    return null;
-  }
-}
-
-function tryCachedRecords(id) {
-  if (!id) return null;
-  const legacyKey = `tcp_records_${id}`; // legacy Data Review key
-  const camelKey = `tcpRecords_${id}`; // newer camel key
-  // Prefer sessionStorage first, then localStorage
-  return (
-    readJsonArray(sessionStorage, legacyKey) ||
-    readJsonArray(sessionStorage, camelKey) ||
-    readJsonArray(localStorage, legacyKey) ||
-    readJsonArray(localStorage, camelKey) ||
-    null
-  );
-}
+const MAX_IN_MEMORY_ROWS = 1000;
 
 export function TcpProvider({ children }) {
   const { activePtrsId } = usePtrsContext();
@@ -53,31 +29,47 @@ export function TcpProvider({ children }) {
       return;
     }
 
-    const cached = tryCachedRecords(activePtrsId);
-    if (cached) {
-      setTcpRecords(cached);
-      return;
-    }
-
     let cancelled = false;
     try {
-      const resp = await tcpService.getAllByPtrsId(activePtrsId);
-      const rows = Array.isArray(resp)
+      // First try 1-based page
+      let resp = await tcpService.getValidByPtrsId(activePtrsId, {
+        page: 1,
+        pageSize: 50,
+      });
+      let rows = Array.isArray(resp)
         ? resp
         : Array.isArray(resp?.data)
           ? resp.data
           : Array.isArray(resp?.rows)
             ? resp.rows
             : [];
-      if (!cancelled) {
-        setTcpRecords(rows);
-        try {
-          sessionStorage.setItem(
-            `tcp_records_${activePtrsId}`,
-            JSON.stringify(rows)
-          );
-        } catch {}
+
+      // Fallback to 0-based page if empty
+      if (!rows || rows.length === 0) {
+        const fallback = await tcpService.getValidByPtrsId(activePtrsId, {
+          page: 0,
+          pageSize: 50,
+        });
+        rows = Array.isArray(fallback)
+          ? fallback
+          : Array.isArray(fallback?.data)
+            ? fallback.data
+            : Array.isArray(fallback?.rows)
+              ? fallback.rows
+              : [];
       }
+
+      // Hard cap to avoid blowing up memory in the browser
+      const limited = Array.isArray(rows)
+        ? rows.slice(0, MAX_IN_MEMORY_ROWS)
+        : [];
+      if (rows.length > MAX_IN_MEMORY_ROWS) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `TcpContext: received ${rows.length} rows, capping to first ${MAX_IN_MEMORY_ROWS} for display to protect memory.`
+        );
+      }
+      if (!cancelled) setTcpRecords(limited);
     } catch {
       if (!cancelled) setTcpRecords([]);
     }
@@ -85,10 +77,19 @@ export function TcpProvider({ children }) {
 
   // Restore tcpRecords from tolerant cache or API when the active PTRS id changes
   useEffect(() => {
+    let abort = false;
     (async () => {
-      await refresh();
+      if (document && document.visibilityState === "hidden") return; // don’t load when tab hidden
+      if (!abort) await refresh();
     })();
-    // No cleanup needed since 'cancelled' is not used
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") refresh();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      abort = true;
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, [activePtrsId, refresh]);
 
   const value = useMemo(() => ({ tcpRecords, refresh }), [tcpRecords, refresh]);

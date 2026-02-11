@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Grid, Paper } from "@mui/material";
+import { Container, Typography, Grid, Paper } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import GavelIcon from "@mui/icons-material/Gavel";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
@@ -9,21 +9,22 @@ const About = () => {
     <>
       <PageMeta
         title="About"
-        description="Learn about Monochrome Compliance — an Australian SaaS company helping organisations meet their compliance obligations with speed and confidence."
+        description={`Helping organisations meet Payment Times Reporting obligations with calm,
+   defensible reporting and clear audit trails.`}
       />
       <Container maxWidth="md" sx={{ py: 6 }}>
         <Typography variant="h3" gutterBottom textAlign="center">
           About Monochrome Compliance
         </Typography>
         <Typography variant="body1" paragraph textAlign="center">
-          Monochrome Compliance is a specialised SaaS platform built to help
-          Australian organisations meet their regulatory obligations without
-          complexity, spreadsheets, or legalese.
+          Monochrome Compliance helps Australian organisations meet their
+          Payment Times Reporting obligations without unnecessary complexity or
+          internal disruption.
         </Typography>
         <Typography variant="body1" paragraph textAlign="center">
-          Founded by compliance and tech professionals, our mission is to reduce
-          the burden of reporting obligations while increasing transparency,
-          consistency, and trust.
+          We specialise in taking raw payment data from accounting systems and
+          exports, turning it into accurate metrics and submission-ready reports
+          that stand up to board and regulatory scrutiny.
         </Typography>
 
         <Grid container spacing={4} sx={{ mt: 4 }}>
@@ -31,12 +32,11 @@ const About = () => {
             <Paper sx={{ p: 3, textAlign: "center" }}>
               <GavelIcon fontSize="large" color="primary" />
               <Typography variant="h6" sx={{ mt: 2 }}>
-                Built for Compliance
+                Built for Payment Times Reporting
               </Typography>
               <Typography variant="body2">
-                Purpose-built tools for PTRS, Modern Slavery, Director
-                Obligations and more — fully aligned with Australian regulatory
-                frameworks.
+                Purpose-built processes and tooling aligned with the Payment
+                Times Reporting Scheme and Australian regulatory guidance.
               </Typography>
             </Paper>
           </Grid>

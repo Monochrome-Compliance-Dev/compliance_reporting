@@ -1,11 +1,66 @@
-import { publicRoutes } from "../../routes/publicRoutes";
-import { protectedRoutes } from "../../routes/routeConfig";
+import { publicRoutes } from "routes/publicRoutes";
+import { protectedRoutes } from "routes/routeConfig";
 import { BehaviorSubject } from "rxjs";
 
-import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
+import { fetchWrapper } from "lib/utils/fetch-wrapper";
+import { getScopedCustomerId, onCustomerChange } from "lib/utils/tenantScope";
 
 const userSubject = new BehaviorSubject(null);
 const baseUrl = `${process.env.REACT_APP_API_URL}/users`;
+
+let _refreshInFlight = null; // Promise or null
+
+// --- Acting-as helpers & guards ---
+let didWireTenantChange = false;
+let lastAppliedKey = ""; // `${jwtToken}:${scopedId || ""}` to dedupe reloads
+
+function getScopedIdIfBoss() {
+  const u = userSubject.value;
+  const role = String(u?.role || "").toLowerCase();
+  if (role !== "boss") return null;
+  try {
+    return typeof getScopedCustomerId === "function"
+      ? getScopedCustomerId()
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+function makeKey(token, scopedId) {
+  return `${token || ""}:${scopedId || ""}`;
+}
+
+function wireTenantChangeListener() {
+  if (didWireTenantChange) return;
+  didWireTenantChange = true;
+  try {
+    onCustomerChange(async (cust) => {
+      const u = userSubject.value;
+      const role = String(u?.role || "").toLowerCase();
+      if (role !== "boss") return;
+      const token = u?.jwtToken || "";
+      const scopedId = cust?.id || "";
+      const key = makeKey(token, scopedId);
+      if (key === lastAppliedKey) return; // de-dupe
+      lastAppliedKey = key;
+      if (scopedId) {
+        try {
+          await reloadCustomerEntitlements(scopedId);
+        } catch (e) {
+          console.warn(
+            "Failed to reload entitlements on tenant change:",
+            e?.message || e
+          );
+        }
+      } else {
+        // Acting cleared; leave current entitlements as-is (base entitlements from server).
+      }
+    });
+  } catch (e) {
+    console.warn("Failed wiring onCustomerChange listener:", e?.message || e);
+  }
+}
 
 export const userService = {
   login,
@@ -30,7 +85,7 @@ export const userService = {
   update,
   delete: _delete,
   hasFeature,
-  reloadEntitlements,
+  reloadCustomerEntitlements,
   user: userSubject.asObservable(),
   get userValue() {
     return userSubject.value;
@@ -39,19 +94,38 @@ export const userService = {
 };
 
 // Authenticate the user and start a refresh token timer
-function login(params) {
-  return fetchWrapper.post(`${baseUrl}/authenticate`, params).then((user) => {
-    if (!user || typeof user !== "object") {
-      throw new Error("Email or password is incorrect");
-    }
-    if (!user.jwtToken) {
-      throw new Error("JWT not included in response");
-    }
-    // Backend is the source of truth for entitlements; user.entitlements should be included
-    userSubject.next(user);
-    startRefreshTokenTimer();
-    return user;
-  });
+async function login(params) {
+  return fetchWrapper
+    .post(`${baseUrl}/authenticate`, params)
+    .then(async (user) => {
+      if (!user || typeof user !== "object") {
+        throw new Error("Email or password is incorrect");
+      }
+      if (!user.jwtToken) {
+        throw new Error("JWT not included in response");
+      }
+      // Backend is the source of truth for entitlements; user.entitlements should be included
+      userSubject.next(user);
+      // Ensure acting entitlements apply immediately on login if Boss is scoped
+      wireTenantChangeListener();
+      const scopedIdOnLogin = getScopedIdIfBoss();
+      if (scopedIdOnLogin) {
+        const key = makeKey(user.jwtToken, scopedIdOnLogin);
+        if (lastAppliedKey !== key) {
+          lastAppliedKey = key;
+          try {
+            await reloadCustomerEntitlements(scopedIdOnLogin);
+          } catch (e) {
+            console.warn(
+              "Failed to load acting entitlements after login:",
+              e?.message || e
+            );
+          }
+        }
+      }
+      startRefreshTokenTimer();
+      return user;
+    });
 }
 
 function logout() {
@@ -67,17 +141,17 @@ function logout() {
   // May need to update over time if routes change
   const excludedPaths = ["/login", "/verify", "/reset-password"];
   const currentPath = window.location.pathname;
+  const currentSearch = window.location.search || "";
+  const fullPath = `${currentPath}${currentSearch}`;
 
   if (!excludedPaths.includes(currentPath) && allPaths.includes(currentPath)) {
-    localStorage.setItem("lastVisitedPath", currentPath);
+    localStorage.setItem("lastVisitedPath", fullPath);
   } else {
     localStorage.removeItem("lastVisitedPath");
   }
   // Revoke the refresh token using the cookie
   fetchWrapper
-    .post(`${baseUrl}/revoke-token`, {
-      refreshToken: getCookie("refreshToken"),
-    })
+    .post(`${baseUrl}/revoke-token`, {}, { retry: 0 })
     .catch((error) => {
       console.error(
         "Failed to revoke token during logout:",
@@ -88,22 +162,33 @@ function logout() {
   userSubject.next(null);
 }
 
-// Helper to read a cookie by name
-function getCookie(name) {
-  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
-  if (match) return match[2];
-}
-
 // Refresh the user's JWT token
-function refreshToken() {
-  return fetchWrapper
-    .post(`${baseUrl}/refresh-token`, {})
-    .then((user) => {
+async function refreshToken() {
+  if (_refreshInFlight) return _refreshInFlight;
+
+  _refreshInFlight = fetchWrapper
+    .post(`${baseUrl}/refresh-token`, {}, { retry: 0 })
+    .then(async (user) => {
       if (!user.jwtToken) {
         throw new Error("JWT not included in response");
       }
-      // Accept entitlements from backend
       userSubject.next(user);
+      wireTenantChangeListener();
+      const scopedIdOnRefresh = getScopedIdIfBoss();
+      if (scopedIdOnRefresh) {
+        const key = makeKey(user.jwtToken, scopedIdOnRefresh);
+        if (lastAppliedKey !== key) {
+          lastAppliedKey = key;
+          try {
+            await reloadCustomerEntitlements(scopedIdOnRefresh);
+          } catch (e) {
+            console.warn(
+              "Failed to load acting entitlements after refresh:",
+              e?.message || e
+            );
+          }
+        }
+      }
       startRefreshTokenTimer();
       return user;
     })
@@ -116,14 +201,17 @@ function refreshToken() {
       stopRefreshTokenTimer();
       userSubject.next(null);
       if (isAuthError) {
-        // No active session (e.g., after logout) — return null quietly
+        // No active session — return null quietly
         return null;
       }
-      // Non-auth errors should still surface
-      // eslint-disable-next-line no-console
       console.error("Failed to refresh token:", error?.message || error);
       throw error;
+    })
+    .finally(() => {
+      _refreshInFlight = null;
     });
+
+  return _refreshInFlight;
 }
 
 // Register a new user
@@ -209,8 +297,15 @@ function create(params) {
 }
 
 // Invite a user and create a linked resource (composite)
-function inviteWithResource(params) {
-  return fetchWrapper.post(`${baseUrl}/invite-with-resource`, params);
+async function inviteWithResource(params) {
+  const res = await fetchWrapper.post(
+    `${baseUrl}/invite-with-resource`,
+    params,
+    {
+      retry: 0,
+    }
+  );
+  return res;
 }
 
 // Update an existing user
@@ -251,16 +346,48 @@ function hasFeature(feature) {
   return Array.isArray(u?.entitlements) && u.entitlements.includes(feature);
 }
 
-async function reloadEntitlements() {
+async function reloadCustomerEntitlements(customerId) {
   const u = userSubject.value;
   if (!u) return [];
+
+  // Prefer explicit argument, then currently scoped customer, then home tenant
+  const scoped =
+    typeof getScopedCustomerId === "function" ? getScopedCustomerId() : null;
+  const id = customerId || scoped || u.customerId;
+
+  if (!id) {
+    const err = {
+      status: 400,
+      message: "No customerId available to load entitlements",
+    };
+    // eslint-disable-next-line no-console
+    console.warn("reloadEntitlements: ", err.message);
+    throw err;
+  }
+
   try {
-    const updated = await refreshToken();
-    return Array.isArray(updated?.entitlements) ? updated.entitlements : [];
+    const ents = await fetchWrapper.get(
+      `${process.env.REACT_APP_API_URL}/customers/${id}/customer-entitlements`
+    );
+
+    // Normalise to an array of feature slugs (strings)
+    const list = Array.isArray(ents?.data)
+      ? ents.data
+      : Array.isArray(ents)
+        ? ents
+        : [];
+    const features = list
+      .map((e) => (typeof e === "string" ? e : e?.feature))
+      .filter(Boolean);
+
+    const updated = { ...u, entitlements: features };
+    // eslint-disable-next-line no-console
+    userSubject.next(updated);
+    return updated.entitlements;
   } catch (e) {
-    return Array.isArray(userSubject.value?.entitlements)
-      ? userSubject.value.entitlements
-      : [];
+    console.log("something has gone wrong: ", e);
+    // Re-throw so callers (Dashboard) can surface alerts and/or rollback selection
+    throw e;
   }
 }
 
@@ -271,7 +398,7 @@ let refreshTokenTimeout;
 function startRefreshTokenTimer() {
   const jwtToken = JSON.parse(atob(userSubject.value.jwtToken.split(".")[1]));
   const expires = new Date(jwtToken.exp * 1000);
-  const timeout = expires.getTime() - Date.now() - 60 * 1000;
+  const timeout = Math.max(expires.getTime() - Date.now() - 60 * 1000, 5000);
   refreshTokenTimeout = setTimeout(refreshToken, timeout);
 }
 

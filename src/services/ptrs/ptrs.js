@@ -1,4 +1,4 @@
-import { fetchWrapper } from "../../lib/utils/fetch-wrapper";
+import { fetchWrapper } from "lib/utils/fetch-wrapper";
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/ptrs`;
 
