@@ -153,21 +153,40 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
         </Typography>
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           {showPublicMarketingNav && (
-            <>
-              <Button
-                color="inherit"
+            <Box sx={{ display: "contents" }}>
+              <MenuItem
+                onClick={handleMenuClose}
                 component={Link}
                 to="/payment-times-reporting"
+                sx={{ color: theme.palette.text.primary }}
               >
                 Payment Times Reporting
-              </Button>
-              <Button color="inherit" component={Link} to="/pricing">
+              </MenuItem>
+              <MenuItem
+                onClick={handleMenuClose}
+                component={Link}
+                to="/pricing"
+                sx={{ color: theme.palette.text.primary }}
+              >
                 Pricing
-              </Button>
-              <Button color="inherit" component={Link} to="/contact">
+              </MenuItem>
+              <MenuItem
+                onClick={handleMenuClose}
+                component={Link}
+                to="/contact"
+                sx={{ color: theme.palette.text.primary }}
+              >
                 Contact
-              </Button>
-            </>
+              </MenuItem>
+              <MenuItem
+                onClick={handleMenuClose}
+                component={Link}
+                to="/about"
+                sx={{ color: theme.palette.text.primary }}
+              >
+                About
+              </MenuItem>
+            </Box>
           )}
           {isLoggedIn && !showPublicMarketingNav && !isPublicOnlyMode && (
             <>
@@ -346,7 +365,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             )}
             <Divider />
             {showPublicMarketingNav && (
-              <>
+              <Box sx={{ display: "contents" }}>
                 <MenuItem
                   onClick={handleMenuClose}
                   component={Link}
@@ -379,7 +398,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                 >
                   About
                 </MenuItem>
-              </>
+              </Box>
             )}
           </Menu>
         </Box>
