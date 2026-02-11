@@ -145,11 +145,8 @@ export default function LandingPage() {
             },
           ].map((card, index) => (
             <Grid
-              item
               key={index}
-              xs={12}
-              sm={8}
-              md={4}
+              size={{ xs: 12, sm: 8, md: 4 }}
               sx={{ display: "flex" }}
             >
               <Box sx={{ width: "100%" }}>
