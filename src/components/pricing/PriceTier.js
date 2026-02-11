@@ -73,10 +73,8 @@ export default function PriceTier() {
       <Grid container spacing={3} justifyContent="center" sx={{ mt: 3 }}>
         {tiers.map((tier) => (
           <Grid
-            item
             key={tier.title}
-            xs={12}
-            md={4}
+            size={{ xs: 12, md: 4 }}
             sx={{
               display: "flex",
             }}

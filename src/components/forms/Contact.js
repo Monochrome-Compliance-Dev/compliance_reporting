@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { publicService } from "services";
 import { useNavigate, useLocation } from "react-router";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAlert } from "context";
@@ -61,6 +61,7 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
 
   const {
+    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -187,23 +188,32 @@ export default function Contact() {
           onSubmit={handleSubmit(sendContactEmail)}
           sx={{ mb: theme.spacing(2) }}
         >
-          <TextField
-            label="Topic *"
-            select
-            {...register("topic")}
-            error={!!errors.topic}
-            helperText={errors.topic?.message}
-            fullWidth
-            sx={{ mb: theme.spacing(2) }}
-            InputLabelProps={{ style: { color: theme.palette.text.primary } }}
-          >
-            <MenuItem value="Payment Times Reporting">
-              Payment Times Reporting
-            </MenuItem>
-            <MenuItem value="Sales">Sales</MenuItem>
-            <MenuItem value="Support">Support</MenuItem>
-            <MenuItem value="General">General</MenuItem>
-          </TextField>
+          <Controller
+            name="topic"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                label="Topic *"
+                select
+                {...field}
+                value={field.value ?? "Payment Times Reporting"}
+                error={!!errors.topic}
+                helperText={errors.topic?.message}
+                fullWidth
+                sx={{ mb: theme.spacing(2) }}
+                InputLabelProps={{
+                  style: { color: theme.palette.text.primary },
+                }}
+              >
+                <MenuItem value="Payment Times Reporting">
+                  Payment Times Reporting
+                </MenuItem>
+                <MenuItem value="Sales">Sales</MenuItem>
+                <MenuItem value="Support">Support</MenuItem>
+                <MenuItem value="General">General</MenuItem>
+              </TextField>
+            )}
+          />
           <TextField
             label="Name *"
             type="text"

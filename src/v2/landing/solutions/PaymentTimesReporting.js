@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router";
 import PageMeta from "../../../components/ui/PageMeta";
+import { useAuthContext } from "context";
 
 export default function PaymentTimesReporting() {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ export default function PaymentTimesReporting() {
   };
 
   const isDark = theme.palette.mode === "dark";
+  const { user } = useAuthContext();
 
   const handlePrint = () => {
     window.open(
@@ -242,7 +244,7 @@ export default function PaymentTimesReporting() {
             >
               Book a quick call
             </Button>
-            <Button
+            {/* <Button
               variant="outlined"
               color="primary"
               size="large"
@@ -250,16 +252,18 @@ export default function PaymentTimesReporting() {
               sx={{ width: isSmallScreen ? "100%" : "auto" }}
             >
               Check if you need to report
-            </Button>
-            <Button
-              variant="text"
-              color="primary"
-              size="large"
-              onClick={handlePrint}
-              sx={{ width: isSmallScreen ? "100%" : "auto" }}
-            >
-              Open print version
-            </Button>
+            </Button> */}
+            {user?.role === "boss" && (
+              <Button
+                variant="text"
+                color="primary"
+                size="large"
+                onClick={handlePrint}
+                sx={{ width: isSmallScreen ? "100%" : "auto" }}
+              >
+                Open print version
+              </Button>
+            )}
           </Box>
         </Box>
 
@@ -465,7 +469,7 @@ export default function PaymentTimesReporting() {
 
               <Box sx={{ mt: theme.spacing(2) }}>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} sm={4}>
+                  <Grid size={{ xs: 12, sm: 4 }}>
                     <Card
                       elevation={0}
                       sx={{
@@ -491,7 +495,7 @@ export default function PaymentTimesReporting() {
                     </Card>
                   </Grid>
 
-                  <Grid item xs={12} sm={4}>
+                  <Grid size={{ xs: 12, sm: 4 }}>
                     <Card
                       elevation={0}
                       sx={{
@@ -517,7 +521,7 @@ export default function PaymentTimesReporting() {
                     </Card>
                   </Grid>
 
-                  <Grid item xs={12} sm={4}>
+                  <Grid size={{ xs: 12, sm: 4 }}>
                     <Card
                       elevation={0}
                       sx={{
