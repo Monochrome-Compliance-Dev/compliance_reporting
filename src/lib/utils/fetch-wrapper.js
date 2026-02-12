@@ -34,7 +34,7 @@ async function handleRequestWithRetry(
   requestFn,
   args,
   retries = 3,
-  baseDelay = 800
+  baseDelay = 800,
 ) {
   const attempts = Math.max(1, retries);
   for (let attempt = 0; attempt < attempts; attempt++) {
@@ -45,7 +45,7 @@ async function handleRequestWithRetry(
       "/",
       attempts,
       "->",
-      args && args[0]
+      args && args[0],
     );
     try {
       return await requestFn(...args);
@@ -58,7 +58,7 @@ async function handleRequestWithRetry(
         "name=",
         error?.name,
         "message=",
-        error?.message
+        error?.message,
       );
       const shouldRetry = isTransientError(error) && attempt < attempts - 1;
       if (!shouldRetry) {
@@ -70,7 +70,7 @@ async function handleRequestWithRetry(
         "[fetch-wrapper] retrying in",
         `${delay}ms`,
         "for",
-        args && args[0]
+        args && args[0],
       );
       await new Promise((resolve) => setTimeout(resolve, delay));
     }
@@ -97,7 +97,7 @@ async function get(url, options = {}) {
     _get,
     [url],
     options.retry ?? 3,
-    options.baseDelay ?? 800
+    options.baseDelay ?? 800,
   );
 }
 
@@ -133,7 +133,7 @@ async function post(url, body, options = {}) {
     _post,
     [url, body],
     options.retry ?? 3,
-    options.baseDelay ?? 800
+    options.baseDelay ?? 800,
   );
 }
 
@@ -161,7 +161,7 @@ async function _post(url, body) {
     "status=",
     response.status,
     "ct=",
-    response.headers.get("content-type")
+    response.headers.get("content-type"),
   );
   return handleResponse(response);
 }
@@ -171,7 +171,7 @@ async function postExternal(url, body, options = {}) {
     _postExternal,
     [url, body],
     options.retry ?? 3,
-    options.baseDelay ?? 800
+    options.baseDelay ?? 800,
   );
 }
 
@@ -212,7 +212,7 @@ async function postUpload(url, formData, options = {}) {
     run,
     [],
     options.retry ?? 3,
-    options.baseDelay ?? 800
+    options.baseDelay ?? 800,
   );
 }
 
@@ -230,7 +230,7 @@ async function postEmail(url, formData, options = {}) {
     formData.append(
       "attachment",
       new Blob([await file.arrayBuffer()], { type: file.type }),
-      file.name
+      file.name,
     );
   }
 
@@ -249,7 +249,7 @@ async function postEmail(url, formData, options = {}) {
     run,
     [],
     options.retry ?? 3,
-    options.baseDelay ?? 800
+    options.baseDelay ?? 800,
   );
 }
 
@@ -258,7 +258,7 @@ async function put(url, body, options = {}) {
     _put,
     [url, body],
     options.retry ?? 3,
-    options.baseDelay ?? 800
+    options.baseDelay ?? 800,
   );
 }
 
@@ -283,7 +283,7 @@ async function patch(url, body, options = {}) {
     _patch,
     [url, body],
     options.retry ?? 3,
-    options.baseDelay ?? 800
+    options.baseDelay ?? 800,
   );
 }
 
@@ -309,7 +309,7 @@ async function _delete(url, options = {}) {
     _deleteRequest,
     [url],
     options.retry ?? 3,
-    options.baseDelay ?? 800
+    options.baseDelay ?? 800,
   );
 }
 
@@ -426,7 +426,7 @@ function handleResponseForDocuments(response) {
     if (!response.ok) {
       if (response.status === 401) {
         console.info(
-          "[fetch-wrapper] 401 detected (documents), dispatching auth:expired"
+          "[fetch-wrapper] 401 detected (documents), dispatching auth:expired",
         );
         try {
           window.dispatchEvent(new CustomEvent("auth:expired"));

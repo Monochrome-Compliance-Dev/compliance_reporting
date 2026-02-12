@@ -113,8 +113,6 @@ export default function Contact() {
       subject: data.subject,
     };
 
-    console.log("Sanitised contact email data:", safe);
-
     const topicTag = safe.topic?.toLowerCase().includes("pulse")
       ? safe.subject?.toLowerCase().includes("ea")
         ? "[PULSE EA]"

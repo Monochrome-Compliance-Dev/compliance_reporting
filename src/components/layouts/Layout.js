@@ -74,7 +74,7 @@ export default function Layout() {
             <Navbar isDarkTheme={isDarkTheme} onToggleTheme={toggleTheme} />
           </Box>
           <Suspense fallback={<LoadingSpinner />}>
-            <Outlet />
+            <Outlet key={location.pathname} />
           </Suspense>
         </Box>
         <Box
