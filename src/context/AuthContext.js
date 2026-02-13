@@ -6,9 +6,9 @@ import {
   useState,
   useRef,
 } from "react";
-import { userService } from "services";
 import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
 import { useAlert } from "./AlertContext";
+import { userService } from "slices/users/userApi";
 
 const AuthContext = createContext();
 
@@ -126,7 +126,7 @@ export function AuthProvider({ children }) {
     };
 
     activityEvents.forEach((event) =>
-      window.addEventListener(event, handleActivity)
+      window.addEventListener(event, handleActivity),
     );
 
     lastActiveRef.current = Date.now();
@@ -135,7 +135,7 @@ export function AuthProvider({ children }) {
     return () => {
       subscription.unsubscribe();
       activityEvents.forEach((event) =>
-        window.removeEventListener(event, handleActivity)
+        window.removeEventListener(event, handleActivity),
       );
       clearTimeout(logoutTimer);
       clearTimeout(warningTimer);
