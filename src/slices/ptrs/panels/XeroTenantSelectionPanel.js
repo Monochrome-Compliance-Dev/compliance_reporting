@@ -12,6 +12,7 @@ import {
   FormControlLabel,
   Paper,
   Typography,
+  Alert,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
@@ -21,6 +22,7 @@ import {
   getXeroOrganisations,
   removeXeroOrganisation,
   selectXeroOrganisations,
+  getXeroReadiness,
 } from "../services/ptrsXero.api";
 import { LoadingSpinner } from "shared/ui";
 
@@ -63,6 +65,9 @@ export default function XeroTenantSelectionPanel() {
   const [orgToRemove, setOrgToRemove] = useState(null);
   const [isRemoving, setIsRemoving] = useState(false);
 
+  const [readiness, setReadiness] = useState(null);
+  const [isReadinessLoading, setIsReadinessLoading] = useState(false);
+
   useEffect(() => {
     baselineOrgsRef.current = initialFromQuery;
   }, [initialFromQuery]);
@@ -91,28 +96,47 @@ export default function XeroTenantSelectionPanel() {
         }
 
         // Merge by tenantId so we preserve selection and get the best label fields.
+        // Also track whether each org is actually present in the current Xero connection.
         const byId = new Map();
+        const apiIds = new Set();
+
+        apiOrgs.forEach((o) => {
+          const id = o?.tenantId || o?.tenantID || o?.id;
+          if (id) apiIds.add(id);
+        });
 
         // Baseline (query-string) first…
         (baselineOrgsRef.current || []).forEach((o) => {
           const id = o?.tenantId || o?.tenantID || o?.id;
-          if (id) byId.set(id, { ...o, tenantId: id });
+          if (!id) return;
+          byId.set(id, { ...o, tenantId: id, fromApi: apiIds.has(id) });
         });
 
         // …then API values overwrite with authoritative names
         apiOrgs.forEach((o) => {
           const id = o?.tenantId || o?.tenantID || o?.id;
-          if (id) byId.set(id, { ...byId.get(id), ...o, tenantId: id });
+          if (!id) return;
+          byId.set(id, {
+            ...byId.get(id),
+            ...o,
+            tenantId: id,
+            fromApi: true,
+          });
         });
 
         const merged = Array.from(byId.values());
 
         setOrganisations(merged);
 
-        // Default selection: if nothing selected yet, select all merged tenants.
+        // Default selection: if nothing selected yet, select only orgs that are present
+        // in the current Xero connection (fromApi === true). This prevents a stale/unknown
+        // tenantId from re-selecting itself.
         setSelected((prev) => {
           if (prev?.length) return prev;
-          return merged.map((o) => o?.tenantId).filter(Boolean);
+          return merged
+            .filter((o) => o?.fromApi)
+            .map((o) => o?.tenantId)
+            .filter(Boolean);
         });
       } catch (err) {
         showAlert(
@@ -131,6 +155,42 @@ export default function XeroTenantSelectionPanel() {
     };
   }, [effectivePtrsId, showAlert]);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadReadiness() {
+      if (!effectivePtrsId) {
+        setReadiness(null);
+        return;
+      }
+      setIsReadinessLoading(true);
+      try {
+        const d = await getXeroReadiness(effectivePtrsId);
+        if (!isMounted) return;
+        setReadiness(d);
+      } catch (err) {
+        if (!isMounted) return;
+        setReadiness({
+          connectionValid: false,
+          selectedTenantIds: [],
+          selectedValid: null,
+          missingSelectedTenantIds: [],
+          connectionsCount: 0,
+          hasAnyToken: false,
+          error: { message: err?.message || "Failed to check Xero readiness." },
+        });
+      } finally {
+        if (isMounted) setIsReadinessLoading(false);
+      }
+    }
+
+    loadReadiness();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [effectivePtrsId]);
+
   const toggleSelection = (tenantId) => {
     setSelected((prev) =>
       prev.includes(tenantId)
@@ -140,6 +200,24 @@ export default function XeroTenantSelectionPanel() {
   };
 
   async function handleContinue() {
+    if (readiness && readiness.connectionValid === false) {
+      showAlert(
+        "Xero connection isn't valid. Go back and reconnect before selecting organisations.",
+        "warning",
+      );
+      return;
+    }
+
+    const hasPriorSelection = Boolean(readiness?.selectedTenantIds?.length);
+
+    if (hasPriorSelection && readiness.selectedValid === false) {
+      showAlert(
+        "Your previously selected organisations no longer match your Xero connection. Please re-select organisations.",
+        "warning",
+      );
+      return;
+    }
+
     if (!effectivePtrsId) {
       showAlert(
         "No PTRS run found. Please create/resume a run first.",
@@ -176,6 +254,24 @@ export default function XeroTenantSelectionPanel() {
         Select Xero organisation(s)
       </Typography>
 
+      {isReadinessLoading ? (
+        <Alert severity="info" sx={{ mb: theme.spacing(2) }}>
+          Checking Xero connection…
+        </Alert>
+      ) : readiness && readiness.connectionValid === false ? (
+        <Alert severity="warning" sx={{ mb: theme.spacing(2) }}>
+          Xero connection isn't valid. Go back and reconnect before selecting
+          organisations.
+        </Alert>
+      ) : readiness &&
+        readiness?.selectedTenantIds?.length &&
+        readiness.selectedValid === false ? (
+        <Alert severity="warning" sx={{ mb: theme.spacing(2) }}>
+          Your previously selected organisations no longer match your Xero
+          connection. Please re-select organisations.
+        </Alert>
+      ) : null}
+
       <Paper sx={{ p: theme.spacing(2) }}>
         {isLoading && (
           <Box
@@ -203,6 +299,7 @@ export default function XeroTenantSelectionPanel() {
             const label = name || tenantId;
 
             const fetched = Boolean(org?.fetched);
+            const isFromApi = org?.fromApi !== false;
 
             return (
               <Box
@@ -229,6 +326,11 @@ export default function XeroTenantSelectionPanel() {
                       {name && tenantId && name !== tenantId && (
                         <Typography variant="caption" sx={{ opacity: 0.8 }}>
                           {tenantId}
+                        </Typography>
+                      )}
+                      {!isFromApi && (
+                        <Typography variant="caption" sx={{ opacity: 0.8 }}>
+                          Not in current Xero connection
                         </Typography>
                       )}
                     </Box>

@@ -1,4 +1,4 @@
-// PTRS v2 Layout: stepper + chrome only (no Create/Switch header button)
+// PTRS Layout: stepper + chrome only (no Create/Switch header button)
 import { useEffect, useMemo, useState } from "react";
 import { Outlet, useLocation } from "react-router";
 import { useAlert } from "context";
@@ -172,7 +172,7 @@ export default function PtrsLayout() {
 
   return (
     <Box sx={{ minHeight: "100%", display: "flex", flexDirection: "column" }}>
-      <PageMeta title="PTRS v2" />
+      <PageMeta title="PTRS" />
 
       <Box
         sx={{
@@ -187,7 +187,7 @@ export default function PtrsLayout() {
           justifyContent="space-between"
         >
           <Typography variant="h6" fontWeight={700}>
-            PTRS v2
+            PTRS
           </Typography>
           <Stack direction="row" spacing={1} alignItems="center">
             <Chip
@@ -287,7 +287,7 @@ export default function PtrsLayout() {
         <DialogContent>
           {!profilesArray.length ? (
             <Typography variant="body2" color="text.secondary">
-              No profiles yet. Create one in PTRS v2 → Profiles.
+              No profiles yet. Create one in PTRS → Profiles.
             </Typography>
           ) : (
             <RadioGroup

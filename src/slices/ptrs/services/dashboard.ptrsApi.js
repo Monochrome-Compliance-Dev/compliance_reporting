@@ -1,4 +1,4 @@
-// PTRS v2 Dashboard service — UI-friendly contract for the dashboard screen.
+// PTRS Dashboard service — UI-friendly contract for the dashboard screen.
 // IMPORTANT: This does NOT recompute metrics. It reuses /v2/ptrs/:id/metrics as the source of truth
 // and maps it into a CFO-friendly shape.
 

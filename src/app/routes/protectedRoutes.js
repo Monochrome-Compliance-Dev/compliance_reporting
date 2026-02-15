@@ -3,21 +3,18 @@ import Landing from "app/Landing";
 import { RequireRoles } from "./RequireRoles";
 import Role from "context/role";
 import ptrsRoutes from "slices/ptrs/ptrsRouteConfig";
-import { PtrsProvider } from "slices/ptrs/context/PtrsContext";
+import Ptrs from "slices/ptrs/Ptrs";
+import ComplianceDashboardLayout from "shared/layouts/ComplianceDashboardLayout";
+import CustomerAdminPage from "slices/customers/CustomerAdminPage";
+import bossRoutes from "./bossRoutes";
 
 function ProtectedAppLayout() {
   return (
     <RequireRoles allowed={[Role.User, Role.Admin, Role.Boss]}>
-      <Outlet />
+      <ComplianceDashboardLayout>
+        <Outlet />
+      </ComplianceDashboardLayout>
     </RequireRoles>
-  );
-}
-
-function PtrsRouteProvider() {
-  return (
-    <PtrsProvider>
-      <Outlet />
-    </PtrsProvider>
   );
 }
 
@@ -29,8 +26,13 @@ export const protectedRoutes = [
       { index: true, Component: Landing },
       {
         path: "ptrs",
-        Component: PtrsRouteProvider,
+        Component: Ptrs,
         children: ptrsRoutes,
+      },
+      {
+        path: "boss",
+        Component: CustomerAdminPage,
+        children: bossRoutes,
       },
     ],
   },

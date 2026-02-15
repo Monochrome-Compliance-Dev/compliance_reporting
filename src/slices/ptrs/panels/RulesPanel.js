@@ -717,7 +717,7 @@ export default function RulesPanel() {
     <Box
       sx={{
         p: 3,
-        maxWidth: 1200,
+        maxWidth: 1400,
         mx: "auto",
       }}
     >
@@ -749,19 +749,29 @@ export default function RulesPanel() {
           exclusions, and dataset operations will be recorded for audit.
         </Typography>
 
-        <Typography
-          variant="subtitle2"
-          sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          spacing={1}
+          justifyContent="space-between"
+          alignItems={{ md: "center" }}
+          sx={{ mb: 1 }}
         >
-          Sandbox — what data?
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ color: theme.palette.text.secondary, mb: 1 }}
-        >
-          Use the sandbox to explore and filter staged data safely. No rules are
-          applied and no data is changed.
-        </Typography>
+          <Box>
+            <Typography
+              variant="subtitle2"
+              sx={{ color: theme.palette.text.secondary }}
+            >
+              Sandbox
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ color: theme.palette.text.secondary }}
+            >
+              Filter a small slice of staged data safely. No rules are applied
+              and no data is changed.
+            </Typography>
+          </Box>
+        </Stack>
         <RulesSandbox
           ptrsId={ptrsId}
           headers={headers}
@@ -796,38 +806,49 @@ export default function RulesPanel() {
             alignItems={{ md: "center" }}
             sx={{ mb: 1 }}
           >
-            <Typography
-              variant="subtitle2"
-              sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
-            >
-              Preview — what impact?
-            </Typography>
-            <Typography
-              variant="body2"
-              sx={{ color: theme.palette.text.secondary, mb: 1 }}
-            >
-              Preview simulates the effect of your rules and shows how many rows
-              would be affected. No data is written until you apply.
-            </Typography>
-            <RuleToolbar
-              onImport={openImportDialog}
-              onAddRule={addRule}
-              onSave={handleSaveRules}
-              onPreview={handlePreview}
-              onApply={handleApply}
-              isPreviewing={isPreviewing}
-              isApplying={isApplying}
-              canApply={canApply}
-            />
+            <Box sx={{ flex: 1, minWidth: 260 }}>
+              <Typography
+                variant="subtitle2"
+                sx={{ color: theme.palette.text.secondary }}
+              >
+                Preview
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: theme.palette.text.secondary }}
+              >
+                Simulates the effect of your rules. Nothing is written until you
+                apply.
+              </Typography>
+            </Box>
 
-            <Button
-              variant="contained"
-              endIcon={<NavigateNextIcon />}
-              disabled={!ptrsId || isBusy}
-              onClick={handleGoToSbi}
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={1}
+              alignItems={{ sm: "center" }}
+              justifyContent={{ sm: "flex-end" }}
+              sx={{ flexWrap: "wrap" }}
             >
-              Next: SBI Check
-            </Button>
+              <RuleToolbar
+                onImport={openImportDialog}
+                onAddRule={addRule}
+                onSave={handleSaveRules}
+                onPreview={handlePreview}
+                onApply={handleApply}
+                isPreviewing={isPreviewing}
+                isApplying={isApplying}
+                canApply={canApply}
+              />
+
+              <Button
+                variant="contained"
+                endIcon={<NavigateNextIcon />}
+                disabled={!ptrsId || isBusy}
+                onClick={handleGoToSbi}
+              >
+                Next: SBI Check
+              </Button>
+            </Stack>
           </Stack>
 
           {isApplying && (

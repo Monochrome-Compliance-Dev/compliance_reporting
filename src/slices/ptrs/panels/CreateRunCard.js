@@ -9,12 +9,17 @@ import {
   Stack,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
 import { useAlert } from "context";
 import { usePtrsContext } from "../context/PtrsContext";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import { createPtrs, uploadCsv } from "../services/ptrsApi";
+import { isValidABN, payloadSanitiser } from "shared/utils";
 
-// Fixed five reporting periods starting 2025, half-yearly
+// Fixed half-yearly reporting periods
 const PERIODS = [
   {
     label: "1 January 2024 - 30 June 2024",
@@ -53,23 +58,87 @@ const PERIODS = [
   },
 ];
 
+const schema = yup.object({
+  label: yup.string().nullable(),
+  periodIdx: yup
+    .number()
+    .min(0)
+    .max(PERIODS.length - 1)
+    .required(),
+  dataSource: yup
+    .string()
+    .oneOf(["csv", "both", "xero"], "Select a valid data source")
+    .required("Main dataset source is required"),
+  reportingEntityName: yup
+    .string()
+    .trim()
+    .max(200, "Keep it short")
+    .required("Reporting entity name is required"),
+  abn: yup
+    .string()
+    .transform((v) => String(v || "").replace(/\s+/g, ""))
+    .required("ABN is required")
+    .matches(/^\d{11}$/, "ABN must be 11 digits")
+    .test("abn-checksum", "ABN checksum failed", (v) =>
+      v ? isValidABN(v) : false,
+    ),
+  acn: yup
+    .string()
+    .transform((v) => {
+      const digits = String(v || "").replace(/\s+/g, "");
+      return digits || "";
+    })
+    .test("acn-len", "ACN must be 9 digits", (v) => !v || /^\d{9}$/.test(v)),
+  arbn: yup
+    .string()
+    .transform((v) => {
+      const digits = String(v || "").replace(/\s+/g, "");
+      return digits || "";
+    })
+    .test("arbn-len", "ARBN must be 9 digits", (v) => !v || /^\d{9}$/.test(v)),
+  // This is only used so the file error can be shown inline.
+  file: yup.mixed().nullable(),
+});
+
 export default function CreatePtrsCard({ onSuccess }) {
   const theme = useTheme();
   const { showAlert } = useAlert();
 
   const { profiles, profileId, setProfileId } = usePtrsContext();
+  const { goTo } = usePtrsNavigation();
 
   const safeProfileId = profiles.some((p) => p.id === profileId)
     ? profileId
     : "";
 
-  const [label, setLabel] = useState("");
-  const [periodIdx, setPeriodIdx] = useState(0);
-  const [dataSource, setDataSource] = useState("csv");
-  const [file, setFile] = useState(null);
+  const [fileObj, setFileObj] = useState(null);
   const [submitting, setSubmitting] = useState(false);
 
-  const { goTo } = usePtrsNavigation();
+  const {
+    register,
+    handleSubmit,
+    setError,
+    clearErrors,
+    watch,
+    formState: { errors, isValid },
+    setValue,
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      label: "",
+      periodIdx: 0,
+      dataSource: "csv",
+      reportingEntityName: "",
+      abn: "",
+      acn: "",
+      arbn: "",
+      file: null,
+    },
+    mode: "onChange",
+  });
+
+  const dataSource = watch("dataSource");
+  const periodIdx = watch("periodIdx");
 
   const requiresFile = useMemo(
     () => dataSource === "csv" || dataSource === "both",
@@ -78,43 +147,95 @@ export default function CreatePtrsCard({ onSuccess }) {
 
   const isBoth = useMemo(() => dataSource === "both", [dataSource]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const p = PERIODS[periodIdx];
+  const canSubmit = Boolean(
+    profileId &&
+    isValid &&
+    !submitting &&
+    (requiresFile ? Boolean(fileObj) : true),
+  );
 
-    if (requiresFile && !file) {
-      showAlert("Choose a file to upload, or switch to Xero import.", "info");
+  const onSubmit = async (values) => {
+    const p = PERIODS[values.periodIdx];
+
+    // Conditional file requirement (show inline error like other fields)
+    if (requiresFile && !fileObj) {
+      setError("file", {
+        type: "manual",
+        message: "Choose a CSV file to upload, or switch to Xero import.",
+      });
       return;
     }
 
     if (!profileId) {
+      // Keep this as an alert for now because profile is outside RHF
       showAlert("Choose a PTRS profile before creating a PTRS report.", "info");
       return;
     }
+
+    // Sanitise payload (and strip spaces from identifiers)
+    const sanitised = payloadSanitiser(
+      {
+        reportingEntityName: values.reportingEntityName,
+        abn: values.abn,
+        acn: values.acn,
+        arbn: values.arbn,
+      },
+      [
+        { key: "reportingEntityName", inputType: "text" },
+        {
+          key: "abn",
+          inputType: "text",
+          formatOverride: (v) => {
+            const digits = String(v || "").replace(/\s+/g, "");
+            return digits || null;
+          },
+        },
+        {
+          key: "acn",
+          inputType: "text",
+          formatOverride: (v) => {
+            const digits = String(v || "").replace(/\s+/g, "");
+            return digits || null;
+          },
+        },
+        {
+          key: "arbn",
+          inputType: "text",
+          formatOverride: (v) => {
+            const digits = String(v || "").replace(/\s+/g, "");
+            return digits || null;
+          },
+        },
+      ],
+    );
 
     setSubmitting(true);
 
     try {
       const payload = {
-        label: label || null,
+        label: values.label || null,
         reportingPeriodStartDate: p.start,
         reportingPeriodEndDate: p.end,
         periodStart: p.start,
         periodEnd: p.end,
-        profileId, // <- required for BE to link to the right profile
+        reportingEntityName: sanitised.reportingEntityName,
+        profileId,
+        meta: {
+          abn: sanitised.abn,
+          acn: sanitised.acn,
+          arbn: sanitised.arbn,
+        },
       };
 
-      // Include optional metadata about the initial upload (file-based sources)
-      if (requiresFile && file) {
+      if (requiresFile && fileObj) {
         payload.originalName =
-          file.name || (label ? `${label}.csv` : "upload.csv");
-        payload.sizeBytes = file.size ?? null;
-        payload.mimeType = file.type || "text/csv";
+          fileObj.name || (values.label ? `${values.label}.csv` : "upload.csv");
+        payload.sizeBytes = fileObj.size ?? null;
+        payload.mimeType = fileObj.type || "text/csv";
       }
 
       const res = await createPtrs(payload);
 
-      // Prefer an id from common shapes
       const ptrsId = res?.data?.id || res?.id || res?.ptrsId;
       if (!ptrsId) {
         showAlert(
@@ -125,12 +246,9 @@ export default function CreatePtrsCard({ onSuccess }) {
         return;
       }
 
-      // Seed the main dataset
-      // - csv: uses existing CSV ingest endpoint
-      // - both: upload csv first, then send user to Xero import to add main_xero
-      if ((dataSource === "csv" || isBoth) && file) {
+      if ((dataSource === "csv" || isBoth) && fileObj) {
         try {
-          const ingest = await uploadCsv(ptrsId, file);
+          const ingest = await uploadCsv(ptrsId, fileObj);
           const inserted = ingest.rowsInserted;
           showAlert(
             `PTRS created for profile and ${inserted} rows ingested`,
@@ -154,13 +272,9 @@ export default function CreatePtrsCard({ onSuccess }) {
         return;
       }
 
-      // Xero-only
       showAlert("PTRS created. Continue to import from Xero.", "success");
       if (onSuccess) onSuccess(ptrsId);
       goTo(`xero?ptrsId=${encodeURIComponent(ptrsId)}`);
-      return;
-
-      if (onSuccess) onSuccess(res);
     } catch (err) {
       console.error(err);
       const msg =
@@ -172,41 +286,47 @@ export default function CreatePtrsCard({ onSuccess }) {
     }
   };
 
-  const canSubmit = Boolean(
-    profileId && !submitting && (requiresFile ? Boolean(file) : true),
-  );
-
   return (
     <Box
       component="form"
-      onSubmit={handleSubmit}
-      sx={{ width: "100%", maxWidth: 560, mt: theme.spacing(2) }}
+      onSubmit={handleSubmit(onSubmit)}
+      sx={{ width: "100%", maxWidth: 980, mt: theme.spacing(2) }}
     >
-      <Grid container spacing={2}>
-        <Grid size={12}>
+      <Grid container spacing={3}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Typography variant="subtitle1" sx={{ mb: 1 }}>
             Create a new PTRS report
           </Typography>
+
           <TextField
             label="Optional label"
-            value={label}
-            onChange={(e) => setLabel(e.target.value)}
             fullWidth
             size="small"
             sx={{ mb: 2 }}
+            {...register("label")}
+            error={!!errors.label}
+            helperText={errors.label?.message}
           />
+
           <TextField
             select
             label="Reporting period"
             fullWidth
             size="small"
-            value={periodIdx}
-            onChange={(e) => setPeriodIdx(Number(e.target.value))}
             sx={{ mb: 2 }}
+            {...register("periodIdx")}
+            value={periodIdx}
+            onChange={(e) =>
+              setValue("periodIdx", Number(e.target.value), {
+                shouldValidate: true,
+              })
+            }
+            error={!!errors.periodIdx}
+            helperText={errors.periodIdx?.message}
           >
-            {PERIODS.map((p, idx) => (
-              <MenuItem key={p.start} value={idx}>
-                {p.label}
+            {PERIODS.map((p2, idx) => (
+              <MenuItem key={p2.start} value={idx}>
+                {p2.label}
               </MenuItem>
             ))}
           </TextField>
@@ -225,21 +345,33 @@ export default function CreatePtrsCard({ onSuccess }) {
                 : "No profiles found for this customer."
             }
           >
-            {profiles.map((p) => (
-              <MenuItem key={p.id} value={p.id}>
-                {p.name || p.code || p.id}
+            {profiles.map((p3) => (
+              <MenuItem key={p3.id} value={p3.id}>
+                {p3.name || p3.code || p3.id}
               </MenuItem>
             ))}
           </TextField>
+
           <TextField
             select
             label="Main dataset source"
             fullWidth
             size="small"
-            value={dataSource}
-            onChange={(e) => setDataSource(e.target.value)}
             sx={{ mt: 2 }}
-            helperText="Choose how to seed the main Transactions dataset for Step 1."
+            {...register("dataSource")}
+            value={dataSource}
+            onChange={(e) => {
+              setValue("dataSource", e.target.value, { shouldValidate: true });
+              // If they swap away from file-based sources, clear the file error
+              if (e.target.value === "xero") {
+                clearErrors("file");
+              }
+            }}
+            error={!!errors.dataSource}
+            helperText={
+              errors.dataSource?.message ||
+              "Choose how to seed the main Transactions dataset for Step 1."
+            }
           >
             <MenuItem value="csv">Upload CSV</MenuItem>
             <MenuItem value="both">CSV + Xero (roll-up)</MenuItem>
@@ -247,14 +379,82 @@ export default function CreatePtrsCard({ onSuccess }) {
           </TextField>
         </Grid>
 
+        <Grid size={{ xs: 12, md: 6 }}>
+          <Typography variant="subtitle1" sx={{ mb: 1 }}>
+            Reporting entity details
+          </Typography>
+
+          <TextField
+            label="Reporting entity name"
+            fullWidth
+            size="small"
+            sx={{ mb: 2 }}
+            required
+            {...register("reportingEntityName")}
+            error={!!errors.reportingEntityName}
+            helperText={
+              errors.reportingEntityName?.message ||
+              "Required. Shown in the report header and Board Pack."
+            }
+          />
+
+          <TextField
+            label="ABN (11 digits)"
+            fullWidth
+            size="small"
+            sx={{ mb: 2 }}
+            required
+            {...register("abn")}
+            error={!!errors.abn}
+            helperText={
+              errors.abn?.message ||
+              "Required. Must be a valid ABN (checksum validated)."
+            }
+          />
+
+          <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
+            <TextField
+              label="ACN (9 digits)"
+              fullWidth
+              size="small"
+              {...register("acn")}
+              error={!!errors.acn}
+              helperText={errors.acn?.message}
+            />
+            <TextField
+              label="ARBN (9 digits)"
+              fullWidth
+              size="small"
+              {...register("arbn")}
+              error={!!errors.arbn}
+              helperText={errors.arbn?.message}
+            />
+          </Stack>
+        </Grid>
+
         <Grid size={12}>
-          <Stack spacing={1}>
+          <Stack spacing={0.75}>
             {requiresFile ? (
-              <input
-                type="file"
-                accept=".csv,text/csv"
-                onChange={(e) => setFile(e.target.files?.[0] || null)}
-              />
+              <>
+                <input
+                  type="file"
+                  accept=".csv,text/csv"
+                  onChange={(e) => {
+                    const next = e.target.files?.[0] || null;
+                    setFileObj(next);
+                    setValue("file", next, { shouldValidate: true });
+                    if (next) clearErrors("file");
+                  }}
+                />
+                {errors.file ? (
+                  <Typography
+                    variant="caption"
+                    sx={{ color: theme.palette.error.main }}
+                  >
+                    {errors.file.message}
+                  </Typography>
+                ) : null}
+              </>
             ) : (
               <Typography variant="body2" color="text.secondary">
                 You’ll import Transactions from Xero after creating the PTRS

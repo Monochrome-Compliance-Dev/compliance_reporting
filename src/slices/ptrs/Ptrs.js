@@ -1,6 +1,13 @@
-import { useRoutes } from "react-router";
-import ptrsRoutes from "./ptrsRouteConfig";
+import { RequireFeature } from "app/routes";
+import { Outlet } from "react-router";
+import { PtrsProvider } from "./context/PtrsContext";
 
 export default function Ptrs() {
-  return useRoutes(ptrsRoutes);
+  return (
+    <RequireFeature feature="ptrs">
+      <PtrsProvider>
+        <Outlet />
+      </PtrsProvider>
+    </RequireFeature>
+  );
 }

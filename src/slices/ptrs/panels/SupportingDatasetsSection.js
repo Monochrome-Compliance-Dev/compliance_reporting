@@ -22,10 +22,10 @@ import {
 } from "../services/data.ptrsApi";
 
 const ROLES = [
-  { value: "vendorMaster", label: "Vendor Master", required: false },
-  { value: "termsChanges", label: "Payment Terms Changes", required: false },
+  { value: "vendormaster", label: "Vendor Master", required: false },
+  { value: "termschanges", label: "Payment Terms Changes", required: false },
   {
-    value: "entityStructure",
+    value: "entitystructure",
     label: "Entity Structure / Holdings",
     required: false,
   },
@@ -46,7 +46,6 @@ export default function SupportingDatasetsSection({
     if (!ptrsId) return;
     try {
       const { items } = await listDatasets(ptrsId);
-      console.log("items: ", items);
       setItems(items || []);
     } catch (e) {
       console.error(e);

@@ -506,29 +506,37 @@ export default function MetricsPanel() {
             <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
               <TextField
                 label="ANZSIC Industry subdivision"
+                size="small"
                 fullWidth
+                InputLabelProps={{ shrink: true }}
                 {...register("anzsicSubdivision")}
               />
               <TextField
                 label="Industry Division"
+                size="small"
                 fullWidth
+                InputLabelProps={{ shrink: true }}
                 {...register("industryDivision")}
               />
             </Stack>
 
             <TextField
               label="Report Comments"
+              size="small"
               fullWidth
               multiline
               minRows={3}
+              InputLabelProps={{ shrink: true }}
               {...register("reportComments")}
             />
 
             <TextField
               label="Description of Changes"
+              size="small"
               fullWidth
               multiline
               minRows={3}
+              InputLabelProps={{ shrink: true }}
               {...register("descriptionOfChanges")}
             />
           </Stack>

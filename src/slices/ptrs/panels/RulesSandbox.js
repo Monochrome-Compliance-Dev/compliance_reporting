@@ -2,7 +2,6 @@ import { useState, useMemo } from "react";
 import {
   Box,
   Stack,
-  Grid,
   Typography,
   Button,
   TextField,
@@ -209,14 +208,14 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
         </Typography>
 
         {filters.map((f, idx) => (
-          <Grid
-            container
-            spacing={2}
-            alignItems="flex-end"
+          <Stack
             key={idx}
-            sx={{ mt: idx > 0 ? 1 : 0 }}
+            direction={{ xs: "column", md: "row" }}
+            spacing={2}
+            alignItems={{ md: "flex-end" }}
+            sx={{ mt: idx > 0 ? 1 : 0, flexWrap: "wrap" }}
           >
-            <Grid item xs={12} md={4}>
+            <Box sx={{ minWidth: 260, maxWidth: 360, flex: "0 1 320px" }}>
               <FormControl fullWidth size="small">
                 <InputLabel id={`sandbox-field-label-${idx}`}>Field</InputLabel>
                 <Select
@@ -232,8 +231,9 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
                   ))}
                 </Select>
               </FormControl>
-            </Grid>
-            <Grid item xs={12} md={3}>
+            </Box>
+
+            <Box sx={{ minWidth: 200, maxWidth: 260, flex: "0 1 220px" }}>
               <FormControl fullWidth size="small">
                 <InputLabel id={`sandbox-op-label-${idx}`}>Operator</InputLabel>
                 <Select
@@ -249,23 +249,37 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
                   ))}
                 </Select>
               </FormControl>
-            </Grid>
-            <Grid item xs={12} md={3}>
+            </Box>
+
+            <Box sx={{ minWidth: 260, maxWidth: 520, flex: "1 1 420px" }}>
               <TextField
                 fullWidth
                 size="small"
                 label="Value"
                 value={f.value}
                 onChange={(e) => updateFilter(idx, { value: e.target.value })}
-                helperText={
-                  idx === 0
-                    ? "For IN/NOT IN, use comma-separated values."
-                    : "Optional; IN/NOT IN supports comma-separated values."
+                placeholder={
+                  f.op === "in" || f.op === "nin"
+                    ? "comma-separated values"
+                    : ""
                 }
               />
-            </Grid>
+              {idx === 0 && (f.op === "in" || f.op === "nin") ? (
+                <Typography
+                  variant="caption"
+                  sx={{
+                    color: theme.palette.text.secondary,
+                    mt: 0.5,
+                    display: "block",
+                  }}
+                >
+                  IN/NOT IN supports comma-separated values.
+                </Typography>
+              ) : null}
+            </Box>
+
             {idx === 0 ? (
-              <Grid item xs={12} md={2}>
+              <Box sx={{ minWidth: 140, maxWidth: 180, flex: "0 0 160px" }}>
                 <TextField
                   fullWidth
                   size="small"
@@ -275,20 +289,20 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
                   onChange={(e) => setLimit(e.target.value)}
                   inputProps={{ min: 1, step: 1 }}
                 />
-              </Grid>
+              </Box>
             ) : (
-              <Grid item xs={12} md={2}>
+              <Box sx={{ minWidth: 140, maxWidth: 180, flex: "0 0 160px" }}>
                 <Button
                   variant="text"
                   color="inherit"
                   onClick={() => removeFilterRow(idx)}
-                  sx={{ mt: { xs: 1, md: 0 } }}
+                  sx={{ mt: { xs: 0, md: 0.5 } }}
                 >
                   Remove
                 </Button>
-              </Grid>
+              </Box>
             )}
-          </Grid>
+          </Stack>
         ))}
 
         <Box sx={{ mt: 1 }}>
@@ -297,7 +311,11 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
           </Button>
         </Box>
 
-        <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={1}
+          sx={{ mt: 1, flexWrap: "wrap" }}
+        >
           <Button
             variant="contained"
             onClick={handleRunPreview}
@@ -338,7 +356,7 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
             <TableContainer
               component={Paper}
               variant="outlined"
-              sx={{ mt: 1, maxHeight: 260, overflow: "auto" }}
+              sx={{ mt: 1, maxHeight: 340, overflow: "auto" }}
             >
               <Table size="small" stickyHeader>
                 <TableHead>
@@ -363,6 +381,9 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
                           sx={{
                             fontFamily: "monospace",
                             whiteSpace: "nowrap",
+                            maxWidth: 220,
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
                           }}
                         >
                           {row[h.value]}

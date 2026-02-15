@@ -1,4 +1,4 @@
-// PTRS v2 Xero service client.
+// PTRS Xero service client.
 // Normalises responses so components/hooks don't need to peel envelopes.
 
 import { fetchWrapper } from "shared/utils";
@@ -22,6 +22,26 @@ function normaliseStatus(data, fallbackPtrsId) {
     progress: d?.progress ?? null,
     updatedAt: d?.updatedAt || d?.updated_at || null,
     organisations: d?.organisations || d?.tenants || null,
+  };
+}
+
+function normaliseReadiness(data) {
+  const d = data?.data || data || {};
+  return {
+    connectionValid: Boolean(d.connectionValid),
+    selectedTenantIds: Array.isArray(d.selectedTenantIds)
+      ? d.selectedTenantIds
+      : [],
+    selectedValid: d.selectedValid === null ? null : Boolean(d.selectedValid),
+    missingSelectedTenantIds: Array.isArray(d.missingSelectedTenantIds)
+      ? d.missingSelectedTenantIds
+      : [],
+    connectionsCount: Number.isFinite(Number(d.connectionsCount))
+      ? Number(d.connectionsCount)
+      : 0,
+    hasAnyToken: Boolean(d.hasAnyToken),
+    error: d.error || null,
+    updatedAt: d.updatedAt || null,
   };
 }
 
@@ -87,11 +107,22 @@ export const getXeroImportStatus = async (ptrsId) => {
   return normaliseStatus(d, ptrsId);
 };
 
+export const getXeroReadiness = async (ptrsId) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/xero/readiness`,
+  );
+
+  const d = pickData(res);
+  return normaliseReadiness(d);
+};
+
 export const removeXeroOrganisation = async (ptrsId, tenantId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!tenantId) throw new Error("tenantId is required");
 
-  const res = await fetchWrapper.del(
+  const res = await fetchWrapper.delete(
     `${API_ROOT}/v2/ptrs/${ptrsId}/xero/organisations/${encodeURIComponent(
       tenantId,
     )}`,

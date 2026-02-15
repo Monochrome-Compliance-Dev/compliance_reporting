@@ -31,7 +31,7 @@ export default function Landing() {
   const navigate = useNavigate();
   const { showAlert } = useAlert();
 
-  // --- v1 dashboard parity: user + entitlements ---
+  // --- User + entitlements ---
   const [user, setUser] = useState(userService.userValue);
   useEffect(() => {
     const sub = userService.user.subscribe((u) => setUser(u));
@@ -40,7 +40,7 @@ export default function Landing() {
   const hasFeature = (f) =>
     Array.isArray(user?.entitlements) && user.entitlements.includes(f);
 
-  // --- v1 dashboard parity: acting-on-behalf switcher ---
+  // --- Acting-on-behalf switcher ---
   const [customers, setCustomers] = useState([]);
   const [loadingCustomers, setLoadingCustomers] = useState(false);
   const [selectedCustomerId, setSelectedCustomerId] = useState(

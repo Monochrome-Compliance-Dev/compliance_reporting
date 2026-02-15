@@ -6,6 +6,8 @@ import {
   FormControlLabel,
   Paper,
   Typography,
+  Alert,
+  Chip,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
@@ -16,6 +18,7 @@ import {
   connectXero,
   downloadXeroImportExceptions,
   getXeroImportExceptionsSummary,
+  getXeroReadiness,
 } from "../services/ptrsXero.api";
 import { LoadingSpinner } from "shared/ui";
 
@@ -47,6 +50,47 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
     effectivePtrsId,
     { poll: false },
   );
+
+  const [readiness, setReadiness] = useState(null);
+  const [isReadinessLoading, setIsReadinessLoading] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function run() {
+      if (!effectivePtrsId) {
+        setReadiness(null);
+        return;
+      }
+
+      setIsReadinessLoading(true);
+      try {
+        const d = await getXeroReadiness(effectivePtrsId);
+        if (!cancelled) setReadiness(d);
+      } catch (err) {
+        if (!cancelled)
+          setReadiness({
+            connectionValid: false,
+            selectedTenantIds: [],
+            selectedValid: null,
+            missingSelectedTenantIds: [],
+            connectionsCount: 0,
+            hasAnyToken: false,
+            error: {
+              message: err?.message || "Failed to check Xero readiness.",
+            },
+          });
+      } finally {
+        if (!cancelled) setIsReadinessLoading(false);
+      }
+    }
+
+    run();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [effectivePtrsId]);
 
   const derivedStatus = useMemo(() => {
     const s = status?.status || status?.state || status?.stage || "";
@@ -93,6 +137,15 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
     };
   }, [effectivePtrsId, derivedStatus]);
 
+  const isConnectionValid = readiness?.connectionValid === true;
+  const requiresSelection =
+    Array.isArray(readiness?.selectedTenantIds) &&
+    readiness.selectedTenantIds.length > 0;
+  const isSelectionValid =
+    readiness?.selectedValid === true || readiness?.selectedValid === null;
+  const canStartImport =
+    Boolean(effectivePtrsId) && isConnectionValid && isSelectionValid;
+
   async function handleConnect() {
     if (!effectivePtrsId) {
       showAlert(
@@ -130,6 +183,23 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
         "error",
       );
       return;
+    }
+
+    if (!canStartImport) {
+      if (!isConnectionValid) {
+        showAlert(
+          "Xero connection is not valid. Please reconnect first.",
+          "warning",
+        );
+        return;
+      }
+      if (!isSelectionValid) {
+        showAlert(
+          "Selected organisations are not valid for the current Xero connection. Please re-select organisations.",
+          "warning",
+        );
+        return;
+      }
     }
 
     try {
@@ -217,6 +287,83 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
           unchanged.
         </Typography>
 
+        {isReadinessLoading ? (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: theme.spacing(1),
+              mb: theme.spacing(2),
+            }}
+          >
+            <LoadingSpinner size={20} />
+            <Typography variant="body2">Checking Xero connection…</Typography>
+          </Box>
+        ) : readiness ? (
+          <Alert
+            severity={
+              isConnectionValid && isSelectionValid ? "success" : "warning"
+            }
+            sx={{
+              mb: theme.spacing(2),
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: theme.spacing(1),
+            }}
+          >
+            <Box sx={{ flex: "1 1 auto", minWidth: 0 }}>
+              {!isConnectionValid
+                ? "Xero connection isn't valid. Please reconnect."
+                : !isSelectionValid
+                  ? "Your previously selected organisations no longer match your Xero connection. Please re-select organisations."
+                  : "Xero connection looks good."}
+              {!isConnectionValid || !isSelectionValid ? (
+                readiness?.error?.message ? (
+                  <Typography
+                    component="span"
+                    sx={{ ml: 1, opacity: 0.8 }}
+                    title={readiness.error.message}
+                  >
+                    (
+                    {readiness.error.message.length > 140
+                      ? readiness.error.message.slice(0, 137) + "..."
+                      : readiness.error.message}
+                    )
+                  </Typography>
+                ) : null
+              ) : null}
+            </Box>
+            <Box
+              sx={{ display: "flex", gap: theme.spacing(1), flexWrap: "wrap" }}
+            >
+              <Chip
+                label={
+                  isConnectionValid ? "Connection: OK" : "Connection: Reconnect"
+                }
+                size="small"
+                color={isConnectionValid ? "success" : "warning"}
+              />
+              {requiresSelection && (
+                <>
+                  <Chip
+                    label={`Orgs: ${readiness.selectedTenantIds.length}`}
+                    size="small"
+                  />
+                  {readiness.missingSelectedTenantIds.length > 0 && (
+                    <Chip
+                      label={`Missing: ${readiness.missingSelectedTenantIds.length}`}
+                      size="small"
+                      color="warning"
+                    />
+                  )}
+                </>
+              )}
+            </Box>
+          </Alert>
+        ) : null}
+
         <Box sx={{ display: "flex", gap: theme.spacing(2), flexWrap: "wrap" }}>
           <Button
             variant="outlined"
@@ -282,14 +429,38 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
           <Button
             variant="contained"
             onClick={handleStart}
-            disabled={disableAll}
+            disabled={disableAll || !canStartImport}
           >
             Start Xero import
           </Button>
 
           <Button
             variant="outlined"
-            onClick={() => refetchStatus()}
+            onClick={async () => {
+              await refetchStatus();
+              if (effectivePtrsId) {
+                setIsReadinessLoading(true);
+                try {
+                  const d = await getXeroReadiness(effectivePtrsId);
+                  setReadiness(d);
+                } catch (err) {
+                  setReadiness({
+                    connectionValid: false,
+                    selectedTenantIds: [],
+                    selectedValid: null,
+                    missingSelectedTenantIds: [],
+                    connectionsCount: 0,
+                    hasAnyToken: false,
+                    error: {
+                      message:
+                        err?.message || "Failed to check Xero readiness.",
+                    },
+                  });
+                } finally {
+                  setIsReadinessLoading(false);
+                }
+              }
+            }}
             disabled={!effectivePtrsId || disableAll}
           >
             Refresh status
