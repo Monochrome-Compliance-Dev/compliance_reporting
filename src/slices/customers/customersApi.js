@@ -1,27 +1,44 @@
 import { fetchWrapper } from "shared/utils";
+import { pickData } from "../ptrs/services/ptrsApi";
 
-const baseUrl = `${process.env.REACT_APP_API_URL}/v2/customers`;
+// Avoid trailing slashes
+const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 
-// GET /customers -> expects an array of customers
-export async function listCustomers() {
-  const response = await fetchWrapper.get(baseUrl);
-  return response;
-}
+export const customersApi = {
+  async getAll() {
+    const res = await fetchWrapper.get(`${API_ROOT}/v2/customers`);
+    const data = pickData(res);
+    return data.items || data || [];
+  },
 
-// POST /customers -> expects { status, data }
-export async function createCustomer(payload) {
-  const response = await fetchWrapper.post(baseUrl, payload);
-  return response?.data;
-}
+  async getById(customerId) {
+    if (!customerId) throw new Error("customerId is required");
+    const res = await fetchWrapper.get(
+      `${API_ROOT}/v2/customers/${customerId}`,
+    );
+    return pickData(res);
+  },
 
-// PUT /customers/:id -> expects { status, data }
-export async function updateCustomer(id, payload) {
-  const response = await fetchWrapper.put(`${baseUrl}/${id}`, payload);
-  return response?.data;
-}
+  async create(payload) {
+    if (!payload) throw new Error("payload is required");
+    const res = await fetchWrapper.post(`${API_ROOT}/v2/customers`, payload);
+    return pickData(res);
+  },
 
-// DELETE /customers/:id -> expects { status, message }
-export async function deleteCustomer(id) {
-  const response = await fetchWrapper.delete(`${baseUrl}/${id}`);
-  return response;
-}
+  async update(customerId, payload) {
+    if (!customerId) throw new Error("customerId is required");
+    if (!payload) throw new Error("payload is required");
+    const res = await fetchWrapper.put(
+      `${API_ROOT}/v2/customers/${customerId}`,
+      payload,
+    );
+    return pickData(res);
+  },
+
+  async getCustomersByAccess() {
+    // The backend derives the user from the auth token; no userId param is required.
+    const res = await fetchWrapper.get(`${API_ROOT}/v2/customers/access`);
+    const data = pickData(res);
+    return data.items || data || [];
+  },
+};

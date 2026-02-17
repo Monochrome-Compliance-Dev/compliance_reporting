@@ -15,6 +15,7 @@ import MetricsPanel from "./panels/MetricsPanel";
 import ReportPanel from "./panels/ReportPanel";
 import PtrsMetricsDashboard from "./screens/PtrsMetricsDashboard";
 import PackPanel from "./panels/PackPanel";
+import XeroCallbackPanel from "./panels/XeroCallbackPanel";
 
 const ptrsRoutes = [
   {
@@ -35,6 +36,7 @@ const ptrsRoutes = [
 
           { path: "select", Component: XeroTenantSelectionPanel },
           { path: "progress", Component: XeroConnectProgressPanel },
+          { path: "callback", Component: XeroCallbackPanel },
         ],
       },
       { path: "data", Component: DataConsole },

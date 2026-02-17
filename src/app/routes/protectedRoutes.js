@@ -5,7 +5,7 @@ import Role from "context/role";
 import ptrsRoutes from "slices/ptrs/ptrsRouteConfig";
 import Ptrs from "slices/ptrs/Ptrs";
 import ComplianceDashboardLayout from "shared/layouts/ComplianceDashboardLayout";
-import CustomerAdminPage from "slices/customers/CustomerAdminPage";
+import BossLayout from "app/boss/BossLayout";
 import bossRoutes from "./bossRoutes";
 
 function ProtectedAppLayout() {
@@ -31,7 +31,7 @@ export const protectedRoutes = [
       },
       {
         path: "boss",
-        Component: CustomerAdminPage,
+        Component: BossLayout,
         children: bossRoutes,
       },
     ],

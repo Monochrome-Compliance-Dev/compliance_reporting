@@ -24,7 +24,7 @@ import {
   onCustomerChange,
 } from "shared/utils";
 import { userService } from "slices/users/userApi";
-import { customerService } from "slices/customers/customerApi";
+import { customersApi } from "slices/customers/customersApi";
 
 export default function Landing() {
   const theme = useTheme();
@@ -67,7 +67,7 @@ export default function Landing() {
     async function loadCustomers() {
       try {
         setLoadingCustomers(true);
-        const list = await customerService.getCustomersByAccess(userId);
+        const list = await customersApi.getCustomersByAccess(userId);
         if (isActive && Array.isArray(list)) setCustomers(list);
       } catch (e) {
         if (typeof showAlert === "function")

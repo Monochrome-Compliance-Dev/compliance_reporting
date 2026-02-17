@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router"; // Import useNavigate
-import { userService } from "../../services";
 import {
   useTheme,
   Box,
@@ -11,6 +10,7 @@ import {
   ListItemText,
   Button,
 } from "@mui/material";
+import { userService } from "./userApi";
 // import ProtectedRoutes from "../../lib/utils/ProtectedRoutes";
 
 export default function Users() {

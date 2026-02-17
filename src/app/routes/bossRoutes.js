@@ -1,22 +1,20 @@
 // Boss admin nested routes under /app/boss (route-object config)
 import { Navigate } from "react-router";
-import CustomerAdminPage from "slices/customers/CustomerAdminPage";
-import CustomerEntitlementsPage from "slices/customers/CustomerEntitlementsPage";
-import CustomerProfilesPage from "slices/customers/profiles/CustomerProfilesPage";
+
+import CustomersListPage from "slices/customers/CustomersListPage";
+import usersRoutes from "slices/users/usersRouteConfig";
 
 const bossRoutes = [
-  // /app/boss -> redirect to /app/boss/customers
-  { index: true, element: <Navigate to="/app/boss/customers" replace /> },
+  // /app/boss
+  { index: true, element: <Navigate to="customers" replace /> },
 
-  { path: "customers", Component: CustomerAdminPage },
-  {
-    path: "customers/:customerId/entitlements",
-    Component: CustomerEntitlementsPage,
-  },
-  { path: "customers/:customerId/profiles", Component: CustomerProfilesPage },
+  // /app/boss/customers
+  { path: "customers", Component: CustomersListPage },
 
-  // Catch-all under /app/boss -> send back to customers
-  { path: "*", element: <Navigate to="/app/boss/customers" replace /> },
+  { path: "users", children: usersRoutes },
+
+  // Catch-all under /app/boss
+  { path: "*", element: <Navigate to="customers" replace /> },
 ];
 
 export default bossRoutes;

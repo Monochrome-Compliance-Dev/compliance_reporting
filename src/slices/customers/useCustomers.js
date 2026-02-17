@@ -1,61 +1,126 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useAlert } from "context";
-import {
-  createCustomer,
-  deleteCustomer,
-  listCustomers,
-  updateCustomer,
-} from "./customersApi";
+// Centralised customer queries & mutations.
+// Patterned after PTRS usePtrsQueries: define stable keys and expose thin hooks.
 
-export function useCustomers() {
-  const queryClient = useQueryClient();
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useAlert } from "../../context";
+import { customersApi } from "./customersApi";
+import { customersTraffic } from "./customersTrafficController";
+
+// ---- Keys --------------------------------------------------------------------
+const K = {
+  all: ["customers", "all"],
+  byAccess: ["customers", "byAccess"],
+  byId: (customerId) => ["customers", "byId", customerId],
+};
+
+// ---- Queries -----------------------------------------------------------------
+// Boss/global list
+export function useCustomersQuery({ enabled = true } = {}) {
+  return useQuery({
+    queryKey: K.all,
+    queryFn: async () => customersApi.getAll(),
+    enabled,
+    staleTime: 10_000,
+  });
+}
+
+// List limited to what the current user can access (useful for scoped admins and selectors)
+export function useCustomersByAccessQuery({ enabled = true } = {}) {
+  return useQuery({
+    queryKey: K.byAccess,
+    queryFn: async () => customersApi.getCustomersByAccess(),
+    enabled,
+    staleTime: 10_000,
+  });
+}
+
+export function useCustomerQuery(customerId, { enabled = true } = {}) {
+  const isEnabled = enabled && !!customerId;
+
+  return useQuery({
+    queryKey: K.byId(customerId),
+    queryFn: async () => customersApi.getById(customerId),
+    enabled: isEnabled,
+    staleTime: 10_000,
+  });
+}
+
+// ---- Mutations ---------------------------------------------------------------
+export function useCreateCustomerMutation() {
   const { showAlert } = useAlert();
 
-  const customersQuery = useQuery({
-    queryKey: ["customers"],
-    queryFn: listCustomers,
-  });
-
-  const createMutation = useMutation({
-    mutationFn: createCustomer,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["customers"] });
-      showAlert("Customer created successfully", "success");
+  return useMutation({
+    mutationFn: (payload) => customersApi.create(payload),
+    onSuccess: (created) => {
+      customersTraffic.emit(created?.id, { reason: "customer_created" });
+      showAlert("Customer created", "success");
     },
-    onError: (error) => {
-      const message = error?.message || "Failed to create customer";
+    onError: (err) => {
+      const message = err?.message || "Failed to create customer";
       showAlert(message, "error");
     },
   });
+}
 
-  const updateMutation = useMutation({
-    mutationFn: ({ id, data }) => updateCustomer(id, data),
+export function useUpdateCustomerMutation(customerId) {
+  const { showAlert } = useAlert();
+
+  return useMutation({
+    mutationFn: (payload) => customersApi.update(customerId, payload),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["customers"] });
-      showAlert("Customer updated successfully", "success");
+      customersTraffic.emit(customerId, { reason: "customer_updated" });
+      showAlert("Customer updated", "success");
     },
-    onError: (error) => {
-      const message = error?.message || "Failed to update customer";
+    onError: (err) => {
+      const message = err?.message || "Failed to update customer";
       showAlert(message, "error");
     },
   });
+}
 
-  const deleteMutation = useMutation({
-    mutationFn: deleteCustomer,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["customers"] });
-      showAlert("Customer deleted successfully", "success");
-    },
-    onError: (error) => {
-      const message = error?.message || "Failed to delete customer";
-      showAlert(message, "error");
-    },
-  });
+// ---- Convenience summary helpers --------------------------------------------
+export function useCustomersSummary({ enabled = true } = {}) {
+  const q = useCustomersQuery({ enabled });
+
+  if (!enabled) return { status: "idle", data: [], error: null, refetch: null };
+  if (q.isLoading)
+    return { status: "loading", data: [], error: null, refetch: q.refetch };
+  if (q.isError)
+    return {
+      status: "error",
+      data: [],
+      error: q.error?.message || "Failed to load customers",
+      refetch: q.refetch,
+    };
 
   return {
-    customersQuery,
-    createCustomer: createMutation.mutate,
-    updateCustomer: (id, data) => updateMutation.mutate({ id, data }),
-    deleteCustomer: deleteMutation.mutate,
+    status: "success",
+    data: q.data || [],
+    error: null,
+    refetch: q.refetch,
   };
 }
+
+export function useCustomersByAccessSummary({ enabled = true } = {}) {
+  const q = useCustomersByAccessQuery({ enabled });
+
+  if (!enabled) return { status: "idle", data: [], error: null, refetch: null };
+  if (q.isLoading)
+    return { status: "loading", data: [], error: null, refetch: q.refetch };
+  if (q.isError)
+    return {
+      status: "error",
+      data: [],
+      error: q.error?.message || "Failed to load accessible customers",
+      refetch: q.refetch,
+    };
+
+  return {
+    status: "success",
+    data: q.data || [],
+    error: null,
+    refetch: q.refetch,
+  };
+}
+
+export { K as customersQueryKeys };

@@ -1,31 +1,12 @@
-// NOTE: Avoid importing route config into auth/session logic.
+import { publicRoutes } from "routes/publicRoutes";
+import { protectedRoutes } from "routes/routeConfig";
 import { BehaviorSubject } from "rxjs";
-import {
-  fetchWrapper,
-  getScopedCustomerId,
-  onCustomerChange,
-} from "shared/utils";
+
+import { fetchWrapper } from "lib/utils/fetch-wrapper";
+import { getScopedCustomerId, onCustomerChange } from "lib/utils/tenantScope";
 
 const userSubject = new BehaviorSubject(null);
-
-const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
-const baseUrl = `${API_ROOT}/v2/users`;
-
-function unwrap(res) {
-  // v2 responses are typically: { status: "success", data: ... }
-  if (res && typeof res === "object" && "status" in res && "data" in res) {
-    return res.data;
-  }
-  return res;
-}
-
-function unwrapItems(res) {
-  const data = unwrap(res);
-  if (data && typeof data === "object" && Array.isArray(data.items)) {
-    return data.items;
-  }
-  return data;
-}
+const baseUrl = `${process.env.REACT_APP_API_URL}/users`;
 
 let _refreshInFlight = null; // Promise or null
 
@@ -69,7 +50,7 @@ function wireTenantChangeListener() {
         } catch (e) {
           console.warn(
             "Failed to reload entitlements on tenant change:",
-            e?.message || e,
+            e?.message || e
           );
         }
       } else {
@@ -116,7 +97,6 @@ export const userService = {
 async function login(params) {
   return fetchWrapper
     .post(`${baseUrl}/authenticate`, params)
-    .then(unwrap)
     .then(async (user) => {
       if (!user || typeof user !== "object") {
         throw new Error("Email or password is incorrect");
@@ -138,7 +118,7 @@ async function login(params) {
           } catch (e) {
             console.warn(
               "Failed to load acting entitlements after login:",
-              e?.message || e,
+              e?.message || e
             );
           }
         }
@@ -149,16 +129,22 @@ async function login(params) {
 }
 
 function logout() {
+  const allPaths = [
+    ...publicRoutes.map((r) => r.path),
+    ...protectedRoutes.flatMap((r) =>
+      r.children
+        ? r.children.map((c) => `${r.path}/${c.path || ""}`.replace(/\/+$/, ""))
+        : [r.path]
+    ),
+  ];
+
+  // May need to update over time if routes change
   const excludedPaths = ["/login", "/verify", "/reset-password"];
   const currentPath = window.location.pathname;
   const currentSearch = window.location.search || "";
   const fullPath = `${currentPath}${currentSearch}`;
 
-  // Only persist app paths (avoid marketing/public pages)
-  const isAppPath =
-    currentPath.startsWith("/app") || currentPath.startsWith("/boss");
-
-  if (isAppPath && !excludedPaths.includes(currentPath)) {
+  if (!excludedPaths.includes(currentPath) && allPaths.includes(currentPath)) {
     localStorage.setItem("lastVisitedPath", fullPath);
   } else {
     localStorage.removeItem("lastVisitedPath");
@@ -169,7 +155,7 @@ function logout() {
     .catch((error) => {
       console.error(
         "Failed to revoke token during logout:",
-        error.message || error,
+        error.message || error
       );
     });
   stopRefreshTokenTimer();
@@ -182,7 +168,6 @@ async function refreshToken() {
 
   _refreshInFlight = fetchWrapper
     .post(`${baseUrl}/refresh-token`, {}, { retry: 0 })
-    .then(unwrap)
     .then(async (user) => {
       if (!user.jwtToken) {
         throw new Error("JWT not included in response");
@@ -199,7 +184,7 @@ async function refreshToken() {
           } catch (e) {
             console.warn(
               "Failed to load acting entitlements after refresh:",
-              e?.message || e,
+              e?.message || e
             );
           }
         }
@@ -231,101 +216,84 @@ async function refreshToken() {
 
 // Register a new user
 function register(params) {
-  return fetchWrapper.post(`${baseUrl}/register`, params).then(unwrap);
+  return fetchWrapper.post(`${baseUrl}/register`, params);
 }
 
 // Register the first user in the system
 function registerFirstUser(params) {
-  return fetchWrapper
-    .post(`${baseUrl}/register-first-user`, params)
-    .then(unwrap);
+  return fetchWrapper.post(`${baseUrl}/register-first-user`, params);
 }
 
 // Verify the user's token
 function verifyToken(token) {
-  return fetchWrapper.post(`${baseUrl}/verify-token`, { token }).then(unwrap);
+  return fetchWrapper.post(`${baseUrl}/verify-token`, { token });
 }
 
 // Verify the user's email address
 function verifyEmail(params) {
-  return fetchWrapper.post(`${baseUrl}/verify-email`, params).then(unwrap);
+  return fetchWrapper.post(`${baseUrl}/verify-email`, params);
 }
 
 // Send a password reset email
-function forgotPassword({ customerId, email }) {
-  if (!customerId) throw new Error("customerId is required");
-  if (!email) throw new Error("email is required");
-  return fetchWrapper
-    .post(`${baseUrl}/forgot-password`, { customerId, email })
-    .then(unwrap);
+function forgotPassword(email) {
+  return fetchWrapper.post(`${baseUrl}/forgot-password`, { email });
 }
 
 // Validate the password reset token
 function validateResetToken(token) {
-  return fetchWrapper
-    .post(`${baseUrl}/validate-reset-token`, { token })
-    .then(unwrap);
+  return fetchWrapper.post(`${baseUrl}/validate-reset-token`, { token });
 }
 
 // Reset the user's password
-function resetPassword({ customerId, token, password, confirmPassword }) {
-  if (!customerId) throw new Error("customerId is required");
+function resetPassword({ token, password, confirmPassword }) {
   if (password !== confirmPassword) {
     throw new Error("Passwords do not match");
   }
-  return fetchWrapper
-    .post(`${baseUrl}/reset-password`, {
-      customerId,
-      token,
-      password,
-    })
-    .then(unwrap);
+  return fetchWrapper.post(`${baseUrl}/reset-password`, {
+    token,
+    password,
+    confirmPassword,
+  });
 }
 
-function setNewPassword() {
-  throw new Error(
-    "setNewPassword is not available on /api/v2/users yet. Add POST /api/v2/users/set-password (or remove this feature).",
-  );
+function setNewPassword({ token, password, confirmPassword }) {
+  return fetchWrapper.post(`/users/set-password`, {
+    token,
+    password,
+    confirmPassword,
+  });
 }
 
-function deactivateUser() {
-  throw new Error(
-    "deactivateUser is not available on /api/v2/users yet. Add PUT /api/v2/users/deactivate/:id (or remove this feature).",
-  );
+function deactivateUser(id) {
+  return fetchWrapper.put(`/users/deactivate/${id}`);
 }
 
-function reactivateUser() {
-  throw new Error(
-    "reactivateUser is not available on /api/v2/users yet. Add PUT /api/v2/users/reactivate/:id (or remove this feature).",
-  );
+function reactivateUser(id) {
+  return fetchWrapper.put(`/users/reactivate/${id}`);
 }
 
-function resendInvitation() {
-  throw new Error(
-    "resendInvitation is not available on /api/v2/users yet. Add POST /api/v2/users/resend-invitation/:id (or remove this feature).",
-  );
+function resendInvitation(id) {
+  return fetchWrapper.post(`/users/resend-invitation/${id}`);
 }
 
 // Fetch all users
 function getAll() {
-  return fetchWrapper.get(baseUrl).then(unwrapItems);
+  return fetchWrapper.get(baseUrl);
 }
 
 // Fetch all users by client ID
 function getAllByClientId() {
-  throw new Error(
-    "getAllByClientId is not available on /api/v2/users yet. Add GET /api/v2/users/by-client (or remove this feature).",
-  );
+  return fetchWrapper.get(`${baseUrl}/by-client`);
 }
 
 // Fetch a user by ID
 function getById(id) {
-  return fetchWrapper.get(`${baseUrl}/${id}`).then(unwrap);
+  return fetchWrapper.get(`${baseUrl}/${id}`);
 }
 
 // Create a new user
 function create(params) {
-  return fetchWrapper.post(baseUrl, params).then(unwrap);
+  return fetchWrapper.post(baseUrl, params);
 }
 
 // Invite a user and create a linked resource (composite)
@@ -335,22 +303,17 @@ async function inviteWithResource(params) {
     params,
     {
       retry: 0,
-    },
+    }
   );
-  return unwrap(res);
+  return res;
 }
 
 // Update an existing user
 function update(id, params) {
   return fetchWrapper
     .put(`${baseUrl}/${id}`, params)
-    .then(unwrap)
     .then((user) => {
-      if (
-        user?.id &&
-        userSubject.value?.id &&
-        user.id === userSubject.value.id
-      ) {
+      if (user.id === userSubject.value.id) {
         user = { ...userSubject.value, ...user };
         userSubject.next(user);
       }
@@ -366,9 +329,8 @@ function update(id, params) {
 function _delete(id) {
   return fetchWrapper
     .delete(`${baseUrl}/${id}`)
-    .then(unwrap)
     .then((x) => {
-      if (id === userSubject.value?.id) {
+      if (id === userSubject.value.id) {
         logout();
       }
       return x;
@@ -404,15 +366,15 @@ async function reloadCustomerEntitlements(customerId) {
   }
 
   try {
-    const ents = await fetchWrapper
-      .get(`${API_ROOT}/customers/${id}/customer-entitlements`)
-      .then(unwrap);
+    const ents = await fetchWrapper.get(
+      `${process.env.REACT_APP_API_URL}/customers/${id}/customer-entitlements`
+    );
 
     // Normalise to an array of feature slugs (strings)
-    const list = Array.isArray(ents)
-      ? ents
-      : Array.isArray(ents?.data)
-        ? ents.data
+    const list = Array.isArray(ents?.data)
+      ? ents.data
+      : Array.isArray(ents)
+        ? ents
         : [];
     const features = list
       .map((e) => (typeof e === "string" ? e : e?.feature))
