@@ -11,6 +11,7 @@ import {
   MenuItem,
   Select,
   TextField,
+  IconButton,
 } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { getDatasetSample, listDatasets } from "../services/data.ptrsApi";
@@ -117,40 +118,8 @@ export default function JoinsDesigner({
       .catch(() => setDatasets([]));
   }, [ptrsId]);
 
-  // Choose a main role for the left-side links when multiple mains exist.
-  const [selectedMainRole, setSelectedMainRole] = useState(null);
-
-  // Build left-side main dataset columns as [{key, label}] objects
-  const leftFields = useMemo(() => {
-    const roleHeaders =
-      selectedMainRole &&
-      leftHeadersByRole &&
-      typeof leftHeadersByRole === "object" &&
-      Array.isArray(leftHeadersByRole[selectedMainRole])
-        ? leftHeadersByRole[selectedMainRole]
-        : leftHeaders;
-
-    const base = Array.isArray(roleHeaders)
-      ? roleHeaders.map((col) => ({ key: col, label: col }))
-      : [];
-    const map = new Map(base.map((f) => [f.key, f]));
-
-    // Ensure columns referenced in saved joins for the selected main role are present on the left
-    (links || []).forEach((j) => {
-      const isThisMain =
-        String(j?.from?.role || "") === String(selectedMainRole || "main");
-      if (!isThisMain) return;
-
-      const key = j?.from?.column;
-      if (key && !map.has(key)) {
-        map.set(key, { key, label: key });
-      }
-    });
-
-    return Array.from(map.values()).sort((a, b) =>
-      a.label.localeCompare(b.label),
-    );
-  }, [leftHeaders, leftHeadersByRole, selectedMainRole, links]);
+  // Choose a FROM role for the left-side links (main or supporting).
+  const [selectedFromRole, setSelectedFromRole] = useState(null);
 
   // Determine main dataset roles. We treat `main` and any role starting with `main_` as main datasets.
   const mainRoles = useMemo(() => {
@@ -162,10 +131,83 @@ export default function JoinsDesigner({
     );
   }, [datasets]);
 
+  const supportingRoles = useMemo(() => {
+    const roles = (datasets || [])
+      .map((d) => String(d?.role || ""))
+      .filter(Boolean);
+    return Array.from(
+      new Set(roles.filter((r) => !(r === "main" || r.startsWith("main_")))),
+    );
+  }, [datasets]);
+
+  const supportingHeadersByRole = useMemo(() => {
+    const byRole = {};
+    (datasets || []).forEach((d) => {
+      const role = String(d?.role || "");
+      if (!role || role === "main" || role.startsWith("main_")) return;
+
+      const headers = (d.meta?.headers || d.headers || [])
+        .filter(Boolean)
+        .map(String);
+
+      byRole[role] = Array.from(new Set(headers)).sort((a, b) =>
+        a.localeCompare(b),
+      );
+    });
+    return byRole;
+  }, [datasets]);
+
   useEffect(() => {
-    if (selectedMainRole && mainRoles.includes(selectedMainRole)) return;
-    setSelectedMainRole(mainRoles[0] || "main");
-  }, [mainRoles, selectedMainRole]);
+    const allRoles = [...(mainRoles || []), ...(supportingRoles || [])];
+    const fallback = allRoles[0] || "main";
+    if (selectedFromRole && allRoles.includes(selectedFromRole)) return;
+    setSelectedFromRole(fallback);
+  }, [mainRoles, supportingRoles, selectedFromRole]);
+
+  const leftFields = useMemo(() => {
+    const fromRole = String(selectedFromRole || "main");
+
+    const isMain = fromRole === "main" || fromRole.startsWith("main_");
+
+    const roleHeaders = isMain
+      ? fromRole &&
+        leftHeadersByRole &&
+        typeof leftHeadersByRole === "object" &&
+        Array.isArray(leftHeadersByRole[fromRole])
+        ? leftHeadersByRole[fromRole]
+        : leftHeaders
+      : supportingHeadersByRole &&
+          typeof supportingHeadersByRole === "object" &&
+          Array.isArray(supportingHeadersByRole[fromRole])
+        ? supportingHeadersByRole[fromRole]
+        : [];
+
+    const base = Array.isArray(roleHeaders)
+      ? roleHeaders.map((col) => ({ key: col, label: col }))
+      : [];
+    const map = new Map(base.map((f) => [f.key, f]));
+
+    // Ensure columns referenced in saved joins for the selected FROM role are present on the left
+    (links || []).forEach((j) => {
+      const isThisFrom = String(j?.from?.role || "") === fromRole;
+      if (!isThisFrom) return;
+
+      const key = j?.from?.column;
+      if (key && !map.has(key)) {
+        map.set(key, { key, label: key });
+      }
+    });
+
+    return Array.from(map.values()).sort((a, b) =>
+      a.label.localeCompare(b.label),
+    );
+  }, [
+    leftHeaders,
+    leftHeadersByRole,
+    supportingHeadersByRole,
+    selectedFromRole,
+    links,
+  ]);
 
   useEffect(() => {
     if (!datasets || !datasets.length) {
@@ -225,7 +267,7 @@ export default function JoinsDesigner({
     // eslint-disable-next-line no-console
     console.log("[JoinsDesigner][debug] mainRoles", mainRoles);
     // eslint-disable-next-line no-console
-    console.log("[JoinsDesigner][debug] selectedMainRole", selectedMainRole);
+    console.log("[JoinsDesigner][debug] selectedFromRole", selectedFromRole);
     // eslint-disable-next-line no-console
     console.log(
       "[JoinsDesigner][debug] leftHeadersByRole counts",
@@ -236,7 +278,7 @@ export default function JoinsDesigner({
         ]),
       ),
     );
-  }, [debug, datasets, mainRoles, selectedMainRole, leftHeadersByRole]);
+  }, [debug, datasets, mainRoles, selectedFromRole, leftHeadersByRole]);
 
   // Build right-side: group headers by dataset role excluding all mainRoles
   const rightColumns = useMemo(() => {
@@ -313,15 +355,20 @@ export default function JoinsDesigner({
   ]);
 
   const beginLink = (column) => {
-    setPending({ role: selectedMainRole || "main", column });
+    setPending({ role: selectedFromRole || "main", column });
   };
+
   const completeLink = (role, column) => {
     if (!pending?.column || !pending?.role) return;
     const next = [
       ...links,
       {
-        from: { role: pending.role, column: pending.column },
-        to: { role, column },
+        from: {
+          role: pending.role,
+          column: pending.column,
+          transform: { op: "trim_upper" },
+        },
+        to: { role, column, transform: { op: "trim_upper" } },
       },
     ];
     setLinks(next);
@@ -334,23 +381,58 @@ export default function JoinsDesigner({
   const keyL = (role, column) => `L:${role}:${column}`;
   const keyR = (role, column) => `R:${role}:${column}`;
 
+  const TRANSFORM_OPTIONS = [
+    { value: "", label: "None" },
+    { value: "trim_upper", label: "Trim + UPPER" },
+    { value: "digits_only", label: "Digits only" },
+    { value: "remove_spaces_punct", label: "Remove spaces/punct" },
+    { value: "strip_prefix", label: "Strip prefix" },
+    { value: "lpad", label: "Left pad" },
+  ];
+
+  const updateLink = (idx, patch) => {
+    const next = (links || []).map((l, i) =>
+      i === idx ? { ...l, ...patch } : l,
+    );
+    setLinks(next);
+    emitChange(next, customFields);
+    setTimeout(computePositions, 0);
+  };
+
+  const removeLink = (idx) => {
+    const next = (links || []).filter((_, i) => i !== idx);
+    setLinks(next);
+    emitChange(next, customFields);
+    setTimeout(computePositions, 0);
+  };
+
+  const setEndpointTransform = (idx, side, op, arg) => {
+    const ln = links?.[idx] || {};
+    const endpoint = side === "to" ? ln.to || {} : ln.from || {};
+    const nextEndpoint = {
+      ...endpoint,
+      transform: op
+        ? { op, ...(arg != null && String(arg).trim() !== "" ? { arg } : {}) }
+        : null,
+    };
+    updateLink(idx, { [side]: nextEndpoint });
+  };
+
   return (
     <Box sx={{ position: "relative" }}>
       <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
         {/* LEFT: Main dataset columns */}
         <Paper ref={leftRef} sx={{ p: 2, flex: 1, minHeight: 420 }}>
           <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
-            <Typography variant="subtitle1">Main dataset columns</Typography>
-            <Chip size="small" label={leftFields.length} />
-
-            {mainRoles.length > 1 ? (
+            <Typography variant="subtitle1">FROM role columns</Typography>
+            {[...(mainRoles || []), ...(supportingRoles || [])].length > 1 ? (
               <Select
                 size="small"
-                value={selectedMainRole || "main"}
-                onChange={(e) => setSelectedMainRole(e.target.value)}
-                sx={{ ml: 1, minWidth: 160 }}
+                value={selectedFromRole || "main"}
+                onChange={(e) => setSelectedFromRole(e.target.value)}
+                sx={{ ml: 1, minWidth: 200 }}
               >
-                {mainRoles.map((r) => (
+                {[...(mainRoles || []), ...(supportingRoles || [])].map((r) => (
                   <MenuItem key={r} value={r}>
                     {r}
                   </MenuItem>
@@ -362,7 +444,7 @@ export default function JoinsDesigner({
             {leftFields.map(({ key, label }) => (
               <Box
                 key={key}
-                data-endpoint={keyL(selectedMainRole || "main", key)}
+                data-endpoint={keyL(selectedFromRole || "main", key)}
                 onClick={() => beginLink(key)}
                 sx={{
                   px: 1,
@@ -371,7 +453,7 @@ export default function JoinsDesigner({
                   cursor: "crosshair",
                   bgcolor:
                     pending?.column === key &&
-                    pending?.role === (selectedMainRole || "main")
+                    pending?.role === (selectedFromRole || "main")
                       ? "action.selected"
                       : "transparent",
                   "&:hover": { bgcolor: "action.hover" },
@@ -395,7 +477,7 @@ export default function JoinsDesigner({
                   )}
                 {debug && (
                   <Typography variant="caption" color="text.secondary">
-                    {keyL(selectedMainRole || "main", key)}
+                    {keyL(selectedFromRole || "main", key)}
                   </Typography>
                 )}
               </Box>
@@ -484,6 +566,145 @@ export default function JoinsDesigner({
         </Paper>
       </Stack>
 
+      <Paper variant="outlined" sx={{ p: 2, mt: 2 }}>
+        <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
+          <Typography variant="subtitle2">Join conditions</Typography>
+          <Chip size="small" label={links.length} />
+        </Stack>
+
+        {links.length === 0 ? (
+          <Typography variant="body2" color="text.secondary">
+            No joins defined yet.
+          </Typography>
+        ) : (
+          <Stack spacing={1}>
+            {links.map((ln, idx) => {
+              const fromOp = ln?.from?.transform?.op || "";
+              const fromArg = ln?.from?.transform?.arg || "";
+              const toOp = ln?.to?.transform?.op || "";
+              const toArg = ln?.to?.transform?.arg || "";
+
+              const needsFromArg =
+                fromOp === "strip_prefix" || fromOp === "lpad";
+              const needsToArg = toOp === "strip_prefix" || toOp === "lpad";
+
+              return (
+                <Paper
+                  key={`${idx}:${ln?.from?.role}:${ln?.from?.column}:${ln?.to?.role}:${ln?.to?.column}`}
+                  variant="outlined"
+                  sx={{ p: 1.5 }}
+                >
+                  <Stack
+                    direction={{ xs: "column", md: "row" }}
+                    spacing={1}
+                    alignItems="center"
+                  >
+                    <Box sx={{ flex: 1 }}>
+                      <Typography variant="caption" color="text.secondary">
+                        From
+                      </Typography>
+                      <Typography variant="body2">
+                        {ln?.from?.role || "main"} · {ln?.from?.column || ""}
+                      </Typography>
+                    </Box>
+
+                    <Box sx={{ minWidth: 180 }}>
+                      <Select
+                        size="small"
+                        fullWidth
+                        value={fromOp}
+                        onChange={(e) =>
+                          setEndpointTransform(
+                            idx,
+                            "from",
+                            e.target.value || "",
+                            needsFromArg ? fromArg : undefined,
+                          )
+                        }
+                      >
+                        {TRANSFORM_OPTIONS.map((o) => (
+                          <MenuItem key={o.value} value={o.value}>
+                            {o.label}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </Box>
+
+                    {needsFromArg ? (
+                      <TextField
+                        size="small"
+                        label={fromOp === "lpad" ? "Length" : "Prefix"}
+                        value={fromArg}
+                        onChange={(e) =>
+                          setEndpointTransform(
+                            idx,
+                            "from",
+                            fromOp,
+                            e.target.value,
+                          )
+                        }
+                        sx={{ minWidth: 140 }}
+                      />
+                    ) : null}
+
+                    <Box sx={{ flex: 1 }}>
+                      <Typography variant="caption" color="text.secondary">
+                        To
+                      </Typography>
+                      <Typography variant="body2">
+                        {ln?.to?.role || ""} · {ln?.to?.column || ""}
+                      </Typography>
+                    </Box>
+
+                    <Box sx={{ minWidth: 180 }}>
+                      <Select
+                        size="small"
+                        fullWidth
+                        value={toOp}
+                        onChange={(e) =>
+                          setEndpointTransform(
+                            idx,
+                            "to",
+                            e.target.value || "",
+                            needsToArg ? toArg : undefined,
+                          )
+                        }
+                      >
+                        {TRANSFORM_OPTIONS.map((o) => (
+                          <MenuItem key={o.value} value={o.value}>
+                            {o.label}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </Box>
+
+                    {needsToArg ? (
+                      <TextField
+                        size="small"
+                        label={toOp === "lpad" ? "Length" : "Prefix"}
+                        value={toArg}
+                        onChange={(e) =>
+                          setEndpointTransform(idx, "to", toOp, e.target.value)
+                        }
+                        sx={{ minWidth: 140 }}
+                      />
+                    ) : null}
+
+                    <IconButton
+                      size="small"
+                      onClick={() => removeLink(idx)}
+                      aria-label="Remove join"
+                    >
+                      ×
+                    </IconButton>
+                  </Stack>
+                </Paper>
+              );
+            })}
+          </Stack>
+        )}
+      </Paper>
+
       {/* SVG overlay for links */}
       <Box
         ref={svgRef}
@@ -497,8 +718,8 @@ export default function JoinsDesigner({
             // If the UI role selector has changed since the join was created, render a fallback
             // to the currently selected main role so lines don't disappear during edits.
             const leftKeyFallback =
-              !positions[leftKeyPrimary] && (selectedMainRole || "main")
-                ? keyL(selectedMainRole || "main", ln.from?.column)
+              !positions[leftKeyPrimary] && (selectedFromRole || "main")
+                ? keyL(selectedFromRole || "main", ln.from?.column)
                 : null;
             const rightKey = keyR(ln.to?.role, ln.to?.column);
 
