@@ -60,18 +60,26 @@ function processEvents(ptrsId, events) {
         break;
 
       case "datasets_uploaded":
-        // Preserve existing behaviour from usePtrsQueries.js:
-        // uploading datasets currently invalidates both PTRS data + map.
+        // Uploading datasets affects the uploaded dataset list, unified sample headers/examples,
+        // and any downstream mapping/state derived from the upload.
         keysToInvalidate.add(qk("data", ptrsId));
         keysToInvalidate.add(qk("map", ptrsId));
+        keysToInvalidate.add(qk("datasets", ptrsId));
+        // Prefix invalidation for any unified sample variants (limit/offset)
+        keysToInvalidate.add(["ptrs", "sample", ptrsId]);
+        break;
+
+      case "joins_updated":
+        keysToInvalidate.add(qk("joins", ptrsId));
+        // Joins can change which headers/examples are relevant for mapping.
+        // Prefix invalidation for any unified sample variants (limit/offset)
+        keysToInvalidate.add(["ptrs", "sample", ptrsId]);
         break;
 
       case "ptrs_updated":
-        // Preserve existing behaviour from usePtrsQueries.js:
-        // updatePtrs currently invalidates data + stage + map.
+        // "ptrs_updated" is intentionally narrow: only PTRS record fields changed.
+        // Downstream invalidations must be triggered by more specific reasons.
         keysToInvalidate.add(qk("data", ptrsId));
-        keysToInvalidate.add(qk("stage", ptrsId));
-        keysToInvalidate.add(qk("map", ptrsId));
         break;
 
       case "map_built":

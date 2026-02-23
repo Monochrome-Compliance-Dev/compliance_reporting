@@ -5,6 +5,7 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { ptrsTraffic } from "./ptrsTrafficController";
 import * as api from "../services/ptrsApi";
+import { getPtrsJoins, savePtrsJoins } from "../services/joins.ptrsApi";
 import {
   applyExclusions,
   previewExclusions,
@@ -17,11 +18,25 @@ import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 import { getValidate, runValidate } from "../services/validate.ptrsApi";
 import { getMetrics, updateMetricsDraft } from "../services/metrics.ptrsApi";
 import { getReportSnapshot } from "../services/report.ptrsApi";
+import { listDatasets } from "../services/data.ptrsApi";
+import { getPtrsMap, getUnifiedSample } from "../services/maps.ptrsApi";
+import { getBlueprint } from "../services/ptrsApi";
 
 // ---- Keys (per ptrs) ---------------------------------------------------------
 const K = {
   data: (id) => ["ptrs", "data", id],
   tables: (id) => ["ptrs", "tables", id],
+  joins: (id) => ["ptrs", "joins", id],
+  datasets: (id) => ["ptrs", "datasets", id],
+  unifiedSample: (id, { datasetId = null, limit = 5, offset = 0 } = {}) => [
+    "ptrs",
+    "sample",
+    id,
+    datasetId || "none",
+    Number(limit) || 5,
+    Number(offset) || 0,
+  ],
+  blueprint: ({ profileId }) => ["ptrs", "blueprint", profileId || "none"],
   map: (id) => ["ptrs", "map", id],
   stage: (id) => ["ptrs", "stage", id],
   exclusionsPreview: (id, { category, profileId, limit }) => [
@@ -94,6 +109,90 @@ export function usePtrsUploadStatus(ptrsId) {
 
 export function usePtrsTablesStatus(ptrsId) {
   return { status: "idle", tablesCount: 0 };
+}
+
+export function usePtrsJoinsQuery(ptrsId) {
+  const enabled = !!ptrsId;
+
+  return useQuery({
+    queryKey: K.joins(ptrsId),
+    queryFn: async () => getPtrsJoins(ptrsId),
+    enabled,
+    staleTime: 10_000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function usePtrsDatasetsQuery(ptrsId) {
+  const enabled = !!ptrsId;
+
+  return useQuery({
+    queryKey: K.datasets(ptrsId),
+    queryFn: async () => listDatasets(ptrsId),
+    enabled,
+    staleTime: 60_000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function usePtrsMapQuery(ptrsId) {
+  const enabled = !!ptrsId;
+
+  return useQuery({
+    queryKey: K.map(ptrsId),
+    queryFn: async () => getPtrsMap(ptrsId),
+    enabled,
+    staleTime: 60_000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function usePtrsUnifiedSampleQuery(
+  ptrsId,
+  { datasetId = null, limit = 5, offset = 0 } = {},
+) {
+  const enabled = !!ptrsId && !!datasetId;
+
+  return useQuery({
+    queryKey: K.unifiedSample(ptrsId, { datasetId, limit, offset }),
+    queryFn: async () => getUnifiedSample(ptrsId, { datasetId, limit, offset }),
+    enabled,
+    staleTime: 120_000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function usePtrsBlueprintQuery({ profileId }) {
+  const enabled = !!profileId;
+
+  return useQuery({
+    queryKey: K.blueprint({ profileId }),
+    queryFn: async () => getBlueprint({ profileId }),
+    enabled,
+    staleTime: 10 * 60_000,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function useSavePtrsJoinsMutation(ptrsId) {
+  return useMutation({
+    mutationFn: ({ joins, customFields, profileId } = {}) =>
+      savePtrsJoins(ptrsId, { joins, customFields, profileId }),
+    onSuccess: () => {
+      if (ptrsId) {
+        ptrsTraffic.emit(ptrsId, { reason: "joins_updated" });
+      }
+    },
+  });
 }
 
 export function usePtrsStageStatus(ptrsId) {

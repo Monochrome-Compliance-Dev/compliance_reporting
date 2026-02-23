@@ -109,6 +109,9 @@ async function _get(url) {
     "X-CSRF-Token": sessionStorage.getItem("csrfToken") || "",
   };
   const requestOptions = { method: "GET", headers, credentials: "include" };
+  console.info("[fetch-wrapper] GET ->", url, {
+    headers: _redactHeaders(headers),
+  });
   return fetch(url, requestOptions).then(handleResponse);
 }
 
@@ -150,12 +153,12 @@ async function _post(url, body) {
     credentials: "include",
     body: JSON.stringify(body),
   };
-  console.debug("[fetch-wrapper] POST ->", url, {
+  console.info("[fetch-wrapper] POST ->", url, {
     headers: _redactHeaders(headers),
     body: _previewBody(body),
   });
   const response = await fetch(url, requestOptions);
-  console.debug(
+  console.info(
     "[fetch-wrapper] POST <-",
     url,
     "status=",
@@ -275,6 +278,10 @@ async function _put(url, body) {
     credentials: "include",
     body: JSON.stringify(body),
   };
+  console.info("[fetch-wrapper] PUT ->", url, {
+    headers: _redactHeaders(headers),
+    body: _previewBody(body),
+  });
   return fetch(url, requestOptions).then(handleResponse);
 }
 
@@ -300,6 +307,10 @@ async function _patch(url, body) {
     credentials: "include",
     body: JSON.stringify(body),
   };
+  console.info("[fetch-wrapper] PATCH ->", url, {
+    headers: _redactHeaders(headers),
+    body: _previewBody(body),
+  });
   const response = await fetch(url, requestOptions);
   return handleResponse(response);
 }
@@ -324,6 +335,9 @@ async function _deleteRequest(url) {
     headers,
     credentials: "include",
   };
+  console.info("[fetch-wrapper] DELETE ->", url, {
+    headers: _redactHeaders(headers),
+  });
   return fetch(url, requestOptions).then(handleResponse);
 }
 

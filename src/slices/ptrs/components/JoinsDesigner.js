@@ -215,14 +215,23 @@ export default function JoinsDesigner({
       return;
     }
 
-    const targets = (datasets || []).filter((d) => {
-      const role = String(d?.role || "");
-      return !(role === "main" || role.startsWith("main_"));
-    });
+    // Fetch lightweight samples for ALL roles (including main), so main columns can show examples.
+    // This keeps the UI independent of whether the parent passed unified examples.
+    const targets = (datasets || []).filter((d) => !!d?.id);
 
-    const firstExample = (rows, colIdx) => {
+    const firstExample = (rows, header, colIdx) => {
+      const h = String(header || "");
       for (const r of rows || []) {
-        const v = r?.[colIdx];
+        // Rows can be arrays (legacy) or objects (normalised). Prefer object access.
+        let v;
+        if (r && typeof r === "object" && !Array.isArray(r)) {
+          if (r.data && typeof r.data === "object" && h in r.data)
+            v = r.data[h];
+          else if (h in r) v = r[h];
+        } else {
+          v = r?.[colIdx];
+        }
+
         if (v !== undefined && v !== null && String(v).trim() !== "") {
           return String(v);
         }
@@ -244,7 +253,7 @@ export default function JoinsDesigner({
         const rows = s.rows || [];
         const ex = {};
         headers.forEach((h, i) => {
-          const val = firstExample(rows, i);
+          const val = firstExample(rows, h, i);
           if (val) ex[String(h)] = val;
         });
         roleMap[d.role || "dataset"] = ex;
@@ -280,36 +289,70 @@ export default function JoinsDesigner({
     );
   }, [debug, datasets, mainRoles, selectedFromRole, leftHeadersByRole]);
 
-  // Build right-side: group headers by dataset role excluding all mainRoles
+  // Build right-side: join TARGET roles depend on the selected FROM role.
+  // - If FROM is main/main_* => RHS should be supporting roles only.
+  // - If FROM is supporting => RHS should include main roles + other supporting roles.
   const rightColumns = useMemo(() => {
     const byRole = new Map();
+    const fromRole = String(selectedFromRole || "main");
+    const fromIsMain = fromRole === "main" || fromRole.startsWith("main_");
 
     (datasets || []).forEach((d) => {
-      const role = d.role || "dataset";
-      // Exclude all main datasets from the right side
-      if (role === "main" || String(role).startsWith("main_")) return;
+      const roleStr = String(d?.role || "dataset");
 
-      const baseHeaders = (d.meta?.headers || d.headers || [])
+      // Never show the selected FROM role on the RHS
+      if (roleStr === fromRole) return;
+
+      // If FROM is main, we exclude all main datasets from RHS.
+      // If FROM is supporting, we allow main datasets on RHS.
+      if (fromIsMain && (roleStr === "main" || roleStr.startsWith("main_")))
+        return;
+
+      let baseHeaders = (d.meta?.headers || d.headers || [])
         .filter(Boolean)
         .map(String);
-      if (!byRole.has(role)) byRole.set(role, new Set());
-      baseHeaders.forEach((h) => byRole.get(role).add(h));
+
+      // listDatasets() may not include headers for main datasets; fall back to the unified/left headers.
+      if (
+        !baseHeaders.length &&
+        (roleStr === "main" || roleStr.startsWith("main_"))
+      ) {
+        const fallback =
+          leftHeadersByRole &&
+          typeof leftHeadersByRole === "object" &&
+          Array.isArray(leftHeadersByRole[roleStr])
+            ? leftHeadersByRole[roleStr]
+            : Array.isArray(leftHeaders)
+              ? leftHeaders
+              : [];
+
+        baseHeaders = fallback.filter(Boolean).map(String);
+      }
+
+      if (!byRole.has(roleStr)) byRole.set(roleStr, new Set());
+      baseHeaders.forEach((h) => byRole.get(roleStr).add(h));
     });
 
     // Make sure headers referenced in saved joins exist in the UI even if not present in metadata
     (links || []).forEach((j) => {
-      const role = j?.to?.role;
+      const roleStr = String(j?.to?.role || "");
       const col = j?.to?.column;
-      if (!role || !col) return;
-      if (!byRole.has(role)) byRole.set(role, new Set());
-      byRole.get(role).add(String(col));
+      if (!roleStr || !col) return;
+
+      // Respect the same RHS visibility rules for saved joins
+      if (roleStr === fromRole) return;
+      if (fromIsMain && (roleStr === "main" || roleStr.startsWith("main_")))
+        return;
+
+      if (!byRole.has(roleStr)) byRole.set(roleStr, new Set());
+      byRole.get(roleStr).add(String(col));
     });
 
     return Array.from(byRole.entries()).map(([role, set]) => ({
       role,
       headers: Array.from(set).sort((a, b) => a.localeCompare(b)),
     }));
-  }, [datasets, links]);
+  }, [datasets, links, selectedFromRole, leftHeaders, leftHeadersByRole]);
 
   // Recalculate absolute positions for endpoints used by SVG when DOM changes
   const computePositions = useCallback(() => {
@@ -462,19 +505,28 @@ export default function JoinsDesigner({
                 }}
               >
                 <Typography variant="body2">{label}</Typography>
-                {examples &&
-                  examples[key] !== undefined &&
-                  examples[key] !== null &&
-                  String(examples[key]).trim() !== "" && (
+                {(() => {
+                  const fromRole = String(selectedFromRole || "main");
+                  const fromIsMain =
+                    fromRole === "main" || fromRole.startsWith("main_");
+
+                  const exVal = fromIsMain
+                    ? (examplesByRole?.[fromRole]?.[key] ?? examples?.[key])
+                    : examplesByRole?.[fromRole]?.[key];
+
+                  return exVal !== undefined &&
+                    exVal !== null &&
+                    String(exVal).trim() !== "" ? (
                     <Typography
                       variant="caption"
                       color="text.secondary"
                       sx={{ display: "block" }}
                     >
-                      e.g. {String(examples[key]).slice(0, 80)}
-                      {String(examples[key]).length > 80 ? "…" : ""}
+                      e.g. {String(exVal).slice(0, 80)}
+                      {String(exVal).length > 80 ? "…" : ""}
                     </Typography>
-                  )}
+                  ) : null;
+                })()}
                 {debug && (
                   <Typography variant="caption" color="text.secondary">
                     {keyL(selectedFromRole || "main", key)}
@@ -537,8 +589,7 @@ export default function JoinsDesigner({
                       <Typography variant="body2">{h}</Typography>
                       {(() => {
                         const exVal =
-                          examplesByRole?.[role]?.[h] ??
-                          (examples && examples[h]);
+                          examplesByRole?.[role]?.[h] ?? examples?.[h];
                         return exVal !== undefined &&
                           exVal !== null &&
                           String(exVal).trim() !== "" ? (

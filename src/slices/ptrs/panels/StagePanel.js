@@ -32,7 +32,7 @@ import {
   getStagePreview,
   stagePtrs,
 } from "../services/stage.ptrsApi";
-import { getPtrsMap } from "../services/tablesAndMaps.ptrsApi";
+import { getPtrsMap } from "../services/maps.ptrsApi";
 import { LoadingSpinner } from "shared/ui";
 
 // Convert snake_case (or other separators) to human-friendly labels

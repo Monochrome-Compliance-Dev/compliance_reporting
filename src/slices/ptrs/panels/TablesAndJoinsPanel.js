@@ -13,12 +13,12 @@ import { useAlert } from "context";
 import { usePtrsContext } from "../context/PtrsContext";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import { useUpdatePtrsMutation } from "../hooks/usePtrsQueries";
+import { savePtrsJoins } from "../services/joins.ptrsApi";
 import {
-  getPtrsMap,
-  getUnifiedSample,
-  savePtrsMap,
-} from "../services/tablesAndMaps.ptrsApi";
-import { listDatasets } from "../services/data.ptrsApi";
+  usePtrsDatasetsQuery,
+  usePtrsJoinsQuery,
+  usePtrsUnifiedSampleQuery,
+} from "../hooks/usePtrsQueries";
 import JoinsDesigner from "../components/JoinsDesigner";
 
 export default function TablesAndJoinsPanel() {
@@ -80,9 +80,6 @@ export default function TablesAndJoinsPanel() {
 
     try {
       // Load existing mappings so we don't overwrite them when saving joins
-      const mapRes = await getPtrsMap(ptrsId).catch(() => ({}));
-      const existingMappings =
-        (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || {};
 
       const conditions = Array.isArray(targetJoins?.conditions)
         ? targetJoins.conditions
@@ -92,13 +89,12 @@ export default function TablesAndJoinsPanel() {
         : [];
 
       const payload = {
-        mappings: existingMappings,
         joins: { conditions },
         customFields,
         profileId,
       };
 
-      await savePtrsMap(ptrsId, payload);
+      await savePtrsJoins(ptrsId, payload);
 
       lastSavedHashRef.current = nextHash;
       dirtyRef.current = false;
@@ -141,172 +137,156 @@ export default function TablesAndJoinsPanel() {
     }, 800);
   };
 
+  const dsQ = usePtrsDatasetsQuery(ptrsId);
+  const joinsQ = usePtrsJoinsQuery(ptrsId);
+
+  const mainDatasetId =
+    (dsQ.data?.items || []).find(
+      (d) => String(d?.role || "").toLowerCase() === "main",
+    )?.id ||
+    (dsQ.data?.items || [])[0]?.id ||
+    null;
+
+  const sampleQ = usePtrsUnifiedSampleQuery(ptrsId, {
+    datasetId: mainDatasetId,
+    limit: 5,
+    offset: 0,
+  });
+
   useEffect(() => {
-    let mounted = true;
-    async function load() {
-      if (!ptrsId) return;
-      setLoading(true);
-      try {
-        // Datasets
-        const dsRes = await listDatasets(ptrsId);
-        const items = dsRes?.items || [];
-        if (!mounted) return;
-        setDatasets(items);
+    setLoading(Boolean(dsQ.isLoading || joinsQ.isLoading || sampleQ.isLoading));
+  }, [dsQ.isLoading, joinsQ.isLoading, sampleQ.isLoading]);
 
-        // Existing joins + custom fields
-        const mapRes = await getPtrsMap(ptrsId);
+  useEffect(() => {
+    if (dsQ.isError)
+      showAlert(dsQ.error?.message || "Failed to load datasets", "error");
+  }, [dsQ.isError, dsQ.error, showAlert]);
 
-        // Normalise joins from any of the historical shapes into { conditions: [], customFields: [] }
-        const normaliseJoins = (raw) => {
-          if (!raw || typeof raw !== "object") {
-            return { conditions: [], customFields: [] };
-          }
+  useEffect(() => {
+    if (joinsQ.isError)
+      showAlert(joinsQ.error?.message || "Failed to load joins", "error");
+  }, [joinsQ.isError, joinsQ.error, showAlert]);
 
-          // joins can be:
-          // - an array of conditions (new shape)
-          // - an object with { conditions, customFields }
-          // - nested under map.joins
-          const joinsSource = raw.joins ||
-            raw.map?.joins || {
-              conditions: [],
-              customFields: [],
-            };
+  useEffect(() => {
+    if (sampleQ.isError)
+      showAlert(sampleQ.error?.message || "Failed to load sample", "error");
+  }, [sampleQ.isError, sampleQ.error, showAlert]);
 
-          let conditions = [];
-          let customFields = [];
+  useEffect(() => {
+    setDatasets(dsQ.data?.items || []);
+  }, [dsQ.data]);
 
-          if (Array.isArray(joinsSource)) {
-            // already an array of conditions
-            conditions = joinsSource;
-          } else if (joinsSource && typeof joinsSource === "object") {
-            if (Array.isArray(joinsSource.conditions)) {
-              conditions = joinsSource.conditions;
-            }
-            if (Array.isArray(joinsSource.customFields)) {
-              customFields = joinsSource.customFields;
-            }
-          }
+  // normalise joins (same logic you already have)
+  const normaliseJoins = (raw) => {
+    if (!raw || typeof raw !== "object")
+      return { conditions: [], customFields: [] };
 
-          // Top-level customFields take precedence if present
-          const topLevelCustomFields =
-            raw.customFields || raw.map?.customFields || null;
-          if (Array.isArray(topLevelCustomFields)) {
-            customFields = topLevelCustomFields;
-          }
+    const joinsSource = raw.joins ||
+      raw.map?.joins || {
+        conditions: [],
+        customFields: [],
+      };
 
-          return {
-            conditions,
-            customFields,
-          };
-        };
+    let conditions = [];
+    let customFields = [];
 
-        const {
-          conditions: initialConditions,
-          customFields: initialCustomFields,
-        } = normaliseJoins(mapRes || {});
+    if (Array.isArray(joinsSource)) {
+      conditions = joinsSource;
+    } else if (joinsSource && typeof joinsSource === "object") {
+      if (Array.isArray(joinsSource.conditions))
+        conditions = joinsSource.conditions;
+      if (Array.isArray(joinsSource.customFields))
+        customFields = joinsSource.customFields;
+    }
 
-        console.log("[TablesAndJoinsPanel] existing map", mapRes);
-        console.log("[TablesAndJoinsPanel] initial joins/customFields", {
-          initialConditions,
-          initialCustomFields,
-        });
+    const topLevelCustomFields =
+      raw.customFields || raw.map?.customFields || null;
+    if (Array.isArray(topLevelCustomFields))
+      customFields = topLevelCustomFields;
 
-        setJoins({
-          conditions: initialConditions,
-          customFields: initialCustomFields,
-        });
+    return { conditions, customFields };
+  };
 
-        const initialHash = computeJoinsHash({
-          conditions: initialConditions,
-          customFields: initialCustomFields,
-        });
-        lastSavedHashRef.current = initialHash;
-        dirtyRef.current = false;
+  useEffect(() => {
+    const mapRes = joinsQ.data || null;
+    const { conditions, customFields } = normaliseJoins(mapRes || {});
+    setJoins({ conditions, customFields });
 
-        console.log("[TablesAndJoinsPanel] joins state after load", {
-          conditionsCount: initialConditions.length,
-          customFieldsCount: initialCustomFields.length,
-        });
+    const initialHash = computeJoinsHash({ conditions, customFields });
+    lastSavedHashRef.current = initialHash;
+    dirtyRef.current = false;
+  }, [joinsQ.data]);
 
-        // Unified sample for headers/examples (main + supporting)
-        // Why do we need unified here? Because joins can reference columns
-        // from any dataset, so we need to know all possible headers.
-        const unified = await getUnifiedSample(ptrsId, { limit: 5, offset: 0 });
-        const inferred = unified?.headers || [];
-        const headerMeta = unified?.headerMeta || {};
+  useEffect(() => {
+    const unified = sampleQ.data || null;
+    const inferred = Array.isArray(unified?.headers) ? unified.headers : [];
+    const meta =
+      unified && typeof unified.headerMeta === "object"
+        ? unified.headerMeta
+        : {};
 
-        // Derive main-only headers per main role from unified headerMeta.
-        // We need this because supporting datasets may be linked to only one of the main datasets.
-        const byRole = {};
-        for (const h of inferred) {
-          const srcs = headerMeta[h]?.sources || [];
-          if (!Array.isArray(srcs) || !srcs.length) continue;
+    // Derive main-only headers per main role from unified headerMeta.
+    const byRole = {};
+    for (const h of inferred) {
+      const srcs = meta?.[h]?.sources || [];
+      if (!Array.isArray(srcs) || !srcs.length) continue;
 
-          // Any source with kind === "main" is a main dataset column.
-          // Track which main roles it belongs to (e.g. main_xero vs main_excel).
-          const mainSrcs = srcs.filter((s) => s && s.kind === "main" && s.role);
-          if (!mainSrcs.length) continue;
+      const mainSrcs = srcs.filter((s) => s && s.kind === "main" && s.role);
+      if (!mainSrcs.length) continue;
 
-          for (const s of mainSrcs) {
-            const role = String(s.role);
-            if (!byRole[role]) byRole[role] = new Set();
-            byRole[role].add(h);
-          }
-        }
-
-        const finalByRole = {};
-        for (const [role, set] of Object.entries(byRole)) {
-          finalByRole[role] = Array.from(set).sort((a, b) =>
-            a.localeCompare(b),
-          );
-        }
-
-        // Backwards/defensive: if something goes wrong, fall back to inferred headers.
-        setMainHeadersByRole(finalByRole);
-
-        // Keep `mainHeaders` for any legacy callers, but prefer role-scoped headers in JoinsDesigner.
-        // This is the union of all main-role headers.
-        const mains = Array.from(
-          new Set(Object.values(finalByRole).flatMap((arr) => arr || [])),
-        );
-        setMainHeaders(mains);
-
-        const ex = {};
-        for (const h of inferred) {
-          const meta = headerMeta[h] || {};
-          const example =
-            meta.example ??
-            (meta.examples
-              ? (meta.examples.main ?? Object.values(meta.examples)[0])
-              : "");
-          ex[h] = example == null ? "" : String(example);
-        }
-
-        setHeaders(inferred);
-        setExamples(ex);
-
-        console.log("[TablesAndJoinsPanel] loaded data", {
-          datasets: items,
-          // joins: existingJoins,
-          headers: inferred,
-          examples: ex,
-          mainHeaders: mains,
-          mainHeadersByRole: finalByRole,
-        });
-      } catch (e) {
-        showAlert(e?.message || "Failed to load tables & joins", "error");
-      } finally {
-        setLoading(false);
+      for (const s of mainSrcs) {
+        const role = String(s.role);
+        if (!byRole[role]) byRole[role] = new Set();
+        byRole[role].add(h);
       }
     }
-    load();
+
+    const finalByRole = {};
+    for (const [role, set] of Object.entries(byRole)) {
+      finalByRole[role] = Array.from(set).sort((a, b) => a.localeCompare(b));
+    }
+
+    const mains = Array.from(
+      new Set(Object.values(finalByRole).flatMap((arr) => arr || [])),
+    ).sort((a, b) => a.localeCompare(b));
+
+    // Examples: header -> best available example (from headerMeta if present)
+    const ex = {};
+    for (const h of inferred) {
+      const hm = meta?.[h] || {};
+      const example =
+        hm.example ??
+        (hm.examples
+          ? (hm.examples.main ?? Object.values(hm.examples)[0])
+          : "");
+      ex[h] = example == null ? "" : String(example);
+    }
+
+    setHeaders(inferred);
+    setExamples(ex);
+    setMainHeadersByRole(finalByRole);
+    setMainHeaders(mains);
+
+    if (debugJoins) {
+      // eslint-disable-next-line no-console
+      console.log("[TablesAndJoinsPanel] loaded data", {
+        datasets: dsQ.data?.items || [],
+        headers: inferred,
+        examples: ex,
+        mainHeaders: mains,
+        mainHeadersByRole: finalByRole,
+      });
+    }
+  }, [sampleQ.data, debugJoins, dsQ.data]);
+
+  useEffect(() => {
     return () => {
-      mounted = false;
       if (saveTimerRef.current) {
         clearTimeout(saveTimerRef.current);
+        saveTimerRef.current = null;
       }
     };
-  }, [ptrsId, showAlert]);
+  }, []);
 
   const datasetSummary = useMemo(() => {
     return (datasets || []).map((d) => ({
@@ -447,6 +427,7 @@ export default function TablesAndJoinsPanel() {
         <JoinsDesigner
           ptrsId={ptrsId}
           joins={joins}
+          customFields={joins.customFields}
           onChange={(next) => {
             if (!next || typeof next !== "object") {
               const cleared = { conditions: [], customFields: [] };

@@ -11,9 +11,7 @@ import {
   onCustomerChange,
   setCurrentCustomer,
 } from "shared/utils";
-import { getPtrs, listProfiles } from "../services/ptrsApi";
-import { listDatasets } from "../services/data.ptrsApi";
-import { getPtrsMap } from "../services/tablesAndMaps.ptrsApi";
+import { listProfiles } from "../services/ptrsApi";
 
 const normaliseId = (val) => {
   if (!val) return null;
@@ -126,42 +124,8 @@ export function PtrsProvider({ children }) {
     };
   }, []);
 
-  const [ptrsMeta, setPtrsMeta] = useState(null);
-  const [datasets, setDatasets] = useState([]);
-  const [ptrsMap, setPtrsMap] = useState(null);
   const [profiles, setProfiles] = useState([]);
-
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const refreshPtrsMeta = useCallback(async () => {
-    if (!ptrsId || typeof ptrsId !== "string") return;
-    try {
-      setLoading(true);
-      const res = await getPtrs(ptrsId);
-      setPtrsMeta(res || null);
-    } catch (err) {
-      console.error("[PtrsContext] getPtrs failed:", err);
-      setError(err.message);
-      setPtrsMeta(null);
-    } finally {
-      setLoading(false);
-    }
-  }, [ptrsId]);
-
-  const refreshDatasets = useCallback(async () => {
-    if (!ptrsId || typeof ptrsId !== "string") return;
-    try {
-      setLoading(true);
-      const res = await listDatasets(ptrsId);
-      if (res?.items) setDatasets(res.items);
-    } catch (err) {
-      console.error("[PtrsContext] listDatasets failed:", err);
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  }, [ptrsId]);
 
   const loadProfilesForCustomer = useCallback(async (customerId) => {
     if (!customerId) {
@@ -176,64 +140,11 @@ export function PtrsProvider({ children }) {
       setProfiles(items);
     } catch (err) {
       console.error("[PtrsContext] listProfiles failed:", err);
-      setError(err.message);
       setProfiles([]);
     } finally {
       setLoading(false);
     }
   }, []);
-
-  const refreshPtrsMap = useCallback(async () => {
-    if (!ptrsId || typeof ptrsId !== "string") return;
-    try {
-      setLoading(true);
-      const res = await getPtrsMap(ptrsId);
-      const mapData = res || null;
-      if (mapData) {
-        setPtrsMap(mapData);
-      } else {
-        console.warn(
-          "[PtrsContext] getPtrsMap returned empty payload for ptrsId:",
-          ptrsId,
-        );
-        setPtrsMap(null);
-      }
-    } catch (err) {
-      console.error("[PtrsContext] getPtrsMap failed:", err);
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  }, [ptrsId]);
-
-  const clearCache = useCallback(() => {
-    setPtrsMeta(null);
-    setDatasets([]);
-    setPtrsMap(null);
-    setError(null);
-  }, []);
-
-  useEffect(() => {
-    if (!ptrsId) {
-      clearCache();
-      return;
-    }
-
-    if (isLanding) {
-      return;
-    }
-
-    refreshPtrsMeta();
-    refreshDatasets();
-    refreshPtrsMap();
-  }, [
-    ptrsId,
-    refreshPtrsMeta,
-    refreshDatasets,
-    isLanding,
-    refreshPtrsMap,
-    clearCache,
-  ]);
 
   const value = {
     // new canonical identifiers
@@ -244,18 +155,8 @@ export function PtrsProvider({ children }) {
     setProfileId,
     profiles,
     loadProfilesForCustomer,
-    // loaded resources
-    ptrsMeta,
-    datasets,
-    ptrsMap,
-    // refresh helpers
-    refreshPtrsMeta,
-    refreshDatasets,
-    refreshPtrsMap,
-    clearCache,
     // state flags
     loading,
-    error,
   };
 
   return <PtrsContext.Provider value={value}>{children}</PtrsContext.Provider>;

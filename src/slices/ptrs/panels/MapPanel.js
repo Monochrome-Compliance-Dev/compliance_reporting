@@ -40,18 +40,21 @@ import {
 } from "../ingestConfig";
 import { usePtrsContext } from "../context/PtrsContext";
 import { getFieldLabel } from "../services/ingestConfig";
-import { useUpdatePtrsMutation } from "../hooks/usePtrsQueries";
+import {
+  useUpdatePtrsMutation,
+  usePtrsDatasetsQuery,
+  usePtrsMapQuery,
+  usePtrsUnifiedSampleQuery,
+  usePtrsBlueprintQuery,
+} from "../hooks/usePtrsQueries";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import {
-  buildPtrsMappedDataset,
   extractMappingsFromAny,
   getPtrsMap,
-  getUnifiedSample,
   listPtrsWithMap,
   savePtrsMap,
-} from "../services/tablesAndMaps.ptrsApi";
-import { getStagePreview } from "../services/stage.ptrsApi";
-import { getBlueprint } from "../services/ptrsApi";
+  buildPtrsMappedDataset,
+} from "../services/maps.ptrsApi";
 import SupportingDatasetsSection from "./SupportingDatasetsSection";
 import { LoadingSpinner } from "shared/ui";
 
@@ -66,6 +69,22 @@ export default function MapPanel() {
 
   const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
 
+  const dsQ = usePtrsDatasetsQuery(ptrsId);
+  const mainDatasetId =
+    (dsQ.data?.items || []).find(
+      (d) => String(d?.role || "").toLowerCase() === "main",
+    )?.id ||
+    (dsQ.data?.items || [])[0]?.id ||
+    null;
+
+  const mapQ = usePtrsMapQuery(ptrsId);
+  const sampleQ = usePtrsUnifiedSampleQuery(ptrsId, {
+    datasetId: mainDatasetId,
+    limit: 5,
+    offset: 0,
+  });
+  const bpQ = usePtrsBlueprintQuery({ profileId });
+
   const [blueprint, setBlueprint] = useState(null);
   const [headers, setHeaders] = useState([]);
   const [examples, setExamples] = useState({});
@@ -76,17 +95,8 @@ export default function MapPanel() {
   const [isDirty, setIsDirty] = useState(false);
 
   const [savingMap, setSavingMap] = useState(false);
-  const [buildingMapped, setBuildingMapped] = useState(false);
 
-  const isBusy = loading || staging || savingMap || buildingMapped;
-
-  const getMapMetaUpdatedAt = (extras) => {
-    if (!extras || typeof extras !== "object" || Array.isArray(extras))
-      return null;
-    const meta = extras.mapMeta;
-    if (!meta || typeof meta !== "object") return null;
-    return meta.updatedAt || null;
-  };
+  const isBusy = loading || staging || savingMap;
 
   // prevent double-submit / re-entrancy
   const stagingRef = useRef(false);
@@ -98,7 +108,7 @@ export default function MapPanel() {
   const [assign, setAssign] = useState({});
   // user-defined placeholder targets
   const [customFields, setCustomFields] = useState([]);
-  const [customFieldConfig, setCustomFieldConfig] = useState(null);
+  const [, setCustomFieldConfig] = useState(null);
   const [newCustomName, setNewCustomName] = useState("");
   const [joins, setJoins] = useState([]);
 
@@ -121,9 +131,10 @@ export default function MapPanel() {
     setImportOpen(true);
   };
 
-  // --- Load headers + any existing saved map
+  // --- Load headers + any existing saved map (query-driven; cache-friendly)
   useEffect(() => {
-    let mounted = true;
+    if (!ptrsId) return;
+
     // Helper to safely get cell value from row with possible {data:{}} or flat
     function pickCell(row, h) {
       if (row && typeof row === "object") {
@@ -133,286 +144,271 @@ export default function MapPanel() {
       }
       return undefined;
     }
-    async function load() {
-      if (!ptrsId) return;
-      setLoading(true);
+
+    // Drive page loading state off queries
+    setLoading(
+      Boolean(
+        dsQ.isLoading || mapQ.isLoading || sampleQ.isLoading || bpQ.isLoading,
+      ),
+    );
+
+    if (mapQ.isError) {
+      showAlert(mapQ.error?.message || "Failed to load mapping info", "error");
+      return;
+    }
+
+    if (sampleQ.isError) {
+      showAlert(
+        sampleQ.error?.message || "Failed to load sample headers",
+        "error",
+      );
+      return;
+    }
+
+    if (bpQ.isError) {
+      // Blueprint should never block mapping
+      showAlert(bpQ.error?.message || "Failed to load blueprint", "warning");
+    }
+
+    const mapRes = mapQ.data || null;
+    const unified = sampleQ.data || null;
+    const bp = bpQ.data || null;
+
+    // If neither map nor sample is ready yet, do nothing (queries still loading)
+    if (!mapRes && !unified) return;
+
+    const existingExtras = mapRes?.extras || mapRes?.map?.extras || null;
+    setMapExtras(existingExtras);
+
+    const existing =
+      (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || null;
+
+    // Normalise joins/customFields across old and new shapes
+    const normaliseJoins = (raw) => {
+      if (!raw) return { joins: [], customFields: null };
+
+      // joins can be an array or an object with { conditions, customFields }
+      const joinsSource = raw.joins || raw.map?.joins || null;
+      let joinsArr = [];
+      let customFieldsArr = null;
+
+      if (Array.isArray(joinsSource)) {
+        joinsArr = joinsSource;
+      } else if (
+        joinsSource &&
+        typeof joinsSource === "object" &&
+        Array.isArray(joinsSource.conditions)
+      ) {
+        joinsArr = joinsSource.conditions;
+        if (Array.isArray(joinsSource.customFields)) {
+          customFieldsArr = joinsSource.customFields;
+        }
+      }
+
+      // Top-level customFields (preferred)
+      const topLevelCustomFields =
+        raw.customFields || raw.map?.customFields || null;
+      if (Array.isArray(topLevelCustomFields)) {
+        customFieldsArr = topLevelCustomFields;
+      }
+
+      return {
+        joins: joinsArr,
+        customFields: Array.isArray(customFieldsArr) ? customFieldsArr : null,
+      };
+    };
+
+    const { joins: existingJoins, customFields: existingCustomFields } =
+      normaliseJoins(mapRes || {});
+
+    const initialCustomFields = Array.isArray(existingCustomFields)
+      ? existingCustomFields
+          .map((cf) =>
+            cf && typeof cf === "object" ? cf.key || cf.field || null : null,
+          )
+          .filter((n) => n && typeof n === "string")
+      : [];
+
+    if (bp) setBlueprint(bp || null);
+
+    // headers: prefer unified sample, otherwise fall back to saved mapMeta headers
+    const inferred =
+      (unified?.headers?.length ? unified.headers : null) ||
+      (Array.isArray(existingExtras?.mapMeta?.sourceHeaders)
+        ? existingExtras.mapMeta.sourceHeaders
+        : []) ||
+      [];
+
+    const rows = (unified?.rows?.length ? unified.rows : []) || [];
+
+    // capture header meta if unified sample provided it
+    if (
+      unified &&
+      unified.headerMeta &&
+      typeof unified.headerMeta === "object"
+    ) {
+      setHeaderMeta(unified.headerMeta);
+    } else {
+      setHeaderMeta({});
+    }
+
+    setJoins(Array.isArray(existingJoins) ? existingJoins : []);
+    setCustomFieldConfig(
+      Array.isArray(existingCustomFields) ? existingCustomFields : null,
+    );
+
+    setHeaders(inferred);
+
+    // build examples map: header -> first non-empty value
+    const ex = {};
+    for (const h of inferred) {
+      for (const r of rows) {
+        const v = pickCell(r, h);
+        if (v !== undefined && v !== null && String(v).trim() !== "") {
+          ex[h] = String(v);
+          break;
+        }
+      }
+      if (!ex[h]) ex[h] = "";
+    }
+    setExamples(ex);
+
+    // existing shape may be: { "<source>": { field: "<target>", type } }
+    const toTargetSource = {};
+    if (existing && typeof existing === "object") {
+      for (const [src, cfg] of Object.entries(existing)) {
+        const field = cfg?.field || null;
+        if (field) toTargetSource[field] = src;
+      }
+    }
+    setAssign(toTargetSource);
+
+    // collect any targets not in required/optional as custom placeholders,
+    // seeded from any existing customField config
+    const known = new Set([...PTRS_REQUIRED_FIELDS, ...PTRS_OPTIONAL_FIELDS]);
+    const discovered = new Set(initialCustomFields);
+
+    if (existing && typeof existing === "object") {
+      for (const [, cfg] of Object.entries(existing)) {
+        const field = cfg?.field;
+        if (field && !known.has(field)) discovered.add(field);
+      }
+    }
+
+    setCustomFields((prev) => [
+      ...new Set([...prev, ...Array.from(discovered)]),
+    ]);
+  }, [
+    ptrsId,
+    profileId,
+    showAlert,
+    mapQ.isLoading,
+    mapQ.isError,
+    mapQ.error,
+    mapQ.data,
+    sampleQ.isLoading,
+    sampleQ.isError,
+    sampleQ.error,
+    sampleQ.data,
+    bpQ.isLoading,
+    bpQ.isError,
+    bpQ.error,
+    bpQ.data,
+    dsQ.isLoading,
+  ]);
+
+  // Lazy-load "copy map from previous ptrs" options only when the dialog is opened.
+  useEffect(() => {
+    let mounted = true;
+
+    const normHeaderKey = (s) =>
+      String(s || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "")
+        .trim();
+
+    async function loadCopyOptions() {
+      if (!importOpen) return;
       try {
-        // 1) Load map first to know if any mappings exist
-        const mapRes = await getPtrsMap(ptrsId);
-        const existingExtras = mapRes?.extras || mapRes?.map?.extras || null;
-        setMapExtras(existingExtras);
-        // eslint-disable-next-line no-console
-        console.log("[MapPanel] getPtrsMap raw:", mapRes);
-        // eslint-disable-next-line no-console
-        console.log(
-          "[MapPanel] getPtrsMap shapes:",
-          mapRes
-            ? {
-                keys: Object.keys(mapRes),
-                mappingsKeys: mapRes.mappings
-                  ? Object.keys(mapRes.mappings)
-                  : null,
-                joinsKeys: mapRes.joins ? Object.keys(mapRes.joins) : null,
-                customFields: mapRes.customFields || null,
-                mapKeys: mapRes.map ? Object.keys(mapRes.map) : null,
-              }
-            : null,
+        const lr = await listPtrsWithMap();
+        const allPtrss = lr.items || [];
+
+        const inferredNormSet = new Set(
+          (headers || []).map(normHeaderKey).filter(Boolean),
         );
 
-        const existing =
-          (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || null;
+        const fromMeta = [];
+        let metaSeen = false;
 
-        // Normalise joins/customFields across old and new shapes
-        const normaliseJoins = (raw) => {
-          if (!raw) return { joins: [], customFields: null };
+        for (const run of allPtrss) {
+          const meta = run?.mapMeta || run?.extras?.mapMeta;
+          const srcNorm = Array.isArray(meta?.sourceHeadersNorm)
+            ? meta.sourceHeadersNorm
+            : null;
+          if (srcNorm) metaSeen = true;
 
-          // joins can be an array (new) or an object with { conditions, customFields }
-          const joinsSource = raw.joins || raw.map?.joins || null;
-          let joinsArr = [];
-          let customFieldsArr = null;
+          if (!srcNorm || !srcNorm.length) continue;
 
-          if (Array.isArray(joinsSource)) {
-            joinsArr = joinsSource;
-          } else if (
-            joinsSource &&
-            typeof joinsSource === "object" &&
-            Array.isArray(joinsSource.conditions)
-          ) {
-            joinsArr = joinsSource.conditions;
-            if (Array.isArray(joinsSource.customFields)) {
-              customFieldsArr = joinsSource.customFields;
-            }
+          let count = 0;
+          for (const h of srcNorm) {
+            if (inferredNormSet.has(String(h || "").trim())) count += 1;
           }
-
-          // Top-level customFields (preferred)
-          const topLevelCustomFields =
-            raw.customFields || raw.map?.customFields || null;
-          if (Array.isArray(topLevelCustomFields)) {
-            customFieldsArr = topLevelCustomFields;
-          }
-
-          return {
-            joins: joinsArr,
-            customFields: Array.isArray(customFieldsArr)
-              ? customFieldsArr
-              : null,
-          };
-        };
-
-        const { joins: existingJoins, customFields: existingCustomFields } =
-          normaliseJoins(mapRes || {});
-
-        const initialCustomFields = Array.isArray(existingCustomFields)
-          ? existingCustomFields
-              .map((cf) =>
-                cf && typeof cf === "object"
-                  ? cf.key || cf.field || null
-                  : null,
-              )
-              .filter((n) => n && typeof n === "string")
-          : [];
-
-        const hasAnyMappings =
-          existing && typeof existing === "object"
-            ? Object.keys(existing).length > 0
-            : false;
-        // eslint-disable-next-line no-console
-        console.log("[MapPanel] derived map pieces:", {
-          existing,
-          existingJoins,
-          existingCustomFields,
-        });
-
-        // 2) Preferred: unified sample (merged headers/rows from main + supporting)
-        //    Fallback: previous logic (stage preview or simple sample)
-        let unified = null;
-        try {
-          unified = await getUnifiedSample(ptrsId, { limit: 5, offset: 0 });
-        } catch {
-          unified = null;
+          if (count > 0) fromMeta.push({ ...run, compatibleCount: count });
         }
 
-        let preview = null;
-        if (!unified) {
-          if (hasAnyMappings) {
-            try {
-              preview = await getStagePreview(ptrsId, {
-                limit: 5,
-                profileId,
-              });
-            } catch {
-              // If stage preview fails, leave preview as null and rely on unified sample only
-              preview = null;
-            }
-          } else {
-            // No unified sample and no existing mappings; skip preview fallback
-            preview = null;
-          }
-        }
-
-        // 3) Load blueprint last
-        const bp = await getBlueprint({ profileId });
-
-        if (!mounted) return;
-        setBlueprint(bp || null);
-
-        // headers: use unified if present, otherwise preview
-        const inferred =
-          (unified?.headers?.length ? unified.headers : preview?.headers) || [];
-        const rows =
-          (unified?.rows?.length ? unified.rows : preview?.rows) || [];
-        // capture header meta if unified sample provided it
-        if (
-          unified &&
-          unified.headerMeta &&
-          typeof unified.headerMeta === "object"
-        ) {
-          setHeaderMeta(unified.headerMeta);
-        } else {
-          setHeaderMeta({});
-        }
-
-        // existing mappings/joins/customField already computed above
-        setJoins(Array.isArray(existingJoins) ? existingJoins : []);
-        setCustomFieldConfig(
-          Array.isArray(existingCustomFields) ? existingCustomFields : null,
-        );
-
-        setHeaders(inferred);
-
-        // build examples map: header -> first non-empty value
-        const ex = {};
-        for (const h of inferred) {
-          for (const r of rows) {
-            const v = pickCell(r, h);
-            if (v !== undefined && v !== null && String(v).trim() !== "") {
-              ex[h] = String(v);
-              break;
-            }
-          }
-          if (!ex[h]) ex[h] = ""; // ensure key exists
-        }
-        setExamples(ex);
-
-        // existing shape may be: { "<source>": { field: "<target>", type } }
-        const toTargetSource = {};
-        if (existing && typeof existing === "object") {
-          for (const [src, cfg] of Object.entries(existing)) {
-            const field = cfg?.field || null;
-            if (field) toTargetSource[field] = src;
-          }
-        }
-        setAssign(toTargetSource);
-
-        // collect any targets not in required/optional as custom placeholders,
-        // seeded from any existing customField config
-        const known = new Set([
-          ...PTRS_REQUIRED_FIELDS,
-          ...PTRS_OPTIONAL_FIELDS,
-        ]);
-        const discovered = new Set(initialCustomFields);
-
-        if (existing && typeof existing === "object") {
-          for (const [, cfg] of Object.entries(existing)) {
-            const field = cfg?.field;
-            if (field && !known.has(field)) discovered.add(field);
-          }
-        }
-
-        setCustomFields((prev) => [
-          ...new Set([...prev, ...Array.from(discovered)]),
-        ]);
-
-        // Finally: load PTRS runs that have maps and pre-filter by compatibility.
-        // Prefer server-saved metadata (extras.mapMeta) to avoid N+1 getPtrsMap calls.
-        try {
-          const lr = await listPtrsWithMap();
-          const allPtrss = lr.items || [];
-
-          const normHeaderKey = (s) =>
-            String(s || "")
-              .toLowerCase()
-              .replace(/[^a-z0-9]/g, "")
-              .trim();
-
-          const inferredNormSet = new Set(
-            (inferred || []).map(normHeaderKey).filter(Boolean),
+        if (metaSeen) {
+          fromMeta.sort(
+            (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0),
           );
+          if (mounted) setPtrssWithMaps(fromMeta);
+          return;
+        }
 
-          const fromMeta = [];
-          let metaSeen = false;
+        // Temporary fallback: older maps may not have metadata yet.
+        // Avoid 429s by doing a capped, sequential compatibility scan.
+        const MAX_SCAN = 25;
+        const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-          for (const run of allPtrss) {
-            const meta = run?.mapMeta || run?.extras?.mapMeta;
-            const srcNorm = Array.isArray(meta?.sourceHeadersNorm)
-              ? meta.sourceHeadersNorm
-              : null;
-            if (srcNorm) metaSeen = true;
+        const compatible = [];
+        const scanList = allPtrss.slice(0, MAX_SCAN);
 
-            if (!srcNorm || !srcNorm.length) continue;
+        for (const run of scanList) {
+          try {
+            const res = await getPtrsMap(run.id);
+            const mapObj = (res && (res.mappings || res.map?.mappings)) || {};
+
+            const srcHeaders = Object.keys(mapObj || {});
+            const srcNorm = srcHeaders.map(normHeaderKey).filter(Boolean);
 
             let count = 0;
             for (const h of srcNorm) {
-              if (inferredNormSet.has(String(h || "").trim())) count += 1;
-            }
-            if (count > 0) fromMeta.push({ ...run, compatibleCount: count });
-          }
-
-          if (metaSeen) {
-            fromMeta.sort(
-              (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0),
-            );
-            setPtrssWithMaps(fromMeta);
-          } else {
-            // Temporary fallback: older maps may not have metadata yet.
-            // Avoid 429s by doing a capped, sequential compatibility scan.
-            const MAX_SCAN = 25;
-            const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-            const compatible = [];
-            const scanList = allPtrss.slice(0, MAX_SCAN);
-
-            for (const run of scanList) {
-              try {
-                const res = await getPtrsMap(run.id);
-                const mapObj =
-                  (res && (res.mappings || res.map?.mappings)) || {};
-
-                const srcHeaders = Object.keys(mapObj || {});
-                const srcNorm = srcHeaders.map(normHeaderKey).filter(Boolean);
-
-                let count = 0;
-                for (const h of srcNorm) {
-                  if (inferredNormSet.has(h)) count += 1;
-                }
-
-                if (count > 0)
-                  compatible.push({ ...run, compatibleCount: count });
-
-                // small delay to reduce rate-limit risk
-                await sleep(120);
-              } catch (err) {
-                // If we hit rate limiting, stop scanning immediately.
-                if (err?.status === 429 || err?.response?.status === 429) break;
-              }
+              if (inferredNormSet.has(h)) count += 1;
             }
 
-            compatible.sort(
-              (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0),
-            );
-            setPtrssWithMaps(compatible);
+            if (count > 0) compatible.push({ ...run, compatibleCount: count });
+
+            // small delay to reduce rate-limit risk
+            await sleep(120);
+          } catch (err) {
+            if (err?.status === 429 || err?.response?.status === 429) break;
           }
-        } catch {
-          setPtrssWithMaps([]);
         }
-      } catch (e) {
-        showAlert(e?.message || "Failed to load mapping info", "error");
-      } finally {
-        setLoading(false);
+
+        compatible.sort(
+          (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0),
+        );
+        if (mounted) setPtrssWithMaps(compatible);
+      } catch {
+        if (mounted) setPtrssWithMaps([]);
       }
     }
-    load();
-  }, [profileId, ptrsId, showAlert]);
+
+    loadCopyOptions();
+
+    return () => {
+      mounted = false;
+    };
+  }, [importOpen, headers]);
 
   // quick helpers
   const usedSources = useMemo(
@@ -814,15 +810,10 @@ export default function MapPanel() {
         return null;
       }
 
-      // Compare mapMeta.updatedAt before/after to decide if map materially changed
-      const prevMapUpdatedAt = getMapMetaUpdatedAt(mapExtras);
-
       const res = await savePtrsMap(ptrsId, {
         mappings: payload,
         extras: mapExtras,
-        joins,
         profileId,
-        customFields: customFieldConfig || null,
       });
 
       // Keep latest extras (important so next save can truly be a no-op)
@@ -832,32 +823,6 @@ export default function MapPanel() {
         setMapExtras(nextExtras);
       } catch {
         // ignore
-      }
-
-      const nextMapUpdatedAt = getMapMetaUpdatedAt(nextExtras);
-      const didMaterialChange =
-        !!nextMapUpdatedAt && nextMapUpdatedAt !== prevMapUpdatedAt;
-
-      // If map changed, rebuild mapped rows now
-      if (didMaterialChange) {
-        setBuildingMapped(true);
-        try {
-          await buildPtrsMappedDataset(ptrsId);
-        } catch (err) {
-          // Don’t brick the user — Stage can still decide what to do,
-          // but we should at least warn loudly.
-          // eslint-disable-next-line no-console
-          console.error("Failed to build mapped dataset", err);
-          if (!auto) {
-            showAlert(
-              err?.message ||
-                "Saved map, but failed to rebuild mapped rows. You can still proceed to Stage.",
-              "warning",
-            );
-          }
-        } finally {
-          setBuildingMapped(false);
-        }
       }
 
       const savedCount = Object.keys(res?.mappings || payload).length;
@@ -1402,12 +1367,10 @@ export default function MapPanel() {
             boxShadow: (t) => t.shadows[2],
           }}
         >
-          {(savingMap || buildingMapped) && (
+          {savingMap && (
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
               <LoadingSpinner size={20} />
-              <Typography variant="body2">
-                {savingMap ? "Saving map…" : "Rebuilding mapped rows…"}
-              </Typography>
+              <Typography variant="body2">Saving map…</Typography>
             </Box>
           )}
           <Stack

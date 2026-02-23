@@ -235,11 +235,26 @@ export const buildPtrsMappedDataset = async (ptrsId) => {
 };
 
 // Unified sample: returns merged headers + examples from main + supporting datasets
-export const getUnifiedSample = async (
-  ptrsId,
-  { limit = 10, offset = 0 } = {},
-) => {
+export const getUnifiedSample = async (ptrsId, opts = {}) => {
   if (!ptrsId) throw new Error("ptrsId is required");
+
+  const datasetId = opts?.datasetId || null;
+  const limit = Number(opts?.limit) || 10;
+  const offset = Number(opts?.offset) || 0;
+
+  // Fast-path: if caller already knows the datasetId, do not re-list datasets.
+  if (datasetId) {
+    const qs = new URLSearchParams();
+    qs.set("limit", String(limit));
+    qs.set("offset", String(offset));
+
+    const res = await fetchWrapper.get(
+      `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?${qs.toString()}`,
+    );
+
+    // Return the sample shape directly (headers/rows/total)
+    return normSample(pickData(res));
+  }
 
   // 1) Load datasets so we can treat multiple mains correctly
   let datasets = [];
