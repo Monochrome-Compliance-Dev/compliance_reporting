@@ -1,0 +1,2 @@
+InvoiceID,InvoiceNumber,LineItems,Supplier,InvoiceDate,InvoiceDueDate,Status,Total
+UniqueID for linking to other record sets,inv-0909,Detail of invoice items to provide context for inclusion in the trade credit payment dataset,A reference to be able to link to the supplier file such as SupplierId or similar,2024-10-11T00:00:00,2024-10-12T00:00:00,PAID,2922.69

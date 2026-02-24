@@ -1,0 +1,2 @@
+SupplierID,Name,ABN,ACN,PaymentTerms
+UniqueID to enable linking to other record sets,Adam Hawkins,12345678901,345678901,"Any terms set at the supplier or MSA level, e.g. 30 days"

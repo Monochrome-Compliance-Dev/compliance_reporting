@@ -1,0 +1,2 @@
+Amount,Date,Reference,PaymentType,Status,Invoice
+ $369.00 ,12/11/2024,Optional,ACCPAYPAYMENT,AUTHORISED/DELETED/PENDING,A link to the invoice file such as InvoiceId or similar

@@ -1,0 +1,96 @@
+import {
+  Typography,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Button,
+  Box,
+} from "@mui/material";
+import { LoadingSpinner } from "../../components/ui/";
+
+const EsgDataTable = ({
+  title,
+  columns = [],
+  data = [],
+  loading = false,
+  renderRow,
+  onAdd,
+  addLabel = "+ Add",
+  onDelete,
+  isLocked = false,
+  onRowClick,
+}) => {
+  return (
+    <Box sx={{ mb: 4 }}>
+      <Typography variant="h6" gutterBottom>
+        {title}
+      </Typography>
+      <Table>
+        <TableHead>
+          <TableRow>
+            {columns.map((col, idx) => (
+              <TableCell key={idx}>{col}</TableCell>
+            ))}
+            {onDelete && !isLocked && <TableCell>Actions</TableCell>}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {loading ? (
+            <TableRow>
+              <TableCell
+                colSpan={columns.length + (onDelete && !isLocked ? 1 : 0)}
+              >
+                <LoadingSpinner />
+              </TableCell>
+            </TableRow>
+          ) : data.length > 0 ? (
+            data.map((row, index) => (
+              <TableRow
+                key={row.id || index}
+                hover={!!onRowClick}
+                sx={onRowClick ? { cursor: "pointer" } : {}}
+                onClick={onRowClick ? () => onRowClick(row) : undefined}
+              >
+                {renderRow(row).map((cell, i) => (
+                  <TableCell key={i}>{cell}</TableCell>
+                ))}
+                {onDelete && !isLocked && (
+                  <TableCell>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onDelete(row.id);
+                      }}
+                      sx={{ color: "error.main" }}
+                    >
+                      Delete
+                    </Button>
+                  </TableCell>
+                )}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell
+                colSpan={columns.length + (onDelete && !isLocked ? 1 : 0)}
+              >
+                No {title.toLowerCase()} found.
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+      {!isLocked && (
+        <Button variant="contained" sx={{ mt: 2 }} onClick={onAdd}>
+          {addLabel}
+        </Button>
+      )}
+    </Box>
+  );
+};
+
+export default EsgDataTable;

@@ -1,0 +1,2 @@
+SupplierID,LineItems,AccountCode,AmountPaid,BankTransactionID,Status,Date
+SupplierID to link back to the Supplier record set,Detail of the transaction to provide context on whether to include in trade credit payment dataset,Chart of Accounts code, £10.00 ,2097ad56-f9a7-4b9c-9f25-93e99cf3dac1,AUTHORISED,2024-12-27 10:00:00+10

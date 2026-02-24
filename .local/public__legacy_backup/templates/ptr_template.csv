@@ -1,0 +1,3 @@
+Payer Entity Name,Payer Entity ABN,Payer Entity ACN ARBN,Payee Entity Name,Payee Entity ABN,Payee Entity ACN ARBN,Payment Amount,Description,Transaction Type,Supply Date,Payment Date,Contract PO Reference Number,Contract PO Payment Terms,Notice For Payment Issue Date,Notice For Payment Terms,Invoice Reference Number,Invoice Issue Date,Invoice Receipt Date,Invoice Amount,Invoice Payment Terms,Invoice Due Date
+YourCompanyName,11223344556,,Supplier1,12365478901,498108491,63549,Purchase of Goods,Spend,07/11/2024,02/12/2024,,Net 30,,,INV-809,07/11/2024,07/11/2024,63549,Net 30,06/11/2024
+YourCompanyName,11223344556,,,,,100000,Wages,Accounts Payable,,30/11/2024,,,,,,,,,,
