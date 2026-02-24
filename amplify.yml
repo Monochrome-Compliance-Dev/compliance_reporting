@@ -12,8 +12,8 @@ frontend:
         # Quick visibility into declared deps (no jq in build image)
         - node -p "JSON.stringify(require('./package.json').dependencies, null, 2)" || true
         - node -p "JSON.stringify(require('./package.json').devDependencies, null, 2)" || true
-        # Install deps
-        - npm ci
+        # Install deps (lockfile currently out of sync; we'll re-lock after React downgrade)
+        - npm install --no-audit --no-fund
         # Show the actually resolved versions Amplify installed
         - npm ls react react-dom react-router || true
         # Hunt for React 19-only import patterns after install
