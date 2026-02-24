@@ -97,6 +97,40 @@ export function LandingPage() {
           submission-ready report with a clear audit trail — without adding
           internal burden.
         </Typography>
+        <Typography
+          variant="body2"
+          textAlign="center"
+          sx={{ mt: 1, opacity: 0.9 }}
+        >
+          Construction and progress-claim environments have additional
+          complexity. We specialise in aligning SOPA-driven workflows with PTRS
+          requirements.{" "}
+          <MuiLink
+            component={RouterLink}
+            to="/construction-payment-reporting"
+            underline="hover"
+            sx={{ color: theme.palette.primary.main, fontWeight: 600 }}
+          >
+            Construction PTRS
+          </MuiLink>
+        </Typography>
+
+        <Typography
+          variant="body2"
+          textAlign="center"
+          sx={{ mt: 1, opacity: 0.85 }}
+        >
+          Read our latest construction analysis in the{" "}
+          <MuiLink
+            component={RouterLink}
+            to="/insights"
+            underline="hover"
+            sx={{ color: theme.palette.primary.main, fontWeight: 600 }}
+          >
+            Industry Insights series
+          </MuiLink>
+          .
+        </Typography>
 
         <Typography
           variant="body2"

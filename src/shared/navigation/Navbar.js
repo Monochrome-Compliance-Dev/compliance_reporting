@@ -70,6 +70,8 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const isMarketingRoute =
     location.pathname === "/" ||
     location.pathname.startsWith("/payment-times-reporting") ||
+    location.pathname.startsWith("/construction-payment-reporting") ||
+    location.pathname.startsWith("/insights") ||
     location.pathname.startsWith("/pricing") ||
     location.pathname.startsWith("/about") ||
     location.pathname.startsWith("/contact");
@@ -159,6 +161,14 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                 sx={{ color: theme.palette.text.primary }}
               >
                 Payment Times Reporting
+              </MenuItem>
+              <MenuItem
+                onClick={handleMenuClose}
+                component={Link}
+                to="/insights"
+                sx={{ color: theme.palette.text.primary }}
+              >
+                Industry Insights
               </MenuItem>
               <MenuItem
                 onClick={handleMenuClose}
@@ -318,10 +328,10 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                 <MenuItem
                   onClick={handleExploreClose}
                   component={Link}
-                  to="/blog"
+                  to="/insights"
                 >
                   <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
-                  Blog
+                  Industry Insights
                 </MenuItem>
                 <MenuItem
                   onClick={handleExploreClose}
@@ -371,6 +381,14 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                   sx={{ color: theme.palette.text.primary }}
                 >
                   Payment Times Reporting
+                </MenuItem>
+                <MenuItem
+                  onClick={handleMenuClose}
+                  component={Link}
+                  to="/insights"
+                  sx={{ color: theme.palette.text.primary }}
+                >
+                  Industry Insights
                 </MenuItem>
                 <MenuItem
                   onClick={handleMenuClose}
