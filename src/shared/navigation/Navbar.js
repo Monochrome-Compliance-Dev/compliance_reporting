@@ -69,6 +69,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const location = useLocation();
   const isPublicOnlyMode =
     String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
+  const isAuthEnabled = !isPublicOnlyMode;
 
   const isMarketingRoute =
     location.pathname === "/" ||
@@ -79,7 +80,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
     location.pathname.startsWith("/about") ||
     location.pathname.startsWith("/contact");
 
-  const isLoggedIn = Boolean(user);
+  const isLoggedIn = isAuthEnabled && Boolean(user);
   const hideNavLinks =
     !isMarketingRoute &&
     (location.pathname.includes("/app") ||

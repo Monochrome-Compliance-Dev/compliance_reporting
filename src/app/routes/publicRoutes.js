@@ -9,41 +9,27 @@ import ForgotPassword from "slices/users/components/ForgotPassword";
 import ResetPassword from "slices/users/components/ResetPassword";
 import VerifyEmail from "slices/users/components/VerifyEmail";
 
+const isPublicOnlyMode =
+  String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
+
 export const publicRoutes = [
-  {
-    path: "login",
-    Component: Login,
-  },
-  {
-    path: "forgot-password",
-    Component: ForgotPassword,
-  },
-  {
-    path: "reset-password",
-    Component: ResetPassword,
-  },
-  {
-    path: "verify",
-    Component: VerifyEmail,
-  },
-  {
-    path: "contact",
-    Component: Contact,
-  },
-  {
-    path: "thankyou-contact",
-    Component: ContactThankyou,
-  },
+  ...(isPublicOnlyMode
+    ? []
+    : [
+        { path: "login", Component: Login },
+        { path: "forgot-password", Component: ForgotPassword },
+        { path: "reset-password", Component: ResetPassword },
+        { path: "verify", Component: VerifyEmail },
+      ]),
+  { path: "contact", Component: Contact },
+  { path: "thankyou-contact", Component: ContactThankyou },
   { path: "about", Component: About },
   { path: "payment-times-reporting", Component: PaymentTimesReporting },
   {
     path: "construction-payment-reporting",
     Component: ConstructionPaymentReporting,
   },
-  {
-    path: "insights",
-    Component: IndustryInsights,
-  },
+  { path: "insights", Component: IndustryInsights },
   {
     path: "payment-times-reporting-print",
     Component: PaymentTimesReportingPrint,
