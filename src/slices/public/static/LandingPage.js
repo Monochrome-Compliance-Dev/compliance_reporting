@@ -9,6 +9,7 @@ import {
   Card,
   CardContent,
   Link as MuiLink,
+  Button,
 } from "@mui/material";
 import DomainVerificationIcon from "@mui/icons-material/DomainVerification";
 import DescriptionIcon from "@mui/icons-material/Description";
@@ -97,40 +98,57 @@ export function LandingPage() {
           submission-ready report with a clear audit trail — without adding
           internal burden.
         </Typography>
-        <Typography
-          variant="body2"
-          textAlign="center"
-          sx={{ mt: 1, opacity: 0.9 }}
-        >
-          Construction and progress-claim environments have additional
-          complexity. We specialise in aligning SOPA-driven workflows with PTRS
-          requirements.{" "}
-          <MuiLink
-            component={RouterLink}
-            to="/construction-payment-reporting"
-            underline="hover"
-            sx={{ color: theme.palette.primary.main, fontWeight: 600 }}
+        <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
+          <Card
+            elevation={0}
+            sx={{
+              maxWidth: 720,
+              width: "100%",
+              border: `1px solid ${theme.palette.divider}`,
+              backgroundColor: theme.palette.background.paper,
+            }}
           >
-            Construction PTRS
-          </MuiLink>
-        </Typography>
-
-        <Typography
-          variant="body2"
-          textAlign="center"
-          sx={{ mt: 1, opacity: 0.85 }}
-        >
-          Read our latest construction analysis in the{" "}
-          <MuiLink
-            component={RouterLink}
-            to="/insights"
-            underline="hover"
-            sx={{ color: theme.palette.primary.main, fontWeight: 600 }}
-          >
-            Industry Insights series
-          </MuiLink>
-          .
-        </Typography>
+            <CardContent sx={{ textAlign: "center" }}>
+              <Typography variant="overline" sx={{ opacity: 0.8 }}>
+                Industry focus
+              </Typography>
+              <Typography variant="h6" sx={{ mt: 0.5, fontWeight: 700 }}>
+                Construction
+              </Typography>
+              <Typography variant="body2" sx={{ mt: 1, opacity: 0.9 }}>
+                Progress claims, certification, retentions and SOPA-driven
+                timing can distort PTRS outcomes. We help construction reporting
+                entities align their workflows and submissions.
+              </Typography>
+              <Box
+                sx={{
+                  mt: 2,
+                  display: "flex",
+                  gap: 2,
+                  justifyContent: "center",
+                  flexWrap: "wrap",
+                }}
+              >
+                <Button
+                  variant="text"
+                  component={RouterLink}
+                  to="/construction-payment-reporting"
+                  sx={{ fontWeight: 700 }}
+                >
+                  Construction PTRS
+                </Button>
+                <Button
+                  variant="text"
+                  component={RouterLink}
+                  to="/insights"
+                  sx={{ fontWeight: 700 }}
+                >
+                  Read the latest insight
+                </Button>
+              </Box>
+            </CardContent>
+          </Card>
+        </Box>
 
         <Typography
           variant="body2"
@@ -138,14 +156,14 @@ export function LandingPage() {
           sx={{ mt: 1, opacity: 0.85 }}
         >
           Pricing is typically <strong>$7,000 per reporting period</strong>.{" "}
-          <MuiLink
+          <Button
+            variant="text"
             component={RouterLink}
             to="/pricing"
-            underline="hover"
-            sx={{ color: theme.palette.primary.main, fontWeight: 600 }}
+            sx={{ fontWeight: 700, ml: 0.5, minWidth: "auto", p: 0.5 }}
           >
             View pricing
-          </MuiLink>
+          </Button>
         </Typography>
       </Box>
       <Divider />

@@ -49,6 +49,9 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const handleSolutionsOpen = (event) =>
     setSolutionsAnchor(event.currentTarget);
   const handleSolutionsClose = () => setSolutionsAnchor(null);
+  const [companyAnchor, setCompanyAnchor] = useState(null);
+  const handleCompanyOpen = (event) => setCompanyAnchor(event.currentTarget);
+  const handleCompanyClose = () => setCompanyAnchor(null);
   const [productsAnchor, setProductsAnchor] = useState(null);
   const handleProductsOpen = (event) => setProductsAnchor(event.currentTarget);
   const handleProductsClose = () => setProductsAnchor(null);
@@ -82,6 +85,22 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
     (location.pathname.includes("/app") ||
       location.pathname.includes("/ptrs") ||
       location.pathname.includes("/pulse"));
+
+  // Shared marketing nav definition
+  const marketingNav = {
+    solutions: [
+      { label: "Payment Times Reporting", to: "/payment-times-reporting" },
+      { label: "Construction PTRS", to: "/construction-payment-reporting" },
+    ],
+    links: [
+      { label: "Insights", to: "/insights" },
+      { label: "Pricing", to: "/pricing" },
+    ],
+    company: [
+      { label: "About", to: "/about" },
+      { label: "Contact", to: "/contact" },
+    ],
+  };
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -154,46 +173,91 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           {isMarketingRoute && (
             <Box sx={{ display: "contents" }}>
-              <MenuItem
-                onClick={handleMenuClose}
-                component={Link}
-                to="/payment-times-reporting"
-                sx={{ color: theme.palette.text.primary }}
+              <Button
+                color="inherit"
+                onClick={handleSolutionsOpen}
+                sx={{
+                  color: theme.palette.text.primary,
+                  textTransform: "none",
+                  fontWeight: 500,
+                  fontSize: theme.typography.body1.fontSize,
+                }}
+                endIcon={<ExpandMoreIcon />}
               >
-                Payment Times Reporting
-              </MenuItem>
-              <MenuItem
-                onClick={handleMenuClose}
-                component={Link}
-                to="/insights"
-                sx={{ color: theme.palette.text.primary }}
+                Solutions
+              </Button>
+              <Menu
+                anchorEl={solutionsAnchor}
+                open={Boolean(solutionsAnchor)}
+                onClose={handleSolutionsClose}
+                sx={{ mt: 1 }}
               >
-                Industry Insights
-              </MenuItem>
-              <MenuItem
-                onClick={handleMenuClose}
-                component={Link}
-                to="/pricing"
-                sx={{ color: theme.palette.text.primary }}
+                {marketingNav.solutions.map((item) => (
+                  <MenuItem
+                    key={item.to}
+                    onClick={() => {
+                      handleSolutionsClose();
+                      handleMenuClose();
+                    }}
+                    component={Link}
+                    to={item.to}
+                  >
+                    {item.label}
+                  </MenuItem>
+                ))}
+              </Menu>
+
+              {marketingNav.links.map((item) => (
+                <Button
+                  key={item.to}
+                  color="inherit"
+                  component={Link}
+                  to={item.to}
+                  onClick={handleMenuClose}
+                  sx={{
+                    color: theme.palette.text.primary,
+                    textTransform: "none",
+                    fontWeight: 500,
+                    fontSize: theme.typography.body1.fontSize,
+                  }}
+                >
+                  {item.label}
+                </Button>
+              ))}
+
+              <Button
+                color="inherit"
+                onClick={handleCompanyOpen}
+                sx={{
+                  color: theme.palette.text.primary,
+                  textTransform: "none",
+                  fontWeight: 500,
+                  fontSize: theme.typography.body1.fontSize,
+                }}
+                endIcon={<ExpandMoreIcon />}
               >
-                Pricing
-              </MenuItem>
-              <MenuItem
-                onClick={handleMenuClose}
-                component={Link}
-                to="/contact"
-                sx={{ color: theme.palette.text.primary }}
+                Company
+              </Button>
+              <Menu
+                anchorEl={companyAnchor}
+                open={Boolean(companyAnchor)}
+                onClose={handleCompanyClose}
+                sx={{ mt: 1 }}
               >
-                Contact
-              </MenuItem>
-              <MenuItem
-                onClick={handleMenuClose}
-                component={Link}
-                to="/about"
-                sx={{ color: theme.palette.text.primary }}
-              >
-                About
-              </MenuItem>
+                {marketingNav.company.map((item) => (
+                  <MenuItem
+                    key={item.to}
+                    onClick={() => {
+                      handleCompanyClose();
+                      handleMenuClose();
+                    }}
+                    component={Link}
+                    to={item.to}
+                  >
+                    {item.label}
+                  </MenuItem>
+                ))}
+              </Menu>
             </Box>
           )}
           {isLoggedIn && !isMarketingRoute && (
@@ -374,64 +438,46 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             <Divider />
             {isMarketingRoute && (
               <Box sx={{ display: "contents" }}>
-                <MenuItem
-                  onClick={handleMenuClose}
-                  component={Link}
-                  to="/payment-times-reporting"
-                  sx={{ color: theme.palette.text.primary }}
-                >
-                  Payment Times Reporting
-                </MenuItem>
-                <MenuItem
-                  onClick={handleMenuClose}
-                  component={Link}
-                  to="/insights"
-                  sx={{ color: theme.palette.text.primary }}
-                >
-                  Industry Insights
-                </MenuItem>
-                <MenuItem
-                  onClick={handleMenuClose}
-                  component={Link}
-                  to="/pricing"
-                  sx={{ color: theme.palette.text.primary }}
-                >
-                  Pricing
-                </MenuItem>
-                <MenuItem
-                  onClick={handleMenuClose}
-                  component={Link}
-                  to="/contact"
-                  sx={{ color: theme.palette.text.primary }}
-                >
-                  Contact
-                </MenuItem>
-                <MenuItem
-                  onClick={handleMenuClose}
-                  component={Link}
-                  to="/about"
-                  sx={{ color: theme.palette.text.primary }}
-                >
-                  About
-                </MenuItem>
+                {marketingNav.solutions.map((item) => (
+                  <MenuItem
+                    key={item.to}
+                    onClick={handleMenuClose}
+                    component={Link}
+                    to={item.to}
+                    sx={{ color: theme.palette.text.primary }}
+                  >
+                    {item.label}
+                  </MenuItem>
+                ))}
+
+                {marketingNav.links.map((item) => (
+                  <MenuItem
+                    key={item.to}
+                    onClick={handleMenuClose}
+                    component={Link}
+                    to={item.to}
+                    sx={{ color: theme.palette.text.primary }}
+                  >
+                    {item.label}
+                  </MenuItem>
+                ))}
+
+                {marketingNav.company.map((item) => (
+                  <MenuItem
+                    key={item.to}
+                    onClick={handleMenuClose}
+                    component={Link}
+                    to={item.to}
+                    sx={{ color: theme.palette.text.primary }}
+                  >
+                    {item.label}
+                  </MenuItem>
+                ))}
               </Box>
             )}
           </Menu>
         </Box>
-        {isMarketingRoute && (
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => navigate("/contact")}
-            sx={{
-              ml: 2,
-              fontWeight: 600,
-              display: { xs: "none", md: "inline-flex" },
-            }}
-          >
-            Book a Call
-          </Button>
-        )}
+        {/* Book a Call CTA removed */}
         {isLoggedIn && (
           <Button
             variant="outlined"
