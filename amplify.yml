@@ -1,14 +1,13 @@
 version: 1
-env:
-  runtime-versions:
-    nodejs: 18
 frontend:
   phases:
     preBuild:
       commands:
-        # Use the build image toolchain; install dependencies from package-lock.json
+        - nvm install 18
+        - nvm use 18
         - node -v
         - npm -v
+        # Use Node 18 toolchain; install dependencies from package-lock.json
         # Quick visibility into declared deps (no jq in build image)
         - node -p "JSON.stringify(require('./package.json').dependencies, null, 2)" || true
         - node -p "JSON.stringify(require('./package.json').devDependencies, null, 2)" || true
@@ -29,4 +28,4 @@ frontend:
       - "**/*"
   cache:
     paths:
-      - node_modules/**/*
+      - ~/.npm/**/*
