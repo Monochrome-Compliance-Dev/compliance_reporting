@@ -1,0 +1,334 @@
+// PTRS Layout: stepper + chrome only (no Create/Switch header button)
+import { useEffect, useMemo, useState } from "react";
+import { Outlet, useLocation } from "react-router";
+import { useAlert } from "context";
+import {
+  Chip,
+  Link,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+} from "@mui/material";
+import {
+  Box,
+  Typography,
+  Stack,
+  Button,
+  Stepper,
+  Step,
+  StepLabel,
+  Divider,
+} from "@mui/material";
+import { STEPS } from "./steps";
+import PageMeta from "shared/ui/PageMeta";
+import { getCurrentCustomer, setCurrentCustomer } from "shared/utils";
+import { usePtrsContext } from "./context/PtrsContext";
+import { usePtrsNavigation } from "./hooks/usePtrsNavigation";
+
+export default function PtrsLayout() {
+  const { showAlert } = useAlert();
+  const location = useLocation();
+
+  const { loadProfilesForCustomer, ptrsId, profileId, setProfileId, profiles } =
+    usePtrsContext();
+
+  const { goTo } = usePtrsNavigation();
+
+  const profilesArray = Array.isArray(profiles) ? profiles : [];
+
+  const isLanding = /^\/app\/ptrs(?:\/landing)?\/?$/.test(location.pathname);
+  const isDataConsole = /^\/app\/ptrs\/data\/?$/.test(location.pathname);
+  const isDashboard = /^\/app\/ptrs\/dashboard\/?$/.test(location.pathname);
+
+  // Wizard flow surfaces (stepper + Back/Next). Dashboard is intentionally NOT part of the wizard.
+  const isWizard = !isLanding && !isDashboard;
+
+  // Profile selection is required for wizard steps that operate on a PTRS profile.
+  // Dashboard can render an empty / read-only state without forcing a profile selection.
+  const requiresProfile = !isLanding && !isDataConsole && !isDashboard;
+
+  // Safety rail: if we land on a PTRS step route without any ptrsId
+  // in the URL or context (e.g. after a forced re-login), send the user
+  // back to the landing page so they can choose a PTRS run again.
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const urlPtrsId = params.get("ptrsId");
+
+    // If the URL already contains a ptrsId, let the context rehydrate from it.
+    if (urlPtrsId) {
+      return;
+    }
+
+    // If we're on a route that is allowed without a ptrsId (landing, data console, or dashboard),
+    // don't redirect. Dashboard can render an empty state and prompt the user to select a run.
+    if (isLanding || isDataConsole || isDashboard) return;
+
+    // No ptrsId in URL and none in context on a step that requires it
+    // => reset to landing so the user can pick a run again.
+    if (!ptrsId) {
+      goTo("landing", { replace: true, includeId: false });
+    }
+  }, [
+    location.search,
+    isLanding,
+    location.pathname,
+    isDataConsole,
+    isDashboard,
+    ptrsId,
+    goTo,
+  ]);
+
+  useEffect(() => {
+    if (!requiresProfile) return;
+    if (profileId) return;
+
+    // Force the user to pick a profile before they can proceed.
+    setProfileDialogOpen(true);
+    if (typeof showAlert === "function") {
+      showAlert("Choose a PTRS profile to continue.", "warning");
+    }
+  }, [requiresProfile, profileId, showAlert]);
+
+  useEffect(() => {
+    const customer = getCurrentCustomer();
+    const customerId = customer?.id || null;
+
+    if (customerId) {
+      loadProfilesForCustomer(customerId);
+    } else {
+      // No scoped customer – let the context clear profiles via its own logic
+      loadProfilesForCustomer(null);
+    }
+  }, [loadProfilesForCustomer]);
+
+  const currentStepId = useMemo(() => {
+    if (isLanding) return "landing";
+    const parts = location.pathname.split("/").filter(Boolean);
+    const maybe = parts[parts.length - 1];
+
+    // Dashboard is a read-only review surface; anchor it to the closest step for the stepper.
+    if (maybe === "dashboard") return "metrics";
+
+    return STEPS.some((s) => s.id === maybe)
+      ? maybe
+      : maybe === "xero"
+        ? "create"
+        : "create";
+  }, [location.pathname, isLanding]);
+
+  const currentIndex = useMemo(
+    () =>
+      Math.max(
+        0,
+        STEPS.findIndex((s) => s.id === currentStepId),
+      ),
+    [currentStepId],
+  );
+
+  const gates = useMemo(() => {
+    const result = {};
+    STEPS.forEach((s) => {
+      if (s.id === "landing") {
+        result[s.id] = true;
+      } else if (!ptrsId) {
+        result[s.id] = false;
+      } else {
+        // For MVP, once a ptrsId exists, allow all steps.
+        result[s.id] = true;
+      }
+    });
+    return result;
+  }, [ptrsId]);
+
+  function goToStep(index) {
+    const target = STEPS[index]?.id || "landing";
+
+    // Let the central helper handle scoping within `/app/ptrs`.
+    // If we don't have a ptrsId (e.g. create step), avoid auto-appending one.
+    if (!ptrsId) {
+      goTo(target, { includeId: false });
+      return;
+    }
+
+    goTo(target);
+  }
+
+  const stepDisabled = (id) => {
+    if (id === "create") return false;
+    if (!ptrsId) return true;
+    const order = STEPS.map((s) => s.id);
+    const targetIdx = order.indexOf(id);
+    for (let i = 0; i < targetIdx; i++) {
+      if (!gates[order[i]]) return true;
+    }
+    return false;
+  };
+
+  const [profileDialogOpen, setProfileDialogOpen] = useState(false);
+
+  return (
+    <Box sx={{ minHeight: "100%", display: "flex", flexDirection: "column" }}>
+      <PageMeta title="PTRS" />
+
+      <Box
+        sx={{
+          px: 3,
+          py: 2,
+          borderBottom: (t) => `1px solid ${t.palette.divider}`,
+        }}
+      >
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Typography variant="h6" fontWeight={700}>
+            PTRS
+          </Typography>
+          <Stack direction="row" spacing={1} alignItems="center">
+            <Chip
+              size="small"
+              label={
+                profilesArray.length
+                  ? `Profile: ${profilesArray.find((p) => String(p.id) === String(profileId))?.name || "None"}`
+                  : "Profile: None"
+              }
+            />
+            <Link
+              component="button"
+              type="button"
+              underline="hover"
+              sx={{ fontSize: 12 }}
+              onClick={() => setProfileDialogOpen(true)}
+            >
+              {profilesArray.length ? "Change" : "Choose"}
+            </Link>
+          </Stack>
+        </Stack>
+      </Box>
+
+      {isWizard && (
+        <Box sx={{ px: 3, py: 2 }}>
+          <Stepper activeStep={currentIndex} alternativeLabel>
+            {STEPS.map((s, idx) => (
+              <Step
+                key={s.id}
+                completed={idx < currentIndex}
+                disabled={stepDisabled(s.id)}
+              >
+                <StepLabel
+                  onClick={() => !stepDisabled(s.id) && goToStep(idx)}
+                  sx={{
+                    cursor: stepDisabled(s.id) ? "not-allowed" : "pointer",
+                  }}
+                >
+                  {s.label}
+                </StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </Box>
+      )}
+
+      <Divider />
+
+      <Box sx={{ flex: 1, p: 3 }}>
+        <Outlet
+          context={{
+            profileId,
+            profiles: profilesArray,
+            setProfileId,
+          }}
+        />
+      </Box>
+
+      {isWizard && (
+        <Box
+          sx={{
+            px: 3,
+            py: 2,
+            borderTop: (t) => `1px solid ${t.palette.divider}`,
+          }}
+        >
+          <Stack direction="row" justifyContent="space-between">
+            <Button
+              variant="text"
+              disabled={currentIndex === 0 || (requiresProfile && !profileId)}
+              onClick={() => goToStep(currentIndex - 1)}
+            >
+              Back
+            </Button>
+            <Button
+              variant="contained"
+              disabled={
+                (requiresProfile && !profileId) ||
+                currentIndex >= STEPS.length - 1 ||
+                stepDisabled(STEPS[currentIndex + 1].id)
+              }
+              onClick={() => goToStep(currentIndex + 1)}
+            >
+              Next
+            </Button>
+          </Stack>
+        </Box>
+      )}
+
+      <Dialog
+        open={profileDialogOpen}
+        onClose={() => setProfileDialogOpen(false)}
+        fullWidth
+        maxWidth="sm"
+      >
+        <DialogTitle>Select PTRS profile</DialogTitle>
+        <DialogContent>
+          {!profilesArray.length ? (
+            <Typography variant="body2" color="text.secondary">
+              No profiles yet. Create one in PTRS → Profiles.
+            </Typography>
+          ) : (
+            <RadioGroup
+              name="profileChoice"
+              value={profileId || ""}
+              onChange={(e) => setProfileId(e.target.value || null)}
+            >
+              {profilesArray.map((p) => (
+                <FormControlLabel
+                  key={p.id}
+                  value={p.id}
+                  control={<Radio />}
+                  label={p.name || p.code || p.id}
+                />
+              ))}
+            </RadioGroup>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setProfileDialogOpen(false)}>Cancel</Button>
+          <Button
+            variant="contained"
+            onClick={() => {
+              // Persist profile selection into tenant scope so all PTRS API calls can include it.
+              const cur = getCurrentCustomer() || {};
+              if (cur?.id) {
+                setCurrentCustomer({
+                  id: cur.id,
+                  name: cur.name,
+                  profileId: profileId || null,
+                });
+              }
+
+              setProfileDialogOpen(false);
+            }}
+            disabled={!profileId && profilesArray.length > 0}
+          >
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </Box>
+  );
+}

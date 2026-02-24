@@ -23,6 +23,8 @@ yarn-error.log*
 config.*
 
 # environment variables
-.env
-.env.sit
-.env.v2.local
+.env*
+
+# legacy frontend
+legacy-frontend/
+.local/
