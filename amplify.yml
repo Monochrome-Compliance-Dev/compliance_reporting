@@ -6,10 +6,8 @@ frontend:
   phases:
     preBuild:
       commands:
-        # Make toolchain deterministic and compatible with lockfile v3
+        # Use the build image toolchain; install dependencies from package-lock.json
         - node -v
-        - corepack enable
-        - corepack prepare npm@10.7.0 --activate
         - npm -v
         # Quick visibility into declared deps (no jq in build image)
         - node -p "JSON.stringify(require('./package.json').dependencies, null, 2)" || true
