@@ -17,6 +17,9 @@ export default function IndustryInsights() {
 
   const contentMaxWidth = 980;
 
+  const pdfHref =
+    "/insights/Industry_Insight_Series_01_Construction_Payment_Times.pdf";
+
   const insights = [
     {
       title:
@@ -24,11 +27,7 @@ export default function IndustryInsights() {
       description:
         "Why construction entities governed by Security of Payment legislation can appear slow in PTRS reporting even when operating within contractual and statutory frameworks.",
       cta: "Download PDF",
-      action: () =>
-        window.open(
-          "/insights/Industry_Insight_Series_01_Construction_Payment_Times.pdf",
-          "_blank",
-        ),
+      href: pdfHref,
     },
   ];
 
@@ -95,7 +94,10 @@ export default function IndustryInsights() {
                     <Button
                       variant="outlined"
                       color="primary"
-                      onClick={insight.action}
+                      component="a"
+                      href={insight.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {insight.cta}
                     </Button>
