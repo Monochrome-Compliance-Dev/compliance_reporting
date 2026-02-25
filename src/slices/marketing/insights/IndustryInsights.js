@@ -36,7 +36,7 @@ export default function IndustryInsights() {
       <PageMeta
         title="Industry Insights | Monochrome Compliance"
         description="Practical Payment Times Reporting insights for complex environments — especially construction progress-claim workflows — focused on accuracy, defensibility, and outcomes."
-        image="/images/og/og-industry-insights.png"
+        image="/images/og/og-industry-insights.jpg"
       />
 
       <Box

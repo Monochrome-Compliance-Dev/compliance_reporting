@@ -30,7 +30,7 @@ export default function ConstructionPaymentReporting() {
       <PageMeta
         title="Construction Payment Times Reporting"
         description="Construction PTRS for progress-claim environments..."
-        image="https://www.monochrome-compliance.com/images/og/og-construction.png"
+        image="https://www.monochrome-compliance.com/images/og/og-construction.jpg"
         url="https://www.monochrome-compliance.com/construction-payment-reporting"
       />
 
