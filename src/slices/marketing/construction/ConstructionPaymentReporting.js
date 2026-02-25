@@ -29,7 +29,9 @@ export default function ConstructionPaymentReporting() {
     <>
       <PageMeta
         title="Construction Payment Times Reporting"
-        description="Construction PTRS for progress-claim environments. Monochrome Compliance helps construction reporting entities align SOPA-driven workflows with Payment Times Reporting requirements for accurate, defensible submissions."
+        description="Construction PTRS for progress-claim environments..."
+        image="https://www.monochrome-compliance.com/images/og/og-construction.png"
+        url="https://www.monochrome-compliance.com/construction-payment-reporting"
       />
 
       <Box
