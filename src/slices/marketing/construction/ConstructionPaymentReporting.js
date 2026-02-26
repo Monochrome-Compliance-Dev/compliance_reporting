@@ -10,7 +10,6 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-  Link as MuiLink,
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router";
@@ -65,14 +64,14 @@ export default function ConstructionPaymentReporting() {
 
           <Typography variant="body2" sx={{ mb: theme.spacing(2) }}>
             For a deeper industry breakdown, read our latest{" "}
-            <MuiLink
+            <Button
               component={RouterLink}
               to="/insights"
-              underline="hover"
-              sx={{ fontWeight: 600 }}
+              variant="text"
+              sx={{ fontWeight: 700, p: 0, minWidth: 0, textTransform: "none" }}
             >
               Construction Industry Insight
-            </MuiLink>
+            </Button>
             .
           </Typography>
 
@@ -93,6 +92,16 @@ export default function ConstructionPaymentReporting() {
               sx={{ width: isSmallScreen ? "100%" : "auto" }}
             >
               Book a construction diagnostic
+            </Button>
+
+            <Button
+              variant="outlined"
+              color="primary"
+              size="large"
+              onClick={() => navigate("/construction-payment-diagnostic")}
+              sx={{ width: isSmallScreen ? "100%" : "auto" }}
+            >
+              See an example diagnostic
             </Button>
 
             <Typography variant="body2" color={theme.palette.text.secondary}>
@@ -365,6 +374,16 @@ export default function ConstructionPaymentReporting() {
                   flexWrap: "wrap",
                 }}
               >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={() => navigate("/construction-payment-diagnostic")}
+                  sx={{ width: isSmallScreen ? "100%" : "auto" }}
+                >
+                  See an example diagnostic
+                </Button>
+
                 <Button
                   variant="outlined"
                   color="primary"
