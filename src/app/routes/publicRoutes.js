@@ -9,6 +9,7 @@ import Login from "slices/users/components/Login";
 import ForgotPassword from "slices/users/components/ForgotPassword";
 import ResetPassword from "slices/users/components/ResetPassword";
 import VerifyEmail from "slices/users/components/VerifyEmail";
+import ConstructionPaymentDiagnostic from "slices/marketing/construction/ConstructionPaymentDiagnostic";
 
 const isPublicOnlyMode =
   String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
@@ -29,6 +30,10 @@ export const publicRoutes = [
   {
     path: "construction-payment-reporting",
     Component: ConstructionPaymentReporting,
+  },
+  {
+    path: "construction-payment-diagnostic",
+    Component: ConstructionPaymentDiagnostic,
   },
   { path: "insights", Component: IndustryInsights },
   { path: "pricing", Component: PriceTier },
