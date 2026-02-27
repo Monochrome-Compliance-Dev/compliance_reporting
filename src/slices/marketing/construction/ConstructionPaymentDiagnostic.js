@@ -18,8 +18,7 @@ import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
 import PageMeta from "shared/ui/PageMeta";
 
-const PDF_PATH =
-  "/diagnostics/Construction_Payment_Timing_Diagnostic_Report_Illustrative.pdf";
+const PDF_PATH = "/diagnostics/Construction_Payment_Diagnostic.pdf";
 
 export default function ConstructionPaymentDiagnostic() {
   const theme = useTheme();

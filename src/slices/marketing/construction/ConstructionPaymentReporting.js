@@ -62,18 +62,41 @@ export default function ConstructionPaymentReporting() {
             does not match operating reality.
           </Typography>
 
-          <Typography variant="body2" sx={{ mb: theme.spacing(2) }}>
-            For a deeper industry breakdown, read our latest{" "}
+          <Box
+            sx={{
+              mb: theme.spacing(3),
+              p: theme.spacing(2),
+              border: `1px solid ${theme.palette.divider}`,
+              backgroundColor: theme.palette.background.paper,
+              borderRadius: 1,
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: { xs: "flex-start", sm: "center" },
+              gap: 2,
+            }}
+          >
+            <Box sx={{ flexGrow: 1 }}>
+              <Typography
+                variant="body2"
+                color={theme.palette.text.secondary}
+                sx={{ fontWeight: 500 }}
+              >
+                Want a deeper breakdown of how construction mechanics affect
+                reported outcomes?
+              </Typography>
+            </Box>
+
             <Button
               component={RouterLink}
               to="/insights"
-              variant="text"
-              sx={{ fontWeight: 700, p: 0, minWidth: 0, textTransform: "none" }}
+              variant="outlined"
+              color="primary"
+              size="small"
+              sx={{ textTransform: "none", fontWeight: 600 }}
             >
-              Construction Industry Insight
+              Read the Construction Insight
             </Button>
-            .
-          </Typography>
+          </Box>
 
           <Box
             sx={{
