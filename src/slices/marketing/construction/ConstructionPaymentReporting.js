@@ -10,7 +10,6 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-  Link as MuiLink,
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router";
@@ -63,18 +62,41 @@ export default function ConstructionPaymentReporting() {
             does not match operating reality.
           </Typography>
 
-          <Typography variant="body2" sx={{ mb: theme.spacing(2) }}>
-            For a deeper industry breakdown, read our latest{" "}
-            <MuiLink
+          <Box
+            sx={{
+              mb: theme.spacing(3),
+              p: theme.spacing(2),
+              border: `1px solid ${theme.palette.divider}`,
+              backgroundColor: theme.palette.background.paper,
+              borderRadius: 1,
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: { xs: "flex-start", sm: "center" },
+              gap: 2,
+            }}
+          >
+            <Box sx={{ flexGrow: 1 }}>
+              <Typography
+                variant="body2"
+                color={theme.palette.text.secondary}
+                sx={{ fontWeight: 500 }}
+              >
+                Want a deeper breakdown of how construction mechanics affect
+                reported outcomes?
+              </Typography>
+            </Box>
+
+            <Button
               component={RouterLink}
               to="/insights"
-              underline="hover"
-              sx={{ fontWeight: 600 }}
+              variant="outlined"
+              color="primary"
+              size="small"
+              sx={{ textTransform: "none", fontWeight: 600 }}
             >
-              Construction Industry Insight
-            </MuiLink>
-            .
-          </Typography>
+              Read the Construction Insight
+            </Button>
+          </Box>
 
           <Box
             sx={{
@@ -93,6 +115,16 @@ export default function ConstructionPaymentReporting() {
               sx={{ width: isSmallScreen ? "100%" : "auto" }}
             >
               Book a construction diagnostic
+            </Button>
+
+            <Button
+              variant="outlined"
+              color="primary"
+              size="large"
+              onClick={() => navigate("/construction-payment-diagnostic")}
+              sx={{ width: isSmallScreen ? "100%" : "auto" }}
+            >
+              See an example diagnostic
             </Button>
 
             <Typography variant="body2" color={theme.palette.text.secondary}>
@@ -365,6 +397,16 @@ export default function ConstructionPaymentReporting() {
                   flexWrap: "wrap",
                 }}
               >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={() => navigate("/construction-payment-diagnostic")}
+                  sx={{ width: isSmallScreen ? "100%" : "auto" }}
+                >
+                  See an example diagnostic
+                </Button>
+
                 <Button
                   variant="outlined"
                   color="primary"
