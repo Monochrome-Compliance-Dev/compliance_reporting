@@ -8,12 +8,11 @@ import {
   Button,
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { useNavigate } from "react-router";
 import PageMeta from "shared/ui/PageMeta";
+import { Link as RouterLink } from "react-router";
 
 export default function IndustryInsights() {
   const theme = useTheme();
-  const navigate = useNavigate();
 
   const contentMaxWidth = 980;
 
@@ -107,6 +106,30 @@ export default function IndustryInsights() {
               </Grid>
             ))}
           </Grid>
+
+          <Divider sx={{ my: theme.spacing(4) }} />
+
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
+            Blog
+          </Typography>
+
+          <Typography
+            variant="body1"
+            color={theme.palette.text.secondary}
+            sx={{ mb: theme.spacing(2), lineHeight: 1.6 }}
+          >
+            Short posts that unpack specific mechanics behind payment reporting
+            in construction — written to be practical, searchable, and grounded.
+          </Typography>
+
+          <Button
+            variant="outlined"
+            color="primary"
+            component={RouterLink}
+            to="/insights/blog"
+          >
+            View blog posts
+          </Button>
         </Box>
       </Box>
     </>

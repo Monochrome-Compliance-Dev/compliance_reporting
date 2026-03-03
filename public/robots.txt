@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Disallow internal application routes if any are added later (none currently public-facing)
+
+Sitemap: https://monochrome-compliance.com/sitemap.xml
