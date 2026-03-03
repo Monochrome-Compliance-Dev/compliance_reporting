@@ -2,6 +2,8 @@ import PaymentTimesReporting from "slices/marketing/ptrs/PaymentTimesReporting";
 import PaymentTimesReportingPrint from "slices/marketing/ptrs/PaymentTimesReporting.print";
 import ConstructionPaymentReporting from "slices/marketing/construction/ConstructionPaymentReporting";
 import IndustryInsights from "slices/marketing/insights/IndustryInsights";
+import BlogIndex from "slices/marketing/insights/blog/BlogIndex";
+import BlogPostPage from "slices/marketing/insights/blog/BlogPostPage";
 import PriceTier from "slices/marketing/pricing/PriceTier";
 import { Contact, ContactThankyou } from "slices/public/forms";
 import { About } from "slices/public/static";
@@ -35,6 +37,8 @@ export const publicRoutes = [
     path: "construction-payment-diagnostic",
     Component: ConstructionPaymentDiagnostic,
   },
+  { path: "insights/blog", Component: BlogIndex },
+  { path: "insights/blog/:slug", Component: BlogPostPage },
   { path: "insights", Component: IndustryInsights },
   { path: "pricing", Component: PriceTier },
   {
