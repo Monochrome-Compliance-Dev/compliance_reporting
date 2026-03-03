@@ -65,6 +65,9 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const handleConnectClose = () => setConnectAnchor(null);
   const handleAdminOpen = (event) => setAdminAnchor(event.currentTarget);
   const handleAdminClose = () => setAdminAnchor(null);
+  const [insightsAnchor, setInsightsAnchor] = useState(null);
+  const handleInsightsOpen = (event) => setInsightsAnchor(event.currentTarget);
+  const handleInsightsClose = () => setInsightsAnchor(null);
   const navigate = useNavigate();
   const location = useLocation();
   const isPublicOnlyMode =
@@ -86,10 +89,7 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
       { label: "Payment Times Reporting", to: "/payment-times-reporting" },
       { label: "Construction PTRS", to: "/construction-payment-reporting" },
     ],
-    links: [
-      { label: "Insights", to: "/insights" },
-      { label: "Pricing", to: "/pricing" },
-    ],
+    links: [{ label: "Pricing", to: "/pricing" }],
     company: [
       { label: "About", to: "/about" },
       { label: "Contact", to: "/contact" },
@@ -199,6 +199,47 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                     {item.label}
                   </MenuItem>
                 ))}
+              </Menu>
+
+              <Button
+                color="inherit"
+                onClick={handleInsightsOpen}
+                sx={{
+                  color: theme.palette.text.primary,
+                  textTransform: "none",
+                  fontWeight: 500,
+                  fontSize: theme.typography.body1.fontSize,
+                }}
+                endIcon={<ExpandMoreIcon />}
+              >
+                Insights
+              </Button>
+              <Menu
+                anchorEl={insightsAnchor}
+                open={Boolean(insightsAnchor)}
+                onClose={handleInsightsClose}
+                sx={{ mt: 1 }}
+              >
+                <MenuItem
+                  onClick={() => {
+                    handleInsightsClose();
+                    handleMenuClose();
+                  }}
+                  component={Link}
+                  to="/insights"
+                >
+                  Industry Insights
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    handleInsightsClose();
+                    handleMenuClose();
+                  }}
+                  component={Link}
+                  to="/insights/blog"
+                >
+                  Blog
+                </MenuItem>
               </Menu>
 
               {marketingNav.links.map((item) => (
@@ -394,6 +435,14 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                 <MenuItem
                   onClick={handleExploreClose}
                   component={Link}
+                  to="/insights/blog"
+                >
+                  <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
+                  Blog
+                </MenuItem>
+                <MenuItem
+                  onClick={handleExploreClose}
+                  component={Link}
                   to="/about"
                 >
                   <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
@@ -443,6 +492,28 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                     {item.label}
                   </MenuItem>
                 ))}
+
+                <Divider />
+
+                <MenuItem
+                  onClick={handleMenuClose}
+                  component={Link}
+                  to="/insights"
+                  sx={{ color: theme.palette.text.primary }}
+                >
+                  Industry Insights
+                </MenuItem>
+
+                <MenuItem
+                  onClick={handleMenuClose}
+                  component={Link}
+                  to="/insights/blog"
+                  sx={{ color: theme.palette.text.primary }}
+                >
+                  Blog
+                </MenuItem>
+
+                <Divider />
 
                 {marketingNav.links.map((item) => (
                   <MenuItem

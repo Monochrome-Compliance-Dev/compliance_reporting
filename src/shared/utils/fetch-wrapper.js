@@ -153,19 +153,9 @@ async function _post(url, body) {
     credentials: "include",
     body: JSON.stringify(body),
   };
-  console.info("[fetch-wrapper] POST ->", url, {
-    headers: _redactHeaders(headers),
-    body: _previewBody(body),
-  });
+
   const response = await fetch(url, requestOptions);
-  console.info(
-    "[fetch-wrapper] POST <-",
-    url,
-    "status=",
-    response.status,
-    "ct=",
-    response.headers.get("content-type"),
-  );
+
   return handleResponse(response);
 }
 
