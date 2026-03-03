@@ -34,7 +34,7 @@ import CreateRunCard from "./CreateRunCard";
 
 const ROLE_OPTIONS = [
   { value: "main_xero", label: "Transactions — Xero" },
-  { value: "main_csv", label: "Transactions — Excel (MYOB export)" },
+  { value: "main_csv", label: "Transactions — CSV (MYOB export)" },
   // Legacy single-main role (keep for now)
   { value: "transactions", label: "Transactions (legacy)" },
   { value: "vendormaster", label: "Vendor Master" },
@@ -107,6 +107,13 @@ export default function DataConsole() {
     }
     if (!file) {
       showAlert("Choose a file to upload", "info");
+      return;
+    }
+    const fileName = String(file?.name || "").toLowerCase();
+    const isCsv =
+      fileName.endsWith(".csv") || String(file?.type || "").includes("csv");
+    if (!isCsv) {
+      showAlert("CSV files only — please export as CSV and retry", "error");
       return;
     }
     if (!role) {
@@ -295,6 +302,7 @@ export default function DataConsole() {
                     <input
                       hidden
                       type="file"
+                      accept=".csv,text/csv"
                       onChange={(e) => setFile(e.target.files?.[0] || null)}
                     />
                   </Button>

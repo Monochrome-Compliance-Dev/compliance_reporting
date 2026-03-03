@@ -3,23 +3,21 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm install 18
-        - nvm use 18
+        - nvm install $(cat .nvmrc)
+        - nvm use $(cat .nvmrc)
         - node -v
         - npm -v
-        # Use Node 18 toolchain; install dependencies from package-lock.json
-        # Quick visibility into declared deps (no jq in build image)
+        # Use the Node version pinned in .nvmrc so local + Amplify builds match
+        # Quick visibility into declared deps (no jq in the build image)
         - node -p "JSON.stringify(require('./package.json').dependencies, null, 2)" || true
         - node -p "JSON.stringify(require('./package.json').devDependencies, null, 2)" || true
-        # Install deps (lockfile currently out of sync; we'll re-lock after React downgrade)
-        - npm install --no-audit --no-fund
-        # Show the actually resolved versions Amplify installed
-        - npm ls react react-dom react-router || true
-        # Hunt for React 19-only import patterns after install
-        - grep -RIn "import[[:space:]]*{[[:space:]]*use[[:space:]]*}[[:space:]]*from[[:space:]]*['\"]react['\"]" node_modules || true
+        # Deterministic install from package-lock.json (fails if lockfile is out of sync)
+        - npm ci --no-audit --no-fund
+        # Show the key resolved versions Amplify installed
+        - npm ls react react-dom react-router react-scripts || true
     build:
       commands:
-        # CRA + CI quirks; don't fail the build on warnings
+        # CRA treats warnings as errors in CI; CI=false prevents warning-only build failures in Amplify
         - echo "REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL:-<unset>}"
         - CI=false npm run build
   artifacts:
