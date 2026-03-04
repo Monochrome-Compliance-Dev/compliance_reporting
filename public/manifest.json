@@ -3,12 +3,12 @@
   "name": "Monochrome Compliance Platform",
   "icons": [
     {
-      "src": "images/logos/logo-light.png",
+      "src": "images/brand/logo-light.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "images/logos/logo-dark.png",
+      "src": "images/brand/logo-dark.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
-import * as XLSX from "xlsx";
 import {
   Box,
   Stack,
@@ -106,49 +105,13 @@ export default function SupportingDatasetsSection({
     const isCsv =
       (file.type && file.type.toLowerCase().includes("csv")) ||
       /\.csv$/i.test(file.name);
-    const isXlsx =
-      (file.type && file.type.includes("spreadsheetml")) ||
-      /\.xlsx?$/i.test(file.name);
 
-    if (!isCsv && !isXlsx) {
-      showAlert(
-        "Unsupported file type. Please upload a CSV or Excel (.xlsx) file.",
-        "error",
-      );
+    if (!isCsv) {
+      showAlert("Unsupported file type. Please upload a CSV file.", "error");
       return;
     }
 
-    if (isCsv) {
-      upload(role, file);
-      return;
-    }
-
-    // Convert XLSX to CSV using SheetJS
-    try {
-      const reader = new FileReader();
-      reader.onload = (evt) => {
-        const data = new Uint8Array(evt.target.result);
-        const workbook = XLSX.read(data, { type: "array" });
-        const firstSheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[firstSheetName];
-        const csv = XLSX.utils.sheet_to_csv(worksheet, { FS: "," });
-
-        // Convert the CSV string to a Blob so we can upload it the same way as CSV
-        const csvBlob = new Blob([csv], { type: "text/csv" });
-        const csvFile = new File(
-          [csvBlob],
-          file.name.replace(/\.xlsx?$/i, ".csv"),
-          {
-            type: "text/csv",
-          },
-        );
-        upload(role, csvFile);
-      };
-      reader.readAsArrayBuffer(file);
-    } catch (err) {
-      console.error(err);
-      showAlert("Failed to read Excel file", "error");
-    }
+    upload(role, file);
   };
 
   const upload = async (role, file) => {
@@ -224,7 +187,7 @@ export default function SupportingDatasetsSection({
                   <input
                     type="file"
                     hidden
-                    accept=".csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                    accept=".csv,text/csv"
                     ref={(el) => (fileInputs.current[r.value] = el)}
                     onChange={(e) => handlePick(r.value, e)}
                   />
@@ -232,7 +195,7 @@ export default function SupportingDatasetsSection({
               </Stack>
 
               <Typography variant="caption" color="text.secondary">
-                CSV or Excel (.xlsx) supported.
+                CSV only.
               </Typography>
 
               {hasAny && (

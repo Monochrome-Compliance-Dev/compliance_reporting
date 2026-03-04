@@ -48,8 +48,11 @@
     "rxjs": "^7.8.2",
     "socket.io-client": "^4.8.3",
     "web-vitals": "^5.1.0",
-    "xlsx": "^0.18.5",
     "yup": "^1.7.1"
+  },
+  "engines": {
+    "node": "20.19.0",
+    "npm": ">=10"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -78,6 +81,8 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
+    "ajv": "^8.18.0",
+    "ajv-formats": "^2.1.1",
     "concurrently": "^9.2.1",
     "prettier": "3.8.1"
   },
