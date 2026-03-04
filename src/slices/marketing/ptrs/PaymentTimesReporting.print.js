@@ -298,7 +298,7 @@ export default function PaymentTimesReportingPrint() {
 
             <Box
               component="img"
-              src="/images/solutions/ptrs/ptrs-full-dashboard-light.png"
+              src="/images/products/ptrs-dashboard-light.png"
               alt="PTRS metrics dashboard preview"
               sx={{
                 width: "100%",

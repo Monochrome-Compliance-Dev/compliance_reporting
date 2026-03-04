@@ -5,16 +5,8 @@ import {
   Paper,
   useTheme,
   Divider,
-  CardMedia,
-  Card,
-  CardContent,
-  Link as MuiLink,
   Button,
 } from "@mui/material";
-import DomainVerificationIcon from "@mui/icons-material/DomainVerification";
-import DescriptionIcon from "@mui/icons-material/Description";
-import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
-import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import { Link as RouterLink } from "react-router";
 
 export function LandingPage() {
@@ -29,170 +21,276 @@ export function LandingPage() {
         overflowX: "hidden",
       }}
     >
-      {/* <Box
-        component="img"
-        src="/images/backgrounds/Expect zebras 1200x1200 px.png"
-        alt="Expect zebras"
-        loading="lazy"
-        sx={{
-          width: { xs: 450, md: 475 },
-          height: "100%",
-          objectFit: "cover",
-          borderRadius: 2,
-          display: "block",
-          maxWidth: "100%",
-        }}
-      /> */}
       <Box
         sx={{
           position: "relative",
-          // borderRadius: 2,
           overflow: "hidden",
           mb: 4,
-          minHeight: { xs: 180, sm: 220, md: 300 },
+          minHeight: { xs: 220, sm: 280, md: 360 },
           display: "flex",
           alignItems: "center",
-          justifyContent: "left",
-          backgroundImage: `url('/images/backgrounds/compliance-solution.jpg')`,
+          backgroundImage: `url('/images/brand/hero3.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.25) 100%)",
+            zIndex: 1,
+          },
         }}
       >
         <Box
           sx={{
-            position: "absolute",
+            position: "relative",
+            zIndex: 2,
             width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.65)",
-            display: "flex",
-            alignItems: "center",
-            inset: 0,
-            zIndex: 1,
+            px: { xs: 2, sm: 4, md: 8 },
+            py: { xs: 4, sm: 5, md: 6 },
+            maxWidth: 1200,
+            mx: "auto",
           }}
-        />
-        <Box sx={{ width: "100%" }}>
+        >
           <Typography
-            variant="h4"
-            textAlign="center"
-            gutterBottom
+            variant="overline"
             sx={{
-              fontSize: { xs: "1.25rem", sm: "2rem", md: "2.25rem" },
-              position: "relative",
-              zIndex: 2,
-              fontWeight: 700,
-              color: "#fff",
-              px: 2,
+              letterSpacing: 1.6,
+              opacity: 0.9,
+              color: theme.palette.common.white,
+              display: "block",
+              mb: 1,
             }}
           >
-            Board-ready compliance
-            <br />
-            without the internal burden.
+            Payment data • Reporting clarity
           </Typography>
+
+          <Typography
+            variant="h3"
+            gutterBottom
+            sx={{
+              fontSize: { xs: "1.55rem", sm: "2.2rem", md: "2.6rem" },
+              fontWeight: 800,
+              color: theme.palette.common.white,
+              maxWidth: 900,
+              lineHeight: 1.15,
+            }}
+          >
+            Clarity in complex
+            <br />
+            payment environments.
+          </Typography>
+
+          <Typography
+            variant="body1"
+            sx={{
+              color: "rgba(255,255,255,0.85)",
+              maxWidth: 900,
+              lineHeight: 1.7,
+              mb: theme.spacing(3),
+            }}
+          >
+            We strengthen the underlying payment dataset so reporting outcomes,
+            controls and evidence trails hold up under scrutiny.
+          </Typography>
+
+          <Box sx={{ display: "flex", gap: 1.5, flexWrap: "wrap" }}>
+            <Button
+              variant="contained"
+              component={RouterLink}
+              to="/services"
+              sx={{ fontWeight: 800 }}
+            >
+              View services
+            </Button>
+            <Button
+              variant="outlined"
+              component={RouterLink}
+              to="/insights"
+              sx={{
+                fontWeight: 800,
+                color: theme.palette.common.white,
+                borderColor: "rgba(255,255,255,0.55)",
+                "&:hover": {
+                  borderColor: theme.palette.common.white,
+                  backgroundColor: "rgba(255,255,255,0.08)",
+                },
+              }}
+            >
+              Read insights
+            </Button>
+          </Box>
         </Box>
       </Box>
       <Box sx={{ px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
         <Typography variant="body1" textAlign="center" sx={{ mb: 2 }}>
-          Monochrome Compliance helps organisations meet their Payment Times
-          Reporting obligations with confidence. We take messy source data,
-          calculate the required metrics correctly, and deliver a
-          submission-ready report with a clear audit trail — without adding
-          internal burden.
+          Monochrome Compliance helps organisations meet payment reporting
+          obligations and reduce risk by strengthening the underlying payment
+          dataset. We work from payment data first, then align reporting,
+          controls and evidence trails around it — without adding internal
+          burden.
         </Typography>
-        <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
-          <Card
-            elevation={0}
-            sx={{
-              maxWidth: 720,
-              width: "100%",
-              border: `1px solid ${theme.palette.divider}`,
-              backgroundColor: theme.palette.background.paper,
-            }}
-          >
-            <CardContent sx={{ textAlign: "center" }}>
-              <Typography variant="overline" sx={{ opacity: 0.8 }}>
-                Industry focus
-              </Typography>
-              <Typography variant="h6" sx={{ mt: 0.5, fontWeight: 700 }}>
-                Construction
-              </Typography>
-              <Typography variant="body2" sx={{ mt: 1, opacity: 0.9 }}>
-                Progress claims, certification, retentions and SOPA-driven
-                timing can distort PTRS outcomes. We help construction reporting
-                entities align their workflows and submissions.
-              </Typography>
-              <Box
+        <Box sx={{ mt: theme.spacing(4) }}>
+          <Grid container spacing={2} justifyContent="center">
+            <Grid item xs={12} md={4}>
+              <Paper
+                variant="outlined"
                 sx={{
-                  mt: 2,
-                  display: "flex",
-                  gap: 2,
-                  justifyContent: "center",
-                  flexWrap: "wrap",
+                  p: theme.spacing(3),
+                  height: "100%",
+                  backgroundColor: theme.palette.background.paper,
                 }}
               >
-                <Button
-                  variant="text"
-                  component={RouterLink}
-                  to="/construction-payment-reporting"
-                  sx={{ fontWeight: 700 }}
+                <Box
+                  component="img"
+                  src="/images/services/payment-times-reporting.jpg"
+                  alt="Payment Times Reporting"
+                  loading="lazy"
+                  sx={{
+                    width: "100%",
+                    height: 140,
+                    objectFit: "cover",
+                    borderRadius: 2,
+                    mb: theme.spacing(2),
+                  }}
+                />
+                <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+                  Services
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color={theme.palette.text.secondary}
+                  sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
                 >
-                  Construction PTRS
-                </Button>
+                  Practical delivery across Payment Times Reporting and payment
+                  health checks.
+                </Typography>
                 <Button
-                  variant="text"
+                  variant="outlined"
+                  component={RouterLink}
+                  to="/services"
+                >
+                  View services
+                </Button>
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={4}>
+              <Paper
+                variant="outlined"
+                sx={{
+                  p: theme.spacing(3),
+                  height: "100%",
+                  backgroundColor: theme.palette.background.paper,
+                }}
+              >
+                <Box
+                  component="img"
+                  src="/images/industries/construction.jpg"
+                  alt="Construction"
+                  loading="lazy"
+                  sx={{
+                    width: "100%",
+                    height: 140,
+                    objectFit: "cover",
+                    borderRadius: 2,
+                    mb: theme.spacing(2),
+                  }}
+                />
+                <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+                  Industries
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color={theme.palette.text.secondary}
+                  sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
+                >
+                  Starting with construction — where payment mechanics and
+                  reporting pressure collide.
+                </Typography>
+                <Button
+                  variant="outlined"
+                  component={RouterLink}
+                  to="/industries"
+                >
+                  Explore industries
+                </Button>
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={4}>
+              <Paper
+                variant="outlined"
+                sx={{
+                  p: theme.spacing(3),
+                  height: "100%",
+                  backgroundColor: theme.palette.background.paper,
+                }}
+              >
+                <Box
+                  component="img"
+                  src="/images/insights/insights.jpg"
+                  alt="Insights"
+                  loading="lazy"
+                  sx={{
+                    width: "100%",
+                    height: 140,
+                    objectFit: "cover",
+                    borderRadius: 2,
+                    mb: theme.spacing(2),
+                  }}
+                />
+                <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+                  Insights
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color={theme.palette.text.secondary}
+                  sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
+                >
+                  Research and practical observations on payment visibility,
+                  data quality and reporting interpretation.
+                </Typography>
+                <Button
+                  variant="outlined"
                   component={RouterLink}
                   to="/insights"
-                  sx={{ fontWeight: 700 }}
                 >
-                  Read the latest insight
+                  Read insights
                 </Button>
-              </Box>
-            </CardContent>
-          </Card>
+              </Paper>
+            </Grid>
+          </Grid>
         </Box>
-
-        <Typography
-          variant="body2"
-          textAlign="center"
-          sx={{ mt: 1, opacity: 0.85 }}
-        >
-          Pricing is typically <strong>$7,000 per reporting period</strong>.{" "}
-          <Button
-            variant="text"
-            component={RouterLink}
-            to="/pricing"
-            sx={{ fontWeight: 700, ml: 0.5, minWidth: "auto", p: 0.5 }}
-          >
-            View pricing
-          </Button>
-        </Typography>
       </Box>
       <Divider />
       <Box sx={{ px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
         <Typography variant="h6" textAlign="center" gutterBottom>
-          What You Get
+          How we help
         </Typography>
         <Typography variant="body2" textAlign="center" sx={{ mb: 4 }}>
-          Everything you need to meet Payment Times Reporting requirements —
-          handled end to end.
+          We deliver practical outcomes — clean data, defensible logic and
+          evidence trails you can stand behind.
         </Typography>
         <Grid container spacing={3} justifyContent="center" sx={{ mt: 2 }}>
           {[
             {
-              title: "Clean, reliable data",
+              title: "Strengthen the dataset",
               description:
-                "We consolidate and validate your source exports into a consistent dataset you can rely on.",
+                "We consolidate, validate and structure your source exports into a consistent payment dataset.",
               to: "/payment-times-reporting",
             },
             {
-              title: "Correct metrics",
+              title: "Defensible logic",
               description:
-                "Payment times are calculated correctly, reviewed, and explained clearly.",
+                "Payment timing and classifications are calculated correctly, reviewed, and explained clearly.",
               to: "/payment-times-reporting",
             },
             {
-              title: "Board-ready reporting",
+              title: "Audit-ready outputs",
               description:
-                "Submission-ready outputs with an audit trail you can stand behind.",
+                "Clear outputs with traceable evidence — suitable for boards, auditors and regulators.",
               to: "/payment-times-reporting",
             },
           ].map((card, index) => (

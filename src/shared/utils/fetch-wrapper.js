@@ -38,40 +38,15 @@ async function handleRequestWithRetry(
 ) {
   const attempts = Math.max(1, retries);
   for (let attempt = 0; attempt < attempts; attempt++) {
-    // Log attempt
-    console.debug(
-      "[fetch-wrapper] attempt",
-      attempt + 1,
-      "/",
-      attempts,
-      "->",
-      args && args[0],
-    );
     try {
       return await requestFn(...args);
     } catch (error) {
-      console.debug(
-        "[fetch-wrapper] error on",
-        args && args[0],
-        "status=",
-        error?.status,
-        "name=",
-        error?.name,
-        "message=",
-        error?.message,
-      );
       const shouldRetry = isTransientError(error) && attempt < attempts - 1;
       if (!shouldRetry) {
         throw error;
       }
       const jitter = Math.floor(Math.random() * 250);
       const delay = baseDelay * Math.pow(2, attempt) + jitter;
-      console.debug(
-        "[fetch-wrapper] retrying in",
-        `${delay}ms`,
-        "for",
-        args && args[0],
-      );
       await new Promise((resolve) => setTimeout(resolve, delay));
     }
   }
@@ -109,9 +84,6 @@ async function _get(url) {
     "X-CSRF-Token": sessionStorage.getItem("csrfToken") || "",
   };
   const requestOptions = { method: "GET", headers, credentials: "include" };
-  console.info("[fetch-wrapper] GET ->", url, {
-    headers: _redactHeaders(headers),
-  });
   return fetch(url, requestOptions).then(handleResponse);
 }
 
@@ -268,10 +240,6 @@ async function _put(url, body) {
     credentials: "include",
     body: JSON.stringify(body),
   };
-  console.info("[fetch-wrapper] PUT ->", url, {
-    headers: _redactHeaders(headers),
-    body: _previewBody(body),
-  });
   return fetch(url, requestOptions).then(handleResponse);
 }
 
@@ -297,10 +265,6 @@ async function _patch(url, body) {
     credentials: "include",
     body: JSON.stringify(body),
   };
-  console.info("[fetch-wrapper] PATCH ->", url, {
-    headers: _redactHeaders(headers),
-    body: _previewBody(body),
-  });
   const response = await fetch(url, requestOptions);
   return handleResponse(response);
 }
@@ -325,9 +289,6 @@ async function _deleteRequest(url) {
     headers,
     credentials: "include",
   };
-  console.info("[fetch-wrapper] DELETE ->", url, {
-    headers: _redactHeaders(headers),
-  });
   return fetch(url, requestOptions).then(handleResponse);
 }
 
@@ -390,7 +351,6 @@ function handleResponse(response) {
 
     if (!response.ok) {
       if (response.status === 401) {
-        console.info("[fetch-wrapper] 401 detected, dispatching auth:expired");
         // Signal session expiry centrally; let AuthContext handle alert + logout
         try {
           window.dispatchEvent(new CustomEvent("auth:expired"));
@@ -429,9 +389,6 @@ function handleResponseForDocuments(response) {
 
     if (!response.ok) {
       if (response.status === 401) {
-        console.info(
-          "[fetch-wrapper] 401 detected (documents), dispatching auth:expired",
-        );
         try {
           window.dispatchEvent(new CustomEvent("auth:expired"));
         } catch {}

@@ -26,8 +26,8 @@ export default function PaymentTimesReporting() {
   // Public-facing preview images (store these in /public so they can be swapped easily)
   // e.g. /public/images/ptrs-dashboard-light.png and /public/images/ptrs-dashboard-dark.png
   const dashboardPreview = {
-    light: "/images/solutions/ptrs/ptrs-dashboard-light.png",
-    dark: "/images/solutions/ptrs/ptrs-dashboard-dark.png",
+    light: "/images/products/ptrs-dashboard-light.png",
+    dark: "/images/products/ptrs-dashboard-dark.png",
   };
 
   const isDark = theme.palette.mode === "dark";
