@@ -219,6 +219,10 @@ export default function TablesAndJoinsPanel() {
 
   useEffect(() => {
     const unified = sampleQ.data || null;
+
+    if (debugJoins) {
+      console.log("[TablesAndJoinsPanel] unified sample raw", unified);
+    }
     const inferred = Array.isArray(unified?.headers) ? unified.headers : [];
     const meta =
       unified && typeof unified.headerMeta === "object"

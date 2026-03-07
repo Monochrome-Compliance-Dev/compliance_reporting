@@ -47,6 +47,8 @@ export default function Services() {
                   alt="Payment reporting data architecture"
                   sx={{
                     width: "100%",
+                    height: 160,
+                    objectFit: "cover",
                     borderRadius: 2,
                     mb: theme.spacing(2),
                   }}
@@ -82,6 +84,8 @@ export default function Services() {
                   alt="Payment data diagnostic review"
                   sx={{
                     width: "100%",
+                    height: 160,
+                    objectFit: "cover",
                     borderRadius: 2,
                     mb: theme.spacing(2),
                   }}
@@ -109,6 +113,86 @@ export default function Services() {
               </Box>
             </Grid>
           </Grid>
+
+          <Divider sx={{ my: theme.spacing(6) }} />
+
+          <Box id="data-review">
+            <Typography variant="h4" sx={{ fontWeight: 800, mb: 1 }}>
+              Payment data review
+            </Typography>
+
+            <Typography
+              variant="body1"
+              color={theme.palette.text.secondary}
+              sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
+            >
+              If you’re responsible for Payment Times Reporting or supplier
+              payment data and would like a second set of eyes on a sample
+              dataset, we’re happy to review it and share what we see.
+            </Typography>
+
+            <Typography
+              variant="body1"
+              color={theme.palette.text.secondary}
+              sx={{ lineHeight: 1.7, mb: theme.spacing(3) }}
+            >
+              This is not a formal engagement. It’s a practical way to
+              understand how your payment dataset behaves under reporting
+              frameworks before deadlines arrive.
+            </Typography>
+
+            <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+              What we typically need
+            </Typography>
+
+            <Box
+              component="ul"
+              sx={{
+                mt: 0,
+                mb: theme.spacing(3),
+                pl: theme.spacing(3),
+                color: theme.palette.text.secondary,
+                lineHeight: 1.7,
+              }}
+            >
+              <li>Supplier name</li>
+              <li>Invoice date</li>
+              <li>Payment date</li>
+              <li>Payment amount</li>
+              <li>ABN (if available)</li>
+            </Box>
+
+            <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+              What happens next
+            </Typography>
+
+            <Box
+              component="ol"
+              sx={{
+                mt: 0,
+                mb: theme.spacing(3),
+                pl: theme.spacing(3),
+                color: theme.palette.text.secondary,
+                lineHeight: 1.7,
+              }}
+            >
+              <li>
+                We confirm scope and the extract format (usually 10 minutes).
+              </li>
+              <li>
+                We review the sample and flag any structural timing or
+                classification issues.
+              </li>
+              <li>
+                We return a short summary of observations and suggested next
+                steps.
+              </li>
+            </Box>
+
+            <Button variant="contained" component={Link} to="/contact">
+              Request a payment data review
+            </Button>
+          </Box>
 
           <Divider sx={{ my: theme.spacing(6) }} />
 
