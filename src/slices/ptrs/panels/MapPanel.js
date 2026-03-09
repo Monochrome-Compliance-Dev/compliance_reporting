@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useState, useRef, useCallback } from "react";
 import {
   Box,
   Stack,
@@ -51,8 +51,10 @@ import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import {
   extractMappingsFromAny,
   getPtrsMap,
+  getPtrsFieldMap,
   listPtrsWithMap,
   savePtrsMap,
+  savePtrsFieldMap,
   buildPtrsMappedDataset,
 } from "../services/maps.ptrsApi";
 import SupportingDatasetsSection from "./SupportingDatasetsSection";
@@ -67,19 +69,61 @@ export default function MapPanel() {
   const ptrsId = params.get("ptrsId");
   const { profileId } = usePtrsContext();
 
+  const sourceRefKey = (source) => {
+    const role = String(source?.role || "main")
+      .trim()
+      .toLowerCase();
+    const header = String(source?.header || "").trim();
+    return `${role}::${header}`;
+  };
+
+  const normaliseSourceRef = (source, fallbackRole = "main") => {
+    if (!source) return null;
+
+    if (typeof source === "string") {
+      return {
+        header: source,
+        role: String(fallbackRole || "main")
+          .trim()
+          .toLowerCase(),
+      };
+    }
+
+    const header = String(
+      source?.header || source?.sourceHeader || source?.column || "",
+    ).trim();
+    if (!header) return null;
+
+    return {
+      header,
+      role: String(source?.role || source?.sourceRole || fallbackRole || "main")
+        .trim()
+        .toLowerCase(),
+      datasetId: source?.datasetId || null,
+      fileName: source?.fileName || null,
+    };
+  };
+
+  const getSourceRefLabel = (source) => {
+    const src = normaliseSourceRef(source);
+    if (!src) return "";
+
+    const role = String(src.role || "main").trim();
+    return role ? `${src.header} — ${role}` : String(src.header || "");
+  };
+
+  const getSourceRefSearchText = useCallback((source) => {
+    const src = normaliseSourceRef(source);
+    if (!src) return "";
+    return `${src.header} ${src.role || ""}`.toLowerCase().trim();
+  }, []);
+
   const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
 
   const dsQ = usePtrsDatasetsQuery(ptrsId);
-  const mainDatasetId =
-    (dsQ.data?.items || []).find(
-      (d) => String(d?.role || "").toLowerCase() === "main",
-    )?.id ||
-    (dsQ.data?.items || [])[0]?.id ||
-    null;
 
   const mapQ = usePtrsMapQuery(ptrsId);
   const sampleQ = usePtrsUnifiedSampleQuery(ptrsId, {
-    datasetId: mainDatasetId,
     limit: 5,
     offset: 0,
   });
@@ -108,15 +152,72 @@ export default function MapPanel() {
   const [assign, setAssign] = useState({});
   // user-defined placeholder targets
   const [customFields, setCustomFields] = useState([]);
-  const [, setCustomFieldConfig] = useState(null);
+  const [joinCustomFields, setJoinCustomFields] = useState([]);
   const [newCustomName, setNewCustomName] = useState("");
   const [joins, setJoins] = useState([]);
+
+  const [savedFieldMap, setSavedFieldMap] = useState([]);
 
   const [supportingDatasetsCount, setSupportingDatasetsCount] = useState(0);
 
   // sources pane
   const [search, setSearch] = useState("");
   const [importOpen, setImportOpen] = useState(false);
+
+  const sourceOptions = useMemo(() => {
+    const datasetsById = new Map(
+      (dsQ.data?.items || []).map((dataset) => [
+        String(dataset?.id || ""),
+        dataset,
+      ]),
+    );
+
+    const out = [];
+    const seen = new Set();
+
+    for (const header of headers || []) {
+      const sources = Array.isArray(headerMeta?.[header]?.sources)
+        ? headerMeta[header].sources
+        : [];
+
+      if (sources.length) {
+        for (const src of sources) {
+          const role = String(src?.role || src?.kind || "main")
+            .trim()
+            .toLowerCase();
+          const datasetId = String(src?.datasetId || "").trim() || null;
+          const dataset = datasetId ? datasetsById.get(datasetId) : null;
+
+          const option = normaliseSourceRef(
+            {
+              header,
+              role,
+              datasetId,
+              fileName:
+                src?.fileName ||
+                dataset?.fileName ||
+                dataset?.originalName ||
+                null,
+            },
+            role,
+          );
+
+          const key = sourceRefKey(option);
+          if (seen.has(key)) continue;
+          seen.add(key);
+          out.push(option);
+        }
+      } else {
+        const option = normaliseSourceRef({ header, role: "main" }, "main");
+        const key = sourceRefKey(option);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push(option);
+      }
+    }
+
+    return out;
+  }, [headers, headerMeta, dsQ.data]);
 
   // Helper to open the import dialog and blur the triggering element
   const openImportDialog = (event) => {
@@ -253,8 +354,8 @@ export default function MapPanel() {
     }
 
     setJoins(Array.isArray(existingJoins) ? existingJoins : []);
-    setCustomFieldConfig(
-      Array.isArray(existingCustomFields) ? existingCustomFields : null,
+    setJoinCustomFields(
+      Array.isArray(existingCustomFields) ? existingCustomFields : [],
     );
 
     setHeaders(inferred);
@@ -273,15 +374,25 @@ export default function MapPanel() {
     }
     setExamples(ex);
 
-    // existing shape may be: { "<source>": { field: "<target>", type } }
-    const toTargetSource = {};
-    if (existing && typeof existing === "object") {
-      for (const [src, cfg] of Object.entries(existing)) {
-        const field = cfg?.field || null;
-        if (field) toTargetSource[field] = src;
+    // existing legacy mappings are header-keyed and cannot safely represent
+    // supporting-role mappings. Only seed assign from them when there is no
+    // active profile / canonical field-map path.
+    if (!profileId) {
+      const toTargetSource = {};
+      if (existing && typeof existing === "object") {
+        for (const [src, cfg] of Object.entries(existing)) {
+          const field = cfg?.field || null;
+          if (!field) continue;
+
+          const sourceRef = normaliseSourceRef(src, cfg?.sourceRole || "main");
+
+          if (sourceRef) {
+            toTargetSource[field] = sourceRef;
+          }
+        }
       }
+      setAssign(toTargetSource);
     }
-    setAssign(toTargetSource);
 
     // collect any targets not in required/optional as custom placeholders,
     // seeded from any existing customField config
@@ -410,46 +521,124 @@ export default function MapPanel() {
     };
   }, [importOpen, headers]);
 
-  // quick helpers
+  useEffect(() => {
+    let active = true;
+
+    if (!ptrsId || !profileId) {
+      setSavedFieldMap([]);
+      return () => {
+        active = false;
+      };
+    }
+
+    getPtrsFieldMap(ptrsId, profileId)
+      .then((rows) => {
+        if (!active) return;
+        setSavedFieldMap(Array.isArray(rows) ? rows : []);
+      })
+      .catch(() => {
+        if (!active) return;
+        setSavedFieldMap([]);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [ptrsId, profileId]);
+
+  useEffect(() => {
+    if (!profileId) return;
+    if (!Array.isArray(sourceOptions) || !sourceOptions.length) return;
+
+    setAssign((prev) => {
+      const preservedCustom = Object.fromEntries(
+        Object.entries(prev || {}).filter(([key]) =>
+          customFields.includes(key),
+        ),
+      );
+
+      const next = { ...preservedCustom };
+
+      for (const row of Array.isArray(savedFieldMap) ? savedFieldMap : []) {
+        const targetField = String(row?.canonicalField || "").trim();
+        if (!targetField) continue;
+
+        const sourceRef =
+          resolveSourceOption(
+            sourceOptions,
+            row?.sourceColumn,
+            row?.sourceRole,
+          ) || normaliseSourceRef(row?.sourceColumn, row?.sourceRole || "main");
+
+        if (sourceRef) {
+          next[targetField] = sourceRef;
+        }
+      }
+
+      return next;
+    });
+  }, [profileId, savedFieldMap, sourceOptions, customFields]);
+
   const usedSources = useMemo(
-    () => new Set(Object.values(assign || {})),
+    () =>
+      new Set(
+        Object.values(assign || {})
+          .map((src) => sourceRefKey(normaliseSourceRef(src)))
+          .filter(Boolean),
+      ),
     [assign],
   );
 
   const filteredSources = useMemo(() => {
     const needle = search.trim().toLowerCase();
-    const all = headers || [];
+    const all = sourceOptions || [];
     if (!needle) return all;
-    return all.filter((h) => h.toLowerCase().includes(needle));
-  }, [headers, search]);
+    return all.filter((src) => getSourceRefSearchText(src).includes(needle));
+  }, [search, sourceOptions, getSourceRefSearchText]);
 
   // HTML5 DnD
-  const onDragStart = (e, sourceHeader) => {
+  const onDragStart = (e, sourceRef) => {
     try {
-      e.dataTransfer.setData("text/plain", sourceHeader);
+      e.dataTransfer.setData(
+        "text/plain",
+        JSON.stringify(normaliseSourceRef(sourceRef)),
+      );
     } catch {}
   };
 
   const handleDrop = (e, targetField) => {
     e.preventDefault();
-    const source = e.dataTransfer.getData("text/plain");
-    if (!source) return;
-    assignSourceToTarget(source, targetField);
+    const raw = e.dataTransfer.getData("text/plain");
+    if (!raw) return;
+
+    let parsed = null;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      parsed = raw;
+    }
+
+    assignSourceToTarget(parsed, targetField);
   };
 
   const allowDrop = (e) => e.preventDefault();
 
   // Assign helper: ensures a source is only mapped to a single target
   const assignSourceToTarget = (source, targetField) => {
+    const src = normaliseSourceRef(source);
+
     setAssign((prev) => {
       const next = { ...prev };
+      const srcKey = src ? sourceRefKey(src) : null;
 
-      // Ensure a source is only mapped to a single target
       for (const k of Object.keys(next)) {
-        if (next[k] === source) next[k] = undefined;
+        const existing = normaliseSourceRef(next[k]);
+        if (srcKey && sourceRefKey(existing) === srcKey) {
+          next[k] = undefined;
+        }
       }
 
-      next[targetField] = source || undefined;
+      next[targetField] = src || undefined;
       setIsDirty(true);
       return next;
     });
@@ -544,14 +733,23 @@ export default function MapPanel() {
 
   const autoSuggest = () => {
     let didChange = false;
-    const available = headers.filter((h) => !usedSources.has(h));
+    const available = sourceOptions.filter(
+      (src) => !usedSources.has(sourceRefKey(src)),
+    );
     const byNorm = new Map();
-    for (const h of available) byNorm.set(norm(h), h);
+    for (const src of available) {
+      const key = norm(src?.header);
+      if (!byNorm.has(key)) byNorm.set(key, src);
+    }
 
     let applied = 0;
     setAssign((prev) => {
       const next = { ...prev };
-      const alreadyUsed = new Set(Object.values(next).filter(Boolean));
+      const alreadyUsed = new Set(
+        Object.values(next)
+          .map((src) => sourceRefKey(normaliseSourceRef(src)))
+          .filter(Boolean),
+      );
 
       const allTargets = [
         ...PTRS_REQUIRED_FIELDS,
@@ -561,23 +759,24 @@ export default function MapPanel() {
       ];
 
       for (const target of allTargets) {
-        if (next[target]) continue; // don't override user choice
+        if (next[target]) continue;
         const candidates = aliasesFor(target);
 
-        // 1) exact normalized match
         let chosen = null;
         for (const a of candidates) {
-          const h = byNorm.get(a);
-          if (h && !alreadyUsed.has(h)) {
-            chosen = h;
+          const src = byNorm.get(a);
+          if (src && !alreadyUsed.has(sourceRefKey(src))) {
+            chosen = src;
             break;
           }
         }
-        // 2) contains match (header contains alias)
+
         if (!chosen) {
           for (const a of candidates) {
             const found = available.find(
-              (h) => !alreadyUsed.has(h) && norm(h).includes(a),
+              (src) =>
+                !alreadyUsed.has(sourceRefKey(src)) &&
+                norm(src?.header).includes(a),
             );
             if (found) {
               chosen = found;
@@ -585,12 +784,14 @@ export default function MapPanel() {
             }
           }
         }
+
         if (chosen) {
           next[target] = chosen;
-          alreadyUsed.add(chosen);
+          alreadyUsed.add(sourceRefKey(chosen));
           applied += 1;
         }
       }
+
       if (applied > 0) {
         didChange = true;
         showAlert(`Auto-suggest mapped ${applied} field(s)`, "success");
@@ -600,80 +801,97 @@ export default function MapPanel() {
           "info",
         );
       }
+
       return next;
     });
     if (didChange) setIsDirty(true);
   };
 
-  // Resolve a header name against current headers with loose matching:
-  // 1) exact
-  // 2) case-insensitive + trim
-  // 3) "normalized" (collapse spaces & strip non-alphanum)
-  const resolveHeader = (headersArr, sourceName) => {
+  const resolveSourceOption = (
+    optionsArr,
+    sourceName,
+    preferredRole = null,
+  ) => {
     if (!sourceName) return null;
-    const exactSet = new Set(headersArr || []);
-    if (exactSet.has(sourceName)) return sourceName;
+
     const srcTrim = String(sourceName).trim();
-    for (const h of headersArr || []) {
-      if (String(h).trim() === srcTrim) return h;
-    }
+    const prefRole = preferredRole
+      ? String(preferredRole).trim().toLowerCase()
+      : null;
+
+    const exact = (optionsArr || []).find((opt) => {
+      const sameHeader = String(opt?.header || "").trim() === srcTrim;
+      if (!sameHeader) return false;
+      if (!prefRole) return true;
+      return (
+        String(opt?.role || "")
+          .trim()
+          .toLowerCase() === prefRole
+      );
+    });
+    if (exact) return exact;
+
     const toNorm = (s) =>
       String(s || "")
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "");
     const srcNorm = toNorm(srcTrim);
-    for (const h of headersArr || []) {
-      if (toNorm(h) === srcNorm) return h;
-    }
-    return null;
+
+    const preferred = (optionsArr || []).find((opt) => {
+      const sameHeader = toNorm(opt?.header) === srcNorm;
+      if (!sameHeader) return false;
+      if (!prefRole) return true;
+      return (
+        String(opt?.role || "")
+          .trim()
+          .toLowerCase() === prefRole
+      );
+    });
+    if (preferred) return preferred;
+
+    return (
+      (optionsArr || []).find((opt) => toNorm(opt?.header) === srcNorm) || null
+    );
   };
 
   // Convert BE map object -> assign (target->source), validating headers with loose resolving
   const applyIncomingMap = (obj) => {
     if (!obj || typeof obj !== "object")
       return { applied: 0, nextAssign: assign };
-    const validHeaders = Array.isArray(headers) ? headers : [];
     const next = { ...assign };
     let applied = 0;
-
-    // DEBUG: inspect why saved maps are considered incompatible
-    // eslint-disable-next-line no-console
-    // console.groupCollapsed("[applyIncomingMap] Start — headers vs saved map");
-    // eslint-disable-next-line no-console
-    // console.log("Current headers:", validHeaders);
 
     for (let [source, cfg] of Object.entries(obj)) {
       const target = cfg?.field;
       if (!target) {
         // eslint-disable-next-line no-console
-        console.warn("❌ Skipped mapping: no target for", source, cfg);
+        if (process.env.NODE_ENV === "development") {
+          console.warn("❌ Skipped mapping: no target for", source, cfg);
+        }
         continue;
       }
 
-      // try to resolve the source header against current headers
-      const resolved = resolveHeader(validHeaders, source);
+      const resolved =
+        resolveSourceOption(sourceOptions, source, cfg?.sourceRole || null) ||
+        normaliseSourceRef(source, cfg?.sourceRole || "main");
+
       if (!resolved) {
-        // eslint-disable-next-line no-console
-        console.warn("⚠️ Could not resolve header:", { source, target });
+        if (process.env.NODE_ENV === "development") {
+          console.warn("⚠️ Could not resolve header:", { source, target });
+        }
         continue;
       }
 
-      // ensure a source maps to one target only
-      for (const k of Object.keys(next))
-        if (next[k] === resolved) next[k] = undefined;
+      for (const k of Object.keys(next)) {
+        const existing = normaliseSourceRef(next[k]);
+        if (sourceRefKey(existing) === sourceRefKey(resolved)) {
+          next[k] = undefined;
+        }
+      }
 
       if (!next[target]) {
         next[target] = resolved;
         applied += 1;
-        // eslint-disable-next-line no-console
-        // console.log("✅ Mapped:", { source, resolved, target });
-      } else {
-        // eslint-disable-next-line no-console
-        console.log("⤵️ Already had target assigned; keeping existing:", {
-          target,
-          existing: next[target],
-          incoming: resolved,
-        });
       }
     }
 
@@ -687,16 +905,6 @@ export default function MapPanel() {
     if (discovered.size) {
       setCustomFields((prev) => [...new Set([...prev, ...discovered])]);
     }
-
-    // eslint-disable-next-line no-console
-    // console.log(
-    //   "Discovered custom fields (if any):",
-    //   Array.from(discovered.values?.() || discovered)
-    // );
-    // eslint-disable-next-line no-console
-    // console.log("Applied count:", applied, "Final assign:", next);
-    // eslint-disable-next-line no-console
-    // console.groupEnd();
 
     setAssign(next);
     return { applied, nextAssign: next };
@@ -762,6 +970,70 @@ export default function MapPanel() {
     }
   };
 
+  const buildCanonicalFieldMapPayload = useCallback(
+    (effectiveAssign) => {
+      const payload = [];
+
+      for (const [targetField, assignedSource] of Object.entries(
+        effectiveAssign || {},
+      )) {
+        const sourceRef = normaliseSourceRef(assignedSource);
+        if (!targetField || !sourceRef?.header) continue;
+        if (customFields.includes(targetField)) continue;
+
+        const canonicalField = String(targetField).trim();
+
+        payload.push({
+          canonicalField,
+          sourceRole: sourceRef.role || "main",
+          sourceColumn: sourceRef.header,
+          transformType: null,
+          transformConfig: null,
+          meta: null,
+        });
+      }
+
+      return payload;
+    },
+    [customFields],
+  );
+
+  const canonicalFieldMapNeedsSave = useCallback(
+    (nextPayload) => {
+      const normalise = (rows) =>
+        (Array.isArray(rows) ? rows : [])
+          .map((row) => ({
+            canonicalField: row?.canonicalField || null,
+            sourceRole: row?.sourceRole || null,
+            sourceColumn: row?.sourceColumn || null,
+            transformType: row?.transformType || null,
+            transformConfig: row?.transformConfig || null,
+          }))
+          .sort((a, b) => {
+            const ak = `${a.canonicalField || ""}::${a.sourceRole || ""}::${a.sourceColumn || ""}`;
+            const bk = `${b.canonicalField || ""}::${b.sourceRole || ""}::${b.sourceColumn || ""}`;
+            return ak.localeCompare(bk);
+          });
+
+      return (
+        JSON.stringify(normalise(nextPayload)) !==
+        JSON.stringify(normalise(savedFieldMap))
+      );
+    },
+    [savedFieldMap],
+  );
+
+  const currentCanonicalFieldMap = useMemo(
+    () => (profileId ? buildCanonicalFieldMapPayload(assign) : []),
+    [assign, profileId, buildCanonicalFieldMapPayload],
+  );
+
+  const hasPendingCanonicalFieldMapSave = useMemo(
+    () =>
+      profileId ? canonicalFieldMapNeedsSave(currentCanonicalFieldMap) : false,
+    [profileId, currentCanonicalFieldMap, canonicalFieldMapNeedsSave],
+  );
+
   async function save(autoOrEvent = false, assignOverride) {
     const auto = typeof autoOrEvent === "boolean" ? autoOrEvent : false;
     const effectiveAssign = assignOverride || assign;
@@ -771,7 +1043,14 @@ export default function MapPanel() {
       return null;
     }
 
-    if (!isDirty && !assignOverride) {
+    const canonicalFieldMap = profileId
+      ? buildCanonicalFieldMapPayload(effectiveAssign)
+      : [];
+    const needsCanonicalFieldMapSave = profileId
+      ? canonicalFieldMapNeedsSave(canonicalFieldMap)
+      : false;
+
+    if (!isDirty && !assignOverride && !needsCanonicalFieldMapSave) {
       if (!auto) showAlert("No mapping changes to save.", "info");
       return null;
     }
@@ -792,15 +1071,33 @@ export default function MapPanel() {
         ...Object.keys(effectiveAssign || {}),
       ]);
 
-      for (const [tgt, src] of Object.entries(effectiveAssign || {})) {
-        if (!src) continue;
-        if (!tgt) continue;
-        if (!allowedTargets.has(tgt)) continue;
-        payload[src] = { field: tgt, type: "string" };
+      if (!profileId) {
+        for (const [tgt, assignedSource] of Object.entries(
+          effectiveAssign || {},
+        )) {
+          const src = normaliseSourceRef(assignedSource);
+          if (!src?.header) continue;
+          if (!tgt) continue;
+          if (!allowedTargets.has(tgt)) continue;
+
+          // Legacy mappings are keyed only by header name, so they are only safe
+          // for non-profiled/main-only runs. Profile-backed runs persist authoritative
+          // mappings via the canonical field-map payload instead.
+          if ((src.role || "main") !== "main") continue;
+
+          payload[src.header] = {
+            field: tgt,
+            type: "string",
+            sourceRole: "main",
+          };
+        }
       }
 
       const count = Object.keys(payload).length;
-      if (count === 0) {
+      const canonicalCount = Array.isArray(canonicalFieldMap)
+        ? canonicalFieldMap.length
+        : 0;
+      if (count === 0 && canonicalCount === 0) {
         if (!auto) {
           showAlert(
             "Map is empty — assign at least one field before saving.",
@@ -811,10 +1108,17 @@ export default function MapPanel() {
       }
 
       const res = await savePtrsMap(ptrsId, {
-        mappings: payload,
+        mappings: profileId ? null : payload,
         extras: mapExtras,
         profileId,
+        joins,
+        customFields: joinCustomFields,
       });
+
+      if (profileId) {
+        await savePtrsFieldMap(ptrsId, profileId, canonicalFieldMap);
+        setSavedFieldMap(canonicalFieldMap);
+      }
 
       // Keep latest extras (important so next save can truly be a no-op)
       let nextExtras = mapExtras || null;
@@ -825,7 +1129,8 @@ export default function MapPanel() {
         // ignore
       }
 
-      const savedCount = Object.keys(res?.mappings || payload).length;
+      const savedLegacyCount = Object.keys(res?.mappings || payload).length;
+      const savedCount = Math.max(savedLegacyCount, canonicalCount);
       if (!auto) {
         showAlert(
           `Saved map (${savedCount} field${savedCount === 1 ? "" : "s"})`,
@@ -876,33 +1181,6 @@ export default function MapPanel() {
       return;
     }
 
-    // Guard: if joins are configured, ensure the main-side join columns are actually mapped
-    // (i.e. the source header is assigned to any target). We only enforce this when the
-    // user proceeds to Stage, to avoid nagging during mapping.
-    const joinConditions = Array.isArray(joins) ? joins : [];
-    const requiredMainJoinHeaders = joinConditions
-      .filter((c) => c?.from?.role === "main" && c?.from?.column)
-      .map((c) => c.from.column)
-      .filter(Boolean);
-
-    if (requiredMainJoinHeaders.length) {
-      const assignedSourceHeaders = new Set(
-        Object.values(assign || {}).filter((v) => typeof v === "string" && v),
-      );
-      const missingJoinHeaders = requiredMainJoinHeaders.filter(
-        (h) => !assignedSourceHeaders.has(h),
-      );
-
-      if (missingJoinHeaders.length) {
-        abortStage(
-          `Before staging, please map the join key column(s): ${missingJoinHeaders.join(
-            ", ",
-          )}`,
-        );
-        return;
-      }
-    }
-
     if (groupedRequirementFailures.length > 0) {
       const messages = groupedRequirementFailures.map(
         (g) => `${g.label} (map at least one)`,
@@ -911,30 +1189,33 @@ export default function MapPanel() {
       return;
     }
 
+    if (!joinConnectivity.hasMain) {
+      abortStage(
+        "Before staging, a main dataset must exist and all datasets must be connected by joins.",
+      );
+      return;
+    }
+
+    if (!joinConnectivity.connected) {
+      abortStage(
+        `Before staging, all dataset roles must be connected by joins. Orphaned role(s): ${joinConnectivity.orphanedRoles.join(", ")}`,
+      );
+      return;
+    }
+
     setStaging(true);
 
     try {
-      if (isDirty) {
-        await save(true);
-      }
-
-      // 🔥 Kick off mapped-row rebuild without blocking navigation.
-      // The Stage screen can show the latest snapshot while the rebuild runs.
-      // Server should also short-circuit if nothing materially changed.
-      try {
-        buildPtrsMappedDataset(ptrsId).catch((err) => {
-          showAlert(err?.message || "Failed to rebuild mapped rows", "error");
-        });
-      } catch (err) {
-        // If the call setup itself fails, still allow navigation.
-        showAlert(
-          err?.message || "Failed to start mapped-row rebuild",
-          "warning",
-        );
+      if (isDirty || hasPendingCanonicalFieldMapSave) {
+        await save(false);
       }
 
       // No heavy build work here.
       // Stage step will decide whether to rebuild or reuse server-side based on the saved map and inputs.
+
+      // Build the mapped snapshot before handing over to Stage.
+      // Stage consumes PtrsMappedRow, so Mapping must materialise it first.
+      await buildPtrsMappedDataset(ptrsId);
 
       try {
         await updatePtrsStep.mutateAsync({ currentStep: "stage" });
@@ -965,9 +1246,16 @@ export default function MapPanel() {
 
   const TargetBin = ({ field }) => {
     const assigned = assign[field] || null;
-    const options = headers;
-    const getLabel = (h) =>
-      h ? (examples[h] ? `${h} — e.g. ${examples[h]}` : h) : "";
+    const options = sourceOptions;
+    const getLabel = (src) => {
+      const sourceRef = normaliseSourceRef(src);
+      if (!sourceRef) return "";
+      const base = getSourceRefLabel(sourceRef);
+      return examples[sourceRef.header]
+        ? `${base} — e.g. ${examples[sourceRef.header]}`
+        : base;
+    };
+
     return (
       <Paper
         onDragOver={allowDrop}
@@ -989,14 +1277,14 @@ export default function MapPanel() {
           {assigned ? (
             <Stack direction="row" spacing={1} alignItems="center">
               <Chip
-                label={assigned}
+                label={getSourceRefLabel(assigned)}
                 onDelete={() => clearTarget(field)}
                 deleteIcon={<ClearIcon />}
                 size="small"
               />
-              {examples[assigned] && (
+              {assigned?.header && examples[assigned.header] && (
                 <Typography variant="caption" color="text.secondary">
-                  e.g. {examples[assigned]}
+                  e.g. {examples[assigned.header]}
                 </Typography>
               )}
               <Chip
@@ -1019,6 +1307,35 @@ export default function MapPanel() {
             value={assigned}
             onChange={(e, val) => assignSourceToTarget(val || undefined, field)}
             getOptionLabel={getLabel}
+            isOptionEqualToValue={(option, value) =>
+              sourceRefKey(option) === sourceRefKey(value)
+            }
+            renderOption={(props, option) => {
+              const { key, ...optionProps } = props;
+              const sourceRef = normaliseSourceRef(option);
+              return (
+                <Box component="li" key={key} {...optionProps}>
+                  <Stack spacing={0.25}>
+                    <Typography variant="body2">
+                      {sourceRef?.header || ""}
+                    </Typography>
+                    {!!sourceRef && (
+                      <Typography variant="caption" color="text.secondary">
+                        {getSourceRefLabel(sourceRef).replace(
+                          `${sourceRef.header} — `,
+                          "",
+                        )}
+                      </Typography>
+                    )}
+                    {sourceRef?.header && examples[sourceRef.header] && (
+                      <Typography variant="caption" color="text.secondary">
+                        e.g. {examples[sourceRef.header]}
+                      </Typography>
+                    )}
+                  </Stack>
+                </Box>
+              );
+            }}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -1047,33 +1364,94 @@ export default function MapPanel() {
     (f) => !PTRS_REQUIRED_FIELDS.includes(f) && !!assign[f],
   ).length;
 
-  // right pane sources item
-  const SourceToken = ({ h }) => {
-    const used = usedSources.has(h);
-    const meta = headerMeta?.[h];
-    let sourceLabel = "";
-    if (meta && Array.isArray(meta.sources) && meta.sources.length) {
-      const hasMain = meta.sources.some((s) => s?.kind === "main");
-      const datasetLabels = new Set();
-      meta.sources.forEach((s) => {
-        if (s?.fileName) datasetLabels.add(s.fileName);
-        else if (s?.role) datasetLabels.add(s.role);
-      });
-      const dsList = Array.from(datasetLabels);
-      if (hasMain && dsList.length) {
-        sourceLabel = `Source: Main dataset + ${dsList.join(", ")}`;
-      } else if (hasMain) {
-        sourceLabel = "Source: Main dataset";
-      } else if (dsList.length) {
-        sourceLabel = `Source: ${dsList.join(", ")}`;
+  const joinConnectivity = useMemo(() => {
+    const datasetRoles = Array.from(
+      new Set(
+        (dsQ.data?.items || [])
+          .map((d) =>
+            String(d?.role || "")
+              .trim()
+              .toLowerCase(),
+          )
+          .filter(Boolean),
+      ),
+    );
+
+    if (!datasetRoles.length) {
+      return {
+        hasMain: false,
+        connected: false,
+        connectedRoles: [],
+        orphanedRoles: [],
+      };
+    }
+
+    const graph = new Map();
+    datasetRoles.forEach((role) => graph.set(role, new Set()));
+
+    for (const join of Array.isArray(joins) ? joins : []) {
+      const fromRole = String(join?.from?.role || "")
+        .trim()
+        .toLowerCase();
+      const toRole = String(join?.to?.role || "")
+        .trim()
+        .toLowerCase();
+      if (!fromRole || !toRole) continue;
+      if (!graph.has(fromRole) || !graph.has(toRole)) continue;
+
+      graph.get(fromRole)?.add(toRole);
+      graph.get(toRole)?.add(fromRole);
+    }
+
+    const mainRoles = datasetRoles.filter(
+      (role) => role === "main" || role.startsWith("main_"),
+    );
+    const rootRole = mainRoles[0] || null;
+
+    if (!rootRole) {
+      return {
+        hasMain: false,
+        connected: false,
+        connectedRoles: [],
+        orphanedRoles: datasetRoles,
+      };
+    }
+
+    const visited = new Set();
+    const queue = [rootRole];
+
+    while (queue.length) {
+      const current = queue.shift();
+      if (!current || visited.has(current)) continue;
+      visited.add(current);
+
+      for (const next of Array.from(graph.get(current) || [])) {
+        if (!visited.has(next)) queue.push(next);
       }
     }
 
+    const orphanedRoles = datasetRoles.filter((role) => !visited.has(role));
+
+    return {
+      hasMain: true,
+      connected: orphanedRoles.length === 0,
+      connectedRoles: Array.from(visited),
+      orphanedRoles,
+    };
+  }, [dsQ.data, joins]);
+
+  const mappedCount = Object.values(assign || {}).filter(Boolean).length;
+
+  // right pane sources item
+  const SourceToken = ({ source }) => {
+    const sourceRef = normaliseSourceRef(source);
+    const used = usedSources.has(sourceRefKey(sourceRef));
+
     return (
       <Paper
-        key={h}
+        key={sourceRefKey(sourceRef)}
         draggable
-        onDragStart={(e) => onDragStart(e, h)}
+        onDragStart={(e) => onDragStart(e, sourceRef)}
         variant="outlined"
         sx={{
           p: 1,
@@ -1082,23 +1460,23 @@ export default function MapPanel() {
           cursor: "grab",
         }}
       >
-        <Typography variant="body2">{h}</Typography>
-        {examples[h] && (
+        <Typography variant="body2">{sourceRef?.header}</Typography>
+        {sourceRef?.header && examples[sourceRef.header] && (
           <Typography
             variant="caption"
             color="text.secondary"
             sx={{ display: "block" }}
           >
-            e.g. {examples[h]}
+            e.g. {examples[sourceRef.header]}
           </Typography>
         )}
-        {sourceLabel && (
+        {sourceRef?.role && (
           <Typography
             variant="caption"
             color="text.secondary"
             sx={{ display: "block", mt: 0.25 }}
           >
-            {sourceLabel}
+            {String(sourceRef.role)}
           </Typography>
         )}
       </Paper>
@@ -1174,16 +1552,27 @@ export default function MapPanel() {
                 onDragOver={allowDrop}
                 onDrop={(e) => {
                   e.preventDefault();
-                  const source = e.dataTransfer.getData("text/plain");
-                  if (!source) return;
-                  const newName = makeUniqueCustomName(source);
+                  const raw = e.dataTransfer.getData("text/plain");
+                  if (!raw) return;
+
+                  let source = null;
+                  try {
+                    source = JSON.parse(raw);
+                  } catch {
+                    source = raw;
+                  }
+
+                  const sourceRef = normaliseSourceRef(source);
+                  if (!sourceRef?.header) return;
+
+                  const newName = makeUniqueCustomName(sourceRef.header);
                   if (!customFields.includes(newName)) {
                     setCustomFields((prev) => [...prev, newName]);
                   }
-                  assignSourceToTarget(source, newName);
+                  assignSourceToTarget(sourceRef, newName);
                   setIsDirty(true);
                   showAlert(
-                    `Created "${newName}" and mapped from "${source}"`,
+                    `Created "${newName}" and mapped from "${sourceRef.header}"`,
                     "success",
                   );
                 }}
@@ -1260,19 +1649,20 @@ export default function MapPanel() {
                               alignItems="center"
                             >
                               <Chip
-                                label={assign[f]}
+                                label={getSourceRefLabel(assign[f])}
                                 onDelete={() => clearTarget(f)}
                                 deleteIcon={<ClearIcon />}
                                 size="small"
                               />
-                              {examples[assign[f]] && (
-                                <Typography
-                                  variant="caption"
-                                  color="text.secondary"
-                                >
-                                  e.g. {examples[assign[f]]}
-                                </Typography>
-                              )}
+                              {assign[f]?.header &&
+                                examples[assign[f].header] && (
+                                  <Typography
+                                    variant="caption"
+                                    color="text.secondary"
+                                  >
+                                    e.g. {examples[assign[f].header]}
+                                  </Typography>
+                                )}
                               <Chip
                                 label="Mapped"
                                 size="small"
@@ -1293,18 +1683,55 @@ export default function MapPanel() {
                             disablePortal
                             fullWidth
                             size="small"
-                            options={headers}
+                            options={sourceOptions}
                             value={assign[f] || null}
                             onChange={(e, val) =>
                               assignSourceToTarget(val || undefined, f)
                             }
-                            getOptionLabel={(h) =>
-                              h
-                                ? examples[h]
-                                  ? `${h} — e.g. ${examples[h]}`
-                                  : h
-                                : ""
+                            getOptionLabel={(src) => {
+                              const sourceRef = normaliseSourceRef(src);
+                              if (!sourceRef) return "";
+                              const base = getSourceRefLabel(sourceRef);
+                              return examples[sourceRef.header]
+                                ? `${base} — e.g. ${examples[sourceRef.header]}`
+                                : base;
+                            }}
+                            isOptionEqualToValue={(option, value) =>
+                              sourceRefKey(option) === sourceRefKey(value)
                             }
+                            renderOption={(props, option) => {
+                              const { key, ...optionProps } = props;
+                              const sourceRef = normaliseSourceRef(option);
+                              return (
+                                <Box component="li" key={key} {...optionProps}>
+                                  <Stack spacing={0.25}>
+                                    <Typography variant="body2">
+                                      {sourceRef?.header || ""}
+                                    </Typography>
+                                    {!!sourceRef && (
+                                      <Typography
+                                        variant="caption"
+                                        color="text.secondary"
+                                      >
+                                        {getSourceRefLabel(sourceRef).replace(
+                                          `${sourceRef.header} — `,
+                                          "",
+                                        )}
+                                      </Typography>
+                                    )}
+                                    {sourceRef?.header &&
+                                      examples[sourceRef.header] && (
+                                        <Typography
+                                          variant="caption"
+                                          color="text.secondary"
+                                        >
+                                          e.g. {examples[sourceRef.header]}
+                                        </Typography>
+                                      )}
+                                  </Stack>
+                                </Box>
+                              );
+                            }}
                             renderInput={(params) => (
                               <TextField
                                 {...params}
@@ -1409,7 +1836,11 @@ export default function MapPanel() {
               <Button
                 variant="contained"
                 onClick={() => save(false)}
-                disabled={isBusy || !isDirty}
+                disabled={
+                  isBusy ||
+                  mappedCount === 0 ||
+                  (!isDirty && !hasPendingCanonicalFieldMapSave)
+                }
               >
                 Save map
               </Button>
@@ -1417,7 +1848,9 @@ export default function MapPanel() {
                 variant="contained"
                 endIcon={<NavigateNextIcon />}
                 onClick={stageData}
-                disabled={isBusy}
+                disabled={
+                  isBusy || requiredMappedCount < PTRS_REQUIRED_FIELDS.length
+                }
               >
                 Next: Stage data
               </Button>
@@ -1462,7 +1895,9 @@ export default function MapPanel() {
                 No headers match your search.
               </Typography>
             ) : (
-              filteredSources.map((h) => <SourceToken key={h} h={h} />)
+              filteredSources.map((source) => (
+                <SourceToken key={sourceRefKey(source)} source={source} />
+              ))
             )}
           </Box>
         </Paper>

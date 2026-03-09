@@ -17,7 +17,6 @@ import { savePtrsJoins } from "../services/joins.ptrsApi";
 import {
   usePtrsDatasetsQuery,
   usePtrsJoinsQuery,
-  usePtrsUnifiedSampleQuery,
 } from "../hooks/usePtrsQueries";
 import JoinsDesigner from "../components/JoinsDesigner";
 
@@ -34,9 +33,7 @@ export default function TablesAndJoinsPanel() {
 
   const [datasets, setDatasets] = useState([]);
   const [joins, setJoins] = useState({ conditions: [], customFields: [] });
-  const [headers, setHeaders] = useState([]);
   const [mainHeaders, setMainHeaders] = useState([]);
-  const [examples, setExamples] = useState({});
   const [mainHeadersByRole, setMainHeadersByRole] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -140,22 +137,9 @@ export default function TablesAndJoinsPanel() {
   const dsQ = usePtrsDatasetsQuery(ptrsId);
   const joinsQ = usePtrsJoinsQuery(ptrsId);
 
-  const mainDatasetId =
-    (dsQ.data?.items || []).find(
-      (d) => String(d?.role || "").toLowerCase() === "main",
-    )?.id ||
-    (dsQ.data?.items || [])[0]?.id ||
-    null;
-
-  const sampleQ = usePtrsUnifiedSampleQuery(ptrsId, {
-    datasetId: mainDatasetId,
-    limit: 5,
-    offset: 0,
-  });
-
   useEffect(() => {
-    setLoading(Boolean(dsQ.isLoading || joinsQ.isLoading || sampleQ.isLoading));
-  }, [dsQ.isLoading, joinsQ.isLoading, sampleQ.isLoading]);
+    setLoading(Boolean(dsQ.isLoading || joinsQ.isLoading));
+  }, [dsQ.isLoading, joinsQ.isLoading]);
 
   useEffect(() => {
     if (dsQ.isError)
@@ -166,11 +150,6 @@ export default function TablesAndJoinsPanel() {
     if (joinsQ.isError)
       showAlert(joinsQ.error?.message || "Failed to load joins", "error");
   }, [joinsQ.isError, joinsQ.error, showAlert]);
-
-  useEffect(() => {
-    if (sampleQ.isError)
-      showAlert(sampleQ.error?.message || "Failed to load sample", "error");
-  }, [sampleQ.isError, sampleQ.error, showAlert]);
 
   useEffect(() => {
     setDatasets(dsQ.data?.items || []);
@@ -218,70 +197,44 @@ export default function TablesAndJoinsPanel() {
   }, [joinsQ.data]);
 
   useEffect(() => {
-    const unified = sampleQ.data || null;
+    const items = Array.isArray(dsQ.data?.items) ? dsQ.data.items : [];
 
-    if (debugJoins) {
-      console.log("[TablesAndJoinsPanel] unified sample raw", unified);
-    }
-    const inferred = Array.isArray(unified?.headers) ? unified.headers : [];
-    const meta =
-      unified && typeof unified.headerMeta === "object"
-        ? unified.headerMeta
-        : {};
-
-    // Derive main-only headers per main role from unified headerMeta.
     const byRole = {};
-    for (const h of inferred) {
-      const srcs = meta?.[h]?.sources || [];
-      if (!Array.isArray(srcs) || !srcs.length) continue;
 
-      const mainSrcs = srcs.filter((s) => s && s.kind === "main" && s.role);
-      if (!mainSrcs.length) continue;
+    items.forEach((dataset) => {
+      const role = String(dataset?.role || "");
+      if (!role || !(role === "main" || role.startsWith("main_"))) return;
 
-      for (const s of mainSrcs) {
-        const role = String(s.role);
-        if (!byRole[role]) byRole[role] = new Set();
-        byRole[role].add(h);
-      }
-    }
+      const roleHeaders = (dataset?.meta?.headers || dataset?.headers || [])
+        .filter(Boolean)
+        .map(String);
 
-    const finalByRole = {};
-    for (const [role, set] of Object.entries(byRole)) {
-      finalByRole[role] = Array.from(set).sort((a, b) => a.localeCompare(b));
-    }
+      if (!roleHeaders.length) return;
 
-    const mains = Array.from(
-      new Set(Object.values(finalByRole).flatMap((arr) => arr || [])),
-    ).sort((a, b) => a.localeCompare(b));
+      byRole[role] = Array.from(new Set(roleHeaders)).sort((a, b) =>
+        a.localeCompare(b),
+      );
+    });
 
-    // Examples: header -> best available example (from headerMeta if present)
-    const ex = {};
-    for (const h of inferred) {
-      const hm = meta?.[h] || {};
-      const example =
-        hm.example ??
-        (hm.examples
-          ? (hm.examples.main ?? Object.values(hm.examples)[0])
-          : "");
-      ex[h] = example == null ? "" : String(example);
-    }
+    const mainRole = byRole.main || [];
+    const mains = mainRole.length
+      ? mainRole
+      : Array.from(
+          new Set(Object.values(byRole).flatMap((arr) => arr || [])),
+        ).sort((a, b) => a.localeCompare(b));
 
-    setHeaders(inferred);
-    setExamples(ex);
-    setMainHeadersByRole(finalByRole);
+    setMainHeadersByRole(byRole);
     setMainHeaders(mains);
 
     if (debugJoins) {
       // eslint-disable-next-line no-console
-      console.log("[TablesAndJoinsPanel] loaded data", {
-        datasets: dsQ.data?.items || [],
-        headers: inferred,
-        examples: ex,
+      console.log("[TablesAndJoinsPanel] dataset metadata headers", {
+        datasets: items,
         mainHeaders: mains,
-        mainHeadersByRole: finalByRole,
+        mainHeadersByRole: byRole,
       });
     }
-  }, [sampleQ.data, debugJoins, dsQ.data]);
+  }, [dsQ.data, debugJoins]);
 
   useEffect(() => {
     return () => {
@@ -305,15 +258,88 @@ export default function TablesAndJoinsPanel() {
     ? joins.conditions.length
     : 0;
 
-  const hasSupportingDatasets = useMemo(() => {
-    return (datasets || []).some((d) => {
-      const role = String(d?.role || "").toLowerCase();
-      return role && role !== "main";
-    });
+  const mainAndSupportingRoles = useMemo(() => {
+    return Array.from(
+      new Set(
+        (datasets || [])
+          .map((d) =>
+            String(d?.role || "")
+              .trim()
+              .toLowerCase(),
+          )
+          .filter(Boolean),
+      ),
+    );
   }, [datasets]);
 
+  const supportingRoles = useMemo(() => {
+    return mainAndSupportingRoles.filter(
+      (role) => !(role === "main" || role.startsWith("main_")),
+    );
+  }, [mainAndSupportingRoles]);
+
+  const hasSupportingDatasets = supportingRoles.length > 0;
   const mustHaveJoin = hasSupportingDatasets;
-  const canProceedToMap = !mustHaveJoin || joinsCount > 0;
+
+  const joinCoverage = useMemo(() => {
+    const conditions = Array.isArray(joins?.conditions) ? joins.conditions : [];
+    const roles = mainAndSupportingRoles;
+    const roleSet = new Set(roles);
+
+    if (!roles.length) {
+      return {
+        connected: true,
+        connectedRoles: [],
+        orphanedRoles: [],
+      };
+    }
+
+    const graph = new Map();
+    roles.forEach((role) => graph.set(role, new Set()));
+
+    for (const j of conditions) {
+      const fromRole = String(j?.from?.role || "")
+        .trim()
+        .toLowerCase();
+      const toRole = String(j?.to?.role || "")
+        .trim()
+        .toLowerCase();
+      if (!fromRole || !toRole) continue;
+      if (!roleSet.has(fromRole) || !roleSet.has(toRole)) continue;
+
+      graph.get(fromRole)?.add(toRole);
+      graph.get(toRole)?.add(fromRole);
+    }
+
+    const mainCandidates = roles.filter(
+      (role) => role === "main" || role.startsWith("main_"),
+    );
+    const roots = mainCandidates.length ? mainCandidates : roles.slice(0, 1);
+
+    const visited = new Set();
+    const queue = [...roots];
+
+    while (queue.length) {
+      const current = queue.shift();
+      if (!current || visited.has(current)) continue;
+      visited.add(current);
+
+      const neighbours = Array.from(graph.get(current) || []);
+      neighbours.forEach((n) => {
+        if (!visited.has(n)) queue.push(n);
+      });
+    }
+
+    const orphanedRoles = roles.filter((role) => !visited.has(role));
+
+    return {
+      connected: orphanedRoles.length === 0,
+      connectedRoles: Array.from(visited),
+      orphanedRoles,
+    };
+  }, [joins, mainAndSupportingRoles]);
+
+  const canProceedToMap = !mustHaveJoin || joinCoverage.connected;
 
   const saveJoins = async () => {
     if (!ptrsId) return showAlert("Missing ptrsId", "error");
@@ -328,6 +354,15 @@ export default function TablesAndJoinsPanel() {
   const goToMap = async () => {
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
+      return;
+    }
+
+    if (!canProceedToMap) {
+      showAlert(
+        orphanedJoinMessage ||
+          "Every uploaded dataset must be connected before you can continue.",
+        "error",
+      );
       return;
     }
 
@@ -356,6 +391,11 @@ export default function TablesAndJoinsPanel() {
     if (profileId) qs.set("profileId", profileId);
     goTo(`map?${qs.toString()}`, { includeId: false });
   };
+
+  const orphanedJoinMessage =
+    mustHaveJoin && !joinCoverage.connected
+      ? `Every dataset must be connected before you can continue. Orphaned dataset role(s): ${joinCoverage.orphanedRoles.join(", ")}.`
+      : null;
 
   return (
     <Box>
@@ -422,10 +462,9 @@ export default function TablesAndJoinsPanel() {
           </Stack>
         </Stack>
         <Divider sx={{ mb: 2 }} />
-        {mustHaveJoin && joinsCount === 0 ? (
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-            You’ve uploaded supporting datasets, so you need to define at least
-            one join before you can continue.
+        {mustHaveJoin && !joinCoverage.connected ? (
+          <Typography variant="body2" color="error" sx={{ mb: 1 }}>
+            {orphanedJoinMessage}
           </Typography>
         ) : null}
         <JoinsDesigner
@@ -450,8 +489,6 @@ export default function TablesAndJoinsPanel() {
             setJoins(nextJoins);
             scheduleAutosave(nextJoins);
           }}
-          headers={headers}
-          examples={examples}
           leftHeaders={mainHeaders}
           leftHeadersByRole={mainHeadersByRole}
           debug={debugJoins}

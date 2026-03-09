@@ -126,10 +126,10 @@ export default function CreatePtrsCard({ onSuccess }) {
     resolver: yupResolver(schema),
     defaultValues: {
       label: "",
-      periodIdx: 0,
+      periodIdx: 3,
       dataSource: "csv",
-      reportingEntityName: "",
-      abn: "",
+      reportingEntityName: "Veolia Water Technologies 2 Pty Ltd",
+      abn: "30616561829",
       acn: "",
       arbn: "",
       file: null,

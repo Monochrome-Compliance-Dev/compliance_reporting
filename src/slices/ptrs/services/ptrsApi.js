@@ -89,8 +89,16 @@ export const normMap = (x = {}) => {
 };
 
 export const normSample = (x = {}) => ({
-  headers: x.headers || [],
-  rows: x.rows || [],
+  headers: Array.isArray(x.headers) ? x.headers : [],
+  rows: Array.isArray(x.rows) ? x.rows : [],
+  total:
+    typeof x.total === "number"
+      ? x.total
+      : typeof x.rowsCount === "number"
+        ? x.rowsCount
+        : 0,
+  headerMeta:
+    x.headerMeta && typeof x.headerMeta === "object" ? x.headerMeta : {},
 });
 
 const normIngest = (x = {}) => ({

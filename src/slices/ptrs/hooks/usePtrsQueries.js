@@ -28,11 +28,10 @@ const K = {
   tables: (id) => ["ptrs", "tables", id],
   joins: (id) => ["ptrs", "joins", id],
   datasets: (id) => ["ptrs", "datasets", id],
-  unifiedSample: (id, { datasetId = null, limit = 5, offset = 0 } = {}) => [
+  unifiedSample: (id, { limit = 5, offset = 0 } = {}) => [
     "ptrs",
     "sample",
     id,
-    datasetId || "none",
     Number(limit) || 5,
     Number(offset) || 0,
   ],
@@ -155,13 +154,13 @@ export function usePtrsMapQuery(ptrsId) {
 
 export function usePtrsUnifiedSampleQuery(
   ptrsId,
-  { datasetId = null, limit = 5, offset = 0 } = {},
+  { limit = 5, offset = 0 } = {},
 ) {
-  const enabled = !!ptrsId && !!datasetId;
+  const enabled = !!ptrsId;
 
   return useQuery({
-    queryKey: K.unifiedSample(ptrsId, { datasetId, limit, offset }),
-    queryFn: async () => getUnifiedSample(ptrsId, { datasetId, limit, offset }),
+    queryKey: K.unifiedSample(ptrsId, { limit, offset }),
+    queryFn: async () => getUnifiedSample(ptrsId, { limit, offset }),
     enabled,
     staleTime: 120_000,
     refetchOnMount: false,
