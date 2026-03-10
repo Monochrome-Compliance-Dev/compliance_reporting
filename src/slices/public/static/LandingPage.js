@@ -121,6 +121,34 @@ export function LandingPage() {
               Read insights
             </Button>
           </Box>
+          <Typography
+            variant="body2"
+            sx={{
+              mt: theme.spacing(2),
+              color: "rgba(255,255,255,0.78)",
+              maxWidth: 900,
+              lineHeight: 1.7,
+            }}
+          >
+            Curious how your payment data behaves under these frameworks? We’re
+            always happy to review a small sample dataset.{" "}
+            <Button
+              variant="text"
+              component={RouterLink}
+              to="/services"
+              sx={{
+                fontWeight: 800,
+                color: theme.palette.common.white,
+                p: 0,
+                minWidth: "auto",
+                textTransform: "none",
+                verticalAlign: "baseline",
+                "&:hover": { backgroundColor: "transparent", opacity: 0.9 },
+              }}
+            >
+              See how it works
+            </Button>
+          </Typography>
         </Box>
       </Box>
       <Box sx={{ px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
@@ -295,8 +323,11 @@ export function LandingPage() {
             },
           ].map((card, index) => (
             <Grid
+              item
               key={index}
-              size={{ xs: 12, sm: 8, md: 4 }}
+              xs={12}
+              sm={8}
+              md={4}
               sx={{ display: "flex" }}
             >
               <Box sx={{ width: "100%" }}>
@@ -329,11 +360,11 @@ export function LandingPage() {
       <Divider />
       <Box textAlign="center" sx={{ px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
         <Typography variant="h6" gutterBottom>
-          Let us take Payment Times Reporting off your plate
+          Let us take payment reporting off your plate
         </Typography>
         <Typography variant="body2" sx={{ mb: 2 }}>
-          A short conversation is usually all it takes to see whether we can
-          help.
+          A short conversation is usually all it takes to see whether a data
+          review would be useful.
         </Typography>
         <Box>
           <RouterLink to="/contact" style={{ textDecoration: "none" }}>

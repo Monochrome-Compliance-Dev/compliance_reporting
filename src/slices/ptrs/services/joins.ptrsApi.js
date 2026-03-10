@@ -14,6 +14,16 @@ const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
  * No backwards-compatibility shims. Callers must send/receive the canonical shape.
  */
 
+export const listCompatibleJoins = async (ptrsId) => {
+  if (!ptrsId) throw new Error("Missing ptrsId");
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/compatible-joins`,
+  );
+
+  return pickData(res) || res || { items: [] };
+};
+
 export const getPtrsJoins = async (ptrsId) => {
   if (!ptrsId) throw new Error("Missing ptrsId");
 

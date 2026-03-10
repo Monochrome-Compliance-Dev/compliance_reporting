@@ -114,8 +114,8 @@ export const getPtrsMap = async (ptrsId) => {
 
   return {
     ...base,
-    joins: Array.isArray(joins) ? joins : [],
-    customFields: Array.isArray(customFields) ? customFields : null,
+    joins,
+    customFields,
   };
 };
 
@@ -133,12 +133,6 @@ export const savePtrsMap = async (
     customFields = null,
   },
 ) => {
-  console.log("savePtrsMap called with:", {
-    ptrsId,
-    mappings,
-    customFields,
-  });
-
   // Always include mapMeta inside extras for server-side compatibility listing
   const normHeaderKey = (s) =>
     String(s || "")
@@ -213,6 +207,50 @@ export const savePtrsMap = async (
   return normMap(pickData(res));
 };
 
+export const getPtrsFieldMap = async (ptrsId, profileId) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!profileId) throw new Error("profileId is required");
+
+  const qs = new URLSearchParams();
+  qs.set("profileId", String(profileId));
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/field-map?${qs.toString()}`,
+  );
+
+  const data = pickData(res) || {};
+  return Array.isArray(data.fieldMap)
+    ? data.fieldMap
+    : Array.isArray(data.items)
+      ? data.items
+      : Array.isArray(data)
+        ? data
+        : [];
+};
+
+export const savePtrsFieldMap = async (ptrsId, profileId, fieldMap) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!profileId) throw new Error("profileId is required");
+  if (!Array.isArray(fieldMap)) throw new Error("fieldMap array is required");
+
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/field-map`,
+    {
+      profileId,
+      fieldMap,
+    },
+  );
+
+  const data = pickData(res) || {};
+  return Array.isArray(data.fieldMap)
+    ? data.fieldMap
+    : Array.isArray(data.items)
+      ? data.items
+      : Array.isArray(data)
+        ? data
+        : [];
+};
+
 // Build and persist the mapped + joined dataset for this PTRS run
 export const buildPtrsMappedDataset = async (ptrsId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
@@ -235,26 +273,17 @@ export const buildPtrsMappedDataset = async (ptrsId) => {
 };
 
 // Unified sample: returns merged headers + examples from main + supporting datasets
-export const getUnifiedSample = async (ptrsId, opts = {}) => {
+// IMPORTANT:
+// This function must always return a provenance-preserving unified sample for Mapping.
+// Do not add dataset-specific fast paths here. Use getDatasetSample(...) for single-dataset views.
+export const getUnifiedSample = async (
+  ptrsId,
+  { limit = 10, offset = 0 } = {},
+) => {
   if (!ptrsId) throw new Error("ptrsId is required");
 
-  const datasetId = opts?.datasetId || null;
-  const limit = Number(opts?.limit) || 10;
-  const offset = Number(opts?.offset) || 0;
-
-  // Fast-path: if caller already knows the datasetId, do not re-list datasets.
-  if (datasetId) {
-    const qs = new URLSearchParams();
-    qs.set("limit", String(limit));
-    qs.set("offset", String(offset));
-
-    const res = await fetchWrapper.get(
-      `${API_ROOT}/v2/ptrs/datasets/${datasetId}/sample?${qs.toString()}`,
-    );
-
-    // Return the sample shape directly (headers/rows/total)
-    return normSample(pickData(res));
-  }
+  limit = Number(limit) || 10;
+  offset = Number(offset) || 0;
 
   // 1) Load datasets so we can treat multiple mains correctly
   let datasets = [];
@@ -266,21 +295,45 @@ export const getUnifiedSample = async (ptrsId, opts = {}) => {
   }
 
   const isMainRole = (role) => {
-    const r = String(role || "");
+    const r = String(role || "").toLowerCase();
     return r === "main" || r.startsWith("main_");
   };
 
   const mainDatasets = datasets.filter((d) => isMainRole(d?.role));
   const supportingDatasets = datasets.filter((d) => !isMainRole(d?.role));
 
-  // 2) Get samples for each main dataset (lightweight)
+  // 2) Get samples for each main dataset.
+  // IMPORTANT: header provenance for main datasets must come from dataset metadata
+  // (meta.headers) when available. The sample endpoint can return polluted header
+  // unions during iterative development, so we only trust it for row examples and
+  // as a fallback when metadata headers are missing.
   const mainSamples = await Promise.all(
     mainDatasets.map(async (ds) => {
+      const metaHeaders =
+        ds?.meta && Array.isArray(ds.meta.headers) ? ds.meta.headers : null;
+
       try {
         const s = await getDatasetSample(ds.id, { limit, offset });
-        return { dataset: ds, sample: s };
+        return {
+          dataset: ds,
+          sample: {
+            ...(s || {}),
+            headers:
+              Array.isArray(metaHeaders) && metaHeaders.length
+                ? metaHeaders
+                : Array.isArray(s?.headers)
+                  ? s.headers
+                  : [],
+          },
+        };
       } catch {
-        return { dataset: ds, sample: { headers: [], rows: [] } };
+        return {
+          dataset: ds,
+          sample: {
+            headers: Array.isArray(metaHeaders) ? metaHeaders : [],
+            rows: [],
+          },
+        };
       }
     }),
   );
@@ -416,9 +469,15 @@ export const getUnifiedSample = async (ptrsId, opts = {}) => {
   };
 };
 
-export const listPtrsWithMap = async () => {
+export const listPtrsWithMap = async (profileId = null) => {
   try {
-    const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/compatible-maps`);
+    const qs = new URLSearchParams();
+    if (profileId) qs.set("profileId", String(profileId));
+
+    const suffix = qs.toString() ? `?${qs.toString()}` : "";
+    const res = await fetchWrapper.get(
+      `${API_ROOT}/v2/ptrs/compatible-maps${suffix}`,
+    );
     const data = pickData(res) || {};
     const items = Array.isArray(data.items) ? data.items : [];
     return { items };

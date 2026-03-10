@@ -35,10 +35,15 @@ import {
 import { getPtrsMap } from "../services/maps.ptrsApi";
 import { LoadingSpinner } from "shared/ui";
 
-// Convert snake_case (or other separators) to human-friendly labels
+// Convert snake_case, camelCase, or other separators to human-friendly labels
 const prettifyHeader = (key) => {
   if (key == null) return "";
-  const s = String(key).replace(/[_-]+/g, " ").trim();
+
+  const s = String(key)
+    .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+    .replace(/[_-]+/g, " ")
+    .trim();
+
   return s
     .split(/\s+/)
     .map((w) => {
@@ -289,6 +294,7 @@ export default function StagePanel() {
         const res = await stagePtrs(ptrsId, {
           profileId: profileId,
           persist: true,
+          force: true,
         });
         if (!mountedRef.current) return;
 
@@ -422,6 +428,7 @@ export default function StagePanel() {
       const res = await stagePtrs(ptrsId, {
         profileId: profileId,
         persist: true,
+        force: true,
       });
       console.log("[StagePanel] stagePtrs result:", res);
       if (!mountedRef.current) return;
@@ -461,7 +468,22 @@ export default function StagePanel() {
     }
   };
 
-  const headers = useMemo(() => preview?.headers || [], [preview?.headers]);
+  const HIDDEN_PREVIEW_HEADERS = useMemo(
+    () =>
+      new Set([
+        "row_no",
+        "invoice_payment_terms_raw",
+        "invoice_payment_terms_effective",
+        "payment_time_reference_date",
+        "payment_time_reference_kind",
+      ]),
+    [],
+  );
+  const headers = useMemo(
+    () =>
+      (preview?.headers || []).filter((h) => !HIDDEN_PREVIEW_HEADERS.has(h)),
+    [preview?.headers, HIDDEN_PREVIEW_HEADERS],
+  );
   const rows = useMemo(() => preview?.rows || [], [preview?.rows]);
   const totalRows = preview?.totalRows ?? rows.length;
 
