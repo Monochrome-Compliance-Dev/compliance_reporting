@@ -89,8 +89,16 @@ export const normMap = (x = {}) => {
 };
 
 export const normSample = (x = {}) => ({
-  headers: x.headers || [],
-  rows: x.rows || [],
+  headers: Array.isArray(x.headers) ? x.headers : [],
+  rows: Array.isArray(x.rows) ? x.rows : [],
+  total:
+    typeof x.total === "number"
+      ? x.total
+      : typeof x.rowsCount === "number"
+        ? x.rowsCount
+        : 0,
+  headerMeta:
+    x.headerMeta && typeof x.headerMeta === "object" ? x.headerMeta : {},
 });
 
 const normIngest = (x = {}) => ({
@@ -108,7 +116,44 @@ export const normPreview = (raw = {}) => {
       ? data.sample
       : [];
 
-  // Headers: prefer explicit, otherwise infer from first row's data
+  const normaliseHeaderKey = (key) =>
+    String(key || "")
+      .replace(/([a-z0-9])([A-Z])/g, "$1_$2")
+      .replace(/[\s-]+/g, "_")
+      .toLowerCase()
+      .trim();
+
+  const isSnakeCaseHeader = (key) => /^[a-z0-9_]+$/.test(String(key || ""));
+
+  const dedupeHeaders = (input) => {
+    const byNorm = new Map();
+
+    for (const header of Array.isArray(input) ? input : []) {
+      const rawHeader = String(header || "").trim();
+      if (!rawHeader) continue;
+
+      const norm = normaliseHeaderKey(rawHeader);
+      if (!norm) continue;
+
+      const existing = byNorm.get(norm);
+      if (!existing) {
+        byNorm.set(norm, rawHeader);
+        continue;
+      }
+
+      // Prefer the more user-friendly canonical/camelCase label over raw snake_case.
+      const existingIsSnake = isSnakeCaseHeader(existing);
+      const nextIsSnake = isSnakeCaseHeader(rawHeader);
+
+      if (existingIsSnake && !nextIsSnake) {
+        byNorm.set(norm, rawHeader);
+      }
+    }
+
+    return Array.from(byNorm.values());
+  };
+
+  // Headers: prefer explicit, otherwise infer from first row's nested data payload.
   let headers = Array.isArray(data.headers) ? data.headers : [];
   if (!headers.length && rows.length) {
     const first = rows[0];
@@ -118,6 +163,8 @@ export const normPreview = (raw = {}) => {
         : first;
     headers = Object.keys(candidate || {});
   }
+
+  headers = dedupeHeaders(headers);
 
   // Total rows: prefer explicit count from BE, fall back to rows.length
   const totalRows =

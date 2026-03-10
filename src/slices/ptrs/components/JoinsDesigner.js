@@ -28,7 +28,6 @@ export default function JoinsDesigner({
   ptrsId,
   leftHeaders = [],
   leftHeadersByRole = {},
-  examples = {},
   joins = {},
   customFields: customFieldsProp,
   onChange,
@@ -157,6 +156,27 @@ export default function JoinsDesigner({
     return byRole;
   }, [datasets]);
 
+  const customFieldsByRole = useMemo(() => {
+    const byRole = {};
+
+    (customFields || []).forEach((field) => {
+      const role = String(field?.role || "main");
+      const key = String(field?.key || "").trim();
+      if (!key) return;
+
+      if (!byRole[role]) byRole[role] = [];
+      byRole[role].push(key);
+    });
+
+    Object.keys(byRole).forEach((role) => {
+      byRole[role] = Array.from(new Set(byRole[role])).sort((a, b) =>
+        a.localeCompare(b),
+      );
+    });
+
+    return byRole;
+  }, [customFields]);
+
   useEffect(() => {
     const allRoles = [...(mainRoles || []), ...(supportingRoles || [])];
     const fallback = allRoles[0] || "main";
@@ -182,9 +202,18 @@ export default function JoinsDesigner({
         ? supportingHeadersByRole[fromRole]
         : [];
 
-    const base = Array.isArray(roleHeaders)
-      ? roleHeaders.map((col) => ({ key: col, label: col }))
+    const roleCustomFields = Array.isArray(customFieldsByRole[fromRole])
+      ? customFieldsByRole[fromRole]
       : [];
+
+    const combinedHeaders = Array.from(
+      new Set([
+        ...(Array.isArray(roleHeaders) ? roleHeaders : []),
+        ...roleCustomFields,
+      ]),
+    );
+
+    const base = combinedHeaders.map((col) => ({ key: col, label: col }));
     const map = new Map(base.map((f) => [f.key, f]));
 
     // Ensure columns referenced in saved joins for the selected FROM role are present on the left
@@ -207,6 +236,7 @@ export default function JoinsDesigner({
     supportingHeadersByRole,
     selectedFromRole,
     links,
+    customFieldsByRole,
   ]);
 
   useEffect(() => {
@@ -329,8 +359,14 @@ export default function JoinsDesigner({
         baseHeaders = fallback.filter(Boolean).map(String);
       }
 
+      const roleCustomFields = Array.isArray(customFieldsByRole[roleStr])
+        ? customFieldsByRole[roleStr]
+        : [];
+
       if (!byRole.has(roleStr)) byRole.set(roleStr, new Set());
-      baseHeaders.forEach((h) => byRole.get(roleStr).add(h));
+      [...baseHeaders, ...roleCustomFields].forEach((h) =>
+        byRole.get(roleStr).add(h),
+      );
     });
 
     // Make sure headers referenced in saved joins exist in the UI even if not present in metadata
@@ -352,7 +388,69 @@ export default function JoinsDesigner({
       role,
       headers: Array.from(set).sort((a, b) => a.localeCompare(b)),
     }));
-  }, [datasets, links, selectedFromRole, leftHeaders, leftHeadersByRole]);
+  }, [
+    datasets,
+    links,
+    selectedFromRole,
+    leftHeaders,
+    leftHeadersByRole,
+    customFieldsByRole,
+  ]);
+
+  const missingHeadersByRole = useMemo(() => {
+    const issues = [];
+    const fromRole = String(selectedFromRole || "main");
+    const fromIsMain = fromRole === "main" || fromRole.startsWith("main_");
+
+    const leftKnown = new Set(
+      leftFields.map((f) => String(f?.key || "")).filter(Boolean),
+    );
+
+    const rightKnownByRole = new Map(
+      rightColumns.map((group) => [
+        String(group?.role || ""),
+        new Set((group?.headers || []).map(String)),
+      ]),
+    );
+
+    for (const ln of links || []) {
+      const linkFromRole = String(ln?.from?.role || "");
+      const linkFromColumn = String(ln?.from?.column || "");
+      const linkToRole = String(ln?.to?.role || "");
+      const linkToColumn = String(ln?.to?.column || "");
+
+      if (
+        linkFromRole === fromRole &&
+        linkFromColumn &&
+        !leftKnown.has(linkFromColumn)
+      ) {
+        issues.push({
+          side: "from",
+          role: linkFromRole,
+          column: linkFromColumn,
+        });
+      }
+
+      const rhsVisible =
+        linkToRole &&
+        linkToRole !== fromRole &&
+        (!fromIsMain ||
+          !(linkToRole === "main" || linkToRole.startsWith("main_")));
+
+      if (rhsVisible) {
+        const known = rightKnownByRole.get(linkToRole) || new Set();
+        if (linkToColumn && !known.has(linkToColumn)) {
+          issues.push({
+            side: "to",
+            role: linkToRole,
+            column: linkToColumn,
+          });
+        }
+      }
+    }
+
+    return issues;
+  }, [links, leftFields, rightColumns, selectedFromRole]);
 
   // Recalculate absolute positions for endpoints used by SVG when DOM changes
   const computePositions = useCallback(() => {
@@ -391,8 +489,10 @@ export default function JoinsDesigner({
       window.removeEventListener("scroll", computePositions, true);
     };
   }, [
-    leftFields.length,
-    rightColumns.length,
+    selectedFromRole,
+    leftFields,
+    rightColumns,
+    links,
     datasets.length,
     computePositions,
   ]);
@@ -507,12 +607,7 @@ export default function JoinsDesigner({
                 <Typography variant="body2">{label}</Typography>
                 {(() => {
                   const fromRole = String(selectedFromRole || "main");
-                  const fromIsMain =
-                    fromRole === "main" || fromRole.startsWith("main_");
-
-                  const exVal = fromIsMain
-                    ? (examplesByRole?.[fromRole]?.[key] ?? examples?.[key])
-                    : examplesByRole?.[fromRole]?.[key];
+                  const exVal = examplesByRole?.[fromRole]?.[key];
 
                   return exVal !== undefined &&
                     exVal !== null &&
@@ -549,6 +644,36 @@ export default function JoinsDesigner({
               />
             </Tooltip>
           </Stack>
+
+          {missingHeadersByRole.length > 0 && (
+            <Paper
+              variant="outlined"
+              sx={{
+                p: 1,
+                mb: 1,
+                borderColor: "error.main",
+                bgcolor: "error.lighter",
+              }}
+            >
+              <Typography variant="body2" color="error">
+                One or more saved join headers are missing from the currently
+                loaded dataset metadata. Refresh the screen first. If the issue
+                remains, reimport the affected dataset before continuing.
+              </Typography>
+              <Stack spacing={0.25} sx={{ mt: 0.75 }}>
+                {missingHeadersByRole.map((issue, idx) => (
+                  <Typography
+                    key={`${issue.side}:${issue.role}:${issue.column}:${idx}`}
+                    variant="caption"
+                    color="error"
+                  >
+                    {issue.side.toUpperCase()} · {issue.role} · {issue.column}
+                  </Typography>
+                ))}
+              </Stack>
+            </Paper>
+          )}
+
           <Stack
             direction={{ xs: "column", md: "row" }}
             spacing={2}
@@ -588,8 +713,7 @@ export default function JoinsDesigner({
                     >
                       <Typography variant="body2">{h}</Typography>
                       {(() => {
-                        const exVal =
-                          examplesByRole?.[role]?.[h] ?? examples?.[h];
+                        const exVal = examplesByRole?.[role]?.[h];
                         return exVal !== undefined &&
                           exVal !== null &&
                           String(exVal).trim() !== "" ? (
@@ -763,19 +887,30 @@ export default function JoinsDesigner({
       >
         <svg width="100%" height="100%">
           {links.map((ln, idx) => {
-            // Prefer the exact role stored in the link, but if we didn't detect a mainRole
-            // we also try a stable fallback role ("main") so lines can render.
-            const leftKeyPrimary = keyL(ln.from?.role, ln.from?.column);
-            // If the UI role selector has changed since the join was created, render a fallback
-            // to the currently selected main role so lines don't disappear during edits.
-            const leftKeyFallback =
-              !positions[leftKeyPrimary] && (selectedFromRole || "main")
-                ? keyL(selectedFromRole || "main", ln.from?.column)
-                : null;
-            const rightKey = keyR(ln.to?.role, ln.to?.column);
+            const currentRole = String(selectedFromRole || "main");
+            const linkFromRole = String(ln?.from?.role || "");
+            const linkToRole = String(ln?.to?.role || "");
 
-            let a = positions[leftKeyPrimary];
-            if (!a && leftKeyFallback) a = positions[leftKeyFallback];
+            // Render a link when the currently selected role appears on either side.
+            const selectedIsFrom = linkFromRole === currentRole;
+            const selectedIsTo = linkToRole === currentRole;
+            if (!selectedIsFrom && !selectedIsTo) return null;
+
+            // If the selected role is on the TO side, reverse the visual direction so the
+            // selected role still anchors to the visible left-hand side of the designer.
+            const leftRole = currentRole;
+            const leftColumn = selectedIsFrom
+              ? ln?.from?.column
+              : ln?.to?.column;
+            const rightRole = selectedIsFrom ? linkToRole : linkFromRole;
+            const rightColumn = selectedIsFrom
+              ? ln?.to?.column
+              : ln?.from?.column;
+
+            const leftKey = keyL(leftRole, leftColumn);
+            const rightKey = keyR(rightRole, rightColumn);
+
+            const a = positions[leftKey];
             const b = positions[rightKey];
 
             if (!debug && (!a || !b)) return null;
@@ -817,10 +952,7 @@ export default function JoinsDesigner({
                     )}
                     {!a && (
                       <text x={12} y={18 + idx * 16} fontSize="11" fill="red">
-                        Missing left: {leftKeyPrimary}
-                        {leftKeyFallback
-                          ? ` | fallback: ${leftKeyFallback}`
-                          : ""}
+                        Missing left: {leftKey}
                       </text>
                     )}
                     {!b && (
@@ -856,7 +988,13 @@ export default function JoinsDesigner({
 
             const updateField = (patch) => {
               const next = customFields.map((item, i) =>
-                i === idx ? { ...item, ...patch } : item,
+                i === idx
+                  ? {
+                      ...item,
+                      role: String(item?.role || selectedFromRole || "main"),
+                      ...patch,
+                    }
+                  : item,
               );
               setCustomFields(next);
               emitChange(links, next);
@@ -906,6 +1044,10 @@ export default function JoinsDesigner({
                         })
                       }
                       sx={{ flex: 1 }}
+                    />
+                    <Chip
+                      size="small"
+                      label={`Role: ${String(cf?.role || "main")}`}
                     />
                     <Button
                       size="small"
@@ -1028,7 +1170,12 @@ export default function JoinsDesigner({
             onClick={() => {
               const next = [
                 ...customFields,
-                { key: "", type: "concat", segments: [] },
+                {
+                  key: "",
+                  type: "concat",
+                  role: String(selectedFromRole || "main"),
+                  segments: [],
+                },
               ];
               setCustomFields(next);
               emitChange(links, next);

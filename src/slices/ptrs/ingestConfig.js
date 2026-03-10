@@ -1,80 +1,72 @@
-// NOTE: This is the FE-side "source of truth" for the mapping UI in MVP land.
-// It mirrors the BE canonical contract (app/ptrs/contracts/ptrs.canonical.contract.js)
+// NOTE: This is the FE-side field configuration for the mapping UI.
+// It must stay aligned with the BE canonical contract in:
+//   compliance_reporting_server/v2/ptrs/contracts/ptrs.canonical.contract.js
 // using FE-friendly (camelCase) field IDs.
+//
+// Rule of thumb:
+// - PTRS_REQUIRED_FIELDS / PTRS_OPTIONAL_FIELDS should reflect the BE canonical contract.
+// - FE-only derived/system helpers can still exist, but they should be clearly marked as supplemental.
 
 // -----------------------------------------------------------------------------
-// Required canonical fields (minimum to progress through Validate/Metrics/Report)
+// Required canonical fields (aligned with BE canonical contract)
 // -----------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-// Required canonical fields (minimum to progress through Validate/Metrics/Report)
-// Update: Only the minimal fields required for user mapping are included here.
-// Others are moved to optional.
-// ---------------------------------------------------------------------------
 export const PTRS_REQUIRED_FIELDS = [
   // Identity
   "payerEntityName",
   "payerEntityAbn",
   "payeeEntityName",
   "payeeEntityAbn",
+  "invoiceReferenceNumber",
 
-  // Amounts + key dates
+  // Transaction values
   "paymentAmount",
   "paymentDate",
-  "invoiceDueDate",
 ];
 
 // -----------------------------------------------------------------------------
 // Optional canonical fields (useful for completeness / QA, but not MVP blockers)
 // -----------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-// Optional canonical fields (including those required for metrics/report but not user-mapped)
-// ---------------------------------------------------------------------------
 export const PTRS_OPTIONAL_FIELDS = [
   // Identity extras
   "payerEntityAcnArbn",
   "payeeEntityAcnArbn",
 
-  // Informational
+  // Transaction values
   "description",
 
-  // Raw dates (used to derive paymentTimeReferenceDate)
+  // Raw dates
   "supplyDate",
   "noticeForPaymentIssueDate",
   "invoiceIssueDate",
   "invoiceReceiptDate",
+  "invoiceDueDate",
 
-  // Provenance / explainability
-  "paymentTimeReferenceKind",
-
-  // Terms inputs (raw)
+  // Raw payment term sources
   "contractPoReferenceNumber",
   "contractPoPaymentTerms",
   "noticeForPaymentTerms",
   "invoicePaymentTerms",
   "paymentTerm",
 
-  // Terms provenance
-  "paymentTermSource",
-
-  // Regulator shaping flags (formerly required, now optional for user mapping)
+  // Regulator classification flags
   "tradeCreditPayment",
   "excludedTradeCreditPayment",
-
-  // SBI outcome (formerly required, now optional for user mapping)
-  "isSmallBusiness",
-
-  // Metrics-required fields that are typically derived, not mapped:
-  "paymentTermDays",
-  "paymentTimeDays",
-
-  // Regulator optional flags
   "peppolEinvoiceEnabled",
   "rcti",
   "creditCardPayment",
   "creditCardNo",
   "partialPayment",
 
-  // System exclusion controls (explicit, MVP-friendly)
+  // -------------------------------------------------------------------------
+  // FE/system supplemental fields (not part of the BE canonical contract)
+  // Keep these explicit so they are not mistaken for canonical contract fields.
+  // -------------------------------------------------------------------------
+  "paymentTimeReferenceDate",
+  "paymentTimeReferenceKind",
+  "paymentTermSource",
+  "paymentTermDays",
+  "paymentTimeDays",
+  "isSmallBusiness",
   "excludeFromMetrics",
   "excludeComment",
   "excludeSetAt",
@@ -82,19 +74,17 @@ export const PTRS_OPTIONAL_FIELDS = [
 ];
 
 // -----------------------------------------------------------------------------
-// Grouped mapping requirements (MVP UX rules)
+// Grouped mapping requirements (MVP UX rules layered on top of the BE contract)
 // -----------------------------------------------------------------------------
 export const PTRS_REQUIRED_FIELD_GROUPS = [
   {
     id: "paymentClockStart",
     label: "Payment timing start date",
     description:
-      "Map at least one date that can be used as the start date for calculating payment time (for MVP, invoice due date is acceptable).",
+      "Map at least one date that can be used as the start date for calculating payment time.",
     fields: [
-      // User-friendly MVP options
+      // Pragmatic FE fallback + canonical raw dates
       "invoiceDueDate",
-
-      // Canonical raw dates (used to derive paymentTimeReferenceDate)
       "invoiceIssueDate",
       "invoiceReceiptDate",
       "noticeForPaymentIssueDate",
@@ -148,7 +138,7 @@ export const PTRS_FIELD_LABELS = {
   creditCardNo: "Credit card number",
   partialPayment: "Partial payment",
 
-  // Exclusions
+  // Exclusions / FE system controls (supplemental, not BE canonical contract fields)
   excludeFromMetrics: "Exclude from metrics",
   excludeComment: "Exclude comment",
   excludeSetAt: "Exclude set at",
