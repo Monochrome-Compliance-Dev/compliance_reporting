@@ -5,7 +5,11 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { ptrsTraffic } from "./ptrsTrafficController";
 import * as api from "../services/ptrsApi";
-import { getPtrsJoins, savePtrsJoins } from "../services/joins.ptrsApi";
+import {
+  getPtrsJoins,
+  savePtrsJoins,
+  listCompatibleJoins,
+} from "../services/joins.ptrsApi";
 import {
   applyExclusions,
   previewExclusions,
@@ -26,7 +30,9 @@ import { getBlueprint } from "../services/ptrsApi";
 const K = {
   data: (id) => ["ptrs", "data", id],
   tables: (id) => ["ptrs", "tables", id],
+  compatibleJoins: (id) => ["ptrs", "compatibleJoins", id],
   joins: (id) => ["ptrs", "joins", id],
+  compatibleJoins: (id) => ["ptrs", "compatibleJoins", id],
   datasets: (id) => ["ptrs", "datasets", id],
   unifiedSample: (id, { limit = 5, offset = 0 } = {}) => [
     "ptrs",
@@ -118,6 +124,20 @@ export function usePtrsJoinsQuery(ptrsId) {
     queryFn: async () => getPtrsJoins(ptrsId),
     enabled,
     staleTime: 10_000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function useCompatibleJoinsQuery(ptrsId) {
+  const enabled = !!ptrsId;
+
+  return useQuery({
+    queryKey: K.compatibleJoins(ptrsId),
+    queryFn: async () => listCompatibleJoins(ptrsId),
+    enabled,
+    staleTime: 60_000,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,

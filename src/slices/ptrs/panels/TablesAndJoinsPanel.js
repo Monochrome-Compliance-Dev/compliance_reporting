@@ -7,16 +7,24 @@ import {
   Button,
   Chip,
   Divider,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  List,
+  ListItemButton,
+  ListItemText,
 } from "@mui/material";
 import { useSearchParams } from "react-router";
 import { useAlert } from "context";
 import { usePtrsContext } from "../context/PtrsContext";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import { useUpdatePtrsMutation } from "../hooks/usePtrsQueries";
-import { savePtrsJoins } from "../services/joins.ptrsApi";
+import { getPtrsJoins, savePtrsJoins } from "../services/joins.ptrsApi";
 import {
   usePtrsDatasetsQuery,
   usePtrsJoinsQuery,
+  useCompatibleJoinsQuery,
 } from "../hooks/usePtrsQueries";
 import JoinsDesigner from "../components/JoinsDesigner";
 
@@ -36,6 +44,9 @@ export default function TablesAndJoinsPanel() {
   const [mainHeaders, setMainHeaders] = useState([]);
   const [mainHeadersByRole, setMainHeadersByRole] = useState({});
   const [loading, setLoading] = useState(false);
+
+  const [importDialogOpen, setImportDialogOpen] = useState(false);
+  const [importingTemplateId, setImportingTemplateId] = useState(null);
 
   // ---- Autosave (joins + computed fields) ----
   const saveTimerRef = useRef(null);
@@ -136,6 +147,8 @@ export default function TablesAndJoinsPanel() {
 
   const dsQ = usePtrsDatasetsQuery(ptrsId);
   const joinsQ = usePtrsJoinsQuery(ptrsId);
+
+  const compatibleJoinsQ = useCompatibleJoinsQuery(ptrsId);
 
   useEffect(() => {
     setLoading(Boolean(dsQ.isLoading || joinsQ.isLoading));
@@ -397,6 +410,97 @@ export default function TablesAndJoinsPanel() {
       ? `Every dataset must be connected before you can continue. Orphaned dataset role(s): ${joinCoverage.orphanedRoles.join(", ")}.`
       : null;
 
+  const importableJoinItems = Array.isArray(compatibleJoinsQ.data?.items)
+    ? compatibleJoinsQ.data.items
+    : [];
+
+  const applyImportedJoins = async (templatePtrsId) => {
+    if (!templatePtrsId) return;
+
+    try {
+      setImportingTemplateId(templatePtrsId);
+
+      const imported = await getPtrsJoins(templatePtrsId);
+      const importedConditions = Array.isArray(imported?.joins?.conditions)
+        ? imported.joins.conditions
+        : [];
+      const importedCustomFields = Array.isArray(imported?.customFields)
+        ? imported.customFields
+        : [];
+
+      const roleSet = new Set(mainAndSupportingRoles);
+      const roleOk = (role) => {
+        const r = String(role || "")
+          .trim()
+          .toLowerCase();
+        return !r || roleSet.has(r);
+      };
+
+      const filteredConditions = importedConditions.filter((join) => {
+        const fromRole = String(join?.from?.role || "")
+          .trim()
+          .toLowerCase();
+        const toRole = String(join?.to?.role || "")
+          .trim()
+          .toLowerCase();
+        return roleOk(fromRole) && roleOk(toRole);
+      });
+
+      const filteredCustomFields = importedCustomFields.filter((field) => {
+        const fieldRole = String(field?.role || "")
+          .trim()
+          .toLowerCase();
+        const segmentRoles = Array.isArray(field?.segments)
+          ? field.segments
+              .map((segment) =>
+                String(segment?.role || "")
+                  .trim()
+                  .toLowerCase(),
+              )
+              .filter(Boolean)
+          : [];
+
+        return roleOk(fieldRole) && segmentRoles.every((r) => roleOk(r));
+      });
+
+      const skippedJoins =
+        importedConditions.length - filteredConditions.length;
+      const skippedCustomFields =
+        importedCustomFields.length - filteredCustomFields.length;
+
+      const nextJoins = {
+        conditions: filteredConditions,
+        customFields: filteredCustomFields,
+      };
+
+      setJoins(nextJoins);
+      scheduleAutosave(nextJoins);
+      setImportDialogOpen(false);
+
+      if (!filteredConditions.length && !filteredCustomFields.length) {
+        showAlert(
+          "No compatible joins or computed fields could be imported for the current dataset roles.",
+          "warning",
+        );
+        return;
+      }
+
+      if (skippedJoins > 0 || skippedCustomFields > 0) {
+        showAlert(
+          `Imported joins template with ${skippedJoins} join(s) and ${skippedCustomFields} computed field(s) skipped due to unsupported roles.`,
+          "warning",
+        );
+        return;
+      }
+
+      showAlert("Imported joins and computed fields", "success");
+    } catch (e) {
+      showAlert(e?.message || "Failed to import joins", "error");
+    } finally {
+      setImportingTemplateId(null);
+    }
+  };
+
   return (
     <Box>
       <Typography variant="h5" gutterBottom>
@@ -444,6 +548,16 @@ export default function TablesAndJoinsPanel() {
             <Chip size="small" label={`${joinsCount} defined`} />
           </Stack>
           <Stack direction="row" spacing={1}>
+            <Button
+              size="small"
+              onClick={(e) => {
+                e.currentTarget.blur();
+                setImportDialogOpen(true);
+              }}
+              disabled={loading || !ptrsId}
+            >
+              Import joins
+            </Button>
             <Button
               size="small"
               onClick={saveJoins}
@@ -494,6 +608,64 @@ export default function TablesAndJoinsPanel() {
           debug={debugJoins}
         />
       </Paper>
+
+      <Dialog
+        open={importDialogOpen}
+        onClose={() => {
+          if (!importingTemplateId) setImportDialogOpen(false);
+        }}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>Import joins from previous PTRS</DialogTitle>
+        <DialogContent dividers>
+          {compatibleJoinsQ.isLoading ? (
+            <Typography variant="body2" color="text.secondary">
+              Loading previous joins…
+            </Typography>
+          ) : compatibleJoinsQ.isError ? (
+            <Typography variant="body2" color="error">
+              {compatibleJoinsQ.error?.message ||
+                "Failed to load previous joins."}
+            </Typography>
+          ) : importableJoinItems.length === 0 ? (
+            <Typography variant="body2" color="text.secondary">
+              No previous PTRS runs with saved joins were found.
+            </Typography>
+          ) : (
+            <List disablePadding>
+              {importableJoinItems.map((item) => {
+                const label =
+                  item?.fileName || item?.name || item?.ptrsId || item?.id;
+                const secondary = `${item?.joinsCount || 0} join(s) • ${item?.customFieldsCount || 0} computed field(s)`;
+                const selected = importingTemplateId === item.id;
+
+                return (
+                  <ListItemButton
+                    key={item.id}
+                    onClick={() => applyImportedJoins(item.id)}
+                    disabled={!!importingTemplateId}
+                    selected={selected}
+                  >
+                    <ListItemText primary={label} secondary={secondary} />
+                  </ListItemButton>
+                );
+              })}
+            </List>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={(e) => {
+              e.currentTarget.blur();
+              setImportDialogOpen(true);
+            }}
+            disabled={!!importingTemplateId}
+          >
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }

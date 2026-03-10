@@ -133,12 +133,6 @@ export const savePtrsMap = async (
     customFields = null,
   },
 ) => {
-  console.log("savePtrsMap called with:", {
-    ptrsId,
-    mappings,
-    customFields,
-  });
-
   // Always include mapMeta inside extras for server-side compatibility listing
   const normHeaderKey = (s) =>
     String(s || "")
@@ -301,21 +295,45 @@ export const getUnifiedSample = async (
   }
 
   const isMainRole = (role) => {
-    const r = String(role || "");
+    const r = String(role || "").toLowerCase();
     return r === "main" || r.startsWith("main_");
   };
 
   const mainDatasets = datasets.filter((d) => isMainRole(d?.role));
   const supportingDatasets = datasets.filter((d) => !isMainRole(d?.role));
 
-  // 2) Get samples for each main dataset (lightweight)
+  // 2) Get samples for each main dataset.
+  // IMPORTANT: header provenance for main datasets must come from dataset metadata
+  // (meta.headers) when available. The sample endpoint can return polluted header
+  // unions during iterative development, so we only trust it for row examples and
+  // as a fallback when metadata headers are missing.
   const mainSamples = await Promise.all(
     mainDatasets.map(async (ds) => {
+      const metaHeaders =
+        ds?.meta && Array.isArray(ds.meta.headers) ? ds.meta.headers : null;
+
       try {
         const s = await getDatasetSample(ds.id, { limit, offset });
-        return { dataset: ds, sample: s };
+        return {
+          dataset: ds,
+          sample: {
+            ...(s || {}),
+            headers:
+              Array.isArray(metaHeaders) && metaHeaders.length
+                ? metaHeaders
+                : Array.isArray(s?.headers)
+                  ? s.headers
+                  : [],
+          },
+        };
       } catch {
-        return { dataset: ds, sample: { headers: [], rows: [] } };
+        return {
+          dataset: ds,
+          sample: {
+            headers: Array.isArray(metaHeaders) ? metaHeaders : [],
+            rows: [],
+          },
+        };
       }
     }),
   );
@@ -451,9 +469,15 @@ export const getUnifiedSample = async (
   };
 };
 
-export const listPtrsWithMap = async () => {
+export const listPtrsWithMap = async (profileId = null) => {
   try {
-    const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/compatible-maps`);
+    const qs = new URLSearchParams();
+    if (profileId) qs.set("profileId", String(profileId));
+
+    const suffix = qs.toString() ? `?${qs.toString()}` : "";
+    const res = await fetchWrapper.get(
+      `${API_ROOT}/v2/ptrs/compatible-maps${suffix}`,
+    );
     const data = pickData(res) || {};
     const items = Array.isArray(data.items) ? data.items : [];
     return { items };

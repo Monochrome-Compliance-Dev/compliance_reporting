@@ -11,13 +11,14 @@ const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 // -------------------- Staging (route: /ptrs/:id/stage) -------
 export const stagePtrs = async (
   ptrsId,
-  { profileId = "", persist = false } = {},
+  { profileId = "", persist = false, force = false } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
 
   // Build payload: always include profileId, optionally include persist
   const payload = { profileId };
   if (persist != null) payload.persist = Boolean(persist);
+  if (force != null) payload.force = Boolean(force);
 
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/stage`,

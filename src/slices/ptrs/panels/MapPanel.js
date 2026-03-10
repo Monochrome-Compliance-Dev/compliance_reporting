@@ -25,7 +25,7 @@ import { useAlert } from "context";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ClearIcon from "@mui/icons-material/Clear";
 import SearchIcon from "@mui/icons-material/Search";
-import FileUploadIcon from "@mui/icons-material/FileUpload";
+// import FileUploadIcon from "@mui/icons-material/FileUpload";
 import ContentPasteGoIcon from "@mui/icons-material/ContentPasteGo";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
@@ -49,8 +49,7 @@ import {
 } from "../hooks/usePtrsQueries";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import {
-  extractMappingsFromAny,
-  getPtrsMap,
+  // extractMappingsFromAny,
   getPtrsFieldMap,
   listPtrsWithMap,
   savePtrsMap,
@@ -144,9 +143,12 @@ export default function MapPanel() {
 
   // prevent double-submit / re-entrancy
   const stagingRef = useRef(false);
+  // Prevent repeatedly re‑applying saved canonical field maps
+  const didInitFromFieldMap = useRef(false);
 
   const [ptrssWithMaps, setPtrssWithMaps] = useState([]);
   const [selectedCopyPtrs, setSelectedCopyPtrs] = useState(null);
+  const [loadingCopyMaps, setLoadingCopyMaps] = useState(false);
 
   // target -> source (result of drag or select)
   const [assign, setAssign] = useState({});
@@ -165,6 +167,18 @@ export default function MapPanel() {
   const [importOpen, setImportOpen] = useState(false);
 
   const sourceOptions = useMemo(() => {
+    if (!Array.isArray(headers) || !headers.length) return [];
+
+    const meta =
+      headerMeta && typeof headerMeta === "object" && !Array.isArray(headerMeta)
+        ? headerMeta
+        : {};
+
+    // Do not invent fake `main` source options while unified provenance is still
+    // loading. Saved canonical field-map hydration depends on real role-aware
+    // source options, so an empty list is safer than a misleading fallback.
+    if (!Object.keys(meta).length) return [];
+
     const datasetsById = new Map(
       (dsQ.data?.items || []).map((dataset) => [
         String(dataset?.id || ""),
@@ -175,40 +189,34 @@ export default function MapPanel() {
     const out = [];
     const seen = new Set();
 
-    for (const header of headers || []) {
-      const sources = Array.isArray(headerMeta?.[header]?.sources)
-        ? headerMeta[header].sources
+    for (const header of headers) {
+      const sources = Array.isArray(meta?.[header]?.sources)
+        ? meta[header].sources
         : [];
 
-      if (sources.length) {
-        for (const src of sources) {
-          const role = String(src?.role || src?.kind || "main")
-            .trim()
-            .toLowerCase();
-          const datasetId = String(src?.datasetId || "").trim() || null;
-          const dataset = datasetId ? datasetsById.get(datasetId) : null;
+      if (!sources.length) continue;
 
-          const option = normaliseSourceRef(
-            {
-              header,
-              role,
-              datasetId,
-              fileName:
-                src?.fileName ||
-                dataset?.fileName ||
-                dataset?.originalName ||
-                null,
-            },
+      for (const src of sources) {
+        const role = String(src?.role || src?.kind || "main")
+          .trim()
+          .toLowerCase();
+        const datasetId = String(src?.datasetId || "").trim() || null;
+        const dataset = datasetId ? datasetsById.get(datasetId) : null;
+
+        const option = normaliseSourceRef(
+          {
+            header,
             role,
-          );
+            datasetId,
+            fileName:
+              src?.fileName ||
+              dataset?.fileName ||
+              dataset?.originalName ||
+              null,
+          },
+          role,
+        );
 
-          const key = sourceRefKey(option);
-          if (seen.has(key)) continue;
-          seen.add(key);
-          out.push(option);
-        }
-      } else {
-        const option = normaliseSourceRef({ header, role: "main" }, "main");
         const key = sourceRefKey(option);
         if (seen.has(key)) continue;
         seen.add(key);
@@ -217,7 +225,7 @@ export default function MapPanel() {
     }
 
     return out;
-  }, [headers, headerMeta, dsQ.data]);
+  }, [headers, headerMeta, dsQ.data?.items]);
 
   // Helper to open the import dialog and blur the triggering element
   const openImportDialog = (event) => {
@@ -428,89 +436,34 @@ export default function MapPanel() {
     dsQ.isLoading,
   ]);
 
-  // Lazy-load "copy map from previous ptrs" options only when the dialog is opened.
+  // Lazy-load canonical copy options only when the dialog is opened.
+  // Source of truth is tbl_ptrs_field_map for the current profile.
   useEffect(() => {
     let mounted = true;
 
-    const normHeaderKey = (s) =>
-      String(s || "")
-        .toLowerCase()
-        .replace(/[^a-z0-9]/g, "")
-        .trim();
-
     async function loadCopyOptions() {
       if (!importOpen) return;
+
+      if (!profileId) {
+        if (mounted) setPtrssWithMaps([]);
+        return;
+      }
+
       try {
-        const lr = await listPtrsWithMap();
-        const allPtrss = lr.items || [];
+        if (mounted) setLoadingCopyMaps(true);
 
-        const inferredNormSet = new Set(
-          (headers || []).map(normHeaderKey).filter(Boolean),
-        );
+        const lr = await listPtrsWithMap(profileId);
+        const items = Array.isArray(lr?.items)
+          ? lr.items.filter(
+              (run) => String(run?.id || "") !== String(ptrsId || ""),
+            )
+          : [];
 
-        const fromMeta = [];
-        let metaSeen = false;
-
-        for (const run of allPtrss) {
-          const meta = run?.mapMeta || run?.extras?.mapMeta;
-          const srcNorm = Array.isArray(meta?.sourceHeadersNorm)
-            ? meta.sourceHeadersNorm
-            : null;
-          if (srcNorm) metaSeen = true;
-
-          if (!srcNorm || !srcNorm.length) continue;
-
-          let count = 0;
-          for (const h of srcNorm) {
-            if (inferredNormSet.has(String(h || "").trim())) count += 1;
-          }
-          if (count > 0) fromMeta.push({ ...run, compatibleCount: count });
-        }
-
-        if (metaSeen) {
-          fromMeta.sort(
-            (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0),
-          );
-          if (mounted) setPtrssWithMaps(fromMeta);
-          return;
-        }
-
-        // Temporary fallback: older maps may not have metadata yet.
-        // Avoid 429s by doing a capped, sequential compatibility scan.
-        const MAX_SCAN = 25;
-        const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-        const compatible = [];
-        const scanList = allPtrss.slice(0, MAX_SCAN);
-
-        for (const run of scanList) {
-          try {
-            const res = await getPtrsMap(run.id);
-            const mapObj = (res && (res.mappings || res.map?.mappings)) || {};
-
-            const srcHeaders = Object.keys(mapObj || {});
-            const srcNorm = srcHeaders.map(normHeaderKey).filter(Boolean);
-
-            let count = 0;
-            for (const h of srcNorm) {
-              if (inferredNormSet.has(h)) count += 1;
-            }
-
-            if (count > 0) compatible.push({ ...run, compatibleCount: count });
-
-            // small delay to reduce rate-limit risk
-            await sleep(120);
-          } catch (err) {
-            if (err?.status === 429 || err?.response?.status === 429) break;
-          }
-        }
-
-        compatible.sort(
-          (a, b) => (b.compatibleCount || 0) - (a.compatibleCount || 0),
-        );
-        if (mounted) setPtrssWithMaps(compatible);
+        if (mounted) setPtrssWithMaps(items);
       } catch {
         if (mounted) setPtrssWithMaps([]);
+      } finally {
+        if (mounted) setLoadingCopyMaps(false);
       }
     }
 
@@ -519,7 +472,7 @@ export default function MapPanel() {
     return () => {
       mounted = false;
     };
-  }, [importOpen, headers]);
+  }, [importOpen, ptrsId, profileId]);
 
   useEffect(() => {
     let active = true;
@@ -550,6 +503,9 @@ export default function MapPanel() {
     if (!profileId) return;
     if (!Array.isArray(sourceOptions) || !sourceOptions.length) return;
 
+    // Only initialise from saved field map once to avoid save/import loops
+    if (didInitFromFieldMap.current) return;
+
     setAssign((prev) => {
       const preservedCustom = Object.fromEntries(
         Object.entries(prev || {}).filter(([key]) =>
@@ -577,6 +533,8 @@ export default function MapPanel() {
 
       return next;
     });
+
+    didInitFromFieldMap.current = true;
   }, [profileId, savedFieldMap, sourceOptions, customFields]);
 
   const usedSources = useMemo(
@@ -855,29 +813,95 @@ export default function MapPanel() {
   };
 
   // Convert BE map object -> assign (target->source), validating headers with loose resolving
-  const applyIncomingMap = (obj) => {
-    if (!obj || typeof obj !== "object")
+  // const applyIncomingMap = (obj) => {
+  //   if (!obj || typeof obj !== "object")
+  //     return { applied: 0, nextAssign: assign };
+  //   const next = { ...assign };
+  //   let applied = 0;
+
+  //   for (let [source, cfg] of Object.entries(obj)) {
+  //     const target = cfg?.field;
+  //     if (!target) {
+  //       // eslint-disable-next-line no-console
+  //       if (process.env.NODE_ENV === "development") {
+  //         console.warn("❌ Skipped mapping: no target for", source, cfg);
+  //       }
+  //       continue;
+  //     }
+
+  //     const resolved =
+  //       resolveSourceOption(sourceOptions, source, cfg?.sourceRole || null) ||
+  //       normaliseSourceRef(source, cfg?.sourceRole || "main");
+
+  //     if (!resolved) {
+  //       if (process.env.NODE_ENV === "development") {
+  //         console.warn("⚠️ Could not resolve header:", { source, target });
+  //       }
+  //       continue;
+  //     }
+
+  //     for (const k of Object.keys(next)) {
+  //       const existing = normaliseSourceRef(next[k]);
+  //       if (sourceRefKey(existing) === sourceRefKey(resolved)) {
+  //         next[k] = undefined;
+  //       }
+  //     }
+
+  //     if (!next[target]) {
+  //       next[target] = resolved;
+  //       applied += 1;
+  //     }
+  //   }
+
+  //   // Register unknown targets as custom fields
+  //   const known = new Set([...PTRS_REQUIRED_FIELDS, ...PTRS_OPTIONAL_FIELDS]);
+  //   const discovered = new Set();
+  //   for (const [, cfg] of Object.entries(obj)) {
+  //     const t = cfg?.field;
+  //     if (t && !known.has(t)) discovered.add(t);
+  //   }
+  //   if (discovered.size) {
+  //     setCustomFields((prev) => [...new Set([...prev, ...discovered])]);
+  //   }
+
+  //   setAssign(next);
+  //   return { applied, nextAssign: next };
+  // };
+
+  const applyIncomingFieldMap = (rows) => {
+    if (!Array.isArray(rows) || !rows.length) {
       return { applied: 0, nextAssign: assign };
+    }
+
     const next = { ...assign };
     let applied = 0;
 
-    for (let [source, cfg] of Object.entries(obj)) {
-      const target = cfg?.field;
-      if (!target) {
-        // eslint-disable-next-line no-console
-        if (process.env.NODE_ENV === "development") {
-          console.warn("❌ Skipped mapping: no target for", source, cfg);
-        }
-        continue;
-      }
+    for (const row of rows) {
+      const target = String(row?.canonicalField || "").trim();
+      const sourceColumn = String(row?.sourceColumn || "").trim();
+      const sourceRole = String(row?.sourceRole || "main")
+        .trim()
+        .toLowerCase();
+
+      if (!target || !sourceColumn) continue;
 
       const resolved =
-        resolveSourceOption(sourceOptions, source, cfg?.sourceRole || null) ||
-        normaliseSourceRef(source, cfg?.sourceRole || "main");
+        resolveSourceOption(sourceOptions, sourceColumn, sourceRole) ||
+        normaliseSourceRef(
+          {
+            header: sourceColumn,
+            role: sourceRole,
+          },
+          sourceRole,
+        );
 
       if (!resolved) {
         if (process.env.NODE_ENV === "development") {
-          console.warn("⚠️ Could not resolve header:", { source, target });
+          console.warn("⚠️ Could not resolve canonical field-map source:", {
+            target,
+            sourceColumn,
+            sourceRole,
+          });
         }
         continue;
       }
@@ -889,82 +913,94 @@ export default function MapPanel() {
         }
       }
 
-      if (!next[target]) {
-        next[target] = resolved;
-        applied += 1;
-      }
-    }
-
-    // Register unknown targets as custom fields
-    const known = new Set([...PTRS_REQUIRED_FIELDS, ...PTRS_OPTIONAL_FIELDS]);
-    const discovered = new Set();
-    for (const [, cfg] of Object.entries(obj)) {
-      const t = cfg?.field;
-      if (t && !known.has(t)) discovered.add(t);
-    }
-    if (discovered.size) {
-      setCustomFields((prev) => [...new Set([...prev, ...discovered])]);
+      next[target] = resolved;
+      applied += 1;
     }
 
     setAssign(next);
     return { applied, nextAssign: next };
   };
 
-  const handleImportJson = async (file) => {
-    if (!file) return;
-    try {
-      const text = await file.text();
-      const raw = JSON.parse(text);
-      const mappings = extractMappingsFromAny(raw);
-      // eslint-disable-next-line no-console
-      console.log(
-        "[handleImportJson] Extracted mappings keys:",
-        Object.keys(mappings || {}),
-      );
-      if (!mappings || typeof mappings !== "object") {
-        showAlert("No usable mappings found in file", "info");
-      } else {
-        const { applied, nextAssign } = applyIncomingMap(mappings);
-        if (applied > 0) {
-          await save(true, nextAssign);
-          showAlert(
-            `Imported mapping for ${applied} field(s) and auto-saved the map`,
-            "success",
-          );
-        } else {
-          showAlert("No compatible headers found in this file", "info");
-        }
-      }
-    } catch {
-      showAlert("Invalid JSON mapping file", "error");
-    }
-  };
+  // const handleImportJson = async (file) => {
+  //   if (!file) return;
+  //   try {
+  //     const text = await file.text();
+  //     const raw = JSON.parse(text);
+  //     const mappings = extractMappingsFromAny(raw);
+  //     // eslint-disable-next-line no-console
+  //     console.log(
+  //       "[handleImportJson] Extracted mappings keys:",
+  //       Object.keys(mappings || {}),
+  //     );
+  //     if (!mappings || typeof mappings !== "object") {
+  //       showAlert("No usable mappings found in file", "info");
+  //     } else {
+  //       const { applied, nextAssign } = applyIncomingMap(mappings);
+  //       if (applied > 0) {
+  //         await save(true, nextAssign);
+  //         showAlert(
+  //           `Imported mapping for ${applied} field(s) and auto-saved the map`,
+  //           "success",
+  //         );
+  //       } else {
+  //         showAlert("No compatible headers found in this file", "info");
+  //       }
+  //     }
+  //   } catch {
+  //     showAlert("Invalid JSON mapping file", "error");
+  //   }
+  // };
 
   const copyFromPtrsId = async (otherPtrsId) => {
     try {
-      const res = await getPtrsMap(otherPtrsId);
-      const obj = (res && (res.mappings || res.map?.mappings)) || {};
-      // eslint-disable-next-line no-console
-      // console.log("[copyFromPtrsId] Loaded map shape:", {
-      //   keys: Object.keys(res || {}),
-      //   hasMap: !!res?.map,
-      //   hasMappings: !!res?.mappings,
-      //   appliedFrom: otherPtrsId,
-      // });
-      const { applied, nextAssign } = applyIncomingMap(obj);
-      if (applied > 0) {
-        await save(true, nextAssign);
+      if (!profileId) {
         showAlert(
-          `Copied ${applied} mapping(s) from ${otherPtrsId} and auto-saved the map`,
-          "success",
+          "A profile is required to copy canonical mappings.",
+          "warning",
         );
-        setImportOpen(false);
-      } else {
-        showAlert(
-          `No compatible mappings found on ptrs ${otherPtrsId}`,
-          "info",
-        );
+        return;
       }
+
+      const sourceRows = await getPtrsFieldMap(otherPtrsId, profileId);
+      const fieldMapPayload = Array.isArray(sourceRows)
+        ? sourceRows
+            .filter((row) => row && typeof row === "object")
+            .map((row) => ({
+              canonicalField: row.canonicalField,
+              sourceRole: row.sourceRole,
+              sourceColumn: row.sourceColumn,
+              transformType: row.transformType ?? null,
+              transformConfig: row.transformConfig ?? null,
+              meta: row.meta ?? null,
+            }))
+            .filter((row) => row.canonicalField && row.sourceRole)
+        : [];
+
+      if (!fieldMapPayload.length) {
+        showAlert(`No canonical mappings found on ptrs ${otherPtrsId}`, "info");
+        return;
+      }
+
+      const savedRows = await savePtrsFieldMap(
+        ptrsId,
+        profileId,
+        fieldMapPayload,
+      );
+
+      setSavedFieldMap(Array.isArray(savedRows) ? savedRows : []);
+      didInitFromFieldMap.current = true;
+
+      const { applied } = applyIncomingFieldMap(
+        Array.isArray(savedRows) ? savedRows : fieldMapPayload,
+      );
+
+      setIsDirty(false);
+      setImportOpen(false);
+
+      showAlert(
+        `Copied ${applied} canonical mapping(s) from ${otherPtrsId}`,
+        "success",
+      );
     } catch (e) {
       showAlert(e?.message || "Failed to load map from that ptrs", "error");
     }
@@ -1113,6 +1149,18 @@ export default function MapPanel() {
         profileId,
         joins,
         customFields: joinCustomFields,
+      });
+
+      console.log(
+        "[MapPanel.save] canonicalFieldMap payload",
+        canonicalFieldMap.filter((r) =>
+          ["payerEntityAbn", "payerEntityName"].includes(r.canonicalField),
+        ),
+      );
+
+      console.log("[MapPanel.save] payer assign", {
+        payerEntityName: assign.payerEntityName,
+        payerEntityAbn: assign.payerEntityAbn,
       });
 
       if (profileId) {
@@ -1481,6 +1529,40 @@ export default function MapPanel() {
         )}
       </Paper>
     );
+  };
+
+  const formatCopyMapDate = (value) => {
+    if (!value) return "";
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) return "";
+    return d.toLocaleString("en-AU", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
+  };
+
+  const getCopyMapPrimaryLabel = (option) => {
+    const count = Number(option?.mappedFieldsCount || 0);
+    const countLabel = `${count} mapped`;
+    const fileName = String(option?.fileName || "").trim();
+    return fileName ? `${countLabel} — ${fileName}` : countLabel;
+  };
+
+  const getCopyMapSecondaryLabel = (option) => {
+    const updatedLabel = formatCopyMapDate(
+      option?.fieldMapUpdatedAt || option?.updatedAt || option?.createdAt,
+    );
+    const ptrsLabel = option?.id || option?.ptrsId || "";
+
+    if (updatedLabel && ptrsLabel) {
+      return `Updated ${updatedLabel} • PTRS ${ptrsLabel}`;
+    }
+    if (updatedLabel) return `Updated ${updatedLabel}`;
+    if (ptrsLabel) return `PTRS ${ptrsLabel}`;
+    return "";
   };
 
   return (
@@ -1915,100 +1997,53 @@ export default function MapPanel() {
       >
         <DialogTitle>Import / Copy map</DialogTitle>
         <DialogContent dividers>
-          <Stack spacing={2}>
-            <Stack direction="row" spacing={1} alignItems="center">
-              <Button
-                variant="outlined"
-                startIcon={<FileUploadIcon />}
-                component="label"
-              >
-                Import JSON
-                <input
-                  type="file"
-                  hidden
-                  accept="application/json,.json"
-                  onChange={(e) => {
-                    const f = e.target.files?.[0] || null;
-                    e.target.value = "";
-                    if (f) handleImportJson(f);
-                  }}
+          {loadingCopyMaps ? (
+            <Box sx={{ py: 3 }}>
+              <LoadingSpinner message="Loading compatible maps..." />
+            </Box>
+          ) : null}
+
+          {!loadingCopyMaps ? (
+            <Autocomplete
+              value={selectedCopyPtrs}
+              onChange={(_, value) => setSelectedCopyPtrs(value)}
+              options={ptrssWithMaps}
+              getOptionLabel={(option) => getCopyMapPrimaryLabel(option)}
+              isOptionEqualToValue={(option, value) => option?.id === value?.id}
+              renderOption={(props, option) => {
+                const { key, ...rest } = props;
+                return (
+                  <Box
+                    component="li"
+                    {...rest}
+                    key={option?.id || option?.ptrsId || key}
+                    sx={{ display: "block", py: 1 }}
+                  >
+                    <Typography variant="body1">
+                      {getCopyMapPrimaryLabel(option)}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {getCopyMapSecondaryLabel(option)}
+                    </Typography>
+                  </Box>
+                );
+              }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Select a previous PTRS map"
+                  placeholder="Choose a PTRS run"
                 />
-              </Button>
-            </Stack>
-            <Divider />
-            {ptrssWithMaps.length > 0 && (
-              <Typography variant="body2" color="text.secondary">
-                Or copy a map from a previous ptrs:
-              </Typography>
-            )}
-            {ptrssWithMaps.length === 0 ? (
-              <Typography variant="body2" color="text.secondary">
-                No compatible maps found for this dataset yet.
-              </Typography>
-            ) : (
-              <Autocomplete
-                size="small"
-                options={ptrssWithMaps}
-                isOptionEqualToValue={(opt, val) => opt.id === val.id}
-                getOptionLabel={(opt) => {
-                  if (!opt) return "";
-                  const base = opt.fileName
-                    ? `${opt.fileName} — ${new Date(opt.createdAt).toLocaleDateString()}`
-                    : opt.id;
-                  const count =
-                    typeof opt.compatibleCount === "number"
-                      ? ` — ${opt.compatibleCount} matching field${
-                          opt.compatibleCount === 1 ? "" : "s"
-                        }`
-                      : "";
-                  return `${base}${count}`;
-                }}
-                renderOption={(props, option) => (
-                  <li {...props} key={option.id}>
-                    {option.fileName
-                      ? `${option.fileName} — ${new Date(
-                          option.createdAt,
-                        ).toLocaleDateString()}`
-                      : option.id}
-                    {typeof option.compatibleCount === "number" &&
-                      option.compatibleCount > 0 && (
-                        <span
-                          style={{
-                            marginLeft: 8,
-                            opacity: 0.7,
-                            fontSize: "0.8rem",
-                          }}
-                        >
-                          ({option.compatibleCount} matching
-                          {option.compatibleCount === 1 ? " field" : " fields"})
-                        </span>
-                      )}
-                  </li>
-                )}
-                value={selectedCopyPtrs}
-                onChange={(e, val) => setSelectedCopyPtrs(val)}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    label="Copy map from…"
-                    placeholder="Pick a previous ptrs"
-                  />
-                )}
-              />
-            )}
-          </Stack>
+              )}
+            />
+          ) : null}
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setImportOpen(false)}>Close</Button>
           <Button
-            disabled={ptrssWithMaps.length === 0}
-            onClick={() => {
-              if (selectedCopyPtrs) {
-                copyFromPtrsId(selectedCopyPtrs.id);
-              } else {
-                showAlert("Pick a ptrs to copy from", "info");
-              }
-            }}
+            variant="contained"
+            onClick={() => copyFromPtrsId(selectedCopyPtrs?.id)}
+            disabled={loadingCopyMaps || !selectedCopyPtrs}
           >
             Copy
           </Button>
