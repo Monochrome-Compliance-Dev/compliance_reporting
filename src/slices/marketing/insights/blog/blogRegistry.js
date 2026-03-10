@@ -1,7 +1,17 @@
 import PaymentReportingProblemsAreDataArchitectureProblems from "./posts/payment-reporting-problems-are-data-architecture-problems";
 import WhySopaComplianceDoesntGuaranteeStrongPtrsResults from "./posts/why-sopa-compliance-doesnt-guarantee-strong-ptrs-results";
+import RetentionsAndPaymentReportingDistortions from "./posts/retentions-and-payment-reporting-distortions";
 
 export const blogPosts = [
+  {
+    slug: "retentions-and-payment-reporting-distortions",
+    title: "How retentions can distort payment reporting metrics",
+    dateISO: "2026-03-11",
+    description:
+      "Retention structures are common in construction, yet they can introduce timing patterns in payment data that produce unexpected outcomes in payment reporting metrics.",
+    tags: ["Construction", "PTRS", "Payment data"],
+    Component: RetentionsAndPaymentReportingDistortions,
+  },
   {
     slug: "why-sopa-compliance-doesnt-guarantee-strong-ptrs-results",
     title:
