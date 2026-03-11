@@ -32,7 +32,6 @@ import {
   getStagePreview,
   stagePtrs,
 } from "../services/stage.ptrsApi";
-import { getPtrsMap } from "../services/maps.ptrsApi";
 import { LoadingSpinner } from "shared/ui";
 
 // Convert snake_case, camelCase, or other separators to human-friendly labels
@@ -171,6 +170,8 @@ export default function StagePanel() {
   };
 
   const mountedRef = useRef(true);
+  const autoStageInFlightRef = useRef(false);
+
   useEffect(() => {
     return () => {
       mountedRef.current = false;
@@ -186,7 +187,6 @@ export default function StagePanel() {
           getPtrs(ptrsId).catch(() => null),
           listDatasets(ptrsId).catch(() => ({ items: [] })),
           getLatestExecutionRun(ptrsId, { step: "stage" }).catch(() => null),
-          getPtrsMap(ptrsId).catch(() => null),
         ]);
 
         if (mountedRef.current) {
@@ -279,6 +279,8 @@ export default function StagePanel() {
 
     const runAutoStage = async ({ reason }) => {
       if (!ptrsId) return;
+      if (autoStageInFlightRef.current) return;
+      autoStageInFlightRef.current = true;
 
       const msg =
         reason === "stale"
@@ -294,7 +296,7 @@ export default function StagePanel() {
         const res = await stagePtrs(ptrsId, {
           profileId: profileId,
           persist: true,
-          force: true,
+          force: false,
         });
         if (!mountedRef.current) return;
 
@@ -331,6 +333,7 @@ export default function StagePanel() {
           );
         }
       } finally {
+        autoStageInFlightRef.current = false;
         if (mountedRef.current) setAutoStaging(false);
       }
     };
@@ -428,7 +431,7 @@ export default function StagePanel() {
       const res = await stagePtrs(ptrsId, {
         profileId: profileId,
         persist: true,
-        force: true,
+        force: false,
       });
       console.log("[StagePanel] stagePtrs result:", res);
       if (!mountedRef.current) return;

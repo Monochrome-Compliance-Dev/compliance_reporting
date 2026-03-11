@@ -20,7 +20,7 @@ import {
 } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useTheme } from "@mui/material/styles";
-import { useSearchParams } from "react-router";
+import { useLocation, useSearchParams } from "react-router";
 import { useAlert } from "context";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -66,6 +66,8 @@ export default function MapPanel() {
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
   const ptrsId = params.get("ptrsId");
+  const location = useLocation();
+  const isMapRoute = /(^|\/)map(\/|$)/i.test(location.pathname || "");
   const { profileId } = usePtrsContext();
 
   const sourceRefKey = (source) => {
@@ -125,6 +127,7 @@ export default function MapPanel() {
   const sampleQ = usePtrsUnifiedSampleQuery(ptrsId, {
     limit: 5,
     offset: 0,
+    enabled: isMapRoute,
   });
   const bpQ = usePtrsBlueprintQuery({ profileId });
 
@@ -140,6 +143,7 @@ export default function MapPanel() {
   const [savingMap, setSavingMap] = useState(false);
 
   const isBusy = loading || staging || savingMap;
+  const sampleRefreshing = Boolean(sampleQ.isLoading || sampleQ.isFetching);
 
   // prevent double-submit / re-entrancy
   const stagingRef = useRef(false);
@@ -161,6 +165,16 @@ export default function MapPanel() {
   const [savedFieldMap, setSavedFieldMap] = useState([]);
 
   const [supportingDatasetsCount, setSupportingDatasetsCount] = useState(0);
+
+  const mappedCount = Object.values(assign || {}).filter(Boolean).length;
+
+  const showSampleRefreshNotice =
+    sampleRefreshing && (mappedCount > 0 || savingMap || loading);
+
+  const sampleRefreshMessage =
+    supportingDatasetsCount > 1
+      ? `Refreshing mapping metadata across ${supportingDatasetsCount} datasets. Headers, examples, and source provenance are being rebuilt before staging can continue.`
+      : "Refreshing mapping metadata. Headers, examples, and source provenance are being rebuilt before staging can continue.";
 
   // sources pane
   const [search, setSearch] = useState("");
@@ -266,7 +280,7 @@ export default function MapPanel() {
       return;
     }
 
-    if (sampleQ.isError) {
+    if (isMapRoute && sampleQ.isError) {
       showAlert(
         sampleQ.error?.message || "Failed to load sample headers",
         "error",
@@ -280,8 +294,14 @@ export default function MapPanel() {
     }
 
     const mapRes = mapQ.data || null;
-    const unified = sampleQ.data || null;
+    const unified = isMapRoute ? sampleQ.data || null : null;
     const bp = bpQ.data || null;
+
+    console.log("sampleQ enabled?", {
+      ptrsId,
+      isMapRoute,
+      pathname: location.pathname,
+    });
 
     // If neither map nor sample is ready yet, do nothing (queries still loading)
     if (!mapRes && !unified) return;
@@ -434,7 +454,13 @@ export default function MapPanel() {
     bpQ.error,
     bpQ.data,
     dsQ.isLoading,
+    isMapRoute,
   ]);
+
+  useEffect(() => {
+    console.log("MapPanel mounted", location.pathname);
+    return () => console.log("MapPanel unmounted", location.pathname);
+  }, [location.pathname]);
 
   // Lazy-load canonical copy options only when the dialog is opened.
   // Source of truth is tbl_ptrs_field_map for the current profile.
@@ -1488,7 +1514,50 @@ export default function MapPanel() {
     };
   }, [dsQ.data, joins]);
 
-  const mappedCount = Object.values(assign || {}).filter(Boolean).length;
+  const missingRequiredFields = (PTRS_REQUIRED_FIELDS || []).filter(
+    (field) => !assign?.[field],
+  );
+
+  const stageBlockedReason = (() => {
+    if (sampleRefreshing) {
+      return "Stage will be enabled once mapping metadata has finished refreshing.";
+    }
+
+    if (savingMap) {
+      return "Please wait while the map is being saved.";
+    }
+
+    if (staging) {
+      return "Please wait while staging is already in progress.";
+    }
+
+    if (loading) {
+      return "Please wait while mapping data finishes loading.";
+    }
+
+    if (missingRequiredFields.length > 0) {
+      const labels = missingRequiredFields.map((f) => labelFor(f));
+      return `Map the remaining required field(s): ${labels.join(", ")}.`;
+    }
+
+    if (groupedRequirementFailures.length > 0) {
+      return groupedRequirementFailures
+        .map((g) => `${g.label} (map at least one)`)
+        .join("; ");
+    }
+
+    if (!joinConnectivity.hasMain) {
+      return "A main dataset must exist before staging can continue.";
+    }
+
+    if (!joinConnectivity.connected) {
+      return `Connect all dataset roles with joins before staging. Orphaned role(s): ${joinConnectivity.orphanedRoles.join(", ")}.`;
+    }
+
+    return "";
+  })();
+
+  const stageButtonDisabled = Boolean(stageBlockedReason);
 
   // right pane sources item
   const SourceToken = ({ source }) => {
@@ -1882,6 +1951,31 @@ export default function MapPanel() {
               <Typography variant="body2">Saving map…</Typography>
             </Box>
           )}
+          {showSampleRefreshNotice && !savingMap && (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 1,
+                mb: 1,
+                p: 1.25,
+                border: "1px solid",
+                borderColor: "divider",
+                borderRadius: 1,
+                bgcolor: theme.palette.background.paper,
+              }}
+            >
+              <LoadingSpinner size={20} />
+              <Box>
+                <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                  Refreshing mapping metadata…
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {sampleRefreshMessage}
+                </Typography>
+              </Box>
+            </Box>
+          )}
           <Stack
             direction="row"
             justifyContent="space-between"
@@ -1930,12 +2024,19 @@ export default function MapPanel() {
                 variant="contained"
                 endIcon={<NavigateNextIcon />}
                 onClick={stageData}
-                disabled={
-                  isBusy || requiredMappedCount < PTRS_REQUIRED_FIELDS.length
-                }
+                disabled={stageButtonDisabled}
               >
                 Next: Stage data
               </Button>
+              {stageBlockedReason ? (
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ alignSelf: "center", maxWidth: 420 }}
+                >
+                  {stageBlockedReason}
+                </Typography>
+              ) : null}
             </Stack>
           </Stack>
         </Box>

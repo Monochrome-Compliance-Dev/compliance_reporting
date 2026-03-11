@@ -16,7 +16,8 @@ import * as yup from "yup";
 import { useAlert } from "context";
 import { usePtrsContext } from "../context/PtrsContext";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
-import { createPtrs, uploadCsv } from "../services/ptrsApi";
+import { createPtrs } from "../services/ptrsApi";
+import { uploadCsv } from "../services/data.ptrsApi";
 import { isValidABN, payloadSanitiser } from "shared/utils";
 
 // Fixed half-yearly reporting periods
