@@ -25,6 +25,12 @@ import { getReportSnapshot } from "../services/report.ptrsApi";
 import { listDatasets } from "../services/data.ptrsApi";
 import { getPtrsMap, getUnifiedSample } from "../services/maps.ptrsApi";
 import { getBlueprint } from "../services/ptrsApi";
+import {
+  getLatestExecutionRun as getStageLatestExecutionRun,
+  getStagePreview,
+  getStageCompletionGate,
+  stagePtrs as runStagePtrs,
+} from "../services/stage.ptrsApi";
 
 // ---- Keys (per ptrs) ---------------------------------------------------------
 const K = {
@@ -43,6 +49,22 @@ const K = {
   blueprint: ({ profileId }) => ["ptrs", "blueprint", profileId || "none"],
   map: (id) => ["ptrs", "map", id],
   stage: (id) => ["ptrs", "stage", id],
+  stageLatestRun: (id) => ["ptrs", "stage", "latestRun", id],
+  stagePreview: (id, { profileId = null, limit = 20 } = {}) => [
+    "ptrs",
+    "stage",
+    "preview",
+    id,
+    profileId || "none",
+    Number(limit) || 20,
+  ],
+  stageCompletionGate: (id, { profileId } = {}) => [
+    "ptrs",
+    "stage",
+    "completionGate",
+    id,
+    profileId || "none",
+  ],
   exclusionsPreview: (id, { category, profileId, limit }) => [
     "ptrs",
     "exclusions",
@@ -91,25 +113,6 @@ export function usePtrsUploadStatus(ptrsId) {
   // show any real problems.
   return { status: "completed", rowCounts: { ingested: 0 } };
 }
-
-// Map status from /map endpoint
-// export function usePtrsMapStatus(ptrsId) {
-//   const enabled = !!ptrsId;
-//   const query = useQuery({
-//     queryKey: K.map(ptrsId),
-//     queryFn: async () => {
-//       const res = await api.getPtrsMap(ptrsId);
-//       const map = res?.data?.map || null;
-//       return {
-//         selected: !!map,
-//         schemaCompatible: true, // assume ok for now
-//       };
-//     },
-//     enabled,
-//     staleTime: 10_000,
-//   });
-//   return query.data ?? { selected: false, schemaCompatible: false };
-// }
 
 export function usePtrsTablesStatus(ptrsId) {
   return { status: "idle", tablesCount: 0 };
@@ -215,6 +218,63 @@ export function useSavePtrsJoinsMutation(ptrsId) {
 
 export function usePtrsStageStatus(ptrsId) {
   return { status: "idle" };
+}
+
+export function useStageLatestExecutionRunQuery(ptrsId) {
+  const enabled = !!ptrsId;
+
+  return useQuery({
+    queryKey: K.stageLatestRun(ptrsId),
+    queryFn: async () => getStageLatestExecutionRun(ptrsId, { step: "stage" }),
+    enabled,
+    staleTime: 10_000,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function useStagePreviewQuery(
+  ptrsId,
+  { profileId = null, limit = 20, enabled = true } = {},
+) {
+  const queryEnabled = !!ptrsId && enabled;
+
+  return useQuery({
+    queryKey: K.stagePreview(ptrsId, { profileId, limit }),
+    queryFn: async () => getStagePreview(ptrsId, { profileId, limit }),
+    enabled: queryEnabled,
+    staleTime: 10_000,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function useStageCompletionGateQuery(
+  ptrsId,
+  { profileId, enabled = true } = {},
+) {
+  const queryEnabled = !!ptrsId && !!profileId && enabled;
+
+  return useQuery({
+    queryKey: K.stageCompletionGate(ptrsId, { profileId }),
+    queryFn: async () => getStageCompletionGate(ptrsId, { profileId }),
+    enabled: queryEnabled,
+    staleTime: 10_000,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function useStagePtrsMutation(ptrsId) {
+  return useMutation({
+    mutationFn: ({ profileId = null, persist = true, force = false } = {}) =>
+      runStagePtrs(ptrsId, { profileId, persist, force }),
+    onSuccess: () => {
+      if (ptrsId) {
+        ptrsTraffic.emit(ptrsId, { reason: "stage_ran" });
+      }
+    },
+  });
 }
 
 export function useExclusionsPreviewQuery(
