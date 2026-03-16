@@ -86,19 +86,60 @@ export default function StagePanel() {
   const refetchStagePreview = stagePreviewQ.refetch;
   const refetchStageCompletionGate = stageCompletionGateQ.refetch;
   const refetchDatasets = datasetsQ.refetch;
-  const completionGateReady = stageCompletionGateQ.data?.ready === true;
-  const completionGateReason =
-    stageCompletionGateQ.data?.reason || "missing-stage";
+  const hasSettledStageCompletionGate =
+    stageCompletionGateQ.isSuccess && !stageCompletionGateQ.isFetching;
+
+  const completionGateReady =
+    hasSettledStageCompletionGate && stageCompletionGateQ.data?.ready === true;
+
+  const completionGateReason = hasSettledStageCompletionGate
+    ? stageCompletionGateQ.data?.reason || "missing-stage"
+    : "missing-stage";
+
+  const completionGateInputHash = hasSettledStageCompletionGate
+    ? stageCompletionGateQ.data?.inputHash || null
+    : null;
+
   const shouldLoadStagePreview =
     !!profileId &&
-    stageCompletionGateQ.isSuccess &&
+    hasSettledStageCompletionGate &&
     (completionGateReady || completionGateReason === "stale");
+
+  useEffect(() => {
+    console.info("[StagePanel] gate state", {
+      ptrsId,
+      profileId,
+      gateStatus: stageCompletionGateQ.status,
+      gateFetchStatus: stageCompletionGateQ.fetchStatus,
+      gateIsSuccess: stageCompletionGateQ.isSuccess,
+      gateIsFetching: stageCompletionGateQ.isFetching,
+      hasSettledStageCompletionGate,
+      completionGateReady,
+      completionGateReason,
+      completionGateInputHash,
+      shouldLoadStagePreview,
+      rawGateData: stageCompletionGateQ.data || null,
+    });
+  }, [
+    ptrsId,
+    profileId,
+    stageCompletionGateQ.status,
+    stageCompletionGateQ.fetchStatus,
+    stageCompletionGateQ.isSuccess,
+    stageCompletionGateQ.isFetching,
+    stageCompletionGateQ.data,
+    hasSettledStageCompletionGate,
+    completionGateReady,
+    completionGateReason,
+    completionGateInputHash,
+    shouldLoadStagePreview,
+  ]);
 
   const [result, setResult] = useState(null);
   const [preview, setPreview] = useState({ rows: [], headers: [] });
-  const [showPreview, setShowPreview] = useState(false);
+  const [showPreview, setShowPreview] = useState(true);
 
-  const [autoStageAttempted, setAutoStageAttempted] = useState(false);
+  const [lastAutoStageGateKey, setLastAutoStageGateKey] = useState(null);
   const [autoStaging, setAutoStaging] = useState(false);
   const [autoStageMessage, setAutoStageMessage] = useState("");
 
@@ -203,8 +244,7 @@ export default function StagePanel() {
     autoStageInFlightRef.current = false;
     setResult(null);
     setPreview({ rows: [], headers: [] });
-    setShowPreview(false);
-    setAutoStageAttempted(false);
+    setLastAutoStageGateKey(null);
     setAutoStaging(false);
     setAutoStageMessage("");
   }, [ptrsId, profileId]);
@@ -224,11 +264,53 @@ export default function StagePanel() {
   ]);
 
   useEffect(() => {
-    if (!ptrsId || !profileId) return;
-    if (autoStageAttempted) return;
-    if (!stageCompletionGateQ.isSuccess) return;
-    if (completionGateReady) return;
-    if (autoStageInFlightRef.current) return;
+    if (!ptrsId || !profileId) {
+      console.info("[StagePanel] auto-stage skipped: missing identifiers", {
+        ptrsId,
+        profileId,
+      });
+      return;
+    }
+    if (!hasSettledStageCompletionGate) {
+      console.info("[StagePanel] auto-stage skipped: gate not settled", {
+        ptrsId,
+        profileId,
+        gateStatus: stageCompletionGateQ.status,
+        gateFetchStatus: stageCompletionGateQ.fetchStatus,
+        gateIsSuccess: stageCompletionGateQ.isSuccess,
+        gateIsFetching: stageCompletionGateQ.isFetching,
+      });
+      return;
+    }
+    if (completionGateReady) {
+      console.info("[StagePanel] auto-stage skipped: gate ready", {
+        ptrsId,
+        profileId,
+        completionGateReason,
+        completionGateInputHash,
+      });
+      return;
+    }
+    if (autoStageInFlightRef.current) {
+      console.info("[StagePanel] auto-stage skipped: already in flight", {
+        ptrsId,
+        profileId,
+        completionGateReason,
+        completionGateInputHash,
+      });
+      return;
+    }
+
+    const gateKey = `${completionGateReason}:${completionGateInputHash || "no-hash"}`;
+    if (lastAutoStageGateKey === gateKey) {
+      console.info("[StagePanel] auto-stage skipped: gate already attempted", {
+        ptrsId,
+        profileId,
+        gateKey,
+        lastAutoStageGateKey,
+      });
+      return;
+    }
 
     const reason = completionGateReason;
     const msg =
@@ -236,9 +318,25 @@ export default function StagePanel() {
         ? "Showing the last staged snapshot. Rebuilding staging in the background — this may take a while."
         : "Preparing staged dataset for the first time. This may take a while for large files.";
 
+    console.info("[StagePanel] auto-stage queued", {
+      ptrsId,
+      profileId,
+      gateKey,
+      reason,
+      completionGateInputHash,
+      lastAutoStageGateKey,
+    });
+
     const runAutoStage = async () => {
       autoStageInFlightRef.current = true;
-      setAutoStageAttempted(true);
+      console.info("[StagePanel] auto-stage starting", {
+        ptrsId,
+        profileId,
+        gateKey,
+        reason,
+        completionGateInputHash,
+      });
+      setLastAutoStageGateKey(gateKey);
       setAutoStaging(true);
       setAutoStageMessage(msg);
       showAlert(msg, "info");
@@ -249,6 +347,17 @@ export default function StagePanel() {
           persist: true,
           force: false,
         });
+        console.info("[StagePanel] auto-stage completed", {
+          ptrsId,
+          profileId,
+          gateKey,
+          rowsIn: res?.rowsIn || 0,
+          rowsOut: res?.rowsOut || 0,
+          skipped: !!res?.skipped,
+          reason: res?.reason || null,
+          inputHash: res?.inputHash || null,
+          previousRunId: res?.previousRunId || null,
+        });
         if (!mountedRef.current) return;
 
         setResult(res);
@@ -256,6 +365,12 @@ export default function StagePanel() {
 
         showAlert(`Staged ${res?.rowsOut || 0} rows`, "success");
       } catch (stageErr) {
+        console.info("[StagePanel] auto-stage failed", {
+          ptrsId,
+          profileId,
+          gateKey,
+          message: stageErr?.message || null,
+        });
         console.error("[StagePanel] auto-stage error:", stageErr);
         if (mountedRef.current) {
           showAlert(
@@ -265,6 +380,12 @@ export default function StagePanel() {
           );
         }
       } finally {
+        console.info("[StagePanel] auto-stage finished", {
+          ptrsId,
+          profileId,
+          gateKey,
+          mounted: mountedRef.current,
+        });
         autoStageInFlightRef.current = false;
         if (mountedRef.current) setAutoStaging(false);
       }
@@ -274,22 +395,67 @@ export default function StagePanel() {
   }, [
     ptrsId,
     profileId,
-    autoStageAttempted,
+    lastAutoStageGateKey,
     showAlert,
-    stageCompletionGateQ.isSuccess,
+    hasSettledStageCompletionGate,
     completionGateReady,
     completionGateReason,
+    completionGateInputHash,
     stageMutation.mutateAsync,
     refetchStageView,
     stageMutation,
+    stageCompletionGateQ.status,
+    stageCompletionGateQ.fetchStatus,
+    stageCompletionGateQ.isSuccess,
+    stageCompletionGateQ.isFetching,
   ]);
 
   useEffect(() => {
-    if (!shouldLoadStagePreview) return;
-    if (!stagePreviewQ.isSuccess) return;
-    if (!mountedRef.current) return;
+    if (!shouldLoadStagePreview) {
+      console.info("[StagePanel] preview sync skipped: preview not allowed", {
+        ptrsId,
+        profileId,
+        shouldLoadStagePreview,
+        completionGateReady,
+        completionGateReason,
+      });
+      return;
+    }
+    if (!hasSettledStageCompletionGate) {
+      console.info("[StagePanel] preview sync skipped: gate not settled", {
+        ptrsId,
+        profileId,
+      });
+      return;
+    }
+    if (!stagePreviewQ.isSuccess) {
+      console.info(
+        "[StagePanel] preview sync skipped: preview not successful",
+        {
+          ptrsId,
+          profileId,
+          previewStatus: stagePreviewQ.status,
+          previewFetchStatus: stagePreviewQ.fetchStatus,
+        },
+      );
+      return;
+    }
+    if (!mountedRef.current) {
+      console.info("[StagePanel] preview sync skipped: component unmounted", {
+        ptrsId,
+        profileId,
+      });
+      return;
+    }
 
     const pv = stagePreviewQ.data || { rows: [], headers: [] };
+    console.info("[StagePanel] preview sync applying data", {
+      ptrsId,
+      profileId,
+      rows: Array.isArray(pv?.rows) ? pv.rows.length : 0,
+      totalRows: pv?.totalRows ?? null,
+      headers: Array.isArray(pv?.headers) ? pv.headers.length : 0,
+    });
     setPreview(pv);
 
     if (Array.isArray(pv?.rows) && pv.rows.length > 0) {
@@ -298,16 +464,27 @@ export default function StagePanel() {
         if (prev?.rowsOut === stagedCount && prev?.rowsIn === stagedCount) {
           return prev;
         }
-        return (
-          prev || {
-            rowsIn: stagedCount,
-            rowsOut: stagedCount,
-            tookMs: null,
-          }
-        );
+
+        return {
+          ...(prev || {}),
+          rowsIn: stagedCount,
+          rowsOut: stagedCount,
+          tookMs: prev?.tookMs ?? null,
+        };
       });
     }
-  }, [shouldLoadStagePreview, stagePreviewQ.isSuccess, stagePreviewQ.data]);
+  }, [
+    shouldLoadStagePreview,
+    hasSettledStageCompletionGate,
+    stagePreviewQ.isSuccess,
+    stagePreviewQ.data,
+    completionGateReady,
+    completionGateReason,
+    ptrsId,
+    profileId,
+    stagePreviewQ.status,
+    stagePreviewQ.fetchStatus,
+  ]);
 
   const datasetSummary = useMemo(() => {
     if (!datasets.length) return [];

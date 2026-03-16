@@ -17,6 +17,7 @@ import {
   Tooltip,
   IconButton,
   TextField,
+  Grid,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
@@ -37,6 +38,7 @@ import {
   useDeleteExclusionKeywordMutation,
   useExclusionKeywordsQuery,
   useExclusionsPreviewQuery,
+  useExclusionsSummaryQuery,
   useUpdateExclusionKeywordMutation,
 } from "../hooks/usePtrsQueries";
 
@@ -59,18 +61,32 @@ function SampleTable({ rows }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((r, idx) => (
-            <TableRow key={`${r?.row_no ?? idx}`}>
-              <TableCell>{r?.payee_entity_name || "-"}</TableCell>
-              <TableCell>{r?.payee_entity_abn || "-"}</TableCell>
-              <TableCell>{r?.invoice_reference_number || "-"}</TableCell>
-              <TableCell>{r?.account_code || "-"}</TableCell>
-              <TableCell>{r?.payment_date || "-"}</TableCell>
-              <TableCell align="right">{r?.payment_amount || "-"}</TableCell>
-              <TableCell>{r?.exclude_comment || "-"}</TableCell>
-              <TableCell>{r?.description || "-"}</TableCell>
-            </TableRow>
-          ))}
+          {rows.map((r, idx) => {
+            const rowKey = [
+              r?.row_no,
+              r?.payment_date,
+              r?.payment_amount,
+              r?.invoice_reference_number,
+              r?.payee_entity_abn,
+              r?.account_code,
+              idx,
+            ]
+              .map((value) => String(value ?? ""))
+              .join("|");
+
+            return (
+              <TableRow key={rowKey}>
+                <TableCell>{r?.payee_entity_name || "-"}</TableCell>
+                <TableCell>{r?.payee_entity_abn || "-"}</TableCell>
+                <TableCell>{r?.invoice_reference_number || "-"}</TableCell>
+                <TableCell>{r?.account_code || "-"}</TableCell>
+                <TableCell>{r?.payment_date || "-"}</TableCell>
+                <TableCell align="right">{r?.payment_amount || "-"}</TableCell>
+                <TableCell>{r?.exclude_comment || "-"}</TableCell>
+                <TableCell>{r?.description || "-"}</TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </Box>
@@ -87,10 +103,12 @@ function ExclusionCard({
   onPreview,
   onApply,
   busy,
+  canApply,
   statusMessage,
 }) {
   const [showSample, setShowSample] = useState(false);
   const hasRows = Array.isArray(previewRows) && previewRows.length > 0;
+
   return (
     <Card variant="outlined">
       <CardContent>
@@ -114,6 +132,7 @@ function ExclusionCard({
               Coming soon.
             </Typography>
           )}
+
           {enabled && previewCount === 0 && (
             <Typography variant="body2" color="text.secondary">
               No records matched this exclusion category.
@@ -163,21 +182,20 @@ function ExclusionCard({
         </Stack>
       </CardContent>
 
-      <CardActions sx={{ px: 2, pb: 2 }}>
-        {statusMessage && (
-          <Typography
-            variant="caption"
-            color="text.secondary"
-            sx={{ mr: 2, alignSelf: "center" }}
-          >
-            {statusMessage}
-          </Typography>
-        )}
+      <CardActions sx={{ px: 2, pb: 2, justifyContent: "space-between" }}>
+        <Typography
+          variant="caption"
+          color="text.secondary"
+          sx={{ minHeight: 20, display: "block" }}
+        >
+          {statusMessage || " "}
+        </Typography>
+
         <Stack direction="row" spacing={1}>
           <Button
             variant="outlined"
             startIcon={<VisibilityIcon />}
-            onClick={onPreview}
+            onClick={() => onPreview(category)}
             disabled={!enabled || busy}
           >
             Preview
@@ -185,13 +203,52 @@ function ExclusionCard({
           <Button
             variant="contained"
             startIcon={<RuleIcon />}
-            onClick={onApply}
-            disabled={!enabled || busy}
+            onClick={() => onApply(category, title)}
+            disabled={!enabled || busy || !canApply}
           >
             Apply
           </Button>
         </Stack>
       </CardActions>
+    </Card>
+  );
+}
+
+function ExclusionsSummaryCard({ summary, loading }) {
+  const entries = Object.entries(summary?.byReason || {});
+
+  return (
+    <Card variant="outlined">
+      <CardContent>
+        <Stack spacing={1.5}>
+          <Typography variant="h6" fontWeight={600}>
+            Applied exclusions summary
+          </Typography>
+
+          <Typography variant="body2" color="text.secondary">
+            Persisted exclusion counts for this PTRS report.
+          </Typography>
+
+          <Stack
+            direction="row"
+            spacing={1}
+            alignItems="center"
+            flexWrap="wrap"
+          >
+            <Chip
+              color="primary"
+              label={`Total excluded: ${loading ? "…" : Number(summary?.totalExcludedRows || 0)}`}
+            />
+            {entries.map(([reason, count]) => (
+              <Chip
+                key={reason}
+                variant="outlined"
+                label={`${reason}: ${Number(count || 0)}`}
+              />
+            ))}
+          </Stack>
+        </Stack>
+      </CardContent>
     </Card>
   );
 }
@@ -204,41 +261,56 @@ export default function ExclusionsPanel() {
   const { ptrsId, profileId } = usePtrsContext();
 
   const applyMutation = useApplyExclusionsMutation(ptrsId);
-  const govPreviewQuery = useExclusionsPreviewQuery(ptrsId, {
+
+  const exclusionsSummaryQuery = useExclusionsSummaryQuery(ptrsId, {
     profileId,
-    category: "gov",
-    limit: 5,
+    enabled: true,
   });
 
-  const intraPreviewQuery = useExclusionsPreviewQuery(ptrsId, {
-    profileId,
-    category: "intra_company",
-    limit: 5,
-  });
-
-  const employeePreviewQuery = useExclusionsPreviewQuery(ptrsId, {
-    profileId,
-    category: "employee",
-    limit: 5,
-  });
-
-  const partialPreviewQuery = useExclusionsPreviewQuery(ptrsId, {
-    profileId,
-    category: "partial",
-    limit: 5,
-  });
-
-  const prepaidPreviewQuery = useExclusionsPreviewQuery(ptrsId, {
-    profileId,
-    category: "prepaid",
-    limit: 5,
-  });
-
-  const keywordPreviewQuery = useExclusionsPreviewQuery(ptrsId, {
-    profileId,
-    category: "keyword",
-    limit: 5,
-  });
+  const previewQueries = {
+    gov: useExclusionsPreviewQuery(ptrsId, {
+      profileId,
+      category: "gov",
+      limit: 5,
+      enabled: false,
+    }),
+    intra_company: useExclusionsPreviewQuery(ptrsId, {
+      profileId,
+      category: "intra_company",
+      limit: 5,
+      enabled: false,
+    }),
+    employee: useExclusionsPreviewQuery(ptrsId, {
+      profileId,
+      category: "employee",
+      limit: 5,
+      enabled: false,
+    }),
+    doc_type: useExclusionsPreviewQuery(ptrsId, {
+      profileId,
+      category: "doc_type",
+      limit: 5,
+      enabled: false,
+    }),
+    prepaid: useExclusionsPreviewQuery(ptrsId, {
+      profileId,
+      category: "prepaid",
+      limit: 5,
+      enabled: false,
+    }),
+    international: useExclusionsPreviewQuery(ptrsId, {
+      profileId,
+      category: "international",
+      limit: 5,
+      enabled: false,
+    }),
+    keyword: useExclusionsPreviewQuery(ptrsId, {
+      profileId,
+      category: "keyword",
+      limit: 5,
+      enabled: false,
+    }),
+  };
 
   const keywordListQuery = useExclusionKeywordsQuery(ptrsId, { profileId });
   const createKeywordMutation = useCreateExclusionKeywordMutation(ptrsId);
@@ -252,92 +324,81 @@ export default function ExclusionsPanel() {
   const [editKeywordId, setEditKeywordId] = useState(null);
   const [editFields, setEditFields] = useState({});
 
-  const employeeAlreadyExcludedCount = useMemo(() => {
-    const total =
-      employeePreviewQuery.data?.result?.alreadyExcludedCounts?.employee ??
-      null;
-
+  const getAlreadyExcludedCount = (query, key) => {
+    const total = query?.data?.result?.alreadyExcludedCounts?.[key] ?? null;
     if (Number.isFinite(total)) return Number(total);
 
-    const rows = employeePreviewQuery.data?.result?.samples?.employee || [];
+    const rows = query?.data?.result?.samples?.[key] || [];
     if (!rows.length) return 0;
     return rows.filter((r) => r?.alreadyExcluded === true).length;
-  }, [employeePreviewQuery.data]);
-
-  const govAlreadyExcludedCount = useMemo(() => {
-    const total =
-      govPreviewQuery.data?.result?.alreadyExcludedCounts?.gov ?? null;
-
-    // Prefer backend-provided total (covers the whole dataset, not just the sample)
-    if (Number.isFinite(total)) return Number(total);
-
-    // Fallback: sample-based estimate (only used if backend doesn't provide totals)
-    const rows = govPreviewQuery.data?.result?.samples?.gov || [];
-
-    if (!rows.length) return 0;
-
-    return rows.filter((r) => r?.alreadyExcluded === true).length;
-  }, [govPreviewQuery.data]);
-
-  const intraAlreadyExcludedCount = useMemo(() => {
-    const total =
-      intraPreviewQuery.data?.result?.alreadyExcludedCounts?.intra_company ??
-      null;
-
-    if (Number.isFinite(total)) return Number(total);
-
-    const rows = intraPreviewQuery.data?.result?.samples?.intra_company || [];
-    if (!rows.length) return 0;
-    return rows.filter((r) => r?.alreadyExcluded === true).length;
-  }, [intraPreviewQuery.data]);
-
-  const partialAlreadyExcludedCount = useMemo(() => {
-    const total =
-      partialPreviewQuery.data?.result?.alreadyExcludedCounts?.partial ?? null;
-
-    if (Number.isFinite(total)) return Number(total);
-
-    const rows = partialPreviewQuery.data?.result?.samples?.partial || [];
-    if (!rows.length) return 0;
-    return rows.filter((r) => r?.alreadyExcluded === true).length;
-  }, [partialPreviewQuery.data]);
-
-  const prepaidAlreadyExcludedCount = useMemo(() => {
-    const total =
-      prepaidPreviewQuery.data?.result?.alreadyExcludedCounts?.prepaid ?? null;
-
-    if (Number.isFinite(total)) return Number(total);
-
-    const rows = prepaidPreviewQuery.data?.result?.samples?.prepaid || [];
-    if (!rows.length) return 0;
-    return rows.filter((r) => r?.alreadyExcluded === true).length;
-  }, [prepaidPreviewQuery.data]);
+  };
 
   const busy =
     applyMutation.isLoading ||
-    govPreviewQuery.isFetching ||
-    intraPreviewQuery.isFetching ||
-    employeePreviewQuery.isFetching ||
-    partialPreviewQuery.isFetching ||
-    prepaidPreviewQuery.isFetching ||
-    keywordPreviewQuery.isFetching ||
+    Object.values(previewQueries).some((q) => q.isFetching) ||
+    exclusionsSummaryQuery.isFetching ||
     keywordListQuery.isFetching ||
     createKeywordMutation.isLoading ||
+    updateKeywordMutation.isLoading ||
     deleteKeywordMutation.isLoading;
 
-  const keywordAlreadyExcludedCount = useMemo(() => {
-    const total =
-      keywordPreviewQuery.data?.result?.alreadyExcludedCounts?.keyword ?? null;
-    if (Number.isFinite(total)) return Number(total);
-    const rows = keywordPreviewQuery.data?.result?.samples?.keyword || [];
-    if (!rows.length) return 0;
-    return rows.filter((r) => r?.alreadyExcluded === true).length;
-  }, [keywordPreviewQuery.data]);
+  const getPreviewCount = (query, key) => {
+    const countFromResult = query?.data?.result?.counts?.[key];
+    if (Number.isFinite(countFromResult)) return Number(countFromResult);
 
-  const handlePreviewKeyword = async () => {
+    const sampleRows = query?.data?.result?.samples?.[key];
+    if (Array.isArray(sampleRows)) return sampleRows.length;
+
+    return 0;
+  };
+
+  const getToBeAffectedCount = (query, key) => {
+    const matched = getPreviewCount(query, key);
+    const alreadyExcluded = getAlreadyExcludedCount(query, key);
+    return Math.max(Number(matched || 0) - Number(alreadyExcluded || 0), 0);
+  };
+
+  const getCategoryLabel = (category) => {
+    const labels = {
+      gov: "government entity",
+      intra_company: "intra-company",
+      employee: "employee & payroll",
+      doc_type: "document type",
+      prepaid: "pre-payment",
+      international: "international supplier",
+      keyword: "custom keyword",
+    };
+
+    return labels[category] || category;
+  };
+
+  const getReasonCodeForCategory = (category) => {
+    const map = {
+      gov: "GOV_ENTITY",
+      intra_company: "INTRA_COMPANY",
+      employee: "EMPLOYEE",
+      doc_type: "DOC_TYPE",
+      prepaid: "PREPAID",
+      international: "INTERNATIONAL",
+      keyword: "KEYWORD",
+    };
+
+    return map[category] || null;
+  };
+
+  const getAppliedCountForCategory = (category) => {
+    const reasonCode = getReasonCodeForCategory(category);
+    if (!reasonCode) return 0;
+    return Number(exclusionsSummaryQuery.data?.byReason?.[reasonCode] || 0);
+  };
+
+  const handlePreviewCategory = async (category) => {
+    const query = previewQueries[category];
+    if (!query) return;
+
     try {
-      showAlert("Previewing custom keyword exclusions…", "info");
-      const out = await keywordPreviewQuery.refetch();
+      showAlert(`Previewing ${getCategoryLabel(category)} exclusions…`, "info");
+      const out = await query.refetch();
       if (out?.error) throw out.error;
       showAlert("Preview loaded.", "success");
     } catch (err) {
@@ -345,157 +406,19 @@ export default function ExclusionsPanel() {
     }
   };
 
-  const handleApplyKeyword = async () => {
+  const handleApplyCategory = async (category, title) => {
     try {
-      showAlert("Applying custom keyword exclusions…", "info");
+      showAlert(`Applying ${title.toLowerCase()}…`, "info");
       const res = await applyMutation.mutateAsync({
         profileId,
-        category: "keyword",
-      });
-      const persisted = res?.persisted ?? 0;
-      showAlert(`Applied. ${persisted} row(s) re-evaluated.`, "success");
-      keywordPreviewQuery.refetch();
-    } catch (err) {
-      showAlert(err?.message || "Failed to apply exclusions.", "error");
-    }
-  };
-
-  const handlePreviewGov = async () => {
-    try {
-      showAlert("Previewing government entity exclusions…", "info");
-      const out = await govPreviewQuery.refetch();
-      if (out?.error) throw out.error;
-      showAlert("Preview loaded.", "success");
-    } catch (err) {
-      showAlert(err?.message || "Failed to preview exclusions.", "error");
-    }
-  };
-
-  const handlePreviewIntra = async () => {
-    try {
-      showAlert("Previewing intra-company exclusions…", "info");
-      const out = await intraPreviewQuery.refetch();
-      if (out?.error) throw out.error;
-      showAlert("Preview loaded.", "success");
-    } catch (err) {
-      showAlert(err?.message || "Failed to preview exclusions.", "error");
-    }
-  };
-
-  const handlePreviewEmployee = async () => {
-    try {
-      showAlert("Previewing employee & payroll exclusions…", "info");
-      const out = await employeePreviewQuery.refetch();
-      if (out?.error) throw out.error;
-      showAlert("Preview loaded.", "success");
-    } catch (err) {
-      showAlert(err?.message || "Failed to preview exclusions.", "error");
-    }
-  };
-
-  const handlePreviewPartial = async () => {
-    try {
-      showAlert("Previewing partial payments…", "info");
-      const out = await partialPreviewQuery.refetch();
-      if (out?.error) throw out.error;
-      showAlert("Preview loaded.", "success");
-    } catch (err) {
-      showAlert(err?.message || "Failed to preview exclusions.", "error");
-    }
-  };
-
-  const handlePreviewPrepaid = async () => {
-    try {
-      showAlert("Previewing pre-payments…", "info");
-      const out = await prepaidPreviewQuery.refetch();
-      if (out?.error) throw out.error;
-      showAlert("Preview loaded.", "success");
-    } catch (err) {
-      showAlert(err?.message || "Failed to preview exclusions.", "error");
-    }
-  };
-
-  const handleApplyPrepaid = async () => {
-    try {
-      showAlert("Applying pre-payment exclusions…", "info");
-      const res = await applyMutation.mutateAsync({
-        profileId,
-        category: "prepaid",
+        category,
       });
 
       const persisted = res?.persisted ?? 0;
       showAlert(`Applied. ${persisted} row(s) re-evaluated.`, "success");
 
-      prepaidPreviewQuery.refetch();
-    } catch (err) {
-      showAlert(err?.message || "Failed to apply exclusions.", "error");
-    }
-  };
-
-  const handleApplyGov = async () => {
-    try {
-      showAlert("Applying government entity exclusions…", "info");
-      const res = await applyMutation.mutateAsync({
-        profileId,
-        category: "gov",
-      });
-
-      const persisted = res?.persisted ?? 0;
-      showAlert(`Applied. ${persisted} row(s) re-evaluated.`, "success");
-
-      // Refresh preview so inline counts reflect the new state
-      govPreviewQuery.refetch();
-    } catch (err) {
-      showAlert(err?.message || "Failed to apply exclusions.", "error");
-    }
-  };
-
-  const handleApplyIntra = async () => {
-    try {
-      showAlert("Applying intra-company exclusions…", "info");
-      const res = await applyMutation.mutateAsync({
-        profileId,
-        category: "intra_company",
-      });
-
-      const persisted = res?.persisted ?? 0;
-      showAlert(`Applied. ${persisted} row(s) re-evaluated.`, "success");
-
-      intraPreviewQuery.refetch();
-    } catch (err) {
-      showAlert(err?.message || "Failed to apply exclusions.", "error");
-    }
-  };
-
-  const handleApplyEmployee = async () => {
-    try {
-      showAlert("Applying employee & payroll exclusions…", "info");
-      const res = await applyMutation.mutateAsync({
-        profileId,
-        category: "employee",
-      });
-
-      const persisted = res?.persisted ?? 0;
-      showAlert(`Applied. ${persisted} row(s) re-evaluated.`, "success");
-
-      employeePreviewQuery.refetch();
-    } catch (err) {
-      showAlert(err?.message || "Failed to apply exclusions.", "error");
-    }
-  };
-
-  const handleApplyPartial = async () => {
-    try {
-      showAlert("Applying partial payment exclusions…", "info");
-      const res = await applyMutation.mutateAsync({
-        profileId,
-        category: "partial",
-      });
-
-      const persisted = res?.persisted ?? 0;
-      showAlert(`Applied. ${persisted} row(s) re-evaluated.`, "success");
-
-      partialPreviewQuery.refetch();
+      previewQueries[category]?.refetch?.();
+      exclusionsSummaryQuery.refetch();
     } catch (err) {
       showAlert(err?.message || "Failed to apply exclusions.", "error");
     }
@@ -537,7 +460,7 @@ export default function ExclusionsPanel() {
       showAlert("Keyword saved.", "success");
 
       await refreshKeywordList();
-      await keywordPreviewQuery.refetch();
+      await previewQueries.keyword.refetch();
     } catch (err) {
       showAlert(err?.message || "Failed to save keyword.", "error");
     }
@@ -578,7 +501,7 @@ export default function ExclusionsPanel() {
       setEditKeywordId(null);
       setEditFields({});
       await refreshKeywordList();
-      await keywordPreviewQuery.refetch();
+      await previewQueries.keyword.refetch();
     } catch (err) {
       showAlert(err?.message || "Failed to update keyword.", "error");
     }
@@ -593,7 +516,7 @@ export default function ExclusionsPanel() {
       showAlert("Keyword removed.", "success");
 
       await refreshKeywordList();
-      await keywordPreviewQuery.refetch();
+      await previewQueries.keyword.refetch();
     } catch (err) {
       showAlert(err?.message || "Failed to remove keyword.", "error");
     }
@@ -609,49 +532,81 @@ export default function ExclusionsPanel() {
     goTo(`rules?${qs.toString()}`, { includeId: false });
   };
 
-  const cards = useMemo(
+  const sections = useMemo(
     () => [
       {
-        title: "Government entities",
-        description:
-          "Exclude payments to government entities using a shared ABN reference list.",
-        category: "gov",
-        enabled: true,
+        title: "Eligibility & relationship exclusions",
+        items: [
+          {
+            title: "Government entities",
+            description:
+              "Exclude payments to government entities using a shared ABN reference list.",
+            category: "gov",
+            enabled: true,
+          },
+          {
+            title: "Intra-company payments",
+            description:
+              "Exclude payments between related entities (profile-scoped reference).",
+            category: "intra_company",
+            enabled: true,
+          },
+          {
+            title: "Employee & expense payments",
+            description:
+              "Exclude wages, reimbursements, and employee-related payments (profile-scoped reference + keywords).",
+            category: "employee",
+            enabled: true,
+          },
+        ],
       },
       {
-        title: "Intra-company payments",
-        description:
-          "Exclude payments between related entities (profile-scoped reference).",
-        category: "intra_company",
-        enabled: true,
+        title: "Document classification exclusions",
+        items: [
+          {
+            title: "Document type exclusions",
+            description:
+              "Exclude K1 employee T&E, clearing documents beginning 2000, and document types Z, KZ, or AB only when the clearing document begins with 5.",
+            category: "doc_type",
+            enabled: true,
+          },
+        ],
       },
       {
-        title: "Employee & expense payments",
-        description:
-          "Exclude wages, reimbursements, and employee-related payments (profile-scoped reference + keywords).",
-        category: "employee",
-        enabled: true,
+        title: "Supplier classification exclusions",
+        items: [
+          {
+            title: "International suppliers",
+            description:
+              "Exclude suppliers identified as international based on non-AUD document currency. Missing or invalid ABNs should be reviewed separately as a data-quality issue.",
+            category: "international",
+            enabled: true,
+          },
+        ],
       },
       {
-        title: "Custom keyword exclusions",
-        description:
-          "Exclude rows when a keyword/phrase matches key fields (seed via tbl_ptrs_exclusion_keyword_customer_ref).",
-        category: "keyword",
-        enabled: true,
+        title: "Payment structure exclusions",
+        items: [
+          {
+            title: "Pre-payments",
+            description:
+              "Exclude payments with prepaid terms such as PREPAID (where applicable).",
+            category: "prepaid",
+            enabled: true,
+          },
+        ],
       },
       {
-        title: "Partial payments",
-        description:
-          "Exclude earlier payments where multiple payments exist for the same invoice reference.",
-        category: "partial",
-        enabled: true,
-      },
-      {
-        title: "Pre-payments",
-        description:
-          "Exclude payments with prepaid terms such as PREPAID (where applicable).",
-        category: "prepaid",
-        enabled: true,
+        title: "Custom exclusions",
+        items: [
+          {
+            title: "Custom keyword exclusions",
+            description:
+              "Exclude rows when a keyword/phrase matches key fields (seed via tbl_ptrs_exclusion_keyword_customer_ref).",
+            category: "keyword",
+            enabled: true,
+          },
+        ],
       },
     ],
     [],
@@ -675,486 +630,444 @@ export default function ExclusionsPanel() {
           or reports.
         </Typography>
 
+        <ExclusionsSummaryCard
+          summary={exclusionsSummaryQuery.data}
+          loading={exclusionsSummaryQuery.isFetching}
+        />
+
         <Stack spacing={2} sx={{ mt: 1 }}>
-          {cards.map((c) => {
-            if (c.category === "gov") {
-              return (
-                <ExclusionCard
-                  key={c.category}
-                  title={c.title}
-                  description={c.description}
-                  category={c.category}
-                  enabled={c.enabled}
-                  previewCount={
-                    govPreviewQuery.isFetched
-                      ? (govPreviewQuery.data?.result?.counts?.gov ?? 0)
-                      : null
-                  }
-                  previewRows={govPreviewQuery.data?.result?.samples?.gov ?? []}
-                  busy={busy}
-                  onPreview={handlePreviewGov}
-                  onApply={handleApplyGov}
-                  statusMessage={
-                    govPreviewQuery.isFetched
-                      ? `${govAlreadyExcludedCount} row(s) already excluded`
-                      : null
-                  }
-                />
-              );
-            }
-            if (c.category === "intra_company") {
-              return (
-                <ExclusionCard
-                  key={c.category}
-                  title={c.title}
-                  description={c.description}
-                  category={c.category}
-                  enabled={c.enabled}
-                  previewCount={
-                    intraPreviewQuery.isFetched
-                      ? (intraPreviewQuery.data?.result?.counts
-                          ?.intra_company ?? 0)
-                      : null
-                  }
-                  previewRows={
-                    intraPreviewQuery.data?.result?.samples?.intra_company ?? []
-                  }
-                  busy={busy}
-                  onPreview={handlePreviewIntra}
-                  onApply={handleApplyIntra}
-                  statusMessage={
-                    intraPreviewQuery.isFetched
-                      ? `${intraAlreadyExcludedCount} row(s) already excluded`
-                      : null
-                  }
-                />
-              );
-            }
+          {sections.map((section) => (
+            <Stack key={section.title} spacing={1.5}>
+              <Typography variant="subtitle1" fontWeight={600}>
+                {section.title}
+              </Typography>
 
-            if (c.category === "employee") {
-              return (
-                <ExclusionCard
-                  key={c.category}
-                  title={c.title}
-                  description={c.description}
-                  category={c.category}
-                  enabled={c.enabled}
-                  previewCount={
-                    employeePreviewQuery.isFetched
-                      ? (employeePreviewQuery.data?.result?.counts?.employee ??
-                        0)
-                      : null
-                  }
-                  previewRows={
-                    employeePreviewQuery.data?.result?.samples?.employee ?? []
-                  }
-                  busy={busy}
-                  onPreview={handlePreviewEmployee}
-                  onApply={handleApplyEmployee}
-                  statusMessage={
-                    employeePreviewQuery.isFetched
-                      ? `${employeeAlreadyExcludedCount} row(s) already excluded`
-                      : null
-                  }
-                />
-              );
-            }
+              <Grid container spacing={2}>
+                {section.items.map((item) => {
+                  const query = previewQueries[item.category];
+                  const previewCount = query?.isFetched
+                    ? getPreviewCount(query, item.category)
+                    : null;
+                  const previewRows =
+                    query?.data?.result?.samples?.[item.category] ?? [];
+                  const alreadyExcludedCount = getAlreadyExcludedCount(
+                    query,
+                    item.category,
+                  );
+                  const toBeAffectedCount = getToBeAffectedCount(
+                    query,
+                    item.category,
+                  );
+                  const hasPreview = query?.isFetched === true;
+                  const canApply = hasPreview && toBeAffectedCount > 0;
+                  const appliedCount = getAppliedCountForCategory(
+                    item.category,
+                  );
+                  const summarySuffix = appliedCount
+                    ? ` • ${appliedCount} applied in total`
+                    : "";
 
-            if (c.category === "partial") {
-              return (
-                <ExclusionCard
-                  key={c.category}
-                  title={c.title}
-                  description={c.description}
-                  category={c.category}
-                  enabled={c.enabled}
-                  previewCount={
-                    partialPreviewQuery.isFetched
-                      ? (partialPreviewQuery.data?.result?.counts?.partial ?? 0)
-                      : null
-                  }
-                  previewRows={
-                    partialPreviewQuery.data?.result?.samples?.partial ?? []
-                  }
-                  busy={busy}
-                  onPreview={handlePreviewPartial}
-                  onApply={handleApplyPartial}
-                  statusMessage={
-                    partialPreviewQuery.isFetched
-                      ? `${partialAlreadyExcludedCount} row(s) already excluded`
-                      : null
-                  }
-                />
-              );
-            }
+                  if (item.category === "keyword") {
+                    const keywordRows = keywordListQuery.data?.rows || [];
 
-            if (c.category === "keyword") {
-              const keywordRows = keywordListQuery.data?.rows || [];
-
-              return (
-                <Stack key={c.category} spacing={1}>
-                  <ExclusionCard
-                    title={c.title}
-                    description={c.description}
-                    category={c.category}
-                    enabled={c.enabled}
-                    previewCount={
-                      keywordPreviewQuery.isFetched
-                        ? (keywordPreviewQuery.data?.result?.counts?.keyword ??
-                          0)
-                        : null
-                    }
-                    previewRows={
-                      keywordPreviewQuery.data?.result?.samples?.keyword ?? []
-                    }
-                    busy={busy}
-                    onPreview={handlePreviewKeyword}
-                    onApply={handleApplyKeyword}
-                    statusMessage={
-                      keywordPreviewQuery.isFetched
-                        ? `${keywordAlreadyExcludedCount} row(s) already excluded`
-                        : null
-                    }
-                  />
-
-                  <Card variant="outlined">
-                    <CardContent>
-                      <Stack spacing={1}>
-                        <Stack
-                          direction="row"
-                          spacing={1}
-                          alignItems="center"
-                          justifyContent="space-between"
-                        >
-                          <Typography variant="subtitle1" fontWeight={600}>
-                            Manage keywords
-                          </Typography>
-
-                          <Button
-                            size="small"
-                            variant="text"
-                            onClick={refreshKeywordList}
-                            disabled={!ptrsId || !profileId || busy}
-                          >
-                            Refresh
-                          </Button>
-                        </Stack>
-
-                        <Typography variant="body2" color="text.secondary">
-                          Add words or phrases that should exclude rows (matches
-                          payee name, description, invoice ref, account
-                          name/code).
-                        </Typography>
-
+                    return (
+                      <Grid key={item.category} size={{ xs: 12 }}>
                         <Stack spacing={1}>
-                          <Stack direction="row" spacing={1}>
-                            <TextField
-                              fullWidth
-                              size="small"
-                              label="Keyword or phrase"
-                              value={newKeyword}
-                              onChange={(e) => setNewKeyword(e.target.value)}
-                              disabled={!ptrsId || !profileId || busy}
-                              onKeyDown={(e) => {
-                                if (e.key === "Enter") {
-                                  e.preventDefault();
-                                  handleAddKeyword();
-                                }
-                              }}
-                            />
-                            <TextField
-                              select
-                              size="small"
-                              label="Field"
-                              value={newField}
-                              onChange={(e) => setNewField(e.target.value)}
-                              disabled={!ptrsId || !profileId || busy}
-                              SelectProps={{ native: true }}
-                              sx={{ minWidth: 120 }}
-                            >
-                              <option value="any">Any</option>
-                              <option value="payee_entity_name">
-                                Payee Name
-                              </option>
-                              <option value="description">Description</option>
-                              <option value="invoice_reference_number">
-                                Invoice Ref
-                              </option>
-                              <option value="account_name">Account Name</option>
-                              <option value="account_code">Account Code</option>
-                            </TextField>
-                            <TextField
-                              select
-                              size="small"
-                              label="Match Type"
-                              value={newMatchType}
-                              onChange={(e) => setNewMatchType(e.target.value)}
-                              disabled={!ptrsId || !profileId || busy}
-                              SelectProps={{ native: true }}
-                              sx={{ minWidth: 120 }}
-                            >
-                              <option value="contains">Contains</option>
-                              <option value="equals">Equals</option>
-                            </TextField>
-                            <Button
-                              variant="contained"
-                              startIcon={<AddIcon />}
-                              onClick={handleAddKeyword}
-                              disabled={!ptrsId || !profileId || busy}
-                            >
-                              Add
-                            </Button>
-                          </Stack>
-
-                          <TextField
-                            fullWidth
-                            size="small"
-                            label="Notes (optional)"
-                            value={newNotes}
-                            onChange={(e) => setNewNotes(e.target.value)}
-                            disabled={!ptrsId || !profileId || busy}
+                          <ExclusionCard
+                            title={item.title}
+                            description={item.description}
+                            category={item.category}
+                            enabled={item.enabled}
+                            previewCount={previewCount}
+                            previewRows={previewRows}
+                            busy={busy}
+                            onPreview={handlePreviewCategory}
+                            onApply={handleApplyCategory}
+                            canApply={canApply}
+                            statusMessage={
+                              query?.isFetched
+                                ? toBeAffectedCount > 0
+                                  ? `${toBeAffectedCount} row(s) to be affected • ${alreadyExcludedCount} already excluded${summarySuffix}`
+                                  : `No remaining rows to affect${summarySuffix}`
+                                : "Preview this category before applying."
+                            }
                           />
+
+                          <Card variant="outlined">
+                            <CardContent>
+                              <Stack spacing={1}>
+                                <Stack
+                                  direction="row"
+                                  spacing={1}
+                                  alignItems="center"
+                                  justifyContent="space-between"
+                                >
+                                  <Typography
+                                    variant="subtitle1"
+                                    fontWeight={600}
+                                  >
+                                    Manage keywords
+                                  </Typography>
+
+                                  <Button
+                                    size="small"
+                                    variant="text"
+                                    onClick={refreshKeywordList}
+                                    disabled={!ptrsId || !profileId || busy}
+                                  >
+                                    Refresh
+                                  </Button>
+                                </Stack>
+
+                                <Typography
+                                  variant="body2"
+                                  color="text.secondary"
+                                >
+                                  Add words or phrases that should exclude rows
+                                  (matches payee name, description, invoice ref,
+                                  account name/code).
+                                </Typography>
+
+                                <Stack spacing={1}>
+                                  <Stack direction="row" spacing={1}>
+                                    <TextField
+                                      fullWidth
+                                      size="small"
+                                      label="Keyword or phrase"
+                                      value={newKeyword}
+                                      onChange={(e) =>
+                                        setNewKeyword(e.target.value)
+                                      }
+                                      disabled={!ptrsId || !profileId || busy}
+                                      onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                          e.preventDefault();
+                                          handleAddKeyword();
+                                        }
+                                      }}
+                                    />
+                                    <TextField
+                                      select
+                                      size="small"
+                                      label="Field"
+                                      value={newField}
+                                      onChange={(e) =>
+                                        setNewField(e.target.value)
+                                      }
+                                      disabled={!ptrsId || !profileId || busy}
+                                      SelectProps={{ native: true }}
+                                      sx={{ minWidth: 120 }}
+                                    >
+                                      <option value="any">Any</option>
+                                      <option value="payee_entity_name">
+                                        Payee Name
+                                      </option>
+                                      <option value="description">
+                                        Description
+                                      </option>
+                                      <option value="invoice_reference_number">
+                                        Invoice Ref
+                                      </option>
+                                      <option value="account_name">
+                                        Account Name
+                                      </option>
+                                      <option value="account_code">
+                                        Account Code
+                                      </option>
+                                    </TextField>
+                                    <TextField
+                                      select
+                                      size="small"
+                                      label="Match Type"
+                                      value={newMatchType}
+                                      onChange={(e) =>
+                                        setNewMatchType(e.target.value)
+                                      }
+                                      disabled={!ptrsId || !profileId || busy}
+                                      SelectProps={{ native: true }}
+                                      sx={{ minWidth: 120 }}
+                                    >
+                                      <option value="contains">Contains</option>
+                                      <option value="equals">Equals</option>
+                                    </TextField>
+                                    <Button
+                                      variant="contained"
+                                      startIcon={<AddIcon />}
+                                      onClick={handleAddKeyword}
+                                      disabled={!ptrsId || !profileId || busy}
+                                    >
+                                      Add
+                                    </Button>
+                                  </Stack>
+
+                                  <TextField
+                                    fullWidth
+                                    size="small"
+                                    label="Notes (optional)"
+                                    value={newNotes}
+                                    onChange={(e) =>
+                                      setNewNotes(e.target.value)
+                                    }
+                                    disabled={!ptrsId || !profileId || busy}
+                                  />
+                                </Stack>
+
+                                <Divider />
+
+                                {Array.isArray(keywordRows) &&
+                                keywordRows.length ? (
+                                  <Box sx={{ overflowX: "auto" }}>
+                                    <Table size="small">
+                                      <TableHead>
+                                        <TableRow>
+                                          <TableCell>Keyword</TableCell>
+                                          <TableCell>Field</TableCell>
+                                          <TableCell>Match Type</TableCell>
+                                          <TableCell>Notes</TableCell>
+                                          <TableCell align="right">
+                                            Actions
+                                          </TableCell>
+                                        </TableRow>
+                                      </TableHead>
+                                      <TableBody>
+                                        {keywordRows.map((k) => (
+                                          <TableRow key={k.id}>
+                                            {editKeywordId === k.id ? (
+                                              <>
+                                                <TableCell>
+                                                  <TextField
+                                                    size="small"
+                                                    value={editFields.keyword}
+                                                    onChange={(e) =>
+                                                      setEditFields((f) => ({
+                                                        ...f,
+                                                        keyword: e.target.value,
+                                                      }))
+                                                    }
+                                                    disabled={busy}
+                                                  />
+                                                </TableCell>
+                                                <TableCell>
+                                                  <TextField
+                                                    select
+                                                    size="small"
+                                                    value={editFields.field}
+                                                    onChange={(e) =>
+                                                      setEditFields((f) => ({
+                                                        ...f,
+                                                        field: e.target.value,
+                                                      }))
+                                                    }
+                                                    disabled={busy}
+                                                    SelectProps={{
+                                                      native: true,
+                                                    }}
+                                                  >
+                                                    <option value="any">
+                                                      Any
+                                                    </option>
+                                                    <option value="payee_entity_name">
+                                                      Payee Name
+                                                    </option>
+                                                    <option value="description">
+                                                      Description
+                                                    </option>
+                                                    <option value="invoice_reference_number">
+                                                      Invoice Ref
+                                                    </option>
+                                                    <option value="account_name">
+                                                      Account Name
+                                                    </option>
+                                                    <option value="account_code">
+                                                      Account Code
+                                                    </option>
+                                                  </TextField>
+                                                </TableCell>
+                                                <TableCell>
+                                                  <TextField
+                                                    select
+                                                    size="small"
+                                                    value={editFields.matchType}
+                                                    onChange={(e) =>
+                                                      setEditFields((f) => ({
+                                                        ...f,
+                                                        matchType:
+                                                          e.target.value,
+                                                      }))
+                                                    }
+                                                    disabled={busy}
+                                                    SelectProps={{
+                                                      native: true,
+                                                    }}
+                                                  >
+                                                    <option value="contains">
+                                                      Contains
+                                                    </option>
+                                                    <option value="equals">
+                                                      Equals
+                                                    </option>
+                                                  </TextField>
+                                                </TableCell>
+                                                <TableCell>
+                                                  <TextField
+                                                    size="small"
+                                                    value={
+                                                      editFields.notes || ""
+                                                    }
+                                                    onChange={(e) =>
+                                                      setEditFields((f) => ({
+                                                        ...f,
+                                                        notes: e.target.value,
+                                                      }))
+                                                    }
+                                                    disabled={busy}
+                                                  />
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                  <Button
+                                                    size="small"
+                                                    variant="contained"
+                                                    color="primary"
+                                                    sx={{ mr: 1 }}
+                                                    onClick={() =>
+                                                      handleSaveEdit(k)
+                                                    }
+                                                    disabled={busy}
+                                                  >
+                                                    Save
+                                                  </Button>
+                                                  <Button
+                                                    size="small"
+                                                    variant="outlined"
+                                                    onClick={handleCancelEdit}
+                                                    disabled={busy}
+                                                  >
+                                                    Cancel
+                                                  </Button>
+                                                </TableCell>
+                                              </>
+                                            ) : (
+                                              <>
+                                                <TableCell>
+                                                  {k.keyword}
+                                                </TableCell>
+                                                <TableCell>
+                                                  {{
+                                                    any: "Any",
+                                                    payee_entity_name:
+                                                      "Payee Name",
+                                                    description: "Description",
+                                                    invoice_reference_number:
+                                                      "Invoice Ref",
+                                                    account_name:
+                                                      "Account Name",
+                                                    account_code:
+                                                      "Account Code",
+                                                  }[k.field] || k.field}
+                                                </TableCell>
+                                                <TableCell>
+                                                  {{
+                                                    contains: "Contains",
+                                                    equals: "Equals",
+                                                  }[k.matchType] || k.matchType}
+                                                </TableCell>
+                                                <TableCell>
+                                                  {k.notes || ""}
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                  <Tooltip title="Edit">
+                                                    <span
+                                                      style={{
+                                                        display: "inline-flex",
+                                                      }}
+                                                    >
+                                                      <IconButton
+                                                        size="small"
+                                                        onClick={() =>
+                                                          handleEditKeyword(k)
+                                                        }
+                                                        disabled={
+                                                          busy ||
+                                                          editKeywordId !== null
+                                                        }
+                                                      >
+                                                        <RuleIcon fontSize="small" />
+                                                      </IconButton>
+                                                    </span>
+                                                  </Tooltip>
+                                                  <Tooltip title="Delete">
+                                                    <span
+                                                      style={{
+                                                        display: "inline-flex",
+                                                      }}
+                                                    >
+                                                      <IconButton
+                                                        size="small"
+                                                        onClick={() =>
+                                                          handleDeleteKeyword(
+                                                            k.id,
+                                                          )
+                                                        }
+                                                        disabled={
+                                                          busy ||
+                                                          editKeywordId !== null
+                                                        }
+                                                      >
+                                                        <DeleteOutlineIcon fontSize="small" />
+                                                      </IconButton>
+                                                    </span>
+                                                  </Tooltip>
+                                                </TableCell>
+                                              </>
+                                            )}
+                                          </TableRow>
+                                        ))}
+                                      </TableBody>
+                                    </Table>
+                                  </Box>
+                                ) : (
+                                  <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                  >
+                                    No keywords saved yet.
+                                  </Typography>
+                                )}
+                              </Stack>
+                            </CardContent>
+                          </Card>
                         </Stack>
-
-                        <Divider />
-
-                        {Array.isArray(keywordRows) && keywordRows.length ? (
-                          <Box sx={{ overflowX: "auto" }}>
-                            <Table size="small">
-                              <TableHead>
-                                <TableRow>
-                                  <TableCell>Keyword</TableCell>
-                                  <TableCell>Field</TableCell>
-                                  <TableCell>Match Type</TableCell>
-                                  <TableCell>Notes</TableCell>
-                                  <TableCell align="right">Actions</TableCell>
-                                </TableRow>
-                              </TableHead>
-                              <TableBody>
-                                {keywordRows.map((k) => (
-                                  <TableRow key={k.id}>
-                                    {editKeywordId === k.id ? (
-                                      <>
-                                        <TableCell>
-                                          <TextField
-                                            size="small"
-                                            value={editFields.keyword}
-                                            onChange={(e) =>
-                                              setEditFields((f) => ({
-                                                ...f,
-                                                keyword: e.target.value,
-                                              }))
-                                            }
-                                            disabled={busy}
-                                          />
-                                        </TableCell>
-                                        <TableCell>
-                                          <TextField
-                                            select
-                                            size="small"
-                                            value={editFields.field}
-                                            onChange={(e) =>
-                                              setEditFields((f) => ({
-                                                ...f,
-                                                field: e.target.value,
-                                              }))
-                                            }
-                                            disabled={busy}
-                                            SelectProps={{ native: true }}
-                                          >
-                                            <option value="any">Any</option>
-                                            <option value="payee_entity_name">
-                                              Payee Name
-                                            </option>
-                                            <option value="description">
-                                              Description
-                                            </option>
-                                            <option value="invoice_reference_number">
-                                              Invoice Ref
-                                            </option>
-                                            <option value="account_name">
-                                              Account Name
-                                            </option>
-                                            <option value="account_code">
-                                              Account Code
-                                            </option>
-                                          </TextField>
-                                        </TableCell>
-                                        <TableCell>
-                                          <TextField
-                                            select
-                                            size="small"
-                                            value={editFields.matchType}
-                                            onChange={(e) =>
-                                              setEditFields((f) => ({
-                                                ...f,
-                                                matchType: e.target.value,
-                                              }))
-                                            }
-                                            disabled={busy}
-                                            SelectProps={{ native: true }}
-                                          >
-                                            <option value="contains">
-                                              Contains
-                                            </option>
-                                            <option value="equals">
-                                              Equals
-                                            </option>
-                                          </TextField>
-                                        </TableCell>
-                                        <TableCell>
-                                          <TextField
-                                            size="small"
-                                            value={editFields.notes || ""}
-                                            onChange={(e) =>
-                                              setEditFields((f) => ({
-                                                ...f,
-                                                notes: e.target.value,
-                                              }))
-                                            }
-                                            disabled={busy}
-                                          />
-                                        </TableCell>
-                                        <TableCell align="right">
-                                          <Button
-                                            size="small"
-                                            variant="contained"
-                                            color="primary"
-                                            sx={{ mr: 1 }}
-                                            onClick={() => handleSaveEdit(k)}
-                                            disabled={busy}
-                                          >
-                                            Save
-                                          </Button>
-                                          <Button
-                                            size="small"
-                                            variant="outlined"
-                                            onClick={handleCancelEdit}
-                                            disabled={busy}
-                                          >
-                                            Cancel
-                                          </Button>
-                                        </TableCell>
-                                      </>
-                                    ) : (
-                                      <>
-                                        <TableCell>{k.keyword}</TableCell>
-                                        <TableCell>
-                                          {{
-                                            any: "Any",
-                                            payee_entity_name: "Payee Name",
-                                            description: "Description",
-                                            invoice_reference_number:
-                                              "Invoice Ref",
-                                            account_name: "Account Name",
-                                            account_code: "Account Code",
-                                          }[k.field] || k.field}
-                                        </TableCell>
-                                        <TableCell>
-                                          {{
-                                            contains: "Contains",
-                                            equals: "Equals",
-                                          }[k.matchType] || k.matchType}
-                                        </TableCell>
-                                        <TableCell>{k.notes || ""}</TableCell>
-                                        <TableCell align="right">
-                                          <Tooltip title="Edit">
-                                            <span
-                                              style={{ display: "inline-flex" }}
-                                            >
-                                              <IconButton
-                                                size="small"
-                                                onClick={() =>
-                                                  handleEditKeyword(k)
-                                                }
-                                                disabled={
-                                                  busy || editKeywordId !== null
-                                                }
-                                              >
-                                                <RuleIcon fontSize="small" />
-                                              </IconButton>
-                                            </span>
-                                          </Tooltip>
-                                          <Tooltip title="Delete">
-                                            <span
-                                              style={{ display: "inline-flex" }}
-                                            >
-                                              <IconButton
-                                                size="small"
-                                                onClick={() =>
-                                                  handleDeleteKeyword(k.id)
-                                                }
-                                                disabled={
-                                                  busy || editKeywordId !== null
-                                                }
-                                              >
-                                                <DeleteOutlineIcon fontSize="small" />
-                                              </IconButton>
-                                            </span>
-                                          </Tooltip>
-                                        </TableCell>
-                                      </>
-                                    )}
-                                  </TableRow>
-                                ))}
-                              </TableBody>
-                            </Table>
-                          </Box>
-                        ) : (
-                          <Typography variant="body2" color="text.secondary">
-                            No keywords saved yet.
-                          </Typography>
-                        )}
-                      </Stack>
-                    </CardContent>
-                  </Card>
-                </Stack>
-              );
-            }
-
-            if (c.category === "prepaid") {
-              return (
-                <ExclusionCard
-                  key={c.category}
-                  title={c.title}
-                  description={c.description}
-                  category={c.category}
-                  enabled={c.enabled}
-                  previewCount={
-                    prepaidPreviewQuery.isFetched
-                      ? (prepaidPreviewQuery.data?.result?.counts?.prepaid ?? 0)
-                      : null
+                      </Grid>
+                    );
                   }
-                  previewRows={
-                    prepaidPreviewQuery.data?.result?.samples?.prepaid ?? []
-                  }
-                  busy={busy}
-                  onPreview={handlePreviewPrepaid}
-                  onApply={handleApplyPrepaid}
-                  statusMessage={
-                    prepaidPreviewQuery.isFetched
-                      ? `${prepaidAlreadyExcludedCount} row(s) already excluded`
-                      : null
-                  }
-                />
-              );
-            }
 
-            return (
-              <ExclusionCard
-                key={c.category}
-                title={c.title}
-                description={c.description}
-                category={c.category}
-                enabled={c.enabled}
-                previewCount={null}
-                previewRows={[]}
-                busy={busy}
-                onPreview={() => {}}
-                onApply={() => {}}
-              />
-            );
-          })}
+                  return (
+                    <Grid key={item.category} size={{ xs: 12, md: 6 }}>
+                      <ExclusionCard
+                        title={item.title}
+                        description={item.description}
+                        category={item.category}
+                        enabled={item.enabled}
+                        previewCount={previewCount}
+                        previewRows={previewRows}
+                        busy={busy}
+                        onPreview={handlePreviewCategory}
+                        onApply={handleApplyCategory}
+                        canApply={canApply}
+                        statusMessage={
+                          query?.isFetched
+                            ? toBeAffectedCount > 0
+                              ? `${toBeAffectedCount} row(s) to be affected • ${alreadyExcludedCount} already excluded${summarySuffix}`
+                              : `No remaining rows to affect${summarySuffix}`
+                            : "Preview this category before applying."
+                        }
+                      />
+                    </Grid>
+                  );
+                })}
+              </Grid>
+            </Stack>
+          ))}
         </Stack>
 
         <Divider sx={{ mt: 1 }} />

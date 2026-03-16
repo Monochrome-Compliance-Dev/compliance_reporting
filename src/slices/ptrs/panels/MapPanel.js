@@ -1032,33 +1032,30 @@ export default function MapPanel() {
     }
   };
 
-  const buildCanonicalFieldMapPayload = useCallback(
-    (effectiveAssign) => {
-      const payload = [];
+  const buildCanonicalFieldMapPayload = useCallback((effectiveAssign) => {
+    const payload = [];
 
-      for (const [targetField, assignedSource] of Object.entries(
-        effectiveAssign || {},
-      )) {
-        const sourceRef = normaliseSourceRef(assignedSource);
-        if (!targetField || !sourceRef?.header) continue;
-        if (customFields.includes(targetField)) continue;
+    for (const [targetField, assignedSource] of Object.entries(
+      effectiveAssign || {},
+    )) {
+      const sourceRef = normaliseSourceRef(assignedSource);
+      if (!targetField || !sourceRef?.header) continue;
 
-        const canonicalField = String(targetField).trim();
+      const canonicalField = String(targetField).trim();
+      if (!canonicalField) continue;
 
-        payload.push({
-          canonicalField,
-          sourceRole: sourceRef.role || "main",
-          sourceColumn: sourceRef.header,
-          transformType: null,
-          transformConfig: null,
-          meta: null,
-        });
-      }
+      payload.push({
+        canonicalField,
+        sourceRole: sourceRef.role || "main",
+        sourceColumn: sourceRef.header,
+        transformType: null,
+        transformConfig: null,
+        meta: null,
+      });
+    }
 
-      return payload;
-    },
-    [customFields],
-  );
+    return payload;
+  }, []);
 
   const canonicalFieldMapNeedsSave = useCallback(
     (nextPayload) => {
@@ -1189,9 +1186,19 @@ export default function MapPanel() {
         payerEntityAbn: assign.payerEntityAbn,
       });
 
+      let savedCanonicalRows = canonicalFieldMap;
+
       if (profileId) {
-        await savePtrsFieldMap(ptrsId, profileId, canonicalFieldMap);
-        setSavedFieldMap(canonicalFieldMap);
+        savedCanonicalRows = await savePtrsFieldMap(
+          ptrsId,
+          profileId,
+          canonicalFieldMap,
+        );
+        setSavedFieldMap(
+          Array.isArray(savedCanonicalRows)
+            ? savedCanonicalRows
+            : canonicalFieldMap,
+        );
       }
 
       // Keep latest extras (important so next save can truly be a no-op)
@@ -1204,12 +1211,25 @@ export default function MapPanel() {
       }
 
       const savedLegacyCount = Object.keys(res?.mappings || payload).length;
-      const savedCount = Math.max(savedLegacyCount, canonicalCount);
+      const savedCanonicalCount = Array.isArray(savedCanonicalRows)
+        ? savedCanonicalRows.length
+        : canonicalCount;
+      const savedCount = profileId
+        ? savedCanonicalCount
+        : Math.max(savedLegacyCount, canonicalCount);
+
       if (!auto) {
-        showAlert(
-          `Saved map (${savedCount} field${savedCount === 1 ? "" : "s"})`,
-          "success",
-        );
+        if (profileId && savedCanonicalCount !== canonicalCount) {
+          showAlert(
+            `Map save mismatch: requested ${canonicalCount} canonical field${canonicalCount === 1 ? "" : "s"}, but only ${savedCanonicalCount} persisted.`,
+            "warning",
+          );
+        } else {
+          showAlert(
+            `Saved map (${savedCount} field${savedCount === 1 ? "" : "s"})`,
+            "success",
+          );
+        }
       }
 
       setIsDirty(false);

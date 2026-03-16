@@ -17,6 +17,7 @@ import {
   createExclusionKeyword,
   deleteExclusionKeyword,
   updateExclusionKeyword,
+  getExclusionsSummary,
 } from "../services/exclusions.ptrsApi";
 import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 import { getValidate, runValidate } from "../services/validate.ptrsApi";
@@ -32,7 +33,6 @@ import {
   stagePtrs as runStagePtrs,
 } from "../services/stage.ptrsApi";
 
-// ---- Keys (per ptrs) ---------------------------------------------------------
 const K = {
   data: (id) => ["ptrs", "data", id],
   tables: (id) => ["ptrs", "tables", id],
@@ -74,6 +74,13 @@ const K = {
     profileId || "none",
     Number(limit) || 10,
   ],
+  exclusionsSummary: (id, { profileId } = {}) => [
+    "ptrs",
+    "exclusions",
+    "summary",
+    id,
+    profileId || "none",
+  ],
   exclusionKeywords: (id, { profileId }) => [
     "ptrs",
     "exclusions",
@@ -87,6 +94,21 @@ const K = {
   metrics: (id) => ["ptrs", "metrics", id],
   report: (id) => ["ptrs", "report", id],
 };
+
+const buildExclusionsPreviewKey = (
+  ptrsId,
+  { category = "all", profileId = null, limit = 10 } = {},
+) => K.exclusionsPreview(ptrsId, { category, profileId, limit });
+
+const buildExclusionsPreviewQueryFn =
+  (ptrsId, { profileId = null, category = "all", limit = 10 } = {}) =>
+  async () =>
+    previewExclusions(ptrsId, { profileId, category, limit });
+
+const useExclusionKeywordMutation = (ptrsId, fn) =>
+  useMutation({
+    mutationFn: (payload) => fn(ptrsId, payload),
+  });
 
 // ---- Minimal search/list stubs (not used in v2 flow yet) ----------------------
 export function usePtrsSearch() {
@@ -279,15 +301,36 @@ export function useStagePtrsMutation(ptrsId) {
 
 export function useExclusionsPreviewQuery(
   ptrsId,
-  { profileId = null, category = "all", limit = 10 } = {},
+  { profileId = null, category = "all", limit = 10, enabled = false } = {},
 ) {
-  const enabled = !!ptrsId;
+  const queryEnabled = !!ptrsId && enabled;
 
   return useQuery({
-    queryKey: K.exclusionsPreview(ptrsId, { category, profileId, limit }),
-    queryFn: async () =>
-      previewExclusions(ptrsId, { profileId, category, limit }),
-    enabled,
+    queryKey: buildExclusionsPreviewKey(ptrsId, {
+      category,
+      profileId,
+      limit,
+    }),
+    queryFn: buildExclusionsPreviewQueryFn(ptrsId, {
+      profileId,
+      category,
+      limit,
+    }),
+    enabled: queryEnabled,
+    staleTime: 0,
+  });
+}
+
+export function useExclusionsSummaryQuery(
+  ptrsId,
+  { profileId = null, enabled = true } = {},
+) {
+  const queryEnabled = !!ptrsId && enabled;
+
+  return useQuery({
+    queryKey: K.exclusionsSummary(ptrsId, { profileId }),
+    queryFn: async () => getExclusionsSummary(ptrsId, { profileId }),
+    enabled: queryEnabled,
     staleTime: 0,
   });
 }
@@ -304,37 +347,15 @@ export function useExclusionKeywordsQuery(ptrsId, { profileId } = {}) {
 }
 
 export function useCreateExclusionKeywordMutation(ptrsId) {
-  return useMutation({
-    mutationFn: ({ profileId, keyword, field, matchType, notes }) =>
-      createExclusionKeyword(ptrsId, {
-        profileId,
-        keyword,
-        field,
-        matchType,
-        notes,
-      }),
-  });
+  return useExclusionKeywordMutation(ptrsId, createExclusionKeyword);
 }
 
 export function useUpdateExclusionKeywordMutation(ptrsId) {
-  return useMutation({
-    mutationFn: ({ profileId, keywordId, keyword, field, matchType, notes }) =>
-      updateExclusionKeyword(ptrsId, {
-        profileId,
-        keywordId,
-        keyword,
-        field,
-        matchType,
-        notes,
-      }),
-  });
+  return useExclusionKeywordMutation(ptrsId, updateExclusionKeyword);
 }
 
 export function useDeleteExclusionKeywordMutation(ptrsId) {
-  return useMutation({
-    mutationFn: ({ profileId, keywordId }) =>
-      deleteExclusionKeyword(ptrsId, { profileId, keywordId }),
-  });
+  return useExclusionKeywordMutation(ptrsId, deleteExclusionKeyword);
 }
 
 export function usePtrsRulesStatus() {
