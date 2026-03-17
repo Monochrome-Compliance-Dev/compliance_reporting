@@ -25,17 +25,66 @@ const DEFAULT_LIMIT = 50;
 
 const normaliseHeaders = (headers) => {
   if (!headers) return [];
+
+  const toSafeString = (value) => {
+    if (value == null) return "";
+    if (typeof value === "string") return value;
+    if (typeof value === "number" || typeof value === "boolean") {
+      return String(value);
+    }
+    if (Array.isArray(value)) {
+      return value
+        .map((item) =>
+          typeof item === "string" ||
+          typeof item === "number" ||
+          typeof item === "boolean"
+            ? String(item)
+            : "",
+        )
+        .filter(Boolean)
+        .join(", ");
+    }
+    if (typeof value === "object") {
+      return (
+        value.label ||
+        value.value ||
+        value.name ||
+        value.field ||
+        value.header ||
+        ""
+      );
+    }
+    return "";
+  };
+
   if (Array.isArray(headers)) {
-    return headers.map((h) =>
-      typeof h === "string" ? { value: h, label: h } : h,
-    );
+    return headers
+      .map((h) => {
+        if (typeof h === "string") {
+          return { value: h, label: h };
+        }
+
+        if (h && typeof h === "object") {
+          const value = toSafeString(h.value || h.field || h.header || h.name);
+          const label = toSafeString(
+            h.label || h.value || h.field || h.header || h.name,
+          );
+          if (!value) return null;
+          return { value, label: label || value };
+        }
+
+        return null;
+      })
+      .filter(Boolean);
   }
+
   if (typeof headers === "object") {
     return Object.keys(headers).map((key) => ({
       value: key,
-      label: headers[key] || key,
+      label: toSafeString(headers[key]) || key,
     }));
   }
+
   return [];
 };
 
@@ -51,6 +100,30 @@ const operatorOptions = [
   { value: "is_null", label: "is empty / null" },
   { value: "not_null", label: "is not empty / null" },
 ];
+
+const renderCellValue = (value) => {
+  if (value == null) return "";
+  if (
+    typeof value === "string" ||
+    typeof value === "number" ||
+    typeof value === "boolean"
+  ) {
+    return String(value);
+  }
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => renderCellValue(item))
+      .filter(Boolean)
+      .join(", ");
+  }
+  if (typeof value === "object") {
+    if (typeof value.display === "string") return value.display;
+    if (typeof value.label === "string") return value.label;
+    if (typeof value.value === "string") return value.value;
+    return JSON.stringify(value);
+  }
+  return String(value);
+};
 
 export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
   const theme = useTheme();
@@ -386,7 +459,7 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
                             textOverflow: "ellipsis",
                           }}
                         >
-                          {row[h.value]}
+                          {renderCellValue(row[h.value])}
                         </TableCell>
                       ))}
                     </TableRow>

@@ -5,6 +5,8 @@ import {
   Select,
   MenuItem,
   TextField,
+  Checkbox,
+  FormControlLabel,
 } from "@mui/material";
 
 export default function RuleRelationshipBuilder({
@@ -135,6 +137,20 @@ export default function RuleRelationshipBuilder({
           }
         />
       </Stack>
+
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={Boolean(rule.alsoExcludeCurrent)}
+            onChange={(e) =>
+              onUpdate(index, {
+                alsoExcludeCurrent: e.target.checked,
+              })
+            }
+          />
+        }
+        label="Exclude current rows after applying the related-row adjustment"
+      />
     </Stack>
   );
 }

@@ -8,15 +8,54 @@ import { pickData } from "./ptrsApi";
 // Avoid trailing slashes
 const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 
+const normalisePreviewExample = (example) => {
+  if (!example || typeof example !== "object") return null;
+
+  const rowNo = example.rowNo ?? example.row_no ?? null;
+  const documentType =
+    example.documentType ?? example.document_type ?? example.doc ?? "";
+  const ref = example.ref ?? example.reference ?? "";
+  const baseBefore = example.baseBefore ?? example.base_before ?? "";
+  const expectedDelta =
+    example.expectedDelta ?? example.expected_delta ?? example.delta ?? "";
+  const wouldBe = example.wouldBe ?? example.would_be ?? "";
+
+  return {
+    rowNo,
+    documentType,
+    ref,
+    baseBefore,
+    expectedDelta,
+    wouldBe,
+  };
+};
+
 // -------------------- Rules (routes: /ptrs/:id/rules/...) ---
-export const previewRules = async (ptrsId, { limit = 50 } = {}) => {
+export const previewRules = async (
+  ptrsId,
+  { mode = "sample", limit = 50 } = {},
+) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   const q = new URLSearchParams();
+  q.set("mode", String(mode || "sample"));
   q.set("limit", String(limit));
   const res = await fetchWrapper.get(
     `${API_ROOT}/v2/ptrs/${ptrsId}/rules/preview?${q.toString()}`,
   );
-  return pickData(res); // returns the full preview contract as is
+  const d = pickData(res) || {};
+  const data = d?.data || d || {};
+
+  return {
+    meta: data.meta || {},
+    summary: data.summary || {},
+    headers: Array.isArray(data.headers) ? data.headers : [],
+    rows: Array.isArray(data.rows) ? data.rows : [],
+    byRule: data.byRule || {},
+    warning: data.warning || "",
+    examples: Array.isArray(data.examples)
+      ? data.examples.map(normalisePreviewExample).filter(Boolean)
+      : [],
+  };
 };
 
 export const listRuleSources = async (ptrsId) => {
