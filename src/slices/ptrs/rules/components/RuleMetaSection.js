@@ -1,8 +1,26 @@
 import { Stack, TextField, FormControlLabel, Checkbox } from "@mui/material";
+import { useEffect, useState } from "react";
 
 export default function RuleMetaSection({ rule, index, onUpdate }) {
+  const [groupNameDraft, setGroupNameDraft] = useState(rule.groupName || "");
+
+  useEffect(() => {
+    setGroupNameDraft(rule.groupName || "");
+  }, [rule.groupName]);
+
   return (
     <Stack spacing={1}>
+      <TextField
+        label="Group name"
+        size="small"
+        value={groupNameDraft}
+        onChange={(e) => setGroupNameDraft(e.target.value)}
+        onBlur={() => {
+          if ((rule.groupName || "") !== groupNameDraft) {
+            onUpdate(index, { groupName: groupNameDraft });
+          }
+        }}
+      />
       <TextField
         label="Label"
         size="small"

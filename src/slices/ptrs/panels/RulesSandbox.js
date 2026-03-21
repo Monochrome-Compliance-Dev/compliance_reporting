@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
+import { safeSelectValue } from "shared/utils/fieldResolution";
 import { previewRulesSandbox } from "../services/rules.ptrsApi";
 
 const DEFAULT_LIMIT = 50;
@@ -88,6 +89,22 @@ const normaliseHeaders = (headers) => {
   return [];
 };
 
+const mergeHeaderOptions = (...groups) => {
+  const merged = [];
+  const seen = new Set();
+
+  for (const group of groups) {
+    for (const option of normaliseHeaders(group)) {
+      const key = String(option?.value || "").trim();
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      merged.push(option);
+    }
+  }
+
+  return merged;
+};
+
 const operatorOptions = [
   { value: "eq", label: "equals" },
   { value: "neq", label: "not equal" },
@@ -95,6 +112,8 @@ const operatorOptions = [
   { value: "gte", label: "greater or equal" },
   { value: "lt", label: "less than" },
   { value: "lte", label: "less or equal" },
+  { value: "starts_with", label: "starts with" },
+  { value: "ends_with", label: "ends with" },
   { value: "in", label: "in list" },
   { value: "nin", label: "not in list" },
   { value: "is_null", label: "is empty / null" },
@@ -129,14 +148,27 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
   const theme = useTheme();
   const { showAlert } = useAlert();
 
-  const fieldOptions = useMemo(() => normaliseHeaders(headers), [headers]);
-
   const [filters, setFilters] = useState([{ field: "", op: "eq", value: "" }]);
   const [limit, setLimit] = useState(DEFAULT_LIMIT);
   const [rows, setRows] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [previewHeaders, setPreviewHeaders] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const fieldOptions = useMemo(
+    () =>
+      mergeHeaderOptions(
+        headers,
+        previewHeaders,
+        filters.map((f) => f?.field).filter(Boolean),
+      ),
+    [headers, previewHeaders, filters],
+  );
+
+  const previewHeaderOptions = useMemo(
+    () => mergeHeaderOptions(previewHeaders),
+    [previewHeaders],
+  );
 
   const hasFilter = useMemo(
     () => filters.some((f) => f.field && f.op),
@@ -192,7 +224,7 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
 
       setRows(allRows);
       setTotalCount(total);
-      setPreviewHeaders(normaliseHeaders(prev?.headers || headers));
+      setPreviewHeaders(prev?.headers || headers || []);
 
       showAlert(
         `Previewing ${shown} of ${total} matching row(s) for this filter.`,
@@ -294,7 +326,7 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
                 <Select
                   labelId={`sandbox-field-label-${idx}`}
                   label="Field"
-                  value={f.field || ""}
+                  value={safeSelectValue(fieldOptions, f.field || "")}
                   onChange={(e) => updateFilter(idx, { field: e.target.value })}
                 >
                   {fieldOptions.map((opt) => (
@@ -434,8 +466,8 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
               <Table size="small" stickyHeader>
                 <TableHead>
                   <TableRow>
-                    {(previewHeaders.length
-                      ? previewHeaders
+                    {(previewHeaderOptions.length
+                      ? previewHeaderOptions
                       : fieldOptions
                     ).map((h) => (
                       <TableCell key={h.value}>{h.label}</TableCell>
@@ -445,8 +477,8 @@ export default function RulesSandbox({ ptrsId, headers, onSeedRule }) {
                 <TableBody>
                   {rows.map((row, idx) => (
                     <TableRow key={row.row_no ?? idx}>
-                      {(previewHeaders.length
-                        ? previewHeaders
+                      {(previewHeaderOptions.length
+                        ? previewHeaderOptions
                         : fieldOptions
                       ).map((h) => (
                         <TableCell

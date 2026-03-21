@@ -284,14 +284,24 @@ export const savePtrsFieldMap = async (ptrsId, profileId, fieldMap) => {
 };
 
 // Build and persist the mapped + joined dataset for this PTRS run
-export const buildPtrsMappedDataset = async (ptrsId) => {
+export const buildPtrsMappedDataset = async (
+  ptrsId,
+  { profileId = null } = {},
+) => {
   if (!ptrsId) throw new Error("ptrsId is required");
 
-  debugPtrsApiCall("buildPtrsMappedDataset", { ptrsId });
+  debugPtrsApiCall("buildPtrsMappedDataset", {
+    ptrsId,
+    profileId: profileId || null,
+  });
+
+  const qs = new URLSearchParams();
+  if (profileId) qs.set("profileId", String(profileId));
+  const suffix = qs.toString() ? `?${qs.toString()}` : "";
 
   const res = await fetchWrapper.post(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/map/build-mapped`,
-    {},
+    `${API_ROOT}/v2/ptrs/${ptrsId}/map/build-mapped${suffix}`,
+    profileId ? { profileId } : {},
   );
 
   const data = pickData(res) || {};
@@ -303,7 +313,15 @@ export const buildPtrsMappedDataset = async (ptrsId) => {
 
   const headers = Array.isArray(data.headers) ? data.headers : [];
 
-  return { count, headers };
+  return {
+    count,
+    headers,
+    skipped: !!data.skipped,
+    reason: data.reason || null,
+    inputHash: data.inputHash || null,
+    previousRunId: data.previousRunId || null,
+    profileId: data.profileId || profileId || null,
+  };
 };
 
 // Unified sample: returns merged headers + examples from main + supporting datasets

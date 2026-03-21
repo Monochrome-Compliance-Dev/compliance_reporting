@@ -33,12 +33,13 @@ const normalisePreviewExample = (example) => {
 // -------------------- Rules (routes: /ptrs/:id/rules/...) ---
 export const previewRules = async (
   ptrsId,
-  { mode = "sample", limit = 50 } = {},
+  { mode = "sample", limit = 50, groupName = null } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   const q = new URLSearchParams();
   q.set("mode", String(mode || "sample"));
   q.set("limit", String(limit));
+  if (groupName) q.set("groupName", String(groupName));
   const res = await fetchWrapper.get(
     `${API_ROOT}/v2/ptrs/${ptrsId}/rules/preview?${q.toString()}`,
   );
@@ -68,10 +69,14 @@ export const listRuleSources = async (ptrsId) => {
   return Array.isArray(data) ? data : [];
 };
 
-export const applyRules = async (ptrsId, { profileId = null } = {}) => {
+export const applyRules = async (
+  ptrsId,
+  { profileId = null, groupName = null } = {},
+) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   const body = {};
   if (profileId) body.profileId = profileId;
+  if (groupName) body.groupName = groupName;
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/rules/apply`,
     body,

@@ -6,3 +6,4 @@ export * from "./payloadSanitiser";
 export * from "./queryClient";
 export * from "./sanitiseInput";
 export * from "./tenantScope";
+export * from "./fieldResolution";

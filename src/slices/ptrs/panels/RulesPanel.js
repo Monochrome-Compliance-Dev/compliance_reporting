@@ -7,6 +7,8 @@ import {
   TextField,
   Select,
   MenuItem,
+  Collapse,
+  IconButton,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
@@ -14,6 +16,8 @@ import { useState, useMemo, useEffect } from "react";
 
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useRef } from "react";
 import { usePtrsContext } from "../context/PtrsContext";
 import {
@@ -58,6 +62,11 @@ const safeLc = (v) =>
   String(v || "")
     .trim()
     .toLowerCase();
+
+const addHeaderValue = (set, value) => {
+  const raw = String(value || "").trim();
+  if (raw) set.add(raw);
+};
 
 const makeCid = () =>
   typeof crypto !== "undefined" && crypto.randomUUID
@@ -132,9 +141,15 @@ const normalisePtrsRules = (rowRules = [], crossRowRules = []) => {
           type: r.type || "row",
           label: r.label || "",
           description: r.description || "",
+          groupName: r.groupName || "",
           enabled: r.enabled !== false,
           when: Array.isArray(r.when) ? r.when : [],
-          target: r.target || {},
+          target: {
+            match: Array.isArray(r?.target?.match) ? r.target.match : [],
+            where: Array.isArray(r?.target?.where) ? r.target.where : [],
+            selection: r?.target?.selection || "first_match",
+            requireMatch: r?.target?.requireMatch !== false,
+          },
           action,
         };
       })
@@ -146,9 +161,15 @@ const normalisePtrsRules = (rowRules = [], crossRowRules = []) => {
         type: "crossRow",
         label: r.label || "",
         description: r.description || "",
+        groupName: r.groupName || "",
         enabled: r.enabled !== false,
         when: Array.isArray(r.when) ? r.when : [],
-        target: r.target || {},
+        target: {
+          match: Array.isArray(r?.target?.match) ? r.target.match : [],
+          where: Array.isArray(r?.target?.where) ? r.target.where : [],
+          selection: r?.target?.selection || "first_match",
+          requireMatch: r?.target?.requireMatch !== false,
+        },
         action: r.action || {},
         alsoExcludeCurrent: !!r.alsoExcludeCurrent,
       }))
@@ -166,6 +187,19 @@ export default function RulesPanel() {
   const { data: queriedPtrsMap } = usePtrsMapQuery(ptrsId);
   const dsQ = usePtrsDatasetsQuery(ptrsId);
   const joinsQ = usePtrsJoinsQuery(ptrsId);
+
+  console.log("[RulesPanel] query raw", {
+    ptrsId,
+    queriedPtrsMap,
+    datasetsData: dsQ.data,
+    datasetsIsLoading: dsQ.isLoading,
+    datasetsIsFetching: dsQ.isFetching,
+    datasetsError: dsQ.error,
+    joinsData: joinsQ.data,
+    joinsIsLoading: joinsQ.isLoading,
+    joinsIsFetching: joinsQ.isFetching,
+    joinsError: joinsQ.error,
+  });
 
   const { goTo } = usePtrsNavigation();
 
@@ -332,10 +366,43 @@ export default function RulesPanel() {
   const { rules, resetRules, addRule, updateRule, removeRule } = useRulesState(
     [],
   );
+  const handleAddRule = () => {
+    setShowRuleGroups((prev) => ({ ...prev, __blank__: true }));
+    addRule();
+  };
 
   const [lastPreview, setLastPreview] = useState(null);
   const [lastPreviewExamples, setLastPreviewExamples] = useState([]);
   const [lastApplyResult, setLastApplyResult] = useState(null);
+  const [showRuleGroups, setShowRuleGroups] = useState({});
+  const [selectedGroupKey, setSelectedGroupKey] = useState("__all__");
+
+  const getRuleType = (rule) => {
+    return rule?.type === "crossRow" ? "crossRow" : "row";
+  };
+
+  const getRuleGroupKey = (rule) => {
+    const name = String(rule?.groupName || "").trim();
+    return name || "__blank__";
+  };
+
+  const getRuleGroupLabel = (groupKey) => {
+    return groupKey === "__blank__" ? "Group name required" : groupKey;
+  };
+
+  const selectedRules = useMemo(() => {
+    if (selectedGroupKey === "__all__") {
+      return rules;
+    }
+    return rules.filter((rule) => getRuleGroupKey(rule) === selectedGroupKey);
+  }, [rules, selectedGroupKey]);
+
+  const selectedGroupLabel = useMemo(() => {
+    if (selectedGroupKey === "__all__") {
+      return "All groups";
+    }
+    return getRuleGroupLabel(selectedGroupKey);
+  }, [selectedGroupKey]);
 
   const [helperFields, setHelperFields] = useState([]);
 
@@ -349,10 +416,16 @@ export default function RulesPanel() {
     id: makeCid(),
     label: "",
     description: "",
+    groupName: "",
     enabled: true,
     type: "row",
-    when: [condition],
-    target: { match: [], where: [] },
+    when: condition ? [condition] : [],
+    target: {
+      match: [],
+      where: [],
+      selection: "first_match",
+      requireMatch: false,
+    },
     action: { op: "add", field: "", valueFieldFromCurrent: "", round: 2 },
   });
 
@@ -362,14 +435,20 @@ export default function RulesPanel() {
     id: makeCid(),
     label: "",
     description: "",
+    groupName: "",
     enabled: true,
     type: "crossRow",
-    when: [condition],
-    target: { match: [{ currentField: "", targetField: "" }], where: [] },
+    when: condition ? [condition] : [],
+    target: {
+      match: [{ currentField: "", targetField: "" }],
+      where: [],
+      selection: "first_match",
+      requireMatch: false,
+    },
     action: {
       op: "add",
-      field: "invoice_amount",
-      valueFieldFromCurrent: "invoice_amount",
+      field: "",
+      valueFieldFromCurrent: "",
       round: 2,
     },
     alsoExcludeCurrent: true,
@@ -384,10 +463,16 @@ export default function RulesPanel() {
         seg?.kind === "literal" ? `'${seg?.value || ""}'` : seg?.name || "",
       )
       .join(", ")}`,
+    groupName: "",
     enabled: true,
     type: "row",
     when: [],
-    target: { match: [], where: [] },
+    target: {
+      match: [],
+      where: [],
+      selection: "first_match",
+      requireMatch: false,
+    },
     action: {
       op: "concat_fields",
       field: fieldName,
@@ -633,25 +718,115 @@ export default function RulesPanel() {
     joinsCustomFields,
     fieldMapRows,
     resolveCanonicalField,
+    effectiveMap,
   ]);
 
   const ruleBuilderHeaders = useMemo(() => {
     const merged = new Set();
 
     for (const h of Array.isArray(headers) ? headers : []) {
-      const raw = String(h || "").trim();
-      if (raw) merged.add(raw);
+      addHeaderValue(merged, h);
+      addHeaderValue(merged, toSnake(h));
     }
 
     for (const opt of Array.isArray(helperFieldOptions)
       ? helperFieldOptions
       : []) {
-      const raw = String(opt?.value || "").trim();
-      if (raw) merged.add(raw);
+      addHeaderValue(merged, opt?.value);
+      addHeaderValue(merged, toSnake(opt?.value));
+    }
+
+    for (const row of Array.isArray(fieldMapRows) ? fieldMapRows : []) {
+      addHeaderValue(merged, row?.canonicalField);
+      addHeaderValue(merged, toSnake(row?.canonicalField));
+      addHeaderValue(merged, row?.field);
+      addHeaderValue(merged, toSnake(row?.field));
+      addHeaderValue(merged, row?.sourceColumn);
+      addHeaderValue(merged, toSnake(row?.sourceColumn));
+      addHeaderValue(merged, row?.header);
+      addHeaderValue(merged, toSnake(row?.header));
+    }
+
+    for (const cf of Array.isArray(joinsCustomFields)
+      ? joinsCustomFields
+      : []) {
+      addHeaderValue(merged, cf?.key);
+      addHeaderValue(merged, toSnake(cf?.key));
+    }
+
+    for (const rule of Array.isArray(rules) ? rules : []) {
+      for (const cond of Array.isArray(rule?.when) ? rule.when : []) {
+        addHeaderValue(merged, cond?.field);
+        addHeaderValue(merged, toSnake(cond?.field));
+      }
+
+      for (const match of Array.isArray(rule?.target?.match)
+        ? rule.target.match
+        : []) {
+        addHeaderValue(merged, match?.currentField);
+        addHeaderValue(merged, toSnake(match?.currentField));
+        addHeaderValue(merged, match?.targetField);
+        addHeaderValue(merged, toSnake(match?.targetField));
+      }
+
+      for (const cond of Array.isArray(rule?.target?.where)
+        ? rule.target.where
+        : []) {
+        addHeaderValue(merged, cond?.field);
+        addHeaderValue(merged, toSnake(cond?.field));
+      }
+
+      addHeaderValue(merged, rule?.action?.field);
+      addHeaderValue(merged, toSnake(rule?.action?.field));
+      addHeaderValue(merged, rule?.action?.valueFieldFromCurrent);
+      addHeaderValue(merged, toSnake(rule?.action?.valueFieldFromCurrent));
+
+      if (Array.isArray(rule?.action?.segments)) {
+        for (const seg of rule.action.segments) {
+          if (seg?.kind === "field") {
+            addHeaderValue(merged, seg?.name);
+            addHeaderValue(merged, toSnake(seg?.name));
+          }
+        }
+      }
     }
 
     return Array.from(merged).sort((a, b) => a.localeCompare(b));
-  }, [headers, helperFieldOptions]);
+  }, [headers, helperFieldOptions, fieldMapRows, joinsCustomFields, rules]);
+
+  const groupedRules = useMemo(() => {
+    const groups = [];
+    const byKey = new Map();
+
+    rules.forEach((rule) => {
+      const groupKey = getRuleGroupKey(rule);
+      if (!byKey.has(groupKey)) {
+        const nextGroup = {
+          key: groupKey,
+          label: getRuleGroupLabel(groupKey),
+          rules: [],
+        };
+        byKey.set(groupKey, nextGroup);
+        groups.push(nextGroup);
+      }
+      byKey.get(groupKey).rules.push(rule);
+    });
+
+    return groups;
+  }, [rules]);
+
+  const openSectionForRule = (rule) => {
+    const groupKey = getRuleGroupKey(rule);
+    setShowRuleGroups((prev) => ({ ...prev, [groupKey]: true }));
+  };
+
+  const handleUpdateRule = (ruleKey, patch) => {
+    const currentRule = rules.find((r) => (r?.cid || r?.id) === ruleKey);
+    const nextRule = currentRule ? { ...currentRule, ...patch } : patch || {};
+
+    openSectionForRule(nextRule);
+    updateRule(ruleKey, patch);
+  };
 
   // Lightweight debug log: only fires when ptrsId/profileId/map keys change
   const debugKeyRef = useRef("");
@@ -678,6 +853,10 @@ export default function RulesPanel() {
       headersReady: Array.isArray(headers) && headers.length > 0,
       canApply,
       ctxMapKeys: mapKeys,
+      fieldMapRowsCount: Array.isArray(fieldMapRows) ? fieldMapRows.length : 0,
+      hasInvoiceStatusHeader: Array.isArray(ruleBuilderHeaders)
+        ? ruleBuilderHeaders.includes("invoice_status")
+        : false,
       headersCount: Array.isArray(headers) ? headers.length : 0,
       ruleBuilderHeadersCount: Array.isArray(ruleBuilderHeaders)
         ? ruleBuilderHeaders.length
@@ -698,6 +877,7 @@ export default function RulesPanel() {
     datasetItems,
     mainHeaders,
     joinsCustomFields,
+    fieldMapRows,
   ]);
 
   const openImportDialog = (event) => {
@@ -789,10 +969,15 @@ export default function RulesPanel() {
 
     try {
       showAlert("Generating rules preview…", "info");
-      const cross = rules.find((r) => (r.type || "row") === "crossRow");
+      const previewGroupName =
+        selectedGroupKey === "__all__" ? null : selectedGroupLabel;
+      const cross = selectedRules.find((r) => getRuleType(r) === "crossRow");
       if (cross) {
         // Backend preview performs SELECTs over the full dataset and returns counts + examples.
-        const prev = await previewRules(ptrsId, { mode: "full" });
+        const prev = await previewRules(ptrsId, {
+          mode: "full",
+          groupName: previewGroupName,
+        });
         const affected = prev?.summary?.rowsAffected ?? 0;
         const examples = Array.isArray(prev?.examples) ? prev.examples : [];
 
@@ -810,7 +995,10 @@ export default function RulesPanel() {
         return;
       }
 
-      const prev = await previewRules(ptrsId, { limit: 20 });
+      const prev = await previewRules(ptrsId, {
+        limit: 20,
+        groupName: previewGroupName,
+      });
       const actions = prev?.summary?.actions ?? 0;
       const affected = prev?.summary?.rowsAffected ?? 0;
 
@@ -837,7 +1025,11 @@ export default function RulesPanel() {
     setLastApplyResult(null);
     try {
       showAlert("Applying rules and transformations…", "info");
-      const res = await applyRules(ptrsId, {});
+      const applyGroupName =
+        selectedGroupKey === "__all__" ? null : selectedGroupLabel;
+      const res = await applyRules(ptrsId, {
+        groupName: applyGroupName,
+      });
       const persisted = res?.persisted ?? res?.rowsOut ?? 0;
       const actions = res?.stats?.rules?.actions ?? 0;
       const affected = res?.stats?.rules?.rowsAffected ?? 0;
@@ -919,12 +1111,13 @@ export default function RulesPanel() {
       const rowRulesSupported = [];
       const crossRowRules = [];
 
-      for (const r of rules) {
+      for (const r of selectedRules) {
         const stableId = r.id || r.cid || makeCid();
         const base = {
           id: stableId,
           label: r.label || stableId,
           description: r.description || "",
+          groupName: r.groupName || "",
           enabled: r.enabled !== false,
           when: r.when,
         };
@@ -963,7 +1156,7 @@ export default function RulesPanel() {
           continue;
         }
 
-        if ((r.type || "row") === "crossRow") {
+        if (getRuleType(r) === "crossRow") {
           crossRowRules.push({
             ...base,
             type: "crossRow",
@@ -986,6 +1179,8 @@ export default function RulesPanel() {
                     field: resolveCanonicalField(cond?.field || ""),
                   }))
                 : [],
+              selection: r?.target?.selection || "first_match",
+              requireMatch: r?.target?.requireMatch !== false,
             },
             action: {
               ...(r.action || {}),
@@ -1068,7 +1263,12 @@ export default function RulesPanel() {
         msgParts.push(`${crossCount} cross-row rule(s) saved.`);
       }
 
-      showAlert(msgParts.join(" "), "success");
+      const scopePrefix =
+        selectedGroupKey === "__all__"
+          ? "All groups"
+          : `Group: ${selectedGroupLabel}`;
+
+      showAlert(`${scopePrefix}. ${msgParts.join(" ")}`, "success");
     } catch (err) {
       showAlert(err?.message || "Failed to save rules.", "error");
     }
@@ -1322,7 +1522,7 @@ export default function RulesPanel() {
         </Stack>
         <RulesSandbox
           ptrsId={ptrsId}
-          headers={helperFieldOptions}
+          headers={ruleBuilderHeaders}
           onSeedRule={seedRuleFromFilter}
         />
 
@@ -1377,9 +1577,24 @@ export default function RulesPanel() {
               justifyContent={{ sm: "flex-end" }}
               sx={{ flexWrap: "wrap" }}
             >
+              <TextField
+                select
+                size="small"
+                label="Selected group"
+                value={selectedGroupKey}
+                onChange={(e) => setSelectedGroupKey(e.target.value)}
+                sx={{ minWidth: 240 }}
+              >
+                <MenuItem value="__all__">All groups</MenuItem>
+                {groupedRules.map((group) => (
+                  <MenuItem key={group.key} value={group.key}>
+                    {group.label}
+                  </MenuItem>
+                ))}
+              </TextField>
               <RuleToolbar
                 onImport={openImportDialog}
-                onAddRule={addRule}
+                onAddRule={handleAddRule}
                 onSave={handleSaveRules}
                 onPreview={handlePreview}
                 onApply={handleApply}
@@ -1398,6 +1613,17 @@ export default function RulesPanel() {
               </Button>
             </Stack>
           </Stack>
+
+          <Typography
+            variant="caption"
+            sx={{
+              color: theme.palette.text.secondary,
+              display: "block",
+              mb: 1,
+            }}
+          >
+            {`Selected scope: ${selectedGroupLabel}. Save, Preview, and Apply use this selection against the currently saved rules for the PTRS run.`}
+          </Typography>
 
           {isApplying && (
             <Box
@@ -1584,14 +1810,48 @@ export default function RulesPanel() {
             </Box>
           )}
 
-          {ruleBuilderHeaders.length > 0 && (
-            <RuleList
-              rules={rules}
-              headers={ruleBuilderHeaders}
-              onUpdate={updateRule}
-              onRemove={removeRule}
-            />
-          )}
+          {ruleBuilderHeaders.length > 0 &&
+            groupedRules.map((group) => {
+              const isOpen = !!showRuleGroups[group.key];
+              return (
+                <Box key={group.key} sx={{ mt: 2 }}>
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    sx={{ mb: 1 }}
+                  >
+                    <Typography variant="subtitle2" fontWeight={600}>
+                      {`${group.label} (${group.rules.length})`}
+                    </Typography>
+                    <IconButton
+                      size="small"
+                      onClick={() =>
+                        setShowRuleGroups((prev) => ({
+                          ...prev,
+                          [group.key]: !prev[group.key],
+                        }))
+                      }
+                      aria-label={
+                        isOpen
+                          ? `Collapse ${group.label}`
+                          : `Expand ${group.label}`
+                      }
+                    >
+                      {isOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    </IconButton>
+                  </Stack>
+                  <Collapse in={isOpen} timeout="auto" unmountOnExit>
+                    <RuleList
+                      rules={group.rules}
+                      headers={ruleBuilderHeaders}
+                      onUpdate={handleUpdateRule}
+                      onRemove={removeRule}
+                    />
+                  </Collapse>
+                </Box>
+              );
+            })}
         </Box>
 
         {!canApply && (
