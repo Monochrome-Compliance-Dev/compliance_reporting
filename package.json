@@ -97,7 +97,7 @@
     "nth-check": "^2.0.1",
     "postcss": "^8.4.31",
     "yaml": "^2.8.2",
-    "picomatch": "^4.0.3"
+    "picomatch": "^4.0.4"
   },
   "proxy": "http://localhost:4000"
 }
