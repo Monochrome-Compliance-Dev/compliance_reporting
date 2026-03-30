@@ -18,7 +18,9 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import PrintIcon from "@mui/icons-material/Print";
 import { useCallback, useMemo, useState } from "react";
+import { useLocation, useParams } from "react-router";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
+import ptrsReportDataSets from "../components/data/ptrsReportDataSets";
 
 import { useAlert } from "context";
 import { usePtrsContext } from "../context/PtrsContext";
@@ -212,6 +214,15 @@ export default function ReportPanel() {
   const { showAlert } = useAlert();
   const { goTo } = usePtrsNavigation();
 
+  const location = useLocation();
+  const { reportKey } = useParams();
+  const isFakeReport = Boolean(
+    reportKey && location.pathname.includes("/report-v2/"),
+  );
+  const fakeReportData = isFakeReport
+    ? ptrsReportDataSets[reportKey] || ptrsReportDataSets.veolia2
+    : null;
+
   const { ptrsId: ctxPtrsId, profileId: ctxProfileId } = usePtrsContext();
   const ptrsId = ctxPtrsId || "";
   const profileId = ctxProfileId || null;
@@ -219,7 +230,45 @@ export default function ReportPanel() {
   const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
 
   const reportQ = usePtrsReportSummary(ptrsId);
-  const snapshot = reportQ.data;
+
+  const fakeSnapshot = useMemo(() => {
+    if (!fakeReportData) return null;
+
+    const fakeHeader = {
+      reportId: fakeReportData.header?.reportId || "preview",
+      entityInfoConfirmed: null,
+      businessName: fakeReportData.header?.businessName || "—",
+      abn: fakeReportData.header?.abn || null,
+      acn: fakeReportData.header?.acn || null,
+      arbn: fakeReportData.header?.arbn || null,
+      reportingPeriodStartDate:
+        fakeReportData.header?.reportingPeriodStartDate || null,
+      reportingPeriodEndDate:
+        fakeReportData.header?.reportingPeriodEndDate || null,
+    };
+
+    return {
+      metrics: {
+        header: fakeHeader,
+        declarations: fakeReportData.declarations || {},
+        computed: fakeReportData.computed || {},
+        quality: {
+          basedOnRowCount: fakeReportData.quality?.basedOnRowCount || 0,
+          missingInputs: fakeReportData.quality?.missingInputs || [],
+          ...fakeReportData.quality,
+        },
+      },
+      ptrs: {
+        reportingEntityName: fakeReportData.header?.businessName || "—",
+        entityName: fakeReportData.header?.businessName || "—",
+        legalName: fakeReportData.header?.businessName || "—",
+        name: fakeReportData.header?.businessName || "—",
+        label: fakeReportData.header?.datasetLabel || "Hardcoded report",
+      },
+    };
+  }, [fakeReportData]);
+
+  const snapshot = isFakeReport ? fakeSnapshot : reportQ.data;
   const metrics = snapshot?.metrics || null;
   const ptrs = snapshot?.ptrs || null;
 
@@ -343,7 +392,9 @@ export default function ReportPanel() {
 
   const [isManualBusy, setIsManualBusy] = useState(false);
   const isBusy =
-    updatePtrsStep.isPending || isManualBusy || reportQ.status === "loading";
+    updatePtrsStep.isPending ||
+    isManualBusy ||
+    (!isFakeReport && reportQ.status === "loading");
 
   const qs = useMemo(() => {
     const p = new URLSearchParams();
@@ -353,10 +404,23 @@ export default function ReportPanel() {
   }, [ptrsId, profileId]);
 
   const goBackToMetrics = useCallback(() => {
+    if (isFakeReport) {
+      goTo(`dashboard-v2/${reportKey || "veolia2"}`, { includeId: false });
+      return;
+    }
+
     goTo(`metrics?${qs}`, { includeId: false });
-  }, [goTo, qs]);
+  }, [goTo, isFakeReport, qs, reportKey]);
 
   const goToBoardPack = useCallback(async () => {
+    if (isFakeReport) {
+      showAlert(
+        "Board Pack is not wired for hardcoded report previews yet.",
+        "info",
+      );
+      return;
+    }
+
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
@@ -373,9 +437,17 @@ export default function ReportPanel() {
     }
 
     goTo(`pack?${qs}`, { includeId: false });
-  }, [goTo, ptrsId, qs, showAlert, updatePtrsStep]);
+  }, [goTo, isFakeReport, ptrsId, qs, showAlert, updatePtrsStep]);
 
   const onPrintBoardPack = useCallback(async () => {
+    if (isFakeReport) {
+      showAlert(
+        "Print/export for hardcoded report previews is coming next. For now this is a placeholder.",
+        "info",
+      );
+      return;
+    }
+
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
@@ -391,7 +463,7 @@ export default function ReportPanel() {
     } finally {
       setTimeout(() => setIsManualBusy(false), 250);
     }
-  }, [ptrsId, showAlert]);
+  }, [isFakeReport, ptrsId, showAlert]);
 
   return (
     <Box sx={{ p: 3, maxWidth: 1200, mx: "auto" }}>
@@ -415,7 +487,9 @@ export default function ReportPanel() {
             variant="caption"
             sx={{ color: theme.palette.text.secondary }}
           >
-            Ptrs: {ptrsId || "—"} • Report: {reportId}
+            PTRS:{" "}
+            {isFakeReport ? `preview:${reportKey || "veolia2"}` : ptrsId || "—"}{" "}
+            • Report: {reportId}
           </Typography>
         </Stack>
       </Stack>
@@ -423,7 +497,7 @@ export default function ReportPanel() {
       <Divider sx={{ mb: 2 }} />
 
       <Stack spacing={2}>
-        {reportQ.status === "error" ? (
+        {!isFakeReport && reportQ.status === "error" ? (
           <Typography variant="body1" sx={{ color: theme.palette.error.main }}>
             {reportQ.error}
           </Typography>

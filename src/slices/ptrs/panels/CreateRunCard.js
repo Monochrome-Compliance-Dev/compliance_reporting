@@ -17,7 +17,7 @@ import { useAlert } from "context";
 import { usePtrsContext } from "../context/PtrsContext";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import { createPtrs } from "../services/ptrsApi";
-import { uploadCsv } from "../services/data.ptrsApi";
+import { addDataset } from "../services/data.ptrsApi";
 import { isValidABN, payloadSanitiser } from "shared/utils";
 
 // Fixed half-yearly reporting periods
@@ -249,21 +249,28 @@ export default function CreatePtrsCard({ onSuccess }) {
 
       if ((dataSource === "csv" || isBoth) && fileObj) {
         try {
-          const ingest = await uploadCsv(ptrsId, fileObj);
-          const inserted = ingest.rowsInserted;
+          const ingest = await addDataset(ptrsId, fileObj, {
+            role: "main_csv",
+            sourceName: fileObj.name,
+          });
+          const inserted =
+            ingest?.rowsInserted ?? ingest?.data?.rowsInserted ?? 0;
           showAlert(
-            `PTRS created for profile and ${inserted} rows ingested`,
+            `PTRS created for profile and ${inserted} rows ingested into main_csv`,
             "success",
           );
         } catch (e2) {
           console.error(e2);
-          showAlert("PTRS created but file upload failed", "error");
+          showAlert("PTRS created but CSV upload failed", "error");
           if (onSuccess) onSuccess(ptrsId);
           return;
         }
 
         if (isBoth) {
-          showAlert("CSV uploaded. Continue to import from Xero.", "success");
+          showAlert(
+            "CSV uploaded as main_csv. Continue to import from Xero.",
+            "success",
+          );
           if (onSuccess) onSuccess(ptrsId);
           goTo(`xero?ptrsId=${encodeURIComponent(ptrsId)}`);
           return;

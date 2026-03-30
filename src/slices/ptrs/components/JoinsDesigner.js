@@ -320,8 +320,8 @@ export default function JoinsDesigner({
   }, [debug, datasets, mainRoles, selectedFromRole, leftHeadersByRole]);
 
   // Build right-side: join TARGET roles depend on the selected FROM role.
-  // - If FROM is main/main_* => RHS should be supporting roles only.
-  // - If FROM is supporting => RHS should include main roles + other supporting roles.
+  // - If FROM is main/main_* => RHS shows supporting roles only, because main-to-main joins are not required.
+  // - If FROM is supporting => RHS includes main roles + other supporting roles.
   const rightColumns = useMemo(() => {
     const byRole = new Map();
     const fromRole = String(selectedFromRole || "main");
@@ -644,6 +644,24 @@ export default function JoinsDesigner({
               />
             </Tooltip>
           </Stack>
+          {(() => {
+            const fromRole = String(selectedFromRole || "main");
+            const fromIsMain =
+              fromRole === "main" || fromRole.startsWith("main_");
+            const hasOtherMainRoles = mainRoles.some(
+              (role) => role !== fromRole,
+            );
+
+            if (!fromIsMain || !hasOtherMainRoles) return null;
+
+            return (
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                Other main datasets exist for this PTRS run, but they are not
+                shown here because main-to-main joins are not required. Use
+                mapping to complete any CSV-backed main dataset fields.
+              </Typography>
+            );
+          })()}
 
           {missingHeadersByRole.length > 0 && (
             <Paper

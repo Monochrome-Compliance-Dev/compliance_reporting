@@ -1095,15 +1095,18 @@ export default function MapPanel() {
       setSavedFieldMap(Array.isArray(savedRows) ? savedRows : []);
       didInitFromFieldMap.current = true;
 
-      const { applied } = applyIncomingFieldMap(
+      const { applied, nextAssign } = applyIncomingFieldMap(
         Array.isArray(savedRows) ? savedRows : fieldMapPayload,
       );
+
+      // Force a full save so legacy map + extras stay in sync and Stage never sees a partial state
+      await save(true, nextAssign);
 
       setIsDirty(false);
       setImportOpen(false);
 
       showAlert(
-        `Copied ${applied} canonical mapping(s) from ${otherPtrsId}`,
+        `Copied ${applied} canonical mapping(s) from ${otherPtrsId} and auto-saved`,
         "success",
       );
     } catch (e) {
