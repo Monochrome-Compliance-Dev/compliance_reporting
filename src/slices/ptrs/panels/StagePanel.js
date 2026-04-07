@@ -24,15 +24,14 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ReplayIcon from "@mui/icons-material/Replay";
 import { usePtrsContext } from "../context/PtrsContext";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
-import { useUpdatePtrsMutation } from "../hooks/usePtrsQueries";
-import { getPtrs } from "../services/ptrsApi";
-import { listDatasets } from "../services/data.ptrsApi";
 import {
-  getLatestExecutionRun,
-  getStagePreview,
-  stagePtrs,
-} from "../services/stage.ptrsApi";
-import { getPtrsMap } from "../services/maps.ptrsApi";
+  usePtrsDatasetsQuery,
+  useStageLatestExecutionRunQuery,
+  useStagePreviewQuery,
+  useStageCompletionGateQuery,
+  useStagePtrsMutation,
+  useUpdatePtrsMutation,
+} from "../hooks/usePtrsQueries";
 import { LoadingSpinner } from "shared/ui";
 
 // Convert snake_case, camelCase, or other separators to human-friendly labels
@@ -61,27 +60,88 @@ export default function StagePanel() {
   const { profileId } = usePtrsContext();
 
   const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
+  const stageMutation = useStagePtrsMutation(ptrsId);
+  const datasetsQ = usePtrsDatasetsQuery(ptrsId);
+  const latestStageRunQ = useStageLatestExecutionRunQuery(ptrsId);
+  const stageCompletionGateQ = useStageCompletionGateQuery(ptrsId, {
+    profileId,
+    enabled: !!profileId,
+  });
+  const stagePreviewQ = useStagePreviewQuery(ptrsId, {
+    profileId,
+    limit: 20,
+    enabled:
+      !!profileId &&
+      stageCompletionGateQ.isSuccess &&
+      (stageCompletionGateQ.data?.ready === true ||
+        stageCompletionGateQ.data?.reason === "stale"),
+  });
+  const datasets = useMemo(
+    () => datasetsQ.data?.items || [],
+    [datasetsQ.data?.items],
+  );
+  const latestStageRun = latestStageRunQ.data ?? null;
+  // Stabilise refetch functions so hooks can depend on them safely
+  const refetchLatestStageRun = latestStageRunQ.refetch;
+  const refetchStagePreview = stagePreviewQ.refetch;
+  const refetchStageCompletionGate = stageCompletionGateQ.refetch;
+  const refetchDatasets = datasetsQ.refetch;
+  const hasSettledStageCompletionGate =
+    stageCompletionGateQ.isSuccess && !stageCompletionGateQ.isFetching;
 
-  const [loading, setLoading] = useState(false);
+  const completionGateReady =
+    hasSettledStageCompletionGate && stageCompletionGateQ.data?.ready === true;
+
+  const completionGateReason = hasSettledStageCompletionGate
+    ? stageCompletionGateQ.data?.reason || "missing-stage"
+    : "missing-stage";
+
+  const completionGateInputHash = hasSettledStageCompletionGate
+    ? stageCompletionGateQ.data?.inputHash || null
+    : null;
+
+  const shouldLoadStagePreview =
+    !!profileId &&
+    hasSettledStageCompletionGate &&
+    (completionGateReady || completionGateReason === "stale");
+
+  useEffect(() => {
+    console.info("[StagePanel] gate state", {
+      ptrsId,
+      profileId,
+      gateStatus: stageCompletionGateQ.status,
+      gateFetchStatus: stageCompletionGateQ.fetchStatus,
+      gateIsSuccess: stageCompletionGateQ.isSuccess,
+      gateIsFetching: stageCompletionGateQ.isFetching,
+      hasSettledStageCompletionGate,
+      completionGateReady,
+      completionGateReason,
+      completionGateInputHash,
+      shouldLoadStagePreview,
+      rawGateData: stageCompletionGateQ.data || null,
+    });
+  }, [
+    ptrsId,
+    profileId,
+    stageCompletionGateQ.status,
+    stageCompletionGateQ.fetchStatus,
+    stageCompletionGateQ.isSuccess,
+    stageCompletionGateQ.isFetching,
+    stageCompletionGateQ.data,
+    hasSettledStageCompletionGate,
+    completionGateReady,
+    completionGateReason,
+    completionGateInputHash,
+    shouldLoadStagePreview,
+  ]);
+
   const [result, setResult] = useState(null);
-  const [datasets, setDatasets] = useState([]);
-  const [ptrsMeta, setPtrsMeta] = useState(null);
   const [preview, setPreview] = useState({ rows: [], headers: [] });
-  const [showPreview, setShowPreview] = useState(false);
-  const [autoStageAttempted, setAutoStageAttempted] = useState(false);
-  // `undefined` means "not loaded yet". `null` means "loaded and there is no run".
-  const [latestStageRun, setLatestStageRun] = useState(undefined);
-  const [inputsLoaded, setInputsLoaded] = useState(false);
+  const [showPreview, setShowPreview] = useState(true);
+
+  const [lastAutoStageGateKey, setLastAutoStageGateKey] = useState(null);
   const [autoStaging, setAutoStaging] = useState(false);
   const [autoStageMessage, setAutoStageMessage] = useState("");
-  const [mapMeta, setMapMeta] = useState(null);
-
-  const mapUpdatedAt = useMemo(() => {
-    const ts = mapMeta?.updatedAt || null;
-    if (!ts) return null;
-    const dt = new Date(ts);
-    return Number.isNaN(dt.getTime()) ? null : dt;
-  }, [mapMeta]);
 
   // Safely pick a value from a row that may be flat or split across data / standard / custom
   const pickCell = (row, header) => {
@@ -171,157 +231,146 @@ export default function StagePanel() {
   };
 
   const mountedRef = useRef(true);
+  const autoStageInFlightRef = useRef(false);
+
   useEffect(() => {
+    mountedRef.current = true;
     return () => {
       mountedRef.current = false;
     };
   }, []);
 
-  // Initial load – fetch ptrs meta and dataset statuses
   useEffect(() => {
-    if (!ptrsId) return;
-    (async () => {
-      try {
-        const [ptrs, ds, latestRun, map] = await Promise.all([
-          getPtrs(ptrsId).catch(() => null),
-          listDatasets(ptrsId).catch(() => ({ items: [] })),
-          getLatestExecutionRun(ptrsId, { step: "stage" }).catch(() => null),
-          getPtrsMap(ptrsId).catch(() => null),
-        ]);
+    autoStageInFlightRef.current = false;
+    setResult(null);
+    setPreview({ rows: [], headers: [] });
+    setLastAutoStageGateKey(null);
+    setAutoStaging(false);
+    setAutoStageMessage("");
+  }, [ptrsId, profileId]);
 
-        if (mountedRef.current) {
-          setPtrsMeta(ptrs);
-          setDatasets(ds?.items || []);
-
-          // Keep a tri-state: undefined (not loaded), null (loaded but none), or an object.
-          setLatestStageRun(latestRun ?? null);
-
-          const meta =
-            map?.extras?.mapMeta || map?.map?.extras?.mapMeta || null;
-          setMapMeta(meta);
-
-          // Mark that the initial inputs are now known.
-          setInputsLoaded(true);
-        }
-      } catch (_) {
-        console.warn("[StagePanel] initial load failed", _);
-      }
-    })();
-  }, [ptrsId]);
-
-  const datasetsMaxUpdatedAt = useMemo(() => {
-    if (!Array.isArray(datasets) || datasets.length === 0) return null;
-
-    let max = null;
-    for (const d of datasets) {
-      const ts = d?.updatedAt || d?.createdAt || null;
-      if (!ts) continue;
-      const dt = new Date(ts);
-      if (Number.isNaN(dt.getTime())) continue;
-      if (!max || dt > max) max = dt;
-    }
-
-    return max;
-  }, [datasets]);
-
-  const needsStageRebuild = useCallback(() => {
-    // If we haven't loaded inputs yet, we can't decide staleness reliably.
-    // Returning false here prevents auto-staging loops while navigating.
-    if (latestStageRun === undefined) return false;
-
-    // If we loaded and there is no known last run, we need to build.
-    if (latestStageRun === null) return true;
-
-    const status = String(latestStageRun?.status || "").toLowerCase();
-    if (["pending", "running", "failed", "error"].includes(status)) return true;
-
-    const stageStartedAt = latestStageRun?.startedAt
-      ? new Date(latestStageRun.startedAt)
-      : null;
-
-    if (!stageStartedAt || Number.isNaN(stageStartedAt.getTime())) return true;
-
-    // Inputs that should invalidate stage:
-    // - supporting datasets changed
-    // - map changed (mapMeta.updatedAt bumped when signature changes)
-    let inputsMax = stageStartedAt; // baseline
-    if (datasetsMaxUpdatedAt && datasetsMaxUpdatedAt > inputsMax) {
-      inputsMax = datasetsMaxUpdatedAt;
-    }
-    if (mapUpdatedAt && mapUpdatedAt > inputsMax) {
-      inputsMax = mapUpdatedAt;
-    }
-
-    return inputsMax > stageStartedAt;
-  }, [latestStageRun, datasetsMaxUpdatedAt, mapUpdatedAt]);
-
-  // Initial preview load – if staging has already been run for this PTRS, show it.
-  // If not, automatically run staging once so the user doesn't have to.
-  // IMPORTANT: don't permanently skip this effect just because `result` was set from a preview.
-  // We still need to re-evaluate staleness once map/dataset timestamps are loaded.
-  const previewLoadedRef = useRef(false);
+  const refetchStageView = useCallback(async () => {
+    await Promise.allSettled([
+      refetchLatestStageRun(),
+      refetchStagePreview(),
+      refetchStageCompletionGate(),
+      refetchDatasets(),
+    ]);
+  }, [
+    refetchLatestStageRun,
+    refetchStagePreview,
+    refetchStageCompletionGate,
+    refetchDatasets,
+  ]);
 
   useEffect(() => {
-    if (!ptrsId) return;
+    if (!ptrsId || !profileId) {
+      console.info("[StagePanel] auto-stage skipped: missing identifiers", {
+        ptrsId,
+        profileId,
+      });
+      return;
+    }
+    if (!hasSettledStageCompletionGate) {
+      console.info("[StagePanel] auto-stage skipped: gate not settled", {
+        ptrsId,
+        profileId,
+        gateStatus: stageCompletionGateQ.status,
+        gateFetchStatus: stageCompletionGateQ.fetchStatus,
+        gateIsSuccess: stageCompletionGateQ.isSuccess,
+        gateIsFetching: stageCompletionGateQ.isFetching,
+      });
+      return;
+    }
+    if (completionGateReady) {
+      console.info("[StagePanel] auto-stage skipped: gate ready", {
+        ptrsId,
+        profileId,
+        completionGateReason,
+        completionGateInputHash,
+      });
+      return;
+    }
+    if (autoStageInFlightRef.current) {
+      console.info("[StagePanel] auto-stage skipped: already in flight", {
+        ptrsId,
+        profileId,
+        completionGateReason,
+        completionGateInputHash,
+      });
+      return;
+    }
 
-    const shouldAutoStage = ({ hasPreview }) => {
-      if (autoStageAttempted) return false;
+    const gateKey = `${completionGateReason}:${completionGateInputHash || "no-hash"}`;
+    if (lastAutoStageGateKey === gateKey) {
+      console.info("[StagePanel] auto-stage skipped: gate already attempted", {
+        ptrsId,
+        profileId,
+        gateKey,
+        lastAutoStageGateKey,
+      });
+      return;
+    }
 
-      // If we already have a preview snapshot, wait until the initial inputs have loaded
-      // before doing a staleness-driven rebuild.
-      if (hasPreview && !inputsLoaded) return false;
+    const reason = completionGateReason;
+    const msg =
+      reason === "stale"
+        ? "Showing the last staged snapshot. Rebuilding staging in the background — this may take a while."
+        : "Preparing staged dataset for the first time. This may take a while for large files.";
 
-      // If we DON'T have any preview yet, allow first-time staging immediately.
-      if (!hasPreview && !inputsLoaded) return true;
+    console.info("[StagePanel] auto-stage queued", {
+      ptrsId,
+      profileId,
+      gateKey,
+      reason,
+      completionGateInputHash,
+      lastAutoStageGateKey,
+    });
 
-      return needsStageRebuild();
-    };
-
-    const runAutoStage = async ({ reason }) => {
-      if (!ptrsId) return;
-
-      const msg =
-        reason === "stale"
-          ? "Showing the last staged snapshot. Rebuilding staging in the background — this may take a while."
-          : "Preparing staged dataset for the first time. This may take a while for large files.";
-
-      setAutoStageAttempted(true);
+    const runAutoStage = async () => {
+      autoStageInFlightRef.current = true;
+      console.info("[StagePanel] auto-stage starting", {
+        ptrsId,
+        profileId,
+        gateKey,
+        reason,
+        completionGateInputHash,
+      });
+      setLastAutoStageGateKey(gateKey);
       setAutoStaging(true);
       setAutoStageMessage(msg);
       showAlert(msg, "info");
 
       try {
-        const res = await stagePtrs(ptrsId, {
-          profileId: profileId,
+        const res = await stageMutation.mutateAsync({
+          profileId,
           persist: true,
-          force: true,
+          force: false,
+        });
+        console.info("[StagePanel] auto-stage completed", {
+          ptrsId,
+          profileId,
+          gateKey,
+          rowsIn: res?.rowsIn || 0,
+          rowsOut: res?.rowsOut || 0,
+          skipped: !!res?.skipped,
+          reason: res?.reason || null,
+          inputHash: res?.inputHash || null,
+          previousRunId: res?.previousRunId || null,
         });
         if (!mountedRef.current) return;
 
         setResult(res);
-
-        try {
-          const latestRun = await getLatestExecutionRun(ptrsId, {
-            step: "stage",
-          });
-          if (mountedRef.current) setLatestStageRun(latestRun);
-        } catch (_) {}
-
-        try {
-          const pv2 = await getStagePreview(ptrsId, {
-            limit: 20,
-            profileId: profileId,
-          });
-          if (!mountedRef.current) return;
-          if (pv2?.rows?.length) {
-            setPreview(pv2);
-            setShowPreview(true);
-            previewLoadedRef.current = true;
-          }
-        } catch (_) {}
+        await refetchStageView();
 
         showAlert(`Staged ${res?.rowsOut || 0} rows`, "success");
       } catch (stageErr) {
+        console.info("[StagePanel] auto-stage failed", {
+          ptrsId,
+          profileId,
+          gateKey,
+          message: stageErr?.message || null,
+        });
         console.error("[StagePanel] auto-stage error:", stageErr);
         if (mountedRef.current) {
           showAlert(
@@ -331,69 +380,114 @@ export default function StagePanel() {
           );
         }
       } finally {
+        console.info("[StagePanel] auto-stage finished", {
+          ptrsId,
+          profileId,
+          gateKey,
+          mounted: mountedRef.current,
+        });
+        autoStageInFlightRef.current = false;
         if (mountedRef.current) setAutoStaging(false);
       }
     };
 
-    (async () => {
-      // If we've already loaded a preview, don't re-fetch it on every dependency change.
-      // BUT do allow a stale-check to kick off auto-staging once inputs timestamps are known.
-      if (previewLoadedRef.current) {
-        if (shouldAutoStage({ hasPreview: true })) {
-          void runAutoStage({ reason: "stale" });
-        }
-        return;
-      }
-
-      setLoading(true);
-      try {
-        const pv = await getStagePreview(ptrsId, {
-          limit: 20,
-          profileId: profileId,
-        });
-        if (!mountedRef.current) return;
-
-        if (pv?.rows?.length) {
-          setPreview(pv);
-          setShowPreview(true);
-          previewLoadedRef.current = true;
-
-          const stagedCount = pv.totalRows ?? pv.rows.length;
-
-          // Only set a lightweight result if we don't already have a real one.
-          setResult(
-            (prev) =>
-              prev || {
-                rowsIn: stagedCount,
-                rowsOut: stagedCount,
-                tookMs: null,
-              },
-          );
-
-          if (shouldAutoStage({ hasPreview: true })) {
-            // don’t block UI — kick off in background
-            void runAutoStage({ reason: "stale" });
-          }
-        } else if (shouldAutoStage({ hasPreview: false })) {
-          void runAutoStage({ reason: "first" });
-        }
-      } catch (err) {
-        console.warn("[StagePanel] initial stage preview load failed", err);
-      } finally {
-        if (mountedRef.current) setLoading(false);
-      }
-    })();
+    void runAutoStage();
   }, [
     ptrsId,
     profileId,
-    autoStageAttempted,
+    lastAutoStageGateKey,
     showAlert,
-    needsStageRebuild,
-    inputsLoaded,
+    hasSettledStageCompletionGate,
+    completionGateReady,
+    completionGateReason,
+    completionGateInputHash,
+    stageMutation.mutateAsync,
+    refetchStageView,
+    stageMutation,
+    stageCompletionGateQ.status,
+    stageCompletionGateQ.fetchStatus,
+    stageCompletionGateQ.isSuccess,
+    stageCompletionGateQ.isFetching,
+  ]);
+
+  useEffect(() => {
+    if (!shouldLoadStagePreview) {
+      console.info("[StagePanel] preview sync skipped: preview not allowed", {
+        ptrsId,
+        profileId,
+        shouldLoadStagePreview,
+        completionGateReady,
+        completionGateReason,
+      });
+      return;
+    }
+    if (!hasSettledStageCompletionGate) {
+      console.info("[StagePanel] preview sync skipped: gate not settled", {
+        ptrsId,
+        profileId,
+      });
+      return;
+    }
+    if (!stagePreviewQ.isSuccess) {
+      console.info(
+        "[StagePanel] preview sync skipped: preview not successful",
+        {
+          ptrsId,
+          profileId,
+          previewStatus: stagePreviewQ.status,
+          previewFetchStatus: stagePreviewQ.fetchStatus,
+        },
+      );
+      return;
+    }
+    if (!mountedRef.current) {
+      console.info("[StagePanel] preview sync skipped: component unmounted", {
+        ptrsId,
+        profileId,
+      });
+      return;
+    }
+
+    const pv = stagePreviewQ.data || { rows: [], headers: [] };
+    console.info("[StagePanel] preview sync applying data", {
+      ptrsId,
+      profileId,
+      rows: Array.isArray(pv?.rows) ? pv.rows.length : 0,
+      totalRows: pv?.totalRows ?? null,
+      headers: Array.isArray(pv?.headers) ? pv.headers.length : 0,
+    });
+    setPreview(pv);
+
+    if (Array.isArray(pv?.rows) && pv.rows.length > 0) {
+      const stagedCount = pv.totalRows ?? pv.rows.length;
+      setResult((prev) => {
+        if (prev?.rowsOut === stagedCount && prev?.rowsIn === stagedCount) {
+          return prev;
+        }
+
+        return {
+          ...(prev || {}),
+          rowsIn: stagedCount,
+          rowsOut: stagedCount,
+          tookMs: prev?.tookMs ?? null,
+        };
+      });
+    }
+  }, [
+    shouldLoadStagePreview,
+    hasSettledStageCompletionGate,
+    stagePreviewQ.isSuccess,
+    stagePreviewQ.data,
+    completionGateReady,
+    completionGateReason,
+    ptrsId,
+    profileId,
+    stagePreviewQ.status,
+    stagePreviewQ.fetchStatus,
   ]);
 
   const datasetSummary = useMemo(() => {
-    if (!datasets || !datasets.length) return [];
+    if (!datasets.length) return [];
     // Expect each item like { id, role, fileName, meta, createdAt }
     // Group by role and pick latest
     const map = new Map();
@@ -404,7 +498,6 @@ export default function StagePanel() {
       }
     });
     const summary = Array.from(map.values());
-    console.log("[StagePanel] datasetSummary:", summary);
     return summary;
   }, [datasets]);
 
@@ -419,45 +512,22 @@ export default function StagePanel() {
       "info",
     );
 
-    console.log("[StagePanel] stagePtrs ->", { ptrsId, profileId });
     setAutoStageMessage(
       "Running staging… this can take a minute for large files.",
     );
     setAutoStaging(true);
     try {
-      const res = await stagePtrs(ptrsId, {
-        profileId: profileId,
+      const res = await stageMutation.mutateAsync({
+        profileId,
         persist: true,
-        force: true,
+        force: false,
       });
-      console.log("[StagePanel] stagePtrs result:", res);
       if (!mountedRef.current) return;
       setResult(res);
 
-      try {
-        const latestRun = await getLatestExecutionRun(ptrsId, {
-          step: "stage",
-        });
-        if (mountedRef.current) setLatestStageRun(latestRun);
-      } catch (_) {}
+      await refetchStageView();
+
       showAlert(`Staged ${res.rowsOut || 0} rows`, "success");
-      // Eager-load a tiny preview for confidence
-      try {
-        const pv = await getStagePreview(ptrsId, {
-          limit: 20,
-          profileId: profileId,
-        });
-        console.log("[StagePanel] getStagePreview raw:", pv);
-        console.log("[StagePanel] getStagePreview summary:", {
-          headersCount: pv?.headers?.length || 0,
-          rowsCount: pv?.rows?.length || 0,
-          firstRowRaw: Array.isArray(pv?.rows) ? pv.rows[0] : undefined,
-        });
-        if (mountedRef.current && pv) {
-          setPreview(pv);
-          setShowPreview(true);
-        }
-      } catch (_) {}
     } catch (err) {
       console.error("[StagePanel] stagePtrs error:", err);
       if (mountedRef.current) {
@@ -487,21 +557,6 @@ export default function StagePanel() {
   const rows = useMemo(() => preview?.rows || [], [preview?.rows]);
   const totalRows = preview?.totalRows ?? rows.length;
 
-  useEffect(() => {
-    if (!headers.length && !rows.length) return;
-    console.log("[StagePanel] preview updated", {
-      headers,
-      rowsCount: rows.length,
-      firstRowRaw: rows[0],
-      firstRowResolved: rows[0]
-        ? headers.reduce((acc, h) => {
-            acc[h] = pickCell(rows[0], h);
-            return acc;
-          }, {})
-        : undefined,
-    });
-  }, [headers, rows]);
-
   const handleGoToExclusions = async () => {
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
@@ -524,10 +579,11 @@ export default function StagePanel() {
     goTo(`exclusions?${qs.toString()}`, { includeId: false });
   };
 
-  if (!ptrsId) return null;
   const hasPreview = Array.isArray(preview?.rows) && preview.rows.length > 0;
 
-  if (loading && !result && !hasPreview) {
+  if (!ptrsId) return null;
+
+  if (stagePreviewQ.isLoading && !result && !hasPreview) {
     return <LoadingSpinner message="Loading stage preview…" />;
   }
 
@@ -593,13 +649,6 @@ export default function StagePanel() {
               sx={{ width: 280 }}
             />
           </Tooltip>
-          {ptrsMeta?.label && (
-            <Chip
-              size="small"
-              variant="outlined"
-              label={`Ptrs: ${ptrsMeta.label}`}
-            />
-          )}
         </Stack>
       </Paper>
 
@@ -671,7 +720,7 @@ export default function StagePanel() {
             <Button
               variant="outlined"
               startIcon={<ReplayIcon />}
-              disabled={loading || autoStaging}
+              disabled={autoStaging}
               onClick={handleStage}
             >
               {result ? "Run again" : "Run staging"}
@@ -679,7 +728,7 @@ export default function StagePanel() {
             <Button
               variant="contained"
               endIcon={<NavigateNextIcon />}
-              disabled={loading || autoStaging || !result}
+              disabled={autoStaging || !result}
               onClick={handleGoToExclusions}
             >
               Next: Exclusions
@@ -694,7 +743,7 @@ export default function StagePanel() {
           <Typography variant="subtitle1">Preview</Typography>
           <Button
             size="small"
-            disabled={loading || autoStaging}
+            disabled={autoStaging}
             onClick={() => setShowPreview((s) => !s)}
           >
             {showPreview ? "Hide" : "Show"} preview
@@ -741,7 +790,7 @@ export default function StagePanel() {
       <Divider sx={{ my: 3 }} />
       <Button
         variant="text"
-        disabled={loading || autoStaging}
+        disabled={autoStaging}
         onClick={() => {
           const qs = new URLSearchParams();
           qs.set("ptrsId", ptrsId);

@@ -40,31 +40,35 @@ export const stagePtrs = async (
   };
 };
 
-// New function: getStagePreview
 export const getStagePreview = async (
   ptrsId,
   { limit = 20, profileId = null } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
+
   const q = new URLSearchParams();
   q.set("limit", String(limit));
   if (profileId) q.set("profileId", String(profileId));
-  try {
-    const res = await fetchWrapper.get(
-      `${API_ROOT}/v2/ptrs/${ptrsId}/stage/preview?${q.toString()}`,
-    );
-    // BE returns { headers, rows, totalRows, stats }
-    return normPreview(pickData(res));
-  } catch (err) {
-    // fallback to generic preview if BE doesn't expose stage/preview yet
-    const body = { steps: ["stage"], limit };
-    if (profileId) body.profileId = profileId;
-    const res2 = await fetchWrapper.post(
-      `${API_ROOT}/v2/ptrs/${ptrsId}/preview`,
-      body,
-    );
-    return normPreview(pickData(res2));
-  }
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/stage/preview?${q.toString()}`,
+  );
+
+  return normPreview(pickData(res));
+};
+
+export const getStageCompletionGate = async (ptrsId, { profileId } = {}) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!profileId) throw new Error("profileId is required");
+
+  const q = new URLSearchParams();
+  q.set("profileId", String(profileId));
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/stage/completion-gate?${q.toString()}`,
+  );
+
+  return pickData(res) || null;
 };
 
 // -------------------- Execution runs (route: /ptrs/:id/execution-runs) -------

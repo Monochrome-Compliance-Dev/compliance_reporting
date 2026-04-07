@@ -5,6 +5,7 @@ import {
   Select,
   MenuItem,
   TextField,
+  Typography,
 } from "@mui/material";
 
 export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
@@ -14,7 +15,19 @@ export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
     valueFieldFromCurrent: "",
     round: 2,
   };
-  const safeHeaderValue = (v) => (headers.includes(v) ? v : "");
+  const isConcatFields = action.op === "concat_fields";
+  const safeOperationValue = [
+    "add",
+    "sub",
+    "mul",
+    "div",
+    "assign",
+    "concat_fields",
+  ].includes(action.op)
+    ? action.op
+    : "add";
+  const safeHeaderValue = (v) =>
+    typeof v === "string" && headers.includes(v) ? v : "";
 
   return (
     <Stack spacing={1}>
@@ -26,16 +39,18 @@ export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
           <Select
             labelId={`act-op-${index}`}
             label="Operation"
-            value={action.op}
+            value={safeOperationValue}
             onChange={(e) =>
               onUpdate(index, { action: { ...action, op: e.target.value } })
             }
           >
-            {["add", "sub", "mul", "div", "assign"].map((op) => (
-              <MenuItem key={op} value={op}>
-                {op}
-              </MenuItem>
-            ))}
+            {["add", "sub", "mul", "div", "assign", "concat_fields"].map(
+              (op) => (
+                <MenuItem key={op} value={op}>
+                  {op}
+                </MenuItem>
+              ),
+            )}
           </Select>
         </FormControl>
 
@@ -45,6 +60,7 @@ export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
             labelId={`act-field-${index}`}
             label="Target field"
             value={safeHeaderValue(action.field)}
+            disabled={isConcatFields}
             onChange={(e) =>
               onUpdate(index, { action: { ...action, field: e.target.value } })
             }
@@ -63,6 +79,7 @@ export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
             labelId={`act-src-${index}`}
             label="Value from"
             value={safeHeaderValue(action.valueFieldFromCurrent)}
+            disabled={isConcatFields}
             onChange={(e) =>
               onUpdate(index, {
                 action: { ...action, valueFieldFromCurrent: e.target.value },
@@ -82,6 +99,7 @@ export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
           label="Round (dp)"
           type="number"
           value={action.round}
+          disabled={isConcatFields}
           onChange={(e) =>
             onUpdate(index, {
               action: { ...action, round: Number(e.target.value || 0) },
@@ -90,6 +108,12 @@ export default function RuleActionBuilder({ rule, index, headers, onUpdate }) {
           sx={{ width: 300 }}
         />
       </Stack>
+      {isConcatFields && (
+        <Typography variant="caption" color="text.secondary">
+          Helper-field rule. Edit segments in the Helper fields section rather
+          than here.
+        </Typography>
+      )}
     </Stack>
   );
 }

@@ -1,5 +1,5 @@
-import { useAlert } from "context";
-import { useState, useEffect, useCallback } from "react";
+import { io } from "socket.io-client";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import {
   Box,
   Typography,
@@ -14,6 +14,7 @@ import {
   FormControl,
   Tooltip,
   Chip,
+  LinearProgress,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -31,6 +32,7 @@ import {
   removeDataset,
 } from "../services/data.ptrsApi";
 import CreateRunCard from "./CreateRunCard";
+import { useAlert } from "context";
 
 const ROLE_OPTIONS = [
   { value: "main_xero", label: "Transactions — Xero" },
@@ -77,6 +79,7 @@ export default function DataConsole() {
   const [role, setRole] = useState("main_xero");
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [liveUploadStatus, setLiveUploadStatus] = useState(null);
 
   const refreshDatasets = useCallback(async () => {
     if (!ptrsId) return;
@@ -100,6 +103,86 @@ export default function DataConsole() {
     })();
   }, [ptrsId, refreshCtxDatasets, refreshDatasets]);
 
+  const uploadStatus = useMemo(() => {
+    const s = liveUploadStatus?.status;
+    return typeof s === "string" ? s.toUpperCase() : "";
+  }, [liveUploadStatus]);
+
+  const isUploadActive =
+    uploadStatus === "UPLOADING" || uploadStatus === "PROCESSING";
+  const isUploadComplete = uploadStatus === "COMPLETE";
+  const isUploadFailed = uploadStatus === "FAILED";
+
+  const rowsInserted = Number(liveUploadStatus?.rowsInserted || 0);
+  const totalRows = Number(liveUploadStatus?.totalRows || 0);
+  const progressPct =
+    totalRows > 0
+      ? Math.min(100, Math.round((rowsInserted / totalRows) * 100))
+      : 0;
+  const uploadError = liveUploadStatus?.error || null;
+  const updatedAt = liveUploadStatus?.updatedAt || null;
+  const uploadDatasetId = liveUploadStatus?.datasetId || null;
+  const uploadRole = liveUploadStatus?.role || null;
+  const uploadSourceType = liveUploadStatus?.sourceType || null;
+
+  useEffect(() => {
+    if (!liveUploadStatus) return undefined;
+    if (isUploadActive) return undefined;
+
+    const timeoutMs = isUploadComplete ? 4000 : isUploadFailed ? 8000 : 0;
+    if (!timeoutMs) return undefined;
+
+    const timer = window.setTimeout(() => {
+      setLiveUploadStatus((prev) => {
+        if (!prev) return prev;
+        const prevStatus = String(prev.status || "").toUpperCase();
+        if (
+          (isUploadComplete && prevStatus === "COMPLETE") ||
+          (isUploadFailed && prevStatus === "FAILED")
+        ) {
+          return null;
+        }
+        return prev;
+      });
+    }, timeoutMs);
+
+    return () => window.clearTimeout(timer);
+  }, [liveUploadStatus, isUploadActive, isUploadComplete, isUploadFailed]);
+
+  useEffect(() => {
+    if (!ptrsId) return;
+
+    const socketBaseUrl =
+      process.env.REACT_APP_SOCKET_URL ||
+      (process.env.REACT_APP_API_URL
+        ? process.env.REACT_APP_API_URL.replace(/\/api\/?$/, "")
+        : "http://localhost:4000");
+
+    const socket = io(socketBaseUrl, {
+      withCredentials: true,
+      transports: ["websocket", "polling"],
+    });
+
+    const onStatus = (payload) => {
+      if (!payload || payload.ptrsId !== ptrsId) return;
+      setLiveUploadStatus(payload);
+    };
+
+    socket.on("connect", () => {
+      socket.emit("ptrs:join", { ptrsId });
+    });
+
+    socket.on("ptrs:csvUploadStatus", onStatus);
+
+    return () => {
+      try {
+        socket.emit("ptrs:leave", { ptrsId });
+      } catch (_) {}
+      socket.off("ptrs:csvUploadStatus", onStatus);
+      socket.disconnect();
+    };
+  }, [ptrsId]);
+
   const doUpload = async () => {
     if (!ptrsId) {
       showAlert("Create a PTRS first", "info");
@@ -121,6 +204,17 @@ export default function DataConsole() {
       return;
     }
     setIsUploading(true);
+    setLiveUploadStatus(null);
+    setLiveUploadStatus({
+      ptrsId,
+      datasetId: null,
+      role: String(role || "").toLowerCase(),
+      sourceType: "csv",
+      status: "uploading",
+      rowsInserted: 0,
+      totalRows: 0,
+      error: null,
+    });
     try {
       await addDataset(ptrsId, file, {
         role: String(role || "").toLowerCase(),
@@ -135,6 +229,17 @@ export default function DataConsole() {
         return;
       }
     } catch (err) {
+      setLiveUploadStatus((prev) => ({
+        ptrsId,
+        datasetId: prev?.datasetId || null,
+        role: prev?.role || String(role || "").toLowerCase(),
+        sourceType: prev?.sourceType || "csv",
+        status: "failed",
+        rowsInserted: Number(prev?.rowsInserted || 0),
+        totalRows: Number(prev?.totalRows || 0),
+        error: err?.message || "Upload failed",
+        updatedAt: new Date().toISOString(),
+      }));
       console.error(err);
       showAlert(err?.message || "Upload failed", "error");
     } finally {
@@ -327,6 +432,101 @@ export default function DataConsole() {
                   >
                     {isUploading ? "Uploading..." : "Upload"}
                   </Button>
+                  {liveUploadStatus ? (
+                    <Box
+                      sx={{
+                        minWidth: { xs: "100%", md: 280 },
+                        maxWidth: isUploadActive ? 420 : 320,
+                        flex: isUploadActive ? 1 : 0,
+                        border: "1px solid",
+                        borderColor: isUploadFailed
+                          ? theme.palette.error.main
+                          : isUploadComplete
+                            ? theme.palette.success.main
+                            : "divider",
+                        borderRadius: 1,
+                        px: 1.5,
+                        py: 1,
+                        bgcolor: theme.palette.background.paper,
+                      }}
+                    >
+                      <Stack spacing={0.75}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: 1,
+                          }}
+                        >
+                          <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                            {isUploadFailed
+                              ? uploadError || "Upload failed"
+                              : isUploadComplete
+                                ? "Upload complete"
+                                : "Uploading CSV..."}
+                          </Typography>
+                          <Chip
+                            size="small"
+                            label={uploadStatus || "PENDING"}
+                            color={
+                              isUploadFailed
+                                ? "error"
+                                : isUploadComplete
+                                  ? "success"
+                                  : "info"
+                            }
+                            variant={isUploadActive ? "filled" : "outlined"}
+                          />
+                        </Box>
+
+                        {(uploadRole || uploadSourceType) && (
+                          <Typography
+                            variant="caption"
+                            color="text.secondary"
+                            sx={{ display: "block" }}
+                          >
+                            {uploadRole ? `Role: ${uploadRole}` : ""}
+                            {uploadRole && uploadSourceType ? " • " : ""}
+                            {uploadSourceType
+                              ? `Source: ${uploadSourceType}`
+                              : ""}
+                          </Typography>
+                        )}
+
+                        {updatedAt && !isUploadActive && (
+                          <Typography
+                            variant="caption"
+                            color="text.secondary"
+                            sx={{ display: "block" }}
+                          >
+                            Updated:{" "}
+                            {new Date(updatedAt).toLocaleTimeString("en-AU")}
+                          </Typography>
+                        )}
+
+                        {isUploadActive && (
+                          <LinearProgress
+                            variant={
+                              totalRows > 0 ? "determinate" : "indeterminate"
+                            }
+                            value={totalRows > 0 ? progressPct : 0}
+                            sx={{ height: 8, borderRadius: 1 }}
+                          />
+                        )}
+
+                        <Typography variant="caption" color="text.secondary">
+                          Rows inserted: {rowsInserted.toLocaleString("en-AU")}
+                          {totalRows > 0
+                            ? ` / ${totalRows.toLocaleString("en-AU")}`
+                            : ""}
+                          {totalRows > 0 && isUploadActive
+                            ? ` (${progressPct}%)`
+                            : ""}
+                        </Typography>
+                      </Stack>
+                    </Box>
+                  ) : null}
                   <Button
                     variant="text"
                     startIcon={<TableChartIcon />}
