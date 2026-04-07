@@ -109,7 +109,7 @@ export default function Services() {
               <Box>
                 <Box
                   component="img"
-                  src="/images/services/payment-health-check.jpg"
+                  src="/images/services/payment-health-check-web.jpg"
                   alt="Payment data diagnostic review"
                   sx={{
                     width: "100%",
