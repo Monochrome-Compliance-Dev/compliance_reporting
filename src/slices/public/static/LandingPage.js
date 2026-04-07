@@ -37,9 +37,6 @@ export function LandingPage() {
             minHeight: { xs: 220, sm: 280, md: 360 },
             display: "flex",
             alignItems: "center",
-            backgroundImage: `url('/images/brand/hero3.jpg')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
             "&::before": {
               content: '""',
               position: "absolute",
@@ -50,6 +47,22 @@ export function LandingPage() {
             },
           }}
         >
+          <Box
+            component="img"
+            src="/images/brand/hero3.jpg"
+            alt="Payment data and compliance"
+            loading="eager"
+            fetchpriority="high"
+            sx={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+              zIndex: 0,
+            }}
+          />
           <Box
             sx={{
               position: "relative",
@@ -137,6 +150,7 @@ export function LandingPage() {
                 color: "rgba(255,255,255,0.78)",
                 maxWidth: 900,
                 lineHeight: 1.7,
+                display: { xs: "none", sm: "block" },
               }}
             >
               Curious how your payment data behaves under these frameworks?
