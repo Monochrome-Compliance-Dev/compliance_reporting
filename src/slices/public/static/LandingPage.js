@@ -16,8 +16,8 @@ export function LandingPage() {
   return (
     <>
       <PageMeta
-        title="Payment Data & Compliance Solutions"
-        description="Payment data, compliance, and reporting solutions for organisations operating in complex environments, including Payment Times Reporting (PTRS). Strengthen reporting, controls, and evidence trails from the underlying dataset up."
+        title="Payment Behaviour, Data & Compliance Solutions"
+        description="Understand and improve payment behaviour with clearer payment data, practical diagnostics, and defensible reporting support, including Payment Times Reporting (PTRS)."
         url="https://monochrome-compliance.com/"
         image="/images/brand/hero3.jpg"
       />
@@ -37,6 +37,9 @@ export function LandingPage() {
             minHeight: { xs: 220, sm: 280, md: 360 },
             display: "flex",
             alignItems: "center",
+            backgroundImage: `url('/images/brand/hero3.jpg')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             "&::before": {
               content: '""',
               position: "absolute",
@@ -47,22 +50,6 @@ export function LandingPage() {
             },
           }}
         >
-          <Box
-            component="img"
-            src="/images/brand/hero3.jpg"
-            alt="Payment data and compliance"
-            loading="eager"
-            fetchpriority="high"
-            sx={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "center",
-              zIndex: 0,
-            }}
-          />
           <Box
             sx={{
               position: "relative",
@@ -150,7 +137,6 @@ export function LandingPage() {
                 color: "rgba(255,255,255,0.78)",
                 maxWidth: 900,
                 lineHeight: 1.7,
-                display: { xs: "none", sm: "block" },
               }}
             >
               Curious how your payment data behaves under these frameworks?
@@ -190,95 +176,136 @@ export function LandingPage() {
             billion in supplier payments.
           </Typography>
           <Box sx={{ mt: theme.spacing(4) }}>
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 2,
-                justifyContent: "center",
-              }}
-            >
-              {[
-                {
-                  title: "Services",
-                  image: "/images/services/payment-times-reporting.jpg",
-                  alt: "Payment Times Reporting",
-                  description:
-                    "Practical delivery across payment behaviour analysis, Payment Times Reporting, and targeted payment health checks.",
-                  to: "/services",
-                  buttonText: "View services",
-                },
-                {
-                  title: "Industries",
-                  image: "/images/industries/construction.jpg",
-                  alt: "Construction",
-                  description:
-                    "Starting with construction — where payment mechanics and reporting pressure collide.",
-                  to: "/industries",
-                  buttonText: "Explore industries",
-                },
-                {
-                  title: "Insights",
-                  image: "/images/insights/insights.jpg",
-                  alt: "Insights",
-                  description:
-                    "Research and practical observations on payment visibility, data quality, compliance interpretation, and reporting.",
-                  to: "/insights",
-                  buttonText: "Read insights",
-                },
-              ].map((card, index) => (
-                <Box
-                  key={index}
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item xs={12} md={4}>
+                <Paper
+                  variant="outlined"
                   sx={{
-                    flex: { xs: "1 1 100%", md: "1 1 calc(33.333% - 12px)" },
-                    maxWidth: { xs: "100%", md: "calc(33.333% - 12px)" },
-                    minWidth: 0,
-                    display: "flex",
+                    p: theme.spacing(3),
+                    height: "100%",
+                    backgroundColor: theme.palette.background.paper,
                   }}
                 >
-                  <Paper
-                    variant="outlined"
+                  <Box
+                    component="img"
+                    src="/images/services/payment-times-reporting.jpg"
+                    alt="Payment Times Reporting"
+                    loading="lazy"
                     sx={{
-                      p: theme.spacing(3),
-                      height: "100%",
                       width: "100%",
-                      backgroundColor: theme.palette.background.paper,
+                      height: 140,
+                      objectFit: "cover",
+                      borderRadius: 2,
+                      mb: theme.spacing(2),
                     }}
+                  />
+                  <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+                    Services
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color={theme.palette.text.secondary}
+                    sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
                   >
-                    <Box
-                      component="img"
-                      src={card.image}
-                      alt={card.alt}
-                      loading="lazy"
-                      sx={{
-                        width: "100%",
-                        height: 140,
-                        objectFit: "cover",
-                        borderRadius: 2,
-                        mb: theme.spacing(2),
-                      }}
-                    />
-                    <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
-                      {card.title}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.text.secondary}
-                      sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
-                    >
-                      {card.description}
-                    </Typography>
-                    <Button
-                      variant="outlined"
-                      component={RouterLink}
-                      to={card.to}
-                    >
-                      {card.buttonText}
-                    </Button>
-                  </Paper>
-                </Box>
-              ))}
-            </Box>
+                    Practical delivery across payment behaviour analysis,
+                    Payment Times Reporting, and targeted payment health checks.
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    component={RouterLink}
+                    to="/services"
+                  >
+                    View services
+                  </Button>
+                </Paper>
+              </Grid>
+
+              <Grid item xs={12} md={4}>
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    p: theme.spacing(3),
+                    height: "100%",
+                    backgroundColor: theme.palette.background.paper,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src="/images/industries/construction.jpg"
+                    alt="Construction"
+                    loading="lazy"
+                    sx={{
+                      width: "100%",
+                      height: 140,
+                      objectFit: "cover",
+                      borderRadius: 2,
+                      mb: theme.spacing(2),
+                    }}
+                  />
+                  <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+                    Industries
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color={theme.palette.text.secondary}
+                    sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
+                  >
+                    Starting with construction — where payment mechanics and
+                    reporting pressure collide.
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    component={RouterLink}
+                    to="/industries"
+                  >
+                    Explore industries
+                  </Button>
+                </Paper>
+              </Grid>
+
+              <Grid item xs={12} md={4}>
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    p: theme.spacing(3),
+                    height: "100%",
+                    backgroundColor: theme.palette.background.paper,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src="/images/insights/insights.jpg"
+                    alt="Insights"
+                    loading="lazy"
+                    sx={{
+                      width: "100%",
+                      height: 140,
+                      objectFit: "cover",
+                      borderRadius: 2,
+                      mb: theme.spacing(2),
+                    }}
+                  />
+                  <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+                    Insights
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color={theme.palette.text.secondary}
+                    sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
+                  >
+                    Research and practical observations on payment visibility,
+                    data quality, compliance interpretation, and reporting.
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    component={RouterLink}
+                    to="/insights"
+                  >
+                    Read insights
+                  </Button>
+                </Paper>
+              </Grid>
+            </Grid>
           </Box>
         </Box>
         <Divider />
