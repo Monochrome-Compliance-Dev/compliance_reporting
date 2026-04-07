@@ -16,7 +16,7 @@ export default function BlogIndex() {
     <>
       <PageMeta
         title="Blog | Industry Insights | Monochrome Compliance"
-        description="Short, practical notes on payment reporting in complex environments — focused on structure, defensibility, and outcomes."
+        description="Short, practical insights on payment behaviour, reporting, and data architecture across industries — focused on clarity, defensibility, and outcomes."
         image="/images/og/og-industry-insights.jpg"
       />
 
@@ -37,12 +37,23 @@ export default function BlogIndex() {
             color={theme.palette.text.secondary}
             sx={{ lineHeight: 1.5 }}
           >
-            Short posts to build clarity around payment reporting pressure in
-            construction — and the underlying data architecture that makes it
-            harder than it needs to be.
+            Short posts to build clarity around payment behaviour and reporting
+            pressure across industries — and the underlying data architecture
+            that makes it harder than it needs to be.
           </Typography>
 
           <Divider sx={{ my: theme.spacing(4) }} />
+
+          <Typography variant="body2" sx={{ mb: theme.spacing(3) }}>
+            Looking for a more structured approach? Explore our core services{" "}
+            <RouterLink
+              to="/services"
+              style={{ color: theme.palette.primary.main }}
+            >
+              here
+            </RouterLink>
+            .
+          </Typography>
 
           <Grid container spacing={3}>
             {sorted.map((post) => (

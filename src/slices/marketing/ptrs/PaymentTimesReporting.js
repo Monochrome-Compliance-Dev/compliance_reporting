@@ -35,7 +35,7 @@ export default function PaymentTimesReporting() {
 
   const handlePrint = () => {
     window.open(
-      "/payment-times-reporting/print",
+      "/payment-times-reporting-print",
       "_blank",
       "noopener,noreferrer",
     );

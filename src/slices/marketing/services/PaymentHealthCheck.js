@@ -1,5 +1,3 @@
-// src/slices/marketing/construction/ConstructionPaymentDiagnostic.js
-
 import {
   Box,
   Button,
@@ -18,9 +16,7 @@ import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
 import PageMeta from "shared/ui/PageMeta";
 
-const PDF_PATH = "/diagnostics/Construction_Payment_Diagnostic.pdf";
-
-export default function ConstructionPaymentDiagnostic() {
+export default function PaymentHealthCheck() {
   const theme = useTheme();
   const navigate = useNavigate();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -31,10 +27,10 @@ export default function ConstructionPaymentDiagnostic() {
   return (
     <>
       <PageMeta
-        title="Construction Payment Diagnostic"
-        description="Construction payment diagnostic showing how progress-claim mechanics, end-of-month treatment, and retention handling can materially influence reported payment performance."
-        url="https://monochrome-compliance.com/industries/construction/payment-diagnostic"
-        image="/images/og/construction-diagnostic.jpg"
+        title="Payment Health Check"
+        description="A practical payment health check to make payment behaviour visible, identify late-payment patterns, and highlight the operational drivers affecting supplier outcomes and reporting performance."
+        url="https://monochrome-compliance.com/services/payment-health-check"
+        image="/images/og/og-industry-insights.jpg"
       />
 
       <Box
@@ -48,7 +44,7 @@ export default function ConstructionPaymentDiagnostic() {
           <Box sx={sectionSx}>
             <Stack spacing={3}>
               <Typography variant="overline" sx={{ color: "text.secondary" }}>
-                Construction sector
+                Core service
               </Typography>
 
               <Typography
@@ -56,7 +52,7 @@ export default function ConstructionPaymentDiagnostic() {
                 color={theme.palette.text.primary}
                 sx={{ fontWeight: 700, mb: theme.spacing(1) }}
               >
-                Construction Payment Timing Diagnostic
+                Payment Health Check
               </Typography>
 
               <Typography
@@ -64,11 +60,10 @@ export default function ConstructionPaymentDiagnostic() {
                 color={theme.palette.text.secondary}
                 sx={{ lineHeight: 1.5 }}
               >
-                A practical way to separate <strong>mechanics</strong> (how
-                claims and invoices are processed) from{" "}
-                <strong>behaviour</strong> (whether suppliers are actually being
-                paid fairly) — and understand what your Payment Times Reporting
-                metrics are really reflecting.
+                A practical way to understand how your organisation is actually
+                paying suppliers, identify the patterns driving poor outcomes,
+                and focus attention on the issues that matter before they harden
+                into reporting or compliance problems.
               </Typography>
 
               <Box
@@ -85,29 +80,31 @@ export default function ConstructionPaymentDiagnostic() {
                   color="primary"
                   size="large"
                   startIcon={<AssessmentOutlinedIcon />}
-                  href={PDF_PATH}
+                  onClick={() => navigate("/contact")}
                   sx={{ width: isSmallScreen ? "100%" : "auto" }}
                 >
-                  View illustrative report
+                  Discuss a health check
                 </Button>
 
                 <Button
                   variant="outlined"
                   color="primary"
                   size="large"
-                  startIcon={<ChatOutlinedIcon />}
-                  onClick={() => navigate("/contact")}
+                  startIcon={<InsightsOutlinedIcon />}
+                  onClick={() =>
+                    navigate("/industries/construction/payment-diagnostic")
+                  }
                   sx={{ width: isSmallScreen ? "100%" : "auto" }}
                 >
-                  Discuss a diagnostic
+                  View a specialist example
                 </Button>
 
                 <Typography
                   variant="body2"
                   color={theme.palette.text.secondary}
                 >
-                  No forms. No gimmicks. Just an example output your team can
-                  use to drive clarity and action.
+                  Start broad, then go deeper where the mechanics or operating
+                  context demand it.
                 </Typography>
               </Box>
             </Stack>
@@ -135,27 +132,27 @@ export default function ConstructionPaymentDiagnostic() {
                   variant="body1"
                   sx={{ color: "text.secondary", lineHeight: 1.7 }}
                 >
-                  Construction payment performance is often assessed at face
-                  value. But progress claims, end-of-month treatment, retention
-                  releases, milestone verification, and invoice/claim timing
-                  conventions can materially shift the reporting outcome.
+                  Many organisations only look closely at payment behaviour when
+                  reporting deadlines arrive, supplier complaints escalate, or a
+                  regulator starts asking questions. By then, the patterns are
+                  already embedded in the data and harder to untangle.
                 </Typography>
 
                 <Typography
                   variant="body1"
                   sx={{ color: "text.secondary", lineHeight: 1.7 }}
                 >
-                  This diagnostic is designed to surface those mechanics quickly
-                  — so you can understand whether the numbers reflect{" "}
-                  <strong>process</strong> or <strong>behaviour</strong>, and
-                  take the right action before the next reporting cycle.
+                  This health check is designed to surface those patterns early
+                  — so finance and operational leaders can distinguish between
+                  isolated exceptions, process bottlenecks, and genuine payment
+                  behaviour issues, then focus on the right corrective action.
                 </Typography>
               </Stack>
             </Paper>
 
             <Box>
               <Typography variant="h4" sx={{ mb: 2 }}>
-                What the diagnostic does
+                What the health check does
               </Typography>
 
               <Stack spacing={2}>
@@ -165,15 +162,16 @@ export default function ConstructionPaymentDiagnostic() {
                   />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                      Identifies mechanical distortion drivers
+                      Identifies late-payment patterns
                     </Typography>
                     <Typography
                       variant="body2"
                       sx={{ color: "text.secondary", lineHeight: 1.7 }}
                     >
-                      Highlights where timing conventions (claim vs invoice
-                      date, EOM, retention treatment) can inflate or suppress
-                      “within term” outcomes.
+                      Highlights where supplier payment outcomes are being
+                      dragged down by timing clusters, approval delays,
+                      processing backlogs, or other repeatable operational
+                      patterns.
                     </Typography>
                   </Box>
                 </Stack>
@@ -184,15 +182,15 @@ export default function ConstructionPaymentDiagnostic() {
                   />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                      Quantifies impact on reported performance
+                      Separates process issues from behaviour issues
                     </Typography>
                     <Typography
                       variant="body2"
                       sx={{ color: "text.secondary", lineHeight: 1.7 }}
                     >
-                      Shows the practical delta between the reported metric and
-                      the mechanically adjusted view — without changing your
-                      underlying payment behaviour.
+                      Shows whether poor outcomes appear to be driven by system
+                      and workflow friction, policy settings, or genuinely slow
+                      payment behaviour so you can fix the right thing.
                     </Typography>
                   </Box>
                 </Stack>
@@ -203,15 +201,15 @@ export default function ConstructionPaymentDiagnostic() {
                   />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                      Produces an executive-ready snapshot
+                      Produces a leadership-ready view
                     </Typography>
                     <Typography
                       variant="body2"
                       sx={{ color: "text.secondary", lineHeight: 1.7 }}
                     >
-                      A one-page output that gives finance leadership a clear
-                      explanation of what is driving the numbers and what to do
-                      next.
+                      A concise output that gives decision-makers a practical
+                      picture of what is happening in the payment data and where
+                      intervention is likely to make the biggest difference.
                     </Typography>
                   </Box>
                 </Stack>
@@ -230,8 +228,8 @@ export default function ConstructionPaymentDiagnostic() {
               <Stack spacing={2}>
                 <Typography variant="h4">Illustrative snapshot</Typography>
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  Example metrics (illustrative only — numbers vary by entity,
-                  portfolio and claim profile).
+                  Example indicators only — the exact mix depends on your
+                  payment profile, operating model, and supplier base.
                 </Typography>
 
                 <Divider />
@@ -242,9 +240,9 @@ export default function ConstructionPaymentDiagnostic() {
                       variant="overline"
                       sx={{ color: "text.secondary" }}
                     >
-                      Sample size
+                      Sample reviewed
                     </Typography>
-                    <Typography variant="h5">124 transactions</Typography>
+                    <Typography variant="h5">148 payments</Typography>
                   </Box>
 
                   <Box sx={{ flex: 1 }}>
@@ -252,9 +250,9 @@ export default function ConstructionPaymentDiagnostic() {
                       variant="overline"
                       sx={{ color: "text.secondary" }}
                     >
-                      Reported within term
+                      On-time or within expected range
                     </Typography>
-                    <Typography variant="h5">38%</Typography>
+                    <Typography variant="h5">61%</Typography>
                   </Box>
 
                   <Box sx={{ flex: 1 }}>
@@ -262,9 +260,9 @@ export default function ConstructionPaymentDiagnostic() {
                       variant="overline"
                       sx={{ color: "text.secondary" }}
                     >
-                      Mechanically adjusted within term
+                      Pattern requiring intervention
                     </Typography>
-                    <Typography variant="h5">52%</Typography>
+                    <Typography variant="h5">3 recurring drivers</Typography>
                   </Box>
                 </Stack>
 
@@ -272,11 +270,10 @@ export default function ConstructionPaymentDiagnostic() {
                   variant="body2"
                   sx={{ color: "text.secondary", lineHeight: 1.7 }}
                 >
-                  The gap between these figures typically points to timing
-                  interpretation and processing mechanics (not necessarily
-                  deteriorating supplier treatment). The diagnostic shows
-                  *where* the distortion is coming from so you can fix the right
-                  thing.
+                  In practice, the value is not just the headline number. It is
+                  understanding which part of the process is creating friction,
+                  whether that pattern is isolated or systemic, and which next
+                  step will materially improve supplier outcomes.
                 </Typography>
 
                 <Stack
@@ -286,17 +283,19 @@ export default function ConstructionPaymentDiagnostic() {
                 >
                   <Button
                     variant="contained"
-                    startIcon={<AssessmentOutlinedIcon />}
-                    href={PDF_PATH}
+                    startIcon={<ChatOutlinedIcon />}
+                    onClick={() => navigate("/contact")}
                   >
-                    View illustrative report
+                    Discuss a health check
                   </Button>
                   <Button
                     variant="outlined"
-                    startIcon={<ChatOutlinedIcon />}
-                    href="/contact"
+                    startIcon={<AssessmentOutlinedIcon />}
+                    onClick={() =>
+                      navigate("/industries/construction/payment-diagnostic")
+                    }
                   >
-                    Discuss a diagnostic
+                    See the construction example
                   </Button>
                 </Stack>
               </Stack>
@@ -317,16 +316,17 @@ export default function ConstructionPaymentDiagnostic() {
                   variant="body1"
                   sx={{ color: "text.secondary", lineHeight: 1.7 }}
                 >
-                  We typically start with a small sample (50–150 transactions)
-                  to confirm the profile and identify the drivers. Then, if
-                  helpful, we scale the analysis across the reporting period and
-                  align it to your reporting approach.
+                  We typically start with a focused sample to understand the
+                  profile, identify the main drivers, and test whether the issue
+                  is behavioural, operational, or structural. If useful, we then
+                  scale the analysis and align it to your broader reporting or
+                  remediation approach.
                 </Typography>
 
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  If you’re preparing for the next reporting cycle and want a
-                  mechanical review that is construction-aware, we’re happy to
-                  have a first conversation.
+                  Where industry mechanics matter materially — for example in
+                  construction — we can extend the health check into a more
+                  specialist diagnostic view.
                 </Typography>
 
                 <Stack
@@ -337,15 +337,12 @@ export default function ConstructionPaymentDiagnostic() {
                   <Button
                     variant="contained"
                     startIcon={<ChatOutlinedIcon />}
-                    href="/contact"
+                    onClick={() => navigate("/contact")}
                   >
                     Book a quick chat
                   </Button>
-                  <Button
-                    variant="text"
-                    href="/industries/construction/payment-reporting"
-                  >
-                    Learn about Construction PTRS
+                  <Button variant="text" onClick={() => navigate("/services")}>
+                    Explore core services
                   </Button>
                 </Stack>
               </Stack>
