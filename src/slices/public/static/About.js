@@ -10,22 +10,22 @@ export const About = () => {
     <>
       <PageMeta
         title="About"
-        description={`Helping organisations meet Payment Times Reporting obligations with calm,
-   defensible reporting and clear audit trails.`}
+        description={`Helping organisations strengthen payment data, reporting, and compliance outcomes, including Payment Times Reporting (PTRS), with calm delivery and clear audit trails.`}
       />
       <Container maxWidth="md" sx={{ py: 6 }}>
         <Typography variant="h3" gutterBottom textAlign="center">
           About Monochrome Compliance
         </Typography>
         <Typography variant="body1" paragraph textAlign="center">
-          Monochrome Compliance helps Australian organisations meet their
-          Payment Times Reporting obligations without unnecessary complexity or
-          internal disruption.
+          Monochrome Compliance helps Australian organisations strengthen
+          payment data, reporting, and compliance outcomes without unnecessary
+          complexity or internal disruption.
         </Typography>
         <Typography variant="body1" paragraph textAlign="center">
           We specialise in taking raw payment data from accounting systems and
-          exports, turning it into accurate metrics and submission-ready reports
-          that stand up to board and regulatory scrutiny.
+          exports, turning it into defensible datasets, accurate metrics, and
+          submission-ready reporting outputs that stand up to board and
+          regulatory scrutiny.
         </Typography>
 
         <Grid container spacing={4} sx={{ mt: 4 }}>
@@ -33,11 +33,12 @@ export const About = () => {
             <Paper sx={{ p: 3, textAlign: "center" }}>
               <GavelIcon fontSize="large" color="primary" />
               <Typography variant="h6" sx={{ mt: 2 }}>
-                Built for Payment Times Reporting
+                Built for complex payment reporting
               </Typography>
               <Typography variant="body2">
-                Purpose-built processes and tooling aligned with the Payment
-                Times Reporting Scheme and Australian regulatory guidance.
+                Purpose-built processes and tooling aligned with Payment Times
+                Reporting and broader Australian regulatory reporting
+                expectations.
               </Typography>
             </Paper>
           </Grid>
@@ -62,9 +63,9 @@ export const About = () => {
                 Built by People Who Get It
               </Typography>
               <Typography variant="body2">
-                Our platform is designed by people who’ve sat in your chair —
-                product managers, compliance officers, engineers, and board
-                members.
+                Our platform is designed by people who understand operational
+                pressure, compliance accountability, and the realities of messy
+                source data.
               </Typography>
             </Paper>
           </Grid>

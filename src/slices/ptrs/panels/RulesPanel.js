@@ -1,10 +1,23 @@
-import { Box, Stack, Typography, Divider, Button } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  Divider,
+  Button,
+  TextField,
+  Select,
+  MenuItem,
+  Collapse,
+  IconButton,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
 import { useState, useMemo, useEffect } from "react";
 
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useRef } from "react";
 import { usePtrsContext } from "../context/PtrsContext";
 import {
@@ -13,7 +26,12 @@ import {
   useRuleSources,
   useRulesState,
 } from "../rules/hooks";
-import { useUpdatePtrsMutation } from "../hooks/usePtrsQueries";
+import {
+  usePtrsDatasetsQuery,
+  usePtrsJoinsQuery,
+  usePtrsMapQuery,
+  useUpdatePtrsMutation,
+} from "../hooks/usePtrsQueries";
 import {
   applyRules,
   getPtrsRules,
@@ -30,18 +48,49 @@ import {
 import { LoadingSpinner } from "shared/ui";
 
 // helpers
-// const toSnake = (s) =>
-//   !s
-//     ? s
-//     : String(s)
-//         .replace(/([a-z0-9])([A-Z])/g, "$1_$2")
-//         .replace(/[\s\-]+/g, "_")
-//         .toLowerCase();
+const toSnake = (s) =>
+  !s
+    ? ""
+    : String(s)
+        .replace(/([a-z0-9])([A-Z])/g, "$1_$2")
+        .replace(/[\s\-\/]+/g, "_")
+        .replace(/__+/g, "_")
+        .replace(/^_+|_+$/g, "")
+        .toLowerCase();
+
+const safeLc = (v) =>
+  String(v || "")
+    .trim()
+    .toLowerCase();
+
+const addHeaderValue = (set, value) => {
+  const raw = String(value || "").trim();
+  if (raw) set.add(raw);
+};
 
 const makeCid = () =>
   typeof crypto !== "undefined" && crypto.randomUUID
     ? crypto.randomUUID()
     : `rule_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+
+const formatPreviewMoney = (value) => {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return String(value || "");
+  return num.toLocaleString("en-AU", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+};
+
+const formatPreviewDelta = (value) => {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return String(value || "");
+  const abs = Math.abs(num).toLocaleString("en-AU", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  return `${num >= 0 ? "+" : "-"}${abs}`;
+};
 
 // Helper: detect if a cross-row rule is dangerously broad (no match, no positive where)
 const isBroadCrossRowRule = (rule) => {
@@ -60,25 +109,47 @@ const normalisePtrsRules = (rowRules = [], crossRowRules = []) => {
   const rows = Array.isArray(rowRules)
     ? rowRules.map((r, i) => {
         const addAct = Array.isArray(r.then)
-          ? r.then.find((a) => a.op === "add")
+          ? r.then.find((a) => ["add", "concat_fields"].includes(a.op))
           : null;
+
         const action = addAct
           ? {
               op: addAct.op || "add",
               field: addAct.field || "",
               valueFieldFromCurrent: addAct.valueField || "",
+              fields: Array.isArray(addAct.fields) ? addAct.fields : [],
+              segments: Array.isArray(addAct.segments)
+                ? addAct.segments
+                : Array.isArray(addAct.fields)
+                  ? addAct.fields.map((name) => ({ kind: "field", name }))
+                  : [],
+              separator: addAct.separator || "|",
               round: typeof addAct.round === "number" ? addAct.round : 2,
             }
-          : { op: "add", field: "", valueFieldFromCurrent: "", round: 2 };
+          : {
+              op: "add",
+              field: "",
+              valueFieldFromCurrent: "",
+              fields: [],
+              segments: [],
+              separator: "|",
+              round: 2,
+            };
 
         return {
           id: r.id || `r${i + 1}`,
           type: r.type || "row",
           label: r.label || "",
           description: r.description || "",
+          groupName: r.groupName || "",
           enabled: r.enabled !== false,
           when: Array.isArray(r.when) ? r.when : [],
-          target: r.target || {},
+          target: {
+            match: Array.isArray(r?.target?.match) ? r.target.match : [],
+            where: Array.isArray(r?.target?.where) ? r.target.where : [],
+            selection: r?.target?.selection || "first_match",
+            requireMatch: r?.target?.requireMatch !== false,
+          },
           action,
         };
       })
@@ -90,9 +161,15 @@ const normalisePtrsRules = (rowRules = [], crossRowRules = []) => {
         type: "crossRow",
         label: r.label || "",
         description: r.description || "",
+        groupName: r.groupName || "",
         enabled: r.enabled !== false,
         when: Array.isArray(r.when) ? r.when : [],
-        target: r.target || {},
+        target: {
+          match: Array.isArray(r?.target?.match) ? r.target.match : [],
+          where: Array.isArray(r?.target?.where) ? r.target.where : [],
+          selection: r?.target?.selection || "first_match",
+          requireMatch: r?.target?.requireMatch !== false,
+        },
         action: r.action || {},
         alsoExcludeCurrent: !!r.alsoExcludeCurrent,
       }))
@@ -104,23 +181,178 @@ const normalisePtrsRules = (rowRules = [], crossRowRules = []) => {
 export default function RulesPanel() {
   const theme = useTheme();
   const { showAlert } = useAlert();
-  const {
-    ptrsId: ctxPtrsId,
-    profileId: ctxProfileId,
-    ptrsMap: ctxPtrsMap,
-  } = usePtrsContext();
+  const { ptrsId: ctxPtrsId, profileId: ctxProfileId } = usePtrsContext();
   const ptrsId = ctxPtrsId || "";
   const profileId = ctxProfileId || null;
+  const { data: queriedPtrsMap } = usePtrsMapQuery(ptrsId);
+  const dsQ = usePtrsDatasetsQuery(ptrsId);
+  const joinsQ = usePtrsJoinsQuery(ptrsId);
+
+  console.log("[RulesPanel] query raw", {
+    ptrsId,
+    queriedPtrsMap,
+    datasetsData: dsQ.data,
+    datasetsIsLoading: dsQ.isLoading,
+    datasetsIsFetching: dsQ.isFetching,
+    datasetsError: dsQ.error,
+    joinsData: joinsQ.data,
+    joinsIsLoading: joinsQ.isLoading,
+    joinsIsFetching: joinsQ.isFetching,
+    joinsError: joinsQ.error,
+  });
 
   const { goTo } = usePtrsNavigation();
 
+  const effectiveMap = queriedPtrsMap || null;
+
   const hasCtxMap = !!(
-    ctxPtrsMap &&
-    ctxPtrsMap.mappings &&
-    Object.keys(ctxPtrsMap.mappings || {}).length
+    effectiveMap &&
+    ((effectiveMap.mappings &&
+      Object.keys(effectiveMap.mappings || {}).length > 0) ||
+      (Array.isArray(effectiveMap.fieldMap) &&
+        effectiveMap.fieldMap.length > 0))
   );
 
-  const effectiveMap = ctxPtrsMap || null;
+  const normaliseJoins = (raw) => {
+    if (!raw || typeof raw !== "object") {
+      return { conditions: [], customFields: [] };
+    }
+
+    const joinsSource = raw.joins ||
+      raw.map?.joins || {
+        conditions: [],
+        customFields: [],
+      };
+
+    let conditions = [];
+    let customFields = [];
+
+    if (Array.isArray(joinsSource)) {
+      conditions = joinsSource;
+    } else if (joinsSource && typeof joinsSource === "object") {
+      if (Array.isArray(joinsSource.conditions)) {
+        conditions = joinsSource.conditions;
+      }
+      if (Array.isArray(joinsSource.customFields)) {
+        customFields = joinsSource.customFields;
+      }
+    }
+
+    const topLevelCustomFields =
+      raw.customFields || raw.map?.customFields || null;
+    if (Array.isArray(topLevelCustomFields)) {
+      customFields = topLevelCustomFields;
+    }
+
+    return { conditions, customFields };
+  };
+
+  const datasetItems = useMemo(
+    () => (Array.isArray(dsQ.data?.items) ? dsQ.data.items : []),
+    [dsQ.data],
+  );
+
+  const mainHeadersByRole = useMemo(() => {
+    const byRole = {};
+
+    datasetItems.forEach((dataset) => {
+      const role = String(dataset?.role || "");
+      if (!role || !(role === "main" || role.startsWith("main_"))) return;
+
+      const roleHeaders = (dataset?.meta?.headers || dataset?.headers || [])
+        .filter(Boolean)
+        .map(String);
+
+      if (!roleHeaders.length) return;
+
+      byRole[role] = Array.from(new Set(roleHeaders)).sort((a, b) =>
+        a.localeCompare(b),
+      );
+    });
+
+    return byRole;
+  }, [datasetItems]);
+
+  const mainHeaders = useMemo(() => {
+    const mainRole = mainHeadersByRole.main || [];
+    if (mainRole.length) return mainRole;
+
+    return Array.from(
+      new Set(Object.values(mainHeadersByRole).flatMap((arr) => arr || [])),
+    ).sort((a, b) => a.localeCompare(b));
+  }, [mainHeadersByRole]);
+
+  const joinsData = joinsQ.data || null;
+  const normalisedJoins = useMemo(
+    () => normaliseJoins(joinsData || {}),
+    [joinsData],
+  );
+  const joinsCustomFields = useMemo(
+    () =>
+      Array.isArray(normalisedJoins?.customFields)
+        ? normalisedJoins.customFields
+        : [],
+    [normalisedJoins],
+  );
+  const { headers } = useRuleHeaders(ptrsId, effectiveMap);
+
+  const fieldMapRows = useMemo(
+    () => (Array.isArray(effectiveMap?.fieldMap) ? effectiveMap.fieldMap : []),
+    [effectiveMap],
+  );
+
+  const resolveCanonicalField = useMemo(() => {
+    const byAnyKey = new Map();
+
+    const register = (candidate, canonical) => {
+      const key = safeLc(candidate);
+      const value = String(canonical || "").trim();
+      if (!key || !value) return;
+      if (!byAnyKey.has(key)) {
+        byAnyKey.set(key, value);
+      }
+    };
+
+    for (const row of fieldMapRows) {
+      const canonical = String(row?.canonicalField || row?.field || "").trim();
+      if (!canonical) continue;
+
+      register(row?.canonicalField, canonical);
+      register(row?.field, canonical);
+      register(row?.sourceColumn, canonical);
+      register(row?.header, canonical);
+      register(toSnake(row?.canonicalField), canonical);
+      register(toSnake(row?.field), canonical);
+      register(toSnake(row?.sourceColumn), canonical);
+      register(toSnake(row?.header), canonical);
+    }
+
+    for (const h of Array.isArray(headers) ? headers : []) {
+      const raw = String(h || "").trim();
+      if (!raw) continue;
+      register(raw, raw);
+      register(toSnake(raw), raw);
+    }
+
+    for (const cf of Array.isArray(joinsCustomFields)
+      ? joinsCustomFields
+      : []) {
+      const key = String(cf?.key || "").trim();
+      if (!key) continue;
+      register(key, key);
+      register(toSnake(key), key);
+    }
+
+    return (input) => {
+      const raw = String(input || "").trim();
+      if (!raw) return "";
+      return (
+        byAnyKey.get(safeLc(raw)) ||
+        byAnyKey.get(safeLc(toSnake(raw))) ||
+        toSnake(raw)
+      );
+    };
+  }, [fieldMapRows, headers, joinsCustomFields]);
 
   const [isPreviewing, setIsPreviewing] = useState(false);
   const [isApplying, setIsApplying] = useState(false);
@@ -128,16 +360,51 @@ export default function RulesPanel() {
   const [importOpen, setImportOpen] = useState(false);
   const [selectedRuleSource, setSelectedRuleSource] = useState(null);
 
-  const { headers } = useRuleHeaders(ptrsId, effectiveMap);
   const { sources: ruleSources } = useRuleSources(ptrsId, profileId);
   const { history } = useRuleExecutionHistory(ptrsId);
 
   const { rules, resetRules, addRule, updateRule, removeRule } = useRulesState(
     [],
   );
+  const handleAddRule = () => {
+    setShowRuleGroups((prev) => ({ ...prev, __blank__: true }));
+    addRule();
+  };
 
   const [lastPreview, setLastPreview] = useState(null);
   const [lastPreviewExamples, setLastPreviewExamples] = useState([]);
+  const [lastApplyResult, setLastApplyResult] = useState(null);
+  const [showRuleGroups, setShowRuleGroups] = useState({});
+  const [selectedGroupKey, setSelectedGroupKey] = useState("__all__");
+
+  const getRuleType = (rule) => {
+    return rule?.type === "crossRow" ? "crossRow" : "row";
+  };
+
+  const getRuleGroupKey = (rule) => {
+    const name = String(rule?.groupName || "").trim();
+    return name || "__blank__";
+  };
+
+  const getRuleGroupLabel = (groupKey) => {
+    return groupKey === "__blank__" ? "Group name required" : groupKey;
+  };
+
+  const selectedRules = useMemo(() => {
+    if (selectedGroupKey === "__all__") {
+      return rules;
+    }
+    return rules.filter((rule) => getRuleGroupKey(rule) === selectedGroupKey);
+  }, [rules, selectedGroupKey]);
+
+  const selectedGroupLabel = useMemo(() => {
+    if (selectedGroupKey === "__all__") {
+      return "All groups";
+    }
+    return getRuleGroupLabel(selectedGroupKey);
+  }, [selectedGroupKey]);
+
+  const [helperFields, setHelperFields] = useState([]);
 
   const rulesLoadedRef = useRef(false);
 
@@ -149,10 +416,16 @@ export default function RulesPanel() {
     id: makeCid(),
     label: "",
     description: "",
+    groupName: "",
     enabled: true,
     type: "row",
-    when: [condition],
-    target: { match: [], where: [] },
+    when: condition ? [condition] : [],
+    target: {
+      match: [],
+      where: [],
+      selection: "first_match",
+      requireMatch: false,
+    },
     action: { op: "add", field: "", valueFieldFromCurrent: "", round: 2 },
   });
 
@@ -162,17 +435,51 @@ export default function RulesPanel() {
     id: makeCid(),
     label: "",
     description: "",
+    groupName: "",
     enabled: true,
     type: "crossRow",
-    when: [condition],
-    target: { match: [{ currentField: "", targetField: "" }], where: [] },
+    when: condition ? [condition] : [],
+    target: {
+      match: [{ currentField: "", targetField: "" }],
+      where: [],
+      selection: "first_match",
+      requireMatch: false,
+    },
     action: {
       op: "add",
-      field: "invoice_amount",
-      valueFieldFromCurrent: "invoice_amount",
+      field: "",
+      valueFieldFromCurrent: "",
       round: 2,
     },
     alsoExcludeCurrent: true,
+  });
+
+  const createConcatHelperRule = (fieldName, segments) => ({
+    cid: makeCid(),
+    id: makeCid(),
+    label: `Helper field: ${fieldName}`,
+    description: `Derived helper field from ${segments
+      .map((seg) =>
+        seg?.kind === "literal" ? `'${seg?.value || ""}'` : seg?.name || "",
+      )
+      .join(", ")}`,
+    groupName: "",
+    enabled: true,
+    type: "row",
+    when: [],
+    target: {
+      match: [],
+      where: [],
+      selection: "first_match",
+      requireMatch: false,
+    },
+    action: {
+      op: "concat_fields",
+      field: fieldName,
+      valueFieldFromCurrent: "",
+      segments,
+      round: 2,
+    },
   });
 
   // Handler to seed a rule from a sandbox filter (supports row and cross-row)
@@ -190,18 +497,345 @@ export default function RulesPanel() {
     resetRules([...rules, newRule]);
   };
 
-  const canApply = useMemo(() => {
-    return Boolean(
-      effectiveMap?.mappings && Object.keys(effectiveMap.mappings).length > 0,
+  const addHelperField = () => {
+    setHelperFields((prev) => [
+      ...prev,
+      {
+        key: "",
+        type: "concat",
+        segments: [],
+      },
+    ]);
+  };
+
+  const updateHelperField = (idx, patch) => {
+    setHelperFields((prev) =>
+      prev.map((item, i) => (i === idx ? { ...item, ...patch } : item)),
     );
-  }, [effectiveMap]);
+  };
+
+  const updateHelperSegment = (idx, segIdx, patch) => {
+    setHelperFields((prev) =>
+      prev.map((item, i) => {
+        if (i !== idx) return item;
+        const segments = Array.isArray(item?.segments) ? item.segments : [];
+        return {
+          ...item,
+          segments: segments.map((seg, sIdx) =>
+            sIdx === segIdx ? { ...seg, ...patch } : seg,
+          ),
+        };
+      }),
+    );
+  };
+
+  const addHelperSegment = (idx, kind) => {
+    setHelperFields((prev) =>
+      prev.map((item, i) => {
+        if (i !== idx) return item;
+        const segments = Array.isArray(item?.segments) ? item.segments : [];
+        const nextSeg =
+          kind === "field"
+            ? {
+                kind: "field",
+                name: helperFieldOptions[0]?.value || "",
+              }
+            : { kind: "literal", value: "" };
+        return {
+          ...item,
+          segments: [...segments, nextSeg],
+        };
+      }),
+    );
+  };
+
+  const removeHelperSegment = (idx, segIdx) => {
+    setHelperFields((prev) =>
+      prev.map((item, i) => {
+        if (i !== idx) return item;
+        const segments = Array.isArray(item?.segments) ? item.segments : [];
+        return {
+          ...item,
+          segments: segments.filter((_, sIdx) => sIdx !== segIdx),
+        };
+      }),
+    );
+  };
+
+  const removeHelperField = (idx) => {
+    setHelperFields((prev) => prev.filter((_, i) => i !== idx));
+  };
+
+  const handleAddHelperFieldRules = () => {
+    const nextRules = [];
+
+    for (const helper of helperFields) {
+      const fieldName = String(helper?.key || "").trim();
+      const segments = Array.isArray(helper?.segments)
+        ? helper.segments
+            .map((seg) => {
+              if (seg?.kind === "literal") {
+                return {
+                  kind: "literal",
+                  value: String(seg?.value || ""),
+                };
+              }
+              const name = String(seg?.name || "").trim();
+              return name ? { kind: "field", name } : null;
+            })
+            .filter(Boolean)
+        : [];
+
+      if (!fieldName || !segments.length) continue;
+      nextRules.push(createConcatHelperRule(fieldName, segments));
+    }
+
+    if (!nextRules.length) {
+      showAlert("Add at least one valid helper field first.", "info");
+      return;
+    }
+
+    resetRules([...rules, ...nextRules]);
+    setHelperFields([]);
+    showAlert(
+      `Added ${nextRules.length} helper field rule${nextRules.length === 1 ? "" : "s"}.`,
+      "success",
+    );
+  };
+
+  const canApply = useMemo(() => {
+    return Boolean(ptrsId && Array.isArray(headers) && headers.length > 0);
+  }, [ptrsId, headers]);
+
+  const helperFieldOptions = useMemo(() => {
+    const optionsByValue = new Map();
+
+    const addOption = (input, sourceLabel = "", explicitValue = "") => {
+      const raw = String(input || "").trim();
+      if (!raw) return;
+
+      const value = String(
+        explicitValue || resolveCanonicalField(raw) || raw,
+      ).trim();
+      if (!value) return;
+
+      const label = sourceLabel ? `${raw} — ${sourceLabel}` : raw;
+
+      if (!optionsByValue.has(value)) {
+        optionsByValue.set(value, {
+          value,
+          label,
+          sortLabel: `${label} ${value}`.toLowerCase(),
+        });
+      }
+    };
+
+    const mainRoleCandidates = Object.keys(mainHeadersByRole).filter(
+      (role) => role === "main" || role.startsWith("main_"),
+    );
+
+    const roleDrivenHeaders = mainRoleCandidates.length
+      ? mainRoleCandidates.flatMap((role) =>
+          Array.isArray(mainHeadersByRole[role])
+            ? mainHeadersByRole[role].map((header) => ({
+                header,
+                role,
+              }))
+            : [],
+        )
+      : mainHeaders.map((header) => ({
+          header,
+          role: "main",
+        }));
+
+    for (const item of roleDrivenHeaders) {
+      addOption(item?.header, item?.role || "dataset");
+    }
+
+    for (const cf of joinsCustomFields) {
+      const role = String(cf?.role || "main");
+      if (role === "main" || role.startsWith("main_")) {
+        addOption(cf?.key, `custom field (${role})`);
+      }
+    }
+
+    for (const row of fieldMapRows) {
+      const canonical = String(row?.canonicalField || row?.field || "").trim();
+      if (!canonical) continue;
+
+      addOption(
+        row?.sourceColumn || row?.header || canonical,
+        row?.sourceColumn || row?.header
+          ? `mapped to ${canonical}`
+          : "mapped field",
+        canonical,
+      );
+      addOption(canonical, "mapped field", canonical);
+    }
+
+    const legacyMappings =
+      effectiveMap?.mappings && typeof effectiveMap.mappings === "object"
+        ? effectiveMap.mappings
+        : {};
+
+    for (const [key, value] of Object.entries(legacyMappings)) {
+      addOption(key, "legacy mapping");
+
+      if (typeof value === "string") {
+        addOption(value, "legacy mapping");
+      } else if (value && typeof value === "object") {
+        addOption(value?.canonicalField, "legacy mapping");
+        addOption(value?.field, "legacy mapping");
+        addOption(value?.sourceColumn, "legacy mapping");
+        addOption(value?.header, "legacy mapping");
+        addOption(value?.name, "legacy mapping");
+      }
+    }
+
+    for (const helper of Array.isArray(helperFields) ? helperFields : []) {
+      addOption(helper?.key, "helper field");
+    }
+    for (const rule of Array.isArray(rules) ? rules : []) {
+      const action = rule?.action || {};
+      if (String(action?.op || "") === "concat_fields") {
+        addOption(action?.field, "helper field rule");
+      }
+    }
+
+    for (const header of Array.isArray(headers) ? headers : []) {
+      addOption(header, "header");
+    }
+
+    return Array.from(optionsByValue.values()).sort((a, b) =>
+      a.sortLabel.localeCompare(b.sortLabel),
+    );
+  }, [
+    headers,
+    helperFields,
+    rules,
+    mainHeaders,
+    mainHeadersByRole,
+    joinsCustomFields,
+    fieldMapRows,
+    resolveCanonicalField,
+    effectiveMap,
+  ]);
+
+  const ruleBuilderHeaders = useMemo(() => {
+    const merged = new Set();
+
+    for (const h of Array.isArray(headers) ? headers : []) {
+      addHeaderValue(merged, h);
+      addHeaderValue(merged, toSnake(h));
+    }
+
+    for (const opt of Array.isArray(helperFieldOptions)
+      ? helperFieldOptions
+      : []) {
+      addHeaderValue(merged, opt?.value);
+      addHeaderValue(merged, toSnake(opt?.value));
+    }
+
+    for (const row of Array.isArray(fieldMapRows) ? fieldMapRows : []) {
+      addHeaderValue(merged, row?.canonicalField);
+      addHeaderValue(merged, toSnake(row?.canonicalField));
+      addHeaderValue(merged, row?.field);
+      addHeaderValue(merged, toSnake(row?.field));
+      addHeaderValue(merged, row?.sourceColumn);
+      addHeaderValue(merged, toSnake(row?.sourceColumn));
+      addHeaderValue(merged, row?.header);
+      addHeaderValue(merged, toSnake(row?.header));
+    }
+
+    for (const cf of Array.isArray(joinsCustomFields)
+      ? joinsCustomFields
+      : []) {
+      addHeaderValue(merged, cf?.key);
+      addHeaderValue(merged, toSnake(cf?.key));
+    }
+
+    for (const rule of Array.isArray(rules) ? rules : []) {
+      for (const cond of Array.isArray(rule?.when) ? rule.when : []) {
+        addHeaderValue(merged, cond?.field);
+        addHeaderValue(merged, toSnake(cond?.field));
+      }
+
+      for (const match of Array.isArray(rule?.target?.match)
+        ? rule.target.match
+        : []) {
+        addHeaderValue(merged, match?.currentField);
+        addHeaderValue(merged, toSnake(match?.currentField));
+        addHeaderValue(merged, match?.targetField);
+        addHeaderValue(merged, toSnake(match?.targetField));
+      }
+
+      for (const cond of Array.isArray(rule?.target?.where)
+        ? rule.target.where
+        : []) {
+        addHeaderValue(merged, cond?.field);
+        addHeaderValue(merged, toSnake(cond?.field));
+      }
+
+      addHeaderValue(merged, rule?.action?.field);
+      addHeaderValue(merged, toSnake(rule?.action?.field));
+      addHeaderValue(merged, rule?.action?.valueFieldFromCurrent);
+      addHeaderValue(merged, toSnake(rule?.action?.valueFieldFromCurrent));
+
+      if (Array.isArray(rule?.action?.segments)) {
+        for (const seg of rule.action.segments) {
+          if (seg?.kind === "field") {
+            addHeaderValue(merged, seg?.name);
+            addHeaderValue(merged, toSnake(seg?.name));
+          }
+        }
+      }
+    }
+
+    return Array.from(merged).sort((a, b) => a.localeCompare(b));
+  }, [headers, helperFieldOptions, fieldMapRows, joinsCustomFields, rules]);
+
+  const groupedRules = useMemo(() => {
+    const groups = [];
+    const byKey = new Map();
+
+    rules.forEach((rule) => {
+      const groupKey = getRuleGroupKey(rule);
+      if (!byKey.has(groupKey)) {
+        const nextGroup = {
+          key: groupKey,
+          label: getRuleGroupLabel(groupKey),
+          rules: [],
+        };
+        byKey.set(groupKey, nextGroup);
+        groups.push(nextGroup);
+      }
+      byKey.get(groupKey).rules.push(rule);
+    });
+
+    return groups;
+  }, [rules]);
+
+  const openSectionForRule = (rule) => {
+    const groupKey = getRuleGroupKey(rule);
+    setShowRuleGroups((prev) => ({ ...prev, [groupKey]: true }));
+  };
+
+  const handleUpdateRule = (ruleKey, patch) => {
+    const currentRule = rules.find((r) => (r?.cid || r?.id) === ruleKey);
+    const nextRule = currentRule ? { ...currentRule, ...patch } : patch || {};
+
+    openSectionForRule(nextRule);
+    updateRule(ruleKey, patch);
+  };
 
   // Lightweight debug log: only fires when ptrsId/profileId/map keys change
   const debugKeyRef = useRef("");
   useEffect(() => {
-    const mapKeys = ctxPtrsMap?.mappings
-      ? Object.keys(ctxPtrsMap.mappings).length
-      : 0;
+    const mapKeys = effectiveMap?.mappings
+      ? Object.keys(effectiveMap.mappings).length
+      : Array.isArray(effectiveMap?.fieldMap)
+        ? effectiveMap.fieldMap.length
+        : 0;
     const key = `${ptrsId}|${profileId || ""}|${mapKeys}`;
     if (debugKeyRef.current === key) return;
     debugKeyRef.current = key;
@@ -209,22 +843,41 @@ export default function RulesPanel() {
     console.log("[RulesPanel] state", {
       ptrsId,
       profileId,
+      effectiveMap,
+      datasetItemsCount: Array.isArray(datasetItems) ? datasetItems.length : 0,
+      mainHeadersCount: Array.isArray(mainHeaders) ? mainHeaders.length : 0,
+      joinsCustomFieldsCount: Array.isArray(joinsCustomFields)
+        ? joinsCustomFields.length
+        : 0,
       hasCtxMap,
+      headersReady: Array.isArray(headers) && headers.length > 0,
       canApply,
       ctxMapKeys: mapKeys,
+      fieldMapRowsCount: Array.isArray(fieldMapRows) ? fieldMapRows.length : 0,
+      hasInvoiceStatusHeader: Array.isArray(ruleBuilderHeaders)
+        ? ruleBuilderHeaders.includes("invoice_status")
+        : false,
       headersCount: Array.isArray(headers) ? headers.length : 0,
+      ruleBuilderHeadersCount: Array.isArray(ruleBuilderHeaders)
+        ? ruleBuilderHeaders.length
+        : 0,
       ruleSourcesCount: Array.isArray(ruleSources) ? ruleSources.length : 0,
       rulesCount: Array.isArray(rules) ? rules.length : 0,
     });
   }, [
     ptrsId,
     profileId,
-    ctxPtrsMap,
+    effectiveMap,
     hasCtxMap,
     canApply,
     headers,
+    ruleBuilderHeaders,
     ruleSources,
     rules,
+    datasetItems,
+    mainHeaders,
+    joinsCustomFields,
+    fieldMapRows,
   ]);
 
   const openImportDialog = (event) => {
@@ -240,15 +893,15 @@ export default function RulesPanel() {
 
   useEffect(() => {
     if (!ptrsId) return;
-    if (!Array.isArray(ctxPtrsMap?.rowRules) || !ctxPtrsMap.rowRules.length)
+    if (!Array.isArray(effectiveMap?.rowRules) || !effectiveMap.rowRules.length)
       return;
     if (rules.length > 0) return;
 
-    const seeded = normalisePtrsRules(ctxPtrsMap.rowRules || [], []);
+    const seeded = normalisePtrsRules(effectiveMap.rowRules || [], []);
     if (seeded.length) {
       resetRules(seeded);
     }
-  }, [ptrsId, ctxPtrsMap, rules.length, resetRules]);
+  }, [ptrsId, effectiveMap, rules.length, resetRules]);
 
   useEffect(() => {
     if (!ptrsId) return;
@@ -316,10 +969,15 @@ export default function RulesPanel() {
 
     try {
       showAlert("Generating rules preview…", "info");
-      const cross = rules.find((r) => (r.type || "row") === "crossRow");
+      const previewGroupName =
+        selectedGroupKey === "__all__" ? null : selectedGroupLabel;
+      const cross = selectedRules.find((r) => getRuleType(r) === "crossRow");
       if (cross) {
         // Backend preview performs SELECTs over the full dataset and returns counts + examples.
-        const prev = await previewRules(ptrsId, { mode: "full" });
+        const prev = await previewRules(ptrsId, {
+          mode: "full",
+          groupName: previewGroupName,
+        });
         const affected = prev?.summary?.rowsAffected ?? 0;
         const examples = Array.isArray(prev?.examples) ? prev.examples : [];
 
@@ -337,7 +995,10 @@ export default function RulesPanel() {
         return;
       }
 
-      const prev = await previewRules(ptrsId, { limit: 20 });
+      const prev = await previewRules(ptrsId, {
+        limit: 20,
+        groupName: previewGroupName,
+      });
       const actions = prev?.summary?.actions ?? 0;
       const affected = prev?.summary?.rowsAffected ?? 0;
 
@@ -361,12 +1022,27 @@ export default function RulesPanel() {
 
   const handleApply = async () => {
     setIsApplying(true);
+    setLastApplyResult(null);
     try {
       showAlert("Applying rules and transformations…", "info");
-      const res = await applyRules(ptrsId, {});
+      const applyGroupName =
+        selectedGroupKey === "__all__" ? null : selectedGroupLabel;
+      const res = await applyRules(ptrsId, {
+        groupName: applyGroupName,
+      });
       const persisted = res?.persisted ?? res?.rowsOut ?? 0;
       const actions = res?.stats?.rules?.actions ?? 0;
       const affected = res?.stats?.rules?.rowsAffected ?? 0;
+      const generatedAt = new Date().toISOString();
+
+      setLastApplyResult({
+        ok: true,
+        persisted,
+        affected,
+        actions,
+        generatedAt,
+      });
+
       showAlert(
         `Rules applied — persisted ${persisted} row(s), ${affected} affected, ${actions} action(s).`,
         "success",
@@ -388,9 +1064,20 @@ export default function RulesPanel() {
           err?.data?.message ||
           err?.message ||
           "Dataset is too large to apply rules in a single pass. Try narrowing your dataset or contact support.";
+        setLastApplyResult({
+          ok: false,
+          message: backendMessage,
+          generatedAt: new Date().toISOString(),
+        });
         showAlert(backendMessage, "warning");
       } else {
-        showAlert(err?.message || "Failed to apply rules.", "error");
+        const message = err?.message || "Failed to apply rules.";
+        setLastApplyResult({
+          ok: false,
+          message,
+          generatedAt: new Date().toISOString(),
+        });
+        showAlert(message, "error");
       }
     } finally {
       setIsApplying(false);
@@ -424,39 +1111,132 @@ export default function RulesPanel() {
       const rowRulesSupported = [];
       const crossRowRules = [];
 
-      for (const r of rules) {
+      for (const r of selectedRules) {
         const stableId = r.id || r.cid || makeCid();
         const base = {
           id: stableId,
           label: r.label || stableId,
           description: r.description || "",
+          groupName: r.groupName || "",
           enabled: r.enabled !== false,
           when: r.when,
         };
 
-        if ((r.type || "row") === "crossRow") {
+        const action = r.action || {};
+        const looksLikeHelperRule =
+          (r.type || "row") === "row" &&
+          action?.op === "concat_fields" &&
+          Array.isArray(action?.segments) &&
+          action.segments.length > 0;
+
+        if (looksLikeHelperRule) {
+          rowRulesSupported.push({
+            ...base,
+            when: [],
+            then: [
+              {
+                op: "concat_fields",
+                field: action.field || "",
+                segments: Array.isArray(action.segments)
+                  ? action.segments.map((seg) =>
+                      seg?.kind === "literal"
+                        ? {
+                            kind: "literal",
+                            value: String(seg?.value || ""),
+                          }
+                        : {
+                            kind: "field",
+                            name: resolveCanonicalField(seg?.name || ""),
+                          },
+                    )
+                  : [],
+              },
+            ],
+          });
+          continue;
+        }
+
+        if (getRuleType(r) === "crossRow") {
           crossRowRules.push({
             ...base,
             type: "crossRow",
-            target: r.target || null,
-            action: r.action || null,
+            when: Array.isArray(r.when)
+              ? r.when.map((cond) => ({
+                  ...cond,
+                  field: resolveCanonicalField(cond?.field || ""),
+                }))
+              : [],
+            target: {
+              match: Array.isArray(r?.target?.match)
+                ? r.target.match.map((m) => ({
+                    currentField: resolveCanonicalField(m?.currentField || ""),
+                    targetField: resolveCanonicalField(m?.targetField || ""),
+                  }))
+                : [],
+              where: Array.isArray(r?.target?.where)
+                ? r.target.where.map((cond) => ({
+                    ...cond,
+                    field: resolveCanonicalField(cond?.field || ""),
+                  }))
+                : [],
+              selection: r?.target?.selection || "first_match",
+              requireMatch: r?.target?.requireMatch !== false,
+            },
+            action: {
+              ...(r.action || {}),
+              field: resolveCanonicalField(r?.action?.field || ""),
+              valueFieldFromCurrent: resolveCanonicalField(
+                r?.action?.valueFieldFromCurrent || "",
+              ),
+            },
             alsoExcludeCurrent: !!r.alsoExcludeCurrent,
           });
         } else {
-          const action = r.action || {};
           const then = [];
 
-          if (action.field || action.valueFieldFromCurrent) {
+          if (action.op === "concat_fields") {
+            if (
+              action.field &&
+              Array.isArray(action.segments) &&
+              action.segments.length
+            ) {
+              then.push({
+                op: "concat_fields",
+                field: action.field || "",
+                segments: Array.isArray(action.segments)
+                  ? action.segments.map((seg) =>
+                      seg?.kind === "literal"
+                        ? {
+                            kind: "literal",
+                            value: String(seg?.value || ""),
+                          }
+                        : {
+                            kind: "field",
+                            name: resolveCanonicalField(seg?.name || ""),
+                          },
+                    )
+                  : [],
+              });
+            }
+          } else if (action.field || action.valueFieldFromCurrent) {
             then.push({
               op: action.op || "add",
-              field: action.field || "",
-              valueField: action.valueFieldFromCurrent || "",
+              field: resolveCanonicalField(action.field || ""),
+              valueField: resolveCanonicalField(
+                action.valueFieldFromCurrent || "",
+              ),
               round: typeof action.round === "number" ? action.round : 2,
             });
           }
 
           rowRulesSupported.push({
             ...base,
+            when: Array.isArray(r.when)
+              ? r.when.map((cond) => ({
+                  ...cond,
+                  field: resolveCanonicalField(cond?.field || ""),
+                }))
+              : [],
             then,
           });
         }
@@ -483,235 +1263,16 @@ export default function RulesPanel() {
         msgParts.push(`${crossCount} cross-row rule(s) saved.`);
       }
 
-      showAlert(msgParts.join(" "), "success");
+      const scopePrefix =
+        selectedGroupKey === "__all__"
+          ? "All groups"
+          : `Group: ${selectedGroupLabel}`;
+
+      showAlert(`${scopePrefix}. ${msgParts.join(" ")}`, "success");
     } catch (err) {
       showAlert(err?.message || "Failed to save rules.", "error");
     }
   };
-
-  // const sqlEscape = (v) => String(v ?? "").replace(/'/g, "''");
-
-  // const buildSqlCondition = (field, op, value) => {
-  //   const col = toSnake(field || "");
-  //   const val = sqlEscape(value);
-
-  //   switch (op) {
-  //     case "eq":
-  //       return `${col} = '${val}'`;
-  //     case "neq":
-  //       return `${col} <> '${val}'`;
-  //     case "gt":
-  //       return `${col} > '${val}'`;
-  //     case "gte":
-  //       return `${col} >= '${val}'`;
-  //     case "lt":
-  //       return `${col} < '${val}'`;
-  //     case "lte":
-  //       return `${col} <= '${val}'`;
-  //     case "in":
-  //       return `${col} IN (${String(value)
-  //         .split(",")
-  //         .map((v) => `'${sqlEscape(v.trim())}'`)
-  //         .join(", ")})`;
-  //     case "nin":
-  //       return `${col} NOT IN (${String(value)
-  //         .split(",")
-  //         .map((v) => `'${sqlEscape(v.trim())}'`)
-  //         .join(", ")})`;
-  //     case "is_null":
-  //       return `${col} IS NULL`;
-  //     case "not_null":
-  //       return `${col} IS NOT NULL`;
-  //     default:
-  //       return "-- unsupported op in preview";
-  //   }
-  // };
-
-  // const buildCrossRowSql = (rule) => {
-  //   const table = "ptrs_stage_row";
-
-  //   const cur = rule.when?.[0] || {};
-  //   const match = rule.target?.match?.[0] || {};
-  //   const where = rule.target?.where?.[0] || null;
-  //   const action = rule.action || {};
-
-  //   const curField = toSnake(cur.field || "");
-  //   const curCond =
-  //     curField && cur.op
-  //       ? buildSqlCondition(cur.field, cur.op, cur.value)
-  //       : "-- no current-row condition";
-
-  //   const targetField = toSnake(match.targetField || "");
-  //   const currentField = toSnake(match.currentField || "");
-
-  //   const whereCond =
-  //     where && where.field && where.op
-  //       ? buildSqlCondition(where.field, where.op, where.value)
-  //       : null;
-
-  //   const actionTarget = toSnake(action.field || "");
-  //   const actionSource = toSnake(action.valueFieldFromCurrent || "");
-  //   const actionOp = action.op || "sub";
-
-  //   let sql = "";
-
-  //   sql += '-- Current rows ("current" side of the cross-row rule)\n';
-  //   sql += `SELECT *\nFROM ${table} c\n`;
-  //   if (!curCond.startsWith("--")) {
-  //     sql += `WHERE ${curCond};\n\n`;
-  //   } else {
-  //     sql += `-- WHERE ${curCond}\n\n`;
-  //   }
-
-  //   sql += "-- Target rows matched to each current row\n";
-  //   sql += `SELECT t.*\n`;
-  //   sql += `FROM ${table} t\n`;
-  //   sql += `JOIN ${table} c\n`;
-  //   if (targetField && currentField) {
-  //     sql += `  ON t.${targetField} = c.${currentField}\n`;
-  //   } else {
-  //     sql +=
-  //       "  -- ON t.<targetField> = c.<currentField>  -- missing match fields\n";
-  //   }
-
-  //   const whereParts = [];
-  //   if (!curCond.startsWith("--")) {
-  //     whereParts.push(curCond.replace(/(^|\n)/g, ""));
-  //   }
-  //   if (whereCond) {
-  //     whereParts.push(whereCond);
-  //   }
-
-  //   if (whereParts.length) {
-  //     sql += `WHERE ${whereParts.join(" AND ")};\n\n`;
-  //   } else {
-  //     sql += `-- WHERE <optional filters>\n\n`;
-  //   }
-
-  //   if (actionTarget && actionSource) {
-  //     sql += "-- Action preview (conceptual, not executable SQL)\n";
-  //     sql += "-- For each (t, c) pair, apply:\n";
-  //     sql += `--   t.${actionTarget} = `;
-  //     switch (actionOp) {
-  //       case "add":
-  //         sql += `t.${actionTarget} + c.${actionSource};\n`;
-  //         break;
-  //       case "sub":
-  //         sql += `t.${actionTarget} - c.${actionSource};\n`;
-  //         break;
-  //       case "mul":
-  //         sql += `t.${actionTarget} * c.${actionSource};\n`;
-  //         break;
-  //       case "div":
-  //         sql += `t.${actionTarget} / NULLIF(c.${actionSource}, 0);\n`;
-  //         break;
-  //       case "assign":
-  //         sql += `c.${actionSource};\n`;
-  //         break;
-  //       default:
-  //         sql += `/* unsupported op: ${actionOp} */;\n`;
-  //         break;
-  //     }
-  //   }
-
-  //   return sql;
-  // };
-
-  // const mockPreviewCrossRow = async (rule, ptrsIdArg) => {
-  //   try {
-  //     const sql = buildCrossRowSql(rule);
-  //     console.log("[PTRS v2] Cross-row pseudo SQL:\n" + sql);
-  //   } catch (e) {
-  //     console.warn("[PTRS v2] Failed to build cross-row pseudo SQL", e);
-  //   }
-  //   const prev = await previewRules(ptrsIdArg, { limit: 5000 });
-  //   const rows = prev?.rows || [];
-  //   const curWhen = rule.when?.[0] || {};
-  //   const isCur = (r) => {
-  //     const a = r[curWhen.field];
-  //     switch (curWhen.op) {
-  //       case "eq":
-  //         return String(a) === String(curWhen.value);
-  //       case "neq":
-  //         return String(a) !== String(curWhen.value);
-  //       default:
-  //         return false;
-  //     }
-  //   };
-  //   const currents = rows.filter(isCur);
-
-  //   const match = rule.target?.match?.[0] || {};
-  //   const targetKey = (r) => String(r[match.targetField] ?? "").trim();
-  //   const curKey = (r) => String(r[match.currentField] ?? "").trim();
-
-  //   const where = rule.target?.where?.[0] || null;
-  //   const targetOk = (r) => {
-  //     if (!where) return true;
-  //     const val = r[where.field];
-  //     switch (where.op) {
-  //       case "eq":
-  //         return String(val) === String(where.value);
-  //       case "neq":
-  //         return String(val) !== String(where.value);
-  //       case "is_null":
-  //         return val == null || val === "";
-  //       case "not_null":
-  //         return !(val == null || val === "");
-  //       default:
-  //         return true;
-  //     }
-  //   };
-
-  //   const byKey = new Map();
-  //   for (const r of rows) {
-  //     const k = targetKey(r);
-  //     if (!k) continue;
-  //     if (!byKey.has(k)) byKey.set(k, []);
-  //     byKey.get(k).push(r);
-  //   }
-
-  //   const a = rule.action || {};
-  //   const toNum = (v) => {
-  //     const n = Number(String(v).replace(/[, ]+/g, ""));
-  //     return Number.isFinite(n) ? n : 0;
-  //   };
-  //   const round = (n, dp = 2) => {
-  //     const f = Math.pow(10, dp);
-  //     return Math.round(n * f) / f;
-  //   };
-
-  //   const impacts = [];
-  //   for (const cur of currents) {
-  //     const k = curKey(cur);
-  //     const targets = (byKey.get(k) || []).filter(targetOk);
-  //     for (const t of targets) {
-  //       const curVal = toNum(cur[a.valueFieldFromCurrent]);
-  //       const base = toNum(t[a.field]);
-  //       let next = base;
-  //       if (a.op === "sub") next = base - curVal;
-  //       if (a.op === "add") next = base + curVal;
-  //       if (a.op === "mul") next = base * curVal;
-  //       if (a.op === "div") next = curVal === 0 ? base : base / curVal;
-  //       if (a.op === "assign") next = curVal;
-  //       const final = a.round != null ? round(next, a.round) : next;
-  //       impacts.push({
-  //         ref: k,
-  //         target_rowNo: t.rowNo ?? null,
-  //         target_doc_type: t.document_type,
-  //         field: a.field,
-  //         before: t[a.field],
-  //         change: `${a.op} ${cur[a.valueFieldFromCurrent]}`,
-  //         after: final,
-  //         exclude_current: !!rule.alsoExcludeCurrent,
-  //       });
-  //     }
-  //   }
-  //   return {
-  //     count: impacts.length,
-  //     examples: impacts.slice(0, 20),
-  //     all: impacts,
-  //   };
-  // };
 
   return (
     <Box
@@ -749,6 +1310,193 @@ export default function RulesPanel() {
           exclusions, and dataset operations will be recorded for audit.
         </Typography>
 
+        <Box
+          sx={{
+            p: 2,
+            border: `1px solid ${theme.palette.divider}`,
+            borderRadius: 1,
+            backgroundColor: theme.palette.background.paper,
+          }}
+        >
+          <Stack spacing={1.5}>
+            <Box>
+              <Typography variant="subtitle2" fontWeight={600}>
+                Helper fields
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: theme.palette.text.secondary }}
+              >
+                Create derived working fields for rules without going back to
+                the Join step. Useful for composite keys such as Custom Field 3.
+              </Typography>
+            </Box>
+
+            <Stack spacing={2}>
+              {helperFields.map((cf, idx) => {
+                const segments = Array.isArray(cf.segments) ? cf.segments : [];
+                const allFieldOptions = helperFieldOptions;
+
+                return (
+                  <Box
+                    key={idx}
+                    sx={{
+                      p: 1.5,
+                      border: `1px solid ${theme.palette.divider}`,
+                      borderRadius: 1,
+                    }}
+                  >
+                    <Stack spacing={1}>
+                      <Stack
+                        direction={{ xs: "column", sm: "row" }}
+                        spacing={1}
+                      >
+                        <TextField
+                          label="Field name"
+                          size="small"
+                          value={cf.key || ""}
+                          onChange={(e) =>
+                            updateHelperField(idx, {
+                              key: e.target.value,
+                              type: cf.type || "concat",
+                            })
+                          }
+                          sx={{ flex: 1 }}
+                        />
+                        <Button
+                          size="small"
+                          onClick={() => removeHelperField(idx)}
+                          sx={{ whiteSpace: "nowrap" }}
+                        >
+                          Remove field
+                        </Button>
+                      </Stack>
+
+                      <Stack spacing={1}>
+                        {segments.length === 0 ? (
+                          <Typography variant="body2" color="text.secondary">
+                            No segments yet. Add a field or literal part below.
+                          </Typography>
+                        ) : (
+                          segments.map((seg, segIdx) => (
+                            <Stack
+                              key={segIdx}
+                              direction={{ xs: "column", sm: "row" }}
+                              spacing={1}
+                              alignItems={{ sm: "center" }}
+                            >
+                              <Select
+                                size="small"
+                                value={
+                                  seg.kind === "literal" ? "literal" : "field"
+                                }
+                                onChange={(e) => {
+                                  const kind = e.target.value;
+                                  if (kind === "field") {
+                                    updateHelperSegment(idx, segIdx, {
+                                      kind: "field",
+                                      name:
+                                        seg.name || allFieldOptions[0] || "",
+                                      value: undefined,
+                                    });
+                                  } else {
+                                    updateHelperSegment(idx, segIdx, {
+                                      kind: "literal",
+                                      value: seg.value || "",
+                                      name: undefined,
+                                    });
+                                  }
+                                }}
+                                sx={{ minWidth: 120 }}
+                              >
+                                <MenuItem value="field">Field</MenuItem>
+                                <MenuItem value="literal">Literal</MenuItem>
+                              </Select>
+
+                              {seg.kind === "literal" ? (
+                                <TextField
+                                  size="small"
+                                  label="Literal"
+                                  value={seg.value || ""}
+                                  onChange={(e) =>
+                                    updateHelperSegment(idx, segIdx, {
+                                      value: e.target.value,
+                                    })
+                                  }
+                                  sx={{ flex: 1 }}
+                                />
+                              ) : (
+                                <Select
+                                  size="small"
+                                  value={
+                                    typeof seg.name === "string" &&
+                                    allFieldOptions.some(
+                                      (opt) => opt.value === seg.name,
+                                    )
+                                      ? seg.name
+                                      : ""
+                                  }
+                                  onChange={(e) =>
+                                    updateHelperSegment(idx, segIdx, {
+                                      name: e.target.value,
+                                    })
+                                  }
+                                  sx={{ flex: 1 }}
+                                >
+                                  {allFieldOptions.map((opt) => (
+                                    <MenuItem key={opt.value} value={opt.value}>
+                                      {opt.label}
+                                    </MenuItem>
+                                  ))}
+                                </Select>
+                              )}
+
+                              <Button
+                                size="small"
+                                onClick={() => removeHelperSegment(idx, segIdx)}
+                              >
+                                Remove
+                              </Button>
+                            </Stack>
+                          ))
+                        )}
+                      </Stack>
+
+                      <Stack direction="row" spacing={1}>
+                        <Button
+                          size="small"
+                          onClick={() => addHelperSegment(idx, "field")}
+                          disabled={!helperFieldOptions.length}
+                        >
+                          Add field segment
+                        </Button>
+                        <Button
+                          size="small"
+                          onClick={() => addHelperSegment(idx, "literal")}
+                        >
+                          Add literal
+                        </Button>
+                      </Stack>
+                    </Stack>
+                  </Box>
+                );
+              })}
+
+              <Stack direction="row" spacing={1}>
+                <Button size="small" onClick={addHelperField}>
+                  Add helper field
+                </Button>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  onClick={handleAddHelperFieldRules}
+                >
+                  Convert helper fields into rules
+                </Button>
+              </Stack>
+            </Stack>
+          </Stack>
+        </Box>
         <Stack
           direction={{ xs: "column", md: "row" }}
           spacing={1}
@@ -774,7 +1522,7 @@ export default function RulesPanel() {
         </Stack>
         <RulesSandbox
           ptrsId={ptrsId}
-          headers={headers}
+          headers={ruleBuilderHeaders}
           onSeedRule={seedRuleFromFilter}
         />
 
@@ -829,9 +1577,24 @@ export default function RulesPanel() {
               justifyContent={{ sm: "flex-end" }}
               sx={{ flexWrap: "wrap" }}
             >
+              <TextField
+                select
+                size="small"
+                label="Selected group"
+                value={selectedGroupKey}
+                onChange={(e) => setSelectedGroupKey(e.target.value)}
+                sx={{ minWidth: 240 }}
+              >
+                <MenuItem value="__all__">All groups</MenuItem>
+                {groupedRules.map((group) => (
+                  <MenuItem key={group.key} value={group.key}>
+                    {group.label}
+                  </MenuItem>
+                ))}
+              </TextField>
               <RuleToolbar
                 onImport={openImportDialog}
-                onAddRule={addRule}
+                onAddRule={handleAddRule}
                 onSave={handleSaveRules}
                 onPreview={handlePreview}
                 onApply={handleApply}
@@ -850,6 +1613,17 @@ export default function RulesPanel() {
               </Button>
             </Stack>
           </Stack>
+
+          <Typography
+            variant="caption"
+            sx={{
+              color: theme.palette.text.secondary,
+              display: "block",
+              mb: 1,
+            }}
+          >
+            {`Selected scope: ${selectedGroupLabel}. Save, Preview, and Apply use this selection against the currently saved rules for the PTRS run.`}
+          </Typography>
 
           {isApplying && (
             <Box
@@ -946,19 +1720,27 @@ export default function RulesPanel() {
                       ):
                     </Typography>
 
-                    <Stack spacing={0.75}>
+                    <Stack spacing={1}>
                       {lastPreviewExamples.slice(0, 5).map((ex, idx) => (
                         <Box
-                          key={`${ex.ref || "ref"}-${ex.target_rowNo || idx}-${idx}`}
+                          key={`${ex.ref || "ref"}-${ex.rowNo || idx}-${idx}`}
                           sx={{
-                            fontFamily: "monospace",
-                            fontSize: 12,
-                            opacity: 0.9,
-                            overflowX: "auto",
-                            whiteSpace: "nowrap",
+                            p: 1,
+                            border: `1px solid ${theme.palette.divider}`,
+                            borderRadius: 1,
+                            backgroundColor: theme.palette.background.default,
                           }}
                         >
-                          {`ref=${ex.ref} rowNo=${ex.target_rowNo} doc=${ex.target_doc_type} ${ex.field}: ${ex.before} → ${ex.after}`}
+                          <Typography variant="body2" fontWeight={600}>
+                            {ex.ref || "Unmatched reference"}
+                            {ex.documentType ? ` (${ex.documentType})` : ""}
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            sx={{ color: theme.palette.text.secondary }}
+                          >
+                            {`${formatPreviewMoney(ex.baseBefore)} → ${formatPreviewMoney(ex.wouldBe)} (${formatPreviewDelta(ex.expectedDelta)})`}
+                          </Typography>
                         </Box>
                       ))}
                     </Stack>
@@ -967,14 +1749,109 @@ export default function RulesPanel() {
             </Box>
           )}
 
-          {effectiveMap && headers.length > 0 && (
-            <RuleList
-              rules={rules}
-              headers={headers}
-              onUpdate={updateRule}
-              onRemove={removeRule}
-            />
+          {lastApplyResult && (
+            <Box
+              sx={{
+                mt: 2,
+                p: 2,
+                borderRadius: 1,
+                border: `1px solid ${theme.palette.divider}`,
+                backgroundColor: theme.palette.background.paper,
+              }}
+            >
+              <Stack
+                direction={{ xs: "column", md: "row" }}
+                spacing={1}
+                justifyContent="space-between"
+                alignItems={{ md: "center" }}
+              >
+                <Box>
+                  <Typography variant="subtitle2" fontWeight={600}>
+                    Last apply result
+                  </Typography>
+
+                  {lastApplyResult.ok ? (
+                    <Typography
+                      variant="body2"
+                      sx={{ color: theme.palette.text.secondary }}
+                    >
+                      {`${lastApplyResult.persisted} row(s) persisted, ${lastApplyResult.affected} affected, ${lastApplyResult.actions} action(s).`}
+                    </Typography>
+                  ) : (
+                    <Typography
+                      variant="body2"
+                      sx={{ color: theme.palette.error.main }}
+                    >
+                      {lastApplyResult.message || "Apply failed."}
+                    </Typography>
+                  )}
+
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      display: "block",
+                      mt: 0.5,
+                    }}
+                  >
+                    {`Recorded ${new Date(lastApplyResult.generatedAt).toLocaleString("en-AU")}`}
+                  </Typography>
+                </Box>
+
+                <Button
+                  size="small"
+                  variant="outlined"
+                  disabled={isBusy}
+                  onClick={() => setLastApplyResult(null)}
+                >
+                  Clear
+                </Button>
+              </Stack>
+            </Box>
           )}
+
+          {ruleBuilderHeaders.length > 0 &&
+            groupedRules.map((group) => {
+              const isOpen = !!showRuleGroups[group.key];
+              return (
+                <Box key={group.key} sx={{ mt: 2 }}>
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    sx={{ mb: 1 }}
+                  >
+                    <Typography variant="subtitle2" fontWeight={600}>
+                      {`${group.label} (${group.rules.length})`}
+                    </Typography>
+                    <IconButton
+                      size="small"
+                      onClick={() =>
+                        setShowRuleGroups((prev) => ({
+                          ...prev,
+                          [group.key]: !prev[group.key],
+                        }))
+                      }
+                      aria-label={
+                        isOpen
+                          ? `Collapse ${group.label}`
+                          : `Expand ${group.label}`
+                      }
+                    >
+                      {isOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    </IconButton>
+                  </Stack>
+                  <Collapse in={isOpen} timeout="auto" unmountOnExit>
+                    <RuleList
+                      rules={group.rules}
+                      headers={ruleBuilderHeaders}
+                      onUpdate={handleUpdateRule}
+                      onRemove={removeRule}
+                    />
+                  </Collapse>
+                </Box>
+              );
+            })}
         </Box>
 
         {!canApply && (
@@ -982,8 +1859,7 @@ export default function RulesPanel() {
             variant="caption"
             sx={{ color: theme.palette.warning.main }}
           >
-            You’ll need a saved column map (and staged data) before applying
-            rules.
+            You’ll need staged data before applying rules.
           </Typography>
         )}
 

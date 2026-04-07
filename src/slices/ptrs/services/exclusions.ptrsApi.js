@@ -6,20 +6,41 @@ import { pickData } from "./ptrsApi";
 
 const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 
+const buildExclusionsUrl = (ptrsId, path = "", query = null) => {
+  const suffix = path ? `/${path.replace(/^\/+/, "")}` : "";
+  const qs = query ? `?${query.toString()}` : "";
+  return `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions${suffix}${qs}`;
+};
+
+const buildQuery = (params = {}) => {
+  const q = new URLSearchParams();
+
+  Object.entries(params).forEach(([key, value]) => {
+    if (value == null) return;
+    q.set(key, String(value));
+  });
+
+  return q;
+};
+
+const pickExclusionsData = async (request) => {
+  const res = await request;
+  return pickData(res);
+};
+
 export const applyExclusions = async (
   ptrsId,
   { profileId = null, category = "all" } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
+
   const body = {};
   if (profileId) body.profileId = profileId;
   if (category) body.category = category;
 
-  const res = await fetchWrapper.post(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions/apply`,
-    body,
-  );
-  return pickData(res); // { persisted, stats, tookMs }
+  return pickExclusionsData(
+    fetchWrapper.post(buildExclusionsUrl(ptrsId, "apply"), body),
+  ); // { persisted, stats, tookMs }
 };
 
 export const previewExclusions = async (
@@ -27,28 +48,36 @@ export const previewExclusions = async (
   { category = "all", limit = 10, profileId = null } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
-  const q = new URLSearchParams();
-  if (category) q.set("category", String(category));
-  if (limit != null) q.set("limit", String(limit));
-  if (profileId) q.set("profileId", String(profileId));
 
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions/preview?${q.toString()}`,
+  const q = buildQuery({ category, limit, profileId });
+
+  return pickExclusionsData(
+    fetchWrapper.get(buildExclusionsUrl(ptrsId, "preview", q)),
   );
-  return pickData(res);
+};
+
+export const getExclusionsSummary = async (
+  ptrsId,
+  { profileId = null } = {},
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+
+  const q = buildQuery({ profileId });
+
+  return pickExclusionsData(
+    fetchWrapper.get(buildExclusionsUrl(ptrsId, "summary", q)),
+  );
 };
 
 export const listExclusionKeywords = async (ptrsId, { profileId } = {}) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!profileId) throw new Error("profileId is required");
 
-  const q = new URLSearchParams();
-  q.set("profileId", String(profileId));
+  const q = buildQuery({ profileId });
 
-  const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions/keywords?${q.toString()}`,
-  );
-  return pickData(res); // { rows: [] }
+  return pickExclusionsData(
+    fetchWrapper.get(buildExclusionsUrl(ptrsId, "keywords", q)),
+  ); // { rows: [] }
 };
 
 export const createExclusionKeyword = async (
@@ -60,11 +89,15 @@ export const createExclusionKeyword = async (
   if (!field) throw new Error("field is required");
   if (!matchType) throw new Error("matchType is required");
 
-  const res = await fetchWrapper.post(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions/keywords`,
-    { profileId, keyword, field, matchType, notes },
+  return pickExclusionsData(
+    fetchWrapper.post(buildExclusionsUrl(ptrsId, "keywords"), {
+      profileId,
+      keyword,
+      field,
+      matchType,
+      notes,
+    }),
   );
-  return pickData(res);
 };
 
 export const updateExclusionKeyword = async (
@@ -77,11 +110,15 @@ export const updateExclusionKeyword = async (
   if (!field) throw new Error("field is required");
   if (!matchType) throw new Error("matchType is required");
 
-  const res = await fetchWrapper.put(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions/keywords/${keywordId}`,
-    { profileId, keyword, field, matchType, notes },
+  return pickExclusionsData(
+    fetchWrapper.put(buildExclusionsUrl(ptrsId, `keywords/${keywordId}`), {
+      profileId,
+      keyword,
+      field,
+      matchType,
+      notes,
+    }),
   );
-  return pickData(res);
 };
 
 export const deleteExclusionKeyword = async (
@@ -92,11 +129,9 @@ export const deleteExclusionKeyword = async (
   if (!profileId) throw new Error("profileId is required");
   if (!keywordId) throw new Error("keywordId is required");
 
-  const q = new URLSearchParams();
-  q.set("profileId", String(profileId));
+  const q = buildQuery({ profileId });
 
-  const res = await fetchWrapper.del(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/exclusions/keywords/${keywordId}?${q.toString()}`,
+  return pickExclusionsData(
+    fetchWrapper.delete(buildExclusionsUrl(ptrsId, `keywords/${keywordId}`, q)),
   );
-  return pickData(res);
 };

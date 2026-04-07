@@ -12,21 +12,20 @@ export default function RuleList({ rules, headers, onUpdate, onRemove }) {
 
   return (
     <Stack spacing={2}>
-      {rules.map((rule, idx) => (
-        <Paper
-          key={rule.cid || rule.id || idx}
-          variant="outlined"
-          sx={{ p: 2 }}
-        >
-          <RuleCard
-            rule={rule}
-            index={idx}
-            headers={headers}
-            onUpdate={onUpdate}
-            onRemove={() => onRemove(idx)}
-          />
-        </Paper>
-      ))}
+      {rules.map((rule, idx) => {
+        const ruleKey = rule.cid || rule.id || idx;
+        return (
+          <Paper key={ruleKey} variant="outlined" sx={{ p: 2 }}>
+            <RuleCard
+              rule={rule}
+              index={ruleKey}
+              headers={headers}
+              onUpdate={onUpdate}
+              onRemove={() => onRemove(ruleKey)}
+            />
+          </Paper>
+        );
+      })}
     </Stack>
   );
 }

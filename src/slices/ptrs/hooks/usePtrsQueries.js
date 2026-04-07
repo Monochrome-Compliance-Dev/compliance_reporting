@@ -17,6 +17,7 @@ import {
   createExclusionKeyword,
   deleteExclusionKeyword,
   updateExclusionKeyword,
+  getExclusionsSummary,
 } from "../services/exclusions.ptrsApi";
 import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 import { getValidate, runValidate } from "../services/validate.ptrsApi";
@@ -25,14 +26,18 @@ import { getReportSnapshot } from "../services/report.ptrsApi";
 import { listDatasets } from "../services/data.ptrsApi";
 import { getPtrsMap, getUnifiedSample } from "../services/maps.ptrsApi";
 import { getBlueprint } from "../services/ptrsApi";
+import {
+  getLatestExecutionRun as getStageLatestExecutionRun,
+  getStagePreview,
+  getStageCompletionGate,
+  stagePtrs as runStagePtrs,
+} from "../services/stage.ptrsApi";
 
-// ---- Keys (per ptrs) ---------------------------------------------------------
 const K = {
   data: (id) => ["ptrs", "data", id],
   tables: (id) => ["ptrs", "tables", id],
   compatibleJoins: (id) => ["ptrs", "compatibleJoins", id],
   joins: (id) => ["ptrs", "joins", id],
-  compatibleJoins: (id) => ["ptrs", "compatibleJoins", id],
   datasets: (id) => ["ptrs", "datasets", id],
   unifiedSample: (id, { limit = 5, offset = 0 } = {}) => [
     "ptrs",
@@ -44,6 +49,22 @@ const K = {
   blueprint: ({ profileId }) => ["ptrs", "blueprint", profileId || "none"],
   map: (id) => ["ptrs", "map", id],
   stage: (id) => ["ptrs", "stage", id],
+  stageLatestRun: (id) => ["ptrs", "stage", "latestRun", id],
+  stagePreview: (id, { profileId = null, limit = 20 } = {}) => [
+    "ptrs",
+    "stage",
+    "preview",
+    id,
+    profileId || "none",
+    Number(limit) || 20,
+  ],
+  stageCompletionGate: (id, { profileId } = {}) => [
+    "ptrs",
+    "stage",
+    "completionGate",
+    id,
+    profileId || "none",
+  ],
   exclusionsPreview: (id, { category, profileId, limit }) => [
     "ptrs",
     "exclusions",
@@ -52,6 +73,13 @@ const K = {
     category || "all",
     profileId || "none",
     Number(limit) || 10,
+  ],
+  exclusionsSummary: (id, { profileId } = {}) => [
+    "ptrs",
+    "exclusions",
+    "summary",
+    id,
+    profileId || "none",
   ],
   exclusionKeywords: (id, { profileId }) => [
     "ptrs",
@@ -66,6 +94,21 @@ const K = {
   metrics: (id) => ["ptrs", "metrics", id],
   report: (id) => ["ptrs", "report", id],
 };
+
+const buildExclusionsPreviewKey = (
+  ptrsId,
+  { category = "all", profileId = null, limit = 10 } = {},
+) => K.exclusionsPreview(ptrsId, { category, profileId, limit });
+
+const buildExclusionsPreviewQueryFn =
+  (ptrsId, { profileId = null, category = "all", limit = 10 } = {}) =>
+  async () =>
+    previewExclusions(ptrsId, { profileId, category, limit });
+
+const useExclusionKeywordMutation = (ptrsId, fn) =>
+  useMutation({
+    mutationFn: (payload) => fn(ptrsId, payload),
+  });
 
 // ---- Minimal search/list stubs (not used in v2 flow yet) ----------------------
 export function usePtrsSearch() {
@@ -92,25 +135,6 @@ export function usePtrsUploadStatus(ptrsId) {
   // show any real problems.
   return { status: "completed", rowCounts: { ingested: 0 } };
 }
-
-// Map status from /map endpoint
-// export function usePtrsMapStatus(ptrsId) {
-//   const enabled = !!ptrsId;
-//   const query = useQuery({
-//     queryKey: K.map(ptrsId),
-//     queryFn: async () => {
-//       const res = await api.getPtrsMap(ptrsId);
-//       const map = res?.data?.map || null;
-//       return {
-//         selected: !!map,
-//         schemaCompatible: true, // assume ok for now
-//       };
-//     },
-//     enabled,
-//     staleTime: 10_000,
-//   });
-//   return query.data ?? { selected: false, schemaCompatible: false };
-// }
 
 export function usePtrsTablesStatus(ptrsId) {
   return { status: "idle", tablesCount: 0 };
@@ -174,14 +198,14 @@ export function usePtrsMapQuery(ptrsId) {
 
 export function usePtrsUnifiedSampleQuery(
   ptrsId,
-  { limit = 5, offset = 0 } = {},
+  { limit = 5, offset = 0, enabled = true } = {},
 ) {
-  const enabled = !!ptrsId;
+  const queryEnabled = !!ptrsId && enabled;
 
   return useQuery({
     queryKey: K.unifiedSample(ptrsId, { limit, offset }),
     queryFn: async () => getUnifiedSample(ptrsId, { limit, offset }),
-    enabled,
+    enabled: queryEnabled,
     staleTime: 120_000,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
@@ -218,17 +242,95 @@ export function usePtrsStageStatus(ptrsId) {
   return { status: "idle" };
 }
 
-export function useExclusionsPreviewQuery(
-  ptrsId,
-  { profileId = null, category = "all", limit = 10 } = {},
-) {
+export function useStageLatestExecutionRunQuery(ptrsId) {
   const enabled = !!ptrsId;
 
   return useQuery({
-    queryKey: K.exclusionsPreview(ptrsId, { category, profileId, limit }),
-    queryFn: async () =>
-      previewExclusions(ptrsId, { profileId, category, limit }),
+    queryKey: K.stageLatestRun(ptrsId),
+    queryFn: async () => getStageLatestExecutionRun(ptrsId, { step: "stage" }),
     enabled,
+    staleTime: 10_000,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function useStagePreviewQuery(
+  ptrsId,
+  { profileId = null, limit = 20, enabled = true } = {},
+) {
+  const queryEnabled = !!ptrsId && enabled;
+
+  return useQuery({
+    queryKey: K.stagePreview(ptrsId, { profileId, limit }),
+    queryFn: async () => getStagePreview(ptrsId, { profileId, limit }),
+    enabled: queryEnabled,
+    staleTime: 10_000,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function useStageCompletionGateQuery(
+  ptrsId,
+  { profileId, enabled = true } = {},
+) {
+  const queryEnabled = !!ptrsId && !!profileId && enabled;
+
+  return useQuery({
+    queryKey: K.stageCompletionGate(ptrsId, { profileId }),
+    queryFn: async () => getStageCompletionGate(ptrsId, { profileId }),
+    enabled: queryEnabled,
+    staleTime: 10_000,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function useStagePtrsMutation(ptrsId) {
+  return useMutation({
+    mutationFn: ({ profileId = null, persist = true, force = false } = {}) =>
+      runStagePtrs(ptrsId, { profileId, persist, force }),
+    onSuccess: () => {
+      if (ptrsId) {
+        ptrsTraffic.emit(ptrsId, { reason: "stage_ran" });
+      }
+    },
+  });
+}
+
+export function useExclusionsPreviewQuery(
+  ptrsId,
+  { profileId = null, category = "all", limit = 10, enabled = false } = {},
+) {
+  const queryEnabled = !!ptrsId && enabled;
+
+  return useQuery({
+    queryKey: buildExclusionsPreviewKey(ptrsId, {
+      category,
+      profileId,
+      limit,
+    }),
+    queryFn: buildExclusionsPreviewQueryFn(ptrsId, {
+      profileId,
+      category,
+      limit,
+    }),
+    enabled: queryEnabled,
+    staleTime: 0,
+  });
+}
+
+export function useExclusionsSummaryQuery(
+  ptrsId,
+  { profileId = null, enabled = true } = {},
+) {
+  const queryEnabled = !!ptrsId && enabled;
+
+  return useQuery({
+    queryKey: K.exclusionsSummary(ptrsId, { profileId }),
+    queryFn: async () => getExclusionsSummary(ptrsId, { profileId }),
+    enabled: queryEnabled,
     staleTime: 0,
   });
 }
@@ -245,37 +347,15 @@ export function useExclusionKeywordsQuery(ptrsId, { profileId } = {}) {
 }
 
 export function useCreateExclusionKeywordMutation(ptrsId) {
-  return useMutation({
-    mutationFn: ({ profileId, keyword, field, matchType, notes }) =>
-      createExclusionKeyword(ptrsId, {
-        profileId,
-        keyword,
-        field,
-        matchType,
-        notes,
-      }),
-  });
+  return useExclusionKeywordMutation(ptrsId, createExclusionKeyword);
 }
 
 export function useUpdateExclusionKeywordMutation(ptrsId) {
-  return useMutation({
-    mutationFn: ({ profileId, keywordId, keyword, field, matchType, notes }) =>
-      updateExclusionKeyword(ptrsId, {
-        profileId,
-        keywordId,
-        keyword,
-        field,
-        matchType,
-        notes,
-      }),
-  });
+  return useExclusionKeywordMutation(ptrsId, updateExclusionKeyword);
 }
 
 export function useDeleteExclusionKeywordMutation(ptrsId) {
-  return useMutation({
-    mutationFn: ({ profileId, keywordId }) =>
-      deleteExclusionKeyword(ptrsId, { profileId, keywordId }),
-  });
+  return useExclusionKeywordMutation(ptrsId, deleteExclusionKeyword);
 }
 
 export function usePtrsRulesStatus() {

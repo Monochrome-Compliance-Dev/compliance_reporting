@@ -20,7 +20,7 @@ import {
 } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useTheme } from "@mui/material/styles";
-import { useSearchParams } from "react-router";
+import { useLocation, useSearchParams } from "react-router";
 import { useAlert } from "context";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -66,6 +66,8 @@ export default function MapPanel() {
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
   const ptrsId = params.get("ptrsId");
+  const location = useLocation();
+  const isMapRoute = /(^|\/)map(\/|$)/i.test(location.pathname || "");
   const { profileId } = usePtrsContext();
 
   const sourceRefKey = (source) => {
@@ -125,6 +127,7 @@ export default function MapPanel() {
   const sampleQ = usePtrsUnifiedSampleQuery(ptrsId, {
     limit: 5,
     offset: 0,
+    enabled: isMapRoute,
   });
   const bpQ = usePtrsBlueprintQuery({ profileId });
 
@@ -140,6 +143,7 @@ export default function MapPanel() {
   const [savingMap, setSavingMap] = useState(false);
 
   const isBusy = loading || staging || savingMap;
+  const sampleRefreshing = Boolean(sampleQ.isLoading || sampleQ.isFetching);
 
   // prevent double-submit / re-entrancy
   const stagingRef = useRef(false);
@@ -155,12 +159,22 @@ export default function MapPanel() {
   // user-defined placeholder targets
   const [customFields, setCustomFields] = useState([]);
   const [joinCustomFields, setJoinCustomFields] = useState([]);
-  const [newCustomName, setNewCustomName] = useState("");
   const [joins, setJoins] = useState([]);
 
   const [savedFieldMap, setSavedFieldMap] = useState([]);
+  const lastHydratedPtrsRef = useRef("");
 
   const [supportingDatasetsCount, setSupportingDatasetsCount] = useState(0);
+
+  const mappedCount = Object.values(assign || {}).filter(Boolean).length;
+
+  const showSampleRefreshNotice =
+    sampleRefreshing && (mappedCount > 0 || savingMap || loading);
+
+  const sampleRefreshMessage =
+    supportingDatasetsCount > 1
+      ? `Refreshing mapping metadata across ${supportingDatasetsCount} datasets. Headers, examples, and source provenance are being rebuilt before staging can continue.`
+      : "Refreshing mapping metadata. Headers, examples, and source provenance are being rebuilt before staging can continue.";
 
   // sources pane
   const [search, setSearch] = useState("");
@@ -266,7 +280,7 @@ export default function MapPanel() {
       return;
     }
 
-    if (sampleQ.isError) {
+    if (isMapRoute && sampleQ.isError) {
       showAlert(
         sampleQ.error?.message || "Failed to load sample headers",
         "error",
@@ -280,8 +294,14 @@ export default function MapPanel() {
     }
 
     const mapRes = mapQ.data || null;
-    const unified = sampleQ.data || null;
+    const unified = isMapRoute ? sampleQ.data || null : null;
     const bp = bpQ.data || null;
+
+    console.log("sampleQ enabled?", {
+      ptrsId,
+      isMapRoute,
+      pathname: location.pathname,
+    });
 
     // If neither map nor sample is ready yet, do nothing (queries still loading)
     if (!mapRes && !unified) return;
@@ -434,7 +454,22 @@ export default function MapPanel() {
     bpQ.error,
     bpQ.data,
     dsQ.isLoading,
+    isMapRoute,
+    location.pathname,
   ]);
+
+  useEffect(() => {
+    console.log("MapPanel mounted", location.pathname);
+    return () => console.log("MapPanel unmounted", location.pathname);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    didInitFromFieldMap.current = false;
+    lastHydratedPtrsRef.current = "";
+    setAssign({});
+    setCustomFields([]);
+    setSelectedCopyPtrs(null);
+  }, [ptrsId, profileId]);
 
   // Lazy-load canonical copy options only when the dialog is opened.
   // Source of truth is tbl_ptrs_field_map for the current profile.
@@ -499,17 +534,45 @@ export default function MapPanel() {
     };
   }, [ptrsId, profileId]);
 
+  const isCoreField = useCallback((fieldName) => {
+    const value = String(fieldName || "").trim();
+    return (
+      PTRS_REQUIRED_FIELDS.includes(value) ||
+      PTRS_OPTIONAL_FIELDS.includes(value)
+    );
+  }, []);
+
   useEffect(() => {
     if (!profileId) return;
+    if (!ptrsId) return;
     if (!Array.isArray(sourceOptions) || !sourceOptions.length) return;
 
-    // Only initialise from saved field map once to avoid save/import loops
+    const hydrationKey = `${ptrsId}::${profileId}`;
+
+    if (lastHydratedPtrsRef.current !== hydrationKey) {
+      didInitFromFieldMap.current = false;
+    }
+
+    // Only initialise from saved field map once per PTRS/profile pair to avoid save/import loops
     if (didInitFromFieldMap.current) return;
+
+    const discoveredCustomFields = (
+      Array.isArray(savedFieldMap) ? savedFieldMap : []
+    )
+      .map((row) => String(row?.canonicalField || "").trim())
+      .filter((field) => field && !isCoreField(field));
+
+    if (discoveredCustomFields.length) {
+      setCustomFields((prev) => [
+        ...new Set([...prev, ...discoveredCustomFields]),
+      ]);
+    }
 
     setAssign((prev) => {
       const preservedCustom = Object.fromEntries(
-        Object.entries(prev || {}).filter(([key]) =>
-          customFields.includes(key),
+        Object.entries(prev || {}).filter(
+          ([key]) =>
+            customFields.includes(key) || discoveredCustomFields.includes(key),
         ),
       );
 
@@ -535,7 +598,15 @@ export default function MapPanel() {
     });
 
     didInitFromFieldMap.current = true;
-  }, [profileId, savedFieldMap, sourceOptions, customFields]);
+    lastHydratedPtrsRef.current = hydrationKey;
+  }, [
+    ptrsId,
+    profileId,
+    savedFieldMap,
+    sourceOptions,
+    customFields,
+    isCoreField,
+  ]);
 
   const usedSources = useMemo(
     () =>
@@ -581,26 +652,57 @@ export default function MapPanel() {
 
   const allowDrop = (e) => e.preventDefault();
 
-  // Assign helper: ensures a source is only mapped to a single target
-  const assignSourceToTarget = (source, targetField) => {
-    const src = normaliseSourceRef(source);
+  const normaliseCustomFieldName = useCallback((raw) => {
+    let value = String(raw || "")
+      .trim()
+      .replace(/\s+/g, "_")
+      .replace(/[^A-Za-z0-9_]/g, "")
+      .replace(/^_+|_+$/g, "")
+      .replace(/_+/g, "_")
+      .toLowerCase();
 
-    setAssign((prev) => {
-      const next = { ...prev };
-      const srcKey = src ? sourceRefKey(src) : null;
+    if (!value) value = "custom_field";
+    if (/^[0-9]/.test(value)) value = `f_${value}`;
 
-      for (const k of Object.keys(next)) {
-        const existing = normaliseSourceRef(next[k]);
-        if (srcKey && sourceRefKey(existing) === srcKey) {
-          next[k] = undefined;
-        }
+    return value;
+  }, []);
+
+  // Assign helper: ensures a source is only mapped to a single target, normalises non-core fields, and keeps custom fields in sync
+  const assignSourceToTarget = useCallback(
+    (source, targetField) => {
+      const src = normaliseSourceRef(source);
+      const rawTarget = String(targetField || "").trim();
+      if (!rawTarget) return;
+
+      const safeTargetField = isCoreField(rawTarget)
+        ? rawTarget
+        : normaliseCustomFieldName(rawTarget);
+
+      if (!isCoreField(safeTargetField)) {
+        setCustomFields((prev) => {
+          if (prev.includes(safeTargetField)) return prev;
+          return [...prev, safeTargetField];
+        });
       }
 
-      next[targetField] = src || undefined;
-      setIsDirty(true);
-      return next;
-    });
-  };
+      setAssign((prev) => {
+        const next = { ...prev };
+        const srcKey = src ? sourceRefKey(src) : null;
+
+        for (const key of Object.keys(next)) {
+          const existing = normaliseSourceRef(next[key]);
+          if (srcKey && sourceRefKey(existing) === srcKey) {
+            delete next[key];
+          }
+        }
+
+        next[safeTargetField] = src || undefined;
+        setIsDirty(true);
+        return next;
+      });
+    },
+    [isCoreField, normaliseCustomFieldName],
+  );
 
   const clearTarget = (targetField) =>
     setAssign((prev) => {
@@ -616,24 +718,6 @@ export default function MapPanel() {
   };
 
   // --- Custom fields helpers ---
-  const addCustomField = (name) => {
-    const safe = String(name || "").trim();
-    if (!safe) return;
-    const existsInCore =
-      PTRS_REQUIRED_FIELDS.includes(safe) ||
-      PTRS_OPTIONAL_FIELDS.includes(safe);
-    if (existsInCore) {
-      showAlert("That field name already exists in the core schema.", "info");
-      return;
-    }
-
-    setCustomFields((prev) => {
-      const next = [...new Set([...prev, safe])];
-      return next;
-    });
-    setIsDirty(true);
-    setNewCustomName("");
-  };
 
   const removeCustomField = (name) => {
     setCustomFields((prev) => prev.filter((f) => f !== name));
@@ -646,32 +730,53 @@ export default function MapPanel() {
   };
 
   // Generate a safe, unique custom field name from a source header
-  const makeUniqueCustomName = (raw) => {
-    const knownCore = new Set([
-      ...PTRS_REQUIRED_FIELDS,
-      ...PTRS_OPTIONAL_FIELDS,
-    ]);
-    const sanitize = (s) =>
-      String(s || "")
-        .trim()
-        .replace(/\s+/g, "_")
-        .replace(/[^A-Za-z0-9_]/g, "")
-        .replace(/^_+|_+$/g, "");
-    let base = sanitize(raw) || "CustomField";
-    // Avoid starting with a number
-    if (/^[0-9]/.test(base)) base = `F_${base}`;
-    // Avoid core collisions
-    if (knownCore.has(base)) base = `${base}_1`;
-    // Ensure uniqueness against existing custom fields too
-    let name = base;
-    let i = 1;
-    const exists = (n) => knownCore.has(n) || customFields.includes(n);
-    while (exists(name)) {
-      i += 1;
-      name = `${base}_${i}`;
-    }
-    return name;
-  };
+  const makeUniqueCustomName = useCallback(
+    (raw) => {
+      const knownCore = new Set([
+        ...PTRS_REQUIRED_FIELDS,
+        ...PTRS_OPTIONAL_FIELDS,
+      ]);
+
+      let base = normaliseCustomFieldName(raw);
+
+      if (knownCore.has(base)) base = `${base}_1`;
+
+      let name = base;
+      let i = 1;
+      const exists = (n) => knownCore.has(n) || customFields.includes(n);
+      while (exists(name)) {
+        i += 1;
+        name = `${base}_${i}`;
+      }
+      return name;
+    },
+    [customFields, normaliseCustomFieldName],
+  );
+
+  // Helper: create a custom field from a source reference
+  const createCustomFieldFromSource = useCallback(
+    (source) => {
+      const sourceRef = normaliseSourceRef(source);
+      if (!sourceRef?.header) return null;
+
+      const newName = makeUniqueCustomName(sourceRef.header);
+
+      setCustomFields((prev) => {
+        if (prev.includes(newName)) return prev;
+        return [...prev, newName];
+      });
+
+      assignSourceToTarget(sourceRef, newName);
+      setIsDirty(true);
+      showAlert(
+        `Created "${newName}" and mapped from "${sourceRef.header}"`,
+        "success",
+      );
+
+      return newName;
+    },
+    [assignSourceToTarget, showAlert, makeUniqueCustomName],
+  );
 
   // --- Auto-suggest helpers ---
   const norm = (s) =>
@@ -990,15 +1095,18 @@ export default function MapPanel() {
       setSavedFieldMap(Array.isArray(savedRows) ? savedRows : []);
       didInitFromFieldMap.current = true;
 
-      const { applied } = applyIncomingFieldMap(
+      const { applied, nextAssign } = applyIncomingFieldMap(
         Array.isArray(savedRows) ? savedRows : fieldMapPayload,
       );
+
+      // Force a full save so legacy map + extras stay in sync and Stage never sees a partial state
+      await save(true, nextAssign);
 
       setIsDirty(false);
       setImportOpen(false);
 
       showAlert(
-        `Copied ${applied} canonical mapping(s) from ${otherPtrsId}`,
+        `Copied ${applied} canonical mapping(s) from ${otherPtrsId} and auto-saved`,
         "success",
       );
     } catch (e) {
@@ -1015,9 +1123,11 @@ export default function MapPanel() {
       )) {
         const sourceRef = normaliseSourceRef(assignedSource);
         if (!targetField || !sourceRef?.header) continue;
-        if (customFields.includes(targetField)) continue;
 
-        const canonicalField = String(targetField).trim();
+        const canonicalField = isCoreField(targetField)
+          ? String(targetField).trim()
+          : normaliseCustomFieldName(targetField);
+        if (!canonicalField) continue;
 
         payload.push({
           canonicalField,
@@ -1031,7 +1141,7 @@ export default function MapPanel() {
 
       return payload;
     },
-    [customFields],
+    [isCoreField, normaliseCustomFieldName],
   );
 
   const canonicalFieldMapNeedsSave = useCallback(
@@ -1163,9 +1273,19 @@ export default function MapPanel() {
         payerEntityAbn: assign.payerEntityAbn,
       });
 
+      let savedCanonicalRows = canonicalFieldMap;
+
       if (profileId) {
-        await savePtrsFieldMap(ptrsId, profileId, canonicalFieldMap);
-        setSavedFieldMap(canonicalFieldMap);
+        savedCanonicalRows = await savePtrsFieldMap(
+          ptrsId,
+          profileId,
+          canonicalFieldMap,
+        );
+        setSavedFieldMap(
+          Array.isArray(savedCanonicalRows)
+            ? savedCanonicalRows
+            : canonicalFieldMap,
+        );
       }
 
       // Keep latest extras (important so next save can truly be a no-op)
@@ -1178,12 +1298,25 @@ export default function MapPanel() {
       }
 
       const savedLegacyCount = Object.keys(res?.mappings || payload).length;
-      const savedCount = Math.max(savedLegacyCount, canonicalCount);
+      const savedCanonicalCount = Array.isArray(savedCanonicalRows)
+        ? savedCanonicalRows.length
+        : canonicalCount;
+      const savedCount = profileId
+        ? savedCanonicalCount
+        : Math.max(savedLegacyCount, canonicalCount);
+
       if (!auto) {
-        showAlert(
-          `Saved map (${savedCount} field${savedCount === 1 ? "" : "s"})`,
-          "success",
-        );
+        if (profileId && savedCanonicalCount !== canonicalCount) {
+          showAlert(
+            `Map save mismatch: requested ${canonicalCount} canonical field${canonicalCount === 1 ? "" : "s"}, but only ${savedCanonicalCount} persisted.`,
+            "warning",
+          );
+        } else {
+          showAlert(
+            `Saved map (${savedCount} field${savedCount === 1 ? "" : "s"})`,
+            "success",
+          );
+        }
       }
 
       setIsDirty(false);
@@ -1263,7 +1396,7 @@ export default function MapPanel() {
 
       // Build the mapped snapshot before handing over to Stage.
       // Stage consumes PtrsMappedRow, so Mapping must materialise it first.
-      await buildPtrsMappedDataset(ptrsId);
+      await buildPtrsMappedDataset(ptrsId, { profileId });
 
       try {
         await updatePtrsStep.mutateAsync({ currentStep: "stage" });
@@ -1488,7 +1621,50 @@ export default function MapPanel() {
     };
   }, [dsQ.data, joins]);
 
-  const mappedCount = Object.values(assign || {}).filter(Boolean).length;
+  const missingRequiredFields = (PTRS_REQUIRED_FIELDS || []).filter(
+    (field) => !assign?.[field],
+  );
+
+  const stageBlockedReason = (() => {
+    if (sampleRefreshing) {
+      return "Stage will be enabled once mapping metadata has finished refreshing.";
+    }
+
+    if (savingMap) {
+      return "Please wait while the map is being saved.";
+    }
+
+    if (staging) {
+      return "Please wait while staging is already in progress.";
+    }
+
+    if (loading) {
+      return "Please wait while mapping data finishes loading.";
+    }
+
+    if (missingRequiredFields.length > 0) {
+      const labels = missingRequiredFields.map((f) => labelFor(f));
+      return `Map the remaining required field(s): ${labels.join(", ")}.`;
+    }
+
+    if (groupedRequirementFailures.length > 0) {
+      return groupedRequirementFailures
+        .map((g) => `${g.label} (map at least one)`)
+        .join("; ");
+    }
+
+    if (!joinConnectivity.hasMain) {
+      return "A main dataset must exist before staging can continue.";
+    }
+
+    if (!joinConnectivity.connected) {
+      return `Connect all dataset roles with joins before staging. Orphaned role(s): ${joinConnectivity.orphanedRoles.join(", ")}.`;
+    }
+
+    return "";
+  })();
+
+  const stageButtonDisabled = Boolean(stageBlockedReason);
 
   // right pane sources item
   const SourceToken = ({ source }) => {
@@ -1629,8 +1805,8 @@ export default function MapPanel() {
           </AccordionSummary>
           <AccordionDetails>
             <Stack spacing={1.5}>
-              {/* Drag-to-create placeholder */}
-              <Box
+              <Paper
+                variant="outlined"
                 onDragOver={allowDrop}
                 onDrop={(e) => {
                   e.preventDefault();
@@ -1644,58 +1820,90 @@ export default function MapPanel() {
                     source = raw;
                   }
 
-                  const sourceRef = normaliseSourceRef(source);
-                  if (!sourceRef?.header) return;
-
-                  const newName = makeUniqueCustomName(sourceRef.header);
-                  if (!customFields.includes(newName)) {
-                    setCustomFields((prev) => [...prev, newName]);
-                  }
-                  assignSourceToTarget(sourceRef, newName);
-                  setIsDirty(true);
-                  showAlert(
-                    `Created "${newName}" and mapped from "${sourceRef.header}"`,
-                    "success",
-                  );
+                  createCustomFieldFromSource(source);
                 }}
                 sx={{
                   p: 2,
-                  border: "1px dashed",
+                  borderStyle: "dashed",
                   borderColor: theme.palette.divider,
-                  borderRadius: 1,
-                  textAlign: "center",
-                  color: theme.palette.text.secondary,
-                  fontStyle: "italic",
-                  mb: 1.5,
                   bgcolor: theme.palette.action.hover,
-                  cursor: "copy",
+                  mb: 1.5,
                 }}
               >
-                Drag a source column here to create a new placeholder field
-              </Box>
-              <Stack direction="row" spacing={1} alignItems="center">
-                <TextField
-                  id="customFieldInput"
-                  size="small"
-                  value={newCustomName}
-                  onChange={(e) => setNewCustomName(e.target.value)}
-                  placeholder="Add a placeholder (e.g. DocumentType)"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault();
-                      addCustomField(newCustomName);
+                <Stack spacing={1.5}>
+                  <Typography variant="subtitle2">
+                    Create custom field from source
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Drag a source column here or choose one below. The custom
+                    field name will be generated automatically from the source
+                    header so you don’t have to type the canonical field name
+                    yourself.
+                  </Typography>
+                  <Autocomplete
+                    disablePortal
+                    fullWidth
+                    size="small"
+                    options={sourceOptions}
+                    value={null}
+                    onChange={(e, val) => {
+                      if (!val) return;
+                      createCustomFieldFromSource(val);
+                    }}
+                    getOptionLabel={(src) => {
+                      const sourceRef = normaliseSourceRef(src);
+                      if (!sourceRef) return "";
+                      const base = getSourceRefLabel(sourceRef);
+                      return examples[sourceRef.header]
+                        ? `${base} — e.g. ${examples[sourceRef.header]}`
+                        : base;
+                    }}
+                    isOptionEqualToValue={(option, value) =>
+                      sourceRefKey(option) === sourceRefKey(value)
                     }
-                  }}
-                  sx={{ maxWidth: 360 }}
-                />
-                <Button
-                  variant="outlined"
-                  size="small"
-                  onClick={() => addCustomField(newCustomName)}
-                >
-                  Add
-                </Button>
-              </Stack>
+                    renderOption={(props, option) => {
+                      const { key, ...optionProps } = props;
+                      const sourceRef = normaliseSourceRef(option);
+                      return (
+                        <Box component="li" key={key} {...optionProps}>
+                          <Stack spacing={0.25}>
+                            <Typography variant="body2">
+                              {sourceRef?.header || ""}
+                            </Typography>
+                            {!!sourceRef && (
+                              <Typography
+                                variant="caption"
+                                color="text.secondary"
+                              >
+                                {getSourceRefLabel(sourceRef).replace(
+                                  `${sourceRef.header} — `,
+                                  "",
+                                )}
+                              </Typography>
+                            )}
+                            {sourceRef?.header &&
+                              examples[sourceRef.header] && (
+                                <Typography
+                                  variant="caption"
+                                  color="text.secondary"
+                                >
+                                  e.g. {examples[sourceRef.header]}
+                                </Typography>
+                              )}
+                          </Stack>
+                        </Box>
+                      );
+                    }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        label="Choose source column"
+                        placeholder="Search source columns…"
+                      />
+                    )}
+                  />
+                </Stack>
+              </Paper>
 
               {customFields.length > 0 && (
                 <Stack spacing={1}>
@@ -1882,6 +2090,31 @@ export default function MapPanel() {
               <Typography variant="body2">Saving map…</Typography>
             </Box>
           )}
+          {showSampleRefreshNotice && !savingMap && (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 1,
+                mb: 1,
+                p: 1.25,
+                border: "1px solid",
+                borderColor: "divider",
+                borderRadius: 1,
+                bgcolor: theme.palette.background.paper,
+              }}
+            >
+              <LoadingSpinner size={20} />
+              <Box>
+                <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                  Refreshing mapping metadata…
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {sampleRefreshMessage}
+                </Typography>
+              </Box>
+            </Box>
+          )}
           <Stack
             direction="row"
             justifyContent="space-between"
@@ -1930,12 +2163,19 @@ export default function MapPanel() {
                 variant="contained"
                 endIcon={<NavigateNextIcon />}
                 onClick={stageData}
-                disabled={
-                  isBusy || requiredMappedCount < PTRS_REQUIRED_FIELDS.length
-                }
+                disabled={stageButtonDisabled}
               >
                 Next: Stage data
               </Button>
+              {stageBlockedReason ? (
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ alignSelf: "center", maxWidth: 420 }}
+                >
+                  {stageBlockedReason}
+                </Typography>
+              ) : null}
             </Stack>
           </Stack>
         </Box>

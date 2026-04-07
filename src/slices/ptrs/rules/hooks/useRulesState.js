@@ -16,10 +16,16 @@ export default function useRulesState(initialRules = []) {
         id: undefined,
         label: "",
         description: "",
+        groupName: "",
         enabled: true,
         type: "row",
         when: [],
-        target: { match: [], where: [] },
+        target: {
+          match: [],
+          where: [],
+          selection: "first_match",
+          requireMatch: false,
+        },
         action: {
           op: "add",
           field: "",
@@ -30,14 +36,22 @@ export default function useRulesState(initialRules = []) {
     ]);
   }, []);
 
-  const updateRule = useCallback((index, patch) => {
+  const updateRule = useCallback((ruleKey, patch) => {
     setRules((prev) =>
-      prev.map((r, i) => (i === index ? { ...r, ...patch } : r)),
+      prev.map((r) => {
+        const key = r?.cid || r?.id;
+        return key === ruleKey ? { ...r, ...patch } : r;
+      }),
     );
   }, []);
 
-  const removeRule = useCallback((index) => {
-    setRules((prev) => prev.filter((_, i) => i !== index));
+  const removeRule = useCallback((ruleKey) => {
+    setRules((prev) =>
+      prev.filter((r) => {
+        const key = r?.cid || r?.id;
+        return key !== ruleKey;
+      }),
+    );
   }, []);
 
   const saveRules = useCallback(

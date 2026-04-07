@@ -11,7 +11,7 @@ export default function Industries() {
     <>
       <PageMeta
         title="Industries | Monochrome Compliance"
-        description="Industry-focused payment reporting and data advisory support, beginning with the construction sector."
+        description="Industry-focused payment data and compliance support for sectors with complex payment mechanics, beginning with construction."
         image="/images/og/og-industry-insights.jpg"
       />
 
@@ -33,7 +33,9 @@ export default function Industries() {
             sx={{ lineHeight: 1.6, mb: theme.spacing(3) }}
           >
             We focus on sectors where payment mechanics are structurally complex
-            and external scrutiny is increasing.
+            and external scrutiny is increasing. These industry pages are the
+            vertical application of our core payment data, reporting, and
+            compliance services.
           </Typography>
 
           <Typography
@@ -46,6 +48,32 @@ export default function Industries() {
             depend on it. That keeps the work grounded, defensible and
             repeatable.
           </Typography>
+
+          <Box
+            sx={{
+              mb: theme.spacing(4),
+              p: theme.spacing(2.5),
+              border: `1px solid ${theme.palette.divider}`,
+              borderRadius: 2,
+              backgroundColor: theme.palette.background.paper,
+            }}
+          >
+            <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+              Start with the core services
+            </Typography>
+            <Typography
+              variant="body1"
+              color={theme.palette.text.secondary}
+              sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
+            >
+              If you want the broader service view first, explore the core
+              service set and then come back to the industry context that best
+              matches your environment.
+            </Typography>
+            <Button variant="outlined" component={Link} to="/services">
+              Explore services
+            </Button>
+          </Box>
 
           <Divider sx={{ mb: theme.spacing(4) }} />
 
@@ -99,7 +127,7 @@ export default function Industries() {
                 <Button
                   variant="outlined"
                   component={Link}
-                  to="/construction-payment-reporting"
+                  to="/industries/construction/payment-reporting"
                 >
                   Explore construction focus
                 </Button>

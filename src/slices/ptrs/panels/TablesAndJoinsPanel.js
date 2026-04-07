@@ -293,6 +293,13 @@ export default function TablesAndJoinsPanel() {
 
   const hasSupportingDatasets = supportingRoles.length > 0;
   const mustHaveJoin = hasSupportingDatasets;
+  const mainDatasetRoles = useMemo(() => {
+    return mainAndSupportingRoles.filter(
+      (role) => role === "main" || role.startsWith("main_"),
+    );
+  }, [mainAndSupportingRoles]);
+
+  const hasMultipleMainDatasets = mainDatasetRoles.length > 1;
 
   const joinCoverage = useMemo(() => {
     const conditions = Array.isArray(joins?.conditions) ? joins.conditions : [];
@@ -579,6 +586,12 @@ export default function TablesAndJoinsPanel() {
         {mustHaveJoin && !joinCoverage.connected ? (
           <Typography variant="body2" color="error" sx={{ mb: 1 }}>
             {orphanedJoinMessage}
+          </Typography>
+        ) : hasMultipleMainDatasets && !hasSupportingDatasets ? (
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+            Multiple main datasets detected. No joins are required between main
+            roles. Continue to mapping and map the CSV-backed dataset fields as
+            needed.
           </Typography>
         ) : null}
         <JoinsDesigner

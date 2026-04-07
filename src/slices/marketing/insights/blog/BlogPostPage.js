@@ -42,7 +42,7 @@ export default function BlogPostPage() {
       <PageMeta
         title={`${post.title} | Monochrome Compliance`}
         description={post.description}
-        image="/images/og/og-industry-insights.jpg"
+        image="https://monochrome-compliance.com/images/og/og-industry-insights.jpg"
       />
 
       <Box
@@ -81,6 +81,26 @@ export default function BlogPostPage() {
           <Divider sx={{ my: theme.spacing(4) }} />
 
           <PostComponent />
+
+          <Divider sx={{ my: theme.spacing(4) }} />
+
+          <Typography variant="body2">
+            Explore how these ideas translate into practical outcomes through{" "}
+            <RouterLink
+              to="/services"
+              style={{ color: theme.palette.primary.main }}
+            >
+              our services
+            </RouterLink>
+            , or see how they apply in specific sectors on the{" "}
+            <RouterLink
+              to="/industries"
+              style={{ color: theme.palette.primary.main }}
+            >
+              industries page
+            </RouterLink>
+            .
+          </Typography>
         </Box>
       </Box>
     </>

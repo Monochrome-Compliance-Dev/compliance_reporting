@@ -42,7 +42,10 @@ export default function PtrsLayout() {
 
   const isLanding = /^\/app\/ptrs(?:\/landing)?\/?$/.test(location.pathname);
   const isDataConsole = /^\/app\/ptrs\/data\/?$/.test(location.pathname);
-  const isDashboard = /^\/app\/ptrs\/dashboard\/?$/.test(location.pathname);
+  const isDashboard =
+    /^\/app\/ptrs\/(dashboard(?:-v2)?|report-v2)(?:\/[^/]+)?\/?$/.test(
+      location.pathname,
+    );
 
   // Wizard flow surfaces (stepper + Back/Next). Dashboard is intentionally NOT part of the wizard.
   const isWizard = !isLanding && !isDashboard;
@@ -108,10 +111,13 @@ export default function PtrsLayout() {
   const currentStepId = useMemo(() => {
     if (isLanding) return "landing";
     const parts = location.pathname.split("/").filter(Boolean);
-    const maybe = parts[parts.length - 1];
+    const ptrsIndex = parts.indexOf("ptrs");
+    const maybe =
+      ptrsIndex >= 0 ? parts[ptrsIndex + 1] : parts[parts.length - 1];
 
     // Dashboard is a read-only review surface; anchor it to the closest step for the stepper.
-    if (maybe === "dashboard") return "metrics";
+    if (maybe === "dashboard" || maybe === "dashboard-v2") return "metrics";
+    if (maybe === "report-v2") return "report";
 
     return STEPS.some((s) => s.id === maybe)
       ? maybe

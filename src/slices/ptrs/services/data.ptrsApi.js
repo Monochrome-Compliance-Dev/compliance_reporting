@@ -4,7 +4,40 @@ import { normDataset, normDatasetList, normSample, pickData } from "./ptrsApi";
 // Avoid trailing slashes
 const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 
-// -------------------- Datasets (routes: /ptrs/:id/datasets) --
+// -------------------- Main CSV ingest / run sample --------------------
+
+export const uploadCsv = async (ptrsId, file) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!file) throw new Error("file is required");
+
+  const fd = new FormData();
+  fd.append("file", file);
+  fd.append("role", "main");
+  fd.append("sourceName", file.name || "Main input");
+
+  const res = await fetchWrapper.postUpload(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/datasets`,
+    fd,
+  );
+
+  const data = pickData(res) || {};
+
+  return {
+    ...data,
+    rowsInserted: data?.meta?.rowsCount ?? data?.rowsCount ?? 0,
+  };
+};
+
+export const getRunSample = async (ptrsId, { limit = 10, offset = 0 } = {}) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`,
+  );
+
+  return normSample(pickData(res));
+};
+
 // Upload an auxiliary dataset (vendorMaster, termsChanges, entityStructure, other)
 export const addDataset = async (
   ptrsId,

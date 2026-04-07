@@ -14,6 +14,7 @@ import ValidatePanel from "./panels/ValidatePanel";
 import MetricsPanel from "./panels/MetricsPanel";
 import ReportPanel from "./panels/ReportPanel";
 import PtrsMetricsDashboard from "./screens/PtrsMetricsDashboard";
+import PtrsMetricsDashboardV2 from "./components/PtrsMetricsDashboard";
 import PackPanel from "./panels/PackPanel";
 import XeroCallbackPanel from "./panels/XeroCallbackPanel";
 
@@ -52,7 +53,9 @@ const ptrsRoutes = [
       },
       { path: "metrics", Component: MetricsPanel },
       { path: "dashboard", Component: PtrsMetricsDashboard },
+      { path: "dashboard-v2/:reportKey", Component: PtrsMetricsDashboardV2 },
       { path: "report", Component: ReportPanel },
+      { path: "report-v2/:reportKey", Component: ReportPanel },
       {
         path: "pack",
         Component: PackPanel,

@@ -1,23 +1,6 @@
 import { userService } from "slices/users/userApi";
 import { getScopedCustomerId } from "./tenantScope";
 
-// --- Logging helpers (do NOT log Authorization or full bodies) ---
-function _redactHeaders(hdrs) {
-  const h = { ...(hdrs || {}) };
-  if (h.Authorization) h.Authorization = "<redacted>";
-  return h;
-}
-function _previewBody(body) {
-  try {
-    if (body == null) return null;
-    if (typeof body === "string") return `string(${body.length})`;
-    if (typeof body === "object") return { keys: Object.keys(body) };
-    return typeof body;
-  } catch {
-    return "<unavailable>";
-  }
-}
-
 export const fetchWrapper = {
   get,
   getDocument,
@@ -318,7 +301,7 @@ function tenantHeader(url) {
   if (!customerId) return {};
 
   // If URL has an explicit customer id, prefer that and suppress header when mismatched
-  const match = url.match(/\/customers\/([^\/\?]+)/);
+  const match = url.match(/\/customers\/([^/?]+)/);
   const paramId = match && match[1];
   if (paramId && paramId !== customerId) {
     return {};

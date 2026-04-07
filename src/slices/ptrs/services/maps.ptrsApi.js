@@ -5,6 +5,19 @@ import { getDatasetSample, listDatasets } from "./data.ptrsApi";
 // Avoid trailing slashes
 const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 
+const debugPtrsApiCall = (label, meta = {}) => {
+  if (process.env.NODE_ENV === "production") return;
+
+  try {
+    console.debug(`[ptrsApi] ${label}`, {
+      ...meta,
+      stack: new Error().stack?.split("\n").slice(2, 7).join("\n"),
+    });
+  } catch {
+    console.debug(`[ptrsApi] ${label}`, meta);
+  }
+};
+
 // -------------------- Map meta helpers (stable signature) --------------------
 const stableStringify = (value) => {
   const seen = new WeakSet();
@@ -54,6 +67,7 @@ const buildMapSignature = ({
 
 // -------------------- Column map (routes: /ptrs/:id/map) ------
 export const getPtrsMap = async (ptrsId) => {
+  debugPtrsApiCall("getPtrsMap", { ptrsId });
   const res = await fetchWrapper.get(`${API_ROOT}/v2/ptrs/${ptrsId}/map`);
   const raw = pickData(res) || {};
   const base = normMap(raw) || {};
@@ -133,6 +147,16 @@ export const savePtrsMap = async (
     customFields = null,
   },
 ) => {
+  debugPtrsApiCall("savePtrsMap", {
+    ptrsId,
+    mappingsCount:
+      mappings && typeof mappings === "object"
+        ? Object.keys(mappings).length
+        : 0,
+    hasJoins: !!joins,
+    profileId: profileId || null,
+    customFieldsCount: Array.isArray(customFields) ? customFields.length : 0,
+  });
   // Always include mapMeta inside extras for server-side compatibility listing
   const normHeaderKey = (s) =>
     String(s || "")
@@ -211,6 +235,8 @@ export const getPtrsFieldMap = async (ptrsId, profileId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!profileId) throw new Error("profileId is required");
 
+  debugPtrsApiCall("getPtrsFieldMap", { ptrsId, profileId });
+
   const qs = new URLSearchParams();
   qs.set("profileId", String(profileId));
 
@@ -233,6 +259,12 @@ export const savePtrsFieldMap = async (ptrsId, profileId, fieldMap) => {
   if (!profileId) throw new Error("profileId is required");
   if (!Array.isArray(fieldMap)) throw new Error("fieldMap array is required");
 
+  debugPtrsApiCall("savePtrsFieldMap", {
+    ptrsId,
+    profileId,
+    fieldMapCount: Array.isArray(fieldMap) ? fieldMap.length : 0,
+  });
+
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/field-map`,
     {
@@ -252,12 +284,24 @@ export const savePtrsFieldMap = async (ptrsId, profileId, fieldMap) => {
 };
 
 // Build and persist the mapped + joined dataset for this PTRS run
-export const buildPtrsMappedDataset = async (ptrsId) => {
+export const buildPtrsMappedDataset = async (
+  ptrsId,
+  { profileId = null } = {},
+) => {
   if (!ptrsId) throw new Error("ptrsId is required");
 
+  debugPtrsApiCall("buildPtrsMappedDataset", {
+    ptrsId,
+    profileId: profileId || null,
+  });
+
+  const qs = new URLSearchParams();
+  if (profileId) qs.set("profileId", String(profileId));
+  const suffix = qs.toString() ? `?${qs.toString()}` : "";
+
   const res = await fetchWrapper.post(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/map/build-mapped`,
-    {},
+    `${API_ROOT}/v2/ptrs/${ptrsId}/map/build-mapped${suffix}`,
+    profileId ? { profileId } : {},
   );
 
   const data = pickData(res) || {};
@@ -269,7 +313,15 @@ export const buildPtrsMappedDataset = async (ptrsId) => {
 
   const headers = Array.isArray(data.headers) ? data.headers : [];
 
-  return { count, headers };
+  return {
+    count,
+    headers,
+    skipped: !!data.skipped,
+    reason: data.reason || null,
+    inputHash: data.inputHash || null,
+    previousRunId: data.previousRunId || null,
+    profileId: data.profileId || profileId || null,
+  };
 };
 
 // Unified sample: returns merged headers + examples from main + supporting datasets
@@ -281,6 +333,8 @@ export const getUnifiedSample = async (
   { limit = 10, offset = 0 } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
+
+  debugPtrsApiCall("getUnifiedSample", { ptrsId, limit, offset });
 
   limit = Number(limit) || 10;
   offset = Number(offset) || 0;
@@ -475,6 +529,7 @@ export const listPtrsWithMap = async (profileId = null) => {
     if (profileId) qs.set("profileId", String(profileId));
 
     const suffix = qs.toString() ? `?${qs.toString()}` : "";
+    debugPtrsApiCall("listPtrsWithMap", { profileId: profileId || null });
     const res = await fetchWrapper.get(
       `${API_ROOT}/v2/ptrs/compatible-maps${suffix}`,
     );
@@ -555,6 +610,7 @@ export const getPtrsSample = async (
   ptrsId,
   { limit = 10, offset = 0 } = {},
 ) => {
+  debugPtrsApiCall("getPtrsSample", { ptrsId, limit, offset });
   const res = await fetchWrapper.get(
     `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`,
   );
