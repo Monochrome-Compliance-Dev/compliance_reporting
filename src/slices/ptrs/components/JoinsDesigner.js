@@ -45,7 +45,7 @@ export default function JoinsDesigner({
         ? joins.customFields
         : [],
   );
-  const [examplesByRole, setExamplesByRole] = useState({});
+  const [examplesByDatasetId, setExamplesByDatasetId] = useState({});
 
   const leftRef = useRef(null);
   const rightRef = useRef(null);
@@ -117,131 +117,92 @@ export default function JoinsDesigner({
       .catch(() => setDatasets([]));
   }, [ptrsId]);
 
-  // Choose a FROM role for the left-side links (main or supporting).
-  const [selectedFromRole, setSelectedFromRole] = useState(null);
+  // Choose a FROM main dataset slice for the left-side links.
+  const [selectedFromDatasetId, setSelectedFromDatasetId] = useState(null);
 
-  // Determine main dataset roles. We treat `main` and any role starting with `main_` as main datasets.
-  const mainRoles = useMemo(() => {
-    const roles = (datasets || [])
-      .map((d) => String(d?.role || ""))
-      .filter(Boolean);
-    return Array.from(
-      new Set(roles.filter((r) => r === "main" || r.startsWith("main_"))),
-    );
-  }, [datasets]);
-
-  const supportingRoles = useMemo(() => {
-    const roles = (datasets || [])
-      .map((d) => String(d?.role || ""))
-      .filter(Boolean);
-    return Array.from(
-      new Set(roles.filter((r) => !(r === "main" || r.startsWith("main_")))),
-    );
-  }, [datasets]);
-
-  const supportingHeadersByRole = useMemo(() => {
-    const byRole = {};
-    (datasets || []).forEach((d) => {
+  const mainDatasets = useMemo(() => {
+    return (datasets || []).filter((d) => {
       const role = String(d?.role || "");
-      if (!role || role === "main" || role.startsWith("main_")) return;
-
-      const headers = (d.meta?.headers || d.headers || [])
-        .filter(Boolean)
-        .map(String);
-
-      byRole[role] = Array.from(new Set(headers)).sort((a, b) =>
-        a.localeCompare(b),
-      );
+      return role === "main" || role.startsWith("main_");
     });
-    return byRole;
   }, [datasets]);
 
-  const customFieldsByRole = useMemo(() => {
-    const byRole = {};
+  const supportingDatasets = useMemo(() => {
+    return (datasets || []).filter((d) => {
+      const role = String(d?.role || "");
+      return !(role === "main" || role.startsWith("main_"));
+    });
+  }, [datasets]);
+
+  const customFieldsByDatasetId = useMemo(() => {
+    const byDatasetId = {};
 
     (customFields || []).forEach((field) => {
-      const role = String(field?.role || "main");
+      const datasetId = String(field?.datasetId || "").trim();
       const key = String(field?.key || "").trim();
-      if (!key) return;
+      if (!datasetId || !key) return;
 
-      if (!byRole[role]) byRole[role] = [];
-      byRole[role].push(key);
+      if (!byDatasetId[datasetId]) byDatasetId[datasetId] = [];
+      byDatasetId[datasetId].push(key);
     });
 
-    Object.keys(byRole).forEach((role) => {
-      byRole[role] = Array.from(new Set(byRole[role])).sort((a, b) =>
-        a.localeCompare(b),
+    Object.keys(byDatasetId).forEach((datasetId) => {
+      byDatasetId[datasetId] = Array.from(new Set(byDatasetId[datasetId])).sort(
+        (a, b) => a.localeCompare(b),
       );
     });
 
-    return byRole;
+    return byDatasetId;
   }, [customFields]);
 
   useEffect(() => {
-    const allRoles = [...(mainRoles || []), ...(supportingRoles || [])];
-    const fallback = allRoles[0] || "main";
-    if (selectedFromRole && allRoles.includes(selectedFromRole)) return;
-    setSelectedFromRole(fallback);
-  }, [mainRoles, supportingRoles, selectedFromRole]);
+    const mainIds = (mainDatasets || []).map((d) => String(d.id));
+    const fallback = mainIds[0] || null;
+    if (
+      selectedFromDatasetId &&
+      mainIds.includes(String(selectedFromDatasetId))
+    ) {
+      return;
+    }
+    setSelectedFromDatasetId(fallback);
+  }, [mainDatasets, selectedFromDatasetId]);
+
+  const selectedFromDataset = useMemo(() => {
+    return (
+      (mainDatasets || []).find(
+        (d) => String(d.id) === String(selectedFromDatasetId || ""),
+      ) || null
+    );
+  }, [mainDatasets, selectedFromDatasetId]);
 
   const leftFields = useMemo(() => {
-    const fromRole = String(selectedFromRole || "main");
+    const fromDatasetId = String(selectedFromDataset?.id || "");
+    const datasetHeaders = (
+      selectedFromDataset?.meta?.headers ||
+      selectedFromDataset?.headers ||
+      []
+    )
+      .filter(Boolean)
+      .map(String);
 
-    const isMain = fromRole === "main" || fromRole.startsWith("main_");
-
-    const roleHeaders = isMain
-      ? fromRole &&
-        leftHeadersByRole &&
-        typeof leftHeadersByRole === "object" &&
-        Array.isArray(leftHeadersByRole[fromRole])
-        ? leftHeadersByRole[fromRole]
-        : leftHeaders
-      : supportingHeadersByRole &&
-          typeof supportingHeadersByRole === "object" &&
-          Array.isArray(supportingHeadersByRole[fromRole])
-        ? supportingHeadersByRole[fromRole]
-        : [];
-
-    const roleCustomFields = Array.isArray(customFieldsByRole[fromRole])
-      ? customFieldsByRole[fromRole]
+    const datasetCustomFields = Array.isArray(
+      customFieldsByDatasetId[fromDatasetId],
+    )
+      ? customFieldsByDatasetId[fromDatasetId]
       : [];
 
     const combinedHeaders = Array.from(
-      new Set([
-        ...(Array.isArray(roleHeaders) ? roleHeaders : []),
-        ...roleCustomFields,
-      ]),
+      new Set([...datasetHeaders, ...datasetCustomFields]),
     );
 
-    const base = combinedHeaders.map((col) => ({ key: col, label: col }));
-    const map = new Map(base.map((f) => [f.key, f]));
-
-    // Ensure columns referenced in saved joins for the selected FROM role are present on the left
-    (links || []).forEach((j) => {
-      const isThisFrom = String(j?.from?.role || "") === fromRole;
-      if (!isThisFrom) return;
-
-      const key = j?.from?.column;
-      if (key && !map.has(key)) {
-        map.set(key, { key, label: key });
-      }
-    });
-
-    return Array.from(map.values()).sort((a, b) =>
-      a.label.localeCompare(b.label),
-    );
-  }, [
-    leftHeaders,
-    leftHeadersByRole,
-    supportingHeadersByRole,
-    selectedFromRole,
-    links,
-    customFieldsByRole,
-  ]);
+    return combinedHeaders
+      .map((col) => ({ key: col, label: col }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }, [selectedFromDataset, customFieldsByDatasetId]);
 
   useEffect(() => {
     if (!datasets || !datasets.length) {
-      setExamplesByRole({});
+      setExamplesByDatasetId({});
       return;
     }
 
@@ -270,7 +231,7 @@ export default function JoinsDesigner({
     };
 
     (async () => {
-      const roleMap = {};
+      const datasetMap = {};
       const results = await Promise.allSettled(
         targets.map((d) =>
           getDatasetSample(d.id, { limit: 5 }).then((s) => ({ d, s })),
@@ -286,17 +247,17 @@ export default function JoinsDesigner({
           const val = firstExample(rows, h, i);
           if (val) ex[String(h)] = val;
         });
-        roleMap[d.role || "dataset"] = ex;
+        datasetMap[String(d.id)] = ex;
       }
-      setExamplesByRole(roleMap);
+      setExamplesByDatasetId(datasetMap);
     })();
-  }, [datasets, mainRoles]);
+  }, [datasets, mainDatasets]);
 
   useEffect(() => {
     if (!debug) return;
     // eslint-disable-next-line no-console
     console.log(
-      "[JoinsDesigner][debug] datasets roles",
+      "[JoinsDesigner][debug] datasets",
       (datasets || []).map((d) => ({
         id: d.id,
         role: d.role,
@@ -304,153 +265,117 @@ export default function JoinsDesigner({
       })),
     );
     // eslint-disable-next-line no-console
-    console.log("[JoinsDesigner][debug] mainRoles", mainRoles);
-    // eslint-disable-next-line no-console
-    console.log("[JoinsDesigner][debug] selectedFromRole", selectedFromRole);
-    // eslint-disable-next-line no-console
     console.log(
-      "[JoinsDesigner][debug] leftHeadersByRole counts",
-      Object.fromEntries(
-        Object.entries(leftHeadersByRole || {}).map(([k, v]) => [
-          k,
-          Array.isArray(v) ? v.length : 0,
-        ]),
-      ),
+      "[JoinsDesigner][debug] mainDatasets",
+      (mainDatasets || []).map((d) => ({
+        id: d.id,
+        role: d.role,
+        name: d.sourceName || d.fileName,
+      })),
     );
-  }, [debug, datasets, mainRoles, selectedFromRole, leftHeadersByRole]);
+    // eslint-disable-next-line no-console
+    console.log("[JoinsDesigner][debug] selectedFromDataset", {
+      id: selectedFromDataset?.id,
+      role: selectedFromDataset?.role,
+      name: selectedFromDataset?.sourceName || selectedFromDataset?.fileName,
+    });
+  }, [debug, datasets, mainDatasets, selectedFromDataset]);
 
   // Build right-side: join TARGET roles depend on the selected FROM role.
   // - If FROM is main/main_* => RHS shows supporting roles only, because main-to-main joins are not required.
   // - If FROM is supporting => RHS includes main roles + other supporting roles.
   const rightColumns = useMemo(() => {
-    const byRole = new Map();
-    const fromRole = String(selectedFromRole || "main");
-    const fromIsMain = fromRole === "main" || fromRole.startsWith("main_");
+    return (supportingDatasets || []).map((d) => {
+      const role = String(d?.role || "dataset");
+      const datasetId = String(d?.id || "");
+      const baseHeaders = (d.meta?.headers || d.headers || [])
+        .filter(Boolean)
+        .map(String);
+      const datasetCustomFields = Array.isArray(
+        customFieldsByDatasetId[datasetId],
+      )
+        ? customFieldsByDatasetId[datasetId]
+        : [];
+      const headers = Array.from(
+        new Set([...baseHeaders, ...datasetCustomFields]),
+      ).sort((a, b) => a.localeCompare(b));
+
+      return {
+        datasetId,
+        role,
+        label: d?.sourceName || d?.fileName || datasetId,
+        headers,
+      };
+    });
+  }, [supportingDatasets, customFieldsByDatasetId]);
+
+  const datasetFieldOptionsById = useMemo(() => {
+    const map = {};
 
     (datasets || []).forEach((d) => {
-      const roleStr = String(d?.role || "dataset");
+      const datasetId = String(d?.id || "");
+      if (!datasetId) return;
 
-      // Never show the selected FROM role on the RHS
-      if (roleStr === fromRole) return;
-
-      // If FROM is main, we exclude all main datasets from RHS.
-      // If FROM is supporting, we allow main datasets on RHS.
-      if (fromIsMain && (roleStr === "main" || roleStr.startsWith("main_")))
-        return;
-
-      let baseHeaders = (d.meta?.headers || d.headers || [])
+      const headers = (d.meta?.headers || d.headers || [])
         .filter(Boolean)
         .map(String);
 
-      // listDatasets() may not include headers for main datasets; fall back to the unified/left headers.
-      if (
-        !baseHeaders.length &&
-        (roleStr === "main" || roleStr.startsWith("main_"))
-      ) {
-        const fallback =
-          leftHeadersByRole &&
-          typeof leftHeadersByRole === "object" &&
-          Array.isArray(leftHeadersByRole[roleStr])
-            ? leftHeadersByRole[roleStr]
-            : Array.isArray(leftHeaders)
-              ? leftHeaders
-              : [];
-
-        baseHeaders = fallback.filter(Boolean).map(String);
-      }
-
-      const roleCustomFields = Array.isArray(customFieldsByRole[roleStr])
-        ? customFieldsByRole[roleStr]
-        : [];
-
-      if (!byRole.has(roleStr)) byRole.set(roleStr, new Set());
-      [...baseHeaders, ...roleCustomFields].forEach((h) =>
-        byRole.get(roleStr).add(h),
+      map[datasetId] = Array.from(new Set(headers)).sort((a, b) =>
+        a.localeCompare(b),
       );
     });
 
-    // Make sure headers referenced in saved joins exist in the UI even if not present in metadata
-    (links || []).forEach((j) => {
-      const roleStr = String(j?.to?.role || "");
-      const col = j?.to?.column;
-      if (!roleStr || !col) return;
-
-      // Respect the same RHS visibility rules for saved joins
-      if (roleStr === fromRole) return;
-      if (fromIsMain && (roleStr === "main" || roleStr.startsWith("main_")))
-        return;
-
-      if (!byRole.has(roleStr)) byRole.set(roleStr, new Set());
-      byRole.get(roleStr).add(String(col));
-    });
-
-    return Array.from(byRole.entries()).map(([role, set]) => ({
-      role,
-      headers: Array.from(set).sort((a, b) => a.localeCompare(b)),
-    }));
-  }, [
-    datasets,
-    links,
-    selectedFromRole,
-    leftHeaders,
-    leftHeadersByRole,
-    customFieldsByRole,
-  ]);
+    return map;
+  }, [datasets]);
 
   const missingHeadersByRole = useMemo(() => {
     const issues = [];
-    const fromRole = String(selectedFromRole || "main");
-    const fromIsMain = fromRole === "main" || fromRole.startsWith("main_");
 
     const leftKnown = new Set(
       leftFields.map((f) => String(f?.key || "")).filter(Boolean),
     );
 
-    const rightKnownByRole = new Map(
+    const rightKnownByDataset = new Map(
       rightColumns.map((group) => [
-        String(group?.role || ""),
+        String(group?.datasetId || ""),
         new Set((group?.headers || []).map(String)),
       ]),
     );
 
     for (const ln of links || []) {
+      const linkFromDatasetId = String(ln?.from?.datasetId || "");
       const linkFromRole = String(ln?.from?.role || "");
       const linkFromColumn = String(ln?.from?.column || "");
+      const linkToDatasetId = String(ln?.to?.datasetId || "");
       const linkToRole = String(ln?.to?.role || "");
       const linkToColumn = String(ln?.to?.column || "");
 
       if (
-        linkFromRole === fromRole &&
+        linkFromDatasetId === String(selectedFromDataset?.id || "") &&
         linkFromColumn &&
         !leftKnown.has(linkFromColumn)
       ) {
         issues.push({
           side: "from",
           role: linkFromRole,
+          datasetId: linkFromDatasetId,
           column: linkFromColumn,
         });
       }
 
-      const rhsVisible =
-        linkToRole &&
-        linkToRole !== fromRole &&
-        (!fromIsMain ||
-          !(linkToRole === "main" || linkToRole.startsWith("main_")));
-
-      if (rhsVisible) {
-        const known = rightKnownByRole.get(linkToRole) || new Set();
-        if (linkToColumn && !known.has(linkToColumn)) {
-          issues.push({
-            side: "to",
-            role: linkToRole,
-            column: linkToColumn,
-          });
-        }
+      const known = rightKnownByDataset.get(linkToDatasetId) || new Set();
+      if (linkToColumn && !known.has(linkToColumn)) {
+        issues.push({
+          side: "to",
+          role: linkToRole,
+          datasetId: linkToDatasetId,
+          column: linkToColumn,
+        });
       }
     }
 
     return issues;
-  }, [links, leftFields, rightColumns, selectedFromRole]);
+  }, [links, leftFields, rightColumns, selectedFromDataset]);
 
   // Recalculate absolute positions for endpoints used by SVG when DOM changes
   const computePositions = useCallback(() => {
@@ -489,7 +414,7 @@ export default function JoinsDesigner({
       window.removeEventListener("scroll", computePositions, true);
     };
   }, [
-    selectedFromRole,
+    selectedFromDataset,
     leftFields,
     rightColumns,
     links,
@@ -497,23 +422,50 @@ export default function JoinsDesigner({
     computePositions,
   ]);
 
-  const beginLink = (column) => {
-    setPending({ role: selectedFromRole || "main", column });
+  const beginLink = (datasetId, role, column) => {
+    if (!datasetId || !role || !column) return;
+
+    setPending({
+      datasetId: String(datasetId),
+      role: String(role || "main"),
+      column,
+    });
   };
 
-  const completeLink = (role, column) => {
-    if (!pending?.column || !pending?.role) return;
-    const next = [
-      ...links,
-      {
-        from: {
-          role: pending.role,
-          column: pending.column,
-          transform: { op: "trim_upper" },
-        },
-        to: { role, column, transform: { op: "trim_upper" } },
-      },
-    ];
+  const completeLink = (datasetId, role, column) => {
+    if (!pending?.column || !pending?.role || !pending?.datasetId) return;
+
+    const from = {
+      datasetId: String(pending.datasetId),
+      role: String(pending.role),
+      column: pending.column,
+      transform: { op: "trim_upper" },
+    };
+
+    const to = {
+      datasetId: String(datasetId),
+      role: String(role),
+      column,
+      transform: { op: "trim_upper" },
+    };
+
+    const exists = (links || []).some(
+      (l) =>
+        String(l?.from?.datasetId || "") === from.datasetId &&
+        String(l?.from?.role || "") === from.role &&
+        String(l?.from?.column || "") === from.column &&
+        String(l?.to?.datasetId || "") === to.datasetId &&
+        String(l?.to?.role || "") === to.role &&
+        String(l?.to?.column || "") === to.column,
+    );
+
+    if (exists) {
+      setPending(null);
+      return;
+    }
+
+    const next = [...links, { from, to }];
+
     setLinks(next);
     setPending(null);
     emitChange(next, customFields);
@@ -521,8 +473,9 @@ export default function JoinsDesigner({
   };
 
   // Helpers to key DOM nodes for endpoints used by the SVG layer
-  const keyL = (role, column) => `L:${role}:${column}`;
-  const keyR = (role, column) => `R:${role}:${column}`;
+  const keyL = (datasetId, role, column) => `L:${datasetId}:${role}:${column}`;
+
+  const keyR = (datasetId, role, column) => `R:${datasetId}:${role}:${column}`;
 
   const TRANSFORM_OPTIONS = [
     { value: "", label: "None" },
@@ -552,12 +505,23 @@ export default function JoinsDesigner({
   const setEndpointTransform = (idx, side, op, arg) => {
     const ln = links?.[idx] || {};
     const endpoint = side === "to" ? ln.to || {} : ln.from || {};
+
+    const nextTransform = !op
+      ? null
+      : op === "strip_prefix" || op === "lpad"
+        ? {
+            op,
+            ...(arg != null && String(arg).trim() !== ""
+              ? { arg: String(arg) }
+              : {}),
+          }
+        : { op };
+
     const nextEndpoint = {
       ...endpoint,
-      transform: op
-        ? { op, ...(arg != null && String(arg).trim() !== "" ? { arg } : {}) }
-        : null,
+      transform: nextTransform,
     };
+
     updateLink(idx, { [side]: nextEndpoint });
   };
 
@@ -567,28 +531,55 @@ export default function JoinsDesigner({
         {/* LEFT: Main dataset columns */}
         <Paper ref={leftRef} sx={{ p: 2, flex: 1, minHeight: 420 }}>
           <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
-            <Typography variant="subtitle1">FROM role columns</Typography>
-            {[...(mainRoles || []), ...(supportingRoles || [])].length > 1 ? (
+            <Typography variant="subtitle1">FROM main dataset slice</Typography>
+            {(mainDatasets || []).length > 1 ? (
               <Select
                 size="small"
-                value={selectedFromRole || "main"}
-                onChange={(e) => setSelectedFromRole(e.target.value)}
-                sx={{ ml: 1, minWidth: 200 }}
+                value={selectedFromDatasetId || ""}
+                onChange={(e) => setSelectedFromDatasetId(e.target.value)}
+                sx={{ ml: 1, minWidth: 320 }}
               >
-                {[...(mainRoles || []), ...(supportingRoles || [])].map((r) => (
-                  <MenuItem key={r} value={r}>
-                    {r}
+                {(mainDatasets || []).map((d) => (
+                  <MenuItem key={d.id} value={d.id}>
+                    {String(d?.sourceName || d?.fileName || d?.id || "Dataset")}
                   </MenuItem>
                 ))}
               </Select>
             ) : null}
           </Stack>
+          {selectedFromDataset ? (
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+              Slice:{" "}
+              {selectedFromDataset.sourceName ||
+                selectedFromDataset.fileName ||
+                selectedFromDataset.id}{" "}
+              · Role: {selectedFromDataset.role}
+            </Typography>
+          ) : null}
           <Stack spacing={0.5}>
             {leftFields.map(({ key, label }) => (
               <Box
                 key={key}
-                data-endpoint={keyL(selectedFromRole || "main", key)}
-                onClick={() => beginLink(key)}
+                data-endpoint={keyL(
+                  selectedFromDataset?.id || "main",
+                  selectedFromDataset?.role || "main",
+                  key,
+                )}
+                onClick={() => {
+                  if (!pending) {
+                    beginLink(
+                      selectedFromDataset?.id,
+                      selectedFromDataset?.role || "main",
+                      key,
+                    );
+                  } else {
+                    completeLink(
+                      selectedFromDataset?.id,
+                      selectedFromDataset?.role || "main",
+                      key,
+                    );
+                  }
+                }}
                 sx={{
                   px: 1,
                   py: 0.5,
@@ -596,7 +587,8 @@ export default function JoinsDesigner({
                   cursor: "crosshair",
                   bgcolor:
                     pending?.column === key &&
-                    pending?.role === (selectedFromRole || "main")
+                    String(pending?.datasetId || "") ===
+                      String(selectedFromDataset?.id || "")
                       ? "action.selected"
                       : "transparent",
                   "&:hover": { bgcolor: "action.hover" },
@@ -606,8 +598,10 @@ export default function JoinsDesigner({
               >
                 <Typography variant="body2">{label}</Typography>
                 {(() => {
-                  const fromRole = String(selectedFromRole || "main");
-                  const exVal = examplesByRole?.[fromRole]?.[key];
+                  const exVal =
+                    examplesByDatasetId?.[
+                      String(selectedFromDataset?.id || "")
+                    ]?.[key];
 
                   return exVal !== undefined &&
                     exVal !== null &&
@@ -624,7 +618,11 @@ export default function JoinsDesigner({
                 })()}
                 {debug && (
                   <Typography variant="caption" color="text.secondary">
-                    {keyL(selectedFromRole || "main", key)}
+                    {keyL(
+                      selectedFromDataset?.id || "main",
+                      selectedFromDataset?.role || "main",
+                      key,
+                    )}
                   </Typography>
                 )}
               </Box>
@@ -644,24 +642,6 @@ export default function JoinsDesigner({
               />
             </Tooltip>
           </Stack>
-          {(() => {
-            const fromRole = String(selectedFromRole || "main");
-            const fromIsMain =
-              fromRole === "main" || fromRole.startsWith("main_");
-            const hasOtherMainRoles = mainRoles.some(
-              (role) => role !== fromRole,
-            );
-
-            if (!fromIsMain || !hasOtherMainRoles) return null;
-
-            return (
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                Other main datasets exist for this PTRS run, but they are not
-                shown here because main-to-main joins are not required. Use
-                mapping to complete any CSV-backed main dataset fields.
-              </Typography>
-            );
-          })()}
 
           {missingHeadersByRole.length > 0 && (
             <Paper
@@ -685,7 +665,8 @@ export default function JoinsDesigner({
                     variant="caption"
                     color="error"
                   >
-                    {issue.side.toUpperCase()} · {issue.role} · {issue.column}
+                    {issue.side.toUpperCase()} · {issue.role} ·{" "}
+                    {issue.datasetId} · {issue.column}
                   </Typography>
                 ))}
               </Stack>
@@ -698,9 +679,9 @@ export default function JoinsDesigner({
             useFlexGap
             flexWrap="wrap"
           >
-            {rightColumns.map(({ role, headers }) => (
+            {rightColumns.map(({ datasetId, role, label, headers }) => (
               <Paper
-                key={role}
+                key={datasetId}
                 variant="outlined"
                 sx={{ p: 1.5, minWidth: 220, flex: "1 1 280px" }}
               >
@@ -710,15 +691,22 @@ export default function JoinsDesigner({
                   spacing={1}
                   sx={{ mb: 1 }}
                 >
-                  <Typography variant="subtitle2">{role}</Typography>
+                  <Typography variant="subtitle2">{label}</Typography>
+                  <Chip size="small" label={role} />
                   <Chip size="small" label={headers.length} />
                 </Stack>
                 <Stack spacing={0.5}>
                   {headers.map((h) => (
                     <Box
-                      key={`${role}:${h}`}
-                      data-endpoint={keyR(role, h)}
-                      onClick={() => completeLink(role, h)}
+                      key={`${datasetId}:${role}:${h}`}
+                      data-endpoint={keyR(datasetId, role, h)}
+                      onClick={() => {
+                        if (!pending) {
+                          beginLink(datasetId, role, h);
+                        } else {
+                          completeLink(datasetId, role, h);
+                        }
+                      }}
                       sx={{
                         px: 1,
                         py: 0.5,
@@ -731,7 +719,7 @@ export default function JoinsDesigner({
                     >
                       <Typography variant="body2">{h}</Typography>
                       {(() => {
-                        const exVal = examplesByRole?.[role]?.[h];
+                        const exVal = examplesByDatasetId?.[datasetId]?.[h];
                         return exVal !== undefined &&
                           exVal !== null &&
                           String(exVal).trim() !== "" ? (
@@ -747,7 +735,7 @@ export default function JoinsDesigner({
                       })()}
                       {debug && (
                         <Typography variant="caption" color="text.secondary">
-                          {keyR(role, h)}
+                          {keyR(datasetId, role, h)}
                         </Typography>
                       )}
                     </Box>
@@ -797,7 +785,8 @@ export default function JoinsDesigner({
                         From
                       </Typography>
                       <Typography variant="body2">
-                        {ln?.from?.role || "main"} · {ln?.from?.column || ""}
+                        {ln?.from?.role || "main"} · {ln?.from?.datasetId || ""}{" "}
+                        · {ln?.from?.column || ""}
                       </Typography>
                     </Box>
 
@@ -845,7 +834,8 @@ export default function JoinsDesigner({
                         To
                       </Typography>
                       <Typography variant="body2">
-                        {ln?.to?.role || ""} · {ln?.to?.column || ""}
+                        {ln?.to?.role || ""} · {ln?.to?.datasetId || ""} ·{" "}
+                        {ln?.to?.column || ""}
                       </Typography>
                     </Box>
 
@@ -905,38 +895,44 @@ export default function JoinsDesigner({
       >
         <svg width="100%" height="100%">
           {links.map((ln, idx) => {
-            const currentRole = String(selectedFromRole || "main");
-            const linkFromRole = String(ln?.from?.role || "");
-            const linkToRole = String(ln?.to?.role || "");
+            const currentDatasetId = String(selectedFromDataset?.id || "");
+            const fromDatasetId = String(ln?.from?.datasetId || "");
+            const toDatasetId = String(ln?.to?.datasetId || "");
 
-            // Render a link when the currently selected role appears on either side.
-            const selectedIsFrom = linkFromRole === currentRole;
-            const selectedIsTo = linkToRole === currentRole;
-            if (!selectedIsFrom && !selectedIsTo) return null;
+            const fromOnLeft = fromDatasetId === currentDatasetId;
+            const toOnLeft = toDatasetId === currentDatasetId;
 
-            // If the selected role is on the TO side, reverse the visual direction so the
-            // selected role still anchors to the visible left-hand side of the designer.
-            const leftRole = currentRole;
-            const leftColumn = selectedIsFrom
-              ? ln?.from?.column
-              : ln?.to?.column;
-            const rightRole = selectedIsFrom ? linkToRole : linkFromRole;
-            const rightColumn = selectedIsFrom
-              ? ln?.to?.column
-              : ln?.from?.column;
+            const fromKey = fromOnLeft
+              ? keyL(
+                  fromDatasetId,
+                  String(ln?.from?.role || "main"),
+                  ln?.from?.column,
+                )
+              : keyR(
+                  fromDatasetId,
+                  String(ln?.from?.role || ""),
+                  ln?.from?.column,
+                );
 
-            const leftKey = keyL(leftRole, leftColumn);
-            const rightKey = keyR(rightRole, rightColumn);
+            const toKey = toOnLeft
+              ? keyL(
+                  toDatasetId,
+                  String(ln?.to?.role || "main"),
+                  ln?.to?.column,
+                )
+              : keyR(toDatasetId, String(ln?.to?.role || ""), ln?.to?.column);
 
-            const a = positions[leftKey];
-            const b = positions[rightKey];
+            const a = positions[fromKey];
+            const b = positions[toKey];
 
             if (!debug && (!a || !b)) return null;
+
             const midX = a && b ? (a.x + b.x) / 2 : 0;
             const d =
               a && b
                 ? `M ${a.x} ${a.y} C ${midX} ${a.y}, ${midX} ${b.y}, ${b.x} ${b.y}`
                 : "";
+
             return (
               <g key={idx}>
                 {a && b && (
@@ -970,12 +966,12 @@ export default function JoinsDesigner({
                     )}
                     {!a && (
                       <text x={12} y={18 + idx * 16} fontSize="11" fill="red">
-                        Missing left: {leftKey}
+                        Missing from: {fromKey}
                       </text>
                     )}
                     {!b && (
                       <text x={12} y={34 + idx * 16} fontSize="11" fill="red">
-                        Missing right: {rightKey}
+                        Missing to: {toKey}
                       </text>
                     )}
                   </>
@@ -1002,14 +998,22 @@ export default function JoinsDesigner({
         <Stack spacing={2}>
           {customFields.map((cf, idx) => {
             const segments = Array.isArray(cf.segments) ? cf.segments : [];
-            const allFieldOptions = leftFields.map((f) => f.key);
+            const selectedCustomDatasetId = String(cf?.datasetId || "");
+            const datasetFieldOptions = selectedCustomDatasetId
+              ? datasetFieldOptionsById[selectedCustomDatasetId] || []
+              : [];
 
             const updateField = (patch) => {
               const next = customFields.map((item, i) =>
                 i === idx
                   ? {
                       ...item,
-                      role: String(item?.role || selectedFromRole || "main"),
+                      datasetId: String(
+                        item?.datasetId || selectedFromDataset?.id || "",
+                      ),
+                      role: String(
+                        item?.role || selectedFromDataset?.role || "main",
+                      ),
                       ...patch,
                     }
                   : item,
@@ -1030,7 +1034,7 @@ export default function JoinsDesigner({
                 kind === "field"
                   ? {
                       kind: "field",
-                      name: allFieldOptions[0] || "",
+                      name: datasetFieldOptions[0] || "",
                     }
                   : { kind: "literal", value: "" };
               updateField({ segments: [...segments, baseSegment] });
@@ -1067,6 +1071,10 @@ export default function JoinsDesigner({
                       size="small"
                       label={`Role: ${String(cf?.role || "main")}`}
                     />
+                    <Chip
+                      size="small"
+                      label={`Slice: ${String(cf?.datasetId || "none")}`}
+                    />
                     <Button
                       size="small"
                       onClick={removeField}
@@ -1074,6 +1082,45 @@ export default function JoinsDesigner({
                     >
                       Remove field
                     </Button>
+                  </Stack>
+
+                  <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
+                    <Select
+                      size="small"
+                      value={selectedCustomDatasetId}
+                      onChange={(e) => {
+                        const nextDatasetId = String(e.target.value || "");
+                        const selectedDataset = (datasets || []).find(
+                          (d) => String(d?.id || "") === nextDatasetId,
+                        );
+                        updateField({
+                          datasetId: nextDatasetId,
+                          role: String(
+                            selectedDataset?.role || cf?.role || "main",
+                          ),
+                          segments: segments.map((seg) =>
+                            seg?.kind === "field" ? { ...seg, name: "" } : seg,
+                          ),
+                        });
+                      }}
+                      sx={{ minWidth: 320 }}
+                    >
+                      {(datasets || []).map((d) => (
+                        <MenuItem key={d.id} value={d.id}>
+                          {String(
+                            d?.sourceName || d?.fileName || d?.id || "Dataset",
+                          )}{" "}
+                          · {String(d?.role || "")}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ alignSelf: "center" }}
+                    >
+                      Choose the dataset slice this custom field belongs to.
+                    </Typography>
                   </Stack>
 
                   <Stack spacing={1}>
@@ -1097,7 +1144,8 @@ export default function JoinsDesigner({
                               if (kind === "field") {
                                 updateSegment(segIdx, {
                                   kind: "field",
-                                  name: seg.name || allFieldOptions[0] || "",
+                                  name:
+                                    seg.name || datasetFieldOptions[0] || "",
                                   value: undefined,
                                 });
                               } else {
@@ -1131,7 +1179,7 @@ export default function JoinsDesigner({
                               const safeValue =
                                 seg &&
                                 typeof seg.name === "string" &&
-                                allFieldOptions.includes(seg.name)
+                                datasetFieldOptions.includes(seg.name)
                                   ? seg.name
                                   : "";
                               return (
@@ -1145,7 +1193,7 @@ export default function JoinsDesigner({
                                   }
                                   sx={{ flex: 1 }}
                                 >
-                                  {allFieldOptions.map((opt) => (
+                                  {datasetFieldOptions.map((opt) => (
                                     <MenuItem key={opt} value={opt}>
                                       {opt}
                                     </MenuItem>
@@ -1170,7 +1218,9 @@ export default function JoinsDesigner({
                     <Button
                       size="small"
                       onClick={() => addSegment("field")}
-                      disabled={!leftFields.length}
+                      disabled={
+                        !selectedCustomDatasetId || !datasetFieldOptions.length
+                      }
                     >
                       Add field segment
                     </Button>
@@ -1191,7 +1241,8 @@ export default function JoinsDesigner({
                 {
                   key: "",
                   type: "concat",
-                  role: String(selectedFromRole || "main"),
+                  datasetId: String(selectedFromDataset?.id || ""),
+                  role: String(selectedFromDataset?.role || "main"),
                   segments: [],
                 },
               ];
@@ -1213,7 +1264,7 @@ export default function JoinsDesigner({
       >
         <Typography variant="body2" sx={{ flex: 1 }} color="text.secondary">
           {pending
-            ? `Select a column to join with “${pending.column}”`
+            ? `Select a column to join with “${pending.column}” in the chosen slice`
             : links.length
               ? `${links.length} join${links.length > 1 ? "s" : ""} defined`
               : "No joins defined yet"}

@@ -35,20 +35,23 @@ import CreateRunCard from "./CreateRunCard";
 import { useAlert } from "context";
 
 const ROLE_OPTIONS = [
-  { value: "main_xero", label: "Transactions — Xero" },
-  { value: "main_csv", label: "Transactions — CSV (MYOB export)" },
-  // Legacy single-main role (keep for now)
-  { value: "transactions", label: "Transactions (legacy)" },
+  { value: "main_csv", label: "Payments / Transactions (CSV)" },
+  { value: "invoices_csv", label: "Invoices (CSV)" },
   { value: "vendormaster", label: "Vendor Master" },
   { value: "termschanges", label: "Payment Terms Changes" },
   { value: "entitystructure", label: "Entity Structure" },
   { value: "other", label: "Other" },
 ];
 
-const isMainRole = (r) => {
-  const v = String(r || "").toLowerCase();
-  return v === "main" || v === "transactions" || v.startsWith("main_");
-};
+const COLUMNS = [
+  { key: "payments", label: "Payments / Transactions", roles: ["main_csv"] },
+  { key: "invoices", label: "Invoices", roles: ["invoices_csv"] },
+  {
+    key: "supporting",
+    label: "Supporting datasets",
+    roles: ["vendormaster", "termschanges", "entitystructure", "other"],
+  },
+];
 
 const isXeroMainRole = (r) => {
   const v = String(r || "").toLowerCase();
@@ -76,7 +79,8 @@ export default function DataConsole() {
 
   // Datasets state
   const [datasets, setDatasets] = useState([]);
-  const [role, setRole] = useState("main_xero");
+  const [role, setRole] = useState("main_csv");
+  const [supportingRole, setSupportingRole] = useState("vendormaster");
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
   const [liveUploadStatus, setLiveUploadStatus] = useState(null);
@@ -224,10 +228,6 @@ export default function DataConsole() {
       await refreshDatasets();
       await refreshCtxDatasets?.();
       showAlert("Dataset uploaded", "success");
-      if (isMainRole(role)) {
-        goToTables();
-        return;
-      }
     } catch (err) {
       setLiveUploadStatus((prev) => ({
         ptrsId,
@@ -376,49 +376,133 @@ export default function DataConsole() {
                   Map core roles on the Transactions dataset.
                 </Typography>
 
-                {/* Uploader */}
+                {/* Columns */}
+                <Stack
+                  direction={{ xs: "column", md: "row" }}
+                  spacing={3}
+                  sx={{ mb: 3 }}
+                >
+                  {COLUMNS.map((col) => {
+                    const colDatasets = datasets.filter((d) =>
+                      col.roles.includes(d.role),
+                    );
+
+                    return (
+                      <Paper
+                        key={col.key}
+                        variant="outlined"
+                        sx={{ p: 2, flex: 1 }}
+                      >
+                        <Typography variant="subtitle1" sx={{ mb: 2 }}>
+                          {col.label}
+                        </Typography>
+
+                        {col.key === "supporting" && (
+                          <FormControl size="small" fullWidth sx={{ mb: 2 }}>
+                            <InputLabel id="supporting-role-select-label">
+                              Supporting dataset type
+                            </InputLabel>
+                            <Select
+                              labelId="supporting-role-select-label"
+                              label="Supporting dataset type"
+                              value={supportingRole}
+                              onChange={(e) =>
+                                setSupportingRole(e.target.value)
+                              }
+                            >
+                              {ROLE_OPTIONS.filter((opt) =>
+                                [
+                                  "vendormaster",
+                                  "termschanges",
+                                  "entitystructure",
+                                  "other",
+                                ].includes(opt.value),
+                              ).map((opt) => (
+                                <MenuItem key={opt.value} value={opt.value}>
+                                  {opt.label}
+                                </MenuItem>
+                              ))}
+                            </Select>
+                          </FormControl>
+                        )}
+
+                        <Stack spacing={1} sx={{ mb: 2 }}>
+                          {colDatasets.length === 0 ? (
+                            <Typography variant="body2" color="text.secondary">
+                              No files uploaded.
+                            </Typography>
+                          ) : (
+                            colDatasets.map((d) => (
+                              <Paper
+                                key={d.id}
+                                variant="outlined"
+                                sx={{
+                                  p: 1.5,
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "space-between",
+                                }}
+                              >
+                                <Box>
+                                  <Typography variant="body2">
+                                    {d.sourceName || d.fileName || "Dataset"}
+                                  </Typography>
+                                  <Typography
+                                    variant="caption"
+                                    color="text.secondary"
+                                  >
+                                    Rows: {d.rowsCount ?? "?"}
+                                  </Typography>
+                                </Box>
+                                <IconButton
+                                  size="small"
+                                  color="error"
+                                  onClick={() => onDelete(d.id)}
+                                >
+                                  <DeleteOutlineIcon fontSize="small" />
+                                </IconButton>
+                              </Paper>
+                            ))
+                          )}
+                        </Stack>
+
+                        <Button
+                          component="label"
+                          fullWidth
+                          variant="outlined"
+                          startIcon={<UploadFileIcon />}
+                          onClick={() =>
+                            setRole(
+                              col.key === "supporting"
+                                ? supportingRole
+                                : col.roles[0],
+                            )
+                          }
+                        >
+                          {col.key === "supporting"
+                            ? "Upload supporting CSV"
+                            : "Upload CSV"}
+                          <input
+                            hidden
+                            type="file"
+                            accept=".csv,text/csv"
+                            onChange={(e) =>
+                              setFile(e.target.files?.[0] || null)
+                            }
+                          />
+                        </Button>
+                      </Paper>
+                    );
+                  })}
+                </Stack>
+
+                {/* Uploader controls */}
                 <Stack
                   direction={{ xs: "column", sm: "row" }}
                   spacing={2}
                   alignItems="center"
                   sx={{ mb: 3 }}
                 >
-                  <FormControl size="small" sx={{ minWidth: 220 }}>
-                    <InputLabel id="role-select">Role</InputLabel>
-                    <Select
-                      labelId="role-select"
-                      label="Role"
-                      value={role}
-                      onChange={(e) => setRole(e.target.value)}
-                    >
-                      {ROLE_OPTIONS.map((opt) => (
-                        <MenuItem key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                  <Button
-                    component="label"
-                    variant="outlined"
-                    startIcon={<UploadFileIcon />}
-                  >
-                    Choose file
-                    <input
-                      hidden
-                      type="file"
-                      accept=".csv,text/csv"
-                      onChange={(e) => setFile(e.target.files?.[0] || null)}
-                    />
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    startIcon={<LinkIcon />}
-                    onClick={goToXero}
-                    disabled={isUploading || !isXeroMainRole(role)}
-                  >
-                    Import from Xero
-                  </Button>
                   <Tooltip title={file ? file.name : "No file chosen"}>
                     <Chip
                       label={file ? file.name : "No file"}
@@ -535,46 +619,6 @@ export default function DataConsole() {
                     Go to Tables & Joins
                   </Button>
                 </Stack>
-
-                {/* List */}
-                <Box>
-                  {datasets.length === 0 ? (
-                    <Typography variant="body2" color="text.secondary">
-                      No datasets uploaded yet.
-                    </Typography>
-                  ) : (
-                    <Stack spacing={1}>
-                      {datasets.map((d) => (
-                        <Paper
-                          key={d.id}
-                          variant="outlined"
-                          sx={{
-                            p: 2,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                          }}
-                        >
-                          <Box>
-                            <Typography variant="subtitle2">
-                              {d.sourceName || d.fileName || "Dataset"}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              Role: <b>{d.role}</b> • Rows: {d.rowsCount ?? "?"}{" "}
-                              • Headers: {d.headersCount ?? 0}
-                            </Typography>
-                          </Box>
-                          <IconButton
-                            color="error"
-                            onClick={() => onDelete(d.id)}
-                          >
-                            <DeleteOutlineIcon />
-                          </IconButton>
-                        </Paper>
-                      ))}
-                    </Stack>
-                  )}
-                </Box>
               </Box>
             )}
           </Paper>

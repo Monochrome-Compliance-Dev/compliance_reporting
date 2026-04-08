@@ -671,7 +671,7 @@ export default function TablesAndJoinsPanel() {
           <Button
             onClick={(e) => {
               e.currentTarget.blur();
-              setImportDialogOpen(true);
+              setImportDialogOpen(false);
             }}
             disabled={!!importingTemplateId}
           >

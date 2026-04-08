@@ -17,7 +17,6 @@ import { useAlert } from "context";
 import { usePtrsContext } from "../context/PtrsContext";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import { createPtrs } from "../services/ptrsApi";
-import { addDataset } from "../services/data.ptrsApi";
 import { isValidABN, payloadSanitiser } from "shared/utils";
 
 // Fixed half-yearly reporting periods
@@ -66,10 +65,6 @@ const schema = yup.object({
     .min(0)
     .max(PERIODS.length - 1)
     .required(),
-  dataSource: yup
-    .string()
-    .oneOf(["csv", "both", "xero"], "Select a valid data source")
-    .required("Main dataset source is required"),
   reportingEntityName: yup
     .string()
     .trim()
@@ -128,44 +123,20 @@ export default function CreatePtrsCard({ onSuccess }) {
     defaultValues: {
       label: "",
       periodIdx: 3,
-      dataSource: "csv",
-      reportingEntityName: "Veolia Water Technologies 2 Pty Ltd",
-      abn: "30616561829",
+      reportingEntityName: "Veolia Holdings Australia Pty Ltd",
+      abn: "82663593093",
       acn: "",
       arbn: "",
-      file: null,
     },
     mode: "onChange",
   });
 
-  const dataSource = watch("dataSource");
   const periodIdx = watch("periodIdx");
 
-  const requiresFile = useMemo(
-    () => dataSource === "csv" || dataSource === "both",
-    [dataSource],
-  );
-
-  const isBoth = useMemo(() => dataSource === "both", [dataSource]);
-
-  const canSubmit = Boolean(
-    profileId &&
-    isValid &&
-    !submitting &&
-    (requiresFile ? Boolean(fileObj) : true),
-  );
+  const canSubmit = Boolean(profileId && isValid && !submitting);
 
   const onSubmit = async (values) => {
     const p = PERIODS[values.periodIdx];
-
-    // Conditional file requirement (show inline error like other fields)
-    if (requiresFile && !fileObj) {
-      setError("file", {
-        type: "manual",
-        message: "Choose a CSV file to upload, or switch to Xero import.",
-      });
-      return;
-    }
 
     if (!profileId) {
       // Keep this as an alert for now because profile is outside RHF
@@ -228,13 +199,6 @@ export default function CreatePtrsCard({ onSuccess }) {
         },
       };
 
-      if (requiresFile && fileObj) {
-        payload.originalName =
-          fileObj.name || (values.label ? `${values.label}.csv` : "upload.csv");
-        payload.sizeBytes = fileObj.size ?? null;
-        payload.mimeType = fileObj.type || "text/csv";
-      }
-
       const res = await createPtrs(payload);
 
       const ptrsId = res?.data?.id || res?.id || res?.ptrsId;
@@ -247,42 +211,8 @@ export default function CreatePtrsCard({ onSuccess }) {
         return;
       }
 
-      if ((dataSource === "csv" || isBoth) && fileObj) {
-        try {
-          const ingest = await addDataset(ptrsId, fileObj, {
-            role: "main_csv",
-            sourceName: fileObj.name,
-          });
-          const inserted =
-            ingest?.rowsInserted ?? ingest?.data?.rowsInserted ?? 0;
-          showAlert(
-            `PTRS created for profile and ${inserted} rows ingested into main_csv`,
-            "success",
-          );
-        } catch (e2) {
-          console.error(e2);
-          showAlert("PTRS created but CSV upload failed", "error");
-          if (onSuccess) onSuccess(ptrsId);
-          return;
-        }
-
-        if (isBoth) {
-          showAlert(
-            "CSV uploaded as main_csv. Continue to import from Xero.",
-            "success",
-          );
-          if (onSuccess) onSuccess(ptrsId);
-          goTo(`xero?ptrsId=${encodeURIComponent(ptrsId)}`);
-          return;
-        }
-
-        if (onSuccess) onSuccess(ptrsId);
-        return;
-      }
-
-      showAlert("PTRS created. Continue to import from Xero.", "success");
+      showAlert("PTRS created. You can now upload datasets.", "success");
       if (onSuccess) onSuccess(ptrsId);
-      goTo(`xero?ptrsId=${encodeURIComponent(ptrsId)}`);
     } catch (err) {
       console.error(err);
       const msg =
@@ -359,32 +289,6 @@ export default function CreatePtrsCard({ onSuccess }) {
               </MenuItem>
             ))}
           </TextField>
-
-          <TextField
-            select
-            label="Main dataset source"
-            fullWidth
-            size="small"
-            sx={{ mt: 2 }}
-            {...register("dataSource")}
-            value={dataSource}
-            onChange={(e) => {
-              setValue("dataSource", e.target.value, { shouldValidate: true });
-              // If they swap away from file-based sources, clear the file error
-              if (e.target.value === "xero") {
-                clearErrors("file");
-              }
-            }}
-            error={!!errors.dataSource}
-            helperText={
-              errors.dataSource?.message ||
-              "Choose how to seed the main Transactions dataset for Step 1."
-            }
-          >
-            <MenuItem value="csv">Upload CSV</MenuItem>
-            <MenuItem value="both">CSV + Xero (roll-up)</MenuItem>
-            <MenuItem value="xero">Import from Xero</MenuItem>
-          </TextField>
         </Grid>
 
         <Grid size={{ xs: 12, md: 6 }}>
@@ -442,33 +346,10 @@ export default function CreatePtrsCard({ onSuccess }) {
 
         <Grid size={12}>
           <Stack spacing={0.75}>
-            {requiresFile ? (
-              <>
-                <input
-                  type="file"
-                  accept=".csv,text/csv"
-                  onChange={(e) => {
-                    const next = e.target.files?.[0] || null;
-                    setFileObj(next);
-                    setValue("file", next, { shouldValidate: true });
-                    if (next) clearErrors("file");
-                  }}
-                />
-                {errors.file ? (
-                  <Typography
-                    variant="caption"
-                    sx={{ color: theme.palette.error.main }}
-                  >
-                    {errors.file.message}
-                  </Typography>
-                ) : null}
-              </>
-            ) : (
-              <Typography variant="body2" color="text.secondary">
-                You’ll import Transactions from Xero after creating the PTRS
-                report.
-              </Typography>
-            )}
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+              Create the PTRS report first. You’ll upload datasets in the next
+              step.
+            </Typography>
           </Stack>
         </Grid>
 
@@ -479,11 +360,7 @@ export default function CreatePtrsCard({ onSuccess }) {
             fullWidth
             disabled={!canSubmit}
           >
-            {submitting
-              ? "Creating..."
-              : requiresFile
-                ? "Create PTRS report & upload"
-                : "Create PTRS report & continue"}
+            {submitting ? "Creating..." : "Create PTRS report"}
           </Button>
         </Grid>
       </Grid>
