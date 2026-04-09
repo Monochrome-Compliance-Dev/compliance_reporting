@@ -507,6 +507,9 @@ export default function StagePanel() {
       return;
     }
 
+    // Determine if this is a rerun (i.e. "Run again" was clicked)
+    const isRerun = !!result;
+
     showAlert(
       "Running staging for this dataset. If it's a big one, it might take ages — get comfy while we crunch the numbers.",
       "info",
@@ -520,7 +523,7 @@ export default function StagePanel() {
       const res = await stageMutation.mutateAsync({
         profileId,
         persist: true,
-        force: false,
+        force: isRerun,
       });
       if (!mountedRef.current) return;
       setResult(res);
