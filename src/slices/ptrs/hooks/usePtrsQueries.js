@@ -24,7 +24,11 @@ import { getValidate, runValidate } from "../services/validate.ptrsApi";
 import { getMetrics, updateMetricsDraft } from "../services/metrics.ptrsApi";
 import { getReportSnapshot } from "../services/report.ptrsApi";
 import { listDatasets } from "../services/data.ptrsApi";
-import { getPtrsMap, getUnifiedSample } from "../services/maps.ptrsApi";
+import {
+  getPtrsMap,
+  getUnifiedSample,
+  getPtrsFieldMap,
+} from "../services/maps.ptrsApi";
 import { getBlueprint } from "../services/ptrsApi";
 import {
   getLatestExecutionRun as getStageLatestExecutionRun,
@@ -190,6 +194,25 @@ export function usePtrsMapQuery(ptrsId) {
     queryFn: async () => getPtrsMap(ptrsId),
     enabled,
     staleTime: 60_000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function usePtrsFieldMapQuery(
+  ptrsId,
+  profileId,
+  datasetId,
+  { enabled = true } = {},
+) {
+  const queryEnabled = !!ptrsId && !!profileId && !!datasetId && enabled;
+
+  return useQuery({
+    queryKey: ["ptrs", "fieldMap", ptrsId, profileId, datasetId],
+    queryFn: async () => getPtrsFieldMap(ptrsId, profileId, datasetId),
+    enabled: queryEnabled,
+    staleTime: 5 * 60_000,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
