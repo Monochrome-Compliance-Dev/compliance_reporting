@@ -46,13 +46,17 @@ export default function PtrsLayout() {
     /^\/app\/ptrs\/(dashboard(?:-v2)?|report-v2)(?:\/[^/]+)?\/?$/.test(
       location.pathname,
     );
+  const isLearning = /^\/app\/ptrs\/learning(?:\/[^/]+)?\/?$/.test(
+    location.pathname,
+  );
 
   // Wizard flow surfaces (stepper + Back/Next). Dashboard is intentionally NOT part of the wizard.
-  const isWizard = !isLanding && !isDashboard;
+  const isWizard = !isLanding && !isDashboard && !isLearning;
 
   // Profile selection is required for wizard steps that operate on a PTRS profile.
   // Dashboard can render an empty / read-only state without forcing a profile selection.
-  const requiresProfile = !isLanding && !isDataConsole && !isDashboard;
+  const requiresProfile =
+    !isLanding && !isDataConsole && !isDashboard && !isLearning;
 
   // Safety rail: if we land on a PTRS step route without any ptrsId
   // in the URL or context (e.g. after a forced re-login), send the user
@@ -68,19 +72,20 @@ export default function PtrsLayout() {
 
     // If we're on a route that is allowed without a ptrsId (landing, data console, or dashboard),
     // don't redirect. Dashboard can render an empty state and prompt the user to select a run.
-    if (isLanding || isDataConsole || isDashboard) return;
+    if (isLanding || isDataConsole || isDashboard || isLearning) return;
 
     // No ptrsId in URL and none in context on a step that requires it
     // => reset to landing so the user can pick a run again.
-    if (!ptrsId) {
-      goTo("landing", { replace: true, includeId: false });
-    }
+    // if (!ptrsId) {
+    //   goTo("landing", { replace: true, includeId: false });
+    // }
   }, [
     location.search,
     isLanding,
     location.pathname,
     isDataConsole,
     isDashboard,
+    isLearning,
     ptrsId,
     goTo,
   ]);
@@ -110,6 +115,7 @@ export default function PtrsLayout() {
 
   const currentStepId = useMemo(() => {
     if (isLanding) return "landing";
+    if (isLearning) return "create";
     const parts = location.pathname.split("/").filter(Boolean);
     const ptrsIndex = parts.indexOf("ptrs");
     const maybe =
@@ -124,7 +130,7 @@ export default function PtrsLayout() {
       : maybe === "xero"
         ? "create"
         : "create";
-  }, [location.pathname, isLanding]);
+  }, [location.pathname, isLanding, isLearning]);
 
   const currentIndex = useMemo(
     () =>
