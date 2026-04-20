@@ -9,6 +9,7 @@ import {
   TableHead,
   TableRow,
   TableCell,
+  TableContainer,
   TableBody,
   Checkbox,
   Button,
@@ -24,9 +25,13 @@ import {
   OutlinedInput,
   FormControlLabel,
   Switch,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { loadMockStagedRows } from "../mock/mockStagedRows";
+import { enrichRowsWithReviewSignals } from "../mock/mockReviewIntelligence";
+import { recordMockReviewFeedback } from "../mock/mockReviewLearningStore";
 
 export default function LearningPanel() {
   const [sortBy, setSortBy] = useState("payment_time_days");
@@ -44,6 +49,12 @@ export default function LearningPanel() {
   const [decisionType, setDecisionType] = useState("exclude");
   const [reasonCode, setReasonCode] = useState("not_reportable");
   const [decisionNote, setDecisionNote] = useState("");
+  const [rejectionDialogOpen, setRejectionDialogOpen] = useState(false);
+  const [rejectionFinalCategory, setRejectionFinalCategory] =
+    useState("normal");
+  const [rejectionReasons, setRejectionReasons] = useState([]);
+  const [pendingRejectionReasons, setPendingRejectionReasons] = useState([]);
+  const [rejectionNote, setRejectionNote] = useState("");
 
   const [extraVisibleColumns, setExtraVisibleColumns] = useState([]);
   const [showUnreviewedOnly, setShowUnreviewedOnly] = useState(false);
@@ -52,7 +63,15 @@ export default function LearningPanel() {
   const [showNegativeAmountsOnly, setShowNegativeAmountsOnly] = useState(false);
   const [showTinyAmountsOnly, setShowTinyAmountsOnly] = useState(false);
   const [showHighDaysOnly, setShowHighDaysOnly] = useState(false);
+  const [showHighConfidenceOnly, setShowHighConfidenceOnly] = useState(false);
+  const [showSuggestedIntraGroupOnly, setShowSuggestedIntraGroupOnly] =
+    useState(false);
+  const [showSuggestedTransferOnly, setShowSuggestedTransferOnly] =
+    useState(false);
   const [similarRowIds, setSimilarRowIds] = useState([]);
+  const [isApplyingDecision, setIsApplyingDecision] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastOpen, setToastOpen] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -63,16 +82,22 @@ export default function LearningPanel() {
         setLoadError("");
         const rows = await loadMockStagedRows();
         if (!isMounted) return;
-        setData(
-          rows.slice(0, 100).map((row, idx) => ({
-            ...row,
-            __mockId: `${row["Document Number"] || row.invoice_reference_number || "row"}-${idx}`,
-            __reviewStatus: "unreviewed",
-            __decisionType: "",
-            __reasonCode: "",
-            __decisionNote: "",
-          })),
-        );
+
+        const enrichedRows = enrichRowsWithReviewSignals(
+          rows.slice(0, 300),
+        ).map((row, idx) => ({
+          ...row,
+          __mockId: `${row["Document Number"] || row.invoice_reference_number || "row"}-${idx}`,
+          __reviewStatus: "unreviewed",
+          __decisionType: "",
+          __reasonCode: "",
+          __decisionNote: "",
+          __confidenceOutcome: "",
+          __recommendationAccepted: null,
+          __finalCategory: "",
+        }));
+
+        setData(enrichedRows);
       } catch (err) {
         if (!isMounted) return;
         setData([]);
@@ -119,6 +144,8 @@ export default function LearningPanel() {
           .replace(/,/g, ""),
       ) || 0;
     const days = Number(row.payment_time_days || 0);
+    const reviewScore = Number(row.__reviewScore || 0);
+    const suggestedCategory = String(row.__suggestedCategory || "");
 
     const matchesUnreviewed = showUnreviewedOnly
       ? row.__reviewStatus !== "reviewed"
@@ -135,6 +162,17 @@ export default function LearningPanel() {
       : true;
 
     const matchesHighDaysOnly = showHighDaysOnly ? days >= 45 : true;
+    const matchesHighConfidenceOnly = showHighConfidenceOnly
+      ? reviewScore >= 100
+      : true;
+
+    const matchesSuggestedIntraGroupOnly = showSuggestedIntraGroupOnly
+      ? suggestedCategory === "intra_group"
+      : true;
+
+    const matchesSuggestedTransferOnly = showSuggestedTransferOnly
+      ? suggestedCategory === "transfer"
+      : true;
 
     return (
       matchesSupplier &&
@@ -145,7 +183,10 @@ export default function LearningPanel() {
       matchesMissingTerms &&
       matchesNegativeAmounts &&
       matchesTinyAmountsOnly &&
-      matchesHighDaysOnly
+      matchesHighDaysOnly &&
+      matchesHighConfidenceOnly &&
+      matchesSuggestedIntraGroupOnly &&
+      matchesSuggestedTransferOnly
     );
   });
 
@@ -210,23 +251,128 @@ export default function LearningPanel() {
     (col) => !excludedColumns.has(col),
   );
 
-  const defaultVisibleColumns = [
-    "__reviewStatus",
-    "Name 1",
-    "Document Type",
-    "Reference",
-    "Document Number",
-    "payment_amount",
-    "payment_time_days",
-    "Payment terms",
-    "payment_date",
-    "invoice_issue_date",
-    "invoice_due_date",
-    "payee_entity_name",
-    "payee_entity_abn",
-    "payer_entity_name",
-    "payer_entity_abn",
+  const displayColumns = [
+    {
+      id: "__reviewStatus",
+      label: "Review Status",
+      sourceKey: "__reviewStatus",
+    },
+    { id: "reviewScore", label: "Score", sourceKey: "__reviewScore" },
+    {
+      id: "suggestedCategory",
+      label: "Suggested Category",
+      sourceKey: "__suggestedCategory",
+    },
+    {
+      id: "confidenceOutcome",
+      label: "Confidence Outcome",
+      sourceKey: "__confidenceOutcome",
+    },
+    { id: "reviewFlags", label: "Flags", sourceKey: "__reviewFlagsLabel" },
+    { id: "supplier", label: "Supplier", sourceKey: "Name 1" },
+    {
+      id: "supplierAbn",
+      label: "Supplier ABN",
+      sourceKey: "payee_entity_abn",
+    },
+    {
+      id: "documentType",
+      label: "Doc Type",
+      sourceKey: "Document Type",
+    },
+    {
+      id: "reference",
+      label: "Reference / Description",
+      sourceKey: "Reference",
+    },
+    { id: "documentNumber", label: "Doc No", sourceKey: "Document Number" },
+    {
+      id: "paymentAmount",
+      label: "Payment Amount",
+      sourceKey: "payment_amount",
+    },
+    {
+      id: "paymentDate",
+      label: "Payment Date",
+      sourceKey: "payment_date",
+    },
+    {
+      id: "invoiceIssueDate",
+      label: "Invoice Issue Date",
+      sourceKey: "invoice_issue_date",
+    },
+    { id: "dueDate", label: "Due Date", sourceKey: "invoice_due_date" },
+    { id: "paymentTerms", label: "Terms", sourceKey: "Payment terms" },
+    { id: "paymentDays", label: "Days", sourceKey: "payment_time_days" },
+    { id: "payer", label: "Payer", sourceKey: "payer_entity_name" },
+    { id: "payerAbn", label: "Payer ABN", sourceKey: "payer_entity_abn" },
   ];
+
+  const defaultVisibleColumns = displayColumns.map((col) => col.id);
+
+  const displayColumnMap = Object.fromEntries(
+    displayColumns.map((col) => [col.id, col]),
+  );
+
+  const getDisplayValue = (row, columnId) => {
+    const column = displayColumnMap[columnId];
+    if (!column) return "";
+    return row[column.sourceKey];
+  };
+
+  const columnWidths = {
+    __reviewStatus: 180,
+    reviewScore: 80,
+    suggestedCategory: 160,
+    confidenceOutcome: 170,
+    reviewFlags: 260,
+    supplier: 220,
+    supplierAbn: 150,
+    documentType: 90,
+    reference: 180,
+    documentNumber: 120,
+    paymentAmount: 130,
+    paymentDate: 120,
+    invoiceIssueDate: 140,
+    dueDate: 120,
+    paymentTerms: 100,
+    paymentDays: 80,
+    payer: 220,
+    payerAbn: 150,
+  };
+
+  const getCellSx = (col) => ({
+    minWidth: columnWidths[col] || 140,
+    maxWidth: columnWidths[col] || 140,
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    verticalAlign: "top",
+  });
+
+  const formatConfidenceOutcome = (value) => {
+    if (!value) return "Pending";
+
+    return String(value)
+      .replaceAll("_", " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+  };
+
+  const formatFlags = (value) => {
+    const flags = Array.isArray(value)
+      ? value
+      : String(value || "")
+          .split(",")
+          .map((item) => item.trim())
+          .filter(Boolean);
+
+    if (!flags.length) return "-";
+
+    const preview = flags.slice(0, 2).map((flag) => flag.replaceAll("_", " "));
+    return flags.length > 2
+      ? `${preview.join(", ")} +${flags.length - 2}`
+      : preview.join(", ");
+  };
 
   const documentTypeOptions = [
     ...new Set(
@@ -240,6 +386,53 @@ export default function LearningPanel() {
     ),
   ].sort();
 
+  const rejectionReasonOptions = [
+    {
+      value: "account_not_internal",
+      label: "Account does not indicate internal activity",
+    },
+    {
+      value: "supplier_external",
+      label: "Supplier is external despite internal-looking details",
+    },
+    {
+      value: "abn_match_misleading",
+      label: "ABN / entity match is misleading",
+    },
+    {
+      value: "reference_misleading",
+      label: "Reference text is misleading",
+    },
+    {
+      value: "document_type_misleading",
+      label: "Document type is misleading",
+    },
+    {
+      value: "payment_terms_misleading",
+      label: "Payment terms are misleading",
+    },
+    {
+      value: "should_be_transfer",
+      label: "Should be transfer instead",
+    },
+    {
+      value: "should_be_normal",
+      label: "Should be normal supplier payment",
+    },
+    {
+      value: "credit_adjustment",
+      label: "This is a credit / adjustment case",
+    },
+    {
+      value: "grouping_wrong",
+      label: "Similar rows should not be grouped together",
+    },
+    {
+      value: "other",
+      label: "Other",
+    },
+  ];
+
   const handleSortChange = (column) => {
     if (sortBy === column) {
       setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
@@ -251,11 +444,14 @@ export default function LearningPanel() {
   };
 
   const visibleColumns = [
-    ...defaultVisibleColumns.filter((col) =>
-      col === "__reviewStatus"
-        ? true
-        : allColumns.includes(col) || col.startsWith("__"),
-    ),
+    ...defaultVisibleColumns.filter((col) => {
+      const displayCol = displayColumnMap[col];
+      if (!displayCol) return allColumns.includes(col) || col.startsWith("__");
+      return (
+        displayCol.sourceKey === "__reviewStatus" ||
+        allColumns.includes(displayCol.sourceKey)
+      );
+    }),
     ...extraVisibleColumns.filter(
       (col) =>
         !defaultVisibleColumns.includes(col) &&
@@ -265,7 +461,7 @@ export default function LearningPanel() {
   ];
 
   const availableExtraColumns = allColumns.filter(
-    (col) => !defaultVisibleColumns.includes(col) && !col.startsWith("__"),
+    (col) => !displayColumns.some((displayCol) => displayCol.sourceKey === col),
   );
 
   const isAllSelected =
@@ -300,9 +496,89 @@ export default function LearningPanel() {
     setDecisionDialogOpen(false);
   };
 
+  const openRejectionDialog = (finalCategory) => {
+    setRejectionFinalCategory(finalCategory);
+    setRejectionReasons([]);
+    setPendingRejectionReasons([]);
+    setRejectionNote("");
+    setRejectionDialogOpen(true);
+  };
+
+  const handleCloseRejectionDialog = () => {
+    setRejectionDialogOpen(false);
+    setRejectionFinalCategory("normal");
+    setRejectionReasons([]);
+    setPendingRejectionReasons([]);
+    setRejectionNote("");
+  };
+  const handleTogglePendingRejectionReason = (value) => {
+    setPendingRejectionReasons((prev) =>
+      prev.includes(value)
+        ? prev.filter((item) => item !== value)
+        : [...prev, value],
+    );
+  };
+
+  const handleApplyPendingRejectionReasons = () => {
+    setRejectionReasons(pendingRejectionReasons);
+  };
+
+  const handleCancelPendingRejectionReasons = () => {
+    setPendingRejectionReasons(rejectionReasons);
+  };
+
+  const handleSubmitRejectionDialog = () => {
+    if (!rejectionReasons.length) return;
+
+    const combinedNote = [
+      `Reasons: ${rejectionReasons.join(", ")}`,
+      rejectionNote.trim(),
+    ]
+      .filter(Boolean)
+      .join(" | ");
+
+    applyRecommendationFeedbackToDetailRow({
+      accepted: false,
+      finalCategory: rejectionFinalCategory,
+      note: combinedNote,
+      reasonCodes: rejectionReasons,
+    });
+
+    closeDrawerWithFeedback(
+      rejectionFinalCategory === "normal"
+        ? "Suggestion rejected"
+        : `Reclassified to ${rejectionFinalCategory}`,
+    );
+
+    handleCloseRejectionDialog();
+  };
+
   const handleApplyMockDecision = () => {
-    setData((prev) =>
-      prev.map((row) => {
+    setData((prev) => {
+      const targetedRows = prev.filter((row) =>
+        selectedRowIds.includes(row.__mockId),
+      );
+
+      if (targetedRows.length) {
+        recordMockReviewFeedback({
+          rows: targetedRows,
+          accepted: decisionType === "include",
+          suggestedCategory: targetedRows[0]?.__suggestedCategory || "unknown",
+          finalCategory:
+            decisionType === "include"
+              ? "normal"
+              : reasonCode === "intra_group"
+                ? "intra_group"
+                : reasonCode === "transfer"
+                  ? "transfer"
+                  : "normal",
+          reasonCode,
+          note: decisionNote,
+          source: "manual_dialog",
+        });
+      }
+
+      const nextRows = prev.map((row) => {
         if (!selectedRowIds.includes(row.__mockId)) return row;
 
         return {
@@ -311,9 +587,14 @@ export default function LearningPanel() {
           __decisionType: decisionType,
           __reasonCode: reasonCode,
           __decisionNote: decisionNote,
+          __confidenceOutcome: "manual_decision",
+          __recommendationAccepted: null,
+          __finalCategory: decisionType === "include" ? "normal" : "",
         };
-      }),
-    );
+      });
+
+      return refreshRowsWithLearning(nextRows);
+    });
 
     setSelectedRowIds([]);
     setDecisionDialogOpen(false);
@@ -325,8 +606,29 @@ export default function LearningPanel() {
   const applyPresetDecisionToIds = ({ rowIds, type, reason, note = "" }) => {
     if (!rowIds.length) return;
 
-    setData((prev) =>
-      prev.map((row) => {
+    setData((prev) => {
+      const targetedRows = prev.filter((row) => rowIds.includes(row.__mockId));
+
+      if (targetedRows.length) {
+        recordMockReviewFeedback({
+          rows: targetedRows,
+          accepted: type === "include",
+          suggestedCategory: targetedRows[0]?.__suggestedCategory || "unknown",
+          finalCategory:
+            type === "include"
+              ? "normal"
+              : reason === "intra_group"
+                ? "intra_group"
+                : reason === "transfer"
+                  ? "transfer"
+                  : "normal",
+          reasonCode: reason,
+          note,
+          source: "preset_bulk",
+        });
+      }
+
+      const nextRows = prev.map((row) => {
         if (!rowIds.includes(row.__mockId)) return row;
 
         return {
@@ -335,9 +637,14 @@ export default function LearningPanel() {
           __decisionType: type,
           __reasonCode: reason,
           __decisionNote: note,
+          __confidenceOutcome: "preset_applied",
+          __recommendationAccepted: null,
+          __finalCategory: type === "include" ? "normal" : "",
         };
-      }),
-    );
+      });
+
+      return refreshRowsWithLearning(nextRows);
+    });
 
     setSelectedRowIds([]);
   };
@@ -345,8 +652,31 @@ export default function LearningPanel() {
   const applyPresetDecisionToDetailRow = ({ type, reason, note = "" }) => {
     if (!detailRow?.__mockId) return;
 
-    setData((prev) =>
-      prev.map((row) => {
+    setData((prev) => {
+      const targetedRows = prev.filter(
+        (row) => row.__mockId === detailRow.__mockId,
+      );
+
+      if (targetedRows.length) {
+        recordMockReviewFeedback({
+          rows: targetedRows,
+          accepted: type === "include",
+          suggestedCategory: targetedRows[0]?.__suggestedCategory || "unknown",
+          finalCategory:
+            type === "include"
+              ? "normal"
+              : reason === "intra_group"
+                ? "intra_group"
+                : reason === "transfer"
+                  ? "transfer"
+                  : "normal",
+          reasonCode: reason,
+          note,
+          source: "preset_detail",
+        });
+      }
+
+      const nextRows = prev.map((row) => {
         if (row.__mockId !== detailRow.__mockId) return row;
 
         return {
@@ -355,9 +685,14 @@ export default function LearningPanel() {
           __decisionType: type,
           __reasonCode: reason,
           __decisionNote: note,
+          __confidenceOutcome: "preset_applied",
+          __recommendationAccepted: null,
+          __finalCategory: type === "include" ? "normal" : "",
         };
-      }),
-    );
+      });
+
+      return refreshRowsWithLearning(nextRows);
+    });
 
     setDetailRow((prev) =>
       prev
@@ -367,9 +702,210 @@ export default function LearningPanel() {
             __decisionType: type,
             __reasonCode: reason,
             __decisionNote: note,
+            __confidenceOutcome: "preset_applied",
+            __recommendationAccepted: null,
+            __finalCategory: type === "include" ? "normal" : "",
           }
         : prev,
     );
+
+    closeDrawerWithFeedback("Decision applied");
+  };
+
+  const applyRecommendationFeedbackToDetailRow = ({
+    accepted,
+    finalCategory,
+    note,
+    reasonCodes = [],
+  }) => {
+    if (!detailRow?.__mockId) return;
+
+    const suggestedCategory = String(
+      detailRow.__suggestedCategory || "unknown",
+    );
+    const confidenceOutcome = accepted
+      ? "accepted"
+      : `rejected_to_${finalCategory}`;
+
+    setData((prev) => {
+      const targetedRows = prev.filter(
+        (row) => row.__mockId === detailRow.__mockId,
+      );
+
+      if (targetedRows.length) {
+        recordMockReviewFeedback({
+          rows: targetedRows,
+          accepted,
+          suggestedCategory,
+          finalCategory,
+          reasonCode: accepted
+            ? suggestedCategory
+            : reasonCodes.length
+              ? JSON.stringify(reasonCodes)
+              : finalCategory,
+          note,
+          source: "recommendation_detail",
+        });
+      }
+
+      const nextRows = prev.map((row) => {
+        if (row.__mockId !== detailRow.__mockId) return row;
+
+        return {
+          ...row,
+          __reviewStatus: "reviewed",
+          __decisionType: accepted ? "accept_recommendation" : "reclassify",
+          __reasonCode: accepted ? suggestedCategory : finalCategory,
+          __decisionNote: note,
+          __confidenceOutcome: confidenceOutcome,
+          __recommendationAccepted: accepted,
+          __finalCategory: finalCategory,
+        };
+      });
+
+      return refreshRowsWithLearning(nextRows);
+    });
+
+    setDetailRow((prev) =>
+      prev
+        ? {
+            ...prev,
+            __reviewStatus: "reviewed",
+            __decisionType: accepted ? "accept_recommendation" : "reclassify",
+            __reasonCode: accepted ? suggestedCategory : finalCategory,
+            __decisionNote: note,
+            __confidenceOutcome: confidenceOutcome,
+            __recommendationAccepted: accepted,
+            __finalCategory: finalCategory,
+          }
+        : prev,
+    );
+  };
+
+  const applyRecommendationFeedbackToRowIds = ({
+    rowIds,
+    accepted,
+    finalCategory,
+    note,
+  }) => {
+    if (!rowIds?.length) return;
+
+    const uniqueRowIds = [...new Set(rowIds.filter(Boolean))];
+
+    setData((prev) => {
+      const targetedRows = prev.filter((row) =>
+        uniqueRowIds.includes(row.__mockId),
+      );
+
+      if (targetedRows.length) {
+        recordMockReviewFeedback({
+          rows: targetedRows,
+          accepted,
+          suggestedCategory: targetedRows[0]?.__suggestedCategory || "unknown",
+          finalCategory,
+          reasonCode: accepted
+            ? targetedRows[0]?.__suggestedCategory || "unknown"
+            : finalCategory,
+          note,
+          source: "recommendation_bulk",
+        });
+      }
+
+      const nextRows = prev.map((row) => {
+        if (!uniqueRowIds.includes(row.__mockId)) return row;
+
+        const suggestedCategory = String(row.__suggestedCategory || "unknown");
+        const confidenceOutcome = accepted
+          ? "accepted"
+          : `rejected_to_${finalCategory}`;
+
+        return {
+          ...row,
+          __reviewStatus: "reviewed",
+          __decisionType: accepted ? "accept_recommendation" : "reclassify",
+          __reasonCode: accepted ? suggestedCategory : finalCategory,
+          __decisionNote: note,
+          __confidenceOutcome: confidenceOutcome,
+          __recommendationAccepted: accepted,
+          __finalCategory: finalCategory,
+        };
+      });
+
+      return refreshRowsWithLearning(nextRows);
+    });
+
+    setDetailRow((prev) => {
+      if (!prev || !uniqueRowIds.includes(prev.__mockId)) return prev;
+
+      const suggestedCategory = String(prev.__suggestedCategory || "unknown");
+      const confidenceOutcome = accepted
+        ? "accepted"
+        : `rejected_to_${finalCategory}`;
+
+      return {
+        ...prev,
+        __reviewStatus: "reviewed",
+        __decisionType: accepted ? "accept_recommendation" : "reclassify",
+        __reasonCode: accepted ? suggestedCategory : finalCategory,
+        __decisionNote: note,
+        __confidenceOutcome: confidenceOutcome,
+        __recommendationAccepted: accepted,
+        __finalCategory: finalCategory,
+      };
+    });
+
+    setSimilarRowIds([]);
+  };
+
+  const handleAcceptRecommendation = () => {
+    if (!detailRow) return;
+
+    const suggestedCategory = String(
+      detailRow.__suggestedCategory || "unknown",
+    );
+    const finalCategory =
+      suggestedCategory === "unknown" ? "normal" : suggestedCategory;
+
+    applyRecommendationFeedbackToDetailRow({
+      accepted: true,
+      finalCategory,
+      note: `Accepted suggested category: ${finalCategory}`,
+    });
+
+    closeDrawerWithFeedback("Suggestion accepted for 1 row");
+  };
+
+  const handleAcceptAllSimilarRecommendations = () => {
+    if (!detailRow) return;
+
+    const suggestedCategory = String(
+      detailRow.__suggestedCategory || "unknown",
+    );
+    const finalCategory =
+      suggestedCategory === "unknown" ? "normal" : suggestedCategory;
+
+    const uniqueRowIds = [detailRow.__mockId, ...similarRowIds]
+      .filter(Boolean)
+      .filter((value, index, array) => array.indexOf(value) === index);
+
+    applyRecommendationFeedbackToRowIds({
+      rowIds: uniqueRowIds,
+      accepted: true,
+      finalCategory,
+      note: `Accepted suggested category: ${finalCategory}`,
+    });
+
+    closeDrawerWithFeedback(
+      `Suggestion accepted for ${uniqueRowIds.length} row${uniqueRowIds.length === 1 ? "" : "s"}`,
+    );
+  };
+
+  const handleRejectRecommendation = () => {
+    openRejectionDialog("normal");
+  };
+
+  const handleReclassifyRecommendation = (finalCategory) => {
+    openRejectionDialog(finalCategory);
   };
 
   const renderReviewedCell = (row) => {
@@ -387,39 +923,57 @@ export default function LearningPanel() {
   const getSimilarityScore = (baseRow, compareRow) => {
     let score = 0;
 
-    if (
-      (baseRow["Name 1"] || "") &&
-      baseRow["Name 1"] === compareRow["Name 1"]
-    ) {
+    const baseAccount = String(
+      baseRow.Account || baseRow["Account"] || "",
+    ).trim();
+    const compareAccount = String(
+      compareRow.Account || compareRow["Account"] || "",
+    ).trim();
+
+    const baseName = String(baseRow["Name 1"] || "").trim();
+    const compareName = String(compareRow["Name 1"] || "").trim();
+
+    const baseDocType = String(baseRow["Document Type"] || "").trim();
+    const compareDocType = String(compareRow["Document Type"] || "").trim();
+
+    const baseTerms = String(baseRow["Payment terms"] || "").trim();
+    const compareTerms = String(compareRow["Payment terms"] || "").trim();
+
+    const baseReference = String(baseRow.Reference || "").trim();
+    const compareReference = String(compareRow.Reference || "").trim();
+
+    const basePayeeAbn = String(
+      baseRow.payee_entity_abn || baseRow["ABN /Tax number"] || "",
+    ).trim();
+    const comparePayeeAbn = String(
+      compareRow.payee_entity_abn || compareRow["ABN /Tax number"] || "",
+    ).trim();
+
+    if (baseAccount && baseAccount === compareAccount) {
+      score += 4;
+    }
+
+    if (baseName && baseName === compareName) {
       score += 3;
     }
 
-    if (
-      (baseRow["Document Type"] || "") &&
-      baseRow["Document Type"] === compareRow["Document Type"]
-    ) {
+    if (baseDocType && baseDocType === compareDocType) {
+      score += 2;
+    }
+
+    if (baseTerms && baseTerms === compareTerms) {
       score += 2;
     }
 
     if (
-      (baseRow["Payment terms"] || "") &&
-      baseRow["Payment terms"] === compareRow["Payment terms"]
+      baseReference &&
+      compareReference &&
+      baseReference === compareReference
     ) {
       score += 2;
     }
 
-    if (
-      (baseRow.Reference || "") &&
-      (compareRow.Reference || "") &&
-      baseRow.Reference === compareRow.Reference
-    ) {
-      score += 2;
-    }
-
-    if (
-      (baseRow.payee_entity_abn || "") &&
-      baseRow.payee_entity_abn === compareRow.payee_entity_abn
-    ) {
+    if (basePayeeAbn && basePayeeAbn === comparePayeeAbn) {
       score += 2;
     }
 
@@ -437,7 +991,7 @@ export default function LearningPanel() {
       }))
       .filter((row) => row.score >= 4)
       .sort((a, b) => b.score - a.score)
-      .slice(0, 20)
+      // .slice(0, 20)
       .map((row) => row.id);
 
     setSimilarRowIds(matches);
@@ -446,6 +1000,32 @@ export default function LearningPanel() {
   const handleClearSimilarRows = () => {
     setSimilarRowIds([]);
   };
+
+  const showToast = (message) => {
+    setToastMessage(message);
+    setToastOpen(true);
+  };
+
+  const handleCloseToast = () => {
+    setToastOpen(false);
+  };
+
+  const closeDetailDrawer = () => {
+    setDetailRow(null);
+    setSimilarRowIds([]);
+    setIsApplyingDecision(false);
+  };
+
+  const closeDrawerWithFeedback = (message) => {
+    setIsApplyingDecision(true);
+    showToast(message);
+
+    setTimeout(() => {
+      closeDetailDrawer();
+    }, 500);
+  };
+
+  const refreshRowsWithLearning = (rows) => enrichRowsWithReviewSignals(rows);
 
   return (
     <Box sx={{ p: 4 }}>
@@ -464,9 +1044,6 @@ export default function LearningPanel() {
             alignItems="center"
           >
             <Typography variant="h6">Raw Records (Exploration)</Typography>
-            <Typography variant="body2" color="text.secondary">
-              {sortedRows.length} rows
-            </Typography>
           </Stack>
 
           <Stack
@@ -614,8 +1191,47 @@ export default function LearningPanel() {
                 }
                 label="45+ days"
               />
+              <FormControlLabel
+                control={
+                  <Switch
+                    size="small"
+                    checked={showHighConfidenceOnly}
+                    onChange={(e) =>
+                      setShowHighConfidenceOnly(e.target.checked)
+                    }
+                  />
+                }
+                label="High confidence internal"
+              />
+              <FormControlLabel
+                control={
+                  <Switch
+                    size="small"
+                    checked={showSuggestedIntraGroupOnly}
+                    onChange={(e) =>
+                      setShowSuggestedIntraGroupOnly(e.target.checked)
+                    }
+                  />
+                }
+                label="Suggested intra-group"
+              />
+              <FormControlLabel
+                control={
+                  <Switch
+                    size="small"
+                    checked={showSuggestedTransferOnly}
+                    onChange={(e) =>
+                      setShowSuggestedTransferOnly(e.target.checked)
+                    }
+                  />
+                }
+                label="Suggested transfer"
+              />
             </Stack>
           </Stack>
+          <Typography variant="body2" color="text.secondary">
+            {sortedRows.length} rows
+          </Typography>
         </Stack>
 
         <Paper variant="outlined" sx={{ p: 2, mt: 2 }}>
@@ -736,75 +1352,136 @@ export default function LearningPanel() {
         ) : null}
 
         {!isLoading && !loadError ? (
-          <Table size="small" sx={{ mt: 2 }}>
-            <TableHead>
-              <TableRow>
-                <TableCell padding="checkbox">
-                  <Checkbox
-                    checked={isAllSelected}
-                    indeterminate={isSomeSelected}
-                    onChange={handleToggleSelectAll}
-                  />
-                </TableCell>
-                {visibleColumns.map((col) => (
+          <TableContainer
+            sx={{
+              mt: 2,
+              maxWidth: "100%",
+              overflowX: "auto",
+              border: 1,
+              borderColor: "divider",
+              borderRadius: 1,
+            }}
+          >
+            <Table
+              size="small"
+              stickyHeader
+              sx={{
+                tableLayout: "fixed",
+                minWidth: 2200,
+              }}
+            >
+              <TableHead>
+                <TableRow>
                   <TableCell
-                    key={col}
-                    onClick={() =>
-                      col === "__reviewStatus" ? null : handleSortChange(col)
-                    }
+                    padding="checkbox"
                     sx={{
-                      cursor: col === "__reviewStatus" ? "default" : "pointer",
-                      userSelect: "none",
-                      whiteSpace: "nowrap",
+                      position: "sticky",
+                      left: 0,
+                      zIndex: 3,
+                      bgcolor: "background.paper",
                     }}
                   >
-                    {col === "__reviewStatus" ? "Review Status" : col}
-                    {sortBy === col
-                      ? sortDirection === "asc"
-                        ? " ↑"
-                        : " ↓"
-                      : ""}
+                    <Checkbox
+                      checked={isAllSelected}
+                      indeterminate={isSomeSelected}
+                      onChange={handleToggleSelectAll}
+                    />
                   </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {sortedRows.map((row) => {
-                const isSelected = selectedRowIds.includes(row.__mockId);
-                const isSimilar = similarRowIds.includes(row.__mockId);
+                  {visibleColumns.map((col) => {
+                    const displayCol = displayColumnMap[col];
+                    const isConfiguredColumn = Boolean(displayCol);
+                    const sortKey = isConfiguredColumn
+                      ? displayCol.sourceKey
+                      : col;
+                    const label = isConfiguredColumn ? displayCol.label : col;
+                    const isReviewStatus = sortKey === "__reviewStatus";
 
-                return (
-                  <TableRow
-                    key={row.__mockId}
-                    hover
-                    selected={isSelected}
-                    onClick={() => setDetailRow(row)}
-                    sx={{
-                      cursor: "pointer",
-                      bgcolor: isSimilar ? "action.hover" : undefined,
-                    }}
-                  >
-                    <TableCell
-                      padding="checkbox"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleToggleRow(row.__mockId);
+                    return (
+                      <TableCell
+                        key={col}
+                        onClick={() =>
+                          isReviewStatus ? null : handleSortChange(sortKey)
+                        }
+                        sx={{
+                          ...getCellSx(col),
+                          cursor: isReviewStatus ? "default" : "pointer",
+                          userSelect: "none",
+                        }}
+                      >
+                        {label}
+                        {sortBy === sortKey
+                          ? sortDirection === "asc"
+                            ? " ↑"
+                            : " ↓"
+                          : ""}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {sortedRows.map((row) => {
+                  const isSelected = selectedRowIds.includes(row.__mockId);
+                  const isSimilar = similarRowIds.includes(row.__mockId);
+
+                  return (
+                    <TableRow
+                      key={row.__mockId}
+                      hover
+                      selected={isSelected}
+                      onClick={() => setDetailRow(row)}
+                      sx={{
+                        cursor: "pointer",
+                        bgcolor: isSimilar ? "action.hover" : undefined,
                       }}
                     >
-                      <Checkbox checked={isSelected} />
-                    </TableCell>
-                    {visibleColumns.map((col) => (
-                      <TableCell key={col}>
-                        {col === "__reviewStatus"
-                          ? renderReviewedCell(row)
-                          : String(row[col] ?? "")}
+                      <TableCell
+                        padding="checkbox"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleToggleRow(row.__mockId);
+                        }}
+                        sx={{
+                          position: "sticky",
+                          left: 0,
+                          zIndex: 2,
+                          bgcolor: isSimilar
+                            ? "action.hover"
+                            : isSelected
+                              ? "action.selected"
+                              : "background.paper",
+                        }}
+                      >
+                        <Checkbox checked={isSelected} />
                       </TableCell>
-                    ))}
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
+                      {visibleColumns.map((col) => {
+                        const displayCol = displayColumnMap[col];
+                        const isConfiguredColumn = Boolean(displayCol);
+                        const sourceKey = isConfiguredColumn
+                          ? displayCol.sourceKey
+                          : col;
+                        const rawValue = isConfiguredColumn
+                          ? getDisplayValue(row, col)
+                          : row[col];
+
+                        return (
+                          <TableCell key={col} sx={getCellSx(col)}>
+                            {sourceKey === "__reviewStatus"
+                              ? renderReviewedCell(row)
+                              : sourceKey === "__confidenceOutcome"
+                                ? formatConfidenceOutcome(rawValue)
+                                : sourceKey === "__reviewFlagsLabel"
+                                  ? formatFlags(row.__reviewFlags)
+                                  : String(rawValue ?? "")}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
         ) : null}
       </Paper>
 
@@ -815,12 +1492,21 @@ export default function LearningPanel() {
       >
         <Box sx={{ width: 520, p: 3 }}>
           <Stack spacing={2}>
-            <Box>
-              <Typography variant="h6">Row Detail</Typography>
-              <Typography variant="body2" color="text.secondary">
-                Inspect the record and its current mock review state.
-              </Typography>
-            </Box>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="flex-start"
+            >
+              <Box>
+                <Typography variant="h6">Row Detail</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Inspect the record and its current mock review state.
+                </Typography>
+              </Box>
+              <Button size="small" onClick={closeDetailDrawer}>
+                Close
+              </Button>
+            </Stack>
 
             {detailRow ? (
               <>
@@ -828,11 +1514,60 @@ export default function LearningPanel() {
                   <Stack spacing={1}>
                     <Typography variant="subtitle2">Review Status</Typography>
                     {renderReviewedCell(detailRow)}
+                    <Typography variant="body2">
+                      <strong>Suggested Category:</strong>{" "}
+                      {String(detailRow.__suggestedCategory || "")}
+                    </Typography>
+                    <Typography variant="body2">
+                      <strong>Confidence Outcome:</strong>{" "}
+                      {formatConfidenceOutcome(detailRow.__confidenceOutcome)}
+                    </Typography>
                     {detailRow.__decisionNote ? (
                       <Typography variant="body2" color="text.secondary">
                         {detailRow.__decisionNote}
                       </Typography>
                     ) : null}
+                    {similarRowIds.length ? (
+                      <Chip
+                        size="small"
+                        color="info"
+                        label={`${similarRowIds.length} similar row(s) found`}
+                        onDelete={handleClearSimilarRows}
+                      />
+                    ) : null}
+                    {/* Learning Debug UI */}
+                    <Paper variant="outlined" sx={{ p: 2 }}>
+                      <Stack spacing={1}>
+                        <Typography variant="subtitle2">
+                          Learning Debug
+                        </Typography>
+                        <Typography variant="body2">
+                          <strong>Learned Adjustment:</strong>{" "}
+                          {detailRow.__learnedAdjustment ?? 0}
+                        </Typography>
+                        <Typography variant="body2">
+                          <strong>Matched Sources:</strong>{" "}
+                          {Array.isArray(detailRow.__matchedLearningSources) &&
+                          detailRow.__matchedLearningSources.length
+                            ? detailRow.__matchedLearningSources.join(", ")
+                            : "-"}
+                        </Typography>
+                        <Typography variant="body2">
+                          <strong>Category Bias:</strong>{" "}
+                          {detailRow.__learnedCategoryBias
+                            ? JSON.stringify(detailRow.__learnedCategoryBias)
+                            : "{}"}
+                        </Typography>
+                        <Typography variant="body2">
+                          <strong>Bias Gap:</strong>{" "}
+                          {detailRow.__learnedBiasGap ?? 0}
+                        </Typography>
+                        <Typography variant="body2">
+                          <strong>Override Allowed:</strong>{" "}
+                          {detailRow.__learnedOverrideAllowed ? "Yes" : "No"}
+                        </Typography>
+                      </Stack>
+                    </Paper>
                     <Stack
                       direction="row"
                       spacing={1}
@@ -842,17 +1577,65 @@ export default function LearningPanel() {
                       <Button
                         size="small"
                         variant="outlined"
+                        disabled={isApplyingDecision}
                         onClick={handleSuggestSimilarRows}
                       >
                         Suggest Similar Rows
                       </Button>
                       {similarRowIds.length ? (
-                        <Button size="small" onClick={handleClearSimilarRows}>
+                        <Button
+                          size="small"
+                          disabled={isApplyingDecision}
+                          onClick={handleClearSimilarRows}
+                        >
                           Clear Suggestions
                         </Button>
                       ) : null}
                       <Button
                         size="small"
+                        variant="contained"
+                        disabled={isApplyingDecision}
+                        onClick={handleAcceptRecommendation}
+                      >
+                        Accept This Row
+                      </Button>
+                      <Button
+                        size="small"
+                        variant="contained"
+                        disabled={isApplyingDecision || !similarRowIds.length}
+                        onClick={handleAcceptAllSimilarRecommendations}
+                      >
+                        Accept All Similar
+                      </Button>
+                      <Button
+                        size="small"
+                        color="warning"
+                        disabled={isApplyingDecision}
+                        onClick={handleRejectRecommendation}
+                      >
+                        Reject
+                      </Button>
+                      <Button
+                        size="small"
+                        disabled={isApplyingDecision}
+                        onClick={() =>
+                          handleReclassifyRecommendation("intra_group")
+                        }
+                      >
+                        Reclassify Intra-group
+                      </Button>
+                      <Button
+                        size="small"
+                        disabled={isApplyingDecision}
+                        onClick={() =>
+                          handleReclassifyRecommendation("transfer")
+                        }
+                      >
+                        Reclassify Transfer
+                      </Button>
+                      <Button
+                        size="small"
+                        disabled={isApplyingDecision}
                         onClick={() =>
                           applyPresetDecisionToDetailRow({
                             type: "include",
@@ -865,6 +1648,7 @@ export default function LearningPanel() {
                       </Button>
                       <Button
                         size="small"
+                        disabled={isApplyingDecision}
                         onClick={() =>
                           applyPresetDecisionToDetailRow({
                             type: "exclude",
@@ -877,6 +1661,7 @@ export default function LearningPanel() {
                       </Button>
                       <Button
                         size="small"
+                        disabled={isApplyingDecision}
                         onClick={() =>
                           applyPresetDecisionToDetailRow({
                             type: "exclude",
@@ -889,6 +1674,7 @@ export default function LearningPanel() {
                       </Button>
                       <Button
                         size="small"
+                        disabled={isApplyingDecision}
                         onClick={() =>
                           applyPresetDecisionToDetailRow({
                             type: "classify",
@@ -908,11 +1694,29 @@ export default function LearningPanel() {
                     <Typography variant="subtitle2">Key Fields</Typography>
                     {defaultVisibleColumns
                       .filter((col) => col !== "__reviewStatus")
-                      .map((col) => (
-                        <Typography key={col} variant="body2">
-                          <strong>{col}:</strong> {String(detailRow[col] ?? "")}
-                        </Typography>
-                      ))}
+                      .map((col) => {
+                        const displayCol = displayColumnMap[col];
+                        const rawValue = displayCol
+                          ? getDisplayValue(detailRow, col)
+                          : detailRow[col];
+
+                        let displayValue = rawValue;
+
+                        if (displayCol?.sourceKey === "__confidenceOutcome") {
+                          displayValue = formatConfidenceOutcome(rawValue);
+                        } else if (
+                          displayCol?.sourceKey === "__reviewFlagsLabel"
+                        ) {
+                          displayValue = formatFlags(detailRow.__reviewFlags);
+                        }
+
+                        return (
+                          <Typography key={col} variant="body2">
+                            <strong>{displayCol?.label || col}:</strong>{" "}
+                            {String(displayValue ?? "")}
+                          </Typography>
+                        );
+                      })}
                   </Stack>
                 </Paper>
 
@@ -940,6 +1744,111 @@ export default function LearningPanel() {
           </Stack>
         </Box>
       </Drawer>
+
+      <Snackbar
+        open={toastOpen}
+        autoHideDuration={2000}
+        onClose={handleCloseToast}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={handleCloseToast}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          {toastMessage}
+        </Alert>
+      </Snackbar>
+
+      <Dialog
+        open={rejectionDialogOpen}
+        onClose={handleCloseRejectionDialog}
+        fullWidth
+        maxWidth="sm"
+      >
+        <DialogTitle>
+          {rejectionFinalCategory === "normal"
+            ? "Why is this suggestion wrong?"
+            : `Why should this be ${rejectionFinalCategory}?`}
+        </DialogTitle>
+        <DialogContent>
+          <Stack spacing={2} sx={{ mt: 1 }}>
+            <Typography variant="body2" color="text.secondary">
+              Select one or more reasons so the system can learn which signals
+              were misleading. Use Apply selection to confirm the chosen reasons
+              before submitting the dialog.
+            </Typography>
+
+            <Paper
+              variant="outlined"
+              sx={{ p: 1.5, maxHeight: 320, overflow: "auto" }}
+            >
+              <Stack spacing={1}>
+                <Typography variant="subtitle2">Reasons</Typography>
+                {rejectionReasonOptions.map((option) => (
+                  <FormControlLabel
+                    key={option.value}
+                    control={
+                      <Checkbox
+                        checked={pendingRejectionReasons.includes(option.value)}
+                        onChange={() =>
+                          handleTogglePendingRejectionReason(option.value)
+                        }
+                      />
+                    }
+                    label={option.label}
+                  />
+                ))}
+                <Stack direction="row" spacing={1} justifyContent="flex-end">
+                  <Button
+                    size="small"
+                    onClick={handleCancelPendingRejectionReasons}
+                  >
+                    Cancel selection
+                  </Button>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    onClick={handleApplyPendingRejectionReasons}
+                  >
+                    Apply selection
+                  </Button>
+                </Stack>
+              </Stack>
+            </Paper>
+
+            <Typography variant="body2">
+              <strong>Applied reasons:</strong>{" "}
+              {rejectionReasons.length
+                ? rejectionReasonOptions
+                    .filter((option) => rejectionReasons.includes(option.value))
+                    .map((option) => option.label)
+                    .join(", ")
+                : "None selected yet"}
+            </Typography>
+
+            <TextField
+              label="Optional note"
+              value={rejectionNote}
+              onChange={(e) => setRejectionNote(e.target.value)}
+              multiline
+              minRows={3}
+              fullWidth
+            />
+          </Stack>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseRejectionDialog}>Cancel</Button>
+          <Button
+            variant="contained"
+            color="primary"
+            disabled={!rejectionReasons.length}
+            onClick={handleSubmitRejectionDialog}
+          >
+            Submit
+          </Button>
+        </DialogActions>
+      </Dialog>
 
       <Dialog
         open={decisionDialogOpen}
