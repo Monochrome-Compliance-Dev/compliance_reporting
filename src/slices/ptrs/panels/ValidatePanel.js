@@ -48,7 +48,78 @@ const formatStatus = (status) => {
     .join(" ");
 };
 
-const IssueAccordion = ({ title, items, color, onExclude, onViewRow }) => {
+const removeExcludedIssueFromValidate = (validateState, stageRowIds) => {
+  const ids = new Set(
+    (Array.isArray(stageRowIds) ? stageRowIds : [stageRowIds]).filter(Boolean),
+  );
+  if (!ids.size || !validateState) return validateState;
+
+  const blockers = Array.isArray(validateState.blockers)
+    ? validateState.blockers.filter((it) => !ids.has(it?.stageRowId))
+    : [];
+  const warnings = Array.isArray(validateState.warnings)
+    ? validateState.warnings.filter((it) => !ids.has(it?.stageRowId))
+    : [];
+
+  const originalCounts = validateState.counts || {};
+  const removedCount =
+    (Array.isArray(validateState.blockers)
+      ? validateState.blockers.length - blockers.length
+      : 0) +
+    (Array.isArray(validateState.warnings)
+      ? validateState.warnings.length - warnings.length
+      : 0);
+
+  const nextCounts = {
+    ...originalCounts,
+    blockers: blockers.length,
+    warnings: warnings.length,
+    excludedRows: Math.max(
+      0,
+      Number(originalCounts.excludedRows || 0) + ids.size,
+    ),
+  };
+
+  const nextStatus =
+    blockers.length > 0
+      ? "BLOCKED"
+      : warnings.length > 0
+        ? "PASSED_WITH_WARNINGS"
+        : "PASSED";
+
+  return {
+    ...validateState,
+    status: nextStatus,
+    counts: nextCounts,
+    blockers,
+    warnings,
+    _locallyExcludedCount: Math.max(
+      0,
+      Number(validateState._locallyExcludedCount || 0) + removedCount,
+    ),
+  };
+};
+
+const getIssuesByCode = (validateState, code) => {
+  const targetCode = String(code || "").trim();
+  if (!targetCode || !validateState) return [];
+
+  return [
+    ...(Array.isArray(validateState.blockers) ? validateState.blockers : []),
+    ...(Array.isArray(validateState.warnings) ? validateState.warnings : []),
+  ].filter(
+    (it) => String(it?.code || "").trim() === targetCode && it?.stageRowId,
+  );
+};
+
+const IssueAccordion = ({
+  title,
+  items,
+  color,
+  onExclude,
+  onViewRow,
+  onExcludeSimilar,
+}) => {
   const count = items?.length || 0;
 
   return (
@@ -115,6 +186,15 @@ const IssueAccordion = ({ title, items, color, onExclude, onViewRow }) => {
                         Exclude
                       </Button>
                     ) : null}
+                    {typeof onExcludeSimilar === "function" && it?.code ? (
+                      <Button
+                        size="small"
+                        variant="text"
+                        onClick={() => onExcludeSimilar(it)}
+                      >
+                        Exclude all similar
+                      </Button>
+                    ) : null}
                   </Stack>
                 </Stack>
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
@@ -160,6 +240,10 @@ export default function ValidatePanel() {
   const [excludeTarget, setExcludeTarget] = useState(null);
   const [excludeComment, setExcludeComment] = useState("");
 
+  const [bulkExcludeOpen, setBulkExcludeOpen] = useState(false);
+  const [bulkExcludeTarget, setBulkExcludeTarget] = useState(null);
+  const [bulkExcludeComment, setBulkExcludeComment] = useState("");
+
   const [viewOpen, setViewOpen] = useState(false);
   const [viewTarget, setViewTarget] = useState(null);
   const [viewRowLoading, setViewRowLoading] = useState(false);
@@ -204,11 +288,25 @@ export default function ValidatePanel() {
       showAlert(err?.message || "Failed to run validation.", "error");
     }
   }, [ptrsId, runMut, showAlert, updatePtrsStep]);
+
   const onOpenExclude = useCallback((issue) => {
     setExcludeTarget(issue);
     setExcludeComment("");
     setExcludeOpen(true);
   }, []);
+
+  const onOpenBulkExclude = useCallback(
+    (issue) => {
+      const similar = getIssuesByCode(effectiveValidate, issue?.code);
+      setBulkExcludeTarget({
+        code: issue?.code || "",
+        items: similar,
+      });
+      setBulkExcludeComment("");
+      setBulkExcludeOpen(true);
+    },
+    [effectiveValidate],
+  );
 
   const onOpenViewRow = useCallback(
     async (issue) => {
@@ -241,6 +339,12 @@ export default function ValidatePanel() {
     setExcludeComment("");
   }, []);
 
+  const onCloseBulkExclude = useCallback(() => {
+    setBulkExcludeOpen(false);
+    setBulkExcludeTarget(null);
+    setBulkExcludeComment("");
+  }, []);
+
   const onCloseViewRow = useCallback(() => {
     setViewOpen(false);
     setViewTarget(null);
@@ -262,9 +366,16 @@ export default function ValidatePanel() {
         comment: excludeComment,
       });
 
-      // Reload validate summary so UI reflects the exclusion immediately.
-      const next = await getValidate(ptrsId);
-      setOverrideValidate(next);
+      setOverrideValidate((prev) =>
+        removeExcludedIssueFromValidate(prev, excludeTarget.stageRowId),
+      );
+
+      try {
+        const next = await getValidate(ptrsId);
+        setOverrideValidate(next);
+      } catch (_) {
+        // local optimistic update is already applied
+      }
 
       showAlert("Row excluded.", "success");
       onCloseExclude();
@@ -272,6 +383,64 @@ export default function ValidatePanel() {
       showAlert(err?.message || "Failed to exclude row.", "error");
     }
   }, [ptrsId, excludeTarget, excludeComment, showAlert, onCloseExclude]);
+
+  const onConfirmBulkExclude = useCallback(async () => {
+    if (!ptrsId || !bulkExcludeTarget?.items?.length) {
+      showAlert("No matching issues found to exclude.", "error");
+
+      return;
+    }
+
+    const stageRowIds = bulkExcludeTarget.items
+
+      .map((it) => it?.stageRowId)
+
+      .filter(Boolean);
+
+    try {
+      showAlert(
+        `Excluding ${stageRowIds.length} similar row(s) from validation + metrics…`,
+
+        "info",
+      );
+
+      for (const stageRowId of stageRowIds) {
+        await setStageRowExcluded(ptrsId, stageRowId, {
+          exclude: true,
+
+          comment: bulkExcludeComment,
+        });
+      }
+
+      setOverrideValidate((prev) =>
+        removeExcludedIssueFromValidate(prev, stageRowIds),
+      );
+
+      try {
+        const next = await getValidate(ptrsId);
+
+        setOverrideValidate(next);
+      } catch (_) {
+        // local optimistic update is already applied
+      }
+
+      showAlert(
+        `${stageRowIds.length} similar row(s) excluded.`,
+
+        "success",
+      );
+
+      onCloseBulkExclude();
+    } catch (err) {
+      showAlert(err?.message || "Failed to exclude similar rows.", "error");
+    }
+  }, [
+    ptrsId,
+    bulkExcludeTarget,
+    bulkExcludeComment,
+    showAlert,
+    onCloseBulkExclude,
+  ]);
 
   const goBackToSbi = useCallback(() => {
     const qs = new URLSearchParams();
@@ -466,6 +635,7 @@ export default function ValidatePanel() {
             items={blockers}
             color={theme.palette.error.main}
             onExclude={onOpenExclude}
+            onExcludeSimilar={onOpenBulkExclude}
             onViewRow={onOpenViewRow}
           />
 
@@ -474,6 +644,7 @@ export default function ValidatePanel() {
             items={warnings}
             color={theme.palette.warning.main}
             onExclude={onOpenExclude}
+            onExcludeSimilar={onOpenBulkExclude}
             onViewRow={onOpenViewRow}
           />
         </Stack>
@@ -582,6 +753,52 @@ export default function ValidatePanel() {
             disabled={isBusy}
           >
             Exclude
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog
+        open={bulkExcludeOpen}
+        onClose={onCloseBulkExclude}
+        fullWidth
+        maxWidth="sm"
+      >
+        <DialogTitle>Exclude all similar rows</DialogTitle>
+        <DialogContent>
+          <Stack spacing={1.5} sx={{ mt: 1 }}>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+              This will exclude all currently listed validation issues with the
+              same code from validation and metrics, but they will remain in
+              staging for audit.
+            </Typography>
+
+            {bulkExcludeTarget ? (
+              <Typography variant="body2">
+                Target: <b>{bulkExcludeTarget.code || "ISSUE"}</b> (
+                {bulkExcludeTarget.items?.length || 0} row(s))
+              </Typography>
+            ) : null}
+
+            <TextField
+              label="Reason (optional)"
+              value={bulkExcludeComment}
+              onChange={(e) => setBulkExcludeComment(e.target.value)}
+              multiline
+              minRows={3}
+              placeholder="e.g. Source extract issue; excluding all rows of this type for this run"
+            />
+          </Stack>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={onCloseBulkExclude} disabled={isBusy}>
+            Cancel
+          </Button>
+          <Button
+            variant="contained"
+            onClick={onConfirmBulkExclude}
+            disabled={isBusy}
+          >
+            Exclude all similar
           </Button>
         </DialogActions>
       </Dialog>

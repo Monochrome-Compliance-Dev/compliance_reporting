@@ -9,6 +9,14 @@ import {
   MenuItem,
   Collapse,
   IconButton,
+  TableContainer,
+  Paper,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  TablePagination,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
@@ -92,6 +100,20 @@ const formatPreviewDelta = (value) => {
   return `${num >= 0 ? "+" : "-"}${abs}`;
 };
 
+const getPreviewField = (row, ...keys) => {
+  for (const key of keys) {
+    if (row && row[key] != null && row[key] !== "") {
+      return row[key];
+    }
+  }
+  return "";
+};
+
+const formatPreviewText = (value, fallback = "—") => {
+  const text = String(value ?? "").trim();
+  return text || fallback;
+};
+
 // Helper: detect if a cross-row rule is dangerously broad (no match, no positive where)
 const isBroadCrossRowRule = (rule) => {
   if ((rule?.type || "row") !== "crossRow") return false;
@@ -149,6 +171,9 @@ const normalisePtrsRules = (rowRules = [], crossRowRules = []) => {
             where: Array.isArray(r?.target?.where) ? r.target.where : [],
             selection: r?.target?.selection || "first_match",
             requireMatch: r?.target?.requireMatch !== false,
+            excludeUnmatchedCurrent:
+              r?.target?.excludeUnmatchedCurrent === true,
+            unmatchedComment: r?.target?.unmatchedComment || "",
           },
           action,
         };
@@ -169,6 +194,8 @@ const normalisePtrsRules = (rowRules = [], crossRowRules = []) => {
           where: Array.isArray(r?.target?.where) ? r.target.where : [],
           selection: r?.target?.selection || "first_match",
           requireMatch: r?.target?.requireMatch !== false,
+          excludeUnmatchedCurrent: r?.target?.excludeUnmatchedCurrent === true,
+          unmatchedComment: r?.target?.unmatchedComment || "",
         },
         action: r.action || {},
         alsoExcludeCurrent: !!r.alsoExcludeCurrent,
@@ -373,6 +400,9 @@ export default function RulesPanel() {
 
   const [lastPreview, setLastPreview] = useState(null);
   const [lastPreviewExamples, setLastPreviewExamples] = useState([]);
+  const [lastPreviewExamplesPagination, setLastPreviewExamplesPagination] =
+    useState({ page: 1, limit: 30, total: 0, totalPages: 1 });
+  const [previewPage, setPreviewPage] = useState(0);
   const [lastApplyResult, setLastApplyResult] = useState(null);
   const [showRuleGroups, setShowRuleGroups] = useState({});
   const [selectedGroupKey, setSelectedGroupKey] = useState("__all__");
@@ -425,6 +455,8 @@ export default function RulesPanel() {
       where: [],
       selection: "first_match",
       requireMatch: false,
+      excludeUnmatchedCurrent: false,
+      unmatchedComment: "",
     },
     action: { op: "add", field: "", valueFieldFromCurrent: "", round: 2 },
   });
@@ -444,6 +476,8 @@ export default function RulesPanel() {
       where: [],
       selection: "first_match",
       requireMatch: false,
+      excludeUnmatchedCurrent: false,
+      unmatchedComment: "",
     },
     action: {
       op: "add",
@@ -963,9 +997,16 @@ export default function RulesPanel() {
   };
 
   const handlePreview = async () => {
+    setPreviewPage(0);
     setIsPreviewing(true);
     setLastPreview(null);
     setLastPreviewExamples([]);
+    setLastPreviewExamplesPagination({
+      page: 1,
+      limit: 30,
+      total: 0,
+      totalPages: 1,
+    });
 
     try {
       showAlert("Generating rules preview…", "info");
@@ -977,6 +1018,8 @@ export default function RulesPanel() {
         const prev = await previewRules(ptrsId, {
           mode: "full",
           groupName: previewGroupName,
+          limit: 30,
+          page: 1,
         });
         const affected = prev?.summary?.rowsAffected ?? 0;
         const examples = Array.isArray(prev?.examples) ? prev.examples : [];
@@ -987,6 +1030,14 @@ export default function RulesPanel() {
           generatedAt: new Date().toISOString(),
         });
         setLastPreviewExamples(examples);
+        setLastPreviewExamplesPagination(
+          prev?.examplesPagination || {
+            page: 1,
+            limit: 30,
+            total: affected,
+            totalPages: Math.max(1, Math.ceil(affected / 30)),
+          },
+        );
 
         showAlert(
           `Preview ready — ${affected} target row(s) would be adjusted.`,
@@ -996,7 +1047,7 @@ export default function RulesPanel() {
       }
 
       const prev = await previewRules(ptrsId, {
-        limit: 20,
+        limit: 30,
         groupName: previewGroupName,
       });
       const actions = prev?.summary?.actions ?? 0;
@@ -1015,6 +1066,48 @@ export default function RulesPanel() {
       );
     } catch (err) {
       showAlert(err?.message || "Failed to generate preview.", "error");
+    } finally {
+      setIsPreviewing(false);
+    }
+  };
+
+  const handlePreviewPageChange = async (_event, nextPage) => {
+    setPreviewPage(nextPage);
+
+    const cross = selectedRules.find((r) => getRuleType(r) === "crossRow");
+    if (!cross) return;
+
+    setIsPreviewing(true);
+    try {
+      const previewGroupName =
+        selectedGroupKey === "__all__" ? null : selectedGroupLabel;
+
+      const prev = await previewRules(ptrsId, {
+        mode: "full",
+        groupName: previewGroupName,
+        limit: 30,
+        page: nextPage + 1,
+      });
+
+      const affected = prev?.summary?.rowsAffected ?? 0;
+      const examples = Array.isArray(prev?.examples) ? prev.examples : [];
+
+      setLastPreview({
+        kind: "crossRow",
+        count: affected,
+        generatedAt: new Date().toISOString(),
+      });
+      setLastPreviewExamples(examples);
+      setLastPreviewExamplesPagination(
+        prev?.examplesPagination || {
+          page: nextPage + 1,
+          limit: 30,
+          total: affected,
+          totalPages: Math.max(1, Math.ceil(affected / 30)),
+        },
+      );
+    } catch (err) {
+      showAlert(err?.message || "Failed to load preview page.", "error");
     } finally {
       setIsPreviewing(false);
     }
@@ -1181,6 +1274,11 @@ export default function RulesPanel() {
                 : [],
               selection: r?.target?.selection || "first_match",
               requireMatch: r?.target?.requireMatch !== false,
+              excludeUnmatchedCurrent:
+                r?.target?.excludeUnmatchedCurrent === true,
+              unmatchedComment: String(
+                r?.target?.unmatchedComment || "",
+              ).trim(),
             },
             action: {
               ...(r.action || {}),
@@ -1295,7 +1393,7 @@ export default function RulesPanel() {
           variant="body2"
           sx={{ color: theme.palette.text.secondary }}
         >
-          Ptrs: {ptrsId || "—"}
+          PTRS: {ptrsId || "—"}
         </Typography>
       </Stack>
 
@@ -1699,53 +1797,139 @@ export default function RulesPanel() {
                   onClick={() => {
                     setLastPreview(null);
                     setLastPreviewExamples([]);
+                    setLastPreviewExamplesPagination({
+                      page: 1,
+                      limit: 30,
+                      total: 0,
+                      totalPages: 1,
+                    });
+                    setPreviewPage(0);
                   }}
                 >
                   Clear
                 </Button>
               </Stack>
 
-              {lastPreview.kind === "crossRow" &&
-                lastPreviewExamples.length > 0 && (
-                  <Box sx={{ mt: 2 }}>
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        color: theme.palette.text.secondary,
-                        display: "block",
-                        mb: 1,
-                      }}
-                    >
-                      Examples (first {Math.min(lastPreviewExamples.length, 5)}
-                      ):
-                    </Typography>
+              {Array.isArray(lastPreviewExamples) &&
+              lastPreviewExamples.length ? (
+                <>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: theme.palette.text.secondary, mb: 1 }}
+                  >
+                    Preview rows ({lastPreviewExamplesPagination.total} total)
+                  </Typography>
 
-                    <Stack spacing={1}>
-                      {lastPreviewExamples.slice(0, 5).map((ex, idx) => (
-                        <Box
-                          key={`${ex.ref || "ref"}-${ex.rowNo || idx}-${idx}`}
-                          sx={{
-                            p: 1,
-                            border: `1px solid ${theme.palette.divider}`,
-                            borderRadius: 1,
-                            backgroundColor: theme.palette.background.default,
-                          }}
-                        >
-                          <Typography variant="body2" fontWeight={600}>
-                            {ex.ref || "Unmatched reference"}
-                            {ex.documentType ? ` (${ex.documentType})` : ""}
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            sx={{ color: theme.palette.text.secondary }}
-                          >
-                            {`${formatPreviewMoney(ex.baseBefore)} → ${formatPreviewMoney(ex.wouldBe)} (${formatPreviewDelta(ex.expectedDelta)})`}
-                          </Typography>
-                        </Box>
-                      ))}
-                    </Stack>
-                  </Box>
-                )}
+                  <TableContainer
+                    component={Paper}
+                    variant="outlined"
+                    sx={{
+                      backgroundColor: theme.palette.background.paper,
+                      borderColor: theme.palette.divider,
+                    }}
+                  >
+                    <Table size="small">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>Reference</TableCell>
+                          <TableCell>Supplier</TableCell>
+                          <TableCell>Document type</TableCell>
+                          <TableCell align="right">Base before</TableCell>
+                          <TableCell align="right">Delta</TableCell>
+                          <TableCell align="right">Would be</TableCell>
+                          <TableCell>Exclude reason</TableCell>
+                          <TableCell>Exclude comment</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {lastPreviewExamples.map((ex, idx) => {
+                          const ref = getPreviewField(
+                            ex,
+                            "ref",
+                            "invoice_reference_number",
+                          );
+                          const supplier = getPreviewField(
+                            ex,
+                            "supplier_name",
+                            "payee_entity_name",
+                            "Account  Name",
+                            "account_name",
+                          );
+                          const documentType = getPreviewField(
+                            ex,
+                            "document_type",
+                            "documentType",
+                          );
+                          const baseBefore = getPreviewField(
+                            ex,
+                            "base_before",
+                            "baseBefore",
+                          );
+                          const expectedDelta = getPreviewField(
+                            ex,
+                            "expected_delta",
+                            "expectedDelta",
+                          );
+                          const wouldBe = getPreviewField(
+                            ex,
+                            "would_be",
+                            "wouldBe",
+                          );
+                          const excludeReason = getPreviewField(
+                            ex,
+                            "exclude_reason",
+                            "excludeReason",
+                          );
+                          const excludeComment = getPreviewField(
+                            ex,
+                            "exclude_comment",
+                            "excludeComment",
+                          );
+
+                          return (
+                            <TableRow key={`${ref || "row"}-${idx}`}>
+                              <TableCell>{formatPreviewText(ref)}</TableCell>
+                              <TableCell>
+                                {formatPreviewText(supplier)}
+                              </TableCell>
+                              <TableCell>
+                                {formatPreviewText(documentType, "Invoice")}
+                              </TableCell>
+                              <TableCell align="right">
+                                {formatPreviewMoney(baseBefore)}
+                              </TableCell>
+                              <TableCell align="right">
+                                {formatPreviewDelta(expectedDelta)}
+                              </TableCell>
+                              <TableCell align="right">
+                                {formatPreviewMoney(wouldBe)}
+                              </TableCell>
+                              <TableCell>
+                                {formatPreviewText(excludeReason)}
+                              </TableCell>
+                              <TableCell sx={{ maxWidth: 420 }}>
+                                {formatPreviewText(excludeComment)}
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+
+                  <TablePagination
+                    component="div"
+                    count={Number(lastPreviewExamplesPagination.total || 0)}
+                    page={Math.max(
+                      0,
+                      Number(lastPreviewExamplesPagination.page || 1) - 1,
+                    )}
+                    onPageChange={handlePreviewPageChange}
+                    rowsPerPage={30}
+                    rowsPerPageOptions={[30]}
+                  />
+                </>
+              ) : null}
             </Box>
           )}
 

@@ -222,6 +222,7 @@ export default function RuleRelationshipBuilder({
             >
               <MenuItem value="first_match">First matching target</MenuItem>
               <MenuItem value="single_per_key">Single target per key</MenuItem>
+              <MenuItem value="best_match_pairing">Best match pairing</MenuItem>
             </Select>
           </FormControl>
         </Stack>
@@ -240,6 +241,35 @@ export default function RuleRelationshipBuilder({
               label="Require exactly one eligible target row per key"
             />
           </Box>
+        ) : null}
+
+        {targetSelection === "best_match_pairing" ? (
+          <Stack spacing={1.5}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={Boolean(rule.target?.excludeUnmatchedCurrent)}
+                  onChange={(e) =>
+                    updateTargetConfig({
+                      excludeUnmatchedCurrent: e.target.checked,
+                    })
+                  }
+                />
+              }
+              label="Exclude unmatched current rows"
+            />
+
+            <TextField
+              fullWidth
+              size="small"
+              label="Unmatched comment"
+              value={rule.target?.unmatchedComment || ""}
+              onChange={(e) =>
+                updateTargetConfig({ unmatchedComment: e.target.value })
+              }
+              placeholder="Excluded by cross-row rule — no matching invoice found for credit pairing"
+            />
+          </Stack>
         ) : null}
 
         <Stack

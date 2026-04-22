@@ -298,6 +298,12 @@ export default function ExclusionsPanel() {
       limit: 5,
       enabled: false,
     }),
+    payment_terms: useExclusionsPreviewQuery(ptrsId, {
+      profileId,
+      category: "payment_terms",
+      limit: 5,
+      enabled: false,
+    }),
     international: useExclusionsPreviewQuery(ptrsId, {
       profileId,
       category: "international",
@@ -365,6 +371,7 @@ export default function ExclusionsPanel() {
       employee: "employee & payroll",
       doc_type: "document type",
       prepaid: "pre-payment",
+      payment_terms: "payment terms",
       international: "international supplier",
       keyword: "custom keyword",
     };
@@ -379,6 +386,7 @@ export default function ExclusionsPanel() {
       employee: "EMPLOYEE",
       doc_type: "DOC_TYPE",
       prepaid: "PREPAID",
+      payment_terms: "PAYMENT_TERMS",
       international: "INTERNATIONAL",
       keyword: "KEYWORD",
     };
@@ -592,6 +600,13 @@ export default function ExclusionsPanel() {
             description:
               "Exclude payments with prepaid terms such as PREPAID (where applicable).",
             category: "prepaid",
+            enabled: true,
+          },
+          {
+            title: "Immediate payment terms",
+            description:
+              "Exclude non-trade-credit rows where the staged payment terms resolve to 0 days.",
+            category: "payment_terms",
             enabled: true,
           },
         ],

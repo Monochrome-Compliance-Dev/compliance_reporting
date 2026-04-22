@@ -967,15 +967,7 @@ export default function MapPanel() {
 
       setAssign((prev) => {
         const next = { ...prev };
-        const srcKey = src ? sourceRefKey(src) : null;
-
-        for (const key of Object.keys(next)) {
-          const existing = normaliseSourceRef(next[key]);
-          if (srcKey && sourceRefKey(existing) === srcKey) {
-            delete next[key];
-          }
-        }
-
+        // Removed block that deleted the same source from other targets
         next[safeTargetField] = src || undefined;
         setIsDirty(true);
         return next;
