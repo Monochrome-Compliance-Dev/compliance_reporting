@@ -20,7 +20,7 @@ import {
 } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useTheme } from "@mui/material/styles";
-import { useLocation, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 import { useAlert } from "context";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -44,14 +44,12 @@ import {
   useUpdatePtrsMutation,
   usePtrsDatasetsQuery,
   usePtrsMapQuery,
-  usePtrsUnifiedSampleQuery,
   usePtrsBlueprintQuery,
   usePtrsFieldMapQuery,
 } from "../hooks/usePtrsQueries";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import {
-  // extractMappingsFromAny,
-  getPtrsFieldMap,
+  importPtrsFieldMap,
   listPtrsWithMap,
   savePtrsMap,
   savePtrsFieldMap,
@@ -59,6 +57,7 @@ import {
 } from "../services/maps.ptrsApi";
 import SupportingDatasetsSection from "./SupportingDatasetsSection";
 import { LoadingSpinner } from "shared/ui";
+import { getDatasetSample } from "../services/data.ptrsApi";
 
 export default function MapPanel() {
   const labelFor = (fieldId) =>
@@ -67,8 +66,6 @@ export default function MapPanel() {
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
   const ptrsId = params.get("ptrsId");
-  const location = useLocation();
-  const isMapRoute = /(^|\/)map(\/|$)/i.test(location.pathname || "");
   const { profileId } = usePtrsContext();
 
   const sourceRefKey = (source) => {
@@ -105,23 +102,6 @@ export default function MapPanel() {
       datasetId: source?.datasetId || null,
       fileName: source?.fileName || null,
     };
-  };
-
-  const getSourceRefLabel = (source) => {
-    const src = normaliseSourceRef(source);
-    if (!src) return "";
-
-    const role = String(src.role || "main").trim();
-    const fileName = String(src.fileName || "").trim();
-    const datasetId = String(src.datasetId || "").trim();
-
-    const contextParts = [role];
-    if (fileName) contextParts.push(fileName);
-    else if (datasetId) contextParts.push(datasetId);
-
-    return contextParts.length
-      ? `${src.header} — ${contextParts.join(" — ")}`
-      : String(src.header || "");
   };
 
   const getSourceRefSearchText = useCallback((source) => {
@@ -331,11 +311,6 @@ export default function MapPanel() {
   const [selectedMapDatasetId, setSelectedMapDatasetId] = useState("");
 
   const mapQ = usePtrsMapQuery(ptrsId);
-  const sampleQ = usePtrsUnifiedSampleQuery(ptrsId, {
-    limit: 5,
-    offset: 0,
-    enabled: isMapRoute,
-  });
   const bpQ = usePtrsBlueprintQuery({ profileId });
   const fieldMapQ = usePtrsFieldMapQuery(
     ptrsId,
@@ -347,18 +322,16 @@ export default function MapPanel() {
   );
 
   const [blueprint, setBlueprint] = useState(null);
-  const [headers, setHeaders] = useState([]);
   const [examples, setExamples] = useState({});
-  const [headerMeta, setHeaderMeta] = useState({});
   const [loading, setLoading] = useState(false);
   const [staging, setStaging] = useState(false);
   const [mapExtras, setMapExtras] = useState(null);
   const [isDirty, setIsDirty] = useState(false);
 
   const [savingMap, setSavingMap] = useState(false);
+  const [sampleLoading, setSampleLoading] = useState(false);
 
   const isBusy = loading || staging || savingMap;
-  const sampleRefreshing = Boolean(sampleQ.isLoading || sampleQ.isFetching);
 
   // prevent double-submit / re-entrancy
   const stagingRef = useRef(false);
@@ -373,8 +346,6 @@ export default function MapPanel() {
   const [assign, setAssign] = useState({});
   // user-defined placeholder targets
   const [customFields, setCustomFields] = useState([]);
-  const [joinCustomFields, setJoinCustomFields] = useState([]);
-  const [joins, setJoins] = useState([]);
 
   const [savedFieldMap, setSavedFieldMap] = useState([]);
   const lastHydratedPtrsRef = useRef("");
@@ -393,7 +364,7 @@ export default function MapPanel() {
   const mappedCount = Object.values(assign || {}).filter(Boolean).length;
 
   const showSampleRefreshNotice =
-    sampleRefreshing && (mappedCount > 0 || savingMap || loading);
+    sampleLoading && (mappedCount > 0 || savingMap || loading);
 
   const sampleRefreshMessage =
     supportingDatasetsCount > 1
@@ -404,102 +375,46 @@ export default function MapPanel() {
   const [search, setSearch] = useState("");
   const [importOpen, setImportOpen] = useState(false);
 
-  const reachableDatasetIds = useMemo(() => {
-    const rootDatasetId = String(selectedMapDatasetId || "").trim();
-    if (!rootDatasetId) return new Set();
-
-    const datasetIds = new Set(
-      (dsQ.data?.items || [])
-        .map((dataset) => String(dataset?.id || "").trim())
-        .filter(Boolean),
-    );
-
-    const graph = new Map();
-    for (const datasetId of datasetIds) {
-      graph.set(datasetId, new Set());
-    }
-
-    for (const join of Array.isArray(joins) ? joins : []) {
-      const fromDatasetId = String(
-        join?.from?.datasetId || join?.left?.datasetId || "",
-      ).trim();
-      const toDatasetId = String(
-        join?.to?.datasetId || join?.right?.datasetId || "",
-      ).trim();
-
-      if (!fromDatasetId || !toDatasetId) continue;
-      if (!graph.has(fromDatasetId) || !graph.has(toDatasetId)) continue;
-
-      graph.get(fromDatasetId)?.add(toDatasetId);
-      graph.get(toDatasetId)?.add(fromDatasetId);
-    }
-
-    const visited = new Set();
-    const queue = [rootDatasetId];
-
-    while (queue.length) {
-      const current = queue.shift();
-      if (!current || visited.has(current)) continue;
-      visited.add(current);
-
-      for (const next of Array.from(graph.get(current) || [])) {
-        if (!visited.has(next)) queue.push(next);
-      }
-    }
-
-    visited.add(rootDatasetId);
-    return visited;
-  }, [selectedMapDatasetId, dsQ.data?.items, joins]);
+  const reachableDatasetIds = useMemo(
+    () =>
+      new Set(
+        (dsQ.data?.items || [])
+          .map((dataset) => String(dataset?.id || "").trim())
+          .filter(Boolean),
+      ),
+    [dsQ.data?.items],
+  );
 
   const sourceOptions = useMemo(() => {
-    if (!Array.isArray(headers) || !headers.length) return [];
-
-    const meta =
-      headerMeta && typeof headerMeta === "object" && !Array.isArray(headerMeta)
-        ? headerMeta
-        : {};
-
-    // Do not invent fake `main` source options while unified provenance is still
-    // loading. Saved canonical field-map hydration depends on real role-aware
-    // source options, so an empty list is safer than a misleading fallback.
-    if (!Object.keys(meta).length || !selectedMapDatasetId) return [];
-
-    const datasetsById = new Map(
-      (dsQ.data?.items || []).map((dataset) => [
-        String(dataset?.id || ""),
-        dataset,
-      ]),
-    );
+    const datasets = Array.isArray(dsQ.data?.items) ? dsQ.data.items : [];
+    if (!datasets.length || !selectedMapDatasetId) return [];
 
     const out = [];
     const seen = new Set();
 
-    for (const header of headers) {
-      const sources = Array.isArray(meta?.[header]?.sources)
-        ? meta[header].sources
-        : [];
+    for (const dataset of datasets) {
+      const datasetId = String(dataset?.id || "").trim();
+      if (!datasetId || !reachableDatasetIds.has(datasetId)) continue;
 
-      if (!sources.length) continue;
+      const role = String(dataset?.role || "main")
+        .trim()
+        .toLowerCase();
+      const fileName =
+        dataset?.fileName ||
+        dataset?.sourceName ||
+        dataset?.originalName ||
+        null;
+      const datasetHeaders = (dataset?.meta?.headers || dataset?.headers || [])
+        .filter(Boolean)
+        .map(String);
 
-      for (const src of sources) {
-        const role = String(src?.role || src?.kind || "main")
-          .trim()
-          .toLowerCase();
-        const datasetId = String(src?.datasetId || "").trim() || null;
-        const dataset = datasetId ? datasetsById.get(datasetId) : null;
-
-        if (datasetId && !reachableDatasetIds.has(datasetId)) continue;
-
+      for (const header of datasetHeaders) {
         const option = normaliseSourceRef(
           {
             header,
             role,
             datasetId,
-            fileName:
-              src?.fileName ||
-              dataset?.fileName ||
-              dataset?.originalName ||
-              null,
+            fileName,
           },
           role,
         );
@@ -512,13 +427,113 @@ export default function MapPanel() {
     }
 
     return out;
-  }, [
-    headers,
-    headerMeta,
-    dsQ.data?.items,
-    selectedMapDatasetId,
-    reachableDatasetIds,
-  ]);
+  }, [dsQ.data?.items, selectedMapDatasetId, reachableDatasetIds]);
+
+  useEffect(() => {
+    const datasets = Array.isArray(dsQ.data?.items) ? dsQ.data.items : [];
+    const targets = datasets.filter((dataset) => dataset?.id);
+
+    if (!targets.length) {
+      setExamples({});
+      return;
+    }
+
+    let cancelled = false;
+
+    const firstExample = (rows, header, colIdx) => {
+      const h = String(header || "");
+
+      for (const row of rows || []) {
+        let value;
+
+        if (row && typeof row === "object" && !Array.isArray(row)) {
+          if (row.data && typeof row.data === "object" && h in row.data) {
+            value = row.data[h];
+          } else if (h in row) {
+            value = row[h];
+          }
+        } else if (Array.isArray(row)) {
+          value = row[colIdx];
+        }
+
+        if (
+          value !== undefined &&
+          value !== null &&
+          String(value).trim() !== ""
+        ) {
+          return String(value);
+        }
+      }
+
+      return "";
+    };
+
+    (async () => {
+      setSampleLoading(true);
+
+      try {
+        const results = await Promise.allSettled(
+          targets.map((dataset) =>
+            getDatasetSample(dataset.id, { limit: 5 }).then((sample) => ({
+              dataset,
+              sample,
+            })),
+          ),
+        );
+
+        if (cancelled) return;
+
+        const nextExamples = {};
+
+        for (const result of results) {
+          if (result.status !== "fulfilled") continue;
+
+          const { dataset, sample } = result.value;
+          const datasetId = String(dataset?.id || "").trim();
+          if (!datasetId) continue;
+
+          const role = String(dataset?.role || "main")
+            .trim()
+            .toLowerCase();
+          const sampleHeaders = Array.isArray(sample?.headers)
+            ? sample.headers
+            : [];
+          const fallbackHeaders = (
+            dataset?.meta?.headers ||
+            dataset?.headers ||
+            []
+          )
+            .filter(Boolean)
+            .map(String);
+          const sampleRows = Array.isArray(sample?.rows) ? sample.rows : [];
+          const headersToUse = sampleHeaders.length
+            ? sampleHeaders
+            : fallbackHeaders;
+
+          for (const [index, header] of headersToUse.entries()) {
+            const value = firstExample(sampleRows, header, index);
+            if (!value) continue;
+
+            const optionKey = sourceRefKey({
+              header,
+              role,
+              datasetId,
+            });
+            nextExamples[optionKey] = value;
+            if (!nextExamples[header]) nextExamples[header] = value;
+          }
+        }
+
+        setExamples(nextExamples);
+      } finally {
+        if (!cancelled) setSampleLoading(false);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [dsQ.data?.items]);
 
   // Helper to open the import dialog and blur the triggering element
   const openImportDialog = (event) => {
@@ -533,37 +548,15 @@ export default function MapPanel() {
     setImportOpen(true);
   };
 
-  // --- Load headers + any existing saved map (query-driven; cache-friendly)
+  // --- Load existing saved map/config only. Headers/examples are dataset-driven above.
   useEffect(() => {
     if (!ptrsId) return;
 
-    // Helper to safely get cell value from row with possible {data:{}} or flat
-    function pickCell(row, h) {
-      if (row && typeof row === "object") {
-        if (row.data && typeof row.data === "object" && h in row.data)
-          return row.data[h];
-        if (h in row) return row[h];
-      }
-      return undefined;
-    }
-
     // Drive page loading state off queries
-    setLoading(
-      Boolean(
-        dsQ.isLoading || mapQ.isLoading || sampleQ.isLoading || bpQ.isLoading,
-      ),
-    );
+    setLoading(Boolean(dsQ.isLoading || mapQ.isLoading || bpQ.isLoading));
 
     if (mapQ.isError) {
       showAlert(mapQ.error?.message || "Failed to load mapping info", "error");
-      return;
-    }
-
-    if (isMapRoute && sampleQ.isError) {
-      showAlert(
-        sampleQ.error?.message || "Failed to load sample headers",
-        "error",
-      );
       return;
     }
 
@@ -573,17 +566,9 @@ export default function MapPanel() {
     }
 
     const mapRes = mapQ.data || null;
-    const unified = isMapRoute ? sampleQ.data || null : null;
     const bp = bpQ.data || null;
 
-    // console.log("sampleQ enabled?", {
-    //   ptrsId,
-    //   isMapRoute,
-    //   pathname: location.pathname,
-    // });
-
-    // If neither map nor sample is ready yet, do nothing (queries still loading)
-    if (!mapRes && !unified) return;
+    if (!mapRes && dsQ.isLoading) return;
 
     const existingExtras = mapRes?.extras || mapRes?.map?.extras || null;
     setMapExtras(existingExtras);
@@ -591,106 +576,11 @@ export default function MapPanel() {
     const existing =
       (mapRes && (mapRes.mappings || mapRes.map?.mappings)) || null;
 
-    // Normalise joins/customFields across old and new shapes
-    const normaliseJoins = (raw) => {
-      if (!raw) return { joins: [], customFields: null };
-
-      // joins can be an array or an object with { conditions, customFields }
-      const joinsSource = raw.joins || raw.map?.joins || null;
-      let joinsArr = [];
-      let customFieldsArr = null;
-
-      if (Array.isArray(joinsSource)) {
-        joinsArr = joinsSource;
-      } else if (
-        joinsSource &&
-        typeof joinsSource === "object" &&
-        Array.isArray(joinsSource.conditions)
-      ) {
-        joinsArr = joinsSource.conditions;
-        if (Array.isArray(joinsSource.customFields)) {
-          customFieldsArr = joinsSource.customFields;
-        }
-      }
-
-      // Top-level customFields (preferred)
-      const topLevelCustomFields =
-        raw.customFields || raw.map?.customFields || null;
-      if (Array.isArray(topLevelCustomFields)) {
-        customFieldsArr = topLevelCustomFields;
-      }
-
-      return {
-        joins: joinsArr,
-        customFields: Array.isArray(customFieldsArr) ? customFieldsArr : null,
-      };
-    };
-
-    const { joins: existingJoins, customFields: existingCustomFields } =
-      normaliseJoins(mapRes || {});
-
-    const initialCustomFields = Array.isArray(existingCustomFields)
-      ? existingCustomFields
-          .map((cf) =>
-            cf && typeof cf === "object" ? cf.key || cf.field || null : null,
-          )
-          .filter((n) => n && typeof n === "string")
-      : [];
+    const initialCustomFields = [];
 
     if (bp) setBlueprint(bp || null);
 
-    // headers: prefer unified sample, otherwise fall back to saved mapMeta headers
-    const inferred =
-      (unified?.headers?.length ? unified.headers : null) ||
-      (Array.isArray(existingExtras?.mapMeta?.sourceHeaders)
-        ? existingExtras.mapMeta.sourceHeaders
-        : []) ||
-      [];
-
-    const rows = (unified?.rows?.length ? unified.rows : []) || [];
-
-    const unifiedExamples =
-      unified && unified.examples && typeof unified.examples === "object"
-        ? unified.examples
-        : null;
-
-    // capture header meta if unified sample provided it
-    if (
-      unified &&
-      unified.headerMeta &&
-      typeof unified.headerMeta === "object"
-    ) {
-      setHeaderMeta(unified.headerMeta);
-    } else {
-      setHeaderMeta({});
-    }
-
-    setJoins(Array.isArray(existingJoins) ? existingJoins : []);
-    setJoinCustomFields(
-      Array.isArray(existingCustomFields) ? existingCustomFields : [],
-    );
-
-    setHeaders(inferred);
-
-    // build examples map: header -> first non-empty value
-    const ex = {};
-
-    for (const h of inferred) {
-      if (unifiedExamples && unifiedExamples[h] != null) {
-        ex[h] = String(unifiedExamples[h]);
-        continue;
-      }
-
-      for (const r of rows) {
-        const v = pickCell(r, h);
-        if (v !== undefined && v !== null && String(v).trim() !== "") {
-          ex[h] = String(v);
-          break;
-        }
-      }
-      if (!ex[h]) ex[h] = "";
-    }
-    setExamples(ex);
+    // The following block that handled headers and examples from unified/sample/mapMeta is now handled above in dataset-driven effect.
 
     // existing legacy mappings are header-keyed and cannot safely represent
     // supporting-role mappings. Only seed assign from them when there is no
@@ -735,23 +625,12 @@ export default function MapPanel() {
     mapQ.isError,
     mapQ.error,
     mapQ.data,
-    sampleQ.isLoading,
-    sampleQ.isError,
-    sampleQ.error,
-    sampleQ.data,
     bpQ.isLoading,
     bpQ.isError,
     bpQ.error,
     bpQ.data,
     dsQ.isLoading,
-    isMapRoute,
-    location.pathname,
   ]);
-
-  // useEffect(() => {
-  //   console.log("MapPanel mounted", location.pathname);
-  //   return () => console.log("MapPanel unmounted", location.pathname);
-  // }, [location.pathname]);
 
   useEffect(() => {
     didInitFromFieldMap.current = false;
@@ -802,7 +681,7 @@ export default function MapPanel() {
       try {
         if (mounted) setLoadingCopyMaps(true);
 
-        const lr = await listPtrsWithMap(profileId);
+        const lr = await listPtrsWithMap({ profileId });
         const items = Array.isArray(lr?.items)
           ? lr.items.filter(
               (run) => String(run?.id || "") !== String(ptrsId || ""),
@@ -1142,134 +1021,67 @@ export default function MapPanel() {
     if (didChange) setIsDirty(true);
   };
 
-  const applyIncomingFieldMap = (rows) => {
-    if (!Array.isArray(rows) || !rows.length) {
-      return { applied: 0, nextAssign: assign };
-    }
-
-    const next = { ...assign };
-    let applied = 0;
-
-    for (const row of rows) {
-      const target = String(row?.canonicalField || "").trim();
-      const sourceColumn = String(row?.sourceColumn || "").trim();
-      const sourceRole = String(row?.sourceRole || "main")
-        .trim()
-        .toLowerCase();
-
-      if (!target || !sourceColumn) continue;
-
-      const sourceDatasetId = getFieldMapSourceDatasetId(row);
-
-      const resolved =
-        resolveSourceOption(
-          sourceOptions,
-          sourceColumn,
-          sourceRole,
-          sourceDatasetId,
-        ) ||
-        normaliseSourceRef(
-          {
-            header: sourceColumn,
-            role: sourceRole,
-            datasetId: sourceDatasetId || null,
-          },
-          sourceRole,
-        );
-
-      if (!resolved) {
-        if (process.env.NODE_ENV === "development") {
-          console.warn("⚠️ Could not resolve canonical field-map source:", {
-            target,
-            sourceColumn,
-            sourceRole,
-          });
-        }
-        continue;
-      }
-
-      for (const k of Object.keys(next)) {
-        const existing = normaliseSourceRef(next[k]);
-        if (sourceRefKey(existing) === sourceRefKey(resolved)) {
-          next[k] = undefined;
-        }
-      }
-
-      next[target] = resolved;
-      applied += 1;
-    }
-
-    setAssign(next);
-    return { applied, nextAssign: next };
-  };
-
   const copyFromPtrsId = async (otherPtrsId) => {
+    if (!ptrsId) {
+      showAlert("Missing ptrsId", "error");
+      return;
+    }
+
+    if (!profileId) {
+      showAlert("A profile is required to import a map.", "warning");
+      return;
+    }
+
+    if (!otherPtrsId) {
+      showAlert("Choose a previous PTRS map to import.", "warning");
+      return;
+    }
+
+    setSavingMap(true);
+
     try {
-      if (!profileId) {
-        showAlert(
-          "A profile is required to copy canonical mappings.",
-          "warning",
-        );
-        return;
-      }
-      if (!selectedMapDatasetId) {
-        showAlert(
-          "Choose a main dataset slice before copying mappings.",
-          "warning",
-        );
-        return;
-      }
-
-      const sourceRows = await getPtrsFieldMap(
-        otherPtrsId,
+      const result = await importPtrsFieldMap(ptrsId, {
+        sourcePtrsId: otherPtrsId,
         profileId,
-        selectedMapDatasetId,
-      );
-      const fieldMapPayload = Array.isArray(sourceRows)
-        ? sourceRows
-            .filter((row) => row && typeof row === "object")
-            .map((row) => ({
-              canonicalField: row.canonicalField,
-              sourceRole: row.sourceRole,
-              sourceColumn: row.sourceColumn,
-              transformType: row.transformType ?? null,
-              transformConfig: row.transformConfig ?? null,
-              meta: row.meta ?? null,
-            }))
-            .filter((row) => row.canonicalField && row.sourceRole)
-        : [];
+      });
 
-      if (!fieldMapPayload.length) {
-        showAlert(`No canonical mappings found on ptrs ${otherPtrsId}`, "info");
-        return;
+      const refreshed = await fieldMapQ.refetch();
+      const refreshedRows = Array.isArray(refreshed?.data)
+        ? refreshed.data
+        : Array.isArray(result?.rows)
+          ? result.rows.filter(
+              (row) =>
+                String(row?.datasetId || "") ===
+                String(selectedMapDatasetId || ""),
+            )
+          : [];
+
+      setSavedFieldMap(refreshedRows);
+
+      if (Array.isArray(sourceOptions) && sourceOptions.length > 0) {
+        const hydrated = hydrateAssignFromFieldMap(
+          refreshedRows,
+          sourceOptions,
+          [],
+        );
+        setAssign(hydrated.nextAssign);
+        setCustomFields(hydrated.nextCustomFields);
       }
 
-      const savedRows = await savePtrsFieldMap(
-        ptrsId,
-        profileId,
-        selectedMapDatasetId,
-        fieldMapPayload,
-      );
-
-      setSavedFieldMap(Array.isArray(savedRows) ? savedRows : []);
       didInitFromFieldMap.current = true;
-
-      const { applied, nextAssign } = applyIncomingFieldMap(
-        Array.isArray(savedRows) ? savedRows : fieldMapPayload,
-      );
-
-      // Force a full save so legacy map + extras stay in sync and Stage never sees a partial state
-      await save(true, nextAssign);
-
+      lastHydratedPtrsRef.current = `${ptrsId}::${profileId}::${selectedMapDatasetId}`;
       setIsDirty(false);
+      setSelectedCopyPtrs(null);
       setImportOpen(false);
 
       showAlert(
-        `Copied ${applied} canonical mapping(s) from ${otherPtrsId} and auto-saved`,
+        `Imported ${Number(result?.importedRowsCount || 0)} canonical mapping(s) across ${Number(result?.importedDatasetsCount || 0)} dataset slice(s).`,
         "success",
       );
     } catch (e) {
-      showAlert(e?.message || "Failed to load map from that ptrs", "error");
+      showAlert(e?.message || "Failed to import map", "error");
+    } finally {
+      setSavingMap(false);
     }
   };
 
@@ -1418,8 +1230,8 @@ export default function MapPanel() {
         mappings: profileId ? null : payload,
         extras: mapExtras,
         profileId,
-        joins,
-        customFields: joinCustomFields,
+        joins: [],
+        customFields: [],
       });
 
       console.log(
@@ -1536,20 +1348,6 @@ export default function MapPanel() {
       return;
     }
 
-    if (!joinConnectivity.hasMain) {
-      abortStage(
-        "Before staging, a main dataset must exist and all datasets must be connected by joins.",
-      );
-      return;
-    }
-
-    if (!joinConnectivity.connected) {
-      abortStage(
-        `Before staging, all dataset roles must be connected by joins. Orphaned role(s): ${joinConnectivity.orphanedRoles.join(", ")}`,
-      );
-      return;
-    }
-
     setStaging(true);
 
     try {
@@ -1603,8 +1401,8 @@ export default function MapPanel() {
 
     const assignedContext = assigned ? getSourceRefContextLabel(assigned) : "";
     const assignedExample =
-      assigned?.header && examples[assigned.header]
-        ? `e.g. ${examples[assigned.header]}`
+      assigned && examples[sourceRefKey(assigned)]
+        ? `e.g. ${examples[sourceRefKey(assigned)]}`
         : "";
     const assignedTooltip = [assignedContext, assignedExample]
       .filter(Boolean)
@@ -1707,9 +1505,9 @@ export default function MapPanel() {
                         {getSourceRefContextLabel(sourceRef)}
                       </Typography>
                     )}
-                    {sourceRef?.header && examples[sourceRef.header] && (
+                    {sourceRef && examples[sourceRefKey(sourceRef)] && (
                       <Typography variant="caption" color="text.secondary">
-                        e.g. {examples[sourceRef.header]}
+                        e.g. {examples[sourceRefKey(sourceRef)]}
                       </Typography>
                     )}
                   </Stack>
@@ -1744,89 +1542,13 @@ export default function MapPanel() {
     (f) => !PTRS_REQUIRED_FIELDS.includes(f) && !!assign[f],
   ).length;
 
-  const joinConnectivity = useMemo(() => {
-    const datasetRoles = Array.from(
-      new Set(
-        (dsQ.data?.items || [])
-          .map((d) =>
-            String(d?.role || "")
-              .trim()
-              .toLowerCase(),
-          )
-          .filter(Boolean),
-      ),
-    );
-
-    if (!datasetRoles.length) {
-      return {
-        hasMain: false,
-        connected: false,
-        connectedRoles: [],
-        orphanedRoles: [],
-      };
-    }
-
-    const graph = new Map();
-    datasetRoles.forEach((role) => graph.set(role, new Set()));
-
-    for (const join of Array.isArray(joins) ? joins : []) {
-      const fromRole = String(join?.from?.role || "")
-        .trim()
-        .toLowerCase();
-      const toRole = String(join?.to?.role || "")
-        .trim()
-        .toLowerCase();
-      if (!fromRole || !toRole) continue;
-      if (!graph.has(fromRole) || !graph.has(toRole)) continue;
-
-      graph.get(fromRole)?.add(toRole);
-      graph.get(toRole)?.add(fromRole);
-    }
-
-    const mainRoles = datasetRoles.filter(
-      (role) => role === "main" || role.startsWith("main_"),
-    );
-    const rootRole = mainRoles[0] || null;
-
-    if (!rootRole) {
-      return {
-        hasMain: false,
-        connected: false,
-        connectedRoles: [],
-        orphanedRoles: datasetRoles,
-      };
-    }
-
-    const visited = new Set();
-    const queue = [rootRole];
-
-    while (queue.length) {
-      const current = queue.shift();
-      if (!current || visited.has(current)) continue;
-      visited.add(current);
-
-      for (const next of Array.from(graph.get(current) || [])) {
-        if (!visited.has(next)) queue.push(next);
-      }
-    }
-
-    const orphanedRoles = datasetRoles.filter((role) => !visited.has(role));
-
-    return {
-      hasMain: true,
-      connected: orphanedRoles.length === 0,
-      connectedRoles: Array.from(visited),
-      orphanedRoles,
-    };
-  }, [dsQ.data, joins]);
-
   const missingRequiredFields = (PTRS_REQUIRED_FIELDS || []).filter(
     (field) => !assign?.[field],
   );
 
   const stageBlockedReason = (() => {
-    if (sampleRefreshing) {
-      return "Stage will be enabled once mapping metadata has finished refreshing.";
+    if (sampleLoading) {
+      return "Stage will be enabled once mapping examples have finished refreshing.";
     }
 
     if (savingMap) {
@@ -1850,14 +1572,6 @@ export default function MapPanel() {
       return groupedRequirementFailures
         .map((g) => `${g.label} (map at least one)`)
         .join("; ");
-    }
-
-    if (!joinConnectivity.hasMain) {
-      return "A main dataset must exist before staging can continue.";
-    }
-
-    if (!joinConnectivity.connected) {
-      return `Connect all dataset roles with joins before staging. Orphaned role(s): ${joinConnectivity.orphanedRoles.join(", ")}.`;
     }
 
     return "";
@@ -1884,13 +1598,13 @@ export default function MapPanel() {
         }}
       >
         <Typography variant="body2">{sourceRef?.header}</Typography>
-        {sourceRef?.header && examples[sourceRef.header] && (
+        {sourceRef && examples[sourceRefKey(sourceRef)] && (
           <Typography
             variant="caption"
             color="text.secondary"
             sx={{ display: "block" }}
           >
-            e.g. {examples[sourceRef.header]}
+            e.g. {examples[sourceRefKey(sourceRef)]}
           </Typography>
         )}
         {sourceRef?.role && (
@@ -2123,15 +1837,14 @@ export default function MapPanel() {
                                   {getSourceRefContextLabel(sourceRef)}
                                 </Typography>
                               )}
-                            {sourceRef?.header &&
-                              examples[sourceRef.header] && (
-                                <Typography
-                                  variant="caption"
-                                  color="text.secondary"
-                                >
-                                  e.g. {examples[sourceRef.header]}
-                                </Typography>
-                              )}
+                            {sourceRef && examples[sourceRefKey(sourceRef)] && (
+                              <Typography
+                                variant="caption"
+                                color="text.secondary"
+                              >
+                                e.g. {examples[sourceRefKey(sourceRef)]}
+                              </Typography>
+                            )}
                           </Stack>
                         </Box>
                       );
@@ -2276,13 +1989,14 @@ export default function MapPanel() {
                                           {getSourceRefContextLabel(sourceRef)}
                                         </Typography>
                                       )}
-                                    {sourceRef?.header &&
-                                      examples[sourceRef.header] && (
+                                    {sourceRef &&
+                                      examples[sourceRefKey(sourceRef)] && (
                                         <Typography
                                           variant="caption"
                                           color="text.secondary"
                                         >
-                                          e.g. {examples[sourceRef.header]}
+                                          e.g.{" "}
+                                          {examples[sourceRefKey(sourceRef)]}
                                         </Typography>
                                       )}
                                   </Stack>

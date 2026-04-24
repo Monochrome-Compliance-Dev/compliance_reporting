@@ -47,6 +47,9 @@ export const PTRS_OPTIONAL_FIELDS = [
   "noticeForPaymentTerms",
   "invoicePaymentTerms",
   "paymentTerm",
+  "documentType",
+  "clearingDocument",
+  "sourceAccountCode",
 
   // Regulator classification flags
   "tradeCreditPayment",
@@ -116,6 +119,9 @@ export const PTRS_FIELD_LABELS = {
 
   // Terms
   paymentTerm: "Payment term (raw text)",
+  documentType: "Document type",
+  clearingDocument: "Clearing document",
+  sourceAccountCode: "Source account code",
   paymentTermDays: "Payment term (days, derived)",
   paymentTermSource: "Payment term source (provenance)",
   contractPoReferenceNumber: "Contract/PO reference number",
@@ -166,4 +172,7 @@ export const FIELD_SYNONYMS = {
   paymentDate: ["payment date", "clearing date", "paid on"],
   paymentTermDays: ["payment term days", "terms days", "net days"],
   paymentTerm: ["payment terms", "terms", "net terms"],
+  documentType: ["document type", "doc type"],
+  clearingDocument: ["clearing document", "clearing doc"],
+  sourceAccountCode: ["account code", "source account code", "vendor code"],
 };

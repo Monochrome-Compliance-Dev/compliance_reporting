@@ -18,6 +18,7 @@ import {
   IconButton,
   TextField,
   Grid,
+  LinearProgress,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
@@ -103,11 +104,23 @@ function ExclusionCard({
   onPreview,
   onApply,
   busy,
+  isApplying,
+  isPreviewing,
+  isInitialising,
   canApply,
   statusMessage,
 }) {
   const [showSample, setShowSample] = useState(false);
   const hasRows = Array.isArray(previewRows) && previewRows.length > 0;
+
+  const showLoadingState = isInitialising || isPreviewing || isApplying;
+  const loadingLabel = isApplying
+    ? "Applying exclusion…"
+    : isPreviewing
+      ? "Loading preview…"
+      : isInitialising
+        ? "Preparing exclusion checks…"
+        : "";
 
   return (
     <Card variant="outlined">
@@ -119,6 +132,27 @@ function ExclusionCard({
           <Typography variant="body2" color="text.secondary">
             {description}
           </Typography>
+
+          {showLoadingState ? (
+            <Stack spacing={1} sx={{ mt: 0.5 }}>
+              <Stack
+                direction="row"
+                spacing={1}
+                alignItems="center"
+                justifyContent="space-between"
+              >
+                <Typography variant="caption" color="text.secondary">
+                  {loadingLabel}
+                </Typography>
+                <Chip
+                  size="small"
+                  color="primary"
+                  label={isApplying ? "Applying…" : "Loading…"}
+                />
+              </Stack>
+              <LinearProgress />
+            </Stack>
+          ) : null}
 
           {enabled ? (
             <Typography variant="body2" sx={{ mt: 1 }}>
@@ -206,7 +240,7 @@ function ExclusionCard({
             onClick={() => onApply(category, title)}
             disabled={!enabled || busy || !canApply}
           >
-            Apply
+            {isApplying ? "Applying..." : "Apply"}
           </Button>
         </Stack>
       </CardActions>
@@ -224,9 +258,10 @@ function ExclusionsSummaryCard({ summary, loading }) {
           <Typography variant="h6" fontWeight={600}>
             Applied exclusions summary
           </Typography>
-
           <Typography variant="body2" color="text.secondary">
-            Persisted exclusion counts for this PTRS report.
+            {loading
+              ? "Checking persisted exclusion counts for this PTRS report…"
+              : "Persisted exclusion counts for this PTRS report."}
           </Typography>
 
           <Stack
@@ -329,6 +364,7 @@ export default function ExclusionsPanel() {
   const [newNotes, setNewNotes] = useState(""); // <-- add this
   const [editKeywordId, setEditKeywordId] = useState(null);
   const [editFields, setEditFields] = useState({});
+  const [applyingCategory, setApplyingCategory] = useState(null);
 
   const getAlreadyExcludedCount = (query, key) => {
     const total = query?.data?.result?.alreadyExcludedCounts?.[key] ?? null;
@@ -340,13 +376,17 @@ export default function ExclusionsPanel() {
   };
 
   const busy =
-    applyMutation.isLoading ||
+    applyMutation.isPending ||
+    applyingCategory !== null ||
     Object.values(previewQueries).some((q) => q.isFetching) ||
     exclusionsSummaryQuery.isFetching ||
     keywordListQuery.isFetching ||
-    createKeywordMutation.isLoading ||
-    updateKeywordMutation.isLoading ||
-    deleteKeywordMutation.isLoading;
+    createKeywordMutation.isPending ||
+    updateKeywordMutation.isPending ||
+    deleteKeywordMutation.isPending;
+
+  const initialLoadInProgress =
+    exclusionsSummaryQuery.isLoading || keywordListQuery.isLoading;
 
   const getPreviewCount = (query, key) => {
     const countFromResult = query?.data?.result?.counts?.[key];
@@ -416,6 +456,7 @@ export default function ExclusionsPanel() {
 
   const handleApplyCategory = async (category, title) => {
     try {
+      setApplyingCategory(category);
       showAlert(`Applying ${title.toLowerCase()}…`, "info");
       const res = await applyMutation.mutateAsync({
         profileId,
@@ -425,10 +466,12 @@ export default function ExclusionsPanel() {
       const persisted = res?.persisted ?? 0;
       showAlert(`Applied. ${persisted} row(s) re-evaluated.`, "success");
 
-      previewQueries[category]?.refetch?.();
-      exclusionsSummaryQuery.refetch();
+      await previewQueries[category]?.refetch?.();
+      await exclusionsSummaryQuery.refetch();
     } catch (err) {
       showAlert(err?.message || "Failed to apply exclusions.", "error");
+    } finally {
+      setApplyingCategory(null);
     }
   };
 
@@ -650,6 +693,34 @@ export default function ExclusionsPanel() {
           loading={exclusionsSummaryQuery.isFetching}
         />
 
+        {initialLoadInProgress ? (
+          <Card variant="outlined">
+            <CardContent>
+              <Stack spacing={1.5}>
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Typography variant="subtitle1" fontWeight={600}>
+                    Loading exclusion state
+                  </Typography>
+                  <Chip size="small" color="primary" label="Checking…" />
+                </Stack>
+
+                <Typography variant="body2" color="text.secondary">
+                  The platform is checking previously applied exclusions and any
+                  saved keyword rules for this PTRS report. The exclusion cards
+                  will become actionable once that finishes.
+                </Typography>
+
+                <LinearProgress />
+              </Stack>
+            </CardContent>
+          </Card>
+        ) : null}
+
         <Stack spacing={2} sx={{ mt: 1 }}>
           {sections.map((section) => (
             <Stack key={section.title} spacing={1.5}>
@@ -696,15 +767,23 @@ export default function ExclusionsPanel() {
                             previewCount={previewCount}
                             previewRows={previewRows}
                             busy={busy}
+                            isApplying={applyingCategory === item.category}
+                            isPreviewing={
+                              query?.isFetching === true &&
+                              applyingCategory !== item.category
+                            }
+                            isInitialising={initialLoadInProgress}
                             onPreview={handlePreviewCategory}
                             onApply={handleApplyCategory}
                             canApply={canApply}
                             statusMessage={
-                              query?.isFetched
-                                ? toBeAffectedCount > 0
-                                  ? `${toBeAffectedCount} row(s) to be affected • ${alreadyExcludedCount} already excluded${summarySuffix}`
-                                  : `No remaining rows to affect${summarySuffix}`
-                                : "Preview this category before applying."
+                              applyingCategory === item.category
+                                ? `Applying ${item.title.toLowerCase()} — this may take a while for large datasets.`
+                                : query?.isFetched
+                                  ? toBeAffectedCount > 0
+                                    ? `${toBeAffectedCount} row(s) to be affected • ${alreadyExcludedCount} already excluded${summarySuffix}`
+                                    : `No remaining rows to affect${summarySuffix}`
+                                  : "Preview this category before applying."
                             }
                           />
 
@@ -1066,15 +1145,23 @@ export default function ExclusionsPanel() {
                         previewCount={previewCount}
                         previewRows={previewRows}
                         busy={busy}
+                        isApplying={applyingCategory === item.category}
+                        isPreviewing={
+                          query?.isFetching === true &&
+                          applyingCategory !== item.category
+                        }
+                        isInitialising={initialLoadInProgress}
                         onPreview={handlePreviewCategory}
                         onApply={handleApplyCategory}
                         canApply={canApply}
                         statusMessage={
-                          query?.isFetched
-                            ? toBeAffectedCount > 0
-                              ? `${toBeAffectedCount} row(s) to be affected • ${alreadyExcludedCount} already excluded${summarySuffix}`
-                              : `No remaining rows to affect${summarySuffix}`
-                            : "Preview this category before applying."
+                          applyingCategory === item.category
+                            ? `Applying ${item.title.toLowerCase()} — this may take a while for large datasets.`
+                            : query?.isFetched
+                              ? toBeAffectedCount > 0
+                                ? `${toBeAffectedCount} row(s) to be affected • ${alreadyExcludedCount} already excluded${summarySuffix}`
+                                : `No remaining rows to affect${summarySuffix}`
+                              : "Preview this category before applying."
                         }
                       />
                     </Grid>

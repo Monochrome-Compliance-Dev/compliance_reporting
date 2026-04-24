@@ -1,7 +1,6 @@
 import { fetchWrapper } from "shared/utils";
 import { normMap, normSample, pickData } from "./ptrsApi";
 import { getDatasetSample, listDatasets } from "./data.ptrsApi";
-import { listPtrs } from "./ptrsApi";
 
 // Avoid trailing slashes
 const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
@@ -235,13 +234,12 @@ export const savePtrsMap = async (
 export const getPtrsFieldMap = async (ptrsId, profileId, datasetId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!profileId) throw new Error("profileId is required");
-  if (!datasetId) throw new Error("datasetId is required");
 
   debugPtrsApiCall("getPtrsFieldMap", { ptrsId, profileId, datasetId });
 
   const qs = new URLSearchParams();
   qs.set("profileId", String(profileId));
-  qs.set("datasetId", String(datasetId));
+  if (datasetId) qs.set("datasetId", String(datasetId));
 
   const res = await fetchWrapper.get(
     `${API_ROOT}/v2/ptrs/${ptrsId}/field-map?${qs.toString()}`,
@@ -255,6 +253,22 @@ export const getPtrsFieldMap = async (ptrsId, profileId, datasetId) => {
       : Array.isArray(data)
         ? data
         : [];
+};
+
+export const importPtrsFieldMap = async (
+  ptrsId,
+  { sourcePtrsId, profileId },
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!sourcePtrsId) throw new Error("sourcePtrsId is required");
+  if (!profileId) throw new Error("profileId is required");
+
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/field-map/import`,
+    { sourcePtrsId, profileId },
+  );
+
+  return pickData(res) || {};
 };
 
 export const savePtrsFieldMap = async (
@@ -437,26 +451,20 @@ export const getUnifiedSample = async (
 export const listPtrsWithMap = async ({ profileId } = {}) => {
   debugPtrsApiCall("listPtrsWithMap", { profileId: profileId || null });
 
-  const rows = await listPtrs();
-  const items = Array.isArray(rows)
-    ? rows
-    : Array.isArray(rows?.items)
-      ? rows.items
+  const qs = new URLSearchParams();
+  if (profileId) qs.set("profileId", String(profileId));
+  const suffix = qs.toString() ? `?${qs.toString()}` : "";
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/ptrs/compatible-maps${suffix}`,
+  );
+
+  const data = pickData(res) || {};
+  const items = Array.isArray(data.items)
+    ? data.items
+    : Array.isArray(data)
+      ? data
       : [];
 
-  return items.filter((item) => {
-    const itemProfileId = item?.profileId || item?.map?.profileId || null;
-    if (
-      profileId &&
-      itemProfileId &&
-      String(itemProfileId) !== String(profileId)
-    ) {
-      return false;
-    }
-
-    const mappedFieldsCount = Number(
-      item?.mappedFieldsCount || item?.map?.mappedFieldsCount || 0,
-    );
-    return mappedFieldsCount > 0;
-  });
+  return { items };
 };

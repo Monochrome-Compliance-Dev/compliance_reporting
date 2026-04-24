@@ -488,17 +488,19 @@ export default function StagePanel() {
 
   const datasetSummary = useMemo(() => {
     if (!datasets.length) return [];
-    // Expect each item like { id, role, fileName, meta, createdAt }
-    // Group by role and pick latest
-    const map = new Map();
-    datasets.forEach((d) => {
-      const prev = map.get(d.role);
-      if (!prev || new Date(d.createdAt) > new Date(prev.createdAt)) {
-        map.set(d.role, d);
-      }
+
+    return [...datasets].sort((a, b) => {
+      const aTs = new Date(a?.createdAt || 0).getTime();
+      const bTs = new Date(b?.createdAt || 0).getTime();
+      if (aTs !== bTs) return bTs - aTs;
+
+      const roleCmp = String(a?.role || "").localeCompare(
+        String(b?.role || ""),
+      );
+      if (roleCmp !== 0) return roleCmp;
+
+      return String(a?.fileName || "").localeCompare(String(b?.fileName || ""));
     });
-    const summary = Array.from(map.values());
-    return summary;
   }, [datasets]);
 
   const handleStage = async () => {
