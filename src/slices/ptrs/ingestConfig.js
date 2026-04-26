@@ -74,6 +74,12 @@ export const PTRS_OPTIONAL_FIELDS = [
   "excludeComment",
   "excludeSetAt",
   "excludeSetBy",
+
+  // Processing fields (used for staging logic, not part of BE canonical contract)
+  "invoiceCreatedDate",
+  "entryDate",
+  "reconciliationStatus",
+  "sourceUser",
 ];
 
 // -----------------------------------------------------------------------------
@@ -132,6 +138,10 @@ export const PTRS_FIELD_LABELS = {
   invoiceIssueDate: "Invoice issue date",
   invoiceReceiptDate: "Invoice receipt date",
   invoiceDueDate: "Invoice due date",
+  invoiceCreatedDate: "Invoice created date (processing)",
+  entryDate: "Entry date (processing)",
+  reconciliationStatus: "Reconciliation status (processing)",
+  sourceUser: "User (processing)",
   supplyDate: "Supply date",
 
   // Flags

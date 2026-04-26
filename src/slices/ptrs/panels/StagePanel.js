@@ -139,9 +139,8 @@ export default function StagePanel() {
   const [preview, setPreview] = useState({ rows: [], headers: [] });
   const [showPreview, setShowPreview] = useState(true);
 
-  const [lastAutoStageGateKey, setLastAutoStageGateKey] = useState(null);
-  const [autoStaging, setAutoStaging] = useState(false);
-  const [autoStageMessage, setAutoStageMessage] = useState("");
+  const [staging, setStaging] = useState(false);
+  const [stageMessage, setStageMessage] = useState("");
 
   // Safely pick a value from a row that may be flat or split across data / standard / custom
   const pickCell = (row, header) => {
@@ -231,7 +230,6 @@ export default function StagePanel() {
   };
 
   const mountedRef = useRef(true);
-  const autoStageInFlightRef = useRef(false);
 
   useEffect(() => {
     mountedRef.current = true;
@@ -241,12 +239,10 @@ export default function StagePanel() {
   }, []);
 
   useEffect(() => {
-    autoStageInFlightRef.current = false;
     setResult(null);
     setPreview({ rows: [], headers: [] });
-    setLastAutoStageGateKey(null);
-    setAutoStaging(false);
-    setAutoStageMessage("");
+    setStaging(false);
+    setStageMessage("");
   }, [ptrsId, profileId]);
 
   const refetchStageView = useCallback(async () => {
@@ -261,153 +257,6 @@ export default function StagePanel() {
     refetchStagePreview,
     refetchStageCompletionGate,
     refetchDatasets,
-  ]);
-
-  useEffect(() => {
-    if (!ptrsId || !profileId) {
-      console.info("[StagePanel] auto-stage skipped: missing identifiers", {
-        ptrsId,
-        profileId,
-      });
-      return;
-    }
-    if (!hasSettledStageCompletionGate) {
-      console.info("[StagePanel] auto-stage skipped: gate not settled", {
-        ptrsId,
-        profileId,
-        gateStatus: stageCompletionGateQ.status,
-        gateFetchStatus: stageCompletionGateQ.fetchStatus,
-        gateIsSuccess: stageCompletionGateQ.isSuccess,
-        gateIsFetching: stageCompletionGateQ.isFetching,
-      });
-      return;
-    }
-    if (completionGateReady) {
-      console.info("[StagePanel] auto-stage skipped: gate ready", {
-        ptrsId,
-        profileId,
-        completionGateReason,
-        completionGateInputHash,
-      });
-      return;
-    }
-    if (autoStageInFlightRef.current) {
-      console.info("[StagePanel] auto-stage skipped: already in flight", {
-        ptrsId,
-        profileId,
-        completionGateReason,
-        completionGateInputHash,
-      });
-      return;
-    }
-
-    const gateKey = `${completionGateReason}:${completionGateInputHash || "no-hash"}`;
-    if (lastAutoStageGateKey === gateKey) {
-      console.info("[StagePanel] auto-stage skipped: gate already attempted", {
-        ptrsId,
-        profileId,
-        gateKey,
-        lastAutoStageGateKey,
-      });
-      return;
-    }
-
-    const reason = completionGateReason;
-    const msg =
-      reason === "stale"
-        ? "Showing the last staged snapshot. Rebuilding staging in the background — this may take a while."
-        : "Preparing staged dataset for the first time. This may take a while for large files.";
-
-    console.info("[StagePanel] auto-stage queued", {
-      ptrsId,
-      profileId,
-      gateKey,
-      reason,
-      completionGateInputHash,
-      lastAutoStageGateKey,
-    });
-
-    const runAutoStage = async () => {
-      autoStageInFlightRef.current = true;
-      console.info("[StagePanel] auto-stage starting", {
-        ptrsId,
-        profileId,
-        gateKey,
-        reason,
-        completionGateInputHash,
-      });
-      setLastAutoStageGateKey(gateKey);
-      setAutoStaging(true);
-      setAutoStageMessage(msg);
-      showAlert(msg, "info");
-
-      try {
-        const res = await stageMutation.mutateAsync({
-          profileId,
-          persist: true,
-          force: false,
-        });
-        console.info("[StagePanel] auto-stage completed", {
-          ptrsId,
-          profileId,
-          gateKey,
-          rowsIn: res?.rowsIn || 0,
-          rowsOut: res?.rowsOut || 0,
-          skipped: !!res?.skipped,
-          reason: res?.reason || null,
-          inputHash: res?.inputHash || null,
-          previousRunId: res?.previousRunId || null,
-        });
-        if (!mountedRef.current) return;
-
-        setResult(res);
-        await refetchStageView();
-
-        showAlert(`Staged ${res?.rowsOut || 0} rows`, "success");
-      } catch (stageErr) {
-        console.info("[StagePanel] auto-stage failed", {
-          ptrsId,
-          profileId,
-          gateKey,
-          message: stageErr?.message || null,
-        });
-        console.error("[StagePanel] auto-stage error:", stageErr);
-        if (mountedRef.current) {
-          showAlert(
-            stageErr?.message ||
-              "Failed to stage data automatically. You can try running staging again manually.",
-            "error",
-          );
-        }
-      } finally {
-        console.info("[StagePanel] auto-stage finished", {
-          ptrsId,
-          profileId,
-          gateKey,
-          mounted: mountedRef.current,
-        });
-        autoStageInFlightRef.current = false;
-        if (mountedRef.current) setAutoStaging(false);
-      }
-    };
-
-    void runAutoStage();
-  }, [
-    ptrsId,
-    profileId,
-    lastAutoStageGateKey,
-    showAlert,
-    hasSettledStageCompletionGate,
-    completionGateReady,
-    completionGateReason,
-    completionGateInputHash,
-    stageMutation.mutateAsync,
-    refetchStageView,
-    stageMutation,
-    stageCompletionGateQ.status,
-    stageCompletionGateQ.fetchStatus,
-    stageCompletionGateQ.isSuccess,
-    stageCompletionGateQ.isFetching,
   ]);
 
   useEffect(() => {
@@ -517,10 +366,8 @@ export default function StagePanel() {
       "info",
     );
 
-    setAutoStageMessage(
-      "Running staging… this can take a minute for large files.",
-    );
-    setAutoStaging(true);
+    setStageMessage("Running staging… this can take a minute for large files.");
+    setStaging(true);
     try {
       const res = await stageMutation.mutateAsync({
         profileId,
@@ -539,7 +386,7 @@ export default function StagePanel() {
         showAlert(err?.message || "Failed to stage data", "error");
       }
     } finally {
-      if (mountedRef.current) setAutoStaging(false);
+      if (mountedRef.current) setStaging(false);
     }
   };
 
@@ -585,6 +432,26 @@ export default function StagePanel() {
   };
 
   const hasPreview = Array.isArray(preview?.rows) && preview.rows.length > 0;
+
+  const stageGateMessage = (() => {
+    if (!profileId) return "Select a processing profile before staging.";
+    if (!hasSettledStageCompletionGate)
+      return "Checking staged dataset status…";
+    if (completionGateReady) return "Staging is up to date.";
+    if (completionGateReason === "stale") {
+      return "Staging is stale. Run staging when you are ready to rebuild it.";
+    }
+    if (completionGateReason === "missing-stage") {
+      return "No staged dataset exists yet. Run staging when you are ready to create it.";
+    }
+    return "Staging needs to be run before continuing.";
+  })();
+
+  const stageGateSeverity = completionGateReady
+    ? "success"
+    : completionGateReason === "stale"
+      ? "warning"
+      : "default";
 
   if (!ptrsId) return null;
 
@@ -666,16 +533,31 @@ export default function StagePanel() {
           alignItems={{ md: "center" }}
         >
           <Box sx={{ flex: 1 }}>
-            {autoStaging ? (
+            <Stack
+              direction="row"
+              spacing={1}
+              alignItems="center"
+              sx={{ mb: 1 }}
+            >
+              <Chip
+                size="small"
+                color={stageGateSeverity}
+                label={completionGateReady ? "Ready" : completionGateReason}
+              />
+              <Typography variant="body2" color="text.secondary">
+                {stageGateMessage}
+              </Typography>
+            </Stack>
+            {staging ? (
               <Stack spacing={1}>
                 <Stack direction="row" alignItems="center" spacing={2}>
                   <CircularProgress size={18} />
                   <Typography variant="subtitle1">
-                    Auto-staging in progress
+                    Staging in progress
                   </Typography>
                 </Stack>
                 <Typography variant="body2" color="text.secondary">
-                  {autoStageMessage ||
+                  {stageMessage ||
                     "Running staging… this can take a minute for large files."}
                 </Typography>
               </Stack>
@@ -725,15 +607,19 @@ export default function StagePanel() {
             <Button
               variant="outlined"
               startIcon={<ReplayIcon />}
-              disabled={autoStaging}
+              disabled={staging}
               onClick={handleStage}
             >
-              {result ? "Run again" : "Run staging"}
+              {completionGateReason === "stale"
+                ? "Rebuild staging"
+                : result
+                  ? "Run again"
+                  : "Run staging"}
             </Button>
             <Button
               variant="contained"
               endIcon={<NavigateNextIcon />}
-              disabled={autoStaging || !result}
+              disabled={staging || !result}
               onClick={handleGoToExclusions}
             >
               Next: Exclusions
@@ -748,7 +634,7 @@ export default function StagePanel() {
           <Typography variant="subtitle1">Preview</Typography>
           <Button
             size="small"
-            disabled={autoStaging}
+            disabled={staging}
             onClick={() => setShowPreview((s) => !s)}
           >
             {showPreview ? "Hide" : "Show"} preview
@@ -795,7 +681,7 @@ export default function StagePanel() {
       <Divider sx={{ my: 3 }} />
       <Button
         variant="text"
-        disabled={autoStaging}
+        disabled={staging}
         onClick={() => {
           const qs = new URLSearchParams();
           qs.set("ptrsId", ptrsId);
