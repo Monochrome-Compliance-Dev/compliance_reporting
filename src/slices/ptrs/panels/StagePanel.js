@@ -33,7 +33,6 @@ import {
   useStagePtrsMutation,
   useUpdatePtrsMutation,
 } from "../hooks/usePtrsQueries";
-import { LoadingSpinner } from "shared/ui";
 
 // Convert snake_case, camelCase, or other separators to human-friendly labels
 const prettifyHeader = (key) => {
