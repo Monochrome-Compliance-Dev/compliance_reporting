@@ -48,6 +48,7 @@ export const PTRS_OPTIONAL_FIELDS = [
   "invoicePaymentTerms",
   "paymentTerm",
   "documentType",
+  "documentCurrency",
   "clearingDocument",
   "sourceAccountCode",
 
@@ -113,6 +114,7 @@ export const PTRS_FIELD_LABELS = {
   payerEntityAcnArbn: "Payer ACN/ARBN",
   payeeEntityName: "Payee name",
   payeeEntityAbn: "Payee ABN",
+  payeeEntityAbnValid: "Payee ABN valid (checksum)",
   payeeEntityAcnArbn: "Payee ACN/ARBN",
   invoiceReferenceNumber: "Invoice reference number",
 
@@ -126,6 +128,7 @@ export const PTRS_FIELD_LABELS = {
   // Terms
   paymentTerm: "Payment term (raw text)",
   documentType: "Document type",
+  documentCurrency: "Document currency",
   clearingDocument: "Clearing document",
   sourceAccountCode: "Source account code",
   paymentTermDays: "Payment term (days, derived)",
@@ -183,6 +186,7 @@ export const FIELD_SYNONYMS = {
   paymentTermDays: ["payment term days", "terms days", "net days"],
   paymentTerm: ["payment terms", "terms", "net terms"],
   documentType: ["document type", "doc type"],
+  documentCurrency: ["document currency", "currency", "doc currency"],
   clearingDocument: ["clearing document", "clearing doc"],
   sourceAccountCode: ["account code", "source account code", "vendor code"],
 };

@@ -67,6 +67,7 @@ export default function MapPanel() {
   const [params] = useSearchParams();
   const ptrsId = params.get("ptrsId");
   const { profileId } = usePtrsContext();
+  const [autoRunStage, setAutoRunStage] = useState(true);
 
   const sourceRefKey = (source) => {
     const role = String(source?.role || "main")
@@ -1375,6 +1376,7 @@ export default function MapPanel() {
       const qs = new URLSearchParams();
       qs.set("ptrsId", ptrsId);
       if (profileId) qs.set("profileId", profileId);
+      qs.set("autoRunStage", autoRunStage ? "true" : "false");
 
       // Navigate immediately (don’t wait for 200k-row work)
       goTo(`stage?${qs.toString()}`, { includeId: false });
@@ -2138,6 +2140,16 @@ export default function MapPanel() {
               >
                 Save map
               </Button>
+              <Box sx={{ display: "flex", alignItems: "center", mr: 1 }}>
+                <Typography variant="caption" sx={{ mr: 1 }}>
+                  Auto-run stage
+                </Typography>
+                <input
+                  type="checkbox"
+                  checked={autoRunStage}
+                  onChange={(e) => setAutoRunStage(e.target.checked)}
+                />
+              </Box>
               <Button
                 variant="contained"
                 endIcon={<NavigateNextIcon />}

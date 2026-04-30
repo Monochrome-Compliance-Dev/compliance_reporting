@@ -6,6 +6,7 @@ import {
   Button,
   Paper,
   CircularProgress,
+  LinearProgress,
   Divider,
   Chip,
   TextField,
@@ -52,11 +53,25 @@ const prettifyHeader = (key) => {
     .join(" ");
 };
 
+const formatDuration = (ms) => {
+  if (!Number.isFinite(ms) || ms <= 0) return "less than a minute";
+
+  const totalSeconds = Math.max(1, Math.round(ms / 1000));
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  if (minutes <= 0) return `${seconds}s`;
+  if (seconds <= 0) return `${minutes}m`;
+  return `${minutes}m ${seconds}s`;
+};
+
 export default function StagePanel() {
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
   const { goTo } = usePtrsNavigation();
   const ptrsId = params.get("ptrsId");
+  const autoRunStage =
+    params.get("autoRunStage") === "true" || params.get("autoStage") === "1";
   const { profileId } = usePtrsContext();
 
   const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
@@ -141,6 +156,9 @@ export default function StagePanel() {
 
   const [staging, setStaging] = useState(false);
   const [stageMessage, setStageMessage] = useState("");
+  const [stageStartedAt, setStageStartedAt] = useState(null);
+  const [stageNow, setStageNow] = useState(null);
+  const autoRunStageTriggeredRef = useRef(false);
 
   // Safely pick a value from a row that may be flat or split across data / standard / custom
   const pickCell = (row, header) => {
@@ -243,7 +261,20 @@ export default function StagePanel() {
     setPreview({ rows: [], headers: [] });
     setStaging(false);
     setStageMessage("");
-  }, [ptrsId, profileId]);
+    setStageStartedAt(null);
+    setStageNow(null);
+    autoRunStageTriggeredRef.current = false;
+  }, [ptrsId, profileId, autoRunStage]);
+
+  useEffect(() => {
+    if (!staging || !stageStartedAt) return undefined;
+
+    const tick = () => setStageNow(Date.now());
+    tick();
+
+    const timer = window.setInterval(tick, 1000);
+    return () => window.clearInterval(timer);
+  }, [staging, stageStartedAt]);
 
   const refetchStageView = useCallback(async () => {
     await Promise.allSettled([
@@ -352,7 +383,65 @@ export default function StagePanel() {
     });
   }, [datasets]);
 
-  const handleStage = async () => {
+  const rows = useMemo(() => preview?.rows || [], [preview?.rows]);
+  const totalRows = preview?.totalRows ?? rows.length;
+
+  const estimatedStageInputRows = useMemo(
+    () =>
+      datasetSummary
+        .filter((d) => String(d?.role || "").startsWith("main"))
+        .reduce((sum, d) => sum + Number(d?.meta?.rowsCount || 0), 0),
+    [datasetSummary],
+  );
+
+  const latestStageDurationMs = useMemo(() => {
+    if (!latestStageRun?.startedAt || !latestStageRun?.finishedAt) return null;
+
+    const started = new Date(latestStageRun.startedAt).getTime();
+    const finished = new Date(latestStageRun.finishedAt).getTime();
+    const duration = finished - started;
+
+    return Number.isFinite(duration) && duration > 0 ? duration : null;
+  }, [latestStageRun?.startedAt, latestStageRun?.finishedAt]);
+
+  const estimatedStageMs = useMemo(() => {
+    if (!estimatedStageInputRows) return null;
+
+    const previousRows = result?.rowsIn || result?.rowsOut || totalRows || 0;
+    if (latestStageDurationMs && previousRows > 0) {
+      const baselineEstimate =
+        (latestStageDurationMs / previousRows) * estimatedStageInputRows;
+
+      return Math.max(60_000, Math.round(baselineEstimate * 1.1));
+    }
+
+    return Math.max(
+      60_000,
+      Math.round((estimatedStageInputRows / 30_000) * 60_000),
+    );
+  }, [
+    estimatedStageInputRows,
+    latestStageDurationMs,
+    result?.rowsIn,
+    result?.rowsOut,
+    totalRows,
+  ]);
+
+  const stageElapsedMs =
+    staging && stageStartedAt && stageNow ? stageNow - stageStartedAt : 0;
+
+  const stageProgress = estimatedStageMs
+    ? Math.min(95, Math.round((stageElapsedMs / estimatedStageMs) * 100))
+    : 0;
+
+  const stageRemainingMs = estimatedStageMs
+    ? Math.max(0, estimatedStageMs - stageElapsedMs)
+    : null;
+
+  const stageEstimateExceeded =
+    Boolean(estimatedStageMs) && stageElapsedMs > estimatedStageMs;
+
+  const handleStage = useCallback(async () => {
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
@@ -367,6 +456,8 @@ export default function StagePanel() {
     );
 
     setStageMessage("Running staging… this can take a minute for large files.");
+    setStageStartedAt(Date.now());
+    setStageNow(Date.now());
     setStaging(true);
     try {
       const res = await stageMutation.mutateAsync({
@@ -388,7 +479,39 @@ export default function StagePanel() {
     } finally {
       if (mountedRef.current) setStaging(false);
     }
-  };
+  }, [ptrsId, profileId, result, showAlert, stageMutation, refetchStageView]);
+
+  useEffect(() => {
+    if (!autoRunStage) return undefined;
+    if (autoRunStageTriggeredRef.current) return undefined;
+    if (!ptrsId || !profileId) return undefined;
+    if (staging || stageMutation.isPending) return undefined;
+    if (!stageCompletionGateQ.isSuccess) return undefined;
+
+    const gateReady = stageCompletionGateQ.data?.ready === true;
+    const gateReason = stageCompletionGateQ.data?.reason || null;
+
+    if (gateReady) return undefined;
+    if (!["stale", "missing-stage"].includes(gateReason)) return undefined;
+
+    autoRunStageTriggeredRef.current = true;
+
+    const timer = window.setTimeout(() => {
+      handleStage();
+    }, 250);
+
+    return () => window.clearTimeout(timer);
+  }, [
+    autoRunStage,
+    ptrsId,
+    profileId,
+    staging,
+    stageMutation.isPending,
+    stageCompletionGateQ.isSuccess,
+    stageCompletionGateQ.data?.ready,
+    stageCompletionGateQ.data?.reason,
+    handleStage,
+  ]);
 
   const HIDDEN_PREVIEW_HEADERS = useMemo(
     () =>
@@ -406,8 +529,6 @@ export default function StagePanel() {
       (preview?.headers || []).filter((h) => !HIDDEN_PREVIEW_HEADERS.has(h)),
     [preview?.headers, HIDDEN_PREVIEW_HEADERS],
   );
-  const rows = useMemo(() => preview?.rows || [], [preview?.rows]);
-  const totalRows = preview?.totalRows ?? rows.length;
 
   const handleGoToExclusions = async () => {
     if (!ptrsId) {
@@ -434,30 +555,38 @@ export default function StagePanel() {
   const hasPreview = Array.isArray(preview?.rows) && preview.rows.length > 0;
 
   const stageGateMessage = (() => {
+    if (staging) return "Rebuilding staged dataset…";
     if (!profileId) return "Select a processing profile before staging.";
     if (!hasSettledStageCompletionGate)
       return "Checking staged dataset status…";
-    if (completionGateReady) return "Staging is up to date.";
+    if (completionGateReady) {
+      if (stagePreviewQ.isFetching && !hasPreview) {
+        return "Staging is up to date. Loading preview…";
+      }
+      return "Staging is up to date.";
+    }
     if (completionGateReason === "stale") {
-      return "Staging is stale. Run staging when you are ready to rebuild it.";
+      return autoRunStage
+        ? "Staging is stale. Auto-run is enabled, so rebuild will start shortly."
+        : "Staging is stale. Run staging when you are ready to rebuild it.";
     }
     if (completionGateReason === "missing-stage") {
-      return "No staged dataset exists yet. Run staging when you are ready to create it.";
+      return autoRunStage
+        ? "No staged dataset exists yet. Auto-run is enabled, so staging will start shortly."
+        : "No staged dataset exists yet. Run staging when you are ready to create it.";
     }
     return "Staging needs to be run before continuing.";
   })();
 
-  const stageGateSeverity = completionGateReady
-    ? "success"
-    : completionGateReason === "stale"
-      ? "warning"
-      : "default";
+  const stageGateSeverity = staging
+    ? "info"
+    : completionGateReady
+      ? "success"
+      : completionGateReason === "stale"
+        ? "warning"
+        : "default";
 
   if (!ptrsId) return null;
-
-  if (stagePreviewQ.isLoading && !result && !hasPreview) {
-    return <LoadingSpinner message="Loading stage preview…" />;
-  }
 
   return (
     <Box sx={{ p: 3 }}>
@@ -542,14 +671,22 @@ export default function StagePanel() {
               <Chip
                 size="small"
                 color={stageGateSeverity}
-                label={completionGateReady ? "Ready" : completionGateReason}
+                label={
+                  staging
+                    ? "Running"
+                    : !hasSettledStageCompletionGate
+                      ? "Checking"
+                      : completionGateReady
+                        ? "Ready"
+                        : completionGateReason
+                }
               />
               <Typography variant="body2" color="text.secondary">
                 {stageGateMessage}
               </Typography>
             </Stack>
             {staging ? (
-              <Stack spacing={1}>
+              <Stack spacing={1.25}>
                 <Stack direction="row" alignItems="center" spacing={2}>
                   <CircularProgress size={18} />
                   <Typography variant="subtitle1">
@@ -559,6 +696,53 @@ export default function StagePanel() {
                 <Typography variant="body2" color="text.secondary">
                   {stageMessage ||
                     "Running staging… this can take a minute for large files."}
+                </Typography>
+                {estimatedStageMs && (
+                  <Box sx={{ maxWidth: 760 }}>
+                    <LinearProgress
+                      variant="determinate"
+                      value={stageProgress}
+                      sx={{ mb: 0.75 }}
+                    />
+                    <Stack spacing={0.25} sx={{ minHeight: 42 }}>
+                      <Typography variant="body2" color="text.secondary">
+                        Estimated rebuild time: about{" "}
+                        {formatDuration(estimatedStageMs)}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Elapsed: {formatDuration(stageElapsedMs)}
+                        {stageEstimateExceeded
+                          ? " • finishing up"
+                          : stageRemainingMs != null
+                            ? ` • remaining: about ${formatDuration(stageRemainingMs)}`
+                            : ""}
+                      </Typography>
+                    </Stack>
+                    <Typography variant="caption" color="text.secondary">
+                      Estimate is based on{" "}
+                      {estimatedStageInputRows.toLocaleString()} input rows and
+                      the latest successful stage run where available.
+                    </Typography>
+                  </Box>
+                )}
+              </Stack>
+            ) : !hasSettledStageCompletionGate ? (
+              <Stack spacing={1}>
+                <Typography variant="subtitle1">
+                  Checking staged dataset
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Checking whether the current mapped data already has a usable
+                  staged dataset.
+                </Typography>
+              </Stack>
+            ) : completionGateReady && stagePreviewQ.isFetching ? (
+              <Stack spacing={1}>
+                <Typography variant="subtitle1">
+                  Loading staged dataset
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Staging is already up to date. Loading the preview now.
                 </Typography>
               </Stack>
             ) : result ? (
@@ -641,7 +825,15 @@ export default function StagePanel() {
           </Button>
         </Stack>
         {showPreview &&
-          (rows.length ? (
+          (!hasSettledStageCompletionGate ? (
+            <Typography variant="body2" color="text.secondary">
+              Preview will load once the staged dataset check is complete.
+            </Typography>
+          ) : stagePreviewQ.isFetching && !rows.length ? (
+            <Typography variant="body2" color="text.secondary">
+              Loading stage preview…
+            </Typography>
+          ) : rows.length ? (
             <>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
                 Showing {rows.length.toLocaleString()} of{" "}
