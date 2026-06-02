@@ -177,7 +177,7 @@ export function LandingPage() {
           </Typography>
           <Box sx={{ mt: theme.spacing(4) }}>
             <Grid container spacing={2} justifyContent="center">
-              <Grid item xs={12} md={4}>
+              <Grid size={{ xs: 12, md: 4 }}>
                 <Paper
                   variant="outlined"
                   sx={{
@@ -220,7 +220,7 @@ export function LandingPage() {
                 </Paper>
               </Grid>
 
-              <Grid item xs={12} md={4}>
+              <Grid size={{ xs: 12, md: 4 }}>
                 <Paper
                   variant="outlined"
                   sx={{
@@ -263,7 +263,7 @@ export function LandingPage() {
                 </Paper>
               </Grid>
 
-              <Grid item xs={12} md={4}>
+              <Grid size={{ xs: 12, md: 4 }}>
                 <Paper
                   variant="outlined"
                   sx={{
