@@ -1,3 +1,5 @@
+import WhatIsAPaymentRun from "./articles/what-is-a-payment-run";
+import HowArePaymentTimesCalculated from "./articles/how-are-payment-times-calculated";
 import WhatDoesTheBottom20PercentMean from "./articles/what-does-the-bottom-20-percent-mean";
 import WhatIsPTRS from "./articles/what-is-ptrs";
 import WhatIsP95 from "./articles/what-is-p95";
@@ -19,6 +21,22 @@ export const knowledgeArticles = [
       "A practical explanation of P95 payment performance and why it has become one of the most important measures in payment behaviour reporting.",
     category: "Payment metrics",
     Component: WhatIsP95,
+  },
+  {
+    slug: "how-are-payment-times-calculated",
+    title: "How are payment times calculated?",
+    description:
+      "An overview of elapsed payment timing and why invoice dates, receipt dates, payment dates, and operational workflows matter.",
+    category: "Payment calculations",
+    Component: HowArePaymentTimesCalculated,
+  },
+  {
+    slug: "what-is-a-payment-run",
+    title: "What is a payment run?",
+    description:
+      "Why scheduled payment cycles can affect reported payment timing even when the underlying process feels normal internally.",
+    category: "Operational drivers",
+    Component: WhatIsAPaymentRun,
   },
   {
     slug: "what-does-a-p95-of-30-days-mean",
