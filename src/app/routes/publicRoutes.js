@@ -8,6 +8,8 @@ import PaymentTimesReportingPrint from "slices/marketing/ptrs/PaymentTimesReport
 import IndustryInsights from "slices/marketing/insights/IndustryInsights";
 import BlogIndex from "slices/marketing/insights/blog/BlogIndex";
 import BlogPostPage from "slices/marketing/insights/blog/BlogPostPage";
+import KnowledgeIndex from "slices/marketing/insights/knowledge/KnowledgeIndex";
+import KnowledgeArticlePage from "slices/marketing/insights/knowledge/KnowledgeArticlePage";
 
 // Service pages
 import Services from "slices/marketing/services/Services";
@@ -59,6 +61,8 @@ export const publicRoutes = [
   { path: "insights", Component: IndustryInsights },
   { path: "insights/blog", Component: BlogIndex },
   { path: "insights/blog/:slug", Component: BlogPostPage },
+  { path: "insights/knowledge", Component: KnowledgeIndex },
+  { path: "insights/knowledge/:slug", Component: KnowledgeArticlePage },
 
   // Service pages
   { path: "services", Component: Services },

@@ -57,7 +57,7 @@ export default function BlogPostPage() {
             component={RouterLink}
             to="/insights/blog"
             sx={{
-              display: "inline-block",
+              display: "block",
               mb: theme.spacing(2),
               color: theme.palette.primary.main,
               textDecoration: "none",

@@ -44,7 +44,8 @@ export default function IndustryInsights() {
       title: "How Weekly Payment Runs Distort Payment Metrics",
       description:
         "Why ordinary payment cycle timing can create unexpected elapsed-day impacts in PTRS reporting.",
-      status: "Coming soon",
+      status: "Published",
+      href: "/insights/blog/how-weekly-payment-runs-distort-payment-metrics",
     },
     {
       title: "Operational Delay vs Behavioural Delay",
@@ -232,13 +233,29 @@ export default function IndustryInsights() {
                           </Typography>
                         </Box>
 
-                        <Chip
-                          label={article.status}
-                          size="small"
-                          color="primary"
-                          variant="outlined"
-                          sx={{ alignSelf: { xs: "flex-start", sm: "center" } }}
-                        />
+                        {article.href ? (
+                          <Button
+                            variant="outlined"
+                            color="primary"
+                            component={RouterLink}
+                            to={article.href}
+                            sx={{
+                              alignSelf: { xs: "flex-start", sm: "center" },
+                            }}
+                          >
+                            Read article
+                          </Button>
+                        ) : (
+                          <Chip
+                            label={article.status}
+                            size="small"
+                            color="primary"
+                            variant="outlined"
+                            sx={{
+                              alignSelf: { xs: "flex-start", sm: "center" },
+                            }}
+                          />
+                        )}
                       </Stack>
                     </CardContent>
                   </Card>
@@ -267,7 +284,7 @@ export default function IndustryInsights() {
               >
                 <CardContent sx={{ p: theme.spacing(3) }}>
                   <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
-                    Coming next
+                    Knowledge Centre
                   </Typography>
 
                   <Typography
@@ -275,19 +292,25 @@ export default function IndustryInsights() {
                     color={theme.palette.text.secondary}
                     sx={{ lineHeight: 1.65, mb: theme.spacing(2.5) }}
                   >
-                    We are building a regular library of practical payment
-                    behaviour content, including supporting articles, webinar
-                    material, and lighter Friday posts that make complex
-                    reporting concepts easier to understand.
+                    We are building a practical reference library for Payment
+                    Times Reporting concepts, including PTRS, P95, payment
+                    timing, regulator focus areas, and the operational mechanics
+                    that influence reported outcomes.
                   </Typography>
 
                   <Stack spacing={1.25}>
-                    <Chip label="Webinars" variant="outlined" />
-                    <Chip
-                      label="Payment behaviour explainers"
+                    <Chip label="PTRS fundamentals" variant="outlined" />
+                    <Chip label="P95 explainers" variant="outlined" />
+                    <Chip label="Payment behaviour" variant="outlined" />
+                    <Button
                       variant="outlined"
-                    />
-                    <Chip label="Tiger Fridays" variant="outlined" />
+                      color="primary"
+                      component={RouterLink}
+                      to="/insights/knowledge"
+                      sx={{ alignSelf: "flex-start", mt: theme.spacing(1) }}
+                    >
+                      View Knowledge Centre
+                    </Button>
                   </Stack>
                 </CardContent>
               </Card>
