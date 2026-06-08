@@ -1,5 +1,7 @@
+import WhatDoesTheBottom20PercentMean from "./articles/what-does-the-bottom-20-percent-mean";
 import WhatIsPTRS from "./articles/what-is-ptrs";
 import WhatIsP95 from "./articles/what-is-p95";
+import WhatDoesAP95Of30DaysMean from "./articles/what-does-a-p95-of-30-days-mean";
 
 export const knowledgeArticles = [
   {
@@ -17,5 +19,21 @@ export const knowledgeArticles = [
       "A practical explanation of P95 payment performance and why it has become one of the most important measures in payment behaviour reporting.",
     category: "Payment metrics",
     Component: WhatIsP95,
+  },
+  {
+    slug: "what-does-a-p95-of-30-days-mean",
+    title: "What does a P95 of 30 days mean?",
+    description:
+      "A practical explanation of what a P95 result of 30 days means and why it has become an important benchmark for payment behaviour reporting.",
+    category: "Payment metrics",
+    Component: WhatDoesAP95Of30DaysMean,
+  },
+  {
+    slug: "what-does-the-bottom-20-percent-mean",
+    title: "What does the bottom 20% mean?",
+    description:
+      "A practical explanation of how the regulator compares payment performance within industry groups and what the bottom 20% actually represents.",
+    category: "Regulator focus",
+    Component: WhatDoesTheBottom20PercentMean,
   },
 ];
