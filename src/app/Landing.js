@@ -135,7 +135,8 @@ export default function Landing() {
         variant="body1"
         sx={{ mb: 3, color: theme.palette.text.secondary }}
       >
-        Use the customer selector and tiles below to jump into PTRS or Pulse.
+        Use the customer selector and tiles below to jump into Data Hub, PTRS or
+        Pulse.
       </Typography>
 
       {canSwitch && (
@@ -182,6 +183,42 @@ export default function Landing() {
       )}
 
       <Grid container spacing={2}>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <Card
+            variant="outlined"
+            sx={{
+              cursor: hasFeature("ptrs") ? "pointer" : "default",
+              opacity: hasFeature("ptrs") ? 1 : 0.6,
+            }}
+            aria-disabled={!hasFeature("ptrs")}
+            {...(hasFeature("ptrs") && {
+              onClick: () => navigate("data-hub"),
+            })}
+          >
+            <CardContent>
+              <Stack spacing={1.5}>
+                <Typography variant="h6">Data Hub</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Upload, prepare and validate customer data for PTRS, payment
+                  behaviour and future compliance workflows.
+                </Typography>
+                <Box>
+                  <Button
+                    variant="contained"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate("data-hub");
+                    }}
+                    disabled={!hasFeature("ptrs")}
+                  >
+                    Open Data Hub
+                  </Button>
+                </Box>
+              </Stack>
+            </CardContent>
+          </Card>
+        </Grid>
+
         <Grid size={{ xs: 12, md: 6 }}>
           <Card
             variant="outlined"
