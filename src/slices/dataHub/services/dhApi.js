@@ -1,6 +1,6 @@
 // Data Hub service.
-// Run CRUD calls the real /api/v2/data-hub/runs endpoints.
-// Dataset/upload calls remain mock-backed until those BE endpoints exist.
+// Uploaded dataset calls use the real Data Hub endpoints exposed by dataset.routes.js.
+// Top-level dataset asset CRUD is not currently exposed by the backend routes file.
 // This client NORMALISES all responses so the FE never has to peel envelopes.
 // All methods return plain objects. .js only.
 
@@ -16,12 +16,6 @@ export const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(
 export const pickData = (res) =>
   (res && res.data && res.data.data) || res?.data || res || {};
 
-function delay(ms) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
-
 function getCustomerContext() {
   const customer = getCurrentCustomer?.() || {};
   return {
@@ -32,46 +26,51 @@ function getCustomerContext() {
   };
 }
 
-export const normaliseRun = (x = {}) => ({
+export const normaliseProfile = (x = {}) => ({
   ...x,
-  id: x.id || x.runId,
-  runId: x.runId || x.id,
-  customerId: x.customerId || null,
-  profileId: x.profileId || null,
-  name: x.name || x.label || "Untitled Data Hub Run",
-  description: x.description || null,
-  status: x.status || "Created",
-  currentStep: x.currentStep || "upload",
-  profileName: x.profileName || null,
-  coverage: x.coverage || "Not detected yet",
-  paymentsRows: Number(x.paymentsRows || 0),
-  invoicesRows: Number(x.invoicesRows || 0),
-  supportingRows: Number(x.supportingRows || 0),
+  id: x.id,
+  profileId: x.profileId || x.id,
+  customerId: x.customerId,
+  name: x.name || x.label || x.profileName || null,
+  profileName: x.profileName || x.name || x.label || null,
+  code: x.code || null,
+  isDefault: Boolean(x.isDefault || x.default || false),
+  meta: x.meta || null,
+});
+
+export const normaliseProfileList = (arr = []) => arr.map(normaliseProfile);
+
+export const normaliseDataHubDataset = (x = {}) => ({
+  ...x,
+  id: x.id,
+  customerId: x.customerId,
+  profileId: x.profileId,
+  datasetType: x.datasetType || null,
+  sourceName: x.sourceName || null,
+  fileName: x.fileName || x.originalFileName || x.sourceName || null,
+  rowsCount: Number(x.rowsCount || 0),
+  status: x.status || "uploaded",
   createdAt: x.createdAt || null,
   updatedAt: x.updatedAt || null,
 });
 
-export const normaliseRunList = (arr = []) => arr.map(normaliseRun);
+export const normaliseDataHubDatasetList = (arr = []) =>
+  arr.map(normaliseDataHubDataset);
 
 export const normaliseDataset = (x = {}) => ({
   ...x,
-  id: x.id || x.datasetId,
-  datasetId: x.datasetId || x.id,
-  runId: x.runId || null,
-  datasetType: x.datasetType || x.role || null,
-  role: x.role || x.datasetType || null,
-  fileName: x.fileName || null,
+  id: x.id,
+  datasetType: x.datasetType || null,
+  fileName: x.fileName || x.originalFileName || x.sourceName || null,
   fileSize: x.fileSize || null,
   mimeType: x.mimeType || null,
-  rowsInserted: Number(x.rowsInserted || x.rowsCount || 0),
-  rowsCount: Number(x.rowsCount || x.rowsInserted || 0),
+  rowsCount: Number(x.rowsCount || 0),
   headers: Array.isArray(x.headers) ? x.headers : [],
   headersCount: Array.isArray(x.headers)
     ? x.headers.length
     : Number(x.headersCount || 0),
   status: x.status || "uploaded",
-  uploadedAt: x.uploadedAt || x.createdAt || null,
-  createdAt: x.createdAt || x.uploadedAt || null,
+  createdAt: x.createdAt || null,
   updatedAt: x.updatedAt || null,
 });
 
@@ -92,202 +91,128 @@ export const normaliseSample = (x = {}) => ({
     x.headerMeta && typeof x.headerMeta === "object" ? x.headerMeta : {},
 });
 
-export const normaliseRunStatus = (x = {}) => ({
-  runId: x.runId || x.id || null,
+export const normaliseDatasetStatus = (x = {}) => ({
+  id: x.id || null,
   status: x.status || "Created",
   currentStep: x.currentStep || "upload",
   steps: {
     upload: x.steps?.upload || "pending",
-    link: x.steps?.link || "pending",
     map: x.steps?.map || "pending",
-    stage: x.steps?.stage || "pending",
-    exclusions: x.steps?.exclusions || "pending",
-    rules: x.steps?.rules || "pending",
-    sbi: x.steps?.sbi || "pending",
-    validate: x.steps?.validate || "pending",
+    publish: x.steps?.publish || "pending",
   },
   metrics: x.metrics || null,
   updatedAt: x.updatedAt || null,
 });
 
-const mockDatasetsByRun = {};
+// -------------------- Profiles --------------------
+export const listProfiles = async (customerId) => {
+  if (!customerId) throw new Error("customerId is required");
 
-// -------------------- Runs --------------------
-export const listRuns = async (params = {}) => {
-  const search = new URLSearchParams();
-  if (params.profileId) search.set("profileId", params.profileId);
-
-  const suffix = search.toString() ? `?${search.toString()}` : "";
-  const res = await fetchWrapper.get(`${API_ROOT}/v2/data-hub/runs${suffix}`);
-  const data = pickData(res);
-  return { items: normaliseRunList(data.items || []) };
-};
-
-export const createRun = async (payload = {}) => {
-  const context = getCustomerContext();
-  const res = await fetchWrapper.post(`${API_ROOT}/v2/data-hub/runs`, {
-    profileId: payload.profileId || context.profileId,
-    label:
-      payload.label || payload.name || `${context.customerName} Data Hub Run`,
-    description: payload.description || null,
-    meta: payload.meta || null,
-  });
-
-  return normaliseRun(pickData(res));
-};
-
-export const getRun = async (runId) => {
-  if (!runId) throw new Error("runId is required");
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/data-hub/runs/${encodeURIComponent(runId)}`,
+    `${API_ROOT}/v2/customers/${encodeURIComponent(customerId)}/profiles`,
   );
-  return normaliseRun(pickData(res));
+
+  const data = pickData(res);
+  const items = Array.isArray(data) ? data : data?.items || [];
+
+  return { items: normaliseProfileList(items) };
 };
 
-export const updateRun = async (runId, payload = {}) => {
-  if (!runId) throw new Error("runId is required");
-  if (!payload || typeof payload !== "object") {
-    throw new Error("payload object is required");
+// -------------------- Data Hub Datasets --------------------
+export const listDataHubDatasets = async (params = {}) => {
+  const context = getCustomerContext();
+  console.log("listDataHubDatasets context:", context);
+  const profileId = params.profileId || context.profileId;
+
+  if (!profileId) throw new Error("profileId is required");
+
+  const search = new URLSearchParams();
+  search.set("profileId", profileId);
+  if (params.datasetType) {
+    search.set("datasetType", params.datasetType);
   }
 
-  const res = await fetchWrapper.patch(
-    `${API_ROOT}/v2/data-hub/runs/${encodeURIComponent(runId)}`,
-    payload,
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/data-hub/datasets?${search.toString()}`,
   );
 
-  return normaliseRun(pickData(res));
+  const data = pickData(res);
+  return { items: normaliseDatasetList(data.items || data || []) };
 };
 
-export const deleteRun = async (runId) => {
-  if (!runId) throw new Error("runId is required");
-  const res = await fetchWrapper.delete(
-    `${API_ROOT}/v2/data-hub/runs/${encodeURIComponent(runId)}`,
+export const createDataHubDataset = async (payload = {}) => {
+  const formData = new FormData();
+
+  formData.append("profileId", payload.profileId);
+  formData.append("datasetType", payload.datasetType);
+  formData.append("sourceType", "csv");
+  formData.append("sourceName", payload.file?.name || payload.datasetType);
+  formData.append("file", payload.file);
+
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/data-hub/datasets`,
+    formData,
   );
+
+  return normaliseDataset(pickData(res));
+};
+
+export const getDataHubDataset = async (id, params = {}) => {
+  if (!id) throw new Error("id is required");
+
+  const context = getCustomerContext();
+  const profileId = params.profileId || context.profileId;
+  if (!profileId) throw new Error("profileId is required");
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/data-hub/datasets/${encodeURIComponent(id)}?profileId=${encodeURIComponent(profileId)}`,
+  );
+
+  return normaliseDataset(pickData(res));
+};
+
+export const updateDataHubDataset = async () => {
+  throw new Error(
+    "Data Hub dataset asset update endpoint is not exposed by the backend routes file.",
+  );
+};
+
+export const deleteDataHubDataset = async (id, params = {}) => {
+  if (!id) throw new Error("id is required");
+
+  const context = getCustomerContext();
+  const profileId = params.profileId || context.profileId;
+  if (!profileId) throw new Error("profileId is required");
+
+  const res = await fetchWrapper.delete(
+    `${API_ROOT}/v2/data-hub/datasets/${encodeURIComponent(id)}?profileId=${encodeURIComponent(profileId)}`,
+  );
+
   return pickData(res);
 };
 
-// -------------------- Datasets / Upload --------------------
-export const uploadDataset = async (runId, datasetType, file) => {
-  if (!runId) throw new Error("runId is required");
-  if (!datasetType) throw new Error("datasetType is required");
-  if (!file) throw new Error("file is required");
-
-  await delay(500);
-
-  const baseRows = {
-    payments: 2932,
-    invoices: 1814,
-    supporting: 4,
-  };
-
-  const dataset = normaliseDataset({
-    id: `dataset-${runId}-${datasetType}-${Date.now()}`,
-    runId,
-    datasetType,
-    role: datasetType,
-    fileName: file.name,
-    fileSize: file.size || null,
-    mimeType: file.type || "text/csv",
-    rowsInserted: baseRows[datasetType] || 0,
-    rowsCount: baseRows[datasetType] || 0,
-    status: "uploaded",
-    uploadedAt: new Date().toISOString(),
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  });
-
-  const existing = mockDatasetsByRun[runId] || [];
-  mockDatasetsByRun[runId] = [
-    dataset,
-    ...existing.filter((item) => item.datasetType !== datasetType),
-  ];
-
-  await updateRun(runId, {
-    status: "Uploaded",
-    currentStep: "link",
-    [`${datasetType}Rows`]: dataset.rowsInserted,
-  }).catch(() => null);
-
-  return dataset;
-};
-
-export const listDatasets = async (runId) => {
-  if (!runId) throw new Error("runId is required");
-  await delay(100);
-  return { items: normaliseDatasetList(mockDatasetsByRun[runId] || []) };
-};
-
-export const removeDataset = async (runId, datasetId) => {
-  if (!runId) throw new Error("runId is required");
-  if (!datasetId) throw new Error("datasetId is required");
-  mockDatasetsByRun[runId] = (mockDatasetsByRun[runId] || []).filter(
-    (dataset) => dataset.datasetId !== datasetId && dataset.id !== datasetId,
-  );
-  await delay(100);
-  return { ok: true };
-};
-
-export const getRunSample = async (runId, datasetType) => {
-  if (!runId) throw new Error("runId is required");
-
-  await delay(250);
-
-  return normaliseSample({
-    headers: [
-      "sourceRowNo",
-      "supplierName",
-      "invoiceReference",
-      "paymentDate",
-      "paymentAmount",
-    ],
-    total: datasetType === "supporting" ? 4 : 10,
-    rows: [
-      {
-        sourceRowNo: 1,
-        supplierName: "Example Supplier Pty Ltd",
-        invoiceReference: "INV-10001",
-        paymentDate: "2026-01-15",
-        paymentAmount: 1250.5,
-      },
-      {
-        sourceRowNo: 2,
-        supplierName: "Another Supplier Pty Ltd",
-        invoiceReference: "INV-10002",
-        paymentDate: "2026-01-22",
-        paymentAmount: 879.1,
-      },
-    ],
-  });
-};
-
 // -------------------- Status / Readiness --------------------
-export const getRunStatus = async (runId) => {
-  if (!runId) throw new Error("runId is required");
-  await delay(100);
-  const run = await getRun(runId);
-  const datasets = mockDatasetsByRun[runId] || [];
+export const getDatasetStatus = async () => {
+  throw new Error(
+    "Data Hub dataset status endpoint is not exposed by the backend routes file.",
+  );
+};
 
-  return normaliseRunStatus({
-    runId,
-    status: run.status,
-    currentStep: run.currentStep,
-    steps: {
-      upload: datasets.length ? "complete" : "pending",
-      link: datasets.length ? "ready" : "pending",
-      map: "pending",
-      stage: "pending",
-      exclusions: "pending",
-      rules: "pending",
-      sbi: "pending",
-      validate: "pending",
-    },
-    metrics: {
-      datasets: datasets.length,
-      rows: datasets.reduce(
-        (sum, dataset) => sum + Number(dataset.rowsCount || 0),
-        0,
-      ),
-    },
-    updatedAt: run.updatedAt,
-  });
+export const getDatasetSample = async (id, params = {}) => {
+  if (!id) throw new Error("id is required");
+
+  const context = getCustomerContext();
+  const profileId = params.profileId || context.profileId;
+  if (!profileId) throw new Error("profileId is required");
+
+  const search = new URLSearchParams();
+  search.set("profileId", profileId);
+  if (params.limit) search.set("limit", String(params.limit));
+  if (params.offset) search.set("offset", String(params.offset));
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/data-hub/datasets/${encodeURIComponent(id)}/sample?${search.toString()}`,
+  );
+
+  return normaliseSample(pickData(res));
 };

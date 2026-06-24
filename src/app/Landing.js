@@ -12,8 +12,8 @@ import {
   FormControl,
   InputLabel,
   Select,
-  MenuItem,
   CircularProgress,
+  MenuItem,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import {
@@ -25,6 +25,7 @@ import {
 } from "shared/utils";
 import { userService } from "slices/users/userApi";
 import { customersApi } from "slices/customers/customersApi";
+import { listProfiles } from "slices/dataHub/services/dhApi";
 
 export default function Landing() {
   const theme = useTheme();
@@ -39,6 +40,7 @@ export default function Landing() {
   }, []);
   const hasFeature = (f) =>
     Array.isArray(user?.entitlements) && user.entitlements.includes(f);
+  const hasDataHubAccess = hasFeature("dataHub") || hasFeature("ptrs");
 
   // --- Acting-on-behalf switcher ---
   const [customers, setCustomers] = useState([]);
@@ -46,11 +48,17 @@ export default function Landing() {
   const [selectedCustomerId, setSelectedCustomerId] = useState(
     getCurrentCustomer()?.id || user?.customerId || "",
   );
+  const [profiles, setProfiles] = useState([]);
+  const [loadingProfiles, setLoadingProfiles] = useState(false);
+  const [selectedProfileId, setSelectedProfileId] = useState(
+    getCurrentCustomer()?.profileId || "",
+  );
 
   // keep local state in sync with global tenant changes
   useEffect(() => {
     const unsubscribe = onCustomerChange?.((cust) => {
       setSelectedCustomerId(cust?.id || "");
+      setSelectedProfileId(cust?.profileId || "");
     });
     return () => {
       if (typeof unsubscribe === "function") unsubscribe();
@@ -82,6 +90,75 @@ export default function Landing() {
     };
   }, [showAlert, userId, canSwitch]);
 
+  useEffect(() => {
+    const currentCustomerId = selectedCustomerId || getCurrentCustomer()?.id;
+
+    if (!currentCustomerId) {
+      setProfiles([]);
+      setSelectedProfileId("");
+      return;
+    }
+
+    let isActive = true;
+
+    async function loadProfiles() {
+      try {
+        setLoadingProfiles(true);
+        const result = await listProfiles(currentCustomerId);
+        const items = Array.isArray(result?.items) ? result.items : [];
+        if (!isActive) return;
+
+        setProfiles(items);
+
+        const current = getCurrentCustomer();
+        const existingProfileId = current?.profileId || "";
+        const stillValid = items.some(
+          (profile) => String(profile.id) === String(existingProfileId),
+        );
+
+        if (stillValid) {
+          setSelectedProfileId(existingProfileId);
+          return;
+        }
+
+        if (items.length === 1) {
+          const onlyProfile = items[0];
+          setSelectedProfileId(onlyProfile.id);
+          if (current?.id) {
+            setCurrentCustomer({
+              ...current,
+              profileId: onlyProfile.id,
+              profileName:
+                onlyProfile.name || onlyProfile.profileName || onlyProfile.id,
+            });
+          }
+          return;
+        }
+
+        setSelectedProfileId("");
+        if (current?.id && current.profileId) {
+          const { profileId, profileName, ...rest } = current;
+          setCurrentCustomer(rest);
+        }
+      } catch (e) {
+        if (!isActive) return;
+        setProfiles([]);
+        setSelectedProfileId("");
+        if (typeof showAlert === "function") {
+          showAlert(e?.message || "Failed to load profiles", "error");
+        }
+      } finally {
+        if (isActive) setLoadingProfiles(false);
+      }
+    }
+
+    loadProfiles();
+
+    return () => {
+      isActive = false;
+    };
+  }, [selectedCustomerId, showAlert]);
+
   // validate selection against entitlements; clear if invalid
   useEffect(() => {
     if (!canSwitchCustomers(user)) return;
@@ -112,6 +189,8 @@ export default function Landing() {
     }
     // Optimistically set scoped tenant
     setCurrentCustomer({ id: selected.id, name: selected.businessName });
+    setSelectedProfileId("");
+    setProfiles([]);
     try {
       await userService.reloadCustomerEntitlements(selected.id);
     } catch (err) {
@@ -126,6 +205,27 @@ export default function Landing() {
     }
   };
 
+  const handleProfileChange = (e) => {
+    const value = e.target.value;
+    setSelectedProfileId(value);
+
+    const selectedProfile = profiles.find(
+      (profile) => String(profile.id) === String(value),
+    );
+
+    const current = getCurrentCustomer();
+    if (!current?.id || !selectedProfile) return;
+
+    setCurrentCustomer({
+      ...current,
+      profileId: selectedProfile.id,
+      profileName:
+        selectedProfile.name ||
+        selectedProfile.profileName ||
+        selectedProfile.id,
+    });
+  };
+
   return (
     <Box sx={{ p: theme.spacing(3) }}>
       <Typography variant="h4" sx={{ mb: 1 }}>
@@ -135,8 +235,8 @@ export default function Landing() {
         variant="body1"
         sx={{ mb: 3, color: theme.palette.text.secondary }}
       >
-        Use the customer selector and tiles below to jump into Data Hub, PTRS or
-        Pulse.
+        Use the customer selector and tiles below to manage trusted datasets,
+        run analysis workflows or review Pulse activity.
       </Typography>
 
       {canSwitch && (
@@ -179,6 +279,56 @@ export default function Landing() {
               <Typography variant="caption">Loading customers…</Typography>
             </Box>
           )}
+
+          <Box sx={{ mt: 2 }}>
+            <FormControl fullWidth size="small" disabled={loadingProfiles}>
+              <InputLabel id="acting-profile-label">Profile</InputLabel>
+              <Select
+                labelId="acting-profile-label"
+                id="acting-profile"
+                label="Profile"
+                value={
+                  profiles.some(
+                    (profile) =>
+                      String(profile.id) === String(selectedProfileId),
+                  )
+                    ? selectedProfileId
+                    : ""
+                }
+                onChange={handleProfileChange}
+                renderValue={(val) => {
+                  if (!val) return "— Select profile —";
+                  const found = profiles.find(
+                    (profile) => String(profile.id) === String(val),
+                  );
+                  return found?.name || found?.profileName || found?.id;
+                }}
+              >
+                {profiles.map((profile) => (
+                  <MenuItem key={profile.id} value={profile.id}>
+                    {profile.name || profile.profileName || profile.id}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            {loadingProfiles && (
+              <Box
+                sx={{ mt: 1, display: "flex", alignItems: "center", gap: 1 }}
+              >
+                <CircularProgress size={16} />
+                <Typography variant="caption">Loading profiles…</Typography>
+              </Box>
+            )}
+            {!loadingProfiles && selectedCustomerId && !profiles.length && (
+              <Typography
+                variant="caption"
+                color="text.secondary"
+                sx={{ display: "block", mt: 1 }}
+              >
+                No profiles found for this customer.
+              </Typography>
+            )}
+          </Box>
         </Box>
       )}
 
@@ -187,31 +337,33 @@ export default function Landing() {
           <Card
             variant="outlined"
             sx={{
-              cursor: hasFeature("ptrs") ? "pointer" : "default",
-              opacity: hasFeature("ptrs") ? 1 : 0.6,
+              cursor:
+                hasDataHubAccess && selectedProfileId ? "pointer" : "default",
+              opacity: hasDataHubAccess && selectedProfileId ? 1 : 0.6,
             }}
-            aria-disabled={!hasFeature("ptrs")}
-            {...(hasFeature("ptrs") && {
-              onClick: () => navigate("data-hub"),
-            })}
+            aria-disabled={!hasDataHubAccess || !selectedProfileId}
+            {...(hasDataHubAccess &&
+              selectedProfileId && {
+                onClick: () => navigate("data-hub"),
+              })}
           >
             <CardContent>
               <Stack spacing={1.5}>
                 <Typography variant="h6">Data Hub</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Upload, prepare and validate customer data for PTRS, payment
-                  behaviour and future compliance workflows.
+                  Upload and manage customer datasets for use across future
+                  analysis modules.
                 </Typography>
                 <Box>
                   <Button
                     variant="contained"
+                    disabled={!hasDataHubAccess || !selectedProfileId}
                     onClick={(e) => {
                       e.stopPropagation();
                       navigate("data-hub");
                     }}
-                    disabled={!hasFeature("ptrs")}
                   >
-                    Open Data Hub
+                    Manage datasets
                   </Button>
                 </Box>
               </Stack>

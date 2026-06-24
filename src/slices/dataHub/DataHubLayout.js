@@ -23,7 +23,7 @@ export default function DataHubLayout() {
   const location = useLocation();
   const navigate = useNavigate();
   const [params] = useSearchParams();
-  const { selectedRun, selectRun } = useDataHubContext();
+  const { selectedDataset, selectDataset } = useDataHubContext();
 
   const isLanding = /^\/app\/data-hub(?:\/landing)?\/?$/.test(
     location.pathname,
@@ -31,9 +31,9 @@ export default function DataHubLayout() {
   const isWizard = !isLanding;
 
   useEffect(() => {
-    const runId = params.get("runId");
-    if (runId) selectRun(runId);
-  }, [params, selectRun]);
+    const datasetId = params.get("datasetId");
+    if (datasetId) selectDataset(datasetId);
+  }, [params, selectDataset]);
 
   const currentStepId = useMemo(() => {
     if (isLanding) return "landing";
@@ -57,8 +57,10 @@ export default function DataHubLayout() {
 
   function goToStep(index) {
     const target = STEPS[index]?.id || "landing";
-    const runId = params.get("runId");
-    const suffix = runId ? `?runId=${encodeURIComponent(runId)}` : "";
+    const datasetId = params.get("datasetId");
+    const suffix = datasetId
+      ? `?datasetId=${encodeURIComponent(datasetId)}`
+      : "";
     const path =
       target === "landing"
         ? "/app/data-hub"
@@ -85,13 +87,13 @@ export default function DataHubLayout() {
           <Typography variant="h6" fontWeight={700}>
             Data Hub
           </Typography>
-          {selectedRun && (
+          {selectedDataset && (
             <Box sx={{ textAlign: "right" }}>
               <Typography variant="caption" color="text.secondary">
-                Active run
+                Active dataset
               </Typography>
               <Typography variant="body2" fontWeight={700}>
-                {selectedRun.name}
+                {selectedDataset.name}
               </Typography>
             </Box>
           )}

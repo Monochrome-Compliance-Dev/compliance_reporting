@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   Chip,
+  CircularProgress,
   Stack,
   Table,
   TableBody,
@@ -16,26 +17,26 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useDataHubContext } from "../context/DataHubContext";
+import { useDataHubDatasetsQuery } from "../hooks/useDataHubQueries";
 
 export default function LandingPanel() {
   const theme = useTheme();
   const navigate = useNavigate();
-  const { runs, selectRun } = useDataHubContext();
-
-  async function handleOpenRun(runId) {
-    await selectRun(runId);
-    navigate(`/app/data-hub/upload?runId=${encodeURIComponent(runId)}`);
-  }
-
-  function handleCreateRun() {
-    navigate("/app/data-hub/create");
-  }
+  const { selectedProfileId } = useDataHubContext();
+  const {
+    data: datasetsResponse,
+    isLoading,
+    isError,
+    error,
+  } = useDataHubDatasetsQuery(selectedProfileId);
+  const datasets = datasetsResponse?.items || [];
 
   return (
     <Box sx={{ p: theme.spacing(3) }}>
       <Stack spacing={3}>
         <Typography variant="body2" color="text.secondary">
-          Create a new run or resume an existing one.
+          Upload and manage customer datasets for use across future analysis
+          modules.
         </Typography>
 
         <Card variant="outlined">
@@ -47,14 +48,19 @@ export default function LandingPanel() {
               justifyContent="space-between"
             >
               <Box>
-                <Typography variant="h6">Create run</Typography>
+                <Typography variant="h6">Create dataset</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Start a new Data Hub processing run for the selected customer
-                  and profile.
+                  Upload a CSV dataset for the selected customer and profile.
                 </Typography>
               </Box>
-              <Button variant="contained" onClick={handleCreateRun}>
-                Create Data Hub Run
+              <Button
+                variant="contained"
+                disabled={!selectedProfileId}
+                onClick={() => {
+                  navigate("create");
+                }}
+              >
+                Create dataset
               </Button>
             </Stack>
           </CardContent>
@@ -64,59 +70,76 @@ export default function LandingPanel() {
           <CardContent>
             <Stack spacing={2}>
               <Box>
-                <Typography variant="h6">Recent runs</Typography>
+                <Typography variant="h6">Recent datasets</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Resume a run to continue upload, link, map, stage, exclusions,
-                  rules, SBI and validation work.
+                  View datasets already uploaded for this customer profile.
                 </Typography>
               </Box>
 
-              <TableContainer>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Run</TableCell>
-                      <TableCell>Status</TableCell>
-                      <TableCell>Profile</TableCell>
-                      <TableCell>Coverage</TableCell>
-                      <TableCell>Rows</TableCell>
-                      <TableCell>Updated</TableCell>
-                      <TableCell align="right">Action</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {runs.map((run) => (
-                      <TableRow key={run.id} hover>
-                        <TableCell>
-                          <Typography variant="body2" fontWeight={700}>
-                            {run.name}
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Chip label={run.status} size="small" />
-                        </TableCell>
-                        <TableCell>{run.profileName}</TableCell>
-                        <TableCell>{run.coverage}</TableCell>
-                        <TableCell>
-                          {run.paymentsRows +
-                            run.invoicesRows +
-                            run.supportingRows}
-                        </TableCell>
-                        <TableCell>{run.updatedAt}</TableCell>
-                        <TableCell align="right">
-                          <Button
-                            size="small"
-                            variant="outlined"
-                            onClick={() => handleOpenRun(run.id)}
-                          >
-                            Open
-                          </Button>
-                        </TableCell>
+              {!selectedProfileId && (
+                <Typography variant="body2" color="text.secondary">
+                  Choose a profile before viewing Data Hub datasets.
+                </Typography>
+              )}
+
+              {isLoading && selectedProfileId && (
+                <Stack direction="row" spacing={1.5} alignItems="center">
+                  <CircularProgress size={18} />
+                  <Typography variant="body2" color="text.secondary">
+                    Loading datasets...
+                  </Typography>
+                </Stack>
+              )}
+
+              {isError && (
+                <Typography variant="body2" color="error">
+                  {error?.message || "Failed to load Data Hub datasets."}
+                </Typography>
+              )}
+
+              {!isLoading &&
+                selectedProfileId &&
+                !isError &&
+                !datasets.length && (
+                  <Typography variant="body2" color="text.secondary">
+                    No datasets have been created for this profile yet.
+                  </Typography>
+                )}
+
+              {!!datasets.length && (
+                <TableContainer>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Dataset</TableCell>
+                        <TableCell>Type</TableCell>
+                        <TableCell>Status</TableCell>
+                        <TableCell>Rows</TableCell>
+                        <TableCell>Updated</TableCell>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
+                    </TableHead>
+                    <TableBody>
+                      {datasets.map((dataset) => (
+                        <TableRow key={dataset.id} hover>
+                          <TableCell>
+                            <Typography variant="body2" fontWeight={700}>
+                              {dataset.fileName ||
+                                dataset.sourceName ||
+                                dataset.id}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>{dataset.datasetType || "—"}</TableCell>
+                          <TableCell>
+                            <Chip label={dataset.status} size="small" />
+                          </TableCell>
+                          <TableCell>{dataset.rowsCount || 0}</TableCell>
+                          <TableCell>{dataset.updatedAt || "—"}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              )}
             </Stack>
           </CardContent>
         </Card>
