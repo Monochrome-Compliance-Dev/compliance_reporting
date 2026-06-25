@@ -8,19 +8,22 @@ import {
   Stack,
   TextField,
   Typography,
+  Chip,
+  Divider,
+  LinearProgress,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
 import { useDataHubContext } from "../context/DataHubContext";
-import { useCreateDataHubDatasetMutation } from "../hooks/useDataHubQueries";
+import { useUploadDataHubDatasetMutation } from "../hooks/useDataHubQueries";
 import { useDataHubNavigation } from "../hooks/useDataHubNavigation";
 
-export default function CreatePanel() {
+export default function UploadPanel() {
   const theme = useTheme();
   const { showAlert } = useAlert();
   const { profiles, profileId, setProfileId } = useDataHubContext();
-  const { goHome } = useDataHubNavigation();
-  const createDatasetMutation = useCreateDataHubDatasetMutation(profileId);
+  const { goHome, goTo } = useDataHubNavigation();
+  const uploadDatasetMutation = useUploadDataHubDatasetMutation(profileId);
 
   const defaultLabel = "";
   const safeProfileId = profiles.some((profile) => profile.id === profileId)
@@ -32,8 +35,9 @@ export default function CreatePanel() {
   const [datasetType, setDatasetType] = useState("payment");
   const [file, setFile] = useState(null);
   const [saving, setSaving] = useState(false);
+  const [uploadedDataset, setUploadedDataset] = useState(null);
 
-  async function handleCreate() {
+  async function handleUpload() {
     const trimmedLabel = label.trim();
     if (!trimmedLabel) {
       showAlert("Dataset name is required", "info");
@@ -54,19 +58,25 @@ export default function CreatePanel() {
 
     try {
       setSaving(true);
-      await createDatasetMutation.mutateAsync({
+      setUploadedDataset(null);
+      const dataset = await uploadDatasetMutation.mutateAsync({
         profileId,
         name: trimmedLabel,
         label: trimmedLabel,
+        sourceName: trimmedLabel,
         description: description.trim() || null,
         datasetType,
         file,
       });
-      showAlert("Data Hub dataset created", "success");
-      goHome({ includeDatasetId: false, includeProfileId: true });
+
+      const id = dataset?.id;
+      if (!id) throw new Error("Uploaded dataset did not return an id");
+
+      setUploadedDataset(dataset);
+      showAlert("Data Hub dataset uploaded", "success");
     } catch (err) {
       console.error(err);
-      showAlert(err?.message || "Failed to create Data Hub dataset", "error");
+      showAlert(err?.message || "Failed to upload Data Hub dataset", "error");
     } finally {
       setSaving(false);
     }
@@ -77,7 +87,7 @@ export default function CreatePanel() {
       <Stack spacing={3}>
         <Box>
           <Typography variant="h5" gutterBottom>
-            Create Data Hub dataset
+            Upload Data Hub dataset
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Upload a customer dataset so it can be reused by future analysis
@@ -142,6 +152,18 @@ export default function CreatePanel() {
                   onChange={(e) => setFile(e.target.files?.[0] || null)}
                 />
               </Button>
+              {saving && (
+                <Box>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    gutterBottom
+                  >
+                    Uploading and inspecting dataset...
+                  </Typography>
+                  <LinearProgress />
+                </Box>
+              )}
 
               <TextField
                 label="Description"
@@ -165,17 +187,113 @@ export default function CreatePanel() {
                 </Button>
                 <Button
                   variant="contained"
-                  onClick={handleCreate}
+                  onClick={handleUpload}
                   disabled={saving || !profileId || !datasetType || !file}
                   sx={{ minWidth: theme.spacing(18) }}
                 >
-                  {saving ? "Creating..." : "Create dataset"}
+                  {saving ? "Uploading..." : "Upload dataset"}
                 </Button>
               </Stack>
             </Stack>
           </CardContent>
         </Card>
       </Stack>
+      {uploadedDataset && (
+        <Card variant="outlined">
+          <CardContent>
+            <Stack spacing={2}>
+              <Box>
+                <Typography variant="h6">Upload complete</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  The backend created the dataset and inspected the uploaded
+                  CSV.
+                </Typography>
+              </Box>
+
+              <Divider />
+
+              <Stack
+                direction={{ xs: "column", md: "row" }}
+                spacing={3}
+                useFlexGap
+                flexWrap="wrap"
+              >
+                <Box>
+                  <Typography variant="caption" color="text.secondary">
+                    Dataset
+                  </Typography>
+                  <Typography variant="body2">
+                    {uploadedDataset.sourceName ||
+                      uploadedDataset.fileName ||
+                      uploadedDataset.id}
+                  </Typography>
+                </Box>
+
+                <Box>
+                  <Typography variant="caption" color="text.secondary">
+                    Type
+                  </Typography>
+                  <Typography variant="body2">
+                    {uploadedDataset.datasetType || "—"}
+                  </Typography>
+                </Box>
+
+                <Box>
+                  <Typography variant="caption" color="text.secondary">
+                    Rows
+                  </Typography>
+                  <Typography variant="body2">
+                    {Number(uploadedDataset.rowsCount || 0).toLocaleString()}
+                  </Typography>
+                </Box>
+
+                <Box>
+                  <Typography variant="caption" color="text.secondary">
+                    Headers
+                  </Typography>
+                  <Typography variant="body2">
+                    {Number(uploadedDataset.headersCount || 0).toLocaleString()}
+                  </Typography>
+                </Box>
+
+                <Box>
+                  <Typography variant="caption" color="text.secondary">
+                    Status
+                  </Typography>
+                  <Box sx={{ mt: 0.5 }}>
+                    <Chip
+                      label={uploadedDataset.status || "uploaded"}
+                      size="small"
+                    />
+                  </Box>
+                </Box>
+              </Stack>
+
+              <Stack direction="row" spacing={2} justifyContent="flex-end">
+                <Button
+                  variant="outlined"
+                  onClick={() =>
+                    goHome({ includeDatasetId: false, includeProfileId: true })
+                  }
+                >
+                  Back to Data Hub
+                </Button>
+                <Button
+                  variant="contained"
+                  onClick={() =>
+                    goTo(`map/${encodeURIComponent(uploadedDataset.id)}`, {
+                      includeDatasetId: false,
+                      includeProfileId: true,
+                    })
+                  }
+                >
+                  Continue to mapping
+                </Button>
+              </Stack>
+            </Stack>
+          </CardContent>
+        </Card>
+      )}
     </Box>
   );
 }

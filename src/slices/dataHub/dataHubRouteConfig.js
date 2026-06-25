@@ -1,6 +1,7 @@
 import DataHubLayout from "./DataHubLayout";
 import LandingPanel from "./panels/LandingPanel";
-import CreateDatasetCard from "./panels/CreateDatasetCard";
+import UploadDatasetCard from "./panels/UploadDatasetCard";
+import MapPanel from "./panels/MapPanel";
 
 const dataHubRoutes = [
   {
@@ -8,7 +9,8 @@ const dataHubRoutes = [
     Component: DataHubLayout,
     children: [
       { index: true, Component: LandingPanel },
-      { path: "create", Component: CreateDatasetCard },
+      { path: "create", Component: UploadDatasetCard },
+      { path: "map/:id", Component: MapPanel },
     ],
   },
 ];

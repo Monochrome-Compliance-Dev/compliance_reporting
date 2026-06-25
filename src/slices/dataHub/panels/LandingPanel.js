@@ -48,7 +48,7 @@ export default function LandingPanel() {
               justifyContent="space-between"
             >
               <Box>
-                <Typography variant="h6">Create dataset</Typography>
+                <Typography variant="h6">Upload dataset</Typography>
                 <Typography variant="body2" color="text.secondary">
                   Upload a CSV dataset for the selected customer and profile.
                 </Typography>
@@ -60,7 +60,7 @@ export default function LandingPanel() {
                   navigate("create");
                 }}
               >
-                Create dataset
+                Upload dataset
               </Button>
             </Stack>
           </CardContent>
@@ -116,6 +116,7 @@ export default function LandingPanel() {
                         <TableCell>Status</TableCell>
                         <TableCell>Rows</TableCell>
                         <TableCell>Updated</TableCell>
+                        <TableCell align="right">Action</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -134,6 +135,19 @@ export default function LandingPanel() {
                           </TableCell>
                           <TableCell>{dataset.rowsCount || 0}</TableCell>
                           <TableCell>{dataset.updatedAt || "—"}</TableCell>
+                          <TableCell align="right">
+                            <Button
+                              size="small"
+                              variant="outlined"
+                              onClick={() =>
+                                navigate(
+                                  `map/${encodeURIComponent(dataset.id)}`,
+                                )
+                              }
+                            >
+                              Open
+                            </Button>
+                          </TableCell>
                         </TableRow>
                       ))}
                     </TableBody>

@@ -59,6 +59,7 @@ function processEvents(profileId, datasetId, events) {
   for (const reason of reasons) {
     switch (reason) {
       case "dataset_created":
+      case "dataset_uploaded":
       case "dataset_deleted":
         keysToInvalidate.add(qk("datasets", profileId));
         break;
@@ -66,34 +67,18 @@ function processEvents(profileId, datasetId, events) {
       case "dataset_updated":
         keysToInvalidate.add(qk("datasets", profileId));
         keysToInvalidate.add(qk("dataset", profileId, datasetId));
-        keysToInvalidate.add(qk("status", profileId, datasetId));
-        break;
-
-      case "uploaded_dataset_created":
-      case "uploaded_dataset_deleted":
-      case "uploaded_dataset_updated":
-        keysToInvalidate.add(qk("dataset", profileId, datasetId));
-        keysToInvalidate.add(qk("uploadedDatasets", profileId, datasetId));
-        keysToInvalidate.add(qk("status", profileId, datasetId));
-        keysToInvalidate.add(qk("sample", profileId, datasetId));
         break;
 
       case "mapping_updated":
+        keysToInvalidate.add(qk("datasets", profileId));
         keysToInvalidate.add(qk("dataset", profileId, datasetId));
-        keysToInvalidate.add(qk("uploadedDatasets", profileId, datasetId));
-        keysToInvalidate.add(qk("sample", profileId, datasetId));
-        keysToInvalidate.add(qk("status", profileId, datasetId));
+        keysToInvalidate.add(qk("map", profileId, datasetId));
         break;
 
       case "dataset_published":
         keysToInvalidate.add(qk("datasets", profileId));
         keysToInvalidate.add(qk("dataset", profileId, datasetId));
-        keysToInvalidate.add(qk("uploadedDatasets", profileId, datasetId));
-        keysToInvalidate.add(qk("status", profileId, datasetId));
-        break;
-
-      case "status_updated":
-        keysToInvalidate.add(qk("status", profileId, datasetId));
+        keysToInvalidate.add(qk("map", profileId, datasetId));
         break;
 
       default:

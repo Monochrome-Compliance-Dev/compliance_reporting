@@ -91,9 +91,23 @@ export const normaliseSample = (x = {}) => ({
     x.headerMeta && typeof x.headerMeta === "object" ? x.headerMeta : {},
 });
 
+export const normaliseDatasetMap = (x = {}) => ({
+  ...x,
+  id: x.id,
+  customerId: x.customerId,
+  profileId: x.profileId,
+  datasetType: x.datasetType || null,
+  fieldMapping:
+    x.fieldMapping && typeof x.fieldMapping === "object" ? x.fieldMapping : {},
+  mappingStatus: x.mappingStatus || "draft",
+  mappedCount: Number(x.mappedCount || 0),
+  recommendedCount: Number(x.recommendedCount || 0),
+  updatedAt: x.updatedAt || null,
+});
+
 export const normaliseDatasetStatus = (x = {}) => ({
   id: x.id || null,
-  status: x.status || "Created",
+  status: x.status || "Uploaded",
   currentStep: x.currentStep || "upload",
   steps: {
     upload: x.steps?.upload || "pending",
@@ -121,7 +135,6 @@ export const listProfiles = async (customerId) => {
 // -------------------- Data Hub Datasets --------------------
 export const listDataHubDatasets = async (params = {}) => {
   const context = getCustomerContext();
-  console.log("listDataHubDatasets context:", context);
   const profileId = params.profileId || context.profileId;
 
   if (!profileId) throw new Error("profileId is required");
@@ -140,16 +153,23 @@ export const listDataHubDatasets = async (params = {}) => {
   return { items: normaliseDatasetList(data.items || data || []) };
 };
 
-export const createDataHubDataset = async (payload = {}) => {
+export const uploadDataHubDataset = async (payload = {}) => {
+  if (!payload.profileId) throw new Error("profileId is required");
+  if (!payload.datasetType) throw new Error("datasetType is required");
+  if (!payload.file) throw new Error("file is required");
+
   const formData = new FormData();
 
-  formData.append("profileId", payload.profileId);
-  formData.append("datasetType", payload.datasetType);
+  formData.append("profileId", String(payload.profileId));
+  formData.append("datasetType", String(payload.datasetType));
   formData.append("sourceType", "csv");
-  formData.append("sourceName", payload.file?.name || payload.datasetType);
+  formData.append(
+    "sourceName",
+    payload.sourceName || payload.label || payload.name || payload.file.name,
+  );
   formData.append("file", payload.file);
 
-  const res = await fetchWrapper.post(
+  const res = await fetchWrapper.postUpload(
     `${API_ROOT}/v2/data-hub/datasets`,
     formData,
   );
@@ -173,7 +193,7 @@ export const getDataHubDataset = async (id, params = {}) => {
 
 export const updateDataHubDataset = async () => {
   throw new Error(
-    "Data Hub dataset asset update endpoint is not exposed by the backend routes file.",
+    "General Data Hub dataset update endpoint is not implemented. Use a specific endpoint such as updateDataHubDatasetMap.",
   );
 };
 
@@ -192,11 +212,6 @@ export const deleteDataHubDataset = async (id, params = {}) => {
 };
 
 // -------------------- Status / Readiness --------------------
-export const getDatasetStatus = async () => {
-  throw new Error(
-    "Data Hub dataset status endpoint is not exposed by the backend routes file.",
-  );
-};
 
 export const getDatasetSample = async (id, params = {}) => {
   if (!id) throw new Error("id is required");
@@ -215,4 +230,43 @@ export const getDatasetSample = async (id, params = {}) => {
   );
 
   return normaliseSample(pickData(res));
+};
+
+export const getDataHubDatasetMap = async (id, params = {}) => {
+  if (!id) throw new Error("id is required");
+
+  const context = getCustomerContext();
+  const profileId = params.profileId || context.profileId;
+  if (!profileId) throw new Error("profileId is required");
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/data-hub/datasets/${encodeURIComponent(id)}/map?profileId=${encodeURIComponent(profileId)}`,
+  );
+
+  return normaliseDatasetMap(pickData(res));
+};
+
+export const updateDataHubDatasetMap = async (id, payload = {}) => {
+  if (!id) throw new Error("id is required");
+
+  const context = getCustomerContext();
+  const profileId = payload.profileId || context.profileId;
+  if (!profileId) throw new Error("profileId is required");
+
+  const fieldMapping =
+    payload.fieldMapping && typeof payload.fieldMapping === "object"
+      ? payload.fieldMapping
+      : null;
+
+  if (!fieldMapping) throw new Error("fieldMapping is required");
+
+  const res = await fetchWrapper.patch(
+    `${API_ROOT}/v2/data-hub/datasets/${encodeURIComponent(id)}/map`,
+    {
+      profileId,
+      fieldMapping,
+    },
+  );
+
+  return normaliseDatasetMap(pickData(res));
 };
