@@ -2,6 +2,7 @@ import DataHubLayout from "./DataHubLayout";
 import LandingPanel from "./panels/LandingPanel";
 import UploadDatasetCard from "./panels/UploadDatasetCard";
 import MapPanel from "./panels/MapPanel";
+import PublishPanel from "./panels/PublishPanel";
 
 const dataHubRoutes = [
   {
@@ -11,6 +12,7 @@ const dataHubRoutes = [
       { index: true, Component: LandingPanel },
       { path: "create", Component: UploadDatasetCard },
       { path: "map/:id", Component: MapPanel },
+      { path: "publish/:id", Component: PublishPanel },
     ],
   },
 ];

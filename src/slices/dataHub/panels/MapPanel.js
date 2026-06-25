@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router";
 import {
   Box,
@@ -29,13 +29,16 @@ import { useAlert } from "context";
 import { LoadingSpinner } from "shared/ui";
 import { useDataHubContext } from "../context/DataHubContext";
 import {
+  useDataHubDatasetMapQuery,
   useDataHubDatasetQuery,
   useDataHubDatasetsQuery,
   useDatasetSampleQuery,
+  useUpdateDataHubDatasetMapMutation,
 } from "../hooks/useDataHubQueries";
 import { useDataHubNavigation } from "../hooks/useDataHubNavigation";
 import {
   buildInitialFieldMapping,
+  getAnalysisReadiness,
   getFieldLabel,
   getRecommendedFields,
 } from "../ingestConfig";
@@ -99,6 +102,7 @@ export default function MapPanel() {
   const { id } = useParams();
   const { selectedProfileId } = useDataHubContext();
   const { goHome, goTo } = useDataHubNavigation();
+  const updateDatasetMapMutation = useUpdateDataHubDatasetMapMutation();
 
   const [search, setSearch] = useState("");
   const [assign, setAssign] = useState({});
@@ -120,6 +124,15 @@ export default function MapPanel() {
     isError: sampleError,
     error: sampleErrorDetails,
   } = useDatasetSampleQuery(id, selectedProfileId, {
+    enabled: Boolean(id && selectedProfileId),
+  });
+
+  const {
+    data: datasetMap,
+    isLoading: datasetMapLoading,
+    isError: datasetMapError,
+    error: datasetMapErrorDetails,
+  } = useDataHubDatasetMapQuery(id, selectedProfileId, {
     enabled: Boolean(id && selectedProfileId),
   });
 
@@ -174,6 +187,30 @@ export default function MapPanel() {
     [examples, headers],
   );
 
+  useEffect(() => {
+    const fieldMapping =
+      datasetMap?.fieldMapping && typeof datasetMap.fieldMapping === "object"
+        ? datasetMap.fieldMapping
+        : {};
+
+    const next = {};
+
+    for (const [field, source] of Object.entries(fieldMapping)) {
+      const sourceRef = normaliseSourceRef(source);
+      const header = sourceRef?.header || String(source || "").trim();
+      if (!field || !header) continue;
+
+      const matchingSource = sourceOptions.find(
+        (option) => normalise(option.header) === normalise(header),
+      );
+
+      next[field] = matchingSource || { header };
+    }
+
+    setAssign(next);
+    setIsDirty(false);
+  }, [datasetMap?.fieldMapping, sourceOptions]);
+
   const importCandidates = useMemo(() => {
     const items = Array.isArray(datasetsQ.data?.items)
       ? datasetsQ.data.items
@@ -213,6 +250,22 @@ export default function MapPanel() {
   }, [search, sourceOptions]);
 
   const mappedCount = recommendedFields.filter((field) => assign[field]).length;
+
+  const fieldMappingForReadiness = useMemo(
+    () =>
+      Object.fromEntries(
+        Object.entries(assign || {}).map(([field, source]) => [
+          field,
+          source?.header || null,
+        ]),
+      ),
+    [assign],
+  );
+
+  const analysisReadiness = useMemo(
+    () => getAnalysisReadiness(dataset?.datasetType, fieldMappingForReadiness),
+    [dataset?.datasetType, fieldMappingForReadiness],
+  );
 
   const assignSourceToTarget = useCallback((source, targetField) => {
     const sourceRef = normaliseSourceRef(source);
@@ -342,29 +395,39 @@ export default function MapPanel() {
       return;
     }
 
+    if (!selectedProfileId) {
+      showAlert("Missing profile id", "error");
+      return;
+    }
+
     if (!mappedCount) {
       showAlert("Map at least one field before saving.", "info");
       return;
     }
 
     setSavingMap(true);
+
     try {
-      // Persistence comes next once PATCH /data-hub/datasets/:id exists.
-      console.log("[DataHub MapPanel] pending field mapping", {
-        datasetId: id,
+      const fieldMapping = fieldMappingForReadiness;
+
+      await updateDatasetMapMutation.mutateAsync({
+        id,
         profileId: selectedProfileId,
-        fieldMapping: Object.fromEntries(
-          Object.entries(assign || {}).map(([field, source]) => [
-            field,
-            source?.header || null,
-          ]),
-        ),
+        fieldMapping,
+        recommendedCount: recommendedFields.length,
+        mappingStatus: analysisReadiness.some((item) => item.ready)
+          ? "ready"
+          : "mapped",
+        meta: {
+          analysisReadiness,
+        },
       });
+
       setIsDirty(false);
-      showAlert(
-        "Mapping is ready. Saving will be wired to the backend next.",
-        "info",
-      );
+
+      showAlert("Mapping saved successfully.", "success");
+    } catch (error) {
+      showAlert(error?.message || "Failed to save mapping.", "error");
     } finally {
       setSavingMap(false);
     }
@@ -533,16 +596,17 @@ export default function MapPanel() {
     );
   }
 
-  if (datasetLoading || sampleLoading) {
+  if (datasetLoading || sampleLoading || datasetMapLoading) {
     return <LoadingSpinner message="Loading mapping workspace..." />;
   }
 
-  if (datasetError || sampleError) {
+  if (datasetError || sampleError || datasetMapError) {
     return (
       <Paper variant="outlined" sx={{ p: 2 }}>
         <Typography variant="body2" color="error">
           {datasetErrorDetails?.message ||
             sampleErrorDetails?.message ||
+            datasetMapErrorDetails?.message ||
             "Failed to load mapping workspace."}
         </Typography>
       </Paper>
@@ -571,6 +635,15 @@ export default function MapPanel() {
               label={`${mappedCount}/${recommendedFields.length} mapped`}
             />
             <Chip size="small" label={`${headers.length} source columns`} />
+            {analysisReadiness.map((item) => (
+              <Chip
+                key={item.id}
+                size="small"
+                color={item.ready ? "success" : "default"}
+                variant={item.ready ? "filled" : "outlined"}
+                label={`${item.label}: ${item.ready ? "Ready" : `${item.requiredMapped}/${item.requiredTotal} required`}`}
+              />
+            ))}
           </Stack>
         </Stack>
 
@@ -600,6 +673,67 @@ export default function MapPanel() {
             </Stack>
           )}
         </Paper>
+
+        {!!analysisReadiness.length && (
+          <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
+            <Stack spacing={1.5}>
+              <Box>
+                <Typography variant="subtitle2">Analysis readiness</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Shows whether this mapping contains enough fields for each
+                  analysis module.
+                </Typography>
+              </Box>
+
+              {analysisReadiness.map((item) => (
+                <Paper key={item.id} variant="outlined" sx={{ p: 1.5 }}>
+                  <Stack spacing={1}>
+                    <Stack
+                      direction={{ xs: "column", sm: "row" }}
+                      spacing={1}
+                      alignItems={{ xs: "flex-start", sm: "center" }}
+                      justifyContent="space-between"
+                    >
+                      <Box>
+                        <Typography variant="body2" fontWeight={700}>
+                          {item.label}
+                        </Typography>
+                        <Typography variant="caption" color="text.secondary">
+                          {item.description}
+                        </Typography>
+                      </Box>
+
+                      <Stack direction="row" spacing={1} alignItems="center">
+                        <Chip
+                          size="small"
+                          color={item.ready ? "success" : "warning"}
+                          label={item.ready ? "Ready" : "Not ready"}
+                        />
+                        <Chip
+                          size="small"
+                          variant="outlined"
+                          label={`${item.score}%`}
+                        />
+                      </Stack>
+                    </Stack>
+
+                    <Typography variant="caption" color="text.secondary">
+                      Required: {item.requiredMapped}/{item.requiredTotal}.
+                      Useful: {item.usefulMapped}/{item.usefulTotal}.
+                    </Typography>
+
+                    {!!item.missingRequired.length && (
+                      <Typography variant="caption" color="error">
+                        Missing required:{" "}
+                        {item.missingRequired.map(getFieldLabel).join(", ")}
+                      </Typography>
+                    )}
+                  </Stack>
+                </Paper>
+              ))}
+            </Stack>
+          </Paper>
+        )}
 
         <Divider sx={{ my: 2 }} />
 
@@ -720,6 +854,32 @@ export default function MapPanel() {
           </Stack>
 
           <Divider sx={{ mb: 1 }} />
+
+          {!!analysisReadiness.length && (
+            <Box sx={{ mb: 1 }}>
+              <Typography variant="caption" color="text.secondary">
+                Readiness
+              </Typography>
+              <Stack
+                direction="row"
+                spacing={0.75}
+                flexWrap="wrap"
+                useFlexGap
+                sx={{ mt: 0.5 }}
+              >
+                {analysisReadiness.map((item) => (
+                  <Chip
+                    key={item.id}
+                    size="small"
+                    color={item.ready ? "success" : "default"}
+                    variant={item.ready ? "filled" : "outlined"}
+                    label={`${item.label}: ${item.score}%`}
+                  />
+                ))}
+              </Stack>
+              <Divider sx={{ mt: 1 }} />
+            </Box>
+          )}
 
           <Box sx={{ maxHeight: 560, overflowY: "auto" }}>
             {filteredSources.length === 0 ? (

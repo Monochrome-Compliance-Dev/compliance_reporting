@@ -106,16 +106,37 @@ export function useDataHubDatasetMapQuery(
 export function useUpdateDataHubDatasetMapMutation(id, profileId) {
   return useMutation({
     mutationFn: (payload) =>
-      api.updateDataHubDatasetMap(id, {
+      api.updateDataHubDatasetMap({
         ...payload,
+        id: payload?.id || id,
         profileId: payload?.profileId || profileId,
       }),
-    onSuccess: (datasetMap) => {
+    onSuccess: (datasetMap, payload) => {
       dataHubTraffic.emit(
-        datasetMap?.profileId || profileId,
-        datasetMap?.id || id,
+        datasetMap?.profileId || payload?.profileId || profileId,
+        datasetMap?.datasetId || datasetMap?.id || payload?.id || id,
         {
           reason: "mapping_updated",
+        },
+      );
+    },
+  });
+}
+
+export function usePublishDataHubDatasetMutation(id, profileId) {
+  return useMutation({
+    mutationFn: (payload = {}) =>
+      api.publishDataHubDataset({
+        ...payload,
+        id: payload?.id || id,
+        profileId: payload?.profileId || profileId,
+      }),
+    onSuccess: (result, payload) => {
+      dataHubTraffic.emit(
+        result?.profileId || payload?.profileId || profileId,
+        result?.datasetId || payload?.id || id,
+        {
+          reason: "dataset_published",
         },
       );
     },

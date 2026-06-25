@@ -73,6 +73,92 @@ export const DH_RECOMMENDED_FIELDS = {
   ],
 };
 
+export const DH_ANALYSIS_READINESS = {
+  payment: {
+    ptrs: {
+      id: "ptrs",
+      label: "PTRS analysis",
+      description:
+        "Checks whether this payment dataset has enough mapped fields to support PTRS analysis.",
+      required: [
+        "paymentDate",
+        "paymentAmount",
+        "payeeName",
+        "payeeAbn",
+        "invoiceReference",
+      ],
+      useful: [
+        "payerName",
+        "payerAbn",
+        "paymentTerms",
+        "documentType",
+        "currency",
+        "purchasingDocument",
+      ],
+    },
+    workingCapital: {
+      id: "workingCapital",
+      label: "Working capital analysis",
+      description:
+        "Placeholder readiness check for future working capital analysis.",
+      required: ["paymentDate", "paymentAmount", "payeeName"],
+      useful: ["paymentTerms", "currency", "invoiceReference"],
+    },
+  },
+  invoice: {
+    ptrs: {
+      id: "ptrs",
+      label: "PTRS analysis",
+      description:
+        "Checks whether this invoice dataset can support PTRS invoice enrichment.",
+      required: [
+        "invoiceReference",
+        "invoiceIssueDate",
+        "invoiceAmount",
+        "payeeName",
+        "payeeAbn",
+      ],
+      useful: [
+        "invoiceReceiptDate",
+        "invoiceDueDate",
+        "payerName",
+        "payerAbn",
+        "paymentTerms",
+        "currency",
+        "purchasingDocument",
+      ],
+    },
+    workingCapital: {
+      id: "workingCapital",
+      label: "Working capital analysis",
+      description:
+        "Placeholder readiness check for future working capital analysis.",
+      required: ["invoiceIssueDate", "invoiceDueDate", "invoiceAmount"],
+      useful: ["paymentTerms", "currency", "payeeName", "payerName"],
+    },
+  },
+  vendor: {
+    ptrs: {
+      id: "ptrs",
+      label: "PTRS analysis",
+      description:
+        "Checks whether this vendor dataset can support supplier enrichment for PTRS.",
+      required: ["vendorName", "vendorAbn"],
+      useful: ["vendorCode", "paymentTerms", "country", "status"],
+    },
+  },
+  payment_term: {
+    ptrs: {
+      id: "ptrs",
+      label: "PTRS analysis",
+      description:
+        "Checks whether this payment term dataset can support payment term enrichment for PTRS.",
+      required: ["vendorAbn", "paymentTerms"],
+      useful: ["vendorCode", "vendorName", "effectiveDate", "changedAt"],
+    },
+  },
+};
+
 export const DH_FIELD_LABELS = {
   paymentDate: "Payment date",
   paymentAmount: "Payment amount",
@@ -148,8 +234,67 @@ export function getRecommendedFields(datasetType) {
   return DH_RECOMMENDED_FIELDS[datasetType] || [];
 }
 
+export function getAnalysisReadinessRules(datasetType) {
+  return DH_ANALYSIS_READINESS[datasetType] || {};
+}
+
 export function getFieldLabel(fieldId) {
   return DH_FIELD_LABELS[fieldId] || fieldId;
+}
+
+function hasMappedValue(value) {
+  if (!value) return false;
+  if (typeof value === "string") return value.trim().length > 0;
+  if (typeof value === "object") {
+    return String(value.header || value.sourceHeader || "").trim().length > 0;
+  }
+  return false;
+}
+
+function buildFieldStatus(fields = [], fieldMapping = {}) {
+  const mapped = fields.filter((fieldId) =>
+    hasMappedValue(fieldMapping[fieldId]),
+  );
+  const missing = fields.filter(
+    (fieldId) => !hasMappedValue(fieldMapping[fieldId]),
+  );
+
+  return {
+    mapped,
+    missing,
+    mappedCount: mapped.length,
+    totalCount: fields.length,
+  };
+}
+
+export function getAnalysisReadiness(datasetType, fieldMapping = {}) {
+  const rules = getAnalysisReadinessRules(datasetType);
+
+  return Object.values(rules).map((rule) => {
+    const required = buildFieldStatus(rule.required || [], fieldMapping);
+    const useful = buildFieldStatus(rule.useful || [], fieldMapping);
+    const totalMapped = required.mappedCount + useful.mappedCount;
+    const totalPossible = required.totalCount + useful.totalCount;
+    const score = totalPossible
+      ? Math.round((totalMapped / totalPossible) * 100)
+      : 0;
+
+    return {
+      id: rule.id,
+      label: rule.label,
+      description: rule.description,
+      ready: required.totalCount > 0 && required.missing.length === 0,
+      score,
+      requiredMapped: required.mappedCount,
+      requiredTotal: required.totalCount,
+      usefulMapped: useful.mappedCount,
+      usefulTotal: useful.totalCount,
+      missingRequired: required.missing,
+      missingUseful: useful.missing,
+      mappedRequired: required.mapped,
+      mappedUseful: useful.mapped,
+    };
+  });
 }
 
 function normalise(value) {

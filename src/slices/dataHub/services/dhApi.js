@@ -96,13 +96,25 @@ export const normaliseDatasetMap = (x = {}) => ({
   id: x.id,
   customerId: x.customerId,
   profileId: x.profileId,
+  datasetId: x.datasetId || x.id,
   datasetType: x.datasetType || null,
   fieldMapping:
     x.fieldMapping && typeof x.fieldMapping === "object" ? x.fieldMapping : {},
   mappingStatus: x.mappingStatus || "draft",
   mappedCount: Number(x.mappedCount || 0),
   recommendedCount: Number(x.recommendedCount || 0),
+  meta: x.meta && typeof x.meta === "object" ? x.meta : null,
   updatedAt: x.updatedAt || null,
+});
+
+export const normalisePublishedDataset = (x = {}) => ({
+  ...x,
+  datasetId: x.datasetId || x.id || null,
+  datasetType: x.datasetType || null,
+  publishedCount: Number(x.publishedCount || 0),
+  publishedAt: x.publishedAt || null,
+  mappingStatus: x.mappingStatus || null,
+  mapId: x.mapId || null,
 });
 
 export const normaliseDatasetStatus = (x = {}) => ({
@@ -240,33 +252,55 @@ export const getDataHubDatasetMap = async (id, params = {}) => {
   if (!profileId) throw new Error("profileId is required");
 
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/data-hub/datasets/${encodeURIComponent(id)}/map?profileId=${encodeURIComponent(profileId)}`,
+    `${API_ROOT}/v2/data-hub/maps/${encodeURIComponent(id)}/map?profileId=${encodeURIComponent(profileId)}`,
   );
 
   return normaliseDatasetMap(pickData(res));
 };
 
-export const updateDataHubDatasetMap = async (id, payload = {}) => {
+export const updateDataHubDatasetMap = async (payload = {}) => {
+  const { id, fieldMapping, recommendedCount, mappingStatus, meta } = payload;
+
   if (!id) throw new Error("id is required");
 
   const context = getCustomerContext();
   const profileId = payload.profileId || context.profileId;
   if (!profileId) throw new Error("profileId is required");
 
-  const fieldMapping =
-    payload.fieldMapping && typeof payload.fieldMapping === "object"
-      ? payload.fieldMapping
-      : null;
-
-  if (!fieldMapping) throw new Error("fieldMapping is required");
+  if (!fieldMapping || typeof fieldMapping !== "object") {
+    throw new Error("fieldMapping is required");
+  }
 
   const res = await fetchWrapper.patch(
-    `${API_ROOT}/v2/data-hub/datasets/${encodeURIComponent(id)}/map`,
+    `${API_ROOT}/v2/data-hub/maps/${encodeURIComponent(id)}/map`,
     {
       profileId,
       fieldMapping,
+      recommendedCount,
+      mappingStatus,
+      meta,
     },
   );
 
   return normaliseDatasetMap(pickData(res));
+};
+
+export const publishDataHubDataset = async (payload = {}) => {
+  const { id, meta } = payload;
+
+  if (!id) throw new Error("id is required");
+
+  const context = getCustomerContext();
+  const profileId = payload.profileId || context.profileId;
+  if (!profileId) throw new Error("profileId is required");
+
+  const res = await fetchWrapper.patch(
+    `${API_ROOT}/v2/data-hub/publishing/${encodeURIComponent(id)}/publish`,
+    {
+      profileId,
+      meta,
+    },
+  );
+
+  return normalisePublishedDataset(pickData(res));
 };
