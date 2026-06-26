@@ -69,6 +69,7 @@ function processEvents(profileId, datasetId, events) {
         keysToInvalidate.add(qk("dataset", profileId, datasetId));
         break;
 
+      case "mapping_imported":
       case "mapping_updated":
         keysToInvalidate.add(qk("datasets", profileId));
         keysToInvalidate.add(qk("dataset", profileId, datasetId));

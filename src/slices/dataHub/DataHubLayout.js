@@ -3,6 +3,7 @@ import {
   Outlet,
   useLocation,
   useNavigate,
+  useParams,
   useSearchParams,
 } from "react-router";
 import {
@@ -17,18 +18,29 @@ import {
 } from "@mui/material";
 import PageMeta from "shared/ui/PageMeta";
 import { useDataHubContext } from "./context/DataHubContext";
+import { useDataHubDatasetQuery } from "./hooks/useDataHubQueries";
 import { STEPS } from "./steps";
 
 export default function DataHubLayout() {
   const location = useLocation();
   const navigate = useNavigate();
   const [params] = useSearchParams();
-  const { selectedDataset, selectDataset } = useDataHubContext();
+  const { selectedDataset, selectedProfileId, selectDataset } =
+    useDataHubContext();
+
+  const routeParams = useParams();
+  const routeDatasetId = routeParams.id;
+  const profileId = params.get("profileId") || selectedProfileId;
 
   const isLanding = /^\/app\/data-hub(?:\/landing)?\/?$/.test(
     location.pathname,
   );
   const isWizard = !isLanding;
+
+  const datasetQ = useDataHubDatasetQuery(routeDatasetId, profileId, {
+    enabled: Boolean(routeDatasetId && profileId && isWizard),
+  });
+  const dataset = datasetQ.data;
 
   useEffect(() => {
     const datasetId = params.get("datasetId");
@@ -46,6 +58,21 @@ export default function DataHubLayout() {
     return STEPS.some((step) => step.id === maybe) ? maybe : "landing";
   }, [isLanding, location.pathname]);
 
+  useEffect(() => {
+    if (!routeDatasetId) return;
+    if (currentStepId !== "map") return;
+    if (dataset?.status !== "published") return;
+
+    const query = profileId
+      ? `?profileId=${encodeURIComponent(profileId)}`
+      : "";
+
+    navigate(
+      `/app/data-hub/publish/${encodeURIComponent(routeDatasetId)}${query}`,
+      { replace: true },
+    );
+  }, [currentStepId, dataset?.status, navigate, profileId, routeDatasetId]);
+
   const currentIndex = useMemo(
     () =>
       Math.max(
@@ -54,6 +81,9 @@ export default function DataHubLayout() {
       ),
     [currentStepId],
   );
+
+  const isPublishedReview = currentStepId === "publish";
+  const showWizardNavigation = isWizard && !isPublishedReview;
 
   function goToStep(index) {
     const target = STEPS[index]?.id || "landing";
@@ -100,7 +130,7 @@ export default function DataHubLayout() {
         </Stack>
       </Box>
 
-      {isWizard && (
+      {showWizardNavigation && (
         <Box sx={{ px: 3, py: 2 }}>
           <Stepper activeStep={currentIndex} alternativeLabel>
             {STEPS.map((step, index) => (
@@ -123,7 +153,7 @@ export default function DataHubLayout() {
         <Outlet />
       </Box>
 
-      {isWizard && (
+      {showWizardNavigation && (
         <Box
           sx={{
             px: 3,

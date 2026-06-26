@@ -258,6 +258,26 @@ export const getDataHubDatasetMap = async (id, params = {}) => {
   return normaliseDatasetMap(pickData(res));
 };
 
+export const listCompatibleDataHubMaps = async (params = {}) => {
+  const context = getCustomerContext();
+  const profileId = params.profileId || context.profileId;
+  const datasetType = params.datasetType;
+
+  if (!profileId) throw new Error("profileId is required");
+  if (!datasetType) throw new Error("datasetType is required");
+
+  const search = new URLSearchParams();
+  search.set("profileId", profileId);
+  search.set("datasetType", datasetType);
+
+  const res = await fetchWrapper.get(
+    `${API_ROOT}/v2/data-hub/maps/compatible-maps?${search.toString()}`,
+  );
+
+  const data = pickData(res);
+  return { items: Array.isArray(data?.items) ? data.items : [] };
+};
+
 export const updateDataHubDatasetMap = async (payload = {}) => {
   const { id, fieldMapping, recommendedCount, mappingStatus, meta } = payload;
 
@@ -279,6 +299,27 @@ export const updateDataHubDatasetMap = async (payload = {}) => {
       recommendedCount,
       mappingStatus,
       meta,
+    },
+  );
+
+  return normaliseDatasetMap(pickData(res));
+};
+
+export const importDataHubDatasetMap = async (payload = {}) => {
+  const { id, sourceDatasetId } = payload;
+
+  if (!id) throw new Error("id is required");
+  if (!sourceDatasetId) throw new Error("sourceDatasetId is required");
+
+  const context = getCustomerContext();
+  const profileId = payload.profileId || context.profileId;
+  if (!profileId) throw new Error("profileId is required");
+
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/data-hub/maps/${encodeURIComponent(id)}/map/import`,
+    {
+      profileId,
+      sourceDatasetId,
     },
   );
 

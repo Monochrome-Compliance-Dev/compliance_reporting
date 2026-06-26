@@ -31,7 +31,8 @@ import { useDataHubContext } from "../context/DataHubContext";
 import {
   useDataHubDatasetMapQuery,
   useDataHubDatasetQuery,
-  useDataHubDatasetsQuery,
+  useCompatibleDataHubMapsQuery,
+  useImportDataHubDatasetMapMutation,
   useDatasetSampleQuery,
   useUpdateDataHubDatasetMapMutation,
 } from "../hooks/useDataHubQueries";
@@ -102,7 +103,10 @@ export default function MapPanel() {
   const { id } = useParams();
   const { selectedProfileId } = useDataHubContext();
   const { goHome, goTo } = useDataHubNavigation();
-  const updateDatasetMapMutation = useUpdateDataHubDatasetMapMutation();
+  const updateDatasetMapMutation = useUpdateDataHubDatasetMapMutation(
+    id,
+    selectedProfileId,
+  );
 
   const [search, setSearch] = useState("");
   const [assign, setAssign] = useState({});
@@ -136,9 +140,18 @@ export default function MapPanel() {
     enabled: Boolean(id && selectedProfileId),
   });
 
-  const datasetsQ = useDataHubDatasetsQuery(selectedProfileId, {
-    enabled: Boolean(selectedProfileId),
-  });
+  const compatibleMapsQ = useCompatibleDataHubMapsQuery(
+    selectedProfileId,
+    dataset?.datasetType,
+    {
+      enabled: Boolean(selectedProfileId && dataset?.datasetType),
+    },
+  );
+
+  const importDatasetMapMutation = useImportDataHubDatasetMapMutation(
+    id,
+    selectedProfileId,
+  );
 
   const headers = useMemo(() => {
     if (Array.isArray(sample?.headers) && sample.headers.length) {
@@ -211,24 +224,10 @@ export default function MapPanel() {
     setIsDirty(false);
   }, [datasetMap?.fieldMapping, sourceOptions]);
 
-  const importCandidates = useMemo(() => {
-    const items = Array.isArray(datasetsQ.data?.items)
-      ? datasetsQ.data.items
-      : [];
-
-    return items.filter((item) => {
-      if (!item?.id || String(item.id) === String(id)) return false;
-      if (item.datasetType !== dataset?.datasetType) return false;
-
-      const meta = item.meta && typeof item.meta === "object" ? item.meta : {};
-      const fieldMapping =
-        meta.fieldMapping && typeof meta.fieldMapping === "object"
-          ? meta.fieldMapping
-          : null;
-
-      return Boolean(fieldMapping && Object.keys(fieldMapping).length);
-    });
-  }, [dataset?.datasetType, datasetsQ.data?.items, id]);
+  const importCandidates = useMemo(
+    () => compatibleMapsQ.data?.items || [],
+    [compatibleMapsQ.data],
+  );
 
   const usedSources = useMemo(
     () =>
@@ -320,54 +319,25 @@ export default function MapPanel() {
     }
   }, [recommendedFields, showAlert, sourceOptions, suggestedMapping]);
 
-  const importMap = useCallback(() => {
-    const sourceDataset = importCandidates.find(
-      (candidate) => String(candidate.id) === String(selectedImportDatasetId),
-    );
-
-    if (!sourceDataset) {
+  const importMap = useCallback(async () => {
+    if (!selectedImportDatasetId) {
       showAlert("Choose a map to import.", "info");
       return;
     }
 
-    const meta =
-      sourceDataset.meta && typeof sourceDataset.meta === "object"
-        ? sourceDataset.meta
-        : {};
-    const fieldMapping =
-      meta.fieldMapping && typeof meta.fieldMapping === "object"
-        ? meta.fieldMapping
-        : {};
+    try {
+      await importDatasetMapMutation.mutateAsync({
+        sourceDatasetId: selectedImportDatasetId,
+      });
 
-    const next = {};
+      setImportOpen(false);
+      setSelectedImportDatasetId("");
 
-    for (const [field, source] of Object.entries(fieldMapping)) {
-      const sourceRef = normaliseSourceRef(source);
-      const header = sourceRef?.header || String(source || "").trim();
-      if (!field || !header) continue;
-
-      const matchingSource = sourceOptions.find(
-        (option) => normalise(option.header) === normalise(header),
-      );
-
-      next[field] = matchingSource || { header };
+      showAlert("Map imported successfully.", "success");
+    } catch (error) {
+      showAlert(error?.message || "Failed to import map.", "error");
     }
-
-    const count = Object.keys(next).length;
-    if (!count) {
-      showAlert("The selected map did not contain usable fields.", "info");
-      return;
-    }
-
-    setAssign(next);
-    setIsDirty(true);
-    setImportOpen(false);
-    setSelectedImportDatasetId("");
-    showAlert(
-      `Imported ${count} mapped field${count === 1 ? "" : "s"}`,
-      "success",
-    );
-  }, [importCandidates, selectedImportDatasetId, showAlert, sourceOptions]);
+  }, [importDatasetMapMutation, selectedImportDatasetId, showAlert]);
 
   const onDragStart = (event, source) => {
     try {
@@ -773,7 +743,7 @@ export default function MapPanel() {
                 size="small"
                 startIcon={<ContentPasteGoIcon />}
                 onClick={() => setImportOpen(true)}
-                disabled={!importCandidates.length}
+                disabled={compatibleMapsQ.isLoading || !importCandidates.length}
               >
                 Import map
               </Button>
@@ -840,7 +810,9 @@ export default function MapPanel() {
                 <IconButton
                   onClick={() => setImportOpen(true)}
                   size="small"
-                  disabled={!importCandidates.length}
+                  disabled={
+                    compatibleMapsQ.isLoading || !importCandidates.length
+                  }
                 >
                   <ContentPasteGoIcon fontSize="small" />
                 </IconButton>
@@ -922,24 +894,18 @@ export default function MapPanel() {
                 value={
                   importCandidates.find(
                     (candidate) =>
-                      String(candidate.id) === String(selectedImportDatasetId),
+                      String(candidate.datasetId) ===
+                      String(selectedImportDatasetId),
                   ) || null
                 }
                 onChange={(event, value) =>
-                  setSelectedImportDatasetId(value?.id || "")
+                  setSelectedImportDatasetId(value?.datasetId || "")
                 }
-                getOptionLabel={(option) => {
-                  const meta =
-                    option?.meta && typeof option.meta === "object"
-                      ? option.meta
-                      : {};
-                  const mappedCount = meta.fieldMapping
-                    ? Object.keys(meta.fieldMapping).length
-                    : 0;
-                  return `${option.sourceName || option.fileName || option.id} (${mappedCount} mapped)`;
-                }}
+                getOptionLabel={(option) =>
+                  `${option.sourceName || option.originalFileName || option.datasetId} (${option.mappedCount}/${option.recommendedCount})`
+                }
                 isOptionEqualToValue={(option, value) =>
-                  String(option.id) === String(value.id)
+                  String(option.datasetId) === String(value.datasetId)
                 }
                 renderInput={(params) => (
                   <TextField {...params} label="Saved map" />
@@ -953,7 +919,9 @@ export default function MapPanel() {
           <Button
             variant="contained"
             onClick={importMap}
-            disabled={!selectedImportDatasetId}
+            disabled={
+              !selectedImportDatasetId || importDatasetMapMutation.isPending
+            }
           >
             Import map
           </Button>

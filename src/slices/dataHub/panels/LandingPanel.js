@@ -120,36 +120,56 @@ export default function LandingPanel() {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {datasets.map((dataset) => (
-                        <TableRow key={dataset.id} hover>
-                          <TableCell>
-                            <Typography variant="body2" fontWeight={700}>
-                              {dataset.fileName ||
-                                dataset.sourceName ||
-                                dataset.id}
-                            </Typography>
-                          </TableCell>
-                          <TableCell>{dataset.datasetType || "—"}</TableCell>
-                          <TableCell>
-                            <Chip label={dataset.status} size="small" />
-                          </TableCell>
-                          <TableCell>{dataset.rowsCount || 0}</TableCell>
-                          <TableCell>{dataset.updatedAt || "—"}</TableCell>
-                          <TableCell align="right">
-                            <Button
-                              size="small"
-                              variant="outlined"
-                              onClick={() =>
-                                navigate(
-                                  `map/${encodeURIComponent(dataset.id)}`,
-                                )
-                              }
-                            >
-                              Open
-                            </Button>
-                          </TableCell>
-                        </TableRow>
-                      ))}
+                      {datasets.map((dataset) => {
+                        const isPublished = dataset.status === "published";
+
+                        return (
+                          <TableRow key={dataset.id} hover>
+                            <TableCell>
+                              <Stack spacing={0.25}>
+                                <Typography variant="body2" fontWeight={700}>
+                                  {dataset.fileName ||
+                                    dataset.sourceName ||
+                                    dataset.id}
+                                </Typography>
+                                {isPublished && (
+                                  <Typography
+                                    variant="caption"
+                                    color="text.secondary"
+                                  >
+                                    🔒 Published datasets are read-only.
+                                  </Typography>
+                                )}
+                              </Stack>
+                            </TableCell>
+                            <TableCell>{dataset.datasetType || "—"}</TableCell>
+                            <TableCell>
+                              <Chip
+                                label={dataset.status}
+                                size="small"
+                                color={isPublished ? "success" : "default"}
+                              />
+                            </TableCell>
+                            <TableCell>{dataset.rowsCount || 0}</TableCell>
+                            <TableCell>{dataset.updatedAt || "—"}</TableCell>
+                            <TableCell align="right">
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                onClick={() =>
+                                  navigate(
+                                    `${
+                                      isPublished ? "publish" : "map"
+                                    }/${encodeURIComponent(dataset.id)}`,
+                                  )
+                                }
+                              >
+                                {isPublished ? "View" : "Open"}
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                        );
+                      })}
                     </TableBody>
                   </Table>
                 </TableContainer>

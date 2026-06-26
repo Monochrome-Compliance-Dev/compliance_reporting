@@ -93,8 +93,13 @@ export default function PublishPanel() {
 
   const hasReadyAnalysis = analysisReadiness.some((item) => item.ready);
   const canPublish = Boolean(id && selectedProfileId && mappedCount > 0);
+  const isPublished = dataset?.status === "published";
 
   async function handlePublish() {
+    if (isPublished) {
+      showAlert("Published datasets are read-only.", "info");
+      return;
+    }
     if (!canPublish) {
       showAlert("Map at least one field before publishing.", "info");
       return;
@@ -182,7 +187,11 @@ export default function PublishPanel() {
                       "CSV dataset"}
                   </Typography>
                 </Box>
-                <Chip label={dataset?.status || "uploaded"} size="small" />
+                <Chip
+                  label={dataset?.status || "uploaded"}
+                  size="small"
+                  color={isPublished ? "success" : "default"}
+                />
               </Stack>
 
               <Divider />
@@ -387,17 +396,19 @@ export default function PublishPanel() {
             </Box>
 
             <Stack direction="row" spacing={1} justifyContent="flex-end">
-              <Button
-                variant="outlined"
-                onClick={() =>
-                  goTo(`map/${encodeURIComponent(id)}`, {
-                    includeDatasetId: false,
-                    includeProfileId: true,
-                  })
-                }
-              >
-                Back to mapping
-              </Button>
+              {!isPublished && (
+                <Button
+                  variant="outlined"
+                  onClick={() =>
+                    goTo(`map/${encodeURIComponent(id)}`, {
+                      includeDatasetId: false,
+                      includeProfileId: true,
+                    })
+                  }
+                >
+                  Back to mapping
+                </Button>
+              )}
               <Button
                 variant="text"
                 onClick={() =>
@@ -406,16 +417,18 @@ export default function PublishPanel() {
               >
                 Back to Data Hub
               </Button>
-              <Button
-                variant="contained"
-                startIcon={<SaveIcon />}
-                disabled={
-                  !canPublish || publishing || publishMutation.isPending
-                }
-                onClick={handlePublish}
-              >
-                {publishing ? "Publishing..." : "Publish dataset"}
-              </Button>
+              {!isPublished && (
+                <Button
+                  variant="contained"
+                  startIcon={<SaveIcon />}
+                  disabled={
+                    !canPublish || publishing || publishMutation.isPending
+                  }
+                  onClick={handlePublish}
+                >
+                  {publishing ? "Publishing..." : "Publish dataset"}
+                </Button>
+              )}
             </Stack>
           </Stack>
         </Paper>

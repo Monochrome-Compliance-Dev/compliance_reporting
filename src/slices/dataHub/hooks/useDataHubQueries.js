@@ -155,3 +155,44 @@ export function useDeleteDataHubDatasetMutation(profileId) {
 }
 
 export const dataHubQueryKeys = K;
+
+export function useCompatibleDataHubMapsQuery(
+  profileId,
+  datasetType,
+  { enabled = true } = {},
+) {
+  const queryEnabled = !!profileId && !!datasetType && enabled;
+
+  return useQuery({
+    queryKey: [
+      "dataHub",
+      "compatibleMaps",
+      profileId || "none",
+      datasetType || "none",
+    ],
+    queryFn: () => api.listCompatibleDataHubMaps({ profileId, datasetType }),
+    enabled: queryEnabled,
+    staleTime: 60000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+}
+
+export function useImportDataHubDatasetMapMutation(id, profileId) {
+  return useMutation({
+    mutationFn: (payload) =>
+      api.importDataHubDatasetMap({
+        ...payload,
+        id: payload?.id || id,
+        profileId: payload?.profileId || profileId,
+      }),
+    onSuccess: (datasetMap, payload) => {
+      dataHubTraffic.emit(
+        datasetMap?.profileId || payload?.profileId || profileId,
+        datasetMap?.datasetId || payload?.id || id,
+        { reason: "mapping_imported" },
+      );
+    },
+  });
+}
