@@ -50,6 +50,7 @@ export const DH_RECOMMENDED_FIELDS = {
     "payerName",
     "payerAbn",
     "paymentTerms",
+    "documentType",
     "currency",
     "purchasingDocument",
   ],
@@ -96,14 +97,6 @@ export const DH_ANALYSIS_READINESS = {
         "purchasingDocument",
       ],
     },
-    workingCapital: {
-      id: "workingCapital",
-      label: "Working capital analysis",
-      description:
-        "Placeholder readiness check for future working capital analysis.",
-      required: ["paymentDate", "paymentAmount", "payeeName"],
-      useful: ["paymentTerms", "currency", "invoiceReference"],
-    },
   },
   invoice: {
     ptrs: {
@@ -111,30 +104,20 @@ export const DH_ANALYSIS_READINESS = {
       label: "PTRS analysis",
       description:
         "Checks whether this invoice dataset can support PTRS invoice enrichment.",
-      required: [
-        "invoiceReference",
-        "invoiceIssueDate",
-        "invoiceAmount",
-        "payeeName",
-        "payeeAbn",
-      ],
+      required: ["invoiceReference", "invoiceAmount"],
       useful: [
         "invoiceReceiptDate",
         "invoiceDueDate",
+        "invoiceIssueDate",
         "payerName",
         "payerAbn",
         "paymentTerms",
+        "documentType",
         "currency",
         "purchasingDocument",
+        "payeeName",
+        "payeeAbn",
       ],
-    },
-    workingCapital: {
-      id: "workingCapital",
-      label: "Working capital analysis",
-      description:
-        "Placeholder readiness check for future working capital analysis.",
-      required: ["invoiceIssueDate", "invoiceDueDate", "invoiceAmount"],
-      useful: ["paymentTerms", "currency", "payeeName", "payerName"],
     },
   },
   vendor: {

@@ -10,7 +10,7 @@ const dataHubRoutes = [
     Component: DataHubLayout,
     children: [
       { index: true, Component: LandingPanel },
-      { path: "create", Component: UploadDatasetCard },
+      { path: "upload", Component: UploadDatasetCard },
       { path: "map/:id", Component: MapPanel },
       { path: "publish/:id", Component: PublishPanel },
     ],

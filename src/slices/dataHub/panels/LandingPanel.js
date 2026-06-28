@@ -57,7 +57,7 @@ export default function LandingPanel() {
                 variant="contained"
                 disabled={!selectedProfileId}
                 onClick={() => {
-                  navigate("create");
+                  navigate("upload");
                 }}
               >
                 Upload dataset

@@ -13,13 +13,30 @@ import {
   LinearProgress,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useSearchParams } from "react-router";
 import { useAlert } from "context";
 import { useDataHubContext } from "../context/DataHubContext";
 import { useUploadDataHubDatasetMutation } from "../hooks/useDataHubQueries";
 import { useDataHubNavigation } from "../hooks/useDataHubNavigation";
 
+const SUPPORTED_DATASET_TYPES = ["payment", "invoice"];
+
+function getInitialDatasetType(searchParams) {
+  const requestedType = searchParams.get("datasetType");
+  return SUPPORTED_DATASET_TYPES.includes(requestedType)
+    ? requestedType
+    : "payment";
+}
+
+function formatDatasetType(datasetType) {
+  if (datasetType === "payment") return "Payment";
+  if (datasetType === "invoice") return "Invoice";
+  return datasetType || "—";
+}
+
 export default function UploadPanel() {
   const theme = useTheme();
+  const [searchParams] = useSearchParams();
   const { showAlert } = useAlert();
   const { profiles, profileId, setProfileId } = useDataHubContext();
   const { goHome, goTo } = useDataHubNavigation();
@@ -32,7 +49,9 @@ export default function UploadPanel() {
 
   const [label, setLabel] = useState(defaultLabel);
   const [description, setDescription] = useState("");
-  const [datasetType, setDatasetType] = useState("payment");
+  const [datasetType, setDatasetType] = useState(() =>
+    getInitialDatasetType(searchParams),
+  );
   const [file, setFile] = useState(null);
   const [saving, setSaving] = useState(false);
   const [uploadedDataset, setUploadedDataset] = useState(null);
@@ -90,8 +109,8 @@ export default function UploadPanel() {
             Upload Data Hub dataset
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Upload a customer dataset so it can be reused by future analysis
-            modules.
+            Upload a payment or invoice dataset so it can be reused by future
+            analysis modules.
           </Typography>
         </Box>
 
@@ -135,12 +154,10 @@ export default function UploadPanel() {
                 fullWidth
                 required
                 disabled={saving}
-                helperText="Choose the kind of dataset being uploaded."
+                helperText="Choose whether this file contains payments or invoices."
               >
                 <MenuItem value="payment">Payment</MenuItem>
                 <MenuItem value="invoice">Invoice</MenuItem>
-                <MenuItem value="vendor">Vendor</MenuItem>
-                <MenuItem value="payment_term">Payment term changes</MenuItem>
               </TextField>
 
               <Button variant="outlined" component="label" disabled={saving}>
@@ -191,7 +208,9 @@ export default function UploadPanel() {
                   disabled={saving || !profileId || !datasetType || !file}
                   sx={{ minWidth: theme.spacing(18) }}
                 >
-                  {saving ? "Uploading..." : "Upload dataset"}
+                  {saving
+                    ? "Uploading..."
+                    : `Upload ${datasetType === "invoice" ? "invoice" : "payment"} dataset`}
                 </Button>
               </Stack>
             </Stack>
@@ -234,7 +253,7 @@ export default function UploadPanel() {
                     Type
                   </Typography>
                   <Typography variant="body2">
-                    {uploadedDataset.datasetType || "—"}
+                    {formatDatasetType(uploadedDataset.datasetType)}
                   </Typography>
                 </Box>
 
