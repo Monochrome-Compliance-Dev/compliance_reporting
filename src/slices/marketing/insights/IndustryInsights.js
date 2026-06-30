@@ -37,6 +37,15 @@ export default function IndustryInsights() {
       href: "/insights/The_Hidden_Drivers_of_Poor_Payment_Metrics.pdf",
       tags: ["Payment behaviour", "Operational delay", "P95"],
     },
+    {
+      series: "Industry Insight Series #3",
+      title: "How Can You Fix Your PTRS?",
+      description:
+        "A practical guide to understanding P95, why averages can point organisations in the wrong direction, and how earlier visibility can support stronger reporting outcomes.",
+      publishDate: "July 2026",
+      href: "/insights/How%20Can%20You%20Fix%20Your%20PTRS%3F.pdf",
+      tags: ["PTRS", "P95", "Payment behaviour"],
+    },
   ];
 
   const articleTopics = [
@@ -51,7 +60,8 @@ export default function IndustryInsights() {
       title: "Operational Delay vs Behavioural Delay",
       description:
         "A plain-English distinction between process-driven payment lag and deliberate payment behaviour.",
-      status: "Coming soon",
+      status: "Published",
+      href: "/insights/blog/operational-delay-vs-behavioural-delay",
     },
   ];
 
