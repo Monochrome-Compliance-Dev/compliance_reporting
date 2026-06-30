@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
+  Autocomplete,
   Box,
   Button,
   Card,
@@ -18,20 +19,33 @@ import { useAlert } from "context";
 import { useDataHubContext } from "../context/DataHubContext";
 import { useUploadDataHubDatasetMutation } from "../hooks/useDataHubQueries";
 import { useDataHubNavigation } from "../hooks/useDataHubNavigation";
+import { useSchemaDefinitionsQuery } from "../hooks/useSchemaDefinitions";
 
-const SUPPORTED_DATASET_TYPES = ["payment", "invoice"];
+const LEGACY_DATASET_TYPE_OPTIONS = ["payment", "invoice"];
 
 function getInitialDatasetType(searchParams) {
-  const requestedType = searchParams.get("datasetType");
-  return SUPPORTED_DATASET_TYPES.includes(requestedType)
-    ? requestedType
-    : "payment";
+  return searchParams.get("datasetType") || "";
 }
 
 function formatDatasetType(datasetType) {
-  if (datasetType === "payment") return "Payment";
-  if (datasetType === "invoice") return "Invoice";
-  return datasetType || "—";
+  if (!datasetType) return "—";
+
+  return String(datasetType)
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.slice(1));
+}
+
+function getNextAction(dataset) {
+  if (!dataset?.nextRoute || !dataset?.nextLabel) {
+    throw new Error("Uploaded dataset did not return nextRoute and nextLabel");
+  }
+
+  return {
+    route: dataset.nextRoute,
+    label: dataset.nextLabel,
+  };
 }
 
 export default function UploadPanel() {
@@ -41,6 +55,7 @@ export default function UploadPanel() {
   const { profiles, profileId, setProfileId } = useDataHubContext();
   const { goHome, goTo } = useDataHubNavigation();
   const uploadDatasetMutation = useUploadDataHubDatasetMutation(profileId);
+  const { data: schemaDefinitionList } = useSchemaDefinitionsQuery();
 
   const defaultLabel = "";
   const safeProfileId = profiles.some((profile) => profile.id === profileId)
@@ -55,6 +70,16 @@ export default function UploadPanel() {
   const [file, setFile] = useState(null);
   const [saving, setSaving] = useState(false);
   const [uploadedDataset, setUploadedDataset] = useState(null);
+
+  const datasetTypeOptions = useMemo(() => {
+    const schemaTypes = (schemaDefinitionList?.items || [])
+      .map((schema) => schema.datasetType)
+      .filter(Boolean);
+
+    return [
+      ...new Set([...LEGACY_DATASET_TYPE_OPTIONS, ...schemaTypes]),
+    ].sort();
+  }, [schemaDefinitionList?.items]);
 
   async function handleUpload() {
     const trimmedLabel = label.trim();
@@ -84,12 +109,13 @@ export default function UploadPanel() {
         label: trimmedLabel,
         sourceName: trimmedLabel,
         description: description.trim() || null,
-        datasetType,
+        datasetType: datasetType.trim().toLowerCase(),
         file,
       });
 
       const id = dataset?.id;
       if (!id) throw new Error("Uploaded dataset did not return an id");
+      getNextAction(dataset);
 
       setUploadedDataset(dataset);
       showAlert("Data Hub dataset uploaded", "success");
@@ -146,19 +172,24 @@ export default function UploadPanel() {
                 ))}
               </TextField>
 
-              <TextField
-                select
-                label="Dataset type"
-                value={datasetType}
-                onChange={(e) => setDatasetType(e.target.value)}
-                fullWidth
-                required
+              <Autocomplete
+                freeSolo
+                options={datasetTypeOptions}
+                value={datasetType || ""}
+                inputValue={datasetType || ""}
                 disabled={saving}
-                helperText="Choose whether this file contains payments or invoices."
-              >
-                <MenuItem value="payment">Payment</MenuItem>
-                <MenuItem value="invoice">Invoice</MenuItem>
-              </TextField>
+                onChange={(_, value) => setDatasetType(value || "")}
+                onInputChange={(_, value) => setDatasetType(value || "")}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Dataset type"
+                    fullWidth
+                    required
+                    helperText="Choose a known dataset type or enter a new one to define its schema."
+                  />
+                )}
+              />
 
               <Button variant="outlined" component="label" disabled={saving}>
                 {file ? file.name : "Choose CSV file"}
@@ -205,12 +236,20 @@ export default function UploadPanel() {
                 <Button
                   variant="contained"
                   onClick={handleUpload}
-                  disabled={saving || !profileId || !datasetType || !file}
+                  disabled={
+                    saving ||
+                    !!uploadedDataset ||
+                    !profileId ||
+                    !datasetType ||
+                    !file
+                  }
                   sx={{ minWidth: theme.spacing(18) }}
                 >
                   {saving
                     ? "Uploading..."
-                    : `Upload ${datasetType === "invoice" ? "invoice" : "payment"} dataset`}
+                    : datasetType
+                      ? `Upload ${datasetType} dataset`
+                      : "Upload dataset"}
                 </Button>
               </Stack>
             </Stack>
@@ -299,14 +338,15 @@ export default function UploadPanel() {
                 </Button>
                 <Button
                   variant="contained"
-                  onClick={() =>
-                    goTo(`map/${encodeURIComponent(uploadedDataset.id)}`, {
+                  onClick={() => {
+                    const nextAction = getNextAction(uploadedDataset);
+                    goTo(nextAction.route, {
                       includeDatasetId: false,
                       includeProfileId: true,
-                    })
-                  }
+                    });
+                  }}
                 >
-                  Continue to mapping
+                  {getNextAction(uploadedDataset).label}
                 </Button>
               </Stack>
             </Stack>

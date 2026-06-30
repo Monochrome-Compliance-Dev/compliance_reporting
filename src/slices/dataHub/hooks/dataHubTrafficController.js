@@ -15,6 +15,12 @@ function qk(segment, profileId, datasetId) {
   return key;
 }
 
+function globalQk(segment, id) {
+  const key = [...DATA_HUB_QUERY_KEY_ROOT, segment];
+  if (id) key.push(id);
+  return key;
+}
+
 const queue = new Map();
 let flushTimer = null;
 
@@ -91,10 +97,44 @@ function processEvents(profileId, datasetId, events) {
   invalidate(keysToInvalidate);
 }
 
+function processGlobalEvents(events) {
+  const reasons = [...new Set(events.map((event) => event.reason))];
+  const keysToInvalidate = new Set();
+
+  for (const reason of reasons) {
+    switch (reason) {
+      case "schema_definition_created":
+      case "schema_definition_updated":
+      case "schema_definition_approved":
+      case "schema_definition_version_created":
+      case "schema_definition_deprecated":
+        keysToInvalidate.add(globalQk("schemaDefinitions"));
+
+        for (const event of events) {
+          if (event.schemaDefinitionId) {
+            keysToInvalidate.add(
+              globalQk("schemaDefinition", event.schemaDefinitionId),
+            );
+          }
+        }
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  invalidate(keysToInvalidate);
+}
+
 export const dataHubTraffic = {
   emit(profileId, datasetId, event) {
     if (!profileId || !event?.reason) return;
     enqueue(profileId, datasetId, event);
+  },
+  emitGlobal(event) {
+    if (!event?.reason) return;
+    processGlobalEvents([{ ...event, ts: Date.now() }]);
   },
 };
 
