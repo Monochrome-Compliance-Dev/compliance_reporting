@@ -7,6 +7,7 @@ import Ptrs from "slices/ptrs/Ptrs";
 import ComplianceDashboardLayout from "shared/layouts/ComplianceDashboardLayout";
 import BossLayout from "app/boss/BossLayout";
 import bossRoutes from "./bossRoutes";
+import PlatformFoundationPage from "platform/shell/PlatformFoundationPage";
 
 function ProtectedAppLayout() {
   return (
@@ -28,6 +29,10 @@ export const protectedRoutes = [
         path: "ptrs",
         Component: Ptrs,
         children: ptrsRoutes,
+      },
+      {
+        path: "platform",
+        Component: PlatformFoundationPage,
       },
       {
         path: "boss",
