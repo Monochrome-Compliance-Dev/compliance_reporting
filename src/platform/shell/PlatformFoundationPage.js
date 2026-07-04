@@ -4,26 +4,26 @@ import { useTheme } from "@mui/material/styles";
 
 import { useAlert } from "context";
 import { identityApi } from "platform/identity/identityApi";
-import { executePlatformInteraction } from "platform/interactions/interactionsApi";
+import { executePlatformFoundation } from "platform/foundation/foundationApi";
 
 export default function PlatformFoundationPage() {
   const theme = useTheme();
   const { showAlert } = useAlert();
-  const [lastInteraction, setLastInteraction] = useState(null);
+  const [lastFoundation, setLastFoundation] = useState(null);
   const currentUser = identityApi.getCurrentUser();
 
-  const handleTestInteraction = async () => {
+  const handleTestFoundation = async () => {
     try {
-      const result = await executePlatformInteraction();
-      setLastInteraction(result);
+      const result = await executePlatformFoundation();
+      setLastFoundation(result);
       showAlert(result.message, result.success ? "success" : "error");
     } catch (error) {
-      const message = error?.message || "Platform interaction failed.";
+      const message = error?.message || "Platform foundation failed.";
 
-      setLastInteraction({
+      setLastFoundation({
         success: false,
-        interactionId: null,
-        capability: "interactions",
+        foundationId: null,
+        capability: "foundation",
         message,
         actor: null,
       });
@@ -74,37 +74,37 @@ export default function PlatformFoundationPage() {
             <Stack direction="row" spacing={1} alignItems="center">
               <Chip label="Audit" color="primary" variant="outlined" />
               <Typography variant="body1">
-                Audit validation will be added once the backend interaction
+                Audit validation will be added once the backend foundation
                 endpoint is wired.
               </Typography>
             </Stack>
 
             <Stack direction="row" spacing={1} alignItems="center">
-              <Chip label="Interactions" color="primary" variant="outlined" />
+              <Chip label="Foundations" color="primary" variant="outlined" />
               <Typography variant="body1">
-                Local interaction adapter is ready for backend replacement.
+                Local foundation adapter is ready for backend replacement.
               </Typography>
             </Stack>
 
             <Box>
-              <Button variant="contained" onClick={handleTestInteraction}>
-                Test platform interaction
+              <Button variant="contained" onClick={handleTestFoundation}>
+                Test platform foundation
               </Button>
             </Box>
 
-            {lastInteraction && (
+            {lastFoundation && (
               <Paper
                 variant="outlined"
                 sx={{ p: 2, backgroundColor: theme.palette.background.paper }}
               >
                 <Typography variant="subtitle2" gutterBottom>
-                  Last interaction
+                  Last foundation
                 </Typography>
                 <Typography variant="body2">
-                  Interaction ID: {lastInteraction.interactionId}
+                  Foundation ID: {lastFoundation.foundationId}
                 </Typography>
                 <Typography variant="body2">
-                  Success: {String(lastInteraction.success)}
+                  Success: {String(lastFoundation.success)}
                 </Typography>
               </Paper>
             )}
