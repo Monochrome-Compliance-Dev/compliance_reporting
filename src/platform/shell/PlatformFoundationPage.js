@@ -13,9 +13,23 @@ export default function PlatformFoundationPage() {
   const currentUser = identityApi.getCurrentUser();
 
   const handleTestInteraction = async () => {
-    const result = await executePlatformInteraction();
-    setLastInteraction(result);
-    showAlert(result.message, result.success ? "success" : "error");
+    try {
+      const result = await executePlatformInteraction();
+      setLastInteraction(result);
+      showAlert(result.message, result.success ? "success" : "error");
+    } catch (error) {
+      const message = error?.message || "Platform interaction failed.";
+
+      setLastInteraction({
+        success: false,
+        interactionId: null,
+        capability: "interactions",
+        message,
+        actor: null,
+      });
+
+      showAlert(message, "error");
+    }
   };
 
   const displayName =
