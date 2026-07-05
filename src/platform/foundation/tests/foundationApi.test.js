@@ -1,12 +1,12 @@
-import { normaliseInteractionResponse } from "platform/interactions/interactionsApi";
+import { normaliseFoundationResponse } from "platform/foundation/foundationApi";
 
-describe("normaliseInteractionResponse", () => {
+describe("normaliseFoundationResponse", () => {
   it("normalises a direct backend response", () => {
-    const result = normaliseInteractionResponse({
+    const result = normaliseFoundationResponse({
       success: true,
-      interactionId: "interaction-123",
-      capability: "interactions",
-      message: "Platform interaction executed successfully.",
+      foundationId: "foundation-123",
+      capability: "foundation",
+      message: "Platform foundation executed successfully.",
       actor: {
         id: "user-123",
         role: "Admin",
@@ -16,9 +16,9 @@ describe("normaliseInteractionResponse", () => {
 
     expect(result).toEqual({
       success: true,
-      interactionId: "interaction-123",
-      capability: "interactions",
-      message: "Platform interaction executed successfully.",
+      foundationId: "foundation-123",
+      capability: "foundation",
+      message: "Platform foundation executed successfully.",
       actor: {
         id: "user-123",
         role: "Admin",
@@ -28,11 +28,11 @@ describe("normaliseInteractionResponse", () => {
   });
 
   it("normalises a wrapped backend response", () => {
-    const result = normaliseInteractionResponse({
+    const result = normaliseFoundationResponse({
       data: {
         success: true,
-        interactionId: "interaction-456",
-        capability: "interactions",
+        foundationId: "foundation-456",
+        capability: "foundation",
         message: "Wrapped response worked.",
         actor: null,
       },
@@ -40,29 +40,29 @@ describe("normaliseInteractionResponse", () => {
 
     expect(result).toEqual({
       success: true,
-      interactionId: "interaction-456",
-      capability: "interactions",
+      foundationId: "foundation-456",
+      capability: "foundation",
       message: "Wrapped response worked.",
       actor: null,
     });
   });
 
   it("applies safe defaults when fields are missing", () => {
-    const result = normaliseInteractionResponse({});
+    const result = normaliseFoundationResponse({});
 
     expect(result).toEqual({
       success: false,
-      interactionId: null,
-      capability: "interactions",
-      message: "Platform interaction completed.",
+      foundationId: null,
+      capability: "foundation",
+      message: "Platform foundation completed.",
       actor: null,
     });
   });
 
   it("converts success to a boolean", () => {
-    const result = normaliseInteractionResponse({
+    const result = normaliseFoundationResponse({
       success: 1,
-      interactionId: "interaction-789",
+      foundationId: "foundation-789",
     });
 
     expect(result.success).toBe(true);
