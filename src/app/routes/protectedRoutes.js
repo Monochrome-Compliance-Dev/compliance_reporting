@@ -8,6 +8,7 @@ import ComplianceDashboardLayout from "shared/layouts/ComplianceDashboardLayout"
 import BossLayout from "app/boss/BossLayout";
 import bossRoutes from "./bossRoutes";
 import PlatformFoundationPage from "platform/shell/PlatformFoundationPage";
+import PlatformDataUploadPage from "platform/data/PlatformDataUploadPage";
 
 function ProtectedAppLayout() {
   return (
@@ -33,6 +34,10 @@ export const protectedRoutes = [
       {
         path: "platform",
         Component: PlatformFoundationPage,
+      },
+      {
+        path: "platform/data",
+        Component: PlatformDataUploadPage,
       },
       {
         path: "boss",
