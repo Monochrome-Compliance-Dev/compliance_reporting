@@ -143,6 +143,9 @@ export function buildDatasetCreationFormData({
 
 export async function createDataDataset(command) {
   const formData = buildDatasetCreationFormData(command);
-  const response = await fetchWrapper.post(`${baseUrl}/datasets`, formData);
+  const response = await fetchWrapper.postUpload(
+    `${baseUrl}/datasets`,
+    formData,
+  );
   return normaliseDataDatasetCreationResponse(response);
 }

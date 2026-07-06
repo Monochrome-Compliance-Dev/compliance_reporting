@@ -7,7 +7,7 @@ import { fetchWrapper } from "shared/utils";
 
 jest.mock("shared/utils", () => ({
   fetchWrapper: {
-    post: jest.fn(),
+    postUpload: jest.fn(),
   },
 }));
 
@@ -168,7 +168,7 @@ describe("buildDatasetCreationFormData", () => {
 
 describe("createDataDataset", () => {
   beforeEach(() => {
-    fetchWrapper.post.mockResolvedValue(createBackendResponse());
+    fetchWrapper.postUpload.mockResolvedValue(createBackendResponse());
   });
 
   afterEach(() => {
@@ -187,11 +187,11 @@ describe("createDataDataset", () => {
       profileId: "profile-123",
     });
 
-    expect(fetchWrapper.post).toHaveBeenCalledWith(
+    expect(fetchWrapper.postUpload).toHaveBeenCalledWith(
       "http://localhost:4000/api/platform/data/datasets",
       expect.any(FormData),
     );
-    expect(fetchWrapper.post.mock.calls[0][1].get("file")).toBe(file);
+    expect(fetchWrapper.postUpload.mock.calls[0][1].get("file")).toBe(file);
     expect(result).toEqual({
       success: true,
       dataset: createBackendDataset(),
@@ -199,7 +199,7 @@ describe("createDataDataset", () => {
   });
 
   it("fails loudly when the backend response is malformed", async () => {
-    fetchWrapper.post.mockResolvedValue({
+    fetchWrapper.postUpload.mockResolvedValue({
       success: true,
       dataset: {
         datasetId: "dataset123",
