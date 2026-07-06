@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
-import { createDataDataset } from "platform/data/dataApi";
+import { createDataDataset, createWorkingDataset } from "platform/data/dataApi";
 
 const DATASET_TYPES = [
   { value: "payment", label: "Payment" },
@@ -33,6 +33,9 @@ export default function PlatformDataUploadPage() {
   const [profileId, setProfileId] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [createdDataset, setCreatedDataset] = useState(null);
+  const [createdWorkingDataset, setCreatedWorkingDataset] = useState(null);
+  const [isCreatingWorkingDataset, setIsCreatingWorkingDataset] =
+    useState(false);
 
   const canSubmit = Boolean(file && sourceName && datasetType && profileId);
 
@@ -57,12 +60,40 @@ export default function PlatformDataUploadPage() {
         profileId,
       });
 
+      setCreatedWorkingDataset(null);
       setCreatedDataset(result.dataset);
       showAlert("Dataset uploaded successfully.", "success");
     } catch (error) {
       showAlert(error.message || "Dataset upload failed.", "error");
     } finally {
       setIsUploading(false);
+    }
+  }
+
+  async function handleCreateWorkingDataset() {
+    if (!createdDataset) {
+      showAlert(
+        "Create an immutable dataset before creating working data.",
+        "error",
+      );
+      return;
+    }
+
+    setIsCreatingWorkingDataset(true);
+
+    try {
+      const result = await createWorkingDataset({
+        sourceDatasetId: createdDataset.datasetId,
+        profileId: createdDataset.profileId,
+        workingName: `${createdDataset.sourceName} working data`,
+      });
+
+      setCreatedWorkingDataset(result.workingDataset);
+      showAlert("Working dataset created successfully.", "success");
+    } catch (error) {
+      showAlert(error.message || "Working dataset creation failed.", "error");
+    } finally {
+      setIsCreatingWorkingDataset(false);
     }
   }
 
@@ -154,6 +185,44 @@ export default function PlatformDataUploadPage() {
               </Typography>
               <Typography variant="body2">
                 Headers: {createdDataset.headersCount}
+              </Typography>
+              <Box sx={{ mt: 2 }}>
+                <Button
+                  variant="contained"
+                  onClick={handleCreateWorkingDataset}
+                  disabled={isCreatingWorkingDataset}
+                >
+                  {isCreatingWorkingDataset
+                    ? "Creating working dataset..."
+                    : "Create working dataset"}
+                </Button>
+              </Box>
+            </CardContent>
+          </Card>
+        )}
+
+        {createdWorkingDataset && (
+          <Card
+            sx={{
+              border: `1px solid ${theme.palette.success.main}`,
+              maxWidth: 720,
+            }}
+          >
+            <CardContent>
+              <Typography variant="h6" gutterBottom>
+                Working dataset created
+              </Typography>
+              <Typography variant="body2">
+                Working Dataset ID: {createdWorkingDataset.workingDatasetId}
+              </Typography>
+              <Typography variant="body2">
+                Source Dataset ID: {createdWorkingDataset.sourceDatasetId}
+              </Typography>
+              <Typography variant="body2">
+                Rows: {createdWorkingDataset.rowsCount}
+              </Typography>
+              <Typography variant="body2">
+                Headers: {createdWorkingDataset.headersCount}
               </Typography>
             </CardContent>
           </Card>

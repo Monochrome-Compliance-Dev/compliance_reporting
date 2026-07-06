@@ -2,10 +2,11 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useAlert } from "context";
 import PlatformDataUploadPage from "platform/data/PlatformDataUploadPage";
-import { createDataDataset } from "platform/data/dataApi";
+import { createDataDataset, createWorkingDataset } from "platform/data/dataApi";
 
 jest.mock("platform/data/dataApi", () => ({
   createDataDataset: jest.fn(),
+  createWorkingDataset: jest.fn(),
 }));
 
 jest.mock("context", () => ({
@@ -17,6 +18,18 @@ const showAlert = jest.fn();
 function createDataset(overrides = {}) {
   return {
     datasetId: "dataset123",
+    profileId: "profile-123",
+    sourceName: "July payments",
+    rowsCount: 2,
+    headersCount: 3,
+    ...overrides,
+  };
+}
+
+function createWorkingDatasetResponse(overrides = {}) {
+  return {
+    workingDatasetId: "working-dataset-123",
+    sourceDatasetId: "dataset123",
     rowsCount: 2,
     headersCount: 3,
     ...overrides,
@@ -29,6 +42,10 @@ describe("PlatformDataUploadPage", () => {
     createDataDataset.mockResolvedValue({
       success: true,
       dataset: createDataset(),
+    });
+    createWorkingDataset.mockResolvedValue({
+      success: true,
+      workingDataset: createWorkingDatasetResponse(),
     });
   });
 
@@ -79,6 +96,44 @@ describe("PlatformDataUploadPage", () => {
     expect(screen.getByText("Headers: 3")).toBeTruthy();
   });
 
+  it("creates a working dataset from the created immutable dataset", async () => {
+    const user = userEvent.setup();
+    const file = new File(["A,B,C\n1,2,3\n"], "payments.csv", {
+      type: "text/csv",
+    });
+
+    render(<PlatformDataUploadPage />);
+
+    await user.type(screen.getByLabelText("Source name *"), "July payments");
+    await user.type(screen.getByLabelText("Profile ID *"), "profile-123");
+    await user.upload(screen.getByLabelText("CSV file"), file);
+    await user.click(screen.getByRole("button", { name: "Create dataset" }));
+
+    await screen.findByText("Dataset created");
+
+    await user.click(
+      screen.getByRole("button", { name: "Create working dataset" }),
+    );
+
+    await waitFor(() => {
+      expect(createWorkingDataset).toHaveBeenCalledWith({
+        sourceDatasetId: "dataset123",
+        profileId: "profile-123",
+        workingName: "July payments working data",
+      });
+    });
+
+    expect(showAlert).toHaveBeenCalledWith(
+      "Working dataset created successfully.",
+      "success",
+    );
+    expect(screen.getByText("Working dataset created")).toBeTruthy();
+    expect(
+      screen.getByText("Working Dataset ID: working-dataset-123"),
+    ).toBeTruthy();
+    expect(screen.getByText("Source Dataset ID: dataset123")).toBeTruthy();
+  });
+
   it("shows an error alert when required fields are missing", async () => {
     const user = userEvent.setup();
 
@@ -109,6 +164,36 @@ describe("PlatformDataUploadPage", () => {
 
     await waitFor(() => {
       expect(showAlert).toHaveBeenCalledWith("Upload failed", "error");
+    });
+  });
+
+  it("shows an error alert when working dataset creation fails", async () => {
+    const user = userEvent.setup();
+    const file = new File(["A,B,C\n1,2,3\n"], "payments.csv", {
+      type: "text/csv",
+    });
+    createWorkingDataset.mockRejectedValue(
+      new Error("Working creation failed"),
+    );
+
+    render(<PlatformDataUploadPage />);
+
+    await user.type(screen.getByLabelText("Source name *"), "July payments");
+    await user.type(screen.getByLabelText("Profile ID *"), "profile-123");
+    await user.upload(screen.getByLabelText("CSV file"), file);
+    await user.click(screen.getByRole("button", { name: "Create dataset" }));
+
+    await screen.findByText("Dataset created");
+
+    await user.click(
+      screen.getByRole("button", { name: "Create working dataset" }),
+    );
+
+    await waitFor(() => {
+      expect(showAlert).toHaveBeenCalledWith(
+        "Working creation failed",
+        "error",
+      );
     });
   });
 });
