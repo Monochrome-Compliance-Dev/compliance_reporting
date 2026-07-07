@@ -3,10 +3,15 @@ import userEvent from "@testing-library/user-event";
 import { useAlert } from "context";
 import PlatformDataUploadPage from "platform/data/PlatformDataUploadPage";
 import { createDataDataset, createWorkingDataset } from "platform/data/dataApi";
+import { materialiseWorkingDataset } from "platform/transformation/transformationApi";
 
 jest.mock("platform/data/dataApi", () => ({
   createDataDataset: jest.fn(),
   createWorkingDataset: jest.fn(),
+}));
+
+jest.mock("platform/transformation/transformationApi", () => ({
+  materialiseWorkingDataset: jest.fn(),
 }));
 
 jest.mock("context", () => ({
@@ -36,6 +41,22 @@ function createWorkingDatasetResponse(overrides = {}) {
   };
 }
 
+function createMaterialisedWorkingDatasetResponse(overrides = {}) {
+  return {
+    workingDatasetId: "working-dataset-123",
+    sourceDatasetId: "dataset123",
+    profileId: "profile-123",
+    workingName: "July payments working data",
+    rowsCount: 1,
+    headersCount: 3,
+    headers: ["invoice_reference_number", "supplier_name", "source_file_type"],
+    storagePath:
+      "/storage/data_hub/customer-123/datasets/working-dataset-123-materialised.csv",
+    storedFileName: "working-dataset-123-materialised.csv",
+    ...overrides,
+  };
+}
+
 describe("PlatformDataUploadPage", () => {
   beforeEach(() => {
     useAlert.mockReturnValue({ showAlert });
@@ -46,6 +67,15 @@ describe("PlatformDataUploadPage", () => {
     createWorkingDataset.mockResolvedValue({
       success: true,
       workingDataset: createWorkingDatasetResponse(),
+    });
+    materialiseWorkingDataset.mockResolvedValue({
+      success: true,
+      workingDataset: createMaterialisedWorkingDatasetResponse(),
+      activity: {
+        activityId: "activity-123",
+        activityType: "working_dataset_materialised",
+        summary: "Materialised working dataset from projection configuration",
+      },
     });
   });
 
@@ -134,6 +164,70 @@ describe("PlatformDataUploadPage", () => {
     expect(screen.getByText("Source Dataset ID: dataset123")).toBeTruthy();
   });
 
+  it("materialises the working dataset from the default projection", async () => {
+    const user = userEvent.setup();
+    const file = new File(
+      ["Supplier,Invoice\nABC Pty Ltd,INV-001\n"],
+      "payments.csv",
+      {
+        type: "text/csv",
+      },
+    );
+
+    render(<PlatformDataUploadPage />);
+
+    await user.type(screen.getByLabelText("Source name *"), "July payments");
+    await user.type(screen.getByLabelText("Profile ID *"), "profile-123");
+    await user.upload(screen.getByLabelText("CSV file"), file);
+    await user.click(screen.getByRole("button", { name: "Create dataset" }));
+
+    await screen.findByText("Dataset created");
+
+    await user.click(
+      screen.getByRole("button", { name: "Create working dataset" }),
+    );
+
+    await screen.findByText("Working dataset created");
+
+    await user.click(
+      screen.getByRole("button", { name: "Materialise working dataset" }),
+    );
+
+    await waitFor(() => {
+      expect(materialiseWorkingDataset).toHaveBeenCalledWith({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+        editorSessionId: "manual-stage-4-session",
+        stepNumber: 2,
+        fields: [
+          {
+            sourceField: "Invoice",
+            targetField: "invoice_reference_number",
+          },
+          {
+            sourceField: "Supplier",
+            targetField: "supplier_name",
+          },
+        ],
+        customFields: [
+          {
+            targetField: "source_file_type",
+            value: "payments",
+          },
+        ],
+      });
+    });
+
+    expect(screen.getByText("Working dataset materialised")).toBeTruthy();
+    expect(screen.getAllByText("Rows: 1")).toHaveLength(2);
+    expect(screen.getAllByText("Headers: 3")).toHaveLength(3);
+    expect(
+      screen.getByText(
+        "Headers: invoice_reference_number, supplier_name, source_file_type",
+      ),
+    ).toBeTruthy();
+  });
+
   it("shows an error alert when required fields are missing", async () => {
     const user = userEvent.setup();
 
@@ -194,6 +288,43 @@ describe("PlatformDataUploadPage", () => {
         "Working creation failed",
         "error",
       );
+    });
+  });
+
+  it("shows an error alert when materialisation fails", async () => {
+    const user = userEvent.setup();
+    const file = new File(
+      ["Supplier,Invoice\nABC Pty Ltd,INV-001\n"],
+      "payments.csv",
+      {
+        type: "text/csv",
+      },
+    );
+    materialiseWorkingDataset.mockRejectedValue(
+      new Error("Materialisation failed"),
+    );
+
+    render(<PlatformDataUploadPage />);
+
+    await user.type(screen.getByLabelText("Source name *"), "July payments");
+    await user.type(screen.getByLabelText("Profile ID *"), "profile-123");
+    await user.upload(screen.getByLabelText("CSV file"), file);
+    await user.click(screen.getByRole("button", { name: "Create dataset" }));
+
+    await screen.findByText("Dataset created");
+
+    await user.click(
+      screen.getByRole("button", { name: "Create working dataset" }),
+    );
+
+    await screen.findByText("Working dataset created");
+
+    await user.click(
+      screen.getByRole("button", { name: "Materialise working dataset" }),
+    );
+
+    await waitFor(() => {
+      expect(showAlert).toHaveBeenCalledWith("Materialisation failed", "error");
     });
   });
 });

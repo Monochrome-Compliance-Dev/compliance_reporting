@@ -12,12 +12,33 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
 import { createDataDataset, createWorkingDataset } from "platform/data/dataApi";
+import { materialiseWorkingDataset } from "platform/transformation/transformationApi";
 
 const DATASET_TYPES = [
   { value: "payment", label: "Payment" },
   { value: "invoice", label: "Invoice" },
   { value: "supplier", label: "Supplier" },
   { value: "other", label: "Other" },
+];
+
+const DEFAULT_EDITOR_SESSION_ID = "manual-stage-4-session";
+
+const DEFAULT_MATERIALISATION_FIELDS = [
+  {
+    sourceField: "Invoice",
+    targetField: "invoice_reference_number",
+  },
+  {
+    sourceField: "Supplier",
+    targetField: "supplier_name",
+  },
+];
+
+const DEFAULT_MATERIALISATION_CUSTOM_FIELDS = [
+  {
+    targetField: "source_file_type",
+    value: "payments",
+  },
 ];
 
 function getFileFromChange(event) {
@@ -34,7 +55,11 @@ export default function PlatformDataUploadPage() {
   const [isUploading, setIsUploading] = useState(false);
   const [createdDataset, setCreatedDataset] = useState(null);
   const [createdWorkingDataset, setCreatedWorkingDataset] = useState(null);
+  const [materialisedWorkingDataset, setMaterialisedWorkingDataset] =
+    useState(null);
   const [isCreatingWorkingDataset, setIsCreatingWorkingDataset] =
+    useState(false);
+  const [isMaterialisingWorkingDataset, setIsMaterialisingWorkingDataset] =
     useState(false);
 
   const canSubmit = Boolean(file && sourceName && datasetType && profileId);
@@ -61,6 +86,7 @@ export default function PlatformDataUploadPage() {
       });
 
       setCreatedWorkingDataset(null);
+      setMaterialisedWorkingDataset(null);
       setCreatedDataset(result.dataset);
       showAlert("Dataset uploaded successfully.", "success");
     } catch (error) {
@@ -88,12 +114,47 @@ export default function PlatformDataUploadPage() {
         workingName: `${createdDataset.sourceName} working data`,
       });
 
+      setMaterialisedWorkingDataset(null);
       setCreatedWorkingDataset(result.workingDataset);
       showAlert("Working dataset created successfully.", "success");
     } catch (error) {
       showAlert(error.message || "Working dataset creation failed.", "error");
     } finally {
       setIsCreatingWorkingDataset(false);
+    }
+  }
+
+  async function handleMaterialiseWorkingDataset() {
+    if (!createdWorkingDataset) {
+      showAlert(
+        "Create a working dataset before materialising working data.",
+        "error",
+      );
+      return;
+    }
+
+    setIsMaterialisingWorkingDataset(true);
+
+    try {
+      const result = await materialiseWorkingDataset({
+        workingDatasetId: createdWorkingDataset.workingDatasetId,
+        profileId: profileId || createdDataset?.profileId,
+        editorSessionId: DEFAULT_EDITOR_SESSION_ID,
+        stepNumber: 2,
+        fields: DEFAULT_MATERIALISATION_FIELDS,
+        customFields: DEFAULT_MATERIALISATION_CUSTOM_FIELDS,
+      });
+
+      setCreatedWorkingDataset(result.workingDataset);
+      setMaterialisedWorkingDataset(result.workingDataset);
+      showAlert("Working dataset materialised successfully.", "success");
+    } catch (error) {
+      showAlert(
+        error.message || "Working dataset materialisation failed.",
+        "error",
+      );
+    } finally {
+      setIsMaterialisingWorkingDataset(false);
     }
   }
 
@@ -223,6 +284,41 @@ export default function PlatformDataUploadPage() {
               </Typography>
               <Typography variant="body2">
                 Headers: {createdWorkingDataset.headersCount}
+              </Typography>
+              <Box sx={{ mt: 2 }}>
+                <Button
+                  variant="contained"
+                  onClick={handleMaterialiseWorkingDataset}
+                  disabled={isMaterialisingWorkingDataset}
+                >
+                  {isMaterialisingWorkingDataset
+                    ? "Materialising working dataset..."
+                    : "Materialise working dataset"}
+                </Button>
+              </Box>
+            </CardContent>
+          </Card>
+        )}
+
+        {materialisedWorkingDataset && (
+          <Card
+            sx={{
+              border: `1px solid ${theme.palette.success.main}`,
+              maxWidth: 720,
+            }}
+          >
+            <CardContent>
+              <Typography variant="h6" gutterBottom>
+                Working dataset materialised
+              </Typography>
+              <Typography variant="body2">
+                Rows: {materialisedWorkingDataset.rowsCount}
+              </Typography>
+              <Typography variant="body2">
+                Headers: {materialisedWorkingDataset.headersCount}
+              </Typography>
+              <Typography variant="body2">
+                Headers: {materialisedWorkingDataset.headers.join(", ")}
               </Typography>
             </CardContent>
           </Card>
