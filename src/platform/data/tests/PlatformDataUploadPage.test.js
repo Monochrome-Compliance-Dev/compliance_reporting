@@ -36,7 +36,8 @@ function createWorkingDatasetResponse(overrides = {}) {
     workingDatasetId: "working-dataset-123",
     sourceDatasetId: "dataset123",
     rowsCount: 2,
-    headersCount: 3,
+    headersCount: 2,
+    headers: ["Supplier", "Invoice"],
     ...overrides,
   };
 }
@@ -164,7 +165,85 @@ describe("PlatformDataUploadPage", () => {
     expect(screen.getByText("Source Dataset ID: dataset123")).toBeTruthy();
   });
 
-  it("materialises the working dataset from the default projection", async () => {
+  it("materialises the working dataset from explicit projection inputs", async () => {
+    const user = userEvent.setup();
+    const file = new File(
+      ["Supplier,Invoice\nABC Pty Ltd,INV-001\n"],
+      "payments.csv",
+      {
+        type: "text/csv",
+      },
+    );
+
+    render(<PlatformDataUploadPage />);
+
+    await user.type(screen.getByLabelText("Source name *"), "July payments");
+    await user.type(screen.getByLabelText("Profile ID *"), "profile-123");
+    await user.upload(screen.getByLabelText("CSV file"), file);
+    await user.click(screen.getByRole("button", { name: "Create dataset" }));
+
+    await screen.findByText("Dataset created");
+
+    await user.click(
+      screen.getByRole("button", { name: "Create working dataset" }),
+    );
+
+    await screen.findByText("Working dataset created");
+
+    await user.type(
+      screen.getByLabelText("Target field for Supplier"),
+      "supplier_name",
+    );
+    await user.type(
+      screen.getByLabelText("Target field for Invoice"),
+      "invoice_reference_number",
+    );
+    await user.type(
+      screen.getByLabelText("Custom field target"),
+      "source_file_type",
+    );
+    await user.type(screen.getByLabelText("Custom field value"), "payments");
+
+    await user.click(
+      screen.getByRole("button", { name: "Materialise working dataset" }),
+    );
+
+    await waitFor(() => {
+      expect(materialiseWorkingDataset).toHaveBeenCalledWith({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+        editorSessionId: "manual-stage-4-session",
+        stepNumber: 2,
+        fields: [
+          {
+            sourceField: "Supplier",
+            targetField: "supplier_name",
+          },
+          {
+            sourceField: "Invoice",
+            targetField: "invoice_reference_number",
+          },
+        ],
+        customFields: [
+          {
+            targetField: "source_file_type",
+            value: "payments",
+          },
+        ],
+      });
+    });
+
+    expect(screen.getByText("Working dataset materialised")).toBeTruthy();
+    expect(screen.getAllByText("Rows: 1")).toHaveLength(2);
+    expect(screen.getAllByText("Headers: 3")).toHaveLength(3);
+    expect(
+      screen.getByText(
+        "Headers: invoice_reference_number, supplier_name, source_file_type",
+      ),
+    ).toBeTruthy();
+  });
+
+  it("shows an error alert when no projection fields are entered", async () => {
     const user = userEvent.setup();
     const file = new File(
       ["Supplier,Invoice\nABC Pty Ltd,INV-001\n"],
@@ -193,39 +272,11 @@ describe("PlatformDataUploadPage", () => {
       screen.getByRole("button", { name: "Materialise working dataset" }),
     );
 
-    await waitFor(() => {
-      expect(materialiseWorkingDataset).toHaveBeenCalledWith({
-        workingDatasetId: "working-dataset-123",
-        profileId: "profile-123",
-        editorSessionId: "manual-stage-4-session",
-        stepNumber: 2,
-        fields: [
-          {
-            sourceField: "Invoice",
-            targetField: "invoice_reference_number",
-          },
-          {
-            sourceField: "Supplier",
-            targetField: "supplier_name",
-          },
-        ],
-        customFields: [
-          {
-            targetField: "source_file_type",
-            value: "payments",
-          },
-        ],
-      });
-    });
-
-    expect(screen.getByText("Working dataset materialised")).toBeTruthy();
-    expect(screen.getAllByText("Rows: 1")).toHaveLength(2);
-    expect(screen.getAllByText("Headers: 3")).toHaveLength(3);
-    expect(
-      screen.getByText(
-        "Headers: invoice_reference_number, supplier_name, source_file_type",
-      ),
-    ).toBeTruthy();
+    expect(materialiseWorkingDataset).not.toHaveBeenCalled();
+    expect(showAlert).toHaveBeenCalledWith(
+      "Add at least one projection field before materialising working data.",
+      "error",
+    );
   });
 
   it("shows an error alert when required fields are missing", async () => {
@@ -318,6 +369,15 @@ describe("PlatformDataUploadPage", () => {
     );
 
     await screen.findByText("Working dataset created");
+
+    await user.type(
+      screen.getByLabelText("Target field for Supplier"),
+      "supplier_name",
+    );
+    await user.type(
+      screen.getByLabelText("Target field for Invoice"),
+      "invoice_reference_number",
+    );
 
     await user.click(
       screen.getByRole("button", { name: "Materialise working dataset" }),

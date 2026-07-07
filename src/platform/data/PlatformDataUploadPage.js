@@ -23,26 +23,40 @@ const DATASET_TYPES = [
 
 const DEFAULT_EDITOR_SESSION_ID = "manual-stage-4-session";
 
-const DEFAULT_MATERIALISATION_FIELDS = [
-  {
-    sourceField: "Invoice",
-    targetField: "invoice_reference_number",
-  },
-  {
-    sourceField: "Supplier",
-    targetField: "supplier_name",
-  },
-];
-
-const DEFAULT_MATERIALISATION_CUSTOM_FIELDS = [
-  {
-    targetField: "source_file_type",
-    value: "payments",
-  },
-];
-
 function getFileFromChange(event) {
   return event.target.files?.[0] || null;
+}
+
+function buildInitialProjectionFields(workingDataset) {
+  return (workingDataset.headers || []).map((header) => ({
+    sourceField: header,
+    targetField: "",
+  }));
+}
+
+function buildMaterialisationFields(projectionFields) {
+  return projectionFields
+    .filter((field) => field.targetField.trim())
+    .map((field) => ({
+      sourceField: field.sourceField,
+      targetField: field.targetField.trim(),
+    }));
+}
+
+function buildMaterialisationCustomFields({
+  customFieldTarget,
+  customFieldValue,
+}) {
+  if (!customFieldTarget.trim()) {
+    return [];
+  }
+
+  return [
+    {
+      targetField: customFieldTarget.trim(),
+      value: customFieldValue,
+    },
+  ];
 }
 
 export default function PlatformDataUploadPage() {
@@ -57,6 +71,9 @@ export default function PlatformDataUploadPage() {
   const [createdWorkingDataset, setCreatedWorkingDataset] = useState(null);
   const [materialisedWorkingDataset, setMaterialisedWorkingDataset] =
     useState(null);
+  const [projectionFields, setProjectionFields] = useState([]);
+  const [customFieldTarget, setCustomFieldTarget] = useState("");
+  const [customFieldValue, setCustomFieldValue] = useState("");
   const [isCreatingWorkingDataset, setIsCreatingWorkingDataset] =
     useState(false);
   const [isMaterialisingWorkingDataset, setIsMaterialisingWorkingDataset] =
@@ -87,6 +104,9 @@ export default function PlatformDataUploadPage() {
 
       setCreatedWorkingDataset(null);
       setMaterialisedWorkingDataset(null);
+      setProjectionFields([]);
+      setCustomFieldTarget("");
+      setCustomFieldValue("");
       setCreatedDataset(result.dataset);
       showAlert("Dataset uploaded successfully.", "success");
     } catch (error) {
@@ -115,6 +135,9 @@ export default function PlatformDataUploadPage() {
       });
 
       setMaterialisedWorkingDataset(null);
+      setProjectionFields(buildInitialProjectionFields(result.workingDataset));
+      setCustomFieldTarget("");
+      setCustomFieldValue("");
       setCreatedWorkingDataset(result.workingDataset);
       showAlert("Working dataset created successfully.", "success");
     } catch (error) {
@@ -122,6 +145,14 @@ export default function PlatformDataUploadPage() {
     } finally {
       setIsCreatingWorkingDataset(false);
     }
+  }
+
+  function handleProjectionTargetChange(sourceField, targetField) {
+    setProjectionFields((currentFields) =>
+      currentFields.map((field) =>
+        field.sourceField === sourceField ? { ...field, targetField } : field,
+      ),
+    );
   }
 
   async function handleMaterialiseWorkingDataset() {
@@ -133,6 +164,21 @@ export default function PlatformDataUploadPage() {
       return;
     }
 
+    const fields = buildMaterialisationFields(projectionFields);
+
+    if (fields.length === 0) {
+      showAlert(
+        "Add at least one projection field before materialising working data.",
+        "error",
+      );
+      return;
+    }
+
+    const customFields = buildMaterialisationCustomFields({
+      customFieldTarget,
+      customFieldValue,
+    });
+
     setIsMaterialisingWorkingDataset(true);
 
     try {
@@ -141,8 +187,8 @@ export default function PlatformDataUploadPage() {
         profileId: profileId || createdDataset?.profileId,
         editorSessionId: DEFAULT_EDITOR_SESSION_ID,
         stepNumber: 2,
-        fields: DEFAULT_MATERIALISATION_FIELDS,
-        customFields: DEFAULT_MATERIALISATION_CUSTOM_FIELDS,
+        fields,
+        customFields,
       });
 
       setCreatedWorkingDataset(result.workingDataset);
@@ -285,6 +331,52 @@ export default function PlatformDataUploadPage() {
               <Typography variant="body2">
                 Headers: {createdWorkingDataset.headersCount}
               </Typography>
+              <Box sx={{ mt: 2 }}>
+                <Typography variant="subtitle2" gutterBottom>
+                  Projection fields
+                </Typography>
+                <Stack spacing={2}>
+                  {projectionFields.map((field) => (
+                    <TextField
+                      key={field.sourceField}
+                      label={`Target field for ${field.sourceField}`}
+                      value={field.targetField}
+                      onChange={(event) =>
+                        handleProjectionTargetChange(
+                          field.sourceField,
+                          event.target.value,
+                        )
+                      }
+                      fullWidth
+                    />
+                  ))}
+                </Stack>
+              </Box>
+
+              <Box sx={{ mt: 2 }}>
+                <Typography variant="subtitle2" gutterBottom>
+                  Optional custom field
+                </Typography>
+                <Stack spacing={2}>
+                  <TextField
+                    label="Custom field target"
+                    value={customFieldTarget}
+                    onChange={(event) =>
+                      setCustomFieldTarget(event.target.value)
+                    }
+                    fullWidth
+                  />
+                  <TextField
+                    label="Custom field value"
+                    value={customFieldValue}
+                    onChange={(event) =>
+                      setCustomFieldValue(event.target.value)
+                    }
+                    fullWidth
+                  />
+                </Stack>
+              </Box>
+
               <Box sx={{ mt: 2 }}>
                 <Button
                   variant="contained"
