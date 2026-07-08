@@ -420,6 +420,17 @@ export function buildWorkingDatasetActivityQuery({ profileId }) {
   };
 }
 
+function buildQueryString(query) {
+  const searchParams = new URLSearchParams(query);
+  const queryString = searchParams.toString();
+
+  if (!queryString) {
+    throw new Error("Query string could not be built from query parameters.");
+  }
+
+  return queryString;
+}
+
 export async function createDataDataset(command) {
   const formData = buildDatasetCreationFormData(command);
   const response = await fetchWrapper.postUpload(
@@ -440,7 +451,9 @@ export async function createWorkingDataset(command) {
 
 export async function listWorkingDatasets(command) {
   const query = buildWorkingDatasetListQuery(command);
-  const response = await fetchWrapper.get(`${baseUrl}/working-datasets`, query);
+  const response = await fetchWrapper.get(
+    `${baseUrl}/working-datasets?${buildQueryString(query)}`,
+  );
 
   return normaliseWorkingDatasetListResponse(response);
 }
@@ -453,8 +466,7 @@ export async function getWorkingDataset(command) {
 
   const query = buildWorkingDatasetDetailQuery(command);
   const response = await fetchWrapper.get(
-    `${baseUrl}/working-datasets/${command.workingDatasetId}`,
-    query,
+    `${baseUrl}/working-datasets/${command.workingDatasetId}?${buildQueryString(query)}`,
   );
 
   return normaliseWorkingDatasetDetailResponse(
@@ -471,8 +483,7 @@ export async function listWorkingDatasetActivity(command) {
 
   const query = buildWorkingDatasetActivityQuery(command);
   const response = await fetchWrapper.get(
-    `${baseUrl}/working-datasets/${command.workingDatasetId}/activity`,
-    query,
+    `${baseUrl}/working-datasets/${command.workingDatasetId}/activity?${buildQueryString(query)}`,
   );
 
   return normaliseWorkingDatasetActivityResponse(

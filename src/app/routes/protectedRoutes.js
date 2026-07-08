@@ -9,6 +9,7 @@ import BossLayout from "app/boss/BossLayout";
 import bossRoutes from "./bossRoutes";
 import PlatformFoundationPage from "platform/shell/PlatformFoundationPage";
 import PlatformDataUploadPage from "platform/data/PlatformDataUploadPage";
+import TransformationWorkspacePage from "platform/transformation/TransformationWorkspacePage";
 
 function ProtectedAppLayout() {
   return (
@@ -38,6 +39,10 @@ export const protectedRoutes = [
       {
         path: "platform/data",
         Component: PlatformDataUploadPage,
+      },
+      {
+        path: "platform/transformation",
+        Component: TransformationWorkspacePage,
       },
       {
         path: "boss",
