@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -12,7 +12,12 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
 import { createDataDataset, createWorkingDataset } from "platform/data/dataApi";
-import { materialiseWorkingDataset } from "platform/transformation/transformationApi";
+import {
+  acquireWorkingDatasetEditorLease,
+  finaliseWorkingDataset,
+  materialiseWorkingDataset,
+  renewWorkingDatasetEditorLease,
+} from "platform/transformation/transformationApi";
 
 const DATASET_TYPES = [
   { value: "payment", label: "Payment" },
@@ -21,7 +26,8 @@ const DATASET_TYPES = [
   { value: "other", label: "Other" },
 ];
 
-const DEFAULT_EDITOR_SESSION_ID = "manual-stage-4-session";
+const EDITOR_LEASE_RENEWAL_INTERVAL_MS = 25 * 60 * 1000;
+const EDITOR_LEASE_WARNING_THRESHOLD_MS = 5 * 60 * 1000;
 
 function getFileFromChange(event) {
   return event.target.files?.[0] || null;
@@ -69,17 +75,112 @@ export default function PlatformDataUploadPage() {
   const [isUploading, setIsUploading] = useState(false);
   const [createdDataset, setCreatedDataset] = useState(null);
   const [createdWorkingDataset, setCreatedWorkingDataset] = useState(null);
+  const [editorSession, setEditorSession] = useState(null);
   const [materialisedWorkingDataset, setMaterialisedWorkingDataset] =
     useState(null);
+  const [finalisedWorkingDataset, setFinalisedWorkingDataset] = useState(null);
   const [projectionFields, setProjectionFields] = useState([]);
   const [customFieldTarget, setCustomFieldTarget] = useState("");
   const [customFieldValue, setCustomFieldValue] = useState("");
   const [isCreatingWorkingDataset, setIsCreatingWorkingDataset] =
     useState(false);
+  const [isRenewingEditorLease, setIsRenewingEditorLease] = useState(false);
   const [isMaterialisingWorkingDataset, setIsMaterialisingWorkingDataset] =
     useState(false);
+  const [isFinalisingWorkingDataset, setIsFinalisingWorkingDataset] =
+    useState(false);
+  const editorSessionRef = useRef(null);
 
   const canSubmit = Boolean(file && sourceName && datasetType && profileId);
+
+  useEffect(() => {
+    editorSessionRef.current = editorSession;
+  }, [editorSession]);
+
+  useEffect(() => {
+    if (!createdWorkingDataset || !editorSession) {
+      return undefined;
+    }
+
+    const expiresAt = new Date(editorSession.expiresAt).getTime();
+    const now = Date.now();
+    const warningDelay = Math.max(
+      expiresAt - now - EDITOR_LEASE_WARNING_THRESHOLD_MS,
+      0,
+    );
+    const expiryDelay = Math.max(expiresAt - now, 0);
+
+    const warningTimerId = window.setTimeout(() => {
+      showAlert(
+        "Your working dataset editor session is close to expiring.",
+        "info",
+      );
+    }, warningDelay);
+
+    const expiryTimerId = window.setTimeout(() => {
+      if (editorSessionRef.current?.sessionId === editorSession.sessionId) {
+        setEditorSession(null);
+        showAlert(
+          "Your working dataset editor session expired. Recreate the working dataset editor session before materialising changes.",
+          "error",
+        );
+      }
+    }, expiryDelay);
+
+    return () => {
+      window.clearTimeout(warningTimerId);
+      window.clearTimeout(expiryTimerId);
+    };
+  }, [createdWorkingDataset, editorSession, showAlert]);
+
+  useEffect(() => {
+    if (!createdWorkingDataset || !editorSession) {
+      return undefined;
+    }
+
+    const renewalIntervalId = window.setInterval(async () => {
+      const currentSession = editorSessionRef.current;
+
+      if (!currentSession) {
+        return;
+      }
+
+      setIsRenewingEditorLease(true);
+
+      try {
+        const result = await renewWorkingDatasetEditorLease({
+          workingDatasetId: createdWorkingDataset.workingDatasetId,
+          profileId: createdWorkingDataset.profileId,
+          editorSessionId: currentSession.sessionId,
+        });
+
+        setCreatedWorkingDataset(result.workingDataset);
+        setEditorSession(result.editorSession);
+      } catch (error) {
+        setEditorSession(null);
+        showAlert(
+          error.message || "Working dataset editor session renewal failed.",
+          "error",
+        );
+      } finally {
+        setIsRenewingEditorLease(false);
+      }
+    }, EDITOR_LEASE_RENEWAL_INTERVAL_MS);
+
+    return () => {
+      window.clearInterval(renewalIntervalId);
+    };
+  }, [createdWorkingDataset, editorSession, showAlert]);
+
+  async function acquireEditorLease(workingDataset) {
+    const result = await acquireWorkingDatasetEditorLease({
+      workingDatasetId: workingDataset.workingDatasetId,
+      profileId: workingDataset.profileId,
+    });
+
+    setEditorSession(result.editorSession);
+    return result.workingDataset;
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -103,7 +204,9 @@ export default function PlatformDataUploadPage() {
       });
 
       setCreatedWorkingDataset(null);
+      setEditorSession(null);
       setMaterialisedWorkingDataset(null);
+      setFinalisedWorkingDataset(null);
       setProjectionFields([]);
       setCustomFieldTarget("");
       setCustomFieldValue("");
@@ -134,12 +237,20 @@ export default function PlatformDataUploadPage() {
         workingName: `${createdDataset.sourceName} working data`,
       });
 
+      const leasedWorkingDataset = await acquireEditorLease(
+        result.workingDataset,
+      );
+
       setMaterialisedWorkingDataset(null);
-      setProjectionFields(buildInitialProjectionFields(result.workingDataset));
+      setFinalisedWorkingDataset(null);
+      setProjectionFields(buildInitialProjectionFields(leasedWorkingDataset));
       setCustomFieldTarget("");
       setCustomFieldValue("");
-      setCreatedWorkingDataset(result.workingDataset);
-      showAlert("Working dataset created successfully.", "success");
+      setCreatedWorkingDataset(leasedWorkingDataset);
+      showAlert(
+        "Working dataset editor session acquired successfully.",
+        "success",
+      );
     } catch (error) {
       showAlert(error.message || "Working dataset creation failed.", "error");
     } finally {
@@ -159,6 +270,14 @@ export default function PlatformDataUploadPage() {
     if (!createdWorkingDataset) {
       showAlert(
         "Create a working dataset before materialising working data.",
+        "error",
+      );
+      return;
+    }
+
+    if (!editorSession) {
+      showAlert(
+        "Acquire a working dataset editor session before materialising working data.",
         "error",
       );
       return;
@@ -185,7 +304,7 @@ export default function PlatformDataUploadPage() {
       const result = await materialiseWorkingDataset({
         workingDatasetId: createdWorkingDataset.workingDatasetId,
         profileId: profileId || createdDataset?.profileId,
-        editorSessionId: DEFAULT_EDITOR_SESSION_ID,
+        editorSessionId: editorSession.sessionId,
         stepNumber: 2,
         fields,
         customFields,
@@ -201,6 +320,56 @@ export default function PlatformDataUploadPage() {
       );
     } finally {
       setIsMaterialisingWorkingDataset(false);
+    }
+  }
+
+  async function handleFinaliseWorkingDataset() {
+    if (!createdWorkingDataset) {
+      showAlert(
+        "Create a working dataset before finalising working data.",
+        "error",
+      );
+      return;
+    }
+
+    if (!materialisedWorkingDataset) {
+      showAlert(
+        "Materialise the working dataset before finalising working data.",
+        "error",
+      );
+      return;
+    }
+
+    if (!editorSession) {
+      showAlert(
+        "Acquire a working dataset editor session before finalising working data.",
+        "error",
+      );
+      return;
+    }
+
+    setIsFinalisingWorkingDataset(true);
+
+    try {
+      const result = await finaliseWorkingDataset({
+        workingDatasetId: createdWorkingDataset.workingDatasetId,
+        profileId: profileId || createdDataset?.profileId,
+        editorSessionId: editorSession.sessionId,
+        stepNumber: 3,
+      });
+
+      setCreatedWorkingDataset(result.workingDataset);
+      setMaterialisedWorkingDataset(result.workingDataset);
+      setFinalisedWorkingDataset(result.workingDataset);
+      setEditorSession(null);
+      showAlert("Working dataset finalised successfully.", "success");
+    } catch (error) {
+      showAlert(
+        error.message || "Working dataset finalisation failed.",
+        "error",
+      );
+    } finally {
+      setIsFinalisingWorkingDataset(false);
     }
   }
 
@@ -381,12 +550,40 @@ export default function PlatformDataUploadPage() {
                 <Button
                   variant="contained"
                   onClick={handleMaterialiseWorkingDataset}
-                  disabled={isMaterialisingWorkingDataset}
+                  disabled={
+                    isMaterialisingWorkingDataset ||
+                    !editorSession ||
+                    Boolean(finalisedWorkingDataset)
+                  }
                 >
                   {isMaterialisingWorkingDataset
                     ? "Materialising working dataset..."
                     : "Materialise working dataset"}
                 </Button>
+                {editorSession && (
+                  <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    display="block"
+                    sx={{ mt: 1 }}
+                  >
+                    Editor session expires at {editorSession.expiresAt}
+                    {isRenewingEditorLease ? " — renewing..." : ""}
+                  </Typography>
+                )}
+                {materialisedWorkingDataset && !finalisedWorkingDataset && (
+                  <Box sx={{ mt: 2 }}>
+                    <Button
+                      variant="outlined"
+                      onClick={handleFinaliseWorkingDataset}
+                      disabled={isFinalisingWorkingDataset || !editorSession}
+                    >
+                      {isFinalisingWorkingDataset
+                        ? "Finalising working dataset..."
+                        : "Finalise working dataset"}
+                    </Button>
+                  </Box>
+                )}
               </Box>
             </CardContent>
           </Card>
@@ -411,6 +608,29 @@ export default function PlatformDataUploadPage() {
               </Typography>
               <Typography variant="body2">
                 Headers: {materialisedWorkingDataset.headers.join(", ")}
+              </Typography>
+            </CardContent>
+          </Card>
+        )}
+        {finalisedWorkingDataset && (
+          <Card
+            sx={{
+              border: `1px solid ${theme.palette.success.main}`,
+              maxWidth: 720,
+            }}
+          >
+            <CardContent>
+              <Typography variant="h6" gutterBottom>
+                Working dataset finalised
+              </Typography>
+              <Typography variant="body2">
+                Status: {finalisedWorkingDataset.status}
+              </Typography>
+              <Typography variant="body2">
+                Finalised at: {finalisedWorkingDataset.finalisedAt}
+              </Typography>
+              <Typography variant="body2">
+                Finalised by: {finalisedWorkingDataset.finalisedBy}
               </Typography>
             </CardContent>
           </Card>

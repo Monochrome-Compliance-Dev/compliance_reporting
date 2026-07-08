@@ -3,7 +3,12 @@ import userEvent from "@testing-library/user-event";
 import { useAlert } from "context";
 import PlatformDataUploadPage from "platform/data/PlatformDataUploadPage";
 import { createDataDataset, createWorkingDataset } from "platform/data/dataApi";
-import { materialiseWorkingDataset } from "platform/transformation/transformationApi";
+import {
+  acquireWorkingDatasetEditorLease,
+  finaliseWorkingDataset,
+  materialiseWorkingDataset,
+  renewWorkingDatasetEditorLease,
+} from "platform/transformation/transformationApi";
 
 jest.mock("platform/data/dataApi", () => ({
   createDataDataset: jest.fn(),
@@ -11,7 +16,10 @@ jest.mock("platform/data/dataApi", () => ({
 }));
 
 jest.mock("platform/transformation/transformationApi", () => ({
+  acquireWorkingDatasetEditorLease: jest.fn(),
+  finaliseWorkingDataset: jest.fn(),
   materialiseWorkingDataset: jest.fn(),
+  renewWorkingDatasetEditorLease: jest.fn(),
 }));
 
 jest.mock("context", () => ({
@@ -35,10 +43,32 @@ function createWorkingDatasetResponse(overrides = {}) {
   return {
     workingDatasetId: "working-dataset-123",
     sourceDatasetId: "dataset123",
+    profileId: "profile-123",
     rowsCount: 2,
     headersCount: 2,
     headers: ["Supplier", "Invoice"],
+    activeEditor: null,
     ...overrides,
+  };
+}
+
+function createEditorLeaseResponse(overrides = {}) {
+  const editorSession = {
+    sessionId: "session-123",
+    userId: "user-123",
+    startedAt: "2099-07-07T07:41:05.287Z",
+    lastSeenAt: "2099-07-07T07:41:05.287Z",
+    expiresAt: "2099-07-07T08:11:05.287Z",
+    ...overrides.editorSession,
+  };
+
+  return {
+    success: true,
+    workingDataset: createWorkingDatasetResponse({
+      activeEditor: editorSession,
+      ...overrides.workingDataset,
+    }),
+    editorSession,
   };
 }
 
@@ -58,6 +88,16 @@ function createMaterialisedWorkingDatasetResponse(overrides = {}) {
   };
 }
 
+function createFinalisedWorkingDatasetResponse(overrides = {}) {
+  return createMaterialisedWorkingDatasetResponse({
+    status: "final",
+    activeEditor: null,
+    finalisedAt: "2099-07-07T08:00:00.000Z",
+    finalisedBy: "user-123",
+    ...overrides,
+  });
+}
+
 describe("PlatformDataUploadPage", () => {
   beforeEach(() => {
     useAlert.mockReturnValue({ showAlert });
@@ -69,6 +109,12 @@ describe("PlatformDataUploadPage", () => {
       success: true,
       workingDataset: createWorkingDatasetResponse(),
     });
+    acquireWorkingDatasetEditorLease.mockResolvedValue(
+      createEditorLeaseResponse(),
+    );
+    renewWorkingDatasetEditorLease.mockResolvedValue(
+      createEditorLeaseResponse(),
+    );
     materialiseWorkingDataset.mockResolvedValue({
       success: true,
       workingDataset: createMaterialisedWorkingDatasetResponse(),
@@ -76,6 +122,15 @@ describe("PlatformDataUploadPage", () => {
         activityId: "activity-123",
         activityType: "working_dataset_materialised",
         summary: "Materialised working dataset from projection configuration",
+      },
+    });
+    finaliseWorkingDataset.mockResolvedValue({
+      success: true,
+      workingDataset: createFinalisedWorkingDatasetResponse(),
+      activity: {
+        activityId: "activity-456",
+        activityType: "working_dataset_finalised",
+        summary: "Finalised working dataset",
       },
     });
   });
@@ -154,8 +209,15 @@ describe("PlatformDataUploadPage", () => {
       });
     });
 
+    await waitFor(() => {
+      expect(acquireWorkingDatasetEditorLease).toHaveBeenCalledWith({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+      });
+    });
+
     expect(showAlert).toHaveBeenCalledWith(
-      "Working dataset created successfully.",
+      "Working dataset editor session acquired successfully.",
       "success",
     );
     expect(screen.getByText("Working dataset created")).toBeTruthy();
@@ -212,7 +274,7 @@ describe("PlatformDataUploadPage", () => {
       expect(materialiseWorkingDataset).toHaveBeenCalledWith({
         workingDatasetId: "working-dataset-123",
         profileId: "profile-123",
-        editorSessionId: "manual-stage-4-session",
+        editorSessionId: "session-123",
         stepNumber: 2,
         fields: [
           {
@@ -241,6 +303,71 @@ describe("PlatformDataUploadPage", () => {
         "Headers: invoice_reference_number, supplier_name, source_file_type",
       ),
     ).toBeTruthy();
+  });
+
+  it("finalises the materialised working dataset with the backend-issued editor session", async () => {
+    const user = userEvent.setup();
+    const file = new File(
+      ["Supplier,Invoice\nABC Pty Ltd,INV-001\n"],
+      "payments.csv",
+      {
+        type: "text/csv",
+      },
+    );
+
+    render(<PlatformDataUploadPage />);
+
+    await user.type(screen.getByLabelText("Source name *"), "July payments");
+    await user.type(screen.getByLabelText("Profile ID *"), "profile-123");
+    await user.upload(screen.getByLabelText("CSV file"), file);
+    await user.click(screen.getByRole("button", { name: "Create dataset" }));
+
+    await screen.findByText("Dataset created");
+
+    await user.click(
+      screen.getByRole("button", { name: "Create working dataset" }),
+    );
+
+    await screen.findByText("Working dataset created");
+
+    await user.type(
+      screen.getByLabelText("Target field for Supplier"),
+      "supplier_name",
+    );
+    await user.type(
+      screen.getByLabelText("Target field for Invoice"),
+      "invoice_reference_number",
+    );
+
+    await user.click(
+      screen.getByRole("button", { name: "Materialise working dataset" }),
+    );
+
+    await screen.findByText("Working dataset materialised");
+
+    await user.click(
+      screen.getByRole("button", { name: "Finalise working dataset" }),
+    );
+
+    await waitFor(() => {
+      expect(finaliseWorkingDataset).toHaveBeenCalledWith({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+        editorSessionId: "session-123",
+        stepNumber: 3,
+      });
+    });
+
+    expect(showAlert).toHaveBeenCalledWith(
+      "Working dataset finalised successfully.",
+      "success",
+    );
+    expect(screen.getByText("Working dataset finalised")).toBeTruthy();
+    expect(screen.getByText("Status: final")).toBeTruthy();
+    expect(
+      screen.getByText("Finalised at: 2099-07-07T08:00:00.000Z"),
+    ).toBeTruthy();
+    expect(screen.getByText("Finalised by: user-123")).toBeTruthy();
   });
 
   it("shows an error alert when no projection fields are entered", async () => {
@@ -385,6 +512,56 @@ describe("PlatformDataUploadPage", () => {
 
     await waitFor(() => {
       expect(showAlert).toHaveBeenCalledWith("Materialisation failed", "error");
+    });
+  });
+
+  it("shows an error alert when finalisation fails", async () => {
+    const user = userEvent.setup();
+    const file = new File(
+      ["Supplier,Invoice\nABC Pty Ltd,INV-001\n"],
+      "payments.csv",
+      {
+        type: "text/csv",
+      },
+    );
+    finaliseWorkingDataset.mockRejectedValue(new Error("Finalisation failed"));
+
+    render(<PlatformDataUploadPage />);
+
+    await user.type(screen.getByLabelText("Source name *"), "July payments");
+    await user.type(screen.getByLabelText("Profile ID *"), "profile-123");
+    await user.upload(screen.getByLabelText("CSV file"), file);
+    await user.click(screen.getByRole("button", { name: "Create dataset" }));
+
+    await screen.findByText("Dataset created");
+
+    await user.click(
+      screen.getByRole("button", { name: "Create working dataset" }),
+    );
+
+    await screen.findByText("Working dataset created");
+
+    await user.type(
+      screen.getByLabelText("Target field for Supplier"),
+      "supplier_name",
+    );
+    await user.type(
+      screen.getByLabelText("Target field for Invoice"),
+      "invoice_reference_number",
+    );
+
+    await user.click(
+      screen.getByRole("button", { name: "Materialise working dataset" }),
+    );
+
+    await screen.findByText("Working dataset materialised");
+
+    await user.click(
+      screen.getByRole("button", { name: "Finalise working dataset" }),
+    );
+
+    await waitFor(() => {
+      expect(showAlert).toHaveBeenCalledWith("Finalisation failed", "error");
     });
   });
 });

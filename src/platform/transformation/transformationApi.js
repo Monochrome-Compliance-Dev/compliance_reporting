@@ -21,28 +21,28 @@ function requireNonNegativeInteger(value, message) {
   }
 }
 
-function normaliseActivity(activity) {
-  requireValue(activity, "Materialisation activity response is required.");
+function normaliseActivity(activity, expectedActivityType) {
+  requireValue(activity, "Transformation activity response is required.");
   requireValue(
     activity.activityId,
-    "activityId is required in materialisation activity response.",
+    "activityId is required in transformation activity response.",
   );
   requireValue(
     activity.activityType,
-    "activityType is required in materialisation activity response.",
+    "activityType is required in transformation activity response.",
   );
   requireValue(
     activity.summary,
-    "summary is required in materialisation activity response.",
+    "summary is required in transformation activity response.",
   );
   requireValue(
     activity.createdAt,
-    "createdAt is required in materialisation activity response.",
+    "createdAt is required in transformation activity response.",
   );
 
-  if (activity.activityType !== "working_dataset_materialised") {
+  if (activity.activityType !== expectedActivityType) {
     throw new Error(
-      "activityType must be working_dataset_materialised in materialisation activity response.",
+      `activityType must be ${expectedActivityType} in transformation activity response.`,
     );
   }
 
@@ -173,6 +173,57 @@ function normaliseWorkingDataset(workingDataset) {
   };
 }
 
+function normaliseEditorSession(editorSession) {
+  requireValue(
+    editorSession,
+    "editorSession is required in working dataset editor lease response.",
+  );
+  requireValue(
+    editorSession.sessionId,
+    "sessionId is required in working dataset editor lease response.",
+  );
+  requireValue(
+    editorSession.userId,
+    "userId is required in working dataset editor lease response.",
+  );
+  requireValue(
+    editorSession.startedAt,
+    "startedAt is required in working dataset editor lease response.",
+  );
+  requireValue(
+    editorSession.lastSeenAt,
+    "lastSeenAt is required in working dataset editor lease response.",
+  );
+  requireValue(
+    editorSession.expiresAt,
+    "expiresAt is required in working dataset editor lease response.",
+  );
+
+  return {
+    sessionId: editorSession.sessionId,
+    userId: editorSession.userId,
+    startedAt: editorSession.startedAt,
+    lastSeenAt: editorSession.lastSeenAt,
+    expiresAt: editorSession.expiresAt,
+  };
+}
+
+export function normaliseWorkingDatasetEditorLeaseResponse(response) {
+  const data = unwrapResponse(response);
+
+  if (!data || data.success !== true) {
+    throw new Error(
+      "Working dataset editor lease response was not successful.",
+    );
+  }
+
+  return {
+    success: true,
+    workingDataset: normaliseWorkingDataset(data.workingDataset),
+    editorSession: normaliseEditorSession(data.editorSession),
+  };
+}
+
 export function normaliseWorkingDatasetMaterialisationResponse(response) {
   const data = unwrapResponse(response);
 
@@ -185,8 +236,49 @@ export function normaliseWorkingDatasetMaterialisationResponse(response) {
   return {
     success: true,
     workingDataset: normaliseWorkingDataset(data.workingDataset),
-    activity: normaliseActivity(data.activity),
+    activity: normaliseActivity(data.activity, "working_dataset_materialised"),
   };
+}
+
+export function normaliseWorkingDatasetFinalisationResponse(response) {
+  const data = unwrapResponse(response);
+
+  if (!data || data.success !== true) {
+    throw new Error(
+      "Working dataset finalisation response was not successful.",
+    );
+  }
+
+  return {
+    success: true,
+    workingDataset: normaliseWorkingDataset(data.workingDataset),
+    activity: normaliseActivity(data.activity, "working_dataset_finalised"),
+  };
+}
+export function buildWorkingDatasetFinalisationPayload({
+  profileId,
+  editorSessionId,
+  stepNumber,
+}) {
+  requireValue(
+    profileId,
+    "profileId is required for working dataset finalisation.",
+  );
+  requireValue(
+    editorSessionId,
+    "editorSessionId is required for working dataset finalisation.",
+  );
+
+  const payload = {
+    profileId,
+    editorSessionId,
+  };
+
+  if (stepNumber !== undefined && stepNumber !== null) {
+    payload.stepNumber = stepNumber;
+  }
+
+  return payload;
 }
 
 function normaliseProjectionFields(fields) {
@@ -233,6 +325,36 @@ function normaliseCustomFields(customFields = []) {
   });
 }
 
+export function buildWorkingDatasetEditorLeasePayload({ profileId }) {
+  requireValue(
+    profileId,
+    "profileId is required for working dataset editor lease.",
+  );
+
+  return {
+    profileId,
+  };
+}
+
+export function buildWorkingDatasetEditorLeaseRenewalPayload({
+  profileId,
+  editorSessionId,
+}) {
+  requireValue(
+    profileId,
+    "profileId is required for working dataset editor lease renewal.",
+  );
+  requireValue(
+    editorSessionId,
+    "editorSessionId is required for working dataset editor lease renewal.",
+  );
+
+  return {
+    profileId,
+    editorSessionId,
+  };
+}
+
 export function buildWorkingDatasetMaterialisationPayload({
   profileId,
   editorSessionId,
@@ -263,6 +385,36 @@ export function buildWorkingDatasetMaterialisationPayload({
   return payload;
 }
 
+export async function acquireWorkingDatasetEditorLease(command) {
+  requireValue(
+    command?.workingDatasetId,
+    "workingDatasetId is required for working dataset editor lease.",
+  );
+
+  const payload = buildWorkingDatasetEditorLeasePayload(command);
+  const response = await fetchWrapper.post(
+    `${baseUrl}/working-datasets/${command.workingDatasetId}/editor-lease`,
+    payload,
+  );
+
+  return normaliseWorkingDatasetEditorLeaseResponse(response);
+}
+
+export async function renewWorkingDatasetEditorLease(command) {
+  requireValue(
+    command?.workingDatasetId,
+    "workingDatasetId is required for working dataset editor lease renewal.",
+  );
+
+  const payload = buildWorkingDatasetEditorLeaseRenewalPayload(command);
+  const response = await fetchWrapper.post(
+    `${baseUrl}/working-datasets/${command.workingDatasetId}/editor-lease/renew`,
+    payload,
+  );
+
+  return normaliseWorkingDatasetEditorLeaseResponse(response);
+}
+
 export async function materialiseWorkingDataset(command) {
   requireValue(
     command?.workingDatasetId,
@@ -276,4 +428,19 @@ export async function materialiseWorkingDataset(command) {
   );
 
   return normaliseWorkingDatasetMaterialisationResponse(response);
+}
+
+export async function finaliseWorkingDataset(command) {
+  requireValue(
+    command?.workingDatasetId,
+    "workingDatasetId is required for working dataset finalisation.",
+  );
+
+  const payload = buildWorkingDatasetFinalisationPayload(command);
+  const response = await fetchWrapper.post(
+    `${baseUrl}/working-datasets/${command.workingDatasetId}/finalise`,
+    payload,
+  );
+
+  return normaliseWorkingDatasetFinalisationResponse(response);
 }
