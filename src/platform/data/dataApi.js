@@ -62,27 +62,24 @@ function normaliseDataset(dataset) {
     "createdAt is required in Data dataset response.",
   );
 
-  if (!Number.isInteger(dataset.fileSize) || dataset.fileSize < 0) {
-    throw new Error(
-      "fileSize must be a non-negative integer in Data dataset response.",
-    );
-  }
+  requireNonNegativeInteger(
+    dataset.fileSize,
+    "fileSize must be a non-negative integer in Data dataset response.",
+  );
 
   if (!Array.isArray(dataset.headers)) {
     throw new Error("headers must be an array in Data dataset response.");
   }
 
-  if (!Number.isInteger(dataset.headersCount) || dataset.headersCount < 0) {
-    throw new Error(
-      "headersCount must be a non-negative integer in Data dataset response.",
-    );
-  }
+  requireNonNegativeInteger(
+    dataset.headersCount,
+    "headersCount must be a non-negative integer in Data dataset response.",
+  );
 
-  if (!Number.isInteger(dataset.rowsCount) || dataset.rowsCount < 0) {
-    throw new Error(
-      "rowsCount must be a non-negative integer in Data dataset response.",
-    );
-  }
+  requireNonNegativeInteger(
+    dataset.rowsCount,
+    "rowsCount must be a non-negative integer in Data dataset response.",
+  );
 
   return {
     datasetId: dataset.datasetId,
@@ -103,6 +100,12 @@ function normaliseDataset(dataset) {
     isImmutable: dataset.isImmutable === true,
     createdAt: dataset.createdAt,
   };
+}
+
+function requireNonNegativeInteger(value, message) {
+  if (!Number.isInteger(value) || value < 0) {
+    throw new Error(message);
+  }
 }
 
 function normaliseWorkingDataset(workingDataset) {
@@ -139,28 +142,24 @@ function normaliseWorkingDataset(workingDataset) {
     workingDataset.createdAt,
     "createdAt is required in working dataset response.",
   );
+  requireValue(
+    workingDataset.updatedAt,
+    "updatedAt is required in working dataset response.",
+  );
 
   if (!Array.isArray(workingDataset.headers)) {
     throw new Error("headers must be an array in working dataset response.");
   }
 
-  if (
-    !Number.isInteger(workingDataset.headersCount) ||
-    workingDataset.headersCount < 0
-  ) {
-    throw new Error(
-      "headersCount must be a non-negative integer in working dataset response.",
-    );
-  }
+  requireNonNegativeInteger(
+    workingDataset.headersCount,
+    "headersCount must be a non-negative integer in working dataset response.",
+  );
 
-  if (
-    !Number.isInteger(workingDataset.rowsCount) ||
-    workingDataset.rowsCount < 0
-  ) {
-    throw new Error(
-      "rowsCount must be a non-negative integer in working dataset response.",
-    );
-  }
+  requireNonNegativeInteger(
+    workingDataset.rowsCount,
+    "rowsCount must be a non-negative integer in working dataset response.",
+  );
 
   requireValue(
     workingDataset.lineage,
@@ -190,8 +189,130 @@ function normaliseWorkingDataset(workingDataset) {
     headersCount: workingDataset.headersCount,
     rowsCount: workingDataset.rowsCount,
     status: workingDataset.status,
+    currentStepNumber: workingDataset.currentStepNumber ?? null,
+    storagePath: workingDataset.storagePath || null,
+    storedFileName: workingDataset.storedFileName || null,
+    mimeType: workingDataset.mimeType || null,
+    fileSize: workingDataset.fileSize ?? null,
     lineage: workingDataset.lineage,
+    meta: workingDataset.meta || {},
+    activeEditor: workingDataset.activeEditor || null,
+    finalisedAt: workingDataset.finalisedAt || null,
+    finalisedBy: workingDataset.finalisedBy || null,
     createdAt: workingDataset.createdAt,
+    updatedAt: workingDataset.updatedAt,
+  };
+}
+
+export function normaliseWorkingDatasetListResponse(response) {
+  const data = unwrapResponse(response);
+
+  if (!data || data.success !== true) {
+    throw new Error("Working dataset list response was not successful.");
+  }
+
+  if (!Array.isArray(data.workingDatasets)) {
+    throw new Error(
+      "workingDatasets must be an array in working dataset list response.",
+    );
+  }
+
+  return {
+    success: true,
+    workingDatasets: data.workingDatasets.map(normaliseWorkingDataset),
+  };
+}
+
+export function normaliseWorkingDatasetDetailResponse(response, expectedId) {
+  requireValue(
+    expectedId,
+    "expectedId is required for working dataset detail.",
+  );
+
+  const data = unwrapResponse(response);
+
+  if (!data || data.success !== true) {
+    throw new Error("Working dataset detail response was not successful.");
+  }
+
+  const workingDataset = normaliseWorkingDataset(data.workingDataset);
+
+  if (workingDataset.workingDatasetId !== expectedId) {
+    throw new Error(
+      "workingDatasetId must match requested working dataset id in working dataset detail response.",
+    );
+  }
+
+  return {
+    success: true,
+    workingDataset,
+  };
+}
+
+export function normaliseWorkingDatasetActivityResponse(response, expectedId) {
+  requireValue(
+    expectedId,
+    "expectedId is required for working dataset activity.",
+  );
+
+  const data = unwrapResponse(response);
+
+  if (!data || data.success !== true) {
+    throw new Error("Working dataset activity response was not successful.");
+  }
+
+  if (!Array.isArray(data.activities)) {
+    throw new Error(
+      "activities must be an array in working dataset activity response.",
+    );
+  }
+
+  return {
+    success: true,
+    activities: data.activities.map((activity) => {
+      requireValue(activity, "Working dataset activity response is required.");
+      requireValue(
+        activity.activityId,
+        "activityId is required in working dataset activity response.",
+      );
+      requireValue(
+        activity.workingDatasetId,
+        "workingDatasetId is required in working dataset activity response.",
+      );
+      requireValue(
+        activity.activityType,
+        "activityType is required in working dataset activity response.",
+      );
+      requireValue(
+        activity.summary,
+        "summary is required in working dataset activity response.",
+      );
+      requireValue(
+        activity.createdAt,
+        "createdAt is required in working dataset activity response.",
+      );
+
+      if (activity.workingDatasetId !== expectedId) {
+        throw new Error(
+          "activity workingDatasetId must match requested working dataset id in working dataset activity response.",
+        );
+      }
+
+      return {
+        activityId: activity.activityId,
+        customerId: activity.customerId || null,
+        profileId: activity.profileId || null,
+        workingDatasetId: activity.workingDatasetId,
+        activityType: activity.activityType,
+        stepNumber: activity.stepNumber ?? null,
+        summary: activity.summary,
+        details: activity.details || {},
+        relatedCapability: activity.relatedCapability || null,
+        relatedRecordId: activity.relatedRecordId || null,
+        createdBy: activity.createdBy || null,
+        createdAt: activity.createdAt,
+      };
+    }),
   };
 }
 
@@ -269,6 +390,36 @@ export function buildWorkingDatasetCreationPayload({
   };
 }
 
+export function buildWorkingDatasetListQuery({ profileId }) {
+  requireValue(profileId, "profileId is required for working dataset listing.");
+
+  return {
+    profileId,
+  };
+}
+
+export function buildWorkingDatasetDetailQuery({ profileId }) {
+  requireValue(
+    profileId,
+    "profileId is required for working dataset detail retrieval.",
+  );
+
+  return {
+    profileId,
+  };
+}
+
+export function buildWorkingDatasetActivityQuery({ profileId }) {
+  requireValue(
+    profileId,
+    "profileId is required for working dataset activity listing.",
+  );
+
+  return {
+    profileId,
+  };
+}
+
 export async function createDataDataset(command) {
   const formData = buildDatasetCreationFormData(command);
   const response = await fetchWrapper.postUpload(
@@ -285,4 +436,47 @@ export async function createWorkingDataset(command) {
     payload,
   );
   return normaliseWorkingDatasetCreationResponse(response);
+}
+
+export async function listWorkingDatasets(command) {
+  const query = buildWorkingDatasetListQuery(command);
+  const response = await fetchWrapper.get(`${baseUrl}/working-datasets`, query);
+
+  return normaliseWorkingDatasetListResponse(response);
+}
+
+export async function getWorkingDataset(command) {
+  requireValue(
+    command?.workingDatasetId,
+    "workingDatasetId is required for working dataset detail retrieval.",
+  );
+
+  const query = buildWorkingDatasetDetailQuery(command);
+  const response = await fetchWrapper.get(
+    `${baseUrl}/working-datasets/${command.workingDatasetId}`,
+    query,
+  );
+
+  return normaliseWorkingDatasetDetailResponse(
+    response,
+    command.workingDatasetId,
+  );
+}
+
+export async function listWorkingDatasetActivity(command) {
+  requireValue(
+    command?.workingDatasetId,
+    "workingDatasetId is required for working dataset activity listing.",
+  );
+
+  const query = buildWorkingDatasetActivityQuery(command);
+  const response = await fetchWrapper.get(
+    `${baseUrl}/working-datasets/${command.workingDatasetId}/activity`,
+    query,
+  );
+
+  return normaliseWorkingDatasetActivityResponse(
+    response,
+    command.workingDatasetId,
+  );
 }

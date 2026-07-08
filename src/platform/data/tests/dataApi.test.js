@@ -1,15 +1,25 @@
 import {
   buildDatasetCreationFormData,
+  buildWorkingDatasetActivityQuery,
   buildWorkingDatasetCreationPayload,
+  buildWorkingDatasetDetailQuery,
+  buildWorkingDatasetListQuery,
   createDataDataset,
   createWorkingDataset,
+  getWorkingDataset,
+  listWorkingDatasetActivity,
+  listWorkingDatasets,
   normaliseDataDatasetCreationResponse,
+  normaliseWorkingDatasetActivityResponse,
   normaliseWorkingDatasetCreationResponse,
+  normaliseWorkingDatasetDetailResponse,
+  normaliseWorkingDatasetListResponse,
 } from "platform/data/dataApi";
 import { fetchWrapper } from "shared/utils";
 
 jest.mock("shared/utils", () => ({
   fetchWrapper: {
+    get: jest.fn(),
     post: jest.fn(),
     postUpload: jest.fn(),
   },
@@ -34,6 +44,7 @@ function createBackendDataset(overrides = {}) {
     status: "available",
     isImmutable: true,
     createdAt: "2026-07-06T07:00:00.000Z",
+    // updatedAt removed as per instructions
     ...overrides,
   };
 }
@@ -57,11 +68,21 @@ function createBackendWorkingDataset(overrides = {}) {
     headersCount: 2,
     rowsCount: 1,
     status: "available",
+    currentStepNumber: null,
+    storagePath: null,
+    storedFileName: null,
+    mimeType: null,
+    fileSize: null,
     lineage: {
       sourceDatasetId: "dataset123",
       createdFrom: "immutable_dataset",
     },
+    meta: {},
+    activeEditor: null,
+    finalisedAt: null,
+    finalisedBy: null,
     createdAt: "2026-07-06T08:00:00.000Z",
+    updatedAt: "2026-07-06T08:30:00.000Z",
     ...overrides,
   };
 }
@@ -70,6 +91,40 @@ function createBackendWorkingDatasetResponse(overrides = {}) {
   return {
     success: true,
     workingDataset: createBackendWorkingDataset(overrides),
+  };
+}
+
+function createBackendWorkingDatasetListResponse(overrides = {}) {
+  return {
+    success: true,
+    workingDatasets: [createBackendWorkingDataset(overrides)],
+  };
+}
+
+function createBackendWorkingDatasetActivity(overrides = {}) {
+  return {
+    activityId: "activity-123",
+    customerId: "customer-123",
+    profileId: "profile-123",
+    workingDatasetId: "working-dataset-123",
+    activityType: "working_dataset_created",
+    stepNumber: 1,
+    summary: "Created working dataset July payments working data",
+    details: {
+      sourceDatasetId: "dataset123",
+    },
+    relatedCapability: "data",
+    relatedRecordId: "working-dataset-123",
+    createdBy: "user-123",
+    createdAt: "2026-07-06T08:00:00.000Z",
+    ...overrides,
+  };
+}
+
+function createBackendWorkingDatasetActivityResponse(overrides = {}) {
+  return {
+    success: true,
+    activities: [createBackendWorkingDatasetActivity(overrides)],
   };
 }
 
@@ -207,6 +262,127 @@ describe("normaliseWorkingDatasetCreationResponse", () => {
   });
 });
 
+describe("normaliseWorkingDatasetListResponse", () => {
+  it("normalises a direct backend working dataset list response", () => {
+    const result = normaliseWorkingDatasetListResponse(
+      createBackendWorkingDatasetListResponse(),
+    );
+
+    expect(result).toEqual({
+      success: true,
+      workingDatasets: [createBackendWorkingDataset()],
+    });
+  });
+
+  it("normalises a wrapped backend working dataset list response", () => {
+    const result = normaliseWorkingDatasetListResponse({
+      data: createBackendWorkingDatasetListResponse({
+        workingDatasetId: "working-dataset-456",
+        workingName: "Wrapped working data",
+      }),
+    });
+
+    expect(result).toEqual({
+      success: true,
+      workingDatasets: [
+        createBackendWorkingDataset({
+          workingDatasetId: "working-dataset-456",
+          workingName: "Wrapped working data",
+        }),
+      ],
+    });
+  });
+
+  it("fails loudly when workingDatasets is not an array", () => {
+    expect(() =>
+      normaliseWorkingDatasetListResponse({
+        success: true,
+        workingDatasets: createBackendWorkingDataset(),
+      }),
+    ).toThrow(
+      "workingDatasets must be an array in working dataset list response.",
+    );
+  });
+});
+
+describe("normaliseWorkingDatasetDetailResponse", () => {
+  it("normalises a direct backend working dataset detail response", () => {
+    const result = normaliseWorkingDatasetDetailResponse(
+      createBackendWorkingDatasetResponse(),
+      "working-dataset-123",
+    );
+
+    expect(result).toEqual({
+      success: true,
+      workingDataset: createBackendWorkingDataset(),
+    });
+  });
+
+  it("fails loudly when the response id does not match the requested id", () => {
+    expect(() =>
+      normaliseWorkingDatasetDetailResponse(
+        createBackendWorkingDatasetResponse({
+          workingDatasetId: "working-dataset-999",
+        }),
+        "working-dataset-123",
+      ),
+    ).toThrow(
+      "workingDatasetId must match requested working dataset id in working dataset detail response.",
+    );
+  });
+});
+
+describe("normaliseWorkingDatasetActivityResponse", () => {
+  it("normalises a direct backend working dataset activity response", () => {
+    const result = normaliseWorkingDatasetActivityResponse(
+      createBackendWorkingDatasetActivityResponse(),
+      "working-dataset-123",
+    );
+
+    expect(result).toEqual({
+      success: true,
+      activities: [createBackendWorkingDatasetActivity()],
+    });
+  });
+
+  it("normalises a wrapped backend working dataset activity response", () => {
+    const result = normaliseWorkingDatasetActivityResponse(
+      {
+        data: createBackendWorkingDatasetActivityResponse({
+          activityId: "activity-456",
+          activityType: "working_dataset_finalised",
+          summary: "Finalised working dataset July payments working data",
+        }),
+      },
+      "working-dataset-123",
+    );
+
+    expect(result).toEqual({
+      success: true,
+      activities: [
+        createBackendWorkingDatasetActivity({
+          activityId: "activity-456",
+          activityType: "working_dataset_finalised",
+          summary: "Finalised working dataset July payments working data",
+        }),
+      ],
+    });
+  });
+
+  it("fails loudly when activity workingDatasetId does not match the requested id", () => {
+    expect(() =>
+      normaliseWorkingDatasetActivityResponse(
+        createBackendWorkingDatasetActivityResponse({
+          workingDatasetId: "working-dataset-999",
+        }),
+        "working-dataset-123",
+      ),
+    ).toThrow(
+      "activity workingDatasetId must match requested working dataset id in working dataset activity response.",
+    );
+  });
+});
+
 describe("buildDatasetCreationFormData", () => {
   it("builds multipart form data for Data dataset creation", () => {
     const file = new File(["Supplier,Invoice\nABC,INV-001\n"], "payments.csv", {
@@ -274,6 +450,60 @@ describe("buildWorkingDatasetCreationPayload", () => {
         workingName: "July payments working data",
       }),
     ).toThrow("sourceDatasetId is required for working dataset creation.");
+  });
+});
+
+describe("buildWorkingDatasetListQuery", () => {
+  it("builds query params for working dataset listing", () => {
+    expect(
+      buildWorkingDatasetListQuery({
+        profileId: "profile-123",
+      }),
+    ).toEqual({
+      profileId: "profile-123",
+    });
+  });
+
+  it("fails loudly when profileId is missing", () => {
+    expect(() => buildWorkingDatasetListQuery({})).toThrow(
+      "profileId is required for working dataset listing.",
+    );
+  });
+});
+
+describe("buildWorkingDatasetDetailQuery", () => {
+  it("builds query params for working dataset detail retrieval", () => {
+    expect(
+      buildWorkingDatasetDetailQuery({
+        profileId: "profile-123",
+      }),
+    ).toEqual({
+      profileId: "profile-123",
+    });
+  });
+
+  it("fails loudly when profileId is missing", () => {
+    expect(() => buildWorkingDatasetDetailQuery({})).toThrow(
+      "profileId is required for working dataset detail retrieval.",
+    );
+  });
+});
+
+describe("buildWorkingDatasetActivityQuery", () => {
+  it("builds query params for working dataset activity listing", () => {
+    expect(
+      buildWorkingDatasetActivityQuery({
+        profileId: "profile-123",
+      }),
+    ).toEqual({
+      profileId: "profile-123",
+    });
+  });
+
+  it("fails loudly when profileId is missing", () => {
+    expect(() => buildWorkingDatasetActivityQuery({})).toThrow(
+      "profileId is required for working dataset activity listing.",
+    );
   });
 });
 
@@ -379,5 +609,131 @@ describe("createWorkingDataset", () => {
     ).rejects.toThrow(
       "sourceDatasetId is required in working dataset response.",
     );
+  });
+});
+
+describe("listWorkingDatasets", () => {
+  beforeEach(() => {
+    fetchWrapper.get.mockResolvedValue(
+      createBackendWorkingDatasetListResponse(),
+    );
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("gets working datasets from the Platform Data working dataset endpoint", async () => {
+    const result = await listWorkingDatasets({
+      profileId: "profile-123",
+    });
+
+    expect(fetchWrapper.get).toHaveBeenCalledWith(
+      "http://localhost:4000/api/platform/data/working-datasets",
+      {
+        profileId: "profile-123",
+      },
+    );
+    expect(result).toEqual({
+      success: true,
+      workingDatasets: [createBackendWorkingDataset()],
+    });
+  });
+
+  it("fails loudly when backend working dataset list response is malformed", async () => {
+    fetchWrapper.get.mockResolvedValue({
+      success: true,
+      workingDatasets: [{ workingDatasetId: "working-dataset-123" }],
+    });
+
+    await expect(
+      listWorkingDatasets({
+        profileId: "profile-123",
+      }),
+    ).rejects.toThrow(
+      "sourceDatasetId is required in working dataset response.",
+    );
+  });
+});
+
+describe("getWorkingDataset", () => {
+  beforeEach(() => {
+    fetchWrapper.get.mockResolvedValue(createBackendWorkingDatasetResponse());
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("gets working dataset detail from the Platform Data working dataset endpoint", async () => {
+    const result = await getWorkingDataset({
+      workingDatasetId: "working-dataset-123",
+      profileId: "profile-123",
+    });
+
+    expect(fetchWrapper.get).toHaveBeenCalledWith(
+      "http://localhost:4000/api/platform/data/working-datasets/working-dataset-123",
+      {
+        profileId: "profile-123",
+      },
+    );
+    expect(result).toEqual({
+      success: true,
+      workingDataset: createBackendWorkingDataset(),
+    });
+  });
+
+  it("fails loudly when workingDatasetId is missing", async () => {
+    await expect(
+      getWorkingDataset({
+        profileId: "profile-123",
+      }),
+    ).rejects.toThrow(
+      "workingDatasetId is required for working dataset detail retrieval.",
+    );
+
+    expect(fetchWrapper.get).not.toHaveBeenCalled();
+  });
+});
+
+describe("listWorkingDatasetActivity", () => {
+  beforeEach(() => {
+    fetchWrapper.get.mockResolvedValue(
+      createBackendWorkingDatasetActivityResponse(),
+    );
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("gets working dataset activity from the Platform Data working dataset activity endpoint", async () => {
+    const result = await listWorkingDatasetActivity({
+      workingDatasetId: "working-dataset-123",
+      profileId: "profile-123",
+    });
+
+    expect(fetchWrapper.get).toHaveBeenCalledWith(
+      "http://localhost:4000/api/platform/data/working-datasets/working-dataset-123/activity",
+      {
+        profileId: "profile-123",
+      },
+    );
+    expect(result).toEqual({
+      success: true,
+      activities: [createBackendWorkingDatasetActivity()],
+    });
+  });
+
+  it("fails loudly when workingDatasetId is missing", async () => {
+    await expect(
+      listWorkingDatasetActivity({
+        profileId: "profile-123",
+      }),
+    ).rejects.toThrow(
+      "workingDatasetId is required for working dataset activity listing.",
+    );
+
+    expect(fetchWrapper.get).not.toHaveBeenCalled();
   });
 });
