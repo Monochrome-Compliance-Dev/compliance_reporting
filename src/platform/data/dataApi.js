@@ -132,10 +132,6 @@ function normaliseWorkingDataset(workingDataset) {
     "datasetType is required in working dataset response.",
   );
   requireValue(
-    workingDataset.sourceType,
-    "sourceType is required in working dataset response.",
-  );
-  requireValue(
     workingDataset.status,
     "status is required in working dataset response.",
   );
@@ -143,12 +139,6 @@ function normaliseWorkingDataset(workingDataset) {
     workingDataset.createdAt,
     "createdAt is required in working dataset response.",
   );
-
-  if (workingDataset.sourceType !== "working_copy") {
-    throw new Error(
-      "sourceType must be working_copy in working dataset response.",
-    );
-  }
 
   if (!Array.isArray(workingDataset.headers)) {
     throw new Error("headers must be an array in working dataset response.");
@@ -196,7 +186,6 @@ function normaliseWorkingDataset(workingDataset) {
     profileId: workingDataset.profileId,
     workingName: workingDataset.workingName,
     datasetType: workingDataset.datasetType,
-    sourceType: workingDataset.sourceType,
     headers: workingDataset.headers,
     headersCount: workingDataset.headersCount,
     rowsCount: workingDataset.rowsCount,

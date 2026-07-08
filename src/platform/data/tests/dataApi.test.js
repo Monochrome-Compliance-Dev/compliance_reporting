@@ -53,7 +53,6 @@ function createBackendWorkingDataset(overrides = {}) {
     profileId: "profile-123",
     workingName: "July payments working data",
     datasetType: "payment",
-    sourceType: "working_copy",
     headers: ["Supplier", "Invoice"],
     headersCount: 2,
     rowsCount: 1,
