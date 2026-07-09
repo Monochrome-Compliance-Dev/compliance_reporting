@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import {
   Box,
   Button,
@@ -30,6 +31,7 @@ function isFinalWorkingDataset(workingDataset) {
 
 export default function TransformationWorkspacePage() {
   const theme = useTheme();
+  const navigate = useNavigate();
   const { showAlert } = useAlert();
   const [profileId, setProfileId] = useState("");
   const [workingDatasets, setWorkingDatasets] = useState([]);
@@ -59,6 +61,22 @@ export default function TransformationWorkspacePage() {
     } finally {
       setIsLoading(false);
     }
+  }
+
+  function handleOpenWorkingDataset(workingDataset) {
+    const trimmedProfileId = profileId.trim();
+
+    if (!trimmedProfileId) {
+      showAlert(
+        "Enter a profile ID before opening a working dataset.",
+        "error",
+      );
+      return;
+    }
+
+    navigate(
+      `working-datasets/${workingDataset.workingDatasetId}?profileId=${encodeURIComponent(trimmedProfileId)}`,
+    );
   }
 
   return (
@@ -182,6 +200,15 @@ export default function TransformationWorkspacePage() {
                         This working dataset is final and read-only.
                       </Typography>
                     )}
+
+                    <Box>
+                      <Button
+                        variant="outlined"
+                        onClick={() => handleOpenWorkingDataset(workingDataset)}
+                      >
+                        Open working dataset
+                      </Button>
+                    </Box>
                   </Stack>
                 </CardContent>
               </Card>

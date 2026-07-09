@@ -628,10 +628,7 @@ describe("listWorkingDatasets", () => {
     });
 
     expect(fetchWrapper.get).toHaveBeenCalledWith(
-      "http://localhost:4000/api/platform/data/working-datasets",
-      {
-        profileId: "profile-123",
-      },
+      "http://localhost:4000/api/platform/data/working-datasets?profileId=profile-123",
     );
     expect(result).toEqual({
       success: true,
@@ -671,10 +668,7 @@ describe("getWorkingDataset", () => {
     });
 
     expect(fetchWrapper.get).toHaveBeenCalledWith(
-      "http://localhost:4000/api/platform/data/working-datasets/working-dataset-123",
-      {
-        profileId: "profile-123",
-      },
+      "http://localhost:4000/api/platform/data/working-datasets/working-dataset-123?profileId=profile-123",
     );
     expect(result).toEqual({
       success: true,
@@ -713,10 +707,7 @@ describe("listWorkingDatasetActivity", () => {
     });
 
     expect(fetchWrapper.get).toHaveBeenCalledWith(
-      "http://localhost:4000/api/platform/data/working-datasets/working-dataset-123/activity",
-      {
-        profileId: "profile-123",
-      },
+      "http://localhost:4000/api/platform/data/working-datasets/working-dataset-123/activity?profileId=profile-123",
     );
     expect(result).toEqual({
       success: true,

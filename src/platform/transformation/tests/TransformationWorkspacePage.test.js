@@ -4,11 +4,16 @@ import TransformationWorkspacePage from "platform/transformation/TransformationW
 import { listWorkingDatasets } from "platform/data/dataApi";
 
 const mockShowAlert = jest.fn();
+const mockNavigate = jest.fn();
 
 jest.mock("context", () => ({
   useAlert: () => ({
     showAlert: mockShowAlert,
   }),
+}));
+
+jest.mock("react-router", () => ({
+  useNavigate: () => mockNavigate,
 }));
 
 jest.mock("platform/data/dataApi", () => ({
@@ -49,6 +54,7 @@ function createWorkingDataset(overrides = {}) {
 describe("TransformationWorkspacePage", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockNavigate.mockClear();
     listWorkingDatasets.mockResolvedValue({
       success: true,
       workingDatasets: [createWorkingDataset()],
@@ -97,6 +103,29 @@ describe("TransformationWorkspacePage", () => {
     expect(mockShowAlert).toHaveBeenCalledWith(
       "Working datasets loaded successfully.",
       "success",
+    );
+  });
+
+  it("opens a working dataset detail route with the supplied profile", async () => {
+    const user = userEvent.setup();
+    render(<TransformationWorkspacePage />);
+
+    await user.type(
+      screen.getByRole("textbox", { name: /profile id/i }),
+      "profile-123",
+    );
+    await user.click(
+      screen.getByRole("button", { name: "Load working datasets" }),
+    );
+
+    await screen.findByText("July payments working data");
+
+    await user.click(
+      screen.getByRole("button", { name: "Open working dataset" }),
+    );
+
+    expect(mockNavigate).toHaveBeenCalledWith(
+      "working-datasets/working-dataset-123?profileId=profile-123",
     );
   });
 
