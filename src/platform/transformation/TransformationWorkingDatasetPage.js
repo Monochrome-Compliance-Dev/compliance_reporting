@@ -12,6 +12,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
 import {
+  acquireWorkingDatasetEditorLease,
   getWorkingDataset,
   listWorkingDatasetActivity,
 } from "platform/data/dataApi";
@@ -29,6 +30,18 @@ function formatWorkingDatasetStatus(status) {
 
 function isFinalWorkingDataset(workingDataset) {
   return workingDataset?.status === "final";
+}
+
+function hasActiveEditorLease(workingDataset) {
+  return Boolean(workingDataset?.activeEditor?.sessionId);
+}
+
+function getEditorLeaseLabel(workingDataset) {
+  if (!workingDataset?.activeEditor) {
+    return "No active editor lease.";
+  }
+
+  return `Active editor lease expires at ${workingDataset.activeEditor.expiresAt}.`;
 }
 
 function getActivityLabel(activity) {
@@ -81,6 +94,25 @@ export default function TransformationWorkingDatasetPage() {
 
   function handleBackToHub() {
     navigate("..");
+  }
+
+  async function handleAcquireEditorLease() {
+    if (!profileId) {
+      showAlert("Profile ID is required to acquire an editor lease.", "error");
+      return;
+    }
+
+    try {
+      const result = await acquireWorkingDatasetEditorLease({
+        workingDatasetId,
+        profileId,
+      });
+
+      setWorkingDataset(result.workingDataset);
+      showAlert("Editor lease acquired successfully.", "success");
+    } catch (error) {
+      showAlert(error.message || "Editor lease acquisition failed.", "error");
+    }
   }
 
   return (
@@ -157,6 +189,24 @@ export default function TransformationWorkingDatasetPage() {
                   <Typography variant="body2" color="text.secondary">
                     This working dataset is final and read-only.
                   </Typography>
+                )}
+
+                <Typography variant="body2" color="text.secondary">
+                  {getEditorLeaseLabel(workingDataset)}
+                </Typography>
+
+                {!isFinalWorkingDataset(workingDataset) && (
+                  <Box>
+                    <Button
+                      variant="outlined"
+                      onClick={handleAcquireEditorLease}
+                      disabled={hasActiveEditorLease(workingDataset)}
+                    >
+                      {hasActiveEditorLease(workingDataset)
+                        ? "Editor lease active"
+                        : "Acquire edit lease"}
+                    </Button>
+                  </Box>
                 )}
               </Stack>
             </CardContent>

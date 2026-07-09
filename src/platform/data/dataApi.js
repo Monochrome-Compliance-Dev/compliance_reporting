@@ -316,6 +316,54 @@ export function normaliseWorkingDatasetActivityResponse(response, expectedId) {
   };
 }
 
+export function normaliseWorkingDatasetEditorLeaseResponse(
+  response,
+  expectedId,
+) {
+  requireValue(
+    expectedId,
+    "expectedId is required for working dataset editor lease.",
+  );
+
+  const data = unwrapResponse(response);
+
+  if (!data || data.success !== true) {
+    throw new Error(
+      "Working dataset editor lease response was not successful.",
+    );
+  }
+
+  const workingDataset = normaliseWorkingDataset(data.workingDataset);
+
+  if (workingDataset.workingDatasetId !== expectedId) {
+    throw new Error(
+      "workingDatasetId must match requested working dataset id in working dataset editor lease response.",
+    );
+  }
+
+  requireValue(
+    data.editorSession,
+    "editorSession is required in working dataset editor lease response.",
+  );
+  requireValue(
+    data.editorSession.sessionId,
+    "editorSession sessionId is required in working dataset editor lease response.",
+  );
+  requireValue(
+    data.editorSession.expiresAt,
+    "editorSession expiresAt is required in working dataset editor lease response.",
+  );
+
+  return {
+    success: true,
+    workingDataset,
+    editorSession: {
+      sessionId: data.editorSession.sessionId,
+      expiresAt: data.editorSession.expiresAt,
+    },
+  };
+}
+
 export function normaliseDataDatasetCreationResponse(response) {
   const data = unwrapResponse(response);
 
@@ -420,6 +468,17 @@ export function buildWorkingDatasetActivityQuery({ profileId }) {
   };
 }
 
+export function buildWorkingDatasetEditorLeasePayload({ profileId }) {
+  requireValue(
+    profileId,
+    "profileId is required for working dataset editor lease acquisition.",
+  );
+
+  return {
+    profileId,
+  };
+}
+
 function buildQueryString(query) {
   const searchParams = new URLSearchParams(query);
   const queryString = searchParams.toString();
@@ -487,6 +546,24 @@ export async function listWorkingDatasetActivity(command) {
   );
 
   return normaliseWorkingDatasetActivityResponse(
+    response,
+    command.workingDatasetId,
+  );
+}
+
+export async function acquireWorkingDatasetEditorLease(command) {
+  requireValue(
+    command?.workingDatasetId,
+    "workingDatasetId is required for working dataset editor lease acquisition.",
+  );
+
+  const payload = buildWorkingDatasetEditorLeasePayload(command);
+  const response = await fetchWrapper.post(
+    `${baseUrl}/working-datasets/${command.workingDatasetId}/edit-lease`,
+    payload,
+  );
+
+  return normaliseWorkingDatasetEditorLeaseResponse(
     response,
     command.workingDatasetId,
   );

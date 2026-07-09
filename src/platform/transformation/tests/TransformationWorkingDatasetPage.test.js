@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import TransformationWorkingDatasetPage from "platform/transformation/TransformationWorkingDatasetPage";
 import {
+  acquireWorkingDatasetEditorLease,
   getWorkingDataset,
   listWorkingDatasetActivity,
 } from "platform/data/dataApi";
@@ -24,6 +25,7 @@ jest.mock("react-router", () => ({
 }));
 
 jest.mock("platform/data/dataApi", () => ({
+  acquireWorkingDatasetEditorLease: jest.fn(),
   getWorkingDataset: jest.fn(),
   listWorkingDatasetActivity: jest.fn(),
 }));
@@ -76,6 +78,19 @@ describe("TransformationWorkingDatasetPage", () => {
       success: true,
       activities: [createActivity()],
     });
+    acquireWorkingDatasetEditorLease.mockResolvedValue({
+      success: true,
+      workingDataset: createWorkingDataset({
+        activeEditor: {
+          sessionId: "editor-session-123",
+          expiresAt: "2026-07-09T03:30:00.000Z",
+        },
+      }),
+      editorSession: {
+        sessionId: "editor-session-123",
+        expiresAt: "2026-07-09T03:30:00.000Z",
+      },
+    });
   });
 
   it("loads and displays working dataset detail and activity history", async () => {
@@ -107,6 +122,46 @@ describe("TransformationWorkingDatasetPage", () => {
     ).toBeTruthy();
   });
 
+  it("shows editor lease state for non-final working datasets", async () => {
+    render(<TransformationWorkingDatasetPage />);
+
+    expect(await screen.findByText("No active editor lease.")).toBeTruthy();
+    expect(
+      screen.getByRole("button", { name: "Acquire edit lease" }),
+    ).toBeTruthy();
+  });
+
+  it("acquires an editor lease and updates the displayed lease state", async () => {
+    const user = userEvent.setup();
+    render(<TransformationWorkingDatasetPage />);
+
+    await screen.findByText("No active editor lease.");
+
+    await user.click(
+      screen.getByRole("button", { name: "Acquire edit lease" }),
+    );
+
+    await waitFor(() => {
+      expect(acquireWorkingDatasetEditorLease).toHaveBeenCalledWith({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+      });
+    });
+
+    expect(
+      await screen.findByText(
+        "Active editor lease expires at 2026-07-09T03:30:00.000Z.",
+      ),
+    ).toBeTruthy();
+    expect(
+      screen.getByRole("button", { name: "Editor lease active" }).disabled,
+    ).toBe(true);
+    expect(mockShowAlert).toHaveBeenCalledWith(
+      "Editor lease acquired successfully.",
+      "success",
+    );
+  });
+
   it("shows final working datasets as read-only", async () => {
     getWorkingDataset.mockResolvedValue({
       success: true,
@@ -123,6 +178,9 @@ describe("TransformationWorkingDatasetPage", () => {
     expect(
       screen.getByText("This working dataset is final and read-only."),
     ).toBeTruthy();
+    expect(
+      screen.queryByRole("button", { name: "Acquire edit lease" }),
+    ).toBeNull();
   });
 
   it("shows an empty activity state when no activity exists", async () => {
@@ -162,6 +220,25 @@ describe("TransformationWorkingDatasetPage", () => {
 
     await waitFor(() => {
       expect(mockShowAlert).toHaveBeenCalledWith("Detail failed", "error");
+    });
+  });
+
+  it("shows an alert when editor lease acquisition fails", async () => {
+    acquireWorkingDatasetEditorLease.mockRejectedValue(
+      new Error("Lease failed"),
+    );
+
+    const user = userEvent.setup();
+    render(<TransformationWorkingDatasetPage />);
+
+    await screen.findByText("No active editor lease.");
+
+    await user.click(
+      screen.getByRole("button", { name: "Acquire edit lease" }),
+    );
+
+    await waitFor(() => {
+      expect(mockShowAlert).toHaveBeenCalledWith("Lease failed", "error");
     });
   });
 

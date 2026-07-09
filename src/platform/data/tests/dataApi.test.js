@@ -1,8 +1,10 @@
 import {
+  acquireWorkingDatasetEditorLease,
   buildDatasetCreationFormData,
   buildWorkingDatasetActivityQuery,
   buildWorkingDatasetCreationPayload,
   buildWorkingDatasetDetailQuery,
+  buildWorkingDatasetEditorLeasePayload,
   buildWorkingDatasetListQuery,
   createDataDataset,
   createWorkingDataset,
@@ -13,6 +15,7 @@ import {
   normaliseWorkingDatasetActivityResponse,
   normaliseWorkingDatasetCreationResponse,
   normaliseWorkingDatasetDetailResponse,
+  normaliseWorkingDatasetEditorLeaseResponse,
   normaliseWorkingDatasetListResponse,
 } from "platform/data/dataApi";
 import { fetchWrapper } from "shared/utils";
@@ -90,6 +93,18 @@ function createBackendWorkingDatasetResponse(overrides = {}) {
   return {
     success: true,
     workingDataset: createBackendWorkingDataset(overrides),
+  };
+}
+
+function createBackendWorkingDatasetEditorLeaseResponse(overrides = {}) {
+  return {
+    success: true,
+    workingDataset: createBackendWorkingDataset(overrides.workingDataset),
+    editorSession: {
+      sessionId: "editor-session-123",
+      expiresAt: "2026-07-09T03:30:00.000Z",
+      ...overrides.editorSession,
+    },
   };
 }
 
@@ -331,6 +346,76 @@ describe("normaliseWorkingDatasetDetailResponse", () => {
   });
 });
 
+describe("normaliseWorkingDatasetEditorLeaseResponse", () => {
+  it("normalises a direct backend working dataset editor lease response", () => {
+    const result = normaliseWorkingDatasetEditorLeaseResponse(
+      createBackendWorkingDatasetEditorLeaseResponse(),
+      "working-dataset-123",
+    );
+
+    expect(result).toEqual({
+      success: true,
+      workingDataset: createBackendWorkingDataset(),
+      editorSession: {
+        sessionId: "editor-session-123",
+        expiresAt: "2026-07-09T03:30:00.000Z",
+      },
+    });
+  });
+
+  it("normalises a wrapped backend working dataset editor lease response", () => {
+    const result = normaliseWorkingDatasetEditorLeaseResponse(
+      {
+        data: createBackendWorkingDatasetEditorLeaseResponse({
+          editorSession: {
+            sessionId: "editor-session-456",
+          },
+        }),
+      },
+      "working-dataset-123",
+    );
+
+    expect(result).toEqual({
+      success: true,
+      workingDataset: createBackendWorkingDataset(),
+      editorSession: {
+        sessionId: "editor-session-456",
+        expiresAt: "2026-07-09T03:30:00.000Z",
+      },
+    });
+  });
+
+  it("fails loudly when the response id does not match the requested id", () => {
+    expect(() =>
+      normaliseWorkingDatasetEditorLeaseResponse(
+        createBackendWorkingDatasetEditorLeaseResponse({
+          workingDataset: {
+            workingDatasetId: "working-dataset-999",
+          },
+        }),
+        "working-dataset-123",
+      ),
+    ).toThrow(
+      "workingDatasetId must match requested working dataset id in working dataset editor lease response.",
+    );
+  });
+
+  it("fails loudly when editorSession is missing", () => {
+    expect(() =>
+      normaliseWorkingDatasetEditorLeaseResponse(
+        {
+          success: true,
+          workingDataset: createBackendWorkingDataset(),
+          editorSession: null,
+        },
+        "working-dataset-123",
+      ),
+    ).toThrow(
+      "editorSession is required in working dataset editor lease response.",
+    );
+  });
+});
+
 describe("normaliseWorkingDatasetActivityResponse", () => {
   it("normalises a direct backend working dataset activity response", () => {
     const result = normaliseWorkingDatasetActivityResponse(
@@ -502,6 +587,24 @@ describe("buildWorkingDatasetActivityQuery", () => {
   it("fails loudly when profileId is missing", () => {
     expect(() => buildWorkingDatasetActivityQuery({})).toThrow(
       "profileId is required for working dataset activity listing.",
+    );
+  });
+});
+
+describe("buildWorkingDatasetEditorLeasePayload", () => {
+  it("builds JSON payload for working dataset editor lease acquisition", () => {
+    expect(
+      buildWorkingDatasetEditorLeasePayload({
+        profileId: "profile-123",
+      }),
+    ).toEqual({
+      profileId: "profile-123",
+    });
+  });
+
+  it("fails loudly when profileId is missing", () => {
+    expect(() => buildWorkingDatasetEditorLeasePayload({})).toThrow(
+      "profileId is required for working dataset editor lease acquisition.",
     );
   });
 });
@@ -725,5 +828,68 @@ describe("listWorkingDatasetActivity", () => {
     );
 
     expect(fetchWrapper.get).not.toHaveBeenCalled();
+  });
+});
+
+describe("acquireWorkingDatasetEditorLease", () => {
+  beforeEach(() => {
+    fetchWrapper.post.mockResolvedValue(
+      createBackendWorkingDatasetEditorLeaseResponse(),
+    );
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("posts editor lease payload to the Platform Data working dataset edit lease endpoint", async () => {
+    const result = await acquireWorkingDatasetEditorLease({
+      workingDatasetId: "working-dataset-123",
+      profileId: "profile-123",
+    });
+
+    expect(fetchWrapper.post).toHaveBeenCalledWith(
+      "http://localhost:4000/api/platform/data/working-datasets/working-dataset-123/edit-lease",
+      {
+        profileId: "profile-123",
+      },
+    );
+    expect(result).toEqual({
+      success: true,
+      workingDataset: createBackendWorkingDataset(),
+      editorSession: {
+        sessionId: "editor-session-123",
+        expiresAt: "2026-07-09T03:30:00.000Z",
+      },
+    });
+  });
+
+  it("fails loudly when workingDatasetId is missing", async () => {
+    await expect(
+      acquireWorkingDatasetEditorLease({
+        profileId: "profile-123",
+      }),
+    ).rejects.toThrow(
+      "workingDatasetId is required for working dataset editor lease acquisition.",
+    );
+
+    expect(fetchWrapper.post).not.toHaveBeenCalled();
+  });
+
+  it("fails loudly when backend editor lease response is malformed", async () => {
+    fetchWrapper.post.mockResolvedValue({
+      success: true,
+      workingDataset: createBackendWorkingDataset(),
+      editorSession: {},
+    });
+
+    await expect(
+      acquireWorkingDatasetEditorLease({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+      }),
+    ).rejects.toThrow(
+      "editorSession sessionId is required in working dataset editor lease response.",
+    );
   });
 });
