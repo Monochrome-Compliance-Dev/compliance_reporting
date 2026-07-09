@@ -81,16 +81,15 @@ describe("TransformationWorkingDatasetPage", () => {
   it("loads and displays working dataset detail and activity history", async () => {
     render(<TransformationWorkingDatasetPage />);
 
+    const expectedCommand = {
+      workingDatasetId: "working-dataset-123",
+      profileId: "profile-123",
+    };
+
     await waitFor(() => {
-      expect(getWorkingDataset).toHaveBeenCalledWith({
-        workingDatasetId: "working-dataset-123",
-        profileId: "profile-123",
-      });
-      expect(listWorkingDatasetActivity).toHaveBeenCalledWith({
-        workingDatasetId: "working-dataset-123",
-        profileId: "profile-123",
-      });
+      expect(getWorkingDataset).toHaveBeenCalledWith(expectedCommand);
     });
+    expect(listWorkingDatasetActivity).toHaveBeenCalledWith(expectedCommand);
 
     expect(
       await screen.findByRole("heading", { name: "Working Dataset Detail" }),
