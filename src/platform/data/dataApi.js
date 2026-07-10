@@ -108,6 +108,30 @@ function requireNonNegativeInteger(value, message) {
   }
 }
 
+function normaliseActiveEditor(activeEditor) {
+  if (!activeEditor) {
+    return null;
+  }
+
+  if (!activeEditor.sessionId && !activeEditor.expiresAt) {
+    return null;
+  }
+
+  requireValue(
+    activeEditor.sessionId,
+    "activeEditor sessionId is required in working dataset response.",
+  );
+  requireValue(
+    activeEditor.expiresAt,
+    "activeEditor expiresAt is required in working dataset response.",
+  );
+
+  return {
+    sessionId: activeEditor.sessionId,
+    expiresAt: activeEditor.expiresAt,
+  };
+}
+
 function normaliseWorkingDataset(workingDataset) {
   requireValue(workingDataset, "Working dataset response is required.");
   requireValue(
@@ -196,7 +220,7 @@ function normaliseWorkingDataset(workingDataset) {
     fileSize: workingDataset.fileSize ?? null,
     lineage: workingDataset.lineage,
     meta: workingDataset.meta || {},
-    activeEditor: workingDataset.activeEditor || null,
+    activeEditor: normaliseActiveEditor(workingDataset.activeEditor),
     finalisedAt: workingDataset.finalisedAt || null,
     finalisedBy: workingDataset.finalisedBy || null,
     createdAt: workingDataset.createdAt,
@@ -342,25 +366,18 @@ export function normaliseWorkingDatasetEditorLeaseResponse(
   }
 
   requireValue(
-    data.editorSession,
-    "editorSession is required in working dataset editor lease response.",
-  );
-  requireValue(
-    data.editorSession.sessionId,
-    "editorSession sessionId is required in working dataset editor lease response.",
-  );
-  requireValue(
-    data.editorSession.expiresAt,
-    "editorSession expiresAt is required in working dataset editor lease response.",
+    workingDataset.activeEditor,
+    "activeEditor is required in working dataset editor lease response.",
   );
 
   return {
     success: true,
     workingDataset,
     editorSession: {
-      sessionId: data.editorSession.sessionId,
-      expiresAt: data.editorSession.expiresAt,
+      sessionId: workingDataset.activeEditor.sessionId,
+      expiresAt: workingDataset.activeEditor.expiresAt,
     },
+    activity: data.activity || null,
   };
 }
 
@@ -468,14 +485,22 @@ export function buildWorkingDatasetActivityQuery({ profileId }) {
   };
 }
 
-export function buildWorkingDatasetEditorLeasePayload({ profileId }) {
+export function buildWorkingDatasetEditorLeasePayload({
+  profileId,
+  editorSessionId,
+}) {
   requireValue(
     profileId,
     "profileId is required for working dataset editor lease acquisition.",
   );
+  requireValue(
+    editorSessionId,
+    "editorSessionId is required for working dataset editor lease acquisition.",
+  );
 
   return {
     profileId,
+    editorSessionId,
   };
 }
 

@@ -16,6 +16,7 @@ import {
   getWorkingDataset,
   listWorkingDatasetActivity,
 } from "platform/data/dataApi";
+import { formatDateTime } from "shared/utils/formatters";
 
 function formatWorkingDatasetStatus(status) {
   if (!status) {
@@ -41,7 +42,13 @@ function getEditorLeaseLabel(workingDataset) {
     return "No active editor lease.";
   }
 
-  return `Active editor lease expires at ${workingDataset.activeEditor.expiresAt}.`;
+  return `Active editor lease expires ${formatDateTime(
+    workingDataset.activeEditor.expiresAt,
+  )}.`;
+}
+
+function createEditorSessionId() {
+  return crypto.randomUUID();
 }
 
 function getActivityLabel(activity) {
@@ -103,9 +110,11 @@ export default function TransformationWorkingDatasetPage() {
     }
 
     try {
+      const editorSessionId = createEditorSessionId();
       const result = await acquireWorkingDatasetEditorLease({
         workingDatasetId,
         profileId,
+        editorSessionId,
       });
 
       setWorkingDataset(result.workingDataset);
@@ -182,7 +191,7 @@ export default function TransformationWorkingDatasetPage() {
                   Headers: {workingDataset.headersCount}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Updated: {workingDataset.updatedAt}
+                  Updated: {formatDateTime(workingDataset.updatedAt)}
                 </Typography>
 
                 {isFinalWorkingDataset(workingDataset) && (
@@ -246,7 +255,7 @@ export default function TransformationWorkingDatasetPage() {
                         {getActivityDescription(activity)}
                       </Typography>
                       <Typography variant="caption" color="text.secondary">
-                        {activity.createdAt}
+                        {formatDateTime(activity.createdAt)}
                       </Typography>
                     </Stack>
                   </CardContent>

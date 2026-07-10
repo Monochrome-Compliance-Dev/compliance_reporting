@@ -64,6 +64,12 @@ function createActivity(overrides = {}) {
 describe("TransformationWorkingDatasetPage", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    Object.defineProperty(global, "crypto", {
+      value: {
+        randomUUID: jest.fn(() => "editor-session-123"),
+      },
+      configurable: true,
+    });
     mockUseParams.mockReturnValue({
       workingDatasetId: "working-dataset-123",
     });
@@ -145,12 +151,13 @@ describe("TransformationWorkingDatasetPage", () => {
       expect(acquireWorkingDatasetEditorLease).toHaveBeenCalledWith({
         workingDatasetId: "working-dataset-123",
         profileId: "profile-123",
+        editorSessionId: "editor-session-123",
       });
     });
 
     expect(
       await screen.findByText(
-        "Active editor lease expires at 2026-07-09T03:30:00.000Z.",
+        "Active editor lease expires 09 July 2026, 01:30 pm AEST.",
       ),
     ).toBeTruthy();
     expect(
