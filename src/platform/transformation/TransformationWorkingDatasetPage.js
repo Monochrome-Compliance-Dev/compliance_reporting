@@ -12,10 +12,10 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
 import {
-  acquireWorkingDatasetEditorLease,
   getWorkingDataset,
   listWorkingDatasetActivity,
 } from "platform/data/dataApi";
+import useWorkingDatasetEditorLease from "platform/transformation/hooks/useWorkingDatasetEditorLease";
 import { formatDateTime } from "shared/utils/formatters";
 
 function formatWorkingDatasetStatus(status) {
@@ -31,60 +31,6 @@ function formatWorkingDatasetStatus(status) {
 
 function isFinalWorkingDataset(workingDataset) {
   return workingDataset?.status === "final";
-}
-
-function getActiveEditorLeaseExpiryTime(workingDataset) {
-  if (!workingDataset?.activeEditor?.expiresAt) {
-    return null;
-  }
-
-  const expiryTime = new Date(workingDataset.activeEditor.expiresAt).getTime();
-
-  if (Number.isNaN(expiryTime)) {
-    return null;
-  }
-
-  return expiryTime;
-}
-
-function hasActiveEditorLease(workingDataset) {
-  const expiryTime = getActiveEditorLeaseExpiryTime(workingDataset);
-
-  return Boolean(
-    workingDataset?.activeEditor?.sessionId &&
-    expiryTime &&
-    expiryTime > Date.now(),
-  );
-}
-
-function hasExpiredEditorLease(workingDataset) {
-  const expiryTime = getActiveEditorLeaseExpiryTime(workingDataset);
-
-  return Boolean(
-    workingDataset?.activeEditor?.sessionId &&
-    expiryTime &&
-    expiryTime <= Date.now(),
-  );
-}
-
-function getEditorLeaseLabel(workingDataset) {
-  if (!workingDataset?.activeEditor) {
-    return "No active editor lease.";
-  }
-
-  if (hasExpiredEditorLease(workingDataset)) {
-    return `Editor lease expired ${formatDateTime(
-      workingDataset.activeEditor.expiresAt,
-    )}.`;
-  }
-
-  return `Active editor lease expires ${formatDateTime(
-    workingDataset.activeEditor.expiresAt,
-  )}.`;
-}
-
-function createEditorSessionId() {
-  return crypto.randomUUID();
 }
 
 function getActivityLabel(activity) {
@@ -107,6 +53,15 @@ export default function TransformationWorkingDatasetPage() {
   const [workingDataset, setWorkingDataset] = useState(null);
   const [activities, setActivities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const { editorLeaseLabel, hasActiveEditorLease, handleAcquireEditorLease } =
+    useWorkingDatasetEditorLease({
+      profileId,
+      showAlert,
+      setWorkingDataset,
+      workingDataset,
+      workingDatasetId,
+    });
 
   useEffect(() => {
     async function loadWorkingDataset() {
@@ -135,73 +90,8 @@ export default function TransformationWorkingDatasetPage() {
     loadWorkingDataset();
   }, [profileId, showAlert, workingDatasetId]);
 
-  useEffect(() => {
-    const expiryTime = getActiveEditorLeaseExpiryTime(workingDataset);
-
-    if (!workingDataset?.activeEditor?.sessionId || !expiryTime) {
-      return undefined;
-    }
-
-    const millisecondsUntilExpiry = expiryTime - Date.now();
-
-    if (millisecondsUntilExpiry <= 0) {
-      setWorkingDataset((currentWorkingDataset) => {
-        if (!currentWorkingDataset?.activeEditor) {
-          return currentWorkingDataset;
-        }
-
-        return {
-          ...currentWorkingDataset,
-          activeEditor: null,
-        };
-      });
-      return undefined;
-    }
-
-    const timer = setTimeout(() => {
-      setWorkingDataset((currentWorkingDataset) => {
-        if (!currentWorkingDataset?.activeEditor) {
-          return currentWorkingDataset;
-        }
-
-        return {
-          ...currentWorkingDataset,
-          activeEditor: null,
-        };
-      });
-      showAlert("Your editor lease has expired.", "info");
-    }, millisecondsUntilExpiry);
-
-    return () => clearTimeout(timer);
-  }, [
-    showAlert,
-    workingDataset?.activeEditor?.expiresAt,
-    workingDataset?.activeEditor?.sessionId,
-  ]);
-
   function handleBackToHub() {
     navigate("..");
-  }
-
-  async function handleAcquireEditorLease() {
-    if (!profileId) {
-      showAlert("Profile ID is required to acquire an editor lease.", "error");
-      return;
-    }
-
-    try {
-      const editorSessionId = createEditorSessionId();
-      const result = await acquireWorkingDatasetEditorLease({
-        workingDatasetId,
-        profileId,
-        editorSessionId,
-      });
-
-      setWorkingDataset(result.workingDataset);
-      showAlert("Editor lease acquired successfully.", "success");
-    } catch (error) {
-      showAlert(error.message || "Editor lease acquisition failed.", "error");
-    }
   }
 
   return (
@@ -281,7 +171,7 @@ export default function TransformationWorkingDatasetPage() {
                 )}
 
                 <Typography variant="body2" color="text.secondary">
-                  {getEditorLeaseLabel(workingDataset)}
+                  {editorLeaseLabel}
                 </Typography>
 
                 {!isFinalWorkingDataset(workingDataset) && (
@@ -289,9 +179,9 @@ export default function TransformationWorkingDatasetPage() {
                     <Button
                       variant="outlined"
                       onClick={handleAcquireEditorLease}
-                      disabled={hasActiveEditorLease(workingDataset)}
+                      disabled={hasActiveEditorLease}
                     >
-                      {hasActiveEditorLease(workingDataset)
+                      {hasActiveEditorLease
                         ? "Editor lease active"
                         : "Acquire edit lease"}
                     </Button>
