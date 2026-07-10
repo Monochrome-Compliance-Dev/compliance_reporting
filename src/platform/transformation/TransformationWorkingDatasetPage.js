@@ -33,13 +33,49 @@ function isFinalWorkingDataset(workingDataset) {
   return workingDataset?.status === "final";
 }
 
+function getActiveEditorLeaseExpiryTime(workingDataset) {
+  if (!workingDataset?.activeEditor?.expiresAt) {
+    return null;
+  }
+
+  const expiryTime = new Date(workingDataset.activeEditor.expiresAt).getTime();
+
+  if (Number.isNaN(expiryTime)) {
+    return null;
+  }
+
+  return expiryTime;
+}
+
 function hasActiveEditorLease(workingDataset) {
-  return Boolean(workingDataset?.activeEditor?.sessionId);
+  const expiryTime = getActiveEditorLeaseExpiryTime(workingDataset);
+
+  return Boolean(
+    workingDataset?.activeEditor?.sessionId &&
+    expiryTime &&
+    expiryTime > Date.now(),
+  );
+}
+
+function hasExpiredEditorLease(workingDataset) {
+  const expiryTime = getActiveEditorLeaseExpiryTime(workingDataset);
+
+  return Boolean(
+    workingDataset?.activeEditor?.sessionId &&
+    expiryTime &&
+    expiryTime <= Date.now(),
+  );
 }
 
 function getEditorLeaseLabel(workingDataset) {
   if (!workingDataset?.activeEditor) {
     return "No active editor lease.";
+  }
+
+  if (hasExpiredEditorLease(workingDataset)) {
+    return `Editor lease expired ${formatDateTime(
+      workingDataset.activeEditor.expiresAt,
+    )}.`;
   }
 
   return `Active editor lease expires ${formatDateTime(
@@ -98,6 +134,50 @@ export default function TransformationWorkingDatasetPage() {
 
     loadWorkingDataset();
   }, [profileId, showAlert, workingDatasetId]);
+
+  useEffect(() => {
+    const expiryTime = getActiveEditorLeaseExpiryTime(workingDataset);
+
+    if (!workingDataset?.activeEditor?.sessionId || !expiryTime) {
+      return undefined;
+    }
+
+    const millisecondsUntilExpiry = expiryTime - Date.now();
+
+    if (millisecondsUntilExpiry <= 0) {
+      setWorkingDataset((currentWorkingDataset) => {
+        if (!currentWorkingDataset?.activeEditor) {
+          return currentWorkingDataset;
+        }
+
+        return {
+          ...currentWorkingDataset,
+          activeEditor: null,
+        };
+      });
+      return undefined;
+    }
+
+    const timer = setTimeout(() => {
+      setWorkingDataset((currentWorkingDataset) => {
+        if (!currentWorkingDataset?.activeEditor) {
+          return currentWorkingDataset;
+        }
+
+        return {
+          ...currentWorkingDataset,
+          activeEditor: null,
+        };
+      });
+      showAlert("Your editor lease has expired.", "info");
+    }, millisecondsUntilExpiry);
+
+    return () => clearTimeout(timer);
+  }, [
+    showAlert,
+    workingDataset?.activeEditor?.expiresAt,
+    workingDataset?.activeEditor?.sessionId,
+  ]);
 
   function handleBackToHub() {
     navigate("..");

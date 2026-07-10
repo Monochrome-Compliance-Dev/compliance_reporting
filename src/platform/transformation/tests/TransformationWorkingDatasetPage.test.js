@@ -64,6 +64,9 @@ function createActivity(overrides = {}) {
 describe("TransformationWorkingDatasetPage", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    jest
+      .spyOn(Date, "now")
+      .mockReturnValue(new Date("2026-07-09T03:00:00.000Z").getTime());
     Object.defineProperty(global, "crypto", {
       value: {
         randomUUID: jest.fn(() => "editor-session-123"),
@@ -97,6 +100,10 @@ describe("TransformationWorkingDatasetPage", () => {
         expiresAt: "2026-07-09T03:30:00.000Z",
       },
     });
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   it("loads and displays working dataset detail and activity history", async () => {
@@ -167,6 +174,25 @@ describe("TransformationWorkingDatasetPage", () => {
       "Editor lease acquired successfully.",
       "success",
     );
+  });
+
+  it("treats an expired editor lease as inactive", async () => {
+    getWorkingDataset.mockResolvedValue({
+      success: true,
+      workingDataset: createWorkingDataset({
+        activeEditor: {
+          sessionId: "editor-session-123",
+          expiresAt: "2026-07-09T02:30:00.000Z",
+        },
+      }),
+    });
+
+    render(<TransformationWorkingDatasetPage />);
+
+    expect(await screen.findByText("No active editor lease.")).toBeTruthy();
+    expect(
+      screen.getByRole("button", { name: "Acquire edit lease" }),
+    ).toBeTruthy();
   });
 
   it("shows final working datasets as read-only", async () => {
