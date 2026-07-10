@@ -5,6 +5,7 @@ import {
   acquireWorkingDatasetEditorLease,
   getWorkingDataset,
   listWorkingDatasetActivity,
+  renewWorkingDatasetEditorLease,
 } from "platform/data/dataApi";
 
 const mockShowAlert = jest.fn();
@@ -28,6 +29,7 @@ jest.mock("platform/data/dataApi", () => ({
   acquireWorkingDatasetEditorLease: jest.fn(),
   getWorkingDataset: jest.fn(),
   listWorkingDatasetActivity: jest.fn(),
+  renewWorkingDatasetEditorLease: jest.fn(),
 }));
 
 function createWorkingDataset(overrides = {}) {
@@ -98,6 +100,19 @@ describe("TransformationWorkingDatasetPage", () => {
       editorSession: {
         sessionId: "editor-session-123",
         expiresAt: "2026-07-09T03:30:00.000Z",
+      },
+    });
+    renewWorkingDatasetEditorLease.mockResolvedValue({
+      success: true,
+      workingDataset: createWorkingDataset({
+        activeEditor: {
+          sessionId: "editor-session-123",
+          expiresAt: "2026-07-09T03:45:00.000Z",
+        },
+      }),
+      editorSession: {
+        sessionId: "editor-session-123",
+        expiresAt: "2026-07-09T03:45:00.000Z",
       },
     });
   });

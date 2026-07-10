@@ -110,6 +110,7 @@ export default function useWorkingDatasetEditorLease({
     setWorkingDataset,
     workingDataset?.activeEditor?.expiresAt,
     workingDataset?.activeEditor?.sessionId,
+    workingDataset,
   ]);
 
   async function handleAcquireEditorLease() {

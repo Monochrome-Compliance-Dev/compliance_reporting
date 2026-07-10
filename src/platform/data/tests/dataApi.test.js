@@ -17,6 +17,7 @@ import {
   normaliseWorkingDatasetDetailResponse,
   normaliseWorkingDatasetEditorLeaseResponse,
   normaliseWorkingDatasetListResponse,
+  renewWorkingDatasetEditorLease,
 } from "platform/data/dataApi";
 import { fetchWrapper } from "shared/utils";
 
@@ -923,6 +924,83 @@ describe("acquireWorkingDatasetEditorLease", () => {
 
     await expect(
       acquireWorkingDatasetEditorLease({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+        editorSessionId: "editor-session-123",
+      }),
+    ).rejects.toThrow(
+      "activeEditor is required in working dataset editor lease response.",
+    );
+  });
+});
+
+describe("renewWorkingDatasetEditorLease", () => {
+  beforeEach(() => {
+    fetchWrapper.post.mockResolvedValue(
+      createBackendWorkingDatasetEditorLeaseResponse({
+        activeEditor: {
+          expiresAt: "2026-07-09T03:45:00.000Z",
+        },
+      }),
+    );
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("posts editor lease payload to the Platform Data working dataset edit lease renewal endpoint", async () => {
+    const result = await renewWorkingDatasetEditorLease({
+      workingDatasetId: "working-dataset-123",
+      profileId: "profile-123",
+      editorSessionId: "editor-session-123",
+    });
+
+    expect(fetchWrapper.post).toHaveBeenCalledWith(
+      "http://localhost:4000/api/platform/data/working-datasets/working-dataset-123/edit-lease/renew",
+      {
+        profileId: "profile-123",
+        editorSessionId: "editor-session-123",
+      },
+    );
+    expect(result).toEqual({
+      success: true,
+      workingDataset: createNormalisedWorkingDatasetWithEditorLease({
+        activeEditor: {
+          sessionId: "editor-session-123",
+          expiresAt: "2026-07-09T03:45:00.000Z",
+        },
+      }),
+      editorSession: {
+        sessionId: "editor-session-123",
+        expiresAt: "2026-07-09T03:45:00.000Z",
+      },
+      activity: null,
+    });
+  });
+
+  it("fails loudly when workingDatasetId is missing", async () => {
+    await expect(
+      renewWorkingDatasetEditorLease({
+        profileId: "profile-123",
+        editorSessionId: "editor-session-123",
+      }),
+    ).rejects.toThrow(
+      "workingDatasetId is required for working dataset editor lease renewal.",
+    );
+
+    expect(fetchWrapper.post).not.toHaveBeenCalled();
+  });
+
+  it("fails loudly when backend editor lease renewal response is malformed", async () => {
+    fetchWrapper.post.mockResolvedValue({
+      success: true,
+      workingDataset: createBackendWorkingDataset(),
+      activity: null,
+    });
+
+    await expect(
+      renewWorkingDatasetEditorLease({
         workingDatasetId: "working-dataset-123",
         profileId: "profile-123",
         editorSessionId: "editor-session-123",

@@ -593,3 +593,21 @@ export async function acquireWorkingDatasetEditorLease(command) {
     command.workingDatasetId,
   );
 }
+
+export async function renewWorkingDatasetEditorLease(command) {
+  requireValue(
+    command?.workingDatasetId,
+    "workingDatasetId is required for working dataset editor lease renewal.",
+  );
+
+  const payload = buildWorkingDatasetEditorLeasePayload(command);
+  const response = await fetchWrapper.post(
+    `${baseUrl}/working-datasets/${command.workingDatasetId}/edit-lease/renew`,
+    payload,
+  );
+
+  return normaliseWorkingDatasetEditorLeaseResponse(
+    response,
+    command.workingDatasetId,
+  );
+}
