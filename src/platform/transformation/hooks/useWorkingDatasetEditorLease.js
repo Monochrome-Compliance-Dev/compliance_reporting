@@ -1,6 +1,19 @@
-import { useEffect } from "react";
-import { acquireWorkingDatasetEditorLease } from "platform/data/dataApi";
+import { useEffect, useRef } from "react";
+import {
+  acquireWorkingDatasetEditorLease,
+  renewWorkingDatasetEditorLease,
+} from "platform/data/dataApi";
 import { formatDateTime } from "shared/utils/formatters";
+
+const EDITOR_LEASE_ACTIVITY_EVENTS = [
+  "mousemove",
+  "keydown",
+  "click",
+  "scroll",
+];
+const EDITOR_LEASE_ACTIVITY_WINDOW_MS = 10 * 60 * 1000;
+const EDITOR_LEASE_RENEWAL_INTERVAL_MS = 5 * 60 * 1000;
+const EDITOR_LEASE_WARNING_BEFORE_EXPIRY_MS = 2 * 60 * 1000;
 
 function getActiveEditorLeaseExpiryTime(workingDataset) {
   if (!workingDataset?.activeEditor?.expiresAt) {
@@ -67,6 +80,113 @@ export default function useWorkingDatasetEditorLease({
     hasActiveEditorLeaseForWorkingDataset(workingDataset);
   const editorLeaseLabel = getEditorLeaseLabel(workingDataset);
 
+  const lastWorkspaceActivityAtRef = useRef(Date.now());
+  const isRenewingEditorLeaseRef = useRef(false);
+
+  useEffect(() => {
+    if (!hasActiveEditorLease) {
+      return undefined;
+    }
+
+    function recordWorkspaceActivity() {
+      lastWorkspaceActivityAtRef.current = Date.now();
+    }
+
+    EDITOR_LEASE_ACTIVITY_EVENTS.forEach((eventName) => {
+      window.addEventListener(eventName, recordWorkspaceActivity);
+    });
+
+    return () => {
+      EDITOR_LEASE_ACTIVITY_EVENTS.forEach((eventName) => {
+        window.removeEventListener(eventName, recordWorkspaceActivity);
+      });
+    };
+  }, [hasActiveEditorLease]);
+
+  useEffect(() => {
+    if (!hasActiveEditorLease || !profileId) {
+      return undefined;
+    }
+
+    async function renewEditorLease() {
+      const expiryTime = getActiveEditorLeaseExpiryTime(workingDataset);
+      const editorSessionId = workingDataset?.activeEditor?.sessionId;
+
+      if (!editorSessionId || !expiryTime || expiryTime <= Date.now()) {
+        return;
+      }
+
+      const hasRecentWorkspaceActivity =
+        Date.now() - lastWorkspaceActivityAtRef.current <=
+        EDITOR_LEASE_ACTIVITY_WINDOW_MS;
+
+      if (!hasRecentWorkspaceActivity || isRenewingEditorLeaseRef.current) {
+        return;
+      }
+
+      try {
+        isRenewingEditorLeaseRef.current = true;
+        const result = await renewWorkingDatasetEditorLease({
+          workingDatasetId,
+          profileId,
+          editorSessionId,
+        });
+
+        setWorkingDataset(result.workingDataset);
+      } catch (error) {
+        showAlert(
+          error.message ||
+            "Editor lease renewal failed. Your editor lease may expire soon.",
+          "error",
+        );
+      } finally {
+        isRenewingEditorLeaseRef.current = false;
+      }
+    }
+
+    const interval = setInterval(
+      renewEditorLease,
+      EDITOR_LEASE_RENEWAL_INTERVAL_MS,
+    );
+
+    return () => clearInterval(interval);
+  }, [
+    hasActiveEditorLease,
+    profileId,
+    setWorkingDataset,
+    showAlert,
+    workingDataset?.activeEditor?.expiresAt,
+    workingDataset?.activeEditor?.sessionId,
+    workingDatasetId,
+  ]);
+
+  useEffect(() => {
+    const expiryTime = getActiveEditorLeaseExpiryTime(workingDataset);
+
+    if (!workingDataset?.activeEditor?.sessionId || !expiryTime) {
+      return undefined;
+    }
+
+    const millisecondsUntilWarning =
+      expiryTime - Date.now() - EDITOR_LEASE_WARNING_BEFORE_EXPIRY_MS;
+
+    if (millisecondsUntilWarning <= 0) {
+      showAlert("Your editor lease will expire soon.", "info");
+      return undefined;
+    }
+
+    const timer = setTimeout(() => {
+      showAlert("Your editor lease will expire soon.", "info");
+    }, millisecondsUntilWarning);
+
+    return () => clearTimeout(timer);
+  }, [
+    showAlert,
+    workingDataset?.activeEditor?.expiresAt,
+    workingDataset?.activeEditor?.sessionId,
+    workingDataset,
+  ]);
+
   useEffect(() => {
     const expiryTime = getActiveEditorLeaseExpiryTime(workingDataset);
 
@@ -110,7 +230,6 @@ export default function useWorkingDatasetEditorLease({
     setWorkingDataset,
     workingDataset?.activeEditor?.expiresAt,
     workingDataset?.activeEditor?.sessionId,
-    workingDataset,
   ]);
 
   async function handleAcquireEditorLease() {
