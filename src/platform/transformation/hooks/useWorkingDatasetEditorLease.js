@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   acquireWorkingDatasetEditorLease,
   renewWorkingDatasetEditorLease,
@@ -79,6 +79,8 @@ export default function useWorkingDatasetEditorLease({
   const hasActiveEditorLease =
     hasActiveEditorLeaseForWorkingDataset(workingDataset);
   const editorLeaseLabel = getEditorLeaseLabel(workingDataset);
+  const [isEditorLeaseExpiryWarningOpen, setIsEditorLeaseExpiryWarningOpen] =
+    useState(false);
 
   const lastWorkspaceActivityAtRef = useRef(Date.now());
   const isRenewingEditorLeaseRef = useRef(false);
@@ -133,6 +135,7 @@ export default function useWorkingDatasetEditorLease({
         });
 
         setWorkingDataset(result.workingDataset);
+        setIsEditorLeaseExpiryWarningOpen(false);
       } catch (error) {
         showAlert(
           error.message ||
@@ -158,6 +161,7 @@ export default function useWorkingDatasetEditorLease({
     workingDataset?.activeEditor?.expiresAt,
     workingDataset?.activeEditor?.sessionId,
     workingDatasetId,
+    workingDataset,
   ]);
 
   useEffect(() => {
@@ -167,21 +171,24 @@ export default function useWorkingDatasetEditorLease({
       return undefined;
     }
 
+    if (expiryTime <= Date.now()) {
+      return undefined;
+    }
+
     const millisecondsUntilWarning =
       expiryTime - Date.now() - EDITOR_LEASE_WARNING_BEFORE_EXPIRY_MS;
 
     if (millisecondsUntilWarning <= 0) {
-      showAlert("Your editor lease will expire soon.", "info");
+      setIsEditorLeaseExpiryWarningOpen(true);
       return undefined;
     }
 
     const timer = setTimeout(() => {
-      showAlert("Your editor lease will expire soon.", "info");
+      setIsEditorLeaseExpiryWarningOpen(true);
     }, millisecondsUntilWarning);
 
     return () => clearTimeout(timer);
   }, [
-    showAlert,
     workingDataset?.activeEditor?.expiresAt,
     workingDataset?.activeEditor?.sessionId,
     workingDataset,
@@ -230,6 +237,7 @@ export default function useWorkingDatasetEditorLease({
     setWorkingDataset,
     workingDataset?.activeEditor?.expiresAt,
     workingDataset?.activeEditor?.sessionId,
+    workingDataset,
   ]);
 
   async function handleAcquireEditorLease() {
@@ -253,9 +261,50 @@ export default function useWorkingDatasetEditorLease({
     }
   }
 
+  function handleCloseEditorLeaseExpiryWarning() {
+    setIsEditorLeaseExpiryWarningOpen(false);
+  }
+
+  async function handleContinueEditing() {
+    if (!hasActiveEditorLease || !profileId) {
+      return;
+    }
+
+    const expiryTime = getActiveEditorLeaseExpiryTime(workingDataset);
+    const editorSessionId = workingDataset?.activeEditor?.sessionId;
+
+    if (!editorSessionId || !expiryTime || expiryTime <= Date.now()) {
+      return;
+    }
+
+    try {
+      isRenewingEditorLeaseRef.current = true;
+      const result = await renewWorkingDatasetEditorLease({
+        workingDatasetId,
+        profileId,
+        editorSessionId,
+      });
+
+      setWorkingDataset(result.workingDataset);
+      setIsEditorLeaseExpiryWarningOpen(false);
+      showAlert("Editor lease renewed successfully.", "success");
+    } catch (error) {
+      showAlert(
+        error.message ||
+          "Editor lease renewal failed. Your editor lease may expire soon.",
+        "error",
+      );
+    } finally {
+      isRenewingEditorLeaseRef.current = false;
+    }
+  }
+
   return {
     editorLeaseLabel,
-    hasActiveEditorLease,
     handleAcquireEditorLease,
+    handleCloseEditorLeaseExpiryWarning,
+    handleContinueEditing,
+    hasActiveEditorLease,
+    isEditorLeaseExpiryWarningOpen,
   };
 }

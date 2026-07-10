@@ -6,6 +6,11 @@ import {
   Card,
   CardContent,
   Chip,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   Stack,
   Typography,
 } from "@mui/material";
@@ -54,14 +59,20 @@ export default function TransformationWorkingDatasetPage() {
   const [activities, setActivities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { editorLeaseLabel, hasActiveEditorLease, handleAcquireEditorLease } =
-    useWorkingDatasetEditorLease({
-      profileId,
-      showAlert,
-      setWorkingDataset,
-      workingDataset,
-      workingDatasetId,
-    });
+  const {
+    editorLeaseLabel,
+    handleAcquireEditorLease,
+    handleCloseEditorLeaseExpiryWarning,
+    handleContinueEditing,
+    hasActiveEditorLease,
+    isEditorLeaseExpiryWarningOpen,
+  } = useWorkingDatasetEditorLease({
+    profileId,
+    showAlert,
+    setWorkingDataset,
+    workingDataset,
+    workingDatasetId,
+  });
 
   useEffect(() => {
     async function loadWorkingDataset() {
@@ -235,6 +246,28 @@ export default function TransformationWorkingDatasetPage() {
           </CardContent>
         </Card>
       </Stack>
+
+      <Dialog
+        open={isEditorLeaseExpiryWarningOpen}
+        onClose={handleCloseEditorLeaseExpiryWarning}
+        aria-labelledby="editor-lease-expiry-warning-title"
+      >
+        <DialogTitle id="editor-lease-expiry-warning-title">
+          Editor lease expiring soon
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Your editor lease is close to expiring. Continue editing to renew
+            your lease and keep control of this working dataset.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseEditorLeaseExpiryWarning}>Dismiss</Button>
+          <Button variant="contained" onClick={handleContinueEditing}>
+            Continue editing
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }

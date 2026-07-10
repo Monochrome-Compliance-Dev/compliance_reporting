@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import TransformationWorkingDatasetPage from "platform/transformation/TransformationWorkingDatasetPage";
 import {
@@ -118,6 +118,7 @@ describe("TransformationWorkingDatasetPage", () => {
   });
 
   afterEach(() => {
+    jest.useRealTimers();
     jest.restoreAllMocks();
   });
 
@@ -189,6 +190,65 @@ describe("TransformationWorkingDatasetPage", () => {
       "Editor lease acquired successfully.",
       "success",
     );
+  });
+
+  it("renews an active editor lease on the heartbeat interval", async () => {
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date("2026-07-09T03:00:00.000Z"));
+    getWorkingDataset.mockResolvedValue({
+      success: true,
+      workingDataset: createWorkingDataset({
+        activeEditor: {
+          sessionId: "editor-session-123",
+          expiresAt: "2026-07-09T03:30:00.000Z",
+        },
+      }),
+    });
+
+    render(<TransformationWorkingDatasetPage />);
+
+    await screen.findByText(
+      "Active editor lease expires 09 July 2026, 01:30 pm AEST.",
+    );
+
+    await act(async () => {
+      jest.advanceTimersByTime(5 * 60 * 1000);
+    });
+
+    await waitFor(() => {
+      expect(renewWorkingDatasetEditorLease).toHaveBeenCalledWith({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+        editorSessionId: "editor-session-123",
+      });
+    });
+
+    jest.useRealTimers();
+  });
+
+  it("shows a pre-expiry warning when the active editor lease is close to expiry", async () => {
+    getWorkingDataset.mockResolvedValue({
+      success: true,
+      workingDataset: createWorkingDataset({
+        activeEditor: {
+          sessionId: "editor-session-123",
+          expiresAt: "2026-07-09T03:01:30.000Z",
+        },
+      }),
+    });
+
+    render(<TransformationWorkingDatasetPage />);
+
+    expect(
+      await screen.findByRole("dialog", {
+        name: "Editor lease expiring soon",
+      }),
+    ).toBeTruthy();
+    expect(
+      screen.getByText(
+        "Your editor lease is close to expiring. Continue editing to renew your lease and keep control of this working dataset.",
+      ),
+    ).toBeTruthy();
   });
 
   it("treats an expired editor lease as inactive", async () => {
