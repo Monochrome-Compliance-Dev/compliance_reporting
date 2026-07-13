@@ -237,6 +237,19 @@ describe("finaliseWorkingDataset", () => {
 
     expect(fetchWrapper.post).not.toHaveBeenCalled();
   });
+
+  it("fails loudly when editorSessionId is missing", async () => {
+    await expect(
+      finaliseWorkingDataset({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+      }),
+    ).rejects.toThrow(
+      "editorSessionId is required for working dataset finalisation.",
+    );
+
+    expect(fetchWrapper.post).not.toHaveBeenCalled();
+  });
 });
 
 function createBackendEditorLeaseResponse(overrides = {}) {
@@ -381,6 +394,22 @@ describe("buildWorkingDatasetMaterialisationPayload", () => {
         ],
       }),
     ).toThrow("profileId is required for working dataset materialisation.");
+  });
+
+  it("fails loudly when editorSessionId is missing", () => {
+    expect(() =>
+      buildWorkingDatasetMaterialisationPayload({
+        profileId: "profile-123",
+        fields: [
+          {
+            sourceField: "Invoice",
+            targetField: "invoice_reference_number",
+          },
+        ],
+      }),
+    ).toThrow(
+      "editorSessionId is required for working dataset materialisation.",
+    );
   });
 
   it("fails loudly when fields are empty", () => {
@@ -686,6 +715,25 @@ describe("materialiseWorkingDataset", () => {
       }),
     ).rejects.toThrow(
       "workingDatasetId is required for working dataset materialisation.",
+    );
+
+    expect(fetchWrapper.post).not.toHaveBeenCalled();
+  });
+
+  it("fails loudly when editorSessionId is missing", async () => {
+    await expect(
+      materialiseWorkingDataset({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+        fields: [
+          {
+            sourceField: "Invoice",
+            targetField: "invoice_reference_number",
+          },
+        ],
+      }),
+    ).rejects.toThrow(
+      "editorSessionId is required for working dataset materialisation.",
     );
 
     expect(fetchWrapper.post).not.toHaveBeenCalled();
