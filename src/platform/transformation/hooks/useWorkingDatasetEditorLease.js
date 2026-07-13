@@ -81,6 +81,8 @@ export default function useWorkingDatasetEditorLease({
   const editorLeaseLabel = getEditorLeaseLabel(workingDataset);
   const [isEditorLeaseExpiryWarningOpen, setIsEditorLeaseExpiryWarningOpen] =
     useState(false);
+  const [isEditorLeaseExpiredDialogOpen, setIsEditorLeaseExpiredDialogOpen] =
+    useState(false);
 
   const lastWorkspaceActivityAtRef = useRef(Date.now());
   const isRenewingEditorLeaseRef = useRef(false);
@@ -136,6 +138,7 @@ export default function useWorkingDatasetEditorLease({
 
         setWorkingDataset(result.workingDataset);
         setIsEditorLeaseExpiryWarningOpen(false);
+        setIsEditorLeaseExpiredDialogOpen(false);
       } catch (error) {
         showAlert(
           error.message ||
@@ -214,6 +217,8 @@ export default function useWorkingDatasetEditorLease({
           activeEditor: null,
         };
       });
+      setIsEditorLeaseExpiryWarningOpen(false);
+      setIsEditorLeaseExpiredDialogOpen(true);
       return undefined;
     }
 
@@ -228,12 +233,12 @@ export default function useWorkingDatasetEditorLease({
           activeEditor: null,
         };
       });
-      showAlert("Your editor lease has expired.", "info");
+      setIsEditorLeaseExpiryWarningOpen(false);
+      setIsEditorLeaseExpiredDialogOpen(true);
     }, millisecondsUntilExpiry);
 
     return () => clearTimeout(timer);
   }, [
-    showAlert,
     setWorkingDataset,
     workingDataset?.activeEditor?.expiresAt,
     workingDataset?.activeEditor?.sessionId,
@@ -255,6 +260,8 @@ export default function useWorkingDatasetEditorLease({
       });
 
       setWorkingDataset(result.workingDataset);
+      setIsEditorLeaseExpiryWarningOpen(false);
+      setIsEditorLeaseExpiredDialogOpen(false);
       showAlert("Editor lease acquired successfully.", "success");
     } catch (error) {
       showAlert(error.message || "Editor lease acquisition failed.", "error");
@@ -263,6 +270,10 @@ export default function useWorkingDatasetEditorLease({
 
   function handleCloseEditorLeaseExpiryWarning() {
     setIsEditorLeaseExpiryWarningOpen(false);
+  }
+
+  function handleCloseEditorLeaseExpiredDialog() {
+    setIsEditorLeaseExpiredDialogOpen(false);
   }
 
   async function handleContinueEditing() {
@@ -287,6 +298,7 @@ export default function useWorkingDatasetEditorLease({
 
       setWorkingDataset(result.workingDataset);
       setIsEditorLeaseExpiryWarningOpen(false);
+      setIsEditorLeaseExpiredDialogOpen(false);
       showAlert("Editor lease renewed successfully.", "success");
     } catch (error) {
       showAlert(
@@ -303,8 +315,10 @@ export default function useWorkingDatasetEditorLease({
     editorLeaseLabel,
     handleAcquireEditorLease,
     handleCloseEditorLeaseExpiryWarning,
+    handleCloseEditorLeaseExpiredDialog,
     handleContinueEditing,
     hasActiveEditorLease,
+    isEditorLeaseExpiredDialogOpen,
     isEditorLeaseExpiryWarningOpen,
   };
 }

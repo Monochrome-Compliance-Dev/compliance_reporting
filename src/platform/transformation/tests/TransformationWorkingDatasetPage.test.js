@@ -251,7 +251,8 @@ describe("TransformationWorkingDatasetPage", () => {
     ).toBeTruthy();
   });
 
-  it("treats an expired editor lease as inactive", async () => {
+  it("shows the expired editor lease dialog and allows a new lease to be acquired", async () => {
+    const user = userEvent.setup();
     getWorkingDataset.mockResolvedValue({
       success: true,
       workingDataset: createWorkingDataset({
@@ -264,10 +265,35 @@ describe("TransformationWorkingDatasetPage", () => {
 
     render(<TransformationWorkingDatasetPage />);
 
-    expect(await screen.findByText("No active editor lease.")).toBeTruthy();
     expect(
-      screen.getByRole("button", { name: "Acquire edit lease" }),
+      await screen.findByRole("dialog", {
+        name: "Editor lease expired",
+      }),
     ).toBeTruthy();
+    expect(
+      screen.getByText(
+        "Your editor lease has expired. Acquire a new edit lease to continue editing this working dataset.",
+      ),
+    ).toBeTruthy();
+    expect(screen.getByText("No active editor lease.")).toBeTruthy();
+
+    await user.click(
+      screen.getByRole("button", { name: "Acquire edit lease" }),
+    );
+
+    await waitFor(() => {
+      expect(acquireWorkingDatasetEditorLease).toHaveBeenCalledWith({
+        workingDatasetId: "working-dataset-123",
+        profileId: "profile-123",
+        editorSessionId: "editor-session-123",
+      });
+    });
+
+    await waitFor(() => {
+      expect(
+        screen.queryByRole("dialog", { name: "Editor lease expired" }),
+      ).toBeNull();
+    });
   });
 
   it("shows final working datasets as read-only", async () => {

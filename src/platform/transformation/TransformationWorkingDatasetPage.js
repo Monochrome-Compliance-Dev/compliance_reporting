@@ -62,9 +62,11 @@ export default function TransformationWorkingDatasetPage() {
   const {
     editorLeaseLabel,
     handleAcquireEditorLease,
+    handleCloseEditorLeaseExpiredDialog,
     handleCloseEditorLeaseExpiryWarning,
     handleContinueEditing,
     hasActiveEditorLease,
+    isEditorLeaseExpiredDialogOpen,
     isEditorLeaseExpiryWarningOpen,
   } = useWorkingDatasetEditorLease({
     profileId,
@@ -265,6 +267,28 @@ export default function TransformationWorkingDatasetPage() {
           <Button onClick={handleCloseEditorLeaseExpiryWarning}>Dismiss</Button>
           <Button variant="contained" onClick={handleContinueEditing}>
             Continue editing
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog
+        open={isEditorLeaseExpiredDialogOpen}
+        onClose={handleCloseEditorLeaseExpiredDialog}
+        aria-labelledby="editor-lease-expired-title"
+      >
+        <DialogTitle id="editor-lease-expired-title">
+          Editor lease expired
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Your editor lease has expired. Acquire a new edit lease to continue
+            editing this working dataset.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseEditorLeaseExpiredDialog}>Dismiss</Button>
+          <Button variant="contained" onClick={handleAcquireEditorLease}>
+            Acquire edit lease
           </Button>
         </DialogActions>
       </Dialog>
