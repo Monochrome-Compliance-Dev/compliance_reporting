@@ -1,0 +1,39 @@
+{
+  "slug": "australian-naval-infrastructure-pty-ltd-45051762639",
+  "businessName": "AUSTRALIAN NAVAL INFRASTRUCTURE PTY LTD",
+  "abn": "45051762639",
+  "acnArbn": "051762639",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008131",
+      "acnArbn": "051762639",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.32,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.93,
+      "payments31To60Days": 4.18,
+      "paymentsMoreThan60Days": 0.89,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 66,
+        "percentile": 75.4
+      }
+    }
+  ]
+}

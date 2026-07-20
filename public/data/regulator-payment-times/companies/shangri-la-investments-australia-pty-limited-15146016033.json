@@ -1,0 +1,95 @@
+{
+  "slug": "shangri-la-investments-australia-pty-limited-15146016033",
+  "businessName": "SHANGRI-LA INVESTMENTS (AUSTRALIA) PTY LIMITED",
+  "abn": "15146016033",
+  "acnArbn": "146016033",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008278",
+      "acnArbn": "146016033",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.36,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 60.72,
+      "payments31To60Days": 38.25,
+      "paymentsMoreThan60Days": 1.03,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 38,
+        "percentile": 64.9
+      }
+    },
+    {
+      "reportId": "PTR20004877",
+      "acnArbn": "146016033",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.04,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 66.85,
+      "payments31To60Days": 31.4,
+      "paymentsMoreThan60Days": 1.75,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 699,
+        "count": 2568,
+        "percentile": 71.8
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 36,
+        "percentile": 62.9
+      }
+    },
+    {
+      "reportId": "PTR20001620",
+      "acnArbn": "146016033",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.84,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 63.88,
+      "payments31To60Days": 35.01,
+      "paymentsMoreThan60Days": 1.11,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 693,
+        "count": 2498,
+        "percentile": 71.2
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 30,
+        "percentile": 72.4
+      }
+    }
+  ]
+}

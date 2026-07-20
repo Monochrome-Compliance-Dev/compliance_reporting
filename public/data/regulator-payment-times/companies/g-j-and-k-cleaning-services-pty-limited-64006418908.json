@@ -1,0 +1,95 @@
+{
+  "slug": "g-j-and-k-cleaning-services-pty-limited-64006418908",
+  "businessName": "G.J. & K. CLEANING SERVICES PTY. LIMITED",
+  "abn": "64006418908",
+  "acnArbn": "006418908",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Building cleaning, pest control and other support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011026",
+      "acnArbn": "006418908",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.3,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 34.8,
+      "payments31To60Days": 60.27,
+      "paymentsMoreThan60Days": 4.93,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-05-10",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 49,
+        "percentile": 27.1
+      }
+    },
+    {
+      "reportId": "PTR20011027",
+      "acnArbn": "006418908",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.5,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 34,
+      "payments31To60Days": 60.37,
+      "paymentsMoreThan60Days": 5.63,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-05-10",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 50,
+        "percentile": 24.5
+      }
+    },
+    {
+      "reportId": "PTR20011023",
+      "acnArbn": "006418908",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 30.36,
+      "payments31To60Days": 62.59,
+      "paymentsMoreThan60Days": 7.05,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-05-08",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 50,
+        "percentile": 34.7
+      }
+    }
+  ]
+}

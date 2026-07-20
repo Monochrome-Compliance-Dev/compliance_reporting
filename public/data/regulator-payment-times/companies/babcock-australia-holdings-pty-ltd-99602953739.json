@@ -1,0 +1,67 @@
+{
+  "slug": "babcock-australia-holdings-pty-ltd-99602953739",
+  "businessName": "BABCOCK AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "99602953739",
+  "acnArbn": "602953739",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Defence",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006732",
+      "acnArbn": "602953739",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 68,
+      "payments31To60Days": 26,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-12-16",
+      "overallP95Position": {
+        "rank": 182,
+        "count": 228,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003384",
+      "acnArbn": "602953739",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 68,
+      "payments31To60Days": 26,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-02",
+      "overallP95Position": {
+        "rank": 164,
+        "count": 231,
+        "percentile": 26.5
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    }
+  ]
+}

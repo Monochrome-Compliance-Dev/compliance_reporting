@@ -1,0 +1,67 @@
+{
+  "slug": "toyota-tsusho-south-pacific-holdings-pty-ltd-82050105443",
+  "businessName": "TOYOTA TSUSHO SOUTH PACIFIC HOLDINGS PTY LTD",
+  "abn": "82050105443",
+  "acnArbn": "050105443",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006510",
+      "acnArbn": "050105443",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.53,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 66,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-11-23",
+      "overallP95Position": {
+        "rank": 129,
+        "count": 228,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 59,
+        "percentile": 36.2
+      }
+    },
+    {
+      "reportId": "PTR20000420",
+      "acnArbn": "050105443",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.96,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 61.7,
+      "payments31To60Days": 13.4,
+      "paymentsMoreThan60Days": 24.9,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 231,
+        "percentile": 55.2
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 61,
+        "percentile": 48.3
+      }
+    }
+  ]
+}

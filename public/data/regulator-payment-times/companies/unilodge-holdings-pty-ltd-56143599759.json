@@ -1,0 +1,95 @@
+{
+  "slug": "unilodge-holdings-pty-ltd-56143599759",
+  "businessName": "UNILODGE HOLDINGS PTY LTD",
+  "abn": "56143599759",
+  "acnArbn": "143599759",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008415",
+      "acnArbn": "143599759",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 81.53,
+      "payments31To60Days": 16.79,
+      "paymentsMoreThan60Days": 1.68,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 38,
+        "percentile": 59.5
+      }
+    },
+    {
+      "reportId": "PTR20005407",
+      "acnArbn": "143599759",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.62,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 75.06,
+      "payments31To60Days": 17.61,
+      "paymentsMoreThan60Days": 7.33,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2568,
+        "percentile": 16.1
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 36,
+        "percentile": 8.6
+      }
+    },
+    {
+      "reportId": "PTR20001375",
+      "acnArbn": "143599759",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.1,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 74.97,
+      "payments31To60Days": 17.93,
+      "paymentsMoreThan60Days": 7.1,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2026,
+        "count": 2498,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 30,
+        "percentile": 3.4
+      }
+    }
+  ]
+}

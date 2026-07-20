@@ -1,0 +1,95 @@
+{
+  "slug": "baralaba-coal-company-pty-ltd-42096909634",
+  "businessName": "BARALABA COAL COMPANY PTY LTD",
+  "abn": "42096909634",
+  "acnArbn": "096909634",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011421",
+      "acnArbn": "096909634",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.66,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-06-18",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 177,
+        "percentile": 56.3
+      }
+    },
+    {
+      "reportId": "PTR20006536",
+      "acnArbn": "096909634",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 56,
+      "payments31To60Days": 41,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 173,
+        "percentile": 52.9
+      }
+    },
+    {
+      "reportId": "PTR20000584",
+      "acnArbn": "096909634",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.16,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 68,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 170,
+        "percentile": 60.9
+      }
+    }
+  ]
+}

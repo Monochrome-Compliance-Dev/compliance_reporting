@@ -1,0 +1,95 @@
+{
+  "slug": "arch-financial-holdings-australia-pty-ltd-18605164627",
+  "businessName": "ARCH FINANCIAL HOLDINGS AUSTRALIA PTY LTD",
+  "abn": "18605164627",
+  "acnArbn": "605164627",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009094",
+      "acnArbn": "605164627",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.47,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 99.34,
+      "payments31To60Days": 0.66,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 109,
+        "count": 2613,
+        "percentile": 95.6
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 338,
+        "percentile": 86.9
+      }
+    },
+    {
+      "reportId": "PTR20003266",
+      "acnArbn": "605164627",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.81,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 98.32,
+      "payments31To60Days": 1.68,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-27",
+      "overallP95Position": {
+        "rank": 139,
+        "count": 2568,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 349,
+        "percentile": 83.9
+      }
+    },
+    {
+      "reportId": "PTR20000567",
+      "acnArbn": "605164627",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.87,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 17,
+      "payments30DaysOrLess": 99.13,
+      "payments31To60Days": 0.87,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 90,
+        "count": 2498,
+        "percentile": 96.3
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 339,
+        "percentile": 88.8
+      }
+    }
+  ]
+}

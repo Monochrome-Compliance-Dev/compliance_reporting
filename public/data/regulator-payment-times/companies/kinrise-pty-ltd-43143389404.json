@@ -1,0 +1,95 @@
+{
+  "slug": "kinrise-pty-ltd-43143389404",
+  "businessName": "KINRISE PTY LTD",
+  "abn": "43143389404",
+  "acnArbn": "143389404",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007213",
+      "acnArbn": "143389404",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 26.49,
+      "payments31To60Days": 47.52,
+      "paymentsMoreThan60Days": 26,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-23",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 233,
+        "count": 347,
+        "percentile": 30.9
+      }
+    },
+    {
+      "reportId": "PTR20003638",
+      "acnArbn": "143389404",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 72,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 30.36,
+      "payments31To60Days": 46.01,
+      "paymentsMoreThan60Days": 23.63,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 2387,
+        "count": 2568,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 309,
+        "count": 335,
+        "percentile": 7.5
+      }
+    },
+    {
+      "reportId": "PTR20000437",
+      "acnArbn": "143389404",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 76,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 29.03,
+      "payments31To60Days": 49,
+      "paymentsMoreThan60Days": 21.97,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-12",
+      "overallP95Position": {
+        "rank": 2026,
+        "count": 2498,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 323,
+        "percentile": 29.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "goldwind-queensland-constructions-pty-ltd-30647057903",
+  "businessName": "GOLDWIND QUEENSLAND CONSTRUCTIONS PTY LTD",
+  "abn": "30647057903",
+  "acnArbn": "647057903",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009526",
+      "acnArbn": "647057903",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 43.34,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 128,
+      "payments30DaysOrLess": 45,
+      "payments31To60Days": 44,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2574,
+        "count": 2613,
+        "percentile": 1.5
+      },
+      "industryP95Position": {
+        "rank": 264,
+        "count": 270,
+        "percentile": 2.2
+      }
+    },
+    {
+      "reportId": "PTR20004249",
+      "acnArbn": "647057903",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.71,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 73,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 27,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 38,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 2428,
+        "count": 2568,
+        "percentile": 5.3
+      },
+      "industryP95Position": {
+        "rank": 240,
+        "count": 259,
+        "percentile": 7.4
+      }
+    },
+    {
+      "reportId": "PTR20001300",
+      "acnArbn": "647057903",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.37,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 38,
+      "payments31To60Days": 42,
+      "paymentsMoreThan60Days": 20,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2304,
+        "count": 2498,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 233,
+        "count": 250,
+        "percentile": 6
+      }
+    }
+  ]
+}

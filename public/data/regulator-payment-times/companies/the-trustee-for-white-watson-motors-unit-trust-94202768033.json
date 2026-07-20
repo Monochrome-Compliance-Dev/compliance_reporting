@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-white-watson-motors-unit-trust-94202768033",
+  "businessName": "THE TRUSTEE FOR WHITE WATSON MOTORS UNIT TRUST",
+  "abn": "94202768033",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008046",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.89,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 66.09,
+      "payments31To60Days": 31.85,
+      "paymentsMoreThan60Days": 2.07,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 329,
+        "percentile": 67.7
+      }
+    },
+    {
+      "reportId": "PTR20005094",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.03,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 54.98,
+      "payments31To60Days": 44.27,
+      "paymentsMoreThan60Days": 0.76,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 323,
+        "percentile": 65.8
+      }
+    },
+    {
+      "reportId": "PTR20003209",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.96,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 38.64,
+      "payments31To60Days": 60.57,
+      "paymentsMoreThan60Days": 0.78,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-25",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 56.2
+      }
+    }
+  ]
+}

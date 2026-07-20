@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-cfc-employment-trust-28015164975",
+  "businessName": "The Trustee for CFC Employment Trust",
+  "abn": "28015164975",
+  "acnArbn": "",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010840",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 91,
+      "p95PaymentTimeDays": 119,
+      "payments30DaysOrLess": 46,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 32,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 2540,
+        "count": 2613,
+        "percentile": 2.6
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 49,
+        "percentile": 2.1
+      }
+    },
+    {
+      "reportId": "PTR20006284",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 68,
+      "medianPaymentTimeDays": 65,
+      "p80PaymentTimeDays": 99,
+      "p95PaymentTimeDays": 124,
+      "payments30DaysOrLess": 16,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 53,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 2505,
+        "count": 2568,
+        "percentile": 2.4
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 50,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003253",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53,
+      "medianPaymentTimeDays": 52,
+      "p80PaymentTimeDays": 74,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 23,
+      "payments31To60Days": 42,
+      "paymentsMoreThan60Days": 35,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 2269,
+        "count": 2498,
+        "percentile": 8.7
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 50,
+        "percentile": 6.1
+      }
+    }
+  ]
+}

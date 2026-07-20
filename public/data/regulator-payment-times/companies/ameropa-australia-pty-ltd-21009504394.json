@@ -1,0 +1,95 @@
+{
+  "slug": "ameropa-australia-pty-ltd-21009504394",
+  "businessName": "AMEROPA AUSTRALIA PTY LTD",
+  "abn": "21009504394",
+  "acnArbn": "009504394",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007250",
+      "acnArbn": "009504394",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.26,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 72.92,
+      "payments31To60Days": 26.76,
+      "paymentsMoreThan60Days": 0.32,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-02-16",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 102,
+        "percentile": 46.5
+      }
+    },
+    {
+      "reportId": "PTR20006553",
+      "acnArbn": "009504394",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.45,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 72.35,
+      "payments31To60Days": 27.3,
+      "paymentsMoreThan60Days": 0.35,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 92,
+        "percentile": 41.8
+      }
+    },
+    {
+      "reportId": "PTR20001078",
+      "acnArbn": "009504394",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.14,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 72.28,
+      "payments31To60Days": 27.47,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 85,
+        "percentile": 45.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "rexel-holdings-australia-pty-ltd-17081022068",
+  "businessName": "REXEL HOLDINGS AUSTRALIA PTY LTD",
+  "abn": "17081022068",
+  "acnArbn": "081022068",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010215",
+      "acnArbn": "081022068",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 37,
+      "payments31To60Days": 44,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2190,
+        "count": 2613,
+        "percentile": 15.4
+      },
+      "industryP95Position": {
+        "rank": 251,
+        "count": 329,
+        "percentile": 21.6
+      }
+    },
+    {
+      "reportId": "PTR20005646",
+      "acnArbn": "081022068",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 37,
+      "payments31To60Days": 43,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2568,
+        "percentile": 16.6
+      },
+      "industryP95Position": {
+        "rank": 250,
+        "count": 323,
+        "percentile": 21.7
+      }
+    },
+    {
+      "reportId": "PTR20001810",
+      "acnArbn": "081022068",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 34,
+      "payments31To60Days": 47,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 249,
+        "count": 323,
+        "percentile": 21.7
+      }
+    }
+  ]
+}

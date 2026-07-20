@@ -1,0 +1,95 @@
+{
+  "slug": "wh-smith-australia-pty-limited-70146430622",
+  "businessName": "WH SMITH AUSTRALIA PTY LIMITED",
+  "abn": "70146430622",
+  "acnArbn": "146430622",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-02-27",
+  "reports": [
+    {
+      "reportId": "PTR20009555",
+      "acnArbn": "146430622",
+      "reportingPeriodStartDate": "2025-08-31",
+      "reportingPeriodEndDate": "2026-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 65.98,
+      "payments31To60Days": 27.45,
+      "paymentsMoreThan60Days": 6.57,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 21,
+        "count": 24,
+        "percentile": 13
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 5,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20006593",
+      "acnArbn": "146430622",
+      "reportingPeriodStartDate": "2025-02-28",
+      "reportingPeriodEndDate": "2025-08-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 53.15,
+      "payments31To60Days": 37.13,
+      "paymentsMoreThan60Days": 9.72,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-27",
+      "overallP95Position": {
+        "rank": 20,
+        "count": 25,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20001348",
+      "acnArbn": "146430622",
+      "reportingPeriodStartDate": "2024-08-31",
+      "reportingPeriodEndDate": "2025-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 56.34,
+      "payments31To60Days": 36.49,
+      "paymentsMoreThan60Days": 7.17,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 19,
+        "count": 22,
+        "percentile": 9.5
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 5,
+        "percentile": 0
+      }
+    }
+  ]
+}

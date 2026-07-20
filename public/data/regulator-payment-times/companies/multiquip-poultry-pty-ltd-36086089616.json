@@ -1,0 +1,95 @@
+{
+  "slug": "multiquip-poultry-pty-ltd-36086089616",
+  "businessName": "MULTIQUIP POULTRY PTY LTD",
+  "abn": "36086089616",
+  "acnArbn": "086089616",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture, forestry and fishing support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008721",
+      "acnArbn": "086089616",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.88,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 54.85,
+      "payments31To60Days": 41.44,
+      "paymentsMoreThan60Days": 3.71,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 102,
+        "percentile": 23.8
+      }
+    },
+    {
+      "reportId": "PTR20005669",
+      "acnArbn": "086089616",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.27,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 56.77,
+      "payments31To60Days": 41.56,
+      "paymentsMoreThan60Days": 1.68,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 62,
+        "count": 92,
+        "percentile": 28.6
+      }
+    },
+    {
+      "reportId": "PTR20005658",
+      "acnArbn": "086089616",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.66,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 61.06,
+      "payments31To60Days": 37.04,
+      "paymentsMoreThan60Days": 1.9,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 85,
+        "percentile": 29.8
+      }
+    }
+  ]
+}

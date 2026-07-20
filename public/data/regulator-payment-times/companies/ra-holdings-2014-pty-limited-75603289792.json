@@ -1,0 +1,95 @@
+{
+  "slug": "ra-holdings-2014-pty-limited-75603289792",
+  "businessName": "RA (HOLDINGS) 2014 PTY LIMITED",
+  "abn": "75603289792",
+  "acnArbn": "603289792",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Residential care services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011310",
+      "acnArbn": "603289792",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.91,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.33,
+      "payments31To60Days": 4.5,
+      "paymentsMoreThan60Days": 0.16,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-06-10",
+      "overallP95Position": {
+        "rank": 32,
+        "count": 193,
+        "percentile": 81.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 5,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006529",
+      "acnArbn": "603289792",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.05,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 93.1,
+      "payments31To60Days": 6.5,
+      "paymentsMoreThan60Days": 0.37,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 53,
+        "count": 228,
+        "percentile": 76.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000568",
+      "acnArbn": "603289792",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.35,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.2,
+      "payments31To60Days": 5.5,
+      "paymentsMoreThan60Days": 0.29,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 43,
+        "count": 231,
+        "percentile": 80.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 5,
+        "percentile": 100
+      }
+    }
+  ]
+}

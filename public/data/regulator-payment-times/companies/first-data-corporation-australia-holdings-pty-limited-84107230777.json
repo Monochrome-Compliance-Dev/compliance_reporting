@@ -1,0 +1,95 @@
+{
+  "slug": "first-data-corporation-australia-holdings-pty-limited-84107230777",
+  "businessName": "FIRST DATA CORPORATION AUSTRALIA (HOLDINGS) PTY. LIMITED",
+  "abn": "84107230777",
+  "acnArbn": "107230777",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009782",
+      "acnArbn": "107230777",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.89,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 63.49,
+      "payments31To60Days": 7.85,
+      "paymentsMoreThan60Days": 28.66,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2415,
+        "count": 2613,
+        "percentile": 7.3
+      },
+      "industryP95Position": {
+        "rank": 332,
+        "count": 338,
+        "percentile": 1.8
+      }
+    },
+    {
+      "reportId": "PTR20005166",
+      "acnArbn": "107230777",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.4,
+      "medianPaymentTimeDays": 26.5,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 134,
+      "payments30DaysOrLess": 53.4,
+      "payments31To60Days": 18.1,
+      "paymentsMoreThan60Days": 28.5,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2520,
+        "count": 2568,
+        "percentile": 1.8
+      },
+      "industryP95Position": {
+        "rank": 347,
+        "count": 349,
+        "percentile": 0.6
+      }
+    },
+    {
+      "reportId": "PTR20002176",
+      "acnArbn": "107230777",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 51.1,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 18.9,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2370,
+        "count": 2498,
+        "percentile": 5
+      },
+      "industryP95Position": {
+        "rank": 329,
+        "count": 339,
+        "percentile": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "fawkes-infrastructure-topco-pty-ltd-85674603868",
+  "businessName": "FAWKES INFRASTRUCTURE TOPCO PTY. LTD.",
+  "abn": "85674603868",
+  "acnArbn": "674603868",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009103",
+      "acnArbn": "674603868",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.35,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 48.45,
+      "payments31To60Days": 47.18,
+      "paymentsMoreThan60Days": 4.37,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 88,
+        "count": 143,
+        "percentile": 36.6
+      }
+    },
+    {
+      "reportId": "PTR20003911",
+      "acnArbn": "674603868",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.01,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 48.32,
+      "payments31To60Days": 45.74,
+      "paymentsMoreThan60Days": 5.94,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 111,
+        "count": 144,
+        "percentile": 23.1
+      }
+    },
+    {
+      "reportId": "PTR20002664",
+      "acnArbn": "674603868",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.3,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 48.3,
+      "payments31To60Days": 48.06,
+      "paymentsMoreThan60Days": 3.64,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 140,
+        "percentile": 40.3
+      }
+    }
+  ]
+}

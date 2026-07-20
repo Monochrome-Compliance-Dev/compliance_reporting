@@ -1,0 +1,95 @@
+{
+  "slug": "lemnos-foods-pty-ltd-52147490480",
+  "businessName": "LEMNOS FOODS PTY LTD",
+  "abn": "52147490480",
+  "acnArbn": "147490480",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009549",
+      "acnArbn": "147490480",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 63.17,
+      "medianPaymentTimeDays": 61,
+      "p80PaymentTimeDays": 89,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 11.95,
+      "payments31To60Days": 37.34,
+      "paymentsMoreThan60Days": 50.71,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2521,
+        "count": 2613,
+        "percentile": 3.3
+      },
+      "industryP95Position": {
+        "rank": 329,
+        "count": 347,
+        "percentile": 5.2
+      }
+    },
+    {
+      "reportId": "PTR20003692",
+      "acnArbn": "147490480",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60.07,
+      "medianPaymentTimeDays": 61,
+      "p80PaymentTimeDays": 81,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 10,
+      "payments31To60Days": 39,
+      "paymentsMoreThan60Days": 51,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 2368,
+        "count": 2568,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 303,
+        "count": 335,
+        "percentile": 9.3
+      }
+    },
+    {
+      "reportId": "PTR20001601",
+      "acnArbn": "147490480",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 56,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 75,
+      "p95PaymentTimeDays": 102,
+      "payments30DaysOrLess": 13,
+      "payments31To60Days": 51,
+      "paymentsMoreThan60Days": 36,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2363,
+        "count": 2498,
+        "percentile": 5.3
+      },
+      "industryP95Position": {
+        "rank": 302,
+        "count": 323,
+        "percentile": 6.2
+      }
+    }
+  ]
+}

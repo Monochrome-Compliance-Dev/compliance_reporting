@@ -1,0 +1,95 @@
+{
+  "slug": "renaissancere-europe-ag-12146546661",
+  "businessName": "RENAISSANCERE EUROPE AG",
+  "abn": "12146546661",
+  "acnArbn": "146546661",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010038",
+      "acnArbn": "146546661",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.96,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 173,
+        "count": 2613,
+        "percentile": 92.9
+      },
+      "industryP95Position": {
+        "rank": 62,
+        "count": 338,
+        "percentile": 80.7
+      }
+    },
+    {
+      "reportId": "PTR20006198",
+      "acnArbn": "146546661",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.35,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 16,
+      "payments30DaysOrLess": 95.65,
+      "payments31To60Days": 4.35,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 76,
+        "count": 2568,
+        "percentile": 96.8
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 349,
+        "percentile": 91.7
+      }
+    },
+    {
+      "reportId": "PTR20002872",
+      "acnArbn": "146546661",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.41,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 162,
+        "count": 2498,
+        "percentile": 93.1
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 339,
+        "percentile": 82.5
+      }
+    }
+  ]
+}

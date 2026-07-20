@@ -1,0 +1,95 @@
+{
+  "slug": "microsoft-pty-ltd-29002589460",
+  "businessName": "MICROSOFT PTY LTD",
+  "abn": "29002589460",
+  "acnArbn": "002589460",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010176",
+      "acnArbn": "002589460",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.35,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 25.3,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 776,
+        "count": 2613,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 183,
+        "percentile": 66.5
+      }
+    },
+    {
+      "reportId": "PTR20004772",
+      "acnArbn": "002589460",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.35,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 25.3,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 181,
+        "percentile": 68.3
+      }
+    },
+    {
+      "reportId": "PTR20001836",
+      "acnArbn": "002589460",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.49,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 77.46,
+      "payments31To60Days": 19.67,
+      "paymentsMoreThan60Days": 2.87,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 176,
+        "percentile": 46.3
+      }
+    }
+  ]
+}

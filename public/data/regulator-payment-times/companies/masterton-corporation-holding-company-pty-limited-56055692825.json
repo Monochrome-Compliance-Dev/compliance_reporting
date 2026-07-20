@@ -1,0 +1,95 @@
+{
+  "slug": "masterton-corporation-holding-company-pty-limited-56055692825",
+  "businessName": "MASTERTON CORPORATION HOLDING COMPANY PTY LIMITED",
+  "abn": "56055692825",
+  "acnArbn": "055692825",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010124",
+      "acnArbn": "055692825",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.35,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 41.57,
+      "payments31To60Days": 43.58,
+      "paymentsMoreThan60Days": 14.85,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2251,
+        "count": 2613,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 234,
+        "count": 270,
+        "percentile": 13.4
+      }
+    },
+    {
+      "reportId": "PTR20004692",
+      "acnArbn": "055692825",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.54,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 37.44,
+      "payments31To60Days": 39.76,
+      "paymentsMoreThan60Days": 22.8,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2568,
+        "percentile": 16.6
+      },
+      "industryP95Position": {
+        "rank": 214,
+        "count": 259,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20001800",
+      "acnArbn": "055692825",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.72,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 42.58,
+      "payments31To60Days": 39.37,
+      "paymentsMoreThan60Days": 18.05,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 209,
+        "count": 250,
+        "percentile": 15.3
+      }
+    }
+  ]
+}

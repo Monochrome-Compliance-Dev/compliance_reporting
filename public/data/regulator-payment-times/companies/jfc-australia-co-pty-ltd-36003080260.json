@@ -1,0 +1,95 @@
+{
+  "slug": "jfc-australia-co-pty-ltd-36003080260",
+  "businessName": "JFC AUSTRALIA CO PTY LTD",
+  "abn": "36003080260",
+  "acnArbn": "003080260",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011615",
+      "acnArbn": "003080260",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.26,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 66,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 151,
+        "count": 193,
+        "percentile": 19.8
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 45,
+        "percentile": 9.1
+      }
+    },
+    {
+      "reportId": "PTR20006993",
+      "acnArbn": "003080260",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.69,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 67.84,
+      "payments31To60Days": 18,
+      "paymentsMoreThan60Days": 14.15,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-21",
+      "overallP95Position": {
+        "rank": 218,
+        "count": 228,
+        "percentile": 4.4
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 59,
+        "percentile": 1.7
+      }
+    },
+    {
+      "reportId": "PTR20000950",
+      "acnArbn": "003080260",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 60.6,
+      "payments31To60Days": 30.8,
+      "paymentsMoreThan60Days": 8.6,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 171,
+        "count": 231,
+        "percentile": 24.8
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 61,
+        "percentile": 16.7
+      }
+    }
+  ]
+}

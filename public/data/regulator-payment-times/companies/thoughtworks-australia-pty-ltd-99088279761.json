@@ -1,0 +1,95 @@
+{
+  "slug": "thoughtworks-australia-pty-ltd-99088279761",
+  "businessName": "THOUGHTWORKS AUSTRALIA PTY LTD",
+  "abn": "99088279761",
+  "acnArbn": "088279761",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010790",
+      "acnArbn": "088279761",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.93,
+      "medianPaymentTimeDays": 20.5,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 74.73,
+      "payments31To60Days": 24.73,
+      "paymentsMoreThan60Days": 0.54,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 183,
+        "percentile": 76.4
+      }
+    },
+    {
+      "reportId": "PTR20007003",
+      "acnArbn": "088279761",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.71,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 87.91,
+      "payments31To60Days": 12.09,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 181,
+        "percentile": 82.2
+      }
+    },
+    {
+      "reportId": "PTR20007002",
+      "acnArbn": "088279761",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.6,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 87.5,
+      "payments31To60Days": 12.5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 176,
+        "percentile": 80
+      }
+    }
+  ]
+}

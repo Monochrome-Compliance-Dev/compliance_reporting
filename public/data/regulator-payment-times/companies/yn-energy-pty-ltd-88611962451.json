@@ -1,0 +1,95 @@
+{
+  "slug": "yn-energy-pty-ltd-88611962451",
+  "businessName": "YN ENERGY PTY LTD",
+  "abn": "88611962451",
+  "acnArbn": "611962451",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009423",
+      "acnArbn": "611962451",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.8,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2613,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 329,
+        "percentile": 96
+      }
+    },
+    {
+      "reportId": "PTR20005619",
+      "acnArbn": "611962451",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.5,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 2568,
+        "percentile": 97.5
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 323,
+        "percentile": 98.8
+      }
+    },
+    {
+      "reportId": "PTR20000017",
+      "acnArbn": "611962451",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-05-01",
+      "overallP95Position": {
+        "rank": 174,
+        "count": 2498,
+        "percentile": 92.4
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 323,
+        "percentile": 96
+      }
+    }
+  ]
+}

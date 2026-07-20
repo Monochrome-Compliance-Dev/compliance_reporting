@@ -1,0 +1,95 @@
+{
+  "slug": "courts-administration-authority-65469760681",
+  "businessName": "COURTS ADMINISTRATION AUTHORITY",
+  "abn": "65469760681",
+  "acnArbn": "",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Public administration",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009670",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.4,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 17,
+      "payments30DaysOrLess": 99.3,
+      "payments31To60Days": 0.5,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Public administration",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 86,
+        "count": 2613,
+        "percentile": 96.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 33,
+        "percentile": 93.8
+      }
+    },
+    {
+      "reportId": "PTR20005806",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.82,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 98.4,
+      "payments31To60Days": 1.2,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Public administration",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 100,
+        "count": 2568,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 34,
+        "percentile": 97
+      }
+    },
+    {
+      "reportId": "PTR20000085",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 98.4,
+      "payments31To60Days": 1.2,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Public administration",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-05-14",
+      "overallP95Position": {
+        "rank": 140,
+        "count": 2498,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 31,
+        "percentile": 93.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "schiavello-group-pty-ltd-13004745608",
+  "businessName": "SCHIAVELLO GROUP PTY. LTD.",
+  "abn": "13004745608",
+  "acnArbn": "004745608",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Furniture and other mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009326",
+      "acnArbn": "004745608",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.14,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 43.78,
+      "payments31To60Days": 44.83,
+      "paymentsMoreThan60Days": 11.41,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2043,
+        "count": 2613,
+        "percentile": 21.3
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 347,
+        "percentile": 34.4
+      }
+    },
+    {
+      "reportId": "PTR20003963",
+      "acnArbn": "004745608",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.52,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 40.88,
+      "payments31To60Days": 47.86,
+      "paymentsMoreThan60Days": 11.26,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 335,
+        "percentile": 40.7
+      }
+    },
+    {
+      "reportId": "PTR20002513",
+      "acnArbn": "004745608",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.65,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 42.15,
+      "payments31To60Days": 47.8,
+      "paymentsMoreThan60Days": 10.05,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-14",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 323,
+        "percentile": 39.1
+      }
+    }
+  ]
+}

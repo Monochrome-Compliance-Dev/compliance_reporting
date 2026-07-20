@@ -1,0 +1,67 @@
+{
+  "slug": "civmec-defence-industries-pty-ltd-39618700637",
+  "businessName": "Civmec Defence Industries Pty Ltd",
+  "abn": "39618700637",
+  "acnArbn": "618700637",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009873",
+      "acnArbn": "618700637",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.59,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 75,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 50.71,
+      "payments31To60Days": 24.2,
+      "paymentsMoreThan60Days": 25.09,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2506,
+        "count": 2613,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 326,
+        "count": 347,
+        "percentile": 5.8
+      }
+    },
+    {
+      "reportId": "PTR20005874",
+      "acnArbn": "618700637",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.09,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 73.6,
+      "payments31To60Days": 24.4,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 929,
+        "count": 2568,
+        "percentile": 63.3
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 335,
+        "percentile": 86.5
+      }
+    }
+  ]
+}

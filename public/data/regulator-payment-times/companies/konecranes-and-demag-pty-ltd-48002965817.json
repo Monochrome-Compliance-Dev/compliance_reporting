@@ -1,0 +1,67 @@
+{
+  "slug": "konecranes-and-demag-pty-ltd-48002965817",
+  "businessName": "KONECRANES AND DEMAG PTY LTD",
+  "abn": "48002965817",
+  "acnArbn": "002965817",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010397",
+      "acnArbn": "002965817",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.82,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 55.63,
+      "payments31To60Days": 30.83,
+      "paymentsMoreThan60Days": 13.54,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 233,
+        "count": 347,
+        "percentile": 30.9
+      }
+    },
+    {
+      "reportId": "PTR20004135",
+      "acnArbn": "002965817",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.88,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 46.4,
+      "payments31To60Days": 29.77,
+      "paymentsMoreThan60Days": 23.82,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 262,
+        "count": 335,
+        "percentile": 19.8
+      }
+    }
+  ]
+}

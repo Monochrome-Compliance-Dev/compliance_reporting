@@ -1,0 +1,95 @@
+{
+  "slug": "givaudan-australia-pty-limited-87000470280",
+  "businessName": "GIVAUDAN AUSTRALIA PTY LIMITED",
+  "abn": "87000470280",
+  "acnArbn": "000470280",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009065",
+      "acnArbn": "000470280",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 58.69,
+      "medianPaymentTimeDays": 64,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 12.58,
+      "payments31To60Days": 21.95,
+      "paymentsMoreThan60Days": 65.47,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2436,
+        "count": 2613,
+        "percentile": 6.4
+      },
+      "industryP95Position": {
+        "rank": 315,
+        "count": 347,
+        "percentile": 9
+      }
+    },
+    {
+      "reportId": "PTR20005642",
+      "acnArbn": "000470280",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 68.3,
+      "medianPaymentTimeDays": 67,
+      "p80PaymentTimeDays": 78,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 8.7,
+      "payments31To60Days": 10.98,
+      "paymentsMoreThan60Days": 80.32,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2387,
+        "count": 2568,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 309,
+        "count": 335,
+        "percentile": 7.5
+      }
+    },
+    {
+      "reportId": "PTR20000601",
+      "acnArbn": "000470280",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61.55,
+      "medianPaymentTimeDays": 64,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 13.67,
+      "payments31To60Days": 9.58,
+      "paymentsMoreThan60Days": 76.76,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 2196,
+        "count": 2498,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 266,
+        "count": 323,
+        "percentile": 17.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "aurelia-metals-limited-37108476384",
+  "businessName": "AURELIA METALS LIMITED",
+  "abn": "37108476384",
+  "acnArbn": "108476384",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009448",
+      "acnArbn": "108476384",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 60.29,
+      "payments31To60Days": 33.19,
+      "paymentsMoreThan60Days": 6.53,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-28",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2613,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 177,
+        "percentile": 18.2
+      }
+    }
+  ]
+}

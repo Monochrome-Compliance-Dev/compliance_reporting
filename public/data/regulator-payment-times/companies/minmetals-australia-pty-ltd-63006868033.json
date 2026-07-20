@@ -1,0 +1,67 @@
+{
+  "slug": "minmetals-australia-pty-ltd-63006868033",
+  "businessName": "MINMETALS AUSTRALIA PTY. LTD.",
+  "abn": "63006868033",
+  "acnArbn": "006868033",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010616",
+      "acnArbn": "006868033",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.5,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.9,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 1.2,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-20",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 329,
+        "percentile": 88.7
+      }
+    },
+    {
+      "reportId": "PTR20003508",
+      "acnArbn": "006868033",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 91.9,
+      "payments31To60Days": 8.1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 699,
+        "count": 2568,
+        "percentile": 71.8
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 323,
+        "percentile": 81.1
+      }
+    }
+  ]
+}

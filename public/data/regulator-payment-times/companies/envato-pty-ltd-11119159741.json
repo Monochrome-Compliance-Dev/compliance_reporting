@@ -1,0 +1,95 @@
+{
+  "slug": "envato-pty-ltd-11119159741",
+  "businessName": "ENVATO PTY LTD",
+  "abn": "11119159741",
+  "acnArbn": "119159741",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010092",
+      "acnArbn": "119159741",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.34,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 78,
+      "p95PaymentTimeDays": 119,
+      "payments30DaysOrLess": 52.4,
+      "payments31To60Days": 15.72,
+      "paymentsMoreThan60Days": 31.88,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2540,
+        "count": 2613,
+        "percentile": 2.6
+      },
+      "industryP95Position": {
+        "rank": 168,
+        "count": 183,
+        "percentile": 8.2
+      }
+    },
+    {
+      "reportId": "PTR20005519",
+      "acnArbn": "119159741",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.43,
+      "medianPaymentTimeDays": 19.5,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 78.26,
+      "payments31To60Days": 13.04,
+      "paymentsMoreThan60Days": 8.7,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2156,
+        "count": 2568,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 181,
+        "percentile": 23.3
+      }
+    },
+    {
+      "reportId": "PTR20001535",
+      "acnArbn": "119159741",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.85,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 69.05,
+      "payments31To60Days": 22.62,
+      "paymentsMoreThan60Days": 8.33,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2345,
+        "count": 2498,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 155,
+        "count": 176,
+        "percentile": 12
+      }
+    }
+  ]
+}

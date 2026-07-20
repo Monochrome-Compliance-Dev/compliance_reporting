@@ -1,0 +1,67 @@
+{
+  "slug": "andrew-johnson-holdings-pty-ltd-54089200448",
+  "businessName": "ANDREW JOHNSON HOLDINGS PTY LTD",
+  "abn": "54089200448",
+  "acnArbn": "089200448",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011481",
+      "acnArbn": "089200448",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 49.32,
+      "payments31To60Days": 40.54,
+      "paymentsMoreThan60Days": 10.54,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-06-21",
+      "overallP95Position": {
+        "rank": 2057,
+        "count": 2613,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 206,
+        "count": 270,
+        "percentile": 21.9
+      }
+    },
+    {
+      "reportId": "PTR20003740",
+      "acnArbn": "089200448",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 49.03,
+      "payments31To60Days": 42.23,
+      "paymentsMoreThan60Days": 8.74,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 259,
+        "percentile": 29.8
+      }
+    }
+  ]
+}

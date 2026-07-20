@@ -1,0 +1,67 @@
+{
+  "slug": "ensign-australia-holdings-pty-ltd-71100195426",
+  "businessName": "ENSIGN (AUSTRALIA) HOLDINGS PTY LTD",
+  "abn": "71100195426",
+  "acnArbn": "100195426",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20003500",
+      "acnArbn": "100195426",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.7,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 46,
+      "payments31To60Days": 45.5,
+      "paymentsMoreThan60Days": 8.3,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 118,
+        "count": 173,
+        "percentile": 30.2
+      }
+    },
+    {
+      "reportId": "PTR20002199",
+      "acnArbn": "100195426",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 50.2,
+      "payments31To60Days": 43.2,
+      "paymentsMoreThan60Days": 6.6,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 117,
+        "count": 170,
+        "percentile": 30.2
+      }
+    }
+  ]
+}

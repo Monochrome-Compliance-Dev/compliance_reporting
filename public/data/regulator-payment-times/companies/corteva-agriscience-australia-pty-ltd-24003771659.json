@@ -1,0 +1,95 @@
+{
+  "slug": "corteva-agriscience-australia-pty-ltd-24003771659",
+  "businessName": "CORTEVA AGRISCIENCE AUSTRALIA PTY LTD",
+  "abn": "24003771659",
+  "acnArbn": "003771659",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009676",
+      "acnArbn": "003771659",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.4,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 42.93,
+      "payments31To60Days": 45.58,
+      "paymentsMoreThan60Days": 11.48,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2295,
+        "count": 2613,
+        "percentile": 11.8
+      },
+      "industryP95Position": {
+        "rank": 275,
+        "count": 329,
+        "percentile": 15.5
+      }
+    },
+    {
+      "reportId": "PTR20005549",
+      "acnArbn": "003771659",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.38,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 57.37,
+      "payments31To60Days": 35.61,
+      "paymentsMoreThan60Days": 7.02,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 323,
+        "percentile": 34.5
+      }
+    },
+    {
+      "reportId": "PTR20005155",
+      "acnArbn": "003771659",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.29,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 60.71,
+      "payments31To60Days": 33.12,
+      "paymentsMoreThan60Days": 6.17,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 323,
+        "percentile": 42.2
+      }
+    }
+  ]
+}

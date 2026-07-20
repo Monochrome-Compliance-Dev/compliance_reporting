@@ -1,0 +1,95 @@
+{
+  "slug": "bsh-home-appliances-pty-ltd-22109198405",
+  "businessName": "BSH HOME APPLIANCES PTY LTD",
+  "abn": "22109198405",
+  "acnArbn": "109198405",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008650",
+      "acnArbn": "109198405",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.47,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 36.52,
+      "payments31To60Days": 63.24,
+      "paymentsMoreThan60Days": 0.24,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 1305,
+        "count": 2613,
+        "percentile": 47.8
+      },
+      "industryP95Position": {
+        "rank": 118,
+        "count": 329,
+        "percentile": 61.3
+      }
+    },
+    {
+      "reportId": "PTR20004307",
+      "acnArbn": "109198405",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.75,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 55.2,
+      "payments31To60Days": 44.54,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 103,
+        "count": 323,
+        "percentile": 67.1
+      }
+    },
+    {
+      "reportId": "PTR20001323",
+      "acnArbn": "109198405",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.04,
+      "medianPaymentTimeDays": 29.5,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 57.6,
+      "payments31To60Days": 38.56,
+      "paymentsMoreThan60Days": 3.84,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 323,
+        "percentile": 53.4
+      }
+    }
+  ]
+}

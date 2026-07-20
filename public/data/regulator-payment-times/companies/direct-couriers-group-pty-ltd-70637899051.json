@@ -1,0 +1,95 @@
+{
+  "slug": "direct-couriers-group-pty-ltd-70637899051",
+  "businessName": "DIRECT COURIERS GROUP PTY LTD",
+  "abn": "70637899051",
+  "acnArbn": "637899051",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007892",
+      "acnArbn": "637899051",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.51,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 13,
+      "payments30DaysOrLess": 98.4,
+      "payments31To60Days": 1.5,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 43,
+        "count": 2613,
+        "percentile": 98.1
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 143,
+        "percentile": 97.9
+      }
+    },
+    {
+      "reportId": "PTR20003575",
+      "acnArbn": "637899051",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.6,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 98.3,
+      "payments31To60Days": 1.7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 100,
+        "count": 2568,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 144,
+        "percentile": 97.2
+      }
+    },
+    {
+      "reportId": "PTR20003506",
+      "acnArbn": "637899051",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.36,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 13,
+      "payments30DaysOrLess": 98.7,
+      "payments31To60Days": 1.3,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 2498,
+        "percentile": 97.6
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 140,
+        "percentile": 97.8
+      }
+    }
+  ]
+}

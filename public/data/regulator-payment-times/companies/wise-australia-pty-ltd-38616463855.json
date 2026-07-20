@@ -1,0 +1,95 @@
+{
+  "slug": "wise-australia-pty-ltd-38616463855",
+  "businessName": "WISE AUSTRALIA PTY LTD",
+  "abn": "38616463855",
+  "acnArbn": "616463855",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011556",
+      "acnArbn": "616463855",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 70,
+      "payments31To60Days": 26,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 124,
+        "count": 193,
+        "percentile": 33.9
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 19,
+        "percentile": 11.1
+      }
+    },
+    {
+      "reportId": "PTR20006477",
+      "acnArbn": "616463855",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 84,
+      "payments31To60Days": 16,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-11-16",
+      "overallP95Position": {
+        "rank": 88,
+        "count": 228,
+        "percentile": 57.3
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 22,
+        "percentile": 23.8
+      }
+    },
+    {
+      "reportId": "PTR20001298",
+      "acnArbn": "616463855",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 79,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 79,
+        "count": 231,
+        "percentile": 63
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 20,
+        "percentile": 31.6
+      }
+    }
+  ]
+}

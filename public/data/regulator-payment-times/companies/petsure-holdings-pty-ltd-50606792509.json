@@ -1,0 +1,95 @@
+{
+  "slug": "petsure-holdings-pty-ltd-50606792509",
+  "businessName": "PETSURE HOLDINGS PTY LTD",
+  "abn": "50606792509",
+  "acnArbn": "606792509",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007977",
+      "acnArbn": "606792509",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.85,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 88.55,
+      "payments31To60Days": 9.46,
+      "paymentsMoreThan60Days": 1.99,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 756,
+        "count": 2613,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 205,
+        "count": 338,
+        "percentile": 38.3
+      }
+    },
+    {
+      "reportId": "PTR20006249",
+      "acnArbn": "606792509",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.1,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 90.39,
+      "payments31To60Days": 7.18,
+      "paymentsMoreThan60Days": 2.43,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 699,
+        "count": 2568,
+        "percentile": 71.8
+      },
+      "industryP95Position": {
+        "rank": 187,
+        "count": 349,
+        "percentile": 44.5
+      }
+    },
+    {
+      "reportId": "PTR20000752",
+      "acnArbn": "606792509",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.83,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 86.4,
+      "payments31To60Days": 10.8,
+      "paymentsMoreThan60Days": 2.8,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 909,
+        "count": 2498,
+        "percentile": 62.6
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 339,
+        "percentile": 34.6
+      }
+    }
+  ]
+}

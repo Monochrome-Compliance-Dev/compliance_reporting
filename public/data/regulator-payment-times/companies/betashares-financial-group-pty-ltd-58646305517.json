@@ -1,0 +1,123 @@
+{
+  "slug": "betashares-financial-group-pty-ltd-58646305517",
+  "businessName": "BETASHARES FINANCIAL GROUP PTY LTD",
+  "abn": "58646305517",
+  "acnArbn": "646305517",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010691",
+      "acnArbn": "646305517",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.13,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 81.5,
+      "payments31To60Days": 16.3,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 226,
+        "count": 338,
+        "percentile": 32
+      }
+    },
+    {
+      "reportId": "PTR20006860",
+      "acnArbn": "646305517",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.65,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 82.3,
+      "payments31To60Days": 14.3,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-29",
+      "overallP95Position": {
+        "rank": 80,
+        "count": 228,
+        "percentile": 62.1
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 22,
+        "percentile": 28.6
+      }
+    },
+    {
+      "reportId": "PTR20004906",
+      "acnArbn": "646305517",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.21,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 84,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 349,
+        "percentile": 29.6
+      }
+    },
+    {
+      "reportId": "PTR20002398",
+      "acnArbn": "646305517",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.15,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 16,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-09",
+      "overallP95Position": {
+        "rank": 693,
+        "count": 2498,
+        "percentile": 71.2
+      },
+      "industryP95Position": {
+        "rank": 185,
+        "count": 339,
+        "percentile": 44.7
+      }
+    }
+  ]
+}

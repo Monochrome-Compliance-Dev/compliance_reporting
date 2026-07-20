@@ -1,0 +1,95 @@
+{
+  "slug": "adairs-limited-50147375451",
+  "businessName": "ADAIRS LIMITED",
+  "abn": "50147375451",
+  "acnArbn": "147375451",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009903",
+      "acnArbn": "147375451",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.28,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 20.04,
+      "payments31To60Days": 66.45,
+      "paymentsMoreThan60Days": 13.27,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2007,
+        "count": 2613,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 162,
+        "count": 207,
+        "percentile": 21.4
+      }
+    },
+    {
+      "reportId": "PTR20005760",
+      "acnArbn": "147375451",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 62.02,
+      "payments31To60Days": 30.34,
+      "paymentsMoreThan60Days": 7.64,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 208,
+        "percentile": 26.6
+      }
+    },
+    {
+      "reportId": "PTR20000652",
+      "acnArbn": "147375451",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.02,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 62.02,
+      "payments31To60Days": 30.34,
+      "paymentsMoreThan60Days": 7.28,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-18",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 207,
+        "percentile": 29.1
+      }
+    }
+  ]
+}

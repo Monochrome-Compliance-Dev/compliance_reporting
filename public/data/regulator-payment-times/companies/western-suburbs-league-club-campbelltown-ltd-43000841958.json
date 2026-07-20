@@ -1,0 +1,95 @@
+{
+  "slug": "western-suburbs-league-club-campbelltown-ltd-43000841958",
+  "businessName": "WESTERN SUBURBS LEAGUE CLUB (CAMPBELLTOWN) LTD",
+  "abn": "43000841958",
+  "acnArbn": "000841958",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2026-04-29",
+  "reports": [
+    {
+      "reportId": "PTR20011229",
+      "acnArbn": "000841958",
+      "reportingPeriodStartDate": "2025-10-31",
+      "reportingPeriodEndDate": "2026-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 97.82,
+      "payments31To60Days": 1.45,
+      "paymentsMoreThan60Days": 0.73,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-05-31",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 6,
+        "percentile": 80
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20007104",
+      "acnArbn": "000841958",
+      "reportingPeriodStartDate": "2025-04-30",
+      "reportingPeriodEndDate": "2025-10-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.97,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 97,
+      "payments31To60Days": 2.2,
+      "paymentsMoreThan60Days": 0.8,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-02-02",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 28,
+        "percentile": 96.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 6,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002394",
+      "acnArbn": "000841958",
+      "reportingPeriodStartDate": "2024-10-31",
+      "reportingPeriodEndDate": "2025-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.74,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.32,
+      "payments31To60Days": 3.44,
+      "paymentsMoreThan60Days": 1.24,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-07-08",
+      "overallP95Position": {
+        "rank": 5,
+        "count": 28,
+        "percentile": 81.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 6,
+        "percentile": 100
+      }
+    }
+  ]
+}

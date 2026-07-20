@@ -1,0 +1,95 @@
+{
+  "slug": "adt-group-holdings-pty-ltd-35144849436",
+  "businessName": "ADT Group Holdings Pty Ltd",
+  "abn": "35144849436",
+  "acnArbn": "144849436",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008753",
+      "acnArbn": "144849436",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.39,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 49.88,
+      "payments31To60Days": 45.12,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 127,
+        "count": 207,
+        "percentile": 34
+      }
+    },
+    {
+      "reportId": "PTR20007623",
+      "acnArbn": "144849436",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.14,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 33.63,
+      "payments31To60Days": 49.8,
+      "paymentsMoreThan60Days": 16.57,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 2096,
+        "count": 2568,
+        "percentile": 17.5
+      },
+      "industryP95Position": {
+        "rank": 174,
+        "count": 208,
+        "percentile": 15
+      }
+    },
+    {
+      "reportId": "PTR20007622",
+      "acnArbn": "144849436",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.41,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 45.44,
+      "payments31To60Days": 43.84,
+      "paymentsMoreThan60Days": 10.72,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 169,
+        "count": 207,
+        "percentile": 17.5
+      }
+    }
+  ]
+}

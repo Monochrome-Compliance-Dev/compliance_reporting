@@ -1,0 +1,95 @@
+{
+  "slug": "trinity-motors-pty-ltd-47097743578",
+  "businessName": "TRINITY MOTORS PTY LTD",
+  "abn": "47097743578",
+  "acnArbn": "097743578",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008037",
+      "acnArbn": "097743578",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.65,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 57.65,
+      "payments31To60Days": 40.07,
+      "paymentsMoreThan60Days": 2.28,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 329,
+        "percentile": 51.8
+      }
+    },
+    {
+      "reportId": "PTR20005088",
+      "acnArbn": "097743578",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.24,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 64.26,
+      "payments31To60Days": 33.49,
+      "paymentsMoreThan60Days": 2.25,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 141,
+        "count": 323,
+        "percentile": 54
+      }
+    },
+    {
+      "reportId": "PTR20003197",
+      "acnArbn": "097743578",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.87,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 61.82,
+      "payments31To60Days": 36.79,
+      "paymentsMoreThan60Days": 1.39,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-24",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 56.2
+      }
+    }
+  ]
+}

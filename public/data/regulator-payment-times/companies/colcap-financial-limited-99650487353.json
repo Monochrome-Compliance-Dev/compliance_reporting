@@ -1,0 +1,95 @@
+{
+  "slug": "colcap-financial-limited-99650487353",
+  "businessName": "COLCAP FINANCIAL LIMITED",
+  "abn": "99650487353",
+  "acnArbn": "650487353",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007709",
+      "acnArbn": "650487353",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.07,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 95.3,
+      "payments31To60Days": 4.2,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-08",
+      "overallP95Position": {
+        "rank": 243,
+        "count": 2613,
+        "percentile": 89.2
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 338,
+        "percentile": 68.8
+      }
+    },
+    {
+      "reportId": "PTR20004011",
+      "acnArbn": "650487353",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.77,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 92.6,
+      "payments31To60Days": 7.1,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 349,
+        "percentile": 54.6
+      }
+    },
+    {
+      "reportId": "PTR20000869",
+      "acnArbn": "650487353",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.59,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.9,
+      "payments31To60Days": 4.3,
+      "paymentsMoreThan60Days": 0.8,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 124,
+        "count": 339,
+        "percentile": 60.1
+      }
+    }
+  ]
+}

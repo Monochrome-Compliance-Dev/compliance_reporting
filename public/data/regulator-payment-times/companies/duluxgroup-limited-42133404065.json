@@ -1,0 +1,95 @@
+{
+  "slug": "duluxgroup-limited-42133404065",
+  "businessName": "DULUXGROUP LIMITED",
+  "abn": "42133404065",
+  "acnArbn": "133404065",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008737",
+      "acnArbn": "133404065",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.43,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 87.2,
+      "payments31To60Days": 8.4,
+      "paymentsMoreThan60Days": 4.5,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 735,
+        "count": 2613,
+        "percentile": 71.1
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 347,
+        "percentile": 91.3
+      }
+    },
+    {
+      "reportId": "PTR20004250",
+      "acnArbn": "133404065",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.1,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 82.3,
+      "payments31To60Days": 12.2,
+      "paymentsMoreThan60Days": 5.5,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 335,
+        "percentile": 87.7
+      }
+    },
+    {
+      "reportId": "PTR20000540",
+      "acnArbn": "133404065",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.55,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 82.9,
+      "payments31To60Days": 11.3,
+      "paymentsMoreThan60Days": 5.8,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-16",
+      "overallP95Position": {
+        "rank": 652,
+        "count": 2498,
+        "percentile": 73.1
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 323,
+        "percentile": 91.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "fresenius-medical-care-australia-pty-ltd-80067557877",
+  "businessName": "FRESENIUS MEDICAL CARE AUSTRALIA PTY LTD",
+  "abn": "80067557877",
+  "acnArbn": "067557877",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007361",
+      "acnArbn": "067557877",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.28,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 83.85,
+      "payments31To60Days": 13.99,
+      "paymentsMoreThan60Days": 2.17,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 106,
+        "percentile": 58.1
+      }
+    },
+    {
+      "reportId": "PTR20005684",
+      "acnArbn": "067557877",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.56,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 78.23,
+      "payments31To60Days": 16.18,
+      "paymentsMoreThan60Days": 5.59,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 97,
+        "percentile": 44.8
+      }
+    },
+    {
+      "reportId": "PTR20002169",
+      "acnArbn": "067557877",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.97,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 78.34,
+      "payments31To60Days": 15.65,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 70,
+        "count": 97,
+        "percentile": 28.1
+      }
+    }
+  ]
+}

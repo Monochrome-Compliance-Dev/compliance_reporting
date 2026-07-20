@@ -1,0 +1,95 @@
+{
+  "slug": "omc-australia-pty-ltd-39004663094",
+  "businessName": "OMC AUSTRALIA PTY LTD",
+  "abn": "39004663094",
+  "acnArbn": "004663094",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20006998",
+      "acnArbn": "004663094",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 76.19,
+      "payments31To60Days": 23.52,
+      "paymentsMoreThan60Days": 0.29,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 347,
+        "percentile": 82.9
+      }
+    },
+    {
+      "reportId": "PTR20006997",
+      "acnArbn": "004663094",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 18,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 335,
+        "percentile": 86.8
+      }
+    },
+    {
+      "reportId": "PTR20002885",
+      "acnArbn": "004663094",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 745,
+        "count": 2498,
+        "percentile": 68.9
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 323,
+        "percentile": 87.9
+      }
+    }
+  ]
+}

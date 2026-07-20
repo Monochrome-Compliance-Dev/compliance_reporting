@@ -1,0 +1,95 @@
+{
+  "slug": "jqz-holdings-pty-limited-36111636983",
+  "businessName": "JQZ HOLDINGS PTY LIMITED",
+  "abn": "36111636983",
+  "acnArbn": "111636983",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007607",
+      "acnArbn": "111636983",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 67,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 577,
+        "count": 2613,
+        "percentile": 77
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 270,
+        "percentile": 91.1
+      }
+    },
+    {
+      "reportId": "PTR20006521",
+      "acnArbn": "111636983",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-11-23",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 259,
+        "percentile": 91.1
+      }
+    },
+    {
+      "reportId": "PTR20001629",
+      "acnArbn": "111636983",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 17,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 90,
+        "count": 2498,
+        "percentile": 96.3
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 250,
+        "percentile": 98.8
+      }
+    }
+  ]
+}

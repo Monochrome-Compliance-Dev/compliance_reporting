@@ -1,0 +1,39 @@
+{
+  "slug": "webjet-group-limited-85679116762",
+  "businessName": "WEBJET GROUP LIMITED",
+  "abn": "85679116762",
+  "acnArbn": "679116762",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20002035",
+      "acnArbn": "679116762",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.14,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 86.9,
+      "payments31To60Days": 7.3,
+      "paymentsMoreThan60Days": 5.8,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 175,
+        "count": 231,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 8,
+        "percentile": 14.3
+      }
+    }
+  ]
+}

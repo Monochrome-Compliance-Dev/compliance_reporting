@@ -1,0 +1,95 @@
+{
+  "slug": "red-hat-asia-pacific-pty-ltd-35090438485",
+  "businessName": "RED HAT ASIA-PACIFIC PTY. LTD.",
+  "abn": "35090438485",
+  "acnArbn": "090438485",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008471",
+      "acnArbn": "090438485",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.87,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 40.7,
+      "payments31To60Days": 55.01,
+      "paymentsMoreThan60Days": 4.29,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 183,
+        "percentile": 41.8
+      }
+    },
+    {
+      "reportId": "PTR20006460",
+      "acnArbn": "090438485",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.94,
+      "medianPaymentTimeDays": 36.66,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 38.06,
+      "payments31To60Days": 58.33,
+      "paymentsMoreThan60Days": 3.61,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-10",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 181,
+        "percentile": 47.8
+      }
+    },
+    {
+      "reportId": "PTR20006578",
+      "acnArbn": "090438485",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.97,
+      "medianPaymentTimeDays": 28.68,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 55.07,
+      "payments31To60Days": 42.19,
+      "paymentsMoreThan60Days": 2.74,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-26",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 176,
+        "percentile": 52.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "s-n-aroney-and-a-p-brown-and-d-curry-and-s-a-lewin-and-j-a-mazzotta-and-j-v-nerurker-and-j-price-and-a-gadiel-and-a-spalding-and-a-brearley-and-a-whealy-and-b-taylor-and-c-hallgath-and-c-gotis-graham-and-r-white-and-others-51493069734",
+  "businessName": "S.N ARONEY & A.P BROWN & D CURRY & S.A LEWIN & J.A MAZZOTTA & J.V NERURKER & J PRICE & A GADIEL & A SPALDING & A BREARLEY & A WHEALY & B TAYLOR & C HALLGATH & C GOTIS-GRAHAM & R WHITE & OTHERS",
+  "abn": "51493069734",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009581",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 149,
+      "payments30DaysOrLess": 57.49,
+      "payments31To60Days": 22.46,
+      "paymentsMoreThan60Days": 20.05,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2591,
+        "count": 2613,
+        "percentile": 0.8
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 183,
+        "percentile": 2.7
+      }
+    },
+    {
+      "reportId": "PTR20004823",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 167,
+      "payments30DaysOrLess": 51.57,
+      "payments31To60Days": 24.75,
+      "paymentsMoreThan60Days": 23.67,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2542,
+        "count": 2568,
+        "percentile": 1
+      },
+      "industryP95Position": {
+        "rank": 176,
+        "count": 181,
+        "percentile": 2.8
+      }
+    },
+    {
+      "reportId": "PTR20001709",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.76,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 149,
+      "payments30DaysOrLess": 55.67,
+      "payments31To60Days": 21.51,
+      "paymentsMoreThan60Days": 22.81,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2463,
+        "count": 2498,
+        "percentile": 1.4
+      },
+      "industryP95Position": {
+        "rank": 168,
+        "count": 176,
+        "percentile": 4.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "travelcube-pacific-pty-ltd-52099122577",
+  "businessName": "TRAVELCUBE PACIFIC PTY. LTD.",
+  "abn": "52099122577",
+  "acnArbn": "099122577",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011747",
+      "acnArbn": "099122577",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.67,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 66.28,
+      "payments31To60Days": 31.32,
+      "paymentsMoreThan60Days": 2.4,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 193,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20007060",
+      "acnArbn": "099122577",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.42,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 76.34,
+      "payments31To60Days": 20.49,
+      "paymentsMoreThan60Days": 3.17,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-01-28",
+      "overallP95Position": {
+        "rank": 106,
+        "count": 228,
+        "percentile": 52.9
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 8,
+        "percentile": 14.3
+      }
+    },
+    {
+      "reportId": "PTR20001653",
+      "acnArbn": "099122577",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.96,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 12.52,
+      "payments31To60Days": 78.11,
+      "paymentsMoreThan60Days": 9.37,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 207,
+        "count": 231,
+        "percentile": 10
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 8,
+        "percentile": 0
+      }
+    }
+  ]
+}

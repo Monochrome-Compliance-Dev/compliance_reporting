@@ -1,0 +1,95 @@
+{
+  "slug": "bradken-pty-limited-33108693009",
+  "businessName": "BRADKEN PTY LIMITED",
+  "abn": "33108693009",
+  "acnArbn": "108693009",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011407",
+      "acnArbn": "108693009",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 31.53,
+      "payments31To60Days": 55.9,
+      "paymentsMoreThan60Days": 12.57,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-18",
+      "overallP95Position": {
+        "rank": 151,
+        "count": 193,
+        "percentile": 19.8
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 25,
+        "percentile": 37.5
+      }
+    },
+    {
+      "reportId": "PTR20006727",
+      "acnArbn": "108693009",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 29.59,
+      "payments31To60Days": 61.62,
+      "paymentsMoreThan60Days": 8.79,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-16",
+      "overallP95Position": {
+        "rank": 168,
+        "count": 228,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 28,
+        "percentile": 51.9
+      }
+    },
+    {
+      "reportId": "PTR20006045",
+      "acnArbn": "108693009",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 34.05,
+      "payments31To60Days": 49.83,
+      "paymentsMoreThan60Days": 16.12,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-14",
+      "overallP95Position": {
+        "rank": 193,
+        "count": 231,
+        "percentile": 15.2
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 32,
+        "percentile": 25.8
+      }
+    }
+  ]
+}

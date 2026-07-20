@@ -1,0 +1,95 @@
+{
+  "slug": "trend-micro-australia-pty-ltd-70077055817",
+  "businessName": "TREND MICRO AUSTRALIA PTY. LTD.",
+  "abn": "70077055817",
+  "acnArbn": "077055817",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007220",
+      "acnArbn": "077055817",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.9,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 87.8,
+      "payments31To60Days": 9.76,
+      "paymentsMoreThan60Days": 2.44,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-15",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 329,
+        "percentile": 77.1
+      }
+    },
+    {
+      "reportId": "PTR20002998",
+      "acnArbn": "077055817",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.61,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 80.65,
+      "payments31To60Days": 14.52,
+      "paymentsMoreThan60Days": 4.84,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-29",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 323,
+        "percentile": 51.9
+      }
+    },
+    {
+      "reportId": "PTR20000013",
+      "acnArbn": "077055817",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.65,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.11,
+      "payments31To60Days": 4.19,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-05-01",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 323,
+        "percentile": 90.4
+      }
+    }
+  ]
+}

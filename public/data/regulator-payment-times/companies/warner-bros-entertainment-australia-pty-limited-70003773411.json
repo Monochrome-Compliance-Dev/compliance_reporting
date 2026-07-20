@@ -1,0 +1,67 @@
+{
+  "slug": "warner-bros-entertainment-australia-pty-limited-70003773411",
+  "businessName": "WARNER BROS. ENTERTAINMENT AUSTRALIA PTY LIMITED",
+  "abn": "70003773411",
+  "acnArbn": "003773411",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Broadcasting (except internet)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010473",
+      "acnArbn": "003773411",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 55,
+      "payments31To60Days": 38,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Broadcasting (except internet)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-04-07",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 60,
+        "percentile": 20.3
+      }
+    },
+    {
+      "reportId": "PTR20003225",
+      "acnArbn": "003773411",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.93,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 42,
+      "payments31To60Days": 47,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Broadcasting (except internet)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-08-11",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 58,
+        "percentile": 28.1
+      }
+    }
+  ]
+}

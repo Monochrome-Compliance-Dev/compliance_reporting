@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-intertrading-australia-unit-trust-91987842123",
+  "businessName": "The Trustee for Intertrading Australia Unit Trust",
+  "abn": "91987842123",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011716",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.87,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 96.65,
+      "payments31To60Days": 3.13,
+      "paymentsMoreThan60Days": 0.21,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 221,
+        "count": 2613,
+        "percentile": 90.8
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 329,
+        "percentile": 95.1
+      }
+    },
+    {
+      "reportId": "PTR20006548",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.79,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.06,
+      "payments31To60Days": 4.94,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 323,
+        "percentile": 91
+      }
+    },
+    {
+      "reportId": "PTR20001473",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.92,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 79.73,
+      "payments31To60Days": 20.27,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "maxiparts-limited-58006797173",
+  "businessName": "MAXIPARTS LIMITED",
+  "abn": "58006797173",
+  "acnArbn": "006797173",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008071",
+      "acnArbn": "006797173",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 29.9,
+      "payments31To60Days": 65.4,
+      "paymentsMoreThan60Days": 4.7,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 329,
+        "percentile": 45.1
+      }
+    },
+    {
+      "reportId": "PTR20005492",
+      "acnArbn": "006797173",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 26.5,
+      "payments31To60Days": 69.5,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 323,
+        "percentile": 48.8
+      }
+    },
+    {
+      "reportId": "PTR20001058",
+      "acnArbn": "006797173",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 24,
+      "payments31To60Days": 71,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 159,
+        "count": 323,
+        "percentile": 44.4
+      }
+    }
+  ]
+}

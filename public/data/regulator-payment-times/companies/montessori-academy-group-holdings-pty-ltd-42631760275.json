@@ -1,0 +1,95 @@
+{
+  "slug": "montessori-academy-group-holdings-pty-ltd-42631760275",
+  "businessName": "MONTESSORI ACADEMY GROUP HOLDINGS PTY LTD",
+  "abn": "42631760275",
+  "acnArbn": "631760275",
+  "industryDivision": "Education and Training",
+  "industrySubdivision": "Preschool and school education",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009052",
+      "acnArbn": "631760275",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.01,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 86.91,
+      "payments31To60Days": 9.37,
+      "paymentsMoreThan60Days": 3.72,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 14,
+        "percentile": 23.1
+      }
+    },
+    {
+      "reportId": "PTR20005648",
+      "acnArbn": "631760275",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.52,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98.41,
+      "payments31To60Days": 1.58,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 15,
+        "percentile": 85.7
+      }
+    },
+    {
+      "reportId": "PTR20001799",
+      "acnArbn": "631760275",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.35,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98.61,
+      "payments31To60Days": 1.39,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 12,
+        "percentile": 90.9
+      }
+    }
+  ]
+}

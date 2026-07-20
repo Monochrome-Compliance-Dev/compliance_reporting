@@ -1,0 +1,95 @@
+{
+  "slug": "multi-market-services-australia-holdings-pty-ltd-50000026228",
+  "businessName": "MULTI MARKET SERVICES AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "50000026228",
+  "acnArbn": "000026228",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Internet publishing and broadcasting",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007803",
+      "acnArbn": "000026228",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.57,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 112,
+      "payments30DaysOrLess": 57.04,
+      "payments31To60Days": 28.19,
+      "paymentsMoreThan60Days": 14.76,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 2528,
+        "count": 2613,
+        "percentile": 3.3
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 60,
+        "percentile": 3.4
+      }
+    },
+    {
+      "reportId": "PTR20004221",
+      "acnArbn": "000026228",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.25,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 86.74,
+      "payments31To60Days": 11.91,
+      "paymentsMoreThan60Days": 1.36,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 55,
+        "percentile": 25.9
+      }
+    },
+    {
+      "reportId": "PTR20002544",
+      "acnArbn": "000026228",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.82,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 50.43,
+      "payments31To60Days": 36.62,
+      "paymentsMoreThan60Days": 12.95,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-07-16",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 58,
+        "percentile": 14
+      }
+    }
+  ]
+}

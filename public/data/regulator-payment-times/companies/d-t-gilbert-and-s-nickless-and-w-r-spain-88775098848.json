@@ -1,0 +1,95 @@
+{
+  "slug": "d-t-gilbert-and-s-nickless-and-w-r-spain-88775098848",
+  "businessName": "D.T GILBERT & S NICKLESS & W.R SPAIN",
+  "abn": "88775098848",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007210",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.86,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 124,
+      "payments30DaysOrLess": 68.25,
+      "payments31To60Days": 15.4,
+      "paymentsMoreThan60Days": 16.35,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-02-12",
+      "overallP95Position": {
+        "rank": 2558,
+        "count": 2613,
+        "percentile": 2
+      },
+      "industryP95Position": {
+        "rank": 171,
+        "count": 183,
+        "percentile": 6.6
+      }
+    },
+    {
+      "reportId": "PTR20004223",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.63,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 125,
+      "payments30DaysOrLess": 72.05,
+      "payments31To60Days": 10.56,
+      "paymentsMoreThan60Days": 17.4,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 2508,
+        "count": 2568,
+        "percentile": 2.2
+      },
+      "industryP95Position": {
+        "rank": 169,
+        "count": 181,
+        "percentile": 6.1
+      }
+    },
+    {
+      "reportId": "PTR20001213",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.53,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 73.41,
+      "payments31To60Days": 11.59,
+      "paymentsMoreThan60Days": 14.99,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2337,
+        "count": 2498,
+        "percentile": 6.2
+      },
+      "industryP95Position": {
+        "rank": 154,
+        "count": 176,
+        "percentile": 12.6
+      }
+    }
+  ]
+}

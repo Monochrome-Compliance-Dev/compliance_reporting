@@ -1,0 +1,95 @@
+{
+  "slug": "fuel-trans-australia-pty-ltd-54128300309",
+  "businessName": "Fuel Trans Australia Pty Ltd",
+  "abn": "54128300309",
+  "acnArbn": "128300309",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009450",
+      "acnArbn": "128300309",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.22,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 24.9,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-28",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 143,
+        "percentile": 75.4
+      }
+    },
+    {
+      "reportId": "PTR20004746",
+      "acnArbn": "128300309",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.24,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 72.9,
+      "payments31To60Days": 26.9,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-27",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 144,
+        "percentile": 68.5
+      }
+    },
+    {
+      "reportId": "PTR20001868",
+      "acnArbn": "128300309",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.22,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 58.4,
+      "payments31To60Days": 41.5,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 140,
+        "percentile": 55.4
+      }
+    }
+  ]
+}

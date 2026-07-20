@@ -1,0 +1,95 @@
+{
+  "slug": "mandala-trading-pty-ltd-60608372416",
+  "businessName": "MANDALA TRADING PTY LTD",
+  "abn": "60608372416",
+  "acnArbn": "608372416",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007092",
+      "acnArbn": "608372416",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.68,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 329,
+        "percentile": 84.5
+      }
+    },
+    {
+      "reportId": "PTR20003923",
+      "acnArbn": "608372416",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.81,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 70,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 323,
+        "percentile": 82.3
+      }
+    },
+    {
+      "reportId": "PTR20000198",
+      "acnArbn": "608372416",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.82,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 63,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-05-28",
+      "overallP95Position": {
+        "rank": 745,
+        "count": 2498,
+        "percentile": 68.9
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 323,
+        "percentile": 79.2
+      }
+    }
+  ]
+}

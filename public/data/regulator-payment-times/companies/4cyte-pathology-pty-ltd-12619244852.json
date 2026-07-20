@@ -1,0 +1,95 @@
+{
+  "slug": "4cyte-pathology-pty-ltd-12619244852",
+  "businessName": "4CYTE PATHOLOGY PTY LTD",
+  "abn": "12619244852",
+  "acnArbn": "619244852",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010705",
+      "acnArbn": "619244852",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 41.54,
+      "payments31To60Days": 46.95,
+      "paymentsMoreThan60Days": 11.51,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 2135,
+        "count": 2613,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 106,
+        "percentile": 24.8
+      }
+    },
+    {
+      "reportId": "PTR20010704",
+      "acnArbn": "619244852",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 43.31,
+      "payments31To60Days": 45.25,
+      "paymentsMoreThan60Days": 11.44,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 97,
+        "percentile": 32.3
+      }
+    },
+    {
+      "reportId": "PTR20010702",
+      "acnArbn": "619244852",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 37.46,
+      "payments31To60Days": 42.71,
+      "paymentsMoreThan60Days": 19.83,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 97,
+        "percentile": 20.8
+      }
+    }
+  ]
+}

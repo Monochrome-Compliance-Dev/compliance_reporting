@@ -1,0 +1,39 @@
+{
+  "slug": "fluidra-holdings-australia-pty-ltd-11128458104",
+  "businessName": "FLUIDRA HOLDINGS AUSTRALIA PTY LTD",
+  "abn": "11128458104",
+  "acnArbn": "128458104",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011501",
+      "acnArbn": "128458104",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55,
+      "medianPaymentTimeDays": 51,
+      "p80PaymentTimeDays": 75,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 8.36,
+      "payments31To60Days": 54.9,
+      "paymentsMoreThan60Days": 36.74,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 2424,
+        "count": 2613,
+        "percentile": 6.8
+      },
+      "industryP95Position": {
+        "rank": 301,
+        "count": 329,
+        "percentile": 7.6
+      }
+    }
+  ]
+}

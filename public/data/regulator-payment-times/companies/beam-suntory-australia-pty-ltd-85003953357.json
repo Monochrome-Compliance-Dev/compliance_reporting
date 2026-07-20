@@ -1,0 +1,95 @@
+{
+  "slug": "beam-suntory-australia-pty-ltd-85003953357",
+  "businessName": "BEAM SUNTORY AUSTRALIA PTY LTD",
+  "abn": "85003953357",
+  "acnArbn": "003953357",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010077",
+      "acnArbn": "003953357",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.91,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 20.77,
+      "payments31To60Days": 58.36,
+      "paymentsMoreThan60Days": 20.87,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2436,
+        "count": 2613,
+        "percentile": 6.4
+      },
+      "industryP95Position": {
+        "rank": 305,
+        "count": 329,
+        "percentile": 7
+      }
+    },
+    {
+      "reportId": "PTR20006161",
+      "acnArbn": "003953357",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.8,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 8.1,
+      "payments31To60Days": 73.74,
+      "paymentsMoreThan60Days": 18.16,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-23",
+      "overallP95Position": {
+        "rank": 2259,
+        "count": 2568,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 269,
+        "count": 323,
+        "percentile": 16.5
+      }
+    },
+    {
+      "reportId": "PTR20002557",
+      "acnArbn": "003953357",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 12.88,
+      "payments31To60Days": 69.46,
+      "paymentsMoreThan60Days": 17.66,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-16",
+      "overallP95Position": {
+        "rank": 2125,
+        "count": 2498,
+        "percentile": 14.3
+      },
+      "industryP95Position": {
+        "rank": 260,
+        "count": 323,
+        "percentile": 19.3
+      }
+    }
+  ]
+}

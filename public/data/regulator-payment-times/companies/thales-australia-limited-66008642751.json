@@ -1,0 +1,67 @@
+{
+  "slug": "thales-australia-limited-66008642751",
+  "businessName": "THALES AUSTRALIA LIMITED",
+  "abn": "66008642751",
+  "acnArbn": "008642751",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Defence",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20011331",
+      "acnArbn": "008642751",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.76,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 63.32,
+      "payments31To60Days": 28.46,
+      "paymentsMoreThan60Days": 8.22,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-06-11",
+      "overallP95Position": {
+        "rank": 2171,
+        "count": 2568,
+        "percentile": 15.1
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 34,
+        "percentile": 6.1
+      }
+    },
+    {
+      "reportId": "PTR20001892",
+      "acnArbn": "008642751",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.31,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 66.2,
+      "payments31To60Days": 28.19,
+      "paymentsMoreThan60Days": 5.61,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 31,
+        "percentile": 23.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "loc-global-pty-ltd-53637527541",
+  "businessName": "LOC GLOBAL PTY LTD",
+  "abn": "53637527541",
+  "acnArbn": "637527541",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Fuel retailing",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006426",
+      "acnArbn": "637527541",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.68,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 21.89,
+      "payments31To60Days": 74.49,
+      "paymentsMoreThan60Days": 3.62,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-04",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 127,
+        "count": 208,
+        "percentile": 37.2
+      }
+    },
+    {
+      "reportId": "PTR20006811",
+      "acnArbn": "637527541",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.65,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 20.85,
+      "payments31To60Days": 75.36,
+      "paymentsMoreThan60Days": 3.8,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-12-22",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 207,
+        "percentile": 37.4
+      }
+    }
+  ]
+}

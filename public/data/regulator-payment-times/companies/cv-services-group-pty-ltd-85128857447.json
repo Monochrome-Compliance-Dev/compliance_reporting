@@ -1,0 +1,95 @@
+{
+  "slug": "cv-services-group-pty-ltd-85128857447",
+  "businessName": "CV Services Group Pty Ltd",
+  "abn": "85128857447",
+  "acnArbn": "128857447",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008857",
+      "acnArbn": "128857447",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.91,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 30.66,
+      "payments31To60Days": 45.84,
+      "paymentsMoreThan60Days": 23.5,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2190,
+        "count": 2613,
+        "percentile": 15.4
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 270,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20005365",
+      "acnArbn": "128857447",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.5,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 17.8,
+      "payments31To60Days": 55.3,
+      "paymentsMoreThan60Days": 26.8,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 207,
+        "count": 259,
+        "percentile": 19.4
+      }
+    },
+    {
+      "reportId": "PTR20005361",
+      "acnArbn": "128857447",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52.2,
+      "medianPaymentTimeDays": 54,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 12.3,
+      "payments31To60Days": 51.8,
+      "paymentsMoreThan60Days": 35.9,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2125,
+        "count": 2498,
+        "percentile": 14.3
+      },
+      "industryP95Position": {
+        "rank": 213,
+        "count": 250,
+        "percentile": 14.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "hull-2227-shipping-ltd-15835095647",
+  "businessName": "Hull 2227 Shipping Ltd",
+  "abn": "15835095647",
+  "acnArbn": "",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Water transport",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006907",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.54,
+      "medianPaymentTimeDays": 52.5,
+      "p80PaymentTimeDays": 103,
+      "p95PaymentTimeDays": 165,
+      "payments30DaysOrLess": 59.79,
+      "payments31To60Days": 26.2,
+      "paymentsMoreThan60Days": 14.01,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-01-04",
+      "overallP95Position": {
+        "rank": 228,
+        "count": 228,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 18,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006544",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.23,
+      "medianPaymentTimeDays": 47.5,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 160,
+      "payments30DaysOrLess": 70.51,
+      "payments31To60Days": 15.45,
+      "paymentsMoreThan60Days": 14.04,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-11-20",
+      "overallP95Position": {
+        "rank": 229,
+        "count": 231,
+        "percentile": 0.9
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 17,
+        "percentile": 0
+      }
+    }
+  ]
+}

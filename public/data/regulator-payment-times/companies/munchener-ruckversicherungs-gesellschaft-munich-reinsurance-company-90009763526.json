@@ -1,0 +1,95 @@
+{
+  "slug": "munchener-ruckversicherungs-gesellschaft-munich-reinsurance-company-90009763526",
+  "businessName": "MUNCHENER RUCKVERSICHERUNGS-GESELLSCHAFT (MUNICH REINSURANCE COMPANY)",
+  "abn": "90009763526",
+  "acnArbn": "009763526",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008866",
+      "acnArbn": "009763526",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.93,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 88.24,
+      "payments31To60Days": 11.03,
+      "paymentsMoreThan60Days": 0.74,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 218,
+        "count": 338,
+        "percentile": 33.5
+      }
+    },
+    {
+      "reportId": "PTR20004466",
+      "acnArbn": "009763526",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.63,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 82.11,
+      "payments31To60Days": 13.82,
+      "paymentsMoreThan60Days": 4.07,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 273,
+        "count": 349,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20001154",
+      "acnArbn": "009763526",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.65,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 89.67,
+      "payments31To60Days": 6.52,
+      "paymentsMoreThan60Days": 3.8,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 251,
+        "count": 339,
+        "percentile": 24.9
+      }
+    }
+  ]
+}

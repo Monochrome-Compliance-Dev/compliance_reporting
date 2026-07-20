@@ -1,0 +1,95 @@
+{
+  "slug": "cenecrew-pty-ltd-49002180467",
+  "businessName": "CENECREW PTY LTD",
+  "abn": "49002180467",
+  "acnArbn": "002180467",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008055",
+      "acnArbn": "002180467",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.84,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 54.63,
+      "payments31To60Days": 42.86,
+      "paymentsMoreThan60Days": 2.5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 129,
+        "count": 329,
+        "percentile": 58.8
+      }
+    },
+    {
+      "reportId": "PTR20005107",
+      "acnArbn": "002180467",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.99,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 67.59,
+      "payments31To60Days": 31.71,
+      "paymentsMoreThan60Days": 0.45,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 323,
+        "percentile": 71.4
+      }
+    },
+    {
+      "reportId": "PTR20003211",
+      "acnArbn": "002180467",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.16,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 66.57,
+      "payments31To60Days": 31.6,
+      "paymentsMoreThan60Days": 1.65,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-25",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 323,
+        "percentile": 65.8
+      }
+    }
+  ]
+}

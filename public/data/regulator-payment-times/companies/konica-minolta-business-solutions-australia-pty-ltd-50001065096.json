@@ -1,0 +1,67 @@
+{
+  "slug": "konica-minolta-business-solutions-australia-pty-ltd-50001065096",
+  "businessName": "KONICA MINOLTA BUSINESS SOLUTIONS AUSTRALIA PTY LTD",
+  "abn": "50001065096",
+  "acnArbn": "001065096",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Printing (including the reproduction of recorded media)",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006031",
+      "acnArbn": "001065096",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 71.8,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 3.9,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-13",
+      "overallP95Position": {
+        "rank": 38,
+        "count": 228,
+        "percentile": 81.9
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 28,
+        "percentile": 96.3
+      }
+    },
+    {
+      "reportId": "PTR20001147",
+      "acnArbn": "001065096",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 76,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 37,
+        "count": 231,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 32,
+        "percentile": 93.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "sea-swift-pty-ltd-16010889040",
+  "businessName": "SEA SWIFT PTY. LTD.",
+  "abn": "16010889040",
+  "acnArbn": "010889040",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Water transport",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004857",
+      "acnArbn": "010889040",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52.7,
+      "medianPaymentTimeDays": 52,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 13.2,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 51.8,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2156,
+        "count": 2568,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 144,
+        "percentile": 13.3
+      }
+    },
+    {
+      "reportId": "PTR20002326",
+      "acnArbn": "010889040",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51.69,
+      "medianPaymentTimeDays": 51,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 9.4,
+      "payments31To60Days": 59.7,
+      "paymentsMoreThan60Days": 31,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-02",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 140,
+        "percentile": 14.4
+      }
+    }
+  ]
+}

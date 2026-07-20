@@ -1,0 +1,39 @@
+{
+  "slug": "australian-football-league-97489912318",
+  "businessName": "AUSTRALIAN FOOTBALL LEAGUE",
+  "abn": "97489912318",
+  "acnArbn": "004155211",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2025-04-29",
+  "reports": [
+    {
+      "reportId": "PTR20003052",
+      "acnArbn": "004155211",
+      "reportingPeriodStartDate": "2024-10-31",
+      "reportingPeriodEndDate": "2025-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.1,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-08-05",
+      "overallP95Position": {
+        "rank": 14,
+        "count": 28,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 6,
+        "percentile": 20
+      }
+    }
+  ]
+}

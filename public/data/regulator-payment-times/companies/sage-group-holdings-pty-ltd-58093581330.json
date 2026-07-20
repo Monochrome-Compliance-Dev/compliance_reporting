@@ -1,0 +1,123 @@
+{
+  "slug": "sage-group-holdings-pty-ltd-58093581330",
+  "businessName": "SAGE Group Holdings Pty Ltd",
+  "abn": "58093581330",
+  "acnArbn": "093581330",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011631",
+      "acnArbn": "093581330",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.96,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 49.94,
+      "payments31To60Days": 43.27,
+      "paymentsMoreThan60Days": 6.79,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 147,
+        "count": 193,
+        "percentile": 22.4
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 25,
+        "percentile": 37.5
+      }
+    },
+    {
+      "reportId": "PTR20007637",
+      "acnArbn": "093581330",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.41,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 43.62,
+      "payments31To60Days": 46.2,
+      "paymentsMoreThan60Days": 10.18,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 190,
+        "count": 228,
+        "percentile": 16.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 27,
+        "percentile": 19.2
+      }
+    },
+    {
+      "reportId": "PTR20006459",
+      "acnArbn": "093581330",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.73,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 46.43,
+      "payments31To60Days": 43.41,
+      "paymentsMoreThan60Days": 10.16,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-10",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 181,
+        "percentile": 26.1
+      }
+    },
+    {
+      "reportId": "PTR20006455",
+      "acnArbn": "093581330",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.52,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 46.34,
+      "payments31To60Days": 45.24,
+      "paymentsMoreThan60Days": 8.42,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-10",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 118,
+        "count": 176,
+        "percentile": 33.1
+      }
+    }
+  ]
+}

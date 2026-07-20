@@ -1,0 +1,95 @@
+{
+  "slug": "parker-hannifin-australia-holding-pty-limited-61117010107",
+  "businessName": "PARKER HANNIFIN AUSTRALIA HOLDING PTY LIMITED",
+  "abn": "61117010107",
+  "acnArbn": "117010107",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008628",
+      "acnArbn": "117010107",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 78,
+      "medianPaymentTimeDays": 69,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 29,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 39,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 2424,
+        "count": 2613,
+        "percentile": 6.8
+      },
+      "industryP95Position": {
+        "rank": 312,
+        "count": 347,
+        "percentile": 9.5
+      }
+    },
+    {
+      "reportId": "PTR20005105",
+      "acnArbn": "117010107",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 66,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 36,
+      "payments31To60Days": 27,
+      "paymentsMoreThan60Days": 37,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2568,
+        "percentile": 8.8
+      },
+      "industryP95Position": {
+        "rank": 297,
+        "count": 335,
+        "percentile": 11.1
+      }
+    },
+    {
+      "reportId": "PTR20000606",
+      "acnArbn": "117010107",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 98,
+      "medianPaymentTimeDays": 66,
+      "p80PaymentTimeDays": 68,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 40,
+      "payments31To60Days": 37,
+      "paymentsMoreThan60Days": 23,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 2281,
+        "count": 2498,
+        "percentile": 8.3
+      },
+      "industryP95Position": {
+        "rank": 284,
+        "count": 323,
+        "percentile": 11.8
+      }
+    }
+  ]
+}

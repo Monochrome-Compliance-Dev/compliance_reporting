@@ -1,0 +1,95 @@
+{
+  "slug": "mitsui-e-and-p-australia-holdings-pty-ltd-70077897440",
+  "businessName": "MITSUI E&P AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "70077897440",
+  "acnArbn": "077897440",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011596",
+      "acnArbn": "077897440",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.04,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 93.13,
+      "payments31To60Days": 6.76,
+      "paymentsMoreThan60Days": 0.11,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 38,
+        "count": 193,
+        "percentile": 79.2
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 10,
+        "percentile": 44.4
+      }
+    },
+    {
+      "reportId": "PTR20006729",
+      "acnArbn": "077897440",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.86,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 81.79,
+      "payments31To60Days": 17.54,
+      "paymentsMoreThan60Days": 0.66,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-12-16",
+      "overallP95Position": {
+        "rank": 59,
+        "count": 228,
+        "percentile": 73.1
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 10,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20000347",
+      "acnArbn": "077897440",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.53,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 82.5,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-10",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 231,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 10,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

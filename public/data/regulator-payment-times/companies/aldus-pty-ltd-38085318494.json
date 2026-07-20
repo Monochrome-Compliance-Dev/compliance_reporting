@@ -1,0 +1,67 @@
+{
+  "slug": "aldus-pty-ltd-38085318494",
+  "businessName": "ALDUS PTY LTD",
+  "abn": "38085318494",
+  "acnArbn": "085318494",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20003255",
+      "acnArbn": "085318494",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.25,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 19.11,
+      "payments31To60Days": 56.75,
+      "paymentsMoreThan60Days": 24.14,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 262,
+        "count": 335,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20000024",
+      "acnArbn": "085318494",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.69,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 21.15,
+      "payments31To60Days": 58.23,
+      "paymentsMoreThan60Days": 20.62,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-05-05",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2498,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 255,
+        "count": 323,
+        "percentile": 18.9
+      }
+    }
+  ]
+}

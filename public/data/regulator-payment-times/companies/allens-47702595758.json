@@ -1,0 +1,95 @@
+{
+  "slug": "allens-47702595758",
+  "businessName": "ALLENS",
+  "abn": "47702595758",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009510",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.82,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 67.95,
+      "payments31To60Days": 18.5,
+      "paymentsMoreThan60Days": 13.55,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2436,
+        "count": 2613,
+        "percentile": 6.4
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 183,
+        "percentile": 16.5
+      }
+    },
+    {
+      "reportId": "PTR20004973",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.81,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 107,
+      "payments30DaysOrLess": 66.47,
+      "payments31To60Days": 16.72,
+      "paymentsMoreThan60Days": 16.81,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2433,
+        "count": 2568,
+        "percentile": 5.2
+      },
+      "industryP95Position": {
+        "rank": 160,
+        "count": 181,
+        "percentile": 11.7
+      }
+    },
+    {
+      "reportId": "PTR20001776",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.8,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 68.02,
+      "payments31To60Days": 17.84,
+      "paymentsMoreThan60Days": 14.14,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2322,
+        "count": 2498,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 176,
+        "percentile": 13.7
+      }
+    }
+  ]
+}

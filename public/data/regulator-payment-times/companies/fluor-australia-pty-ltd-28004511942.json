@@ -1,0 +1,95 @@
+{
+  "slug": "fluor-australia-pty-ltd-28004511942",
+  "businessName": "FLUOR AUSTRALIA PTY LTD",
+  "abn": "28004511942",
+  "acnArbn": "004511942",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008605",
+      "acnArbn": "004511942",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 52,
+      "payments31To60Days": 41,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 123,
+        "count": 177,
+        "percentile": 27.3
+      }
+    },
+    {
+      "reportId": "PTR20005725",
+      "acnArbn": "004511942",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 43,
+      "payments31To60Days": 48,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 173,
+        "percentile": 59.9
+      }
+    },
+    {
+      "reportId": "PTR20001569",
+      "acnArbn": "004511942",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 54,
+      "payments31To60Days": 43,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 170,
+        "percentile": 62.7
+      }
+    }
+  ]
+}

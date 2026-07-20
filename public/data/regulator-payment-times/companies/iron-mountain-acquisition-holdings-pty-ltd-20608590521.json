@@ -1,0 +1,95 @@
+{
+  "slug": "iron-mountain-acquisition-holdings-pty-ltd-20608590521",
+  "businessName": "IRON MOUNTAIN ACQUISITION HOLDINGS PTY LTD",
+  "abn": "20608590521",
+  "acnArbn": "608590521",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Library and other information services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009157",
+      "acnArbn": "608590521",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 69.82,
+      "payments31To60Days": 24.35,
+      "paymentsMoreThan60Days": 5.83,
+      "industrySubdivision": "Library and other information services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 60,
+        "percentile": 23.7
+      }
+    },
+    {
+      "reportId": "PTR20011222",
+      "acnArbn": "608590521",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.26,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 123,
+      "payments30DaysOrLess": 70.02,
+      "payments31To60Days": 18.68,
+      "paymentsMoreThan60Days": 11.3,
+      "industrySubdivision": "Library and other information services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-05-28",
+      "overallP95Position": {
+        "rank": 2500,
+        "count": 2568,
+        "percentile": 2.5
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 55,
+        "percentile": 3.7
+      }
+    },
+    {
+      "reportId": "PTR20002703",
+      "acnArbn": "608590521",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.17,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 75.52,
+      "payments31To60Days": 11.56,
+      "paymentsMoreThan60Days": 12.92,
+      "industrySubdivision": "Library and other information services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 1937,
+        "count": 2498,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 58,
+        "percentile": 21.1
+      }
+    }
+  ]
+}

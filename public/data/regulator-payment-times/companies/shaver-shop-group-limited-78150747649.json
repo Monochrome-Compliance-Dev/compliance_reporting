@@ -1,0 +1,95 @@
+{
+  "slug": "shaver-shop-group-limited-78150747649",
+  "businessName": "SHAVER SHOP GROUP LIMITED",
+  "abn": "78150747649",
+  "acnArbn": "150747649",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009420",
+      "acnArbn": "150747649",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.49,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 10.63,
+      "payments31To60Days": 84.25,
+      "paymentsMoreThan60Days": 5.12,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 207,
+        "percentile": 31.1
+      }
+    },
+    {
+      "reportId": "PTR20004999",
+      "acnArbn": "150747649",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.49,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 12.53,
+      "payments31To60Days": 79.8,
+      "paymentsMoreThan60Days": 7.76,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1988,
+        "count": 2568,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 163,
+        "count": 208,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20001731",
+      "acnArbn": "150747649",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52,
+      "medianPaymentTimeDays": 51,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 11.69,
+      "payments31To60Days": 73.6,
+      "paymentsMoreThan60Days": 14.71,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2125,
+        "count": 2498,
+        "percentile": 14.3
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 207,
+        "percentile": 14.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "terrace-tower-group-pty-limited-27002742967",
+  "businessName": "TERRACE TOWER GROUP PTY. LIMITED",
+  "abn": "27002742967",
+  "acnArbn": "002742967",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011531",
+      "acnArbn": "002742967",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-23",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 338,
+        "percentile": 55.8
+      }
+    },
+    {
+      "reportId": "PTR20007429",
+      "acnArbn": "002742967",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 88,
+      "payments31To60Days": 11,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-03",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 232,
+        "count": 349,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20007302",
+      "acnArbn": "002742967",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-03",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 97,
+        "count": 339,
+        "percentile": 68.6
+      }
+    }
+  ]
+}

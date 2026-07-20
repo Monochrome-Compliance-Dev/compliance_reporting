@@ -1,0 +1,95 @@
+{
+  "slug": "limestone-holdco-pty-limited-87639416667",
+  "businessName": "LIMESTONE HOLDCO PTY LIMITED",
+  "abn": "87639416667",
+  "acnArbn": "639416667",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010364",
+      "acnArbn": "639416667",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.08,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 85.36,
+      "payments31To60Days": 8.52,
+      "paymentsMoreThan60Days": 6.12,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2057,
+        "count": 2613,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 313,
+        "count": 338,
+        "percentile": 6.5
+      }
+    },
+    {
+      "reportId": "PTR20006257",
+      "acnArbn": "639416667",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.71,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 88.72,
+      "payments31To60Days": 6.62,
+      "paymentsMoreThan60Days": 4.66,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 349,
+        "percentile": 22.1
+      }
+    },
+    {
+      "reportId": "PTR20006254",
+      "acnArbn": "639416667",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.95,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 91.85,
+      "payments31To60Days": 5.05,
+      "paymentsMoreThan60Days": 3.1,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 720,
+        "count": 2498,
+        "percentile": 70.2
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 339,
+        "percentile": 43.2
+      }
+    }
+  ]
+}

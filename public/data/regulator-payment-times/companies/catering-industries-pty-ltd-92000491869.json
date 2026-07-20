@@ -1,0 +1,95 @@
+{
+  "slug": "catering-industries-pty-ltd-92000491869",
+  "businessName": "CATERING INDUSTRIES PTY LTD",
+  "abn": "92000491869",
+  "acnArbn": "000491869",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009413",
+      "acnArbn": "000491869",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.88,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 32.77,
+      "payments31To60Days": 55.9,
+      "paymentsMoreThan60Days": 11.32,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2027,
+        "count": 2613,
+        "percentile": 21.9
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 38,
+        "percentile": 2.7
+      }
+    },
+    {
+      "reportId": "PTR20005058",
+      "acnArbn": "000491869",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.32,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 30.15,
+      "payments31To60Days": 58.36,
+      "paymentsMoreThan60Days": 11.48,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 36,
+        "percentile": 14.3
+      }
+    },
+    {
+      "reportId": "PTR20001888",
+      "acnArbn": "000491869",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.43,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 30.42,
+      "payments31To60Days": 60.51,
+      "paymentsMoreThan60Days": 9.07,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 30,
+        "percentile": 6.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "newfurn-floor-coverings-limited-63004650668",
+  "businessName": "NEWFURN FLOOR COVERINGS LIMITED",
+  "abn": "63004650668",
+  "acnArbn": "004650668",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008708",
+      "acnArbn": "004650668",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.93,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 20.76,
+      "payments31To60Days": 71,
+      "paymentsMoreThan60Days": 8.24,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 173,
+        "count": 270,
+        "percentile": 32.7
+      }
+    },
+    {
+      "reportId": "PTR20004292",
+      "acnArbn": "004650668",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.75,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 21.46,
+      "payments31To60Days": 71.65,
+      "paymentsMoreThan60Days": 6.88,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 142,
+        "count": 259,
+        "percentile": 42.6
+      }
+    },
+    {
+      "reportId": "PTR20000682",
+      "acnArbn": "004650668",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.12,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 33.07,
+      "payments31To60Days": 59.8,
+      "paymentsMoreThan60Days": 7.13,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 250,
+        "percentile": 41.4
+      }
+    }
+  ]
+}

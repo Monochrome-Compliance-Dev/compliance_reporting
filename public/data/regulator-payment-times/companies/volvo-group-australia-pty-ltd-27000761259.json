@@ -1,0 +1,95 @@
+{
+  "slug": "volvo-group-australia-pty-ltd-27000761259",
+  "businessName": "VOLVO GROUP AUSTRALIA PTY LTD",
+  "abn": "27000761259",
+  "acnArbn": "000761259",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008965",
+      "acnArbn": "000761259",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 24.09,
+      "payments31To60Days": 61.24,
+      "paymentsMoreThan60Days": 14.67,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2212,
+        "count": 2613,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 264,
+        "count": 347,
+        "percentile": 22.8
+      }
+    },
+    {
+      "reportId": "PTR20004073",
+      "acnArbn": "000761259",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 75,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 25,
+      "payments31To60Days": 52,
+      "paymentsMoreThan60Days": 23,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 282,
+        "count": 335,
+        "percentile": 12
+      }
+    },
+    {
+      "reportId": "PTR20002365",
+      "acnArbn": "000761259",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 75,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 23,
+      "payments31To60Days": 48,
+      "paymentsMoreThan60Days": 29,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-06",
+      "overallP95Position": {
+        "rank": 2243,
+        "count": 2498,
+        "percentile": 9.2
+      },
+      "industryP95Position": {
+        "rank": 276,
+        "count": 323,
+        "percentile": 13
+      }
+    }
+  ]
+}

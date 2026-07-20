@@ -1,0 +1,95 @@
+{
+  "slug": "kobelco-construction-machinery-australia-pty-limited-89097852296",
+  "businessName": "KOBELCO CONSTRUCTION MACHINERY AUSTRALIA PTY LIMITED",
+  "abn": "89097852296",
+  "acnArbn": "097852296",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008870",
+      "acnArbn": "097852296",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.87,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 84.76,
+      "payments31To60Days": 15.24,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 329,
+        "percentile": 84.8
+      }
+    },
+    {
+      "reportId": "PTR20003834",
+      "acnArbn": "097852296",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.69,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 75.65,
+      "payments31To60Days": 24.21,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 323,
+        "percentile": 77.6
+      }
+    },
+    {
+      "reportId": "PTR20001222",
+      "acnArbn": "097852296",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.9,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 86.86,
+      "payments31To60Days": 13.14,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 323,
+        "percentile": 87.3
+      }
+    }
+  ]
+}

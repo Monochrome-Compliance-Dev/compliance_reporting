@@ -1,0 +1,95 @@
+{
+  "slug": "gold-corporation-98838298431",
+  "businessName": "GOLD CORPORATION",
+  "abn": "98838298431",
+  "acnArbn": "",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008533",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 89,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 347,
+        "percentile": 80.3
+      }
+    },
+    {
+      "reportId": "PTR20003346",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 84,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-01",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 185,
+        "count": 335,
+        "percentile": 43.4
+      }
+    },
+    {
+      "reportId": "PTR20000064",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 87,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-05-12",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 55.3
+      }
+    }
+  ]
+}

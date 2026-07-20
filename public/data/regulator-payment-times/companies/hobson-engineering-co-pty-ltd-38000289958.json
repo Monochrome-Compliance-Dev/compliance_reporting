@@ -1,0 +1,95 @@
+{
+  "slug": "hobson-engineering-co-pty-ltd-38000289958",
+  "businessName": "HOBSON ENGINEERING CO PTY LTD",
+  "abn": "38000289958",
+  "acnArbn": "000289958",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008821",
+      "acnArbn": "000289958",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.31,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 89.72,
+      "payments31To60Days": 10.28,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 347,
+        "percentile": 90.5
+      }
+    },
+    {
+      "reportId": "PTR20003347",
+      "acnArbn": "000289958",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.99,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 80.34,
+      "payments31To60Days": 18.88,
+      "paymentsMoreThan60Days": 0.78,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-01",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 335,
+        "percentile": 82.9
+      }
+    },
+    {
+      "reportId": "PTR20001596",
+      "acnArbn": "000289958",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.53,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 80.78,
+      "payments31To60Days": 18.55,
+      "paymentsMoreThan60Days": 0.67,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 323,
+        "percentile": 84.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "total-ams-pty-ltd-81091839619",
+  "businessName": "TOTAL AMS PTY LTD",
+  "abn": "81091839619",
+  "acnArbn": "091839619",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009213",
+      "acnArbn": "091839619",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 73.47,
+      "payments31To60Days": 26.16,
+      "paymentsMoreThan60Days": 0.38,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 270,
+        "percentile": 78.8
+      }
+    },
+    {
+      "reportId": "PTR20003252",
+      "acnArbn": "091839619",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 80.47,
+      "payments31To60Days": 19.17,
+      "paymentsMoreThan60Days": 0.36,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 259,
+        "percentile": 81
+      }
+    },
+    {
+      "reportId": "PTR20001592",
+      "acnArbn": "091839619",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 93.37,
+      "payments31To60Days": 6.32,
+      "paymentsMoreThan60Days": 0.32,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 250,
+        "percentile": 91.2
+      }
+    }
+  ]
+}

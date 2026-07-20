@@ -1,0 +1,67 @@
+{
+  "slug": "frontier-international-agri-pty-ltd-78166496064",
+  "businessName": "FRONTIER INTERNATIONAL AGRI PTY LTD",
+  "abn": "78166496064",
+  "acnArbn": "166496064",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20002402",
+      "acnArbn": "166496064",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 87,
+      "payments31To60Days": 13,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-07-09",
+      "overallP95Position": {
+        "rank": 459,
+        "count": 2568,
+        "percentile": 81
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 92,
+        "percentile": 78
+      }
+    },
+    {
+      "reportId": "PTR20002202",
+      "acnArbn": "166496064",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.37,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 88.3,
+      "payments31To60Days": 11.6,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 85,
+        "percentile": 76.2
+      }
+    }
+  ]
+}

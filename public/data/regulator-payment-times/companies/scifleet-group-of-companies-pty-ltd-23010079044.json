@@ -1,0 +1,95 @@
+{
+  "slug": "scifleet-group-of-companies-pty-ltd-23010079044",
+  "businessName": "SCIFLEET GROUP OF COMPANIES PTY LTD",
+  "abn": "23010079044",
+  "acnArbn": "010079044",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010028",
+      "acnArbn": "010079044",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 71,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 329,
+        "percentile": 64.6
+      }
+    },
+    {
+      "reportId": "PTR20004853",
+      "acnArbn": "010079044",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 56,
+      "payments31To60Days": 38,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 225,
+        "count": 323,
+        "percentile": 29.8
+      }
+    },
+    {
+      "reportId": "PTR20004855",
+      "acnArbn": "010079044",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 56,
+      "payments31To60Days": 41,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 323,
+        "percentile": 53.4
+      }
+    }
+  ]
+}

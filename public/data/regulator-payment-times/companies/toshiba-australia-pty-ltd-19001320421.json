@@ -1,0 +1,67 @@
+{
+  "slug": "toshiba-australia-pty-ltd-19001320421",
+  "businessName": "TOSHIBA (AUSTRALIA) PTY LTD",
+  "abn": "19001320421",
+  "acnArbn": "001320421",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011532",
+      "acnArbn": "001320421",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 2,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 93.8,
+      "payments31To60Days": 3.6,
+      "paymentsMoreThan60Days": 2.5,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-23",
+      "overallP95Position": {
+        "rank": 49,
+        "count": 193,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 45,
+        "percentile": 75
+      }
+    },
+    {
+      "reportId": "PTR20002305",
+      "acnArbn": "001320421",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 92.2,
+      "payments31To60Days": 5.9,
+      "paymentsMoreThan60Days": 1.9,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-01",
+      "overallP95Position": {
+        "rank": 37,
+        "count": 231,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 61,
+        "percentile": 85
+      }
+    }
+  ]
+}

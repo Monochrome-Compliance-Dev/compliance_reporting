@@ -1,0 +1,95 @@
+{
+  "slug": "accredited-distributors-pty-ltd-82112903198",
+  "businessName": "ACCREDITED DISTRIBUTORS PTY LTD",
+  "abn": "82112903198",
+  "acnArbn": "112903198",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Warehousing and storage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010536",
+      "acnArbn": "112903198",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.6,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 73.3,
+      "payments31To60Days": 23,
+      "paymentsMoreThan60Days": 3.8,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 143,
+        "percentile": 72.5
+      }
+    },
+    {
+      "reportId": "PTR20005821",
+      "acnArbn": "112903198",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.67,
+      "medianPaymentTimeDays": 12.25,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 68.5,
+      "payments31To60Days": 25.6,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 144,
+        "percentile": 79
+      }
+    },
+    {
+      "reportId": "PTR20002300",
+      "acnArbn": "112903198",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.7,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 66.8,
+      "payments31To60Days": 33.2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-01",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 140,
+        "percentile": 85.6
+      }
+    }
+  ]
+}

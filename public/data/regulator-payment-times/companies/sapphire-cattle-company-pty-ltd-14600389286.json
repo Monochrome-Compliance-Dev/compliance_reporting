@@ -1,0 +1,67 @@
+{
+  "slug": "sapphire-cattle-company-pty-ltd-14600389286",
+  "businessName": "SAPPHIRE CATTLE COMPANY PTY LTD",
+  "abn": "14600389286",
+  "acnArbn": "600389286",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009667",
+      "acnArbn": "600389286",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 83,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 38,
+        "percentile": 37.8
+      }
+    },
+    {
+      "reportId": "PTR20005922",
+      "acnArbn": "600389286",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 2483,
+        "count": 2568,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 36,
+        "percentile": 2.9
+      }
+    }
+  ]
+}

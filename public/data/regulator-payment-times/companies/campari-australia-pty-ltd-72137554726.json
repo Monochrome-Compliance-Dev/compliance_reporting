@@ -1,0 +1,95 @@
+{
+  "slug": "campari-australia-pty-ltd-72137554726",
+  "businessName": "Campari Australia Pty Ltd",
+  "abn": "72137554726",
+  "acnArbn": "137554726",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010513",
+      "acnArbn": "137554726",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 22,
+      "payments31To60Days": 42,
+      "paymentsMoreThan60Days": 36,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 2415,
+        "count": 2613,
+        "percentile": 7.3
+      },
+      "industryP95Position": {
+        "rank": 298,
+        "count": 329,
+        "percentile": 8.8
+      }
+    },
+    {
+      "reportId": "PTR20003939",
+      "acnArbn": "137554726",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.39,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 62.19,
+      "payments31To60Days": 30.35,
+      "paymentsMoreThan60Days": 7.46,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 195,
+        "count": 323,
+        "percentile": 38.5
+      }
+    },
+    {
+      "reportId": "PTR20003608",
+      "acnArbn": "137554726",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.46,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 77.04,
+      "payments31To60Days": 20.64,
+      "paymentsMoreThan60Days": 2.32,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 323,
+        "percentile": 51.2
+      }
+    }
+  ]
+}

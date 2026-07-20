@@ -1,0 +1,39 @@
+{
+  "slug": "cochlear-limited-96002618073",
+  "businessName": "COCHLEAR LIMITED",
+  "abn": "96002618073",
+  "acnArbn": "002618073",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20001366",
+      "acnArbn": "002618073",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 89.7,
+      "payments31To60Days": 7.1,
+      "paymentsMoreThan60Days": 3.2,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 97,
+        "percentile": 64.6
+      }
+    }
+  ]
+}

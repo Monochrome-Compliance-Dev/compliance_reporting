@@ -1,0 +1,95 @@
+{
+  "slug": "dowford-investments-pty-ltd-17093388446",
+  "businessName": "DOWFORD INVESTMENTS PTY LTD",
+  "abn": "17093388446",
+  "acnArbn": "093388446",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010137",
+      "acnArbn": "093388446",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60.29,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 126,
+      "payments30DaysOrLess": 25.83,
+      "payments31To60Days": 26.98,
+      "paymentsMoreThan60Days": 47.19,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2565,
+        "count": 2613,
+        "percentile": 1.6
+      },
+      "industryP95Position": {
+        "rank": 340,
+        "count": 347,
+        "percentile": 1.4
+      }
+    },
+    {
+      "reportId": "PTR20006327",
+      "acnArbn": "093388446",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.05,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 78,
+      "p95PaymentTimeDays": 112,
+      "payments30DaysOrLess": 28.49,
+      "payments31To60Days": 31.85,
+      "paymentsMoreThan60Days": 39.66,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-29",
+      "overallP95Position": {
+        "rank": 2449,
+        "count": 2568,
+        "percentile": 4.4
+      },
+      "industryP95Position": {
+        "rank": 322,
+        "count": 335,
+        "percentile": 3
+      }
+    },
+    {
+      "reportId": "PTR20006326",
+      "acnArbn": "093388446",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 56.64,
+      "medianPaymentTimeDays": 55,
+      "p80PaymentTimeDays": 81,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 25.54,
+      "payments31To60Days": 32.41,
+      "paymentsMoreThan60Days": 42.05,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-29",
+      "overallP95Position": {
+        "rank": 2418,
+        "count": 2498,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 313,
+        "count": 323,
+        "percentile": 2.2
+      }
+    }
+  ]
+}

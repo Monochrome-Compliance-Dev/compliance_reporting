@@ -1,0 +1,67 @@
+{
+  "slug": "axicorp-financial-services-pty-ltd-85127606348",
+  "businessName": "AXICORP FINANCIAL SERVICES PTY LTD",
+  "abn": "85127606348",
+  "acnArbn": "127606348",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010954",
+      "acnArbn": "127606348",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 94.4,
+      "payments31To60Days": 4.7,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-05-03",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 296,
+        "count": 338,
+        "percentile": 11.9
+      }
+    },
+    {
+      "reportId": "PTR20003373",
+      "acnArbn": "127606348",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 82.1,
+      "payments31To60Days": 17.7,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-02",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 214,
+        "count": 349,
+        "percentile": 37.1
+      }
+    }
+  ]
+}

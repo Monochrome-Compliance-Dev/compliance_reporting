@@ -1,0 +1,67 @@
+{
+  "slug": "az-next-generation-advisory-limited-57167960018",
+  "businessName": "AZ NEXT GENERATION ADVISORY LIMITED",
+  "abn": "57167960018",
+  "acnArbn": "167960018",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005466",
+      "acnArbn": "167960018",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.89,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 96.91,
+      "payments31To60Days": 3.04,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 349,
+        "percentile": 54.6
+      }
+    },
+    {
+      "reportId": "PTR20002257",
+      "acnArbn": "167960018",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.75,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 91.35,
+      "payments31To60Days": 6.7,
+      "paymentsMoreThan60Days": 1.95,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 652,
+        "count": 2498,
+        "percentile": 73.1
+      },
+      "industryP95Position": {
+        "rank": 173,
+        "count": 339,
+        "percentile": 47.3
+      }
+    }
+  ]
+}

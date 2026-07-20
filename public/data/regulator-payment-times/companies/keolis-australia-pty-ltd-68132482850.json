@@ -1,0 +1,95 @@
+{
+  "slug": "keolis-australia-pty-ltd-68132482850",
+  "businessName": "Keolis Australia Pty Ltd",
+  "abn": "68132482850",
+  "acnArbn": "132482850",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009237",
+      "acnArbn": "132482850",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 62.35,
+      "payments31To60Days": 32.2,
+      "paymentsMoreThan60Days": 5.45,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 143,
+        "percentile": 24.6
+      }
+    },
+    {
+      "reportId": "PTR20005412",
+      "acnArbn": "132482850",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 58,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2568,
+        "percentile": 22.6
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 144,
+        "percentile": 18.9
+      }
+    },
+    {
+      "reportId": "PTR20002546",
+      "acnArbn": "132482850",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.8,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 58.94,
+      "payments31To60Days": 37.19,
+      "paymentsMoreThan60Days": 3.86,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-16",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 140,
+        "percentile": 43.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-whsp-agriculture-holding-trust-74313288080",
+  "businessName": "The Trustee for WHSP Agriculture Holding Trust",
+  "abn": "74313288080",
+  "acnArbn": "",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20007857",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.24,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 86.71,
+      "payments31To60Days": 12.85,
+      "paymentsMoreThan60Days": 0.43,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 11,
+        "count": 31,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006084",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-31",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.68,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 85.45,
+      "payments31To60Days": 13.71,
+      "paymentsMoreThan60Days": 0.84,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-10-19",
+      "overallP95Position": {
+        "rank": 13,
+        "count": 34,
+        "percentile": 63.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20001524",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.3,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 88.6,
+      "payments31To60Days": 10.6,
+      "paymentsMoreThan60Days": 0.8,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 30,
+        "percentile": 69
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

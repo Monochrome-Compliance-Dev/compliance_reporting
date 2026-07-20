@@ -1,0 +1,95 @@
+{
+  "slug": "graymont-australia-pty-ltd-24004406688",
+  "businessName": "GRAYMONT (AUSTRALIA) PTY LTD",
+  "abn": "24004406688",
+  "acnArbn": "004406688",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Non-metallic mineral mining and quarrying",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007533",
+      "acnArbn": "004406688",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.69,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.56,
+      "payments31To60Days": 2.92,
+      "paymentsMoreThan60Days": 1.52,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 177,
+        "percentile": 88.1
+      }
+    },
+    {
+      "reportId": "PTR20005047",
+      "acnArbn": "004406688",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.62,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 96.72,
+      "payments31To60Days": 2.18,
+      "paymentsMoreThan60Days": 1.1,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 139,
+        "count": 2568,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 173,
+        "percentile": 90.1
+      }
+    },
+    {
+      "reportId": "PTR20001123",
+      "acnArbn": "004406688",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.82,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.47,
+      "payments31To60Days": 3.48,
+      "paymentsMoreThan60Days": 1.05,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 170,
+        "percentile": 85.2
+      }
+    }
+  ]
+}

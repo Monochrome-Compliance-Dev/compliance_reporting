@@ -1,0 +1,95 @@
+{
+  "slug": "d-e-holding-australia-pty-ltd-16100632595",
+  "businessName": "D.E HOLDING AUSTRALIA PTY LTD",
+  "abn": "16100632595",
+  "acnArbn": "100632595",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008066",
+      "acnArbn": "100632595",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.78,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 1305,
+        "count": 2613,
+        "percentile": 47.8
+      },
+      "industryP95Position": {
+        "rank": 118,
+        "count": 329,
+        "percentile": 61.3
+      }
+    },
+    {
+      "reportId": "PTR20004116",
+      "acnArbn": "100632595",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.86,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 97,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 323,
+        "percentile": 56.8
+      }
+    },
+    {
+      "reportId": "PTR20000845",
+      "acnArbn": "100632595",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.59,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 323,
+        "percentile": 62.4
+      }
+    }
+  ]
+}

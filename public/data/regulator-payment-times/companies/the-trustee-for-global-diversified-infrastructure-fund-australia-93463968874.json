@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-global-diversified-infrastructure-fund-australia-93463968874",
+  "businessName": "The Trustee for Global Diversified Infrastructure Fund (Australia)",
+  "abn": "93463968874",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007702",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.38,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 12.5,
+      "paymentsMoreThan60Days": 12.5,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-08",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 301,
+        "count": 338,
+        "percentile": 10.4
+      }
+    },
+    {
+      "reportId": "PTR20003260",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.67,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 33.33,
+      "payments31To60Days": 66.67,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 273,
+        "count": 349,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20002072",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.5,
+      "medianPaymentTimeDays": 17.5,
+      "p80PaymentTimeDays": 81,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2125,
+        "count": 2498,
+        "percentile": 14.3
+      },
+      "industryP95Position": {
+        "rank": 313,
+        "count": 339,
+        "percentile": 7.1
+      }
+    }
+  ]
+}

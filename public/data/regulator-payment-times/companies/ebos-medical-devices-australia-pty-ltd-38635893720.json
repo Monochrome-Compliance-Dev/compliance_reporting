@@ -1,0 +1,95 @@
+{
+  "slug": "ebos-medical-devices-australia-pty-ltd-38635893720",
+  "businessName": "EBOS MEDICAL DEVICES AUSTRALIA PTY LTD",
+  "abn": "38635893720",
+  "acnArbn": "635893720",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008496",
+      "acnArbn": "635893720",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 84.3,
+      "payments31To60Days": 14.4,
+      "paymentsMoreThan60Days": 1.3,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 63,
+        "count": 329,
+        "percentile": 80.5
+      }
+    },
+    {
+      "reportId": "PTR20004088",
+      "acnArbn": "635893720",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 84.9,
+      "payments31To60Days": 14.2,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 699,
+        "count": 2568,
+        "percentile": 71.8
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 323,
+        "percentile": 81.1
+      }
+    },
+    {
+      "reportId": "PTR20000796",
+      "acnArbn": "635893720",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.79,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 79.84,
+      "payments31To60Days": 18.54,
+      "paymentsMoreThan60Days": 1.62,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 98,
+        "count": 323,
+        "percentile": 68.3
+      }
+    }
+  ]
+}

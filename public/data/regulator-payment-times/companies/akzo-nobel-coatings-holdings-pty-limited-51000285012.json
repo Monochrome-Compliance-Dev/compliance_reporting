@@ -1,0 +1,67 @@
+{
+  "slug": "akzo-nobel-coatings-holdings-pty-limited-51000285012",
+  "businessName": "AKZO NOBEL COATINGS (HOLDINGS) PTY LIMITED",
+  "abn": "51000285012",
+  "acnArbn": "000285012",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010340",
+      "acnArbn": "000285012",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61,
+      "medianPaymentTimeDays": 61,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 17,
+      "payments31To60Days": 26,
+      "paymentsMoreThan60Days": 57,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 188,
+        "count": 347,
+        "percentile": 44.8
+      }
+    },
+    {
+      "reportId": "PTR20003600",
+      "acnArbn": "000285012",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 64,
+      "medianPaymentTimeDays": 64,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 100,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 323,
+        "percentile": 46.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "architectural-window-systems-pty-limited-48067950903",
+  "businessName": "ARCHITECTURAL WINDOW SYSTEMS PTY. LIMITED",
+  "abn": "48067950903",
+  "acnArbn": "067950903",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006537",
+      "acnArbn": "067950903",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 78,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 41.95,
+      "payments31To60Days": 57.45,
+      "paymentsMoreThan60Days": 0.6,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 282,
+        "count": 335,
+        "percentile": 12
+      }
+    },
+    {
+      "reportId": "PTR20006153",
+      "acnArbn": "067950903",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 64,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 75,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 36.9,
+      "payments31To60Days": 62.5,
+      "paymentsMoreThan60Days": 0.6,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-23",
+      "overallP95Position": {
+        "rank": 2270,
+        "count": 2568,
+        "percentile": 11.3
+      },
+      "industryP95Position": {
+        "rank": 280,
+        "count": 335,
+        "percentile": 16.2
+      }
+    }
+  ]
+}

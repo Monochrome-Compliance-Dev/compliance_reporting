@@ -1,0 +1,67 @@
+{
+  "slug": "nbl-australia-pty-ltd-86616177309",
+  "businessName": "NBL AUSTRALIA PTY LTD",
+  "abn": "86616177309",
+  "acnArbn": "616177309",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Beverage and tobacco product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010019",
+      "acnArbn": "616177309",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 57,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2613,
+        "percentile": 16.2
+      },
+      "industryP95Position": {
+        "rank": 249,
+        "count": 347,
+        "percentile": 26
+      }
+    },
+    {
+      "reportId": "PTR20004658",
+      "acnArbn": "616177309",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 56,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2081,
+        "count": 2568,
+        "percentile": 18.4
+      },
+      "industryP95Position": {
+        "rank": 233,
+        "count": 335,
+        "percentile": 29.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "the-trustee-for-tasco-inland-australia-unit-trust-64676389090",
+  "businessName": "THE TRUSTEE FOR TASCO INLAND AUSTRALIA UNIT TRUST",
+  "abn": "64676389090",
+  "acnArbn": "",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Fuel retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007152",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 69.89,
+      "payments31To60Days": 25.65,
+      "paymentsMoreThan60Days": 4.45,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-02-08",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 207,
+        "percentile": 48.5
+      }
+    },
+    {
+      "reportId": "PTR20004440",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 86.2,
+      "payments31To60Days": 10.02,
+      "paymentsMoreThan60Days": 3.6,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 208,
+        "percentile": 49.3
+      }
+    }
+  ]
+}

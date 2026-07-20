@@ -1,0 +1,95 @@
+{
+  "slug": "fashion-biz-aust-pty-ltd-63070328282",
+  "businessName": "FASHION BIZ (AUST) PTY LTD",
+  "abn": "63070328282",
+  "acnArbn": "070328282",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Warehousing and storage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007588",
+      "acnArbn": "070328282",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.15,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 89.3,
+      "payments31To60Days": 9.95,
+      "paymentsMoreThan60Days": 0.75,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-03",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 143,
+        "percentile": 70.4
+      }
+    },
+    {
+      "reportId": "PTR20007564",
+      "acnArbn": "070328282",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.18,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 89.23,
+      "payments31To60Days": 10.5,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-02",
+      "overallP95Position": {
+        "rank": 765,
+        "count": 2568,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 144,
+        "percentile": 76.2
+      }
+    },
+    {
+      "reportId": "PTR20007557",
+      "acnArbn": "070328282",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 12.28,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 93.22,
+      "payments31To60Days": 6.78,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-01",
+      "overallP95Position": {
+        "rank": 533,
+        "count": 2498,
+        "percentile": 77.8
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 140,
+        "percentile": 83.5
+      }
+    }
+  ]
+}

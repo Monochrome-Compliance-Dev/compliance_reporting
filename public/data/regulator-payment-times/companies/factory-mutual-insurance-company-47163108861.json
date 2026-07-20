@@ -1,0 +1,95 @@
+{
+  "slug": "factory-mutual-insurance-company-47163108861",
+  "businessName": "FACTORY MUTUAL INSURANCE COMPANY",
+  "abn": "47163108861",
+  "acnArbn": "163108861",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008955",
+      "acnArbn": "163108861",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.66,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 18,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 2613,
+        "percentile": 95.9
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 338,
+        "percentile": 87.5
+      }
+    },
+    {
+      "reportId": "PTR20003768",
+      "acnArbn": "163108861",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.24,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 16,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 76,
+        "count": 2568,
+        "percentile": 96.8
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 349,
+        "percentile": 91.7
+      }
+    },
+    {
+      "reportId": "PTR20000854",
+      "acnArbn": "163108861",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.84,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 97.96,
+      "payments31To60Days": 2.04,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 123,
+        "count": 2498,
+        "percentile": 94.5
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 339,
+        "percentile": 85.2
+      }
+    }
+  ]
+}

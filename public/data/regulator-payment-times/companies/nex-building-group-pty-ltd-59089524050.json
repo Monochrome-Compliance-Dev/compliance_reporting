@@ -1,0 +1,95 @@
+{
+  "slug": "nex-building-group-pty-ltd-59089524050",
+  "businessName": "NEX BUILDING GROUP PTY LTD",
+  "abn": "59089524050",
+  "acnArbn": "089524050",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011648",
+      "acnArbn": "089524050",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.07,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 52.14,
+      "payments31To60Days": 29.83,
+      "paymentsMoreThan60Days": 18.03,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 138,
+        "count": 193,
+        "percentile": 27.1
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 5,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20006888",
+      "acnArbn": "089524050",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.48,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 50.1,
+      "payments31To60Days": 28.19,
+      "paymentsMoreThan60Days": 21.7,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-01-06",
+      "overallP95Position": {
+        "rank": 159,
+        "count": 228,
+        "percentile": 28.6
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 6,
+        "percentile": 20
+      }
+    },
+    {
+      "reportId": "PTR20001978",
+      "acnArbn": "089524050",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.09,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 73.16,
+      "payments31To60Days": 22.39,
+      "paymentsMoreThan60Days": 4.46,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 143,
+        "count": 231,
+        "percentile": 36.1
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    }
+  ]
+}

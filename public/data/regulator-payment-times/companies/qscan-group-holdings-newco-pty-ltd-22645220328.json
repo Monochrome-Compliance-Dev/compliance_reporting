@@ -1,0 +1,95 @@
+{
+  "slug": "qscan-group-holdings-newco-pty-ltd-22645220328",
+  "businessName": "QSCAN GROUP HOLDINGS NEWCO PTY LTD",
+  "abn": "22645220328",
+  "acnArbn": "645220328",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011685",
+      "acnArbn": "645220328",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.6,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 72.92,
+      "payments31To60Days": 25.08,
+      "paymentsMoreThan60Days": 1.97,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 74,
+        "count": 193,
+        "percentile": 59.9
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 5,
+        "percentile": 75
+      }
+    },
+    {
+      "reportId": "PTR20006877",
+      "acnArbn": "645220328",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 79,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-01-01",
+      "overallP95Position": {
+        "rank": 88,
+        "count": 228,
+        "percentile": 57.3
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20001952",
+      "acnArbn": "645220328",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.82,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 82.2,
+      "payments31To60Days": 16.65,
+      "paymentsMoreThan60Days": 1.15,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 79,
+        "count": 231,
+        "percentile": 63
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 5,
+        "percentile": 50
+      }
+    }
+  ]
+}

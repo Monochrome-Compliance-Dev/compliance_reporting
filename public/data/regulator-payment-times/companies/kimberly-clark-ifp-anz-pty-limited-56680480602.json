@@ -1,0 +1,39 @@
+{
+  "slug": "kimberly-clark-ifp-anz-pty-limited-56680480602",
+  "businessName": "KIMBERLY-CLARK IFP ANZ PTY. LIMITED",
+  "abn": "56680480602",
+  "acnArbn": "680480602",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Pulp, paper and converted paper product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008883",
+      "acnArbn": "680480602",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.95,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 347,
+        "percentile": 52.6
+      }
+    }
+  ]
+}

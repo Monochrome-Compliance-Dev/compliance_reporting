@@ -1,0 +1,95 @@
+{
+  "slug": "kinetic-tco-pty-ltd-20601251067",
+  "businessName": "KINETIC TCO PTY LTD",
+  "abn": "20601251067",
+  "acnArbn": "601251067",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010476",
+      "acnArbn": "601251067",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.71,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 60.74,
+      "payments31To60Days": 35.83,
+      "paymentsMoreThan60Days": 3.44,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-08",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 143,
+        "percentile": 39.4
+      }
+    },
+    {
+      "reportId": "PTR20003893",
+      "acnArbn": "601251067",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.77,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 56.58,
+      "payments31To60Days": 38.91,
+      "paymentsMoreThan60Days": 4.5,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 144,
+        "percentile": 38.5
+      }
+    },
+    {
+      "reportId": "PTR20002733",
+      "acnArbn": "601251067",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.32,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 51.79,
+      "payments31To60Days": 41.26,
+      "paymentsMoreThan60Days": 6.95,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 140,
+        "percentile": 31.7
+      }
+    }
+  ]
+}

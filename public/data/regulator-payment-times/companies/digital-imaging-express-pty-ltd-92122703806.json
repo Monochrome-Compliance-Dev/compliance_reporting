@@ -1,0 +1,95 @@
+{
+  "slug": "digital-imaging-express-pty-ltd-92122703806",
+  "businessName": "DIGITAL IMAGING EXPRESS PTY LTD",
+  "abn": "92122703806",
+  "acnArbn": "122703806",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010321",
+      "acnArbn": "122703806",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.24,
+      "medianPaymentTimeDays": 35.68,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 75.2,
+      "payments31To60Days": 20.7,
+      "paymentsMoreThan60Days": 4.1,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 672,
+        "count": 2613,
+        "percentile": 73.2
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 207,
+        "percentile": 78.6
+      }
+    },
+    {
+      "reportId": "PTR20007646",
+      "acnArbn": "122703806",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.86,
+      "medianPaymentTimeDays": 34.68,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 12.4,
+      "payments31To60Days": 56.8,
+      "paymentsMoreThan60Days": 30.8,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-09",
+      "overallP95Position": {
+        "rank": 2259,
+        "count": 2568,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 188,
+        "count": 208,
+        "percentile": 9.7
+      }
+    },
+    {
+      "reportId": "PTR20007630",
+      "acnArbn": "122703806",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.52,
+      "medianPaymentTimeDays": 35.84,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 10.26,
+      "payments31To60Days": 54.9,
+      "paymentsMoreThan60Days": 34.85,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 2243,
+        "count": 2498,
+        "percentile": 9.2
+      },
+      "industryP95Position": {
+        "rank": 185,
+        "count": 207,
+        "percentile": 10.2
+      }
+    }
+  ]
+}

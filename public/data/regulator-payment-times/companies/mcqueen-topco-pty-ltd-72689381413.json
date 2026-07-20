@@ -1,0 +1,39 @@
+{
+  "slug": "mcqueen-topco-pty-ltd-72689381413",
+  "businessName": "MCQUEEN TOPCO PTY LTD",
+  "abn": "72689381413",
+  "acnArbn": "689381413",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009600",
+      "acnArbn": "689381413",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.94,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 183,
+        "percentile": 84.1
+      }
+    }
+  ]
+}

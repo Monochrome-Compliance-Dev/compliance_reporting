@@ -1,0 +1,95 @@
+{
+  "slug": "cpc-group-holdings-pty-ltd-28644449758",
+  "businessName": "CPC GROUP HOLDINGS PTY LTD",
+  "abn": "28644449758",
+  "acnArbn": "644449758",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011050",
+      "acnArbn": "644449758",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-05-13",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 193,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 8,
+        "percentile": 42.9
+      }
+    },
+    {
+      "reportId": "PTR20006769",
+      "acnArbn": "644449758",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 88,
+        "count": 228,
+        "percentile": 57.3
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 10,
+        "percentile": 55.6
+      }
+    },
+    {
+      "reportId": "PTR20001599",
+      "acnArbn": "644449758",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 16,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 87,
+        "count": 231,
+        "percentile": 60.4
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 9,
+        "percentile": 62.5
+      }
+    }
+  ]
+}

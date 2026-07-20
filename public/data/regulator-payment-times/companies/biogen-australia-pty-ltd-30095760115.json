@@ -1,0 +1,95 @@
+{
+  "slug": "biogen-australia-pty-ltd-30095760115",
+  "businessName": "BIOGEN AUSTRALIA PTY LTD",
+  "abn": "30095760115",
+  "acnArbn": "095760115",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008367",
+      "acnArbn": "095760115",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.25,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 28.75,
+      "payments31To60Days": 47.77,
+      "paymentsMoreThan60Days": 23.48,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2480,
+        "count": 2613,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 100,
+        "count": 106,
+        "percentile": 4.8
+      }
+    },
+    {
+      "reportId": "PTR20004627",
+      "acnArbn": "095760115",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.68,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 22.8,
+      "payments31To60Days": 41.2,
+      "paymentsMoreThan60Days": 36,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 97,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20011086",
+      "acnArbn": "095760115",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.48,
+      "medianPaymentTimeDays": 59,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 24.53,
+      "payments31To60Days": 32.45,
+      "paymentsMoreThan60Days": 43.02,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-05-17",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 78,
+        "count": 97,
+        "percentile": 18.8
+      }
+    }
+  ]
+}

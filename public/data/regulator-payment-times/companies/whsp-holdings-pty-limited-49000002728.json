@@ -1,0 +1,95 @@
+{
+  "slug": "whsp-holdings-pty-limited-49000002728",
+  "businessName": "WHSP HOLDINGS PTY LIMITED",
+  "abn": "49000002728",
+  "acnArbn": "000002728",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20010826",
+      "acnArbn": "000002728",
+      "reportingPeriodStartDate": "2025-07-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.25,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93.75,
+      "payments31To60Days": 4.93,
+      "paymentsMoreThan60Days": 1.32,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 5,
+        "count": 31,
+        "percentile": 86.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006278",
+      "acnArbn": "000002728",
+      "reportingPeriodStartDate": "2025-01-31",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.54,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 93.4,
+      "payments31To60Days": 3.55,
+      "paymentsMoreThan60Days": 3.05,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 34,
+        "percentile": 90.9
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20001523",
+      "acnArbn": "000002728",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.15,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 94.26,
+      "payments31To60Days": 4.31,
+      "paymentsMoreThan60Days": 1.44,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 30,
+        "percentile": 96.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

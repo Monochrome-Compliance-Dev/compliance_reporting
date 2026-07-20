@@ -1,0 +1,39 @@
+{
+  "slug": "bisalloy-steel-group-ltd-22098674545",
+  "businessName": "BISALLOY STEEL GROUP LTD",
+  "abn": "22098674545",
+  "acnArbn": "098674545",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008023",
+      "acnArbn": "098674545",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 38,
+      "payments31To60Days": 51,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 2251,
+        "count": 2613,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 271,
+        "count": 347,
+        "percentile": 21.4
+      }
+    }
+  ]
+}

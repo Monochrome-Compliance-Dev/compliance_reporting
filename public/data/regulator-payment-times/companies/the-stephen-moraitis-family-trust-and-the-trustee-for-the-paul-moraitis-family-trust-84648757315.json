@@ -1,0 +1,95 @@
+{
+  "slug": "the-stephen-moraitis-family-trust-and-the-trustee-for-the-paul-moraitis-family-trust-84648757315",
+  "businessName": "THE STEPHEN MORAITIS FAMILY TRUST & The Trustee for The Paul Moraitis Family Trust",
+  "abn": "84648757315",
+  "acnArbn": "",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010564",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 78,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-04-16",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 38,
+        "percentile": 75.7
+      }
+    },
+    {
+      "reportId": "PTR20004286",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.68,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 81.44,
+      "payments31To60Days": 18.46,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 36,
+        "percentile": 77.1
+      }
+    },
+    {
+      "reportId": "PTR20001500",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.65,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 30,
+        "percentile": 58.6
+      }
+    }
+  ]
+}

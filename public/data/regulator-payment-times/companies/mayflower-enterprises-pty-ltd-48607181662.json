@@ -1,0 +1,95 @@
+{
+  "slug": "mayflower-enterprises-pty-ltd-48607181662",
+  "businessName": "MAYFLOWER ENTERPRISES PTY LTD",
+  "abn": "48607181662",
+  "acnArbn": "607181662",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Wood product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008174",
+      "acnArbn": "607181662",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 48.57,
+      "payments31To60Days": 49.82,
+      "paymentsMoreThan60Days": 1.6,
+      "industrySubdivision": "Wood product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 347,
+        "percentile": 61.6
+      }
+    },
+    {
+      "reportId": "PTR20004259",
+      "acnArbn": "607181662",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 46.91,
+      "payments31To60Days": 50.23,
+      "paymentsMoreThan60Days": 2.86,
+      "industrySubdivision": "Wood product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    },
+    {
+      "reportId": "PTR20001057",
+      "acnArbn": "607181662",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 50.5,
+      "payments31To60Days": 46.66,
+      "paymentsMoreThan60Days": 2.83,
+      "industrySubdivision": "Wood product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 323,
+        "percentile": 59.3
+      }
+    }
+  ]
+}

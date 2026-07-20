@@ -1,0 +1,95 @@
+{
+  "slug": "myer-holdings-limited-14119085602",
+  "businessName": "MYER HOLDINGS LIMITED",
+  "abn": "14119085602",
+  "acnArbn": "119085602",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-01-23",
+  "reports": [
+    {
+      "reportId": "PTR20010712",
+      "acnArbn": "119085602",
+      "reportingPeriodStartDate": "2025-07-26",
+      "reportingPeriodEndDate": "2026-01-23",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 82,
+      "p95PaymentTimeDays": 115,
+      "payments30DaysOrLess": 44,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 21,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006949",
+      "acnArbn": "119085602",
+      "reportingPeriodStartDate": "2025-01-25",
+      "reportingPeriodEndDate": "2025-07-24",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53,
+      "medianPaymentTimeDays": 51,
+      "p80PaymentTimeDays": 73,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 53,
+      "payments31To60Days": 26,
+      "paymentsMoreThan60Days": 20,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-15",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006498",
+      "acnArbn": "119085602",
+      "reportingPeriodStartDate": "2024-07-27",
+      "reportingPeriodEndDate": "2025-01-24",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 73,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 43,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 24,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-19",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    }
+  ]
+}

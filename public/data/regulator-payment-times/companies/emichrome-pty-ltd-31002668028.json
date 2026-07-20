@@ -1,0 +1,95 @@
+{
+  "slug": "emichrome-pty-ltd-31002668028",
+  "businessName": "EMICHROME PTY LTD",
+  "abn": "31002668028",
+  "acnArbn": "002668028",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008024",
+      "acnArbn": "002668028",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.47,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 3,
+      "p95PaymentTimeDays": 5,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 14,
+        "count": 2613,
+        "percentile": 99.4
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 338,
+        "percentile": 98.8
+      }
+    },
+    {
+      "reportId": "PTR20003177",
+      "acnArbn": "002668028",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.61,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 96.77,
+      "payments31To60Days": 3.23,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-21",
+      "overallP95Position": {
+        "rank": 44,
+        "count": 2568,
+        "percentile": 98.2
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 349,
+        "percentile": 96
+      }
+    },
+    {
+      "reportId": "PTR20000874",
+      "acnArbn": "002668028",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.48,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 4,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 2498,
+        "percentile": 98.9
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 339,
+        "percentile": 96.2
+      }
+    }
+  ]
+}

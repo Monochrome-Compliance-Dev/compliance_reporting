@@ -1,0 +1,95 @@
+{
+  "slug": "specsavers-pty-ltd-82097147932",
+  "businessName": "SPECSAVERS PTY. LTD.",
+  "abn": "82097147932",
+  "acnArbn": "097147932",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2026-02-27",
+  "reports": [
+    {
+      "reportId": "PTR20011206",
+      "acnArbn": "097147932",
+      "reportingPeriodStartDate": "2025-08-31",
+      "reportingPeriodEndDate": "2026-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.33,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 41,
+      "payments31To60Days": 55.35,
+      "paymentsMoreThan60Days": 3.65,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-05-27",
+      "overallP95Position": {
+        "rank": 13,
+        "count": 24,
+        "percentile": 43.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006584",
+      "acnArbn": "097147932",
+      "reportingPeriodStartDate": "2025-02-28",
+      "reportingPeriodEndDate": "2025-08-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.58,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 39.46,
+      "payments31To60Days": 56.82,
+      "paymentsMoreThan60Days": 3.72,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-11-27",
+      "overallP95Position": {
+        "rank": 14,
+        "count": 25,
+        "percentile": 41.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20001882",
+      "acnArbn": "097147932",
+      "reportingPeriodStartDate": "2024-08-31",
+      "reportingPeriodEndDate": "2025-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.42,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 19.19,
+      "payments31To60Days": 79.08,
+      "paymentsMoreThan60Days": 1.73,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 13,
+        "count": 22,
+        "percentile": 42.9
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

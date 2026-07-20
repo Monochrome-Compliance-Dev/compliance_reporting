@@ -1,0 +1,95 @@
+{
+  "slug": "south-east-water-corporation-89066902547",
+  "businessName": "SOUTH EAST WATER CORPORATION",
+  "abn": "89066902547",
+  "acnArbn": "066902547",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010651",
+      "acnArbn": "066902547",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.64,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 90.22,
+      "payments31To60Days": 6.65,
+      "paymentsMoreThan60Days": 3.14,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-04-21",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 92,
+        "percentile": 42.9
+      }
+    },
+    {
+      "reportId": "PTR20005838",
+      "acnArbn": "066902547",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.84,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 95.16,
+      "payments31To60Days": 3.29,
+      "paymentsMoreThan60Days": 1.56,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 95,
+        "percentile": 47.9
+      }
+    },
+    {
+      "reportId": "PTR20003488",
+      "acnArbn": "066902547",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.11,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 90.14,
+      "payments31To60Days": 6.15,
+      "paymentsMoreThan60Days": 3.71,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 99,
+        "percentile": 37.8
+      }
+    }
+  ]
+}

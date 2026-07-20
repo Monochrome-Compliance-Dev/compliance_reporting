@@ -1,0 +1,95 @@
+{
+  "slug": "bank-of-communications-co-ltd-74137909963",
+  "businessName": "BANK OF COMMUNICATIONS CO., LTD.",
+  "abn": "74137909963",
+  "acnArbn": "137909963",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009370",
+      "acnArbn": "137909963",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 81.4,
+      "payments31To60Days": 18.6,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 988,
+        "count": 2613,
+        "percentile": 61.3
+      },
+      "industryP95Position": {
+        "rank": 247,
+        "count": 338,
+        "percentile": 25.8
+      }
+    },
+    {
+      "reportId": "PTR20004940",
+      "acnArbn": "137909963",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 90.3,
+      "payments31To60Days": 9.7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 699,
+        "count": 2568,
+        "percentile": 71.8
+      },
+      "industryP95Position": {
+        "rank": 187,
+        "count": 349,
+        "percentile": 44.5
+      }
+    },
+    {
+      "reportId": "PTR20000998",
+      "acnArbn": "137909963",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 89,
+      "payments31To60Days": 11,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 339,
+        "percentile": 52.1
+      }
+    }
+  ]
+}

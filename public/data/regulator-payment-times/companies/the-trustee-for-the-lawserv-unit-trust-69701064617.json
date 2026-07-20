@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-the-lawserv-unit-trust-69701064617",
+  "businessName": "The Trustee for THE LAWSERV UNIT TRUST",
+  "abn": "69701064617",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010317",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.3,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 703,
+        "count": 2613,
+        "percentile": 71.9
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 183,
+        "percentile": 69.2
+      }
+    },
+    {
+      "reportId": "PTR20005531",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.19,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 91,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 181,
+        "percentile": 64.4
+      }
+    },
+    {
+      "reportId": "PTR20003001",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.84,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 91.3,
+      "payments31To60Days": 5.8,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-29",
+      "overallP95Position": {
+        "rank": 798,
+        "count": 2498,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 176,
+        "percentile": 62.3
+      }
+    }
+  ]
+}

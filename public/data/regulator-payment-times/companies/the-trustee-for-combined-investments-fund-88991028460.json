@@ -1,0 +1,67 @@
+{
+  "slug": "the-trustee-for-combined-investments-fund-88991028460",
+  "businessName": "The Trustee for COMBINED INVESTMENTS FUND",
+  "abn": "88991028460",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004579",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 3,
+      "p95PaymentTimeDays": 3,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 12,
+        "count": 2568,
+        "percentile": 99.5
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 349,
+        "percentile": 98.9
+      }
+    },
+    {
+      "reportId": "PTR20001103",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.67,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 174,
+        "count": 2498,
+        "percentile": 92.4
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 339,
+        "percentile": 81.4
+      }
+    }
+  ]
+}

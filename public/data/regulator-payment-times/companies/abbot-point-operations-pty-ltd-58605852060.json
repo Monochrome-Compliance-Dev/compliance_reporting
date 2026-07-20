@@ -1,0 +1,95 @@
+{
+  "slug": "abbot-point-operations-pty-ltd-58605852060",
+  "businessName": "ABBOT POINT OPERATIONS PTY LTD",
+  "abn": "58605852060",
+  "acnArbn": "605852060",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011317",
+      "acnArbn": "605852060",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.57,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 78.31,
+      "payments31To60Days": 21.39,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-06-10",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 193,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 14,
+        "percentile": 46.2
+      }
+    },
+    {
+      "reportId": "PTR20006652",
+      "acnArbn": "605852060",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.46,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 80.61,
+      "payments31To60Days": 19.27,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-12-09",
+      "overallP95Position": {
+        "rank": 116,
+        "count": 228,
+        "percentile": 47.6
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 18,
+        "percentile": 58.8
+      }
+    },
+    {
+      "reportId": "PTR20002055",
+      "acnArbn": "605852060",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.41,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 81.26,
+      "payments31To60Days": 18.67,
+      "paymentsMoreThan60Days": 0.07,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 110,
+        "count": 231,
+        "percentile": 52.2
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 17,
+        "percentile": 68.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "australasian-landscape-services-holdco-pty-ltd-24652220794",
+  "businessName": "AUSTRALASIAN LANDSCAPE SERVICES HOLDCO PTY LTD",
+  "abn": "24652220794",
+  "acnArbn": "652220794",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Building cleaning, pest control and other support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007905",
+      "acnArbn": "652220794",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.36,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 52.39,
+      "payments31To60Days": 43.82,
+      "paymentsMoreThan60Days": 3.79,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 49,
+        "percentile": 29.2
+      }
+    },
+    {
+      "reportId": "PTR20007902",
+      "acnArbn": "652220794",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.5,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 45.81,
+      "payments31To60Days": 49.03,
+      "paymentsMoreThan60Days": 5.16,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 50,
+        "percentile": 24.5
+      }
+    },
+    {
+      "reportId": "PTR20007258",
+      "acnArbn": "652220794",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.06,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 52.28,
+      "payments31To60Days": 42.69,
+      "paymentsMoreThan60Days": 5.03,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 50,
+        "percentile": 36.7
+      }
+    }
+  ]
+}

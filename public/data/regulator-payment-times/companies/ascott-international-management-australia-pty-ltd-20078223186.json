@@ -1,0 +1,95 @@
+{
+  "slug": "ascott-international-management-australia-pty-ltd-20078223186",
+  "businessName": "ASCOTT INTERNATIONAL MANAGEMENT (AUSTRALIA) PTY LTD",
+  "abn": "20078223186",
+  "acnArbn": "078223186",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008049",
+      "acnArbn": "078223186",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.79,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 77.92,
+      "payments31To60Days": 18.59,
+      "paymentsMoreThan60Days": 3.18,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 66,
+        "percentile": 44.6
+      }
+    },
+    {
+      "reportId": "PTR20005949",
+      "acnArbn": "078223186",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.84,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 74.16,
+      "payments31To60Days": 23.38,
+      "paymentsMoreThan60Days": 2.47,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-10-02",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 61,
+        "percentile": 58.3
+      }
+    },
+    {
+      "reportId": "PTR20003128",
+      "acnArbn": "078223186",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.26,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 81.56,
+      "payments31To60Days": 16.32,
+      "paymentsMoreThan60Days": 2.11,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-08-18",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 55,
+        "percentile": 53.7
+      }
+    }
+  ]
+}

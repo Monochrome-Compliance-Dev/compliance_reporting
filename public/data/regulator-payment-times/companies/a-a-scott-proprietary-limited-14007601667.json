@@ -1,0 +1,67 @@
+{
+  "slug": "a-a-scott-proprietary-limited-14007601667",
+  "businessName": "A.A. SCOTT PROPRIETARY LIMITED",
+  "abn": "14007601667",
+  "acnArbn": "007601667",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009993",
+      "acnArbn": "007601667",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.27,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 91.71,
+      "payments31To60Days": 8.29,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 338,
+        "percentile": 46.6
+      }
+    },
+    {
+      "reportId": "PTR20003251",
+      "acnArbn": "007601667",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.96,
+      "medianPaymentTimeDays": 10.5,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 88.75,
+      "payments31To60Days": 11.25,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 765,
+        "count": 2568,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 202,
+        "count": 349,
+        "percentile": 40.8
+      }
+    }
+  ]
+}

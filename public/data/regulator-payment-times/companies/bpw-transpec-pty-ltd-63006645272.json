@@ -1,0 +1,95 @@
+{
+  "slug": "bpw-transpec-pty-ltd-63006645272",
+  "businessName": "BPW TRANSPEC PTY LTD",
+  "abn": "63006645272",
+  "acnArbn": "006645272",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20006900",
+      "acnArbn": "006645272",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.96,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 83.44,
+      "payments31To60Days": 13.88,
+      "paymentsMoreThan60Days": 2.68,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-01-08",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 347,
+        "percentile": 80.3
+      }
+    },
+    {
+      "reportId": "PTR20003094",
+      "acnArbn": "006645272",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.77,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 70,
+      "payments31To60Days": 26,
+      "paymentsMoreThan60Days": 3.6,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-11",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    },
+    {
+      "reportId": "PTR20000055",
+      "acnArbn": "006645272",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.95,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 68.17,
+      "payments31To60Days": 29.32,
+      "paymentsMoreThan60Days": 2.51,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-05-11",
+      "overallP95Position": {
+        "rank": 1123,
+        "count": 2498,
+        "percentile": 54
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

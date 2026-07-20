@@ -1,0 +1,95 @@
+{
+  "slug": "australian-maritime-safety-authority-65377938320",
+  "businessName": "AUSTRALIAN MARITIME SAFETY AUTHORITY",
+  "abn": "65377938320",
+  "acnArbn": "",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Public order, safety and regulatory services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009801",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.89,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 93.05,
+      "payments31To60Days": 3.66,
+      "paymentsMoreThan60Days": 3.29,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 776,
+        "count": 2613,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 33,
+        "percentile": 59.4
+      }
+    },
+    {
+      "reportId": "PTR20005368",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.05,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 89.64,
+      "payments31To60Days": 8.32,
+      "paymentsMoreThan60Days": 2.04,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 34,
+        "percentile": 63.6
+      }
+    },
+    {
+      "reportId": "PTR20000414",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.52,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 91.82,
+      "payments31To60Days": 5.33,
+      "paymentsMoreThan60Days": 2.85,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 720,
+        "count": 2498,
+        "percentile": 70.2
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 31,
+        "percentile": 63.3
+      }
+    }
+  ]
+}

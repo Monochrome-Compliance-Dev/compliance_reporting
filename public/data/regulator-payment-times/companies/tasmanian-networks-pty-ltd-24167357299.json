@@ -1,0 +1,95 @@
+{
+  "slug": "tasmanian-networks-pty-ltd-24167357299",
+  "businessName": "TASMANIAN NETWORKS PTY LTD",
+  "abn": "24167357299",
+  "acnArbn": "167357299",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008307",
+      "acnArbn": "167357299",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.1,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 91.3,
+      "payments31To60Days": 6.6,
+      "paymentsMoreThan60Days": 2.1,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 735,
+        "count": 2613,
+        "percentile": 71.1
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 92,
+        "percentile": 56
+      }
+    },
+    {
+      "reportId": "PTR20008716",
+      "acnArbn": "167357299",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.2,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 87.2,
+      "payments31To60Days": 9.5,
+      "paymentsMoreThan60Days": 3.3,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 95,
+        "percentile": 44.7
+      }
+    },
+    {
+      "reportId": "PTR20002297",
+      "acnArbn": "167357299",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 87.4,
+      "payments31To60Days": 9.2,
+      "paymentsMoreThan60Days": 3.5,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 63,
+        "count": 99,
+        "percentile": 36.7
+      }
+    }
+  ]
+}

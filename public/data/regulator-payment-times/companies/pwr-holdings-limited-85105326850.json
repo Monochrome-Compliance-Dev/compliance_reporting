@@ -1,0 +1,95 @@
+{
+  "slug": "pwr-holdings-limited-85105326850",
+  "businessName": "PWR HOLDINGS LIMITED",
+  "abn": "85105326850",
+  "acnArbn": "105326850",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008670",
+      "acnArbn": "105326850",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 51,
+      "payments31To60Days": 45.3,
+      "paymentsMoreThan60Days": 3.8,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 347,
+        "percentile": 52.6
+      }
+    },
+    {
+      "reportId": "PTR20003771",
+      "acnArbn": "105326850",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 50.9,
+      "payments31To60Days": 47.5,
+      "paymentsMoreThan60Days": 1.6,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    },
+    {
+      "reportId": "PTR20002293",
+      "acnArbn": "105326850",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.9,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 46.6,
+      "payments31To60Days": 51,
+      "paymentsMoreThan60Days": 2.4,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 323,
+        "percentile": 71.1
+      }
+    }
+  ]
+}

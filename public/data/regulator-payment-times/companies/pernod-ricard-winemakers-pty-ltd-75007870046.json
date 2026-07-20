@@ -1,0 +1,95 @@
+{
+  "slug": "pernod-ricard-winemakers-pty-ltd-75007870046",
+  "businessName": "PERNOD RICARD WINEMAKERS PTY LTD",
+  "abn": "75007870046",
+  "acnArbn": "007870046",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Beverage and tobacco product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008700",
+      "acnArbn": "007870046",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.81,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 29.5,
+      "payments31To60Days": 50.2,
+      "paymentsMoreThan60Days": 20.3,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2453,
+        "count": 2613,
+        "percentile": 5.8
+      },
+      "industryP95Position": {
+        "rank": 318,
+        "count": 347,
+        "percentile": 8.4
+      }
+    },
+    {
+      "reportId": "PTR20003704",
+      "acnArbn": "007870046",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.02,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 20.3,
+      "payments31To60Days": 68.6,
+      "paymentsMoreThan60Days": 11.2,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 335,
+        "percentile": 40.7
+      }
+    },
+    {
+      "reportId": "PTR20003703",
+      "acnArbn": "007870046",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.6,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 22.6,
+      "payments31To60Days": 67.3,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 323,
+        "percentile": 41.9
+      }
+    }
+  ]
+}

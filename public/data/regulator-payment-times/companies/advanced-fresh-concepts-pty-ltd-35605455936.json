@@ -1,0 +1,95 @@
+{
+  "slug": "advanced-fresh-concepts-pty-ltd-35605455936",
+  "businessName": "ADVANCED FRESH CONCEPTS PTY LTD",
+  "abn": "35605455936",
+  "acnArbn": "605455936",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010883",
+      "acnArbn": "605455936",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 17,
+      "payments30DaysOrLess": 98.9,
+      "payments31To60Days": 1.1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 86,
+        "count": 2613,
+        "percentile": 96.3
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 207,
+        "percentile": 99.5
+      }
+    },
+    {
+      "reportId": "PTR20010880",
+      "acnArbn": "605455936",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 76,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 208,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportId": "PTR20010871",
+      "acnArbn": "605455936",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.1,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 95.4,
+      "payments31To60Days": 4.6,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 39,
+        "count": 2498,
+        "percentile": 98.2
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 207,
+        "percentile": 99.5
+      }
+    }
+  ]
+}

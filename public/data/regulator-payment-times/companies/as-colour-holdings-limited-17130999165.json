@@ -1,0 +1,95 @@
+{
+  "slug": "as-colour-holdings-limited-17130999165",
+  "businessName": "AS COLOUR HOLDINGS LIMITED",
+  "abn": "17130999165",
+  "acnArbn": "130999165",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011666",
+      "acnArbn": "130999165",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 159,
+        "count": 193,
+        "percentile": 16.1
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 13,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20006884",
+      "acnArbn": "130999165",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 115,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-05",
+      "overallP95Position": {
+        "rank": 223,
+        "count": 228,
+        "percentile": 2.2
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 14,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20001684",
+      "acnArbn": "130999165",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.4,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-28",
+      "overallP95Position": {
+        "rank": 74,
+        "count": 231,
+        "percentile": 66.5
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 14,
+        "percentile": 69.2
+      }
+    }
+  ]
+}

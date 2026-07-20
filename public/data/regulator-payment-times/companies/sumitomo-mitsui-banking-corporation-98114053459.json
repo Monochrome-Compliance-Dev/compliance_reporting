@@ -1,0 +1,95 @@
+{
+  "slug": "sumitomo-mitsui-banking-corporation-98114053459",
+  "businessName": "SUMITOMO MITSUI BANKING CORPORATION",
+  "abn": "98114053459",
+  "acnArbn": "114053459",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011391",
+      "acnArbn": "114053459",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.96,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 89.11,
+      "payments31To60Days": 4.67,
+      "paymentsMoreThan60Days": 6.23,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-17",
+      "overallP95Position": {
+        "rank": 163,
+        "count": 193,
+        "percentile": 15.1
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 19,
+        "percentile": 5.6
+      }
+    },
+    {
+      "reportId": "PTR20006621",
+      "acnArbn": "114053459",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.65,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 95.26,
+      "payments31To60Days": 1.82,
+      "paymentsMoreThan60Days": 2.92,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-02",
+      "overallP95Position": {
+        "rank": 30,
+        "count": 228,
+        "percentile": 86.3
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 22,
+        "percentile": 71.4
+      }
+    },
+    {
+      "reportId": "PTR20000990",
+      "acnArbn": "114053459",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.9,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 95.94,
+      "payments31To60Days": 1.88,
+      "paymentsMoreThan60Days": 2.19,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 231,
+        "percentile": 90.9
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 20,
+        "percentile": 73.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "suez-anz-holdings-pty-ltd-94653823726",
+  "businessName": "SUEZ ANZ HOLDINGS PTY LTD",
+  "abn": "94653823726",
+  "acnArbn": "653823726",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010461",
+      "acnArbn": "653823726",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 68.41,
+      "payments31To60Days": 26.4,
+      "paymentsMoreThan60Days": 5.19,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-06-21",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 92,
+        "percentile": 11
+      }
+    },
+    {
+      "reportId": "PTR20004004",
+      "acnArbn": "653823726",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 70,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 1178,
+        "count": 2568,
+        "percentile": 52.7
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 95,
+        "percentile": 34
+      }
+    },
+    {
+      "reportId": "PTR20001325",
+      "acnArbn": "653823726",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 18,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 99,
+        "percentile": 45.9
+      }
+    }
+  ]
+}

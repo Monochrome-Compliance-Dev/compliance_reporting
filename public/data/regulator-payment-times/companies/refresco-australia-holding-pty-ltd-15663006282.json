@@ -1,0 +1,95 @@
+{
+  "slug": "refresco-australia-holding-pty-ltd-15663006282",
+  "businessName": "REFRESCO AUSTRALIA HOLDING PTY LTD",
+  "abn": "15663006282",
+  "acnArbn": "663006282",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Beverage and tobacco product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008500",
+      "acnArbn": "663006282",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.84,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 56.17,
+      "payments31To60Days": 36.51,
+      "paymentsMoreThan60Days": 7.33,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 233,
+        "count": 347,
+        "percentile": 30.9
+      }
+    },
+    {
+      "reportId": "PTR20004666",
+      "acnArbn": "663006282",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.74,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 58.21,
+      "payments31To60Days": 35.92,
+      "paymentsMoreThan60Days": 5.87,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 335,
+        "percentile": 51.5
+      }
+    },
+    {
+      "reportId": "PTR20001929",
+      "acnArbn": "663006282",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.7,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 56.88,
+      "payments31To60Days": 36.26,
+      "paymentsMoreThan60Days": 6.86,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 323,
+        "percentile": 46.6
+      }
+    }
+  ]
+}

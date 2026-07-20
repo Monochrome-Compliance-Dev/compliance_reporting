@@ -1,0 +1,95 @@
+{
+  "slug": "dissh-pty-ltd-31098188580",
+  "businessName": "DISSH PTY LTD",
+  "abn": "31098188580",
+  "acnArbn": "098188580",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008742",
+      "acnArbn": "098188580",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.5,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.03,
+      "payments31To60Days": 5.71,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 207,
+        "percentile": 85.4
+      }
+    },
+    {
+      "reportId": "PTR20008738",
+      "acnArbn": "098188580",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.86,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 89.25,
+      "payments31To60Days": 10.61,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 208,
+        "percentile": 81.2
+      }
+    },
+    {
+      "reportId": "PTR20008724",
+      "acnArbn": "098188580",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.43,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 92.68,
+      "payments31To60Days": 7.32,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 207,
+        "percentile": 83
+      }
+    }
+  ]
+}

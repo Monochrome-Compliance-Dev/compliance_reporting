@@ -1,0 +1,95 @@
+{
+  "slug": "thomson-reuters-australia-pty-ltd-87058914766",
+  "businessName": "THOMSON REUTERS (AUSTRALIA) PTY LTD",
+  "abn": "87058914766",
+  "acnArbn": "058914766",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Publishing (except internet and music publishing)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009917",
+      "acnArbn": "058914766",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 48.16,
+      "payments31To60Days": 32.24,
+      "paymentsMoreThan60Days": 19.58,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2463,
+        "count": 2613,
+        "percentile": 5.6
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 60,
+        "percentile": 10.2
+      }
+    },
+    {
+      "reportId": "PTR20005307",
+      "acnArbn": "058914766",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.86,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 50.22,
+      "payments31To60Days": 32.03,
+      "paymentsMoreThan60Days": 17.75,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2248,
+        "count": 2568,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 55,
+        "percentile": 13
+      }
+    },
+    {
+      "reportId": "PTR20001861",
+      "acnArbn": "058914766",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.85,
+      "medianPaymentTimeDays": 64,
+      "p80PaymentTimeDays": 85,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 35.07,
+      "payments31To60Days": 8.17,
+      "paymentsMoreThan60Days": 56.76,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2225,
+        "count": 2498,
+        "percentile": 10.5
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 58,
+        "percentile": 7
+      }
+    }
+  ]
+}

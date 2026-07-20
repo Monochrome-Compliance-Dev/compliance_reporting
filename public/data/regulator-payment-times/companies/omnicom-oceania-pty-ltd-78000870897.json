@@ -1,0 +1,95 @@
+{
+  "slug": "omnicom-oceania-pty-ltd-78000870897",
+  "businessName": "OMNICOM OCEANIA PTY LTD",
+  "abn": "78000870897",
+  "acnArbn": "000870897",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007779",
+      "acnArbn": "000870897",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.65,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 73.94,
+      "payments31To60Days": 18.57,
+      "paymentsMoreThan60Days": 7.49,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 2027,
+        "count": 2613,
+        "percentile": 21.9
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 183,
+        "percentile": 28
+      }
+    },
+    {
+      "reportId": "PTR20006138",
+      "acnArbn": "000870897",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.03,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 76.3,
+      "payments31To60Days": 18.29,
+      "paymentsMoreThan60Days": 5.42,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 113,
+        "count": 181,
+        "percentile": 36.7
+      }
+    },
+    {
+      "reportId": "PTR20005400",
+      "acnArbn": "000870897",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.59,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 67.69,
+      "payments31To60Days": 23.65,
+      "paymentsMoreThan60Days": 8.66,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1937,
+        "count": 2498,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 122,
+        "count": 176,
+        "percentile": 28
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "altrac-light-rail-1-pty-limited-and-altrac-light-rail-2-pty-limited-and-altrac-light-rail-3-pty-limited-37399764913",
+  "businessName": "ALTRAC LIGHT RAIL 1 PTY LIMITED & ALTRAC LIGHT RAIL 2 PTY LIMITED & ALTRAC LIGHT RAIL 3 PTY LIMITED",
+  "abn": "37399764913",
+  "acnArbn": "",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008785",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.4,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 96.05,
+      "payments31To60Days": 3.95,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2613,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 270,
+        "percentile": 97.4
+      }
+    },
+    {
+      "reportId": "PTR20004146",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.6,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 98.8,
+      "payments31To60Days": 1.2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 168,
+        "count": 2568,
+        "percentile": 92.8
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 259,
+        "percentile": 97.7
+      }
+    },
+    {
+      "reportId": "PTR20000587",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.4,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 97.3,
+      "payments31To60Days": 2.7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 174,
+        "count": 2498,
+        "percentile": 92.4
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 250,
+        "percentile": 97.2
+      }
+    }
+  ]
+}

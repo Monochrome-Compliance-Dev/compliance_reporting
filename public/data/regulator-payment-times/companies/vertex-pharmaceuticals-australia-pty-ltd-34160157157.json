@@ -1,0 +1,95 @@
+{
+  "slug": "vertex-pharmaceuticals-australia-pty-ltd-34160157157",
+  "businessName": "VERTEX PHARMACEUTICALS (AUSTRALIA) PTY. LTD.",
+  "abn": "34160157157",
+  "acnArbn": "160157157",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009832",
+      "acnArbn": "160157157",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.33,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 25.27,
+      "payments31To60Days": 73.68,
+      "paymentsMoreThan60Days": 1.05,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 192,
+        "count": 329,
+        "percentile": 39.3
+      }
+    },
+    {
+      "reportId": "PTR20005563",
+      "acnArbn": "160157157",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.12,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 28.57,
+      "payments31To60Days": 67.86,
+      "paymentsMoreThan60Days": 3.57,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 78,
+        "count": 323,
+        "percentile": 75.5
+      }
+    },
+    {
+      "reportId": "PTR20001734",
+      "acnArbn": "160157157",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.59,
+      "medianPaymentTimeDays": 40.5,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 17.35,
+      "payments31To60Days": 82.65,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 779,
+        "count": 2498,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 323,
+        "percentile": 78.3
+      }
+    }
+  ]
+}

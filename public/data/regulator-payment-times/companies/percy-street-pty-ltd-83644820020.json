@@ -1,0 +1,39 @@
+{
+  "slug": "percy-street-pty-ltd-83644820020",
+  "businessName": "PERCY STREET PTY LTD",
+  "abn": "83644820020",
+  "acnArbn": "644820020",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011056",
+      "acnArbn": "644820020",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 77.6,
+      "payments31To60Days": 18.3,
+      "paymentsMoreThan60Days": 4.1,
+      "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-14",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 347,
+        "percentile": 61.6
+      }
+    }
+  ]
+}

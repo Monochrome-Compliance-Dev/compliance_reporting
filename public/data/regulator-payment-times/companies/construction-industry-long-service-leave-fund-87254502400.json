@@ -1,0 +1,95 @@
+{
+  "slug": "construction-industry-long-service-leave-fund-87254502400",
+  "businessName": "CONSTRUCTION INDUSTRY LONG SERVICE LEAVE FUND",
+  "abn": "87254502400",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009726",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.03,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 64.51,
+      "payments31To60Days": 31.18,
+      "paymentsMoreThan60Days": 4.31,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 284,
+        "count": 338,
+        "percentile": 15.1
+      }
+    },
+    {
+      "reportId": "PTR20003926",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.52,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 70.66,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 5.34,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 296,
+        "count": 349,
+        "percentile": 13.8
+      }
+    },
+    {
+      "reportId": "PTR20001856",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.4,
+      "medianPaymentTimeDays": 26.5,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 168,
+      "payments30DaysOrLess": 78.12,
+      "payments31To60Days": 7.81,
+      "paymentsMoreThan60Days": 14.07,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2475,
+        "count": 2498,
+        "percentile": 0.9
+      },
+      "industryP95Position": {
+        "rank": 339,
+        "count": 339,
+        "percentile": 0
+      }
+    }
+  ]
+}

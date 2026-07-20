@@ -1,0 +1,67 @@
+{
+  "slug": "keystart-loans-ltd-27009427034",
+  "businessName": "KEYSTART LOANS LTD",
+  "abn": "27009427034",
+  "acnArbn": "009427034",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20003759",
+      "acnArbn": "009427034",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 98.55,
+      "payments31To60Days": 1.45,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 100,
+        "count": 2568,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 349,
+        "percentile": 89.7
+      }
+    },
+    {
+      "reportId": "PTR20000297",
+      "acnArbn": "009427034",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.04,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 99.1,
+      "payments31To60Days": 0.9,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-05",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 3,
+        "percentile": 50
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    }
+  ]
+}

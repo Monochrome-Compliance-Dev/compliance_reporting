@@ -1,0 +1,95 @@
+{
+  "slug": "hanssen-pty-ltd-93058600427",
+  "businessName": "HANSSEN PTY. LTD.",
+  "abn": "93058600427",
+  "acnArbn": "058600427",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010319",
+      "acnArbn": "058600427",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 65.85,
+      "payments31To60Days": 28.78,
+      "paymentsMoreThan60Days": 5.37,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2057,
+        "count": 2613,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 206,
+        "count": 270,
+        "percentile": 21.9
+      }
+    },
+    {
+      "reportId": "PTR20006418",
+      "acnArbn": "058600427",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.71,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 60,
+      "payments31To60Days": 32.68,
+      "paymentsMoreThan60Days": 7.32,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-11-03",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 186,
+        "count": 259,
+        "percentile": 26.7
+      }
+    },
+    {
+      "reportId": "PTR20006417",
+      "acnArbn": "058600427",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.85,
+      "medianPaymentTimeDays": 25.5,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 62.18,
+      "payments31To60Days": 29.83,
+      "paymentsMoreThan60Days": 7.98,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-11-03",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 250,
+        "percentile": 26.9
+      }
+    }
+  ]
+}

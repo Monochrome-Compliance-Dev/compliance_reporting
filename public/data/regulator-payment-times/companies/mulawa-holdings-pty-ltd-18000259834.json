@@ -1,0 +1,95 @@
+{
+  "slug": "mulawa-holdings-pty-ltd-18000259834",
+  "businessName": "MULAWA HOLDINGS PTY LTD",
+  "abn": "18000259834",
+  "acnArbn": "000259834",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Gambling activities",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008287",
+      "acnArbn": "000259834",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.42,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 63.79,
+      "payments31To60Days": 35.85,
+      "paymentsMoreThan60Days": 0.37,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1227,
+        "count": 2613,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 34,
+        "percentile": 18.2
+      }
+    },
+    {
+      "reportId": "PTR20003846",
+      "acnArbn": "000259834",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.8,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 68.68,
+      "payments31To60Days": 30.98,
+      "paymentsMoreThan60Days": 0.34,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 35,
+        "percentile": 23.5
+      }
+    },
+    {
+      "reportId": "PTR20001268",
+      "acnArbn": "000259834",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.69,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 65.89,
+      "payments31To60Days": 33.76,
+      "paymentsMoreThan60Days": 0.35,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 31,
+        "percentile": 20
+      }
+    }
+  ]
+}

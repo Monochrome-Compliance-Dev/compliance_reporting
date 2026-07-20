@@ -1,0 +1,95 @@
+{
+  "slug": "australian-bakels-pty-ltd-35000112836",
+  "businessName": "AUSTRALIAN BAKELS (PTY) LTD",
+  "abn": "35000112836",
+  "acnArbn": "000112836",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007324",
+      "acnArbn": "000112836",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.76,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 60.55,
+      "payments31To60Days": 36.87,
+      "paymentsMoreThan60Days": 2.58,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-19",
+      "overallP95Position": {
+        "rank": 2027,
+        "count": 2613,
+        "percentile": 21.9
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 347,
+        "percentile": 36.1
+      }
+    },
+    {
+      "reportId": "PTR20002631",
+      "acnArbn": "000112836",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.46,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 64.2,
+      "payments31To60Days": 32.7,
+      "paymentsMoreThan60Days": 3.1,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 185,
+        "count": 335,
+        "percentile": 43.4
+      }
+    },
+    {
+      "reportId": "PTR20000399",
+      "acnArbn": "000112836",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.66,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 51.33,
+      "payments31To60Days": 38.02,
+      "paymentsMoreThan60Days": 10.65,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 201,
+        "count": 323,
+        "percentile": 37
+      }
+    }
+  ]
+}

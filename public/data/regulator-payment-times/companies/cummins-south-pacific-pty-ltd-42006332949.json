@@ -1,0 +1,95 @@
+{
+  "slug": "cummins-south-pacific-pty-ltd-42006332949",
+  "businessName": "CUMMINS SOUTH PACIFIC PTY. LTD.",
+  "abn": "42006332949",
+  "acnArbn": "006332949",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007984",
+      "acnArbn": "006332949",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.72,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 13.6,
+      "payments31To60Days": 60.2,
+      "paymentsMoreThan60Days": 26.2,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2506,
+        "count": 2613,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 326,
+        "count": 347,
+        "percentile": 5.8
+      }
+    },
+    {
+      "reportId": "PTR20005846",
+      "acnArbn": "006332949",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.43,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 108,
+      "payments30DaysOrLess": 14.8,
+      "payments31To60Days": 61.6,
+      "paymentsMoreThan60Days": 22.6,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2435,
+        "count": 2568,
+        "percentile": 5.1
+      },
+      "industryP95Position": {
+        "rank": 320,
+        "count": 335,
+        "percentile": 4.5
+      }
+    },
+    {
+      "reportId": "PTR20002541",
+      "acnArbn": "006332949",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53.41,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 114,
+      "payments30DaysOrLess": 16.3,
+      "payments31To60Days": 59.2,
+      "paymentsMoreThan60Days": 24.5,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-15",
+      "overallP95Position": {
+        "rank": 2401,
+        "count": 2498,
+        "percentile": 3.8
+      },
+      "industryP95Position": {
+        "rank": 309,
+        "count": 323,
+        "percentile": 4.3
+      }
+    }
+  ]
+}

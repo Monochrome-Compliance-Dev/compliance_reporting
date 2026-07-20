@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-bwp-trust-18446483705",
+  "businessName": "The Trustee for BWP Trust",
+  "abn": "18446483705",
+  "acnArbn": "",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007593",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.94,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 98.24,
+      "payments31To60Days": 1.36,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-03",
+      "overallP95Position": {
+        "rank": 118,
+        "count": 2613,
+        "percentile": 95.1
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 66,
+        "percentile": 98.5
+      }
+    },
+    {
+      "reportId": "PTR20003129",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.08,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 96.33,
+      "payments31To60Days": 2.48,
+      "paymentsMoreThan60Days": 1.2,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-08-18",
+      "overallP95Position": {
+        "rank": 225,
+        "count": 2568,
+        "percentile": 89.6
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 61,
+        "percentile": 90
+      }
+    },
+    {
+      "reportId": "PTR20000149",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.6,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 98.54,
+      "payments31To60Days": 1.07,
+      "paymentsMoreThan60Days": 0.39,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-05-23",
+      "overallP95Position": {
+        "rank": 140,
+        "count": 2498,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 55,
+        "percentile": 88.9
+      }
+    }
+  ]
+}

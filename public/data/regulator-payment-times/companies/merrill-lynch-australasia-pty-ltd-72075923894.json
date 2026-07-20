@@ -1,0 +1,95 @@
+{
+  "slug": "merrill-lynch-australasia-pty-ltd-72075923894",
+  "businessName": "MERRILL LYNCH (AUSTRALASIA) PTY. LTD.",
+  "abn": "72075923894",
+  "acnArbn": "075923894",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007985",
+      "acnArbn": "075923894",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 72.36,
+      "payments31To60Days": 18.91,
+      "paymentsMoreThan60Days": 8.73,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 2057,
+        "count": 2613,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 313,
+        "count": 338,
+        "percentile": 6.5
+      }
+    },
+    {
+      "reportId": "PTR20003269",
+      "acnArbn": "075923894",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.49,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 76.81,
+      "payments31To60Days": 17.39,
+      "paymentsMoreThan60Days": 5.8,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-27",
+      "overallP95Position": {
+        "rank": 2248,
+        "count": 2568,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 333,
+        "count": 349,
+        "percentile": 4.6
+      }
+    },
+    {
+      "reportId": "PTR20006669",
+      "acnArbn": "075923894",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.24,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 89.45,
+      "payments31To60Days": 7.27,
+      "paymentsMoreThan60Days": 3.27,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-10",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 339,
+        "percentile": 33.4
+      }
+    }
+  ]
+}

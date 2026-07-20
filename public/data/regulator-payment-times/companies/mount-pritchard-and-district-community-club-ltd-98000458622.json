@@ -1,0 +1,95 @@
+{
+  "slug": "mount-pritchard-and-district-community-club-ltd-98000458622",
+  "businessName": "MOUNT PRITCHARD & DISTRICT COMMUNITY CLUB LTD",
+  "abn": "98000458622",
+  "acnArbn": "000458622",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Gambling activities",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007972",
+      "acnArbn": "000458622",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 74.8,
+      "payments31To60Days": 22.66,
+      "paymentsMoreThan60Days": 2.54,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 776,
+        "count": 2613,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 34,
+        "percentile": 45.5
+      }
+    },
+    {
+      "reportId": "PTR20004175",
+      "acnArbn": "000458622",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 75.18,
+      "payments31To60Days": 22.42,
+      "paymentsMoreThan60Days": 2.4,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 699,
+        "count": 2568,
+        "percentile": 71.8
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 35,
+        "percentile": 47.1
+      }
+    },
+    {
+      "reportId": "PTR20000144",
+      "acnArbn": "000458622",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 78,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-05-22",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 31,
+        "percentile": 83.3
+      }
+    }
+  ]
+}

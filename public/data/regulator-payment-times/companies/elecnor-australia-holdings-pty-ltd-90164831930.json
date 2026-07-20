@@ -1,0 +1,95 @@
+{
+  "slug": "elecnor-australia-holdings-pty-ltd-90164831930",
+  "businessName": "ELECNOR AUSTRALIA HOLDINGS PTY. LTD.",
+  "abn": "90164831930",
+  "acnArbn": "164831930",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008928",
+      "acnArbn": "164831930",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 0,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 99.77,
+      "payments31To60Days": 0.18,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 51,
+        "count": 2613,
+        "percentile": 97.5
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 270,
+        "percentile": 98.9
+      }
+    },
+    {
+      "reportId": "PTR20006214",
+      "acnArbn": "164831930",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.03,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 92.46,
+      "payments31To60Days": 3.47,
+      "paymentsMoreThan60Days": 4.08,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 259,
+        "percentile": 91.1
+      }
+    },
+    {
+      "reportId": "PTR20006210",
+      "acnArbn": "164831930",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.66,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 94.5,
+      "payments31To60Days": 3.16,
+      "paymentsMoreThan60Days": 2.35,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 250,
+        "percentile": 88.4
+      }
+    }
+  ]
+}

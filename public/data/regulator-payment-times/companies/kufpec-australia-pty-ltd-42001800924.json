@@ -1,0 +1,95 @@
+{
+  "slug": "kufpec-australia-pty-ltd-42001800924",
+  "businessName": "KUFPEC AUSTRALIA PTY LTD",
+  "abn": "42001800924",
+  "acnArbn": "001800924",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009527",
+      "acnArbn": "001800924",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.5,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 221,
+        "count": 2613,
+        "percentile": 90.8
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 177,
+        "percentile": 92.6
+      }
+    },
+    {
+      "reportId": "PTR20003379",
+      "acnArbn": "001800924",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.1,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-02",
+      "overallP95Position": {
+        "rank": 205,
+        "count": 2568,
+        "percentile": 91.3
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 173,
+        "percentile": 87.2
+      }
+    },
+    {
+      "reportId": "PTR20000428",
+      "acnArbn": "001800924",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.2,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 99.4,
+      "payments31To60Days": 0.6,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 208,
+        "count": 2498,
+        "percentile": 90.7
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 170,
+        "percentile": 90.5
+      }
+    }
+  ]
+}

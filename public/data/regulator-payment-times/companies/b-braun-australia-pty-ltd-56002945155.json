@@ -1,0 +1,95 @@
+{
+  "slug": "b-braun-australia-pty-ltd-56002945155",
+  "businessName": "B BRAUN AUSTRALIA PTY LTD",
+  "abn": "56002945155",
+  "acnArbn": "002945155",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007445",
+      "acnArbn": "002945155",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-02-24",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 106,
+        "percentile": 87.6
+      }
+    },
+    {
+      "reportId": "PTR20007411",
+      "acnArbn": "002945155",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-02-23",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 97,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20007406",
+      "acnArbn": "002945155",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-02-23",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 97,
+        "percentile": 74
+      }
+    }
+  ]
+}

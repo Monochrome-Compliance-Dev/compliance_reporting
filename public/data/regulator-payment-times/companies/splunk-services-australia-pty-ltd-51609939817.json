@@ -1,0 +1,95 @@
+{
+  "slug": "splunk-services-australia-pty-ltd-51609939817",
+  "businessName": "SPLUNK SERVICES AUSTRALIA PTY. LTD.",
+  "abn": "51609939817",
+  "acnArbn": "609939817",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Publishing (except internet and music publishing)",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20011092",
+      "acnArbn": "609939817",
+      "reportingPeriodStartDate": "2025-07-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 134.5,
+      "medianPaymentTimeDays": 134.5,
+      "p80PaymentTimeDays": 135,
+      "p95PaymentTimeDays": 136,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 100,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-05-18",
+      "overallP95Position": {
+        "rank": 31,
+        "count": 31,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20011091",
+      "acnArbn": "609939817",
+      "reportingPeriodStartDate": "2025-01-31",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 68.33,
+      "medianPaymentTimeDays": 73,
+      "p80PaymentTimeDays": 94,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 33.33,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 66.67,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-05-18",
+      "overallP95Position": {
+        "rank": 34,
+        "count": 34,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20011090",
+      "acnArbn": "609939817",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.27,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 10.42,
+      "payments31To60Days": 85.42,
+      "paymentsMoreThan60Days": 4.17,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-05-17",
+      "overallP95Position": {
+        "rank": 12,
+        "count": 30,
+        "percentile": 58.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

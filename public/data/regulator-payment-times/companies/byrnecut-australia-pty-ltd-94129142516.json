@@ -1,0 +1,95 @@
+{
+  "slug": "byrnecut-australia-pty-ltd-94129142516",
+  "businessName": "Byrnecut Australia Pty Ltd",
+  "abn": "94129142516",
+  "acnArbn": "129142516",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009680",
+      "acnArbn": "129142516",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.12,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 9.31,
+      "payments31To60Days": 87.48,
+      "paymentsMoreThan60Days": 3.22,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 177,
+        "percentile": 33.5
+      }
+    },
+    {
+      "reportId": "PTR20004029",
+      "acnArbn": "129142516",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.12,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 11.04,
+      "payments31To60Days": 85.38,
+      "paymentsMoreThan60Days": 3.58,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 100,
+        "count": 173,
+        "percentile": 40.1
+      }
+    },
+    {
+      "reportId": "PTR20000646",
+      "acnArbn": "129142516",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.65,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 8.75,
+      "payments31To60Days": 87.92,
+      "paymentsMoreThan60Days": 3.33,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-18",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 170,
+        "percentile": 39.6
+      }
+    }
+  ]
+}

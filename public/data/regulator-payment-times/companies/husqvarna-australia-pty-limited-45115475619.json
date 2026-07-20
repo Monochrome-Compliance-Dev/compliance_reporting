@@ -1,0 +1,95 @@
+{
+  "slug": "husqvarna-australia-pty-limited-45115475619",
+  "businessName": "HUSQVARNA AUSTRALIA PTY LIMITED",
+  "abn": "45115475619",
+  "acnArbn": "115475619",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010556",
+      "acnArbn": "115475619",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.2,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 85.5,
+      "payments31To60Days": 10.1,
+      "paymentsMoreThan60Days": 4.4,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 347,
+        "percentile": 66.2
+      }
+    },
+    {
+      "reportId": "PTR20010555",
+      "acnArbn": "115475619",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 93.74,
+      "payments31To60Days": 4.21,
+      "paymentsMoreThan60Days": 2.05,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 335,
+        "percentile": 74.9
+      }
+    },
+    {
+      "reportId": "PTR20010554",
+      "acnArbn": "115475619",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 88.4,
+      "payments31To60Days": 7.6,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 323,
+        "percentile": 73
+      }
+    }
+  ]
+}

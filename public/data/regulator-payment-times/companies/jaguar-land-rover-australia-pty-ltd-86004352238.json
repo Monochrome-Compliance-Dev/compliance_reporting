@@ -1,0 +1,95 @@
+{
+  "slug": "jaguar-land-rover-australia-pty-ltd-86004352238",
+  "businessName": "JAGUAR LAND ROVER AUSTRALIA PTY LTD",
+  "abn": "86004352238",
+  "acnArbn": "004352238",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011393",
+      "acnArbn": "004352238",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.65,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 50.11,
+      "payments31To60Days": 32.77,
+      "paymentsMoreThan60Days": 17.12,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-16",
+      "overallP95Position": {
+        "rank": 185,
+        "count": 193,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 45,
+        "percentile": 2.3
+      }
+    },
+    {
+      "reportId": "PTR20011322",
+      "acnArbn": "004352238",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 53.6,
+      "payments31To60Days": 37.4,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-10",
+      "overallP95Position": {
+        "rank": 186,
+        "count": 228,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 59,
+        "percentile": 12.1
+      }
+    },
+    {
+      "reportId": "PTR20003195",
+      "acnArbn": "004352238",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.7,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 62,
+      "payments31To60Days": 28.79,
+      "paymentsMoreThan60Days": 9.21,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-24",
+      "overallP95Position": {
+        "rank": 209,
+        "count": 231,
+        "percentile": 9.6
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 61,
+        "percentile": 5
+      }
+    }
+  ]
+}

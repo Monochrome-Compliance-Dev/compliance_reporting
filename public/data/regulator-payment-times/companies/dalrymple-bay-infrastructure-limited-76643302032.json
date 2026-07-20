@@ -1,0 +1,95 @@
+{
+  "slug": "dalrymple-bay-infrastructure-limited-76643302032",
+  "businessName": "DALRYMPLE BAY INFRASTRUCTURE LIMITED",
+  "abn": "76643302032",
+  "acnArbn": "643302032",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008283",
+      "acnArbn": "643302032",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.03,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 96.48,
+      "payments31To60Days": 2.51,
+      "paymentsMoreThan60Days": 1.01,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 243,
+        "count": 2613,
+        "percentile": 89.2
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 143,
+        "percentile": 94.4
+      }
+    },
+    {
+      "reportId": "PTR20004549",
+      "acnArbn": "643302032",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.18,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 90.8,
+      "payments31To60Days": 7.36,
+      "paymentsMoreThan60Days": 1.84,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 144,
+        "percentile": 80.4
+      }
+    },
+    {
+      "reportId": "PTR20001370",
+      "acnArbn": "643302032",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.23,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 96.85,
+      "payments31To60Days": 2.36,
+      "paymentsMoreThan60Days": 0.79,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 234,
+        "count": 2498,
+        "percentile": 89.3
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 140,
+        "percentile": 92.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "revlon-australia-pty-limited-18095360731",
+  "businessName": "REVLON AUSTRALIA PTY LIMITED",
+  "abn": "18095360731",
+  "acnArbn": "095360731",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009067",
+      "acnArbn": "095360731",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 35.22,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 62.37,
+      "payments31To60Days": 20.41,
+      "paymentsMoreThan60Days": 17.23,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2446,
+        "count": 2613,
+        "percentile": 6.2
+      },
+      "industryP95Position": {
+        "rank": 307,
+        "count": 329,
+        "percentile": 6.1
+      }
+    },
+    {
+      "reportId": "PTR20004902",
+      "acnArbn": "095360731",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 32.66,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 63.38,
+      "payments31To60Days": 26.27,
+      "paymentsMoreThan60Days": 10.35,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2014,
+        "count": 2568,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 323,
+        "percentile": 27.3
+      }
+    },
+    {
+      "reportId": "PTR20000463",
+      "acnArbn": "095360731",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.88,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 67.23,
+      "payments31To60Days": 22.26,
+      "paymentsMoreThan60Days": 10.51,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-12",
+      "overallP95Position": {
+        "rank": 1980,
+        "count": 2498,
+        "percentile": 20
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 323,
+        "percentile": 26.7
+      }
+    }
+  ]
+}

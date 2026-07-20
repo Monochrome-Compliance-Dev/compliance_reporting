@@ -1,0 +1,95 @@
+{
+  "slug": "fmc-australasia-pty-ltd-45095326891",
+  "businessName": "FMC AUSTRALASIA PTY LTD",
+  "abn": "45095326891",
+  "acnArbn": "095326891",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20006934",
+      "acnArbn": "095326891",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 33,
+      "payments31To60Days": 62,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-14",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 329,
+        "percentile": 51.8
+      }
+    },
+    {
+      "reportId": "PTR20002640",
+      "acnArbn": "095326891",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 30.4,
+      "payments31To60Days": 59.8,
+      "paymentsMoreThan60Days": 9.8,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 2368,
+        "count": 2568,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 293,
+        "count": 323,
+        "percentile": 9.3
+      }
+    },
+    {
+      "reportId": "PTR20001158",
+      "acnArbn": "095326891",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 106,
+      "p95PaymentTimeDays": 179,
+      "payments30DaysOrLess": 24,
+      "payments31To60Days": 65,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2480,
+        "count": 2498,
+        "percentile": 0.7
+      },
+      "industryP95Position": {
+        "rank": 322,
+        "count": 323,
+        "percentile": 0.3
+      }
+    }
+  ]
+}

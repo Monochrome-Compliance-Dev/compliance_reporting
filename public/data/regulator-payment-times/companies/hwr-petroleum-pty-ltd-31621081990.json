@@ -1,0 +1,95 @@
+{
+  "slug": "hwr-petroleum-pty-ltd-31621081990",
+  "businessName": "HWR PETROLEUM PTY LTD",
+  "abn": "31621081990",
+  "acnArbn": "621081990",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2026-02-27",
+  "reports": [
+    {
+      "reportId": "PTR20010732",
+      "acnArbn": "621081990",
+      "reportingPeriodStartDate": "2025-08-31",
+      "reportingPeriodEndDate": "2026-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.2,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.84,
+      "payments31To60Days": 4.37,
+      "paymentsMoreThan60Days": 0.8,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 24,
+        "percentile": 87
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006575",
+      "acnArbn": "621081990",
+      "reportingPeriodStartDate": "2025-02-28",
+      "reportingPeriodEndDate": "2025-08-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.65,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 91.77,
+      "payments31To60Days": 6.96,
+      "paymentsMoreThan60Days": 1.27,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-11-26",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 25,
+        "percentile": 87.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006574",
+      "acnArbn": "621081990",
+      "reportingPeriodStartDate": "2024-08-31",
+      "reportingPeriodEndDate": "2025-02-27",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.76,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 92.95,
+      "payments31To60Days": 6.91,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-11-26",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 22,
+        "percentile": 85.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

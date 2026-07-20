@@ -1,0 +1,67 @@
+{
+  "slug": "toshiba-international-corporation-pty-ltd-29001555068",
+  "businessName": "TOSHIBA INTERNATIONAL CORPORATION PTY LTD",
+  "abn": "29001555068",
+  "acnArbn": "001555068",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006662",
+      "acnArbn": "001555068",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 60.2,
+      "payments31To60Days": 37.2,
+      "paymentsMoreThan60Days": 2.6,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-10",
+      "overallP95Position": {
+        "rank": 139,
+        "count": 228,
+        "percentile": 38.3
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 59,
+        "percentile": 29.3
+      }
+    },
+    {
+      "reportId": "PTR20005647",
+      "acnArbn": "001555068",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 59.5,
+      "payments31To60Days": 36.7,
+      "paymentsMoreThan60Days": 3.8,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 135,
+        "count": 231,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 61,
+        "percentile": 30
+      }
+    }
+  ]
+}

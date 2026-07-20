@@ -1,0 +1,95 @@
+{
+  "slug": "victorian-workcover-authority-90296467627",
+  "businessName": "VICTORIAN WORKCOVER AUTHORITY",
+  "abn": "90296467627",
+  "acnArbn": "",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Public order, safety and regulatory services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008961",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 92.7,
+      "payments31To60Days": 3.7,
+      "paymentsMoreThan60Days": 3.6,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 33,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20004460",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.6,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 90.1,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 34,
+        "percentile": 48.5
+      }
+    },
+    {
+      "reportId": "PTR20003732",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.6,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 92.6,
+      "payments31To60Days": 4.4,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 745,
+        "count": 2498,
+        "percentile": 68.9
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 31,
+        "percentile": 56.7
+      }
+    }
+  ]
+}

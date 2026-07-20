@@ -1,0 +1,95 @@
+{
+  "slug": "hub24-limited-87124891685",
+  "businessName": "HUB24 LIMITED",
+  "abn": "87124891685",
+  "acnArbn": "124891685",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007668",
+      "acnArbn": "124891685",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.06,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-05",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 338,
+        "percentile": 58.2
+      }
+    },
+    {
+      "reportId": "PTR20003468",
+      "acnArbn": "124891685",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.56,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 459,
+        "count": 2568,
+        "percentile": 81
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 349,
+        "percentile": 58.9
+      }
+    },
+    {
+      "reportId": "PTR20000126",
+      "acnArbn": "124891685",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.78,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-05-20",
+      "overallP95Position": {
+        "rank": 674,
+        "count": 2498,
+        "percentile": 72.3
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 339,
+        "percentile": 45.9
+      }
+    }
+  ]
+}

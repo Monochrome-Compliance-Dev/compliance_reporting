@@ -1,0 +1,95 @@
+{
+  "slug": "aia-australia-limited-79004837861",
+  "businessName": "AIA AUSTRALIA LIMITED",
+  "abn": "79004837861",
+  "acnArbn": "004837861",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009166",
+      "acnArbn": "004837861",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.84,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 77.84,
+      "payments31To60Days": 13.7,
+      "paymentsMoreThan60Days": 8.46,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2251,
+        "count": 2613,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 325,
+        "count": 338,
+        "percentile": 3.9
+      }
+    },
+    {
+      "reportId": "PTR20004928",
+      "acnArbn": "004837861",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.56,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 116,
+      "payments30DaysOrLess": 77.15,
+      "payments31To60Days": 11.95,
+      "paymentsMoreThan60Days": 10.9,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2467,
+        "count": 2568,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 345,
+        "count": 349,
+        "percentile": 1.1
+      }
+    },
+    {
+      "reportId": "PTR20001116",
+      "acnArbn": "004837861",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.12,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 75.32,
+      "payments31To60Days": 16.77,
+      "paymentsMoreThan60Days": 7.91,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 306,
+        "count": 339,
+        "percentile": 9.5
+      }
+    }
+  ]
+}

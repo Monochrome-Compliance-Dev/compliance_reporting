@@ -1,0 +1,95 @@
+{
+  "slug": "nolan-meats-pty-ltd-81096869304",
+  "businessName": "NOLAN MEATS PTY. LTD.",
+  "abn": "81096869304",
+  "acnArbn": "096869304",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010713",
+      "acnArbn": "096869304",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 82.5,
+      "payments31To60Days": 17.5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 347,
+        "percentile": 94.5
+      }
+    },
+    {
+      "reportId": "PTR20005937",
+      "acnArbn": "096869304",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 335,
+        "percentile": 94.6
+      }
+    },
+    {
+      "reportId": "PTR20002626",
+      "acnArbn": "096869304",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 80.2,
+      "payments31To60Days": 12.6,
+      "paymentsMoreThan60Days": 7.2,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-21",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 323,
+        "percentile": 94.7
+      }
+    }
+  ]
+}

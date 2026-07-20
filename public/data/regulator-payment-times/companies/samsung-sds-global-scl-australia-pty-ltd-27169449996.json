@@ -1,0 +1,95 @@
+{
+  "slug": "samsung-sds-global-scl-australia-pty-ltd-27169449996",
+  "businessName": "SAMSUNG SDS GLOBAL SCL AUSTRALIA PTY LTD",
+  "abn": "27169449996",
+  "acnArbn": "169449996",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009390",
+      "acnArbn": "169449996",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.78,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 50.49,
+      "payments31To60Days": 43.06,
+      "paymentsMoreThan60Days": 6.45,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 109,
+        "count": 143,
+        "percentile": 21.8
+      }
+    },
+    {
+      "reportId": "PTR20004969",
+      "acnArbn": "169449996",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.46,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 50.35,
+      "payments31To60Days": 44.47,
+      "paymentsMoreThan60Days": 5.18,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 99,
+        "count": 144,
+        "percentile": 30.1
+      }
+    },
+    {
+      "reportId": "PTR20001614",
+      "acnArbn": "169449996",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.41,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 51.74,
+      "payments31To60Days": 42.73,
+      "paymentsMoreThan60Days": 5.53,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 140,
+        "percentile": 35.3
+      }
+    }
+  ]
+}

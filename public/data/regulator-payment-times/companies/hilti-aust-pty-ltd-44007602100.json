@@ -1,0 +1,95 @@
+{
+  "slug": "hilti-aust-pty-ltd-44007602100",
+  "businessName": "HILTI (AUST.) PTY. LTD.",
+  "abn": "44007602100",
+  "acnArbn": "007602100",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008506",
+      "acnArbn": "007602100",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 66.76,
+      "payments31To60Days": 28.82,
+      "paymentsMoreThan60Days": 4.41,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 131,
+        "count": 270,
+        "percentile": 48.7
+      }
+    },
+    {
+      "reportId": "PTR20004409",
+      "acnArbn": "007602100",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.74,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 61.4,
+      "payments31To60Days": 32.8,
+      "paymentsMoreThan60Days": 5.8,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 259,
+        "percentile": 39.9
+      }
+    },
+    {
+      "reportId": "PTR20010998",
+      "acnArbn": "007602100",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.65,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 50.89,
+      "payments31To60Days": 42.6,
+      "paymentsMoreThan60Days": 6.51,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-05-07",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 250,
+        "percentile": 33.7
+      }
+    }
+  ]
+}

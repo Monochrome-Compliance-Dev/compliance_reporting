@@ -1,0 +1,95 @@
+{
+  "slug": "hudson-rpo-aust-pty-ltd-29622996918",
+  "businessName": "HUDSON RPO (AUST) PTY LTD",
+  "abn": "29622996918",
+  "acnArbn": "622996918",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010352",
+      "acnArbn": "622996918",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 1.2,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 8,
+      "payments30DaysOrLess": 99.02,
+      "payments31To60Days": 0.88,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 2613,
+        "percentile": 98.9
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 183,
+        "percentile": 99.5
+      }
+    },
+    {
+      "reportId": "PTR20005518",
+      "acnArbn": "622996918",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 1.73,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 98.47,
+      "payments31To60Days": 1.08,
+      "paymentsMoreThan60Days": 0.45,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 36,
+        "count": 2568,
+        "percentile": 98.4
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 181,
+        "percentile": 98.9
+      }
+    },
+    {
+      "reportId": "PTR20001055",
+      "acnArbn": "622996918",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 1.34,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 5,
+      "payments30DaysOrLess": 98.9,
+      "payments31To60Days": 1.05,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 16,
+        "count": 2498,
+        "percentile": 99.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 176,
+        "percentile": 100
+      }
+    }
+  ]
+}

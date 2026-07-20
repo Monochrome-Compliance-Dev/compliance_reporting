@@ -1,0 +1,95 @@
+{
+  "slug": "computershare-limited-71005485825",
+  "businessName": "COMPUTERSHARE LIMITED",
+  "abn": "71005485825",
+  "acnArbn": "005485825",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008335",
+      "acnArbn": "005485825",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.5,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 73.69,
+      "payments31To60Days": 22.19,
+      "paymentsMoreThan60Days": 4.12,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 293,
+        "count": 338,
+        "percentile": 12.8
+      }
+    },
+    {
+      "reportId": "PTR20004841",
+      "acnArbn": "005485825",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.69,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 71.1,
+      "payments31To60Days": 20.98,
+      "paymentsMoreThan60Days": 7.92,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2096,
+        "count": 2568,
+        "percentile": 17.5
+      },
+      "industryP95Position": {
+        "rank": 326,
+        "count": 349,
+        "percentile": 6.6
+      }
+    },
+    {
+      "reportId": "PTR20000436",
+      "acnArbn": "005485825",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.95,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 89.48,
+      "payments31To60Days": 5.33,
+      "paymentsMoreThan60Days": 5.19,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-12",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 281,
+        "count": 339,
+        "percentile": 16.6
+      }
+    }
+  ]
+}

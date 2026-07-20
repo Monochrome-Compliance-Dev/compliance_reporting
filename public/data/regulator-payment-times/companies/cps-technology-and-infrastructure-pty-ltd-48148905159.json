@@ -1,0 +1,95 @@
+{
+  "slug": "cps-technology-and-infrastructure-pty-ltd-48148905159",
+  "businessName": "CPS TECHNOLOGY & INFRASTRUCTURE PTY LTD",
+  "abn": "48148905159",
+  "acnArbn": "148905159",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007029",
+      "acnArbn": "148905159",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.39,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 31,
+      "payments31To60Days": 66,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 60,
+        "percentile": 35.6
+      }
+    },
+    {
+      "reportId": "PTR20003603",
+      "acnArbn": "148905159",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 35.7,
+      "payments31To60Days": 62.9,
+      "paymentsMoreThan60Days": 1.4,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 55,
+        "percentile": 42.6
+      }
+    },
+    {
+      "reportId": "PTR20003054",
+      "acnArbn": "148905159",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 15.2,
+      "payments31To60Days": 73.7,
+      "paymentsMoreThan60Days": 11.1,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-08-06",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 58,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

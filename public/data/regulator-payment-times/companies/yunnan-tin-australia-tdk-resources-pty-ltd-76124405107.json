@@ -1,0 +1,95 @@
+{
+  "slug": "yunnan-tin-australia-tdk-resources-pty-ltd-76124405107",
+  "businessName": "YUNNAN TIN AUSTRALIA TDK RESOURCES PTY LTD",
+  "abn": "76124405107",
+  "acnArbn": "124405107",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008945",
+      "acnArbn": "124405107",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.83,
+      "medianPaymentTimeDays": 5.5,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 91.67,
+      "payments31To60Days": 8.33,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 177,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportId": "PTR20005147",
+      "acnArbn": "124405107",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.17,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 87,
+      "payments31To60Days": 8.7,
+      "paymentsMoreThan60Days": 4.3,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 173,
+        "percentile": 57
+      }
+    },
+    {
+      "reportId": "PTR20001824",
+      "acnArbn": "124405107",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.53,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 93.33,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 6.67,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 170,
+        "percentile": 44.4
+      }
+    }
+  ]
+}

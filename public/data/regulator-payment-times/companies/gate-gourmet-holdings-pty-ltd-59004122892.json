@@ -1,0 +1,95 @@
+{
+  "slug": "gate-gourmet-holdings-pty-ltd-59004122892",
+  "businessName": "GATE GOURMET (HOLDINGS) PTY LTD",
+  "abn": "59004122892",
+  "acnArbn": "004122892",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009511",
+      "acnArbn": "004122892",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 23,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 38,
+        "percentile": 16.2
+      }
+    },
+    {
+      "reportId": "PTR20005708",
+      "acnArbn": "004122892",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 52.5,
+      "payments31To60Days": 41.8,
+      "paymentsMoreThan60Days": 5.7,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 36,
+        "percentile": 5.7
+      }
+    },
+    {
+      "reportId": "PTR20005702",
+      "acnArbn": "004122892",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 61.8,
+      "payments31To60Days": 32.6,
+      "paymentsMoreThan60Days": 5.6,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 30,
+        "percentile": 24.1
+      }
+    }
+  ]
+}

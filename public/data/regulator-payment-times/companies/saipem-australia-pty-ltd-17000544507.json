@@ -1,0 +1,95 @@
+{
+  "slug": "saipem-australia-pty-ltd-17000544507",
+  "businessName": "SAIPEM AUSTRALIA PTY LTD",
+  "abn": "17000544507",
+  "acnArbn": "000544507",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009831",
+      "acnArbn": "000544507",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.95,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 80.45,
+      "payments31To60Days": 14.8,
+      "paymentsMoreThan60Days": 4.76,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2394,
+        "count": 2613,
+        "percentile": 7.6
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 183,
+        "percentile": 17.6
+      }
+    },
+    {
+      "reportId": "PTR20004595",
+      "acnArbn": "000544507",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.22,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 70.52,
+      "payments31To60Days": 23.18,
+      "paymentsMoreThan60Days": 6.3,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 181,
+        "percentile": 32.8
+      }
+    },
+    {
+      "reportId": "PTR20000212",
+      "acnArbn": "000544507",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.45,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 117,
+      "payments30DaysOrLess": 54.94,
+      "payments31To60Days": 30.25,
+      "paymentsMoreThan60Days": 14.81,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-05-29",
+      "overallP95Position": {
+        "rank": 2409,
+        "count": 2498,
+        "percentile": 3.4
+      },
+      "industryP95Position": {
+        "rank": 163,
+        "count": 176,
+        "percentile": 7.4
+      }
+    }
+  ]
+}

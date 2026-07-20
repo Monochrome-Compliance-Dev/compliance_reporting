@@ -1,0 +1,67 @@
+{
+  "slug": "hancock-victorian-plantations-holdings-pty-limited-16084801178",
+  "businessName": "HANCOCK VICTORIAN PLANTATIONS HOLDINGS PTY LIMITED",
+  "abn": "16084801178",
+  "acnArbn": "084801178",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Forestry and logging",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010424",
+      "acnArbn": "084801178",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.8,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 82.68,
+      "payments31To60Days": 16.69,
+      "paymentsMoreThan60Days": 0.63,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 102,
+        "percentile": 78.2
+      }
+    },
+    {
+      "reportId": "PTR20001816",
+      "acnArbn": "084801178",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 85,
+        "percentile": 79.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "knauf-gypsum-pty-ltd-84004231976",
+  "businessName": "KNAUF GYPSUM PTY LTD",
+  "abn": "84004231976",
+  "acnArbn": "004231976",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Non-metallic mineral product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008189",
+      "acnArbn": "004231976",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.05,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 87.52,
+      "payments31To60Days": 9.14,
+      "paymentsMoreThan60Days": 3.34,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 347,
+        "percentile": 61.6
+      }
+    },
+    {
+      "reportId": "PTR20004348",
+      "acnArbn": "004231976",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.87,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 86.41,
+      "payments31To60Days": 9.7,
+      "paymentsMoreThan60Days": 3.89,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    },
+    {
+      "reportId": "PTR20001613",
+      "acnArbn": "004231976",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.27,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 83.78,
+      "payments31To60Days": 10.96,
+      "paymentsMoreThan60Days": 5.26,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 146,
+        "count": 323,
+        "percentile": 53.4
+      }
+    }
+  ]
+}

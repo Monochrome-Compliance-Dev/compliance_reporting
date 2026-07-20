@@ -1,0 +1,95 @@
+{
+  "slug": "dhl-global-forwarding-australia-pty-ltd-62002636124",
+  "businessName": "DHL GLOBAL FORWARDING (AUSTRALIA) PTY LTD",
+  "abn": "62002636124",
+  "acnArbn": "002636124",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Warehousing and storage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009026",
+      "acnArbn": "002636124",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.44,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 25.79,
+      "payments31To60Days": 58.97,
+      "paymentsMoreThan60Days": 15.24,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2307,
+        "count": 2613,
+        "percentile": 11.4
+      },
+      "industryP95Position": {
+        "rank": 126,
+        "count": 143,
+        "percentile": 12
+      }
+    },
+    {
+      "reportId": "PTR20003558",
+      "acnArbn": "002636124",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 42.75,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 27.46,
+      "payments31To60Days": 55.88,
+      "paymentsMoreThan60Days": 16.66,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 127,
+        "count": 144,
+        "percentile": 10.5
+      }
+    },
+    {
+      "reportId": "PTR20002682",
+      "acnArbn": "002636124",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.62,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 35.82,
+      "payments31To60Days": 51.99,
+      "paymentsMoreThan60Days": 12.2,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 2026,
+        "count": 2498,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 140,
+        "percentile": 15.1
+      }
+    }
+  ]
+}

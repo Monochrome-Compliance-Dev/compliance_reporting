@@ -1,0 +1,95 @@
+{
+  "slug": "jlg-australia-pty-limited-29663368938",
+  "businessName": "JLG AUSTRALIA PTY LIMITED",
+  "abn": "29663368938",
+  "acnArbn": "663368938",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010644",
+      "acnArbn": "663368938",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.83,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 69.21,
+      "payments31To60Days": 29.58,
+      "paymentsMoreThan60Days": 1.21,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-21",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 329,
+        "percentile": 68.9
+      }
+    },
+    {
+      "reportId": "PTR20004356",
+      "acnArbn": "663368938",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.61,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 66.56,
+      "payments31To60Days": 31.28,
+      "paymentsMoreThan60Days": 2.15,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 323,
+        "percentile": 59.6
+      }
+    },
+    {
+      "reportId": "PTR20002695",
+      "acnArbn": "663368938",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.3,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 68.02,
+      "payments31To60Days": 30.52,
+      "paymentsMoreThan60Days": 1.46,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 323,
+        "percentile": 62.4
+      }
+    }
+  ]
+}

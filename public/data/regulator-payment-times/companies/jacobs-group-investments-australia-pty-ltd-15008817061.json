@@ -1,0 +1,95 @@
+{
+  "slug": "jacobs-group-investments-australia-pty-ltd-15008817061",
+  "businessName": "JACOBS GROUP INVESTMENTS AUSTRALIA PTY LTD",
+  "abn": "15008817061",
+  "acnArbn": "008817061",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011406",
+      "acnArbn": "008817061",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.89,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 82.05,
+      "payments31To60Days": 15.59,
+      "paymentsMoreThan60Days": 2.36,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-18",
+      "overallP95Position": {
+        "rank": 79,
+        "count": 193,
+        "percentile": 57.8
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 25,
+        "percentile": 83.3
+      }
+    },
+    {
+      "reportId": "PTR20006708",
+      "acnArbn": "008817061",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.76,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 71.1,
+      "payments31To60Days": 26.58,
+      "paymentsMoreThan60Days": 2.32,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-14",
+      "overallP95Position": {
+        "rank": 106,
+        "count": 228,
+        "percentile": 52.9
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 27,
+        "percentile": 69.2
+      }
+    },
+    {
+      "reportId": "PTR20002216",
+      "acnArbn": "008817061",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.66,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 81.92,
+      "payments31To60Days": 16.56,
+      "paymentsMoreThan60Days": 1.52,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 65,
+        "count": 231,
+        "percentile": 70.9
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 26,
+        "percentile": 72
+      }
+    }
+  ]
+}

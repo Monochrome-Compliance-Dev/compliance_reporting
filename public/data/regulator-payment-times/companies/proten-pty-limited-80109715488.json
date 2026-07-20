@@ -1,0 +1,95 @@
+{
+  "slug": "proten-pty-limited-80109715488",
+  "businessName": "PROTEN PTY LIMITED",
+  "abn": "80109715488",
+  "acnArbn": "109715488",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008698",
+      "acnArbn": "109715488",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.77,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 31.48,
+      "payments31To60Days": 60.79,
+      "paymentsMoreThan60Days": 7.74,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 102,
+        "percentile": 15.8
+      }
+    },
+    {
+      "reportId": "PTR20006462",
+      "acnArbn": "109715488",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.7,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 50.53,
+      "payments31To60Days": 48.21,
+      "paymentsMoreThan60Days": 1.26,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-11-11",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 92,
+        "percentile": 37.4
+      }
+    },
+    {
+      "reportId": "PTR20006461",
+      "acnArbn": "109715488",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.8,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 44.55,
+      "payments31To60Days": 53.74,
+      "paymentsMoreThan60Days": 1.72,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-11-11",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 85,
+        "percentile": 34.5
+      }
+    }
+  ]
+}

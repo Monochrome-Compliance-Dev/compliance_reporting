@@ -1,0 +1,67 @@
+{
+  "slug": "hdi-syd1-holdings-pty-limited-35138200049",
+  "businessName": "HDI SYD1 HOLDINGS PTY LIMITED",
+  "abn": "35138200049",
+  "acnArbn": "138200049",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005877",
+      "acnArbn": "138200049",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.76,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 39.87,
+      "payments31To60Days": 37.66,
+      "paymentsMoreThan60Days": 22.47,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2270,
+        "count": 2568,
+        "percentile": 11.3
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 61,
+        "percentile": 13.3
+      }
+    },
+    {
+      "reportId": "PTR20002896",
+      "acnArbn": "138200049",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.27,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 45.27,
+      "payments31To60Days": 48.82,
+      "paymentsMoreThan60Days": 5.92,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 55,
+        "percentile": 31.5
+      }
+    }
+  ]
+}

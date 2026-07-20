@@ -1,0 +1,95 @@
+{
+  "slug": "coca-cola-south-pacific-pty-ltd-50003029794",
+  "businessName": "COCA-COLA SOUTH PACIFIC PTY LTD",
+  "abn": "50003029794",
+  "acnArbn": "003029794",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007909",
+      "acnArbn": "003029794",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.92,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 67.44,
+      "payments31To60Days": 22.63,
+      "paymentsMoreThan60Days": 9.93,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 2446,
+        "count": 2613,
+        "percentile": 6.2
+      },
+      "industryP95Position": {
+        "rank": 154,
+        "count": 183,
+        "percentile": 15.9
+      }
+    },
+    {
+      "reportId": "PTR20003786",
+      "acnArbn": "003029794",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.91,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 69.93,
+      "payments31To60Days": 17.13,
+      "paymentsMoreThan60Days": 12.94,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 2483,
+        "count": 2568,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 181,
+        "percentile": 7.8
+      }
+    },
+    {
+      "reportId": "PTR20001884",
+      "acnArbn": "003029794",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.84,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 72.73,
+      "payments31To60Days": 13.64,
+      "paymentsMoreThan60Days": 13.63,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2418,
+        "count": 2498,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 176,
+        "percentile": 6.9
+      }
+    }
+  ]
+}

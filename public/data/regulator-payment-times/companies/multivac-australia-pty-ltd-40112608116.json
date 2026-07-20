@@ -1,0 +1,95 @@
+{
+  "slug": "multivac-australia-pty-ltd-40112608116",
+  "businessName": "Multivac Australia Pty Ltd",
+  "abn": "40112608116",
+  "acnArbn": "112608116",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010558",
+      "acnArbn": "112608116",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.47,
+      "payments31To60Days": 4.22,
+      "paymentsMoreThan60Days": 0.31,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-16",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 329,
+        "percentile": 90.5
+      }
+    },
+    {
+      "reportId": "PTR20010530",
+      "acnArbn": "112608116",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 94.23,
+      "payments31To60Days": 5.63,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-16",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 323,
+        "percentile": 86
+      }
+    },
+    {
+      "reportId": "PTR20009572",
+      "acnArbn": "112608116",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.2,
+      "payments31To60Days": 4.07,
+      "paymentsMoreThan60Days": 0.73,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-14",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 323,
+        "percentile": 90.4
+      }
+    }
+  ]
+}

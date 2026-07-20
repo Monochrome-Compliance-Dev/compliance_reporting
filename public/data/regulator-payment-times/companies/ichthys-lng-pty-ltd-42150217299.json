@@ -1,0 +1,95 @@
+{
+  "slug": "ichthys-lng-pty-ltd-42150217299",
+  "businessName": "ICHTHYS LNG PTY LTD",
+  "abn": "42150217299",
+  "acnArbn": "150217299",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009097",
+      "acnArbn": "150217299",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.08,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98.9,
+      "payments31To60Days": 1.1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 183,
+        "percentile": 84.1
+      }
+    },
+    {
+      "reportId": "PTR20004592",
+      "acnArbn": "150217299",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.58,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96.9,
+      "payments31To60Days": 2.6,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 181,
+        "percentile": 87.8
+      }
+    },
+    {
+      "reportId": "PTR20000450",
+      "acnArbn": "150217299",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.15,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98.8,
+      "payments31To60Days": 1.1,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-12",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 176,
+        "percentile": 84
+      }
+    }
+  ]
+}

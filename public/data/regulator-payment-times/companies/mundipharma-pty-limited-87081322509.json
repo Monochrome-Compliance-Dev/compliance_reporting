@@ -1,0 +1,95 @@
+{
+  "slug": "mundipharma-pty-limited-87081322509",
+  "businessName": "MUNDIPHARMA PTY LIMITED",
+  "abn": "87081322509",
+  "acnArbn": "081322509",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007370",
+      "acnArbn": "081322509",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.99,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 37.5,
+      "payments31To60Days": 56.25,
+      "paymentsMoreThan60Days": 6.25,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-02-22",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 62,
+        "count": 106,
+        "percentile": 40
+      }
+    },
+    {
+      "reportId": "PTR20004351",
+      "acnArbn": "081322509",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.89,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 40.85,
+      "payments31To60Days": 52.11,
+      "paymentsMoreThan60Days": 7.04,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 97,
+        "percentile": 49
+      }
+    },
+    {
+      "reportId": "PTR20000705",
+      "acnArbn": "081322509",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.32,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 34.31,
+      "payments31To60Days": 53.92,
+      "paymentsMoreThan60Days": 11.76,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 97,
+        "percentile": 43.8
+      }
+    }
+  ]
+}

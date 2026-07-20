@@ -1,0 +1,95 @@
+{
+  "slug": "medhealth-group-pty-ltd-64160098162",
+  "businessName": "MEDHEALTH GROUP PTY LTD",
+  "abn": "64160098162",
+  "acnArbn": "160098162",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008054",
+      "acnArbn": "160098162",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.57,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 86.25,
+      "payments31To60Days": 12.35,
+      "paymentsMoreThan60Days": 1.4,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 106,
+        "percentile": 59
+      }
+    },
+    {
+      "reportId": "PTR20004560",
+      "acnArbn": "160098162",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.59,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 85.47,
+      "payments31To60Days": 12.21,
+      "paymentsMoreThan60Days": 2.32,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 97,
+        "percentile": 59.4
+      }
+    },
+    {
+      "reportId": "PTR20002686",
+      "acnArbn": "160098162",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.74,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 84.59,
+      "payments31To60Days": 13.33,
+      "paymentsMoreThan60Days": 2.08,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 97,
+        "percentile": 64.6
+      }
+    }
+  ]
+}

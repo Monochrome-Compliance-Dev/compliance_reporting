@@ -1,0 +1,67 @@
+{
+  "slug": "bakers-delight-holdings-ltd-88052528202",
+  "businessName": "BAKERS DELIGHT HOLDINGS LTD.",
+  "abn": "88052528202",
+  "acnArbn": "052528202",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2025-12-23",
+  "reports": [
+    {
+      "reportId": "PTR20007161",
+      "acnArbn": "052528202",
+      "reportingPeriodStartDate": "2025-06-25",
+      "reportingPeriodEndDate": "2025-12-23",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.52,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 89.16,
+      "payments31To60Days": 8.76,
+      "paymentsMoreThan60Days": 2.08,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-02-10",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20004015",
+      "acnArbn": "052528202",
+      "reportingPeriodStartDate": "2024-12-25",
+      "reportingPeriodEndDate": "2025-06-24",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 73.99,
+      "payments31To60Days": 20.89,
+      "paymentsMoreThan60Days": 5.12,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "connor-clothing-pty-ltd-53087433029",
+  "businessName": "CONNOR CLOTHING PTY LTD",
+  "abn": "53087433029",
+  "acnArbn": "087433029",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011743",
+      "acnArbn": "087433029",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.8,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 45,
+        "count": 193,
+        "percentile": 76.6
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 13,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20006614",
+      "acnArbn": "087433029",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.9,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 83,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-12-01",
+      "overallP95Position": {
+        "rank": 88,
+        "count": 228,
+        "percentile": 57.3
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 14,
+        "percentile": 53.8
+      }
+    },
+    {
+      "reportId": "PTR20001549",
+      "acnArbn": "087433029",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.7,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 79.9,
+      "payments31To60Days": 16.6,
+      "paymentsMoreThan60Days": 3.6,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 105,
+        "count": 231,
+        "percentile": 53
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 14,
+        "percentile": 53.8
+      }
+    }
+  ]
+}

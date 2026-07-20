@@ -1,0 +1,95 @@
+{
+  "slug": "align-technology-australia-pty-ltd-62163076971",
+  "businessName": "ALIGN TECHNOLOGY (AUSTRALIA) PTY LTD",
+  "abn": "62163076971",
+  "acnArbn": "163076971",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007393",
+      "acnArbn": "163076971",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.71,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 86.52,
+      "payments31To60Days": 12.29,
+      "paymentsMoreThan60Days": 1.18,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-08",
+      "overallP95Position": {
+        "rank": 672,
+        "count": 2613,
+        "percentile": 73.2
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 329,
+        "percentile": 82.6
+      }
+    },
+    {
+      "reportId": "PTR20003684",
+      "acnArbn": "163076971",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.04,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 89.58,
+      "payments31To60Days": 10.42,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 323,
+        "percentile": 83.5
+      }
+    },
+    {
+      "reportId": "PTR20000167",
+      "acnArbn": "163076971",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.17,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 80.47,
+      "payments31To60Days": 18.6,
+      "paymentsMoreThan60Days": 0.93,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-05-26",
+      "overallP95Position": {
+        "rank": 652,
+        "count": 2498,
+        "percentile": 73.1
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 323,
+        "percentile": 82.9
+      }
+    }
+  ]
+}

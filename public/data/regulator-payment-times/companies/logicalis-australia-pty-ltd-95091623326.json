@@ -1,0 +1,39 @@
+{
+  "slug": "logicalis-australia-pty-ltd-95091623326",
+  "businessName": "LOGICALIS AUSTRALIA PTY LTD",
+  "abn": "95091623326",
+  "acnArbn": "091623326",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-02-27",
+  "reports": [
+    {
+      "reportId": "PTR20001135",
+      "acnArbn": "091623326",
+      "reportingPeriodStartDate": "2024-08-31",
+      "reportingPeriodEndDate": "2025-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.86,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 43.1,
+      "payments31To60Days": 49.83,
+      "paymentsMoreThan60Days": 7.07,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 19,
+        "count": 22,
+        "percentile": 9.5
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    }
+  ]
+}

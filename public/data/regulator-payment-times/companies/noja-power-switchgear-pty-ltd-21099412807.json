@@ -1,0 +1,95 @@
+{
+  "slug": "noja-power-switchgear-pty-ltd-21099412807",
+  "businessName": "NOJA POWER SWITCHGEAR PTY LTD",
+  "abn": "21099412807",
+  "acnArbn": "099412807",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007522",
+      "acnArbn": "099412807",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 13.97,
+      "payments31To60Days": 66.46,
+      "paymentsMoreThan60Days": 19.57,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2613,
+        "percentile": 10.4
+      },
+      "industryP95Position": {
+        "rank": 287,
+        "count": 347,
+        "percentile": 16.2
+      }
+    },
+    {
+      "reportId": "PTR20003392",
+      "acnArbn": "099412807",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 15.2,
+      "payments31To60Days": 63.89,
+      "paymentsMoreThan60Days": 20.95,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-03",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 282,
+        "count": 335,
+        "percentile": 12
+      }
+    },
+    {
+      "reportId": "PTR20002579",
+      "acnArbn": "099412807",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 16.72,
+      "payments31To60Days": 61.85,
+      "paymentsMoreThan60Days": 21.43,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-20",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 2498,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 323,
+        "percentile": 16.1
+      }
+    }
+  ]
+}

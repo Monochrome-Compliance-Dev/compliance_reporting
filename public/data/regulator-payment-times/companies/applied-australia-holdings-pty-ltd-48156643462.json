@@ -1,0 +1,67 @@
+{
+  "slug": "applied-australia-holdings-pty-ltd-48156643462",
+  "businessName": "APPLIED AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "48156643462",
+  "acnArbn": "156643462",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004465",
+      "acnArbn": "156643462",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.98,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 50.84,
+      "payments31To60Days": 38.62,
+      "paymentsMoreThan60Days": 10.54,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 170,
+        "count": 208,
+        "percentile": 17.4
+      }
+    },
+    {
+      "reportId": "PTR20001113",
+      "acnArbn": "156643462",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52.53,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 76,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 27.57,
+      "payments31To60Days": 34.43,
+      "paymentsMoreThan60Days": 38,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2238,
+        "count": 2498,
+        "percentile": 10.3
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 207,
+        "percentile": 11.2
+      }
+    }
+  ]
+}

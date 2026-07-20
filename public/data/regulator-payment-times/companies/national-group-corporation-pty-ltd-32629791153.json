@@ -1,0 +1,95 @@
+{
+  "slug": "national-group-corporation-pty-ltd-32629791153",
+  "businessName": "NATIONAL GROUP CORPORATION PTY LTD",
+  "abn": "32629791153",
+  "acnArbn": "629791153",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008085",
+      "acnArbn": "629791153",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 92.58,
+      "medianPaymentTimeDays": 82,
+      "p80PaymentTimeDays": 128,
+      "p95PaymentTimeDays": 184,
+      "payments30DaysOrLess": 42.02,
+      "payments31To60Days": 26.13,
+      "paymentsMoreThan60Days": 31.85,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 2603,
+        "count": 2613,
+        "percentile": 0.3
+      },
+      "industryP95Position": {
+        "rank": 176,
+        "count": 177,
+        "percentile": 0.6
+      }
+    },
+    {
+      "reportId": "PTR20005475",
+      "acnArbn": "629791153",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 69.95,
+      "medianPaymentTimeDays": 65,
+      "p80PaymentTimeDays": 100,
+      "p95PaymentTimeDays": 129,
+      "payments30DaysOrLess": 58.25,
+      "payments31To60Days": 27.8,
+      "paymentsMoreThan60Days": 13.94,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2515,
+        "count": 2568,
+        "percentile": 2.1
+      },
+      "industryP95Position": {
+        "rank": 168,
+        "count": 173,
+        "percentile": 2.9
+      }
+    },
+    {
+      "reportId": "PTR20001911",
+      "acnArbn": "629791153",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 59.99,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 80,
+      "p95PaymentTimeDays": 107,
+      "payments30DaysOrLess": 67.9,
+      "payments31To60Days": 24.7,
+      "paymentsMoreThan60Days": 7.4,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2379,
+        "count": 2498,
+        "percentile": 4.6
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 170,
+        "percentile": 3.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "oswin-holdings-pty-limited-90004543800",
+  "businessName": "OSWIN HOLDINGS PTY. LIMITED",
+  "abn": "90004543800",
+  "acnArbn": "004543800",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008612",
+      "acnArbn": "004543800",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.76,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 17.18,
+      "payments31To60Days": 60.83,
+      "paymentsMoreThan60Days": 21.99,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 2027,
+        "count": 2613,
+        "percentile": 21.9
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 347,
+        "percentile": 36.1
+      }
+    },
+    {
+      "reportId": "PTR20003742",
+      "acnArbn": "004543800",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.29,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 17.48,
+      "payments31To60Days": 65.73,
+      "paymentsMoreThan60Days": 16.79,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 185,
+        "count": 335,
+        "percentile": 43.4
+      }
+    },
+    {
+      "reportId": "PTR20002209",
+      "acnArbn": "004543800",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.75,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 17.42,
+      "payments31To60Days": 62.42,
+      "paymentsMoreThan60Days": 20.16,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 323,
+        "percentile": 39.1
+      }
+    }
+  ]
+}

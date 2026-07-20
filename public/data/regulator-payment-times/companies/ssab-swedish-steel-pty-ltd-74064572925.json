@@ -1,0 +1,95 @@
+{
+  "slug": "ssab-swedish-steel-pty-ltd-74064572925",
+  "businessName": "SSAB SWEDISH STEEL PTY LTD",
+  "abn": "74064572925",
+  "acnArbn": "064572925",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009308",
+      "acnArbn": "064572925",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.81,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 69.52,
+      "payments31To60Days": 31.48,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1305,
+        "count": 2613,
+        "percentile": 47.8
+      },
+      "industryP95Position": {
+        "rank": 118,
+        "count": 329,
+        "percentile": 61.3
+      }
+    },
+    {
+      "reportId": "PTR20009330",
+      "acnArbn": "064572925",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.5,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 64.87,
+      "payments31To60Days": 33.78,
+      "paymentsMoreThan60Days": 1.35,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 103,
+        "count": 323,
+        "percentile": 67.1
+      }
+    },
+    {
+      "reportId": "PTR20009334",
+      "acnArbn": "064572925",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.5,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 23.44,
+      "paymentsMoreThan60Days": 1.56,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 909,
+        "count": 2498,
+        "percentile": 62.6
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 323,
+        "percentile": 72.7
+      }
+    }
+  ]
+}

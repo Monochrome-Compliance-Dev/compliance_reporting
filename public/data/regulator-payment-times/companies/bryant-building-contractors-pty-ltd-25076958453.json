@@ -1,0 +1,95 @@
+{
+  "slug": "bryant-building-contractors-pty-ltd-25076958453",
+  "businessName": "BRYANT BUILDING CONTRACTORS PTY LTD",
+  "abn": "25076958453",
+  "acnArbn": "076958453",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009929",
+      "acnArbn": "076958453",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.74,
+      "medianPaymentTimeDays": 30.22,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 48.25,
+      "payments31To60Days": 51.1,
+      "paymentsMoreThan60Days": 0.97,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1227,
+        "count": 2613,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 78,
+        "count": 270,
+        "percentile": 69.5
+      }
+    },
+    {
+      "reportId": "PTR20005003",
+      "acnArbn": "076958453",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.99,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 49.1,
+      "payments31To60Days": 50.18,
+      "paymentsMoreThan60Days": 0.72,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 259,
+        "percentile": 71.3
+      }
+    },
+    {
+      "reportId": "PTR20001887",
+      "acnArbn": "076958453",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.17,
+      "medianPaymentTimeDays": 31.5,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 51.41,
+      "payments31To60Days": 48,
+      "paymentsMoreThan60Days": 0.58,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 250,
+        "percentile": 69.9
+      }
+    }
+  ]
+}

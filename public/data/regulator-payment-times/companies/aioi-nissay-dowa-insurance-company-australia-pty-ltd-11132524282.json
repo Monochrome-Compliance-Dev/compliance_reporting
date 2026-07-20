@@ -1,0 +1,95 @@
+{
+  "slug": "aioi-nissay-dowa-insurance-company-australia-pty-ltd-11132524282",
+  "businessName": "AIOI NISSAY DOWA INSURANCE COMPANY AUSTRALIA PTY LTD",
+  "abn": "11132524282",
+  "acnArbn": "132524282",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009342",
+      "acnArbn": "132524282",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 13,
+      "payments30DaysOrLess": 99.11,
+      "payments31To60Days": 0.84,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 43,
+        "count": 2613,
+        "percentile": 98.1
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 338,
+        "percentile": 94.7
+      }
+    },
+    {
+      "reportId": "PTR20005141",
+      "acnArbn": "132524282",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 3,
+      "p95PaymentTimeDays": 4,
+      "payments30DaysOrLess": 99.17,
+      "payments31To60Days": 0.62,
+      "paymentsMoreThan60Days": 0.21,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 14,
+        "count": 2568,
+        "percentile": 99.4
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 349,
+        "percentile": 98.3
+      }
+    },
+    {
+      "reportId": "PTR20000069",
+      "acnArbn": "132524282",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 99,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-05-13",
+      "overallP95Position": {
+        "rank": 110,
+        "count": 2498,
+        "percentile": 95.2
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 339,
+        "percentile": 87.3
+      }
+    }
+  ]
+}

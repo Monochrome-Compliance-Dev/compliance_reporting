@@ -1,0 +1,39 @@
+{
+  "slug": "regal-asian-investments-limited-58635219484",
+  "businessName": "REGAL ASIAN INVESTMENTS LIMITED",
+  "abn": "58635219484",
+  "acnArbn": "635219484",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20001333",
+      "acnArbn": "635219484",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 61,
+        "count": 2498,
+        "percentile": 97.4
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 339,
+        "percentile": 92.3
+      }
+    }
+  ]
+}

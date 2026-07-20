@@ -1,0 +1,95 @@
+{
+  "slug": "miledo-pty-ltd-19002050295",
+  "businessName": "MILEDO PTY LTD",
+  "abn": "19002050295",
+  "acnArbn": "002050295",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008198",
+      "acnArbn": "002050295",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.17,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 84.06,
+      "payments31To60Days": 11.45,
+      "paymentsMoreThan60Days": 4.49,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 288,
+        "count": 338,
+        "percentile": 14.2
+      }
+    },
+    {
+      "reportId": "PTR20004615",
+      "acnArbn": "002050295",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.69,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 84.23,
+      "payments31To60Days": 11.62,
+      "paymentsMoreThan60Days": 4.14,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 349,
+        "percentile": 22.1
+      }
+    },
+    {
+      "reportId": "PTR20002120",
+      "acnArbn": "002050295",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.92,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 87.04,
+      "payments31To60Days": 10.18,
+      "paymentsMoreThan60Days": 2.78,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 339,
+        "percentile": 33.4
+      }
+    }
+  ]
+}

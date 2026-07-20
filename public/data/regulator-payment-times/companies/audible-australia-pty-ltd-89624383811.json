@@ -1,0 +1,95 @@
+{
+  "slug": "audible-australia-pty-ltd-89624383811",
+  "businessName": "AUDIBLE AUSTRALIA PTY LTD",
+  "abn": "89624383811",
+  "acnArbn": "624383811",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008178",
+      "acnArbn": "624383811",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.85,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 93.33,
+      "payments31To60Days": 6.67,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 207,
+        "percentile": 85.4
+      }
+    },
+    {
+      "reportId": "PTR20003957",
+      "acnArbn": "624383811",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.03,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 93.65,
+      "payments31To60Days": 6.35,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 208,
+        "percentile": 85
+      }
+    },
+    {
+      "reportId": "PTR20001448",
+      "acnArbn": "624383811",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.4,
+      "medianPaymentTimeDays": 14.5,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 208,
+        "count": 2498,
+        "percentile": 90.7
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 207,
+        "percentile": 96.1
+      }
+    }
+  ]
+}

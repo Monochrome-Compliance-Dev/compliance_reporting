@@ -2,7 +2,7 @@ import {
   Box,
   Typography,
   Grid,
-  Paper,
+  Card,
   useTheme,
   Divider,
   Button,
@@ -12,11 +12,15 @@ import { Link as RouterLink } from "react-router";
 export function LandingPage() {
   const theme = useTheme();
 
+  const contentMaxWidth = 1100;
+  const sectionSx = {
+    maxWidth: contentMaxWidth,
+    mx: "auto",
+  };
+
   return (
     <Box
       sx={{
-        // mt: 6,
-        // px: { xs: 2, sm: 3, md: 4 },
         maxWidth: "100%",
         overflowX: "hidden",
       }}
@@ -49,8 +53,7 @@ export function LandingPage() {
             width: "100%",
             px: { xs: 2, sm: 4, md: 8 },
             py: { xs: 4, sm: 5, md: 6 },
-            maxWidth: 1200,
-            mx: "auto",
+            ...sectionSx,
           }}
         >
           <Typography
@@ -63,7 +66,7 @@ export function LandingPage() {
               mb: 1,
             }}
           >
-            Payment data • Reporting clarity
+            Payment Times Reporting
           </Typography>
 
           <Typography
@@ -77,9 +80,7 @@ export function LandingPage() {
               lineHeight: 1.15,
             }}
           >
-            Clarity in complex
-            <br />
-            payment environments.
+            Understand your reporting position before the period closes.
           </Typography>
 
           <Typography
@@ -91,23 +92,25 @@ export function LandingPage() {
               mb: theme.spacing(3),
             }}
           >
-            We strengthen the underlying payment dataset so reporting outcomes,
-            controls and evidence trails hold up under scrutiny.
+            We help reporting entities understand their payment behaviour,
+            identify emerging issues and prepare accurate Payment Times Reports
+            before the results are locked in.
           </Typography>
 
           <Box sx={{ display: "flex", gap: 1.5, flexWrap: "wrap" }}>
             <Button
               variant="contained"
               component={RouterLink}
-              to="/services"
+              to="/payment-times-reporting"
               sx={{ fontWeight: 800 }}
             >
-              View services
+              Explore Payment Times Reporting
             </Button>
+
             <Button
               variant="outlined"
               component={RouterLink}
-              to="/insights"
+              to="/pricing"
               sx={{
                 fontWeight: 800,
                 color: theme.palette.common.white,
@@ -118,221 +121,174 @@ export function LandingPage() {
                 },
               }}
             >
-              Read insights
+              View pricing
             </Button>
           </Box>
-          <Typography
-            variant="body2"
-            sx={{
-              mt: theme.spacing(2),
-              color: "rgba(255,255,255,0.78)",
-              maxWidth: 900,
-              lineHeight: 1.7,
-            }}
-          >
-            Curious how your payment data behaves under these frameworks? We’re
-            always happy to review a small sample dataset.{" "}
-            <Button
-              variant="text"
-              component={RouterLink}
-              to="/services"
+        </Box>
+      </Box>
+
+      <Box
+        sx={{
+          ...sectionSx,
+          px: { xs: 2, sm: 4, md: 6 },
+          py: { xs: 6, md: 8 },
+        }}
+      >
+        <Typography variant="h6" textAlign="center" sx={{ mt: 4, mb: 3 }}>
+          Two ways we can help
+        </Typography>
+
+        <Grid container spacing={3} justifyContent="center">
+          <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex" }}>
+            <Card
+              variant="outlined"
               sx={{
-                fontWeight: 800,
-                color: theme.palette.common.white,
-                p: 0,
-                minWidth: "auto",
-                textTransform: "none",
-                verticalAlign: "baseline",
-                "&:hover": { backgroundColor: "transparent", opacity: 0.9 },
+                width: "100%",
+                p: { xs: 2.5, md: 3 },
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                backgroundColor: theme.palette.background.paper,
               }}
             >
-              See how it works
-            </Button>
-          </Typography>
-        </Box>
-      </Box>
-      <Box sx={{ px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
-        <Typography variant="body1" textAlign="center" sx={{ mb: 2 }}>
-          Monochrome Compliance helps organisations meet payment reporting
-          obligations and reduce risk by strengthening the underlying payment
-          dataset. We work from payment data first, then align reporting,
-          controls and evidence trails around it — without adding internal
-          burden.
-        </Typography>
-        <Box sx={{ mt: theme.spacing(4) }}>
-          <Grid container spacing={2} justifyContent="center">
-            <Grid item xs={12} md={4}>
-              <Paper
-                variant="outlined"
+              <Box
+                component="img"
+                src="/images/services/payment-times-reporting.jpg"
+                alt="Payment Times Reporting"
+                loading="lazy"
                 sx={{
-                  p: theme.spacing(3),
-                  height: "100%",
-                  backgroundColor: theme.palette.background.paper,
+                  width: "100%",
+                  height: { xs: 170, md: 190 },
+                  objectFit: "cover",
+                  borderRadius: 2,
+                  mb: theme.spacing(2),
                 }}
-              >
-                <Box
-                  component="img"
-                  src="/images/services/payment-times-reporting.jpg"
-                  alt="Payment Times Reporting"
-                  loading="lazy"
-                  sx={{
-                    width: "100%",
-                    height: 140,
-                    objectFit: "cover",
-                    borderRadius: 2,
-                    mb: theme.spacing(2),
-                  }}
-                />
-                <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
-                  Services
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color={theme.palette.text.secondary}
-                  sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
-                >
-                  Practical delivery across Payment Times Reporting and payment
-                  health checks.
-                </Typography>
-                <Button
-                  variant="outlined"
-                  component={RouterLink}
-                  to="/services"
-                >
-                  View services
-                </Button>
-              </Paper>
-            </Grid>
+              />
 
-            <Grid item xs={12} md={4}>
-              <Paper
-                variant="outlined"
-                sx={{
-                  p: theme.spacing(3),
-                  height: "100%",
-                  backgroundColor: theme.palette.background.paper,
-                }}
-              >
-                <Box
-                  component="img"
-                  src="/images/industries/construction.jpg"
-                  alt="Construction"
-                  loading="lazy"
-                  sx={{
-                    width: "100%",
-                    height: 140,
-                    objectFit: "cover",
-                    borderRadius: 2,
-                    mb: theme.spacing(2),
-                  }}
-                />
-                <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
-                  Industries
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color={theme.palette.text.secondary}
-                  sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
-                >
-                  Starting with construction — where payment mechanics and
-                  reporting pressure collide.
-                </Typography>
-                <Button
-                  variant="outlined"
-                  component={RouterLink}
-                  to="/industries"
-                >
-                  Explore industries
-                </Button>
-              </Paper>
-            </Grid>
+              <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+                Payment Times Reporting
+              </Typography>
 
-            <Grid item xs={12} md={4}>
-              <Paper
-                variant="outlined"
-                sx={{
-                  p: theme.spacing(3),
-                  height: "100%",
-                  backgroundColor: theme.palette.background.paper,
-                }}
+              <Typography
+                variant="body2"
+                color={theme.palette.text.secondary}
+                sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
               >
-                <Box
-                  component="img"
-                  src="/images/insights/insights.jpg"
-                  alt="Insights"
-                  loading="lazy"
-                  sx={{
-                    width: "100%",
-                    height: 140,
-                    objectFit: "cover",
-                    borderRadius: 2,
-                    mb: theme.spacing(2),
-                  }}
-                />
-                <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
-                  Insights
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color={theme.palette.text.secondary}
-                  sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
-                >
-                  Research and practical observations on payment visibility,
-                  data quality and reporting interpretation.
-                </Typography>
-                <Button
-                  variant="outlined"
-                  component={RouterLink}
-                  to="/insights"
-                >
-                  Read insights
-                </Button>
-              </Paper>
-            </Grid>
+                End-to-end support to prepare an accurate, defensible Payment
+                Times Report without turning it into a major internal project.
+              </Typography>
+
+              <Button
+                sx={{
+                  mt: "auto",
+                  alignSelf: "flex-start",
+                }}
+                variant="outlined"
+                component={RouterLink}
+                to="/payment-times-reporting"
+              >
+                Explore Payment Times Reporting
+              </Button>
+            </Card>
           </Grid>
-        </Box>
+
+          <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex" }}>
+            <Card
+              variant="outlined"
+              sx={{
+                width: "100%",
+                p: { xs: 2.5, md: 3 },
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                backgroundColor: theme.palette.background.paper,
+              }}
+            >
+              <Box
+                component="img"
+                src="/images/insights/insights2.jpg"
+                alt="Payment Behaviour Monitoring"
+                loading="lazy"
+                sx={{
+                  width: "100%",
+                  height: { xs: 170, md: 190 },
+                  objectFit: "cover",
+                  borderRadius: 2,
+                  mb: theme.spacing(2),
+                }}
+              />
+
+              <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+                Payment Behaviour Monitoring
+              </Typography>
+
+              <Typography
+                variant="body2"
+                color={theme.palette.text.secondary}
+                sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
+              >
+                Monthly visibility of payment behaviour, emerging risks and
+                reporting readiness while there is still time to act.
+              </Typography>
+
+              <Button
+                sx={{
+                  mt: "auto",
+                  alignSelf: "flex-start",
+                }}
+                variant="outlined"
+                component={RouterLink}
+                to="/pricing"
+              >
+                View pricing
+              </Button>
+            </Card>
+          </Grid>
+        </Grid>
       </Box>
+
       <Divider />
-      <Box sx={{ px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
+
+      <Box sx={{ ...sectionSx, px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
         <Typography variant="h6" textAlign="center" gutterBottom>
-          How we help
+          The reporting result is only the end of the story
         </Typography>
+
         <Typography variant="body2" textAlign="center" sx={{ mb: 4 }}>
-          We deliver practical outcomes — clean data, defensible logic and
-          evidence trails you can stand behind.
+          Payment Times Reporting is shaped by everyday operational choices. We
+          help you understand which of those choices are actually driving the
+          result.
         </Typography>
+
         <Grid container spacing={3} justifyContent="center" sx={{ mt: 2 }}>
           {[
             {
-              title: "Strengthen the dataset",
+              title: "SOPA does not equal PTRS",
               description:
-                "We consolidate, validate and structure your source exports into a consistent payment dataset.",
-              to: "/payment-times-reporting",
+                "Construction payment rules and Payment Times Reporting obligations measure different things and need to be treated separately.",
+              to: "/insights",
             },
             {
-              title: "Defensible logic",
+              title: "Weekly payment runs",
               description:
-                "Payment timing and classifications are calculated correctly, reviewed, and explained clearly.",
-              to: "/payment-times-reporting",
+                "A routine payment schedule can create avoidable delays that materially affect reported payment performance.",
+              to: "/insights",
             },
             {
-              title: "Audit-ready outputs",
+              title: "Why P95 problems are rarely random",
               description:
-                "Clear outputs with traceable evidence — suitable for boards, auditors and regulators.",
-              to: "/payment-times-reporting",
+                "Poor tail performance is usually concentrated around a small number of operational causes that can be identified and addressed.",
+              to: "/insights",
             },
-          ].map((card, index) => (
+          ].map((card) => (
             <Grid
-              item
-              key={index}
-              xs={12}
-              sm={8}
-              md={4}
+              key={card.title}
+              size={{ xs: 12, sm: 8, md: 4 }}
               sx={{ display: "flex" }}
             >
-              <Box sx={{ width: "100%" }}>
+              <Box sx={{ ...sectionSx, width: "100%" }}>
                 <RouterLink to={card.to} style={{ textDecoration: "none" }}>
-                  <Paper
+                  <Card
                     sx={{
                       p: 3,
                       height: "100%",
@@ -349,44 +305,44 @@ export function LandingPage() {
                     <Typography variant="h6" gutterBottom>
                       {card.title}
                     </Typography>
+
                     <Typography variant="body2">{card.description}</Typography>
-                  </Paper>
+                  </Card>
                 </RouterLink>
               </Box>
             </Grid>
           ))}
         </Grid>
       </Box>
+
       <Divider />
-      <Box textAlign="center" sx={{ px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
+
+      <Box
+        textAlign="center"
+        sx={{ ...sectionSx, px: { xs: 2, sm: 4, md: 8 }, py: 4 }}
+      >
         <Typography variant="h6" gutterBottom>
-          Let us take payment reporting off your plate
+          Know where you stand before the reporting period closes
         </Typography>
+
         <Typography variant="body2" sx={{ mb: 2 }}>
-          A short conversation is usually all it takes to see whether a data
-          review would be useful.
+          Whether you need help preparing your next submission or ongoing
+          visibility into payment behaviour, we’re happy to talk through your
+          situation.
         </Typography>
-        <Box>
-          <RouterLink to="/contact" style={{ textDecoration: "none" }}>
-            <Paper
-              elevation={3}
-              sx={{
-                display: "inline-block",
-                px: 4,
-                py: 1.5,
-                backgroundColor: theme.palette.primary.main,
-                color: "#fff",
-                fontWeight: 600,
-                borderRadius: 2,
-                "&:hover": {
-                  backgroundColor: theme.palette.primary.light,
-                },
-              }}
-            >
-              Talk to us
-            </Paper>
-          </RouterLink>
-        </Box>
+
+        <Button
+          variant="contained"
+          size="large"
+          component={RouterLink}
+          to="/contact"
+          sx={{
+            px: 4,
+            fontWeight: 700,
+          }}
+        >
+          Talk to us
+        </Button>
       </Box>
     </Box>
   );

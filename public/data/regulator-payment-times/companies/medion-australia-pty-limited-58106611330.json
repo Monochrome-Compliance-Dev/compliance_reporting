@@ -1,0 +1,95 @@
+{
+  "slug": "medion-australia-pty-limited-58106611330",
+  "businessName": "Medion Australia Pty Limited",
+  "abn": "58106611330",
+  "acnArbn": "106611330",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011693",
+      "acnArbn": "106611330",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 193,
+        "percentile": 95.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 7,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006767",
+      "acnArbn": "106611330",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 8,
+        "count": 228,
+        "percentile": 96
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 6,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20001248",
+      "acnArbn": "106611330",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 5.5,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 37,
+        "count": 231,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 7,
+        "percentile": 100
+      }
+    }
+  ]
+}

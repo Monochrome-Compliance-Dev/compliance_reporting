@@ -1,0 +1,95 @@
+{
+  "slug": "intuit-australia-pty-limited-28163072704",
+  "businessName": "INTUIT AUSTRALIA PTY LIMITED",
+  "abn": "28163072704",
+  "acnArbn": "163072704",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20010830",
+      "acnArbn": "163072704",
+      "reportingPeriodStartDate": "2025-07-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.96,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 75.1,
+      "payments31To60Days": 22.41,
+      "paymentsMoreThan60Days": 2.49,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 9,
+        "count": 31,
+        "percentile": 73.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 7,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20006142",
+      "acnArbn": "163072704",
+      "reportingPeriodStartDate": "2025-01-31",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.07,
+      "medianPaymentTimeDays": 13.5,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 75.74,
+      "payments31To60Days": 23.37,
+      "paymentsMoreThan60Days": 0.89,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 34,
+        "percentile": 78.8
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 5,
+        "percentile": 75
+      }
+    },
+    {
+      "reportId": "PTR20001922",
+      "acnArbn": "163072704",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.32,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 87.86,
+      "payments31To60Days": 7.77,
+      "paymentsMoreThan60Days": 4.37,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 14,
+        "count": 30,
+        "percentile": 55.2
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 5,
+        "percentile": 50
+      }
+    }
+  ]
+}

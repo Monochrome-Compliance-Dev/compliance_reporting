@@ -1,0 +1,95 @@
+{
+  "slug": "jaberope-proprietary-limited-74004590783",
+  "businessName": "JABEROPE PROPRIETARY LIMITED",
+  "abn": "74004590783",
+  "acnArbn": "004590783",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010047",
+      "acnArbn": "004590783",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.69,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 34.38,
+      "payments31To60Days": 57.19,
+      "paymentsMoreThan60Days": 8.43,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2043,
+        "count": 2613,
+        "percentile": 21.3
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 347,
+        "percentile": 34.4
+      }
+    },
+    {
+      "reportId": "PTR20006442",
+      "acnArbn": "004590783",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.19,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 32.4,
+      "payments31To60Days": 58.03,
+      "paymentsMoreThan60Days": 9.56,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-06",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2568,
+        "percentile": 22.6
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 335,
+        "percentile": 35.9
+      }
+    },
+    {
+      "reportId": "PTR20006440",
+      "acnArbn": "004590783",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 47.5,
+      "payments31To60Days": 40.8,
+      "paymentsMoreThan60Days": 11.7,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-06",
+      "overallP95Position": {
+        "rank": 2225,
+        "count": 2498,
+        "percentile": 10.5
+      },
+      "industryP95Position": {
+        "rank": 272,
+        "count": 323,
+        "percentile": 15.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "silverchef-holdco-pty-ltd-48691295388",
+  "businessName": "SILVERCHEF HOLDCO PTY LTD",
+  "abn": "48691295388",
+  "acnArbn": "691295388",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Rental and hiring services (except real estate)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007789",
+      "acnArbn": "691295388",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.03,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 92.97,
+      "payments31To60Days": 5.1,
+      "paymentsMoreThan60Days": 1.93,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 66,
+        "percentile": 66.2
+      }
+    }
+  ]
+}

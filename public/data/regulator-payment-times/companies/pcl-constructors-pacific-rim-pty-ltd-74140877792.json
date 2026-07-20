@@ -1,0 +1,67 @@
+{
+  "slug": "pcl-constructors-pacific-rim-pty-ltd-74140877792",
+  "businessName": "PCL Constructors Pacific Rim Pty Ltd",
+  "abn": "74140877792",
+  "acnArbn": "140877792",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-10-30",
+  "reports": [
+    {
+      "reportId": "PTR20007067",
+      "acnArbn": "140877792",
+      "reportingPeriodStartDate": "2025-04-30",
+      "reportingPeriodEndDate": "2025-10-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.23,
+      "medianPaymentTimeDays": 22.5,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 75.73,
+      "payments31To60Days": 19.16,
+      "paymentsMoreThan60Days": 5.11,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 14,
+        "count": 28,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002371",
+      "acnArbn": "140877792",
+      "reportingPeriodStartDate": "2024-10-31",
+      "reportingPeriodEndDate": "2025-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.36,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 85.86,
+      "payments31To60Days": 9.77,
+      "paymentsMoreThan60Days": 4.37,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-06",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 28,
+        "percentile": 63
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

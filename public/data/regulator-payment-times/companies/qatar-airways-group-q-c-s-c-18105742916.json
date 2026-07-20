@@ -1,0 +1,95 @@
+{
+  "slug": "qatar-airways-group-q-c-s-c-18105742916",
+  "businessName": "QATAR AIRWAYS GROUP (Q.C.S.C.)",
+  "abn": "18105742916",
+  "acnArbn": "105742916",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011552",
+      "acnArbn": "105742916",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.13,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 116,
+      "payments30DaysOrLess": 49.27,
+      "payments31To60Days": 27.41,
+      "paymentsMoreThan60Days": 23.32,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 190,
+        "count": 193,
+        "percentile": 1.6
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 14,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006737",
+      "acnArbn": "105742916",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.84,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 59.62,
+      "payments31To60Days": 34.07,
+      "paymentsMoreThan60Days": 6.31,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-12-16",
+      "overallP95Position": {
+        "rank": 182,
+        "count": 228,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 18,
+        "percentile": 17.6
+      }
+    },
+    {
+      "reportId": "PTR20001263",
+      "acnArbn": "105742916",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.38,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 73.43,
+      "payments31To60Days": 21.45,
+      "paymentsMoreThan60Days": 5.12,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 152,
+        "count": 231,
+        "percentile": 33.9
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 17,
+        "percentile": 37.5
+      }
+    }
+  ]
+}

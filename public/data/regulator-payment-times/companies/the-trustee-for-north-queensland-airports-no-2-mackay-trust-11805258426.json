@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-north-queensland-airports-no-2-mackay-trust-11805258426",
+  "businessName": "The trustee for North Queensland Airports No. 2 (Mackay) Trust",
+  "abn": "11805258426",
+  "acnArbn": "",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009808",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 89,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 143,
+        "percentile": 73.9
+      }
+    },
+    {
+      "reportId": "PTR20005440",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 88,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 144,
+        "percentile": 56.6
+      }
+    },
+    {
+      "reportId": "PTR20001256",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.46,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 79.93,
+      "payments31To60Days": 16.16,
+      "paymentsMoreThan60Days": 3.91,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 140,
+        "percentile": 49.6
+      }
+    }
+  ]
+}

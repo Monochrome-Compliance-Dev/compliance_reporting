@@ -1,0 +1,67 @@
+{
+  "slug": "garden-city-planters-pty-ltd-28005295223",
+  "businessName": "GARDEN CITY PLANTERS PTY. LTD.",
+  "abn": "28005295223",
+  "acnArbn": "005295223",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Polymer product and rubber product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007214",
+      "acnArbn": "005295223",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 19.99,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-15",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 347,
+        "percentile": 94.2
+      }
+    },
+    {
+      "reportId": "PTR20004156",
+      "acnArbn": "005295223",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 335,
+        "percentile": 94.6
+      }
+    }
+  ]
+}

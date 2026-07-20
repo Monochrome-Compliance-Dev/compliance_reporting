@@ -1,0 +1,95 @@
+{
+  "slug": "tyre-and-auto-pty-ltd-57164707484",
+  "businessName": "TYRE AND AUTO PTY LTD",
+  "abn": "57164707484",
+  "acnArbn": "164707484",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009507",
+      "acnArbn": "164707484",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.09,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 66.04,
+      "payments31To60Days": 30.84,
+      "paymentsMoreThan60Days": 3.12,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1227,
+        "count": 2613,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 207,
+        "percentile": 58.7
+      }
+    },
+    {
+      "reportId": "PTR20004815",
+      "acnArbn": "164707484",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.18,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 61.56,
+      "payments31To60Days": 35.27,
+      "paymentsMoreThan60Days": 3.17,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 208,
+        "percentile": 49.3
+      }
+    },
+    {
+      "reportId": "PTR20001582",
+      "acnArbn": "164707484",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.4,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 76.86,
+      "payments31To60Days": 20.03,
+      "paymentsMoreThan60Days": 3.1,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 83,
+        "count": 207,
+        "percentile": 58.3
+      }
+    }
+  ]
+}

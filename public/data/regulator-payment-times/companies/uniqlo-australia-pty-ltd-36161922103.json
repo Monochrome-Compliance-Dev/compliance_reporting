@@ -1,0 +1,95 @@
+{
+  "slug": "uniqlo-australia-pty-ltd-36161922103",
+  "businessName": "UNIQLO AUSTRALIA PTY LTD",
+  "abn": "36161922103",
+  "acnArbn": "161922103",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-02-27",
+  "reports": [
+    {
+      "reportId": "PTR20011167",
+      "acnArbn": "161922103",
+      "reportingPeriodStartDate": "2025-08-31",
+      "reportingPeriodEndDate": "2026-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.48,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 63.84,
+      "payments31To60Days": 36.16,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 15,
+        "count": 24,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 5,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20006500",
+      "acnArbn": "161922103",
+      "reportingPeriodStartDate": "2025-02-28",
+      "reportingPeriodEndDate": "2025-08-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.51,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 71.34,
+      "payments31To60Days": 28.46,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-19",
+      "overallP95Position": {
+        "rank": 13,
+        "count": 25,
+        "percentile": 50
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 7,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20001696",
+      "acnArbn": "161922103",
+      "reportingPeriodStartDate": "2024-08-31",
+      "reportingPeriodEndDate": "2025-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.61,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 63.57,
+      "payments31To60Days": 33.44,
+      "paymentsMoreThan60Days": 2.99,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 15,
+        "count": 22,
+        "percentile": 28.6
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 5,
+        "percentile": 50
+      }
+    }
+  ]
+}

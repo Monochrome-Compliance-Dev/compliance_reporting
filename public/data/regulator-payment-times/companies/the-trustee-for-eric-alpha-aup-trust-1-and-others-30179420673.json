@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-eric-alpha-aup-trust-1-and-others-30179420673",
+  "businessName": "The Trustee for ERIC Alpha AUP Trust 1 & Others",
+  "abn": "30179420673",
+  "acnArbn": "",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007705",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.45,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 92.54,
+      "payments31To60Days": 7.46,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-08",
+      "overallP95Position": {
+        "rank": 542,
+        "count": 2613,
+        "percentile": 78
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 49,
+        "percentile": 68.8
+      }
+    },
+    {
+      "reportId": "PTR20004450",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 50,
+        "percentile": 65.3
+      }
+    },
+    {
+      "reportId": "PTR20001086",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.29,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.5,
+      "payments31To60Days": 5.44,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 50,
+        "percentile": 71.4
+      }
+    }
+  ]
+}

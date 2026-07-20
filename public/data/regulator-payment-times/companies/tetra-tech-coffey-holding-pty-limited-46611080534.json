@@ -1,0 +1,67 @@
+{
+  "slug": "tetra-tech-coffey-holding-pty-limited-46611080534",
+  "businessName": "TETRA TECH COFFEY HOLDING PTY LIMITED",
+  "abn": "46611080534",
+  "acnArbn": "611080534",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006841",
+      "acnArbn": "611080534",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 13,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-23",
+      "overallP95Position": {
+        "rank": 164,
+        "count": 228,
+        "percentile": 26.9
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 27,
+        "percentile": 38.5
+      }
+    },
+    {
+      "reportId": "PTR20002728",
+      "acnArbn": "611080534",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 79,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 183,
+        "count": 231,
+        "percentile": 20.9
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 26,
+        "percentile": 20
+      }
+    }
+  ]
+}

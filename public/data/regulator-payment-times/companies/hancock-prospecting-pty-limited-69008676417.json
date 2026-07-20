@@ -1,0 +1,95 @@
+{
+  "slug": "hancock-prospecting-pty-limited-69008676417",
+  "businessName": "HANCOCK PROSPECTING PTY LIMITED",
+  "abn": "69008676417",
+  "acnArbn": "008676417",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010344",
+      "acnArbn": "008676417",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.64,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 85.5,
+      "payments31To60Days": 13.15,
+      "paymentsMoreThan60Days": 1.36,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 177,
+        "percentile": 60.8
+      }
+    },
+    {
+      "reportId": "PTR20005840",
+      "acnArbn": "008676417",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.36,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 79.96,
+      "payments31To60Days": 15.04,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 105,
+        "count": 173,
+        "percentile": 37.2
+      }
+    },
+    {
+      "reportId": "PTR20002956",
+      "acnArbn": "008676417",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.83,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 83.2,
+      "payments31To60Days": 13.49,
+      "paymentsMoreThan60Days": 3.31,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 80,
+        "count": 170,
+        "percentile": 52.7
+      }
+    }
+  ]
+}

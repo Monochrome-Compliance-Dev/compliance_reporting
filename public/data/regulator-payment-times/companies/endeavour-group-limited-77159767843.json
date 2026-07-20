@@ -1,0 +1,95 @@
+{
+  "slug": "endeavour-group-limited-77159767843",
+  "businessName": "ENDEAVOUR GROUP LIMITED",
+  "abn": "77159767843",
+  "acnArbn": "159767843",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009599",
+      "acnArbn": "159767843",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 86.54,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 86.54,
+      "payments31To60Days": 10.46,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 38,
+        "percentile": 48.6
+      }
+    },
+    {
+      "reportId": "PTR20005294",
+      "acnArbn": "159767843",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.99,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 86.54,
+      "payments31To60Days": 9.05,
+      "paymentsMoreThan60Days": 4.41,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 36,
+        "percentile": 65.7
+      }
+    },
+    {
+      "reportId": "PTR20001701",
+      "acnArbn": "159767843",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.19,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 78.88,
+      "payments31To60Days": 12.09,
+      "paymentsMoreThan60Days": 9.02,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 30,
+        "percentile": 51.7
+      }
+    }
+  ]
+}

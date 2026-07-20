@@ -1,0 +1,39 @@
+{
+  "slug": "santos-limited-80007550923",
+  "businessName": "SANTOS LIMITED",
+  "abn": "80007550923",
+  "acnArbn": "007550923",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20001608",
+      "acnArbn": "007550923",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 66,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 170,
+        "percentile": 44.4
+      }
+    }
+  ]
+}

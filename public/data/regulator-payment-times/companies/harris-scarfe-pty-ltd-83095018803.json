@@ -1,0 +1,95 @@
+{
+  "slug": "harris-scarfe-pty-ltd-83095018803",
+  "businessName": "HARRIS SCARFE PTY LTD",
+  "abn": "83095018803",
+  "acnArbn": "095018803",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010006",
+      "acnArbn": "095018803",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 73,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 59.3,
+      "payments31To60Days": 19.7,
+      "paymentsMoreThan60Days": 21,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2476,
+        "count": 2613,
+        "percentile": 5.1
+      },
+      "industryP95Position": {
+        "rank": 198,
+        "count": 207,
+        "percentile": 4.4
+      }
+    },
+    {
+      "reportId": "PTR20010007",
+      "acnArbn": "095018803",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 65.1,
+      "payments31To60Days": 17.8,
+      "paymentsMoreThan60Days": 17.1,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2568,
+        "percentile": 8.8
+      },
+      "industryP95Position": {
+        "rank": 191,
+        "count": 208,
+        "percentile": 7.2
+      }
+    },
+    {
+      "reportId": "PTR20001492",
+      "acnArbn": "095018803",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 49.97,
+      "payments31To60Days": 29.45,
+      "paymentsMoreThan60Days": 20.58,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2196,
+        "count": 2498,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 179,
+        "count": 207,
+        "percentile": 13.1
+      }
+    }
+  ]
+}

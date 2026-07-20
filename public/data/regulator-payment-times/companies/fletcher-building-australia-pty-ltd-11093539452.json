@@ -1,0 +1,95 @@
+{
+  "slug": "fletcher-building-australia-pty-ltd-11093539452",
+  "businessName": "FLETCHER BUILDING (AUSTRALIA) PTY LTD",
+  "abn": "11093539452",
+  "acnArbn": "093539452",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007695",
+      "acnArbn": "093539452",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.22,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 28.66,
+      "payments31To60Days": 56.63,
+      "paymentsMoreThan60Days": 14.71,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-08",
+      "overallP95Position": {
+        "rank": 2135,
+        "count": 2613,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 215,
+        "count": 270,
+        "percentile": 18.2
+      }
+    },
+    {
+      "reportId": "PTR20003293",
+      "acnArbn": "093539452",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.05,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 27.73,
+      "payments31To60Days": 55.33,
+      "paymentsMoreThan60Days": 16.94,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-08-28",
+      "overallP95Position": {
+        "rank": 1988,
+        "count": 2568,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 259,
+        "percentile": 22.5
+      }
+    },
+    {
+      "reportId": "PTR20002947",
+      "acnArbn": "093539452",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.06,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 28.58,
+      "payments31To60Days": 57.7,
+      "paymentsMoreThan60Days": 13.72,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2498,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 199,
+        "count": 250,
+        "percentile": 19.7
+      }
+    }
+  ]
+}

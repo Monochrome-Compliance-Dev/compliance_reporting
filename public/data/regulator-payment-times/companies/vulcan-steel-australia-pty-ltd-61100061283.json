@@ -1,0 +1,95 @@
+{
+  "slug": "vulcan-steel-australia-pty-ltd-61100061283",
+  "businessName": "VULCAN STEEL (AUSTRALIA) PTY LTD",
+  "abn": "61100061283",
+  "acnArbn": "100061283",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011356",
+      "acnArbn": "100061283",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.8,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 125,
+      "payments30DaysOrLess": 30.8,
+      "payments31To60Days": 46.58,
+      "paymentsMoreThan60Days": 22.62,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-14",
+      "overallP95Position": {
+        "rank": 2561,
+        "count": 2613,
+        "percentile": 1.9
+      },
+      "industryP95Position": {
+        "rank": 339,
+        "count": 347,
+        "percentile": 2.3
+      }
+    },
+    {
+      "reportId": "PTR20005243",
+      "acnArbn": "100061283",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 54,
+      "payments31To60Days": 27,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 262,
+        "count": 335,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20000305",
+      "acnArbn": "100061283",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.55,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 41,
+      "payments31To60Days": 13,
+      "paymentsMoreThan60Days": 47,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-09",
+      "overallP95Position": {
+        "rank": 2373,
+        "count": 2498,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 305,
+        "count": 323,
+        "percentile": 5.6
+      }
+    }
+  ]
+}

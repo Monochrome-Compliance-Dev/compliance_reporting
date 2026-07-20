@@ -1,0 +1,95 @@
+{
+  "slug": "osmosis-holdings-australia-i-pty-ltd-59650740266",
+  "businessName": "OSMOSIS HOLDINGS AUSTRALIA I PTY LTD",
+  "abn": "59650740266",
+  "acnArbn": "650740266",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007682",
+      "acnArbn": "650740266",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 44.7,
+      "payments31To60Days": 43.1,
+      "paymentsMoreThan60Days": 12.2,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-05",
+      "overallP95Position": {
+        "rank": 2190,
+        "count": 2613,
+        "percentile": 15.4
+      },
+      "industryP95Position": {
+        "rank": 258,
+        "count": 347,
+        "percentile": 24.3
+      }
+    },
+    {
+      "reportId": "PTR20005695",
+      "acnArbn": "650740266",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 32.3,
+      "payments31To60Days": 53.1,
+      "paymentsMoreThan60Days": 14.6,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2156,
+        "count": 2568,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 252,
+        "count": 335,
+        "percentile": 24.3
+      }
+    },
+    {
+      "reportId": "PTR20002099",
+      "acnArbn": "650740266",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 31.3,
+      "payments31To60Days": 50.1,
+      "paymentsMoreThan60Days": 18.6,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2498,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 255,
+        "count": 323,
+        "percentile": 18.9
+      }
+    }
+  ]
+}

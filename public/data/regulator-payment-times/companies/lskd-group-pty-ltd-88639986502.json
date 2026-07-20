@@ -1,0 +1,95 @@
+{
+  "slug": "lskd-group-pty-ltd-88639986502",
+  "businessName": "LSKD GROUP PTY LTD",
+  "abn": "88639986502",
+  "acnArbn": "639986502",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-27",
+  "reports": [
+    {
+      "reportId": "PTR20008896",
+      "acnArbn": "639986502",
+      "reportingPeriodStartDate": "2025-06-29",
+      "reportingPeriodEndDate": "2025-12-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 87,
+      "payments31To60Days": 13,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 9,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20005347",
+      "acnArbn": "639986502",
+      "reportingPeriodStartDate": "2024-12-29",
+      "reportingPeriodEndDate": "2025-06-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 13,
+        "percentile": 91.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 5,
+        "percentile": 75
+      }
+    },
+    {
+      "reportId": "PTR20001992",
+      "acnArbn": "639986502",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 71,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 11,
+        "percentile": 70
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    }
+  ]
+}

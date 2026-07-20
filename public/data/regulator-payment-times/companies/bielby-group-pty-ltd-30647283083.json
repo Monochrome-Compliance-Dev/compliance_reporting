@@ -1,0 +1,95 @@
+{
+  "slug": "bielby-group-pty-ltd-30647283083",
+  "businessName": "BIELBY GROUP PTY LTD",
+  "abn": "30647283083",
+  "acnArbn": "647283083",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008711",
+      "acnArbn": "647283083",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.3,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 46.81,
+      "payments31To60Days": 53.12,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 270,
+        "percentile": 59.9
+      }
+    },
+    {
+      "reportId": "PTR20003550",
+      "acnArbn": "647283083",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.82,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 36.41,
+      "payments31To60Days": 60.08,
+      "paymentsMoreThan60Days": 3.52,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-09",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 106,
+        "count": 259,
+        "percentile": 55.8
+      }
+    },
+    {
+      "reportId": "PTR20001604",
+      "acnArbn": "647283083",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.75,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 39.69,
+      "payments31To60Days": 59.89,
+      "paymentsMoreThan60Days": 0.42,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 250,
+        "percentile": 62.7
+      }
+    }
+  ]
+}

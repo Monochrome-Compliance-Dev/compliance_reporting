@@ -1,0 +1,95 @@
+{
+  "slug": "maddocks-63478951337",
+  "businessName": "MADDOCKS",
+  "abn": "63478951337",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009589",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.3,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 121,
+      "payments30DaysOrLess": 60.2,
+      "payments31To60Days": 22.39,
+      "paymentsMoreThan60Days": 17.41,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2553,
+        "count": 2613,
+        "percentile": 2.2
+      },
+      "industryP95Position": {
+        "rank": 170,
+        "count": 183,
+        "percentile": 7.1
+      }
+    },
+    {
+      "reportId": "PTR20004956",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.79,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 54.4,
+      "payments31To60Days": 24.7,
+      "paymentsMoreThan60Days": 20.9,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2483,
+        "count": 2568,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 181,
+        "percentile": 7.8
+      }
+    },
+    {
+      "reportId": "PTR20010966",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.4,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 101,
+      "payments30DaysOrLess": 61.21,
+      "payments31To60Days": 23.84,
+      "paymentsMoreThan60Days": 14.95,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-05-04",
+      "overallP95Position": {
+        "rank": 2356,
+        "count": 2498,
+        "percentile": 5.4
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 176,
+        "percentile": 11.4
+      }
+    }
+  ]
+}

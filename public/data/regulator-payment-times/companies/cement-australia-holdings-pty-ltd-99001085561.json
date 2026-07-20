@@ -1,0 +1,95 @@
+{
+  "slug": "cement-australia-holdings-pty-ltd-99001085561",
+  "businessName": "CEMENT AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "99001085561",
+  "acnArbn": "001085561",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Non-metallic mineral product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007238",
+      "acnArbn": "001085561",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.96,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 27.1,
+      "payments31To60Days": 48.3,
+      "paymentsMoreThan60Days": 23.6,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-16",
+      "overallP95Position": {
+        "rank": 2190,
+        "count": 2613,
+        "percentile": 15.4
+      },
+      "industryP95Position": {
+        "rank": 258,
+        "count": 347,
+        "percentile": 24.3
+      }
+    },
+    {
+      "reportId": "PTR20002655",
+      "acnArbn": "001085561",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.63,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 7.2,
+      "payments31To60Days": 54.2,
+      "paymentsMoreThan60Days": 38.6,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 2081,
+        "count": 2568,
+        "percentile": 18.4
+      },
+      "industryP95Position": {
+        "rank": 233,
+        "count": 335,
+        "percentile": 29.6
+      }
+    },
+    {
+      "reportId": "PTR20002651",
+      "acnArbn": "001085561",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 57.56,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 5.1,
+      "payments31To60Days": 55,
+      "paymentsMoreThan60Days": 39.9,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 2026,
+        "count": 2498,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 323,
+        "percentile": 29.5
+      }
+    }
+  ]
+}

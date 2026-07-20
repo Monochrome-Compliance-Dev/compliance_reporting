@@ -1,0 +1,95 @@
+{
+  "slug": "walker-group-holdings-pty-limited-81001215069",
+  "businessName": "WALKER GROUP HOLDINGS PTY LIMITED",
+  "abn": "81001215069",
+  "acnArbn": "001215069",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008649",
+      "acnArbn": "001215069",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 74.4,
+      "payments31To60Days": 23.6,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 226,
+        "count": 338,
+        "percentile": 32
+      }
+    },
+    {
+      "reportId": "PTR20006139",
+      "acnArbn": "001215069",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 67.3,
+      "payments31To60Days": 28.7,
+      "paymentsMoreThan60Days": 3.9,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 273,
+        "count": 349,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20002940",
+      "acnArbn": "001215069",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 339,
+        "percentile": 19.5
+      }
+    }
+  ]
+}

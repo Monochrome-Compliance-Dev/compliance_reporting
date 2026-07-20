@@ -1,0 +1,95 @@
+{
+  "slug": "sektor-limited-partnership-74297651095",
+  "businessName": "Sektor Limited Partnership",
+  "abn": "74297651095",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011740",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.61,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 129,
+        "count": 193,
+        "percentile": 32.3
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 45,
+        "percentile": 22.7
+      }
+    },
+    {
+      "reportId": "PTR20006696",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 66,
+      "payments31To60Days": 32.3,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-14",
+      "overallP95Position": {
+        "rank": 88,
+        "count": 228,
+        "percentile": 57.3
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 59,
+        "percentile": 58.6
+      }
+    },
+    {
+      "reportId": "PTR20002838",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 69.2,
+      "payments31To60Days": 29.2,
+      "paymentsMoreThan60Days": 1.6,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 63,
+        "count": 231,
+        "percentile": 73
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 61,
+        "percentile": 73.3
+      }
+    }
+  ]
+}

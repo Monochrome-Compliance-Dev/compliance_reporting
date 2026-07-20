@@ -1,0 +1,95 @@
+{
+  "slug": "xylem-australia-holdings-pty-ltd-89162495070",
+  "businessName": "XYLEM AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "89162495070",
+  "acnArbn": "162495070",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010751",
+      "acnArbn": "162495070",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 38.8,
+      "payments31To60Days": 57,
+      "paymentsMoreThan60Days": 4.2,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-04-26",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 92,
+        "percentile": 16.5
+      }
+    },
+    {
+      "reportId": "PTR20006119",
+      "acnArbn": "162495070",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 33.2,
+      "payments31To60Days": 60,
+      "paymentsMoreThan60Days": 6.8,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-10-21",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 95,
+        "percentile": 47.9
+      }
+    },
+    {
+      "reportId": "PTR20003528",
+      "acnArbn": "162495070",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 26.2,
+      "payments31To60Days": 60.7,
+      "paymentsMoreThan60Days": 13.1,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-09",
+      "overallP95Position": {
+        "rank": 693,
+        "count": 2498,
+        "percentile": 71.2
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 99,
+        "percentile": 53.1
+      }
+    }
+  ]
+}

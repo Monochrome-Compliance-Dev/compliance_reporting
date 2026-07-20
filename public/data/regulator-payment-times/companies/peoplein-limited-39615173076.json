@@ -1,0 +1,67 @@
+{
+  "slug": "peoplein-limited-39615173076",
+  "businessName": "PEOPLEIN LIMITED",
+  "abn": "39615173076",
+  "acnArbn": "615173076",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010589",
+      "acnArbn": "615173076",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.64,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 94.01,
+      "payments31To60Days": 5.05,
+      "paymentsMoreThan60Days": 0.94,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-04-19",
+      "overallP95Position": {
+        "rank": 672,
+        "count": 2613,
+        "percentile": 73.2
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 49,
+        "percentile": 62.5
+      }
+    },
+    {
+      "reportId": "PTR20010588",
+      "acnArbn": "615173076",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.24,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-04-19",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 50,
+        "percentile": 51
+      }
+    }
+  ]
+}

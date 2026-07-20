@@ -1,0 +1,95 @@
+{
+  "slug": "fantech-pty-ltd-11005434024",
+  "businessName": "FANTECH PTY. LTD.",
+  "abn": "11005434024",
+  "acnArbn": "005434024",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20010895",
+      "acnArbn": "005434024",
+      "reportingPeriodStartDate": "2025-07-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.92,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 20.63,
+      "payments31To60Days": 50.91,
+      "paymentsMoreThan60Days": 28.46,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 28,
+        "count": 31,
+        "percentile": 10
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006243",
+      "acnArbn": "005434024",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.31,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 68,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 23.05,
+      "payments31To60Days": 43.83,
+      "paymentsMoreThan60Days": 33.11,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 30,
+        "count": 34,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20002841",
+      "acnArbn": "005434024",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.8,
+      "medianPaymentTimeDays": 51,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 18.8,
+      "payments31To60Days": 47.61,
+      "paymentsMoreThan60Days": 33.59,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 203,
+        "count": 231,
+        "percentile": 11.7
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 32,
+        "percentile": 16.1
+      }
+    }
+  ]
+}

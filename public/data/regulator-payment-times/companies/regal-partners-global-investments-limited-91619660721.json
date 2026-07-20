@@ -1,0 +1,39 @@
+{
+  "slug": "regal-partners-global-investments-limited-91619660721",
+  "businessName": "REGAL PARTNERS GLOBAL INVESTMENTS LIMITED",
+  "abn": "91619660721",
+  "acnArbn": "619660721",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004204",
+      "acnArbn": "619660721",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 127,
+        "count": 2568,
+        "percentile": 94.7
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 349,
+        "percentile": 86.2
+      }
+    }
+  ]
+}

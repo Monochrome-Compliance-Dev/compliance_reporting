@@ -1,0 +1,95 @@
+{
+  "slug": "metals-x-limited-25110150055",
+  "businessName": "METALS X LIMITED",
+  "abn": "25110150055",
+  "acnArbn": "110150055",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008143",
+      "acnArbn": "110150055",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 97.8,
+      "payments31To60Days": 2.2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 160,
+        "count": 2613,
+        "percentile": 93.5
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 177,
+        "percentile": 95.5
+      }
+    },
+    {
+      "reportId": "PTR20003980",
+      "acnArbn": "110150055",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.54,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 90.7,
+      "payments31To60Days": 9.3,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 173,
+        "percentile": 70.3
+      }
+    },
+    {
+      "reportId": "PTR20000434",
+      "acnArbn": "110150055",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.93,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 77.67,
+      "payments31To60Days": 17.47,
+      "paymentsMoreThan60Days": 4.85,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-12",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 170,
+        "percentile": 35.5
+      }
+    }
+  ]
+}

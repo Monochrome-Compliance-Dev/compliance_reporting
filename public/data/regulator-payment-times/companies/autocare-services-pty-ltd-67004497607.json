@@ -1,0 +1,95 @@
+{
+  "slug": "autocare-services-pty-ltd-67004497607",
+  "businessName": "AUTOCARE SERVICES PTY LTD",
+  "abn": "67004497607",
+  "acnArbn": "004497607",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20007032",
+      "acnArbn": "004497607",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 42,
+      "payments31To60Days": 43,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 182,
+        "count": 228,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 18,
+        "percentile": 17.6
+      }
+    },
+    {
+      "reportId": "PTR20006324",
+      "acnArbn": "004497607",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 35,
+      "payments31To60Days": 50,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-29",
+      "overallP95Position": {
+        "rank": 177,
+        "count": 231,
+        "percentile": 22.6
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 17,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20006323",
+      "acnArbn": "004497607",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 35,
+      "payments31To60Days": 49,
+      "paymentsMoreThan60Days": 16,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-29",
+      "overallP95Position": {
+        "rank": 1937,
+        "count": 2498,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 140,
+        "percentile": 19.4
+      }
+    }
+  ]
+}

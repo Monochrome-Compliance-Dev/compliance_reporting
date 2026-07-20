@@ -1,0 +1,67 @@
+{
+  "slug": "brexa-pty-limited-20628356141",
+  "businessName": "BREXA PTY LIMITED",
+  "abn": "20628356141",
+  "acnArbn": "628356141",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009642",
+      "acnArbn": "628356141",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 88.14,
+      "payments31To60Days": 10.51,
+      "paymentsMoreThan60Days": 1.02,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 672,
+        "count": 2613,
+        "percentile": 73.2
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 49,
+        "percentile": 62.5
+      }
+    },
+    {
+      "reportId": "PTR20005614",
+      "acnArbn": "628356141",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 89.51,
+      "payments31To60Days": 9.79,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 50,
+        "percentile": 59.2
+      }
+    }
+  ]
+}

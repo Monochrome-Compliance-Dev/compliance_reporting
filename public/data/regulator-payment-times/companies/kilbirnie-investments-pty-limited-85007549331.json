@@ -1,0 +1,95 @@
+{
+  "slug": "kilbirnie-investments-pty-limited-85007549331",
+  "businessName": "KILBIRNIE INVESTMENTS PTY. LIMITED",
+  "abn": "85007549331",
+  "acnArbn": "007549331",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008647",
+      "acnArbn": "007549331",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.93,
+      "medianPaymentTimeDays": 22.83,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 73.94,
+      "payments31To60Days": 23.51,
+      "paymentsMoreThan60Days": 2.55,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 264,
+        "count": 338,
+        "percentile": 20.2
+      }
+    },
+    {
+      "reportId": "PTR20005001",
+      "acnArbn": "007549331",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.03,
+      "medianPaymentTimeDays": 23.42,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 72.64,
+      "payments31To60Days": 24.89,
+      "paymentsMoreThan60Days": 2.47,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 247,
+        "count": 349,
+        "percentile": 29
+      }
+    },
+    {
+      "reportId": "PTR20000638",
+      "acnArbn": "007549331",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.79,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 71.39,
+      "payments31To60Days": 26.29,
+      "paymentsMoreThan60Days": 2.32,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-18",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 237,
+        "count": 339,
+        "percentile": 29.3
+      }
+    }
+  ]
+}

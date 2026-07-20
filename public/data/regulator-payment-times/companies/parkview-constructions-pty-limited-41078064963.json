@@ -1,0 +1,95 @@
+{
+  "slug": "parkview-constructions-pty-limited-41078064963",
+  "businessName": "PARKVIEW CONSTRUCTIONS PTY. LIMITED",
+  "abn": "41078064963",
+  "acnArbn": "078064963",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009697",
+      "acnArbn": "078064963",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 58.06,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 113,
+      "payments30DaysOrLess": 29.46,
+      "payments31To60Days": 59.21,
+      "paymentsMoreThan60Days": 11.33,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2529,
+        "count": 2613,
+        "percentile": 3.2
+      },
+      "industryP95Position": {
+        "rank": 259,
+        "count": 270,
+        "percentile": 4.1
+      }
+    },
+    {
+      "reportId": "PTR20004945",
+      "acnArbn": "078064963",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.83,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 27.16,
+      "payments31To60Days": 59.49,
+      "paymentsMoreThan60Days": 13.35,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 186,
+        "count": 259,
+        "percentile": 26.7
+      }
+    },
+    {
+      "reportId": "PTR20002029",
+      "acnArbn": "078064963",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 100,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 32.9,
+      "payments31To60Days": 58.1,
+      "paymentsMoreThan60Days": 9.1,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2345,
+        "count": 2498,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 240,
+        "count": 250,
+        "percentile": 4
+      }
+    }
+  ]
+}

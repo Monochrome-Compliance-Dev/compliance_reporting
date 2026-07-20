@@ -1,0 +1,95 @@
+{
+  "slug": "moffat-group-pty-limited-92069691407",
+  "businessName": "Moffat Group Pty Limited",
+  "abn": "92069691407",
+  "acnArbn": "069691407",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2026-02-27",
+  "reports": [
+    {
+      "reportId": "PTR20010796",
+      "acnArbn": "069691407",
+      "reportingPeriodStartDate": "2025-08-31",
+      "reportingPeriodEndDate": "2026-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 58,
+      "payments31To60Days": 38.8,
+      "paymentsMoreThan60Days": 3.2,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 8,
+        "count": 24,
+        "percentile": 69.6
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 6,
+        "percentile": 60
+      }
+    },
+    {
+      "reportId": "PTR20008318",
+      "acnArbn": "069691407",
+      "reportingPeriodStartDate": "2025-02-28",
+      "reportingPeriodEndDate": "2025-08-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 78.26,
+      "payments31To60Days": 19.5,
+      "paymentsMoreThan60Days": 2.3,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 25,
+        "percentile": 91.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 6,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20008326",
+      "acnArbn": "069691407",
+      "reportingPeriodStartDate": "2024-08-31",
+      "reportingPeriodEndDate": "2025-02-27",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 0.9,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 75.97,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 2.1,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 9,
+        "count": 22,
+        "percentile": 61.9
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 6,
+        "percentile": 60
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "cheap-as-chips-discount-stores-pty-ltd-17616449122",
+  "businessName": "CHEAP AS CHIPS DISCOUNT STORES PTY LTD",
+  "abn": "17616449122",
+  "acnArbn": "616449122",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20003469",
+      "acnArbn": "616449122",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 84.83,
+      "medianPaymentTimeDays": 80,
+      "p80PaymentTimeDays": 122,
+      "p95PaymentTimeDays": 161,
+      "payments30DaysOrLess": 10.28,
+      "payments31To60Days": 22.1,
+      "paymentsMoreThan60Days": 67.61,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 2538,
+        "count": 2568,
+        "percentile": 1.2
+      },
+      "industryP95Position": {
+        "rank": 206,
+        "count": 208,
+        "percentile": 1
+      }
+    },
+    {
+      "reportId": "PTR20002945",
+      "acnArbn": "616449122",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61.52,
+      "medianPaymentTimeDays": 52,
+      "p80PaymentTimeDays": 95,
+      "p95PaymentTimeDays": 119,
+      "payments30DaysOrLess": 22.56,
+      "payments31To60Days": 36.21,
+      "paymentsMoreThan60Days": 41.23,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 2414,
+        "count": 2498,
+        "percentile": 3.2
+      },
+      "industryP95Position": {
+        "rank": 199,
+        "count": 207,
+        "percentile": 3.9
+      }
+    }
+  ]
+}

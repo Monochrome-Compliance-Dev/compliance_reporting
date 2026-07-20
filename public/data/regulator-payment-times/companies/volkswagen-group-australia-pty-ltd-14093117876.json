@@ -1,0 +1,67 @@
+{
+  "slug": "volkswagen-group-australia-pty-ltd-14093117876",
+  "businessName": "VOLKSWAGEN GROUP AUSTRALIA PTY LTD",
+  "abn": "14093117876",
+  "acnArbn": "093117876",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005077",
+      "acnArbn": "093117876",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.34,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 323,
+        "percentile": 82.3
+      }
+    },
+    {
+      "reportId": "PTR20002474",
+      "acnArbn": "093117876",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.79,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 88.57,
+      "payments31To60Days": 8.88,
+      "paymentsMoreThan60Days": 2.56,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-13",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 323,
+        "percentile": 67.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "jb-metropolitan-distributors-pty-limited-72088821023",
+  "businessName": "JB METROPOLITAN DISTRIBUTORS PTY LIMITED",
+  "abn": "72088821023",
+  "acnArbn": "088821023",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009297",
+      "acnArbn": "088821023",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 55,
+      "payments31To60Days": 40,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 329,
+        "percentile": 45.1
+      }
+    },
+    {
+      "reportId": "PTR20007069",
+      "acnArbn": "088821023",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 69.46,
+      "payments31To60Days": 25.21,
+      "paymentsMoreThan60Days": 5.33,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 323,
+        "percentile": 48.8
+      }
+    },
+    {
+      "reportId": "PTR20001126",
+      "acnArbn": "088821023",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 69,
+      "payments31To60Days": 27,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 323,
+        "percentile": 83.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ctc-precast-pty-ltd-12614966059",
+  "businessName": "CTC PRECAST PTY LTD",
+  "abn": "12614966059",
+  "acnArbn": "614966059",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20002788",
+      "acnArbn": "614966059",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 32,
+      "payments31To60Days": 59,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 250,
+        "percentile": 33.7
+      }
+    }
+  ]
+}

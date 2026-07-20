@@ -1,0 +1,95 @@
+{
+  "slug": "bearcat-tyres-pty-ltd-92085854520",
+  "businessName": "BEARCAT TYRES PTY LTD",
+  "abn": "92085854520",
+  "acnArbn": "085854520",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008713",
+      "acnArbn": "085854520",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 68,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 329,
+        "percentile": 77.1
+      }
+    },
+    {
+      "reportId": "PTR20005048",
+      "acnArbn": "085854520",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 48,
+      "payments31To60Days": 37,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2483,
+        "count": 2568,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 310,
+        "count": 323,
+        "percentile": 3.7
+      }
+    },
+    {
+      "reportId": "PTR20002890",
+      "acnArbn": "085854520",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 29,
+      "payments31To60Days": 46,
+      "paymentsMoreThan60Days": 26,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 2418,
+        "count": 2498,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 307,
+        "count": 323,
+        "percentile": 4.7
+      }
+    }
+  ]
+}

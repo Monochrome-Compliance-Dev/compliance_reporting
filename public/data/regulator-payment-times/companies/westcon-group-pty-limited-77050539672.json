@@ -1,0 +1,95 @@
+{
+  "slug": "westcon-group-pty-limited-77050539672",
+  "businessName": "WESTCON GROUP PTY LIMITED",
+  "abn": "77050539672",
+  "acnArbn": "050539672",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-02-27",
+  "reports": [
+    {
+      "reportId": "PTR20011185",
+      "acnArbn": "050539672",
+      "reportingPeriodStartDate": "2025-08-31",
+      "reportingPeriodEndDate": "2026-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.21,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 54.4,
+      "payments31To60Days": 31.47,
+      "paymentsMoreThan60Days": 14.13,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 20,
+        "count": 24,
+        "percentile": 17.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006579",
+      "acnArbn": "050539672",
+      "reportingPeriodStartDate": "2025-02-28",
+      "reportingPeriodEndDate": "2025-08-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51.99,
+      "medianPaymentTimeDays": 37.5,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 135,
+      "payments30DaysOrLess": 41.86,
+      "payments31To60Days": 28.2,
+      "paymentsMoreThan60Days": 29.94,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-11-27",
+      "overallP95Position": {
+        "rank": 24,
+        "count": 25,
+        "percentile": 4.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002931",
+      "acnArbn": "050539672",
+      "reportingPeriodStartDate": "2024-08-31",
+      "reportingPeriodEndDate": "2025-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.4,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 127,
+      "payments30DaysOrLess": 45.67,
+      "payments31To60Days": 19.33,
+      "paymentsMoreThan60Days": 35,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 22,
+        "count": 22,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

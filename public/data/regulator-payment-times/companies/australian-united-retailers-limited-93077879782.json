@@ -1,0 +1,95 @@
+{
+  "slug": "australian-united-retailers-limited-93077879782",
+  "businessName": "AUSTRALIAN UNITED RETAILERS LIMITED",
+  "abn": "93077879782",
+  "acnArbn": "077879782",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011471",
+      "acnArbn": "077879782",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 96,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 243,
+        "count": 2613,
+        "percentile": 89.2
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 207,
+        "percentile": 94.2
+      }
+    },
+    {
+      "reportId": "PTR20003705",
+      "acnArbn": "077879782",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.69,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 93.18,
+      "payments31To60Days": 6.82,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 208,
+        "percentile": 85
+      }
+    },
+    {
+      "reportId": "PTR20001278",
+      "acnArbn": "077879782",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.46,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 90.55,
+      "payments31To60Days": 6.84,
+      "paymentsMoreThan60Days": 2.61,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 779,
+        "count": 2498,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 207,
+        "percentile": 76.2
+      }
+    }
+  ]
+}

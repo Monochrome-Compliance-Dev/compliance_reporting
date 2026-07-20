@@ -1,0 +1,95 @@
+{
+  "slug": "lion-pty-ltd-50128004268",
+  "businessName": "LION PTY LTD",
+  "abn": "50128004268",
+  "acnArbn": "128004268",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Beverage and tobacco product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007427",
+      "acnArbn": "128004268",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 86.72,
+      "payments31To60Days": 9.5,
+      "paymentsMoreThan60Days": 3.79,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-24",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 347,
+        "percentile": 76.6
+      }
+    },
+    {
+      "reportId": "PTR20003245",
+      "acnArbn": "128004268",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.89,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 92.61,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 2.38,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 335,
+        "percentile": 91.3
+      }
+    },
+    {
+      "reportId": "PTR20006654",
+      "acnArbn": "128004268",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.09,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 91.44,
+      "payments31To60Days": 5.47,
+      "paymentsMoreThan60Days": 3.08,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-09",
+      "overallP95Position": {
+        "rank": 745,
+        "count": 2498,
+        "percentile": 68.9
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 323,
+        "percentile": 87.9
+      }
+    }
+  ]
+}

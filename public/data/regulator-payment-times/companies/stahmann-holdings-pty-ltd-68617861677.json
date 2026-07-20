@@ -1,0 +1,39 @@
+{
+  "slug": "stahmann-holdings-pty-ltd-68617861677",
+  "businessName": "STAHMANN HOLDINGS PTY LTD",
+  "abn": "68617861677",
+  "acnArbn": "617861677",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011276",
+      "acnArbn": "617861677",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.6,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 86.1,
+      "payments31To60Days": 13.3,
+      "paymentsMoreThan60Days": 0.6,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 193,
+        "percentile": 71.9
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 8,
+        "percentile": 85.7
+      }
+    }
+  ]
+}

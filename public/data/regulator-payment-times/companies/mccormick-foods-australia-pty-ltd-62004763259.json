@@ -1,0 +1,67 @@
+{
+  "slug": "mccormick-foods-australia-pty-ltd-62004763259",
+  "businessName": "MCCORMICK FOODS AUSTRALIA PTY. LTD.",
+  "abn": "62004763259",
+  "acnArbn": "004763259",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-11-29",
+  "reports": [
+    {
+      "reportId": "PTR20007567",
+      "acnArbn": "004763259",
+      "reportingPeriodStartDate": "2025-05-31",
+      "reportingPeriodEndDate": "2025-11-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 23.88,
+      "payments31To60Days": 40.74,
+      "paymentsMoreThan60Days": 35.38,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-02",
+      "overallP95Position": {
+        "rank": 20,
+        "count": 22,
+        "percentile": 9.5
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20003517",
+      "acnArbn": "004763259",
+      "reportingPeriodStartDate": "2024-11-30",
+      "reportingPeriodEndDate": "2025-05-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 56.39,
+      "payments31To60Days": 32.77,
+      "paymentsMoreThan60Days": 10.84,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 22,
+        "percentile": 85.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 8,
+        "percentile": 100
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "snow-summit-investments-pty-ltd-64633002007",
+  "businessName": "SNOW SUMMIT INVESTMENTS PTY LTD",
+  "abn": "64633002007",
+  "acnArbn": "633002007",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007626",
+      "acnArbn": "633002007",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.78,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 93.81,
+      "payments31To60Days": 6.19,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 49,
+        "percentile": 70.8
+      }
+    },
+    {
+      "reportId": "PTR20003485",
+      "acnArbn": "633002007",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.6,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.43,
+      "payments31To60Days": 4.57,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 50,
+        "percentile": 65.3
+      }
+    },
+    {
+      "reportId": "PTR20001271",
+      "acnArbn": "633002007",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.88,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 92.85,
+      "payments31To60Days": 6.75,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 50,
+        "percentile": 67.3
+      }
+    }
+  ]
+}

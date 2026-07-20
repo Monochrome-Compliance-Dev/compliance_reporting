@@ -1,0 +1,95 @@
+{
+  "slug": "rugby-australia-ltd-36002898544",
+  "businessName": "RUGBY AUSTRALIA LTD",
+  "abn": "36002898544",
+  "acnArbn": "002898544",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009479",
+      "acnArbn": "002898544",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 109,
+      "payments30DaysOrLess": 24.15,
+      "payments31To60Days": 60.87,
+      "paymentsMoreThan60Days": 14.98,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2514,
+        "count": 2613,
+        "percentile": 3.7
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 34,
+        "percentile": 3
+      }
+    },
+    {
+      "reportId": "PTR20009473",
+      "acnArbn": "002898544",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.8,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 44.55,
+      "payments31To60Days": 51.38,
+      "paymentsMoreThan60Days": 3.64,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2241,
+        "count": 2568,
+        "percentile": 12.5
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 35,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20000675",
+      "acnArbn": "002898544",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 44,
+      "payments31To60Days": 47,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 2269,
+        "count": 2498,
+        "percentile": 8.7
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 31,
+        "percentile": 3.3
+      }
+    }
+  ]
+}

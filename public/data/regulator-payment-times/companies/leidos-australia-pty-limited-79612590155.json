@@ -1,0 +1,95 @@
+{
+  "slug": "leidos-australia-pty-limited-79612590155",
+  "businessName": "LEIDOS AUSTRALIA PTY LIMITED",
+  "abn": "79612590155",
+  "acnArbn": "612590155",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009882",
+      "acnArbn": "612590155",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 63,
+        "count": 183,
+        "percentile": 65.9
+      }
+    },
+    {
+      "reportId": "PTR20004900",
+      "acnArbn": "612590155",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 181,
+        "percentile": 65.6
+      }
+    },
+    {
+      "reportId": "PTR20001890",
+      "acnArbn": "612590155",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 65,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 176,
+        "percentile": 54.9
+      }
+    }
+  ]
+}

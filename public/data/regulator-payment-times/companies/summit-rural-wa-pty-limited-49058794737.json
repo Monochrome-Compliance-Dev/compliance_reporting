@@ -1,0 +1,95 @@
+{
+  "slug": "summit-rural-wa-pty-limited-49058794737",
+  "businessName": "SUMMIT RURAL (WA) PTY LIMITED",
+  "abn": "49058794737",
+  "acnArbn": "058794737",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture, forestry and fishing support services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011243",
+      "acnArbn": "058794737",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.74,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 91.3,
+      "payments31To60Days": 7.02,
+      "paymentsMoreThan60Days": 1.68,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 95,
+        "count": 193,
+        "percentile": 49.5
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 8,
+        "percentile": 57.1
+      }
+    },
+    {
+      "reportId": "PTR20006741",
+      "acnArbn": "058794737",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.91,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 92.44,
+      "payments31To60Days": 5.76,
+      "paymentsMoreThan60Days": 1.8,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-12-16",
+      "overallP95Position": {
+        "rank": 70,
+        "count": 228,
+        "percentile": 68.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 10,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportId": "PTR20000917",
+      "acnArbn": "058794737",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.37,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 89.36,
+      "payments31To60Days": 7.72,
+      "paymentsMoreThan60Days": 2.92,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 74,
+        "count": 231,
+        "percentile": 66.5
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 9,
+        "percentile": 75
+      }
+    }
+  ]
+}

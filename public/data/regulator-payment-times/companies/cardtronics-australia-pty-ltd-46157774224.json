@@ -1,0 +1,67 @@
+{
+  "slug": "cardtronics-australia-pty-ltd-46157774224",
+  "businessName": "CARDTRONICS AUSTRALIA PTY LTD",
+  "abn": "46157774224",
+  "acnArbn": "157774224",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008775",
+      "acnArbn": "157774224",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.35,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 93.89,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 3.11,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 756,
+        "count": 2613,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 205,
+        "count": 338,
+        "percentile": 38.3
+      }
+    },
+    {
+      "reportId": "PTR20006569",
+      "acnArbn": "157774224",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.47,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 93.94,
+      "payments31To60Days": 2.5,
+      "paymentsMoreThan60Days": 3.56,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-11-26",
+      "overallP95Position": {
+        "rank": 699,
+        "count": 2568,
+        "percentile": 71.8
+      },
+      "industryP95Position": {
+        "rank": 187,
+        "count": 349,
+        "percentile": 44.5
+      }
+    }
+  ]
+}

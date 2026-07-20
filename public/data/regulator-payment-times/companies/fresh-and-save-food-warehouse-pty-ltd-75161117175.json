@@ -1,0 +1,95 @@
+{
+  "slug": "fresh-and-save-food-warehouse-pty-ltd-75161117175",
+  "businessName": "FRESH & SAVE FOOD WAREHOUSE PTY LTD",
+  "abn": "75161117175",
+  "acnArbn": "161117175",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008825",
+      "acnArbn": "161117175",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 38.35,
+      "payments31To60Days": 43.78,
+      "paymentsMoreThan60Days": 17.86,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2265,
+        "count": 2613,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 184,
+        "count": 207,
+        "percentile": 10.2
+      }
+    },
+    {
+      "reportId": "PTR20006401",
+      "acnArbn": "161117175",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 208,
+        "percentile": 60.9
+      }
+    },
+    {
+      "reportId": "PTR20006400",
+      "acnArbn": "161117175",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.23,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 81.5,
+      "payments31To60Days": 12.16,
+      "paymentsMoreThan60Days": 6.34,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 98,
+        "count": 207,
+        "percentile": 50
+      }
+    }
+  ]
+}

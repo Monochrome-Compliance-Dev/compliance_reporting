@@ -1,0 +1,67 @@
+{
+  "slug": "kerry-ingredients-australia-pty-limited-47072996895",
+  "businessName": "KERRY INGREDIENTS AUSTRALIA PTY. LIMITED",
+  "abn": "47072996895",
+  "acnArbn": "072996895",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005805",
+      "acnArbn": "072996895",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 56,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 12,
+      "payments31To60Days": 65,
+      "paymentsMoreThan60Days": 23,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2354,
+        "count": 2568,
+        "percentile": 8.1
+      },
+      "industryP95Position": {
+        "rank": 299,
+        "count": 335,
+        "percentile": 10.5
+      }
+    },
+    {
+      "reportId": "PTR20001591",
+      "acnArbn": "072996895",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 83,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 43,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 26,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2418,
+        "count": 2498,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 313,
+        "count": 323,
+        "percentile": 2.2
+      }
+    }
+  ]
+}

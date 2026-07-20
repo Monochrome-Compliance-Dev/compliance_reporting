@@ -1,0 +1,39 @@
+{
+  "slug": "navigator-global-investments-limited-47101585737",
+  "businessName": "NAVIGATOR GLOBAL INVESTMENTS LIMITED",
+  "abn": "47101585737",
+  "acnArbn": "101585737",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004172",
+      "acnArbn": "101585737",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.6,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 93.33,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 6.67,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 214,
+        "count": 349,
+        "percentile": 37.1
+      }
+    }
+  ]
+}

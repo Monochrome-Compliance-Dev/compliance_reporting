@@ -1,0 +1,95 @@
+{
+  "slug": "msm-milling-pty-ltd-57115070150",
+  "businessName": "MSM MILLING PTY LTD",
+  "abn": "57115070150",
+  "acnArbn": "115070150",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010703",
+      "acnArbn": "115070150",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.49,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 75.4,
+      "payments31To60Days": 23.2,
+      "paymentsMoreThan60Days": 1.4,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 347,
+        "percentile": 76.6
+      }
+    },
+    {
+      "reportId": "PTR20011058",
+      "acnArbn": "115070150",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.29,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 78.08,
+      "payments31To60Days": 20.19,
+      "paymentsMoreThan60Days": 1.73,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-13",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 335,
+        "percentile": 79
+      }
+    },
+    {
+      "reportId": "PTR20011057",
+      "acnArbn": "115070150",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.3,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 77.9,
+      "payments31To60Days": 21.1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-13",
+      "overallP95Position": {
+        "rank": 1123,
+        "count": 2498,
+        "percentile": 54
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

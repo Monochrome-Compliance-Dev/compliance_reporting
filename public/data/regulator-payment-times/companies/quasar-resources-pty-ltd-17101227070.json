@@ -1,0 +1,67 @@
+{
+  "slug": "quasar-resources-pty-ltd-17101227070",
+  "businessName": "QUASAR RESOURCES PTY LTD",
+  "abn": "17101227070",
+  "acnArbn": "101227070",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004407",
+      "acnArbn": "101227070",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.17,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 36,
+        "count": 2568,
+        "percentile": 98.4
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 173,
+        "percentile": 98.3
+      }
+    },
+    {
+      "reportId": "PTR20001663",
+      "acnArbn": "101227070",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.83,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 39,
+        "count": 2498,
+        "percentile": 98.2
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 170,
+        "percentile": 99.4
+      }
+    }
+  ]
+}

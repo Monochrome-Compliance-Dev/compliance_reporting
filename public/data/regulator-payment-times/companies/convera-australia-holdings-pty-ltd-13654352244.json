@@ -1,0 +1,95 @@
+{
+  "slug": "convera-australia-holdings-pty-ltd-13654352244",
+  "businessName": "CONVERA AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "13654352244",
+  "acnArbn": "654352244",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007089",
+      "acnArbn": "654352244",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 338,
+        "percentile": 58.2
+      }
+    },
+    {
+      "reportId": "PTR20006615",
+      "acnArbn": "654352244",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-01",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 124,
+        "count": 349,
+        "percentile": 60.9
+      }
+    },
+    {
+      "reportId": "PTR20006594",
+      "acnArbn": "654352244",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 89,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-11-27",
+      "overallP95Position": {
+        "rank": 2153,
+        "count": 2498,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 317,
+        "count": 339,
+        "percentile": 6.5
+      }
+    }
+  ]
+}

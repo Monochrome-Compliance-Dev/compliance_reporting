@@ -1,0 +1,95 @@
+{
+  "slug": "direct-freight-aust-pty-ltd-32071822172",
+  "businessName": "DIRECT FREIGHT (AUST) PTY LTD",
+  "abn": "32071822172",
+  "acnArbn": "071822172",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008269",
+      "acnArbn": "071822172",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.42,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 6,
+      "payments30DaysOrLess": 99.91,
+      "payments31To60Days": 0.08,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 2613,
+        "percentile": 99.2
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 143,
+        "percentile": 98.6
+      }
+    },
+    {
+      "reportId": "PTR20003432",
+      "acnArbn": "071822172",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.16,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 5,
+      "p95PaymentTimeDays": 5,
+      "payments30DaysOrLess": 99.96,
+      "payments31To60Days": 0.04,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-07",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 2568,
+        "percentile": 99.3
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 144,
+        "percentile": 99.3
+      }
+    },
+    {
+      "reportId": "PTR20001184",
+      "acnArbn": "071822172",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.22,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 5,
+      "p95PaymentTimeDays": 6,
+      "payments30DaysOrLess": 99.95,
+      "payments31To60Days": 0.05,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 2498,
+        "percentile": 99.2
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 140,
+        "percentile": 98.6
+      }
+    }
+  ]
+}

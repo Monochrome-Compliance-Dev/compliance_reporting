@@ -1,0 +1,95 @@
+{
+  "slug": "ralph-d-silva-motor-group-pty-ltd-12119957676",
+  "businessName": "RALPH D'SILVA MOTOR GROUP PTY LTD",
+  "abn": "12119957676",
+  "acnArbn": "119957676",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007568",
+      "acnArbn": "119957676",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 72,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 38.88,
+      "payments31To60Days": 60.36,
+      "paymentsMoreThan60Days": 0.76,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2488,
+        "count": 2613,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 199,
+        "count": 207,
+        "percentile": 3.4
+      }
+    },
+    {
+      "reportId": "PTR20010974",
+      "acnArbn": "119957676",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 62,
+      "medianPaymentTimeDays": 54,
+      "p80PaymentTimeDays": 97,
+      "p95PaymentTimeDays": 145,
+      "payments30DaysOrLess": 32,
+      "payments31To60Days": 63,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-05-04",
+      "overallP95Position": {
+        "rank": 2531,
+        "count": 2568,
+        "percentile": 1.4
+      },
+      "industryP95Position": {
+        "rank": 204,
+        "count": 208,
+        "percentile": 1.9
+      }
+    },
+    {
+      "reportId": "PTR20010981",
+      "acnArbn": "119957676",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 63,
+      "medianPaymentTimeDays": 55,
+      "p80PaymentTimeDays": 96,
+      "p95PaymentTimeDays": 158,
+      "payments30DaysOrLess": 45,
+      "payments31To60Days": 52,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-05-04",
+      "overallP95Position": {
+        "rank": 2467,
+        "count": 2498,
+        "percentile": 1.2
+      },
+      "industryP95Position": {
+        "rank": 206,
+        "count": 207,
+        "percentile": 0.5
+      }
+    }
+  ]
+}

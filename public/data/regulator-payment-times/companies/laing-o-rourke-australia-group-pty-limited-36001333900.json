@@ -1,0 +1,95 @@
+{
+  "slug": "laing-o-rourke-australia-group-pty-limited-36001333900",
+  "businessName": "LAING O'ROURKE AUSTRALIA GROUP PTY LIMITED",
+  "abn": "36001333900",
+  "acnArbn": "001333900",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011681",
+      "acnArbn": "001333900",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.99,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 84.95,
+      "payments31To60Days": 12.32,
+      "paymentsMoreThan60Days": 2.73,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 90,
+        "count": 193,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 5,
+        "percentile": 75
+      }
+    },
+    {
+      "reportId": "PTR20006840",
+      "acnArbn": "001333900",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.18,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 83.44,
+      "payments31To60Days": 14.4,
+      "paymentsMoreThan60Days": 2.16,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-12-23",
+      "overallP95Position": {
+        "rank": 80,
+        "count": 228,
+        "percentile": 62.1
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 6,
+        "percentile": 80
+      }
+    },
+    {
+      "reportId": "PTR20002697",
+      "acnArbn": "001333900",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.25,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 78.09,
+      "payments31To60Days": 17.73,
+      "paymentsMoreThan60Days": 4.19,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 128,
+        "count": 231,
+        "percentile": 42.2
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 7,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

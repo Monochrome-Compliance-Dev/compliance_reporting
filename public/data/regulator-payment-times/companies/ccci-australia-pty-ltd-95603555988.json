@@ -1,0 +1,95 @@
+{
+  "slug": "ccci-australia-pty-ltd-95603555988",
+  "businessName": "CCCI AUSTRALIA PTY LTD",
+  "abn": "95603555988",
+  "acnArbn": "603555988",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007346",
+      "acnArbn": "603555988",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.78,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 56.12,
+      "payments31To60Days": 39.8,
+      "paymentsMoreThan60Days": 4.08,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-02-22",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 270,
+        "percentile": 54.6
+      }
+    },
+    {
+      "reportId": "PTR20003131",
+      "acnArbn": "603555988",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.07,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 46.44,
+      "payments31To60Days": 48.38,
+      "paymentsMoreThan60Days": 5.19,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-08-19",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 142,
+        "count": 259,
+        "percentile": 42.6
+      }
+    },
+    {
+      "reportId": "PTR20002346",
+      "acnArbn": "603555988",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.35,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 53.15,
+      "payments31To60Days": 41.63,
+      "paymentsMoreThan60Days": 5.22,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-03",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 250,
+        "percentile": 41.4
+      }
+    }
+  ]
+}

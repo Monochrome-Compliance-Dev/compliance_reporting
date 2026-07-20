@@ -1,0 +1,95 @@
+{
+  "slug": "jarden-australia-holdings-pty-ltd-31608611614",
+  "businessName": "JARDEN AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "31608611614",
+  "acnArbn": "608611614",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011591",
+      "acnArbn": "608611614",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.68,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 81.25,
+      "payments31To60Days": 17.01,
+      "paymentsMoreThan60Days": 1.74,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 83,
+        "count": 193,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 19,
+        "percentile": 38.9
+      }
+    },
+    {
+      "reportId": "PTR20006620",
+      "acnArbn": "608611614",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.88,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 88.4,
+      "payments31To60Days": 11.6,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-02",
+      "overallP95Position": {
+        "rank": 56,
+        "count": 228,
+        "percentile": 74.9
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 22,
+        "percentile": 52.4
+      }
+    },
+    {
+      "reportId": "PTR20001797",
+      "acnArbn": "608611614",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.22,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 85.93,
+      "payments31To60Days": 13.07,
+      "paymentsMoreThan60Days": 1.01,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 58,
+        "count": 231,
+        "percentile": 73.5
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 20,
+        "percentile": 36.8
+      }
+    }
+  ]
+}

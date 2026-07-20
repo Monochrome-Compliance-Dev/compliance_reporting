@@ -1,0 +1,95 @@
+{
+  "slug": "hermes-australia-pty-limited-88003558085",
+  "businessName": "HERMES - AUSTRALIA PTY LIMITED",
+  "abn": "88003558085",
+  "acnArbn": "003558085",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007817",
+      "acnArbn": "003558085",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 1.9,
+      "paymentsMoreThan60Days": 0.09,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 207,
+        "percentile": 72.3
+      }
+    },
+    {
+      "reportId": "PTR20005064",
+      "acnArbn": "003558085",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.7,
+      "payments31To60Days": 3.1,
+      "paymentsMoreThan60Days": 2.2,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 208,
+        "percentile": 87.4
+      }
+    },
+    {
+      "reportId": "PTR20011271",
+      "acnArbn": "003558085",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 96.86,
+      "payments31To60Days": 1.68,
+      "paymentsMoreThan60Days": 1.46,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-04",
+      "overallP95Position": {
+        "rank": 153,
+        "count": 2498,
+        "percentile": 93.6
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 207,
+        "percentile": 98.5
+      }
+    }
+  ]
+}

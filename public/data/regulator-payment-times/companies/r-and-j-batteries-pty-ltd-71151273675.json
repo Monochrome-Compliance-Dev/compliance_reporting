@@ -1,0 +1,95 @@
+{
+  "slug": "r-and-j-batteries-pty-ltd-71151273675",
+  "businessName": "R & J BATTERIES PTY LTD",
+  "abn": "71151273675",
+  "acnArbn": "151273675",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010924",
+      "acnArbn": "151273675",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.32,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 70.76,
+      "payments31To60Days": 27.09,
+      "paymentsMoreThan60Days": 2.15,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 329,
+        "percentile": 51.8
+      }
+    },
+    {
+      "reportId": "PTR20010923",
+      "acnArbn": "151273675",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.33,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 69.83,
+      "payments31To60Days": 27.51,
+      "paymentsMoreThan60Days": 2.66,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 141,
+        "count": 323,
+        "percentile": 54
+      }
+    },
+    {
+      "reportId": "PTR20010886",
+      "acnArbn": "151273675",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.35,
+      "medianPaymentTimeDays": 23.5,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 67.55,
+      "payments31To60Days": 29.75,
+      "paymentsMoreThan60Days": 2.7,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 323,
+        "percentile": 53.4
+      }
+    }
+  ]
+}

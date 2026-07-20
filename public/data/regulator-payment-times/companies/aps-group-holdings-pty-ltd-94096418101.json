@@ -1,0 +1,39 @@
+{
+  "slug": "aps-group-holdings-pty-ltd-94096418101",
+  "businessName": "APS GROUP (HOLDINGS) PTY LTD",
+  "abn": "94096418101",
+  "acnArbn": "096418101",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20002275",
+      "acnArbn": "096418101",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 90.79,
+      "payments31To60Days": 8.1,
+      "paymentsMoreThan60Days": 1.1,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 693,
+        "count": 2498,
+        "percentile": 71.2
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 50,
+        "percentile": 63.3
+      }
+    }
+  ]
+}

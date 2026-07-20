@@ -1,0 +1,95 @@
+{
+  "slug": "mid-west-ports-authority-73384989178",
+  "businessName": "MID WEST PORTS AUTHORITY",
+  "abn": "73384989178",
+  "acnArbn": "",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Water transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007178",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.43,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 77.89,
+      "payments31To60Days": 21.51,
+      "paymentsMoreThan60Days": 0.6,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-02-10",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 143,
+        "percentile": 70.4
+      }
+    },
+    {
+      "reportId": "PTR20006559",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.81,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 81.8,
+      "payments31To60Days": 17.9,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 144,
+        "percentile": 72.7
+      }
+    },
+    {
+      "reportId": "PTR20006554",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.31,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 82.29,
+      "payments31To60Days": 17.22,
+      "paymentsMoreThan60Days": 0.49,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 140,
+        "percentile": 72.7
+      }
+    }
+  ]
+}

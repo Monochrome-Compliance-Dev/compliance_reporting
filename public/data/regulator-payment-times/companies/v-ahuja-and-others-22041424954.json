@@ -1,0 +1,95 @@
+{
+  "slug": "v-ahuja-and-others-22041424954",
+  "businessName": "V AHUJA & Others",
+  "abn": "22041424954",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010310",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.58,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 88,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2007,
+        "count": 2613,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 130,
+        "count": 183,
+        "percentile": 28.6
+      }
+    },
+    {
+      "reportId": "PTR20005522",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.62,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 89,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 181,
+        "percentile": 49.4
+      }
+    },
+    {
+      "reportId": "PTR20003007",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.87,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 87.2,
+      "payments31To60Days": 6.3,
+      "paymentsMoreThan60Days": 6.4,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-29",
+      "overallP95Position": {
+        "rank": 1937,
+        "count": 2498,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 122,
+        "count": 176,
+        "percentile": 28
+      }
+    }
+  ]
+}

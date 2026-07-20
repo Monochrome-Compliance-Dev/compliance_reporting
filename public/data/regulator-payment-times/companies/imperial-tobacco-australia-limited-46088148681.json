@@ -1,0 +1,67 @@
+{
+  "slug": "imperial-tobacco-australia-limited-46088148681",
+  "businessName": "IMPERIAL TOBACCO AUSTRALIA LIMITED",
+  "abn": "46088148681",
+  "acnArbn": "088148681",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006836",
+      "acnArbn": "088148681",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.83,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 78.28,
+      "payments31To60Days": 20.97,
+      "paymentsMoreThan60Days": 0.75,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-23",
+      "overallP95Position": {
+        "rank": 142,
+        "count": 228,
+        "percentile": 36.1
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 59,
+        "percentile": 27.6
+      }
+    },
+    {
+      "reportId": "PTR20002130",
+      "acnArbn": "088148681",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.22,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 87.84,
+      "payments31To60Days": 11.82,
+      "paymentsMoreThan60Days": 0.34,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 120,
+        "count": 231,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 61,
+        "percentile": 38.3
+      }
+    }
+  ]
+}

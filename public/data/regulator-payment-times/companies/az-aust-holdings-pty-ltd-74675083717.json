@@ -1,0 +1,67 @@
+{
+  "slug": "az-aust-holdings-pty-ltd-74675083717",
+  "businessName": "AZ AUST HOLDINGS PTY LTD",
+  "abn": "74675083717",
+  "acnArbn": "675083717",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010074",
+      "acnArbn": "675083717",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.93,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 92.02,
+      "payments31To60Days": 7.44,
+      "paymentsMoreThan60Days": 0.54,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 672,
+        "count": 2613,
+        "percentile": 73.2
+      },
+      "industryP95Position": {
+        "rank": 191,
+        "count": 338,
+        "percentile": 43
+      }
+    },
+    {
+      "reportId": "PTR20005471",
+      "acnArbn": "675083717",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.89,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 96.91,
+      "payments31To60Days": 3.04,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 349,
+        "percentile": 54.6
+      }
+    }
+  ]
+}

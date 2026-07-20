@@ -1,0 +1,39 @@
+{
+  "slug": "dental-boutique-group-pty-ltd-45650784839",
+  "businessName": "DENTAL BOUTIQUE GROUP PTY LTD",
+  "abn": "45650784839",
+  "acnArbn": "650784839",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008817",
+      "acnArbn": "650784839",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.3,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 67.09,
+      "payments31To60Days": 31.53,
+      "paymentsMoreThan60Days": 1.37,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 106,
+        "percentile": 59
+      }
+    }
+  ]
+}

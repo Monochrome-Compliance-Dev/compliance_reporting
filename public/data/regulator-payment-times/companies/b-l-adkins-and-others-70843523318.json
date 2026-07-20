@@ -1,0 +1,95 @@
+{
+  "slug": "b-l-adkins-and-others-70843523318",
+  "businessName": "B.L ADKINS & Others",
+  "abn": "70843523318",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008290",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.65,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 125,
+      "payments30DaysOrLess": 65.08,
+      "payments31To60Days": 17.46,
+      "paymentsMoreThan60Days": 17.46,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 2561,
+        "count": 2613,
+        "percentile": 1.9
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 183,
+        "percentile": 6
+      }
+    },
+    {
+      "reportId": "PTR20003741",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.26,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 126,
+      "payments30DaysOrLess": 61.72,
+      "payments31To60Days": 19.65,
+      "paymentsMoreThan60Days": 18.63,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 2512,
+        "count": 2568,
+        "percentile": 2.2
+      },
+      "industryP95Position": {
+        "rank": 171,
+        "count": 181,
+        "percentile": 5.6
+      }
+    },
+    {
+      "reportId": "PTR20001397",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.45,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 66.02,
+      "payments31To60Days": 19.69,
+      "paymentsMoreThan60Days": 14.29,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2373,
+        "count": 2498,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 176,
+        "percentile": 10.9
+      }
+    }
+  ]
+}

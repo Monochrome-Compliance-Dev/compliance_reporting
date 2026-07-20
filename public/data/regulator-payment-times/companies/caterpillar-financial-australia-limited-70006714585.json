@@ -1,0 +1,67 @@
+{
+  "slug": "caterpillar-financial-australia-limited-70006714585",
+  "businessName": "CATERPILLAR FINANCIAL AUSTRALIA LIMITED",
+  "abn": "70006714585",
+  "acnArbn": "006714585",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-11-29",
+  "reports": [
+    {
+      "reportId": "PTR20007518",
+      "acnArbn": "006714585",
+      "reportingPeriodStartDate": "2025-05-31",
+      "reportingPeriodEndDate": "2025-11-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 71,
+      "payments31To60Days": 27,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 22,
+        "percentile": 81
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20003271",
+      "acnArbn": "006714585",
+      "reportingPeriodStartDate": "2024-11-30",
+      "reportingPeriodEndDate": "2025-05-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-27",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 22,
+        "percentile": 90.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    }
+  ]
+}

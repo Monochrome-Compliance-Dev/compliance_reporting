@@ -1,0 +1,95 @@
+{
+  "slug": "henkel-finance-australia-15740196765",
+  "businessName": "Henkel Finance Australia",
+  "abn": "15740196765",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009215",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 69.6,
+      "medianPaymentTimeDays": 58,
+      "p80PaymentTimeDays": 99,
+      "p95PaymentTimeDays": 126,
+      "payments30DaysOrLess": 19.2,
+      "payments31To60Days": 32.9,
+      "paymentsMoreThan60Days": 47.9,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2565,
+        "count": 2613,
+        "percentile": 1.6
+      },
+      "industryP95Position": {
+        "rank": 324,
+        "count": 329,
+        "percentile": 1.5
+      }
+    },
+    {
+      "reportId": "PTR20005860",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 66.5,
+      "medianPaymentTimeDays": 61,
+      "p80PaymentTimeDays": 95,
+      "p95PaymentTimeDays": 125,
+      "payments30DaysOrLess": 17.9,
+      "payments31To60Days": 32.1,
+      "paymentsMoreThan60Days": 50,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2508,
+        "count": 2568,
+        "percentile": 2.2
+      },
+      "industryP95Position": {
+        "rank": 314,
+        "count": 323,
+        "percentile": 2.8
+      }
+    },
+    {
+      "reportId": "PTR20002266",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 66.16,
+      "medianPaymentTimeDays": 66,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 11.4,
+      "payments31To60Days": 32.6,
+      "paymentsMoreThan60Days": 56,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2418,
+        "count": 2498,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 307,
+        "count": 323,
+        "percentile": 4.7
+      }
+    }
+  ]
+}

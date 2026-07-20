@@ -1,0 +1,67 @@
+{
+  "slug": "jet-aviation-australia-pty-ltd-94001540316",
+  "businessName": "JET AVIATION AUSTRALIA PTY LTD",
+  "abn": "94001540316",
+  "acnArbn": "001540316",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008683",
+      "acnArbn": "001540316",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 26,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 143,
+        "percentile": 74.6
+      }
+    },
+    {
+      "reportId": "PTR20003147",
+      "acnArbn": "001540316",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 68,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-08-19",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 144,
+        "percentile": 68.5
+      }
+    }
+  ]
+}

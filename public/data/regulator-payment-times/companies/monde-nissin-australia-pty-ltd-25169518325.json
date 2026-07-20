@@ -1,0 +1,95 @@
+{
+  "slug": "monde-nissin-australia-pty-ltd-25169518325",
+  "businessName": "MONDE NISSIN (AUSTRALIA) PTY LTD",
+  "abn": "25169518325",
+  "acnArbn": "169518325",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007264",
+      "acnArbn": "169518325",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 39,
+      "payments31To60Days": 42,
+      "paymentsMoreThan60Days": 20,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-17",
+      "overallP95Position": {
+        "rank": 2469,
+        "count": 2613,
+        "percentile": 5.3
+      },
+      "industryP95Position": {
+        "rank": 321,
+        "count": 347,
+        "percentile": 7.5
+      }
+    },
+    {
+      "reportId": "PTR20003435",
+      "acnArbn": "169518325",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 32,
+      "payments31To60Days": 52,
+      "paymentsMoreThan60Days": 16,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-07",
+      "overallP95Position": {
+        "rank": 2081,
+        "count": 2568,
+        "percentile": 18.4
+      },
+      "industryP95Position": {
+        "rank": 233,
+        "count": 335,
+        "percentile": 29.6
+      }
+    },
+    {
+      "reportId": "PTR20011011",
+      "acnArbn": "169518325",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 31,
+      "payments31To60Days": 51,
+      "paymentsMoreThan60Days": 17,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-10",
+      "overallP95Position": {
+        "rank": 2026,
+        "count": 2498,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 323,
+        "percentile": 29.5
+      }
+    }
+  ]
+}

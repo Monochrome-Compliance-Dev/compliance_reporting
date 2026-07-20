@@ -1,0 +1,95 @@
+{
+  "slug": "planet-innovation-holdings-ltd-37152424916",
+  "businessName": "PLANET INNOVATION HOLDINGS LTD",
+  "abn": "37152424916",
+  "acnArbn": "152424916",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010433",
+      "acnArbn": "152424916",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.14,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 64.95,
+      "payments31To60Days": 32.82,
+      "paymentsMoreThan60Days": 2.5,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 183,
+        "percentile": 41.8
+      }
+    },
+    {
+      "reportId": "PTR20006204",
+      "acnArbn": "152424916",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.86,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 59.77,
+      "payments31To60Days": 37.91,
+      "paymentsMoreThan60Days": 2.33,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 181,
+        "percentile": 49.4
+      }
+    },
+    {
+      "reportId": "PTR20000827",
+      "acnArbn": "152424916",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.02,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 82.68,
+      "payments31To60Days": 16.34,
+      "paymentsMoreThan60Days": 0.98,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 176,
+        "percentile": 54.9
+      }
+    }
+  ]
+}

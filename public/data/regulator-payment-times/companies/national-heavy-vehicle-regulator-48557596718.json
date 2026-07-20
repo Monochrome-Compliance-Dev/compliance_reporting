@@ -1,0 +1,95 @@
+{
+  "slug": "national-heavy-vehicle-regulator-48557596718",
+  "businessName": "National Heavy Vehicle Regulator",
+  "abn": "48557596718",
+  "acnArbn": "",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Public order, safety and regulatory services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008226",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.32,
+      "medianPaymentTimeDays": 26.5,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 97.56,
+      "payments31To60Days": 1.87,
+      "paymentsMoreThan60Days": 0.57,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 33,
+        "percentile": 78.1
+      }
+    },
+    {
+      "reportId": "PTR20003607",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.18,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 90.97,
+      "payments31To60Days": 6.39,
+      "paymentsMoreThan60Days": 2.65,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 34,
+        "percentile": 21.2
+      }
+    },
+    {
+      "reportId": "PTR20000302",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.77,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 90.61,
+      "payments31To60Days": 6.8,
+      "paymentsMoreThan60Days": 2.59,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-06-08",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 31,
+        "percentile": 36.7
+      }
+    }
+  ]
+}

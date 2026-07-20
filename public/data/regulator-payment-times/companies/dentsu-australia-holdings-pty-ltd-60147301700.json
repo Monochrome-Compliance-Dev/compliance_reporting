@@ -1,0 +1,95 @@
+{
+  "slug": "dentsu-australia-holdings-pty-ltd-60147301700",
+  "businessName": "DENTSU AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "60147301700",
+  "acnArbn": "147301700",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007762",
+      "acnArbn": "147301700",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.86,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-09",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 183,
+        "percentile": 84.1
+      }
+    },
+    {
+      "reportId": "PTR20003320",
+      "acnArbn": "147301700",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 64.49,
+      "medianPaymentTimeDays": 62,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 1,
+      "payments31To60Days": 45,
+      "paymentsMoreThan60Days": 54,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-08-31",
+      "overallP95Position": {
+        "rank": 2218,
+        "count": 2568,
+        "percentile": 12.8
+      },
+      "industryP95Position": {
+        "rank": 141,
+        "count": 181,
+        "percentile": 21.7
+      }
+    },
+    {
+      "reportId": "PTR20000222",
+      "acnArbn": "147301700",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61.61,
+      "medianPaymentTimeDays": 61,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 3,
+      "payments31To60Days": 46,
+      "paymentsMoreThan60Days": 51,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-01",
+      "overallP95Position": {
+        "rank": 2000,
+        "count": 2498,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 131,
+        "count": 176,
+        "percentile": 24.6
+      }
+    }
+  ]
+}

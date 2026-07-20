@@ -1,0 +1,67 @@
+{
+  "slug": "oscar-aluminium-holdings-pty-ltd-74650522811",
+  "businessName": "OSCAR ALUMINIUM HOLDINGS PTY LTD",
+  "abn": "74650522811",
+  "acnArbn": "650522811",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005233",
+      "acnArbn": "650522811",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.94,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 69.98,
+      "payments31To60Days": 25.5,
+      "paymentsMoreThan60Days": 4.26,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 323,
+        "percentile": 43.8
+      }
+    },
+    {
+      "reportId": "PTR20001354",
+      "acnArbn": "650522811",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.26,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 70.95,
+      "payments31To60Days": 24.41,
+      "paymentsMoreThan60Days": 4.65,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 159,
+        "count": 323,
+        "percentile": 44.4
+      }
+    }
+  ]
+}

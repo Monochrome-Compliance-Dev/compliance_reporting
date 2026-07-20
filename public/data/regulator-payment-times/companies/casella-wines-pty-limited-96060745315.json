@@ -1,0 +1,123 @@
+{
+  "slug": "casella-wines-pty-limited-96060745315",
+  "businessName": "CASELLA WINES PTY. LIMITED",
+  "abn": "96060745315",
+  "acnArbn": "060745315",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Beverage and tobacco product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009977",
+      "acnArbn": "060745315",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.97,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 37.15,
+      "payments31To60Days": 61.27,
+      "paymentsMoreThan60Days": 1.58,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 347,
+        "percentile": 59
+      }
+    },
+    {
+      "reportId": "PTR20006601",
+      "acnArbn": "060745315",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.26,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 36.07,
+      "payments31To60Days": 62.15,
+      "paymentsMoreThan60Days": 1.78,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-30",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    },
+    {
+      "reportId": "PTR20002466",
+      "acnArbn": "060745315",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.76,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 34.18,
+      "payments31To60Days": 63.69,
+      "paymentsMoreThan60Days": 2.13,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-13",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    },
+    {
+      "reportId": "PTR20006600",
+      "acnArbn": "060745315",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.46,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 32.5,
+      "payments31To60Days": 65.05,
+      "paymentsMoreThan60Days": 2.44,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-30",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 323,
+        "percentile": 59.3
+      }
+    }
+  ]
+}

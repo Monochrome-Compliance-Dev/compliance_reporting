@@ -1,0 +1,95 @@
+{
+  "slug": "daimler-truck-australia-pacific-pty-ltd-86618413282",
+  "businessName": "DAIMLER TRUCK AUSTRALIA PACIFIC PTY LTD",
+  "abn": "86618413282",
+  "acnArbn": "618413282",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009389",
+      "acnArbn": "618413282",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.99,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 76,
+      "payments31To60Days": 18,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 329,
+        "percentile": 34.5
+      }
+    },
+    {
+      "reportId": "PTR20004236",
+      "acnArbn": "618413282",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 323,
+        "percentile": 83.5
+      }
+    },
+    {
+      "reportId": "PTR20002583",
+      "acnArbn": "618413282",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.82,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 74,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-20",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2498,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 232,
+        "count": 323,
+        "percentile": 27.6
+      }
+    }
+  ]
+}

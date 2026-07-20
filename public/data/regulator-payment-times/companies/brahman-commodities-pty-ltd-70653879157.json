@@ -1,0 +1,39 @@
+{
+  "slug": "brahman-commodities-pty-ltd-70653879157",
+  "businessName": "BRAHMAN COMMODITIES PTY LTD",
+  "abn": "70653879157",
+  "acnArbn": "653879157",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006728",
+      "acnArbn": "653879157",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.51,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 95.32,
+      "payments31To60Days": 2.98,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-16",
+      "overallP95Position": {
+        "rank": 46,
+        "count": 228,
+        "percentile": 78.4
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 59,
+        "percentile": 75.9
+      }
+    }
+  ]
+}

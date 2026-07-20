@@ -1,0 +1,95 @@
+{
+  "slug": "sekisui-house-australia-holdings-pty-limited-71134688510",
+  "businessName": "Sekisui House Australia Holdings Pty Limited",
+  "abn": "71134688510",
+  "acnArbn": "134688510",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007696",
+      "acnArbn": "134688510",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.14,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 93.63,
+      "payments31To60Days": 6.19,
+      "paymentsMoreThan60Days": 0.18,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-08",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 270,
+        "percentile": 88.8
+      }
+    },
+    {
+      "reportId": "PTR20006037",
+      "acnArbn": "134688510",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.04,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 93.08,
+      "payments31To60Days": 6.91,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-13",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 259,
+        "percentile": 90.3
+      }
+    },
+    {
+      "reportId": "PTR20002730",
+      "acnArbn": "134688510",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 9.71,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.06,
+      "payments31To60Days": 4.6,
+      "paymentsMoreThan60Days": 0.34,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 250,
+        "percentile": 95.2
+      }
+    }
+  ]
+}

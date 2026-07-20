@@ -1,0 +1,67 @@
+{
+  "slug": "parramatta-leagues-club-ltd-52000218655",
+  "businessName": "PARRAMATTA LEAGUES' CLUB LTD",
+  "abn": "52000218655",
+  "acnArbn": "000218655",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2025-10-30",
+  "reports": [
+    {
+      "reportId": "PTR20007063",
+      "acnArbn": "000218655",
+      "reportingPeriodStartDate": "2025-04-30",
+      "reportingPeriodEndDate": "2025-10-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.08,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 73.66,
+      "payments31To60Days": 23.3,
+      "paymentsMoreThan60Days": 3.04,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 9,
+        "count": 28,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 6,
+        "percentile": 60
+      }
+    },
+    {
+      "reportId": "PTR20002562",
+      "acnArbn": "000218655",
+      "reportingPeriodStartDate": "2024-10-31",
+      "reportingPeriodEndDate": "2025-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.7,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 75.03,
+      "payments31To60Days": 20.23,
+      "paymentsMoreThan60Days": 4.75,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-07-17",
+      "overallP95Position": {
+        "rank": 12,
+        "count": 28,
+        "percentile": 55.6
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 6,
+        "percentile": 40
+      }
+    }
+  ]
+}

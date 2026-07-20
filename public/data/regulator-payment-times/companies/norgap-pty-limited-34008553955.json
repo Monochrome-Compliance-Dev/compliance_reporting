@@ -1,0 +1,95 @@
+{
+  "slug": "norgap-pty-limited-34008553955",
+  "businessName": "NORGAP PTY. LIMITED",
+  "abn": "34008553955",
+  "acnArbn": "008553955",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20007259",
+      "acnArbn": "008553955",
+      "reportingPeriodStartDate": "2025-07-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.38,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-02-17",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 31,
+        "percentile": 96.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20007289",
+      "acnArbn": "008553955",
+      "reportingPeriodStartDate": "2025-01-31",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.43,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 9,
+      "payments30DaysOrLess": 99.59,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0.41,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-02-17",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 34,
+        "percentile": 97
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000272",
+      "acnArbn": "008553955",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 9,
+      "payments30DaysOrLess": 99.56,
+      "payments31To60Days": 0.22,
+      "paymentsMoreThan60Days": 0.22,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 30,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

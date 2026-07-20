@@ -1,0 +1,95 @@
+{
+  "slug": "police-financial-services-limited-33087651661",
+  "businessName": "POLICE FINANCIAL SERVICES LIMITED",
+  "abn": "33087651661",
+  "acnArbn": "087651661",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007357",
+      "acnArbn": "087651661",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.1,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 86.49,
+      "payments31To60Days": 12.06,
+      "paymentsMoreThan60Days": 1.46,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-22",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 226,
+        "count": 338,
+        "percentile": 32
+      }
+    },
+    {
+      "reportId": "PTR20006196",
+      "acnArbn": "087651661",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.3,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 83.88,
+      "payments31To60Days": 11.98,
+      "paymentsMoreThan60Days": 4.14,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 349,
+        "percentile": 29.6
+      }
+    },
+    {
+      "reportId": "PTR20006192",
+      "acnArbn": "087651661",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.38,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 79.35,
+      "payments31To60Days": 15.95,
+      "paymentsMoreThan60Days": 4.7,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 339,
+        "percentile": 19.5
+      }
+    }
+  ]
+}

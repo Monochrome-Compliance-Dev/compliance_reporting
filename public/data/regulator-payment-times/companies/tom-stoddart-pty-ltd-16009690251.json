@@ -1,0 +1,95 @@
+{
+  "slug": "tom-stoddart-pty-ltd-16009690251",
+  "businessName": "TOM STODDART PTY. LTD.",
+  "abn": "16009690251",
+  "acnArbn": "009690251",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010762",
+      "acnArbn": "009690251",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 24,
+      "payments31To60Days": 56,
+      "paymentsMoreThan60Days": 20,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-26",
+      "overallP95Position": {
+        "rank": 2265,
+        "count": 2613,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 274,
+        "count": 347,
+        "percentile": 20.2
+      }
+    },
+    {
+      "reportId": "PTR20010761",
+      "acnArbn": "009690251",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 24,
+      "payments31To60Days": 56,
+      "paymentsMoreThan60Days": 20,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-26",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 335,
+        "percentile": 37.7
+      }
+    },
+    {
+      "reportId": "PTR20010754",
+      "acnArbn": "009690251",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 22.5,
+      "payments31To60Days": 60,
+      "paymentsMoreThan60Days": 17.5,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-26",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 323,
+        "percentile": 46.6
+      }
+    }
+  ]
+}

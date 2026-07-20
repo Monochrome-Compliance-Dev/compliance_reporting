@@ -1,0 +1,39 @@
+{
+  "slug": "hyperion-holdings-limited-87109308894",
+  "businessName": "HYPERION HOLDINGS LIMITED",
+  "abn": "87109308894",
+  "acnArbn": "109308894",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009779",
+      "acnArbn": "109308894",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-12",
+      "overallP95Position": {
+        "rank": 209,
+        "count": 2613,
+        "percentile": 91.6
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 338,
+        "percentile": 76.3
+      }
+    }
+  ]
+}

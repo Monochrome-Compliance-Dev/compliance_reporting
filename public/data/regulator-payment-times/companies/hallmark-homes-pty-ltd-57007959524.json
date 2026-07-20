@@ -1,0 +1,95 @@
+{
+  "slug": "hallmark-homes-pty-ltd-57007959524",
+  "businessName": "HALLMARK HOMES PTY. LTD.",
+  "abn": "57007959524",
+  "acnArbn": "007959524",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010757",
+      "acnArbn": "007959524",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 76.64,
+      "payments31To60Days": 23.35,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-26",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 270,
+        "percentile": 76.6
+      }
+    },
+    {
+      "reportId": "PTR20010746",
+      "acnArbn": "007959524",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 83.63,
+      "payments31To60Days": 16.28,
+      "paymentsMoreThan60Days": 0.09,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-26",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 259,
+        "percentile": 82.2
+      }
+    },
+    {
+      "reportId": "PTR20010455",
+      "acnArbn": "007959524",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 83.2,
+      "payments31To60Days": 16.78,
+      "paymentsMoreThan60Days": 0.02,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-19",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 250,
+        "percentile": 81.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "maurice-blackburn-pty-limited-21105657949",
+  "businessName": "MAURICE BLACKBURN PTY LIMITED",
+  "abn": "21105657949",
+  "acnArbn": "105657949",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008084",
+      "acnArbn": "105657949",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 83,
+      "payments31To60Days": 13,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 83,
+        "count": 183,
+        "percentile": 53.8
+      }
+    },
+    {
+      "reportId": "PTR20003927",
+      "acnArbn": "105657949",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 140,
+        "count": 181,
+        "percentile": 22.8
+      }
+    },
+    {
+      "reportId": "PTR20001240",
+      "acnArbn": "105657949",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 281,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2491,
+        "count": 2498,
+        "percentile": 0.3
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 176,
+        "percentile": 0.6
+      }
+    }
+  ]
+}

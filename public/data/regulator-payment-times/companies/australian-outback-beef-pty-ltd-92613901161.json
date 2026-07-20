@@ -1,0 +1,39 @@
+{
+  "slug": "australian-outback-beef-pty-ltd-92613901161",
+  "businessName": "AUSTRALIAN OUTBACK BEEF PTY LTD",
+  "abn": "92613901161",
+  "acnArbn": "613901161",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010449",
+      "acnArbn": "613901161",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.8,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 83.9,
+      "payments31To60Days": 11.3,
+      "paymentsMoreThan60Days": 4.7,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 102,
+        "percentile": 20.8
+      }
+    }
+  ]
+}

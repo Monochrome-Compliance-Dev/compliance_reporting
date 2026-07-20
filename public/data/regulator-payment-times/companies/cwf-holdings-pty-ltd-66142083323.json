@@ -1,0 +1,95 @@
+{
+  "slug": "cwf-holdings-pty-ltd-66142083323",
+  "businessName": "CWF Holdings Pty Ltd",
+  "abn": "66142083323",
+  "acnArbn": "142083323",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008528",
+      "acnArbn": "142083323",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 98.79,
+      "payments31To60Days": 1.21,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 243,
+        "count": 2613,
+        "percentile": 89.2
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 92,
+        "percentile": 78
+      }
+    },
+    {
+      "reportId": "PTR20004272",
+      "acnArbn": "142083323",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 97.06,
+      "payments31To60Days": 2.94,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2568,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 95,
+        "percentile": 85.1
+      }
+    },
+    {
+      "reportId": "PTR20001622",
+      "acnArbn": "142083323",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 85.28,
+      "payments31To60Days": 14.72,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 652,
+        "count": 2498,
+        "percentile": 73.1
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 99,
+        "percentile": 56.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "makita-australia-pty-ltd-57001117335",
+  "businessName": "MAKITA (AUSTRALIA) PTY LTD",
+  "abn": "57001117335",
+  "acnArbn": "001117335",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011651",
+      "acnArbn": "001117335",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.46,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 80.05,
+      "payments31To60Days": 17.82,
+      "paymentsMoreThan60Days": 2.13,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 193,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 45,
+        "percentile": 36.4
+      }
+    },
+    {
+      "reportId": "PTR20006892",
+      "acnArbn": "001117335",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.74,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 81.71,
+      "payments31To60Days": 16.23,
+      "paymentsMoreThan60Days": 2.06,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-06",
+      "overallP95Position": {
+        "rank": 116,
+        "count": 228,
+        "percentile": 47.6
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 59,
+        "percentile": 44.8
+      }
+    },
+    {
+      "reportId": "PTR20002243",
+      "acnArbn": "001117335",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.6,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 84.57,
+      "payments31To60Days": 13.71,
+      "paymentsMoreThan60Days": 1.72,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 105,
+        "count": 231,
+        "percentile": 53
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 61,
+        "percentile": 46.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "martin-brower-australia-pty-ltd-95111374344",
+  "businessName": "MARTIN-BROWER AUSTRALIA PTY. LTD.",
+  "abn": "95111374344",
+  "acnArbn": "111374344",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Warehousing and storage services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20011230",
+      "acnArbn": "111374344",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.45,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 76.21,
+      "payments31To60Days": 21.42,
+      "paymentsMoreThan60Days": 2.38,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-06-14",
+      "overallP95Position": {
+        "rank": 765,
+        "count": 2568,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 144,
+        "percentile": 76.2
+      }
+    },
+    {
+      "reportId": "PTR20002944",
+      "acnArbn": "111374344",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.34,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 67.71,
+      "payments31To60Days": 25.09,
+      "paymentsMoreThan60Days": 7.2,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2498,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 122,
+        "count": 140,
+        "percentile": 12.2
+      }
+    }
+  ]
+}

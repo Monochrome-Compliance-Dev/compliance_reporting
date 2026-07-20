@@ -1,0 +1,95 @@
+{
+  "slug": "3m-australia-pty-ltd-90000100096",
+  "businessName": "3M AUSTRALIA PTY LTD",
+  "abn": "90000100096",
+  "acnArbn": "000100096",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010170",
+      "acnArbn": "000100096",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.54,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 69.99,
+      "payments31To60Days": 23.62,
+      "paymentsMoreThan60Days": 6.4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 242,
+        "count": 329,
+        "percentile": 25.9
+      }
+    },
+    {
+      "reportId": "PTR20005720",
+      "acnArbn": "000100096",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.27,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 66.64,
+      "payments31To60Days": 24.24,
+      "paymentsMoreThan60Days": 9.12,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2081,
+        "count": 2568,
+        "percentile": 18.4
+      },
+      "industryP95Position": {
+        "rank": 243,
+        "count": 323,
+        "percentile": 24.5
+      }
+    },
+    {
+      "reportId": "PTR20000384",
+      "acnArbn": "000100096",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.1,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 87.41,
+      "payments31To60Days": 9.39,
+      "paymentsMoreThan60Days": 3.2,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "muir-group-pty-ltd-16004732656",
+  "businessName": "MUIR GROUP PTY LTD",
+  "abn": "16004732656",
+  "acnArbn": "004732656",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009515",
+      "acnArbn": "004732656",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.94,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 24.5,
+      "payments31To60Days": 49.48,
+      "paymentsMoreThan60Days": 26.02,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2446,
+        "count": 2613,
+        "percentile": 6.2
+      },
+      "industryP95Position": {
+        "rank": 100,
+        "count": 102,
+        "percentile": 2
+      }
+    },
+    {
+      "reportId": "PTR20006229",
+      "acnArbn": "004732656",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.49,
+      "medianPaymentTimeDays": 34.5,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 48.74,
+      "payments31To60Days": 41.28,
+      "paymentsMoreThan60Days": 9.98,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 92,
+        "percentile": 11
+      }
+    },
+    {
+      "reportId": "PTR20002627",
+      "acnArbn": "004732656",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.48,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 26.97,
+      "payments31To60Days": 38.45,
+      "paymentsMoreThan60Days": 34.58,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-07-21",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2498,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 80,
+        "count": 85,
+        "percentile": 6
+      }
+    }
+  ]
+}

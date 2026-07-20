@@ -1,0 +1,95 @@
+{
+  "slug": "dsv-air-and-sea-pty-ltd-47002275676",
+  "businessName": "DSV AIR & SEA PTY LTD",
+  "abn": "47002275676",
+  "acnArbn": "002275676",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010509",
+      "acnArbn": "002275676",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 31.5,
+      "payments31To60Days": 61.2,
+      "paymentsMoreThan60Days": 7.3,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-13",
+      "overallP95Position": {
+        "rank": 2394,
+        "count": 2613,
+        "percentile": 7.6
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 143,
+        "percentile": 7
+      }
+    },
+    {
+      "reportId": "PTR20003843",
+      "acnArbn": "002275676",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 27.4,
+      "payments31To60Days": 68,
+      "paymentsMoreThan60Days": 4.6,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 144,
+        "percentile": 7.7
+      }
+    },
+    {
+      "reportId": "PTR20000830",
+      "acnArbn": "002275676",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 33.7,
+      "payments31To60Days": 63.2,
+      "paymentsMoreThan60Days": 3.1,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 97,
+        "count": 140,
+        "percentile": 30.2
+      }
+    }
+  ]
+}

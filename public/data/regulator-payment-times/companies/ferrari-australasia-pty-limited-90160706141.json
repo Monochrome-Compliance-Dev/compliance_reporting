@@ -1,0 +1,95 @@
+{
+  "slug": "ferrari-australasia-pty-limited-90160706141",
+  "businessName": "FERRARI AUSTRALASIA PTY LIMITED",
+  "abn": "90160706141",
+  "acnArbn": "160706141",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010595",
+      "acnArbn": "160706141",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.99,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 91.12,
+      "payments31To60Days": 5.33,
+      "paymentsMoreThan60Days": 3.55,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-19",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 95,
+        "count": 329,
+        "percentile": 69.5
+      }
+    },
+    {
+      "reportId": "PTR20007014",
+      "acnArbn": "160706141",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.44,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 87.42,
+      "payments31To60Days": 10.6,
+      "paymentsMoreThan60Days": 1.99,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-26",
+      "overallP95Position": {
+        "rank": 699,
+        "count": 2568,
+        "percentile": 71.8
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 323,
+        "percentile": 81.1
+      }
+    },
+    {
+      "reportId": "PTR20005977",
+      "acnArbn": "160706141",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.77,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 89.3,
+      "payments31To60Days": 7.82,
+      "paymentsMoreThan60Days": 2.88,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-06",
+      "overallP95Position": {
+        "rank": 693,
+        "count": 2498,
+        "percentile": 71.2
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 323,
+        "percentile": 80.7
+      }
+    }
+  ]
+}

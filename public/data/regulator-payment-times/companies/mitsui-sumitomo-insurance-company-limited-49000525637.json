@@ -1,0 +1,95 @@
+{
+  "slug": "mitsui-sumitomo-insurance-company-limited-49000525637",
+  "businessName": "MITSUI SUMITOMO INSURANCE COMPANY, LIMITED",
+  "abn": "49000525637",
+  "acnArbn": "000525637",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011403",
+      "acnArbn": "000525637",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.2,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 91.92,
+      "payments31To60Days": 4.77,
+      "paymentsMoreThan60Days": 3.3,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-17",
+      "overallP95Position": {
+        "rank": 83,
+        "count": 193,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 19,
+        "percentile": 38.9
+      }
+    },
+    {
+      "reportId": "PTR20006806",
+      "acnArbn": "000525637",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 92.75,
+      "payments31To60Days": 3.63,
+      "paymentsMoreThan60Days": 3.63,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-21",
+      "overallP95Position": {
+        "rank": 66,
+        "count": 228,
+        "percentile": 70
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 22,
+        "percentile": 42.9
+      }
+    },
+    {
+      "reportId": "PTR20001927",
+      "acnArbn": "000525637",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.9,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 96.75,
+      "payments31To60Days": 1.87,
+      "paymentsMoreThan60Days": 1.38,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 13,
+        "count": 231,
+        "percentile": 93.5
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 20,
+        "percentile": 78.9
+      }
+    }
+  ]
+}

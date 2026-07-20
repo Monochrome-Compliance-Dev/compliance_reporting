@@ -1,0 +1,67 @@
+{
+  "slug": "sonic-healthcare-limited-24004196909",
+  "businessName": "SONIC HEALTHCARE LIMITED",
+  "abn": "24004196909",
+  "acnArbn": "004196909",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20003157",
+      "acnArbn": "004196909",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.78,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 82.57,
+      "payments31To60Days": 15.06,
+      "paymentsMoreThan60Days": 2.37,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-08-19",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 97,
+        "percentile": 61.5
+      }
+    },
+    {
+      "reportId": "PTR20000162",
+      "acnArbn": "004196909",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.14,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 81.04,
+      "payments31To60Days": 16.15,
+      "paymentsMoreThan60Days": 2.81,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-05-25",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 97,
+        "percentile": 57.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "citigroup-global-markets-australia-holdings-pty-limited-56081472684",
+  "businessName": "CITIGROUP GLOBAL MARKETS AUSTRALIA HOLDINGS PTY LIMITED",
+  "abn": "56081472684",
+  "acnArbn": "081472684",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007625",
+      "acnArbn": "081472684",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.15,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 6,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 2613,
+        "percentile": 99.2
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 338,
+        "percentile": 98.2
+      }
+    },
+    {
+      "reportId": "PTR20003854",
+      "acnArbn": "081472684",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.33,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 2568,
+        "percentile": 97.5
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 349,
+        "percentile": 93.7
+      }
+    },
+    {
+      "reportId": "PTR20000629",
+      "acnArbn": "081472684",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.67,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 4,
+      "p95PaymentTimeDays": 9,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-18",
+      "overallP95Position": {
+        "rank": 35,
+        "count": 2498,
+        "percentile": 98.5
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 339,
+        "percentile": 95.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "chubb-fire-and-security-pty-ltd-47000067541",
+  "businessName": "CHUBB FIRE & SECURITY PTY LTD",
+  "abn": "47000067541",
+  "acnArbn": "000067541",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010959",
+      "acnArbn": "000067541",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.16,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 61.38,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 4.62,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-05-03",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2613,
+        "percentile": 16.2
+      },
+      "industryP95Position": {
+        "rank": 141,
+        "count": 183,
+        "percentile": 22.5
+      }
+    },
+    {
+      "reportId": "PTR20006121",
+      "acnArbn": "000067541",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.32,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 59.77,
+      "payments31To60Days": 36.06,
+      "paymentsMoreThan60Days": 4.18,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-10-21",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 181,
+        "percentile": 26.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "bureau-veritas-australia-pty-ltd-15090874570",
+  "businessName": "BUREAU VERITAS AUSTRALIA PTY LTD",
+  "abn": "15090874570",
+  "acnArbn": "090874570",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010183",
+      "acnArbn": "090874570",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.35,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.17,
+      "payments31To60Days": 4.83,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 183,
+        "percentile": 84.1
+      }
+    },
+    {
+      "reportId": "PTR20005784",
+      "acnArbn": "090874570",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52.11,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 43.25,
+      "payments31To60Days": 56.28,
+      "paymentsMoreThan60Days": 0.47,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2349,
+        "count": 2568,
+        "percentile": 8.4
+      },
+      "industryP95Position": {
+        "rank": 154,
+        "count": 181,
+        "percentile": 15
+      }
+    },
+    {
+      "reportId": "PTR20001105",
+      "acnArbn": "090874570",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.82,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 57.49,
+      "payments31To60Days": 29.63,
+      "paymentsMoreThan60Days": 12.88,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2113,
+        "count": 2498,
+        "percentile": 15
+      },
+      "industryP95Position": {
+        "rank": 140,
+        "count": 176,
+        "percentile": 20
+      }
+    }
+  ]
+}

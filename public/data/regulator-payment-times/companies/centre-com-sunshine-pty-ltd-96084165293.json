@@ -1,0 +1,67 @@
+{
+  "slug": "centre-com-sunshine-pty-ltd-96084165293",
+  "businessName": "CENTRE COM SUNSHINE PTY LTD",
+  "abn": "96084165293",
+  "acnArbn": "084165293",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007860",
+      "acnArbn": "084165293",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.99,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 84.49,
+      "payments31To60Days": 15.5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 207,
+        "percentile": 85.4
+      }
+    },
+    {
+      "reportId": "PTR20003886",
+      "acnArbn": "084165293",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.53,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 91.08,
+      "payments31To60Days": 8.92,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 207,
+        "percentile": 87.9
+      }
+    }
+  ]
+}

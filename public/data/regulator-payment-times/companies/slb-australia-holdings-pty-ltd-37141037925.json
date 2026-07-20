@@ -1,0 +1,95 @@
+{
+  "slug": "slb-australia-holdings-pty-ltd-37141037925",
+  "businessName": "SLB AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "37141037925",
+  "acnArbn": "141037925",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008651",
+      "acnArbn": "141037925",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.36,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 27.3,
+      "payments31To60Days": 33.35,
+      "paymentsMoreThan60Days": 39.34,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2415,
+        "count": 2613,
+        "percentile": 7.3
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 177,
+        "percentile": 7.4
+      }
+    },
+    {
+      "reportId": "PTR20006226",
+      "acnArbn": "141037925",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 59.06,
+      "medianPaymentTimeDays": 65,
+      "p80PaymentTimeDays": 82,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 18.41,
+      "payments31To60Days": 27.76,
+      "paymentsMoreThan60Days": 53.82,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2568,
+        "percentile": 8.8
+      },
+      "industryP95Position": {
+        "rank": 154,
+        "count": 173,
+        "percentile": 11
+      }
+    },
+    {
+      "reportId": "PTR20002150",
+      "acnArbn": "141037925",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60.43,
+      "medianPaymentTimeDays": 62,
+      "p80PaymentTimeDays": 79,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 13.61,
+      "payments31To60Days": 35.13,
+      "paymentsMoreThan60Days": 51.26,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2281,
+        "count": 2498,
+        "percentile": 8.3
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 170,
+        "percentile": 7.7
+      }
+    }
+  ]
+}

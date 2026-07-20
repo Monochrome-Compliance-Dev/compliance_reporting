@@ -1,0 +1,95 @@
+{
+  "slug": "siemens-ltd-98004347880",
+  "businessName": "SIEMENS LTD.",
+  "abn": "98004347880",
+  "acnArbn": "004347880",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011487",
+      "acnArbn": "004347880",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.15,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 39.36,
+      "payments31To60Days": 42.2,
+      "paymentsMoreThan60Days": 18.42,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 183,
+        "count": 193,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 25,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20006666",
+      "acnArbn": "004347880",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.68,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 83,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 31.18,
+      "payments31To60Days": 45.21,
+      "paymentsMoreThan60Days": 23.61,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-10",
+      "overallP95Position": {
+        "rank": 212,
+        "count": 228,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 27,
+        "percentile": 3.8
+      }
+    },
+    {
+      "reportId": "PTR20001054",
+      "acnArbn": "004347880",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.54,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 85,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 29.42,
+      "payments31To60Days": 43.17,
+      "paymentsMoreThan60Days": 27.41,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 220,
+        "count": 231,
+        "percentile": 4.3
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 26,
+        "percentile": 8
+      }
+    }
+  ]
+}

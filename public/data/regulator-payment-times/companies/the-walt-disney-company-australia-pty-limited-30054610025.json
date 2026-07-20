@@ -1,0 +1,39 @@
+{
+  "slug": "the-walt-disney-company-australia-pty-limited-30054610025",
+  "businessName": "THE WALT DISNEY COMPANY (AUSTRALIA) PTY LIMITED",
+  "abn": "30054610025",
+  "acnArbn": "054610025",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Motion picture and sound recording activities",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011645",
+      "acnArbn": "054610025",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 16,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Motion picture and sound recording activities",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 132,
+        "count": 193,
+        "percentile": 29.2
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    }
+  ]
+}

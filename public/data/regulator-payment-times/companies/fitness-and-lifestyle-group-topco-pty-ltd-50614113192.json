@@ -1,0 +1,39 @@
+{
+  "slug": "fitness-and-lifestyle-group-topco-pty-ltd-50614113192",
+  "businessName": "FITNESS AND LIFESTYLE GROUP TOPCO PTY LTD",
+  "abn": "50614113192",
+  "acnArbn": "614113192",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005392",
+      "acnArbn": "614113192",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.89,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 17,
+      "payments31To60Days": 66,
+      "paymentsMoreThan60Days": 17,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2037,
+        "count": 2568,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 35,
+        "percentile": 8.8
+      }
+    }
+  ]
+}

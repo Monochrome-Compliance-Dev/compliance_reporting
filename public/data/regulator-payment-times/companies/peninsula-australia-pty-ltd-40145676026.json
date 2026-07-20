@@ -1,0 +1,95 @@
+{
+  "slug": "peninsula-australia-pty-ltd-40145676026",
+  "businessName": "PENINSULA AUSTRALIA PTY LTD",
+  "abn": "40145676026",
+  "acnArbn": "145676026",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011748",
+      "acnArbn": "145676026",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.31,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 86.5,
+      "payments31To60Days": 10.29,
+      "paymentsMoreThan60Days": 3.22,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 114,
+        "count": 193,
+        "percentile": 39.1
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 25,
+        "percentile": 62.5
+      }
+    },
+    {
+      "reportId": "PTR20006691",
+      "acnArbn": "145676026",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.73,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 89.08,
+      "payments31To60Days": 8.59,
+      "paymentsMoreThan60Days": 2.33,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-14",
+      "overallP95Position": {
+        "rank": 121,
+        "count": 228,
+        "percentile": 45.4
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 27,
+        "percentile": 61.5
+      }
+    },
+    {
+      "reportId": "PTR20001968",
+      "acnArbn": "145676026",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.36,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 90.57,
+      "payments31To60Days": 8.51,
+      "paymentsMoreThan60Days": 0.92,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 105,
+        "count": 231,
+        "percentile": 53
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 26,
+        "percentile": 64
+      }
+    }
+  ]
+}

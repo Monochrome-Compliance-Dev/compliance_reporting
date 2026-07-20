@@ -1,0 +1,67 @@
+{
+  "slug": "cw-group-holdings-limited-83635851839",
+  "businessName": "CW GROUP HOLDINGS LIMITED",
+  "abn": "83635851839",
+  "acnArbn": "635851839",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20003978",
+      "acnArbn": "635851839",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.89,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 32.3,
+      "payments31To60Days": 59.3,
+      "paymentsMoreThan60Days": 8.4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2568,
+        "percentile": 22.6
+      },
+      "industryP95Position": {
+        "rank": 228,
+        "count": 323,
+        "percentile": 28.6
+      }
+    },
+    {
+      "reportId": "PTR20002065",
+      "acnArbn": "635851839",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.27,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 35.9,
+      "payments31To60Days": 57.4,
+      "paymentsMoreThan60Days": 6.7,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 323,
+        "percentile": 42.2
+      }
+    }
+  ]
+}

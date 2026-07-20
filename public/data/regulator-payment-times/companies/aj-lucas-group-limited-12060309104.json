@@ -1,0 +1,95 @@
+{
+  "slug": "aj-lucas-group-limited-12060309104",
+  "businessName": "AJ LUCAS GROUP LIMITED",
+  "abn": "12060309104",
+  "acnArbn": "060309104",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007549",
+      "acnArbn": "060309104",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.63,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 13.27,
+      "payments31To60Days": 77.39,
+      "paymentsMoreThan60Days": 9.34,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-01",
+      "overallP95Position": {
+        "rank": 2043,
+        "count": 2613,
+        "percentile": 21.3
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 177,
+        "percentile": 21.6
+      }
+    },
+    {
+      "reportId": "PTR20004444",
+      "acnArbn": "060309104",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53.26,
+      "medianPaymentTimeDays": 51,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 8.16,
+      "payments31To60Days": 63.52,
+      "paymentsMoreThan60Days": 28.33,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 2354,
+        "count": 2568,
+        "percentile": 8.1
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 173,
+        "percentile": 8.1
+      }
+    },
+    {
+      "reportId": "PTR20001624",
+      "acnArbn": "060309104",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.93,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 39.18,
+      "payments31To60Days": 52.08,
+      "paymentsMoreThan60Days": 8.74,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 123,
+        "count": 170,
+        "percentile": 26.6
+      }
+    }
+  ]
+}

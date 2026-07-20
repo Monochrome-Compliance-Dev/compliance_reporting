@@ -1,0 +1,95 @@
+{
+  "slug": "nh-foods-australia-pty-ltd-87001548401",
+  "businessName": "NH FOODS AUSTRALIA PTY LTD",
+  "abn": "87001548401",
+  "acnArbn": "001548401",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011659",
+      "acnArbn": "001548401",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.33,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 87.44,
+      "payments31To60Days": 12.55,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 79,
+        "count": 193,
+        "percentile": 57.8
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 25,
+        "percentile": 87.5
+      }
+    },
+    {
+      "reportId": "PTR20006797",
+      "acnArbn": "001548401",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.91,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 89.63,
+      "payments31To60Days": 10.22,
+      "paymentsMoreThan60Days": 0.15,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-21",
+      "overallP95Position": {
+        "rank": 80,
+        "count": 228,
+        "percentile": 62.1
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 28,
+        "percentile": 88.9
+      }
+    },
+    {
+      "reportId": "PTR20006689",
+      "acnArbn": "001548401",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.5,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 89.07,
+      "payments31To60Days": 10.93,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-11",
+      "overallP95Position": {
+        "rank": 74,
+        "count": 231,
+        "percentile": 66.5
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 32,
+        "percentile": 83.9
+      }
+    }
+  ]
+}

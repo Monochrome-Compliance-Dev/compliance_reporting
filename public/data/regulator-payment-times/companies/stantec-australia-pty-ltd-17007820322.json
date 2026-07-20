@@ -1,0 +1,95 @@
+{
+  "slug": "stantec-australia-pty-ltd-17007820322",
+  "businessName": "STANTEC AUSTRALIA PTY LTD",
+  "abn": "17007820322",
+  "acnArbn": "007820322",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009836",
+      "acnArbn": "007820322",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 52.2,
+      "payments31To60Days": 42.4,
+      "paymentsMoreThan60Days": 5.4,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 117,
+        "count": 183,
+        "percentile": 33.5
+      }
+    },
+    {
+      "reportId": "PTR20004739",
+      "acnArbn": "007820322",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 44,
+      "payments31To60Days": 49,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 181,
+        "percentile": 30.6
+      }
+    },
+    {
+      "reportId": "PTR20001823",
+      "acnArbn": "007820322",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 46,
+      "payments31To60Days": 47,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 115,
+        "count": 176,
+        "percentile": 33.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "access-hardware-holdings-pty-ltd-36123214611",
+  "businessName": "ACCESS HARDWARE HOLDINGS PTY. LTD.",
+  "abn": "36123214611",
+  "acnArbn": "123214611",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010824",
+      "acnArbn": "123214611",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.71,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 61.69,
+      "payments31To60Days": 35.54,
+      "paymentsMoreThan60Days": 2.76,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 129,
+        "count": 329,
+        "percentile": 58.8
+      }
+    },
+    {
+      "reportId": "PTR20006078",
+      "acnArbn": "123214611",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.21,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 48.33,
+      "payments31To60Days": 44.3,
+      "paymentsMoreThan60Days": 7.37,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-16",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 323,
+        "percentile": 36
+      }
+    },
+    {
+      "reportId": "PTR20005207",
+      "acnArbn": "123214611",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.31,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 54,
+      "payments31To60Days": 41,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 159,
+        "count": 323,
+        "percentile": 44.4
+      }
+    }
+  ]
+}

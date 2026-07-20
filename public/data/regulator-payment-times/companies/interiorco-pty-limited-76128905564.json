@@ -1,0 +1,95 @@
+{
+  "slug": "interiorco-pty-limited-76128905564",
+  "businessName": "InteriorCo Pty Limited",
+  "abn": "76128905564",
+  "acnArbn": "128905564",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Furniture and other mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007233",
+      "acnArbn": "128905564",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.07,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 31.2,
+      "payments31To60Days": 46.79,
+      "paymentsMoreThan60Days": 22.01,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-15",
+      "overallP95Position": {
+        "rank": 2343,
+        "count": 2613,
+        "percentile": 9.7
+      },
+      "industryP95Position": {
+        "rank": 292,
+        "count": 347,
+        "percentile": 15
+      }
+    },
+    {
+      "reportId": "PTR20003438",
+      "acnArbn": "128905564",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.99,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 68,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 24.15,
+      "payments31To60Days": 46.35,
+      "paymentsMoreThan60Days": 29.5,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-07",
+      "overallP95Position": {
+        "rank": 2376,
+        "count": 2568,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 305,
+        "count": 335,
+        "percentile": 8.1
+      }
+    },
+    {
+      "reportId": "PTR20000000",
+      "acnArbn": "128905564",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.61,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 26.51,
+      "payments31To60Days": 51.72,
+      "paymentsMoreThan60Days": 21.78,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-04-30",
+      "overallP95Position": {
+        "rank": 2000,
+        "count": 2498,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 323,
+        "percentile": 31.4
+      }
+    }
+  ]
+}

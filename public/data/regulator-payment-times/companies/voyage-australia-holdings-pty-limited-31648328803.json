@@ -1,0 +1,95 @@
+{
+  "slug": "voyage-australia-holdings-pty-limited-31648328803",
+  "businessName": "VOYAGE AUSTRALIA HOLDINGS PTY LIMITED",
+  "abn": "31648328803",
+  "acnArbn": "648328803",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010228",
+      "acnArbn": "648328803",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.16,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 87.94,
+      "payments31To60Days": 9.87,
+      "paymentsMoreThan60Days": 2.19,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 60,
+        "percentile": 64.4
+      }
+    },
+    {
+      "reportId": "PTR20005482",
+      "acnArbn": "648328803",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.42,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 73.54,
+      "payments31To60Days": 23.45,
+      "paymentsMoreThan60Days": 3.01,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 55,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20001515",
+      "acnArbn": "648328803",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.55,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 67.31,
+      "payments31To60Days": 29.93,
+      "paymentsMoreThan60Days": 2.76,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 58,
+        "percentile": 50.9
+      }
+    }
+  ]
+}

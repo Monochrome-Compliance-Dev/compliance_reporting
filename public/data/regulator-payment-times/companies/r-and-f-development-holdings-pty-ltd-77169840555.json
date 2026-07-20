@@ -1,0 +1,95 @@
+{
+  "slug": "r-and-f-development-holdings-pty-ltd-77169840555",
+  "businessName": "R&F DEVELOPMENT HOLDINGS PTY LTD",
+  "abn": "77169840555",
+  "acnArbn": "169840555",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009010",
+      "acnArbn": "169840555",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 78.85,
+      "payments31To60Days": 7.69,
+      "paymentsMoreThan60Days": 13.46,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2295,
+        "count": 2613,
+        "percentile": 11.8
+      },
+      "industryP95Position": {
+        "rank": 240,
+        "count": 270,
+        "percentile": 10.8
+      }
+    },
+    {
+      "reportId": "PTR20005889",
+      "acnArbn": "169840555",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 136,
+      "payments30DaysOrLess": 66.09,
+      "payments31To60Days": 22.99,
+      "paymentsMoreThan60Days": 10.92,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2523,
+        "count": 2568,
+        "percentile": 1.7
+      },
+      "industryP95Position": {
+        "rank": 252,
+        "count": 259,
+        "percentile": 2.7
+      }
+    },
+    {
+      "reportId": "PTR20005871",
+      "acnArbn": "169840555",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 110,
+      "payments30DaysOrLess": 65.79,
+      "payments31To60Days": 16.67,
+      "paymentsMoreThan60Days": 17.54,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2388,
+        "count": 2498,
+        "percentile": 4.4
+      },
+      "industryP95Position": {
+        "rank": 244,
+        "count": 250,
+        "percentile": 2.4
+      }
+    }
+  ]
+}

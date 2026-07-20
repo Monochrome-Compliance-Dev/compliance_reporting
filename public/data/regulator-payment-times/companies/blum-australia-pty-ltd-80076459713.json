@@ -1,0 +1,95 @@
+{
+  "slug": "blum-australia-pty-ltd-80076459713",
+  "businessName": "BLUM AUSTRALIA PTY LTD",
+  "abn": "80076459713",
+  "acnArbn": "076459713",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Furniture and other mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007162",
+      "acnArbn": "076459713",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.07,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 98.47,
+      "payments31To60Days": 1.53,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-10",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2613,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 347,
+        "percentile": 97.7
+      }
+    },
+    {
+      "reportId": "PTR20003265",
+      "acnArbn": "076459713",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.39,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 97.06,
+      "payments31To60Days": 2.94,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-27",
+      "overallP95Position": {
+        "rank": 225,
+        "count": 2568,
+        "percentile": 89.6
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 335,
+        "percentile": 98.8
+      }
+    },
+    {
+      "reportId": "PTR20010965",
+      "acnArbn": "076459713",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.03,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 99.08,
+      "payments31To60Days": 1.66,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-03",
+      "overallP95Position": {
+        "rank": 162,
+        "count": 2498,
+        "percentile": 93.1
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 323,
+        "percentile": 97.8
+      }
+    }
+  ]
+}

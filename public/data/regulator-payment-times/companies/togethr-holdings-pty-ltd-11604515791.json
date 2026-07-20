@@ -1,0 +1,95 @@
+{
+  "slug": "togethr-holdings-pty-ltd-11604515791",
+  "businessName": "TOGETHR HOLDINGS PTY LTD",
+  "abn": "11604515791",
+  "acnArbn": "604515791",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009069",
+      "acnArbn": "604515791",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 67,
+        "count": 2613,
+        "percentile": 97.2
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 338,
+        "percentile": 91.4
+      }
+    },
+    {
+      "reportId": "PTR20004793",
+      "acnArbn": "604515791",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 99.7,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 67,
+        "count": 2568,
+        "percentile": 97.1
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 349,
+        "percentile": 92.8
+      }
+    },
+    {
+      "reportId": "PTR20001576",
+      "acnArbn": "604515791",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 68,
+        "count": 2498,
+        "percentile": 96.6
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 339,
+        "percentile": 89.9
+      }
+    }
+  ]
+}

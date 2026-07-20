@@ -1,0 +1,67 @@
+{
+  "slug": "anca-pty-ltd-43005163244",
+  "businessName": "ANCA PTY LTD",
+  "abn": "43005163244",
+  "acnArbn": "005163244",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009221",
+      "acnArbn": "005163244",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 19.66,
+      "payments31To60Days": 67.01,
+      "paymentsMoreThan60Days": 13.54,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 188,
+        "count": 347,
+        "percentile": 44.8
+      }
+    },
+    {
+      "reportId": "PTR20005629",
+      "acnArbn": "005163244",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 63.7,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 19.9,
+      "payments31To60Days": 65.8,
+      "paymentsMoreThan60Days": 14.3,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 335,
+        "percentile": 40.7
+      }
+    }
+  ]
+}

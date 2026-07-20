@@ -1,0 +1,95 @@
+{
+  "slug": "thermo-electron-australia-pty-limited-44109074115",
+  "businessName": "THERMO ELECTRON AUSTRALIA PTY LIMITED",
+  "abn": "44109074115",
+  "acnArbn": "109074115",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009822",
+      "acnArbn": "109074115",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.69,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 54.32,
+      "payments31To60Days": 23.56,
+      "paymentsMoreThan60Days": 22.12,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2436,
+        "count": 2613,
+        "percentile": 6.4
+      },
+      "industryP95Position": {
+        "rank": 305,
+        "count": 329,
+        "percentile": 7
+      }
+    },
+    {
+      "reportId": "PTR20005663",
+      "acnArbn": "109074115",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.01,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 62.18,
+      "payments31To60Days": 24.66,
+      "paymentsMoreThan60Days": 13.16,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2568,
+        "percentile": 16.6
+      },
+      "industryP95Position": {
+        "rank": 250,
+        "count": 323,
+        "percentile": 21.7
+      }
+    },
+    {
+      "reportId": "PTR20001638",
+      "acnArbn": "109074115",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.13,
+      "medianPaymentTimeDays": 34.51,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 65.36,
+      "payments31To60Days": 19.1,
+      "paymentsMoreThan60Days": 15.54,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1937,
+        "count": 2498,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 231,
+        "count": 323,
+        "percentile": 28.6
+      }
+    }
+  ]
+}

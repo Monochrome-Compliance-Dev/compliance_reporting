@@ -1,0 +1,95 @@
+{
+  "slug": "fujifilm-business-innovation-australia-pty-ltd-63000341819",
+  "businessName": "FUJIFILM BUSINESS INNOVATION AUSTRALIA PTY LTD",
+  "abn": "63000341819",
+  "acnArbn": "000341819",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Printing (including the reproduction of recorded media)",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011618",
+      "acnArbn": "000341819",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.53,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 57.77,
+      "payments31To60Days": 34.03,
+      "paymentsMoreThan60Days": 8.2,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 165,
+        "count": 193,
+        "percentile": 14.6
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 25,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20006733",
+      "acnArbn": "000341819",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.05,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 52.13,
+      "payments31To60Days": 40.58,
+      "paymentsMoreThan60Days": 7.29,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-16",
+      "overallP95Position": {
+        "rank": 180,
+        "count": 228,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 28,
+        "percentile": 40.7
+      }
+    },
+    {
+      "reportId": "PTR20001733",
+      "acnArbn": "000341819",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.79,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 44.33,
+      "payments31To60Days": 46.23,
+      "paymentsMoreThan60Days": 9.44,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 216,
+        "count": 231,
+        "percentile": 6.1
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 32,
+        "percentile": 6.5
+      }
+    }
+  ]
+}

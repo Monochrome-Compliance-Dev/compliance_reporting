@@ -1,0 +1,67 @@
+{
+  "slug": "bucher-municipal-pty-ltd-68004992090",
+  "businessName": "BUCHER MUNICIPAL PTY LTD",
+  "abn": "68004992090",
+  "acnArbn": "004992090",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20010474",
+      "acnArbn": "004992090",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 63.21,
+      "medianPaymentTimeDays": 64,
+      "p80PaymentTimeDays": 84,
+      "p95PaymentTimeDays": 102,
+      "payments30DaysOrLess": 8.41,
+      "payments31To60Days": 37.41,
+      "paymentsMoreThan60Days": 54.17,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-07",
+      "overallP95Position": {
+        "rank": 2409,
+        "count": 2568,
+        "percentile": 6
+      },
+      "industryP95Position": {
+        "rank": 314,
+        "count": 335,
+        "percentile": 5.7
+      }
+    },
+    {
+      "reportId": "PTR20007168",
+      "acnArbn": "004992090",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.77,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 16.3,
+      "payments31To60Days": 73.7,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-10",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 323,
+        "percentile": 39.1
+      }
+    }
+  ]
+}

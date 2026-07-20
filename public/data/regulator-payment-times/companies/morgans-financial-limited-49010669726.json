@@ -1,0 +1,67 @@
+{
+  "slug": "morgans-financial-limited-49010669726",
+  "businessName": "MORGANS FINANCIAL LIMITED",
+  "abn": "49010669726",
+  "acnArbn": "010669726",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006783",
+      "acnArbn": "010669726",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.74,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 93.5,
+      "payments31To60Days": 5.04,
+      "paymentsMoreThan60Days": 1.47,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 43,
+        "count": 228,
+        "percentile": 80.6
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 22,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20001928",
+      "acnArbn": "010669726",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.7,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 91.65,
+      "payments31To60Days": 6.73,
+      "paymentsMoreThan60Days": 1.62,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 48,
+        "count": 231,
+        "percentile": 78.3
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 20,
+        "percentile": 47.4
+      }
+    }
+  ]
+}

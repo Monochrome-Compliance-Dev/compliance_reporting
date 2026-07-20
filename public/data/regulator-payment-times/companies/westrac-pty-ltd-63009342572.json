@@ -1,0 +1,95 @@
+{
+  "slug": "westrac-pty-ltd-63009342572",
+  "businessName": "WESTRAC PTY LTD",
+  "abn": "63009342572",
+  "acnArbn": "009342572",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Repair and maintenance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008175",
+      "acnArbn": "009342572",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 24.4,
+      "payments31To60Days": 74.8,
+      "paymentsMoreThan60Days": 0.8,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 25,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20004257",
+      "acnArbn": "009342572",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 30,
+      "payments31To60Days": 69,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 26,
+        "percentile": 44
+      }
+    },
+    {
+      "reportId": "PTR20002412",
+      "acnArbn": "009342572",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 22.4,
+      "payments31To60Days": 76.9,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-07-09",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 22,
+        "percentile": 47.6
+      }
+    }
+  ]
+}

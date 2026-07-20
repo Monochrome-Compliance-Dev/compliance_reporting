@@ -1,0 +1,95 @@
+{
+  "slug": "qpeacq-1-pty-ltd-52623421732",
+  "businessName": "QPEACQ 1 PTY LTD",
+  "abn": "52623421732",
+  "acnArbn": "623421732",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010459",
+      "acnArbn": "623421732",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.92,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 49.41,
+      "payments31To60Days": 38.66,
+      "paymentsMoreThan60Days": 11.92,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-06",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 317,
+        "count": 338,
+        "percentile": 5.9
+      }
+    },
+    {
+      "reportId": "PTR20010428",
+      "acnArbn": "623421732",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.22,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 110,
+      "payments30DaysOrLess": 38.01,
+      "payments31To60Days": 44.86,
+      "paymentsMoreThan60Days": 17.13,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 2441,
+        "count": 2568,
+        "percentile": 4.9
+      },
+      "industryP95Position": {
+        "rank": 343,
+        "count": 349,
+        "percentile": 1.7
+      }
+    },
+    {
+      "reportId": "PTR20010426",
+      "acnArbn": "623421732",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.94,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 49.7,
+      "payments31To60Days": 41.79,
+      "paymentsMoreThan60Days": 8.51,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1937,
+        "count": 2498,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 299,
+        "count": 339,
+        "percentile": 11.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "raytheon-australia-pty-ltd-35063709295",
+  "businessName": "RAYTHEON AUSTRALIA PTY LTD",
+  "abn": "35063709295",
+  "acnArbn": "063709295",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Defence",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009814",
+      "acnArbn": "063709295",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.2,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 89.2,
+      "payments31To60Days": 9.3,
+      "paymentsMoreThan60Days": 1.5,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 33,
+        "percentile": 71.9
+      }
+    },
+    {
+      "reportId": "PTR20003653",
+      "acnArbn": "063709295",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.4,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 81.2,
+      "payments31To60Days": 15.9,
+      "paymentsMoreThan60Days": 2.8,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 34,
+        "percentile": 51.5
+      }
+    },
+    {
+      "reportId": "PTR20007547",
+      "acnArbn": "063709295",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.7,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 85.2,
+      "payments31To60Days": 12.8,
+      "paymentsMoreThan60Days": 1.9,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-01",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 31,
+        "percentile": 73.3
+      }
+    }
+  ]
+}

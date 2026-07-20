@@ -1,0 +1,95 @@
+{
+  "slug": "fugro-holdings-australia-pty-ltd-99003010099",
+  "businessName": "FUGRO HOLDINGS (AUSTRALIA) PTY LTD",
+  "abn": "99003010099",
+  "acnArbn": "003010099",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007710",
+      "acnArbn": "003010099",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.98,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 81.68,
+      "payments31To60Days": 15.02,
+      "paymentsMoreThan60Days": 3.3,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-08",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 183,
+        "percentile": 51.6
+      }
+    },
+    {
+      "reportId": "PTR20004700",
+      "acnArbn": "003010099",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.3,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 90.82,
+      "payments31To60Days": 7.05,
+      "paymentsMoreThan60Days": 2.13,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 123,
+        "count": 181,
+        "percentile": 31.7
+      }
+    },
+    {
+      "reportId": "PTR20000713",
+      "acnArbn": "003010099",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.86,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 36.13,
+      "payments31To60Days": 54.71,
+      "paymentsMoreThan60Days": 9.17,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 2196,
+        "count": 2498,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 176,
+        "percentile": 18.3
+      }
+    }
+  ]
+}

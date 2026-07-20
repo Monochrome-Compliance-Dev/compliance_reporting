@@ -1,0 +1,67 @@
+{
+  "slug": "valvoline-australia-pty-ltd-86000446855",
+  "businessName": "VALVOLINE (AUSTRALIA) PTY LTD",
+  "abn": "86000446855",
+  "acnArbn": "000446855",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008765",
+      "acnArbn": "000446855",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.93,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 82.49,
+      "payments31To60Days": 14.2,
+      "paymentsMoreThan60Days": 3.31,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 347,
+        "percentile": 66.2
+      }
+    },
+    {
+      "reportId": "PTR20001027",
+      "acnArbn": "000446855",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.09,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 68.18,
+      "payments31To60Days": 24.84,
+      "paymentsMoreThan60Days": 6.98,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 323,
+        "percentile": 46.6
+      }
+    }
+  ]
+}

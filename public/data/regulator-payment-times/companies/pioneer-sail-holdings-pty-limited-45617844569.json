@@ -1,0 +1,95 @@
+{
+  "slug": "pioneer-sail-holdings-pty-limited-45617844569",
+  "businessName": "PIONEER SAIL HOLDINGS PTY LIMITED",
+  "abn": "45617844569",
+  "acnArbn": "617844569",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008511",
+      "acnArbn": "617844569",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.46,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 87.55,
+      "payments31To60Days": 9.11,
+      "paymentsMoreThan60Days": 3.3,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 92,
+        "percentile": 35.2
+      }
+    },
+    {
+      "reportId": "PTR20004234",
+      "acnArbn": "617844569",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.14,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 85.54,
+      "payments31To60Days": 11.4,
+      "paymentsMoreThan60Days": 3.03,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 95,
+        "percentile": 44.7
+      }
+    },
+    {
+      "reportId": "PTR20002069",
+      "acnArbn": "617844569",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.08,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 86.66,
+      "payments31To60Days": 10.68,
+      "paymentsMoreThan60Days": 2.66,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 99,
+        "percentile": 45.9
+      }
+    }
+  ]
+}

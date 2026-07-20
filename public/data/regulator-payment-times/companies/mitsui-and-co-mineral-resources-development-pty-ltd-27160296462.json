@@ -1,0 +1,95 @@
+{
+  "slug": "mitsui-and-co-mineral-resources-development-pty-ltd-27160296462",
+  "businessName": "MITSUI & CO. MINERAL RESOURCES DEVELOPMENT PTY LTD",
+  "abn": "27160296462",
+  "acnArbn": "160296462",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011644",
+      "acnArbn": "160296462",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.37,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 98.81,
+      "payments31To60Days": 1.19,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 21,
+        "count": 193,
+        "percentile": 89.1
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 10,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportId": "PTR20006627",
+      "acnArbn": "160296462",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.51,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 98.04,
+      "payments31To60Days": 1.96,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-12-04",
+      "overallP95Position": {
+        "rank": 22,
+        "count": 228,
+        "percentile": 90.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 10,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportId": "PTR20001517",
+      "acnArbn": "160296462",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.63,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 98.25,
+      "payments31To60Days": 1.75,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 231,
+        "percentile": 90.4
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 10,
+        "percentile": 77.8
+      }
+    }
+  ]
+}

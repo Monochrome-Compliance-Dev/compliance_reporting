@@ -1,0 +1,95 @@
+{
+  "slug": "vitasoy-australia-products-pty-ltd-18088959835",
+  "businessName": "VITASOY AUSTRALIA PRODUCTS PTY LTD",
+  "abn": "18088959835",
+  "acnArbn": "088959835",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Beverage and tobacco product mfg",
+  "latestReportingPeriodEndDate": "2026-03-28",
+  "reports": [
+    {
+      "reportId": "PTR20011665",
+      "acnArbn": "088959835",
+      "reportingPeriodStartDate": "2025-09-28",
+      "reportingPeriodEndDate": "2026-03-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 51.26,
+      "payments31To60Days": 43.74,
+      "paymentsMoreThan60Days": 5.02,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006722",
+      "acnArbn": "088959835",
+      "reportingPeriodStartDate": "2025-03-30",
+      "reportingPeriodEndDate": "2025-09-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 55.97,
+      "payments31To60Days": 41.5,
+      "paymentsMoreThan60Days": 2.54,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-15",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002681",
+      "acnArbn": "088959835",
+      "reportingPeriodStartDate": "2024-09-29",
+      "reportingPeriodEndDate": "2025-03-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 54.24,
+      "payments31To60Days": 40.63,
+      "paymentsMoreThan60Days": 5.13,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "koch-fertiliser-australia-pty-ltd-44140582369",
+  "businessName": "Koch Fertiliser Australia Pty Ltd",
+  "abn": "44140582369",
+  "acnArbn": "140582369",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009229",
+      "acnArbn": "140582369",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 76,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 233,
+        "count": 347,
+        "percentile": 30.9
+      }
+    },
+    {
+      "reportId": "PTR20004476",
+      "acnArbn": "140582369",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 79,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1178,
+        "count": 2568,
+        "percentile": 52.7
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 335,
+        "percentile": 76.9
+      }
+    },
+    {
+      "reportId": "PTR20001531",
+      "acnArbn": "140582369",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 79,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 323,
+        "percentile": 71.1
+      }
+    }
+  ]
+}

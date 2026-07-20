@@ -1,0 +1,95 @@
+{
+  "slug": "noumi-limited-41002814235",
+  "businessName": "NOUMI LIMITED",
+  "abn": "41002814235",
+  "acnArbn": "002814235",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Beverage and tobacco product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011624",
+      "acnArbn": "002814235",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 62,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 44,
+      "payments31To60Days": 39,
+      "paymentsMoreThan60Days": 17,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 2463,
+        "count": 2613,
+        "percentile": 5.6
+      },
+      "industryP95Position": {
+        "rank": 319,
+        "count": 347,
+        "percentile": 7.8
+      }
+    },
+    {
+      "reportId": "PTR20006222",
+      "acnArbn": "002814235",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 49,
+      "payments31To60Days": 42,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 2014,
+        "count": 2568,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 220,
+        "count": 335,
+        "percentile": 32.9
+      }
+    },
+    {
+      "reportId": "PTR20002667",
+      "acnArbn": "002814235",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 44,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 323,
+        "percentile": 41.9
+      }
+    }
+  ]
+}

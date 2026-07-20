@@ -1,0 +1,95 @@
+{
+  "slug": "neumann-steel-pty-ltd-59009818035",
+  "businessName": "NEUMANN STEEL PTY. LTD.",
+  "abn": "59009818035",
+  "acnArbn": "009818035",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010849",
+      "acnArbn": "009818035",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.23,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 42.99,
+      "payments31To60Days": 53.17,
+      "paymentsMoreThan60Days": 3.84,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 347,
+        "percentile": 52.6
+      }
+    },
+    {
+      "reportId": "PTR20010848",
+      "acnArbn": "009818035",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.51,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 42.17,
+      "payments31To60Days": 54.33,
+      "paymentsMoreThan60Days": 3.5,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 128,
+        "count": 335,
+        "percentile": 60.5
+      }
+    },
+    {
+      "reportId": "PTR20010845",
+      "acnArbn": "009818035",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.42,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 38.04,
+      "payments31To60Days": 57.85,
+      "paymentsMoreThan60Days": 4.1,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 55.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "united-terminal-bell-bay-pty-ltd-61101299870",
+  "businessName": "UNITED TERMINAL BELL BAY PTY. LTD.",
+  "abn": "61101299870",
+  "acnArbn": "101299870",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010278",
+      "acnArbn": "101299870",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.18,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 92.41,
+      "payments31To60Days": 6.33,
+      "paymentsMoreThan60Days": 1.27,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 329,
+        "percentile": 87.5
+      }
+    },
+    {
+      "reportId": "PTR20005955",
+      "acnArbn": "101299870",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.26,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 91.63,
+      "payments31To60Days": 8.37,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-02",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 323,
+        "percentile": 86
+      }
+    },
+    {
+      "reportId": "PTR20003025",
+      "acnArbn": "101299870",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.29,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 88.1,
+      "payments31To60Days": 11.9,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-30",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

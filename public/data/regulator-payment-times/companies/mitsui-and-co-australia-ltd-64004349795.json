@@ -1,0 +1,95 @@
+{
+  "slug": "mitsui-and-co-australia-ltd-64004349795",
+  "businessName": "MITSUI & CO. (AUSTRALIA) LTD.",
+  "abn": "64004349795",
+  "acnArbn": "004349795",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011525",
+      "acnArbn": "004349795",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.81,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 93.65,
+      "payments31To60Days": 4.68,
+      "paymentsMoreThan60Days": 1.67,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 38,
+        "count": 193,
+        "percentile": 79.2
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 45,
+        "percentile": 79.5
+      }
+    },
+    {
+      "reportId": "PTR20006496",
+      "acnArbn": "004349795",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.94,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 88.03,
+      "payments31To60Days": 11.27,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-11-19",
+      "overallP95Position": {
+        "rank": 46,
+        "count": 228,
+        "percentile": 78.4
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 59,
+        "percentile": 75.9
+      }
+    },
+    {
+      "reportId": "PTR20000843",
+      "acnArbn": "004349795",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.99,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 89.61,
+      "payments31To60Days": 8.96,
+      "paymentsMoreThan60Days": 1.43,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 52,
+        "count": 231,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 61,
+        "percentile": 80
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "hansen-technologies-limited-90090996455",
+  "businessName": "HANSEN TECHNOLOGIES LIMITED",
+  "abn": "90090996455",
+  "acnArbn": "090996455",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009192",
+      "acnArbn": "090996455",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.17,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 85.86,
+      "payments31To60Days": 7.85,
+      "paymentsMoreThan60Days": 6.28,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 124,
+        "count": 183,
+        "percentile": 30.8
+      }
+    },
+    {
+      "reportId": "PTR20004094",
+      "acnArbn": "090996455",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.82,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.46,
+      "payments31To60Days": 0.33,
+      "paymentsMoreThan60Days": 5.21,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 181,
+        "percentile": 85
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "aggreko-australia-pty-ltd-66001991457",
+  "businessName": "Aggreko Australia Pty Ltd",
+  "abn": "66001991457",
+  "acnArbn": "001991457",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Rental and hiring services (except real estate)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007698",
+      "acnArbn": "001991457",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.38,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 51.09,
+      "payments31To60Days": 31.3,
+      "paymentsMoreThan60Days": 17.61,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 2251,
+        "count": 2613,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 66,
+        "percentile": 16.9
+      }
+    },
+    {
+      "reportId": "PTR20004188",
+      "acnArbn": "001991457",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.87,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 47.54,
+      "payments31To60Days": 30.21,
+      "paymentsMoreThan60Days": 22.25,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2568,
+        "percentile": 16.1
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 61,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20001167",
+      "acnArbn": "001991457",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.55,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 42.08,
+      "payments31To60Days": 36.06,
+      "paymentsMoreThan60Days": 21.86,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2196,
+        "count": 2498,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 55,
+        "percentile": 3.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "circana-au-pty-ltd-34067719180",
+  "businessName": "CIRCANA (AU) PTY LTD",
+  "abn": "34067719180",
+  "acnArbn": "067719180",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008440",
+      "acnArbn": "067719180",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.77,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 83.45,
+      "payments31To60Days": 16.55,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 183,
+        "percentile": 76.4
+      }
+    },
+    {
+      "reportId": "PTR20005034",
+      "acnArbn": "067719180",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.7,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 77.44,
+      "payments31To60Days": 21.34,
+      "paymentsMoreThan60Days": 1.22,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 181,
+        "percentile": 68.3
+      }
+    },
+    {
+      "reportId": "PTR20001432",
+      "acnArbn": "067719180",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.91,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 68.84,
+      "payments31To60Days": 30.7,
+      "paymentsMoreThan60Days": 0.47,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 909,
+        "count": 2498,
+        "percentile": 62.6
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 176,
+        "percentile": 60
+      }
+    }
+  ]
+}

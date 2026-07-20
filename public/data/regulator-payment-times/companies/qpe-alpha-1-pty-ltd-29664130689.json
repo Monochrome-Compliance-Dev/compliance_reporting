@@ -1,0 +1,39 @@
+{
+  "slug": "qpe-alpha-1-pty-ltd-29664130689",
+  "businessName": "QPE ALPHA 1 PTY LTD",
+  "abn": "29664130689",
+  "acnArbn": "664130689",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010953",
+      "acnArbn": "664130689",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.2,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 33,
+      "payments31To60Days": 61,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-05-03",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 106,
+        "percentile": 37.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "solar-turbines-international-company-43066283074",
+  "businessName": "SOLAR TURBINES INTERNATIONAL COMPANY",
+  "abn": "43066283074",
+  "acnArbn": "066283074",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008916",
+      "acnArbn": "066283074",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.69,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 82.3,
+      "payments31To60Days": 12.6,
+      "paymentsMoreThan60Days": 5.1,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 130,
+        "count": 177,
+        "percentile": 25.6
+      }
+    },
+    {
+      "reportId": "PTR20006596",
+      "acnArbn": "066283074",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.56,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 64.22,
+      "payments31To60Days": 27.52,
+      "paymentsMoreThan60Days": 8.26,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-11-29",
+      "overallP95Position": {
+        "rank": 2156,
+        "count": 2568,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 173,
+        "percentile": 16.9
+      }
+    },
+    {
+      "reportId": "PTR20000867",
+      "acnArbn": "066283074",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 62.37,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 74,
+      "p95PaymentTimeDays": 273,
+      "payments30DaysOrLess": 50.32,
+      "payments31To60Days": 25.81,
+      "paymentsMoreThan60Days": 23.87,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 2489,
+        "count": 2498,
+        "percentile": 0.4
+      },
+      "industryP95Position": {
+        "rank": 170,
+        "count": 170,
+        "percentile": 0
+      }
+    }
+  ]
+}

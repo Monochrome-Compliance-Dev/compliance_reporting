@@ -1,0 +1,95 @@
+{
+  "slug": "international-livestock-export-pty-ltd-54009400846",
+  "businessName": "INTERNATIONAL LIVESTOCK EXPORT PTY LTD",
+  "abn": "54009400846",
+  "acnArbn": "009400846",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008462",
+      "acnArbn": "009400846",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 85.45,
+      "payments31To60Days": 14.53,
+      "paymentsMoreThan60Days": 0.02,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 672,
+        "count": 2613,
+        "percentile": 73.2
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 329,
+        "percentile": 82.6
+      }
+    },
+    {
+      "reportId": "PTR20008470",
+      "acnArbn": "009400846",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 85.04,
+      "payments31To60Days": 14.96,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 323,
+        "percentile": 82
+      }
+    },
+    {
+      "reportId": "PTR20000798",
+      "acnArbn": "009400846",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 89.1,
+      "payments31To60Days": 9.08,
+      "paymentsMoreThan60Days": 1.81,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 674,
+        "count": 2498,
+        "percentile": 72.3
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 323,
+        "percentile": 82
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "davidson-group-aust-pty-ltd-43167652155",
+  "businessName": "DAVIDSON GROUP (AUST) PTY LTD",
+  "abn": "43167652155",
+  "acnArbn": "167652155",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009077",
+      "acnArbn": "167652155",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 3,
+      "p95PaymentTimeDays": 5,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 14,
+        "count": 2613,
+        "percentile": 99.4
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 49,
+        "percentile": 89.6
+      }
+    },
+    {
+      "reportId": "PTR20004859",
+      "acnArbn": "167652155",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 3,
+      "p95PaymentTimeDays": 3,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 12,
+        "count": 2568,
+        "percentile": 99.5
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 50,
+        "percentile": 93.9
+      }
+    }
+  ]
+}

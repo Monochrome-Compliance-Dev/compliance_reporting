@@ -1,0 +1,95 @@
+{
+  "slug": "bintan-pty-ltd-18095076421",
+  "businessName": "BINTAN PTY LTD",
+  "abn": "18095076421",
+  "acnArbn": "095076421",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010858",
+      "acnArbn": "095076421",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.07,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 86.61,
+      "payments31To60Days": 12.12,
+      "paymentsMoreThan60Days": 1.25,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 329,
+        "percentile": 71.6
+      }
+    },
+    {
+      "reportId": "PTR20005305",
+      "acnArbn": "095076421",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.14,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 85.65,
+      "payments31To60Days": 13.22,
+      "paymentsMoreThan60Days": 1.12,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 323,
+        "percentile": 71.4
+      }
+    },
+    {
+      "reportId": "PTR20005302",
+      "acnArbn": "095076421",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.15,
+      "medianPaymentTimeDays": 10.5,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 86.26,
+      "payments31To60Days": 12.72,
+      "paymentsMoreThan60Days": 1.02,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 909,
+        "count": 2498,
+        "percentile": 62.6
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 323,
+        "percentile": 72.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "squadron-wind-energy-assets-pty-ltd-30652283639",
+  "businessName": "SQUADRON WIND ENERGY ASSETS PTY LTD",
+  "abn": "30652283639",
+  "acnArbn": "652283639",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008026",
+      "acnArbn": "652283639",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.98,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 99.51,
+      "payments31To60Days": 0.31,
+      "paymentsMoreThan60Days": 0.18,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 131,
+        "count": 2613,
+        "percentile": 94.3
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 92,
+        "percentile": 87.9
+      }
+    },
+    {
+      "reportId": "PTR20003814",
+      "acnArbn": "652283639",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.57,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 16,
+      "payments30DaysOrLess": 99.8,
+      "payments31To60Days": 0.13,
+      "paymentsMoreThan60Days": 0.07,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 76,
+        "count": 2568,
+        "percentile": 96.8
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 95,
+        "percentile": 96.8
+      }
+    },
+    {
+      "reportId": "PTR20002088",
+      "acnArbn": "652283639",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.18,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 99.44,
+      "payments31To60Days": 0.46,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 2498,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 99,
+        "percentile": 92.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "dan-bunkering-australia-pty-ltd-26123643952",
+  "businessName": "DAN-BUNKERING (AUSTRALIA) PTY LTD",
+  "abn": "26123643952",
+  "acnArbn": "123643952",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+  "latestReportingPeriodEndDate": "2025-10-30",
+  "reports": [
+    {
+      "reportId": "PTR20007690",
+      "acnArbn": "123643952",
+      "reportingPeriodStartDate": "2025-04-30",
+      "reportingPeriodEndDate": "2025-10-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.09,
+      "medianPaymentTimeDays": 16.5,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-06",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 28,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20007599",
+      "acnArbn": "123643952",
+      "reportingPeriodStartDate": "2024-10-31",
+      "reportingPeriodEndDate": "2025-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.06,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 28,
+        "percentile": 96.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    }
+  ]
+}

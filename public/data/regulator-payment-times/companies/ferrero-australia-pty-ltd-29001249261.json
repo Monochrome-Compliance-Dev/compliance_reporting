@@ -1,0 +1,39 @@
+{
+  "slug": "ferrero-australia-pty-ltd-29001249261",
+  "businessName": "FERRERO AUSTRALIA PTY LTD",
+  "abn": "29001249261",
+  "acnArbn": "001249261",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2024-08-30",
+  "reports": [
+    {
+      "reportId": "PTR20002468",
+      "acnArbn": "001249261",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-08-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.2,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 101,
+      "payments30DaysOrLess": 44.48,
+      "payments31To60Days": 40.74,
+      "paymentsMoreThan60Days": 14.78,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-13",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

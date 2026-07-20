@@ -1,0 +1,39 @@
+{
+  "slug": "komatsu-australia-holdings-pty-ltd-61001663752",
+  "businessName": "KOMATSU AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "61001663752",
+  "acnArbn": "001663752",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20002608",
+      "acnArbn": "001663752",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-21",
+      "overallP95Position": {
+        "rank": 31,
+        "count": 231,
+        "percentile": 84.8
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 61,
+        "percentile": 88.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "jamestrong-australasia-holdings-pty-ltd-90602999075",
+  "businessName": "JAMESTRONG AUSTRALASIA HOLDINGS PTY LTD",
+  "abn": "90602999075",
+  "acnArbn": "602999075",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008874",
+      "acnArbn": "602999075",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 39.2,
+      "payments31To60Days": 51.1,
+      "paymentsMoreThan60Days": 9.8,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 347,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20007001",
+      "acnArbn": "602999075",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 44,
+      "payments31To60Days": 48,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 2014,
+        "count": 2568,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 220,
+        "count": 335,
+        "percentile": 32.9
+      }
+    },
+    {
+      "reportId": "PTR20006999",
+      "acnArbn": "602999075",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 49,
+      "payments31To60Days": 36,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 174,
+        "count": 323,
+        "percentile": 44.7
+      }
+    }
+  ]
+}

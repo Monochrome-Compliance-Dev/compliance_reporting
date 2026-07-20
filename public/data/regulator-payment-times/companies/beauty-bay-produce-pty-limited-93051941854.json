@@ -1,0 +1,95 @@
+{
+  "slug": "beauty-bay-produce-pty-limited-93051941854",
+  "businessName": "BEAUTY BAY PRODUCE PTY LIMITED",
+  "abn": "93051941854",
+  "acnArbn": "051941854",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011445",
+      "acnArbn": "051941854",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.33,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 57,
+      "payments31To60Days": 41,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-21",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 329,
+        "percentile": 71.6
+      }
+    },
+    {
+      "reportId": "PTR20004822",
+      "acnArbn": "051941854",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.37,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 60,
+      "payments31To60Days": 38,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 323,
+        "percentile": 70.8
+      }
+    },
+    {
+      "reportId": "PTR20004819",
+      "acnArbn": "051941854",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.76,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 56,
+      "payments31To60Days": 41,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 323,
+        "percentile": 65.8
+      }
+    }
+  ]
+}

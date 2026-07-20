@@ -1,0 +1,39 @@
+{
+  "slug": "challenger-limited-85106842371",
+  "businessName": "CHALLENGER LIMITED",
+  "abn": "85106842371",
+  "acnArbn": "106842371",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008172",
+      "acnArbn": "106842371",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.48,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 99.07,
+      "payments31To60Days": 0.83,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2613,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 338,
+        "percentile": 78
+      }
+    }
+  ]
+}

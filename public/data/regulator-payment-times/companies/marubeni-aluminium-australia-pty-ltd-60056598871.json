@@ -1,0 +1,95 @@
+{
+  "slug": "marubeni-aluminium-australia-pty-ltd-60056598871",
+  "businessName": "MARUBENI ALUMINIUM AUSTRALIA PTY. LTD.",
+  "abn": "60056598871",
+  "acnArbn": "056598871",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008083",
+      "acnArbn": "056598871",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 99.99,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 347,
+        "percentile": 95.4
+      }
+    },
+    {
+      "reportId": "PTR20003949",
+      "acnArbn": "056598871",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 335,
+        "percentile": 96.1
+      }
+    },
+    {
+      "reportId": "PTR20001545",
+      "acnArbn": "056598871",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 90.91,
+      "payments31To60Days": 4.55,
+      "paymentsMoreThan60Days": 4.55,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 323,
+        "percentile": 94.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "mastermyne-group-limited-96142490579",
+  "businessName": "MASTERMYNE GROUP LIMITED",
+  "abn": "96142490579",
+  "acnArbn": "142490579",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008969",
+      "acnArbn": "142490579",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.6,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 78.98,
+      "payments31To60Days": 20.69,
+      "paymentsMoreThan60Days": 0.33,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 177,
+        "percentile": 49.4
+      }
+    }
+  ]
+}

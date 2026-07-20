@@ -1,0 +1,95 @@
+{
+  "slug": "pet-care-holdings-australia-pty-ltd-77000060364",
+  "businessName": "PET CARE HOLDINGS AUSTRALIA PTY LTD",
+  "abn": "77000060364",
+  "acnArbn": "000060364",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008547",
+      "acnArbn": "000060364",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 43.3,
+      "payments31To60Days": 49.2,
+      "paymentsMoreThan60Days": 7.5,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 192,
+        "count": 329,
+        "percentile": 39.3
+      }
+    },
+    {
+      "reportId": "PTR20004083",
+      "acnArbn": "000060364",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 42.5,
+      "payments31To60Days": 50.9,
+      "paymentsMoreThan60Days": 6.6,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 195,
+        "count": 323,
+        "percentile": 38.5
+      }
+    },
+    {
+      "reportId": "PTR20000793",
+      "acnArbn": "000060364",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.9,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 48.96,
+      "payments31To60Days": 45.75,
+      "paymentsMoreThan60Days": 5.29,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 323,
+        "percentile": 42.2
+      }
+    }
+  ]
+}

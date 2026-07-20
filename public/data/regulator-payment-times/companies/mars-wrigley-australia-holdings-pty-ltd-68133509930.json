@@ -1,0 +1,95 @@
+{
+  "slug": "mars-wrigley-australia-holdings-pty-ltd-68133509930",
+  "businessName": "MARS WRIGLEY AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "68133509930",
+  "acnArbn": "133509930",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009647",
+      "acnArbn": "133509930",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 126,
+      "payments30DaysOrLess": 64.13,
+      "payments31To60Days": 23.62,
+      "paymentsMoreThan60Days": 12.25,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2565,
+        "count": 2613,
+        "percentile": 1.6
+      },
+      "industryP95Position": {
+        "rank": 340,
+        "count": 347,
+        "percentile": 1.4
+      }
+    },
+    {
+      "reportId": "PTR20003178",
+      "acnArbn": "133509930",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 84,
+      "medianPaymentTimeDays": 118,
+      "p80PaymentTimeDays": 120,
+      "p95PaymentTimeDays": 122,
+      "payments30DaysOrLess": 20.44,
+      "payments31To60Days": 18.93,
+      "paymentsMoreThan60Days": 60.63,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-21",
+      "overallP95Position": {
+        "rank": 2497,
+        "count": 2568,
+        "percentile": 2.7
+      },
+      "industryP95Position": {
+        "rank": 331,
+        "count": 335,
+        "percentile": 0.9
+      }
+    },
+    {
+      "reportId": "PTR20000408",
+      "acnArbn": "133509930",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 79,
+      "medianPaymentTimeDays": 62,
+      "p80PaymentTimeDays": 120,
+      "p95PaymentTimeDays": 122,
+      "payments30DaysOrLess": 23.15,
+      "payments31To60Days": 22.79,
+      "paymentsMoreThan60Days": 54.06,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 2432,
+        "count": 2498,
+        "percentile": 2.6
+      },
+      "industryP95Position": {
+        "rank": 318,
+        "count": 323,
+        "percentile": 1.6
+      }
+    }
+  ]
+}

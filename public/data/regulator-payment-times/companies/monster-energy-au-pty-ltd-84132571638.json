@@ -1,0 +1,95 @@
+{
+  "slug": "monster-energy-au-pty-ltd-84132571638",
+  "businessName": "Monster Energy AU Pty Ltd",
+  "abn": "84132571638",
+  "acnArbn": "132571638",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Beverage and tobacco product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008657",
+      "acnArbn": "132571638",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.88,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 75.97,
+      "payments31To60Days": 20.63,
+      "paymentsMoreThan60Days": 3.4,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 347,
+        "percentile": 72.5
+      }
+    },
+    {
+      "reportId": "PTR20004214",
+      "acnArbn": "132571638",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.93,
+      "medianPaymentTimeDays": 14.5,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 78.98,
+      "payments31To60Days": 14.97,
+      "paymentsMoreThan60Days": 6.05,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 335,
+        "percentile": 46.1
+      }
+    },
+    {
+      "reportId": "PTR20003264",
+      "acnArbn": "132571638",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.73,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 81.75,
+      "payments31To60Days": 11.11,
+      "paymentsMoreThan60Days": 7.14,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-27",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 323,
+        "percentile": 50.6
+      }
+    }
+  ]
+}

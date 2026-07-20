@@ -1,0 +1,67 @@
+{
+  "slug": "prouds-jewellers-pty-ltd-99073053273",
+  "businessName": "PROUDS JEWELLERS PTY LTD",
+  "abn": "99073053273",
+  "acnArbn": "073053273",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-11-29",
+  "reports": [
+    {
+      "reportId": "PTR20007509",
+      "acnArbn": "073053273",
+      "reportingPeriodStartDate": "2025-05-31",
+      "reportingPeriodEndDate": "2025-11-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 61.51,
+      "payments31To60Days": 31.19,
+      "paymentsMoreThan60Days": 7.3,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 19,
+        "count": 22,
+        "percentile": 14.3
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003297",
+      "acnArbn": "073053273",
+      "reportingPeriodStartDate": "2024-11-30",
+      "reportingPeriodEndDate": "2025-05-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 52.18,
+      "payments31To60Days": 36.78,
+      "paymentsMoreThan60Days": 11.04,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-08-28",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 22,
+        "percentile": 23.8
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    }
+  ]
+}

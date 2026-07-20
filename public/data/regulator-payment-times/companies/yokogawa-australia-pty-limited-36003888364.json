@@ -1,0 +1,95 @@
+{
+  "slug": "yokogawa-australia-pty-limited-36003888364",
+  "businessName": "YOKOGAWA AUSTRALIA PTY LIMITED",
+  "abn": "36003888364",
+  "acnArbn": "003888364",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011570",
+      "acnArbn": "003888364",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.25,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 65.15,
+      "payments31To60Days": 33.38,
+      "paymentsMoreThan60Days": 1.47,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 119,
+        "count": 193,
+        "percentile": 36.5
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 25,
+        "percentile": 58.3
+      }
+    },
+    {
+      "reportId": "PTR20006719",
+      "acnArbn": "003888364",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.62,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 56.47,
+      "payments31To60Days": 38.8,
+      "paymentsMoreThan60Days": 4.73,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-15",
+      "overallP95Position": {
+        "rank": 168,
+        "count": 228,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 27,
+        "percentile": 30.8
+      }
+    },
+    {
+      "reportId": "PTR20001819",
+      "acnArbn": "003888364",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 53.7,
+      "payments31To60Days": 42.08,
+      "paymentsMoreThan60Days": 4.22,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 138,
+        "count": 231,
+        "percentile": 38.7
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 26,
+        "percentile": 48
+      }
+    }
+  ]
+}

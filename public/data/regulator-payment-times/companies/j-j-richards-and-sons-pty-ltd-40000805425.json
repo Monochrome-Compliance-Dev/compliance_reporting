@@ -1,0 +1,95 @@
+{
+  "slug": "j-j-richards-and-sons-pty-ltd-40000805425",
+  "businessName": "J.J. RICHARDS & SONS PTY LTD",
+  "abn": "40000805425",
+  "acnArbn": "000805425",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Waste collection, treatment and disposal services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011290",
+      "acnArbn": "000805425",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.78,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 52.4,
+      "payments31To60Days": 37.04,
+      "paymentsMoreThan60Days": 10.56,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-06-09",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 92,
+        "percentile": 2.2
+      }
+    },
+    {
+      "reportId": "PTR20006922",
+      "acnArbn": "000805425",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.71,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 84.92,
+      "payments31To60Days": 13.94,
+      "paymentsMoreThan60Days": 1.14,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-01-13",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 95,
+        "percentile": 47.9
+      }
+    },
+    {
+      "reportId": "PTR20000100",
+      "acnArbn": "000805425",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 45.7,
+      "payments31To60Days": 37.2,
+      "paymentsMoreThan60Days": 17.1,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-05-18",
+      "overallP95Position": {
+        "rank": 2125,
+        "count": 2498,
+        "percentile": 14.3
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 99,
+        "percentile": 7.1
+      }
+    }
+  ]
+}

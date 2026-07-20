@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-cppib-real-estate-trust-42536236084",
+  "businessName": "The Trustee for CPPIB Real Estate Trust",
+  "abn": "42536236084",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010678",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.5,
+      "medianPaymentTimeDays": 16.5,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 66.67,
+      "payments31To60Days": 33.33,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 577,
+        "count": 2613,
+        "percentile": 77
+      },
+      "industryP95Position": {
+        "rank": 171,
+        "count": 338,
+        "percentile": 48.7
+      }
+    }
+  ]
+}

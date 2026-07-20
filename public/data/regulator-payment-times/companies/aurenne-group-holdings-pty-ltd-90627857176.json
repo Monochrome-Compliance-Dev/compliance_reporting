@@ -1,0 +1,95 @@
+{
+  "slug": "aurenne-group-holdings-pty-ltd-90627857176",
+  "businessName": "AURENNE GROUP HOLDINGS PTY LTD",
+  "abn": "90627857176",
+  "acnArbn": "627857176",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010338",
+      "acnArbn": "627857176",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.58,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 89.47,
+      "payments31To60Days": 10.53,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 577,
+        "count": 2613,
+        "percentile": 77
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 177,
+        "percentile": 71.6
+      }
+    },
+    {
+      "reportId": "PTR20003227",
+      "acnArbn": "627857176",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.14,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 80.95,
+      "payments31To60Days": 14.29,
+      "paymentsMoreThan60Days": 4.76,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-08-25",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 83,
+        "count": 173,
+        "percentile": 51.7
+      }
+    },
+    {
+      "reportId": "PTR20001752",
+      "acnArbn": "627857176",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.81,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 95.24,
+      "payments31To60Days": 4.76,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 162,
+        "count": 2498,
+        "percentile": 93.1
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 170,
+        "percentile": 92.9
+      }
+    }
+  ]
+}

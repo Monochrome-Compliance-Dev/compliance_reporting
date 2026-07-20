@@ -1,0 +1,95 @@
+{
+  "slug": "signify-australia-limited-49606173648",
+  "businessName": "SIGNIFY AUSTRALIA LIMITED",
+  "abn": "49606173648",
+  "acnArbn": "606173648",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Furniture and other mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011506",
+      "acnArbn": "606173648",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52.66,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 124,
+      "payments30DaysOrLess": 22.84,
+      "payments31To60Days": 50.48,
+      "paymentsMoreThan60Days": 26.68,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 2558,
+        "count": 2613,
+        "percentile": 2
+      },
+      "industryP95Position": {
+        "rank": 338,
+        "count": 347,
+        "percentile": 2.6
+      }
+    },
+    {
+      "reportId": "PTR20011505",
+      "acnArbn": "606173648",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.39,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 29.5,
+      "payments31To60Days": 51.39,
+      "paymentsMoreThan60Days": 19.11,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 2171,
+        "count": 2568,
+        "percentile": 15.1
+      },
+      "industryP95Position": {
+        "rank": 255,
+        "count": 335,
+        "percentile": 23.4
+      }
+    },
+    {
+      "reportId": "PTR20008082",
+      "acnArbn": "606173648",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.37,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 29.32,
+      "payments31To60Days": 47.56,
+      "paymentsMoreThan60Days": 23.11,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 2113,
+        "count": 2498,
+        "percentile": 15
+      },
+      "industryP95Position": {
+        "rank": 245,
+        "count": 323,
+        "percentile": 23.6
+      }
+    }
+  ]
+}

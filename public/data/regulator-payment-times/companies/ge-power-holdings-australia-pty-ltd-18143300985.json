@@ -1,0 +1,95 @@
+{
+  "slug": "ge-power-holdings-australia-pty-ltd-18143300985",
+  "businessName": "GE POWER HOLDINGS AUSTRALIA PTY LTD",
+  "abn": "18143300985",
+  "acnArbn": "143300985",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008878",
+      "acnArbn": "143300985",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 89,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2372,
+        "count": 2613,
+        "percentile": 9
+      },
+      "industryP95Position": {
+        "rank": 298,
+        "count": 347,
+        "percentile": 13.9
+      }
+    },
+    {
+      "reportId": "PTR20004199",
+      "acnArbn": "143300985",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 335,
+        "percentile": 80.8
+      }
+    },
+    {
+      "reportId": "PTR20001349",
+      "acnArbn": "143300985",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 89,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 323,
+        "percentile": 80.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "saipem-portugal-comercio-maritimo-sociedade-unipessoal-lda-25100388458",
+  "businessName": "SAIPEM (PORTUGAL) COMERCIO MARITIMO, SOCIEDADE UNIPESSOAL, LDA.",
+  "abn": "25100388458",
+  "acnArbn": "100388458",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009806",
+      "acnArbn": "100388458",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.19,
+      "medianPaymentTimeDays": 43.5,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 77.61,
+      "payments31To60Days": 21.97,
+      "paymentsMoreThan60Days": 0.42,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2488,
+        "count": 2613,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 160,
+        "count": 183,
+        "percentile": 12.6
+      }
+    },
+    {
+      "reportId": "PTR20004600",
+      "acnArbn": "100388458",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.48,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 14.84,
+      "payments31To60Days": 78.57,
+      "paymentsMoreThan60Days": 6.59,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 117,
+        "count": 181,
+        "percentile": 35.6
+      }
+    },
+    {
+      "reportId": "PTR20000213",
+      "acnArbn": "100388458",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 100,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-05-29",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 176,
+        "percentile": 47.4
+      }
+    }
+  ]
+}

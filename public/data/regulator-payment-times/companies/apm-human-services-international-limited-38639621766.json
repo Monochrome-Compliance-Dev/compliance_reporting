@@ -1,0 +1,67 @@
+{
+  "slug": "apm-human-services-international-limited-38639621766",
+  "businessName": "APM HUMAN SERVICES INTERNATIONAL LIMITED",
+  "abn": "38639621766",
+  "acnArbn": "639621766",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006607",
+      "acnArbn": "639621766",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-12-01",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 50,
+        "percentile": 57.1
+      }
+    },
+    {
+      "reportId": "PTR20002552",
+      "acnArbn": "639621766",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 4,
+      "p95PaymentTimeDays": 6,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3.4,
+      "paymentsMoreThan60Days": 2.2,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-07-16",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 2498,
+        "percentile": 99.2
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 50,
+        "percentile": 91.8
+      }
+    }
+  ]
+}

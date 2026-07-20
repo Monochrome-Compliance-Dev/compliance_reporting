@@ -1,0 +1,95 @@
+{
+  "slug": "heartland-group-pty-limited-96001235392",
+  "businessName": "HEARTLAND GROUP PTY LIMITED",
+  "abn": "96001235392",
+  "acnArbn": "001235392",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010537",
+      "acnArbn": "001235392",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.43,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 30.06,
+      "payments31To60Days": 59.54,
+      "paymentsMoreThan60Days": 10.4,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 2227,
+        "count": 2613,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 261,
+        "count": 329,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20006225",
+      "acnArbn": "001235392",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.61,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 59.6,
+      "payments31To60Days": 34.41,
+      "paymentsMoreThan60Days": 5.99,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 323,
+        "percentile": 36
+      }
+    },
+    {
+      "reportId": "PTR20001474",
+      "acnArbn": "001235392",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.11,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 55.98,
+      "payments31To60Days": 37.78,
+      "paymentsMoreThan60Days": 6.25,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 323,
+        "percentile": 37.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "graincorp-limited-60057186035",
+  "businessName": "GRAINCORP LIMITED",
+  "abn": "60057186035",
+  "acnArbn": "057186035",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20001179",
+      "acnArbn": "057186035",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 85.63,
+      "payments31To60Days": 10.77,
+      "paymentsMoreThan60Days": 3.6,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 126,
+        "count": 231,
+        "percentile": 45.2
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 9,
+        "percentile": 37.5
+      }
+    }
+  ]
+}

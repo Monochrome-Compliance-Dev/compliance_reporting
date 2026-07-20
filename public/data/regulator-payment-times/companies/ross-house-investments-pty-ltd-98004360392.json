@@ -1,0 +1,95 @@
+{
+  "slug": "ross-house-investments-pty-ltd-98004360392",
+  "businessName": "ROSS HOUSE INVESTMENTS PTY. LTD.",
+  "abn": "98004360392",
+  "acnArbn": "004360392",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20006899",
+      "acnArbn": "004360392",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 86.27,
+      "payments31To60Days": 9.8,
+      "paymentsMoreThan60Days": 3.92,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-08",
+      "overallP95Position": {
+        "rank": 776,
+        "count": 2613,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 207,
+        "percentile": 73.8
+      }
+    },
+    {
+      "reportId": "PTR20006897",
+      "acnArbn": "004360392",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 80.68,
+      "payments31To60Days": 7.95,
+      "paymentsMoreThan60Days": 11.36,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-08",
+      "overallP95Position": {
+        "rank": 2171,
+        "count": 2568,
+        "percentile": 15.1
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 208,
+        "percentile": 13
+      }
+    },
+    {
+      "reportId": "PTR20006896",
+      "acnArbn": "004360392",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 43.6,
+      "payments31To60Days": 51.44,
+      "paymentsMoreThan60Days": 4.96,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-08",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 207,
+        "percentile": 37.4
+      }
+    }
+  ]
+}

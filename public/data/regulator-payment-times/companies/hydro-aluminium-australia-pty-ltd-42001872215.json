@@ -1,0 +1,67 @@
+{
+  "slug": "hydro-aluminium-australia-pty-ltd-42001872215",
+  "businessName": "HYDRO ALUMINIUM AUSTRALIA PTY LTD",
+  "abn": "42001872215",
+  "acnArbn": "001872215",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009279",
+      "acnArbn": "001872215",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 51,
+        "count": 2613,
+        "percentile": 97.5
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 347,
+        "percentile": 99.1
+      }
+    },
+    {
+      "reportId": "PTR20002650",
+      "acnArbn": "001872215",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.28,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 83.13,
+      "payments31To60Days": 13.36,
+      "paymentsMoreThan60Days": 3.5,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 323,
+        "percentile": 59.3
+      }
+    }
+  ]
+}

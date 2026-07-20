@@ -1,0 +1,39 @@
+{
+  "slug": "lake-maintenance-nsw-pty-limited-86088782718",
+  "businessName": "LAKE MAINTENANCE (NSW) PTY LIMITED",
+  "abn": "86088782718",
+  "acnArbn": "088782718",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Repair and maintenance",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006081",
+      "acnArbn": "088782718",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-10-19",
+      "overallP95Position": {
+        "rank": 100,
+        "count": 2568,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 26,
+        "percentile": 92
+      }
+    }
+  ]
+}

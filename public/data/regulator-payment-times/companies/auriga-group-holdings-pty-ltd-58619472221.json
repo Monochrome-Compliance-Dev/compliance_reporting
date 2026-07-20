@@ -1,0 +1,39 @@
+{
+  "slug": "auriga-group-holdings-pty-ltd-58619472221",
+  "businessName": "AURIGA GROUP HOLDINGS PTY LTD",
+  "abn": "58619472221",
+  "acnArbn": "619472221",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008652",
+      "acnArbn": "619472221",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.36,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 84.68,
+      "payments31To60Days": 13.52,
+      "paymentsMoreThan60Days": 1.8,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 236,
+        "count": 338,
+        "percentile": 28.8
+      }
+    }
+  ]
+}

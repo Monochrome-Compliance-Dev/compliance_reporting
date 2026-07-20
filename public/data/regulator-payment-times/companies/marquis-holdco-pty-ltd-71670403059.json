@@ -1,0 +1,39 @@
+{
+  "slug": "marquis-holdco-pty-ltd-71670403059",
+  "businessName": "MARQUIS HOLDCO PTY LTD",
+  "abn": "71670403059",
+  "acnArbn": "670403059",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Rental and hiring services (except real estate)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007566",
+      "acnArbn": "670403059",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.14,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 62.62,
+      "payments31To60Days": 22.3,
+      "paymentsMoreThan60Days": 15.08,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 2343,
+        "count": 2613,
+        "percentile": 9.7
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 66,
+        "percentile": 9.2
+      }
+    }
+  ]
+}

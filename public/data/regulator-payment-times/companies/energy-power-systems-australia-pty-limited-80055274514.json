@@ -1,0 +1,95 @@
+{
+  "slug": "energy-power-systems-australia-pty-limited-80055274514",
+  "businessName": "ENERGY POWER SYSTEMS AUSTRALIA PTY. LIMITED.",
+  "abn": "80055274514",
+  "acnArbn": "055274514",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009238",
+      "acnArbn": "055274514",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.8,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 41.49,
+      "payments31To60Days": 50.24,
+      "paymentsMoreThan60Days": 8.29,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 329,
+        "percentile": 34.5
+      }
+    },
+    {
+      "reportId": "PTR20004369",
+      "acnArbn": "055274514",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 46.7,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 18.8,
+      "payments31To60Days": 60.9,
+      "paymentsMoreThan60Days": 20.3,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 2181,
+        "count": 2568,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 259,
+        "count": 323,
+        "percentile": 19.6
+      }
+    },
+    {
+      "reportId": "PTR20000430",
+      "acnArbn": "055274514",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.26,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 23,
+      "payments31To60Days": 69,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 203,
+        "count": 323,
+        "percentile": 36.6
+      }
+    }
+  ]
+}

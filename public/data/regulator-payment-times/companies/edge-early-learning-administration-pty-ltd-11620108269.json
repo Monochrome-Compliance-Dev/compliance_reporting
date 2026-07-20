@@ -1,0 +1,95 @@
+{
+  "slug": "edge-early-learning-administration-pty-ltd-11620108269",
+  "businessName": "EDGE EARLY LEARNING ADMINISTRATION PTY LTD",
+  "abn": "11620108269",
+  "acnArbn": "620108269",
+  "industryDivision": "Education and Training",
+  "industrySubdivision": "Preschool and school education",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011510",
+      "acnArbn": "620108269",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.11,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 91.5,
+      "payments31To60Days": 8.3,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 14,
+        "percentile": 84.6
+      }
+    },
+    {
+      "reportId": "PTR20003467",
+      "acnArbn": "620108269",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.21,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 63.87,
+      "payments31To60Days": 34.05,
+      "paymentsMoreThan60Days": 2.08,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 1178,
+        "count": 2568,
+        "percentile": 52.7
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 15,
+        "percentile": 35.7
+      }
+    },
+    {
+      "reportId": "PTR20001519",
+      "acnArbn": "620108269",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.32,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 47.78,
+      "payments31To60Days": 49.35,
+      "paymentsMoreThan60Days": 2.87,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 12,
+        "percentile": 54.5
+      }
+    }
+  ]
+}

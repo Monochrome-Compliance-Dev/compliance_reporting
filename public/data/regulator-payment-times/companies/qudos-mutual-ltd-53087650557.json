@@ -1,0 +1,67 @@
+{
+  "slug": "qudos-mutual-ltd-53087650557",
+  "businessName": "QUDOS MUTUAL LTD",
+  "abn": "53087650557",
+  "acnArbn": "087650557",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005934",
+      "acnArbn": "087650557",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.91,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 18,
+      "payments30DaysOrLess": 98.1,
+      "payments31To60Days": 1.4,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 90,
+        "count": 2568,
+        "percentile": 96.3
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 349,
+        "percentile": 90.5
+      }
+    },
+    {
+      "reportId": "PTR20002907",
+      "acnArbn": "087650557",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.33,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 96.27,
+      "payments31To60Days": 3.54,
+      "paymentsMoreThan60Days": 0.19,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 234,
+        "count": 2498,
+        "percentile": 89.3
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 339,
+        "percentile": 71.9
+      }
+    }
+  ]
+}

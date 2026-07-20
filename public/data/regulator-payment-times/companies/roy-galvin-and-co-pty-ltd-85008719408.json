@@ -1,0 +1,95 @@
+{
+  "slug": "roy-galvin-and-co-pty-ltd-85008719408",
+  "businessName": "ROY GALVIN & CO. PTY LTD",
+  "abn": "85008719408",
+  "acnArbn": "008719408",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011093",
+      "acnArbn": "008719408",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.46,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 23.94,
+      "payments31To60Days": 66.97,
+      "paymentsMoreThan60Days": 9.09,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-18",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 329,
+        "percentile": 31.7
+      }
+    },
+    {
+      "reportId": "PTR20011094",
+      "acnArbn": "008719408",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.51,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 25.87,
+      "payments31To60Days": 68.12,
+      "paymentsMoreThan60Days": 6.01,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-18",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 195,
+        "count": 323,
+        "percentile": 38.5
+      }
+    },
+    {
+      "reportId": "PTR20010991",
+      "acnArbn": "008719408",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.27,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 11.97,
+      "payments31To60Days": 82.57,
+      "paymentsMoreThan60Days": 5.46,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-05",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 323,
+        "percentile": 37.6
+      }
+    }
+  ]
+}

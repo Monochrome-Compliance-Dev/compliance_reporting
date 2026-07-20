@@ -1,0 +1,67 @@
+{
+  "slug": "dr-jones-and-partners-group-holdings-pty-ltd-87158390802",
+  "businessName": "DR JONES & PARTNERS GROUP HOLDINGS PTY LTD",
+  "abn": "87158390802",
+  "acnArbn": "158390802",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010281",
+      "acnArbn": "158390802",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 86.65,
+      "payments31To60Days": 9.74,
+      "paymentsMoreThan60Days": 3.61,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 106,
+        "percentile": 64.8
+      }
+    },
+    {
+      "reportId": "PTR20002163",
+      "acnArbn": "158390802",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 91.74,
+      "payments31To60Days": 6.03,
+      "paymentsMoreThan60Days": 2.23,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 97,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

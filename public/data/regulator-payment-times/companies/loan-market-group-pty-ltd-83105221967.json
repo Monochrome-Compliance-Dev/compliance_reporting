@@ -1,0 +1,95 @@
+{
+  "slug": "loan-market-group-pty-ltd-83105221967",
+  "businessName": "LOAN MARKET GROUP PTY LTD",
+  "abn": "83105221967",
+  "acnArbn": "105221967",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009489",
+      "acnArbn": "105221967",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 1.34,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 2,
+      "payments30DaysOrLess": 99.25,
+      "payments31To60Days": 0.31,
+      "paymentsMoreThan60Days": 0.43,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 2613,
+        "percentile": 99.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 338,
+        "percentile": 99.4
+      }
+    },
+    {
+      "reportId": "PTR20004920",
+      "acnArbn": "105221967",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 1.38,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 1,
+      "payments30DaysOrLess": 99.52,
+      "payments31To60Days": 0.22,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 2568,
+        "percentile": 99.7
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 349,
+        "percentile": 99.4
+      }
+    },
+    {
+      "reportId": "PTR20002050",
+      "acnArbn": "105221967",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 0.57,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 0,
+      "payments30DaysOrLess": 99.56,
+      "payments31To60Days": 0.24,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 2498,
+        "percentile": 99.9
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 339,
+        "percentile": 100
+      }
+    }
+  ]
+}

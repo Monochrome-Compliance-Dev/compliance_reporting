@@ -1,0 +1,95 @@
+{
+  "slug": "robert-bosch-australia-proprietary-limited-48004315628",
+  "businessName": "ROBERT BOSCH (AUSTRALIA) PROPRIETARY LIMITED",
+  "abn": "48004315628",
+  "acnArbn": "004315628",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007835",
+      "acnArbn": "004315628",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.99,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 66.12,
+      "payments31To60Days": 22.25,
+      "paymentsMoreThan60Days": 11.63,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 2007,
+        "count": 2613,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 347,
+        "percentile": 37.9
+      }
+    },
+    {
+      "reportId": "PTR20004417",
+      "acnArbn": "004315628",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.68,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 40.33,
+      "payments31To60Days": 51.79,
+      "paymentsMoreThan60Days": 7.88,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 335,
+        "percentile": 51.5
+      }
+    },
+    {
+      "reportId": "PTR20001832",
+      "acnArbn": "004315628",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.95,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 51.97,
+      "payments31To60Days": 40.05,
+      "paymentsMoreThan60Days": 7.98,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 323,
+        "percentile": 50.6
+      }
+    }
+  ]
+}

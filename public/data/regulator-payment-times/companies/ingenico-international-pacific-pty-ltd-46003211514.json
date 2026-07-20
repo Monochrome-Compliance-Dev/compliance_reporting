@@ -1,0 +1,95 @@
+{
+  "slug": "ingenico-international-pacific-pty-ltd-46003211514",
+  "businessName": "INGENICO INTERNATIONAL (PACIFIC) PTY LTD",
+  "abn": "46003211514",
+  "acnArbn": "003211514",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007792",
+      "acnArbn": "003211514",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.51,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 67.25,
+      "payments31To60Days": 29.23,
+      "paymentsMoreThan60Days": 3.52,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 183,
+        "percentile": 41.8
+      }
+    },
+    {
+      "reportId": "PTR20004459",
+      "acnArbn": "003211514",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 70.38,
+      "payments31To60Days": 29.62,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 181,
+        "percentile": 65.6
+      }
+    },
+    {
+      "reportId": "PTR20001351",
+      "acnArbn": "003211514",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.63,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 65.39,
+      "payments31To60Days": 32.48,
+      "paymentsMoreThan60Days": 2.12,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 176,
+        "percentile": 52.6
+      }
+    }
+  ]
+}

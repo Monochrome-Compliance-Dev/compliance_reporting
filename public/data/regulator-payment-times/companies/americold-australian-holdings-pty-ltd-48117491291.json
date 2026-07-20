@@ -1,0 +1,95 @@
+{
+  "slug": "americold-australian-holdings-pty-ltd-48117491291",
+  "businessName": "AMERICOLD AUSTRALIAN HOLDINGS PTY LTD",
+  "abn": "48117491291",
+  "acnArbn": "117491291",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Warehousing and storage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008185",
+      "acnArbn": "117491291",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.98,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 0,
+      "payments30DaysOrLess": 99.94,
+      "payments31To60Days": 0.06,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 2613,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 143,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006466",
+      "acnArbn": "117491291",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.71,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 99.96,
+      "payments31To60Days": 0.04,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-11-12",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 103,
+        "count": 144,
+        "percentile": 28.7
+      }
+    },
+    {
+      "reportId": "PTR20001811",
+      "acnArbn": "117491291",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.42,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 99.49,
+      "payments31To60Days": 0.7,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 140,
+        "percentile": 88.5
+      }
+    }
+  ]
+}

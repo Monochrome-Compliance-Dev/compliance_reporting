@@ -1,0 +1,39 @@
+{
+  "slug": "paul-hartmann-pty-limited-35000099589",
+  "businessName": "PAUL HARTMANN PTY LIMITED",
+  "abn": "35000099589",
+  "acnArbn": "000099589",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20000378",
+      "acnArbn": "000099589",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.13,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 72.08,
+      "payments31To60Days": 22.08,
+      "paymentsMoreThan60Days": 5.84,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 1851,
+        "count": 2498,
+        "percentile": 25.3
+      },
+      "industryP95Position": {
+        "rank": 218,
+        "count": 323,
+        "percentile": 32
+      }
+    }
+  ]
+}

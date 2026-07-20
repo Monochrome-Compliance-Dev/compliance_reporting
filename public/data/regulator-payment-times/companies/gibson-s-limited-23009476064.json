@@ -1,0 +1,95 @@
+{
+  "slug": "gibson-s-limited-23009476064",
+  "businessName": "GIBSON'S LIMITED",
+  "abn": "23009476064",
+  "acnArbn": "009476064",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Aquaculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010665",
+      "acnArbn": "009476064",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.8,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 16.76,
+      "payments31To60Days": 74.33,
+      "paymentsMoreThan60Days": 8.91,
+      "industrySubdivision": "Aquaculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-04-22",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 88,
+        "count": 102,
+        "percentile": 11.9
+      }
+    },
+    {
+      "reportId": "PTR20005963",
+      "acnArbn": "009476064",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 10.58,
+      "payments31To60Days": 69.78,
+      "paymentsMoreThan60Days": 19.64,
+      "industrySubdivision": "Aquaculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-10-05",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 92,
+        "percentile": 16.5
+      }
+    },
+    {
+      "reportId": "PTR20010996",
+      "acnArbn": "009476064",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 28.28,
+      "payments31To60Days": 62.48,
+      "paymentsMoreThan60Days": 9.24,
+      "industrySubdivision": "Aquaculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-05-06",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 85,
+        "percentile": 10.7
+      }
+    }
+  ]
+}

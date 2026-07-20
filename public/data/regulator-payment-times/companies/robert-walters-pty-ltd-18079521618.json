@@ -1,0 +1,67 @@
+{
+  "slug": "robert-walters-pty-ltd-18079521618",
+  "businessName": "ROBERT WALTERS PTY LTD",
+  "abn": "18079521618",
+  "acnArbn": "079521618",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008403",
+      "acnArbn": "079521618",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.76,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 49,
+        "percentile": 72.9
+      }
+    },
+    {
+      "reportId": "PTR20003382",
+      "acnArbn": "079521618",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.95,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 92.9,
+      "payments31To60Days": 6.1,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-02",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 50,
+        "percentile": 53.1
+      }
+    }
+  ]
+}

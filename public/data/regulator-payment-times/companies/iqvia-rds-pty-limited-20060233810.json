@@ -1,0 +1,95 @@
+{
+  "slug": "iqvia-rds-pty-limited-20060233810",
+  "businessName": "IQVIA RDS PTY. LIMITED",
+  "abn": "20060233810",
+  "acnArbn": "060233810",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007576",
+      "acnArbn": "060233810",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 56,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 37.1,
+      "payments31To60Days": 33.1,
+      "paymentsMoreThan60Days": 29.8,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 2545,
+        "count": 2613,
+        "percentile": 2.3
+      },
+      "industryP95Position": {
+        "rank": 169,
+        "count": 183,
+        "percentile": 7.7
+      }
+    },
+    {
+      "reportId": "PTR20004045",
+      "acnArbn": "060233810",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 45.4,
+      "payments31To60Days": 35.5,
+      "paymentsMoreThan60Days": 19.1,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 181,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20000168",
+      "acnArbn": "060233810",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.24,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 69.4,
+      "payments31To60Days": 22.5,
+      "paymentsMoreThan60Days": 8.2,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-05-26",
+      "overallP95Position": {
+        "rank": 2243,
+        "count": 2498,
+        "percentile": 9.2
+      },
+      "industryP95Position": {
+        "rank": 145,
+        "count": 176,
+        "percentile": 17.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "freighter-group-operations-pty-ltd-74651774720",
+  "businessName": "FREIGHTER GROUP OPERATIONS PTY LTD",
+  "abn": "74651774720",
+  "acnArbn": "651774720",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006392",
+      "acnArbn": "651774720",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 24,
+      "payments31To60Days": 62,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 2181,
+        "count": 2568,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 258,
+        "count": 335,
+        "percentile": 23.1
+      }
+    }
+  ]
+}

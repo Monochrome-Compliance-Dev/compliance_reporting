@@ -1,0 +1,95 @@
+{
+  "slug": "australian-digital-health-agency-84425496912",
+  "businessName": "Australian Digital Health Agency",
+  "abn": "84425496912",
+  "acnArbn": "",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008532",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 96.33,
+      "payments31To60Days": 3.17,
+      "paymentsMoreThan60Days": 0.51,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 106,
+        "percentile": 74.3
+      }
+    },
+    {
+      "reportId": "PTR20006066",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.03,
+      "payments31To60Days": 3.55,
+      "paymentsMoreThan60Days": 0.42,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-10-15",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 97,
+        "percentile": 93.8
+      }
+    },
+    {
+      "reportId": "PTR20001665",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 95.72,
+      "payments31To60Days": 3.55,
+      "paymentsMoreThan60Days": 0.72,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 234,
+        "count": 2498,
+        "percentile": 89.3
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 97,
+        "percentile": 93.8
+      }
+    }
+  ]
+}

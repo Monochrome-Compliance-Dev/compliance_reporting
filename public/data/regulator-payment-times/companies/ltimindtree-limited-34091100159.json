@@ -1,0 +1,95 @@
+{
+  "slug": "ltimindtree-limited-34091100159",
+  "businessName": "LTIMINDTREE LIMITED",
+  "abn": "34091100159",
+  "acnArbn": "091100159",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011527",
+      "acnArbn": "091100159",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.42,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 65.22,
+      "payments31To60Days": 20.65,
+      "paymentsMoreThan60Days": 14.13,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-23",
+      "overallP95Position": {
+        "rank": 191,
+        "count": 193,
+        "percentile": 1
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 25,
+        "percentile": 4.2
+      }
+    },
+    {
+      "reportId": "PTR20007013",
+      "acnArbn": "091100159",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.46,
+      "medianPaymentTimeDays": 22.5,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 84.52,
+      "payments31To60Days": 14.29,
+      "paymentsMoreThan60Days": 1.19,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-01-26",
+      "overallP95Position": {
+        "rank": 59,
+        "count": 228,
+        "percentile": 73.1
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 27,
+        "percentile": 80.8
+      }
+    },
+    {
+      "reportId": "PTR20007424",
+      "acnArbn": "091100159",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.48,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 132,
+      "payments30DaysOrLess": 65.57,
+      "payments31To60Days": 21.31,
+      "paymentsMoreThan60Days": 13.11,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-02-24",
+      "overallP95Position": {
+        "rank": 227,
+        "count": 231,
+        "percentile": 1.3
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 26,
+        "percentile": 0
+      }
+    }
+  ]
+}

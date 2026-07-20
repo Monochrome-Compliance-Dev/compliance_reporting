@@ -1,0 +1,95 @@
+{
+  "slug": "sanofi-aventis-australia-pty-ltd-31008558807",
+  "businessName": "SANOFI-AVENTIS AUSTRALIA PTY LTD",
+  "abn": "31008558807",
+  "acnArbn": "008558807",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007265",
+      "acnArbn": "008558807",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 22,
+      "payments31To60Days": 60,
+      "paymentsMoreThan60Days": 18,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2360,
+        "count": 2613,
+        "percentile": 9.3
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 106,
+        "percentile": 14.3
+      }
+    },
+    {
+      "reportId": "PTR20005364",
+      "acnArbn": "008558807",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 21,
+      "payments31To60Days": 75,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 97,
+        "percentile": 45.8
+      }
+    },
+    {
+      "reportId": "PTR20001494",
+      "acnArbn": "008558807",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 14,
+      "payments31To60Days": 63,
+      "paymentsMoreThan60Days": 23,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 97,
+        "percentile": 30.2
+      }
+    }
+  ]
+}

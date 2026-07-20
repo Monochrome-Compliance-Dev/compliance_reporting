@@ -1,0 +1,95 @@
+{
+  "slug": "bae-systems-digital-intelligence-pty-limited-14111187270",
+  "businessName": "BAE SYSTEMS DIGITAL INTELLIGENCE PTY LIMITED",
+  "abn": "14111187270",
+  "acnArbn": "111187270",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Defence",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008091",
+      "acnArbn": "111187270",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 91.45,
+      "payments31To60Days": 7.28,
+      "paymentsMoreThan60Days": 1.27,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 33,
+        "percentile": 40.6
+      }
+    },
+    {
+      "reportId": "PTR20005895",
+      "acnArbn": "111187270",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 100,
+      "p95PaymentTimeDays": 141,
+      "payments30DaysOrLess": 82.67,
+      "payments31To60Days": 9.16,
+      "paymentsMoreThan60Days": 8.17,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2529,
+        "count": 2568,
+        "percentile": 1.5
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 34,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20002898",
+      "acnArbn": "111187270",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 89.3,
+      "payments31To60Days": 10.7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 798,
+        "count": 2498,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 31,
+        "percentile": 53.3
+      }
+    }
+  ]
+}

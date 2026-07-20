@@ -1,0 +1,95 @@
+{
+  "slug": "sime-darby-industrial-australia-pty-ltd-56153652594",
+  "businessName": "Sime Darby Industrial Australia Pty ltd",
+  "abn": "56153652594",
+  "acnArbn": "153652594",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010037",
+      "acnArbn": "153652594",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 25.61,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 72.32,
+      "payments31To60Days": 26.05,
+      "paymentsMoreThan60Days": 1.64,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 329,
+        "percentile": 67.7
+      }
+    },
+    {
+      "reportId": "PTR20005173",
+      "acnArbn": "153652594",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.87,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 49.14,
+      "payments31To60Days": 44.88,
+      "paymentsMoreThan60Days": 5.98,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 323,
+        "percentile": 40.1
+      }
+    },
+    {
+      "reportId": "PTR20002081",
+      "acnArbn": "153652594",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.92,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 56.94,
+      "payments31To60Days": 37.68,
+      "paymentsMoreThan60Days": 5.38,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 323,
+        "percentile": 42.2
+      }
+    }
+  ]
+}

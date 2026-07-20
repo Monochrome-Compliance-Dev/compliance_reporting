@@ -1,0 +1,39 @@
+{
+  "slug": "dyno-nobel-limited-42004080264",
+  "businessName": "DYNO NOBEL LIMITED",
+  "abn": "42004080264",
+  "acnArbn": "004080264",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011625",
+      "acnArbn": "004080264",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.32,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 27.25,
+      "payments31To60Days": 56.32,
+      "paymentsMoreThan60Days": 16.41,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 180,
+        "count": 193,
+        "percentile": 6.8
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 25,
+        "percentile": 8.3
+      }
+    }
+  ]
+}

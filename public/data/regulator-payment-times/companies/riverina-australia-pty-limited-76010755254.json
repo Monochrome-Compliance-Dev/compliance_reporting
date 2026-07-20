@@ -1,0 +1,95 @@
+{
+  "slug": "riverina-australia-pty-limited-76010755254",
+  "businessName": "RIVERINA (AUSTRALIA) PTY LIMITED",
+  "abn": "76010755254",
+  "acnArbn": "010755254",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011658",
+      "acnArbn": "010755254",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.42,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 70,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 90,
+        "count": 193,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 25,
+        "percentile": 79.2
+      }
+    },
+    {
+      "reportId": "PTR20011654",
+      "acnArbn": "010755254",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.02,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 65,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 126,
+        "count": 228,
+        "percentile": 44.1
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 28,
+        "percentile": 81.5
+      }
+    },
+    {
+      "reportId": "PTR20000856",
+      "acnArbn": "010755254",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.43,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 59,
+      "payments31To60Days": 40,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 112,
+        "count": 231,
+        "percentile": 49.1
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 32,
+        "percentile": 74.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "bbpha-1-pty-ltd-15144078151",
+  "businessName": "BBPHA 1 PTY LTD",
+  "abn": "15144078151",
+  "acnArbn": "144078151",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009270",
+      "acnArbn": "144078151",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.1,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 40.31,
+      "payments31To60Days": 47.18,
+      "paymentsMoreThan60Days": 12.51,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2469,
+        "count": 2613,
+        "percentile": 5.3
+      },
+      "industryP95Position": {
+        "rank": 255,
+        "count": 270,
+        "percentile": 5.6
+      }
+    },
+    {
+      "reportId": "PTR20003035",
+      "acnArbn": "144078151",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.03,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 38.52,
+      "payments31To60Days": 48.86,
+      "paymentsMoreThan60Days": 12.62,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-08-03",
+      "overallP95Position": {
+        "rank": 2387,
+        "count": 2568,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 237,
+        "count": 259,
+        "percentile": 8.1
+      }
+    },
+    {
+      "reportId": "PTR20001389",
+      "acnArbn": "144078151",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.14,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 35.4,
+      "payments31To60Days": 52.6,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2292,
+        "count": 2498,
+        "percentile": 7.8
+      },
+      "industryP95Position": {
+        "rank": 231,
+        "count": 250,
+        "percentile": 7.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "kilcoy-industries-australia-pty-ltd-16125927308",
+  "businessName": "Kilcoy Industries Australia Pty Ltd",
+  "abn": "16125927308",
+  "acnArbn": "125927308",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008912",
+      "acnArbn": "125927308",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 99,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 102,
+        "percentile": 66.3
+      }
+    },
+    {
+      "reportId": "PTR20005341",
+      "acnArbn": "125927308",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 92,
+        "percentile": 62.6
+      }
+    },
+    {
+      "reportId": "PTR20001586",
+      "acnArbn": "125927308",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 77,
+      "payments31To60Days": 18,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 85,
+        "percentile": 52.4
+      }
+    }
+  ]
+}

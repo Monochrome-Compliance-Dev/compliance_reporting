@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-tga-pbsa-hold-trust-74774003871",
+  "businessName": "The Trustee for TGA PBSA Hold Trust",
+  "abn": "74774003871",
+  "acnArbn": "",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20011573",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.2,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 46.5,
+      "payments31To60Days": 27.9,
+      "paymentsMoreThan60Days": 25.6,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 2376,
+        "count": 2568,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 61,
+        "percentile": 8.3
+      }
+    }
+  ]
+}

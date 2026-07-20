@@ -1,0 +1,95 @@
+{
+  "slug": "mcdonald-s-australian-property-funding-llc-51052918984",
+  "businessName": "MCDONALD'S AUSTRALIAN PROPERTY FUNDING LLC",
+  "abn": "51052918984",
+  "acnArbn": "052918984",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009316",
+      "acnArbn": "052918984",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.31,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 94.34,
+      "payments31To60Days": 4.09,
+      "paymentsMoreThan60Days": 1.57,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 577,
+        "count": 2613,
+        "percentile": 77
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 207,
+        "percentile": 83
+      }
+    },
+    {
+      "reportId": "PTR20006106",
+      "acnArbn": "052918984",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.81,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.02,
+      "payments31To60Days": 4.24,
+      "paymentsMoreThan60Days": 0.74,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-20",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 208,
+        "percentile": 92.3
+      }
+    },
+    {
+      "reportId": "PTR20007188",
+      "acnArbn": "052918984",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.84,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 93.92,
+      "payments31To60Days": 4.76,
+      "paymentsMoreThan60Days": 1.32,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 533,
+        "count": 2498,
+        "percentile": 77.8
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 207,
+        "percentile": 85
+      }
+    }
+  ]
+}

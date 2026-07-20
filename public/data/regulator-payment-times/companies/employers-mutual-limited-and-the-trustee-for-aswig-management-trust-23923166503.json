@@ -1,0 +1,95 @@
+{
+  "slug": "employers-mutual-limited-and-the-trustee-for-aswig-management-trust-23923166503",
+  "businessName": "EMPLOYERS MUTUAL LIMITED & THE TRUSTEE FOR ASWIG MANAGEMENT TRUST",
+  "abn": "23923166503",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009551",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 35,
+        "count": 2613,
+        "percentile": 98.6
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 338,
+        "percentile": 96.1
+      }
+    },
+    {
+      "reportId": "PTR20005329",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.4,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 67,
+        "count": 2568,
+        "percentile": 97.1
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 349,
+        "percentile": 92.8
+      }
+    },
+    {
+      "reportId": "PTR20002166",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4.75,
+      "medianPaymentTimeDays": 5.5,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 2498,
+        "percentile": 98.9
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 339,
+        "percentile": 96.2
+      }
+    }
+  ]
+}

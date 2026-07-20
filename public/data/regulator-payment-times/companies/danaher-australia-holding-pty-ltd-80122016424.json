@@ -1,0 +1,95 @@
+{
+  "slug": "danaher-australia-holding-pty-ltd-80122016424",
+  "businessName": "Danaher Australia Holding Pty Ltd",
+  "abn": "80122016424",
+  "acnArbn": "122016424",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008090",
+      "acnArbn": "122016424",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.08,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 54.04,
+      "payments31To60Days": 39.77,
+      "paymentsMoreThan60Days": 6.19,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 2027,
+        "count": 2613,
+        "percentile": 21.9
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 347,
+        "percentile": 36.1
+      }
+    },
+    {
+      "reportId": "PTR20004752",
+      "acnArbn": "122016424",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.54,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 35.13,
+      "payments31To60Days": 53.4,
+      "paymentsMoreThan60Days": 11.47,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-27",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 282,
+        "count": 335,
+        "percentile": 12
+      }
+    },
+    {
+      "reportId": "PTR20002101",
+      "acnArbn": "122016424",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.72,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 30.13,
+      "payments31To60Days": 56.65,
+      "paymentsMoreThan60Days": 13.22,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 2498,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 323,
+        "percentile": 16.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "friesian-pty-ltd-33625545995",
+  "businessName": "FRIESIAN PTY LTD",
+  "abn": "33625545995",
+  "acnArbn": "625545995",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008034",
+      "acnArbn": "625545995",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.29,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 8.92,
+      "payments31To60Days": 70.47,
+      "paymentsMoreThan60Days": 20.61,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 2057,
+        "count": 2613,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 116,
+        "count": 143,
+        "percentile": 16.9
+      }
+    },
+    {
+      "reportId": "PTR20003533",
+      "acnArbn": "625545995",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.66,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 9.88,
+      "payments31To60Days": 71.41,
+      "paymentsMoreThan60Days": 18.71,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-09",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 144,
+        "percentile": 25.2
+      }
+    },
+    {
+      "reportId": "PTR20002302",
+      "acnArbn": "625545995",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.97,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 8.5,
+      "payments31To60Days": 69.45,
+      "paymentsMoreThan60Days": 22.05,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-01",
+      "overallP95Position": {
+        "rank": 1914,
+        "count": 2498,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 140,
+        "percentile": 20.9
+      }
+    }
+  ]
+}

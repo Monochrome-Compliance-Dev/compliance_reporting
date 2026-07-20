@@ -1,0 +1,95 @@
+{
+  "slug": "retail-apparel-group-pty-ltd-31110176077",
+  "businessName": "RETAIL APPAREL GROUP PTY LTD",
+  "abn": "31110176077",
+  "acnArbn": "110176077",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011736",
+      "acnArbn": "110176077",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 42,
+        "count": 193,
+        "percentile": 77.6
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 13,
+        "percentile": 58.3
+      }
+    },
+    {
+      "reportId": "PTR20006610",
+      "acnArbn": "110176077",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.8,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 78,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-12-01",
+      "overallP95Position": {
+        "rank": 202,
+        "count": 228,
+        "percentile": 10.6
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 14,
+        "percentile": 7.7
+      }
+    },
+    {
+      "reportId": "PTR20001561",
+      "acnArbn": "110176077",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.5,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 66.4,
+      "payments31To60Days": 24.8,
+      "paymentsMoreThan60Days": 8.8,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 203,
+        "count": 231,
+        "percentile": 11.7
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 14,
+        "percentile": 23.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "autosports-group-limited-54614505261",
+  "businessName": "AUTOSPORTS GROUP LIMITED",
+  "abn": "54614505261",
+  "acnArbn": "614505261",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008846",
+      "acnArbn": "614505261",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 202,
+      "payments30DaysOrLess": 43.72,
+      "payments31To60Days": 31.92,
+      "paymentsMoreThan60Days": 24.36,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2607,
+        "count": 2613,
+        "percentile": 0.2
+      },
+      "industryP95Position": {
+        "rank": 207,
+        "count": 207,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006833",
+      "acnArbn": "614505261",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 37.12,
+      "payments31To60Days": 36.24,
+      "paymentsMoreThan60Days": 26.64,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-12-23",
+      "overallP95Position": {
+        "rank": 2349,
+        "count": 2568,
+        "percentile": 8.4
+      },
+      "industryP95Position": {
+        "rank": 196,
+        "count": 208,
+        "percentile": 5.8
+      }
+    }
+  ]
+}

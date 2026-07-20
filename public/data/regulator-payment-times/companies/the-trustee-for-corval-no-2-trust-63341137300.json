@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-corval-no-2-trust-63341137300",
+  "businessName": "The Trustee for CORVAL NO 2 TRUST",
+  "abn": "63341137300",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011629",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.4,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 68.65,
+      "payments31To60Days": 27.47,
+      "paymentsMoreThan60Days": 3.88,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 137,
+        "count": 329,
+        "percentile": 55.5
+      }
+    },
+    {
+      "reportId": "PTR20011628",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.44,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 64.22,
+      "payments31To60Days": 31.64,
+      "paymentsMoreThan60Days": 4.14,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 323,
+        "percentile": 51.9
+      }
+    },
+    {
+      "reportId": "PTR20011627",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.02,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 68.16,
+      "payments31To60Days": 27.06,
+      "paymentsMoreThan60Days": 4.78,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 159,
+        "count": 323,
+        "percentile": 44.4
+      }
+    }
+  ]
+}

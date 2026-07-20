@@ -1,0 +1,67 @@
+{
+  "slug": "toyota-motor-corporation-australia-limited-64009686097",
+  "businessName": "TOYOTA MOTOR CORPORATION AUSTRALIA LIMITED",
+  "abn": "64009686097",
+  "acnArbn": "009686097",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006705",
+      "acnArbn": "009686097",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 17.31,
+      "paymentsMoreThan60Days": 2.63,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-14",
+      "overallP95Position": {
+        "rank": 129,
+        "count": 228,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 59,
+        "percentile": 36.2
+      }
+    },
+    {
+      "reportId": "PTR20001185",
+      "acnArbn": "009686097",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 75.81,
+      "payments31To60Days": 20.51,
+      "paymentsMoreThan60Days": 3.69,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 128,
+        "count": 231,
+        "percentile": 42.2
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 61,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "smith-and-nephew-pty-limited-68000087507",
+  "businessName": "SMITH & NEPHEW PTY LIMITED",
+  "abn": "68000087507",
+  "acnArbn": "000087507",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008426",
+      "acnArbn": "000087507",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.6,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 74.91,
+      "payments31To60Days": 21.1,
+      "paymentsMoreThan60Days": 3.99,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 106,
+        "percentile": 48.6
+      }
+    },
+    {
+      "reportId": "PTR20004545",
+      "acnArbn": "000087507",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.03,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 64.99,
+      "payments31To60Days": 31.31,
+      "paymentsMoreThan60Days": 3.7,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 97,
+        "percentile": 45.8
+      }
+    }
+  ]
+}

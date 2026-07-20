@@ -1,0 +1,95 @@
+{
+  "slug": "fremantle-port-authority-78187229472",
+  "businessName": "FREMANTLE PORT AUTHORITY",
+  "abn": "78187229472",
+  "acnArbn": "",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007763",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.49,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 93.9,
+      "payments31To60Days": 4.47,
+      "paymentsMoreThan60Days": 1.63,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 143,
+        "percentile": 83.1
+      }
+    },
+    {
+      "reportId": "PTR20003716",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.94,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 92.95,
+      "payments31To60Days": 5.33,
+      "paymentsMoreThan60Days": 1.72,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 144,
+        "percentile": 80.4
+      }
+    },
+    {
+      "reportId": "PTR20000832",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.09,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 96.33,
+      "payments31To60Days": 3.21,
+      "paymentsMoreThan60Days": 0.46,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 208,
+        "count": 2498,
+        "percentile": 90.7
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 140,
+        "percentile": 94.2
+      }
+    }
+  ]
+}

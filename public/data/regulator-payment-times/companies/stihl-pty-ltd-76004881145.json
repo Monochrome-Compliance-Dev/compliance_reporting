@@ -1,0 +1,67 @@
+{
+  "slug": "stihl-pty-ltd-76004881145",
+  "businessName": "STIHL PTY. LTD.",
+  "abn": "76004881145",
+  "acnArbn": "004881145",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005319",
+      "acnArbn": "004881145",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.5,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 222,
+        "count": 323,
+        "percentile": 30.7
+      }
+    },
+    {
+      "reportId": "PTR20000710",
+      "acnArbn": "004881145",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 34,
+      "payments31To60Days": 60,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 214,
+        "count": 323,
+        "percentile": 32.9
+      }
+    }
+  ]
+}

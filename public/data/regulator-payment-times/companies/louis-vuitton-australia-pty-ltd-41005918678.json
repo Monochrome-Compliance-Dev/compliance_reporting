@@ -1,0 +1,95 @@
+{
+  "slug": "louis-vuitton-australia-pty-ltd-41005918678",
+  "businessName": "LOUIS VUITTON AUSTRALIA PTY. LTD.",
+  "abn": "41005918678",
+  "acnArbn": "005918678",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010119",
+      "acnArbn": "005918678",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.88,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 61.42,
+      "payments31To60Days": 28.72,
+      "paymentsMoreThan60Days": 9.86,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2212,
+        "count": 2613,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 182,
+        "count": 207,
+        "percentile": 12.1
+      }
+    },
+    {
+      "reportId": "PTR20004811",
+      "acnArbn": "005918678",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.04,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 62.36,
+      "payments31To60Days": 25.98,
+      "paymentsMoreThan60Days": 11.65,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2368,
+        "count": 2568,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 197,
+        "count": 208,
+        "percentile": 4.8
+      }
+    },
+    {
+      "reportId": "PTR20001124",
+      "acnArbn": "005918678",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.55,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 113,
+      "payments30DaysOrLess": 62.88,
+      "payments31To60Days": 21.32,
+      "paymentsMoreThan60Days": 15.81,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2397,
+        "count": 2498,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 197,
+        "count": 207,
+        "percentile": 4.9
+      }
+    }
+  ]
+}

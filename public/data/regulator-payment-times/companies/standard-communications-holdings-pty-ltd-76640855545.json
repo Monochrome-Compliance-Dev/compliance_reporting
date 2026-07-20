@@ -1,0 +1,95 @@
+{
+  "slug": "standard-communications-holdings-pty-ltd-76640855545",
+  "businessName": "STANDARD COMMUNICATIONS HOLDINGS PTY LTD",
+  "abn": "76640855545",
+  "acnArbn": "640855545",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007193",
+      "acnArbn": "640855545",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 167,
+      "payments30DaysOrLess": 67,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 2598,
+        "count": 2613,
+        "percentile": 0.6
+      },
+      "industryP95Position": {
+        "rank": 345,
+        "count": 347,
+        "percentile": 0.6
+      }
+    },
+    {
+      "reportId": "PTR20007191",
+      "acnArbn": "640855545",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 162,
+      "payments30DaysOrLess": 62,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 2539,
+        "count": 2568,
+        "percentile": 1.1
+      },
+      "industryP95Position": {
+        "rank": 333,
+        "count": 335,
+        "percentile": 0.6
+      }
+    },
+    {
+      "reportId": "PTR20007190",
+      "acnArbn": "640855545",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 62.75,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 162,
+      "p95PaymentTimeDays": 183,
+      "payments30DaysOrLess": 43,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 28,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 2482,
+        "count": 2498,
+        "percentile": 0.6
+      },
+      "industryP95Position": {
+        "rank": 321,
+        "count": 323,
+        "percentile": 0.6
+      }
+    }
+  ]
+}

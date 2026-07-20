@@ -1,0 +1,95 @@
+{
+  "slug": "coronado-global-resources-inc-99628199468",
+  "businessName": "CORONADO GLOBAL RESOURCES INC.",
+  "abn": "99628199468",
+  "acnArbn": "628199468",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010653",
+      "acnArbn": "628199468",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.48,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 113,
+      "payments30DaysOrLess": 41.98,
+      "payments31To60Days": 38.85,
+      "paymentsMoreThan60Days": 19.17,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 2529,
+        "count": 2613,
+        "percentile": 3.2
+      },
+      "industryP95Position": {
+        "rank": 170,
+        "count": 177,
+        "percentile": 4
+      }
+    },
+    {
+      "reportId": "PTR20004605",
+      "acnArbn": "628199468",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.83,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 112,
+      "payments30DaysOrLess": 52.61,
+      "payments31To60Days": 33.95,
+      "paymentsMoreThan60Days": 13.44,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2449,
+        "count": 2568,
+        "percentile": 4.4
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 173,
+        "percentile": 5.2
+      }
+    },
+    {
+      "reportId": "PTR20002958",
+      "acnArbn": "628199468",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.62,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 64.05,
+      "payments31To60Days": 29.58,
+      "paymentsMoreThan60Days": 6.37,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 1937,
+        "count": 2498,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 170,
+        "percentile": 20.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "bank-of-queensland-limited-32009656740",
+  "businessName": "BANK OF QUEENSLAND LIMITED",
+  "abn": "32009656740",
+  "acnArbn": "009656740",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-02-27",
+  "reports": [
+    {
+      "reportId": "PTR20011122",
+      "acnArbn": "009656740",
+      "reportingPeriodStartDate": "2025-08-31",
+      "reportingPeriodEndDate": "2026-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.5,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.9,
+      "payments31To60Days": 4.2,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-05-20",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 24,
+        "percentile": 87
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006581",
+      "acnArbn": "009656740",
+      "reportingPeriodStartDate": "2025-02-28",
+      "reportingPeriodEndDate": "2025-08-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.97,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 83.5,
+      "payments31To60Days": 8.8,
+      "paymentsMoreThan60Days": 7.7,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-11-27",
+      "overallP95Position": {
+        "rank": 19,
+        "count": 25,
+        "percentile": 25
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20001866",
+      "acnArbn": "009656740",
+      "reportingPeriodStartDate": "2024-08-31",
+      "reportingPeriodEndDate": "2025-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.78,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 87.3,
+      "payments31To60Days": 10.8,
+      "paymentsMoreThan60Days": 1.9,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 22,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

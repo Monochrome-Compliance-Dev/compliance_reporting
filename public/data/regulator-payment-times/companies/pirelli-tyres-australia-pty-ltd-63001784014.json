@@ -1,0 +1,95 @@
+{
+  "slug": "pirelli-tyres-australia-pty-ltd-63001784014",
+  "businessName": "PIRELLI TYRES AUSTRALIA PTY LTD",
+  "abn": "63001784014",
+  "acnArbn": "001784014",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007925",
+      "acnArbn": "001784014",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.54,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 79.21,
+      "payments31To60Days": 11.83,
+      "paymentsMoreThan60Days": 8.96,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2295,
+        "count": 2613,
+        "percentile": 11.8
+      },
+      "industryP95Position": {
+        "rank": 275,
+        "count": 329,
+        "percentile": 15.5
+      }
+    },
+    {
+      "reportId": "PTR20003990",
+      "acnArbn": "001784014",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.91,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 117,
+      "payments30DaysOrLess": 58.97,
+      "payments31To60Days": 24.18,
+      "paymentsMoreThan60Days": 16.85,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 2470,
+        "count": 2568,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 308,
+        "count": 323,
+        "percentile": 4.3
+      }
+    },
+    {
+      "reportId": "PTR20003039",
+      "acnArbn": "001784014",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.5,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 69.55,
+      "payments31To60Days": 17.67,
+      "paymentsMoreThan60Days": 12.78,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-04",
+      "overallP95Position": {
+        "rank": 2322,
+        "count": 2498,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 295,
+        "count": 323,
+        "percentile": 8.4
+      }
+    }
+  ]
+}

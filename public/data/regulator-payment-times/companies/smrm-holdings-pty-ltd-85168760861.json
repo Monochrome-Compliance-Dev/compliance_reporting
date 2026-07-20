@@ -1,0 +1,95 @@
+{
+  "slug": "smrm-holdings-pty-ltd-85168760861",
+  "businessName": "SMRM HOLDINGS PTY LTD",
+  "abn": "85168760861",
+  "acnArbn": "168760861",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Fuel retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008719",
+      "acnArbn": "168760861",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.62,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 84.2,
+      "payments31To60Days": 15.66,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 207,
+        "percentile": 69.9
+      }
+    },
+    {
+      "reportId": "PTR20006408",
+      "acnArbn": "168760861",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.18,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 84.9,
+      "payments31To60Days": 14.95,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-02",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 208,
+        "percentile": 72.9
+      }
+    },
+    {
+      "reportId": "PTR20006630",
+      "acnArbn": "168760861",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 94,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-12-04",
+      "overallP95Position": {
+        "rank": 2304,
+        "count": 2498,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 188,
+        "count": 207,
+        "percentile": 9.2
+      }
+    }
+  ]
+}

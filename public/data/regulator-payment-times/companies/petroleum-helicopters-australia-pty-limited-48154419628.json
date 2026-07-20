@@ -1,0 +1,95 @@
+{
+  "slug": "petroleum-helicopters-australia-pty-limited-48154419628",
+  "businessName": "PETROLEUM HELICOPTERS AUSTRALIA PTY LIMITED",
+  "abn": "48154419628",
+  "acnArbn": "154419628",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008993",
+      "acnArbn": "154419628",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.06,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 55.61,
+      "payments31To60Days": 33.82,
+      "paymentsMoreThan60Days": 10.37,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2424,
+        "count": 2613,
+        "percentile": 6.8
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 177,
+        "percentile": 6.8
+      }
+    },
+    {
+      "reportId": "PTR20004206",
+      "acnArbn": "154419628",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 62,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 147,
+        "count": 173,
+        "percentile": 14.5
+      }
+    },
+    {
+      "reportId": "PTR20002572",
+      "acnArbn": "154419628",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 54,
+      "payments31To60Days": 37,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-07-17",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 170,
+        "percentile": 13.6
+      }
+    }
+  ]
+}

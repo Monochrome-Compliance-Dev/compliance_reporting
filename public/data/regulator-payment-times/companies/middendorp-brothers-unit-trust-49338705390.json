@@ -1,0 +1,95 @@
+{
+  "slug": "middendorp-brothers-unit-trust-49338705390",
+  "businessName": "MIDDENDORP BROTHERS UNIT TRUST",
+  "abn": "49338705390",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010464",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 48.73,
+      "payments31To60Days": 4.49,
+      "paymentsMoreThan60Days": 46.78,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-06",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 329,
+        "percentile": 31.7
+      }
+    },
+    {
+      "reportId": "PTR20007293",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.18,
+      "medianPaymentTimeDays": 49.18,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 46.36,
+      "payments31To60Days": 50.53,
+      "paymentsMoreThan60Days": 3.11,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-17",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 323,
+        "percentile": 43.8
+      }
+    },
+    {
+      "reportId": "PTR20007292",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.11,
+      "medianPaymentTimeDays": 54.11,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 47.73,
+      "payments31To60Days": 50.43,
+      "paymentsMoreThan60Days": 1.84,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-17",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 206,
+        "count": 323,
+        "percentile": 35.4
+      }
+    }
+  ]
+}

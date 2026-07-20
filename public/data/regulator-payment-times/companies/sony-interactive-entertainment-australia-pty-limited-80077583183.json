@@ -1,0 +1,67 @@
+{
+  "slug": "sony-interactive-entertainment-australia-pty-limited-80077583183",
+  "businessName": "SONY INTERACTIVE ENTERTAINMENT AUSTRALIA PTY LIMITED",
+  "abn": "80077583183",
+  "acnArbn": "077583183",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006749",
+      "acnArbn": "077583183",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.9,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 88.3,
+      "payments31To60Days": 11.6,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-17",
+      "overallP95Position": {
+        "rank": 80,
+        "count": 228,
+        "percentile": 62.1
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 59,
+        "percentile": 63.8
+      }
+    },
+    {
+      "reportId": "PTR20002352",
+      "acnArbn": "077583183",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.4,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 93.7,
+      "payments31To60Days": 6.1,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-03",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 231,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 61,
+        "percentile": 76.7
+      }
+    }
+  ]
+}

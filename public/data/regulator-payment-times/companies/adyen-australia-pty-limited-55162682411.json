@@ -1,0 +1,95 @@
+{
+  "slug": "adyen-australia-pty-limited-55162682411",
+  "businessName": "ADYEN AUSTRALIA PTY LIMITED",
+  "abn": "55162682411",
+  "acnArbn": "162682411",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Internet service providers, web search portals and data processing services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007525",
+      "acnArbn": "162682411",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.84,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 88.54,
+      "payments31To60Days": 9.38,
+      "paymentsMoreThan60Days": 2.08,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 60,
+        "percentile": 59.3
+      }
+    },
+    {
+      "reportId": "PTR20005297",
+      "acnArbn": "162682411",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.12,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 90.79,
+      "payments31To60Days": 9.21,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 55,
+        "percentile": 79.6
+      }
+    },
+    {
+      "reportId": "PTR20000974",
+      "acnArbn": "162682411",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.9,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 78.69,
+      "payments31To60Days": 13.11,
+      "paymentsMoreThan60Days": 8.2,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 58,
+        "percentile": 28.1
+      }
+    }
+  ]
+}

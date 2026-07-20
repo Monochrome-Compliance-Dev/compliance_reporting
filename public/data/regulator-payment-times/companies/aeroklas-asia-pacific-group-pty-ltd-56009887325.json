@@ -1,0 +1,39 @@
+{
+  "slug": "aeroklas-asia-pacific-group-pty-ltd-56009887325",
+  "businessName": "AEROKLAS ASIA PACIFIC GROUP PTY LTD",
+  "abn": "56009887325",
+  "acnArbn": "009887325",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20003445",
+      "acnArbn": "009887325",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.16,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 49.4,
+      "payments31To60Days": 36.4,
+      "paymentsMoreThan60Days": 14.2,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-07",
+      "overallP95Position": {
+        "rank": 214,
+        "count": 231,
+        "percentile": 7
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 14,
+        "percentile": 15.4
+      }
+    }
+  ]
+}

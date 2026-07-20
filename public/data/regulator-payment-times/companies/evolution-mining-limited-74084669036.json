@@ -1,0 +1,39 @@
+{
+  "slug": "evolution-mining-limited-74084669036",
+  "businessName": "EVOLUTION MINING LIMITED",
+  "abn": "74084669036",
+  "acnArbn": "084669036",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007802",
+      "acnArbn": "084669036",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 52.2,
+      "payments31To60Days": 42.1,
+      "paymentsMoreThan60Days": 5.7,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2613,
+        "percentile": 16.2
+      },
+      "industryP95Position": {
+        "rank": 149,
+        "count": 177,
+        "percentile": 15.9
+      }
+    }
+  ]
+}

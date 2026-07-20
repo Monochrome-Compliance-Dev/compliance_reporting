@@ -1,0 +1,95 @@
+{
+  "slug": "aesthetics-australia-holdings-pty-ltd-45621040220",
+  "businessName": "AESTHETICS AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "45621040220",
+  "acnArbn": "621040220",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009387",
+      "acnArbn": "621040220",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 73.24,
+      "payments31To60Days": 26.46,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 183,
+        "percentile": 63.7
+      }
+    },
+    {
+      "reportId": "PTR20006340",
+      "acnArbn": "621040220",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 92.55,
+      "payments31To60Days": 6.8,
+      "paymentsMoreThan60Days": 0.65,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-10-29",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 181,
+        "percentile": 82.2
+      }
+    },
+    {
+      "reportId": "PTR20005719",
+      "acnArbn": "621040220",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 88.58,
+      "payments31To60Days": 10.26,
+      "paymentsMoreThan60Days": 1.15,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 798,
+        "count": 2498,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 176,
+        "percentile": 62.3
+      }
+    }
+  ]
+}

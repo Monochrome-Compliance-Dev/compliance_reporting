@@ -1,0 +1,95 @@
+{
+  "slug": "future-generation-global-limited-52606110838",
+  "businessName": "FUTURE GENERATION GLOBAL LIMITED",
+  "abn": "52606110838",
+  "acnArbn": "606110838",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011274",
+      "acnArbn": "606110838",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-08",
+      "overallP95Position": {
+        "rank": 221,
+        "count": 2613,
+        "percentile": 90.8
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 338,
+        "percentile": 73.3
+      }
+    },
+    {
+      "reportId": "PTR20004062",
+      "acnArbn": "606110838",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.18,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 225,
+        "count": 2568,
+        "percentile": 89.6
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 349,
+        "percentile": 73.9
+      }
+    },
+    {
+      "reportId": "PTR20000778",
+      "acnArbn": "606110838",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.46,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 96.49,
+      "payments31To60Days": 3.51,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 208,
+        "count": 2498,
+        "percentile": 90.7
+      },
+      "industryP95Position": {
+        "rank": 73,
+        "count": 339,
+        "percentile": 75.7
+      }
+    }
+  ]
+}

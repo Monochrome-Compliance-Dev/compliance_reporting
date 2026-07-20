@@ -1,0 +1,39 @@
+{
+  "slug": "ccga-holdings-pty-ltd-68662906523",
+  "businessName": "CCGA HOLDINGS PTY LTD",
+  "abn": "68662906523",
+  "acnArbn": "662906523",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010882",
+      "acnArbn": "662906523",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.91,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 39.92,
+      "payments31To60Days": 50.5,
+      "paymentsMoreThan60Days": 9.57,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2613,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 106,
+        "percentile": 28.6
+      }
+    }
+  ]
+}

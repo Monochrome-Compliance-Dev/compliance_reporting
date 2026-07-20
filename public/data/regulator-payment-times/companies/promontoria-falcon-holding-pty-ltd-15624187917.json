@@ -1,0 +1,95 @@
+{
+  "slug": "promontoria-falcon-holding-pty-ltd-15624187917",
+  "businessName": "PROMONTORIA FALCON HOLDING PTY LTD",
+  "abn": "15624187917",
+  "acnArbn": "624187917",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011603",
+      "acnArbn": "624187917",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.31,
+      "payments31To60Days": 2.63,
+      "paymentsMoreThan60Days": 1.07,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 338,
+        "percentile": 63.5
+      }
+    },
+    {
+      "reportId": "PTR20011637",
+      "acnArbn": "624187917",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.44,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 93.31,
+      "payments31To60Days": 4.71,
+      "paymentsMoreThan60Days": 1.98,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 145,
+        "count": 349,
+        "percentile": 57.2
+      }
+    },
+    {
+      "reportId": "PTR20011639",
+      "acnArbn": "624187917",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.86,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 89.57,
+      "payments31To60Days": 7.18,
+      "paymentsMoreThan60Days": 3.25,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 212,
+        "count": 339,
+        "percentile": 36.4
+      }
+    }
+  ]
+}

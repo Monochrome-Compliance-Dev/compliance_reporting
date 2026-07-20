@@ -1,0 +1,95 @@
+{
+  "slug": "pacific-west-foods-australia-pty-ltd-87069569517",
+  "businessName": "PACIFIC WEST FOODS AUSTRALIA PTY LTD",
+  "abn": "87069569517",
+  "acnArbn": "069569517",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009976",
+      "acnArbn": "069569517",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.32,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 59.64,
+      "payments31To60Days": 39.65,
+      "paymentsMoreThan60Days": 0.71,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 329,
+        "percentile": 64.6
+      }
+    },
+    {
+      "reportId": "PTR20006883",
+      "acnArbn": "069569517",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.04,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 58.25,
+      "payments31To60Days": 41.15,
+      "paymentsMoreThan60Days": 0.6,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-05",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 323,
+        "percentile": 48.8
+      }
+    },
+    {
+      "reportId": "PTR20006882",
+      "acnArbn": "069569517",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.83,
+      "medianPaymentTimeDays": 33.5,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 60.1,
+      "payments31To60Days": 39.62,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-05",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 323,
+        "percentile": 51.2
+      }
+    }
+  ]
+}

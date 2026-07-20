@@ -1,0 +1,39 @@
+{
+  "slug": "albemarle-wodgina-pty-ltd-69630509303",
+  "businessName": "ALBEMARLE WODGINA PTY LTD",
+  "abn": "69630509303",
+  "acnArbn": "630509303",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Non-metallic mineral mining and quarrying",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004078",
+      "acnArbn": "630509303",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 173,
+        "percentile": 82
+      }
+    }
+  ]
+}

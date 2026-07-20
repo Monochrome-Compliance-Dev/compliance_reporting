@@ -1,0 +1,123 @@
+{
+  "slug": "epic-wright-heaton-pty-ltd-65000105233",
+  "businessName": "EPIC WRIGHT HEATON PTY LTD",
+  "abn": "65000105233",
+  "acnArbn": "000105233",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008184",
+      "acnArbn": "000105233",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 80,
+      "p80PaymentTimeDays": 80,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 35,
+      "payments31To60Days": 65,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 2488,
+        "count": 2613,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 313,
+        "count": 329,
+        "percentile": 4.9
+      }
+    },
+    {
+      "reportId": "PTR20006798",
+      "acnArbn": "000105233",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 71.82,
+      "payments31To60Days": 28.18,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-21",
+      "overallP95Position": {
+        "rank": 121,
+        "count": 228,
+        "percentile": 45.4
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 59,
+        "percentile": 41.4
+      }
+    },
+    {
+      "reportId": "PTR20003702",
+      "acnArbn": "000105233",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 73.08,
+      "payments31To60Days": 26.88,
+      "paymentsMoreThan60Days": 0.02,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 323,
+        "percentile": 68.6
+      }
+    },
+    {
+      "reportId": "PTR20002380",
+      "acnArbn": "000105233",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.9,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 73.14,
+      "payments31To60Days": 26.84,
+      "paymentsMoreThan60Days": 0.02,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-07",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 323,
+        "percentile": 70.2
+      }
+    }
+  ]
+}

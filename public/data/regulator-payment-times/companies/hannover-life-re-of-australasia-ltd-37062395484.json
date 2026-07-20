@@ -1,0 +1,95 @@
+{
+  "slug": "hannover-life-re-of-australasia-ltd-37062395484",
+  "businessName": "HANNOVER LIFE RE OF AUSTRALASIA LTD",
+  "abn": "37062395484",
+  "acnArbn": "062395484",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009627",
+      "acnArbn": "062395484",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 94.11,
+      "payments31To60Days": 3.08,
+      "paymentsMoreThan60Days": 2.81,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 338,
+        "percentile": 46.6
+      }
+    },
+    {
+      "reportId": "PTR20003724",
+      "acnArbn": "062395484",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 96.72,
+      "payments31To60Days": 2.45,
+      "paymentsMoreThan60Days": 0.83,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 139,
+        "count": 2568,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 349,
+        "percentile": 83.9
+      }
+    },
+    {
+      "reportId": "PTR20001934",
+      "acnArbn": "062395484",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 137,
+        "count": 339,
+        "percentile": 58.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "yellow-brick-road-holdings-limited-44119436083",
+  "businessName": "YELLOW BRICK ROAD HOLDINGS LIMITED",
+  "abn": "44119436083",
+  "acnArbn": "119436083",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007912",
+      "acnArbn": "119436083",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.33,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 81.57,
+      "payments31To60Days": 17.52,
+      "paymentsMoreThan60Days": 0.91,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 703,
+        "count": 2613,
+        "percentile": 71.9
+      },
+      "industryP95Position": {
+        "rank": 194,
+        "count": 338,
+        "percentile": 41.2
+      }
+    },
+    {
+      "reportId": "PTR20004084",
+      "acnArbn": "119436083",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.02,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 65.88,
+      "payments31To60Days": 31.15,
+      "paymentsMoreThan60Days": 2.97,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 349,
+        "percentile": 29.6
+      }
+    },
+    {
+      "reportId": "PTR20000720",
+      "acnArbn": "119436083",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.83,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 70.38,
+      "payments31To60Days": 27.71,
+      "paymentsMoreThan60Days": 1.91,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 745,
+        "count": 2498,
+        "percentile": 68.9
+      },
+      "industryP95Position": {
+        "rank": 194,
+        "count": 339,
+        "percentile": 41.4
+      }
+    }
+  ]
+}

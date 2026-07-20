@@ -1,0 +1,67 @@
+{
+  "slug": "tetra-tech-holdings-pty-ltd-98623346225",
+  "businessName": "TETRA TECH HOLDINGS PTY LTD",
+  "abn": "98623346225",
+  "acnArbn": "623346225",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006690",
+      "acnArbn": "623346225",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.3,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-12",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 228,
+        "percentile": 54.6
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 27,
+        "percentile": 73.1
+      }
+    },
+    {
+      "reportId": "PTR20000969",
+      "acnArbn": "623346225",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.5,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 77.5,
+      "payments31To60Days": 12.5,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 214,
+        "count": 231,
+        "percentile": 7
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 26,
+        "percentile": 12
+      }
+    }
+  ]
+}

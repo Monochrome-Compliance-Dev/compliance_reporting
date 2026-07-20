@@ -1,0 +1,95 @@
+{
+  "slug": "sigma-aldrich-oceania-pty-ltd-29112895708",
+  "businessName": "SIGMA-ALDRICH OCEANIA PTY LTD",
+  "abn": "29112895708",
+  "acnArbn": "112895708",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007096",
+      "acnArbn": "112895708",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.2,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 90.48,
+      "payments31To60Days": 6.46,
+      "paymentsMoreThan60Days": 3.06,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-01",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 85,
+        "count": 329,
+        "percentile": 73.5
+      }
+    },
+    {
+      "reportId": "PTR20003079",
+      "acnArbn": "112895708",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.25,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 86.2,
+      "payments31To60Days": 9.76,
+      "paymentsMoreThan60Days": 4.04,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-10",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 323,
+        "percentile": 43.8
+      }
+    },
+    {
+      "reportId": "PTR20007151",
+      "acnArbn": "112895708",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.91,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 84.43,
+      "payments31To60Days": 7.79,
+      "paymentsMoreThan60Days": 7.79,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-08",
+      "overallP95Position": {
+        "rank": 2181,
+        "count": 2498,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 323,
+        "percentile": 17.1
+      }
+    }
+  ]
+}

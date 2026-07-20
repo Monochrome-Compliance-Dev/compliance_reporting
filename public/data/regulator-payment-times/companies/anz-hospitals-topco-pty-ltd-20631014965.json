@@ -1,0 +1,95 @@
+{
+  "slug": "anz-hospitals-topco-pty-ltd-20631014965",
+  "businessName": "ANZ HOSPITALS TOPCO PTY LTD",
+  "abn": "20631014965",
+  "acnArbn": "631014965",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Hospitals",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009072",
+      "acnArbn": "631014965",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.11,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 59.11,
+      "payments31To60Days": 32.93,
+      "paymentsMoreThan60Days": 7.96,
+      "industrySubdivision": "Hospitals",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2190,
+        "count": 2613,
+        "percentile": 15.4
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 106,
+        "percentile": 21.9
+      }
+    },
+    {
+      "reportId": "PTR20005553",
+      "acnArbn": "631014965",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.26,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 57.87,
+      "payments31To60Days": 33.59,
+      "paymentsMoreThan60Days": 8.54,
+      "industrySubdivision": "Hospitals",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2568,
+        "percentile": 16.6
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 97,
+        "percentile": 21.9
+      }
+    },
+    {
+      "reportId": "PTR20005569",
+      "acnArbn": "631014965",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.03,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 56.18,
+      "payments31To60Days": 26.47,
+      "paymentsMoreThan60Days": 17.35,
+      "industrySubdivision": "Hospitals",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2153,
+        "count": 2498,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 97,
+        "percentile": 15.6
+      }
+    }
+  ]
+}

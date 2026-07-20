@@ -1,0 +1,95 @@
+{
+  "slug": "imaxeon-pty-ltd-93093950906",
+  "businessName": "IMAXEON PTY LTD",
+  "abn": "93093950906",
+  "acnArbn": "093950906",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007848",
+      "acnArbn": "093950906",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.57,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 83.98,
+      "payments31To60Days": 11.27,
+      "paymentsMoreThan60Days": 4.75,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 329,
+        "percentile": 45.1
+      }
+    },
+    {
+      "reportId": "PTR20003637",
+      "acnArbn": "093950906",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.19,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 87.76,
+      "payments31To60Days": 10.17,
+      "paymentsMoreThan60Days": 2.07,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 323,
+        "percentile": 48.8
+      }
+    },
+    {
+      "reportId": "PTR20000446",
+      "acnArbn": "093950906",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.61,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 88,
+      "payments31To60Days": 10.99,
+      "paymentsMoreThan60Days": 1.01,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-12",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "alloys-computer-unit-trust-71534566842",
+  "businessName": "ALLOYS COMPUTER UNIT TRUST",
+  "abn": "71534566842",
+  "acnArbn": "",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Warehousing and storage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008409",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.98,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 35.47,
+      "payments31To60Days": 55.29,
+      "paymentsMoreThan60Days": 9.22,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 109,
+        "count": 143,
+        "percentile": 21.8
+      }
+    },
+    {
+      "reportId": "PTR20005382",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.17,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 35.1,
+      "payments31To60Days": 42.97,
+      "paymentsMoreThan60Days": 21.93,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2316,
+        "count": 2568,
+        "percentile": 9.5
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 144,
+        "percentile": 6.3
+      }
+    },
+    {
+      "reportId": "PTR20002561",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.9,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 33.94,
+      "payments31To60Days": 44.98,
+      "paymentsMoreThan60Days": 21.08,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-17",
+      "overallP95Position": {
+        "rank": 1914,
+        "count": 2498,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 140,
+        "percentile": 20.9
+      }
+    }
+  ]
+}

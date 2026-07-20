@@ -1,0 +1,95 @@
+{
+  "slug": "infor-anz-holdings-pty-limited-45160838433",
+  "businessName": "INFOR (ANZ HOLDINGS) PTY LIMITED",
+  "abn": "45160838433",
+  "acnArbn": "160838433",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009863",
+      "acnArbn": "160838433",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.6,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 192,
+      "payments30DaysOrLess": 73.64,
+      "payments31To60Days": 16.28,
+      "paymentsMoreThan60Days": 10.08,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2606,
+        "count": 2613,
+        "percentile": 0.3
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 183,
+        "percentile": 1.1
+      }
+    },
+    {
+      "reportId": "PTR20003760",
+      "acnArbn": "160838433",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.73,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 125,
+      "payments30DaysOrLess": 72.54,
+      "payments31To60Days": 14.08,
+      "paymentsMoreThan60Days": 13.38,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 2508,
+        "count": 2568,
+        "percentile": 2.2
+      },
+      "industryP95Position": {
+        "rank": 169,
+        "count": 181,
+        "percentile": 6.1
+      }
+    },
+    {
+      "reportId": "PTR20000527",
+      "acnArbn": "160838433",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.11,
+      "medianPaymentTimeDays": 13.5,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 74.15,
+      "payments31To60Days": 18.64,
+      "paymentsMoreThan60Days": 7.2,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-16",
+      "overallP95Position": {
+        "rank": 1894,
+        "count": 2498,
+        "percentile": 23.4
+      },
+      "industryP95Position": {
+        "rank": 121,
+        "count": 176,
+        "percentile": 31.4
+      }
+    }
+  ]
+}

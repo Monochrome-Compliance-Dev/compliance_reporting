@@ -1,0 +1,95 @@
+{
+  "slug": "ralmana-pty-ltd-93009149106",
+  "businessName": "RALMANA PTY. LTD.",
+  "abn": "93009149106",
+  "acnArbn": "009149106",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010486",
+      "acnArbn": "009149106",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.97,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 40.76,
+      "payments31To60Days": 58.76,
+      "paymentsMoreThan60Days": 1.07,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-08",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 270,
+        "percentile": 59.9
+      }
+    },
+    {
+      "reportId": "PTR20006445",
+      "acnArbn": "009149106",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.57,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 44.66,
+      "payments31To60Days": 53.03,
+      "paymentsMoreThan60Days": 2.31,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-11-06",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 259,
+        "percentile": 62.4
+      }
+    },
+    {
+      "reportId": "PTR20002329",
+      "acnArbn": "009149106",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.31,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 65.99,
+      "payments31To60Days": 33.88,
+      "paymentsMoreThan60Days": 0.13,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-02",
+      "overallP95Position": {
+        "rank": 779,
+        "count": 2498,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 250,
+        "percentile": 83.5
+      }
+    }
+  ]
+}

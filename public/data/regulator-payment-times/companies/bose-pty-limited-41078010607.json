@@ -1,0 +1,67 @@
+{
+  "slug": "bose-pty-limited-41078010607",
+  "businessName": "BOSE PTY LIMITED",
+  "abn": "41078010607",
+  "acnArbn": "078010607",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006120",
+      "acnArbn": "078010607",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 73.65,
+      "payments31To60Days": 12.57,
+      "paymentsMoreThan60Days": 13.77,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-21",
+      "overallP95Position": {
+        "rank": 210,
+        "count": 228,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 59,
+        "percentile": 3.4
+      }
+    },
+    {
+      "reportId": "PTR20006115",
+      "acnArbn": "078010607",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 72.22,
+      "payments31To60Days": 16.67,
+      "paymentsMoreThan60Days": 11.11,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-20",
+      "overallP95Position": {
+        "rank": 207,
+        "count": 231,
+        "percentile": 10
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 61,
+        "percentile": 6.7
+      }
+    }
+  ]
+}

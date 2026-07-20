@@ -1,0 +1,95 @@
+{
+  "slug": "protiviti-pty-limited-27108473909",
+  "businessName": "PROTIVITI PTY LIMITED",
+  "abn": "27108473909",
+  "acnArbn": "108473909",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009961",
+      "acnArbn": "108473909",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.47,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 82.22,
+      "payments31To60Days": 12.59,
+      "paymentsMoreThan60Days": 5.19,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 117,
+        "count": 183,
+        "percentile": 33.5
+      }
+    },
+    {
+      "reportId": "PTR20005401",
+      "acnArbn": "108473909",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.62,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 80.98,
+      "payments31To60Days": 14.79,
+      "paymentsMoreThan60Days": 4.23,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 181,
+        "percentile": 45
+      }
+    },
+    {
+      "reportId": "PTR20002644",
+      "acnArbn": "108473909",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.61,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 77.9,
+      "payments31To60Days": 19.4,
+      "paymentsMoreThan60Days": 2.7,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 176,
+        "percentile": 40.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "industry-super-holdings-pty-ltd-71119748060",
+  "businessName": "INDUSTRY SUPER HOLDINGS PTY. LTD.",
+  "abn": "71119748060",
+  "acnArbn": "119748060",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009293",
+      "acnArbn": "119748060",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.23,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 91.17,
+      "payments31To60Days": 6.55,
+      "paymentsMoreThan60Days": 2.28,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 756,
+        "count": 2613,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 205,
+        "count": 338,
+        "percentile": 38.3
+      }
+    },
+    {
+      "reportId": "PTR20005404",
+      "acnArbn": "119748060",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.51,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 85.4,
+      "payments31To60Days": 10.91,
+      "paymentsMoreThan60Days": 3.69,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 249,
+        "count": 349,
+        "percentile": 27.3
+      }
+    },
+    {
+      "reportId": "PTR20002831",
+      "acnArbn": "119748060",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.69,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 83.92,
+      "payments31To60Days": 10.77,
+      "paymentsMoreThan60Days": 5.31,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 287,
+        "count": 339,
+        "percentile": 15.1
+      }
+    }
+  ]
+}

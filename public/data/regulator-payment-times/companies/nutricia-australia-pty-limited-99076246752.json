@@ -1,0 +1,95 @@
+{
+  "slug": "nutricia-australia-pty-limited-99076246752",
+  "businessName": "NUTRICIA AUSTRALIA PTY LIMITED",
+  "abn": "99076246752",
+  "acnArbn": "076246752",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009811",
+      "acnArbn": "076246752",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 89,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 53,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2488,
+        "count": 2613,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 199,
+        "count": 207,
+        "percentile": 3.4
+      }
+    },
+    {
+      "reportId": "PTR20005318",
+      "acnArbn": "076246752",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 68,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 202,
+      "payments30DaysOrLess": 28,
+      "payments31To60Days": 38,
+      "paymentsMoreThan60Days": 34,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2551,
+        "count": 2568,
+        "percentile": 0.7
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 208,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20005309",
+      "acnArbn": "076246752",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 88,
+      "p95PaymentTimeDays": 142,
+      "payments30DaysOrLess": 31,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 36,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2461,
+        "count": 2498,
+        "percentile": 1.5
+      },
+      "industryP95Position": {
+        "rank": 204,
+        "count": 207,
+        "percentile": 1.5
+      }
+    }
+  ]
+}

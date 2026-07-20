@@ -1,0 +1,39 @@
+{
+  "slug": "civmec-limited-19672407171",
+  "businessName": "CIVMEC LIMITED",
+  "abn": "19672407171",
+  "acnArbn": "672407171",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010121",
+      "acnArbn": "672407171",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.77,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 73.08,
+      "payments31To60Days": 19.23,
+      "paymentsMoreThan60Days": 7.69,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2521,
+        "count": 2613,
+        "percentile": 3.3
+      },
+      "industryP95Position": {
+        "rank": 258,
+        "count": 270,
+        "percentile": 4.5
+      }
+    }
+  ]
+}

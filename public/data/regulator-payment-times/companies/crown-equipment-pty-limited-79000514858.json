@@ -1,0 +1,95 @@
+{
+  "slug": "crown-equipment-pty-limited-79000514858",
+  "businessName": "CROWN EQUIPMENT PTY. LIMITED",
+  "abn": "79000514858",
+  "acnArbn": "000514858",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011649",
+      "acnArbn": "000514858",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.41,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 55.45,
+      "payments31To60Days": 38.68,
+      "paymentsMoreThan60Days": 5.87,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 156,
+        "count": 193,
+        "percentile": 19.3
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 45,
+        "percentile": 6.8
+      }
+    },
+    {
+      "reportId": "PTR20006825",
+      "acnArbn": "000514858",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.47,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 65.64,
+      "payments31To60Days": 28.91,
+      "paymentsMoreThan60Days": 5.45,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-22",
+      "overallP95Position": {
+        "rank": 174,
+        "count": 228,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 59,
+        "percentile": 17.2
+      }
+    },
+    {
+      "reportId": "PTR20002208",
+      "acnArbn": "000514858",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 58,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 187,
+        "count": 231,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 61,
+        "percentile": 11.7
+      }
+    }
+  ]
+}

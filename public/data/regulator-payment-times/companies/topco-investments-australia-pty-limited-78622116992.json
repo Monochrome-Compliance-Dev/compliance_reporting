@@ -1,0 +1,95 @@
+{
+  "slug": "topco-investments-australia-pty-limited-78622116992",
+  "businessName": "TOPCO INVESTMENTS AUSTRALIA PTY LIMITED",
+  "abn": "78622116992",
+  "acnArbn": "622116992",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009205",
+      "acnArbn": "622116992",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 66.61,
+      "payments31To60Days": 27.05,
+      "paymentsMoreThan60Days": 6.34,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2190,
+        "count": 2613,
+        "percentile": 15.4
+      },
+      "industryP95Position": {
+        "rank": 258,
+        "count": 347,
+        "percentile": 24.3
+      }
+    },
+    {
+      "reportId": "PTR20004102",
+      "acnArbn": "622116992",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 58.36,
+      "payments31To60Days": 35.31,
+      "paymentsMoreThan60Days": 6.32,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 2014,
+        "count": 2568,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 220,
+        "count": 335,
+        "percentile": 32.9
+      }
+    },
+    {
+      "reportId": "PTR20000322",
+      "acnArbn": "622116992",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 22.28,
+      "payments31To60Days": 57.53,
+      "paymentsMoreThan60Days": 20.19,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-09",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2498,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 250,
+        "count": 323,
+        "percentile": 21.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "suburban-land-agency-and-riverview-developments-act-pty-limited-72619778053",
+  "businessName": "SUBURBAN LAND AGENCY & RIVERVIEW DEVELOPMENTS (ACT) PTY LIMITED",
+  "abn": "72619778053",
+  "acnArbn": "",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20006958",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.26,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-01-18",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 270,
+        "percentile": 94.1
+      }
+    },
+    {
+      "reportId": "PTR20002370",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.21,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 92.5,
+      "payments31To60Days": 7.3,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-06",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 259,
+        "percentile": 91.1
+      }
+    },
+    {
+      "reportId": "PTR20000028",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.02,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93.8,
+      "payments31To60Days": 6.2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-05-05",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 250,
+        "percentile": 87.1
+      }
+    }
+  ]
+}

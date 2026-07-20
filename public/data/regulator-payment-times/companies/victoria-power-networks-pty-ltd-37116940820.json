@@ -1,0 +1,95 @@
+{
+  "slug": "victoria-power-networks-pty-ltd-37116940820",
+  "businessName": "VICTORIA POWER NETWORKS PTY LTD",
+  "abn": "37116940820",
+  "acnArbn": "116940820",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007498",
+      "acnArbn": "116940820",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.36,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 46.55,
+      "payments31To60Days": 50.72,
+      "paymentsMoreThan60Days": 2.73,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 92,
+        "percentile": 31.9
+      }
+    },
+    {
+      "reportId": "PTR20003063",
+      "acnArbn": "116940820",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.45,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 46.44,
+      "payments31To60Days": 49.14,
+      "paymentsMoreThan60Days": 4.42,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-08-07",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 70,
+        "count": 95,
+        "percentile": 23.4
+      }
+    },
+    {
+      "reportId": "PTR20000353",
+      "acnArbn": "116940820",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 47.68,
+      "payments31To60Days": 50.45,
+      "paymentsMoreThan60Days": 1.87,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-10",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 99,
+        "percentile": 42.9
+      }
+    }
+  ]
+}

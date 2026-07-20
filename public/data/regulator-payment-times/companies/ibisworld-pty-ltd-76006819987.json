@@ -1,0 +1,95 @@
+{
+  "slug": "ibisworld-pty-ltd-76006819987",
+  "businessName": "IBISWORLD PTY LTD",
+  "abn": "76006819987",
+  "acnArbn": "006819987",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Internet publishing and broadcasting",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007506",
+      "acnArbn": "006819987",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.16,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 243,
+        "count": 2613,
+        "percentile": 89.2
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 60,
+        "percentile": 89.8
+      }
+    },
+    {
+      "reportId": "PTR20006730",
+      "acnArbn": "006819987",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.5,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0.01,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-12-16",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 2568,
+        "percentile": 97.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 55,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000216",
+      "acnArbn": "006819987",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.57,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 290,
+      "p95PaymentTimeDays": 389,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-01",
+      "overallP95Position": {
+        "rank": 2495,
+        "count": 2498,
+        "percentile": 0.1
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 58,
+        "percentile": 0
+      }
+    }
+  ]
+}

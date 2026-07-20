@@ -1,0 +1,95 @@
+{
+  "slug": "caterpillar-holdings-australia-pty-ltd-26003430135",
+  "businessName": "CATERPILLAR HOLDINGS AUSTRALIA PTY LTD",
+  "abn": "26003430135",
+  "acnArbn": "003430135",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008904",
+      "acnArbn": "003430135",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 59.79,
+      "medianPaymentTimeDays": 58,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 19.96,
+      "payments31To60Days": 39.05,
+      "paymentsMoreThan60Days": 40.97,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2613,
+        "percentile": 16.2
+      },
+      "industryP95Position": {
+        "rank": 249,
+        "count": 347,
+        "percentile": 26
+      }
+    },
+    {
+      "reportId": "PTR20004197",
+      "acnArbn": "003430135",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.98,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 15.37,
+      "payments31To60Days": 37.83,
+      "paymentsMoreThan60Days": 46.81,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2096,
+        "count": 2568,
+        "percentile": 17.5
+      },
+      "industryP95Position": {
+        "rank": 237,
+        "count": 335,
+        "percentile": 27.8
+      }
+    },
+    {
+      "reportId": "PTR20001540",
+      "acnArbn": "003430135",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.98,
+      "medianPaymentTimeDays": 51,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 18.81,
+      "payments31To60Days": 44.1,
+      "paymentsMoreThan60Days": 37.09,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1937,
+        "count": 2498,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 211,
+        "count": 323,
+        "percentile": 34.5
+      }
+    }
+  ]
+}

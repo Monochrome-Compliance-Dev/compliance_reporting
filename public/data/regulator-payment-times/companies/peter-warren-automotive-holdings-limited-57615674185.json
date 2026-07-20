@@ -1,0 +1,67 @@
+{
+  "slug": "peter-warren-automotive-holdings-limited-57615674185",
+  "businessName": "PETER WARREN AUTOMOTIVE HOLDINGS LIMITED",
+  "abn": "57615674185",
+  "acnArbn": "615674185",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006599",
+      "acnArbn": "615674185",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 49.8,
+      "payments31To60Days": 44.8,
+      "paymentsMoreThan60Days": 5.4,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-30",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 208,
+        "percentile": 28.5
+      }
+    },
+    {
+      "reportId": "PTR20000125",
+      "acnArbn": "615674185",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 55,
+      "payments31To60Days": 38.4,
+      "paymentsMoreThan60Days": 6.6,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-05-20",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 207,
+        "percentile": 37.4
+      }
+    }
+  ]
+}

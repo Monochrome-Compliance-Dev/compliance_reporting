@@ -1,0 +1,95 @@
+{
+  "slug": "ubs-holdings-pty-ltd-50050101249",
+  "businessName": "UBS HOLDINGS PTY LTD",
+  "abn": "50050101249",
+  "acnArbn": "050101249",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009674",
+      "acnArbn": "050101249",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.4,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 165,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 3.33,
+      "paymentsMoreThan60Days": 16.67,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2597,
+        "count": 2613,
+        "percentile": 0.6
+      },
+      "industryP95Position": {
+        "rank": 336,
+        "count": 338,
+        "percentile": 0.6
+      }
+    },
+    {
+      "reportId": "PTR20004716",
+      "acnArbn": "050101249",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.5,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 5,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 89.29,
+      "payments31To60Days": 7.14,
+      "paymentsMoreThan60Days": 3.57,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 699,
+        "count": 2568,
+        "percentile": 71.8
+      },
+      "industryP95Position": {
+        "rank": 187,
+        "count": 349,
+        "percentile": 44.5
+      }
+    },
+    {
+      "reportId": "PTR20001651",
+      "acnArbn": "050101249",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.09,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 72.73,
+      "payments31To60Days": 27.27,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 241,
+        "count": 339,
+        "percentile": 28.1
+      }
+    }
+  ]
+}

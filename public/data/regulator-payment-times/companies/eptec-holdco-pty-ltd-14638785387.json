@@ -1,0 +1,95 @@
+{
+  "slug": "eptec-holdco-pty-ltd-14638785387",
+  "businessName": "EPTEC HOLDCO PTY LTD",
+  "abn": "14638785387",
+  "acnArbn": "638785387",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009625",
+      "acnArbn": "638785387",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.51,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 40,
+      "payments31To60Days": 36,
+      "paymentsMoreThan60Days": 24,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2415,
+        "count": 2613,
+        "percentile": 7.3
+      },
+      "industryP95Position": {
+        "rank": 251,
+        "count": 270,
+        "percentile": 7.1
+      }
+    },
+    {
+      "reportId": "PTR20005164",
+      "acnArbn": "638785387",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.51,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 27.8,
+      "payments31To60Days": 45.32,
+      "paymentsMoreThan60Days": 26.88,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2376,
+        "count": 2568,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 259,
+        "percentile": 8.9
+      }
+    },
+    {
+      "reportId": "PTR20002979",
+      "acnArbn": "638785387",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.34,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 74,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 26.3,
+      "payments31To60Days": 40.11,
+      "paymentsMoreThan60Days": 33.59,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 2304,
+        "count": 2498,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 233,
+        "count": 250,
+        "percentile": 6
+      }
+    }
+  ]
+}

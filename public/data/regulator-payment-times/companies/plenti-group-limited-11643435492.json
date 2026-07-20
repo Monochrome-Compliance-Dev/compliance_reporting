@@ -1,0 +1,67 @@
+{
+  "slug": "plenti-group-limited-11643435492",
+  "businessName": "PLENTI GROUP LIMITED",
+  "abn": "11643435492",
+  "acnArbn": "643435492",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006786",
+      "acnArbn": "643435492",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.09,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 99.71,
+      "payments31To60Days": 0.27,
+      "paymentsMoreThan60Days": 0.02,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 228,
+        "percentile": 99.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 22,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002809",
+      "acnArbn": "643435492",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.4,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 8,
+      "payments30DaysOrLess": 99.67,
+      "payments31To60Days": 0.31,
+      "paymentsMoreThan60Days": 0.02,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 231,
+        "percentile": 99.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 20,
+        "percentile": 100
+      }
+    }
+  ]
+}

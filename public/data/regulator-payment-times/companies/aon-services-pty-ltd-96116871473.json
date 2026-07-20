@@ -1,0 +1,67 @@
+{
+  "slug": "aon-services-pty-ltd-96116871473",
+  "businessName": "Aon Services Pty Ltd",
+  "abn": "96116871473",
+  "acnArbn": "116871473",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007344",
+      "acnArbn": "116871473",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 77.85,
+      "payments31To60Days": 18.9,
+      "paymentsMoreThan60Days": 3.25,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-22",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 253,
+        "count": 338,
+        "percentile": 24.3
+      }
+    },
+    {
+      "reportId": "PTR20004518",
+      "acnArbn": "116871473",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 76.51,
+      "payments31To60Days": 18.8,
+      "paymentsMoreThan60Days": 4.6,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 290,
+        "count": 349,
+        "percentile": 15.5
+      }
+    }
+  ]
+}

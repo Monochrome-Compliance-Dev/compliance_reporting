@@ -1,0 +1,95 @@
+{
+  "slug": "navy-health-ltd-61092229000",
+  "businessName": "NAVY HEALTH LTD",
+  "abn": "61092229000",
+  "acnArbn": "092229000",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009089",
+      "acnArbn": "092229000",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.51,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 72.78,
+      "payments31To60Days": 20.89,
+      "paymentsMoreThan60Days": 6.33,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 299,
+        "count": 338,
+        "percentile": 11.3
+      }
+    },
+    {
+      "reportId": "PTR20003605",
+      "acnArbn": "092229000",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.4,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 66.67,
+      "payments31To60Days": 29.03,
+      "paymentsMoreThan60Days": 4.3,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 349,
+        "percentile": 22.1
+      }
+    },
+    {
+      "reportId": "PTR20001277",
+      "acnArbn": "092229000",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.51,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 75.52,
+      "payments31To60Days": 20.28,
+      "paymentsMoreThan60Days": 4.2,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1123,
+        "count": 2498,
+        "percentile": 54
+      },
+      "industryP95Position": {
+        "rank": 245,
+        "count": 339,
+        "percentile": 26.3
+      }
+    }
+  ]
+}

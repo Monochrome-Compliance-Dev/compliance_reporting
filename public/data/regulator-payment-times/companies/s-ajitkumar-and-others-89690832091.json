@@ -1,0 +1,39 @@
+{
+  "slug": "s-ajitkumar-and-others-89690832091",
+  "businessName": "S AJITKUMAR & Others",
+  "abn": "89690832091",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008207",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.22,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 128,
+      "payments30DaysOrLess": 46.87,
+      "payments31To60Days": 33.37,
+      "paymentsMoreThan60Days": 19.76,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2574,
+        "count": 2613,
+        "percentile": 1.5
+      },
+      "industryP95Position": {
+        "rank": 174,
+        "count": 183,
+        "percentile": 4.9
+      }
+    }
+  ]
+}

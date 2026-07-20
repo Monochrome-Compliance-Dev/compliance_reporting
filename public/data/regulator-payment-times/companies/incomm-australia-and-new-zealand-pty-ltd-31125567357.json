@@ -1,0 +1,95 @@
+{
+  "slug": "incomm-australia-and-new-zealand-pty-ltd-31125567357",
+  "businessName": "INCOMM AUSTRALIA & NEW ZEALAND PTY LTD",
+  "abn": "31125567357",
+  "acnArbn": "125567357",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+  "latestReportingPeriodEndDate": "2026-02-27",
+  "reports": [
+    {
+      "reportId": "PTR20011201",
+      "acnArbn": "125567357",
+      "reportingPeriodStartDate": "2025-08-31",
+      "reportingPeriodEndDate": "2026-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.54,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-05-27",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 24,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 5,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006580",
+      "acnArbn": "125567357",
+      "reportingPeriodStartDate": "2025-02-28",
+      "reportingPeriodEndDate": "2025-08-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.88,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.18,
+      "payments31To60Days": 5.82,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-27",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 25,
+        "percentile": 95.8
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 7,
+        "percentile": 83.3
+      }
+    },
+    {
+      "reportId": "PTR20011306",
+      "acnArbn": "125567357",
+      "reportingPeriodStartDate": "2024-08-31",
+      "reportingPeriodEndDate": "2025-02-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.49,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 88.34,
+      "payments31To60Days": 11.52,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-11",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 22,
+        "percentile": 90.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 5,
+        "percentile": 100
+      }
+    }
+  ]
+}

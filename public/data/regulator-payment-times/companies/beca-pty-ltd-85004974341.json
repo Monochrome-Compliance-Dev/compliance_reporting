@@ -1,0 +1,95 @@
+{
+  "slug": "beca-pty-ltd-85004974341",
+  "businessName": "BECA PTY. LTD.",
+  "abn": "85004974341",
+  "acnArbn": "004974341",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011513",
+      "acnArbn": "004974341",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.54,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 125,
+      "payments30DaysOrLess": 73.7,
+      "payments31To60Days": 17.3,
+      "paymentsMoreThan60Days": 8.9,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 193,
+        "count": 193,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 25,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20011516",
+      "acnArbn": "004974341",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.85,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 103,
+      "payments30DaysOrLess": 60.8,
+      "payments31To60Days": 22.7,
+      "paymentsMoreThan60Days": 16.5,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 220,
+        "count": 228,
+        "percentile": 3.5
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 27,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20001456",
+      "acnArbn": "004974341",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.57,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 56.4,
+      "payments31To60Days": 34.4,
+      "paymentsMoreThan60Days": 9.2,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 177,
+        "count": 231,
+        "percentile": 22.6
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 26,
+        "percentile": 24
+      }
+    }
+  ]
+}

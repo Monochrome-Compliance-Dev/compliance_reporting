@@ -1,0 +1,67 @@
+{
+  "slug": "nje-aviation-services-engineering-pty-ltd-74099287117",
+  "businessName": "NJE AVIATION SERVICES ENGINEERING PTY LTD",
+  "abn": "74099287117",
+  "acnArbn": "099287117",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011424",
+      "acnArbn": "099287117",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 100,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-06-18",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 143,
+        "percentile": 68.3
+      }
+    },
+    {
+      "reportId": "PTR20002336",
+      "acnArbn": "099287117",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-02",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 140,
+        "percentile": 88.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "frasers-property-australia-pty-limited-89600448726",
+  "businessName": "FRASERS PROPERTY AUSTRALIA PTY LIMITED",
+  "abn": "89600448726",
+  "acnArbn": "600448726",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011507",
+      "acnArbn": "600448726",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.83,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 89.06,
+      "payments31To60Days": 7.02,
+      "paymentsMoreThan60Days": 3.92,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 109,
+        "count": 193,
+        "percentile": 43.2
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 5,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20006427",
+      "acnArbn": "600448726",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.66,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 91.12,
+      "payments31To60Days": 6.74,
+      "paymentsMoreThan60Days": 2.14,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-11-04",
+      "overallP95Position": {
+        "rank": 78,
+        "count": 228,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 6,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000743",
+      "acnArbn": "600448726",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.94,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 88.58,
+      "payments31To60Days": 8.56,
+      "paymentsMoreThan60Days": 2.86,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 87,
+        "count": 231,
+        "percentile": 60.4
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 7,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "spv-98-holdco-pty-ltd-73671328920",
+  "businessName": "SPV 98 HOLDCO PTY LTD",
+  "abn": "73671328920",
+  "acnArbn": "671328920",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007183",
+      "acnArbn": "671328920",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.8,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 18.7,
+      "payments31To60Days": 74.4,
+      "paymentsMoreThan60Days": 6.9,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 270,
+        "percentile": 39.4
+      }
+    },
+    {
+      "reportId": "PTR20004416",
+      "acnArbn": "671328920",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.8,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 33.2,
+      "payments31To60Days": 61.6,
+      "paymentsMoreThan60Days": 5.2,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 130,
+        "count": 259,
+        "percentile": 45.7
+      }
+    },
+    {
+      "reportId": "PTR20003249",
+      "acnArbn": "671328920",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.72,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 24.4,
+      "payments31To60Days": 68.9,
+      "paymentsMoreThan60Days": 6.7,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 250,
+        "percentile": 41.4
+      }
+    }
+  ]
+}

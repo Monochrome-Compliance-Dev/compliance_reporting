@@ -1,0 +1,95 @@
+{
+  "slug": "georgiou-group-pty-ltd-82073851948",
+  "businessName": "GEORGIOU GROUP PTY LTD",
+  "abn": "82073851948",
+  "acnArbn": "073851948",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011695",
+      "acnArbn": "073851948",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.44,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 91.7,
+      "payments31To60Days": 8.16,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 270,
+        "percentile": 88.8
+      }
+    },
+    {
+      "reportId": "PTR20004637",
+      "acnArbn": "073851948",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.21,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 90.07,
+      "payments31To60Days": 9.28,
+      "paymentsMoreThan60Days": 0.65,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 259,
+        "percentile": 86
+      }
+    },
+    {
+      "reportId": "PTR20001446",
+      "acnArbn": "073851948",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.7,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 89.38,
+      "payments31To60Days": 9.96,
+      "paymentsMoreThan60Days": 0.66,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 720,
+        "count": 2498,
+        "percentile": 70.2
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 250,
+        "percentile": 84.3
+      }
+    }
+  ]
+}

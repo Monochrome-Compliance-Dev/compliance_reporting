@@ -1,0 +1,67 @@
+{
+  "slug": "the-koala-company-limited-48619538671",
+  "businessName": "THE KOALA COMPANY LIMITED",
+  "abn": "48619538671",
+  "acnArbn": "619538671",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008197",
+      "acnArbn": "619538671",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.94,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 84.26,
+      "payments31To60Days": 15.52,
+      "paymentsMoreThan60Days": 0.22,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 207,
+        "percentile": 81.1
+      }
+    },
+    {
+      "reportId": "PTR20003307",
+      "acnArbn": "619538671",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.16,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 85.58,
+      "payments31To60Days": 13.83,
+      "paymentsMoreThan60Days": 0.59,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-08-28",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 207,
+        "percentile": 83
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "viatris-pty-ltd-29601608771",
+  "businessName": "VIATRIS PTY LTD",
+  "abn": "29601608771",
+  "acnArbn": "601608771",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010777",
+      "acnArbn": "601608771",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 59.2,
+      "payments31To60Days": 28.8,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-26",
+      "overallP95Position": {
+        "rank": 2057,
+        "count": 2613,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 236,
+        "count": 329,
+        "percentile": 26.8
+      }
+    },
+    {
+      "reportId": "PTR20005325",
+      "acnArbn": "601608771",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 31.46,
+      "payments31To60Days": 35.21,
+      "paymentsMoreThan60Days": 33.33,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2342,
+        "count": 2568,
+        "percentile": 8.6
+      },
+      "industryP95Position": {
+        "rank": 288,
+        "count": 323,
+        "percentile": 10.2
+      }
+    },
+    {
+      "reportId": "PTR20001479",
+      "acnArbn": "601608771",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 37.74,
+      "payments31To60Days": 45.45,
+      "paymentsMoreThan60Days": 16.8,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 2498,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 271,
+        "count": 323,
+        "percentile": 16.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "south-perth-civic-triangle-pty-ltd-43600087643",
+  "businessName": "SOUTH PERTH CIVIC TRIANGLE PTY LTD",
+  "abn": "43600087643",
+  "acnArbn": "600087643",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005795",
+      "acnArbn": "600087643",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 18,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 90,
+        "count": 2568,
+        "percentile": 96.3
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 259,
+        "percentile": 98.4
+      }
+    }
+  ]
+}

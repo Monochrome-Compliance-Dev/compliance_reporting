@@ -1,0 +1,95 @@
+{
+  "slug": "rm-hassall-and-as-white-and-others-78848387938",
+  "businessName": "RM HASSALL & AS WHITE & OTHERS",
+  "abn": "78848387938",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010380",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.29,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 116,
+      "payments30DaysOrLess": 67.22,
+      "payments31To60Days": 15.55,
+      "paymentsMoreThan60Days": 17.23,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2532,
+        "count": 2613,
+        "percentile": 3
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 183,
+        "percentile": 9.3
+      }
+    },
+    {
+      "reportId": "PTR20005999",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.94,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 60.13,
+      "payments31To60Days": 15.71,
+      "paymentsMoreThan60Days": 24.15,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-10-08",
+      "overallP95Position": {
+        "rank": 2376,
+        "count": 2568,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 155,
+        "count": 181,
+        "percentile": 13.9
+      }
+    },
+    {
+      "reportId": "PTR20002105",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.21,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 68.68,
+      "payments31To60Days": 14.67,
+      "paymentsMoreThan60Days": 16.65,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2181,
+        "count": 2498,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 176,
+        "percentile": 18.9
+      }
+    }
+  ]
+}

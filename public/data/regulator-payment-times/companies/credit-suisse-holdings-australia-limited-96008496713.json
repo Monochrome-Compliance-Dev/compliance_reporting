@@ -1,0 +1,67 @@
+{
+  "slug": "credit-suisse-holdings-australia-limited-96008496713",
+  "businessName": "CREDIT SUISSE HOLDINGS (AUSTRALIA) LIMITED",
+  "abn": "96008496713",
+  "acnArbn": "008496713",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004738",
+      "acnArbn": "008496713",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.51,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 89.19,
+      "payments31To60Days": 10.81,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 459,
+        "count": 2568,
+        "percentile": 81
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 349,
+        "percentile": 58.9
+      }
+    },
+    {
+      "reportId": "PTR20001652",
+      "acnArbn": "008496713",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.48,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 72.48,
+      "payments31To60Days": 16.51,
+      "paymentsMoreThan60Days": 11.01,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 308,
+        "count": 339,
+        "percentile": 8.6
+      }
+    }
+  ]
+}

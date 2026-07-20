@@ -1,0 +1,95 @@
+{
+  "slug": "independent-living-specialists-pty-limited-78106336958",
+  "businessName": "INDEPENDENT LIVING SPECIALISTS PTY LIMITED",
+  "abn": "78106336958",
+  "acnArbn": "106336958",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007175",
+      "acnArbn": "106336958",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 50.7,
+      "payments31To60Days": 40.6,
+      "paymentsMoreThan60Days": 8.7,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-02-10",
+      "overallP95Position": {
+        "rank": 2227,
+        "count": 2613,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 106,
+        "percentile": 20
+      }
+    },
+    {
+      "reportId": "PTR20003651",
+      "acnArbn": "106336958",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 55,
+      "payments31To60Days": 40,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 97,
+        "percentile": 45.8
+      }
+    },
+    {
+      "reportId": "PTR20003649",
+      "acnArbn": "106336958",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 52,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 44.6,
+      "payments31To60Days": 44.2,
+      "paymentsMoreThan60Days": 11.2,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 2100,
+        "count": 2498,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 80,
+        "count": 97,
+        "percentile": 17.7
+      }
+    }
+  ]
+}

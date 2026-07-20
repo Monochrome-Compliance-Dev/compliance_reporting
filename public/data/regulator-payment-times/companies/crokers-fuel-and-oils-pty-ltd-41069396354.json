@@ -1,0 +1,95 @@
+{
+  "slug": "crokers-fuel-and-oils-pty-ltd-41069396354",
+  "businessName": "CROKERS FUEL & OILS PTY LTD",
+  "abn": "41069396354",
+  "acnArbn": "069396354",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Fuel retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010392",
+      "acnArbn": "069396354",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.8,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 54.41,
+      "payments31To60Days": 45.59,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 207,
+        "percentile": 63.1
+      }
+    },
+    {
+      "reportId": "PTR20009935",
+      "acnArbn": "069396354",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.37,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 60.02,
+      "payments31To60Days": 39.98,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 208,
+        "percentile": 67.6
+      }
+    },
+    {
+      "reportId": "PTR20009923",
+      "acnArbn": "069396354",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.11,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 51.65,
+      "payments31To60Days": 48.16,
+      "paymentsMoreThan60Days": 0.19,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 207,
+        "percentile": 60.7
+      }
+    }
+  ]
+}

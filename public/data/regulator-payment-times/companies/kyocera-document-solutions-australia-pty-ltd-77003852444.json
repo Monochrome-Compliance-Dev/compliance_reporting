@@ -1,0 +1,67 @@
+{
+  "slug": "kyocera-document-solutions-australia-pty-ltd-77003852444",
+  "businessName": "KYOCERA DOCUMENT SOLUTIONS AUSTRALIA PTY LTD",
+  "abn": "77003852444",
+  "acnArbn": "003852444",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20007228",
+      "acnArbn": "003852444",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.79,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 4,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 97,
+      "payments31To60Days": 1.3,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-15",
+      "overallP95Position": {
+        "rank": 15,
+        "count": 228,
+        "percentile": 93
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 59,
+        "percentile": 94.8
+      }
+    },
+    {
+      "reportId": "PTR20002880",
+      "acnArbn": "003852444",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.92,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 93.3,
+      "payments31To60Days": 3.1,
+      "paymentsMoreThan60Days": 3.6,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 79,
+        "count": 231,
+        "percentile": 63
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 61,
+        "percentile": 61.7
+      }
+    }
+  ]
+}

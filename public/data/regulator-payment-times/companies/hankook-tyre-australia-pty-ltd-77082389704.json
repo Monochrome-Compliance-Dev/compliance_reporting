@@ -1,0 +1,95 @@
+{
+  "slug": "hankook-tyre-australia-pty-ltd-77082389704",
+  "businessName": "HANKOOK TYRE AUSTRALIA PTY. LTD.",
+  "abn": "77082389704",
+  "acnArbn": "082389704",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010475",
+      "acnArbn": "082389704",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.51,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 82.11,
+      "payments31To60Days": 17.89,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-07",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 329,
+        "percentile": 79
+      }
+    },
+    {
+      "reportId": "PTR20004246",
+      "acnArbn": "082389704",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.39,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 84.42,
+      "payments31To60Days": 7.79,
+      "paymentsMoreThan60Days": 7.79,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 323,
+        "percentile": 34.5
+      }
+    },
+    {
+      "reportId": "PTR20003921",
+      "acnArbn": "082389704",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.6,
+      "payments31To60Days": 2.9,
+      "paymentsMoreThan60Days": 1.5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 323,
+        "percentile": 93.8
+      }
+    }
+  ]
+}

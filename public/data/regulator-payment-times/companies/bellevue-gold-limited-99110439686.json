@@ -1,0 +1,95 @@
+{
+  "slug": "bellevue-gold-limited-99110439686",
+  "businessName": "BELLEVUE GOLD LIMITED",
+  "abn": "99110439686",
+  "acnArbn": "110439686",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007225",
+      "acnArbn": "110439686",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.68,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 15.94,
+      "payments31To60Days": 76.44,
+      "paymentsMoreThan60Days": 7.54,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-02-15",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 123,
+        "count": 177,
+        "percentile": 27.3
+      }
+    },
+    {
+      "reportId": "PTR20005413",
+      "acnArbn": "110439686",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.29,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 29.72,
+      "payments31To60Days": 61.08,
+      "paymentsMoreThan60Days": 9.16,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2081,
+        "count": 2568,
+        "percentile": 18.4
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 173,
+        "percentile": 19.2
+      }
+    },
+    {
+      "reportId": "PTR20000759",
+      "acnArbn": "110439686",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.29,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 8.39,
+      "payments31To60Days": 78.3,
+      "paymentsMoreThan60Days": 13.31,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 2125,
+        "count": 2498,
+        "percentile": 14.3
+      },
+      "industryP95Position": {
+        "rank": 149,
+        "count": 170,
+        "percentile": 12.4
+      }
+    }
+  ]
+}

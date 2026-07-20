@@ -1,0 +1,95 @@
+{
+  "slug": "r-g-m-maintenance-pty-ltd-18100509484",
+  "businessName": "R.G.M. MAINTENANCE PTY LTD",
+  "abn": "18100509484",
+  "acnArbn": "100509484",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Repair and maintenance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011182",
+      "acnArbn": "100509484",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.4,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 36.6,
+      "payments31To60Days": 61.1,
+      "paymentsMoreThan60Days": 2.3,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 25,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20011181",
+      "acnArbn": "100509484",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.4,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 36,
+      "payments31To60Days": 60.2,
+      "paymentsMoreThan60Days": 3.8,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 26,
+        "percentile": 44
+      }
+    },
+    {
+      "reportId": "PTR20011180",
+      "acnArbn": "100509484",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.8,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 37.6,
+      "payments31To60Days": 60.7,
+      "paymentsMoreThan60Days": 1.6,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 22,
+        "percentile": 52.4
+      }
+    }
+  ]
+}

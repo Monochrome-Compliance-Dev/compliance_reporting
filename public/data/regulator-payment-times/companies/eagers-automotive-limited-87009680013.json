@@ -1,0 +1,39 @@
+{
+  "slug": "eagers-automotive-limited-87009680013",
+  "businessName": "EAGERS AUTOMOTIVE LIMITED",
+  "abn": "87009680013",
+  "acnArbn": "009680013",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010180",
+      "acnArbn": "009680013",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.89,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 62.01,
+      "payments31To60Days": 33.36,
+      "paymentsMoreThan60Days": 4.63,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 127,
+        "count": 207,
+        "percentile": 34
+      }
+    }
+  ]
+}

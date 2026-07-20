@@ -1,0 +1,95 @@
+{
+  "slug": "wilmar-trading-australia-pty-ltd-58128080455",
+  "businessName": "WILMAR TRADING (AUSTRALIA) PTY LTD",
+  "abn": "58128080455",
+  "acnArbn": "128080455",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009821",
+      "acnArbn": "128080455",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.6,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.28,
+      "payments31To60Days": 5.02,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 102,
+        "percentile": 78.2
+      }
+    },
+    {
+      "reportId": "PTR20006368",
+      "acnArbn": "128080455",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.95,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 6.7,
+      "paymentsMoreThan60Days": 0.16,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 92,
+        "percentile": 73.6
+      }
+    },
+    {
+      "reportId": "PTR20006552",
+      "acnArbn": "128080455",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.7,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 90.1,
+      "payments31To60Days": 9.4,
+      "paymentsMoreThan60Days": 0.6,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 652,
+        "count": 2498,
+        "percentile": 73.1
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 85,
+        "percentile": 64.3
+      }
+    }
+  ]
+}

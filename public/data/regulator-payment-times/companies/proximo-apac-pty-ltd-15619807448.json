@@ -1,0 +1,95 @@
+{
+  "slug": "proximo-apac-pty-ltd-15619807448",
+  "businessName": "PROXIMO APAC PTY LTD",
+  "abn": "15619807448",
+  "acnArbn": "619807448",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008610",
+      "acnArbn": "619807448",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 59.12,
+      "medianPaymentTimeDays": 52,
+      "p80PaymentTimeDays": 77,
+      "p95PaymentTimeDays": 127,
+      "payments30DaysOrLess": 11.06,
+      "payments31To60Days": 60,
+      "paymentsMoreThan60Days": 28.94,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2571,
+        "count": 2613,
+        "percentile": 1.5
+      },
+      "industryP95Position": {
+        "rank": 325,
+        "count": 329,
+        "percentile": 1.2
+      }
+    },
+    {
+      "reportId": "PTR20004371",
+      "acnArbn": "619807448",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60.91,
+      "medianPaymentTimeDays": 54,
+      "p80PaymentTimeDays": 80,
+      "p95PaymentTimeDays": 132,
+      "payments30DaysOrLess": 14.66,
+      "payments31To60Days": 48.12,
+      "paymentsMoreThan60Days": 37.22,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 2516,
+        "count": 2568,
+        "percentile": 2
+      },
+      "industryP95Position": {
+        "rank": 315,
+        "count": 323,
+        "percentile": 2.2
+      }
+    },
+    {
+      "reportId": "PTR20002427",
+      "acnArbn": "619807448",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53.58,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 116,
+      "payments30DaysOrLess": 12.15,
+      "payments31To60Days": 67.09,
+      "paymentsMoreThan60Days": 20.76,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-10",
+      "overallP95Position": {
+        "rank": 2404,
+        "count": 2498,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 304,
+        "count": 323,
+        "percentile": 5.9
+      }
+    }
+  ]
+}

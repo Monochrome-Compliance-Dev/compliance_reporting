@@ -1,0 +1,67 @@
+{
+  "slug": "ruckus-wireless-international-inc-54802510025",
+  "businessName": "Ruckus Wireless International Inc",
+  "abn": "54802510025",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008815",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 12,
+      "payments31To60Days": 53,
+      "paymentsMoreThan60Days": 35,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2613,
+        "percentile": 16.2
+      },
+      "industryP95Position": {
+        "rank": 246,
+        "count": 329,
+        "percentile": 24.1
+      }
+    },
+    {
+      "reportId": "PTR20003430",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 100,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-04",
+      "overallP95Position": {
+        "rank": 2399,
+        "count": 2568,
+        "percentile": 6.3
+      },
+      "industryP95Position": {
+        "rank": 300,
+        "count": 323,
+        "percentile": 6.8
+      }
+    }
+  ]
+}

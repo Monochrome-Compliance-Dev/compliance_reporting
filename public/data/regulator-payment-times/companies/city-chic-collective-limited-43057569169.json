@@ -1,0 +1,95 @@
+{
+  "slug": "city-chic-collective-limited-43057569169",
+  "businessName": "CITY CHIC COLLECTIVE LIMITED",
+  "abn": "43057569169",
+  "acnArbn": "057569169",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007908",
+      "acnArbn": "057569169",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.73,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 87.7,
+      "payments31To60Days": 7.6,
+      "paymentsMoreThan60Days": 4.7,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 207,
+        "percentile": 39.3
+      }
+    },
+    {
+      "reportId": "PTR20004862",
+      "acnArbn": "057569169",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.71,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 89.1,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 4.9,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 208,
+        "percentile": 39.6
+      }
+    },
+    {
+      "reportId": "PTR20001796",
+      "acnArbn": "057569169",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.15,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 207,
+        "percentile": 25.7
+      }
+    }
+  ]
+}

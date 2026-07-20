@@ -1,0 +1,95 @@
+{
+  "slug": "altius-holdco-pty-ltd-22646640280",
+  "businessName": "ALTIUS HOLDCO PTY LTD",
+  "abn": "22646640280",
+  "acnArbn": "646640280",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007247",
+      "acnArbn": "646640280",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.13,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 92.71,
+      "payments31To60Days": 6.17,
+      "paymentsMoreThan60Days": 1.11,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 106,
+        "percentile": 77.1
+      }
+    },
+    {
+      "reportId": "PTR20003262",
+      "acnArbn": "646640280",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.01,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.86,
+      "payments31To60Days": 3.71,
+      "paymentsMoreThan60Days": 0.43,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 97,
+        "percentile": 93.8
+      }
+    },
+    {
+      "reportId": "PTR20001936",
+      "acnArbn": "646640280",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.56,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 93.62,
+      "payments31To60Days": 5.46,
+      "paymentsMoreThan60Days": 0.92,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 97,
+        "percentile": 81.3
+      }
+    }
+  ]
+}

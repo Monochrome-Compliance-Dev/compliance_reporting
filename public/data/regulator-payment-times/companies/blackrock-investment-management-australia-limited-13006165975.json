@@ -1,0 +1,67 @@
+{
+  "slug": "blackrock-investment-management-australia-limited-13006165975",
+  "businessName": "BLACKROCK INVESTMENT MANAGEMENT (AUSTRALIA) LIMITED",
+  "abn": "13006165975",
+  "acnArbn": "006165975",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007217",
+      "acnArbn": "006165975",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 11,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-15",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 257,
+        "count": 338,
+        "percentile": 22.3
+      }
+    },
+    {
+      "reportId": "PTR20003120",
+      "acnArbn": "006165975",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 96,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-14",
+      "overallP95Position": {
+        "rank": 156,
+        "count": 2568,
+        "percentile": 93.5
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 349,
+        "percentile": 82.8
+      }
+    }
+  ]
+}

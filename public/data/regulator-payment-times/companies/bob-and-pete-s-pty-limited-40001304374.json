@@ -1,0 +1,39 @@
+{
+  "slug": "bob-and-pete-s-pty-limited-40001304374",
+  "businessName": "BOB & PETE'S PTY LIMITED",
+  "abn": "40001304374",
+  "acnArbn": "001304374",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008944",
+      "acnArbn": "001304374",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.37,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.52,
+      "payments31To60Days": 4.17,
+      "paymentsMoreThan60Days": 0.31,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 347,
+        "percentile": 95.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "thales-australia-holdings-pty-ltd-84058583841",
+  "businessName": "THALES AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "84058583841",
+  "acnArbn": "058583841",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008851",
+      "acnArbn": "058583841",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.73,
+      "medianPaymentTimeDays": 22.78,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 74.98,
+      "payments31To60Days": 22.78,
+      "paymentsMoreThan60Days": 2.48,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 347,
+        "percentile": 87.9
+      }
+    },
+    {
+      "reportId": "PTR20004907",
+      "acnArbn": "058583841",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.03,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 62.89,
+      "payments31To60Days": 29.29,
+      "paymentsMoreThan60Days": 7.82,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2568,
+        "percentile": 16.1
+      },
+      "industryP95Position": {
+        "rank": 247,
+        "count": 335,
+        "percentile": 25.1
+      }
+    }
+  ]
+}

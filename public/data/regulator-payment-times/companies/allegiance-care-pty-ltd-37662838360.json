@@ -1,0 +1,39 @@
+{
+  "slug": "allegiance-care-pty-ltd-37662838360",
+  "businessName": "ALLEGIANCE CARE PTY LTD",
+  "abn": "37662838360",
+  "acnArbn": "662838360",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Residential care services",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20001965",
+      "acnArbn": "662838360",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.31,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 95.77,
+      "payments31To60Days": 2.77,
+      "paymentsMoreThan60Days": 1.47,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 234,
+        "count": 2498,
+        "percentile": 89.3
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 97,
+        "percentile": 93.8
+      }
+    }
+  ]
+}

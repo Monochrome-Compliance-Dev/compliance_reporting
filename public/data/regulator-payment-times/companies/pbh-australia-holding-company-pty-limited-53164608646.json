@@ -1,0 +1,39 @@
+{
+  "slug": "pbh-australia-holding-company-pty-limited-53164608646",
+  "businessName": "PBH AUSTRALIA HOLDING COMPANY PTY LIMITED",
+  "abn": "53164608646",
+  "acnArbn": "164608646",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20001032",
+      "acnArbn": "164608646",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.95,
+      "medianPaymentTimeDays": 22.5,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 78.25,
+      "payments31To60Days": 20.69,
+      "paymentsMoreThan60Days": 1.05,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 231,
+        "percentile": 55.2
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 61,
+        "percentile": 48.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "adobe-systems-pty-ltd-72054247835",
+  "businessName": "ADOBE SYSTEMS PTY LTD",
+  "abn": "72054247835",
+  "acnArbn": "054247835",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-11-29",
+  "reports": [
+    {
+      "reportId": "PTR20007348",
+      "acnArbn": "054247835",
+      "reportingPeriodStartDate": "2025-05-30",
+      "reportingPeriodEndDate": "2025-11-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 31.3,
+      "paymentsMoreThan60Days": 7.7,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-02-23",
+      "overallP95Position": {
+        "rank": 15,
+        "count": 22,
+        "percentile": 33.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006479",
+      "acnArbn": "054247835",
+      "reportingPeriodStartDate": "2024-11-29",
+      "reportingPeriodEndDate": "2025-05-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 57.5,
+      "payments31To60Days": 29.8,
+      "paymentsMoreThan60Days": 12.7,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-16",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

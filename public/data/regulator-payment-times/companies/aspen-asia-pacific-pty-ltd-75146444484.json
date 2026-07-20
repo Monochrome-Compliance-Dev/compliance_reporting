@@ -1,0 +1,95 @@
+{
+  "slug": "aspen-asia-pacific-pty-ltd-75146444484",
+  "businessName": "ASPEN ASIA PACIFIC PTY LTD",
+  "abn": "75146444484",
+  "acnArbn": "146444484",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007229",
+      "acnArbn": "146444484",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 77,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-15",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 329,
+        "percentile": 64.6
+      }
+    },
+    {
+      "reportId": "PTR20003789",
+      "acnArbn": "146444484",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 73.89,
+      "payments31To60Days": 21.23,
+      "paymentsMoreThan60Days": 4.88,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 323,
+        "percentile": 43.8
+      }
+    },
+    {
+      "reportId": "PTR20000321",
+      "acnArbn": "146444484",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 73.4,
+      "payments31To60Days": 22.6,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-09",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 56.2
+      }
+    }
+  ]
+}

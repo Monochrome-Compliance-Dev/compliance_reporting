@@ -1,0 +1,95 @@
+{
+  "slug": "darwalla-milling-co-pty-ltd-64009698631",
+  "businessName": "DARWALLA MILLING CO. PTY. LTD.",
+  "abn": "64009698631",
+  "acnArbn": "009698631",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009691",
+      "acnArbn": "009698631",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.81,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 78.13,
+      "payments31To60Days": 20.68,
+      "paymentsMoreThan60Days": 1.2,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 102,
+        "percentile": 75.2
+      }
+    },
+    {
+      "reportId": "PTR20003758",
+      "acnArbn": "009698631",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 78.42,
+      "payments31To60Days": 21.53,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 725,
+        "count": 2568,
+        "percentile": 71.1
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 92,
+        "percentile": 65.9
+      }
+    },
+    {
+      "reportId": "PTR20001120",
+      "acnArbn": "009698631",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.1,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 75.2,
+      "payments31To60Days": 23.6,
+      "paymentsMoreThan60Days": 1.2,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 85,
+        "percentile": 54.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "hitachi-construction-machinery-oceania-holdings-pty-ltd-94632744275",
+  "businessName": "HITACHI CONSTRUCTION MACHINERY OCEANIA HOLDINGS PTY LTD",
+  "abn": "94632744275",
+  "acnArbn": "632744275",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011379",
+      "acnArbn": "632744275",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.99,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 77.03,
+      "payments31To60Days": 22.78,
+      "paymentsMoreThan60Days": 0.16,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-15",
+      "overallP95Position": {
+        "rank": 95,
+        "count": 193,
+        "percentile": 49.5
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 45,
+        "percentile": 40.9
+      }
+    },
+    {
+      "reportId": "PTR20006891",
+      "acnArbn": "632744275",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.25,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 79.5,
+      "payments31To60Days": 20.4,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-06",
+      "overallP95Position": {
+        "rank": 109,
+        "count": 228,
+        "percentile": 49.8
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 59,
+        "percentile": 48.3
+      }
+    },
+    {
+      "reportId": "PTR20002591",
+      "acnArbn": "632744275",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.34,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 76.79,
+      "payments31To60Days": 23.02,
+      "paymentsMoreThan60Days": 0.18,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-20",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 231,
+        "percentile": 55.2
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 61,
+        "percentile": 48.3
+      }
+    }
+  ]
+}

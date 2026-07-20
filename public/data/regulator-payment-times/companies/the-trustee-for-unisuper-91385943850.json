@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-unisuper-91385943850",
+  "businessName": "The Trustee for UNISUPER",
+  "abn": "91385943850",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008208",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.29,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 90.24,
+      "payments31To60Days": 7.17,
+      "paymentsMoreThan60Days": 2.58,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 756,
+        "count": 2613,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 205,
+        "count": 338,
+        "percentile": 38.3
+      }
+    },
+    {
+      "reportId": "PTR20003340",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.91,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 88.25,
+      "payments31To60Days": 7.09,
+      "paymentsMoreThan60Days": 4.66,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-01",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 290,
+        "count": 349,
+        "percentile": 15.5
+      }
+    },
+    {
+      "reportId": "PTR20000360",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.39,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 85.85,
+      "payments31To60Days": 8.06,
+      "paymentsMoreThan60Days": 6.09,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-10",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 291,
+        "count": 339,
+        "percentile": 13.3
+      }
+    }
+  ]
+}

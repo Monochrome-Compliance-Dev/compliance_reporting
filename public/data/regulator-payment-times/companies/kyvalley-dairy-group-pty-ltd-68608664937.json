@@ -1,0 +1,95 @@
+{
+  "slug": "kyvalley-dairy-group-pty-ltd-68608664937",
+  "businessName": "KYVALLEY DAIRY GROUP PTY LTD",
+  "abn": "68608664937",
+  "acnArbn": "608664937",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009559",
+      "acnArbn": "608664937",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.35,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 63.25,
+      "payments31To60Days": 31.84,
+      "paymentsMoreThan60Days": 4.91,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 188,
+        "count": 347,
+        "percentile": 44.8
+      }
+    },
+    {
+      "reportId": "PTR20005936",
+      "acnArbn": "608664937",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.3,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 62.95,
+      "payments31To60Days": 33.18,
+      "paymentsMoreThan60Days": 3.88,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 335,
+        "percentile": 54.8
+      }
+    },
+    {
+      "reportId": "PTR20005933",
+      "acnArbn": "608664937",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.48,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 57.93,
+      "payments31To60Days": 36.02,
+      "paymentsMoreThan60Days": 6.05,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 323,
+        "percentile": 39.1
+      }
+    }
+  ]
+}

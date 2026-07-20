@@ -1,0 +1,39 @@
+{
+  "slug": "tomkins-commercial-and-industrial-builders-pty-ltd-98061732778",
+  "businessName": "TOMKINS COMMERCIAL & INDUSTRIAL BUILDERS PTY LTD",
+  "abn": "98061732778",
+  "acnArbn": "061732778",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006808",
+      "acnArbn": "061732778",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 110,
+      "payments30DaysOrLess": 79.94,
+      "payments31To60Days": 6.81,
+      "paymentsMoreThan60Days": 13.25,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-12-22",
+      "overallP95Position": {
+        "rank": 2441,
+        "count": 2568,
+        "percentile": 4.9
+      },
+      "industryP95Position": {
+        "rank": 243,
+        "count": 259,
+        "percentile": 6.2
+      }
+    }
+  ]
+}

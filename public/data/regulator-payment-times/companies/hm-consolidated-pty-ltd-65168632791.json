@@ -1,0 +1,39 @@
+{
+  "slug": "hm-consolidated-pty-ltd-65168632791",
+  "businessName": "HM CONSOLIDATED PTY LTD",
+  "abn": "65168632791",
+  "acnArbn": "168632791",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010783",
+      "acnArbn": "168632791",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.48,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 42.24,
+      "payments31To60Days": 47.42,
+      "paymentsMoreThan60Days": 10.34,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 143,
+        "percentile": 16.2
+      }
+    }
+  ]
+}

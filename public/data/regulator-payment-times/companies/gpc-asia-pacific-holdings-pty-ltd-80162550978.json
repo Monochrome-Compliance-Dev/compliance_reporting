@@ -1,0 +1,95 @@
+{
+  "slug": "gpc-asia-pacific-holdings-pty-ltd-80162550978",
+  "businessName": "GPC ASIA PACIFIC HOLDINGS PTY LTD",
+  "abn": "80162550978",
+  "acnArbn": "162550978",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009051",
+      "acnArbn": "162550978",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 63.05,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 83,
+      "p95PaymentTimeDays": 147,
+      "payments30DaysOrLess": 25.96,
+      "payments31To60Days": 41.2,
+      "paymentsMoreThan60Days": 32.84,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2587,
+        "count": 2613,
+        "percentile": 1
+      },
+      "industryP95Position": {
+        "rank": 329,
+        "count": 329,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20004406",
+      "acnArbn": "162550978",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 67.32,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 195,
+      "payments30DaysOrLess": 24.05,
+      "payments31To60Days": 40.28,
+      "paymentsMoreThan60Days": 35.67,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 2549,
+        "count": 2568,
+        "percentile": 0.7
+      },
+      "industryP95Position": {
+        "rank": 322,
+        "count": 323,
+        "percentile": 0.3
+      }
+    },
+    {
+      "reportId": "PTR20001921",
+      "acnArbn": "162550978",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 68.65,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 94,
+      "p95PaymentTimeDays": 192,
+      "payments30DaysOrLess": 22.67,
+      "payments31To60Days": 39.94,
+      "paymentsMoreThan60Days": 37.39,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2486,
+        "count": 2498,
+        "percentile": 0.5
+      },
+      "industryP95Position": {
+        "rank": 323,
+        "count": 323,
+        "percentile": 0
+      }
+    }
+  ]
+}

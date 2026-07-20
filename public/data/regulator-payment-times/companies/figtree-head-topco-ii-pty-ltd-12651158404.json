@@ -1,0 +1,95 @@
+{
+  "slug": "figtree-head-topco-ii-pty-ltd-12651158404",
+  "businessName": "FIGTREE HEAD TOPCO II PTY LTD",
+  "abn": "12651158404",
+  "acnArbn": "651158404",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010389",
+      "acnArbn": "651158404",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.41,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 97.59,
+      "payments31To60Days": 1.86,
+      "paymentsMoreThan60Days": 0.56,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2613,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 106,
+        "percentile": 96.2
+      }
+    },
+    {
+      "reportId": "PTR20004196",
+      "acnArbn": "651158404",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.66,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 97.9,
+      "payments31To60Days": 2.05,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 139,
+        "count": 2568,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 97,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002585",
+      "acnArbn": "651158404",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.39,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 98.21,
+      "payments31To60Days": 1.72,
+      "paymentsMoreThan60Days": 0.07,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-07-20",
+      "overallP95Position": {
+        "rank": 123,
+        "count": 2498,
+        "percentile": 94.5
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 97,
+        "percentile": 97.9
+      }
+    }
+  ]
+}

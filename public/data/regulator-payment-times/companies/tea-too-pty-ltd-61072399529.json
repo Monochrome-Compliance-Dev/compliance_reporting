@@ -1,0 +1,95 @@
+{
+  "slug": "tea-too-pty-ltd-61072399529",
+  "businessName": "TEA TOO PTY. LTD.",
+  "abn": "61072399529",
+  "acnArbn": "072399529",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010245",
+      "acnArbn": "072399529",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 74,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 207,
+        "percentile": 81.1
+      }
+    },
+    {
+      "reportId": "PTR20004530",
+      "acnArbn": "072399529",
+      "reportingPeriodStartDate": "2025-05-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 72,
+      "payments31To60Days": 23,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 208,
+        "percentile": 85
+      }
+    },
+    {
+      "reportId": "PTR20001050",
+      "acnArbn": "072399529",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 207,
+        "percentile": 83
+      }
+    }
+  ]
+}

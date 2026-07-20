@@ -1,0 +1,95 @@
+{
+  "slug": "northwestern-roads-group-pty-ltd-21169328330",
+  "businessName": "NORTHWESTERN ROADS GROUP PTY LTD",
+  "abn": "21169328330",
+  "acnArbn": "169328330",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009982",
+      "acnArbn": "169328330",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 97.77,
+      "payments31To60Days": 1.27,
+      "paymentsMoreThan60Days": 0.96,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 118,
+        "count": 2613,
+        "percentile": 95.1
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 143,
+        "percentile": 95.8
+      }
+    },
+    {
+      "reportId": "PTR20004771",
+      "acnArbn": "169328330",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 96.8,
+      "payments31To60Days": 2.4,
+      "paymentsMoreThan60Days": 0.8,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 113,
+        "count": 2568,
+        "percentile": 95.1
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 144,
+        "percentile": 96.5
+      }
+    },
+    {
+      "reportId": "PTR20001530",
+      "acnArbn": "169328330",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 97.7,
+      "payments31To60Days": 2.6,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 123,
+        "count": 2498,
+        "percentile": 94.5
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 140,
+        "percentile": 95
+      }
+    }
+  ]
+}

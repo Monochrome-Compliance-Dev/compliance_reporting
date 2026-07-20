@@ -1,0 +1,95 @@
+{
+  "slug": "opus-group-pty-ltd-48006162876",
+  "businessName": "OPUS GROUP PTY. LTD.",
+  "abn": "48006162876",
+  "acnArbn": "006162876",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Printing (including the reproduction of recorded media)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008984",
+      "acnArbn": "006162876",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.81,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 63.34,
+      "payments31To60Days": 35.86,
+      "paymentsMoreThan60Days": 0.8,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 70,
+        "count": 347,
+        "percentile": 79.2
+      }
+    },
+    {
+      "reportId": "PTR20004141",
+      "acnArbn": "006162876",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.73,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 48.56,
+      "payments31To60Days": 48.52,
+      "paymentsMoreThan60Days": 2.94,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 128,
+        "count": 335,
+        "percentile": 60.5
+      }
+    },
+    {
+      "reportId": "PTR20002943",
+      "acnArbn": "006162876",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 42.43,
+      "payments31To60Days": 54.55,
+      "paymentsMoreThan60Days": 3.02,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 323,
+        "percentile": 59.3
+      }
+    }
+  ]
+}

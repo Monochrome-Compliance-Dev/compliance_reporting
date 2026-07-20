@@ -1,0 +1,95 @@
+{
+  "slug": "finder-com-pty-ltd-69125761480",
+  "businessName": "FINDER.COM PTY LTD",
+  "abn": "69125761480",
+  "acnArbn": "125761480",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Internet publishing and broadcasting",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007147",
+      "acnArbn": "125761480",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.25,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 56.35,
+      "payments31To60Days": 26.57,
+      "paymentsMoreThan60Days": 17,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-02-07",
+      "overallP95Position": {
+        "rank": 2212,
+        "count": 2613,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 60,
+        "percentile": 16.9
+      }
+    },
+    {
+      "reportId": "PTR20003378",
+      "acnArbn": "125761480",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.81,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 52.79,
+      "payments31To60Days": 27.06,
+      "paymentsMoreThan60Days": 20.15,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-02",
+      "overallP95Position": {
+        "rank": 2081,
+        "count": 2568,
+        "percentile": 18.4
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 55,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20001680",
+      "acnArbn": "125761480",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.62,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 47.52,
+      "payments31To60Days": 23.62,
+      "paymentsMoreThan60Days": 28.86,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-28",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 58,
+        "percentile": 14
+      }
+    }
+  ]
+}

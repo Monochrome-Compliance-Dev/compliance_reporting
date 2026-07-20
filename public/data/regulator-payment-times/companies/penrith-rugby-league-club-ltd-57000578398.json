@@ -1,0 +1,67 @@
+{
+  "slug": "penrith-rugby-league-club-ltd-57000578398",
+  "businessName": "PENRITH RUGBY LEAGUE CLUB LTD",
+  "abn": "57000578398",
+  "acnArbn": "000578398",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-10-30",
+  "reports": [
+    {
+      "reportId": "PTR20006675",
+      "acnArbn": "000578398",
+      "reportingPeriodStartDate": "2025-04-30",
+      "reportingPeriodEndDate": "2025-10-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.28,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 72.67,
+      "payments31To60Days": 25.44,
+      "paymentsMoreThan60Days": 1.89,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-12-11",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 28,
+        "percentile": 81.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002991",
+      "acnArbn": "000578398",
+      "reportingPeriodStartDate": "2024-10-31",
+      "reportingPeriodEndDate": "2025-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.55,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 69.82,
+      "payments31To60Days": 28.07,
+      "paymentsMoreThan60Days": 2.11,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-07-29",
+      "overallP95Position": {
+        "rank": 9,
+        "count": 28,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

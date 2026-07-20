@@ -1,0 +1,95 @@
+{
+  "slug": "anglo-american-technical-and-sustainability-services-ltd-81629813216",
+  "businessName": "ANGLO AMERICAN TECHNICAL & SUSTAINABILITY SERVICES LTD",
+  "abn": "81629813216",
+  "acnArbn": "629813216",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009163",
+      "acnArbn": "629813216",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.1,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 63.36,
+      "payments31To60Days": 21.37,
+      "paymentsMoreThan60Days": 15.27,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2227,
+        "count": 2613,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 177,
+        "percentile": 14.2
+      }
+    },
+    {
+      "reportId": "PTR20005266",
+      "acnArbn": "629813216",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.53,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 51.91,
+      "payments31To60Days": 38.17,
+      "paymentsMoreThan60Days": 9.92,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 173,
+        "percentile": 20.3
+      }
+    },
+    {
+      "reportId": "PTR20002718",
+      "acnArbn": "629813216",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52.41,
+      "medianPaymentTimeDays": 52,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 22.22,
+      "payments31To60Days": 45.83,
+      "paymentsMoreThan60Days": 31.94,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 2498,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 154,
+        "count": 170,
+        "percentile": 8.9
+      }
+    }
+  ]
+}

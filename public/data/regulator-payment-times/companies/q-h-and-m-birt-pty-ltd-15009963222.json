@@ -1,0 +1,95 @@
+{
+  "slug": "q-h-and-m-birt-pty-ltd-15009963222",
+  "businessName": "Q.H. & M. BIRT PTY. LTD.",
+  "abn": "15009963222",
+  "acnArbn": "009963222",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008456",
+      "acnArbn": "009963222",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 41,
+      "payments31To60Days": 56,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 131,
+        "count": 270,
+        "percentile": 48.7
+      }
+    },
+    {
+      "reportId": "PTR20008446",
+      "acnArbn": "009963222",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 37,
+      "payments31To60Days": 56,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 259,
+        "percentile": 39.9
+      }
+    },
+    {
+      "reportId": "PTR20008448",
+      "acnArbn": "009963222",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 34,
+      "payments31To60Days": 59,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 250,
+        "percentile": 33.7
+      }
+    }
+  ]
+}

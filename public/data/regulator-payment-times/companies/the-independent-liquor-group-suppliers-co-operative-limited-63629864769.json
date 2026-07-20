@@ -1,0 +1,95 @@
+{
+  "slug": "the-independent-liquor-group-suppliers-co-operative-limited-63629864769",
+  "businessName": "THE INDEPENDENT LIQUOR GROUP (SUPPLIERS) CO-OPERATIVE LIMITED",
+  "abn": "63629864769",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009582",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.22,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 23.3,
+      "payments31To60Days": 50.23,
+      "paymentsMoreThan60Days": 26.47,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2343,
+        "count": 2613,
+        "percentile": 9.7
+      },
+      "industryP95Position": {
+        "rank": 285,
+        "count": 329,
+        "percentile": 12.8
+      }
+    },
+    {
+      "reportId": "PTR20009575",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 58.51,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 19.37,
+      "payments31To60Days": 44.85,
+      "paymentsMoreThan60Days": 35.78,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2387,
+        "count": 2568,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 295,
+        "count": 323,
+        "percentile": 7.5
+      }
+    },
+    {
+      "reportId": "PTR20001192",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.31,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 24.09,
+      "payments31To60Days": 54.44,
+      "paymentsMoreThan60Days": 21.47,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2498,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 265,
+        "count": 323,
+        "percentile": 17.7
+      }
+    }
+  ]
+}

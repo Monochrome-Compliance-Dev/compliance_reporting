@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-km-unit-trust-36220576038",
+  "businessName": "The Trustee for KM UNIT TRUST",
+  "abn": "36220576038",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008104",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.67,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 85.81,
+      "payments31To60Days": 9.72,
+      "paymentsMoreThan60Days": 4.47,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 98,
+        "count": 183,
+        "percentile": 45.1
+      }
+    },
+    {
+      "reportId": "PTR20003700",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.49,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 82.25,
+      "payments31To60Days": 10.02,
+      "paymentsMoreThan60Days": 7.73,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 2096,
+        "count": 2568,
+        "percentile": 17.5
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 181,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20001347",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.72,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 84.32,
+      "payments31To60Days": 9.03,
+      "paymentsMoreThan60Days": 6.65,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 137,
+        "count": 176,
+        "percentile": 21.7
+      }
+    }
+  ]
+}

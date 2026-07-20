@@ -1,0 +1,39 @@
+{
+  "slug": "metro-trains-australia-pty-ltd-88614061960",
+  "businessName": "METRO TRAINS AUSTRALIA PTY LTD",
+  "abn": "88614061960",
+  "acnArbn": "614061960",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Rail transport",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007569",
+      "acnArbn": "614061960",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.92,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 8.8,
+      "payments31To60Days": 86.5,
+      "paymentsMoreThan60Days": 4.7,
+      "industrySubdivision": "Rail transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-02",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 85,
+        "count": 140,
+        "percentile": 37.4
+      }
+    }
+  ]
+}

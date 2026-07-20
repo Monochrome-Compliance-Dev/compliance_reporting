@@ -1,0 +1,95 @@
+{
+  "slug": "cdc-group-holdings-pty-ltd-67612332073",
+  "businessName": "CDC GROUP HOLDINGS PTY LTD",
+  "abn": "67612332073",
+  "acnArbn": "612332073",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Internet service providers, web search portals and data processing services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011669",
+      "acnArbn": "612332073",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 11,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 119,
+        "count": 193,
+        "percentile": 36.5
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 7,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20006779",
+      "acnArbn": "612332073",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 65,
+      "payments31To60Days": 27,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 195,
+        "count": 228,
+        "percentile": 14.5
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 6,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006780",
+      "acnArbn": "612332073",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": true,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 220,
+        "count": 231,
+        "percentile": 4.3
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 7,
+        "percentile": 0
+      }
+    }
+  ]
+}

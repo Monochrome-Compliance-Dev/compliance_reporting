@@ -1,0 +1,95 @@
+{
+  "slug": "thc-holding-nsw-pty-ltd-98601822020",
+  "businessName": "THC HOLDING (NSW) PTY LTD",
+  "abn": "98601822020",
+  "acnArbn": "601822020",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007021",
+      "acnArbn": "601822020",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4.12,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 12,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-26",
+      "overallP95Position": {
+        "rank": 39,
+        "count": 2613,
+        "percentile": 98.4
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 329,
+        "percentile": 99.4
+      }
+    },
+    {
+      "reportId": "PTR20004189",
+      "acnArbn": "601822020",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3.93,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 12,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 47,
+        "count": 2568,
+        "percentile": 98.2
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 323,
+        "percentile": 99.4
+      }
+    },
+    {
+      "reportId": "PTR20001606",
+      "acnArbn": "601822020",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3.12,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 47,
+        "count": 2498,
+        "percentile": 98
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 323,
+        "percentile": 99.4
+      }
+    }
+  ]
+}

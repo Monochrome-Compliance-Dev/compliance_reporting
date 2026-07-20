@@ -1,0 +1,95 @@
+{
+  "slug": "truck-centre-wa-pty-ltd-19120476879",
+  "businessName": "TRUCK CENTRE (WA) PTY LTD",
+  "abn": "19120476879",
+  "acnArbn": "120476879",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011082",
+      "acnArbn": "120476879",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.69,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 33.18,
+      "payments31To60Days": 57.95,
+      "paymentsMoreThan60Days": 8.87,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-17",
+      "overallP95Position": {
+        "rank": 2227,
+        "count": 2613,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 261,
+        "count": 329,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20011080",
+      "acnArbn": "120476879",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.19,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 36.43,
+      "payments31To60Days": 57.11,
+      "paymentsMoreThan60Days": 6.46,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-17",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 213,
+        "count": 323,
+        "percentile": 32.9
+      }
+    },
+    {
+      "reportId": "PTR20011077",
+      "acnArbn": "120476879",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.9,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 36.04,
+      "payments31To60Days": 52.61,
+      "paymentsMoreThan60Days": 11.35,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-17",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2498,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 262,
+        "count": 323,
+        "percentile": 18.3
+      }
+    }
+  ]
+}

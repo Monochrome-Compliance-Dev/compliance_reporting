@@ -1,0 +1,95 @@
+{
+  "slug": "anticimex-pty-ltd-24162914374",
+  "businessName": "ANTICIMEX PTY LTD",
+  "abn": "24162914374",
+  "acnArbn": "162914374",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Building cleaning, pest control and other support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008658",
+      "acnArbn": "162914374",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.48,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.72,
+      "payments31To60Days": 4.28,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 49,
+        "percentile": 75
+      }
+    },
+    {
+      "reportId": "PTR20004984",
+      "acnArbn": "162914374",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.86,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96.45,
+      "payments31To60Days": 3.51,
+      "paymentsMoreThan60Days": 0.04,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 50,
+        "percentile": 65.3
+      }
+    },
+    {
+      "reportId": "PTR20001092",
+      "acnArbn": "162914374",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.18,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 97.11,
+      "payments31To60Days": 2.89,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 50,
+        "percentile": 73.5
+      }
+    }
+  ]
+}

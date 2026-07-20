@@ -1,0 +1,95 @@
+{
+  "slug": "warakirri-2-pty-ltd-98064530454",
+  "businessName": "WARAKIRRI 2 PTY. LTD.",
+  "abn": "98064530454",
+  "acnArbn": "064530454",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011534",
+      "acnArbn": "064530454",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.12,
+      "payments31To60Days": 5.69,
+      "paymentsMoreThan60Days": 0.18,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-06-23",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 102,
+        "percentile": 84.2
+      }
+    },
+    {
+      "reportId": "PTR20004950",
+      "acnArbn": "064530454",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 87.07,
+      "payments31To60Days": 12.52,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 92,
+        "percentile": 68.1
+      }
+    },
+    {
+      "reportId": "PTR20001615",
+      "acnArbn": "064530454",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 82.72,
+      "payments31To60Days": 14.69,
+      "paymentsMoreThan60Days": 2.59,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 85,
+        "percentile": 42.9
+      }
+    }
+  ]
+}

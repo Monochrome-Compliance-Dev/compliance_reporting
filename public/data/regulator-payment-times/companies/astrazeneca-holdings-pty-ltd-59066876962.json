@@ -1,0 +1,95 @@
+{
+  "slug": "astrazeneca-holdings-pty-ltd-59066876962",
+  "businessName": "ASTRAZENECA HOLDINGS PTY LTD",
+  "abn": "59066876962",
+  "acnArbn": "066876962",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007614",
+      "acnArbn": "066876962",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.88,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 72.13,
+      "payments31To60Days": 18.54,
+      "paymentsMoreThan60Days": 9.33,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-03",
+      "overallP95Position": {
+        "rank": 2190,
+        "count": 2613,
+        "percentile": 15.4
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 106,
+        "percentile": 21.9
+      }
+    },
+    {
+      "reportId": "PTR20003890",
+      "acnArbn": "066876962",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.63,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 72.32,
+      "payments31To60Days": 18.8,
+      "paymentsMoreThan60Days": 8.88,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 97,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20003887",
+      "acnArbn": "066876962",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.03,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 68.28,
+      "payments31To60Days": 16.84,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 2000,
+        "count": 2498,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 97,
+        "percentile": 24
+      }
+    }
+  ]
+}

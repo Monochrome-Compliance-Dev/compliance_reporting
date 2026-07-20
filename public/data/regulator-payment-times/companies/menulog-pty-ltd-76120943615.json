@@ -1,0 +1,67 @@
+{
+  "slug": "menulog-pty-ltd-76120943615",
+  "businessName": "MENULOG PTY LTD",
+  "abn": "76120943615",
+  "acnArbn": "120943615",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Postal and courier pick-up and delivery services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004054",
+      "acnArbn": "120943615",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 74,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Postal and courier pick-up and delivery services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 1883,
+        "count": 2568,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 109,
+        "count": 144,
+        "percentile": 23.8
+      }
+    },
+    {
+      "reportId": "PTR20001431",
+      "acnArbn": "120943615",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 375,
+      "payments30DaysOrLess": 89.13,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 0.87,
+      "industrySubdivision": "Postal and courier pick-up and delivery services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2494,
+        "count": 2498,
+        "percentile": 0.2
+      },
+      "industryP95Position": {
+        "rank": 140,
+        "count": 140,
+        "percentile": 0
+      }
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import PaymentTimesReporting from "slices/marketing/ptrs/PaymentTimesReporting";
+import { PricingPage } from "slices/marketing/pricing/PricingPage";
 import PaymentTimesReportingPrint from "slices/marketing/ptrs/PaymentTimesReporting.print";
 import ConstructionPaymentReporting from "slices/marketing/construction/ConstructionPaymentReporting";
 import IndustryInsights from "slices/marketing/insights/IndustryInsights";
@@ -6,7 +7,6 @@ import Services from "slices/marketing/services/Services";
 import Industries from "slices/marketing/industries/Industries";
 import BlogIndex from "slices/marketing/insights/blog/BlogIndex";
 import BlogPostPage from "slices/marketing/insights/blog/BlogPostPage";
-import PriceTier from "slices/marketing/pricing/PriceTier";
 import { Contact, ContactThankyou } from "slices/public/forms";
 import { About } from "slices/public/static";
 import Login from "slices/users/components/Login";
@@ -33,6 +33,7 @@ export const publicRoutes = [
   { path: "services", Component: Services },
   { path: "industries", Component: Industries },
   { path: "payment-times-reporting", Component: PaymentTimesReporting },
+  { path: "pricing", Component: PricingPage },
   {
     path: "construction-payment-reporting",
     Component: ConstructionPaymentReporting,
@@ -44,7 +45,7 @@ export const publicRoutes = [
   { path: "insights/blog", Component: BlogIndex },
   { path: "insights/blog/:slug", Component: BlogPostPage },
   { path: "insights", Component: IndustryInsights },
-  { path: "pricing", Component: PriceTier },
+  { path: "pricing", Component: PricingPage },
   {
     path: "payment-times-reporting-print",
     Component: PaymentTimesReportingPrint,

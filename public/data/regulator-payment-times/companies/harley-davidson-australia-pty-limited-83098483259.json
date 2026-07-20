@@ -1,0 +1,95 @@
+{
+  "slug": "harley-davidson-australia-pty-limited-83098483259",
+  "businessName": "Harley-Davidson Australia Pty Limited",
+  "abn": "83098483259",
+  "acnArbn": "098483259",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007674",
+      "acnArbn": "098483259",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 87,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-05",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 329,
+        "percentile": 45.1
+      }
+    },
+    {
+      "reportId": "PTR20003685",
+      "acnArbn": "098483259",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 323,
+        "percentile": 41.9
+      }
+    },
+    {
+      "reportId": "PTR20002531",
+      "acnArbn": "098483259",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-15",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 221,
+        "count": 323,
+        "percentile": 30.7
+      }
+    }
+  ]
+}

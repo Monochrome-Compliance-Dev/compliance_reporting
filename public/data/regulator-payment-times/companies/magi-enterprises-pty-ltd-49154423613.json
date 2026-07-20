@@ -1,0 +1,95 @@
+{
+  "slug": "magi-enterprises-pty-ltd-49154423613",
+  "businessName": "Magi Enterprises Pty Ltd",
+  "abn": "49154423613",
+  "acnArbn": "154423613",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007211",
+      "acnArbn": "154423613",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-02-12",
+      "overallP95Position": {
+        "rank": 2295,
+        "count": 2613,
+        "percentile": 11.8
+      },
+      "industryP95Position": {
+        "rank": 188,
+        "count": 207,
+        "percentile": 9.2
+      }
+    },
+    {
+      "reportId": "PTR20006137",
+      "acnArbn": "154423613",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 70.5,
+      "payments31To60Days": 19.8,
+      "paymentsMoreThan60Days": 9.7,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 2014,
+        "count": 2568,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 168,
+        "count": 208,
+        "percentile": 18.8
+      }
+    },
+    {
+      "reportId": "PTR20006136",
+      "acnArbn": "154423613",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 75.4,
+      "payments31To60Days": 16.2,
+      "paymentsMoreThan60Days": 8.5,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 2113,
+        "count": 2498,
+        "percentile": 15
+      },
+      "industryP95Position": {
+        "rank": 174,
+        "count": 207,
+        "percentile": 16
+      }
+    }
+  ]
+}

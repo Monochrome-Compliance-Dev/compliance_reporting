@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-plummer-family-trust-57916269052",
+  "businessName": "THE TRUSTEE FOR PLUMMER FAMILY TRUST",
+  "abn": "57916269052",
+  "acnArbn": "",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008372",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 48.45,
+      "payments31To60Days": 41.6,
+      "paymentsMoreThan60Days": 9.95,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2613,
+        "percentile": 16.2
+      },
+      "industryP95Position": {
+        "rank": 249,
+        "count": 347,
+        "percentile": 26
+      }
+    },
+    {
+      "reportId": "PTR20003458",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 19.36,
+      "payments31To60Days": 63.73,
+      "paymentsMoreThan60Days": 16.91,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-07",
+      "overallP95Position": {
+        "rank": 2156,
+        "count": 2568,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 252,
+        "count": 335,
+        "percentile": 24.3
+      }
+    },
+    {
+      "reportId": "PTR20000160",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 33,
+      "payments31To60Days": 59,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-05-25",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 174,
+        "count": 323,
+        "percentile": 44.7
+      }
+    }
+  ]
+}

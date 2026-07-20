@@ -1,0 +1,95 @@
+{
+  "slug": "ettason-pty-limited-47002837390",
+  "businessName": "ETTASON PTY. LIMITED",
+  "abn": "47002837390",
+  "acnArbn": "002837390",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007202",
+      "acnArbn": "002837390",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.17,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 45.23,
+      "payments31To60Days": 50.63,
+      "paymentsMoreThan60Days": 4.14,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-12",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 160,
+        "count": 329,
+        "percentile": 49.7
+      }
+    },
+    {
+      "reportId": "PTR20003107",
+      "acnArbn": "002837390",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.9,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 41.6,
+      "payments31To60Days": 55.2,
+      "paymentsMoreThan60Days": 3.2,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-13",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 141,
+        "count": 323,
+        "percentile": 54
+      }
+    },
+    {
+      "reportId": "PTR20000244",
+      "acnArbn": "002837390",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.11,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 55.6,
+      "payments31To60Days": 38.55,
+      "paymentsMoreThan60Days": 5.85,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-02",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 323,
+        "percentile": 37.6
+      }
+    }
+  ]
+}

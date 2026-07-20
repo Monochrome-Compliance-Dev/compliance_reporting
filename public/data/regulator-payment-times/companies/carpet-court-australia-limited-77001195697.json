@@ -1,0 +1,95 @@
+{
+  "slug": "carpet-court-australia-limited-77001195697",
+  "businessName": "CARPET COURT AUSTRALIA LIMITED",
+  "abn": "77001195697",
+  "acnArbn": "001195697",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010366",
+      "acnArbn": "001195697",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.79,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 85,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 207,
+        "percentile": 31.1
+      }
+    },
+    {
+      "reportId": "PTR20003315",
+      "acnArbn": "001195697",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.49,
+      "medianPaymentTimeDays": 46.5,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 6.44,
+      "payments31To60Days": 87.59,
+      "paymentsMoreThan60Days": 5.96,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-08-31",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 208,
+        "percentile": 39.6
+      }
+    },
+    {
+      "reportId": "PTR20000541",
+      "acnArbn": "001195697",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.68,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 4.74,
+      "payments31To60Days": 87.19,
+      "paymentsMoreThan60Days": 8.07,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-16",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 207,
+        "percentile": 43.2
+      }
+    }
+  ]
+}

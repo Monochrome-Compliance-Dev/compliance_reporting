@@ -1,0 +1,95 @@
+{
+  "slug": "bayer-cropscience-holdings-pty-ltd-74003502494",
+  "businessName": "BAYER CROPSCIENCE HOLDINGS PTY LTD",
+  "abn": "74003502494",
+  "acnArbn": "003502494",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007846",
+      "acnArbn": "003502494",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.48,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 66.06,
+      "payments31To60Days": 31.56,
+      "paymentsMoreThan60Days": 1.9,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 347,
+        "percentile": 59
+      }
+    },
+    {
+      "reportId": "PTR20004892",
+      "acnArbn": "003502494",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.52,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 66.5,
+      "payments31To60Days": 31.6,
+      "paymentsMoreThan60Days": 1.9,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 335,
+        "percentile": 70.4
+      }
+    },
+    {
+      "reportId": "PTR20001127",
+      "acnArbn": "003502494",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.35,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 53.06,
+      "payments31To60Days": 45.87,
+      "paymentsMoreThan60Days": 1.07,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 323,
+        "percentile": 73
+      }
+    }
+  ]
+}

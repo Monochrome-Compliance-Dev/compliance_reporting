@@ -1,0 +1,95 @@
+{
+  "slug": "latrobe-health-services-limited-94137187010",
+  "businessName": "Latrobe Health Services Limited",
+  "abn": "94137187010",
+  "acnArbn": "137187010",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009230",
+      "acnArbn": "137187010",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.45,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 58.8,
+      "payments31To60Days": 38.85,
+      "paymentsMoreThan60Days": 2.35,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1305,
+        "count": 2613,
+        "percentile": 47.8
+      },
+      "industryP95Position": {
+        "rank": 278,
+        "count": 338,
+        "percentile": 16.3
+      }
+    },
+    {
+      "reportId": "PTR20003862",
+      "acnArbn": "137187010",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.54,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 54.55,
+      "payments31To60Days": 40.97,
+      "paymentsMoreThan60Days": 4.48,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 286,
+        "count": 349,
+        "percentile": 17.2
+      }
+    },
+    {
+      "reportId": "PTR20000314",
+      "acnArbn": "137187010",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.65,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 61.4,
+      "payments31To60Days": 34.1,
+      "paymentsMoreThan60Days": 4.5,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-09",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 274,
+        "count": 339,
+        "percentile": 18.3
+      }
+    }
+  ]
+}

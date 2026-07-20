@@ -1,0 +1,95 @@
+{
+  "slug": "ix-infrastructure-pty-ltd-78629750401",
+  "businessName": "IX INFRASTRUCTURE PTY LTD",
+  "abn": "78629750401",
+  "acnArbn": "629750401",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011375",
+      "acnArbn": "629750401",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 40.36,
+      "payments31To60Days": 46.77,
+      "paymentsMoreThan60Days": 12.87,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-15",
+      "overallP95Position": {
+        "rank": 175,
+        "count": 193,
+        "percentile": 9.4
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 25,
+        "percentile": 20.8
+      }
+    },
+    {
+      "reportId": "PTR20006707",
+      "acnArbn": "629750401",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 46.77,
+      "payments31To60Days": 44.27,
+      "paymentsMoreThan60Days": 8.96,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-14",
+      "overallP95Position": {
+        "rank": 178,
+        "count": 228,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 28,
+        "percentile": 48.1
+      }
+    },
+    {
+      "reportId": "PTR20001994",
+      "acnArbn": "629750401",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 36.3,
+      "payments31To60Days": 48.6,
+      "paymentsMoreThan60Days": 15.1,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 205,
+        "count": 231,
+        "percentile": 10.9
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 32,
+        "percentile": 9.7
+      }
+    }
+  ]
+}

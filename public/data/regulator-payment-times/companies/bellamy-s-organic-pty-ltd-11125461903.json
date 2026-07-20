@@ -1,0 +1,95 @@
+{
+  "slug": "bellamy-s-organic-pty-ltd-11125461903",
+  "businessName": "Bellamy's Organic Pty Ltd",
+  "abn": "11125461903",
+  "acnArbn": "125461903",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011381",
+      "acnArbn": "125461903",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 87.89,
+      "payments31To60Days": 11.73,
+      "paymentsMoreThan60Days": 0.38,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-15",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 347,
+        "percentile": 93.4
+      }
+    },
+    {
+      "reportId": "PTR20011380",
+      "acnArbn": "125461903",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 66.65,
+      "payments31To60Days": 29.24,
+      "paymentsMoreThan60Days": 4.12,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-15",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 335,
+        "percentile": 70.4
+      }
+    },
+    {
+      "reportId": "PTR20011326",
+      "acnArbn": "125461903",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.65,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 83.9,
+      "payments31To60Days": 13.59,
+      "paymentsMoreThan60Days": 2.43,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-10",
+      "overallP95Position": {
+        "rank": 745,
+        "count": 2498,
+        "percentile": 68.9
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 323,
+        "percentile": 87.9
+      }
+    }
+  ]
+}

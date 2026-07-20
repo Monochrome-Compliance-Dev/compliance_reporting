@@ -1,0 +1,95 @@
+{
+  "slug": "mainfreight-holdings-pty-ltd-24084637605",
+  "businessName": "MAINFREIGHT HOLDINGS PTY LTD",
+  "abn": "24084637605",
+  "acnArbn": "084637605",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20010942",
+      "acnArbn": "084637605",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.9,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 71.63,
+      "payments31To60Days": 27.22,
+      "paymentsMoreThan60Days": 1.16,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-30",
+      "overallP95Position": {
+        "rank": 83,
+        "count": 193,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 14,
+        "percentile": 53.8
+      }
+    },
+    {
+      "reportId": "PTR20006046",
+      "acnArbn": "084637605",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.22,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 77.73,
+      "payments31To60Days": 21.41,
+      "paymentsMoreThan60Days": 0.86,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-14",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 228,
+        "percentile": 54.6
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 18,
+        "percentile": 76.5
+      }
+    },
+    {
+      "reportId": "PTR20000569",
+      "acnArbn": "084637605",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.42,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 77.64,
+      "payments31To60Days": 21.08,
+      "paymentsMoreThan60Days": 1.28,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 93,
+        "count": 231,
+        "percentile": 59.1
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 17,
+        "percentile": 81.3
+      }
+    }
+  ]
+}

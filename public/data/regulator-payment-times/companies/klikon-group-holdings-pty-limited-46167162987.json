@@ -1,0 +1,95 @@
+{
+  "slug": "klikon-group-holdings-pty-limited-46167162987",
+  "businessName": "KLIKON GROUP HOLDINGS PTY LIMITED",
+  "abn": "46167162987",
+  "acnArbn": "167162987",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009742",
+      "acnArbn": "167162987",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.64,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 72.11,
+      "payments31To60Days": 18.68,
+      "paymentsMoreThan60Days": 9.21,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2613,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 183,
+        "percentile": 24.2
+      }
+    },
+    {
+      "reportId": "PTR20005982",
+      "acnArbn": "167162987",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.39,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 7595,
+      "payments30DaysOrLess": 65.48,
+      "payments31To60Days": 26.52,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-10-06",
+      "overallP95Position": {
+        "rank": 2568,
+        "count": 2568,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 181,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20004814",
+      "acnArbn": "167162987",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 23.5,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 66.7,
+      "payments31To60Days": 24.5,
+      "paymentsMoreThan60Days": 8.8,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2000,
+        "count": 2498,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 131,
+        "count": 176,
+        "percentile": 24.6
+      }
+    }
+  ]
+}

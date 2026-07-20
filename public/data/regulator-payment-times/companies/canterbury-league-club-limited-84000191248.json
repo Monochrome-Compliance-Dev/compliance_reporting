@@ -1,0 +1,67 @@
+{
+  "slug": "canterbury-league-club-limited-84000191248",
+  "businessName": "CANTERBURY LEAGUE CLUB LIMITED",
+  "abn": "84000191248",
+  "acnArbn": "000191248",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2026-04-29",
+  "reports": [
+    {
+      "reportId": "PTR20011054",
+      "acnArbn": "000191248",
+      "reportingPeriodStartDate": "2025-10-31",
+      "reportingPeriodEndDate": "2026-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.37,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 92.17,
+      "payments31To60Days": 7.39,
+      "paymentsMoreThan60Days": 0.45,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-05-13",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 6,
+        "percentile": 60
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 3,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20006800",
+      "acnArbn": "000191248",
+      "reportingPeriodStartDate": "2025-04-30",
+      "reportingPeriodEndDate": "2025-10-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.13,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 89.55,
+      "payments31To60Days": 2.85,
+      "paymentsMoreThan60Days": 7.6,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-12-21",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 28,
+        "percentile": 85.2
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 6,
+        "percentile": 80
+      }
+    }
+  ]
+}

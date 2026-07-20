@@ -1,0 +1,67 @@
+{
+  "slug": "ausreo-pty-limited-11094555192",
+  "businessName": "AUSREO PTY LIMITED",
+  "abn": "11094555192",
+  "acnArbn": "094555192",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006376",
+      "acnArbn": "094555192",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.29,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 68.31,
+      "payments31To60Days": 30.65,
+      "paymentsMoreThan60Days": 1.05,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 335,
+        "percentile": 79
+      }
+    },
+    {
+      "reportId": "PTR20006374",
+      "acnArbn": "094555192",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.18,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 62.76,
+      "payments31To60Days": 35.19,
+      "paymentsMoreThan60Days": 2.05,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 1123,
+        "count": 2498,
+        "percentile": 54
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

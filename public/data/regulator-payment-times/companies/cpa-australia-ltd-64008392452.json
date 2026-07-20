@@ -1,0 +1,95 @@
+{
+  "slug": "cpa-australia-ltd-64008392452",
+  "businessName": "CPA AUSTRALIA LTD",
+  "abn": "64008392452",
+  "acnArbn": "008392452",
+  "industryDivision": "Education and Training",
+  "industrySubdivision": "Tertiary education",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008734",
+      "acnArbn": "008392452",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.42,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 82.23,
+      "payments31To60Days": 10.67,
+      "paymentsMoreThan60Days": 7.09,
+      "industrySubdivision": "Tertiary education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2212,
+        "count": 2613,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 14,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20004108",
+      "acnArbn": "008392452",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.73,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 82.21,
+      "payments31To60Days": 10.6,
+      "paymentsMoreThan60Days": 7.19,
+      "industrySubdivision": "Tertiary education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 2014,
+        "count": 2568,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 15,
+        "percentile": 14.3
+      }
+    },
+    {
+      "reportId": "PTR20001128",
+      "acnArbn": "008392452",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.94,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 88.65,
+      "payments31To60Days": 5.74,
+      "paymentsMoreThan60Days": 5.61,
+      "industrySubdivision": "Tertiary education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 12,
+        "percentile": 9.1
+      }
+    }
+  ]
+}

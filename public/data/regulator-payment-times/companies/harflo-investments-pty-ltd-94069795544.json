@@ -1,0 +1,95 @@
+{
+  "slug": "harflo-investments-pty-ltd-94069795544",
+  "businessName": "HARFLO INVESTMENTS PTY LTD",
+  "abn": "94069795544",
+  "acnArbn": "069795544",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009125",
+      "acnArbn": "069795544",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.84,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 22.61,
+      "payments31To60Days": 55.27,
+      "paymentsMoreThan60Days": 22.12,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2295,
+        "count": 2613,
+        "percentile": 11.8
+      },
+      "industryP95Position": {
+        "rank": 240,
+        "count": 270,
+        "percentile": 10.8
+      }
+    },
+    {
+      "reportId": "PTR20004105",
+      "acnArbn": "069795544",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.34,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 117,
+      "payments30DaysOrLess": 18.11,
+      "payments31To60Days": 57.87,
+      "paymentsMoreThan60Days": 24.02,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 2470,
+        "count": 2568,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 247,
+        "count": 259,
+        "percentile": 4.3
+      }
+    },
+    {
+      "reportId": "PTR20001827",
+      "acnArbn": "069795544",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.08,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 24.05,
+      "payments31To60Days": 59.73,
+      "paymentsMoreThan60Days": 16.22,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2312,
+        "count": 2498,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 236,
+        "count": 250,
+        "percentile": 5.2
+      }
+    }
+  ]
+}

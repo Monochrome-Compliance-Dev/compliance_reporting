@@ -1,0 +1,95 @@
+{
+  "slug": "sinopec-international-australia-pty-limited-69163459701",
+  "businessName": "SINOPEC INTERNATIONAL (AUSTRALIA) PTY LIMITED",
+  "abn": "69163459701",
+  "acnArbn": "163459701",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009467",
+      "acnArbn": "163459701",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 59.55,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 15.69,
+      "payments31To60Days": 49.02,
+      "paymentsMoreThan60Days": 35.29,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2501,
+        "count": 2613,
+        "percentile": 4.1
+      },
+      "industryP95Position": {
+        "rank": 316,
+        "count": 329,
+        "percentile": 3.7
+      }
+    },
+    {
+      "reportId": "PTR20004812",
+      "acnArbn": "163459701",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61.45,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 117,
+      "payments30DaysOrLess": 11.54,
+      "payments31To60Days": 48.72,
+      "paymentsMoreThan60Days": 39.74,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 2470,
+        "count": 2568,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 308,
+        "count": 323,
+        "percentile": 4.3
+      }
+    },
+    {
+      "reportId": "PTR20002373",
+      "acnArbn": "163459701",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.58,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 21.15,
+      "payments31To60Days": 42.31,
+      "paymentsMoreThan60Days": 36.54,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 244,
+        "count": 323,
+        "percentile": 23.3
+      }
+    }
+  ]
+}

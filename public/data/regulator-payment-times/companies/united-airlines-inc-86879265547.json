@@ -1,0 +1,95 @@
+{
+  "slug": "united-airlines-inc-86879265547",
+  "businessName": "UNITED AIRLINES, INC.",
+  "abn": "86879265547",
+  "acnArbn": "148003392",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20006976",
+      "acnArbn": "148003392",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.29,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 81.22,
+      "payments31To60Days": 13.81,
+      "paymentsMoreThan60Days": 4.97,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-01-21",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 143,
+        "percentile": 32.4
+      }
+    },
+    {
+      "reportId": "PTR20006977",
+      "acnArbn": "148003392",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.94,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 79.44,
+      "payments31To60Days": 16.53,
+      "paymentsMoreThan60Days": 4.03,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-01-21",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 144,
+        "percentile": 51.7
+      }
+    },
+    {
+      "reportId": "PTR20006978",
+      "acnArbn": "148003392",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.19,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 81.43,
+      "payments31To60Days": 13.81,
+      "paymentsMoreThan60Days": 4.76,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-01-21",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 140,
+        "percentile": 49.6
+      }
+    }
+  ]
+}

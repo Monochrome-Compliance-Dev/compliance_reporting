@@ -1,0 +1,95 @@
+{
+  "slug": "borg-fleet-management-pty-limited-11070099213",
+  "businessName": "BORG FLEET MANAGEMENT PTY LIMITED",
+  "abn": "11070099213",
+  "acnArbn": "070099213",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Rental and hiring services (except real estate)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009184",
+      "acnArbn": "070099213",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.82,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 31.25,
+      "payments31To60Days": 47.35,
+      "paymentsMoreThan60Days": 21.4,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 66,
+        "percentile": 24.6
+      }
+    },
+    {
+      "reportId": "PTR20004931",
+      "acnArbn": "070099213",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.16,
+      "medianPaymentTimeDays": 46.5,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 26.37,
+      "payments31To60Days": 50.63,
+      "paymentsMoreThan60Days": 22.99,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1988,
+        "count": 2568,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 61,
+        "percentile": 30
+      }
+    },
+    {
+      "reportId": "PTR20002539",
+      "acnArbn": "070099213",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.22,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 21.38,
+      "payments31To60Days": 54.62,
+      "paymentsMoreThan60Days": 24.01,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-07-15",
+      "overallP95Position": {
+        "rank": 1914,
+        "count": 2498,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 55,
+        "percentile": 20.4
+      }
+    }
+  ]
+}

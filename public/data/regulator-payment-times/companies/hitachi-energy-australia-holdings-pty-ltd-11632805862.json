@@ -1,0 +1,95 @@
+{
+  "slug": "hitachi-energy-australia-holdings-pty-ltd-11632805862",
+  "businessName": "HITACHI ENERGY AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "11632805862",
+  "acnArbn": "632805862",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011563",
+      "acnArbn": "632805862",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 63,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 193,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 25,
+        "percentile": 75
+      }
+    },
+    {
+      "reportId": "PTR20006787",
+      "acnArbn": "632805862",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.08,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 45.51,
+      "payments31To60Days": 52.3,
+      "paymentsMoreThan60Days": 2.19,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 126,
+        "count": 228,
+        "percentile": 44.1
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 28,
+        "percentile": 81.5
+      }
+    },
+    {
+      "reportId": "PTR20000231",
+      "acnArbn": "632805862",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.87,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 43,
+      "payments31To60Days": 48,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-01",
+      "overallP95Position": {
+        "rank": 192,
+        "count": 231,
+        "percentile": 17
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 32,
+        "percentile": 32.3
+      }
+    }
+  ]
+}

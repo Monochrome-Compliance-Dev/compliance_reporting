@@ -1,0 +1,39 @@
+{
+  "slug": "dcoh-land-pty-ltd-54143433550",
+  "businessName": "DCOH LAND PTY LTD",
+  "abn": "54143433550",
+  "acnArbn": "143433550",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009594",
+      "acnArbn": "143433550",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.92,
+      "medianPaymentTimeDays": 30.01,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 49.59,
+      "payments31To60Days": 50.41,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 270,
+        "percentile": 73.2
+      }
+    }
+  ]
+}

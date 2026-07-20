@@ -1,0 +1,39 @@
+{
+  "slug": "tetra-tech-australia-group-holdings-pty-ltd-74676488716",
+  "businessName": "TETRA TECH AUSTRALIA GROUP HOLDINGS PTY LTD",
+  "abn": "74676488716",
+  "acnArbn": "676488716",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011494",
+      "acnArbn": "676488716",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.55,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 75.46,
+      "payments31To60Days": 18.85,
+      "paymentsMoreThan60Days": 5.69,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 147,
+        "count": 193,
+        "percentile": 22.4
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 25,
+        "percentile": 37.5
+      }
+    }
+  ]
+}

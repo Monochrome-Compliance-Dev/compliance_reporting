@@ -1,0 +1,95 @@
+{
+  "slug": "bupa-anz-insurance-pty-ltd-81098309025",
+  "businessName": "BUPA ANZ INSURANCE PTY LTD",
+  "abn": "81098309025",
+  "acnArbn": "098309025",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010067",
+      "acnArbn": "098309025",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.54,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 99.31,
+      "payments31To60Days": 0.63,
+      "paymentsMoreThan60Days": 0.06,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 338,
+        "percentile": 63.5
+      }
+    },
+    {
+      "reportId": "PTR20005683",
+      "acnArbn": "098309025",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.27,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 70.36,
+      "payments31To60Days": 24.49,
+      "paymentsMoreThan60Days": 5.15,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 302,
+        "count": 349,
+        "percentile": 13.5
+      }
+    },
+    {
+      "reportId": "PTR20001875",
+      "acnArbn": "098309025",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.21,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 54.3,
+      "payments31To60Days": 37.05,
+      "paymentsMoreThan60Days": 8.64,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2498,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 302,
+        "count": 339,
+        "percentile": 10.9
+      }
+    }
+  ]
+}

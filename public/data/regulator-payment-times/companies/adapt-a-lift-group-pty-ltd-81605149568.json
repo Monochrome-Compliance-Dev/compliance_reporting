@@ -1,0 +1,67 @@
+{
+  "slug": "adapt-a-lift-group-pty-ltd-81605149568",
+  "businessName": "ADAPT-A-LIFT GROUP PTY LTD",
+  "abn": "81605149568",
+  "acnArbn": "605149568",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Rental and hiring services (except real estate)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010630",
+      "acnArbn": "605149568",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61.04,
+      "medianPaymentTimeDays": 58,
+      "p80PaymentTimeDays": 76,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 12.88,
+      "payments31To60Days": 42.45,
+      "paymentsMoreThan60Days": 44.67,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-04-26",
+      "overallP95Position": {
+        "rank": 2476,
+        "count": 2613,
+        "percentile": 5.1
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 66,
+        "percentile": 1.5
+      }
+    },
+    {
+      "reportId": "PTR20006041",
+      "acnArbn": "605149568",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 62.29,
+      "medianPaymentTimeDays": 58.5,
+      "p80PaymentTimeDays": 79,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 15.21,
+      "payments31To60Days": 38.56,
+      "paymentsMoreThan60Days": 46.23,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-10-13",
+      "overallP95Position": {
+        "rank": 2443,
+        "count": 2568,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 61,
+        "percentile": 1.7
+      }
+    }
+  ]
+}

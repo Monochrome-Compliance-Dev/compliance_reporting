@@ -1,0 +1,67 @@
+{
+  "slug": "bmw-australia-finance-limited-78007101715",
+  "businessName": "BMW AUSTRALIA FINANCE LIMITED",
+  "abn": "78007101715",
+  "acnArbn": "007101715",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007777",
+      "acnArbn": "007101715",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.84,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 93.2,
+      "payments31To60Days": 6.2,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-09",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 329,
+        "percentile": 87.5
+      }
+    },
+    {
+      "reportId": "PTR20000115",
+      "acnArbn": "007101715",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.94,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 97.5,
+      "payments31To60Days": 1.4,
+      "paymentsMoreThan60Days": 1.1,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-05-19",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 323,
+        "percentile": 90.4
+      }
+    }
+  ]
+}

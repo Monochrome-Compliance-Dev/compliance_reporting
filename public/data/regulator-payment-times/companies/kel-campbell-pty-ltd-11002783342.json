@@ -1,0 +1,95 @@
+{
+  "slug": "kel-campbell-pty-ltd-11002783342",
+  "businessName": "KEL CAMPBELL PTY LTD",
+  "abn": "11002783342",
+  "acnArbn": "002783342",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010841",
+      "acnArbn": "002783342",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.67,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 67.8,
+      "payments31To60Days": 31.88,
+      "paymentsMoreThan60Days": 0.31,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 143,
+        "percentile": 62.7
+      }
+    },
+    {
+      "reportId": "PTR20006059",
+      "acnArbn": "002783342",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.65,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 65.64,
+      "payments31To60Days": 34.21,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-15",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 144,
+        "percentile": 62.2
+      }
+    },
+    {
+      "reportId": "PTR20006058",
+      "acnArbn": "002783342",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.3,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 67.9,
+      "payments31To60Days": 31.9,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-15",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 140,
+        "percentile": 66.2
+      }
+    }
+  ]
+}

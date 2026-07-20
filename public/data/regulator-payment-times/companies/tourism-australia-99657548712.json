@@ -1,0 +1,95 @@
+{
+  "slug": "tourism-australia-99657548712",
+  "businessName": "Tourism Australia",
+  "abn": "99657548712",
+  "acnArbn": "",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007136",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.95,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.43,
+      "payments31To60Days": 4.27,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-02-05",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 49,
+        "percentile": 75
+      }
+    },
+    {
+      "reportId": "PTR20003061",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.61,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 98.73,
+      "payments31To60Days": 1.08,
+      "paymentsMoreThan60Days": 0.18,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-08-06",
+      "overallP95Position": {
+        "rank": 205,
+        "count": 2568,
+        "percentile": 91.3
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 50,
+        "percentile": 83.7
+      }
+    },
+    {
+      "reportId": "PTR20000208",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.66,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 9.76,
+      "paymentsMoreThan60Days": 0.24,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-05-29",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 50,
+        "percentile": 65.3
+      }
+    }
+  ]
+}

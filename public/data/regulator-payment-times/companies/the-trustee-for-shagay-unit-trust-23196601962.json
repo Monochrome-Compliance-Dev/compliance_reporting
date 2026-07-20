@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-shagay-unit-trust-23196601962",
+  "businessName": "THE TRUSTEE FOR SHAGAY UNIT TRUST",
+  "abn": "23196601962",
+  "acnArbn": "",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010302",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.73,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 66.39,
+      "payments31To60Days": 29.48,
+      "paymentsMoreThan60Days": 4.13,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 347,
+        "percentile": 52.6
+      }
+    },
+    {
+      "reportId": "PTR20004646",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 65.6,
+      "payments31To60Days": 27.8,
+      "paymentsMoreThan60Days": 6.5,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 335,
+        "percentile": 54.8
+      }
+    },
+    {
+      "reportId": "PTR20010967",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.95,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 80.8,
+      "payments31To60Days": 12.9,
+      "paymentsMoreThan60Days": 6.3,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-03",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 161,
+        "count": 323,
+        "percentile": 49.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "nokia-solutions-and-networks-australia-pty-ltd-74122172365",
+  "businessName": "NOKIA SOLUTIONS AND NETWORKS AUSTRALIA PTY LTD",
+  "abn": "74122172365",
+  "acnArbn": "122172365",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007713",
+      "acnArbn": "122172365",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.96,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 16.45,
+      "payments31To60Days": 78.66,
+      "paymentsMoreThan60Days": 4.89,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 60,
+        "percentile": 30.5
+      }
+    },
+    {
+      "reportId": "PTR20004636",
+      "acnArbn": "122172365",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.38,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 6.37,
+      "payments31To60Days": 83.44,
+      "paymentsMoreThan60Days": 10.19,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 55,
+        "percentile": 18.5
+      }
+    },
+    {
+      "reportId": "PTR20001567",
+      "acnArbn": "122172365",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.01,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 3.9,
+      "payments31To60Days": 85.13,
+      "paymentsMoreThan60Days": 10.97,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2196,
+        "count": 2498,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 58,
+        "percentile": 8.8
+      }
+    }
+  ]
+}

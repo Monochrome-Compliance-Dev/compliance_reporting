@@ -1,0 +1,95 @@
+{
+  "slug": "evergreen-garden-care-australia-holdings-pty-ltd-18620606840",
+  "businessName": "EVERGREEN GARDEN CARE AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "18620606840",
+  "acnArbn": "620606840",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011204",
+      "acnArbn": "620606840",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-27",
+      "overallP95Position": {
+        "rank": 113,
+        "count": 193,
+        "percentile": 41.7
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 45,
+        "percentile": 31.8
+      }
+    },
+    {
+      "reportId": "PTR20006661",
+      "acnArbn": "620606840",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 58,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 32,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-09",
+      "overallP95Position": {
+        "rank": 205,
+        "count": 228,
+        "percentile": 9.7
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 59,
+        "percentile": 6.9
+      }
+    },
+    {
+      "reportId": "PTR20008113",
+      "acnArbn": "620606840",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 56,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 200,
+        "count": 231,
+        "percentile": 12.6
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 61,
+        "percentile": 8.3
+      }
+    }
+  ]
+}

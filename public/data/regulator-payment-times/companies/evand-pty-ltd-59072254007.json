@@ -1,0 +1,95 @@
+{
+  "slug": "evand-pty-ltd-59072254007",
+  "businessName": "EVAND PTY LTD",
+  "abn": "59072254007",
+  "acnArbn": "072254007",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008826",
+      "acnArbn": "072254007",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.94,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 35.87,
+      "payments31To60Days": 55.07,
+      "paymentsMoreThan60Days": 9.06,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 347,
+        "percentile": 42.2
+      }
+    },
+    {
+      "reportId": "PTR20005009",
+      "acnArbn": "072254007",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.66,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 31.13,
+      "payments31To60Days": 61.57,
+      "paymentsMoreThan60Days": 7.3,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 335,
+        "percentile": 49.1
+      }
+    },
+    {
+      "reportId": "PTR20002001",
+      "acnArbn": "072254007",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.83,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 29.47,
+      "payments31To60Days": 61.8,
+      "paymentsMoreThan60Days": 8.73,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 323,
+        "percentile": 39.1
+      }
+    }
+  ]
+}

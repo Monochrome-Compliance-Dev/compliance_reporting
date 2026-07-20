@@ -1,0 +1,95 @@
+{
+  "slug": "pipemakers-australia-pty-ltd-76061712365",
+  "businessName": "PIPEMAKERS AUSTRALIA PTY LTD",
+  "abn": "76061712365",
+  "acnArbn": "061712365",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Polymer product and rubber product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008281",
+      "acnArbn": "061712365",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.03,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 41.35,
+      "payments31To60Days": 57.6,
+      "paymentsMoreThan60Days": 1.05,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 347,
+        "percentile": 61.6
+      }
+    },
+    {
+      "reportId": "PTR20004295",
+      "acnArbn": "061712365",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.32,
+      "medianPaymentTimeDays": 37.5,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 36.82,
+      "payments31To60Days": 60.06,
+      "paymentsMoreThan60Days": 3.13,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    },
+    {
+      "reportId": "PTR20000672",
+      "acnArbn": "061712365",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.62,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 32.13,
+      "payments31To60Days": 63.14,
+      "paymentsMoreThan60Days": 4.73,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 55.3
+      }
+    }
+  ]
+}

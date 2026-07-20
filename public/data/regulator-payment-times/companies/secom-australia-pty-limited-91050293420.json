@@ -1,0 +1,67 @@
+{
+  "slug": "secom-australia-pty-limited-91050293420",
+  "businessName": "SECOM AUSTRALIA PTY. LIMITED",
+  "abn": "91050293420",
+  "acnArbn": "050293420",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Public order, safety and regulatory services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010723",
+      "acnArbn": "050293420",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.68,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 81.98,
+      "payments31To60Days": 16.67,
+      "paymentsMoreThan60Days": 1.34,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 33,
+        "percentile": 31.3
+      }
+    },
+    {
+      "reportId": "PTR20006171",
+      "acnArbn": "050293420",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.03,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 73.25,
+      "payments31To60Days": 24.33,
+      "paymentsMoreThan60Days": 2.42,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-10-23",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 34,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

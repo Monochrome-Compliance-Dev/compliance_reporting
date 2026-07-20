@@ -1,0 +1,95 @@
+{
+  "slug": "colin-joss-and-co-pty-limited-73003538583",
+  "businessName": "COLIN JOSS & CO. PTY. LIMITED",
+  "abn": "73003538583",
+  "acnArbn": "003538583",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011673",
+      "acnArbn": "003538583",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.18,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 81.93,
+      "payments31To60Days": 13.64,
+      "paymentsMoreThan60Days": 4.44,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 270,
+        "percentile": 59.9
+      }
+    },
+    {
+      "reportId": "PTR20007530",
+      "acnArbn": "003538583",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.08,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 79.75,
+      "payments31To60Days": 15.18,
+      "paymentsMoreThan60Days": 5.07,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 130,
+        "count": 259,
+        "percentile": 45.7
+      }
+    },
+    {
+      "reportId": "PTR20007528",
+      "acnArbn": "003538583",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.36,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 84.38,
+      "payments31To60Days": 8.84,
+      "paymentsMoreThan60Days": 6.78,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 1980,
+        "count": 2498,
+        "percentile": 20
+      },
+      "industryP95Position": {
+        "rank": 202,
+        "count": 250,
+        "percentile": 18.9
+      }
+    }
+  ]
+}

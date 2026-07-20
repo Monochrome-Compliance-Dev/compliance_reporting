@@ -1,0 +1,67 @@
+{
+  "slug": "the-austcorp-group-australia-pty-limited-81080926414",
+  "businessName": "THE AUSTCORP GROUP (AUSTRALIA) PTY LIMITED",
+  "abn": "81080926414",
+  "acnArbn": "080926414",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005354",
+      "acnArbn": "080926414",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 84,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 70,
+        "count": 208,
+        "percentile": 65.2
+      }
+    },
+    {
+      "reportId": "PTR20002721",
+      "acnArbn": "080926414",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.36,
+      "medianPaymentTimeDays": 8.41,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 81.48,
+      "payments31To60Days": 16.02,
+      "paymentsMoreThan60Days": 2.51,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 207,
+        "percentile": 68.9
+      }
+    }
+  ]
+}

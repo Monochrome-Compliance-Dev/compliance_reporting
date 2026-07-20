@@ -1,0 +1,95 @@
+{
+  "slug": "national-australia-bank-limited-12004044937",
+  "businessName": "NATIONAL AUSTRALIA BANK LIMITED",
+  "abn": "12004044937",
+  "acnArbn": "004044937",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011397",
+      "acnArbn": "004044937",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.61,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 98.57,
+      "payments31To60Days": 1.18,
+      "paymentsMoreThan60Days": 0.19,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-17",
+      "overallP95Position": {
+        "rank": 19,
+        "count": 193,
+        "percentile": 90.1
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 19,
+        "percentile": 83.3
+      }
+    },
+    {
+      "reportId": "PTR20006447",
+      "acnArbn": "004044937",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.25,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 99.54,
+      "payments31To60Days": 0.31,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-11-09",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 228,
+        "percentile": 91.2
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 22,
+        "percentile": 85.7
+      }
+    },
+    {
+      "reportId": "PTR20000307",
+      "acnArbn": "004044937",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.83,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 98.66,
+      "payments31To60Days": 1.16,
+      "paymentsMoreThan60Days": 0.18,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-09",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 231,
+        "percentile": 95.2
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 20,
+        "percentile": 84.2
+      }
+    }
+  ]
+}

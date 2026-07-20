@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-barratts-business-trust-58873934293",
+  "businessName": "THE TRUSTEE FOR BARRATTS BUSINESS TRUST",
+  "abn": "58873934293",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008043",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.62,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 78.67,
+      "payments31To60Days": 20.83,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 1227,
+        "count": 2613,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 329,
+        "percentile": 66.5
+      }
+    },
+    {
+      "reportId": "PTR20005083",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.82,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 80.79,
+      "payments31To60Days": 18.64,
+      "paymentsMoreThan60Days": 0.57,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 323,
+        "percentile": 65.8
+      }
+    },
+    {
+      "reportId": "PTR20003203",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.85,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 76.72,
+      "payments31To60Days": 22.33,
+      "paymentsMoreThan60Days": 0.95,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-24",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 113,
+        "count": 323,
+        "percentile": 63.7
+      }
+    }
+  ]
+}

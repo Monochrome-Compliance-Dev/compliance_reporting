@@ -1,0 +1,95 @@
+{
+  "slug": "faranu-no-2-trust-53784322464",
+  "businessName": "FARANU NO 2 TRUST",
+  "abn": "53784322464",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009967",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 56.76,
+      "medianPaymentTimeDays": 59,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 7.41,
+      "payments31To60Days": 48.35,
+      "paymentsMoreThan60Days": 44.25,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2613,
+        "percentile": 16.2
+      },
+      "industryP95Position": {
+        "rank": 246,
+        "count": 329,
+        "percentile": 24.1
+      }
+    },
+    {
+      "reportId": "PTR20005634",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52.34,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 12.79,
+      "payments31To60Days": 48.05,
+      "paymentsMoreThan60Days": 39.16,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1988,
+        "count": 2568,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 232,
+        "count": 323,
+        "percentile": 27.6
+      }
+    },
+    {
+      "reportId": "PTR20002965",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 56.17,
+      "medianPaymentTimeDays": 59,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 9.94,
+      "payments31To60Days": 43.71,
+      "paymentsMoreThan60Days": 46.35,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 1980,
+        "count": 2498,
+        "percentile": 20
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 323,
+        "percentile": 26.7
+      }
+    }
+  ]
+}

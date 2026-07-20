@@ -1,0 +1,95 @@
+{
+  "slug": "sealed-air-australia-holdings-pty-limited-74102261307",
+  "businessName": "SEALED AIR AUSTRALIA (HOLDINGS) PTY LIMITED",
+  "abn": "74102261307",
+  "acnArbn": "102261307",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Polymer product and rubber product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008766",
+      "acnArbn": "102261307",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 55,
+      "payments31To60Days": 39,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 347,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20003762",
+      "acnArbn": "102261307",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 53,
+      "payments31To60Days": 41,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 335,
+        "percentile": 51.5
+      }
+    },
+    {
+      "reportId": "PTR20000999",
+      "acnArbn": "102261307",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 49,
+      "payments31To60Days": 47,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 55.3
+      }
+    }
+  ]
+}

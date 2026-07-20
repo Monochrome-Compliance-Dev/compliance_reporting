@@ -1,0 +1,95 @@
+{
+  "slug": "gsm-holding-company-pty-ltd-91165234051",
+  "businessName": "GSM HOLDING COMPANY PTY LTD",
+  "abn": "91165234051",
+  "acnArbn": "165234051",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009787",
+      "acnArbn": "165234051",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.24,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 94.7,
+      "payments31To60Days": 4.08,
+      "paymentsMoreThan60Days": 1.21,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 542,
+        "count": 2613,
+        "percentile": 78
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 177,
+        "percentile": 73.9
+      }
+    },
+    {
+      "reportId": "PTR20005277",
+      "acnArbn": "165234051",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.31,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.64,
+      "payments31To60Days": 4.41,
+      "paymentsMoreThan60Days": 0.94,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 173,
+        "percentile": 77.9
+      }
+    },
+    {
+      "reportId": "PTR20001678",
+      "acnArbn": "165234051",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.37,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.77,
+      "payments31To60Days": 2.6,
+      "paymentsMoreThan60Days": 0.64,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-28",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 170,
+        "percentile": 85.2
+      }
+    }
+  ]
+}

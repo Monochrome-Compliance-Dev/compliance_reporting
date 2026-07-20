@@ -1,0 +1,95 @@
+{
+  "slug": "google-cloud-australia-pty-ltd-68610798466",
+  "businessName": "GOOGLE CLOUD AUSTRALIA PTY LTD",
+  "abn": "68610798466",
+  "acnArbn": "610798466",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Internet service providers, web search portals and data processing services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008108",
+      "acnArbn": "610798466",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.92,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 75.34,
+      "payments31To60Days": 23.29,
+      "paymentsMoreThan60Days": 1.37,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 60,
+        "percentile": 55.9
+      }
+    },
+    {
+      "reportId": "PTR20004613",
+      "acnArbn": "610798466",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.65,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 86.58,
+      "payments31To60Days": 13.42,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 55,
+        "percentile": 53.7
+      }
+    },
+    {
+      "reportId": "PTR20001346",
+      "acnArbn": "610798466",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.83,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 70.43,
+      "payments31To60Days": 29.57,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 58,
+        "percentile": 56.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-dawson-land-trust-37803878832",
+  "businessName": "The Trustee for Dawson Land Trust",
+  "abn": "37803878832",
+  "acnArbn": "",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005649",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 36,
+        "count": 2568,
+        "percentile": 98.4
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 92,
+        "percentile": 95.6
+      }
+    }
+  ]
+}

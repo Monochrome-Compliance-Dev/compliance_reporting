@@ -1,0 +1,95 @@
+{
+  "slug": "aryzta-holdings-australia-pty-ltd-46128998612",
+  "businessName": "ARYZTA HOLDINGS AUSTRALIA PTY LTD",
+  "abn": "46128998612",
+  "acnArbn": "128998612",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008271",
+      "acnArbn": "128998612",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 53.2,
+      "payments31To60Days": 39.5,
+      "paymentsMoreThan60Days": 7.3,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 347,
+        "percentile": 42.2
+      }
+    },
+    {
+      "reportId": "PTR20004698",
+      "acnArbn": "128998612",
+      "reportingPeriodStartDate": "2025-01-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 52.6,
+      "payments31To60Days": 40.9,
+      "paymentsMoreThan60Days": 6.5,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 335,
+        "percentile": 54.8
+      }
+    },
+    {
+      "reportId": "PTR20003108",
+      "acnArbn": "128998612",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 78,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-13",
+      "overallP95Position": {
+        "rank": 15,
+        "count": 30,
+        "percentile": 41.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 6,
+        "percentile": 100
+      }
+    }
+  ]
+}

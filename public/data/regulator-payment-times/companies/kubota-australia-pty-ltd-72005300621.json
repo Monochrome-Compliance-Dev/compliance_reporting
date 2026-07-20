@@ -1,0 +1,95 @@
+{
+  "slug": "kubota-australia-pty-ltd-72005300621",
+  "businessName": "KUBOTA AUSTRALIA PTY LTD",
+  "abn": "72005300621",
+  "acnArbn": "005300621",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009410",
+      "acnArbn": "005300621",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.86,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 67.39,
+      "payments31To60Days": 28.58,
+      "paymentsMoreThan60Days": 4.03,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 160,
+        "count": 329,
+        "percentile": 49.7
+      }
+    },
+    {
+      "reportId": "PTR20004844",
+      "acnArbn": "005300621",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.06,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 49.96,
+      "payments31To60Days": 39.25,
+      "paymentsMoreThan60Days": 10.8,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2156,
+        "count": 2568,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 255,
+        "count": 323,
+        "percentile": 20.5
+      }
+    },
+    {
+      "reportId": "PTR20001755",
+      "acnArbn": "005300621",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.62,
+      "medianPaymentTimeDays": 32.5,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 39.66,
+      "payments31To60Days": 48.47,
+      "paymentsMoreThan60Days": 11.87,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2292,
+        "count": 2498,
+        "percentile": 7.8
+      },
+      "industryP95Position": {
+        "rank": 290,
+        "count": 323,
+        "percentile": 9.9
+      }
+    }
+  ]
+}

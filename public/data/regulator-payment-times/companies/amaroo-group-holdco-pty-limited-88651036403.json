@@ -1,0 +1,67 @@
+{
+  "slug": "amaroo-group-holdco-pty-limited-88651036403",
+  "businessName": "AMAROO GROUP HOLDCO PTY LIMITED",
+  "abn": "88651036403",
+  "acnArbn": "651036403",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20007006",
+      "acnArbn": "651036403",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.1,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 63.48,
+      "payments31To60Days": 31.58,
+      "paymentsMoreThan60Days": 5.3,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-01-25",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 144,
+        "percentile": 32.2
+      }
+    },
+    {
+      "reportId": "PTR20007005",
+      "acnArbn": "651036403",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.49,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 53.51,
+      "payments31To60Days": 42.3,
+      "paymentsMoreThan60Days": 5.09,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-01-25",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 85,
+        "count": 140,
+        "percentile": 37.4
+      }
+    }
+  ]
+}

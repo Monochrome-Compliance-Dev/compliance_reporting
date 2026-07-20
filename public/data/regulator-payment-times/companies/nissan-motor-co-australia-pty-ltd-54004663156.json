@@ -1,0 +1,39 @@
+{
+  "slug": "nissan-motor-co-australia-pty-ltd-54004663156",
+  "businessName": "NISSAN MOTOR CO. (AUSTRALIA) PTY. LTD.",
+  "abn": "54004663156",
+  "acnArbn": "004663156",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20008157",
+      "acnArbn": "004663156",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.6,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 25.4,
+      "payments31To60Days": 68.61,
+      "paymentsMoreThan60Days": 6.35,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 210,
+        "count": 228,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 59,
+        "percentile": 3.4
+      }
+    }
+  ]
+}

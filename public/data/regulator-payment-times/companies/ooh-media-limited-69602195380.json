@@ -1,0 +1,67 @@
+{
+  "slug": "ooh-media-limited-69602195380",
+  "businessName": "OOH!MEDIA LIMITED",
+  "abn": "69602195380",
+  "acnArbn": "602195380",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004886",
+      "acnArbn": "602195380",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 72.06,
+      "payments31To60Days": 21.88,
+      "paymentsMoreThan60Days": 5.86,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 181,
+        "percentile": 32.8
+      }
+    },
+    {
+      "reportId": "PTR20001012",
+      "acnArbn": "602195380",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 74,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1851,
+        "count": 2498,
+        "percentile": 25.3
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 176,
+        "percentile": 32
+      }
+    }
+  ]
+}

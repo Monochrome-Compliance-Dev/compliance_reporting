@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-the-on-track-tyres-no-2-trust-98050635023",
+  "businessName": "THE TRUSTEE FOR THE ON TRACK TYRES NO 2 TRUST",
+  "abn": "98050635023",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010750",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 67,
+      "p80PaymentTimeDays": 89,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 0.77,
+      "payments31To60Days": 0.13,
+      "paymentsMoreThan60Days": 100,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-26",
+      "overallP95Position": {
+        "rank": 2394,
+        "count": 2613,
+        "percentile": 7.6
+      },
+      "industryP95Position": {
+        "rank": 293,
+        "count": 329,
+        "percentile": 9.8
+      }
+    }
+  ]
+}

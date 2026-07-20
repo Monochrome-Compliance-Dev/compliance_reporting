@@ -1,0 +1,95 @@
+{
+  "slug": "jadestone-energy-australia-pty-ltd-48613671819",
+  "businessName": "JADESTONE ENERGY (AUSTRALIA) PTY LTD",
+  "abn": "48613671819",
+  "acnArbn": "613671819",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007317",
+      "acnArbn": "613671819",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.05,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 43.67,
+      "payments31To60Days": 44.99,
+      "paymentsMoreThan60Days": 11.35,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-02-18",
+      "overallP95Position": {
+        "rank": 2380,
+        "count": 2613,
+        "percentile": 8.5
+      },
+      "industryP95Position": {
+        "rank": 159,
+        "count": 177,
+        "percentile": 9.1
+      }
+    },
+    {
+      "reportId": "PTR20007074",
+      "acnArbn": "613671819",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.11,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 24.76,
+      "payments31To60Days": 60.79,
+      "paymentsMoreThan60Days": 14.44,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 2354,
+        "count": 2568,
+        "percentile": 8.1
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 173,
+        "percentile": 8.1
+      }
+    },
+    {
+      "reportId": "PTR20007078",
+      "acnArbn": "613671819",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.46,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 44.26,
+      "payments31To60Days": 48.56,
+      "paymentsMoreThan60Days": 7.18,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 2026,
+        "count": 2498,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 142,
+        "count": 170,
+        "percentile": 16.6
+      }
+    }
+  ]
+}

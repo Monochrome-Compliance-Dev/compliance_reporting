@@ -1,0 +1,95 @@
+{
+  "slug": "kyndryl-australia-pty-ltd-98646647592",
+  "businessName": "KYNDRYL AUSTRALIA PTY LTD",
+  "abn": "98646647592",
+  "acnArbn": "646647592",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011664",
+      "acnArbn": "646647592",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.36,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 89.23,
+      "payments31To60Days": 6.06,
+      "paymentsMoreThan60Days": 4.71,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-28",
+      "overallP95Position": {
+        "rank": 114,
+        "count": 193,
+        "percentile": 39.1
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 25,
+        "percentile": 62.5
+      }
+    },
+    {
+      "reportId": "PTR20006855",
+      "acnArbn": "646647592",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.8,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 92.5,
+      "payments31To60Days": 3.25,
+      "paymentsMoreThan60Days": 4.25,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-29",
+      "overallP95Position": {
+        "rank": 88,
+        "count": 228,
+        "percentile": 57.3
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 27,
+        "percentile": 76.9
+      }
+    },
+    {
+      "reportId": "PTR20002123",
+      "acnArbn": "646647592",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.16,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 87.57,
+      "payments31To60Days": 10.27,
+      "paymentsMoreThan60Days": 2.16,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 128,
+        "count": 231,
+        "percentile": 42.2
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 26,
+        "percentile": 56
+      }
+    }
+  ]
+}

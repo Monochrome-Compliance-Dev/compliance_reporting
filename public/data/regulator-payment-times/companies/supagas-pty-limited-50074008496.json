@@ -1,0 +1,67 @@
+{
+  "slug": "supagas-pty-limited-50074008496",
+  "businessName": "SUPAGAS PTY LIMITED",
+  "abn": "50074008496",
+  "acnArbn": "074008496",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Gas supply",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20007462",
+      "acnArbn": "074008496",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 59,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Gas supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-02-24",
+      "overallP95Position": {
+        "rank": 168,
+        "count": 228,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20002848",
+      "acnArbn": "074008496",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 60.83,
+      "payments31To60Days": 29.11,
+      "paymentsMoreThan60Days": 10.06,
+      "industrySubdivision": "Gas supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 211,
+        "count": 231,
+        "percentile": 7.8
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    }
+  ]
+}

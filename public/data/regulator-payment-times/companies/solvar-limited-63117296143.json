@@ -1,0 +1,39 @@
+{
+  "slug": "solvar-limited-63117296143",
+  "businessName": "SOLVAR LIMITED",
+  "abn": "63117296143",
+  "acnArbn": "117296143",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20002194",
+      "acnArbn": "117296143",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.92,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 97.41,
+      "payments31To60Days": 2.56,
+      "paymentsMoreThan60Days": 0.03,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 97,
+        "count": 339,
+        "percentile": 68.6
+      }
+    }
+  ]
+}

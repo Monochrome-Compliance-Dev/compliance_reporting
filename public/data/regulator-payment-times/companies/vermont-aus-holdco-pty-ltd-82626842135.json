@@ -1,0 +1,95 @@
+{
+  "slug": "vermont-aus-holdco-pty-ltd-82626842135",
+  "businessName": "VERMONT AUS HOLDCO PTY LTD",
+  "abn": "82626842135",
+  "acnArbn": "626842135",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009751",
+      "acnArbn": "626842135",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.04,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1305,
+        "count": 2613,
+        "percentile": 47.8
+      },
+      "industryP95Position": {
+        "rank": 88,
+        "count": 207,
+        "percentile": 55.8
+      }
+    },
+    {
+      "reportId": "PTR20004659",
+      "acnArbn": "626842135",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.07,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 208,
+        "percentile": 49.3
+      }
+    },
+    {
+      "reportId": "PTR20001962",
+      "acnArbn": "626842135",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 207,
+        "percentile": 29.1
+      }
+    }
+  ]
+}

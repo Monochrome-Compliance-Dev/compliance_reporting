@@ -1,0 +1,95 @@
+{
+  "slug": "apog-topco-pty-ltd-66654198268",
+  "businessName": "APOG TOPCO PTY LTD",
+  "abn": "66654198268",
+  "acnArbn": "654198268",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009064",
+      "acnArbn": "654198268",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 106,
+        "percentile": 50.5
+      }
+    },
+    {
+      "reportId": "PTR20009070",
+      "acnArbn": "654198268",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 77,
+      "payments31To60Days": 18,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1883,
+        "count": 2568,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 63,
+        "count": 97,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20001072",
+      "acnArbn": "654198268",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 97,
+        "percentile": 26
+      }
+    }
+  ]
+}

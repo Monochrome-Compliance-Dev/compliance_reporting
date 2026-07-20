@@ -1,0 +1,67 @@
+{
+  "slug": "simpro-holdings-aus-pty-ltd-19614853431",
+  "businessName": "SIMPRO HOLDINGS (AUS) PTY LTD",
+  "abn": "19614853431",
+  "acnArbn": "614853431",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008311",
+      "acnArbn": "614853431",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 18,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-21",
+      "overallP95Position": {
+        "rank": 735,
+        "count": 2613,
+        "percentile": 71.1
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 183,
+        "percentile": 68.7
+      }
+    },
+    {
+      "reportId": "PTR20006145",
+      "acnArbn": "614853431",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 78,
+        "count": 181,
+        "percentile": 55.6
+      }
+    }
+  ]
+}

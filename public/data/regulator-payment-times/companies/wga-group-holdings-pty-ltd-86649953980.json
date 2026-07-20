@@ -1,0 +1,95 @@
+{
+  "slug": "wga-group-holdings-pty-ltd-86649953980",
+  "businessName": "WGA GROUP HOLDINGS PTY LTD",
+  "abn": "86649953980",
+  "acnArbn": "649953980",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007612",
+      "acnArbn": "649953980",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.35,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 70.35,
+      "payments31To60Days": 26.25,
+      "paymentsMoreThan60Days": 3.47,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-03",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 183,
+        "percentile": 51.6
+      }
+    },
+    {
+      "reportId": "PTR20004594",
+      "acnArbn": "649953980",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.72,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 74.96,
+      "payments31To60Days": 21.63,
+      "paymentsMoreThan60Days": 3.48,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 181,
+        "percentile": 54.4
+      }
+    },
+    {
+      "reportId": "PTR20001042",
+      "acnArbn": "649953980",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.01,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 78.95,
+      "payments31To60Days": 18.12,
+      "paymentsMoreThan60Days": 2.93,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 176,
+        "percentile": 54.9
+      }
+    }
+  ]
+}

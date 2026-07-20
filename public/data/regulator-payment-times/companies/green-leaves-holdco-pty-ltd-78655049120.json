@@ -1,0 +1,95 @@
+{
+  "slug": "green-leaves-holdco-pty-ltd-78655049120",
+  "businessName": "GREEN LEAVES HOLDCO PTY LTD",
+  "abn": "78655049120",
+  "acnArbn": "655049120",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Social assistance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010499",
+      "acnArbn": "655049120",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.5,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.25,
+      "payments31To60Days": 3.68,
+      "paymentsMoreThan60Days": 0.07,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-04-12",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 106,
+        "percentile": 89.5
+      }
+    },
+    {
+      "reportId": "PTR20005781",
+      "acnArbn": "655049120",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.97,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 93.24,
+      "payments31To60Days": 6.26,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 97,
+        "percentile": 82.3
+      }
+    },
+    {
+      "reportId": "PTR20002106",
+      "acnArbn": "655049120",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.21,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.72,
+      "payments31To60Days": 3.93,
+      "paymentsMoreThan60Days": 0.35,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 97,
+        "percentile": 84.4
+      }
+    }
+  ]
+}

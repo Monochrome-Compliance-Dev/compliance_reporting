@@ -1,0 +1,95 @@
+{
+  "slug": "pacific-hunter-group-pty-ltd-79607717206",
+  "businessName": "PACIFIC HUNTER GROUP PTY LTD",
+  "abn": "79607717206",
+  "acnArbn": "607717206",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010152",
+      "acnArbn": "607717206",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.15,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 54.6,
+      "payments31To60Days": 35.1,
+      "paymentsMoreThan60Days": 10.2,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 38,
+        "percentile": 13.5
+      }
+    },
+    {
+      "reportId": "PTR20005755",
+      "acnArbn": "607717206",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.05,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 57.9,
+      "payments31To60Days": 33.5,
+      "paymentsMoreThan60Days": 8.7,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 36,
+        "percentile": 22.9
+      }
+    },
+    {
+      "reportId": "PTR20000393",
+      "acnArbn": "607717206",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.08,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 62.9,
+      "payments31To60Days": 29.9,
+      "paymentsMoreThan60Days": 7.3,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 30,
+        "percentile": 17.2
+      }
+    }
+  ]
+}

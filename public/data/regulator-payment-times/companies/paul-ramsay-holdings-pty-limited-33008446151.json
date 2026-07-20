@@ -1,0 +1,95 @@
+{
+  "slug": "paul-ramsay-holdings-pty-limited-33008446151",
+  "businessName": "PAUL RAMSAY HOLDINGS PTY. LIMITED",
+  "abn": "33008446151",
+  "acnArbn": "008446151",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010993",
+      "acnArbn": "008446151",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-05-06",
+      "overallP95Position": {
+        "rank": 160,
+        "count": 2613,
+        "percentile": 93.5
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 338,
+        "percentile": 82.2
+      }
+    },
+    {
+      "reportId": "PTR20005969",
+      "acnArbn": "008446151",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.2,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-06",
+      "overallP95Position": {
+        "rank": 127,
+        "count": 2568,
+        "percentile": 94.7
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 349,
+        "percentile": 86.2
+      }
+    },
+    {
+      "reportId": "PTR20001717",
+      "acnArbn": "008446151",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 8,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 29,
+        "count": 2498,
+        "percentile": 98.7
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 339,
+        "percentile": 95.9
+      }
+    }
+  ]
+}

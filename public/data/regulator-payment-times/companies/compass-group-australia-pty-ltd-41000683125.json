@@ -1,0 +1,67 @@
+{
+  "slug": "compass-group-australia-pty-ltd-41000683125",
+  "businessName": "COMPASS GROUP (AUSTRALIA) PTY LTD",
+  "abn": "41000683125",
+  "acnArbn": "000683125",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20006863",
+      "acnArbn": "000683125",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.22,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 36.56,
+      "payments31To60Days": 43.1,
+      "paymentsMoreThan60Days": 20.34,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-12-29",
+      "overallP95Position": {
+        "rank": 200,
+        "count": 228,
+        "percentile": 11.9
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20001557",
+      "acnArbn": "000683125",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.01,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 34.04,
+      "payments31To60Days": 43.54,
+      "paymentsMoreThan60Days": 22.43,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 200,
+        "count": 231,
+        "percentile": 12.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

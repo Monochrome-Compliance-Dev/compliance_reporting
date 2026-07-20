@@ -1,0 +1,95 @@
+{
+  "slug": "the-body-shop-australia-pty-limited-47602683349",
+  "businessName": "THE BODY SHOP AUSTRALIA PTY LIMITED",
+  "abn": "47602683349",
+  "acnArbn": "602683349",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009959",
+      "acnArbn": "602683349",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 63.6,
+      "payments31To60Days": 28.3,
+      "paymentsMoreThan60Days": 8.1,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 207,
+        "percentile": 22.3
+      }
+    },
+    {
+      "reportId": "PTR20006071",
+      "acnArbn": "602683349",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 55,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 20,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-16",
+      "overallP95Position": {
+        "rank": 2096,
+        "count": 2568,
+        "percentile": 17.5
+      },
+      "industryP95Position": {
+        "rank": 174,
+        "count": 208,
+        "percentile": 15
+      }
+    },
+    {
+      "reportId": "PTR20002262",
+      "acnArbn": "602683349",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.09,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 45.96,
+      "payments31To60Days": 31.62,
+      "paymentsMoreThan60Days": 22.43,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 2498,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 207,
+        "percentile": 12.1
+      }
+    }
+  ]
+}

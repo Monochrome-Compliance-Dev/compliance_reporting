@@ -1,0 +1,95 @@
+{
+  "slug": "elph-investments-pty-ltd-72127213807",
+  "businessName": "Elph Investments Pty Ltd",
+  "abn": "72127213807",
+  "acnArbn": "127213807",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009414",
+      "acnArbn": "127213807",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.98,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 26.28,
+      "payments31To60Days": 68.09,
+      "paymentsMoreThan60Days": 5.63,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 49,
+        "percentile": 22.9
+      }
+    },
+    {
+      "reportId": "PTR20003404",
+      "acnArbn": "127213807",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.78,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 14.95,
+      "payments31To60Days": 79.2,
+      "paymentsMoreThan60Days": 5.86,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-03",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 50,
+        "percentile": 22.4
+      }
+    },
+    {
+      "reportId": "PTR20002008",
+      "acnArbn": "127213807",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.54,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 11.95,
+      "payments31To60Days": 78.63,
+      "paymentsMoreThan60Days": 9.42,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 50,
+        "percentile": 28.6
+      }
+    }
+  ]
+}

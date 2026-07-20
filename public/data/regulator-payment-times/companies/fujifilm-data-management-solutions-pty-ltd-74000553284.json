@@ -1,0 +1,95 @@
+{
+  "slug": "fujifilm-data-management-solutions-pty-ltd-74000553284",
+  "businessName": "FUJIFILM DATA MANAGEMENT SOLUTIONS PTY LTD",
+  "abn": "74000553284",
+  "acnArbn": "000553284",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20010835",
+      "acnArbn": "000553284",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 73.7,
+      "payments31To60Days": 25.6,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-06-02",
+      "overallP95Position": {
+        "rank": 70,
+        "count": 193,
+        "percentile": 62.5
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 7,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20006624",
+      "acnArbn": "000553284",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.28,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 71,
+      "payments31To60Days": 28.3,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-12-03",
+      "overallP95Position": {
+        "rank": 74,
+        "count": 228,
+        "percentile": 66.5
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 8,
+        "percentile": 28.6
+      }
+    },
+    {
+      "reportId": "PTR20002634",
+      "acnArbn": "000553284",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 63.4,
+      "payments31To60Days": 34.2,
+      "paymentsMoreThan60Days": 2.3,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 112,
+        "count": 231,
+        "percentile": 49.1
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 8,
+        "percentile": 28.6
+      }
+    }
+  ]
+}

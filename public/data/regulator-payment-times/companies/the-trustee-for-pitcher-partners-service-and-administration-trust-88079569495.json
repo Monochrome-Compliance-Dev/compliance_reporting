@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-pitcher-partners-service-and-administration-trust-88079569495",
+  "businessName": "The Trustee for Pitcher Partners Service & Administration Trust",
+  "abn": "88079569495",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007227",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.71,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 92.7,
+      "payments31To60Days": 5.7,
+      "paymentsMoreThan60Days": 1.61,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 577,
+        "count": 2613,
+        "percentile": 77
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 183,
+        "percentile": 77.5
+      }
+    },
+    {
+      "reportId": "PTR20004017",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.23,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 89.98,
+      "payments31To60Days": 7.3,
+      "paymentsMoreThan60Days": 2.72,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 181,
+        "percentile": 65.6
+      }
+    },
+    {
+      "reportId": "PTR20000825",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.15,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 91.26,
+      "payments31To60Days": 6.35,
+      "paymentsMoreThan60Days": 2.38,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 779,
+        "count": 2498,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 176,
+        "percentile": 64.6
+      }
+    }
+  ]
+}

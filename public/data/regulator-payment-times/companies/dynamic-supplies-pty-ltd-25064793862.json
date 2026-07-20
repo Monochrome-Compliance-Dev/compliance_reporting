@@ -1,0 +1,95 @@
+{
+  "slug": "dynamic-supplies-pty-ltd-25064793862",
+  "businessName": "DYNAMIC SUPPLIES PTY. LTD.",
+  "abn": "25064793862",
+  "acnArbn": "064793862",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010491",
+      "acnArbn": "064793862",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.96,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 43.15,
+      "payments31To60Days": 52.43,
+      "paymentsMoreThan60Days": 4.42,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-21",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 160,
+        "count": 329,
+        "percentile": 49.7
+      }
+    },
+    {
+      "reportId": "PTR20005991",
+      "acnArbn": "064793862",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.44,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 77.88,
+      "payments31To60Days": 18.55,
+      "paymentsMoreThan60Days": 3.57,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-07",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 323,
+        "percentile": 56.8
+      }
+    },
+    {
+      "reportId": "PTR20005987",
+      "acnArbn": "064793862",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 74.8,
+      "payments31To60Days": 20.59,
+      "paymentsMoreThan60Days": 4.12,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-07",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 323,
+        "percentile": 51.2
+      }
+    }
+  ]
+}

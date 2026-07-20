@@ -1,0 +1,95 @@
+{
+  "slug": "national-roads-and-motorists-association-limited-77000010506",
+  "businessName": "NATIONAL ROADS AND MOTORISTS' ASSOCIATION LIMITED",
+  "abn": "77000010506",
+  "acnArbn": "000010506",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Personal and other services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010162",
+      "acnArbn": "000010506",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.93,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 85.33,
+      "payments31To60Days": 13.63,
+      "paymentsMoreThan60Days": 1.04,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 25,
+        "percentile": 58.3
+      }
+    },
+    {
+      "reportId": "PTR20004923",
+      "acnArbn": "000010506",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.93,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 76.89,
+      "payments31To60Days": 21.11,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 26,
+        "percentile": 68
+      }
+    },
+    {
+      "reportId": "PTR20002828",
+      "acnArbn": "000010506",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.66,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 81.1,
+      "payments31To60Days": 15.7,
+      "paymentsMoreThan60Days": 3.2,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 22,
+        "percentile": 57.1
+      }
+    }
+  ]
+}

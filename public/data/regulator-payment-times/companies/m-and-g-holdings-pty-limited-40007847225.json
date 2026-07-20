@@ -1,0 +1,95 @@
+{
+  "slug": "m-and-g-holdings-pty-limited-40007847225",
+  "businessName": "M. & G. HOLDINGS PTY. LIMITED",
+  "abn": "40007847225",
+  "acnArbn": "007847225",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Non-metallic mineral product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009777",
+      "acnArbn": "007847225",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 59.4,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 18.6,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2394,
+        "count": 2613,
+        "percentile": 7.6
+      },
+      "industryP95Position": {
+        "rank": 304,
+        "count": 347,
+        "percentile": 10.7
+      }
+    },
+    {
+      "reportId": "PTR20009770",
+      "acnArbn": "007847225",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 62.3,
+      "payments31To60Days": 22.4,
+      "paymentsMoreThan60Days": 15.4,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 282,
+        "count": 335,
+        "percentile": 12
+      }
+    },
+    {
+      "reportId": "PTR20009729",
+      "acnArbn": "007847225",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 57.2,
+      "payments31To60Days": 25.4,
+      "paymentsMoreThan60Days": 17.4,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 2498,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 323,
+        "percentile": 16.1
+      }
+    }
+  ]
+}

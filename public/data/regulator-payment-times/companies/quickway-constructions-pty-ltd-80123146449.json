@@ -1,0 +1,95 @@
+{
+  "slug": "quickway-constructions-pty-ltd-80123146449",
+  "businessName": "QUICKWAY CONSTRUCTIONS PTY LTD",
+  "abn": "80123146449",
+  "acnArbn": "123146449",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009469",
+      "acnArbn": "123146449",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 26.27,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 65,
+      "payments31To60Days": 34.21,
+      "paymentsMoreThan60Days": 0.79,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 270,
+        "percentile": 73.2
+      }
+    },
+    {
+      "reportId": "PTR20004604",
+      "acnArbn": "123146449",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.19,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 63.81,
+      "payments31To60Days": 33.65,
+      "paymentsMoreThan60Days": 2.53,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 259,
+        "percentile": 71.3
+      }
+    },
+    {
+      "reportId": "PTR20000944",
+      "acnArbn": "123146449",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.91,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 60.4,
+      "payments31To60Days": 38.95,
+      "paymentsMoreThan60Days": 0.65,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 63,
+        "count": 250,
+        "percentile": 72.3
+      }
+    }
+  ]
+}

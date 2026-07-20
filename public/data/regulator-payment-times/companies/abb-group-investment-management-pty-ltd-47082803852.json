@@ -1,0 +1,95 @@
+{
+  "slug": "abb-group-investment-management-pty-ltd-47082803852",
+  "businessName": "ABB GROUP INVESTMENT MANAGEMENT PTY LTD",
+  "abn": "47082803852",
+  "acnArbn": "082803852",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009845",
+      "acnArbn": "082803852",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 15.96,
+      "payments31To60Days": 51.59,
+      "paymentsMoreThan60Days": 32.45,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2480,
+        "count": 2613,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 183,
+        "percentile": 13.2
+      }
+    },
+    {
+      "reportId": "PTR20004191",
+      "acnArbn": "082803852",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 14,
+      "payments31To60Days": 52,
+      "paymentsMoreThan60Days": 33,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2259,
+        "count": 2568,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 145,
+        "count": 181,
+        "percentile": 19.4
+      }
+    },
+    {
+      "reportId": "PTR20001522",
+      "acnArbn": "082803852",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 12,
+      "payments31To60Days": 60,
+      "paymentsMoreThan60Days": 27,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2100,
+        "count": 2498,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 176,
+        "percentile": 21.1
+      }
+    }
+  ]
+}

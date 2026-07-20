@@ -1,0 +1,95 @@
+{
+  "slug": "interpublic-australia-holdings-pty-ltd-20140379335",
+  "businessName": "Interpublic Australia Holdings Pty Ltd",
+  "abn": "20140379335",
+  "acnArbn": "140379335",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010130",
+      "acnArbn": "140379335",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.53,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 2.78,
+      "payments31To60Days": 97.18,
+      "paymentsMoreThan60Days": 0.04,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 183,
+        "percentile": 57.7
+      }
+    },
+    {
+      "reportId": "PTR20004707",
+      "acnArbn": "140379335",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 14.9,
+      "payments31To60Days": 73.9,
+      "paymentsMoreThan60Days": 11.2,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2096,
+        "count": 2568,
+        "percentile": 17.5
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 181,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20000152",
+      "acnArbn": "140379335",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.06,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 12.73,
+      "payments31To60Days": 80.81,
+      "paymentsMoreThan60Days": 6.46,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-05-25",
+      "overallP95Position": {
+        "rank": 2026,
+        "count": 2498,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 176,
+        "percentile": 24
+      }
+    }
+  ]
+}

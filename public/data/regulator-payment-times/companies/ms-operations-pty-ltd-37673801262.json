@@ -1,0 +1,67 @@
+{
+  "slug": "ms-operations-pty-ltd-37673801262",
+  "businessName": "MS OPERATIONS PTY LTD",
+  "abn": "37673801262",
+  "acnArbn": "673801262",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Building cleaning, pest control and other support services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011749",
+      "acnArbn": "673801262",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 59.14,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 7.44,
+      "payments31To60Days": 43.36,
+      "paymentsMoreThan60Days": 49.2,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 172,
+        "count": 193,
+        "percentile": 10.9
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 7,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006874",
+      "acnArbn": "673801262",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.83,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 31.73,
+      "payments31To60Days": 68.02,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-12-30",
+      "overallP95Position": {
+        "rank": 129,
+        "count": 228,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 8,
+        "percentile": 0
+      }
+    }
+  ]
+}

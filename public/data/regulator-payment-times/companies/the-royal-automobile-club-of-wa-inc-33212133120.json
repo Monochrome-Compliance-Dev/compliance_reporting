@@ -1,0 +1,95 @@
+{
+  "slug": "the-royal-automobile-club-of-wa-inc-33212133120",
+  "businessName": "THE ROYAL AUTOMOBILE CLUB OF WA INC",
+  "abn": "33212133120",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009430",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.24,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 97.89,
+      "payments31To60Days": 1.73,
+      "paymentsMoreThan60Days": 0.38,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 109,
+        "count": 2613,
+        "percentile": 95.6
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 338,
+        "percentile": 86.9
+      }
+    },
+    {
+      "reportId": "PTR20003996",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.07,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 97.76,
+      "payments31To60Days": 1.76,
+      "paymentsMoreThan60Days": 0.48,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 113,
+        "count": 2568,
+        "percentile": 95.1
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 349,
+        "percentile": 87.6
+      }
+    },
+    {
+      "reportId": "PTR20000840",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.31,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 98.24,
+      "payments31To60Days": 1.48,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-22",
+      "overallP95Position": {
+        "rank": 68,
+        "count": 2498,
+        "percentile": 96.6
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 339,
+        "percentile": 89.9
+      }
+    }
+  ]
+}

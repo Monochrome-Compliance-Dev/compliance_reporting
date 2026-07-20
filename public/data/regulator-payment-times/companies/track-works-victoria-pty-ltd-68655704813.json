@@ -1,0 +1,67 @@
+{
+  "slug": "track-works-victoria-pty-ltd-68655704813",
+  "businessName": "TRACK WORKS VICTORIA PTY LTD",
+  "abn": "68655704813",
+  "acnArbn": "655704813",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20002310",
+      "acnArbn": "655704813",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 32.55,
+      "payments31To60Days": 61.37,
+      "paymentsMoreThan60Days": 6.08,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-01",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 259,
+        "percentile": 36.4
+      }
+    },
+    {
+      "reportId": "PTR20002277",
+      "acnArbn": "655704813",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 21.32,
+      "payments31To60Days": 66.75,
+      "paymentsMoreThan60Days": 11.94,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 250,
+        "percentile": 26.9
+      }
+    }
+  ]
+}

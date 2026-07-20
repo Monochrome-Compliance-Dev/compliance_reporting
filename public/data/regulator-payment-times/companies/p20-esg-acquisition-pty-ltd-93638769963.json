@@ -1,0 +1,95 @@
+{
+  "slug": "p20-esg-acquisition-pty-ltd-93638769963",
+  "businessName": "P20 ESG ACQUISITION PTY LTD",
+  "abn": "93638769963",
+  "acnArbn": "638769963",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010237",
+      "acnArbn": "638769963",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 72,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 79.53,
+      "payments31To60Days": 14.86,
+      "paymentsMoreThan60Days": 5.62,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2613,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 319,
+        "count": 338,
+        "percentile": 5.6
+      }
+    },
+    {
+      "reportId": "PTR20005062",
+      "acnArbn": "638769963",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.99,
+      "medianPaymentTimeDays": 14.58,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 86.19,
+      "payments31To60Days": 10.33,
+      "paymentsMoreThan60Days": 3.48,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 211,
+        "count": 349,
+        "percentile": 39.1
+      }
+    },
+    {
+      "reportId": "PTR20001771",
+      "acnArbn": "638769963",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.05,
+      "medianPaymentTimeDays": 12.67,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 85.3,
+      "payments31To60Days": 7.84,
+      "paymentsMoreThan60Days": 6.87,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    }
+  ]
+}

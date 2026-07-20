@@ -1,0 +1,67 @@
+{
+  "slug": "ingram-micro-holdings-australia-pty-limited-12112487322",
+  "businessName": "INGRAM MICRO HOLDINGS (AUSTRALIA) PTY LIMITED",
+  "abn": "12112487322",
+  "acnArbn": "112487322",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009852",
+      "acnArbn": "112487322",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 28.7,
+      "payments31To60Days": 49.8,
+      "paymentsMoreThan60Days": 21.5,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2295,
+        "count": 2613,
+        "percentile": 11.8
+      },
+      "industryP95Position": {
+        "rank": 275,
+        "count": 329,
+        "percentile": 15.5
+      }
+    },
+    {
+      "reportId": "PTR20005264",
+      "acnArbn": "112487322",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 31.6,
+      "payments31To60Days": 51.6,
+      "paymentsMoreThan60Days": 16.8,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 241,
+        "count": 323,
+        "percentile": 25.2
+      }
+    }
+  ]
+}

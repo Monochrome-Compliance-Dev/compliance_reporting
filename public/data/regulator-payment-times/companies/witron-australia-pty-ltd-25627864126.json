@@ -1,0 +1,95 @@
+{
+  "slug": "witron-australia-pty-ltd-25627864126",
+  "businessName": "WITRON AUSTRALIA PTY LTD",
+  "abn": "25627864126",
+  "acnArbn": "627864126",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010219",
+      "acnArbn": "627864126",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.11,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 85.45,
+      "payments31To60Days": 9.09,
+      "paymentsMoreThan60Days": 5.45,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 270,
+        "percentile": 36.4
+      }
+    },
+    {
+      "reportId": "PTR20004399",
+      "acnArbn": "627864126",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.42,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 85.33,
+      "payments31To60Days": 13.33,
+      "paymentsMoreThan60Days": 1.33,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 259,
+        "percentile": 78.3
+      }
+    },
+    {
+      "reportId": "PTR20001249",
+      "acnArbn": "627864126",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.8,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 87.41,
+      "payments31To60Days": 7.19,
+      "paymentsMoreThan60Days": 5.4,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 250,
+        "percentile": 31.3
+      }
+    }
+  ]
+}

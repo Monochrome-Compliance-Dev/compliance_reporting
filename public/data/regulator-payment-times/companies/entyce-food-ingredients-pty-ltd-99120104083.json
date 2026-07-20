@@ -1,0 +1,95 @@
+{
+  "slug": "entyce-food-ingredients-pty-ltd-99120104083",
+  "businessName": "Entyce Food Ingredients Pty Ltd",
+  "abn": "99120104083",
+  "acnArbn": "120104083",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010928",
+      "acnArbn": "120104083",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.35,
+      "medianPaymentTimeDays": 48.5,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 29.51,
+      "payments31To60Days": 44.22,
+      "paymentsMoreThan60Days": 26.27,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 2281,
+        "count": 2613,
+        "percentile": 12.2
+      },
+      "industryP95Position": {
+        "rank": 271,
+        "count": 329,
+        "percentile": 16.8
+      }
+    },
+    {
+      "reportId": "PTR20010921",
+      "acnArbn": "120104083",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52.14,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 30.16,
+      "payments31To60Days": 42.94,
+      "paymentsMoreThan60Days": 26.89,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 272,
+        "count": 323,
+        "percentile": 12.7
+      }
+    },
+    {
+      "reportId": "PTR20010910",
+      "acnArbn": "120104083",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51.24,
+      "medianPaymentTimeDays": 51,
+      "p80PaymentTimeDays": 73,
+      "p95PaymentTimeDays": 107,
+      "payments30DaysOrLess": 32.59,
+      "payments31To60Days": 31.98,
+      "paymentsMoreThan60Days": 35.43,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 2379,
+        "count": 2498,
+        "percentile": 4.6
+      },
+      "industryP95Position": {
+        "rank": 302,
+        "count": 323,
+        "percentile": 6.5
+      }
+    }
+  ]
+}

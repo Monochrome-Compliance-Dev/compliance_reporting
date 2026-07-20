@@ -1,0 +1,95 @@
+{
+  "slug": "perron-investments-pty-ltd-48000003976",
+  "businessName": "PERRON INVESTMENTS PTY LTD",
+  "abn": "48000003976",
+  "acnArbn": "000003976",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010495",
+      "acnArbn": "000003976",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.37,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 93.73,
+      "payments31To60Days": 6.15,
+      "paymentsMoreThan60Days": 0.13,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-09",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 182,
+        "count": 338,
+        "percentile": 43.9
+      }
+    },
+    {
+      "reportId": "PTR20006211",
+      "acnArbn": "000003976",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.18,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 82.11,
+      "payments31To60Days": 14.03,
+      "paymentsMoreThan60Days": 3.86,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 247,
+        "count": 349,
+        "percentile": 29
+      }
+    },
+    {
+      "reportId": "PTR20002694",
+      "acnArbn": "000003976",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.72,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 81.86,
+      "payments31To60Days": 14.36,
+      "paymentsMoreThan60Days": 3.78,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 1123,
+        "count": 2498,
+        "percentile": 54
+      },
+      "industryP95Position": {
+        "rank": 245,
+        "count": 339,
+        "percentile": 26.3
+      }
+    }
+  ]
+}

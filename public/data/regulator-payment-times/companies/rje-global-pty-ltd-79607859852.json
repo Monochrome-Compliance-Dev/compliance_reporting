@@ -1,0 +1,67 @@
+{
+  "slug": "rje-global-pty-ltd-79607859852",
+  "businessName": "RJE GLOBAL PTY LTD",
+  "abn": "79607859852",
+  "acnArbn": "607859852",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006355",
+      "acnArbn": "607859852",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.21,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 61.79,
+      "payments31To60Days": 37.1,
+      "paymentsMoreThan60Days": 1.11,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 181,
+        "percentile": 54.4
+      }
+    },
+    {
+      "reportId": "PTR20001842",
+      "acnArbn": "607859852",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.58,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 63.99,
+      "payments31To60Days": 35.55,
+      "paymentsMoreThan60Days": 0.46,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1123,
+        "count": 2498,
+        "percentile": 54
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 176,
+        "percentile": 51.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "dksh-performance-materials-australia-pty-limited-88602074322",
+  "businessName": "DKSH PERFORMANCE MATERIALS AUSTRALIA PTY LIMITED",
+  "abn": "88602074322",
+  "acnArbn": "602074322",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008137",
+      "acnArbn": "602074322",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.21,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 33.7,
+      "paymentsMoreThan60Days": 5.3,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 329,
+        "percentile": 34.5
+      }
+    },
+    {
+      "reportId": "PTR20006541",
+      "acnArbn": "602074322",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.5,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 57.3,
+      "payments31To60Days": 41.5,
+      "paymentsMoreThan60Days": 1.2,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 323,
+        "percentile": 43.8
+      }
+    },
+    {
+      "reportId": "PTR20006834",
+      "acnArbn": "602074322",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.2,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 53.8,
+      "payments31To60Days": 44.8,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-23",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 123,
+        "count": 323,
+        "percentile": 59.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "slug": "dollarama-australia-pty-ltd-33006122676",
+  "businessName": "Dollarama Australia PTY LTD",
+  "abn": "33006122676",
+  "acnArbn": "006122676",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20008804",
+      "acnArbn": "006122676",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.63,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 44.84,
+      "payments31To60Days": 44.24,
+      "paymentsMoreThan60Days": 10.92,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 20,
+        "count": 31,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20008808",
+      "acnArbn": "006122676",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.86,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 23.47,
+      "payments31To60Days": 58.28,
+      "paymentsMoreThan60Days": 18.25,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2307,
+        "count": 2613,
+        "percentile": 11.4
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 207,
+        "percentile": 7.8
+      }
+    },
+    {
+      "reportId": "PTR20004179",
+      "acnArbn": "006122676",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.82,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 22.58,
+      "payments31To60Days": 52.59,
+      "paymentsMoreThan60Days": 24.82,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2248,
+        "count": 2568,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 187,
+        "count": 208,
+        "percentile": 10.1
+      }
+    },
+    {
+      "reportId": "PTR20001426",
+      "acnArbn": "006122676",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.45,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 29.02,
+      "payments31To60Days": 45.25,
+      "paymentsMoreThan60Days": 25.73,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2238,
+        "count": 2498,
+        "percentile": 10.3
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 207,
+        "percentile": 11.2
+      }
+    }
+  ]
+}

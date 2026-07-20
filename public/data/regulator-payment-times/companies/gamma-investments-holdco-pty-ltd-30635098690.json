@@ -1,0 +1,95 @@
+{
+  "slug": "gamma-investments-holdco-pty-ltd-30635098690",
+  "businessName": "GAMMA INVESTMENTS HOLDCO PTY LTD",
+  "abn": "30635098690",
+  "acnArbn": "635098690",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009212",
+      "acnArbn": "635098690",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.58,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 85.55,
+      "payments31To60Days": 14.39,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 106,
+        "percentile": 77.1
+      }
+    },
+    {
+      "reportId": "PTR20005423",
+      "acnArbn": "635098690",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.33,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 83.79,
+      "payments31To60Days": 15.04,
+      "paymentsMoreThan60Days": 1.17,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 97,
+        "percentile": 76
+      }
+    },
+    {
+      "reportId": "PTR20001498",
+      "acnArbn": "635098690",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.15,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 88.35,
+      "payments31To60Days": 11.55,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 97,
+        "percentile": 81.3
+      }
+    }
+  ]
+}

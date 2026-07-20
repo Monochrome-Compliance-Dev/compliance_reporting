@@ -1,0 +1,95 @@
+{
+  "slug": "gs-global-australia-pty-ltd-12003931548",
+  "businessName": "GS GLOBAL AUSTRALIA PTY. LTD.",
+  "abn": "12003931548",
+  "acnArbn": "003931548",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009911",
+      "acnArbn": "003931548",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.54,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 75.95,
+      "payments31To60Days": 21.52,
+      "paymentsMoreThan60Days": 2.53,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 85,
+        "count": 329,
+        "percentile": 73.5
+      }
+    },
+    {
+      "reportId": "PTR20005097",
+      "acnArbn": "003931548",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.81,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 81.05,
+      "payments31To60Days": 17.89,
+      "paymentsMoreThan60Days": 1.05,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 323,
+        "percentile": 83.5
+      }
+    },
+    {
+      "reportId": "PTR20000664",
+      "acnArbn": "003931548",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.39,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 90.32,
+      "payments31To60Days": 9.68,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 505,
+        "count": 2498,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 323,
+        "percentile": 86
+      }
+    }
+  ]
+}

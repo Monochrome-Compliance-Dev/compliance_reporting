@@ -1,0 +1,95 @@
+{
+  "slug": "kraft-heinz-australia-pty-limited-64622234379",
+  "businessName": "KRAFT HEINZ AUSTRALIA PTY LIMITED",
+  "abn": "64622234379",
+  "acnArbn": "622234379",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008514",
+      "acnArbn": "622234379",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 65,
+      "medianPaymentTimeDays": 55,
+      "p80PaymentTimeDays": 100,
+      "p95PaymentTimeDays": 123,
+      "payments30DaysOrLess": 14.5,
+      "payments31To60Days": 43.1,
+      "paymentsMoreThan60Days": 42.4,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 2557,
+        "count": 2613,
+        "percentile": 2.1
+      },
+      "industryP95Position": {
+        "rank": 337,
+        "count": 347,
+        "percentile": 2.9
+      }
+    },
+    {
+      "reportId": "PTR20004138",
+      "acnArbn": "622234379",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 80,
+      "p95PaymentTimeDays": 112,
+      "payments30DaysOrLess": 41.2,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 28.7,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2449,
+        "count": 2568,
+        "percentile": 4.4
+      },
+      "industryP95Position": {
+        "rank": 322,
+        "count": 335,
+        "percentile": 3
+      }
+    },
+    {
+      "reportId": "PTR20001465",
+      "acnArbn": "622234379",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 75,
+      "p95PaymentTimeDays": 116,
+      "payments30DaysOrLess": 39.7,
+      "payments31To60Days": 31.6,
+      "paymentsMoreThan60Days": 28.7,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2404,
+        "count": 2498,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 310,
+        "count": 323,
+        "percentile": 4
+      }
+    }
+  ]
+}

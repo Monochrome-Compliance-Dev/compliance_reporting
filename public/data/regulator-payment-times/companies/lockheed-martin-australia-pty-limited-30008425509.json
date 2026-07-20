@@ -1,0 +1,95 @@
+{
+  "slug": "lockheed-martin-australia-pty-limited-30008425509",
+  "businessName": "LOCKHEED MARTIN AUSTRALIA PTY LIMITED",
+  "abn": "30008425509",
+  "acnArbn": "008425509",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008674",
+      "acnArbn": "008425509",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.25,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 91.7,
+      "payments31To60Days": 7.1,
+      "paymentsMoreThan60Days": 1.2,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 756,
+        "count": 2613,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 183,
+        "percentile": 67.6
+      }
+    },
+    {
+      "reportId": "PTR20004025",
+      "acnArbn": "008425509",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.64,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93.2,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 1.9,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 181,
+        "percentile": 75.6
+      }
+    },
+    {
+      "reportId": "PTR20000625",
+      "acnArbn": "008425509",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.42,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 86.6,
+      "payments31To60Days": 8.2,
+      "paymentsMoreThan60Days": 5.2,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-18",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 106,
+        "count": 176,
+        "percentile": 38.3
+      }
+    }
+  ]
+}

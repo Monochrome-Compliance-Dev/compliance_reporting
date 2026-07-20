@@ -1,0 +1,95 @@
+{
+  "slug": "comfortdelgro-corporation-australia-pty-ltd-84002072004",
+  "businessName": "COMFORTDELGRO CORPORATION AUSTRALIA PTY LTD",
+  "abn": "84002072004",
+  "acnArbn": "002072004",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009468",
+      "acnArbn": "002072004",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.01,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 42.55,
+      "payments31To60Days": 43.72,
+      "paymentsMoreThan60Days": 13.73,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2613,
+        "percentile": 10.4
+      },
+      "industryP95Position": {
+        "rank": 127,
+        "count": 143,
+        "percentile": 9.2
+      }
+    },
+    {
+      "reportId": "PTR20004157",
+      "acnArbn": "002072004",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.6,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 42,
+      "payments31To60Days": 46.84,
+      "paymentsMoreThan60Days": 11.17,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 144,
+        "percentile": 21.7
+      }
+    },
+    {
+      "reportId": "PTR20001808",
+      "acnArbn": "002072004",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.4,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 42.5,
+      "payments31To60Days": 47.03,
+      "paymentsMoreThan60Days": 10.47,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 140,
+        "percentile": 23.7
+      }
+    }
+  ]
+}

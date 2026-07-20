@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-ngr-project-trust-39281214407",
+  "businessName": "The Trustee for NGR Project Trust",
+  "abn": "39281214407",
+  "acnArbn": "",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007768",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.81,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-09",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 270,
+        "percentile": 93.3
+      }
+    },
+    {
+      "reportId": "PTR20005927",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.52,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 259,
+        "percentile": 93.4
+      }
+    },
+    {
+      "reportId": "PTR20005929",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.67,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 250,
+        "percentile": 92.4
+      }
+    }
+  ]
+}

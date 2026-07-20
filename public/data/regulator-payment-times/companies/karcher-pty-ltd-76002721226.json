@@ -1,0 +1,95 @@
+{
+  "slug": "karcher-pty-ltd-76002721226",
+  "businessName": "KARCHER PTY LTD",
+  "abn": "76002721226",
+  "acnArbn": "002721226",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009532",
+      "acnArbn": "002721226",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.37,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 71.34,
+      "payments31To60Days": 22.23,
+      "paymentsMoreThan60Days": 6.43,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 202,
+        "count": 347,
+        "percentile": 39.9
+      }
+    },
+    {
+      "reportId": "PTR20003965",
+      "acnArbn": "002721226",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.62,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 76.1,
+      "payments31To60Days": 15.84,
+      "paymentsMoreThan60Days": 8.06,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 2218,
+        "count": 2568,
+        "percentile": 12.8
+      },
+      "industryP95Position": {
+        "rank": 270,
+        "count": 335,
+        "percentile": 18.3
+      }
+    },
+    {
+      "reportId": "PTR20002192",
+      "acnArbn": "002721226",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.2,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 79.88,
+      "payments31To60Days": 13.25,
+      "paymentsMoreThan60Days": 6.87,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 229,
+        "count": 323,
+        "percentile": 27.6
+      }
+    }
+  ]
+}

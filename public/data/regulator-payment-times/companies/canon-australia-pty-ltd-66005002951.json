@@ -1,0 +1,95 @@
+{
+  "slug": "canon-australia-pty-ltd-66005002951",
+  "businessName": "CANON AUSTRALIA PTY. LTD.",
+  "abn": "66005002951",
+  "acnArbn": "005002951",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008695",
+      "acnArbn": "005002951",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.6,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 97.33,
+      "payments31To60Days": 2.41,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 329,
+        "percentile": 90.5
+      }
+    },
+    {
+      "reportId": "PTR20003671",
+      "acnArbn": "005002951",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.02,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 99.34,
+      "payments31To60Days": 0.66,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 225,
+        "count": 2568,
+        "percentile": 89.6
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 323,
+        "percentile": 93.5
+      }
+    },
+    {
+      "reportId": "PTR20002661",
+      "acnArbn": "005002951",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.42,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 96.26,
+      "payments31To60Days": 3.66,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 323,
+        "percentile": 88.5
+      }
+    }
+  ]
+}

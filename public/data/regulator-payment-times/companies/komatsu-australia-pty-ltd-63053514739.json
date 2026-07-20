@@ -1,0 +1,67 @@
+{
+  "slug": "komatsu-australia-pty-ltd-63053514739",
+  "businessName": "KOMATSU AUSTRALIA PTY LTD",
+  "abn": "63053514739",
+  "acnArbn": "053514739",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-29",
+  "reports": [
+    {
+      "reportId": "PTR20007040",
+      "acnArbn": "053514739",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 71.1,
+      "payments31To60Days": 23.2,
+      "paymentsMoreThan60Days": 5.7,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 178,
+        "count": 228,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 59,
+        "percentile": 15.5
+      }
+    },
+    {
+      "reportId": "PTR20002131",
+      "acnArbn": "053514739",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 63,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 211,
+        "count": 231,
+        "percentile": 7.8
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 61,
+        "percentile": 3.3
+      }
+    }
+  ]
+}

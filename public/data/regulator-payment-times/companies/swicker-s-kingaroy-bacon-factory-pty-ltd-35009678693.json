@@ -1,0 +1,39 @@
+{
+  "slug": "swicker-s-kingaroy-bacon-factory-pty-ltd-35009678693",
+  "businessName": "SWICKER'S KINGAROY BACON FACTORY PTY. LTD.",
+  "abn": "35009678693",
+  "acnArbn": "009678693",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008957",
+      "acnArbn": "009678693",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 347,
+        "percentile": 82.9
+      }
+    }
+  ]
+}

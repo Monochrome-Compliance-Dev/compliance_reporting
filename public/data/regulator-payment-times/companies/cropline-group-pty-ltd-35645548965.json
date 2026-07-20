@@ -1,0 +1,39 @@
+{
+  "slug": "cropline-group-pty-ltd-35645548965",
+  "businessName": "CROPLINE GROUP PTY LTD",
+  "abn": "35645548965",
+  "acnArbn": "645548965",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005605",
+      "acnArbn": "645548965",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.04,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 78.67,
+      "payments31To60Days": 20.07,
+      "paymentsMoreThan60Days": 1.26,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 144,
+        "percentile": 68.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "capitol-health-limited-84117391812",
+  "businessName": "Capitol Health Limited",
+  "abn": "84117391812",
+  "acnArbn": "117391812",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20001486",
+      "acnArbn": "117391812",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.65,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 51.69,
+      "payments31To60Days": 39.14,
+      "paymentsMoreThan60Days": 9.17,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 97,
+        "percentile": 26
+      }
+    }
+  ]
+}

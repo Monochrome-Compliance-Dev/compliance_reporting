@@ -1,0 +1,95 @@
+{
+  "slug": "gulf-western-group-holdings-pty-ltd-17635169032",
+  "businessName": "GULF WESTERN GROUP HOLDINGS PTY LTD",
+  "abn": "17635169032",
+  "acnArbn": "635169032",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Petroleum and coal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007363",
+      "acnArbn": "635169032",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 17.5,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 99.3,
+      "payments31To60Days": 0.7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Petroleum and coal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-23",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 347,
+        "percentile": 95.4
+      }
+    },
+    {
+      "reportId": "PTR20004154",
+      "acnArbn": "635169032",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.37,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 14,
+      "payments31To60Days": 86,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Petroleum and coal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 335,
+        "percentile": 54.8
+      }
+    },
+    {
+      "reportId": "PTR20004155",
+      "acnArbn": "635169032",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 14,
+      "payments31To60Days": 86,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Petroleum and coal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 55.3
+      }
+    }
+  ]
+}

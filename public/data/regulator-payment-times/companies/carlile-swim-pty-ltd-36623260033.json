@@ -1,0 +1,95 @@
+{
+  "slug": "carlile-swim-pty-ltd-36623260033",
+  "businessName": "Carlile Swim Pty Ltd",
+  "abn": "36623260033",
+  "acnArbn": "623260033",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20008606",
+      "acnArbn": "623260033",
+      "reportingPeriodStartDate": "2025-07-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.77,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 99.8,
+      "payments31To60Days": 0.2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 31,
+        "percentile": 76.7
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20006316",
+      "acnArbn": "623260033",
+      "reportingPeriodStartDate": "2025-01-31",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.47,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 86.67,
+      "payments31To60Days": 13.28,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 34,
+        "percentile": 78.8
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20001501",
+      "acnArbn": "623260033",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.84,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 86.52,
+      "payments31To60Days": 13.43,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 30,
+        "percentile": 82.8
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

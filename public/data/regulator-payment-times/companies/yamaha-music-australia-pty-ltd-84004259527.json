@@ -1,0 +1,95 @@
+{
+  "slug": "yamaha-music-australia-pty-ltd-84004259527",
+  "businessName": "YAMAHA MUSIC AUSTRALIA PTY. LTD.",
+  "abn": "84004259527",
+  "acnArbn": "004259527",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011729",
+      "acnArbn": "004259527",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4.4,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 18,
+      "payments30DaysOrLess": 97.78,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 0.71,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 12,
+        "count": 193,
+        "percentile": 93.2
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 45,
+        "percentile": 90.9
+      }
+    },
+    {
+      "reportId": "PTR20006760",
+      "acnArbn": "004259527",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.12,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 96.06,
+      "payments31To60Days": 2.28,
+      "paymentsMoreThan60Days": 1.14,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-17",
+      "overallP95Position": {
+        "rank": 22,
+        "count": 228,
+        "percentile": 90.3
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 59,
+        "percentile": 89.7
+      }
+    },
+    {
+      "reportId": "PTR20001131",
+      "acnArbn": "004259527",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.5,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.78,
+      "payments31To60Days": 3.35,
+      "paymentsMoreThan60Days": 1.88,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 43,
+        "count": 231,
+        "percentile": 80.4
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 61,
+        "percentile": 83.3
+      }
+    }
+  ]
+}

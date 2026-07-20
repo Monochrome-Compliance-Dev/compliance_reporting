@@ -1,0 +1,95 @@
+{
+  "slug": "safcol-australia-pty-ltd-19052489924",
+  "businessName": "SAFCOL AUSTRALIA PTY. LTD.",
+  "abn": "19052489924",
+  "acnArbn": "052489924",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007816",
+      "acnArbn": "052489924",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 84.56,
+      "payments31To60Days": 12.87,
+      "paymentsMoreThan60Days": 2.57,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 347,
+        "percentile": 87.9
+      }
+    },
+    {
+      "reportId": "PTR20007815",
+      "acnArbn": "052489924",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 88.2,
+      "payments31To60Days": 10.1,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 335,
+        "percentile": 87.7
+      }
+    },
+    {
+      "reportId": "PTR20007813",
+      "acnArbn": "052489924",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 86.08,
+      "payments31To60Days": 12.82,
+      "paymentsMoreThan60Days": 1.1,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 323,
+        "percentile": 85.7
+      }
+    }
+  ]
+}

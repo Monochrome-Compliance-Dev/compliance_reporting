@@ -1,0 +1,95 @@
+{
+  "slug": "bell-financial-group-limited-59083194763",
+  "businessName": "BELL FINANCIAL GROUP LIMITED",
+  "abn": "59083194763",
+  "acnArbn": "083194763",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008153",
+      "acnArbn": "083194763",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.74,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 97.99,
+      "payments31To60Days": 1.74,
+      "paymentsMoreThan60Days": 0.27,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 338,
+        "percentile": 63.5
+      }
+    },
+    {
+      "reportId": "PTR20008150",
+      "acnArbn": "083194763",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.1,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96.21,
+      "payments31To60Days": 3.64,
+      "paymentsMoreThan60Days": 0.15,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 349,
+        "percentile": 64.9
+      }
+    },
+    {
+      "reportId": "PTR20008146",
+      "acnArbn": "083194763",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.08,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.66,
+      "payments31To60Days": 5.34,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 124,
+        "count": 339,
+        "percentile": 60.1
+      }
+    }
+  ]
+}

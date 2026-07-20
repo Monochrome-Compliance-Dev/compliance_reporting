@@ -1,0 +1,95 @@
+{
+  "slug": "standard-chartered-bank-35845772731",
+  "businessName": "STANDARD CHARTERED BANK",
+  "abn": "35845772731",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009651",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.05,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 63.16,
+      "payments31To60Days": 31.58,
+      "paymentsMoreThan60Days": 5.26,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 311,
+        "count": 338,
+        "percentile": 7.7
+      }
+    },
+    {
+      "reportId": "PTR20004882",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.25,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 92.86,
+      "payments31To60Days": 7.14,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 349,
+        "percentile": 46.8
+      }
+    },
+    {
+      "reportId": "PTR20001687",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.09,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 79.41,
+      "payments31To60Days": 11.76,
+      "paymentsMoreThan60Days": 8.82,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-28",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 281,
+        "count": 339,
+        "percentile": 16.6
+      }
+    }
+  ]
+}

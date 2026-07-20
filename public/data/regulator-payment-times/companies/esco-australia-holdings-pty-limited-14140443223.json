@@ -1,0 +1,95 @@
+{
+  "slug": "esco-australia-holdings-pty-limited-14140443223",
+  "businessName": "ESCO AUSTRALIA HOLDINGS PTY LIMITED",
+  "abn": "14140443223",
+  "acnArbn": "140443223",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009810",
+      "acnArbn": "140443223",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 30,
+      "payments31To60Days": 51,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2043,
+        "count": 2613,
+        "percentile": 21.3
+      },
+      "industryP95Position": {
+        "rank": 231,
+        "count": 329,
+        "percentile": 28.7
+      }
+    },
+    {
+      "reportId": "PTR20003991",
+      "acnArbn": "140443223",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 36,
+      "payments31To60Days": 48,
+      "paymentsMoreThan60Days": 16,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 323,
+        "percentile": 41.9
+      }
+    },
+    {
+      "reportId": "PTR20001572",
+      "acnArbn": "140443223",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 244,
+        "count": 323,
+        "percentile": 23.3
+      }
+    }
+  ]
+}

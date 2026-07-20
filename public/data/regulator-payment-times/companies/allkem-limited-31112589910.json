@@ -1,0 +1,67 @@
+{
+  "slug": "allkem-limited-31112589910",
+  "businessName": "ALLKEM LIMITED",
+  "abn": "31112589910",
+  "acnArbn": "112589910",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Non-metallic mineral mining and quarrying",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20004144",
+      "acnArbn": "112589910",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.2,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 67.2,
+      "payments31To60Days": 25.5,
+      "paymentsMoreThan60Days": 7.3,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2156,
+        "count": 2568,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 173,
+        "percentile": 16.9
+      }
+    },
+    {
+      "reportId": "PTR20011033",
+      "acnArbn": "112589910",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.6,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 163,
+      "payments30DaysOrLess": 56,
+      "payments31To60Days": 31.7,
+      "paymentsMoreThan60Days": 13.3,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-05-10",
+      "overallP95Position": {
+        "rank": 2472,
+        "count": 2498,
+        "percentile": 1
+      },
+      "industryP95Position": {
+        "rank": 169,
+        "count": 170,
+        "percentile": 0.6
+      }
+    }
+  ]
+}

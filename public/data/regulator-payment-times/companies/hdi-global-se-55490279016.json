@@ -1,0 +1,95 @@
+{
+  "slug": "hdi-global-se-55490279016",
+  "businessName": "HDI GLOBAL SE",
+  "abn": "55490279016",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007124",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.96,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 94.82,
+      "payments31To60Days": 2.07,
+      "paymentsMoreThan60Days": 3.11,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 182,
+        "count": 338,
+        "percentile": 43.9
+      }
+    },
+    {
+      "reportId": "PTR20003215",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 91.18,
+      "payments31To60Days": 4.9,
+      "paymentsMoreThan60Days": 3.92,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-25",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 281,
+        "count": 349,
+        "percentile": 18.4
+      }
+    },
+    {
+      "reportId": "PTR20000080",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 89.05,
+      "payments31To60Days": 5.47,
+      "paymentsMoreThan60Days": 5.47,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-05-14",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 281,
+        "count": 339,
+        "percentile": 16.6
+      }
+    }
+  ]
+}

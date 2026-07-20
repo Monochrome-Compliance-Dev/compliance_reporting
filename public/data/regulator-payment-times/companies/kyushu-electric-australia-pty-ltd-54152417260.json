@@ -1,0 +1,95 @@
+{
+  "slug": "kyushu-electric-australia-pty-ltd-54152417260",
+  "businessName": "Kyushu Electric Australia Pty Ltd",
+  "abn": "54152417260",
+  "acnArbn": "152417260",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008818",
+      "acnArbn": "152417260",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.47,
+      "medianPaymentTimeDays": 12.5,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 131,
+        "count": 2613,
+        "percentile": 94.3
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 49,
+        "percentile": 85.4
+      }
+    },
+    {
+      "reportId": "PTR20003873",
+      "acnArbn": "152417260",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.6,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 50,
+        "percentile": 73.5
+      }
+    },
+    {
+      "reportId": "PTR20001106",
+      "acnArbn": "152417260",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.16,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 140,
+        "count": 2498,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 50,
+        "percentile": 85.7
+      }
+    }
+  ]
+}

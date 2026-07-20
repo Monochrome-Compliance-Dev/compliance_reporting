@@ -28,3 +28,6 @@ config.*
 # legacy frontend
 legacy-frontend/
 .local/
+
+# source data PTRS regulator Excel file
+source-data/payment-times/*.xlsx

@@ -1,0 +1,95 @@
+{
+  "slug": "citibank-n-a-34072814058",
+  "businessName": "CITIBANK, N.A.",
+  "abn": "34072814058",
+  "acnArbn": "072814058",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007621",
+      "acnArbn": "072814058",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.83,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.97,
+      "payments31To60Days": 3.36,
+      "paymentsMoreThan60Days": 0.67,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 338,
+        "percentile": 58.2
+      }
+    },
+    {
+      "reportId": "PTR20003851",
+      "acnArbn": "072814058",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.2,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 97.33,
+      "payments31To60Days": 2.67,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 225,
+        "count": 2568,
+        "percentile": 89.6
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 349,
+        "percentile": 73.9
+      }
+    },
+    {
+      "reportId": "PTR20000628",
+      "acnArbn": "072814058",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.02,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 97.67,
+      "payments31To60Days": 2.33,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-18",
+      "overallP95Position": {
+        "rank": 234,
+        "count": 2498,
+        "percentile": 89.3
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 339,
+        "percentile": 71.9
+      }
+    }
+  ]
+}

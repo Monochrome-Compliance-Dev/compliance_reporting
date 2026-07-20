@@ -1,0 +1,67 @@
+{
+  "slug": "varian-medical-systems-australasia-pty-ltd-53086249630",
+  "businessName": "VARIAN MEDICAL SYSTEMS AUSTRALASIA PTY LTD",
+  "abn": "53086249630",
+  "acnArbn": "086249630",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011250",
+      "acnArbn": "086249630",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.15,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 87.18,
+      "payments31To60Days": 10.26,
+      "paymentsMoreThan60Days": 2.56,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-06-02",
+      "overallP95Position": {
+        "rank": 79,
+        "count": 193,
+        "percentile": 57.8
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 5,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20000265",
+      "acnArbn": "086249630",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.32,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 13,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 70,
+        "count": 231,
+        "percentile": 68.7
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 5,
+        "percentile": 75
+      }
+    }
+  ]
+}

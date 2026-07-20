@@ -1,0 +1,39 @@
+{
+  "slug": "pursehouse-rural-pty-limited-75081573140",
+  "businessName": "PURSEHOUSE RURAL PTY LIMITED",
+  "abn": "75081573140",
+  "acnArbn": "081573140",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008503",
+      "acnArbn": "081573140",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 40,
+      "payments31To60Days": 54,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-22",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 207,
+        "percentile": 31.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "kirin-holdings-australia-pty-ltd-14667868448",
+  "businessName": "KIRIN HOLDINGS AUSTRALIA PTY LTD",
+  "abn": "14667868448",
+  "acnArbn": "667868448",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008755",
+      "acnArbn": "667868448",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 84.77,
+      "payments31To60Days": 10.78,
+      "paymentsMoreThan60Days": 4.46,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 329,
+        "percentile": 51.8
+      }
+    },
+    {
+      "reportId": "PTR20005181",
+      "acnArbn": "667868448",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 323,
+        "percentile": 48.8
+      }
+    },
+    {
+      "reportId": "PTR20000955",
+      "acnArbn": "667868448",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 71.5,
+      "payments31To60Days": 19.3,
+      "paymentsMoreThan60Days": 9.2,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 221,
+        "count": 323,
+        "percentile": 30.7
+      }
+    }
+  ]
+}

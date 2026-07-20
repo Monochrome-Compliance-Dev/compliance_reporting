@@ -1,0 +1,95 @@
+{
+  "slug": "galderma-australia-pty-ltd-12003976930",
+  "businessName": "GALDERMA AUSTRALIA PTY LTD",
+  "abn": "12003976930",
+  "acnArbn": "003976930",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010416",
+      "acnArbn": "003976930",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 28,
+      "payments31To60Days": 51,
+      "paymentsMoreThan60Days": 22,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-06",
+      "overallP95Position": {
+        "rank": 2446,
+        "count": 2613,
+        "percentile": 6.2
+      },
+      "industryP95Position": {
+        "rank": 307,
+        "count": 329,
+        "percentile": 6.1
+      }
+    },
+    {
+      "reportId": "PTR20005809",
+      "acnArbn": "003976930",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 102,
+      "payments30DaysOrLess": 43,
+      "payments31To60Days": 40,
+      "paymentsMoreThan60Days": 17,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2409,
+        "count": 2568,
+        "percentile": 6
+      },
+      "industryP95Position": {
+        "rank": 302,
+        "count": 323,
+        "percentile": 6.5
+      }
+    },
+    {
+      "reportId": "PTR20002235",
+      "acnArbn": "003976930",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 126,
+      "payments30DaysOrLess": 34,
+      "payments31To60Days": 41,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2441,
+        "count": 2498,
+        "percentile": 2.1
+      },
+      "industryP95Position": {
+        "rank": 311,
+        "count": 323,
+        "percentile": 3.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "de-lage-landen-pty-limited-20101692040",
+  "businessName": "De Lage Landen Pty Limited",
+  "abn": "20101692040",
+  "acnArbn": "101692040",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009494",
+      "acnArbn": "101692040",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 90.18,
+      "payments31To60Days": 5.02,
+      "paymentsMoreThan60Days": 4.79,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 284,
+        "count": 338,
+        "percentile": 15.1
+      }
+    },
+    {
+      "reportId": "PTR20004306",
+      "acnArbn": "101692040",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.9,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.26,
+      "payments31To60Days": 4.37,
+      "paymentsMoreThan60Days": 1.37,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 124,
+        "count": 349,
+        "percentile": 60.9
+      }
+    },
+    {
+      "reportId": "PTR20001502",
+      "acnArbn": "101692040",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.38,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 90.73,
+      "payments31To60Days": 6.02,
+      "paymentsMoreThan60Days": 3.25,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 211,
+        "count": 339,
+        "percentile": 37.9
+      }
+    }
+  ]
+}

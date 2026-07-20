@@ -1,0 +1,95 @@
+{
+  "slug": "geocon-land-holdings-group-pty-ltd-27601912949",
+  "businessName": "GEOCON LAND HOLDINGS GROUP PTY LTD",
+  "abn": "27601912949",
+  "acnArbn": "601912949",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009092",
+      "acnArbn": "601912949",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 93.5,
+      "payments31To60Days": 6.5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 270,
+        "percentile": 82.5
+      }
+    },
+    {
+      "reportId": "PTR20005759",
+      "acnArbn": "601912949",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 196,
+      "medianPaymentTimeDays": 69,
+      "p80PaymentTimeDays": 456,
+      "p95PaymentTimeDays": 750,
+      "payments30DaysOrLess": 42.86,
+      "payments31To60Days": 5.24,
+      "paymentsMoreThan60Days": 51.9,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2566,
+        "count": 2568,
+        "percentile": 0.1
+      },
+      "industryP95Position": {
+        "rank": 259,
+        "count": 259,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20002551",
+      "acnArbn": "601912949",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 9,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-16",
+      "overallP95Position": {
+        "rank": 35,
+        "count": 2498,
+        "percentile": 98.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 250,
+        "percentile": 99.6
+      }
+    }
+  ]
+}

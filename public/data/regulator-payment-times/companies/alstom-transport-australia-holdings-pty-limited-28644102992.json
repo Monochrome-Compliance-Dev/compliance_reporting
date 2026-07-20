@@ -1,0 +1,95 @@
+{
+  "slug": "alstom-transport-australia-holdings-pty-limited-28644102992",
+  "businessName": "ALSTOM TRANSPORT AUSTRALIA HOLDINGS PTY LIMITED",
+  "abn": "28644102992",
+  "acnArbn": "644102992",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011745",
+      "acnArbn": "644102992",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 59.08,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 72,
+      "p95PaymentTimeDays": 124,
+      "payments30DaysOrLess": 23.21,
+      "payments31To60Days": 44.52,
+      "paymentsMoreThan60Days": 32.27,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 192,
+        "count": 193,
+        "percentile": 0.5
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 25,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20007038",
+      "acnArbn": "644102992",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 58.68,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 79,
+      "p95PaymentTimeDays": 113,
+      "payments30DaysOrLess": 22.14,
+      "payments31To60Days": 44.4,
+      "paymentsMoreThan60Days": 33.45,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 222,
+        "count": 228,
+        "percentile": 2.6
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 28,
+        "percentile": 3.7
+      }
+    },
+    {
+      "reportId": "PTR20002227",
+      "acnArbn": "644102992",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61.48,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 132,
+      "payments30DaysOrLess": 19.9,
+      "payments31To60Days": 51.22,
+      "paymentsMoreThan60Days": 28.88,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 227,
+        "count": 231,
+        "percentile": 1.3
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 32,
+        "percentile": 0
+      }
+    }
+  ]
+}

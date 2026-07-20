@@ -1,0 +1,95 @@
+{
+  "slug": "associated-kiln-driers-pty-limited-34004341048",
+  "businessName": "ASSOCIATED KILN DRIERS PTY. LIMITED",
+  "abn": "34004341048",
+  "acnArbn": "004341048",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Wood product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009357",
+      "acnArbn": "004341048",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.33,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 44.08,
+      "payments31To60Days": 55.43,
+      "paymentsMoreThan60Days": 0.49,
+      "industrySubdivision": "Wood product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 347,
+        "percentile": 66.2
+      }
+    },
+    {
+      "reportId": "PTR20004764",
+      "acnArbn": "004341048",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.85,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 37.97,
+      "payments31To60Days": 61.39,
+      "paymentsMoreThan60Days": 0.64,
+      "industrySubdivision": "Wood product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 335,
+        "percentile": 70.4
+      }
+    },
+    {
+      "reportId": "PTR20001312",
+      "acnArbn": "004341048",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.55,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 37.52,
+      "payments31To60Days": 61.66,
+      "paymentsMoreThan60Days": 0.82,
+      "industrySubdivision": "Wood product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 323,
+        "percentile": 65.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "ag-n-vet-management-services-pty-limited-91087675465",
+  "businessName": "AG N VET MANAGEMENT SERVICES PTY LIMITED",
+  "abn": "91087675465",
+  "acnArbn": "087675465",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007050",
+      "acnArbn": "087675465",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 62,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 20.56,
+      "payments31To60Days": 61.21,
+      "paymentsMoreThan60Days": 17.74,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-01-28",
+      "overallP95Position": {
+        "rank": 2436,
+        "count": 2613,
+        "percentile": 6.4
+      },
+      "industryP95Position": {
+        "rank": 99,
+        "count": 102,
+        "percentile": 3
+      }
+    },
+    {
+      "reportId": "PTR20007122",
+      "acnArbn": "087675465",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51.76,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 19.24,
+      "payments31To60Days": 61.2,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 2428,
+        "count": 2568,
+        "percentile": 5.3
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 92,
+        "percentile": 2.2
+      }
+    },
+    {
+      "reportId": "PTR20007121",
+      "acnArbn": "087675465",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51.14,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 112,
+      "payments30DaysOrLess": 18.12,
+      "payments31To60Days": 59.03,
+      "paymentsMoreThan60Days": 22.15,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 2393,
+        "count": 2498,
+        "percentile": 4.1
+      },
+      "industryP95Position": {
+        "rank": 83,
+        "count": 85,
+        "percentile": 2.4
+      }
+    }
+  ]
+}

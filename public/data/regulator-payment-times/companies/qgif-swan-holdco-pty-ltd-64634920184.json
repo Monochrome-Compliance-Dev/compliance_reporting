@@ -1,0 +1,95 @@
+{
+  "slug": "qgif-swan-holdco-pty-ltd-64634920184",
+  "businessName": "QGIF SWAN HOLDCO PTY LTD",
+  "abn": "64634920184",
+  "acnArbn": "634920184",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008833",
+      "acnArbn": "634920184",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.39,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 67.06,
+      "payments31To60Days": 27.63,
+      "paymentsMoreThan60Days": 5.31,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 92,
+        "percentile": 11
+      }
+    },
+    {
+      "reportId": "PTR20004198",
+      "acnArbn": "634920184",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.98,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 59.1,
+      "payments31To60Days": 32.74,
+      "paymentsMoreThan60Days": 8.17,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2014,
+        "count": 2568,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 83,
+        "count": 95,
+        "percentile": 11.7
+      }
+    },
+    {
+      "reportId": "PTR20002656",
+      "acnArbn": "634920184",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.07,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 53.08,
+      "payments31To60Days": 41.42,
+      "paymentsMoreThan60Days": 5.5,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 99,
+        "percentile": 17.3
+      }
+    }
+  ]
+}

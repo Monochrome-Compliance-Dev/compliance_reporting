@@ -1,0 +1,95 @@
+{
+  "slug": "cisco-systems-australia-pty-limited-52050332940",
+  "businessName": "CISCO SYSTEMS AUSTRALIA PTY LIMITED",
+  "abn": "52050332940",
+  "acnArbn": "050332940",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20010574",
+      "acnArbn": "050332940",
+      "reportingPeriodStartDate": "2025-07-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49,
+      "medianPaymentTimeDays": 59,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 22.94,
+      "payments31To60Days": 68.64,
+      "paymentsMoreThan60Days": 8.41,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-04-16",
+      "overallP95Position": {
+        "rank": 30,
+        "count": 31,
+        "percentile": 3.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20003875",
+      "acnArbn": "050332940",
+      "reportingPeriodStartDate": "2025-01-31",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51,
+      "medianPaymentTimeDays": 59,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 16.37,
+      "payments31To60Days": 80.72,
+      "paymentsMoreThan60Days": 2.91,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 19,
+        "count": 34,
+        "percentile": 42.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20002601",
+      "acnArbn": "050332940",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54,
+      "medianPaymentTimeDays": 59,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 12.2,
+      "payments31To60Days": 83.97,
+      "paymentsMoreThan60Days": 3.83,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-07-21",
+      "overallP95Position": {
+        "rank": 15,
+        "count": 30,
+        "percentile": 41.4
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 0
+      }
+    }
+  ]
+}

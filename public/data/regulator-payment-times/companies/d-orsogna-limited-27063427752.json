@@ -1,0 +1,39 @@
+{
+  "slug": "d-orsogna-limited-27063427752",
+  "businessName": "D'ORSOGNA LIMITED",
+  "abn": "27063427752",
+  "acnArbn": "063427752",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005831",
+      "acnArbn": "063427752",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 86.48,
+      "payments31To60Days": 13.39,
+      "paymentsMoreThan60Days": 0.13,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 765,
+        "count": 2568,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 335,
+        "percentile": 90.7
+      }
+    }
+  ]
+}

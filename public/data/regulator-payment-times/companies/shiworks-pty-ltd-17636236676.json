@@ -1,0 +1,67 @@
+{
+  "slug": "shiworks-pty-ltd-17636236676",
+  "businessName": "SHIWORKS PTY LTD",
+  "abn": "17636236676",
+  "acnArbn": "636236676",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006713",
+      "acnArbn": "636236676",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.5,
+      "medianPaymentTimeDays": 10.5,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-14",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 2568,
+        "percentile": 97.5
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 349,
+        "percentile": 93.7
+      }
+    },
+    {
+      "reportId": "PTR20006710",
+      "acnArbn": "636236676",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 0.67,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 2,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-14",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 2498,
+        "percentile": 99.5
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 339,
+        "percentile": 98.2
+      }
+    }
+  ]
+}

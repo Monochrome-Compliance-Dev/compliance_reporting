@@ -1,0 +1,95 @@
+{
+  "slug": "adams-group-aus-holdings-pty-limited-13637089162",
+  "businessName": "ADAMS GROUP AUS HOLDINGS PTY LIMITED",
+  "abn": "13637089162",
+  "acnArbn": "637089162",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009513",
+      "acnArbn": "637089162",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.31,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 80.41,
+      "payments31To60Days": 12.74,
+      "paymentsMoreThan60Days": 6.85,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2135,
+        "count": 2613,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 106,
+        "percentile": 24.8
+      }
+    },
+    {
+      "reportId": "PTR20004652",
+      "acnArbn": "637089162",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.61,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 57.66,
+      "payments31To60Days": 33.02,
+      "paymentsMoreThan60Days": 9.32,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2259,
+        "count": 2568,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 80,
+        "count": 97,
+        "percentile": 17.7
+      }
+    },
+    {
+      "reportId": "PTR20004657",
+      "acnArbn": "637089162",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.74,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 56.13,
+      "payments31To60Days": 32.87,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2196,
+        "count": 2498,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 83,
+        "count": 97,
+        "percentile": 14.6
+      }
+    }
+  ]
+}

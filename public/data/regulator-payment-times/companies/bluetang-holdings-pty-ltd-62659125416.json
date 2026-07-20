@@ -1,0 +1,95 @@
+{
+  "slug": "bluetang-holdings-pty-ltd-62659125416",
+  "businessName": "BLUETANG HOLDINGS PTY LTD",
+  "abn": "62659125416",
+  "acnArbn": "659125416",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Social assistance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008206",
+      "acnArbn": "659125416",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 89.2,
+      "payments31To60Days": 10.7,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 106,
+        "percentile": 77.1
+      }
+    },
+    {
+      "reportId": "PTR20004766",
+      "acnArbn": "659125416",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.5,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 86.53,
+      "payments31To60Days": 13.39,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 97,
+        "percentile": 79.2
+      }
+    },
+    {
+      "reportId": "PTR20001308",
+      "acnArbn": "659125416",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.9,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 85.7,
+      "payments31To60Days": 13.7,
+      "paymentsMoreThan60Days": 0.6,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 97,
+        "percentile": 75
+      }
+    }
+  ]
+}

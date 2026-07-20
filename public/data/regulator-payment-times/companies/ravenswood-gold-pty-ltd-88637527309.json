@@ -1,0 +1,95 @@
+{
+  "slug": "ravenswood-gold-pty-ltd-88637527309",
+  "businessName": "RAVENSWOOD GOLD PTY LTD",
+  "abn": "88637527309",
+  "acnArbn": "637527309",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008604",
+      "acnArbn": "637527309",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 57.66,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 72,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 5.64,
+      "payments31To60Days": 53.59,
+      "paymentsMoreThan60Days": 40.77,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2372,
+        "count": 2613,
+        "percentile": 9
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 177,
+        "percentile": 10.8
+      }
+    },
+    {
+      "reportId": "PTR20004697",
+      "acnArbn": "637527309",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60.32,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 75,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 6.52,
+      "payments31To60Days": 44.65,
+      "paymentsMoreThan60Days": 48.83,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2342,
+        "count": 2568,
+        "percentile": 8.6
+      },
+      "industryP95Position": {
+        "rank": 155,
+        "count": 173,
+        "percentile": 10.5
+      }
+    },
+    {
+      "reportId": "PTR20002103",
+      "acnArbn": "637527309",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53.28,
+      "medianPaymentTimeDays": 52,
+      "p80PaymentTimeDays": 85,
+      "p95PaymentTimeDays": 101,
+      "payments30DaysOrLess": 37.7,
+      "payments31To60Days": 51.89,
+      "paymentsMoreThan60Days": 10.41,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2356,
+        "count": 2498,
+        "percentile": 5.4
+      },
+      "industryP95Position": {
+        "rank": 161,
+        "count": 170,
+        "percentile": 4.7
+      }
+    }
+  ]
+}

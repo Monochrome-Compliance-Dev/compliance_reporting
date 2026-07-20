@@ -1,0 +1,67 @@
+{
+  "slug": "liberty-bell-bay-pty-ltd-23004456035",
+  "businessName": "LIBERTY BELL BAY PTY LTD",
+  "abn": "23004456035",
+  "acnArbn": "004456035",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005473",
+      "acnArbn": "004456035",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53.27,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 112,
+      "payments30DaysOrLess": 25.63,
+      "payments31To60Days": 49,
+      "paymentsMoreThan60Days": 25.37,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2449,
+        "count": 2568,
+        "percentile": 4.4
+      },
+      "industryP95Position": {
+        "rank": 322,
+        "count": 335,
+        "percentile": 3
+      }
+    },
+    {
+      "reportId": "PTR20000878",
+      "acnArbn": "004456035",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.8,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 26.46,
+      "payments31To60Days": 53.88,
+      "paymentsMoreThan60Days": 19.66,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 2304,
+        "count": 2498,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 290,
+        "count": 323,
+        "percentile": 10.2
+      }
+    }
+  ]
+}

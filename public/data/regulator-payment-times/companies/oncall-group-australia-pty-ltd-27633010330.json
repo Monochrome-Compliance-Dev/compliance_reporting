@@ -1,0 +1,95 @@
+{
+  "slug": "oncall-group-australia-pty-ltd-27633010330",
+  "businessName": "ONCALL GROUP AUSTRALIA PTY LTD",
+  "abn": "27633010330",
+  "acnArbn": "633010330",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Social assistance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011460",
+      "acnArbn": "633010330",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 86.28,
+      "payments31To60Days": 13.72,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-06-21",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 106,
+        "percentile": 81
+      }
+    },
+    {
+      "reportId": "PTR20006361",
+      "acnArbn": "633010330",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 83.04,
+      "payments31To60Days": 16.95,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 459,
+        "count": 2568,
+        "percentile": 81
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 97,
+        "percentile": 84.4
+      }
+    },
+    {
+      "reportId": "PTR20006358",
+      "acnArbn": "633010330",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.52,
+      "payments31To60Days": 4.47,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 97,
+        "percentile": 91.7
+      }
+    }
+  ]
+}

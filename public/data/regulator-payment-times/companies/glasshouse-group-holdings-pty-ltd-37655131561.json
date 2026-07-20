@@ -1,0 +1,95 @@
+{
+  "slug": "glasshouse-group-holdings-pty-ltd-37655131561",
+  "businessName": "GLASSHOUSE GROUP HOLDINGS PTY LTD",
+  "abn": "37655131561",
+  "acnArbn": "655131561",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010023",
+      "acnArbn": "655131561",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.78,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 82.59,
+      "payments31To60Days": 16.26,
+      "paymentsMoreThan60Days": 1.15,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 102,
+        "percentile": 64.4
+      }
+    },
+    {
+      "reportId": "PTR20005786",
+      "acnArbn": "655131561",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 83.11,
+      "payments31To60Days": 12.81,
+      "paymentsMoreThan60Days": 4.08,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 62,
+        "count": 92,
+        "percentile": 28.6
+      }
+    },
+    {
+      "reportId": "PTR20001330",
+      "acnArbn": "655131561",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.69,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 84.58,
+      "payments31To60Days": 15.04,
+      "paymentsMoreThan60Days": 0.37,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 85,
+        "percentile": 67.9
+      }
+    }
+  ]
+}

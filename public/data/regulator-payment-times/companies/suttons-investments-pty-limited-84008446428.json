@@ -1,0 +1,67 @@
+{
+  "slug": "suttons-investments-pty-limited-84008446428",
+  "businessName": "SUTTONS INVESTMENTS PTY. LIMITED",
+  "abn": "84008446428",
+  "acnArbn": "008446428",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011610",
+      "acnArbn": "008446428",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.12,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 70.73,
+      "payments31To60Days": 25.21,
+      "paymentsMoreThan60Days": 4.05,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 207,
+        "percentile": 48.5
+      }
+    },
+    {
+      "reportId": "PTR20004930",
+      "acnArbn": "008446428",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.82,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 68.28,
+      "payments31To60Days": 26.18,
+      "paymentsMoreThan60Days": 5.55,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 142,
+        "count": 208,
+        "percentile": 31.4
+      }
+    }
+  ]
+}

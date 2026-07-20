@@ -1,0 +1,39 @@
+{
+  "slug": "sephora-australia-pty-ltd-37169030737",
+  "businessName": "SEPHORA AUSTRALIA PTY LTD",
+  "abn": "37169030737",
+  "acnArbn": "169030737",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20003969",
+      "acnArbn": "169030737",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 123,
+      "payments30DaysOrLess": 65,
+      "payments31To60Days": 27,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 2500,
+        "count": 2568,
+        "percentile": 2.5
+      },
+      "industryP95Position": {
+        "rank": 203,
+        "count": 208,
+        "percentile": 2.4
+      }
+    }
+  ]
+}

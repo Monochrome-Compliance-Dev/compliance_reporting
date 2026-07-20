@@ -1,0 +1,95 @@
+{
+  "slug": "american-express-australia-limited-92108952085",
+  "businessName": "AMERICAN EXPRESS AUSTRALIA LIMITED",
+  "abn": "92108952085",
+  "acnArbn": "108952085",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009076",
+      "acnArbn": "108952085",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.77,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 99.17,
+      "payments31To60Days": 0.54,
+      "paymentsMoreThan60Days": 0.29,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 209,
+        "count": 2613,
+        "percentile": 91.6
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 338,
+        "percentile": 76.3
+      }
+    },
+    {
+      "reportId": "PTR20004686",
+      "acnArbn": "108952085",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.25,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 94.48,
+      "payments31To60Days": 4.83,
+      "paymentsMoreThan60Days": 0.69,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 145,
+        "count": 349,
+        "percentile": 57.2
+      }
+    },
+    {
+      "reportId": "PTR20002752",
+      "acnArbn": "108952085",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.92,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93.66,
+      "payments31To60Days": 5.31,
+      "paymentsMoreThan60Days": 1.03,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 339,
+        "percentile": 49.4
+      }
+    }
+  ]
+}

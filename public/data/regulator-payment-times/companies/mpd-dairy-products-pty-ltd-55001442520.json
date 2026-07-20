@@ -1,0 +1,95 @@
+{
+  "slug": "mpd-dairy-products-pty-ltd-55001442520",
+  "businessName": "MPD DAIRY PRODUCTS PTY LTD",
+  "abn": "55001442520",
+  "acnArbn": "001442520",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008739",
+      "acnArbn": "001442520",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.23,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 87.96,
+      "payments31To60Days": 11.6,
+      "paymentsMoreThan60Days": 0.44,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 329,
+        "percentile": 79
+      }
+    },
+    {
+      "reportId": "PTR20005516",
+      "acnArbn": "001442520",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.45,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 79.54,
+      "payments31To60Days": 17.45,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 323,
+        "percentile": 63.7
+      }
+    },
+    {
+      "reportId": "PTR20001895",
+      "acnArbn": "001442520",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.67,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 80.06,
+      "payments31To60Days": 17.19,
+      "paymentsMoreThan60Days": 2.75,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 113,
+        "count": 323,
+        "percentile": 63.7
+      }
+    }
+  ]
+}

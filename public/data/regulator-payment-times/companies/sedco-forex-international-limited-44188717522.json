@@ -1,0 +1,95 @@
+{
+  "slug": "sedco-forex-international-limited-44188717522",
+  "businessName": "SEDCO FOREX INTERNATIONAL LIMITED",
+  "abn": "44188717522",
+  "acnArbn": "",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009371",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.69,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 18.93,
+      "payments31To60Days": 79.34,
+      "paymentsMoreThan60Days": 1.74,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1227,
+        "count": 2613,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 177,
+        "percentile": 47.7
+      }
+    },
+    {
+      "reportId": "PTR20005397",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.48,
+      "medianPaymentTimeDays": 35.5,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 29.38,
+      "payments31To60Days": 66.93,
+      "paymentsMoreThan60Days": 3.7,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 100,
+        "count": 173,
+        "percentile": 40.1
+      }
+    },
+    {
+      "reportId": "PTR20001777",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.39,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 55.76,
+      "payments31To60Days": 43.57,
+      "paymentsMoreThan60Days": 0.67,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 170,
+        "percentile": 58
+      }
+    }
+  ]
+}

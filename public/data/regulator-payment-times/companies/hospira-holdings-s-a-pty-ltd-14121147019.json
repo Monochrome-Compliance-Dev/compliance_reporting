@@ -1,0 +1,39 @@
+{
+  "slug": "hospira-holdings-s-a-pty-ltd-14121147019",
+  "businessName": "HOSPIRA HOLDINGS (S.A.) PTY LTD",
+  "abn": "14121147019",
+  "acnArbn": "121147019",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-05-30",
+  "reports": [
+    {
+      "reportId": "PTR20003925",
+      "acnArbn": "121147019",
+      "reportingPeriodStartDate": "2024-11-30",
+      "reportingPeriodEndDate": "2025-05-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.85,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 89.83,
+      "payments31To60Days": 6.63,
+      "paymentsMoreThan60Days": 3.54,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 22,
+        "percentile": 71.4
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 8,
+        "percentile": 85.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "midway-limited-44005616044",
+  "businessName": "MIDWAY LIMITED",
+  "abn": "44005616044",
+  "acnArbn": "005616044",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Forestry and logging",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008395",
+      "acnArbn": "005616044",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 74.13,
+      "payments31To60Days": 25.24,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 102,
+        "percentile": 42.6
+      }
+    },
+    {
+      "reportId": "PTR20005340",
+      "acnArbn": "005616044",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 78,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 92,
+        "percentile": 49.5
+      }
+    },
+    {
+      "reportId": "PTR20000598",
+      "acnArbn": "005616044",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 75.6,
+      "payments31To60Days": 24.2,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 85,
+        "percentile": 14.3
+      }
+    }
+  ]
+}

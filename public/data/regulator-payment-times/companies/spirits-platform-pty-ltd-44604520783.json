@@ -1,0 +1,95 @@
+{
+  "slug": "spirits-platform-pty-ltd-44604520783",
+  "businessName": "SPIRITS PLATFORM PTY LTD",
+  "abn": "44604520783",
+  "acnArbn": "604520783",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011459",
+      "acnArbn": "604520783",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.66,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 74,
+      "payments31To60Days": 25.6,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 90,
+        "count": 193,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 45,
+        "percentile": 43.2
+      }
+    },
+    {
+      "reportId": "PTR20006802",
+      "acnArbn": "604520783",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.35,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 78.48,
+      "payments31To60Days": 20.58,
+      "paymentsMoreThan60Days": 0.94,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-21",
+      "overallP95Position": {
+        "rank": 63,
+        "count": 228,
+        "percentile": 71.8
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 59,
+        "percentile": 74.1
+      }
+    },
+    {
+      "reportId": "PTR20000363",
+      "acnArbn": "604520783",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.43,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 75.59,
+      "payments31To60Days": 23.82,
+      "paymentsMoreThan60Days": 0.59,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-10",
+      "overallP95Position": {
+        "rank": 65,
+        "count": 231,
+        "percentile": 70.9
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 61,
+        "percentile": 70
+      }
+    }
+  ]
+}

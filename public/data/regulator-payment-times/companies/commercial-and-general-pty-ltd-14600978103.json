@@ -1,0 +1,39 @@
+{
+  "slug": "commercial-and-general-pty-ltd-14600978103",
+  "businessName": "COMMERCIAL & GENERAL PTY LTD",
+  "abn": "14600978103",
+  "acnArbn": "600978103",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011224",
+      "acnArbn": "600978103",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 56.27,
+      "payments31To60Days": 39.44,
+      "paymentsMoreThan60Days": 4.29,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-05-28",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 140,
+        "count": 270,
+        "percentile": 44.6
+      }
+    }
+  ]
+}

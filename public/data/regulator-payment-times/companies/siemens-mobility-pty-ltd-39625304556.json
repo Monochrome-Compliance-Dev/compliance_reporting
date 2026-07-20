@@ -1,0 +1,95 @@
+{
+  "slug": "siemens-mobility-pty-ltd-39625304556",
+  "businessName": "SIEMENS MOBILITY PTY. LTD.",
+  "abn": "39625304556",
+  "acnArbn": "625304556",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011605",
+      "acnArbn": "625304556",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.98,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 85,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 40.94,
+      "payments31To60Days": 30.87,
+      "paymentsMoreThan60Days": 28.19,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 185,
+        "count": 193,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 25,
+        "percentile": 4.2
+      }
+    },
+    {
+      "reportId": "PTR20006686",
+      "acnArbn": "625304556",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.5,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 37.06,
+      "payments31To60Days": 41.14,
+      "paymentsMoreThan60Days": 21.8,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-11",
+      "overallP95Position": {
+        "rank": 212,
+        "count": 228,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 28,
+        "percentile": 14.8
+      }
+    },
+    {
+      "reportId": "PTR20003788",
+      "acnArbn": "625304556",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52.59,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 87,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 39.05,
+      "payments31To60Days": 30.23,
+      "paymentsMoreThan60Days": 30.72,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 222,
+        "count": 231,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 32,
+        "percentile": 3.2
+      }
+    }
+  ]
+}

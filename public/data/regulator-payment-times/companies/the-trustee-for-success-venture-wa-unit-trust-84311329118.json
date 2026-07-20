@@ -1,0 +1,67 @@
+{
+  "slug": "the-trustee-for-success-venture-wa-unit-trust-84311329118",
+  "businessName": "The Trustee for SUCCESS VENTURE WA UNIT TRUST",
+  "abn": "84311329118",
+  "acnArbn": "",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006590",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-11-27",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 36,
+        "percentile": 85.7
+      }
+    },
+    {
+      "reportId": "PTR20000611",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.18,
+      "payments31To60Days": 2.65,
+      "paymentsMoreThan60Days": 2.17,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 30,
+        "percentile": 93.1
+      }
+    }
+  ]
+}

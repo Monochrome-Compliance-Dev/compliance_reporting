@@ -1,0 +1,95 @@
+{
+  "slug": "cnooc-gas-and-power-aus-investment-pty-ltd-28142591044",
+  "businessName": "CNOOC Gas and Power (AUS) Investment Pty Ltd",
+  "abn": "28142591044",
+  "acnArbn": "142591044",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010025",
+      "acnArbn": "142591044",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 118,
+        "count": 2613,
+        "percentile": 95.1
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 177,
+        "percentile": 97.7
+      }
+    },
+    {
+      "reportId": "PTR20005650",
+      "acnArbn": "142591044",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 100,
+        "count": 2568,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 173,
+        "percentile": 92.4
+      }
+    },
+    {
+      "reportId": "PTR20002981",
+      "acnArbn": "142591044",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 99.16,
+      "payments31To60Days": 0.84,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 110,
+        "count": 2498,
+        "percentile": 95.2
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 170,
+        "percentile": 94.7
+      }
+    }
+  ]
+}

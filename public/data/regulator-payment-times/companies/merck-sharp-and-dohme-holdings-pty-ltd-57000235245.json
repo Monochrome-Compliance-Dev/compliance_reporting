@@ -1,0 +1,95 @@
+{
+  "slug": "merck-sharp-and-dohme-holdings-pty-ltd-57000235245",
+  "businessName": "MERCK SHARP & DOHME (HOLDINGS) PTY LTD",
+  "abn": "57000235245",
+  "acnArbn": "000235245",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007923",
+      "acnArbn": "000235245",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.16,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 78.97,
+      "payments31To60Days": 3.1,
+      "paymentsMoreThan60Days": 17.93,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2372,
+        "count": 2613,
+        "percentile": 9
+      },
+      "industryP95Position": {
+        "rank": 289,
+        "count": 329,
+        "percentile": 12.2
+      }
+    },
+    {
+      "reportId": "PTR20005828",
+      "acnArbn": "000235245",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.91,
+      "medianPaymentTimeDays": 69.5,
+      "p80PaymentTimeDays": 111,
+      "p95PaymentTimeDays": 132,
+      "payments30DaysOrLess": 80.81,
+      "payments31To60Days": 1.89,
+      "paymentsMoreThan60Days": 17.31,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2516,
+        "count": 2568,
+        "percentile": 2
+      },
+      "industryP95Position": {
+        "rank": 315,
+        "count": 323,
+        "percentile": 2.2
+      }
+    },
+    {
+      "reportId": "PTR20002798",
+      "acnArbn": "000235245",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.82,
+      "medianPaymentTimeDays": 50.5,
+      "p80PaymentTimeDays": 81,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 76.05,
+      "payments31To60Days": 2.32,
+      "paymentsMoreThan60Days": 21.63,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 2322,
+        "count": 2498,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 295,
+        "count": 323,
+        "percentile": 8.4
+      }
+    }
+  ]
+}

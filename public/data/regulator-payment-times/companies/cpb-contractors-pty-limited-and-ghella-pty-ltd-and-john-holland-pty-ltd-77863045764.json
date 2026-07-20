@@ -1,0 +1,95 @@
+{
+  "slug": "cpb-contractors-pty-limited-and-ghella-pty-ltd-and-john-holland-pty-ltd-77863045764",
+  "businessName": "CPB CONTRACTORS PTY LIMITED & GHELLA PTY LTD & JOHN HOLLAND PTY LTD",
+  "abn": "77863045764",
+  "acnArbn": "",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010894",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.7,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 77.09,
+      "payments31To60Days": 19.78,
+      "paymentsMoreThan60Days": 3.13,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 1227,
+        "count": 2613,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 78,
+        "count": 270,
+        "percentile": 69.5
+      }
+    },
+    {
+      "reportId": "PTR20010892",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.43,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 68.25,
+      "payments31To60Days": 25.85,
+      "paymentsMoreThan60Days": 5.9,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 259,
+        "percentile": 31.8
+      }
+    },
+    {
+      "reportId": "PTR20010891",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.29,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 80.03,
+      "payments31To60Days": 15.62,
+      "paymentsMoreThan60Days": 4.35,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 95,
+        "count": 250,
+        "percentile": 60.2
+      }
+    }
+  ]
+}

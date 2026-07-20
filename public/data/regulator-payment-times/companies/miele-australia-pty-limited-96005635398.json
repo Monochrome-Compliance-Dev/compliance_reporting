@@ -1,0 +1,95 @@
+{
+  "slug": "miele-australia-pty-limited-96005635398",
+  "businessName": "MIELE AUSTRALIA PTY. LIMITED",
+  "abn": "96005635398",
+  "acnArbn": "005635398",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009595",
+      "acnArbn": "005635398",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93.44,
+      "payments31To60Days": 4.94,
+      "paymentsMoreThan60Days": 1.62,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 672,
+        "count": 2613,
+        "percentile": 73.2
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 207,
+        "percentile": 78.6
+      }
+    },
+    {
+      "reportId": "PTR20005356",
+      "acnArbn": "005635398",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 92.6,
+      "payments31To60Days": 4.2,
+      "paymentsMoreThan60Days": 3.2,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 208,
+        "percentile": 73.9
+      }
+    },
+    {
+      "reportId": "PTR20001186",
+      "acnArbn": "005635398",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 745,
+        "count": 2498,
+        "percentile": 68.9
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 207,
+        "percentile": 77.2
+      }
+    }
+  ]
+}

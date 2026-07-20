@@ -1,0 +1,67 @@
+{
+  "slug": "forestry-corporation-of-new-south-wales-43141857613",
+  "businessName": "FORESTRY CORPORATION OF NEW SOUTH WALES",
+  "abn": "43141857613",
+  "acnArbn": "",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Forestry and logging",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010293",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.2,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.3,
+      "payments31To60Days": 3.3,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 102,
+        "percentile": 89.1
+      }
+    },
+    {
+      "reportId": "PTR20006163",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.5,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 80.15,
+      "payments31To60Days": 14.53,
+      "paymentsMoreThan60Days": 5.32,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-10-23",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 73,
+        "count": 92,
+        "percentile": 19.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "ryman-healthcare-australia-pty-ltd-44142241110",
+  "businessName": "RYMAN HEALTHCARE (AUSTRALIA) PTY LTD",
+  "abn": "44142241110",
+  "acnArbn": "142241110",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Residential care services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011686",
+      "acnArbn": "142241110",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.8,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 34.93,
+      "payments31To60Days": 60.22,
+      "paymentsMoreThan60Days": 4.85,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 132,
+        "count": 193,
+        "percentile": 29.2
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 5,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20006703",
+      "acnArbn": "142241110",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.77,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 36.22,
+      "payments31To60Days": 59.64,
+      "paymentsMoreThan60Days": 4.14,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-12-14",
+      "overallP95Position": {
+        "rank": 139,
+        "count": 228,
+        "percentile": 38.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20001713",
+      "acnArbn": "142241110",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.62,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 36.24,
+      "payments31To60Days": 59.04,
+      "paymentsMoreThan60Days": 4.7,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 143,
+        "count": 231,
+        "percentile": 36.1
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 5,
+        "percentile": 25
+      }
+    }
+  ]
+}

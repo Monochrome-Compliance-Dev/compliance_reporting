@@ -1,0 +1,67 @@
+{
+  "slug": "concentrix-services-pty-ltd-63166171991",
+  "businessName": "CONCENTRIX SERVICES PTY LTD",
+  "abn": "63166171991",
+  "acnArbn": "166171991",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-11-29",
+  "reports": [
+    {
+      "reportId": "PTR20007208",
+      "acnArbn": "166171991",
+      "reportingPeriodStartDate": "2025-05-31",
+      "reportingPeriodEndDate": "2025-11-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.92,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 45.44,
+      "payments31To60Days": 47.1,
+      "paymentsMoreThan60Days": 7.68,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-02-12",
+      "overallP95Position": {
+        "rank": 16,
+        "count": 22,
+        "percentile": 28.6
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003273",
+      "acnArbn": "166171991",
+      "reportingPeriodStartDate": "2024-11-30",
+      "reportingPeriodEndDate": "2025-05-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.69,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 32.72,
+      "payments31To60Days": 42.48,
+      "paymentsMoreThan60Days": 25.07,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-08-27",
+      "overallP95Position": {
+        "rank": 21,
+        "count": 22,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

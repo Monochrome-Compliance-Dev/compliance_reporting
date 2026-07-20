@@ -1,0 +1,39 @@
+{
+  "slug": "thomas-foods-international-consolidated-pty-limited-20105099849",
+  "businessName": "THOMAS FOODS INTERNATIONAL CONSOLIDATED PTY LIMITED",
+  "abn": "20105099849",
+  "acnArbn": "105099849",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010129",
+      "acnArbn": "105099849",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 11,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 347,
+        "percentile": 80.3
+      }
+    }
+  ]
+}

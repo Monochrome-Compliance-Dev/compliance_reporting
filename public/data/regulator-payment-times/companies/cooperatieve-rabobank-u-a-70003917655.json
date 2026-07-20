@@ -1,0 +1,95 @@
+{
+  "slug": "cooperatieve-rabobank-u-a-70003917655",
+  "businessName": "COOPERATIEVE RABOBANK U.A.",
+  "abn": "70003917655",
+  "acnArbn": "003917655",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007458",
+      "acnArbn": "003917655",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.11,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 97.37,
+      "payments31To60Days": 1.38,
+      "paymentsMoreThan60Days": 1.24,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-24",
+      "overallP95Position": {
+        "rank": 221,
+        "count": 2613,
+        "percentile": 90.8
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 338,
+        "percentile": 73.3
+      }
+    },
+    {
+      "reportId": "PTR20002564",
+      "acnArbn": "003917655",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.39,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 88.27,
+      "payments31To60Days": 9.63,
+      "paymentsMoreThan60Days": 2.1,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-17",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 214,
+        "count": 349,
+        "percentile": 37.1
+      }
+    },
+    {
+      "reportId": "PTR20000263",
+      "acnArbn": "003917655",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.6,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 91.84,
+      "payments31To60Days": 4.24,
+      "paymentsMoreThan60Days": 3.92,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 798,
+        "count": 2498,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 204,
+        "count": 339,
+        "percentile": 38.2
+      }
+    }
+  ]
+}

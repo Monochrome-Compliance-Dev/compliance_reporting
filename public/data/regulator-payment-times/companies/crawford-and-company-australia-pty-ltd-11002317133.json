@@ -1,0 +1,67 @@
+{
+  "slug": "crawford-and-company-australia-pty-ltd-11002317133",
+  "businessName": "CRAWFORD & COMPANY (AUSTRALIA) PTY. LTD.",
+  "abn": "11002317133",
+  "acnArbn": "002317133",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-10-30",
+  "reports": [
+    {
+      "reportId": "PTR20007085",
+      "acnArbn": "002317133",
+      "reportingPeriodStartDate": "2025-04-30",
+      "reportingPeriodEndDate": "2025-10-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 88,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 13,
+        "count": 28,
+        "percentile": 55.6
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20006294",
+      "acnArbn": "002317133",
+      "reportingPeriodStartDate": "2024-10-31",
+      "reportingPeriodEndDate": "2025-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.97,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 80.53,
+      "payments31To60Days": 14.58,
+      "paymentsMoreThan60Days": 4.89,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 16,
+        "count": 28,
+        "percentile": 44.4
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

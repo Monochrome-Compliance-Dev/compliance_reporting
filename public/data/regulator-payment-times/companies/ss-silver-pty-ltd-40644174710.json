@@ -1,0 +1,95 @@
+{
+  "slug": "ss-silver-pty-ltd-40644174710",
+  "businessName": "SS SILVER PTY LTD",
+  "abn": "40644174710",
+  "acnArbn": "644174710",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Gambling activities",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007325",
+      "acnArbn": "644174710",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.72,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96.48,
+      "payments31To60Days": 2.35,
+      "paymentsMoreThan60Days": 1.16,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 34,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20005855",
+      "acnArbn": "644174710",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.69,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 84.86,
+      "payments31To60Days": 13.69,
+      "paymentsMoreThan60Days": 1.46,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 35,
+        "percentile": 58.8
+      }
+    },
+    {
+      "reportId": "PTR20001447",
+      "acnArbn": "644174710",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.61,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 85.1,
+      "payments31To60Days": 13.67,
+      "paymentsMoreThan60Days": 1.23,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 31,
+        "percentile": 70
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "bhp-group-limited-49004028077",
+  "businessName": "BHP GROUP LIMITED",
+  "abn": "49004028077",
+  "acnArbn": "004028077",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009302",
+      "acnArbn": "004028077",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.09,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 84.59,
+      "payments31To60Days": 14.57,
+      "paymentsMoreThan60Days": 0.84,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 177,
+        "percentile": 31.3
+      }
+    },
+    {
+      "reportId": "PTR20004910",
+      "acnArbn": "004028077",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.11,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 89.24,
+      "payments31To60Days": 10.25,
+      "paymentsMoreThan60Days": 0.51,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 105,
+        "count": 173,
+        "percentile": 37.2
+      }
+    },
+    {
+      "reportId": "PTR20001850",
+      "acnArbn": "004028077",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.88,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.43,
+      "payments31To60Days": 3.76,
+      "paymentsMoreThan60Days": 0.81,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 170,
+        "percentile": 85.2
+      }
+    }
+  ]
+}

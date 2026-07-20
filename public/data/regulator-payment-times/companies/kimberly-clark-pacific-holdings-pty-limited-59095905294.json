@@ -1,0 +1,95 @@
+{
+  "slug": "kimberly-clark-pacific-holdings-pty-limited-59095905294",
+  "businessName": "KIMBERLY-CLARK PACIFIC HOLDINGS PTY LIMITED",
+  "abn": "59095905294",
+  "acnArbn": "095905294",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Pulp, paper and converted paper product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008939",
+      "acnArbn": "095905294",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.04,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 119,
+      "payments30DaysOrLess": 48.64,
+      "payments31To60Days": 37.84,
+      "paymentsMoreThan60Days": 13.52,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2540,
+        "count": 2613,
+        "percentile": 2.6
+      },
+      "industryP95Position": {
+        "rank": 332,
+        "count": 347,
+        "percentile": 4
+      }
+    },
+    {
+      "reportId": "PTR20003880",
+      "acnArbn": "095905294",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.15,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 48,
+      "payments31To60Days": 43,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 282,
+        "count": 335,
+        "percentile": 12
+      }
+    },
+    {
+      "reportId": "PTR20000669",
+      "acnArbn": "095905294",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.23,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 51,
+      "payments31To60Days": 40,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 2243,
+        "count": 2498,
+        "percentile": 9.2
+      },
+      "industryP95Position": {
+        "rank": 276,
+        "count": 323,
+        "percentile": 13
+      }
+    }
+  ]
+}

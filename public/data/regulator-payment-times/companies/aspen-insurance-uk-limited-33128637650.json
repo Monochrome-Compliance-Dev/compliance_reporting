@@ -1,0 +1,95 @@
+{
+  "slug": "aspen-insurance-uk-limited-33128637650",
+  "businessName": "Aspen Insurance UK Limited",
+  "abn": "33128637650",
+  "acnArbn": "128637650",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009463",
+      "acnArbn": "128637650",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.83,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 8,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 2613,
+        "percentile": 98.9
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 338,
+        "percentile": 97.6
+      }
+    },
+    {
+      "reportId": "PTR20004751",
+      "acnArbn": "128637650",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.73,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 54.55,
+      "payments31To60Days": 36.36,
+      "paymentsMoreThan60Days": 9.09,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-27",
+      "overallP95Position": {
+        "rank": 2259,
+        "count": 2568,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 334,
+        "count": 349,
+        "percentile": 4.3
+      }
+    },
+    {
+      "reportId": "PTR20002324",
+      "acnArbn": "128637650",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.67,
+      "medianPaymentTimeDays": 12.5,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-02",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 339,
+        "percentile": 63.9
+      }
+    }
+  ]
+}

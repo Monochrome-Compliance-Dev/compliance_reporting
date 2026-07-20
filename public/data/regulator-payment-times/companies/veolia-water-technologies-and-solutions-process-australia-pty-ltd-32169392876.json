@@ -1,0 +1,95 @@
+{
+  "slug": "veolia-water-technologies-and-solutions-process-australia-pty-ltd-32169392876",
+  "businessName": "VEOLIA WATER TECHNOLOGIES & SOLUTIONS PROCESS AUSTRALIA PTY LTD",
+  "abn": "32169392876",
+  "acnArbn": "169392876",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007555",
+      "acnArbn": "169392876",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 49.58,
+      "payments31To60Days": 45,
+      "paymentsMoreThan60Days": 5.42,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 113,
+        "count": 183,
+        "percentile": 36.8
+      }
+    },
+    {
+      "reportId": "PTR20005611",
+      "acnArbn": "169392876",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 48.09,
+      "payments31To60Days": 45.26,
+      "paymentsMoreThan60Days": 6.65,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 181,
+        "percentile": 85
+      }
+    },
+    {
+      "reportId": "PTR20002556",
+      "acnArbn": "169392876",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.5,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 74.23,
+      "payments31To60Days": 18.7,
+      "paymentsMoreThan60Days": 7.07,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-16",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 176,
+        "percentile": 82.9
+      }
+    }
+  ]
+}

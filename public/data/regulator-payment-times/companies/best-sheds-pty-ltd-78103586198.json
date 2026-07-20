@@ -1,0 +1,95 @@
+{
+  "slug": "best-sheds-pty-ltd-78103586198",
+  "businessName": "BEST SHEDS PTY LTD",
+  "abn": "78103586198",
+  "acnArbn": "103586198",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010862",
+      "acnArbn": "103586198",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.06,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 91.84,
+      "payments31To60Days": 7.7,
+      "paymentsMoreThan60Days": 0.46,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 347,
+        "percentile": 93.4
+      }
+    },
+    {
+      "reportId": "PTR20010861",
+      "acnArbn": "103586198",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.34,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 91.98,
+      "payments31To60Days": 7.32,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 335,
+        "percentile": 91.3
+      }
+    },
+    {
+      "reportId": "PTR20010859",
+      "acnArbn": "103586198",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.34,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 93.54,
+      "payments31To60Days": 6.27,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 323,
+        "percentile": 93.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "regis-healthcare-limited-11125203054",
+  "businessName": "REGIS HEALTHCARE LIMITED",
+  "abn": "11125203054",
+  "acnArbn": "125203054",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Residential care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007728",
+      "acnArbn": "125203054",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.15,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 82.29,
+      "payments31To60Days": 12.18,
+      "paymentsMoreThan60Days": 5.53,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-09",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 106,
+        "percentile": 37.1
+      }
+    },
+    {
+      "reportId": "PTR20005228",
+      "acnArbn": "125203054",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.5,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 78.5,
+      "payments31To60Days": 14.39,
+      "paymentsMoreThan60Days": 7.11,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1988,
+        "count": 2568,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 97,
+        "percentile": 30.2
+      }
+    }
+  ]
+}

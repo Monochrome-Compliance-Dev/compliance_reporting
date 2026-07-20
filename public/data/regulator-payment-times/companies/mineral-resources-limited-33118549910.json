@@ -1,0 +1,39 @@
+{
+  "slug": "mineral-resources-limited-33118549910",
+  "businessName": "MINERAL RESOURCES LIMITED",
+  "abn": "33118549910",
+  "acnArbn": "118549910",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20001642",
+      "acnArbn": "118549910",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 47.17,
+      "payments31To60Days": 46.67,
+      "paymentsMoreThan60Days": 6.16,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 123,
+        "count": 170,
+        "percentile": 26.6
+      }
+    }
+  ]
+}

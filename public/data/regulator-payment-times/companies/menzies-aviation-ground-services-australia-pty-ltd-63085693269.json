@@ -1,0 +1,95 @@
+{
+  "slug": "menzies-aviation-ground-services-australia-pty-ltd-63085693269",
+  "businessName": "MENZIES AVIATION (GROUND SERVICES) AUSTRALIA PTY LTD",
+  "abn": "63085693269",
+  "acnArbn": "085693269",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009498",
+      "acnArbn": "085693269",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.56,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 46.04,
+      "payments31To60Days": 41.29,
+      "paymentsMoreThan60Days": 12.7,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 2453,
+        "count": 2613,
+        "percentile": 5.8
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 143,
+        "percentile": 2.8
+      }
+    },
+    {
+      "reportId": "PTR20004376",
+      "acnArbn": "085693269",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 43.2,
+      "payments31To60Days": 38.5,
+      "paymentsMoreThan60Days": 18.3,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 127,
+        "count": 144,
+        "percentile": 10.5
+      }
+    },
+    {
+      "reportId": "PTR20000250",
+      "acnArbn": "085693269",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 46,
+      "payments31To60Days": 40.9,
+      "paymentsMoreThan60Days": 13.1,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-02",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 100,
+        "count": 140,
+        "percentile": 27.3
+      }
+    }
+  ]
+}

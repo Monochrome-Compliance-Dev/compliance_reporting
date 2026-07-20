@@ -1,0 +1,67 @@
+{
+  "slug": "brandt-tractor-pty-ltd-73157830656",
+  "businessName": "BRANDT TRACTOR PTY LTD",
+  "abn": "73157830656",
+  "acnArbn": "157830656",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-10-30",
+  "reports": [
+    {
+      "reportId": "PTR20007057",
+      "acnArbn": "157830656",
+      "reportingPeriodStartDate": "2025-04-30",
+      "reportingPeriodEndDate": "2025-10-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.64,
+      "medianPaymentTimeDays": 23.35,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 64.38,
+      "payments31To60Days": 26.74,
+      "paymentsMoreThan60Days": 8.88,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-28",
+      "overallP95Position": {
+        "rank": 20,
+        "count": 28,
+        "percentile": 29.6
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20002609",
+      "acnArbn": "157830656",
+      "reportingPeriodStartDate": "2024-10-31",
+      "reportingPeriodEndDate": "2025-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.51,
+      "medianPaymentTimeDays": 26.36,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 60.65,
+      "payments31To60Days": 34.39,
+      "paymentsMoreThan60Days": 4.96,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-21",
+      "overallP95Position": {
+        "rank": 12,
+        "count": 28,
+        "percentile": 55.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    }
+  ]
+}

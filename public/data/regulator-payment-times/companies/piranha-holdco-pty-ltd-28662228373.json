@@ -1,0 +1,95 @@
+{
+  "slug": "piranha-holdco-pty-ltd-28662228373",
+  "businessName": "PIRANHA HOLDCO PTY LTD",
+  "abn": "28662228373",
+  "acnArbn": "662228373",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009137",
+      "acnArbn": "662228373",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.65,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 24.41,
+      "payments31To60Days": 63.33,
+      "paymentsMoreThan60Days": 12.26,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2360,
+        "count": 2613,
+        "percentile": 9.3
+      },
+      "industryP95Position": {
+        "rank": 296,
+        "count": 347,
+        "percentile": 14.5
+      }
+    },
+    {
+      "reportId": "PTR20004112",
+      "acnArbn": "662228373",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51.55,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 109,
+      "payments30DaysOrLess": 22.36,
+      "payments31To60Days": 51.69,
+      "paymentsMoreThan60Days": 25.95,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-21",
+      "overallP95Position": {
+        "rank": 2439,
+        "count": 2568,
+        "percentile": 5
+      },
+      "industryP95Position": {
+        "rank": 321,
+        "count": 335,
+        "percentile": 4.2
+      }
+    },
+    {
+      "reportId": "PTR20001384",
+      "acnArbn": "662228373",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.75,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 33,
+      "payments31To60Days": 47.63,
+      "paymentsMoreThan60Days": 19.37,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2292,
+        "count": 2498,
+        "percentile": 7.8
+      },
+      "industryP95Position": {
+        "rank": 286,
+        "count": 323,
+        "percentile": 10.6
+      }
+    }
+  ]
+}

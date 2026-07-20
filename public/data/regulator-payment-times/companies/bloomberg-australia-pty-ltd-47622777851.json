@@ -1,0 +1,123 @@
+{
+  "slug": "bloomberg-australia-pty-ltd-47622777851",
+  "businessName": "BLOOMBERG AUSTRALIA PTY LTD",
+  "abn": "47622777851",
+  "acnArbn": "622777851",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Internet publishing and broadcasting",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007198",
+      "acnArbn": "622777851",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.88,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 66,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-02-12",
+      "overallP95Position": {
+        "rank": 756,
+        "count": 2613,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 60,
+        "percentile": 69.5
+      }
+    },
+    {
+      "reportId": "PTR20004115",
+      "acnArbn": "622777851",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.6,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 63,
+      "payments31To60Days": 36,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 725,
+        "count": 2568,
+        "percentile": 71.1
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 55,
+        "percentile": 57.4
+      }
+    },
+    {
+      "reportId": "PTR20001157",
+      "acnArbn": "622777851",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.54,
+      "medianPaymentTimeDays": 8.5,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 71,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 58,
+        "percentile": 61.4
+      }
+    },
+    {
+      "reportId": "PTR20000905",
+      "acnArbn": "622777851",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.44,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 68,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet publishing and broadcasting",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 7,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    }
+  ]
+}

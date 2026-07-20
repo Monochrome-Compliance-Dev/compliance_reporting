@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-white-king-brisbane-unit-trust-31663193507",
+  "businessName": "The Trustee for White/King Brisbane Unit Trust",
+  "abn": "31663193507",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008035",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.96,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 87.69,
+      "payments31To60Days": 11.4,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 329,
+        "percentile": 71.6
+      }
+    },
+    {
+      "reportId": "PTR20005055",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.6,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 85.16,
+      "payments31To60Days": 14.11,
+      "paymentsMoreThan60Days": 0.73,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 929,
+        "count": 2568,
+        "percentile": 63.3
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 323,
+        "percentile": 72.4
+      }
+    },
+    {
+      "reportId": "PTR20003196",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.02,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 82.67,
+      "payments31To60Days": 16.58,
+      "paymentsMoreThan60Days": 0.75,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-24",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 323,
+        "percentile": 70.2
+      }
+    }
+  ]
+}

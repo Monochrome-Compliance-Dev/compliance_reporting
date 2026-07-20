@@ -1,0 +1,95 @@
+{
+  "slug": "twg-coffs-harbour-no2-pty-ltd-28662776392",
+  "businessName": "TWG COFFS HARBOUR NO2 PTY LTD",
+  "abn": "28662776392",
+  "acnArbn": "662776392",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008056",
+      "acnArbn": "662776392",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 78.26,
+      "payments31To60Days": 20.94,
+      "paymentsMoreThan60Days": 0.79,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-15",
+      "overallP95Position": {
+        "rank": 1227,
+        "count": 2613,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 329,
+        "percentile": 66.5
+      }
+    },
+    {
+      "reportId": "PTR20005111",
+      "acnArbn": "662776392",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.4,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 75.66,
+      "payments31To60Days": 23.06,
+      "paymentsMoreThan60Days": 1.11,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 323,
+        "percentile": 63.7
+      }
+    },
+    {
+      "reportId": "PTR20003219",
+      "acnArbn": "662776392",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.41,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 79.48,
+      "payments31To60Days": 20.04,
+      "paymentsMoreThan60Days": 0.24,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-25",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 323,
+        "percentile": 70.2
+      }
+    }
+  ]
+}

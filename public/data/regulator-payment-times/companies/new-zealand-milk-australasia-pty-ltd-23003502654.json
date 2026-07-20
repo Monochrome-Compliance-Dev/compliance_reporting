@@ -1,0 +1,67 @@
+{
+  "slug": "new-zealand-milk-australasia-pty-ltd-23003502654",
+  "businessName": "NEW ZEALAND MILK (AUSTRALASIA) PTY LTD",
+  "abn": "23003502654",
+  "acnArbn": "003502654",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-07-30",
+  "reports": [
+    {
+      "reportId": "PTR20006271",
+      "acnArbn": "003502654",
+      "reportingPeriodStartDate": "2025-01-31",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.84,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 26.02,
+      "payments31To60Days": 49.32,
+      "paymentsMoreThan60Days": 24.66,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 28,
+        "count": 34,
+        "percentile": 15.2
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 7,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20006270",
+      "acnArbn": "003502654",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.22,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 27.09,
+      "payments31To60Days": 49.88,
+      "paymentsMoreThan60Days": 23.03,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 28,
+        "count": 30,
+        "percentile": 6.9
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 6,
+        "percentile": 20
+      }
+    }
+  ]
+}

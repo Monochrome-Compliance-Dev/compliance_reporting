@@ -1,0 +1,39 @@
+{
+  "slug": "illumina-australia-pty-ltd-97130775932",
+  "businessName": "Illumina Australia Pty Ltd",
+  "abn": "97130775932",
+  "acnArbn": "130775932",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005711",
+      "acnArbn": "130775932",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.73,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 81.72,
+      "payments31To60Days": 12.69,
+      "paymentsMoreThan60Days": 5.6,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 181,
+        "percentile": 16.7
+      }
+    }
+  ]
+}

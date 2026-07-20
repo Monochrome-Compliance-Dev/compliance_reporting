@@ -1,0 +1,67 @@
+{
+  "slug": "l1-long-short-fund-limited-47623418539",
+  "businessName": "L1 LONG SHORT FUND LIMITED",
+  "abn": "47623418539",
+  "acnArbn": "623418539",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20005602",
+      "acnArbn": "623418539",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 83.33,
+      "payments31To60Days": 16.67,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 145,
+        "count": 349,
+        "percentile": 57.2
+      }
+    },
+    {
+      "reportId": "PTR20000725",
+      "acnArbn": "623418539",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 13,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 2498,
+        "percentile": 97.6
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 339,
+        "percentile": 93.5
+      }
+    }
+  ]
+}

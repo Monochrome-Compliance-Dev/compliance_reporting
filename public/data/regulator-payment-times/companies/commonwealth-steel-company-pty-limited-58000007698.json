@@ -1,0 +1,95 @@
+{
+  "slug": "commonwealth-steel-company-pty-limited-58000007698",
+  "businessName": "COMMONWEALTH STEEL COMPANY PTY LIMITED",
+  "abn": "58000007698",
+  "acnArbn": "000007698",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008242",
+      "acnArbn": "000007698",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.3,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 59.5,
+      "payments31To60Days": 22.9,
+      "paymentsMoreThan60Days": 17.6,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 202,
+        "count": 347,
+        "percentile": 39.9
+      }
+    },
+    {
+      "reportId": "PTR20005369",
+      "acnArbn": "000007698",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.53,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 22.27,
+      "payments31To60Days": 53.96,
+      "paymentsMoreThan60Days": 23.77,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 262,
+        "count": 335,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20004768",
+      "acnArbn": "000007698",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 56.09,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 117,
+      "payments30DaysOrLess": 24.8,
+      "payments31To60Days": 45.8,
+      "paymentsMoreThan60Days": 29.4,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2409,
+        "count": 2498,
+        "percentile": 3.4
+      },
+      "industryP95Position": {
+        "rank": 311,
+        "count": 323,
+        "percentile": 3.7
+      }
+    }
+  ]
+}

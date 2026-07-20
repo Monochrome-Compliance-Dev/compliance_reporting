@@ -1,0 +1,39 @@
+{
+  "slug": "sunshine-state-power-b-v-40062295425",
+  "businessName": "SUNSHINE STATE POWER B.V.",
+  "abn": "40062295425",
+  "acnArbn": "062295425",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20001710",
+      "acnArbn": "062295425",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.36,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.39,
+      "payments31To60Days": 2.7,
+      "paymentsMoreThan60Days": 1.91,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 99,
+        "percentile": 76.5
+      }
+    }
+  ]
+}

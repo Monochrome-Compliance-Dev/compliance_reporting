@@ -1,0 +1,39 @@
+{
+  "slug": "dac-finance-pty-limited-28129420444",
+  "businessName": "DAC Finance Pty Limited",
+  "abn": "28129420444",
+  "acnArbn": "129420444",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Residential care services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010774",
+      "acnArbn": "129420444",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 89,
+      "payments31To60Days": 9.99,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-06-14",
+      "overallP95Position": {
+        "rank": 703,
+        "count": 2613,
+        "percentile": 71.9
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 106,
+        "percentile": 71.4
+      }
+    }
+  ]
+}

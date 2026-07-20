@@ -1,0 +1,95 @@
+{
+  "slug": "h-a-cuthbertson-holdings-pty-ltd-88009493350",
+  "businessName": "H.A. CUTHBERTSON HOLDINGS PTY. LTD.",
+  "abn": "88009493350",
+  "acnArbn": "009493350",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008262",
+      "acnArbn": "009493350",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.59,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 85.63,
+      "payments31To60Days": 12.5,
+      "paymentsMoreThan60Days": 1.87,
+      "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 347,
+        "percentile": 80.3
+      }
+    },
+    {
+      "reportId": "PTR20004767",
+      "acnArbn": "009493350",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.51,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 82.31,
+      "payments31To60Days": 14.61,
+      "paymentsMoreThan60Days": 3.08,
+      "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 335,
+        "percentile": 79
+      }
+    },
+    {
+      "reportId": "PTR20000243",
+      "acnArbn": "009493350",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.6,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 82.76,
+      "payments31To60Days": 13.63,
+      "paymentsMoreThan60Days": 3.61,
+      "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-02",
+      "overallP95Position": {
+        "rank": 1123,
+        "count": 2498,
+        "percentile": 54
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "rex-gorell-pty-ltd-96006256668",
+  "businessName": "REX GORELL PTY. LTD.",
+  "abn": "96006256668",
+  "acnArbn": "006256668",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20007044",
+      "acnArbn": "006256668",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-28",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 329,
+        "percentile": 88.7
+      }
+    },
+    {
+      "reportId": "PTR20003046",
+      "acnArbn": "006256668",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 96,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-04",
+      "overallP95Position": {
+        "rank": 168,
+        "count": 2568,
+        "percentile": 92.8
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 323,
+        "percentile": 95.3
+      }
+    },
+    {
+      "reportId": "PTR20010970",
+      "acnArbn": "006256668",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 85,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-04",
+      "overallP95Position": {
+        "rank": 2312,
+        "count": 2498,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 294,
+        "count": 323,
+        "percentile": 9
+      }
+    }
+  ]
+}

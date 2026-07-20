@@ -1,0 +1,95 @@
+{
+  "slug": "autodesk-australia-pty-ltd-91006741340",
+  "businessName": "AUTODESK AUSTRALIA PTY. LTD.",
+  "abn": "91006741340",
+  "acnArbn": "006741340",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20011173",
+      "acnArbn": "006741340",
+      "reportingPeriodStartDate": "2025-07-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.87,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 90.19,
+      "payments31To60Days": 5.97,
+      "paymentsMoreThan60Days": 3.84,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-05-25",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 31,
+        "percentile": 76.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006591",
+      "acnArbn": "006741340",
+      "reportingPeriodStartDate": "2025-01-31",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.83,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 93.28,
+      "payments31To60Days": 4.74,
+      "paymentsMoreThan60Days": 1.98,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-27",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 34,
+        "percentile": 93.9
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002689",
+      "acnArbn": "006741340",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.4,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 92.42,
+      "payments31To60Days": 5.26,
+      "paymentsMoreThan60Days": 2.32,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 30,
+        "percentile": 93.1
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    }
+  ]
+}

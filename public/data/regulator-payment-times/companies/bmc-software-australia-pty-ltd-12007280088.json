@@ -1,0 +1,95 @@
+{
+  "slug": "bmc-software-australia-pty-ltd-12007280088",
+  "businessName": "BMC SOFTWARE (AUSTRALIA) PTY. LTD.",
+  "abn": "12007280088",
+  "acnArbn": "007280088",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011377",
+      "acnArbn": "007280088",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.47,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 97,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-15",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 193,
+        "percentile": 84.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 25,
+        "percentile": 95.8
+      }
+    },
+    {
+      "reportId": "PTR20006457",
+      "acnArbn": "007280088",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.07,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-10",
+      "overallP95Position": {
+        "rank": 33,
+        "count": 228,
+        "percentile": 84.1
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 27,
+        "percentile": 96.2
+      }
+    },
+    {
+      "reportId": "PTR20002582",
+      "acnArbn": "007280088",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.4,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-20",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 231,
+        "percentile": 87.4
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 26,
+        "percentile": 88
+      }
+    }
+  ]
+}

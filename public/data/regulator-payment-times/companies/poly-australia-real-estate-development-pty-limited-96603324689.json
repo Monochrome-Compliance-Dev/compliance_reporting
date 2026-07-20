@@ -1,0 +1,39 @@
+{
+  "slug": "poly-australia-real-estate-development-pty-limited-96603324689",
+  "businessName": "POLY (AUSTRALIA) REAL ESTATE DEVELOPMENT PTY LIMITED",
+  "abn": "96603324689",
+  "acnArbn": "603324689",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006352",
+      "acnArbn": "603324689",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 118,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 2476,
+        "count": 2568,
+        "percentile": 3.4
+      },
+      "industryP95Position": {
+        "rank": 249,
+        "count": 259,
+        "percentile": 3.9
+      }
+    }
+  ]
+}

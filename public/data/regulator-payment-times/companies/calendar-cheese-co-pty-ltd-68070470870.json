@@ -1,0 +1,39 @@
+{
+  "slug": "calendar-cheese-co-pty-ltd-68070470870",
+  "businessName": "CALENDAR CHEESE CO. PTY. LTD.",
+  "abn": "68070470870",
+  "acnArbn": "070470870",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20009208",
+      "acnArbn": "070470870",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.38,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 71.26,
+      "payments31To60Days": 24.18,
+      "paymentsMoreThan60Days": 4.56,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-29",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 160,
+        "count": 329,
+        "percentile": 49.7
+      }
+    }
+  ]
+}

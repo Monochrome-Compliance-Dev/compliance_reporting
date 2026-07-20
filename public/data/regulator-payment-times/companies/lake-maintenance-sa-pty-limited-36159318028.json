@@ -1,0 +1,39 @@
+{
+  "slug": "lake-maintenance-sa-pty-limited-36159318028",
+  "businessName": "LAKE MAINTENANCE (SA) PTY LIMITED",
+  "abn": "36159318028",
+  "acnArbn": "159318028",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Repair and maintenance",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20006085",
+      "acnArbn": "159318028",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 87,
+      "payments31To60Days": 9.2,
+      "paymentsMoreThan60Days": 3.8,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-10-19",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 26,
+        "percentile": 28
+      }
+    }
+  ]
+}

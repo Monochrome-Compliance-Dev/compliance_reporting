@@ -1,0 +1,95 @@
+{
+  "slug": "james-hardie-australia-pty-ltd-12084635558",
+  "businessName": "JAMES HARDIE AUSTRALIA PTY LTD",
+  "abn": "12084635558",
+  "acnArbn": "084635558",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Non-metallic mineral product mfg",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011725",
+      "acnArbn": "084635558",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.99,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 28.76,
+      "payments31To60Days": 55.63,
+      "paymentsMoreThan60Days": 15.61,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 179,
+        "count": 193,
+        "percentile": 7.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 25,
+        "percentile": 12.5
+      }
+    },
+    {
+      "reportId": "PTR20006791",
+      "acnArbn": "084635558",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.08,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 29.22,
+      "payments31To60Days": 57.38,
+      "paymentsMoreThan60Days": 13.4,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 202,
+        "count": 228,
+        "percentile": 10.6
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 28,
+        "percentile": 22.2
+      }
+    },
+    {
+      "reportId": "PTR20003572",
+      "acnArbn": "084635558",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 31,
+      "payments31To60Days": 58,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 186,
+        "count": 231,
+        "percentile": 19.6
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 32,
+        "percentile": 41.9
+      }
+    }
+  ]
+}

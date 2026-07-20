@@ -1,0 +1,95 @@
+{
+  "slug": "zeuss-childcare-i-pty-ltd-70609818386",
+  "businessName": "ZEUSS CHILDCARE I PTY LTD",
+  "abn": "70609818386",
+  "acnArbn": "609818386",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Social assistance services",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20008248",
+      "acnArbn": "609818386",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.6,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 60.7,
+      "payments31To60Days": 34.84,
+      "paymentsMoreThan60Days": 4.45,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 106,
+        "percentile": 45.7
+      }
+    },
+    {
+      "reportId": "PTR20005240",
+      "acnArbn": "609818386",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.43,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 64.75,
+      "payments31To60Days": 30.57,
+      "paymentsMoreThan60Days": 4.68,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 97,
+        "percentile": 49
+      }
+    },
+    {
+      "reportId": "PTR20001283",
+      "acnArbn": "609818386",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.41,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 64.87,
+      "payments31To60Days": 31.92,
+      "paymentsMoreThan60Days": 3.21,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 97,
+        "percentile": 52.1
+      }
+    }
+  ]
+}

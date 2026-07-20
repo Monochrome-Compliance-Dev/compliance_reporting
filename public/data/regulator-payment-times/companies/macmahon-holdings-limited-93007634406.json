@@ -1,0 +1,39 @@
+{
+  "slug": "macmahon-holdings-limited-93007634406",
+  "businessName": "MACMAHON HOLDINGS LIMITED",
+  "abn": "93007634406",
+  "acnArbn": "007634406",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20002004",
+      "acnArbn": "007634406",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 15,
+      "payments31To60Days": 68,
+      "paymentsMoreThan60Days": 17,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 2153,
+        "count": 2498,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 170,
+        "percentile": 10.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "valmont-queensland-pty-ltd-73142183800",
+  "businessName": "VALMONT QUEENSLAND PTY LTD",
+  "abn": "73142183800",
+  "acnArbn": "142183800",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-26",
+  "reports": [
+    {
+      "reportId": "PTR20008227",
+      "acnArbn": "142183800",
+      "reportingPeriodStartDate": "2025-06-28",
+      "reportingPeriodEndDate": "2025-12-26",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.44,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 50.74,
+      "payments31To60Days": 45.86,
+      "paymentsMoreThan60Days": 3.4,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 5,
+        "percentile": 25
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20003397",
+      "acnArbn": "142183800",
+      "reportingPeriodStartDate": "2024-12-28",
+      "reportingPeriodEndDate": "2025-06-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.93,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 48.48,
+      "payments31To60Days": 47.65,
+      "paymentsMoreThan60Days": 3.87,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-03",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 5,
+        "percentile": 25
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20000224",
+      "acnArbn": "142183800",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.35,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 50.3,
+      "payments31To60Days": 45.66,
+      "paymentsMoreThan60Days": 4.04,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-01",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 5,
+        "percentile": 25
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    }
+  ]
+}

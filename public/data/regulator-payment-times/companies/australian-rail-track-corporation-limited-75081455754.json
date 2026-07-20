@@ -1,0 +1,95 @@
+{
+  "slug": "australian-rail-track-corporation-limited-75081455754",
+  "businessName": "AUSTRALIAN RAIL TRACK CORPORATION LIMITED",
+  "abn": "75081455754",
+  "acnArbn": "081455754",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Rail transport",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20010280",
+      "acnArbn": "081455754",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.88,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 82.37,
+      "payments31To60Days": 12.64,
+      "paymentsMoreThan60Days": 4.99,
+      "industrySubdivision": "Rail transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-26",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 143,
+        "percentile": 32.4
+      }
+    },
+    {
+      "reportId": "PTR20005494",
+      "acnArbn": "081455754",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.74,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 72.83,
+      "payments31To60Days": 20.24,
+      "paymentsMoreThan60Days": 6.93,
+      "industrySubdivision": "Rail transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2014,
+        "count": 2568,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 144,
+        "percentile": 16.8
+      }
+    },
+    {
+      "reportId": "PTR20001948",
+      "acnArbn": "081455754",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.51,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 80.8,
+      "payments31To60Days": 13.6,
+      "paymentsMoreThan60Days": 5.6,
+      "industrySubdivision": "Rail transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 140,
+        "percentile": 31.7
+      }
+    }
+  ]
+}
