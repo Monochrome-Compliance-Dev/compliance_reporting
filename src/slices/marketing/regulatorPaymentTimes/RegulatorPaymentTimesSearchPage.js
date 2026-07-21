@@ -296,14 +296,14 @@ function RegulatorPaymentTimesSearchPage() {
                       ABN {formatAbn(company.abn)}
                     </Typography>
 
-                    {company.industrySubdivision && (
+                    {company.industryDivision && (
                       <Typography
                         variant="body2"
                         sx={{
                           color: theme.palette.text.secondary,
                         }}
                       >
-                        {company.industrySubdivision}
+                        ANZSIC Industry Division: {company.industryDivision}
                       </Typography>
                     )}
 
