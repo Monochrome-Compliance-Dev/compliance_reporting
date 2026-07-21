@@ -1,0 +1,95 @@
+{
+  "slug": "brunel-australia-holdings-pty-ltd-60078544126",
+  "businessName": "BRUNEL AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "60078544126",
+  "acnArbn": "078544126",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007850",
+      "acnArbn": "078544126",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.81,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.89,
+      "payments31To60Days": 1.38,
+      "paymentsMoreThan60Days": 1.73,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 49,
+        "percentile": 81.3
+      }
+    },
+    {
+      "reportId": "PTR20004266",
+      "acnArbn": "078544126",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.88,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.21,
+      "payments31To60Days": 4.79,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 50,
+        "percentile": 73.5
+      }
+    },
+    {
+      "reportId": "PTR20002643",
+      "acnArbn": "078544126",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.29,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 69.91,
+      "payments31To60Days": 14.82,
+      "paymentsMoreThan60Days": 15.27,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 2390,
+        "count": 2498,
+        "percentile": 4.2
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 50,
+        "percentile": 4.1
+      }
+    }
+  ]
+}

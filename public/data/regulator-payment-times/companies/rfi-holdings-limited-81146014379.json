@@ -1,0 +1,95 @@
+{
+  "slug": "rfi-holdings-limited-81146014379",
+  "businessName": "RFI HOLDINGS LIMITED",
+  "abn": "81146014379",
+  "acnArbn": "146014379",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010700",
+      "acnArbn": "146014379",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.8,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 75.37,
+      "payments31To60Days": 24.63,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 347,
+        "percentile": 66.2
+      }
+    },
+    {
+      "reportId": "PTR20006005",
+      "acnArbn": "146014379",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.9,
+      "medianPaymentTimeDays": 29.7,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 74.5,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 17.5,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-09",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2568,
+        "percentile": 8.8
+      },
+      "industryP95Position": {
+        "rank": 297,
+        "count": 335,
+        "percentile": 11.1
+      }
+    },
+    {
+      "reportId": "PTR20002746",
+      "acnArbn": "146014379",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.5,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 82.02,
+      "payments31To60Days": 0.8,
+      "paymentsMoreThan60Days": 17.18,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 2337,
+        "count": 2498,
+        "percentile": 6.2
+      },
+      "industryP95Position": {
+        "rank": 297,
+        "count": 323,
+        "percentile": 7.8
+      }
+    }
+  ]
+}

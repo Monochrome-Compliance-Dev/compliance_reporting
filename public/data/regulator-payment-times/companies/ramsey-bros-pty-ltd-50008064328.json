@@ -1,0 +1,95 @@
+{
+  "slug": "ramsey-bros-pty-ltd-50008064328",
+  "businessName": "RAMSEY BROS. PTY. LTD.",
+  "abn": "50008064328",
+  "acnArbn": "008064328",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture, forestry and fishing support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007037",
+      "acnArbn": "008064328",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 59.05,
+      "payments31To60Days": 34.82,
+      "paymentsMoreThan60Days": 6.17,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-01-28",
+      "overallP95Position": {
+        "rank": 2190,
+        "count": 2613,
+        "percentile": 15.4
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 102,
+        "percentile": 7.9
+      }
+    },
+    {
+      "reportId": "PTR20006546",
+      "acnArbn": "008064328",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 56.87,
+      "payments31To60Days": 39.56,
+      "paymentsMoreThan60Days": 3.57,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 92,
+        "percentile": 37.4
+      }
+    },
+    {
+      "reportId": "PTR20006545",
+      "acnArbn": "008064328",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 59.62,
+      "payments31To60Days": 38.59,
+      "paymentsMoreThan60Days": 1.8,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 85,
+        "percentile": 38.1
+      }
+    }
+  ]
+}

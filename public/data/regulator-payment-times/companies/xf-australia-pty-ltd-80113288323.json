@@ -1,0 +1,39 @@
+{
+  "slug": "xf-australia-pty-ltd-80113288323",
+  "businessName": "XF AUSTRALIA PTY LTD",
+  "abn": "80113288323",
+  "acnArbn": "113288323",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2024-09-30",
+  "reports": [
+    {
+      "reportId": "PTR20002420",
+      "acnArbn": "113288323",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.73,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 58.45,
+      "payments31To60Days": 41.22,
+      "paymentsMoreThan60Days": 0.33,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-11",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 7,
+        "percentile": 50
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

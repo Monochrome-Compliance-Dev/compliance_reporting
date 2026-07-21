@@ -1,0 +1,67 @@
+{
+  "slug": "total-construction-holdings-pty-ltd-69131766820",
+  "businessName": "Total Construction Holdings Pty Ltd",
+  "abn": "69131766820",
+  "acnArbn": "131766820",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20006167",
+      "acnArbn": "131766820",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 57.12,
+      "medianPaymentTimeDays": 48.5,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 113,
+      "payments30DaysOrLess": 17.11,
+      "payments31To60Days": 54.4,
+      "paymentsMoreThan60Days": 28.5,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-24",
+      "overallP95Position": {
+        "rank": 2457,
+        "count": 2568,
+        "percentile": 4.2
+      },
+      "industryP95Position": {
+        "rank": 245,
+        "count": 259,
+        "percentile": 5
+      }
+    },
+    {
+      "reportId": "PTR20006166",
+      "acnArbn": "131766820",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60,
+      "medianPaymentTimeDays": 50.5,
+      "p80PaymentTimeDays": 785,
+      "p95PaymentTimeDays": 1445,
+      "payments30DaysOrLess": 22.15,
+      "payments31To60Days": 41.94,
+      "paymentsMoreThan60Days": 35.92,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-24",
+      "overallP95Position": {
+        "rank": 2498,
+        "count": 2498,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 250,
+        "count": 250,
+        "percentile": 0
+      }
+    }
+  ]
+}

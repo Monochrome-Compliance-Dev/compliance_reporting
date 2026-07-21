@@ -1,0 +1,95 @@
+{
+  "slug": "paper-force-oceania-pty-ltd-84109526776",
+  "businessName": "PAPER FORCE (OCEANIA) PTY LTD",
+  "abn": "84109526776",
+  "acnArbn": "109526776",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010529",
+      "acnArbn": "109526776",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 131,
+      "payments30DaysOrLess": 89.72,
+      "payments31To60Days": 1.55,
+      "paymentsMoreThan60Days": 8.73,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 2580,
+        "count": 2613,
+        "percentile": 1.3
+      },
+      "industryP95Position": {
+        "rank": 326,
+        "count": 329,
+        "percentile": 0.9
+      }
+    },
+    {
+      "reportId": "PTR20010500",
+      "acnArbn": "109526776",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 133,
+      "payments30DaysOrLess": 91.49,
+      "payments31To60Days": 1.35,
+      "paymentsMoreThan60Days": 7.16,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-13",
+      "overallP95Position": {
+        "rank": 2518,
+        "count": 2568,
+        "percentile": 1.9
+      },
+      "industryP95Position": {
+        "rank": 317,
+        "count": 323,
+        "percentile": 1.6
+      }
+    },
+    {
+      "reportId": "PTR20008255",
+      "acnArbn": "109526776",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.57,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 164,
+      "payments30DaysOrLess": 81.92,
+      "payments31To60Days": 8.36,
+      "paymentsMoreThan60Days": 9.72,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2474,
+        "count": 2498,
+        "percentile": 1
+      },
+      "industryP95Position": {
+        "rank": 321,
+        "count": 323,
+        "percentile": 0.6
+      }
+    }
+  ]
+}

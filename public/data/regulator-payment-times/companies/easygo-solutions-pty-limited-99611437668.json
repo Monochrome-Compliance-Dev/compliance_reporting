@@ -1,0 +1,95 @@
+{
+  "slug": "easygo-solutions-pty-limited-99611437668",
+  "businessName": "EASYGO SOLUTIONS PTY LIMITED",
+  "abn": "99611437668",
+  "acnArbn": "611437668",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010034",
+      "acnArbn": "611437668",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 183,
+        "percentile": 59.9
+      }
+    },
+    {
+      "reportId": "PTR20009957",
+      "acnArbn": "611437668",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 73,
+      "p95PaymentTimeDays": 102,
+      "payments30DaysOrLess": 71,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 29,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2409,
+        "count": 2568,
+        "percentile": 6
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 181,
+        "percentile": 12.2
+      }
+    },
+    {
+      "reportId": "PTR20002286",
+      "acnArbn": "611437668",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.19,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 18,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-01",
+      "overallP95Position": {
+        "rank": 95,
+        "count": 2498,
+        "percentile": 96.1
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 176,
+        "percentile": 98.3
+      }
+    }
+  ]
+}

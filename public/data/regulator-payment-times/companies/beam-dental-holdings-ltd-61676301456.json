@@ -1,0 +1,39 @@
+{
+  "slug": "beam-dental-holdings-ltd-61676301456",
+  "businessName": "BEAM DENTAL HOLDINGS LTD",
+  "abn": "61676301456",
+  "acnArbn": "676301456",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010312",
+      "acnArbn": "676301456",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.99,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 84,
+      "payments31To60Days": 14.99,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 988,
+        "count": 2613,
+        "percentile": 61.3
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 106,
+        "percentile": 57.1
+      }
+    }
+  ]
+}

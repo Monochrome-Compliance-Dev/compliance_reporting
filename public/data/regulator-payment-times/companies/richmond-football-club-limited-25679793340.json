@@ -1,0 +1,67 @@
+{
+  "slug": "richmond-football-club-limited-25679793340",
+  "businessName": "RICHMOND FOOTBALL CLUB LIMITED",
+  "abn": "25679793340",
+  "acnArbn": "005563011",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20007102",
+      "acnArbn": "005563011",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.69,
+      "medianPaymentTimeDays": 14.5,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 88,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-02-02",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 28,
+        "percentile": 63
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 6,
+        "percentile": 20
+      }
+    },
+    {
+      "reportId": "PTR20003646",
+      "acnArbn": "005563011",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.42,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 84,
+      "payments31To60Days": 11,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-09-12",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 28,
+        "percentile": 63
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 6,
+        "percentile": 60
+      }
+    }
+  ]
+}

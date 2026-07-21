@@ -1,0 +1,95 @@
+{
+  "slug": "the-lincoln-electric-company-australia-proprietary-limited-36000040308",
+  "businessName": "THE LINCOLN ELECTRIC COMPANY (AUSTRALIA) PROPRIETARY LIMITED",
+  "abn": "36000040308",
+  "acnArbn": "000040308",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009568",
+      "acnArbn": "000040308",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 49,
+      "payments31To60Days": 44,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 201,
+        "count": 329,
+        "percentile": 37.2
+      }
+    },
+    {
+      "reportId": "PTR20005632",
+      "acnArbn": "000040308",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 57,
+      "payments31To60Days": 37,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 323,
+        "percentile": 51.9
+      }
+    },
+    {
+      "reportId": "PTR20002705",
+      "acnArbn": "000040308",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 60,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 2100,
+        "count": 2498,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 254,
+        "count": 323,
+        "percentile": 20.5
+      }
+    }
+  ]
+}

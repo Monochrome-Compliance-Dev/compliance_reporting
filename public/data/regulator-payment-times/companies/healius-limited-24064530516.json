@@ -1,0 +1,95 @@
+{
+  "slug": "healius-limited-24064530516",
+  "businessName": "HEALIUS LIMITED",
+  "abn": "24064530516",
+  "acnArbn": "064530516",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009504",
+      "acnArbn": "064530516",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.31,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 80.51,
+      "payments31To60Days": 13.04,
+      "paymentsMoreThan60Days": 6.45,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 106,
+        "percentile": 29.5
+      }
+    },
+    {
+      "reportId": "PTR20004540",
+      "acnArbn": "064530516",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 62.59,
+      "payments31To60Days": 24.09,
+      "paymentsMoreThan60Days": 13.31,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2037,
+        "count": 2568,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 70,
+        "count": 97,
+        "percentile": 27.1
+      }
+    },
+    {
+      "reportId": "PTR20001391",
+      "acnArbn": "064530516",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.06,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 77.9,
+      "payments31To60Days": 13.86,
+      "paymentsMoreThan60Days": 8.24,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 78,
+        "count": 97,
+        "percentile": 18.8
+      }
+    }
+  ]
+}

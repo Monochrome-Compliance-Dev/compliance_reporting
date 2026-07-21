@@ -1,0 +1,67 @@
+{
+  "slug": "northrop-consulting-engineers-pty-limited-81094433100",
+  "businessName": "NORTHROP CONSULTING ENGINEERS PTY LIMITED",
+  "abn": "81094433100",
+  "acnArbn": "094433100",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011580",
+      "acnArbn": "094433100",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.6,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 87.5,
+      "payments31To60Days": 9.1,
+      "paymentsMoreThan60Days": 3.4,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 183,
+        "percentile": 51.6
+      }
+    },
+    {
+      "reportId": "PTR20011579",
+      "acnArbn": "094433100",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.1,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 9.1,
+      "paymentsMoreThan60Days": 4.9,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 181,
+        "percentile": 43.3
+      }
+    }
+  ]
+}

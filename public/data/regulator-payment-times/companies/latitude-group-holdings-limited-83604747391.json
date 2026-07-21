@@ -1,0 +1,95 @@
+{
+  "slug": "latitude-group-holdings-limited-83604747391",
+  "businessName": "LATITUDE GROUP HOLDINGS LIMITED",
+  "abn": "83604747391",
+  "acnArbn": "604747391",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007487",
+      "acnArbn": "604747391",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.33,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 94.47,
+      "payments31To60Days": 5.21,
+      "paymentsMoreThan60Days": 0.32,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-02",
+      "overallP95Position": {
+        "rank": 542,
+        "count": 2613,
+        "percentile": 78
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 338,
+        "percentile": 49.9
+      }
+    },
+    {
+      "reportId": "PTR20004010",
+      "acnArbn": "604747391",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.84,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 93.5,
+      "payments31To60Days": 6.05,
+      "paymentsMoreThan60Days": 0.45,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 232,
+        "count": 349,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20000315",
+      "acnArbn": "604747391",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.6,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.79,
+      "payments31To60Days": 3.21,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-10",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 97,
+        "count": 339,
+        "percentile": 68.6
+      }
+    }
+  ]
+}

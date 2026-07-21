@@ -1,0 +1,67 @@
+{
+  "slug": "agilent-technologies-australia-pty-ltd-29088510605",
+  "businessName": "AGILENT TECHNOLOGIES AUSTRALIA PTY LTD",
+  "abn": "29088510605",
+  "acnArbn": "088510605",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20007022",
+      "acnArbn": "088510605",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.13,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 56.7,
+      "payments31To60Days": 35.67,
+      "paymentsMoreThan60Days": 7.63,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 16,
+        "count": 28,
+        "percentile": 40.7
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 9,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20002617",
+      "acnArbn": "088510605",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.95,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 31.77,
+      "payments31To60Days": 54.18,
+      "paymentsMoreThan60Days": 14.05,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 21,
+        "count": 28,
+        "percentile": 22.2
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 7,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

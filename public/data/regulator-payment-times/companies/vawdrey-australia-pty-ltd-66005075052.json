@@ -1,0 +1,95 @@
+{
+  "slug": "vawdrey-australia-pty-ltd-66005075052",
+  "businessName": "VAWDREY AUSTRALIA PTY. LTD.",
+  "abn": "66005075052",
+  "acnArbn": "005075052",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007108",
+      "acnArbn": "005075052",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 19,
+      "payments31To60Days": 76,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 347,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20003242",
+      "acnArbn": "005075052",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 10,
+      "payments31To60Days": 83,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 335,
+        "percentile": 46.1
+      }
+    },
+    {
+      "reportId": "PTR20000046",
+      "acnArbn": "005075052",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.66,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 17.9,
+      "payments31To60Days": 79.6,
+      "paymentsMoreThan60Days": 2.5,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-05-09",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 55.3
+      }
+    }
+  ]
+}

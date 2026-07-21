@@ -1,0 +1,39 @@
+{
+  "slug": "te-connectivity-australia-pty-ltd-56000129573",
+  "businessName": "TE CONNECTIVITY AUSTRALIA PTY LTD",
+  "abn": "56000129573",
+  "acnArbn": "000129573",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20002899",
+      "acnArbn": "000129573",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.8,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 47.05,
+      "payments31To60Days": 44.81,
+      "paymentsMoreThan60Days": 8.15,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 164,
+        "count": 231,
+        "percentile": 26.5
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 32,
+        "percentile": 51.6
+      }
+    }
+  ]
+}

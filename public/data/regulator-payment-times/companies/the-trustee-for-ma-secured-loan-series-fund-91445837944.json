@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-ma-secured-loan-series-fund-91445837944",
+  "businessName": "The Trustee for MA SECURED LOAN SERIES FUND",
+  "abn": "91445837944",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011434",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.14,
+      "medianPaymentTimeDays": 8.5,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 71.43,
+      "payments31To60Days": 7.14,
+      "paymentsMoreThan60Days": 21.43,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-19",
+      "overallP95Position": {
+        "rank": 2281,
+        "count": 2613,
+        "percentile": 12.2
+      },
+      "industryP95Position": {
+        "rank": 326,
+        "count": 338,
+        "percentile": 3.6
+      }
+    },
+    {
+      "reportId": "PTR20011432",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.25,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 115,
+      "p95PaymentTimeDays": 146,
+      "payments30DaysOrLess": 62.5,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 37.5,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-19",
+      "overallP95Position": {
+        "rank": 2532,
+        "count": 2568,
+        "percentile": 1.4
+      },
+      "industryP95Position": {
+        "rank": 348,
+        "count": 349,
+        "percentile": 0.3
+      }
+    },
+    {
+      "reportId": "PTR20011430",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.56,
+      "medianPaymentTimeDays": 6.5,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 62.5,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 12.5,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-19",
+      "overallP95Position": {
+        "rank": 2100,
+        "count": 2498,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 311,
+        "count": 339,
+        "percentile": 8.3
+      }
+    }
+  ]
+}

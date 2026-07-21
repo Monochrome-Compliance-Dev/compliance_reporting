@@ -1,0 +1,95 @@
+{
+  "slug": "leviat-pty-ltd-41000496079",
+  "businessName": "LEVIAT PTY LTD",
+  "abn": "41000496079",
+  "acnArbn": "000496079",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007479",
+      "acnArbn": "000496079",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 63,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 68.1,
+      "payments31To60Days": 29.2,
+      "paymentsMoreThan60Days": 2.7,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 1305,
+        "count": 2613,
+        "percentile": 47.8
+      },
+      "industryP95Position": {
+        "rank": 97,
+        "count": 347,
+        "percentile": 71.1
+      }
+    },
+    {
+      "reportId": "PTR20002756",
+      "acnArbn": "000496079",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 57.9,
+      "payments31To60Days": 33.9,
+      "paymentsMoreThan60Days": 8.2,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 185,
+        "count": 335,
+        "percentile": 43.4
+      }
+    },
+    {
+      "reportId": "PTR20002766",
+      "acnArbn": "000496079",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 69.2,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 2.8,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 323,
+        "percentile": 71.1
+      }
+    }
+  ]
+}

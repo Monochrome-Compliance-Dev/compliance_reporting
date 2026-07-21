@@ -1,0 +1,39 @@
+{
+  "slug": "pacific-smiles-group-limited-42103087449",
+  "businessName": "PACIFIC SMILES GROUP LIMITED",
+  "abn": "42103087449",
+  "acnArbn": "103087449",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20003874",
+      "acnArbn": "103087449",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.69,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 99.27,
+      "payments31To60Days": 0.04,
+      "paymentsMoreThan60Days": 0.69,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 97,
+        "percentile": 79.2
+      }
+    }
+  ]
+}

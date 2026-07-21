@@ -1,0 +1,95 @@
+{
+  "slug": "kellogg-australia-holdings-pty-ltd-59102893952",
+  "businessName": "KELLOGG AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "59102893952",
+  "acnArbn": "102893952",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008871",
+      "acnArbn": "102893952",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 69.24,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 120,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 14.83,
+      "payments31To60Days": 47.61,
+      "paymentsMoreThan60Days": 37.56,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2545,
+        "count": 2613,
+        "percentile": 2.3
+      },
+      "industryP95Position": {
+        "rank": 334,
+        "count": 347,
+        "percentile": 3.5
+      }
+    },
+    {
+      "reportId": "PTR20004883",
+      "acnArbn": "102893952",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 71.63,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 120,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 11.86,
+      "payments31To60Days": 49.4,
+      "paymentsMoreThan60Days": 38.74,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2483,
+        "count": 2568,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 328,
+        "count": 335,
+        "percentile": 1.5
+      }
+    },
+    {
+      "reportId": "PTR20000872",
+      "acnArbn": "102893952",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 72.46,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 117,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 14.6,
+      "payments31To60Days": 45.37,
+      "paymentsMoreThan60Days": 39.99,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2418,
+        "count": 2498,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 313,
+        "count": 323,
+        "percentile": 2.2
+      }
+    }
+  ]
+}

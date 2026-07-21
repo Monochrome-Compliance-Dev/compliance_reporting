@@ -1,0 +1,95 @@
+{
+  "slug": "casino-food-company-limited-42060208366",
+  "businessName": "CASINO FOOD COMPANY LIMITED",
+  "abn": "42060208366",
+  "acnArbn": "680789235",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009174",
+      "acnArbn": "680789235",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 74.15,
+      "payments31To60Days": 23,
+      "paymentsMoreThan60Days": 2.85,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 347,
+        "percentile": 72.5
+      }
+    },
+    {
+      "reportId": "PTR20006252",
+      "acnArbn": "680789235",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.66,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 76.81,
+      "payments31To60Days": 19.96,
+      "paymentsMoreThan60Days": 3.23,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 335,
+        "percentile": 74.9
+      }
+    },
+    {
+      "reportId": "PTR20006247",
+      "acnArbn": "680789235",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.3,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 64.45,
+      "payments31To60Days": 32.22,
+      "paymentsMoreThan60Days": 3.33,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 323,
+        "percentile": 79.2
+      }
+    }
+  ]
+}

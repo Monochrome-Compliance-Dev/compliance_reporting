@@ -1,0 +1,95 @@
+{
+  "slug": "siebtechnik-tema-pty-ltd-31004478826",
+  "businessName": "SIEBTECHNIK TEMA PTY LTD",
+  "abn": "31004478826",
+  "acnArbn": "004478826",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010134",
+      "acnArbn": "004478826",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 12,
+      "payments31To60Days": 85,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 347,
+        "percentile": 52.6
+      }
+    },
+    {
+      "reportId": "PTR20006449",
+      "acnArbn": "004478826",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 20,
+      "payments31To60Days": 70,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-10",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 335,
+        "percentile": 37.7
+      }
+    },
+    {
+      "reportId": "PTR20006141",
+      "acnArbn": "004478826",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 47,
+      "payments31To60Days": 50,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-23",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 323,
+        "percentile": 65.8
+      }
+    }
+  ]
+}

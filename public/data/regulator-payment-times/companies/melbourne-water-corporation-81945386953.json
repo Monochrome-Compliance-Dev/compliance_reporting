@@ -1,0 +1,95 @@
+{
+  "slug": "melbourne-water-corporation-81945386953",
+  "businessName": "MELBOURNE WATER CORPORATION",
+  "abn": "81945386953",
+  "acnArbn": "",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009345",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.68,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 99.37,
+      "payments31To60Days": 0.37,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 67,
+        "count": 2613,
+        "percentile": 97.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 92,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006651",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.72,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 98.2,
+      "payments31To60Days": 1.31,
+      "paymentsMoreThan60Days": 0.47,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-12-09",
+      "overallP95Position": {
+        "rank": 139,
+        "count": 2568,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 95,
+        "percentile": 89.4
+      }
+    },
+    {
+      "reportId": "PTR20006650",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.46,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 99.1,
+      "payments31To60Days": 0.5,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-12-09",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 2498,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 99,
+        "percentile": 92.9
+      }
+    }
+  ]
+}

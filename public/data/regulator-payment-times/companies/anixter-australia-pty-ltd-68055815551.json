@@ -1,0 +1,95 @@
+{
+  "slug": "anixter-australia-pty-ltd-68055815551",
+  "businessName": "ANIXTER AUSTRALIA PTY LTD",
+  "abn": "68055815551",
+  "acnArbn": "055815551",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011103",
+      "acnArbn": "055815551",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 37,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-05-19",
+      "overallP95Position": {
+        "rank": 2190,
+        "count": 2613,
+        "percentile": 15.4
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 207,
+        "percentile": 12.6
+      }
+    },
+    {
+      "reportId": "PTR20010511",
+      "acnArbn": "055815551",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.9,
+      "medianPaymentTimeDays": 31.7,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 52,
+      "payments31To60Days": 36,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-05-19",
+      "overallP95Position": {
+        "rank": 2218,
+        "count": 2568,
+        "percentile": 12.8
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 208,
+        "percentile": 11.1
+      }
+    },
+    {
+      "reportId": "PTR20002983",
+      "acnArbn": "055815551",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 28,
+      "payments31To60Days": 54.7,
+      "paymentsMoreThan60Days": 17.2,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-29",
+      "overallP95Position": {
+        "rank": 2322,
+        "count": 2498,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 207,
+        "percentile": 8.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "eightcap-holdings-pty-ltd-34669264519",
+  "businessName": "EIGHTCAP HOLDINGS PTY LTD",
+  "abn": "34669264519",
+  "acnArbn": "669264519",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009000",
+      "acnArbn": "669264519",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 84.67,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 1.33,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 756,
+        "count": 2613,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 205,
+        "count": 338,
+        "percentile": 38.3
+      }
+    },
+    {
+      "reportId": "PTR20005645",
+      "acnArbn": "669264519",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.51,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 77.67,
+      "payments31To60Days": 16.75,
+      "paymentsMoreThan60Days": 5.58,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 303,
+        "count": 349,
+        "percentile": 12.9
+      }
+    },
+    {
+      "reportId": "PTR20000084",
+      "acnArbn": "669264519",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.05,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 89.54,
+      "payments31To60Days": 10.04,
+      "paymentsMoreThan60Days": 0.42,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-05-15",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 339,
+        "percentile": 52.1
+      }
+    }
+  ]
+}

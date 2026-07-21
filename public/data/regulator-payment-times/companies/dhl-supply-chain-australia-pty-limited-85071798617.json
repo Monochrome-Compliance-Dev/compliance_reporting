@@ -1,0 +1,67 @@
+{
+  "slug": "dhl-supply-chain-australia-pty-limited-85071798617",
+  "businessName": "DHL SUPPLY CHAIN (AUSTRALIA) PTY LIMITED",
+  "abn": "85071798617",
+  "acnArbn": "071798617",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Warehousing and storage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008952",
+      "acnArbn": "071798617",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.51,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 78.09,
+      "payments31To60Days": 14.71,
+      "paymentsMoreThan60Days": 7.2,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2424,
+        "count": 2613,
+        "percentile": 6.8
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 143,
+        "percentile": 6.3
+      }
+    },
+    {
+      "reportId": "PTR20008422",
+      "acnArbn": "071798617",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.55,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 64.44,
+      "payments31To60Days": 21.2,
+      "paymentsMoreThan60Days": 14.36,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2354,
+        "count": 2568,
+        "percentile": 8.1
+      },
+      "industryP95Position": {
+        "rank": 137,
+        "count": 144,
+        "percentile": 4.9
+      }
+    }
+  ]
+}

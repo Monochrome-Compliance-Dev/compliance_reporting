@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-reef-city-motors-trust-40116219576",
+  "businessName": "The Trustee for Reef City Motors Trust",
+  "abn": "40116219576",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008039",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.8,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 56.27,
+      "payments31To60Days": 41.72,
+      "paymentsMoreThan60Days": 2.01,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 137,
+        "count": 329,
+        "percentile": 55.5
+      }
+    },
+    {
+      "reportId": "PTR20005103",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.63,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 56.68,
+      "payments31To60Days": 42.16,
+      "paymentsMoreThan60Days": 1.16,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 323,
+        "percentile": 56.8
+      }
+    },
+    {
+      "reportId": "PTR20003200",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.8,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 48.43,
+      "payments31To60Days": 50.77,
+      "paymentsMoreThan60Days": 0.8,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-25",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 56.2
+      }
+    }
+  ]
+}

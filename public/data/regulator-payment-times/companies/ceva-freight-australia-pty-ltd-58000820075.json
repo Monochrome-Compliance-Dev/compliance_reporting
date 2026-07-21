@@ -1,0 +1,39 @@
+{
+  "slug": "ceva-freight-australia-pty-ltd-58000820075",
+  "businessName": "CEVA FREIGHT (AUSTRALIA) PTY LTD",
+  "abn": "58000820075",
+  "acnArbn": "000820075",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Other transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010870",
+      "acnArbn": "000820075",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.76,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 33.56,
+      "payments31To60Days": 49.89,
+      "paymentsMoreThan60Days": 16.56,
+      "industrySubdivision": "Other transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 2380,
+        "count": 2613,
+        "percentile": 8.5
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 143,
+        "percentile": 7.7
+      }
+    }
+  ]
+}

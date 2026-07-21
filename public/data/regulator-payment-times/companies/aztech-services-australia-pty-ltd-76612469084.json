@@ -1,0 +1,95 @@
+{
+  "slug": "aztech-services-australia-pty-ltd-76612469084",
+  "businessName": "AZTECH SERVICES AUSTRALIA PTY LTD",
+  "abn": "76612469084",
+  "acnArbn": "612469084",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Waste collection, treatment and disposal services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007010",
+      "acnArbn": "612469084",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 67.6,
+      "payments31To60Days": 31.6,
+      "paymentsMoreThan60Days": 0.8,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 1305,
+        "count": 2613,
+        "percentile": 47.8
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 92,
+        "percentile": 27.5
+      }
+    },
+    {
+      "reportId": "PTR20002865",
+      "acnArbn": "612469084",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 71.4,
+      "payments31To60Days": 26.6,
+      "paymentsMoreThan60Days": 1.9,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 95,
+        "percentile": 30.9
+      }
+    },
+    {
+      "reportId": "PTR20000236",
+      "acnArbn": "612469084",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 63.5,
+      "payments31To60Days": 34.3,
+      "paymentsMoreThan60Days": 2.3,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 99,
+        "percentile": 27.6
+      }
+    }
+  ]
+}

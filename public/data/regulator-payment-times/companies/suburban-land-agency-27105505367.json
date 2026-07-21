@@ -1,0 +1,95 @@
+{
+  "slug": "suburban-land-agency-27105505367",
+  "businessName": "Suburban Land Agency",
+  "abn": "27105505367",
+  "acnArbn": "",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011657",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.59,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 99.09,
+      "payments31To60Days": 0.91,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 131,
+        "count": 2613,
+        "percentile": 94.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 66,
+        "percentile": 96.9
+      }
+    },
+    {
+      "reportId": "PTR20004781",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.49,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 98.26,
+      "payments31To60Days": 1.63,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 127,
+        "count": 2568,
+        "percentile": 94.7
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 61,
+        "percentile": 98.3
+      }
+    },
+    {
+      "reportId": "PTR20000554",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.14,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 98.13,
+      "payments31To60Days": 1.87,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 123,
+        "count": 2498,
+        "percentile": 94.5
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 55,
+        "percentile": 92.6
+      }
+    }
+  ]
+}

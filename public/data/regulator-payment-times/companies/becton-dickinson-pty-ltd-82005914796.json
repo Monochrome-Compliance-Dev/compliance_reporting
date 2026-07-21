@@ -1,0 +1,67 @@
+{
+  "slug": "becton-dickinson-pty-ltd-82005914796",
+  "businessName": "BECTON DICKINSON PTY. LTD.",
+  "abn": "82005914796",
+  "acnArbn": "005914796",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011557",
+      "acnArbn": "005914796",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 52.99,
+      "payments31To60Days": 24.9,
+      "paymentsMoreThan60Days": 22.11,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 151,
+        "count": 193,
+        "percentile": 19.8
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 45,
+        "percentile": 9.1
+      }
+    },
+    {
+      "reportId": "PTR20000744",
+      "acnArbn": "005914796",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.59,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 56.79,
+      "payments31To60Days": 28.89,
+      "paymentsMoreThan60Days": 14.32,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 164,
+        "count": 231,
+        "percentile": 26.5
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 61,
+        "percentile": 20
+      }
+    }
+  ]
+}

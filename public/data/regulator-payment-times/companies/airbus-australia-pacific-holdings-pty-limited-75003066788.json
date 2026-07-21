@@ -1,0 +1,95 @@
+{
+  "slug": "airbus-australia-pacific-holdings-pty-limited-75003066788",
+  "businessName": "AIRBUS AUSTRALIA PACIFIC HOLDINGS PTY LIMITED",
+  "abn": "75003066788",
+  "acnArbn": "003066788",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008062",
+      "acnArbn": "003066788",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 81.2,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 4.8,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 143,
+        "percentile": 32.4
+      }
+    },
+    {
+      "reportId": "PTR20004557",
+      "acnArbn": "003066788",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.6,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 82.5,
+      "payments31To60Days": 14.6,
+      "paymentsMoreThan60Days": 2.9,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 144,
+        "percentile": 68.5
+      }
+    },
+    {
+      "reportId": "PTR20003929",
+      "acnArbn": "003066788",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.9,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 82.4,
+      "payments31To60Days": 15.4,
+      "paymentsMoreThan60Days": 2.2,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-19",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 140,
+        "percentile": 60.4
+      }
+    }
+  ]
+}

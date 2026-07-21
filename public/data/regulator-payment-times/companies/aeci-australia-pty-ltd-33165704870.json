@@ -1,0 +1,95 @@
+{
+  "slug": "aeci-australia-pty-ltd-33165704870",
+  "businessName": "AECI AUSTRALIA PTY LTD",
+  "abn": "33165704870",
+  "acnArbn": "165704870",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008436",
+      "acnArbn": "165704870",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 36,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-20",
+      "overallP95Position": {
+        "rank": 735,
+        "count": 2613,
+        "percentile": 71.1
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 177,
+        "percentile": 63.6
+      }
+    },
+    {
+      "reportId": "PTR20004808",
+      "acnArbn": "165704870",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 173,
+        "percentile": 58.1
+      }
+    },
+    {
+      "reportId": "PTR20000545",
+      "acnArbn": "165704870",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 70,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 111,
+        "count": 170,
+        "percentile": 32.5
+      }
+    }
+  ]
+}

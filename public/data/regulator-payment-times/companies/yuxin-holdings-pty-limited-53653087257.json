@@ -1,0 +1,95 @@
+{
+  "slug": "yuxin-holdings-pty-limited-53653087257",
+  "businessName": "YUXIN HOLDINGS PTY LIMITED",
+  "abn": "53653087257",
+  "acnArbn": "653087257",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009874",
+      "acnArbn": "653087257",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 65,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2613,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 177,
+        "percentile": 18.2
+      }
+    },
+    {
+      "reportId": "PTR20004736",
+      "acnArbn": "653087257",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 63,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 173,
+        "percentile": 20.3
+      }
+    },
+    {
+      "reportId": "PTR20001644",
+      "acnArbn": "653087257",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 70,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 170,
+        "percentile": 28.4
+      }
+    }
+  ]
+}

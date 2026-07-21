@@ -1,0 +1,67 @@
+{
+  "slug": "queensland-cotton-corporation-pty-ltd-26010944591",
+  "businessName": "QUEENSLAND COTTON CORPORATION PTY LTD",
+  "abn": "26010944591",
+  "acnArbn": "010944591",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011332",
+      "acnArbn": "010944591",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 59.5,
+      "payments31To60Days": 35.69,
+      "paymentsMoreThan60Days": 4.81,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-06-12",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 102,
+        "percentile": 18.8
+      }
+    },
+    {
+      "reportId": "PTR20011333",
+      "acnArbn": "010944591",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 53.09,
+      "payments31To60Days": 43.09,
+      "paymentsMoreThan60Days": 3.82,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-06-12",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 92,
+        "percentile": 26.4
+      }
+    }
+  ]
+}

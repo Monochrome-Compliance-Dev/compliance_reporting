@@ -1,0 +1,39 @@
+{
+  "slug": "zashvin-pty-ltd-80010980015",
+  "businessName": "ZASHVIN PTY. LTD.",
+  "abn": "80010980015",
+  "acnArbn": "010980015",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007798",
+      "acnArbn": "010980015",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.67,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.79,
+      "payments31To60Days": 4.17,
+      "paymentsMoreThan60Days": 1.04,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 66,
+        "percentile": 75.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "hwg-holdings-pty-limited-65115398322",
+  "businessName": "HWG Holdings Pty limited",
+  "abn": "65115398322",
+  "acnArbn": "115398322",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009082",
+      "acnArbn": "115398322",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.3,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 73.95,
+      "payments31To60Days": 26.02,
+      "paymentsMoreThan60Days": 0.02,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 347,
+        "percentile": 61.6
+      }
+    },
+    {
+      "reportId": "PTR20006456",
+      "acnArbn": "115398322",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 70,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-11",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 335,
+        "percentile": 54.8
+      }
+    }
+  ]
+}

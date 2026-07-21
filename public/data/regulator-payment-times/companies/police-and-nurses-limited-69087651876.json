@@ -1,0 +1,95 @@
+{
+  "slug": "police-and-nurses-limited-69087651876",
+  "businessName": "POLICE & NURSES LIMITED",
+  "abn": "69087651876",
+  "acnArbn": "087651876",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010379",
+      "acnArbn": "087651876",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 13,
+      "payments30DaysOrLess": 99.9,
+      "payments31To60Days": 0.1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 43,
+        "count": 2613,
+        "percentile": 98.1
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 338,
+        "percentile": 94.7
+      }
+    },
+    {
+      "reportId": "PTR20007173",
+      "acnArbn": "087651876",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 98.9,
+      "payments31To60Days": 0.1,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 2568,
+        "percentile": 97.5
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 349,
+        "percentile": 93.7
+      }
+    },
+    {
+      "reportId": "PTR20007172",
+      "acnArbn": "087651876",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 99.3,
+      "payments31To60Days": 0.6,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 61,
+        "count": 2498,
+        "percentile": 97.4
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 339,
+        "percentile": 92.3
+      }
+    }
+  ]
+}

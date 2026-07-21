@@ -1,0 +1,95 @@
+{
+  "slug": "austral-fisheries-pty-ltd-71008989982",
+  "businessName": "AUSTRAL FISHERIES PTY LTD",
+  "abn": "71008989982",
+  "acnArbn": "008989982",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Fishing, hunting and trapping",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006898",
+      "acnArbn": "008989982",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.78,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 71.83,
+      "payments31To60Days": 26.08,
+      "paymentsMoreThan60Days": 2.09,
+      "industrySubdivision": "Fishing, hunting and trapping",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-01-09",
+      "overallP95Position": {
+        "rank": 1227,
+        "count": 2613,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 102,
+        "percentile": 38.6
+      }
+    },
+    {
+      "reportId": "PTR20003111",
+      "acnArbn": "008989982",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.15,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 48.84,
+      "payments31To60Days": 43.41,
+      "paymentsMoreThan60Days": 7.75,
+      "industrySubdivision": "Fishing, hunting and trapping",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-08-14",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 92,
+        "percentile": 14.3
+      }
+    },
+    {
+      "reportId": "PTR20003110",
+      "acnArbn": "008989982",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.72,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 57.29,
+      "payments31To60Days": 38.08,
+      "paymentsMoreThan60Days": 4.63,
+      "industrySubdivision": "Fishing, hunting and trapping",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-08-14",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 85,
+        "percentile": 14.3
+      }
+    }
+  ]
+}

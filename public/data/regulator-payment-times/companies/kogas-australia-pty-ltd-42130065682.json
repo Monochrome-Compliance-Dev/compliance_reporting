@@ -1,0 +1,95 @@
+{
+  "slug": "kogas-australia-pty-ltd-42130065682",
+  "businessName": "Kogas Australia Pty Ltd",
+  "abn": "42130065682",
+  "acnArbn": "130065682",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008267",
+      "acnArbn": "130065682",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3.53,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 243,
+        "count": 2613,
+        "percentile": 89.2
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 177,
+        "percentile": 92
+      }
+    },
+    {
+      "reportId": "PTR20002670",
+      "acnArbn": "130065682",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.24,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 173,
+        "percentile": 77.9
+      }
+    },
+    {
+      "reportId": "PTR20001794",
+      "acnArbn": "130065682",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4.75,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 170,
+        "percentile": 82.8
+      }
+    }
+  ]
+}

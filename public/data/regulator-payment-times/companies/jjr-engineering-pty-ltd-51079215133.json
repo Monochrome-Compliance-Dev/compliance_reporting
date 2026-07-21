@@ -1,0 +1,95 @@
+{
+  "slug": "jjr-engineering-pty-ltd-51079215133",
+  "businessName": "JJR ENGINEERING PTY LTD",
+  "abn": "51079215133",
+  "acnArbn": "079215133",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Waste collection, treatment and disposal services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007020",
+      "acnArbn": "079215133",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.14,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 23.28,
+      "payments31To60Days": 73.6,
+      "paymentsMoreThan60Days": 3.12,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 92,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20006890",
+      "acnArbn": "079215133",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 28,
+      "payments31To60Days": 71.6,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-01-07",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 70,
+        "count": 95,
+        "percentile": 23.4
+      }
+    },
+    {
+      "reportId": "PTR20000238",
+      "acnArbn": "079215133",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 74,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 21.4,
+      "payments31To60Days": 78.4,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 1980,
+        "count": 2498,
+        "percentile": 20
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 99,
+        "percentile": 10.2
+      }
+    }
+  ]
+}

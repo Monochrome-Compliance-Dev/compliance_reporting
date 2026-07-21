@@ -1,0 +1,95 @@
+{
+  "slug": "orbit-homes-queensland-pty-ltd-93064726905",
+  "businessName": "ORBIT HOMES (QUEENSLAND) PTY. LTD.",
+  "abn": "93064726905",
+  "acnArbn": "064726905",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009022",
+      "acnArbn": "064726905",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.59,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 76.75,
+      "payments31To60Days": 21.02,
+      "paymentsMoreThan60Days": 2.23,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 270,
+        "percentile": 59.9
+      }
+    },
+    {
+      "reportId": "PTR20009024",
+      "acnArbn": "064726905",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.49,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 77.62,
+      "payments31To60Days": 19.98,
+      "paymentsMoreThan60Days": 2.4,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 80,
+        "count": 259,
+        "percentile": 67.1
+      }
+    },
+    {
+      "reportId": "PTR20010521",
+      "acnArbn": "064726905",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.74,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 76.51,
+      "payments31To60Days": 21.01,
+      "paymentsMoreThan60Days": 2.48,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 250,
+        "percentile": 62.7
+      }
+    }
+  ]
+}

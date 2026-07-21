@@ -1,0 +1,95 @@
+{
+  "slug": "bravura-solutions-limited-54164391128",
+  "businessName": "BRAVURA SOLUTIONS LIMITED",
+  "abn": "54164391128",
+  "acnArbn": "164391128",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007296",
+      "acnArbn": "164391128",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.9,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-02-18",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 183,
+        "percentile": 79.1
+      }
+    },
+    {
+      "reportId": "PTR20003920",
+      "acnArbn": "164391128",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.75,
+      "medianPaymentTimeDays": 19.5,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 181,
+        "percentile": 81.1
+      }
+    },
+    {
+      "reportId": "PTR20003917",
+      "acnArbn": "164391128",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.73,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 78,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 693,
+        "count": 2498,
+        "percentile": 71.2
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 176,
+        "percentile": 69.7
+      }
+    }
+  ]
+}

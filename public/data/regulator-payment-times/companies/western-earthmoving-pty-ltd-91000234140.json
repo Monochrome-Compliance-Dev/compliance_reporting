@@ -1,0 +1,95 @@
+{
+  "slug": "western-earthmoving-pty-ltd-91000234140",
+  "businessName": "WESTERN EARTHMOVING PTY LTD",
+  "abn": "91000234140",
+  "acnArbn": "000234140",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009620",
+      "acnArbn": "000234140",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 26.34,
+      "payments31To60Days": 66.29,
+      "paymentsMoreThan60Days": 7.37,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 197,
+        "count": 270,
+        "percentile": 26.8
+      }
+    },
+    {
+      "reportId": "PTR20006131",
+      "acnArbn": "000234140",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 36.09,
+      "payments31To60Days": 60.12,
+      "paymentsMoreThan60Days": 3.79,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 116,
+        "count": 259,
+        "percentile": 53.1
+      }
+    },
+    {
+      "reportId": "PTR20000783",
+      "acnArbn": "000234140",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 36.08,
+      "payments31To60Days": 61.08,
+      "paymentsMoreThan60Days": 2.84,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 250,
+        "percentile": 56.6
+      }
+    }
+  ]
+}

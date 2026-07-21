@@ -1,0 +1,95 @@
+{
+  "slug": "mobil-png-gas-holdings-pty-ltd-35008633707",
+  "businessName": "MOBIL PNG GAS HOLDINGS PTY LTD",
+  "abn": "35008633707",
+  "acnArbn": "008633707",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009124",
+      "acnArbn": "008633707",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 81,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 172,
+      "p95PaymentTimeDays": 172,
+      "payments30DaysOrLess": 56.25,
+      "payments31To60Days": 6.25,
+      "paymentsMoreThan60Days": 37.5,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2600,
+        "count": 2613,
+        "percentile": 0.5
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 177,
+        "percentile": 1.1
+      }
+    },
+    {
+      "reportId": "PTR20003784",
+      "acnArbn": "008633707",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 124,
+      "payments30DaysOrLess": 54.55,
+      "payments31To60Days": 33.33,
+      "paymentsMoreThan60Days": 12.12,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 2505,
+        "count": 2568,
+        "percentile": 2.4
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 173,
+        "percentile": 3.5
+      }
+    },
+    {
+      "reportId": "PTR20002508",
+      "acnArbn": "008633707",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.2,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 63.33,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 6.67,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-07-15",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 117,
+        "count": 170,
+        "percentile": 30.2
+      }
+    }
+  ]
+}

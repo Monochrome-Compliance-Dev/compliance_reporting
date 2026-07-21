@@ -1,0 +1,95 @@
+{
+  "slug": "enviro-pipes-pty-ltd-84130666518",
+  "businessName": "Enviro Pipes Pty Ltd",
+  "abn": "84130666518",
+  "acnArbn": "130666518",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Polymer product and rubber product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007784",
+      "acnArbn": "130666518",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.57,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 46.25,
+      "payments31To60Days": 53.75,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 347,
+        "percentile": 76.6
+      }
+    },
+    {
+      "reportId": "PTR20006126",
+      "acnArbn": "130666518",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.17,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 39.14,
+      "payments31To60Days": 49.74,
+      "paymentsMoreThan60Days": 11.12,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 228,
+        "count": 335,
+        "percentile": 30.8
+      }
+    },
+    {
+      "reportId": "PTR20005918",
+      "acnArbn": "130666518",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.78,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 36.39,
+      "payments31To60Days": 51.68,
+      "paymentsMoreThan60Days": 11.94,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 229,
+        "count": 323,
+        "percentile": 27.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "general-hvac-solutions-australia-pty-ltd-55001229554",
+  "businessName": "GENERAL HVAC SOLUTIONS AUSTRALIA PTY LTD",
+  "abn": "55001229554",
+  "acnArbn": "001229554",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008124",
+      "acnArbn": "001229554",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.54,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 97,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 329,
+        "percentile": 90.5
+      }
+    },
+    {
+      "reportId": "PTR20006818",
+      "acnArbn": "001229554",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-23",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 228,
+        "percentile": 87.7
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 59,
+        "percentile": 84.5
+      }
+    },
+    {
+      "reportId": "PTR20002481",
+      "acnArbn": "001229554",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.53,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-14",
+      "overallP95Position": {
+        "rank": 149,
+        "count": 231,
+        "percentile": 34.8
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 61,
+        "percentile": 28.3
+      }
+    }
+  ]
+}

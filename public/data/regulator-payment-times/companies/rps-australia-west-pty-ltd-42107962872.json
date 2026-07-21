@@ -1,0 +1,39 @@
+{
+  "slug": "rps-australia-west-pty-ltd-42107962872",
+  "businessName": "RPS AUSTRALIA WEST PTY LTD",
+  "abn": "42107962872",
+  "acnArbn": "107962872",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2024-09-30",
+  "reports": [
+    {
+      "reportId": "PTR20001438",
+      "acnArbn": "107962872",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 61.8,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 9.2,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 7,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    }
+  ]
+}

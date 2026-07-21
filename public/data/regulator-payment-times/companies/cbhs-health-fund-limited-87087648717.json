@@ -1,0 +1,95 @@
+{
+  "slug": "cbhs-health-fund-limited-87087648717",
+  "businessName": "CBHS HEALTH FUND LIMITED",
+  "abn": "87087648717",
+  "acnArbn": "087648717",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011045",
+      "acnArbn": "087648717",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.8,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 11.2,
+      "paymentsMoreThan60Days": 2.8,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-05-13",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 257,
+        "count": 338,
+        "percentile": 22.3
+      }
+    },
+    {
+      "reportId": "PTR20011046",
+      "acnArbn": "087648717",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.5,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 91.5,
+      "payments31To60Days": 7.7,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-05-13",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 234,
+        "count": 349,
+        "percentile": 33
+      }
+    },
+    {
+      "reportId": "PTR20003551",
+      "acnArbn": "087648717",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.9,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 138,
+      "payments30DaysOrLess": 81.1,
+      "payments31To60Days": 10.5,
+      "paymentsMoreThan60Days": 8.4,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 2458,
+        "count": 2498,
+        "percentile": 1.5
+      },
+      "industryP95Position": {
+        "rank": 336,
+        "count": 339,
+        "percentile": 0.9
+      }
+    }
+  ]
+}

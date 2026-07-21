@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-a-g-and-p-f-mcwhirter-family-trust-65367095233",
+  "businessName": "The Trustee for A G & P F MCWHIRTER FAMILY TRUST",
+  "abn": "65367095233",
+  "acnArbn": "",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Fuel retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011429",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.76,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 60.4,
+      "payments31To60Days": 39.52,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-19",
+      "overallP95Position": {
+        "rank": 1227,
+        "count": 2613,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 207,
+        "percentile": 58.7
+      }
+    },
+    {
+      "reportId": "PTR20011428",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.97,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 62.81,
+      "payments31To60Days": 36,
+      "paymentsMoreThan60Days": 1.19,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-19",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 208,
+        "percentile": 60.9
+      }
+    },
+    {
+      "reportId": "PTR20011427",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.87,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 62.22,
+      "payments31To60Days": 37.09,
+      "paymentsMoreThan60Days": 0.69,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-19",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 83,
+        "count": 207,
+        "percentile": 58.3
+      }
+    }
+  ]
+}

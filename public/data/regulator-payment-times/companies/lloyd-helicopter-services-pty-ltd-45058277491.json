@@ -1,0 +1,67 @@
+{
+  "slug": "lloyd-helicopter-services-pty-ltd-45058277491",
+  "businessName": "LLOYD HELICOPTER SERVICES PTY. LTD.",
+  "abn": "45058277491",
+  "acnArbn": "058277491",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20006687",
+      "acnArbn": "058277491",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 23.46,
+      "payments31To60Days": 60.27,
+      "paymentsMoreThan60Days": 16.27,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-12-12",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 28,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000930",
+      "acnArbn": "058277491",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 49,
+      "medianPaymentTimeDays": 55,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 17.09,
+      "payments31To60Days": 57.1,
+      "paymentsMoreThan60Days": 25.81,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 28,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

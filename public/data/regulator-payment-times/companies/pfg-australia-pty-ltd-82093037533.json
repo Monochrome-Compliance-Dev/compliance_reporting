@@ -1,0 +1,67 @@
+{
+  "slug": "pfg-australia-pty-ltd-82093037533",
+  "businessName": "PFG AUSTRALIA PTY LTD",
+  "abn": "82093037533",
+  "acnArbn": "093037533",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-30",
+  "reports": [
+    {
+      "reportId": "PTR20006842",
+      "acnArbn": "093037533",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.41,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 93.7,
+      "payments31To60Days": 6.2,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-24",
+      "overallP95Position": {
+        "rank": 80,
+        "count": 228,
+        "percentile": 62.1
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 59,
+        "percentile": 63.8
+      }
+    },
+    {
+      "reportId": "PTR20002676",
+      "acnArbn": "093037533",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.35,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 95.3,
+      "payments31To60Days": 4.2,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 112,
+        "count": 231,
+        "percentile": 49.1
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 61,
+        "percentile": 43.3
+      }
+    }
+  ]
+}

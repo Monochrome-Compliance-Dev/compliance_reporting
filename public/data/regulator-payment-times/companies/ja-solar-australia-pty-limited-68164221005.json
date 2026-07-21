@@ -1,0 +1,95 @@
+{
+  "slug": "ja-solar-australia-pty-limited-68164221005",
+  "businessName": "JA SOLAR AUSTRALIA PTY LIMITED",
+  "abn": "68164221005",
+  "acnArbn": "164221005",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010766",
+      "acnArbn": "164221005",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.45,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 69.7,
+      "payments31To60Days": 18.18,
+      "paymentsMoreThan60Days": 12.12,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 329,
+        "percentile": 31.7
+      }
+    },
+    {
+      "reportId": "PTR20010765",
+      "acnArbn": "164221005",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.4,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 2037,
+        "count": 2568,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 236,
+        "count": 323,
+        "percentile": 25.8
+      }
+    },
+    {
+      "reportId": "PTR20010694",
+      "acnArbn": "164221005",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.15,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 78.72,
+      "payments31To60Days": 14.89,
+      "paymentsMoreThan60Days": 6.38,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 1980,
+        "count": 2498,
+        "percentile": 20
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 323,
+        "percentile": 26.7
+      }
+    }
+  ]
+}

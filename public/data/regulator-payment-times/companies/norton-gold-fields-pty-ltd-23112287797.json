@@ -1,0 +1,39 @@
+{
+  "slug": "norton-gold-fields-pty-ltd-23112287797",
+  "businessName": "NORTON GOLD FIELDS PTY LTD",
+  "abn": "23112287797",
+  "acnArbn": "112287797",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20004733",
+      "acnArbn": "112287797",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 87.37,
+      "payments31To60Days": 12.36,
+      "paymentsMoreThan60Days": 0.27,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 63,
+        "count": 173,
+        "percentile": 62.2
+      }
+    }
+  ]
+}

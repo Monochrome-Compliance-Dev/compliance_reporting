@@ -1,0 +1,95 @@
+{
+  "slug": "amazon-web-services-australia-pty-ltd-63605345891",
+  "businessName": "AMAZON WEB SERVICES AUSTRALIA PTY LTD",
+  "abn": "63605345891",
+  "acnArbn": "605345891",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008042",
+      "acnArbn": "605345891",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.67,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 53.37,
+      "payments31To60Days": 39.88,
+      "paymentsMoreThan60Days": 6.74,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 113,
+        "count": 183,
+        "percentile": 36.8
+      }
+    },
+    {
+      "reportId": "PTR20004267",
+      "acnArbn": "605345891",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 55.19,
+      "payments31To60Days": 36.04,
+      "paymentsMoreThan60Days": 8.77,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 181,
+        "percentile": 38.3
+      }
+    },
+    {
+      "reportId": "PTR20011614",
+      "acnArbn": "605345891",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 43.28,
+      "payments31To60Days": 42.42,
+      "paymentsMoreThan60Days": 14.3,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 106,
+        "count": 176,
+        "percentile": 38.3
+      }
+    }
+  ]
+}

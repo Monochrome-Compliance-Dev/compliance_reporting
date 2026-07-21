@@ -1,0 +1,95 @@
+{
+  "slug": "landcom-79268260688",
+  "businessName": "LANDCOM",
+  "abn": "79268260688",
+  "acnArbn": "",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007059",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 2227,
+        "count": 2613,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 227,
+        "count": 270,
+        "percentile": 13.8
+      }
+    },
+    {
+      "reportId": "PTR20003606",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 109,
+      "payments30DaysOrLess": 66,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 2439,
+        "count": 2568,
+        "percentile": 5
+      },
+      "industryP95Position": {
+        "rank": 242,
+        "count": 259,
+        "percentile": 6.6
+      }
+    },
+    {
+      "reportId": "PTR20001973",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.28,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 75.28,
+      "payments31To60Days": 15.56,
+      "paymentsMoreThan60Days": 9.16,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2498,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 219,
+        "count": 250,
+        "percentile": 12
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "a-abrahams-and-others-58207240529",
+  "businessName": "A ABRAHAMS & Others",
+  "abn": "58207240529",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007858",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.55,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 45.94,
+      "payments31To60Days": 30.5,
+      "paymentsMoreThan60Days": 23.56,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 2506,
+        "count": 2613,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 162,
+        "count": 183,
+        "percentile": 11.5
+      }
+    },
+    {
+      "reportId": "PTR20007859",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.38,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 68,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 46,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 2443,
+        "count": 2568,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 161,
+        "count": 181,
+        "percentile": 11.1
+      }
+    },
+    {
+      "reportId": "PTR20001142",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 89,
+      "p95PaymentTimeDays": 187,
+      "payments30DaysOrLess": 39,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 33,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2484,
+        "count": 2498,
+        "percentile": 0.5
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 176,
+        "percentile": 1.7
+      }
+    }
+  ]
+}

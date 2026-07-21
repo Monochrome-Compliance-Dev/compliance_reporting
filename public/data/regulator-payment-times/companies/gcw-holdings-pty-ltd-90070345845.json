@@ -1,0 +1,95 @@
+{
+  "slug": "gcw-holdings-pty-ltd-90070345845",
+  "businessName": "GCW HOLDINGS PTY LTD",
+  "abn": "90070345845",
+  "acnArbn": "070345845",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008787",
+      "acnArbn": "070345845",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.28,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 66.97,
+      "payments31To60Days": 27.91,
+      "paymentsMoreThan60Days": 5.13,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 98,
+        "count": 143,
+        "percentile": 28.9
+      }
+    },
+    {
+      "reportId": "PTR20003520",
+      "acnArbn": "070345845",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.7,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 67.07,
+      "payments31To60Days": 27.86,
+      "paymentsMoreThan60Days": 5.06,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 99,
+        "count": 144,
+        "percentile": 30.1
+      }
+    },
+    {
+      "reportId": "PTR20000689",
+      "acnArbn": "070345845",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.99,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 69.34,
+      "payments31To60Days": 24.8,
+      "paymentsMoreThan60Days": 5.86,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 140,
+        "percentile": 35.3
+      }
+    }
+  ]
+}

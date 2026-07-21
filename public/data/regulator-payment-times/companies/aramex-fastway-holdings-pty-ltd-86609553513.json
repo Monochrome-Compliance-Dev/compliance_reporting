@@ -1,0 +1,95 @@
+{
+  "slug": "aramex-fastway-holdings-pty-ltd-86609553513",
+  "businessName": "ARAMEX FASTWAY HOLDINGS PTY. LTD.",
+  "abn": "86609553513",
+  "acnArbn": "609553513",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Postal and courier pick-up and delivery services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009950",
+      "acnArbn": "609553513",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.89,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.93,
+      "payments31To60Days": 2.9,
+      "paymentsMoreThan60Days": 0.18,
+      "industrySubdivision": "Postal and courier pick-up and delivery services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 143,
+        "percentile": 92.3
+      }
+    },
+    {
+      "reportId": "PTR20004849",
+      "acnArbn": "609553513",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.12,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 97.25,
+      "payments31To60Days": 2.65,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Postal and courier pick-up and delivery services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 144,
+        "percentile": 91.6
+      }
+    },
+    {
+      "reportId": "PTR20002000",
+      "acnArbn": "609553513",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.65,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.66,
+      "payments31To60Days": 2.41,
+      "paymentsMoreThan60Days": 0.93,
+      "industrySubdivision": "Postal and courier pick-up and delivery services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 140,
+        "percentile": 90.6
+      }
+    }
+  ]
+}

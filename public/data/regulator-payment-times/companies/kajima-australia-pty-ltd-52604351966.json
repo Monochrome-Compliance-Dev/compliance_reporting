@@ -1,0 +1,95 @@
+{
+  "slug": "kajima-australia-pty-ltd-52604351966",
+  "businessName": "KAJIMA AUSTRALIA PTY LTD",
+  "abn": "52604351966",
+  "acnArbn": "604351966",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009716",
+      "acnArbn": "604351966",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.61,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 65.37,
+      "payments31To60Days": 30.78,
+      "paymentsMoreThan60Days": 3.85,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 270,
+        "percentile": 68
+      }
+    },
+    {
+      "reportId": "PTR20004780",
+      "acnArbn": "604351966",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.75,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 46.71,
+      "payments31To60Days": 51.26,
+      "paymentsMoreThan60Days": 2.03,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 259,
+        "percentile": 62.4
+      }
+    },
+    {
+      "reportId": "PTR20001740",
+      "acnArbn": "604351966",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.5,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 63.2,
+      "payments31To60Days": 32.32,
+      "paymentsMoreThan60Days": 4.48,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 121,
+        "count": 250,
+        "percentile": 48.6
+      }
+    }
+  ]
+}

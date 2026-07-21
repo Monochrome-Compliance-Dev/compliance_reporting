@@ -1,0 +1,95 @@
+{
+  "slug": "qpe-spv-2-topco-pty-ltd-14645134443",
+  "businessName": "QPE SPV 2 TOPCO PTY LTD",
+  "abn": "14645134443",
+  "acnArbn": "645134443",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010214",
+      "acnArbn": "645134443",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.89,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 76.16,
+      "payments31To60Days": 20.5,
+      "paymentsMoreThan60Days": 3.33,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 347,
+        "percentile": 72.5
+      }
+    },
+    {
+      "reportId": "PTR20004241",
+      "acnArbn": "645134443",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.58,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 88.32,
+      "payments31To60Days": 11.54,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 335,
+        "percentile": 93.1
+      }
+    },
+    {
+      "reportId": "PTR20002014",
+      "acnArbn": "645134443",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.24,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 90.82,
+      "payments31To60Days": 8.67,
+      "paymentsMoreThan60Days": 0.51,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 533,
+        "count": 2498,
+        "percentile": 77.8
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 323,
+        "percentile": 93.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "note-printing-australia-limited-86082630671",
+  "businessName": "NOTE PRINTING AUSTRALIA LIMITED",
+  "abn": "86082630671",
+  "acnArbn": "082630671",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Printing (including the reproduction of recorded media)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009561",
+      "acnArbn": "082630671",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 99.31,
+      "payments31To60Days": 0.42,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 131,
+        "count": 2613,
+        "percentile": 94.3
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 347,
+        "percentile": 98
+      }
+    },
+    {
+      "reportId": "PTR20003281",
+      "acnArbn": "082630671",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 72.28,
+      "payments31To60Days": 18.1,
+      "paymentsMoreThan60Days": 9.62,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-28",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2568,
+        "percentile": 16.6
+      },
+      "industryP95Position": {
+        "rank": 243,
+        "count": 335,
+        "percentile": 26.6
+      }
+    }
+  ]
+}

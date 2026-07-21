@@ -1,0 +1,95 @@
+{
+  "slug": "cdm-australia-pty-ltd-68009592965",
+  "businessName": "CDM AUSTRALIA PTY. LTD.",
+  "abn": "68009592965",
+  "acnArbn": "009592965",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011458",
+      "acnArbn": "009592965",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.39,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 62.39,
+      "payments31To60Days": 35.94,
+      "paymentsMoreThan60Days": 2.39,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 60,
+        "percentile": 42.4
+      }
+    },
+    {
+      "reportId": "PTR20011457",
+      "acnArbn": "009592965",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.09,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 60.61,
+      "payments31To60Days": 37.11,
+      "paymentsMoreThan60Days": 2.28,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 55,
+        "percentile": 37
+      }
+    },
+    {
+      "reportId": "PTR20011413",
+      "acnArbn": "009592965",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.77,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 64.77,
+      "payments31To60Days": 34.12,
+      "paymentsMoreThan60Days": 1.1,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 58,
+        "percentile": 47.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "marquis-macadamias-ltd-93002607972",
+  "businessName": "MARQUIS MACADAMIAS LTD",
+  "abn": "93002607972",
+  "acnArbn": "002607972",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20010854",
+      "acnArbn": "002607972",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 99.84,
+      "payments31To60Days": 0.15,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 193,
+        "percentile": 91.1
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 25,
+        "percentile": 95.8
+      }
+    },
+    {
+      "reportId": "PTR20006566",
+      "acnArbn": "002607972",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 99.83,
+      "payments31To60Days": 0.14,
+      "paymentsMoreThan60Days": 0.03,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-27",
+      "overallP95Position": {
+        "rank": 15,
+        "count": 228,
+        "percentile": 93
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 28,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20001967",
+      "acnArbn": "002607972",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 99.86,
+      "payments31To60Days": 0.09,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 9,
+        "count": 231,
+        "percentile": 96.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 32,
+        "percentile": 100
+      }
+    }
+  ]
+}

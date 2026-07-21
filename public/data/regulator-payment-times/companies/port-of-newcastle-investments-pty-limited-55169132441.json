@@ -1,0 +1,95 @@
+{
+  "slug": "port-of-newcastle-investments-pty-limited-55169132441",
+  "businessName": "PORT OF NEWCASTLE INVESTMENTS PTY LIMITED",
+  "abn": "55169132441",
+  "acnArbn": "169132441",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007221",
+      "acnArbn": "169132441",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.62,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.82,
+      "payments31To60Days": 4.1,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-02-16",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 143,
+        "percentile": 88
+      }
+    },
+    {
+      "reportId": "PTR20006147",
+      "acnArbn": "169132441",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96.05,
+      "payments31To60Days": 3.95,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-23",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 144,
+        "percentile": 89.5
+      }
+    },
+    {
+      "reportId": "PTR20006157",
+      "acnArbn": "169132441",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 93.86,
+      "payments31To60Days": 6.14,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-24",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 140,
+        "percentile": 85.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-anaconda-unit-trust-53955173782",
+  "businessName": "The Trustee for Anaconda Unit Trust",
+  "abn": "53955173782",
+  "acnArbn": "",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010283",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 53.7,
+      "payments31To60Days": 43.5,
+      "paymentsMoreThan60Days": 2.8,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 207,
+        "percentile": 27.2
+      }
+    },
+    {
+      "reportId": "PTR20009938",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 57.5,
+      "payments31To60Days": 39.5,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 208,
+        "percentile": 28.5
+      }
+    },
+    {
+      "reportId": "PTR20001484",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 34.91,
+      "payments31To60Days": 57.85,
+      "paymentsMoreThan60Days": 7.24,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 207,
+        "percentile": 29.1
+      }
+    }
+  ]
+}

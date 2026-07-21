@@ -1,0 +1,95 @@
+{
+  "slug": "oz-group-co-op-limited-73482255177",
+  "businessName": "OZ GROUP CO-OP LIMITED",
+  "abn": "73482255177",
+  "acnArbn": "",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011441",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.82,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 97.39,
+      "payments31To60Days": 2.38,
+      "paymentsMoreThan60Days": 0.36,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 221,
+        "count": 2613,
+        "percentile": 90.8
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 102,
+        "percentile": 91.1
+      }
+    },
+    {
+      "reportId": "PTR20002826",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.24,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 98.44,
+      "payments31To60Days": 1.52,
+      "paymentsMoreThan60Days": 0.03,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 113,
+        "count": 2568,
+        "percentile": 95.1
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 92,
+        "percentile": 89
+      }
+    },
+    {
+      "reportId": "PTR20002824",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.53,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 98.62,
+      "payments31To60Days": 1.31,
+      "paymentsMoreThan60Days": 0.07,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 140,
+        "count": 2498,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 85,
+        "percentile": 91.7
+      }
+    }
+  ]
+}

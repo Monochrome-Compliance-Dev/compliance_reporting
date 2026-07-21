@@ -1,0 +1,95 @@
+{
+  "slug": "halliburton-consolidated-pty-ltd-67101049521",
+  "businessName": "HALLIBURTON CONSOLIDATED PTY LTD",
+  "abn": "67101049521",
+  "acnArbn": "101049521",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010778",
+      "acnArbn": "101049521",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 69.42,
+      "medianPaymentTimeDays": 76,
+      "p80PaymentTimeDays": 92,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 1.67,
+      "payments31To60Days": 35.59,
+      "paymentsMoreThan60Days": 62.73,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 2453,
+        "count": 2613,
+        "percentile": 5.8
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 177,
+        "percentile": 6.3
+      }
+    },
+    {
+      "reportId": "PTR20003748",
+      "acnArbn": "101049521",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 70.88,
+      "medianPaymentTimeDays": 67,
+      "p80PaymentTimeDays": 92,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 6.81,
+      "payments31To60Days": 38.77,
+      "paymentsMoreThan60Days": 54.42,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 2349,
+        "count": 2568,
+        "percentile": 8.4
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 173,
+        "percentile": 9.9
+      }
+    },
+    {
+      "reportId": "PTR20003746",
+      "acnArbn": "101049521",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 83.18,
+      "medianPaymentTimeDays": 78,
+      "p80PaymentTimeDays": 92,
+      "p95PaymentTimeDays": 101,
+      "payments30DaysOrLess": 6.04,
+      "payments31To60Days": 32.55,
+      "paymentsMoreThan60Days": 61.41,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 2356,
+        "count": 2498,
+        "percentile": 5.4
+      },
+      "industryP95Position": {
+        "rank": 161,
+        "count": 170,
+        "percentile": 4.7
+      }
+    }
+  ]
+}

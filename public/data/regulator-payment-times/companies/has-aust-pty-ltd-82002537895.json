@@ -1,0 +1,95 @@
+{
+  "slug": "has-aust-pty-ltd-82002537895",
+  "businessName": "HAS AUST PTY LTD",
+  "abn": "82002537895",
+  "acnArbn": "002537895",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010414",
+      "acnArbn": "002537895",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 41,
+      "payments31To60Days": 49,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 329,
+        "percentile": 31.7
+      }
+    },
+    {
+      "reportId": "PTR20006435",
+      "acnArbn": "002537895",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 46,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-11-06",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 323,
+        "percentile": 63.7
+      }
+    },
+    {
+      "reportId": "PTR20006434",
+      "acnArbn": "002537895",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 44,
+      "payments31To60Days": 49,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-11-06",
+      "overallP95Position": {
+        "rank": 1914,
+        "count": 2498,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 228,
+        "count": 323,
+        "percentile": 28.9
+      }
+    }
+  ]
+}

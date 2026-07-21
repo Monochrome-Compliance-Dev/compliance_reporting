@@ -1,0 +1,39 @@
+{
+  "slug": "jbs-and-g-australia-pty-ltd-62100220479",
+  "businessName": "JBS&G AUSTRALIA PTY LTD",
+  "abn": "62100220479",
+  "acnArbn": "100220479",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007787",
+      "acnArbn": "100220479",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.27,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 37.89,
+      "payments31To60Days": 25.13,
+      "paymentsMoreThan60Days": 36.98,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2343,
+        "count": 2613,
+        "percentile": 9.7
+      },
+      "industryP95Position": {
+        "rank": 147,
+        "count": 183,
+        "percentile": 18.7
+      }
+    }
+  ]
+}

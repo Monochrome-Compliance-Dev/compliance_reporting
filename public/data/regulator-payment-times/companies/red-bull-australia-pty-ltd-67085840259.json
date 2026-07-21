@@ -1,0 +1,95 @@
+{
+  "slug": "red-bull-australia-pty-ltd-67085840259",
+  "businessName": "RED BULL AUSTRALIA PTY. LTD.",
+  "abn": "67085840259",
+  "acnArbn": "085840259",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009142",
+      "acnArbn": "085840259",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.87,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 83.42,
+      "payments31To60Days": 13.24,
+      "paymentsMoreThan60Days": 3.35,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 329,
+        "percentile": 67.7
+      }
+    },
+    {
+      "reportId": "PTR20003675",
+      "acnArbn": "085840259",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.9,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 80.27,
+      "payments31To60Days": 17.18,
+      "paymentsMoreThan60Days": 2.55,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 323,
+        "percentile": 68.6
+      }
+    },
+    {
+      "reportId": "PTR20000620",
+      "acnArbn": "085840259",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.64,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 81.12,
+      "payments31To60Days": 16.12,
+      "paymentsMoreThan60Days": 2.76,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 98,
+        "count": 323,
+        "percentile": 68.3
+      }
+    }
+  ]
+}

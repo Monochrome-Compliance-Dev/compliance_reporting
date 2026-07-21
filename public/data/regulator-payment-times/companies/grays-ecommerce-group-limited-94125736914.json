@@ -1,0 +1,67 @@
+{
+  "slug": "grays-ecommerce-group-limited-94125736914",
+  "businessName": "GRAYS ECOMMERCE GROUP LIMITED",
+  "abn": "94125736914",
+  "acnArbn": "125736914",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20005530",
+      "acnArbn": "125736914",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.37,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 74.88,
+      "payments31To60Days": 20.05,
+      "paymentsMoreThan60Days": 5.07,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 208,
+        "percentile": 34.8
+      }
+    },
+    {
+      "reportId": "PTR20002816",
+      "acnArbn": "125736914",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.31,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 83.42,
+      "payments31To60Days": 12.48,
+      "paymentsMoreThan60Days": 4.1,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 207,
+        "percentile": 37.4
+      }
+    }
+  ]
+}

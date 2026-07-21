@@ -1,0 +1,95 @@
+{
+  "slug": "ogog-otway-holdings-pty-ltd-51628945657",
+  "businessName": "OGOG (OTWAY) HOLDINGS PTY LTD",
+  "abn": "51628945657",
+  "acnArbn": "628945657",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007611",
+      "acnArbn": "628945657",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 177,
+        "percentile": 88.1
+      }
+    },
+    {
+      "reportId": "PTR20003670",
+      "acnArbn": "628945657",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 12,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 47,
+        "count": 2568,
+        "percentile": 98.2
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 173,
+        "percentile": 97.7
+      }
+    },
+    {
+      "reportId": "PTR20000350",
+      "acnArbn": "628945657",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 170,
+        "percentile": 85.2
+      }
+    }
+  ]
+}

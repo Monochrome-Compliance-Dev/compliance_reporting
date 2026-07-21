@@ -1,0 +1,95 @@
+{
+  "slug": "terracom-limited-35143533537",
+  "businessName": "TERRACOM LIMITED",
+  "abn": "35143533537",
+  "acnArbn": "143533537",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010619",
+      "acnArbn": "143533537",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 12.66,
+      "payments31To60Days": 72.29,
+      "paymentsMoreThan60Days": 15.04,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-04-21",
+      "overallP95Position": {
+        "rank": 2265,
+        "count": 2613,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 154,
+        "count": 177,
+        "percentile": 13.1
+      }
+    },
+    {
+      "reportId": "PTR20010620",
+      "acnArbn": "143533537",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 28.38,
+      "payments31To60Days": 62.37,
+      "paymentsMoreThan60Days": 9.24,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-04-21",
+      "overallP95Position": {
+        "rank": 2081,
+        "count": 2568,
+        "percentile": 18.4
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 173,
+        "percentile": 19.2
+      }
+    },
+    {
+      "reportId": "PTR20010569",
+      "acnArbn": "143533537",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 37.26,
+      "payments31To60Days": 53.16,
+      "paymentsMoreThan60Days": 9.09,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-04-17",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2498,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 137,
+        "count": 170,
+        "percentile": 18.9
+      }
+    }
+  ]
+}

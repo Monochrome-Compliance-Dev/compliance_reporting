@@ -1,0 +1,95 @@
+{
+  "slug": "good-food-partners-holdco-pty-ltd-47646575662",
+  "businessName": "GOOD FOOD PARTNERS HOLDCO PTY LTD",
+  "abn": "47646575662",
+  "acnArbn": "646575662",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2026-02-01",
+  "reports": [
+    {
+      "reportId": "PTR20010628",
+      "acnArbn": "646575662",
+      "reportingPeriodStartDate": "2025-08-04",
+      "reportingPeriodEndDate": "2026-02-01",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.3,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 31.6,
+      "payments31To60Days": 43.1,
+      "paymentsMoreThan60Days": 25.3,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-22",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 3,
+        "percentile": 50
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006021",
+      "acnArbn": "646575662",
+      "reportingPeriodStartDate": "2025-02-01",
+      "reportingPeriodEndDate": "2025-07-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.9,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 34.7,
+      "payments31To60Days": 40.8,
+      "paymentsMoreThan60Days": 24.6,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-13",
+      "overallP95Position": {
+        "rank": 32,
+        "count": 34,
+        "percentile": 6.1
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 7,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20002389",
+      "acnArbn": "646575662",
+      "reportingPeriodStartDate": "2024-08-01",
+      "reportingPeriodEndDate": "2025-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.9,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 34.9,
+      "payments31To60Days": 51.2,
+      "paymentsMoreThan60Days": 13.9,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-09",
+      "overallP95Position": {
+        "rank": 29,
+        "count": 30,
+        "percentile": 3.4
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 6,
+        "percentile": 0
+      }
+    }
+  ]
+}

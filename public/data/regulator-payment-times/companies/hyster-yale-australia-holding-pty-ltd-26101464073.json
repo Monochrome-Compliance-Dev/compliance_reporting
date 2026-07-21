@@ -1,0 +1,95 @@
+{
+  "slug": "hyster-yale-australia-holding-pty-ltd-26101464073",
+  "businessName": "HYSTER-YALE AUSTRALIA HOLDING PTY LTD",
+  "abn": "26101464073",
+  "acnArbn": "101464073",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010295",
+      "acnArbn": "101464073",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 65.28,
+      "payments31To60Days": 22.22,
+      "paymentsMoreThan60Days": 12.5,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2394,
+        "count": 2613,
+        "percentile": 7.6
+      },
+      "industryP95Position": {
+        "rank": 293,
+        "count": 329,
+        "percentile": 9.8
+      }
+    },
+    {
+      "reportId": "PTR20006176",
+      "acnArbn": "101464073",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 18,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-24",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 323,
+        "percentile": 77.6
+      }
+    },
+    {
+      "reportId": "PTR20006407",
+      "acnArbn": "101464073",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 79,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-11-03",
+      "overallP95Position": {
+        "rank": 798,
+        "count": 2498,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 323,
+        "percentile": 77.3
+      }
+    }
+  ]
+}

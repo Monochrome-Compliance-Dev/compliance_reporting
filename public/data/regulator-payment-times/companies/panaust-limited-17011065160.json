@@ -1,0 +1,67 @@
+{
+  "slug": "panaust-limited-17011065160",
+  "businessName": "PANAUST LIMITED",
+  "abn": "17011065160",
+  "acnArbn": "011065160",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009287",
+      "acnArbn": "011065160",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 36.5,
+      "payments31To60Days": 57.1,
+      "paymentsMoreThan60Days": 6.4,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 123,
+        "count": 177,
+        "percentile": 27.3
+      }
+    },
+    {
+      "reportId": "PTR20003717",
+      "acnArbn": "011065160",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 19,
+      "payments31To60Days": 58,
+      "paymentsMoreThan60Days": 22,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 173,
+        "percentile": 34.9
+      }
+    }
+  ]
+}

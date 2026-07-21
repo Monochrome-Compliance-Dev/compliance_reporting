@@ -1,0 +1,95 @@
+{
+  "slug": "tvs-supply-chain-solutions-australia-holdings-pty-ltd-86607085496",
+  "businessName": "TVS SUPPLY CHAIN SOLUTIONS AUSTRALIA HOLDINGS PTY. LTD.",
+  "abn": "86607085496",
+  "acnArbn": "607085496",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20010775",
+      "acnArbn": "607085496",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.52,
+      "medianPaymentTimeDays": 36.27,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 38.23,
+      "payments31To60Days": 58.54,
+      "paymentsMoreThan60Days": 3.23,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 124,
+        "count": 193,
+        "percentile": 33.9
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 14,
+        "percentile": 30.8
+      }
+    },
+    {
+      "reportId": "PTR20006056",
+      "acnArbn": "607085496",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.53,
+      "medianPaymentTimeDays": 34.46,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 36.53,
+      "payments31To60Days": 59.4,
+      "paymentsMoreThan60Days": 4.07,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-16",
+      "overallP95Position": {
+        "rank": 147,
+        "count": 228,
+        "percentile": 34.4
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 18,
+        "percentile": 41.2
+      }
+    },
+    {
+      "reportId": "PTR20000060",
+      "acnArbn": "607085496",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.83,
+      "medianPaymentTimeDays": 36.25,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 36.56,
+      "payments31To60Days": 57.2,
+      "paymentsMoreThan60Days": 6.24,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-05-13",
+      "overallP95Position": {
+        "rank": 154,
+        "count": 231,
+        "percentile": 31.3
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 17,
+        "percentile": 31.3
+      }
+    }
+  ]
+}

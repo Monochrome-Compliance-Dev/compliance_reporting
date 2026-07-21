@@ -1,0 +1,39 @@
+{
+  "slug": "credit-union-sa-ltd-36087651232",
+  "businessName": "CREDIT UNION SA LTD",
+  "abn": "36087651232",
+  "acnArbn": "087651232",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009367",
+      "acnArbn": "087651232",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.88,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.66,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 2.34,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 338,
+        "percentile": 53.7
+      }
+    }
+  ]
+}

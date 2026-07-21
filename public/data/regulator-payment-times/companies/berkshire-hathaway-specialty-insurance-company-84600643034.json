@@ -1,0 +1,95 @@
+{
+  "slug": "berkshire-hathaway-specialty-insurance-company-84600643034",
+  "businessName": "BERKSHIRE HATHAWAY SPECIALTY INSURANCE COMPANY",
+  "abn": "84600643034",
+  "acnArbn": "600643034",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010008",
+      "acnArbn": "600643034",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.71,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 90.65,
+      "payments31To60Days": 5.08,
+      "paymentsMoreThan60Days": 4.27,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 257,
+        "count": 338,
+        "percentile": 22.3
+      }
+    },
+    {
+      "reportId": "PTR20005343",
+      "acnArbn": "600643034",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.55,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 87.64,
+      "payments31To60Days": 7.64,
+      "paymentsMoreThan60Days": 4.73,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 281,
+        "count": 349,
+        "percentile": 18.4
+      }
+    },
+    {
+      "reportId": "PTR20001844",
+      "acnArbn": "600643034",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.01,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 90.09,
+      "payments31To60Days": 5.38,
+      "paymentsMoreThan60Days": 4.53,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 251,
+        "count": 339,
+        "percentile": 24.9
+      }
+    }
+  ]
+}

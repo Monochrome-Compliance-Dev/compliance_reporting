@@ -1,0 +1,95 @@
+{
+  "slug": "swiss-re-asia-pte-ltd-19631490447",
+  "businessName": "SWISS RE ASIA PTE. LTD.",
+  "abn": "19631490447",
+  "acnArbn": "631490447",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008867",
+      "acnArbn": "631490447",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.61,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 80.5,
+      "payments31To60Days": 11.3,
+      "paymentsMoreThan60Days": 8.2,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2227,
+        "count": 2613,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 323,
+        "count": 338,
+        "percentile": 4.2
+      }
+    },
+    {
+      "reportId": "PTR20003221",
+      "acnArbn": "631490447",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.2,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 78,
+      "payments31To60Days": 13,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 273,
+        "count": 349,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20000109",
+      "acnArbn": "631490447",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.8,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 89.1,
+      "payments31To60Days": 6.5,
+      "paymentsMoreThan60Days": 4.4,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-05-20",
+      "overallP95Position": {
+        "rank": 505,
+        "count": 2498,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 339,
+        "percentile": 56.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "geraldton-fuel-company-pty-ltd-29002844162",
+  "businessName": "GERALDTON FUEL COMPANY PTY LTD",
+  "abn": "29002844162",
+  "acnArbn": "002844162",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Fuel retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011466",
+      "acnArbn": "002844162",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.51,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 88.67,
+      "payments31To60Days": 11.21,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 207,
+        "percentile": 71.8
+      }
+    },
+    {
+      "reportId": "PTR20002677",
+      "acnArbn": "002844162",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 77.97,
+      "payments31To60Days": 19.74,
+      "paymentsMoreThan60Days": 2.29,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 1061,
+        "count": 2568,
+        "percentile": 57.4
+      },
+      "industryP95Position": {
+        "rank": 70,
+        "count": 208,
+        "percentile": 65.2
+      }
+    }
+  ]
+}

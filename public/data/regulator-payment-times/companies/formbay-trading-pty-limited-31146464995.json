@@ -1,0 +1,95 @@
+{
+  "slug": "formbay-trading-pty-limited-31146464995",
+  "businessName": "FORMBAY TRADING PTY LIMITED",
+  "abn": "31146464995",
+  "acnArbn": "146464995",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010502",
+      "acnArbn": "146464995",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-04-13",
+      "overallP95Position": {
+        "rank": 131,
+        "count": 2613,
+        "percentile": 94.3
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 183,
+        "percentile": 96.2
+      }
+    },
+    {
+      "reportId": "PTR20010446",
+      "acnArbn": "146464995",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 99,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-04-13",
+      "overallP95Position": {
+        "rank": 225,
+        "count": 2568,
+        "percentile": 89.6
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 181,
+        "percentile": 92.8
+      }
+    },
+    {
+      "reportId": "PTR20011299",
+      "acnArbn": "146464995",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-10",
+      "overallP95Position": {
+        "rank": 123,
+        "count": 2498,
+        "percentile": 94.5
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 176,
+        "percentile": 95.4
+      }
+    }
+  ]
+}

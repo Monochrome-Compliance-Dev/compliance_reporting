@@ -1,0 +1,95 @@
+{
+  "slug": "timberlink-australia-pty-limited-12161713015",
+  "businessName": "TIMBERLINK AUSTRALIA PTY LIMITED",
+  "abn": "12161713015",
+  "acnArbn": "161713015",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture, forestry and fishing support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008485",
+      "acnArbn": "161713015",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.96,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 44.35,
+      "payments31To60Days": 46.55,
+      "paymentsMoreThan60Days": 9.09,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2027,
+        "count": 2613,
+        "percentile": 21.9
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 102,
+        "percentile": 8.9
+      }
+    },
+    {
+      "reportId": "PTR20003391",
+      "acnArbn": "161713015",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.9,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 34.8,
+      "paymentsMoreThan60Days": 4.2,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-04",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 92,
+        "percentile": 34.1
+      }
+    },
+    {
+      "reportId": "PTR20002613",
+      "acnArbn": "161713015",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 66,
+      "payments31To60Days": 31.4,
+      "paymentsMoreThan60Days": 2.6,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 85,
+        "percentile": 29.8
+      }
+    }
+  ]
+}

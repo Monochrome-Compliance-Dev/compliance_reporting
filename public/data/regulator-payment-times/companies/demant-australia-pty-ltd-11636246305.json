@@ -1,0 +1,95 @@
+{
+  "slug": "demant-australia-pty-ltd-11636246305",
+  "businessName": "DEMANT AUSTRALIA PTY LTD",
+  "abn": "11636246305",
+  "acnArbn": "636246305",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009905",
+      "acnArbn": "636246305",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.91,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 66.03,
+      "payments31To60Days": 30.6,
+      "paymentsMoreThan60Days": 3.37,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 347,
+        "percentile": 61.6
+      }
+    },
+    {
+      "reportId": "PTR20003175",
+      "acnArbn": "636246305",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.16,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 66.2,
+      "payments31To60Days": 26.87,
+      "paymentsMoreThan60Days": 6.93,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-21",
+      "overallP95Position": {
+        "rank": 2096,
+        "count": 2568,
+        "percentile": 17.5
+      },
+      "industryP95Position": {
+        "rank": 237,
+        "count": 335,
+        "percentile": 27.8
+      }
+    },
+    {
+      "reportId": "PTR20001286",
+      "acnArbn": "636246305",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.11,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 66.96,
+      "payments31To60Days": 27.87,
+      "paymentsMoreThan60Days": 5.17,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 161,
+        "count": 323,
+        "percentile": 49.4
+      }
+    }
+  ]
+}

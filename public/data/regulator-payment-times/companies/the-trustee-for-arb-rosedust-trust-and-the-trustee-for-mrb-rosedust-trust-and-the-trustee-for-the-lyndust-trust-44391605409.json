@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-arb-rosedust-trust-and-the-trustee-for-mrb-rosedust-trust-and-the-trustee-for-the-lyndust-trust-44391605409",
+  "businessName": "THE TRUSTEE FOR ARB ROSEDUST TRUST & THE TRUSTEE FOR MRB ROSEDUST TRUST & THE TRUSTEE FOR THE LYNDUST TRUST",
+  "abn": "44391605409",
+  "acnArbn": "",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009123",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.92,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 116,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 23,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2532,
+        "count": 2613,
+        "percentile": 3
+      },
+      "industryP95Position": {
+        "rank": 260,
+        "count": 270,
+        "percentile": 3.7
+      }
+    },
+    {
+      "reportId": "PTR20004761",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.25,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 58,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 191,
+        "count": 259,
+        "percentile": 25.2
+      }
+    },
+    {
+      "reportId": "PTR20001182",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.88,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 65.08,
+      "payments31To60Days": 23.02,
+      "paymentsMoreThan60Days": 11.9,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2196,
+        "count": 2498,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 250,
+        "percentile": 10.4
+      }
+    }
+  ]
+}

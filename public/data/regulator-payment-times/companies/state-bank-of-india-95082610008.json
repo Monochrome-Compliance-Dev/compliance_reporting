@@ -1,0 +1,151 @@
+{
+  "slug": "state-bank-of-india-95082610008",
+  "businessName": "STATE BANK OF INDIA",
+  "abn": "95082610008",
+  "acnArbn": "082610008",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20010857",
+      "acnArbn": "082610008",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.37,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 67.91,
+      "payments31To60Days": 28.34,
+      "paymentsMoreThan60Days": 3.74,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 111,
+        "count": 193,
+        "percentile": 42.2
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 19,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20009078",
+      "acnArbn": "082610008",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.26,
+      "medianPaymentTimeDays": 19.5,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 64.17,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 0.83,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 242,
+        "count": 338,
+        "percentile": 27.3
+      }
+    },
+    {
+      "reportId": "PTR20006817",
+      "acnArbn": "082610008",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.95,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 79.01,
+      "payments31To60Days": 16.05,
+      "paymentsMoreThan60Days": 4.94,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-23",
+      "overallP95Position": {
+        "rank": 138,
+        "count": 228,
+        "percentile": 39.6
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 22,
+        "percentile": 9.5
+      }
+    },
+    {
+      "reportId": "PTR20009366",
+      "acnArbn": "082610008",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.89,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 81.13,
+      "payments31To60Days": 14.62,
+      "paymentsMoreThan60Days": 4.25,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 143,
+        "count": 231,
+        "percentile": 36.1
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 20,
+        "percentile": 10.5
+      }
+    },
+    {
+      "reportId": "PTR20001506",
+      "acnArbn": "082610008",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.32,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 77.18,
+      "payments31To60Days": 15.44,
+      "paymentsMoreThan60Days": 7.38,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 308,
+        "count": 339,
+        "percentile": 8.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "hcl-australia-services-pty-limited-72081196983",
+  "businessName": "HCL AUSTRALIA SERVICES PTY. LIMITED",
+  "abn": "72081196983",
+  "acnArbn": "081196983",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011678",
+      "acnArbn": "081196983",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 97,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 95,
+        "count": 193,
+        "percentile": 49.5
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 25,
+        "percentile": 75
+      }
+    },
+    {
+      "reportId": "PTR20006853",
+      "acnArbn": "081196983",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 76,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 70.63,
+      "payments31To60Days": 7.49,
+      "paymentsMoreThan60Days": 21.88,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-29",
+      "overallP95Position": {
+        "rank": 207,
+        "count": 228,
+        "percentile": 8.4
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 27,
+        "percentile": 7.7
+      }
+    },
+    {
+      "reportId": "PTR20005822",
+      "acnArbn": "081196983",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 53,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 26,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 58,
+        "count": 231,
+        "percentile": 73.5
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 26,
+        "percentile": 76
+      }
+    }
+  ]
+}

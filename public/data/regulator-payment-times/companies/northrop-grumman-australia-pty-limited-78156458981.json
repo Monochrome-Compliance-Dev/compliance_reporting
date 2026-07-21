@@ -1,0 +1,95 @@
+{
+  "slug": "northrop-grumman-australia-pty-limited-78156458981",
+  "businessName": "NORTHROP GRUMMAN AUSTRALIA PTY LIMITED",
+  "abn": "78156458981",
+  "acnArbn": "156458981",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Defence",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010171",
+      "acnArbn": "156458981",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.82,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 94.42,
+      "payments31To60Days": 5.5,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 33,
+        "percentile": 46.9
+      }
+    },
+    {
+      "reportId": "PTR20010212",
+      "acnArbn": "156458981",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.42,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 95.43,
+      "payments31To60Days": 4.26,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 34,
+        "percentile": 57.6
+      }
+    },
+    {
+      "reportId": "PTR20000921",
+      "acnArbn": "156458981",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.27,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 59.96,
+      "payments31To60Days": 29.49,
+      "paymentsMoreThan60Days": 10.55,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 31,
+        "percentile": 6.7
+      }
+    }
+  ]
+}

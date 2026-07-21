@@ -1,0 +1,39 @@
+{
+  "slug": "network-ten-all-access-pty-ltd-60629391117",
+  "businessName": "NETWORK TEN ALL ACCESS PTY LTD",
+  "abn": "60629391117",
+  "acnArbn": "629391117",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Broadcasting (except internet)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009362",
+      "acnArbn": "629391117",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 104,
+      "payments30DaysOrLess": 40,
+      "payments31To60Days": 46,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Broadcasting (except internet)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 2499,
+        "count": 2613,
+        "percentile": 4.3
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 60,
+        "percentile": 6.8
+      }
+    }
+  ]
+}

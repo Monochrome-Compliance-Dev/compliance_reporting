@@ -1,0 +1,95 @@
+{
+  "slug": "austal-limited-73009250266",
+  "businessName": "AUSTAL LIMITED",
+  "abn": "73009250266",
+  "acnArbn": "009250266",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009162",
+      "acnArbn": "009250266",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.24,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 28.81,
+      "payments31To60Days": 62.48,
+      "paymentsMoreThan60Days": 8.71,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2007,
+        "count": 2613,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 347,
+        "percentile": 37.9
+      }
+    },
+    {
+      "reportId": "PTR20003584",
+      "acnArbn": "009250266",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.12,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 30.19,
+      "payments31To60Days": 60.68,
+      "paymentsMoreThan60Days": 9.14,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 335,
+        "percentile": 40.7
+      }
+    },
+    {
+      "reportId": "PTR20002652",
+      "acnArbn": "009250266",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.82,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 30.88,
+      "payments31To60Days": 59.86,
+      "paymentsMoreThan60Days": 9.26,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2498,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 213,
+        "count": 323,
+        "percentile": 33.9
+      }
+    }
+  ]
+}

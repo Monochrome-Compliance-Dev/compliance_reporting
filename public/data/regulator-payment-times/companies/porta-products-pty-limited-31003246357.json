@@ -1,0 +1,95 @@
+{
+  "slug": "porta-products-pty-limited-31003246357",
+  "businessName": "PORTA PRODUCTS PTY LIMITED",
+  "abn": "31003246357",
+  "acnArbn": "003246357",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Wood product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009021",
+      "acnArbn": "003246357",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.43,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 53.47,
+      "payments31To60Days": 34.59,
+      "paymentsMoreThan60Days": 11.94,
+      "industrySubdivision": "Wood product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2043,
+        "count": 2613,
+        "percentile": 21.3
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 347,
+        "percentile": 34.4
+      }
+    },
+    {
+      "reportId": "PTR20005049",
+      "acnArbn": "003246357",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.53,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 58.68,
+      "payments31To60Days": 28.66,
+      "paymentsMoreThan60Days": 12.65,
+      "industrySubdivision": "Wood product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 335,
+        "percentile": 40.7
+      }
+    },
+    {
+      "reportId": "PTR20002535",
+      "acnArbn": "003246357",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.2,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 56.14,
+      "payments31To60Days": 31.81,
+      "paymentsMoreThan60Days": 11.74,
+      "industrySubdivision": "Wood product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-16",
+      "overallP95Position": {
+        "rank": 1894,
+        "count": 2498,
+        "percentile": 23.4
+      },
+      "industryP95Position": {
+        "rank": 205,
+        "count": 323,
+        "percentile": 35.7
+      }
+    }
+  ]
+}

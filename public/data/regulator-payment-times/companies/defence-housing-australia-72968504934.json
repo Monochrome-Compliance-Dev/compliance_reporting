@@ -1,0 +1,95 @@
+{
+  "slug": "defence-housing-australia-72968504934",
+  "businessName": "DEFENCE HOUSING AUSTRALIA",
+  "abn": "72968504934",
+  "acnArbn": "",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009034",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 5,
+      "p95PaymentTimeDays": 6,
+      "payments30DaysOrLess": 99.82,
+      "payments31To60Days": 0.15,
+      "paymentsMoreThan60Days": 0.03,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 2613,
+        "percentile": 99.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 66,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20004634",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 4,
+      "p95PaymentTimeDays": 5,
+      "payments30DaysOrLess": 99.86,
+      "payments31To60Days": 0.14,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 2568,
+        "percentile": 99.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 61,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000848",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 5,
+      "p95PaymentTimeDays": 6,
+      "payments30DaysOrLess": 99.85,
+      "payments31To60Days": 0.14,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 2498,
+        "percentile": 99.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 55,
+        "percentile": 100
+      }
+    }
+  ]
+}

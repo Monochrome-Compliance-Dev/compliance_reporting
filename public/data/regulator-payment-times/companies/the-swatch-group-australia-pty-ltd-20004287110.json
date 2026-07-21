@@ -1,0 +1,95 @@
+{
+  "slug": "the-swatch-group-australia-pty-ltd-20004287110",
+  "businessName": "THE SWATCH GROUP (AUSTRALIA) PTY. LTD.",
+  "abn": "20004287110",
+  "acnArbn": "004287110",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007222",
+      "acnArbn": "004287110",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.51,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 78.73,
+      "payments31To60Days": 20.99,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-13",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 85,
+        "count": 329,
+        "percentile": 73.5
+      }
+    },
+    {
+      "reportId": "PTR20004541",
+      "acnArbn": "004287110",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.05,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 90.2,
+      "payments31To60Days": 9.8,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 725,
+        "count": 2568,
+        "percentile": 71.1
+      },
+      "industryP95Position": {
+        "rank": 63,
+        "count": 323,
+        "percentile": 80.4
+      }
+    },
+    {
+      "reportId": "PTR20000711",
+      "acnArbn": "004287110",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.68,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 66.15,
+      "payments31To60Days": 32.73,
+      "paymentsMoreThan60Days": 1.12,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 323,
+        "percentile": 70.2
+      }
+    }
+  ]
+}

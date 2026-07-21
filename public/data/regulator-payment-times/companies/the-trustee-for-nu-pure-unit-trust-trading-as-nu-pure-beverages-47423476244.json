@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-nu-pure-unit-trust-trading-as-nu-pure-beverages-47423476244",
+  "businessName": "The Trustee for Nu-Pure Unit Trust Trading as Nu Pure Beverages",
+  "abn": "47423476244",
+  "acnArbn": "",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Beverage and tobacco product mfg",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20000737",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 60,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 323,
+        "percentile": 41.9
+      }
+    }
+  ]
+}

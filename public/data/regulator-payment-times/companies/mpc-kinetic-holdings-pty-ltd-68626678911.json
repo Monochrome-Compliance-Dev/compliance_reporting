@@ -1,0 +1,95 @@
+{
+  "slug": "mpc-kinetic-holdings-pty-ltd-68626678911",
+  "businessName": "MPC KINETIC HOLDINGS PTY LTD",
+  "abn": "68626678911",
+  "acnArbn": "626678911",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009179",
+      "acnArbn": "626678911",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.56,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 54.53,
+      "payments31To60Days": 41.32,
+      "paymentsMoreThan60Days": 4.16,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 177,
+        "percentile": 33.5
+      }
+    },
+    {
+      "reportId": "PTR20004856",
+      "acnArbn": "626678911",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.3,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 54.72,
+      "payments31To60Days": 41.88,
+      "paymentsMoreThan60Days": 3.39,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 173,
+        "percentile": 43
+      }
+    },
+    {
+      "reportId": "PTR20001880",
+      "acnArbn": "626678911",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.12,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 53.04,
+      "payments31To60Days": 43.04,
+      "paymentsMoreThan60Days": 3.93,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 170,
+        "percentile": 44.4
+      }
+    }
+  ]
+}

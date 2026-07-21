@@ -1,0 +1,95 @@
+{
+  "slug": "po-street-capital-pty-ltd-78626706410",
+  "businessName": "PO STREET CAPITAL PTY LTD",
+  "abn": "78626706410",
+  "acnArbn": "626706410",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009046",
+      "acnArbn": "626706410",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.5,
+      "medianPaymentTimeDays": 9.5,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 236,
+        "count": 338,
+        "percentile": 28.8
+      }
+    },
+    {
+      "reportId": "PTR20005393",
+      "acnArbn": "626706410",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.71,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 57.14,
+      "payments31To60Days": 42.86,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 349,
+        "percentile": 22.1
+      }
+    },
+    {
+      "reportId": "PTR20001521",
+      "acnArbn": "626706410",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.83,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 83.33,
+      "payments31To60Days": 16.67,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 236,
+        "count": 339,
+        "percentile": 30.5
+      }
+    }
+  ]
+}

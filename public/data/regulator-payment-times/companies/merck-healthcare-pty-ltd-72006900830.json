@@ -1,0 +1,95 @@
+{
+  "slug": "merck-healthcare-pty-ltd-72006900830",
+  "businessName": "MERCK HEALTHCARE PTY LTD",
+  "abn": "72006900830",
+  "acnArbn": "006900830",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007095",
+      "acnArbn": "006900830",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.04,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 70.73,
+      "payments31To60Days": 23.72,
+      "paymentsMoreThan60Days": 5.56,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-02",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 201,
+        "count": 329,
+        "percentile": 37.2
+      }
+    },
+    {
+      "reportId": "PTR20003078",
+      "acnArbn": "006900830",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.99,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 70.65,
+      "payments31To60Days": 26.36,
+      "paymentsMoreThan60Days": 2.99,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-11",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 323,
+        "percentile": 56.8
+      }
+    },
+    {
+      "reportId": "PTR20000579",
+      "acnArbn": "006900830",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.08,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 79.6,
+      "payments31To60Days": 17.04,
+      "paymentsMoreThan60Days": 3.36,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-18",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 123,
+        "count": 323,
+        "percentile": 59.3
+      }
+    }
+  ]
+}

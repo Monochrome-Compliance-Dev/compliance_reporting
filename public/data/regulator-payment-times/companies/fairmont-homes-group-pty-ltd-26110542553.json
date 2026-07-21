@@ -1,0 +1,95 @@
+{
+  "slug": "fairmont-homes-group-pty-ltd-26110542553",
+  "businessName": "Fairmont Homes Group Pty Ltd",
+  "abn": "26110542553",
+  "acnArbn": "110542553",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007434",
+      "acnArbn": "110542553",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.04,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 99.45,
+      "payments31To60Days": 0.41,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 151,
+        "count": 2613,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 270,
+        "percentile": 98.1
+      }
+    },
+    {
+      "reportId": "PTR20004186",
+      "acnArbn": "110542553",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.66,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 99.12,
+      "payments31To60Days": 0.59,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2568,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 259,
+        "percentile": 96.5
+      }
+    },
+    {
+      "reportId": "PTR20001520",
+      "acnArbn": "110542553",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.06,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 98.9,
+      "payments31To60Days": 0.79,
+      "paymentsMoreThan60Days": 0.31,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 174,
+        "count": 2498,
+        "percentile": 92.4
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 250,
+        "percentile": 97.2
+      }
+    }
+  ]
+}

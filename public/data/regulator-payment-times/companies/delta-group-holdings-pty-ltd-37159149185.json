@@ -1,0 +1,95 @@
+{
+  "slug": "delta-group-holdings-pty-ltd-37159149185",
+  "businessName": "DELTA GROUP HOLDINGS PTY. LTD.",
+  "abn": "37159149185",
+  "acnArbn": "159149185",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009727",
+      "acnArbn": "159149185",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.53,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 27.07,
+      "payments31To60Days": 55.78,
+      "paymentsMoreThan60Days": 17.15,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2190,
+        "count": 2613,
+        "percentile": 15.4
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 270,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20004521",
+      "acnArbn": "159149185",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.93,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 17.89,
+      "payments31To60Days": 54.86,
+      "paymentsMoreThan60Days": 27.24,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 230,
+        "count": 259,
+        "percentile": 10.5
+      }
+    },
+    {
+      "reportId": "PTR20002016",
+      "acnArbn": "159149185",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.89,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 13.16,
+      "payments31To60Days": 60.31,
+      "paymentsMoreThan60Days": 26.53,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2181,
+        "count": 2498,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 221,
+        "count": 250,
+        "percentile": 11.2
+      }
+    }
+  ]
+}

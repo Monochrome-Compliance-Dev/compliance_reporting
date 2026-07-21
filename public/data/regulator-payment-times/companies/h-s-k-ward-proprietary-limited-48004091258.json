@@ -1,0 +1,67 @@
+{
+  "slug": "h-s-k-ward-proprietary-limited-48004091258",
+  "businessName": "H.S.K. WARD PROPRIETARY LIMITED",
+  "abn": "48004091258",
+  "acnArbn": "004091258",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20005470",
+      "acnArbn": "004091258",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.2,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 70.04,
+      "payments31To60Days": 26.54,
+      "paymentsMoreThan60Days": 3.42,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 335,
+        "percentile": 66.5
+      }
+    },
+    {
+      "reportId": "PTR20002805",
+      "acnArbn": "004091258",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.98,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 54.29,
+      "payments31To60Days": 41.96,
+      "paymentsMoreThan60Days": 3.75,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-27",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 323,
+        "percentile": 63.4
+      }
+    }
+  ]
+}

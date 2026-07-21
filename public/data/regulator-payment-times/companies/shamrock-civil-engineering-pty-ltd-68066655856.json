@@ -1,0 +1,95 @@
+{
+  "slug": "shamrock-civil-engineering-pty-ltd-68066655856",
+  "businessName": "SHAMROCK CIVIL ENGINEERING PTY. LTD.",
+  "abn": "68066655856",
+  "acnArbn": "066655856",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009061",
+      "acnArbn": "066655856",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.93,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 42.94,
+      "payments31To60Days": 47.93,
+      "paymentsMoreThan60Days": 9.12,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 192,
+        "count": 270,
+        "percentile": 27.5
+      }
+    },
+    {
+      "reportId": "PTR20004390",
+      "acnArbn": "066655856",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.62,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 47.05,
+      "payments31To60Days": 42.64,
+      "paymentsMoreThan60Days": 10.31,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 259,
+        "percentile": 31.8
+      }
+    },
+    {
+      "reportId": "PTR20002648",
+      "acnArbn": "066655856",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.62,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 41.06,
+      "payments31To60Days": 48.32,
+      "paymentsMoreThan60Days": 10.62,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 250,
+        "percentile": 26.9
+      }
+    }
+  ]
+}

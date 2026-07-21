@@ -1,0 +1,95 @@
+{
+  "slug": "menzies-hold-co-1-pty-ltd-12616441868",
+  "businessName": "MENZIES HOLD CO 1 PTY LTD",
+  "abn": "12616441868",
+  "acnArbn": "616441868",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Residential care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008992",
+      "acnArbn": "616441868",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 35.02,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 35.64,
+      "payments31To60Days": 59.57,
+      "paymentsMoreThan60Days": 4.79,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 106,
+        "percentile": 42.9
+      }
+    },
+    {
+      "reportId": "PTR20004972",
+      "acnArbn": "616441868",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.85,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 24,
+      "payments31To60Days": 64,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 97,
+        "percentile": 14.6
+      }
+    },
+    {
+      "reportId": "PTR20000799",
+      "acnArbn": "616441868",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.66,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 20,
+      "payments31To60Days": 63,
+      "paymentsMoreThan60Days": 17,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 2243,
+        "count": 2498,
+        "percentile": 9.2
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 97,
+        "percentile": 11.5
+      }
+    }
+  ]
+}

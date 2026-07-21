@@ -1,0 +1,39 @@
+{
+  "slug": "vysarn-limited-41124212175",
+  "businessName": "VYSARN LIMITED",
+  "abn": "41124212175",
+  "acnArbn": "124212175",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007414",
+      "acnArbn": "124212175",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.32,
+      "medianPaymentTimeDays": 36.94,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 33.28,
+      "payments31To60Days": 63.08,
+      "paymentsMoreThan60Days": 3.62,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-02-24",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 103,
+        "count": 177,
+        "percentile": 37.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "hillgrove-resources-limited-73004297116",
+  "businessName": "HILLGROVE RESOURCES LIMITED",
+  "abn": "73004297116",
+  "acnArbn": "004297116",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008751",
+      "acnArbn": "004297116",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.29,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 28.13,
+      "payments31To60Days": 69.32,
+      "paymentsMoreThan60Days": 2.54,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 103,
+        "count": 177,
+        "percentile": 37.5
+      }
+    },
+    {
+      "reportId": "PTR20003426",
+      "acnArbn": "004297116",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.51,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 24.04,
+      "payments31To60Days": 70.83,
+      "paymentsMoreThan60Days": 5.14,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-05",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 173,
+        "percentile": 34.9
+      }
+    },
+    {
+      "reportId": "PTR20000706",
+      "acnArbn": "004297116",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.1,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 33.08,
+      "payments31To60Days": 58.93,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 126,
+        "count": 170,
+        "percentile": 24.9
+      }
+    }
+  ]
+}

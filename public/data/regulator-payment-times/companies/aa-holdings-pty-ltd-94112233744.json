@@ -1,0 +1,95 @@
+{
+  "slug": "aa-holdings-pty-ltd-94112233744",
+  "businessName": "AA Holdings Pty Ltd",
+  "abn": "94112233744",
+  "acnArbn": "112233744",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Fuel retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008563",
+      "acnArbn": "112233744",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 82.97,
+      "payments31To60Days": 16.87,
+      "paymentsMoreThan60Days": 0.16,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 207,
+        "percentile": 68.9
+      }
+    },
+    {
+      "reportId": "PTR20005814",
+      "acnArbn": "112233744",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 77.4,
+      "payments31To60Days": 22.04,
+      "paymentsMoreThan60Days": 0.56,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 208,
+        "percentile": 67.1
+      }
+    },
+    {
+      "reportId": "PTR20001635",
+      "acnArbn": "112233744",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 16.26,
+      "paymentsMoreThan60Days": 1.74,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 207,
+        "percentile": 68.9
+      }
+    }
+  ]
+}

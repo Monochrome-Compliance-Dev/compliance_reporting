@@ -1,0 +1,95 @@
+{
+  "slug": "posco-australia-pty-ltd-54002062160",
+  "businessName": "POSCO AUSTRALIA PTY LTD",
+  "abn": "54002062160",
+  "acnArbn": "002062160",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008707",
+      "acnArbn": "002062160",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.72,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 177,
+        "percentile": 88.1
+      }
+    },
+    {
+      "reportId": "PTR20005788",
+      "acnArbn": "002062160",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 1.06,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 1,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 2568,
+        "percentile": 99.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 173,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002102",
+      "acnArbn": "002062160",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.76,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 110,
+        "count": 2498,
+        "percentile": 95.2
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 170,
+        "percentile": 94.7
+      }
+    }
+  ]
+}

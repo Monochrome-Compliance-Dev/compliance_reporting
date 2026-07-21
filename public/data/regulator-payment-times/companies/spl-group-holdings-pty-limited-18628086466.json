@@ -1,0 +1,95 @@
+{
+  "slug": "spl-group-holdings-pty-limited-18628086466",
+  "businessName": "SPL GROUP HOLDINGS PTY LIMITED",
+  "abn": "18628086466",
+  "acnArbn": "628086466",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Personal and other services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010760",
+      "acnArbn": "628086466",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.64,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 68.18,
+      "payments31To60Days": 28.38,
+      "paymentsMoreThan60Days": 3.44,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 25,
+        "percentile": 29.2
+      }
+    },
+    {
+      "reportId": "PTR20006267",
+      "acnArbn": "628086466",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.73,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 63.9,
+      "payments31To60Days": 32.44,
+      "paymentsMoreThan60Days": 3.66,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 26,
+        "percentile": 36
+      }
+    },
+    {
+      "reportId": "PTR20002897",
+      "acnArbn": "628086466",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.09,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 61.98,
+      "payments31To60Days": 34.02,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 22,
+        "percentile": 38.1
+      }
+    }
+  ]
+}

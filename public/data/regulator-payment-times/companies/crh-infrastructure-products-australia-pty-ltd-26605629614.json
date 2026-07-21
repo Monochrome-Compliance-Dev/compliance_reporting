@@ -1,0 +1,67 @@
+{
+  "slug": "crh-infrastructure-products-australia-pty-ltd-26605629614",
+  "businessName": "CRH INFRASTRUCTURE PRODUCTS AUSTRALIA PTY LTD",
+  "abn": "26605629614",
+  "acnArbn": "605629614",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009792",
+      "acnArbn": "605629614",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 39.8,
+      "payments31To60Days": 47.6,
+      "paymentsMoreThan60Days": 12.6,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2227,
+        "count": 2613,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 227,
+        "count": 270,
+        "percentile": 13.8
+      }
+    },
+    {
+      "reportId": "PTR20004303",
+      "acnArbn": "605629614",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.23,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 26,
+      "payments31To60Days": 59,
+      "paymentsMoreThan60Days": 16,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2568,
+        "percentile": 16.6
+      },
+      "industryP95Position": {
+        "rank": 214,
+        "count": 259,
+        "percentile": 16.7
+      }
+    }
+  ]
+}

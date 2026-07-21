@@ -1,0 +1,95 @@
+{
+  "slug": "genuity-pty-ltd-34128655096",
+  "businessName": "GENUITY PTY LTD",
+  "abn": "34128655096",
+  "acnArbn": "128655096",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007140",
+      "acnArbn": "128655096",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.81,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 92.9,
+      "payments31To60Days": 6.7,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-02-06",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 92,
+        "percentile": 62.6
+      }
+    },
+    {
+      "reportId": "PTR20003386",
+      "acnArbn": "128655096",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.6,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 7.5,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-03",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 95,
+        "percentile": 68.1
+      }
+    },
+    {
+      "reportId": "PTR20002910",
+      "acnArbn": "128655096",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.23,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 87.3,
+      "payments31To60Days": 12.3,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 99,
+        "percentile": 60.2
+      }
+    }
+  ]
+}

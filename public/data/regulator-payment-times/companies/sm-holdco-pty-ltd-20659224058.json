@@ -1,0 +1,95 @@
+{
+  "slug": "sm-holdco-pty-ltd-20659224058",
+  "businessName": "SM HOLDCO PTY LTD",
+  "abn": "20659224058",
+  "acnArbn": "659224058",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008930",
+      "acnArbn": "659224058",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.57,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 36.32,
+      "payments31To60Days": 61.41,
+      "paymentsMoreThan60Days": 2.28,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 347,
+        "percentile": 59
+      }
+    },
+    {
+      "reportId": "PTR20004226",
+      "acnArbn": "659224058",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.43,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 55.97,
+      "payments31To60Days": 42.87,
+      "paymentsMoreThan60Days": 1.17,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 335,
+        "percentile": 70.4
+      }
+    },
+    {
+      "reportId": "PTR20002820",
+      "acnArbn": "659224058",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.99,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 70.43,
+      "payments31To60Days": 29.46,
+      "paymentsMoreThan60Days": 0.11,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 323,
+        "percentile": 78.3
+      }
+    }
+  ]
+}

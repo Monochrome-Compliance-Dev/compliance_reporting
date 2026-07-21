@@ -1,0 +1,95 @@
+{
+  "slug": "accenture-australia-holdings-pty-ltd-61096995649",
+  "businessName": "ACCENTURE AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "61096995649",
+  "acnArbn": "096995649",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-02-28",
+  "reports": [
+    {
+      "reportId": "PTR20011152",
+      "acnArbn": "096995649",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.07,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 61.2,
+      "payments31To60Days": 36.94,
+      "paymentsMoreThan60Days": 1.86,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 24,
+        "percentile": 73.9
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20006508",
+      "acnArbn": "096995649",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3156,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 48.12,
+      "payments31To60Days": 51.32,
+      "paymentsMoreThan60Days": 0.56,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 25,
+        "percentile": 75
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20001021",
+      "acnArbn": "096995649",
+      "reportingPeriodStartDate": "2024-09-01",
+      "reportingPeriodEndDate": "2025-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.83,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 46.28,
+      "payments31To60Days": 53.41,
+      "paymentsMoreThan60Days": 0.31,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 22,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 50
+      }
+    }
+  ]
+}

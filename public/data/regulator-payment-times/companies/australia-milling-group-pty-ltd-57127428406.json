@@ -1,0 +1,67 @@
+{
+  "slug": "australia-milling-group-pty-ltd-57127428406",
+  "businessName": "AUSTRALIA MILLING GROUP PTY LTD",
+  "abn": "57127428406",
+  "acnArbn": "127428406",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008151",
+      "acnArbn": "127428406",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.07,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 77.2,
+      "payments31To60Days": 21.5,
+      "paymentsMoreThan60Days": 1.31,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 102,
+        "percentile": 42.6
+      }
+    },
+    {
+      "reportId": "PTR20003908",
+      "acnArbn": "127428406",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.49,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 75.19,
+      "payments31To60Days": 22.51,
+      "paymentsMoreThan60Days": 2.3,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 92,
+        "percentile": 41.8
+      }
+    }
+  ]
+}

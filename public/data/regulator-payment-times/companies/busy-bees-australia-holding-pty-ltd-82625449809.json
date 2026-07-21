@@ -1,0 +1,95 @@
+{
+  "slug": "busy-bees-australia-holding-pty-ltd-82625449809",
+  "businessName": "BUSY BEES AUSTRALIA HOLDING PTY LTD",
+  "abn": "82625449809",
+  "acnArbn": "625449809",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Social assistance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009445",
+      "acnArbn": "625449809",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.4,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 108,
+      "payments30DaysOrLess": 57.58,
+      "payments31To60Days": 33.65,
+      "paymentsMoreThan60Days": 8.76,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-28",
+      "overallP95Position": {
+        "rank": 2512,
+        "count": 2613,
+        "percentile": 3.8
+      },
+      "industryP95Position": {
+        "rank": 103,
+        "count": 106,
+        "percentile": 2.9
+      }
+    },
+    {
+      "reportId": "PTR20005735",
+      "acnArbn": "625449809",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.8,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 54.5,
+      "payments31To60Days": 41.18,
+      "paymentsMoreThan60Days": 4.32,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 97,
+        "percentile": 52.1
+      }
+    },
+    {
+      "reportId": "PTR20002911",
+      "acnArbn": "625449809",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.8,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 55.9,
+      "payments31To60Days": 41.19,
+      "paymentsMoreThan60Days": 2.91,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 97,
+        "percentile": 52.1
+      }
+    }
+  ]
+}

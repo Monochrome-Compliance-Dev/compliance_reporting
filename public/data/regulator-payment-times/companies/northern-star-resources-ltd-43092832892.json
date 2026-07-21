@@ -1,0 +1,39 @@
+{
+  "slug": "northern-star-resources-ltd-43092832892",
+  "businessName": "NORTHERN STAR RESOURCES LTD",
+  "abn": "43092832892",
+  "acnArbn": "092832892",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20001239",
+      "acnArbn": "092832892",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.1,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 87.8,
+      "payments31To60Days": 9.8,
+      "paymentsMoreThan60Days": 2.4,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 170,
+        "percentile": 58
+      }
+    }
+  ]
+}

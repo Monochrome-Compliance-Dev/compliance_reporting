@@ -1,0 +1,39 @@
+{
+  "slug": "karora-resources-pty-ltd-74633381218",
+  "businessName": "KARORA RESOURCES PTY LTD",
+  "abn": "74633381218",
+  "acnArbn": "633381218",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20001006",
+      "acnArbn": "633381218",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 17.2,
+      "payments31To60Days": 71.7,
+      "paymentsMoreThan60Days": 11.2,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 170,
+        "percentile": 13.6
+      }
+    }
+  ]
+}

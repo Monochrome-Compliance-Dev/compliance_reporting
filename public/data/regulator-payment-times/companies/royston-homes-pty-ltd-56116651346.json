@@ -1,0 +1,95 @@
+{
+  "slug": "royston-homes-pty-ltd-56116651346",
+  "businessName": "ROYSTON HOMES PTY LTD",
+  "abn": "56116651346",
+  "acnArbn": "116651346",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010737",
+      "acnArbn": "116651346",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 221,
+        "count": 2613,
+        "percentile": 90.8
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 270,
+        "percentile": 97
+      }
+    },
+    {
+      "reportId": "PTR20010734",
+      "acnArbn": "116651346",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 205,
+        "count": 2568,
+        "percentile": 91.3
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 259,
+        "percentile": 96.1
+      }
+    },
+    {
+      "reportId": "PTR20010733",
+      "acnArbn": "116651346",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 208,
+        "count": 2498,
+        "percentile": 90.7
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 250,
+        "percentile": 96
+      }
+    }
+  ]
+}

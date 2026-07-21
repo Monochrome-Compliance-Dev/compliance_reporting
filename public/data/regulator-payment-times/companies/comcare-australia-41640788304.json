@@ -1,0 +1,95 @@
+{
+  "slug": "comcare-australia-41640788304",
+  "businessName": "COMCARE AUSTRALIA",
+  "abn": "41640788304",
+  "acnArbn": "",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Public administration",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009207",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.61,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 89.38,
+      "payments31To60Days": 7.95,
+      "paymentsMoreThan60Days": 2.67,
+      "industrySubdivision": "Public administration",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 33,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20005230",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.29,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 69.3,
+      "payments31To60Days": 24.43,
+      "paymentsMoreThan60Days": 6.27,
+      "industrySubdivision": "Public administration",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2568,
+        "percentile": 22.6
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 34,
+        "percentile": 15.2
+      }
+    },
+    {
+      "reportId": "PTR20001250",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.34,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 87.12,
+      "payments31To60Days": 8.59,
+      "paymentsMoreThan60Days": 4.29,
+      "industrySubdivision": "Public administration",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 31,
+        "percentile": 36.7
+      }
+    }
+  ]
+}

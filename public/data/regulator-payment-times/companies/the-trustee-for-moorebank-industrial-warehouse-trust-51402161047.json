@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-moorebank-industrial-warehouse-trust-51402161047",
+  "businessName": "The Trustee for Moorebank Industrial Warehouse Trust",
+  "abn": "51402161047",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010203",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 98.8,
+      "payments31To60Days": 0.8,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2613,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 338,
+        "percentile": 78
+      }
+    }
+  ]
+}

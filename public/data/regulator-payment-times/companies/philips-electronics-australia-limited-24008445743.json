@@ -1,0 +1,67 @@
+{
+  "slug": "philips-electronics-australia-limited-24008445743",
+  "businessName": "PHILIPS ELECTRONICS AUSTRALIA LIMITED",
+  "abn": "24008445743",
+  "acnArbn": "008445743",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010337",
+      "acnArbn": "008445743",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.9,
+      "medianPaymentTimeDays": 51,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 37.53,
+      "payments31To60Days": 44.37,
+      "paymentsMoreThan60Days": 18.1,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2613,
+        "percentile": 10.4
+      },
+      "industryP95Position": {
+        "rank": 88,
+        "count": 106,
+        "percentile": 16.2
+      }
+    },
+    {
+      "reportId": "PTR20004749",
+      "acnArbn": "008445743",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.72,
+      "medianPaymentTimeDays": 58.5,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 28.66,
+      "payments31To60Days": 42.69,
+      "paymentsMoreThan60Days": 28.65,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2568,
+        "percentile": 8.8
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 97,
+        "percentile": 11.5
+      }
+    }
+  ]
+}

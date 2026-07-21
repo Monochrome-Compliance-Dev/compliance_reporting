@@ -1,0 +1,95 @@
+{
+  "slug": "genusplus-group-ltd-86620283561",
+  "businessName": "GENUSPLUS GROUP LTD",
+  "abn": "86620283561",
+  "acnArbn": "620283561",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007722",
+      "acnArbn": "620283561",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.68,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 41.41,
+      "payments31To60Days": 51.29,
+      "paymentsMoreThan60Days": 7.3,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-09",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 173,
+        "count": 270,
+        "percentile": 32.7
+      }
+    },
+    {
+      "reportId": "PTR20005996",
+      "acnArbn": "620283561",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.5,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 41.98,
+      "payments31To60Days": 48.99,
+      "paymentsMoreThan60Days": 9.03,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-08",
+      "overallP95Position": {
+        "rank": 1883,
+        "count": 2568,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 259,
+        "percentile": 28.7
+      }
+    },
+    {
+      "reportId": "PTR20005995",
+      "acnArbn": "620283561",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.38,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 50.23,
+      "payments31To60Days": 42.66,
+      "paymentsMoreThan60Days": 7.11,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-08",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 250,
+        "percentile": 38.2
+      }
+    }
+  ]
+}

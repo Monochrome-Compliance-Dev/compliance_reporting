@@ -1,0 +1,95 @@
+{
+  "slug": "moet-hennessy-australia-pty-limited-26104454604",
+  "businessName": "Moet Hennessy Australia Pty Limited",
+  "abn": "26104454604",
+  "acnArbn": "104454604",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009807",
+      "acnArbn": "104454604",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.46,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 67.27,
+      "payments31To60Days": 27.6,
+      "paymentsMoreThan60Days": 5.13,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 182,
+        "count": 329,
+        "percentile": 42.1
+      }
+    },
+    {
+      "reportId": "PTR20004556",
+      "acnArbn": "104454604",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.15,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 75.04,
+      "payments31To60Days": 20.59,
+      "paymentsMoreThan60Days": 4.36,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 323,
+        "percentile": 51.9
+      }
+    },
+    {
+      "reportId": "PTR20000722",
+      "acnArbn": "104454604",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.14,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 79.35,
+      "payments31To60Days": 15.48,
+      "paymentsMoreThan60Days": 5.16,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 323,
+        "percentile": 37.6
+      }
+    }
+  ]
+}

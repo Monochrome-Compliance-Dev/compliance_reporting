@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-ubt-marketing-trust-84296716805",
+  "businessName": "The Trustee for UBT Marketing Trust",
+  "abn": "84296716805",
+  "acnArbn": "",
+  "industryDivision": "Education and Training",
+  "industrySubdivision": "Adult, community and other education",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008173",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.38,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 88.68,
+      "payments31To60Days": 6.77,
+      "paymentsMoreThan60Days": 4.55,
+      "industrySubdivision": "Adult, community and other education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 14,
+        "percentile": 53.8
+      }
+    },
+    {
+      "reportId": "PTR20003782",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.05,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 87.52,
+      "payments31To60Days": 8.82,
+      "paymentsMoreThan60Days": 3.66,
+      "industrySubdivision": "Adult, community and other education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 15,
+        "percentile": 42.9
+      }
+    },
+    {
+      "reportId": "PTR20001015",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.28,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 84.35,
+      "payments31To60Days": 9.44,
+      "paymentsMoreThan60Days": 6.21,
+      "industrySubdivision": "Adult, community and other education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 12,
+        "percentile": 9.1
+      }
+    }
+  ]
+}

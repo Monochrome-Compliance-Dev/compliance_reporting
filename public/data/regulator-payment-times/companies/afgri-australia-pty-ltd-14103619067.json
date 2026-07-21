@@ -1,0 +1,39 @@
+{
+  "slug": "afgri-australia-pty-ltd-14103619067",
+  "businessName": "AFGRI AUSTRALIA PTY LTD",
+  "abn": "14103619067",
+  "acnArbn": "103619067",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-09-30",
+  "reports": [
+    {
+      "reportId": "PTR20007405",
+      "acnArbn": "103619067",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 55,
+      "payments31To60Days": 41,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-02-24",
+      "overallP95Position": {
+        "rank": 51,
+        "count": 228,
+        "percentile": 77.5
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 10,
+        "percentile": 88.9
+      }
+    }
+  ]
+}

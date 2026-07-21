@@ -1,0 +1,39 @@
+{
+  "slug": "baby-bunting-pty-ltd-43128546154",
+  "businessName": "BABY BUNTING PTY LTD",
+  "abn": "43128546154",
+  "acnArbn": "128546154",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009765",
+      "acnArbn": "128546154",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.56,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 47.01,
+      "payments31To60Days": 33.42,
+      "paymentsMoreThan60Days": 19.57,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2360,
+        "count": 2613,
+        "percentile": 9.3
+      },
+      "industryP95Position": {
+        "rank": 194,
+        "count": 207,
+        "percentile": 5.8
+      }
+    }
+  ]
+}

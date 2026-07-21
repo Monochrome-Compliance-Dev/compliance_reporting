@@ -1,0 +1,95 @@
+{
+  "slug": "eg-group-australia-pty-ltd-39629792810",
+  "businessName": "EG GROUP AUSTRALIA PTY LTD",
+  "abn": "39629792810",
+  "acnArbn": "629792810",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Fuel retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008940",
+      "acnArbn": "629792810",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.34,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 93.82,
+      "payments31To60Days": 3.34,
+      "paymentsMoreThan60Days": 2.84,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 207,
+        "percentile": 81.1
+      }
+    },
+    {
+      "reportId": "PTR20004397",
+      "acnArbn": "629792810",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.26,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.14,
+      "payments31To60Days": 4.9,
+      "paymentsMoreThan60Days": 0.97,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 208,
+        "percentile": 87.4
+      }
+    },
+    {
+      "reportId": "PTR20001266",
+      "acnArbn": "629792810",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.32,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.06,
+      "payments31To60Days": 5.22,
+      "paymentsMoreThan60Days": 0.72,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 207,
+        "percentile": 87.9
+      }
+    }
+  ]
+}

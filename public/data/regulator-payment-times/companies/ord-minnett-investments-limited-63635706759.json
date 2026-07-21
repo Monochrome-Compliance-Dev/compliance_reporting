@@ -1,0 +1,95 @@
+{
+  "slug": "ord-minnett-investments-limited-63635706759",
+  "businessName": "ORD MINNETT INVESTMENTS LIMITED",
+  "abn": "63635706759",
+  "acnArbn": "635706759",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009253",
+      "acnArbn": "635706759",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.71,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 91.07,
+      "payments31To60Days": 5.29,
+      "paymentsMoreThan60Days": 3.64,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 264,
+        "count": 338,
+        "percentile": 20.2
+      }
+    },
+    {
+      "reportId": "PTR20005016",
+      "acnArbn": "635706759",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.91,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 85.94,
+      "payments31To60Days": 8.92,
+      "paymentsMoreThan60Days": 5.14,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 296,
+        "count": 349,
+        "percentile": 13.8
+      }
+    },
+    {
+      "reportId": "PTR20001930",
+      "acnArbn": "635706759",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.52,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 89.25,
+      "payments31To60Days": 7.17,
+      "paymentsMoreThan60Days": 3.58,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 227,
+        "count": 339,
+        "percentile": 30.8
+      }
+    }
+  ]
+}

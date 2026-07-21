@@ -1,0 +1,39 @@
+{
+  "slug": "liontown-limited-39118153825",
+  "businessName": "Liontown Limited",
+  "abn": "39118153825",
+  "acnArbn": "118153825",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008973",
+      "acnArbn": "118153825",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 84,
+      "payments31To60Days": 10.4,
+      "paymentsMoreThan60Days": 5.6,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 177,
+        "percentile": 23.3
+      }
+    }
+  ]
+}

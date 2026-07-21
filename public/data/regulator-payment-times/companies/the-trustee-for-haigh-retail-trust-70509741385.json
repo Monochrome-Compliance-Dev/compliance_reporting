@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-haigh-retail-trust-70509741385",
+  "businessName": "The Trustee for Haigh Retail Trust",
+  "abn": "70509741385",
+  "acnArbn": "",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009838",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 93.91,
+      "payments31To60Days": 5.95,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 207,
+        "percentile": 84.5
+      }
+    }
+  ]
+}

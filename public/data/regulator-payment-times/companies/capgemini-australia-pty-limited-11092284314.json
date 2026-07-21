@@ -1,0 +1,95 @@
+{
+  "slug": "capgemini-australia-pty-limited-11092284314",
+  "businessName": "CAPGEMINI AUSTRALIA PTY LIMITED",
+  "abn": "11092284314",
+  "acnArbn": "092284314",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009456",
+      "acnArbn": "092284314",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 76.21,
+      "payments31To60Days": 13.1,
+      "paymentsMoreThan60Days": 10.69,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2295,
+        "count": 2613,
+        "percentile": 11.8
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 183,
+        "percentile": 20.9
+      }
+    },
+    {
+      "reportId": "PTR20005774",
+      "acnArbn": "092284314",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.27,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 79.78,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 5.22,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 181,
+        "percentile": 38.3
+      }
+    },
+    {
+      "reportId": "PTR20001155",
+      "acnArbn": "092284314",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.85,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 80.78,
+      "payments31To60Days": 12.37,
+      "paymentsMoreThan60Days": 6.85,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1937,
+        "count": 2498,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 122,
+        "count": 176,
+        "percentile": 28
+      }
+    }
+  ]
+}

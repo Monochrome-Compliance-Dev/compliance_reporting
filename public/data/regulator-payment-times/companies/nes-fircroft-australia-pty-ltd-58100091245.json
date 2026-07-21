@@ -1,0 +1,95 @@
+{
+  "slug": "nes-fircroft-australia-pty-ltd-58100091245",
+  "businessName": "NES FIRCROFT AUSTRALIA PTY LTD",
+  "abn": "58100091245",
+  "acnArbn": "100091245",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007421",
+      "acnArbn": "100091245",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-02-24",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 49,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20003405",
+      "acnArbn": "100091245",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 83,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 17,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-04",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 50,
+        "percentile": 61.2
+      }
+    },
+    {
+      "reportId": "PTR20000066",
+      "acnArbn": "100091245",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-05-13",
+      "overallP95Position": {
+        "rank": 234,
+        "count": 2498,
+        "percentile": 89.3
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 50,
+        "percentile": 81.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "costco-wholesale-australia-pty-ltd-57104012893",
+  "businessName": "COSTCO WHOLESALE AUSTRALIA, PTY. LTD.",
+  "abn": "57104012893",
+  "acnArbn": "104012893",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-02-15",
+  "reports": [
+    {
+      "reportId": "PTR20011040",
+      "acnArbn": "104012893",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-15",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.68,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 64.5,
+      "payments31To60Days": 32.47,
+      "paymentsMoreThan60Days": 3.03,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-05-12",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006573",
+      "acnArbn": "104012893",
+      "reportingPeriodStartDate": "2025-02-17",
+      "reportingPeriodEndDate": "2025-08-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.34,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 61.12,
+      "payments31To60Days": 37.25,
+      "paymentsMoreThan60Days": 1.62,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-27",
+      "overallP95Position": {
+        "rank": 11,
+        "count": 25,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 7,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20001210",
+      "acnArbn": "104012893",
+      "reportingPeriodStartDate": "2024-09-02",
+      "reportingPeriodEndDate": "2025-02-16",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.21,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 66.33,
+      "payments31To60Days": 32.76,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

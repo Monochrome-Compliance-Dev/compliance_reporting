@@ -1,0 +1,95 @@
+{
+  "slug": "grocery-delivery-e-services-australia-pty-limited-19155437620",
+  "businessName": "Grocery Delivery E-Services Australia Pty Limited",
+  "abn": "19155437620",
+  "acnArbn": "155437620",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007448",
+      "acnArbn": "155437620",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 74,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 207,
+        "percentile": 27.2
+      }
+    },
+    {
+      "reportId": "PTR20006207",
+      "acnArbn": "155437620",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 208,
+        "percentile": 74.9
+      }
+    },
+    {
+      "reportId": "PTR20006206",
+      "acnArbn": "155437620",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 56,
+      "payments31To60Days": 43,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 207,
+        "percentile": 82.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "ravago-australia-pty-ltd-45120210782",
+  "businessName": "RAVAGO AUSTRALIA PTY LTD",
+  "abn": "45120210782",
+  "acnArbn": "120210782",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008876",
+      "acnArbn": "120210782",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.27,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 33.95,
+      "payments31To60Days": 64.71,
+      "paymentsMoreThan60Days": 1.34,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 160,
+        "count": 329,
+        "percentile": 49.7
+      }
+    },
+    {
+      "reportId": "PTR20004947",
+      "acnArbn": "120210782",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.96,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 47.36,
+      "payments31To60Days": 51.4,
+      "paymentsMoreThan60Days": 1.24,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1178,
+        "count": 2568,
+        "percentile": 52.7
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 323,
+        "percentile": 61.8
+      }
+    },
+    {
+      "reportId": "PTR20001365",
+      "acnArbn": "120210782",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.59,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 41.56,
+      "payments31To60Days": 54.78,
+      "paymentsMoreThan60Days": 3.66,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 123,
+        "count": 323,
+        "percentile": 59.3
+      }
+    }
+  ]
+}

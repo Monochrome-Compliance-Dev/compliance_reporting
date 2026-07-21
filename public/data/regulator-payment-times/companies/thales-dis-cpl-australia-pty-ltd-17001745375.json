@@ -1,0 +1,67 @@
+{
+  "slug": "thales-dis-cpl-australia-pty-ltd-17001745375",
+  "businessName": "THALES DIS CPL AUSTRALIA PTY LTD",
+  "abn": "17001745375",
+  "acnArbn": "001745375",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20011337",
+      "acnArbn": "001745375",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.5,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-12",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 181,
+        "percentile": 91.1
+      }
+    },
+    {
+      "reportId": "PTR20002188",
+      "acnArbn": "001745375",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4.33,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 4,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 2498,
+        "percentile": 98.9
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 176,
+        "percentile": 99.4
+      }
+    }
+  ]
+}

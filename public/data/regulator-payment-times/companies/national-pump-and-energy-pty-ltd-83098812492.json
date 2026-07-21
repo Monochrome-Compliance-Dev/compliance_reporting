@@ -1,0 +1,95 @@
+{
+  "slug": "national-pump-and-energy-pty-ltd-83098812492",
+  "businessName": "NATIONAL PUMP & ENERGY PTY LTD",
+  "abn": "83098812492",
+  "acnArbn": "098812492",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Rental and hiring services (except real estate)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008350",
+      "acnArbn": "098812492",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.33,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 69.27,
+      "payments31To60Days": 30.69,
+      "paymentsMoreThan60Days": 0.04,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 66,
+        "percentile": 41.5
+      }
+    },
+    {
+      "reportId": "PTR20004432",
+      "acnArbn": "098812492",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.02,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 71.26,
+      "payments31To60Days": 28.7,
+      "paymentsMoreThan60Days": 0.04,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 61,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20001216",
+      "acnArbn": "098812492",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.33,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 55,
+        "percentile": 77.8
+      }
+    }
+  ]
+}

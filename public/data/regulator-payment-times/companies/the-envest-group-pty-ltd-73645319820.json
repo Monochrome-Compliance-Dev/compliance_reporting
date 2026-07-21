@@ -1,0 +1,95 @@
+{
+  "slug": "the-envest-group-pty-ltd-73645319820",
+  "businessName": "THE ENVEST GROUP PTY LTD",
+  "abn": "73645319820",
+  "acnArbn": "645319820",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009525",
+      "acnArbn": "645319820",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.47,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 97.71,
+      "payments31To60Days": 2.17,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 338,
+        "percentile": 58.2
+      }
+    },
+    {
+      "reportId": "PTR20004437",
+      "acnArbn": "645319820",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 97.71,
+      "payments31To60Days": 2.12,
+      "paymentsMoreThan60Days": 0.17,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 225,
+        "count": 2568,
+        "percentile": 89.6
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 349,
+        "percentile": 73.9
+      }
+    },
+    {
+      "reportId": "PTR20002638",
+      "acnArbn": "645319820",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.48,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96.03,
+      "payments31To60Days": 3.41,
+      "paymentsMoreThan60Days": 0.56,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-23",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 339,
+        "percentile": 63.9
+      }
+    }
+  ]
+}

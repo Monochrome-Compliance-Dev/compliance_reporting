@@ -1,0 +1,95 @@
+{
+  "slug": "capricorn-society-limited-29008347313",
+  "businessName": "CAPRICORN SOCIETY LIMITED",
+  "abn": "29008347313",
+  "acnArbn": "008347313",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007436",
+      "acnArbn": "008347313",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.92,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 93.5,
+      "payments31To60Days": 6.39,
+      "paymentsMoreThan60Days": 0.11,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 338,
+        "percentile": 53.7
+      }
+    },
+    {
+      "reportId": "PTR20006524",
+      "acnArbn": "008347313",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.55,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96.1,
+      "payments31To60Days": 3.49,
+      "paymentsMoreThan60Days": 0.41,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 349,
+        "percentile": 64.9
+      }
+    },
+    {
+      "reportId": "PTR20000609",
+      "acnArbn": "008347313",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.87,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.31,
+      "payments31To60Days": 4.29,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-18",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 339,
+        "percentile": 63.9
+      }
+    }
+  ]
+}

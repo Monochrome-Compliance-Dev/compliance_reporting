@@ -1,0 +1,95 @@
+{
+  "slug": "weir-group-australian-holdings-pty-limited-57090873117",
+  "businessName": "WEIR GROUP (AUSTRALIAN HOLDINGS) PTY LIMITED",
+  "abn": "57090873117",
+  "acnArbn": "090873117",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007917",
+      "acnArbn": "090873117",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 69,
+      "medianPaymentTimeDays": 76,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 15,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 60,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 2545,
+        "count": 2613,
+        "percentile": 2.3
+      },
+      "industryP95Position": {
+        "rank": 334,
+        "count": 347,
+        "percentile": 3.5
+      }
+    },
+    {
+      "reportId": "PTR20003091",
+      "acnArbn": "090873117",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 70,
+      "medianPaymentTimeDays": 73,
+      "p80PaymentTimeDays": 91,
+      "p95PaymentTimeDays": 122,
+      "payments30DaysOrLess": 14.6,
+      "payments31To60Days": 25.5,
+      "paymentsMoreThan60Days": 59.9,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-12",
+      "overallP95Position": {
+        "rank": 2497,
+        "count": 2568,
+        "percentile": 2.7
+      },
+      "industryP95Position": {
+        "rank": 331,
+        "count": 335,
+        "percentile": 0.9
+      }
+    },
+    {
+      "reportId": "PTR20000951",
+      "acnArbn": "090873117",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 70,
+      "medianPaymentTimeDays": 71,
+      "p80PaymentTimeDays": 93,
+      "p95PaymentTimeDays": 121,
+      "payments30DaysOrLess": 15,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 60,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2429,
+        "count": 2498,
+        "percentile": 2.7
+      },
+      "industryP95Position": {
+        "rank": 317,
+        "count": 323,
+        "percentile": 1.9
+      }
+    }
+  ]
+}

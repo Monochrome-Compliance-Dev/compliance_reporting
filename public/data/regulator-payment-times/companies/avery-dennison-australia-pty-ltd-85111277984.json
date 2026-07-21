@@ -1,0 +1,95 @@
+{
+  "slug": "avery-dennison-australia-pty-ltd-85111277984",
+  "businessName": "Avery Dennison Australia Pty Ltd",
+  "abn": "85111277984",
+  "acnArbn": "111277984",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Pulp, paper and converted paper product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009579",
+      "acnArbn": "111277984",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.02,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 37.1,
+      "payments31To60Days": 48.6,
+      "paymentsMoreThan60Days": 14.3,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2316,
+        "count": 2613,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 285,
+        "count": 347,
+        "percentile": 17.6
+      }
+    },
+    {
+      "reportId": "PTR20005289",
+      "acnArbn": "111277984",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.66,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 33,
+      "payments31To60Days": 49,
+      "paymentsMoreThan60Days": 18,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 262,
+        "count": 335,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20001262",
+      "acnArbn": "111277984",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.73,
+      "medianPaymentTimeDays": 34.5,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 36.56,
+      "payments31To60Days": 50.34,
+      "paymentsMoreThan60Days": 13.1,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 229,
+        "count": 323,
+        "percentile": 27.6
+      }
+    }
+  ]
+}

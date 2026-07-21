@@ -1,0 +1,95 @@
+{
+  "slug": "fletcher-international-group-pty-ltd-75626211907",
+  "businessName": "FLETCHER INTERNATIONAL GROUP PTY LTD",
+  "abn": "75626211907",
+  "acnArbn": "626211907",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010909",
+      "acnArbn": "626211907",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.84,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 60.43,
+      "payments31To60Days": 38.19,
+      "paymentsMoreThan60Days": 1.38,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-30",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 347,
+        "percentile": 61.6
+      }
+    },
+    {
+      "reportId": "PTR20005812",
+      "acnArbn": "626211907",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 59.99,
+      "payments31To60Days": 39.52,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 335,
+        "percentile": 74.9
+      }
+    },
+    {
+      "reportId": "PTR20005807",
+      "acnArbn": "626211907",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 66.59,
+      "payments31To60Days": 32.87,
+      "paymentsMoreThan60Days": 0.54,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 323,
+        "percentile": 73
+      }
+    }
+  ]
+}

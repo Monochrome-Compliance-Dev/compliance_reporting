@@ -1,0 +1,95 @@
+{
+  "slug": "gartner-australasia-pty-limited-69003708601",
+  "businessName": "GARTNER AUSTRALASIA PTY LIMITED",
+  "abn": "69003708601",
+  "acnArbn": "003708601",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007661",
+      "acnArbn": "003708601",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 17,
+      "payments30DaysOrLess": 96.36,
+      "payments31To60Days": 3.18,
+      "paymentsMoreThan60Days": 0.45,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-06",
+      "overallP95Position": {
+        "rank": 86,
+        "count": 2613,
+        "percentile": 96.3
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 183,
+        "percentile": 97.8
+      }
+    },
+    {
+      "reportId": "PTR20003456",
+      "acnArbn": "003708601",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 95.83,
+      "payments31To60Days": 3.7,
+      "paymentsMoreThan60Days": 0.46,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 225,
+        "count": 2568,
+        "percentile": 89.6
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 181,
+        "percentile": 92.8
+      }
+    },
+    {
+      "reportId": "PTR20000249",
+      "acnArbn": "003708601",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93.55,
+      "payments31To60Days": 4.03,
+      "paymentsMoreThan60Days": 2.42,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 176,
+        "percentile": 72.6
+      }
+    }
+  ]
+}

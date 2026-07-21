@@ -1,0 +1,39 @@
+{
+  "slug": "schenker-australia-pty-ltd-75000410211",
+  "businessName": "SCHENKER AUSTRALIA PTY LTD",
+  "abn": "75000410211",
+  "acnArbn": "000410211",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Other transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010528",
+      "acnArbn": "000410211",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 45,
+      "payments31To60Days": 53,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Other transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 143,
+        "percentile": 32.4
+      }
+    }
+  ]
+}

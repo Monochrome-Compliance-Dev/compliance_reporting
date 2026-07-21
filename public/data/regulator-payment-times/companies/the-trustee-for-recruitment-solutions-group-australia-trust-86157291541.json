@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-recruitment-solutions-group-australia-trust-86157291541",
+  "businessName": "THE TRUSTEE FOR RECRUITMENT SOLUTIONS GROUP AUSTRALIA TRUST",
+  "abn": "86157291541",
+  "acnArbn": "",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20001770",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 63.4,
+      "payments31To60Days": 11.2,
+      "paymentsMoreThan60Days": 25.4,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 50,
+        "percentile": 24.5
+      }
+    }
+  ]
+}

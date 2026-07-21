@@ -1,0 +1,39 @@
+{
+  "slug": "australian-energy-holdings-no-1-pty-ltd-18654672670",
+  "businessName": "AUSTRALIAN ENERGY HOLDINGS NO 1 PTY LTD",
+  "abn": "18654672670",
+  "acnArbn": "654672670",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20001460",
+      "acnArbn": "654672670",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.93,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 82.8,
+      "payments31To60Days": 14.9,
+      "paymentsMoreThan60Days": 2.3,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 99,
+        "percentile": 40.8
+      }
+    }
+  ]
+}

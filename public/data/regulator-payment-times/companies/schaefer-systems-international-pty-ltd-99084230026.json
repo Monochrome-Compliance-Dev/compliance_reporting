@@ -1,0 +1,95 @@
+{
+  "slug": "schaefer-systems-international-pty-ltd-99084230026",
+  "businessName": "SCHAEFER SYSTEMS INTERNATIONAL PTY LTD",
+  "abn": "99084230026",
+  "acnArbn": "084230026",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Warehousing and storage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010435",
+      "acnArbn": "084230026",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 81.37,
+      "payments31To60Days": 18.23,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-02",
+      "overallP95Position": {
+        "rank": 756,
+        "count": 2613,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 143,
+        "percentile": 77.5
+      }
+    },
+    {
+      "reportId": "PTR20010434",
+      "acnArbn": "084230026",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 74.57,
+      "payments31To60Days": 24.79,
+      "paymentsMoreThan60Days": 0.64,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-02",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 144,
+        "percentile": 75.5
+      }
+    },
+    {
+      "reportId": "PTR20010413",
+      "acnArbn": "084230026",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 56.18,
+      "payments31To60Days": 41.56,
+      "paymentsMoreThan60Days": 2.26,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-02",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 140,
+        "percentile": 60.4
+      }
+    }
+  ]
+}

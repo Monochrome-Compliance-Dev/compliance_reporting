@@ -1,0 +1,95 @@
+{
+  "slug": "superloop-limited-96169263094",
+  "businessName": "SUPERLOOP LIMITED",
+  "abn": "96169263094",
+  "acnArbn": "169263094",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007058",
+      "acnArbn": "169263094",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 79.57,
+      "payments31To60Days": 18.6,
+      "paymentsMoreThan60Days": 1.83,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 60,
+        "percentile": 47.5
+      }
+    },
+    {
+      "reportId": "PTR20003323",
+      "acnArbn": "169263094",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 90.39,
+      "payments31To60Days": 9.49,
+      "paymentsMoreThan60Days": 0.16,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-01",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 55,
+        "percentile": 64.8
+      }
+    },
+    {
+      "reportId": "PTR20003322",
+      "acnArbn": "169263094",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 90.34,
+      "payments31To60Days": 9.5,
+      "paymentsMoreThan60Days": 0.15,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-01",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 58,
+        "percentile": 70.2
+      }
+    }
+  ]
+}

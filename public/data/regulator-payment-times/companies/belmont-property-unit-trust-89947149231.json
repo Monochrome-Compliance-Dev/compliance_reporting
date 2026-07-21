@@ -1,0 +1,95 @@
+{
+  "slug": "belmont-property-unit-trust-89947149231",
+  "businessName": "BELMONT PROPERTY UNIT TRUST",
+  "abn": "89947149231",
+  "acnArbn": "",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Residential care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008176",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.61,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 71.57,
+      "payments31To60Days": 27.29,
+      "paymentsMoreThan60Days": 1.14,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1227,
+        "count": 2613,
+        "percentile": 51.6
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 106,
+        "percentile": 53.3
+      }
+    },
+    {
+      "reportId": "PTR20005673",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.62,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 70.61,
+      "payments31To60Days": 28.9,
+      "paymentsMoreThan60Days": 0.49,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 97,
+        "percentile": 56.3
+      }
+    },
+    {
+      "reportId": "PTR20000256",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.14,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 64.23,
+      "payments31To60Days": 33.7,
+      "paymentsMoreThan60Days": 2.07,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-04",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 97,
+        "percentile": 54.2
+      }
+    }
+  ]
+}

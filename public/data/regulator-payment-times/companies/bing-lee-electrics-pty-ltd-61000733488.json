@@ -1,0 +1,95 @@
+{
+  "slug": "bing-lee-electrics-pty-ltd-61000733488",
+  "businessName": "BING LEE ELECTRICS PTY LTD",
+  "abn": "61000733488",
+  "acnArbn": "000733488",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009271",
+      "acnArbn": "000733488",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.02,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 22.33,
+      "payments31To60Days": 68.4,
+      "paymentsMoreThan60Days": 9.28,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 207,
+        "percentile": 24.8
+      }
+    },
+    {
+      "reportId": "PTR20006989",
+      "acnArbn": "000733488",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.36,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 14.92,
+      "payments31To60Days": 72.57,
+      "paymentsMoreThan60Days": 12.5,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 154,
+        "count": 208,
+        "percentile": 24.2
+      }
+    },
+    {
+      "reportId": "PTR20006988",
+      "acnArbn": "000733488",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.3,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 14.5,
+      "payments31To60Days": 76.8,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 142,
+        "count": 207,
+        "percentile": 31.1
+      }
+    }
+  ]
+}

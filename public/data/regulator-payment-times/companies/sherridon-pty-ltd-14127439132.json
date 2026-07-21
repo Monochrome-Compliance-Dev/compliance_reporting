@@ -1,0 +1,95 @@
+{
+  "slug": "sherridon-pty-ltd-14127439132",
+  "businessName": "SHERRIDON PTY LTD",
+  "abn": "14127439132",
+  "acnArbn": "127439132",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010580",
+      "acnArbn": "127439132",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-17",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 270,
+        "percentile": 94.1
+      }
+    },
+    {
+      "reportId": "PTR20010579",
+      "acnArbn": "127439132",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-17",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 259,
+        "percentile": 93.4
+      }
+    },
+    {
+      "reportId": "PTR20010575",
+      "acnArbn": "127439132",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-17",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 250,
+        "percentile": 93.2
+      }
+    }
+  ]
+}

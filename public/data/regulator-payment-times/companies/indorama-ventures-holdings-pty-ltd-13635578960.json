@@ -1,0 +1,95 @@
+{
+  "slug": "indorama-ventures-holdings-pty-ltd-13635578960",
+  "businessName": "INDORAMA VENTURES HOLDINGS PTY LTD",
+  "abn": "13635578960",
+  "acnArbn": "635578960",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009222",
+      "acnArbn": "635578960",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 64.84,
+      "medianPaymentTimeDays": 62,
+      "p80PaymentTimeDays": 91,
+      "p95PaymentTimeDays": 115,
+      "payments30DaysOrLess": 3.64,
+      "payments31To60Days": 50.94,
+      "paymentsMoreThan60Days": 45.45,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2531,
+        "count": 2613,
+        "percentile": 3.1
+      },
+      "industryP95Position": {
+        "rank": 330,
+        "count": 347,
+        "percentile": 4.9
+      }
+    },
+    {
+      "reportId": "PTR20004185",
+      "acnArbn": "635578960",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 57.28,
+      "medianPaymentTimeDays": 62,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 101,
+      "payments30DaysOrLess": 14.01,
+      "payments31To60Days": 53.82,
+      "paymentsMoreThan60Days": 32.17,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 2406,
+        "count": 2568,
+        "percentile": 6.2
+      },
+      "industryP95Position": {
+        "rank": 313,
+        "count": 335,
+        "percentile": 6.6
+      }
+    },
+    {
+      "reportId": "PTR20002725",
+      "acnArbn": "635578960",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.6,
+      "medianPaymentTimeDays": 63,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 8.12,
+      "payments31To60Days": 27.73,
+      "paymentsMoreThan60Days": 64.15,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 323,
+        "percentile": 41.9
+      }
+    }
+  ]
+}

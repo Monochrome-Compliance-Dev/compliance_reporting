@@ -1,0 +1,95 @@
+{
+  "slug": "burra-sheetmetal-pty-ltd-59145706065",
+  "businessName": "BURRA SHEETMETAL PTY LTD",
+  "abn": "59145706065",
+  "acnArbn": "145706065",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2026-01-31",
+  "reports": [
+    {
+      "reportId": "PTR20010519",
+      "acnArbn": "145706065",
+      "reportingPeriodStartDate": "2025-08-01",
+      "reportingPeriodEndDate": "2026-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 38.31,
+      "payments31To60Days": 37.86,
+      "paymentsMoreThan60Days": 23.83,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-30",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 31,
+        "percentile": 13.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20006241",
+      "acnArbn": "145706065",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-07-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.67,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 45.68,
+      "payments31To60Days": 39.55,
+      "paymentsMoreThan60Days": 14.76,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 26,
+        "count": 34,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 7,
+        "percentile": 83.3
+      }
+    },
+    {
+      "reportId": "PTR20002839",
+      "acnArbn": "145706065",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.06,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 40.57,
+      "payments31To60Days": 39.55,
+      "paymentsMoreThan60Days": 19.88,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 197,
+        "count": 231,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 32,
+        "percentile": 22.6
+      }
+    }
+  ]
+}

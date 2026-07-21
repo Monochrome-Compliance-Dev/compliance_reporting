@@ -1,0 +1,67 @@
+{
+  "slug": "willis-towers-watson-australia-holdings-limited-98112435079",
+  "businessName": "WILLIS TOWERS WATSON AUSTRALIA HOLDINGS LIMITED",
+  "abn": "98112435079",
+  "acnArbn": "112435079",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008379",
+      "acnArbn": "112435079",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.53,
+      "medianPaymentTimeDays": 32.5,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 45.91,
+      "payments31To60Days": 48.43,
+      "paymentsMoreThan60Days": 5.66,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-20",
+      "overallP95Position": {
+        "rank": 2057,
+        "count": 2613,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 313,
+        "count": 338,
+        "percentile": 6.5
+      }
+    },
+    {
+      "reportId": "PTR20003636",
+      "acnArbn": "112435079",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.88,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 46.21,
+      "payments31To60Days": 44.77,
+      "paymentsMoreThan60Days": 9.03,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-12",
+      "overallP95Position": {
+        "rank": 2354,
+        "count": 2568,
+        "percentile": 8.1
+      },
+      "industryP95Position": {
+        "rank": 336,
+        "count": 349,
+        "percentile": 3.7
+      }
+    }
+  ]
+}

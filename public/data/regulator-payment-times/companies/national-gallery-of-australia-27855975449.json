@@ -1,0 +1,95 @@
+{
+  "slug": "national-gallery-of-australia-27855975449",
+  "businessName": "NATIONAL GALLERY OF AUSTRALIA",
+  "abn": "27855975449",
+  "acnArbn": "",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Heritage activities",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007598",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.61,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 3,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 98.31,
+      "payments31To60Days": 1.26,
+      "paymentsMoreThan60Days": 0.42,
+      "industrySubdivision": "Heritage activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 32,
+        "count": 2613,
+        "percentile": 98.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 34,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20004963",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4.28,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 4,
+      "p95PaymentTimeDays": 16,
+      "payments30DaysOrLess": 96.83,
+      "payments31To60Days": 2.11,
+      "paymentsMoreThan60Days": 1.06,
+      "industrySubdivision": "Heritage activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 76,
+        "count": 2568,
+        "percentile": 96.8
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 35,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20004961",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.99,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 4,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 99.05,
+      "payments31To60Days": 0.65,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Heritage activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 39,
+        "count": 2498,
+        "percentile": 98.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 31,
+        "percentile": 100
+      }
+    }
+  ]
+}

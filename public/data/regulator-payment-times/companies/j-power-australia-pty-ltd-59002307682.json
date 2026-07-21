@@ -1,0 +1,95 @@
+{
+  "slug": "j-power-australia-pty-ltd-59002307682",
+  "businessName": "J-POWER AUSTRALIA PTY. LTD.",
+  "abn": "59002307682",
+  "acnArbn": "002307682",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008971",
+      "acnArbn": "002307682",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.69,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 96.55,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 3.45,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2613,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 177,
+        "percentile": 93.2
+      }
+    },
+    {
+      "reportId": "PTR20004800",
+      "acnArbn": "002307682",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.64,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 96,
+        "count": 2568,
+        "percentile": 96.2
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 173,
+        "percentile": 93.6
+      }
+    },
+    {
+      "reportId": "PTR20001259",
+      "acnArbn": "002307682",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.68,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 97.5,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 2.5,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 123,
+        "count": 2498,
+        "percentile": 94.5
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 170,
+        "percentile": 94.1
+      }
+    }
+  ]
+}

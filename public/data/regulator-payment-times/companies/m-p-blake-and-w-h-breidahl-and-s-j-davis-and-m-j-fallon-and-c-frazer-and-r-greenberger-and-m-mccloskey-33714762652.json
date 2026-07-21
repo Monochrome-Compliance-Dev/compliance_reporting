@@ -1,0 +1,67 @@
+{
+  "slug": "m-p-blake-and-w-h-breidahl-and-s-j-davis-and-m-j-fallon-and-c-frazer-and-r-greenberger-and-m-mccloskey-33714762652",
+  "businessName": "M.P BLAKE & W.H BREIDAHL & S.J DAVIS & M.J FALLON & C FRAZER & R GREENBERGER & M MCCLOSKEY",
+  "abn": "33714762652",
+  "acnArbn": "",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008643",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 2,
+      "p95PaymentTimeDays": 2,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 2613,
+        "percentile": 99.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 106,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002041",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 68,
+        "count": 2498,
+        "percentile": 96.6
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 97,
+        "percentile": 99
+      }
+    }
+  ]
+}

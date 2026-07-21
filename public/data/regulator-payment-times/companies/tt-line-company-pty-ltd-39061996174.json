@@ -1,0 +1,95 @@
+{
+  "slug": "tt-line-company-pty-ltd-39061996174",
+  "businessName": "TT-LINE COMPANY PTY. LTD.",
+  "abn": "39061996174",
+  "acnArbn": "061996174",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Water transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007401",
+      "acnArbn": "061996174",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.15,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 84.4,
+      "payments31To60Days": 13.1,
+      "paymentsMoreThan60Days": 2.5,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 143,
+        "percentile": 62.7
+      }
+    },
+    {
+      "reportId": "PTR20003609",
+      "acnArbn": "061996174",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.03,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 84.23,
+      "payments31To60Days": 13.44,
+      "paymentsMoreThan60Days": 2.33,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-12",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 144,
+        "percentile": 65.7
+      }
+    },
+    {
+      "reportId": "PTR20000890",
+      "acnArbn": "061996174",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.98,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 87.36,
+      "payments31To60Days": 10.9,
+      "paymentsMoreThan60Days": 1.75,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 909,
+        "count": 2498,
+        "percentile": 62.6
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 140,
+        "percentile": 69.8
+      }
+    }
+  ]
+}

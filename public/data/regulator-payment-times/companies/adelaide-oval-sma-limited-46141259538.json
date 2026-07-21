@@ -1,0 +1,95 @@
+{
+  "slug": "adelaide-oval-sma-limited-46141259538",
+  "businessName": "ADELAIDE OVAL SMA LIMITED",
+  "abn": "46141259538",
+  "acnArbn": "141259538",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2026-04-30",
+  "reports": [
+    {
+      "reportId": "PTR20011559",
+      "acnArbn": "141259538",
+      "reportingPeriodStartDate": "2025-11-01",
+      "reportingPeriodEndDate": "2026-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 74.48,
+      "payments31To60Days": 23.8,
+      "paymentsMoreThan60Days": 1.72,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 6,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006962",
+      "acnArbn": "141259538",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 80.26,
+      "payments31To60Days": 17.9,
+      "paymentsMoreThan60Days": 1.84,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-01-19",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 28,
+        "percentile": 63
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 6,
+        "percentile": 20
+      }
+    },
+    {
+      "reportId": "PTR20001030",
+      "acnArbn": "141259538",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 76.44,
+      "payments31To60Days": 22.27,
+      "paymentsMoreThan60Days": 1.29,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 8,
+        "count": 28,
+        "percentile": 74.1
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 6,
+        "percentile": 80
+      }
+    }
+  ]
+}

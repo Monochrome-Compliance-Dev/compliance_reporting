@@ -1,0 +1,95 @@
+{
+  "slug": "brother-international-aust-pty-ltd-17001393835",
+  "businessName": "BROTHER INTERNATIONAL (AUST) PTY LTD",
+  "abn": "17001393835",
+  "acnArbn": "001393835",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011612",
+      "acnArbn": "001393835",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.09,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 97.14,
+      "payments31To60Days": 2.49,
+      "paymentsMoreThan60Days": 0.36,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 193,
+        "percentile": 88
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 45,
+        "percentile": 86.4
+      }
+    },
+    {
+      "reportId": "PTR20006725",
+      "acnArbn": "001393835",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.46,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 96.25,
+      "payments31To60Days": 2.95,
+      "paymentsMoreThan60Days": 0.79,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-16",
+      "overallP95Position": {
+        "rank": 30,
+        "count": 228,
+        "percentile": 86.3
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 59,
+        "percentile": 82.8
+      }
+    },
+    {
+      "reportId": "PTR20002022",
+      "acnArbn": "001393835",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.02,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 96.68,
+      "payments31To60Days": 2.4,
+      "paymentsMoreThan60Days": 0.92,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 24,
+        "count": 231,
+        "percentile": 89.1
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 61,
+        "percentile": 90
+      }
+    }
+  ]
+}

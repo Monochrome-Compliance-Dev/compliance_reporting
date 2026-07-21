@@ -1,0 +1,95 @@
+{
+  "slug": "rme-holdings-pty-ltd-26092457791",
+  "businessName": "RME HOLDINGS PTY LTD",
+  "abn": "26092457791",
+  "acnArbn": "092457791",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009514",
+      "acnArbn": "092457791",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.06,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 22.89,
+      "payments31To60Days": 66.94,
+      "paymentsMoreThan60Days": 10.17,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2613,
+        "percentile": 16.2
+      },
+      "industryP95Position": {
+        "rank": 249,
+        "count": 347,
+        "percentile": 26
+      }
+    },
+    {
+      "reportId": "PTR20003938",
+      "acnArbn": "092457791",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.45,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 20.9,
+      "payments31To60Days": 70.88,
+      "paymentsMoreThan60Days": 8.22,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-19",
+      "overallP95Position": {
+        "rank": 1988,
+        "count": 2568,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 216,
+        "count": 335,
+        "percentile": 34.7
+      }
+    },
+    {
+      "reportId": "PTR20001466",
+      "acnArbn": "092457791",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.38,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 28.99,
+      "payments31To60Days": 65.8,
+      "paymentsMoreThan60Days": 5.21,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 323,
+        "percentile": 50.6
+      }
+    }
+  ]
+}

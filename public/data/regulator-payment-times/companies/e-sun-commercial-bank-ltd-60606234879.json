@@ -1,0 +1,95 @@
+{
+  "slug": "e-sun-commercial-bank-ltd-60606234879",
+  "businessName": "E.SUN COMMERCIAL BANK, LTD.",
+  "abn": "60606234879",
+  "acnArbn": "606234879",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008888",
+      "acnArbn": "606234879",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.39,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 118,
+        "count": 2613,
+        "percentile": 95.1
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 338,
+        "percentile": 86.1
+      }
+    },
+    {
+      "reportId": "PTR20003354",
+      "acnArbn": "606234879",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.24,
+      "medianPaymentTimeDays": 9.33,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 99.86,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-03",
+      "overallP95Position": {
+        "rank": 168,
+        "count": 2568,
+        "percentile": 92.8
+      },
+      "industryP95Position": {
+        "rank": 62,
+        "count": 349,
+        "percentile": 81.6
+      }
+    },
+    {
+      "reportId": "PTR20002665",
+      "acnArbn": "606234879",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.81,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 98.06,
+      "payments31To60Days": 1.94,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 192,
+        "count": 2498,
+        "percentile": 91.8
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 339,
+        "percentile": 79
+      }
+    }
+  ]
+}

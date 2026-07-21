@@ -1,0 +1,95 @@
+{
+  "slug": "kln-freight-oceania-pty-ltd-19600672366",
+  "businessName": "KLN FREIGHT (OCEANIA) PTY LTD",
+  "abn": "19600672366",
+  "acnArbn": "600672366",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Water transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011065",
+      "acnArbn": "600672366",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 62,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-05-15",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 88,
+        "count": 143,
+        "percentile": 36.6
+      }
+    },
+    {
+      "reportId": "PTR20006112",
+      "acnArbn": "600672366",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 30,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-21",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 144,
+        "percentile": 84.6
+      }
+    },
+    {
+      "reportId": "PTR20011060",
+      "acnArbn": "600672366",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-05-14",
+      "overallP95Position": {
+        "rank": 2333,
+        "count": 2498,
+        "percentile": 6.5
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 140,
+        "percentile": 5
+      }
+    }
+  ]
+}

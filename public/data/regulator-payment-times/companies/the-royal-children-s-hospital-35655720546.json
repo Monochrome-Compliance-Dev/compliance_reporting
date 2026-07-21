@@ -1,0 +1,95 @@
+{
+  "slug": "the-royal-children-s-hospital-35655720546",
+  "businessName": "THE ROYAL CHILDREN'S HOSPITAL",
+  "abn": "35655720546",
+  "acnArbn": "",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Hospitals",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010507",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 78.46,
+      "payments31To60Days": 11.13,
+      "paymentsMoreThan60Days": 10.4,
+      "industrySubdivision": "Hospitals",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-04-14",
+      "overallP95Position": {
+        "rank": 2501,
+        "count": 2613,
+        "percentile": 4.1
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 106,
+        "percentile": 3.8
+      }
+    },
+    {
+      "reportId": "PTR20005876",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 128,
+      "p95PaymentTimeDays": 212,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 15.55,
+      "paymentsMoreThan60Days": 11.45,
+      "industrySubdivision": "Hospitals",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 2554,
+        "count": 2568,
+        "percentile": 0.5
+      },
+      "industryP95Position": {
+        "rank": 97,
+        "count": 97,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20000499",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.37,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 8,
+      "payments30DaysOrLess": 72.2,
+      "payments31To60Days": 14.1,
+      "paymentsMoreThan60Days": 13.8,
+      "industrySubdivision": "Hospitals",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-16",
+      "overallP95Position": {
+        "rank": 29,
+        "count": 2498,
+        "percentile": 98.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 97,
+        "percentile": 100
+      }
+    }
+  ]
+}

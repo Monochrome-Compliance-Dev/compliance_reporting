@@ -1,0 +1,39 @@
+{
+  "slug": "m-g-a-management-services-pty-ltd-47008210482",
+  "businessName": "M.G.A. MANAGEMENT SERVICES PTY. LTD.",
+  "abn": "47008210482",
+  "acnArbn": "008210482",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009257",
+      "acnArbn": "008210482",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.5,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 89.82,
+      "payments31To60Days": 8.59,
+      "paymentsMoreThan60Days": 1.59,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 218,
+        "count": 338,
+        "percentile": 33.5
+      }
+    }
+  ]
+}

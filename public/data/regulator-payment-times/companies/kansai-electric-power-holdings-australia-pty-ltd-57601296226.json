@@ -1,0 +1,95 @@
+{
+  "slug": "kansai-electric-power-holdings-australia-pty-ltd-57601296226",
+  "businessName": "KANSAI ELECTRIC POWER HOLDINGS AUSTRALIA PTY LTD",
+  "abn": "57601296226",
+  "acnArbn": "601296226",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007667",
+      "acnArbn": "601296226",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.42,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-06",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 177,
+        "percentile": 88.1
+      }
+    },
+    {
+      "reportId": "PTR20003364",
+      "acnArbn": "601296226",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.67,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-03",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 173,
+        "percentile": 85.5
+      }
+    },
+    {
+      "reportId": "PTR20000153",
+      "acnArbn": "601296226",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.88,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-05-26",
+      "overallP95Position": {
+        "rank": 270,
+        "count": 2498,
+        "percentile": 87.1
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 170,
+        "percentile": 85.2
+      }
+    }
+  ]
+}

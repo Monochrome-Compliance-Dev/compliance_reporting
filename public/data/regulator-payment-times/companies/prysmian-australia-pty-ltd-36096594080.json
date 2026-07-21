@@ -1,0 +1,67 @@
+{
+  "slug": "prysmian-australia-pty-ltd-36096594080",
+  "businessName": "PRYSMIAN AUSTRALIA PTY LTD",
+  "abn": "36096594080",
+  "acnArbn": "096594080",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Non-metallic mineral product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008981",
+      "acnArbn": "096594080",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 48,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 21,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2295,
+        "count": 2613,
+        "percentile": 11.8
+      },
+      "industryP95Position": {
+        "rank": 282,
+        "count": 347,
+        "percentile": 18.5
+      }
+    },
+    {
+      "reportId": "PTR20003204",
+      "acnArbn": "096594080",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 53.3,
+      "payments31To60Days": 29.37,
+      "paymentsMoreThan60Days": 17.33,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-25",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2568,
+        "percentile": 22.6
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 335,
+        "percentile": 35.9
+      }
+    }
+  ]
+}

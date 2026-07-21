@@ -1,0 +1,95 @@
+{
+  "slug": "stellantis-australia-and-new-zealand-pty-ltd-23125956505",
+  "businessName": "STELLANTIS (AUSTRALIA AND NEW ZEALAND) PTY LTD",
+  "abn": "23125956505",
+  "acnArbn": "125956505",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009530",
+      "acnArbn": "125956505",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 60,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 29.38,
+      "payments31To60Days": 51.59,
+      "paymentsMoreThan60Days": 19.03,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2545,
+        "count": 2613,
+        "percentile": 2.3
+      },
+      "industryP95Position": {
+        "rank": 321,
+        "count": 329,
+        "percentile": 2.1
+      }
+    },
+    {
+      "reportId": "PTR20003935",
+      "acnArbn": "125956505",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 28.19,
+      "payments31To60Days": 54.1,
+      "paymentsMoreThan60Days": 17.71,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-19",
+      "overallP95Position": {
+        "rank": 2483,
+        "count": 2568,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 310,
+        "count": 323,
+        "percentile": 3.7
+      }
+    },
+    {
+      "reportId": "PTR20000562",
+      "acnArbn": "125956505",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 36.24,
+      "payments31To60Days": 51.4,
+      "paymentsMoreThan60Days": 12.35,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-18",
+      "overallP95Position": {
+        "rank": 2243,
+        "count": 2498,
+        "percentile": 9.2
+      },
+      "industryP95Position": {
+        "rank": 275,
+        "count": 323,
+        "percentile": 12.4
+      }
+    }
+  ]
+}

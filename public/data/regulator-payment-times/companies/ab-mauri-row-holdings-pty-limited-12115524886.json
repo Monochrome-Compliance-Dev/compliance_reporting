@@ -1,0 +1,95 @@
+{
+  "slug": "ab-mauri-row-holdings-pty-limited-12115524886",
+  "businessName": "AB MAURI ROW HOLDINGS PTY LIMITED",
+  "abn": "12115524886",
+  "acnArbn": "115524886",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2026-02-28",
+  "reports": [
+    {
+      "reportId": "PTR20011158",
+      "acnArbn": "115524886",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.6,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 42.67,
+      "payments31To60Days": 54.23,
+      "paymentsMoreThan60Days": 3.1,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 13,
+        "count": 24,
+        "percentile": 43.5
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 6,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006542",
+      "acnArbn": "115524886",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.29,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 46.26,
+      "payments31To60Days": 48.32,
+      "paymentsMoreThan60Days": 5.42,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 25,
+        "percentile": 33.3
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 6,
+        "percentile": 20
+      }
+    },
+    {
+      "reportId": "PTR20002704",
+      "acnArbn": "115524886",
+      "reportingPeriodStartDate": "2024-09-01",
+      "reportingPeriodEndDate": "2025-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.97,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 48.25,
+      "payments31To60Days": 45.63,
+      "paymentsMoreThan60Days": 6.12,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 15,
+        "count": 22,
+        "percentile": 28.6
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 6,
+        "percentile": 0
+      }
+    }
+  ]
+}

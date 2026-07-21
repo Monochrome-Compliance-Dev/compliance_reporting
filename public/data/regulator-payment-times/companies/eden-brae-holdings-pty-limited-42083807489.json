@@ -1,0 +1,95 @@
+{
+  "slug": "eden-brae-holdings-pty-limited-42083807489",
+  "businessName": "EDEN BRAE HOLDINGS PTY LIMITED",
+  "abn": "42083807489",
+  "acnArbn": "083807489",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008256",
+      "acnArbn": "083807489",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.62,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 77.02,
+      "payments31To60Days": 22.83,
+      "paymentsMoreThan60Days": 0.15,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 270,
+        "percentile": 73.2
+      }
+    },
+    {
+      "reportId": "PTR20004916",
+      "acnArbn": "083807489",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.01,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 81.11,
+      "payments31To60Days": 18.76,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 259,
+        "percentile": 78.3
+      }
+    },
+    {
+      "reportId": "PTR20006069",
+      "acnArbn": "083807489",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.33,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 81.09,
+      "payments31To60Days": 18.54,
+      "paymentsMoreThan60Days": 0.37,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-17",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 250,
+        "percentile": 79.1
+      }
+    }
+  ]
+}

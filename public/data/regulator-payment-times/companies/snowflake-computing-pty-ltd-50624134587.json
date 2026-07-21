@@ -1,0 +1,95 @@
+{
+  "slug": "snowflake-computing-pty-ltd-50624134587",
+  "businessName": "SNOWFLAKE COMPUTING PTY LTD.",
+  "abn": "50624134587",
+  "acnArbn": "624134587",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Internet service providers, web search portals and data processing services",
+  "latestReportingPeriodEndDate": "2026-01-31",
+  "reports": [
+    {
+      "reportId": "PTR20010686",
+      "acnArbn": "624134587",
+      "reportingPeriodStartDate": "2025-08-01",
+      "reportingPeriodEndDate": "2026-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 81.15,
+      "payments31To60Days": 17.21,
+      "paymentsMoreThan60Days": 1.64,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 13,
+        "count": 31,
+        "percentile": 53.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20010685",
+      "acnArbn": "624134587",
+      "reportingPeriodStartDate": "2025-02-01",
+      "reportingPeriodEndDate": "2025-07-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 76,
+      "payments31To60Days": 18.67,
+      "paymentsMoreThan60Days": 5.33,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 21,
+        "count": 34,
+        "percentile": 36.4
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20010683",
+      "acnArbn": "624134587",
+      "reportingPeriodStartDate": "2024-08-01",
+      "reportingPeriodEndDate": "2025-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 80.66,
+      "payments31To60Days": 14.92,
+      "paymentsMoreThan60Days": 4.42,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 12,
+        "count": 30,
+        "percentile": 58.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

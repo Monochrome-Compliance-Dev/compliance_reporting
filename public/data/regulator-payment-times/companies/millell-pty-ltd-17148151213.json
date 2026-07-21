@@ -1,0 +1,95 @@
+{
+  "slug": "millell-pty-ltd-17148151213",
+  "businessName": "Millell Pty Ltd",
+  "abn": "17148151213",
+  "acnArbn": "148151213",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008357",
+      "acnArbn": "148151213",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 25.3,
+      "payments31To60Days": 47.6,
+      "paymentsMoreThan60Days": 27.1,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-07",
+      "overallP95Position": {
+        "rank": 2307,
+        "count": 2613,
+        "percentile": 11.4
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 207,
+        "percentile": 7.8
+      }
+    },
+    {
+      "reportId": "PTR20004825",
+      "acnArbn": "148151213",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.8,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 27.2,
+      "payments31To60Days": 48.3,
+      "paymentsMoreThan60Days": 24.5,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2156,
+        "count": 2568,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 179,
+        "count": 208,
+        "percentile": 14
+      }
+    },
+    {
+      "reportId": "PTR20000148",
+      "acnArbn": "148151213",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.8,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 23.6,
+      "payments31To60Days": 46.8,
+      "paymentsMoreThan60Days": 29.6,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-05-23",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2498,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 207,
+        "percentile": 22.8
+      }
+    }
+  ]
+}

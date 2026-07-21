@@ -1,0 +1,67 @@
+{
+  "slug": "optimus-group-australia-pty-ltd-19628862840",
+  "businessName": "OPTIMUS GROUP AUSTRALIA PTY LTD",
+  "abn": "19628862840",
+  "acnArbn": "628862840",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011217",
+      "acnArbn": "628862840",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 55,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 159,
+        "count": 193,
+        "percentile": 16.1
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 13,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20006764",
+      "acnArbn": "628862840",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 67,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-12-19",
+      "overallP95Position": {
+        "rank": 157,
+        "count": 228,
+        "percentile": 30.8
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 14,
+        "percentile": 23.1
+      }
+    }
+  ]
+}

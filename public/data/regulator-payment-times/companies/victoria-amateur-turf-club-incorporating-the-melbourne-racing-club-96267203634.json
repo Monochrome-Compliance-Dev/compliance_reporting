@@ -1,0 +1,67 @@
+{
+  "slug": "victoria-amateur-turf-club-incorporating-the-melbourne-racing-club-96267203634",
+  "businessName": "VICTORIA AMATEUR TURF CLUB (INCORPORATING THE MELBOURNE RACING CLUB)",
+  "abn": "96267203634",
+  "acnArbn": "",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009185",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 79,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-04-08",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 34,
+        "percentile": 30.3
+      }
+    },
+    {
+      "reportId": "PTR20001198",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.78,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 85.72,
+      "payments31To60Days": 12.6,
+      "paymentsMoreThan60Days": 1.68,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 31,
+        "percentile": 40
+      }
+    }
+  ]
+}

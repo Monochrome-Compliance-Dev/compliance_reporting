@@ -1,0 +1,95 @@
+{
+  "slug": "saveba-pty-ltd-64002728985",
+  "businessName": "SAVEBA PTY LTD",
+  "abn": "64002728985",
+  "acnArbn": "002728985",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010279",
+      "acnArbn": "002728985",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 57.56,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 89,
+      "p95PaymentTimeDays": 110,
+      "payments30DaysOrLess": 18.17,
+      "payments31To60Days": 50.75,
+      "paymentsMoreThan60Days": 31.08,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2517,
+        "count": 2613,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 202,
+        "count": 207,
+        "percentile": 2.4
+      }
+    },
+    {
+      "reportId": "PTR20005223",
+      "acnArbn": "002728985",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 66.29,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 74,
+      "p95PaymentTimeDays": 192,
+      "payments30DaysOrLess": 18.21,
+      "payments31To60Days": 46.49,
+      "paymentsMoreThan60Days": 35.3,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2548,
+        "count": 2568,
+        "percentile": 0.8
+      },
+      "industryP95Position": {
+        "rank": 207,
+        "count": 208,
+        "percentile": 0.5
+      }
+    },
+    {
+      "reportId": "PTR20002206",
+      "acnArbn": "002728985",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.5,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 124,
+      "payments30DaysOrLess": 31.94,
+      "payments31To60Days": 47.27,
+      "paymentsMoreThan60Days": 20.79,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2435,
+        "count": 2498,
+        "percentile": 2.4
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 207,
+        "percentile": 2.9
+      }
+    }
+  ]
+}

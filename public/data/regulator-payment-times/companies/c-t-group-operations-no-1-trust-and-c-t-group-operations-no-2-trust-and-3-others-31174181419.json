@@ -1,0 +1,95 @@
+{
+  "slug": "c-t-group-operations-no-1-trust-and-c-t-group-operations-no-2-trust-and-3-others-31174181419",
+  "businessName": "C T GROUP OPERATIONS NO 1 TRUST & C T GROUP OPERATIONS NO 2 TRUST & 3 OTHERS",
+  "abn": "31174181419",
+  "acnArbn": "",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008233",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.94,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 55.83,
+      "payments31To60Days": 43.09,
+      "paymentsMoreThan60Days": 1.06,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 143,
+        "percentile": 49.3
+      }
+    },
+    {
+      "reportId": "PTR20005659",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.62,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 51.32,
+      "payments31To60Days": 46.19,
+      "paymentsMoreThan60Days": 2.47,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 80,
+        "count": 144,
+        "percentile": 42.7
+      }
+    },
+    {
+      "reportId": "PTR20002602",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.7,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 43.61,
+      "payments31To60Days": 51.39,
+      "paymentsMoreThan60Days": 4.99,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 85,
+        "count": 140,
+        "percentile": 37.4
+      }
+    }
+  ]
+}

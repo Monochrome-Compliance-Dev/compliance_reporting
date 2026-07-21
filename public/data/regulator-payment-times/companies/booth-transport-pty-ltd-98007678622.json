@@ -1,0 +1,95 @@
+{
+  "slug": "booth-transport-pty-ltd-98007678622",
+  "businessName": "BOOTH TRANSPORT PTY LTD",
+  "abn": "98007678622",
+  "acnArbn": "007678622",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008115",
+      "acnArbn": "007678622",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 30,
+      "payments31To60Days": 46,
+      "paymentsMoreThan60Days": 24,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 2436,
+        "count": 2613,
+        "percentile": 6.4
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 143,
+        "percentile": 4.9
+      }
+    },
+    {
+      "reportId": "PTR20004153",
+      "acnArbn": "007678622",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 29,
+      "payments31To60Days": 47,
+      "paymentsMoreThan60Days": 24,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 2399,
+        "count": 2568,
+        "percentile": 6.3
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 144,
+        "percentile": 3.5
+      }
+    },
+    {
+      "reportId": "PTR20000754",
+      "acnArbn": "007678622",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 36,
+      "payments31To60Days": 43,
+      "paymentsMoreThan60Days": 21,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 2181,
+        "count": 2498,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 140,
+        "percentile": 10.1
+      }
+    }
+  ]
+}

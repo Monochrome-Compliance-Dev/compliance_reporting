@@ -1,0 +1,95 @@
+{
+  "slug": "port-waratah-coal-services-ltd-99001363828",
+  "businessName": "PORT WARATAH COAL SERVICES LTD",
+  "abn": "99001363828",
+  "acnArbn": "001363828",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008891",
+      "acnArbn": "001363828",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.88,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 20.19,
+      "payments31To60Days": 78.35,
+      "paymentsMoreThan60Days": 1.46,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 177,
+        "percentile": 54.5
+      }
+    },
+    {
+      "reportId": "PTR20004469",
+      "acnArbn": "001363828",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.1,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 27.91,
+      "payments31To60Days": 69.94,
+      "paymentsMoreThan60Days": 2.15,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 173,
+        "percentile": 59.9
+      }
+    },
+    {
+      "reportId": "PTR20000850",
+      "acnArbn": "001363828",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.36,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 22.76,
+      "payments31To60Days": 74.15,
+      "paymentsMoreThan60Days": 3.09,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 73,
+        "count": 170,
+        "percentile": 56.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "northern-seq-distributor-retailer-authority-89791717472",
+  "businessName": "Northern SEQ Distributor - Retailer Authority",
+  "abn": "89791717472",
+  "acnArbn": "",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010221",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 98.9,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 118,
+        "count": 2613,
+        "percentile": 95.1
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 92,
+        "percentile": 90.1
+      }
+    },
+    {
+      "reportId": "PTR20004477",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 98.1,
+      "payments31To60Days": 1.4,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2568,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 95,
+        "percentile": 85.1
+      }
+    },
+    {
+      "reportId": "PTR20002323",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 97.9,
+      "payments31To60Days": 1.6,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-07-03",
+      "overallP95Position": {
+        "rank": 234,
+        "count": 2498,
+        "percentile": 89.3
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 99,
+        "percentile": 82.7
+      }
+    }
+  ]
+}

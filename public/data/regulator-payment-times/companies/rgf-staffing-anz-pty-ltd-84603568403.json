@@ -1,0 +1,123 @@
+{
+  "slug": "rgf-staffing-anz-pty-ltd-84603568403",
+  "businessName": "RGF STAFFING ANZ PTY LTD",
+  "abn": "84603568403",
+  "acnArbn": "603568403",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011699",
+      "acnArbn": "603568403",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.67,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 99.42,
+      "payments31To60Days": 0.46,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 193,
+        "percentile": 97.9
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 7,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006849",
+      "acnArbn": "603568403",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3.83,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 99.3,
+      "payments31To60Days": 0.29,
+      "paymentsMoreThan60Days": 0.41,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-12-29",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 228,
+        "percentile": 98.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 8,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000668",
+      "acnArbn": "603568403",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3.01,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 12,
+      "payments30DaysOrLess": 99.12,
+      "payments31To60Days": 0.72,
+      "paymentsMoreThan60Days": 0.16,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 231,
+        "percentile": 98.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 8,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000667",
+      "acnArbn": "603568403",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3.25,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 99.33,
+      "payments31To60Days": 0.34,
+      "paymentsMoreThan60Days": 0.32,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 68,
+        "count": 2498,
+        "percentile": 96.6
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 50,
+        "percentile": 89.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "joy-global-australia-holding-company-pty-ltd-70059870058",
+  "businessName": "JOY GLOBAL AUSTRALIA HOLDING COMPANY PTY LTD",
+  "abn": "70059870058",
+  "acnArbn": "059870058",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011436",
+      "acnArbn": "059870058",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.68,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 15.27,
+      "payments31To60Days": 78.99,
+      "paymentsMoreThan60Days": 5.75,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-21",
+      "overallP95Position": {
+        "rank": 142,
+        "count": 193,
+        "percentile": 25.5
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 25,
+        "percentile": 54.2
+      }
+    },
+    {
+      "reportId": "PTR20006619",
+      "acnArbn": "059870058",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.63,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 15.87,
+      "payments31To60Days": 75.36,
+      "paymentsMoreThan60Days": 8.77,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-03",
+      "overallP95Position": {
+        "rank": 159,
+        "count": 228,
+        "percentile": 28.6
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 28,
+        "percentile": 55.6
+      }
+    },
+    {
+      "reportId": "PTR20001255",
+      "acnArbn": "059870058",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.8,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 14.76,
+      "payments31To60Days": 77.46,
+      "paymentsMoreThan60Days": 7.78,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 160,
+        "count": 231,
+        "percentile": 29.6
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 32,
+        "percentile": 58.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "singapore-airlines-limited-52001056195",
+  "businessName": "SINGAPORE AIRLINES LIMITED",
+  "abn": "52001056195",
+  "acnArbn": "001056195",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011245",
+      "acnArbn": "001056195",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.22,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 79.71,
+      "payments31To60Days": 14.04,
+      "paymentsMoreThan60Days": 6.25,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-06-03",
+      "overallP95Position": {
+        "rank": 159,
+        "count": 193,
+        "percentile": 16.1
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 14,
+        "percentile": 15.4
+      }
+    },
+    {
+      "reportId": "PTR20006765",
+      "acnArbn": "001056195",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.9,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 85.07,
+      "payments31To60Days": 11.23,
+      "paymentsMoreThan60Days": 3.7,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-12-19",
+      "overallP95Position": {
+        "rank": 126,
+        "count": 228,
+        "percentile": 44.1
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 18,
+        "percentile": 52.9
+      }
+    },
+    {
+      "reportId": "PTR20001986",
+      "acnArbn": "001056195",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.3,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 90.05,
+      "payments31To60Days": 6.99,
+      "paymentsMoreThan60Days": 2.96,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 70,
+        "count": 231,
+        "percentile": 68.7
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 17,
+        "percentile": 87.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "porter-equipment-australia-pty-ltd-94150961934",
+  "businessName": "PORTER EQUIPMENT AUSTRALIA PTY LTD",
+  "abn": "94150961934",
+  "acnArbn": "150961934",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007500",
+      "acnArbn": "150961934",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 31,
+      "payments31To60Days": 63,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-13",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 329,
+        "percentile": 34.5
+      }
+    }
+  ]
+}

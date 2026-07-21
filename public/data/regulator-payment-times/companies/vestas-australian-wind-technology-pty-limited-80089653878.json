@@ -1,0 +1,95 @@
+{
+  "slug": "vestas-australian-wind-technology-pty-limited-80089653878",
+  "businessName": "VESTAS - AUSTRALIAN WIND TECHNOLOGY PTY. LIMITED",
+  "abn": "80089653878",
+  "acnArbn": "089653878",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010592",
+      "acnArbn": "089653878",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.56,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 76,
+      "p95PaymentTimeDays": 149,
+      "payments30DaysOrLess": 32.2,
+      "payments31To60Days": 37.9,
+      "paymentsMoreThan60Days": 30,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-20",
+      "overallP95Position": {
+        "rank": 2591,
+        "count": 2613,
+        "percentile": 0.8
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 270,
+        "percentile": 1.1
+      }
+    },
+    {
+      "reportId": "PTR20003234",
+      "acnArbn": "089653878",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.14,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 46,
+      "payments31To60Days": 36.3,
+      "paymentsMoreThan60Days": 17.7,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 2443,
+        "count": 2568,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 244,
+        "count": 259,
+        "percentile": 5.8
+      }
+    },
+    {
+      "reportId": "PTR20003232",
+      "acnArbn": "089653878",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.09,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 37.1,
+      "payments31To60Days": 45.1,
+      "paymentsMoreThan60Days": 17.8,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 2322,
+        "count": 2498,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 238,
+        "count": 250,
+        "percentile": 4.4
+      }
+    }
+  ]
+}

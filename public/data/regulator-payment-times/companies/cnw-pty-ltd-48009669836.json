@@ -1,0 +1,95 @@
+{
+  "slug": "cnw-pty-ltd-48009669836",
+  "businessName": "CNW PTY LTD",
+  "abn": "48009669836",
+  "acnArbn": "009669836",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009979",
+      "acnArbn": "009669836",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61.62,
+      "medianPaymentTimeDays": 59,
+      "p80PaymentTimeDays": 83,
+      "p95PaymentTimeDays": 102,
+      "payments30DaysOrLess": 10,
+      "payments31To60Days": 42,
+      "paymentsMoreThan60Days": 48,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2495,
+        "count": 2613,
+        "percentile": 4.4
+      },
+      "industryP95Position": {
+        "rank": 314,
+        "count": 329,
+        "percentile": 4.3
+      }
+    },
+    {
+      "reportId": "PTR20006305",
+      "acnArbn": "009669836",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61.77,
+      "medianPaymentTimeDays": 61,
+      "p80PaymentTimeDays": 83,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 8.23,
+      "payments31To60Days": 41.34,
+      "paymentsMoreThan60Days": 50.43,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-29",
+      "overallP95Position": {
+        "rank": 2376,
+        "count": 2568,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 294,
+        "count": 323,
+        "percentile": 9
+      }
+    },
+    {
+      "reportId": "PTR20000893",
+      "acnArbn": "009669836",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.13,
+      "medianPaymentTimeDays": 55,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 7.58,
+      "payments31To60Days": 55.09,
+      "paymentsMoreThan60Days": 37.33,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2196,
+        "count": 2498,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 269,
+        "count": 323,
+        "percentile": 16.5
+      }
+    }
+  ]
+}

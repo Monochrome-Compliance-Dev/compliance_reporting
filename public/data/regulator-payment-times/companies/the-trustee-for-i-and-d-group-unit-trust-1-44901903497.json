@@ -1,0 +1,67 @@
+{
+  "slug": "the-trustee-for-i-and-d-group-unit-trust-1-44901903497",
+  "businessName": "The Trustee for I & D Group Unit Trust 1",
+  "abn": "44901903497",
+  "acnArbn": "",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20002307",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 58,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 14,
+      "payments31To60Days": 68.29,
+      "paymentsMoreThan60Days": 17.71,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-02",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 186,
+        "count": 259,
+        "percentile": 26.7
+      }
+    },
+    {
+      "reportId": "PTR20001045",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 15.49,
+      "payments31To60Days": 67.04,
+      "paymentsMoreThan60Days": 17.46,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1851,
+        "count": 2498,
+        "percentile": 25.3
+      },
+      "industryP95Position": {
+        "rank": 184,
+        "count": 250,
+        "percentile": 24.9
+      }
+    }
+  ]
+}

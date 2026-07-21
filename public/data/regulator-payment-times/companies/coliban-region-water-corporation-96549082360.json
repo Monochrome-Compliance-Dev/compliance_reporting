@@ -1,0 +1,95 @@
+{
+  "slug": "coliban-region-water-corporation-96549082360",
+  "businessName": "COLIBAN REGION WATER CORPORATION",
+  "abn": "96549082360",
+  "acnArbn": "",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008689",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.08,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 85.13,
+      "payments31To60Days": 9.78,
+      "paymentsMoreThan60Days": 5.06,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 92,
+        "percentile": 11
+      }
+    },
+    {
+      "reportId": "PTR20003745",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.04,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 83.39,
+      "payments31To60Days": 10.8,
+      "paymentsMoreThan60Days": 5.81,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 80,
+        "count": 95,
+        "percentile": 16
+      }
+    },
+    {
+      "reportId": "PTR20000091",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.09,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 80.48,
+      "payments31To60Days": 12.6,
+      "paymentsMoreThan60Days": 6.92,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-05-16",
+      "overallP95Position": {
+        "rank": 2000,
+        "count": 2498,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 99,
+        "percentile": 8.2
+      }
+    }
+  ]
+}

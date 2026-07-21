@@ -1,0 +1,39 @@
+{
+  "slug": "michael-page-international-australia-pty-limited-58002872264",
+  "businessName": "MICHAEL PAGE INTERNATIONAL (AUSTRALIA) PTY. LIMITED",
+  "abn": "58002872264",
+  "acnArbn": "002872264",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008856",
+      "acnArbn": "002872264",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.6,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 81.46,
+      "payments31To60Days": 13.17,
+      "paymentsMoreThan60Days": 5.37,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 128,
+        "count": 183,
+        "percentile": 29.7
+      }
+    }
+  ]
+}

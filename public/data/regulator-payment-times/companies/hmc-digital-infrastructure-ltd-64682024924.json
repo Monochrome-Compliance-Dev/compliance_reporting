@@ -1,0 +1,39 @@
+{
+  "slug": "hmc-digital-infrastructure-ltd-64682024924",
+  "businessName": "HMC DIGITAL INFRASTRUCTURE LTD",
+  "abn": "64682024924",
+  "acnArbn": "682024924",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Rental and hiring services (except real estate)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009987",
+      "acnArbn": "682024924",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.83,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 68.83,
+      "payments31To60Days": 30.04,
+      "paymentsMoreThan60Days": 1.12,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 776,
+        "count": 2613,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 66,
+        "percentile": 60
+      }
+    }
+  ]
+}

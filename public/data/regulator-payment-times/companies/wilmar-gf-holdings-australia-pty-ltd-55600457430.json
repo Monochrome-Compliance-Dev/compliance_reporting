@@ -1,0 +1,95 @@
+{
+  "slug": "wilmar-gf-holdings-australia-pty-ltd-55600457430",
+  "businessName": "WILMAR GF HOLDINGS AUSTRALIA PTY LTD",
+  "abn": "55600457430",
+  "acnArbn": "600457430",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008427",
+      "acnArbn": "600457430",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.27,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 32.05,
+      "payments31To60Days": 57.27,
+      "paymentsMoreThan60Days": 10.68,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-20",
+      "overallP95Position": {
+        "rank": 2094,
+        "count": 2613,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 233,
+        "count": 347,
+        "percentile": 30.9
+      }
+    },
+    {
+      "reportId": "PTR20003599",
+      "acnArbn": "600457430",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.2,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 33.44,
+      "payments31To60Days": 58.17,
+      "paymentsMoreThan60Days": 8.39,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 335,
+        "percentile": 40.7
+      }
+    },
+    {
+      "reportId": "PTR20000270",
+      "acnArbn": "600457430",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.92,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 27.91,
+      "payments31To60Days": 61.7,
+      "paymentsMoreThan60Days": 10.39,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-04",
+      "overallP95Position": {
+        "rank": 1914,
+        "count": 2498,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 209,
+        "count": 323,
+        "percentile": 35.1
+      }
+    }
+  ]
+}

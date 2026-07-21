@@ -1,0 +1,95 @@
+{
+  "slug": "qsr-pty-ltd-63089163682",
+  "businessName": "QSR PTY LTD",
+  "abn": "63089163682",
+  "acnArbn": "089163682",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008382",
+      "acnArbn": "089163682",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.85,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 542,
+        "count": 2613,
+        "percentile": 78
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 38,
+        "percentile": 81.1
+      }
+    },
+    {
+      "reportId": "PTR20004673",
+      "acnArbn": "089163682",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.8,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 36,
+        "percentile": 82.9
+      }
+    },
+    {
+      "reportId": "PTR20002853",
+      "acnArbn": "089163682",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 88,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 30,
+        "percentile": 86.2
+      }
+    }
+  ]
+}

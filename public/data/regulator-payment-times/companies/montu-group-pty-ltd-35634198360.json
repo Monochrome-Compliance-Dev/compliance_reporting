@@ -1,0 +1,95 @@
+{
+  "slug": "montu-group-pty-ltd-35634198360",
+  "businessName": "MONTU GROUP PTY LTD",
+  "abn": "35634198360",
+  "acnArbn": "634198360",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010504",
+      "acnArbn": "634198360",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.12,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 154,
+      "p95PaymentTimeDays": 172,
+      "payments30DaysOrLess": 83.6,
+      "payments31To60Days": 16.1,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 2600,
+        "count": 2613,
+        "percentile": 0.5
+      },
+      "industryP95Position": {
+        "rank": 106,
+        "count": 106,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20004824",
+      "acnArbn": "634198360",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.76,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 145,
+      "p95PaymentTimeDays": 172,
+      "payments30DaysOrLess": 84.38,
+      "payments31To60Days": 15.5,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2544,
+        "count": 2568,
+        "percentile": 0.9
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 97,
+        "percentile": 1
+      }
+    },
+    {
+      "reportId": "PTR20000636",
+      "acnArbn": "634198360",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.79,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 148,
+      "p95PaymentTimeDays": 169,
+      "payments30DaysOrLess": 94.23,
+      "payments31To60Days": 5.69,
+      "paymentsMoreThan60Days": 0.07,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 2476,
+        "count": 2498,
+        "percentile": 0.9
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 97,
+        "percentile": 1
+      }
+    }
+  ]
+}

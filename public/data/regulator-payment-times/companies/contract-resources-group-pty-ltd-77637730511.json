@@ -1,0 +1,39 @@
+{
+  "slug": "contract-resources-group-pty-ltd-77637730511",
+  "businessName": "CONTRACT RESOURCES GROUP PTY LTD",
+  "abn": "77637730511",
+  "acnArbn": "637730511",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Waste collection, treatment and disposal services",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20001632",
+      "acnArbn": "637730511",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 54,
+      "payments31To60Days": 43,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 533,
+        "count": 2498,
+        "percentile": 77.8
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 99,
+        "percentile": 61.2
+      }
+    }
+  ]
+}

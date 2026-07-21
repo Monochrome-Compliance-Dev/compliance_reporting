@@ -1,0 +1,67 @@
+{
+  "slug": "ge-power-au-holdings-pty-ltd-29113566377",
+  "businessName": "GE POWER AU HOLDINGS PTY LTD",
+  "abn": "29113566377",
+  "acnArbn": "113566377",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Repair and maintenance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011621",
+      "acnArbn": "113566377",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.97,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 53.47,
+      "payments31To60Days": 46.18,
+      "paymentsMoreThan60Days": 0.35,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 25,
+        "percentile": 54.2
+      }
+    },
+    {
+      "reportId": "PTR20011620",
+      "acnArbn": "113566377",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.32,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 52.09,
+      "payments31To60Days": 47.44,
+      "paymentsMoreThan60Days": 0.47,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 26,
+        "percentile": 56
+      }
+    }
+  ]
+}

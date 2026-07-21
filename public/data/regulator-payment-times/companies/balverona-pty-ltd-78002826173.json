@@ -1,0 +1,95 @@
+{
+  "slug": "balverona-pty-ltd-78002826173",
+  "businessName": "BALVERONA PTY LTD",
+  "abn": "78002826173",
+  "acnArbn": "002826173",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009983",
+      "acnArbn": "002826173",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.7,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 50.4,
+      "payments31To60Days": 45.1,
+      "paymentsMoreThan60Days": 4.3,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 201,
+        "count": 329,
+        "percentile": 37.2
+      }
+    },
+    {
+      "reportId": "PTR20006359",
+      "acnArbn": "002826173",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.8,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 44.5,
+      "payments31To60Days": 49,
+      "paymentsMoreThan60Days": 6.5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-31",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 241,
+        "count": 323,
+        "percentile": 25.2
+      }
+    },
+    {
+      "reportId": "PTR20001350",
+      "acnArbn": "002826173",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.4,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 34.1,
+      "payments31To60Days": 59.5,
+      "paymentsMoreThan60Days": 6.3,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 323,
+        "percentile": 42.2
+      }
+    }
+  ]
+}

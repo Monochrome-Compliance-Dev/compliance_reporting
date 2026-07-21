@@ -1,0 +1,95 @@
+{
+  "slug": "cx-holdco-pty-limited-92653475417",
+  "businessName": "CX HOLDCO PTY LIMITED",
+  "abn": "92653475417",
+  "acnArbn": "653475417",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007226",
+      "acnArbn": "653475417",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.67,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 99,
+      "payments31To60Days": 0.94,
+      "paymentsMoreThan60Days": 0.06,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-02-16",
+      "overallP95Position": {
+        "rank": 2480,
+        "count": 2613,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 49,
+        "percentile": 4.2
+      }
+    },
+    {
+      "reportId": "PTR20004384",
+      "acnArbn": "653475417",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 99.06,
+      "payments31To60Days": 0.86,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 96,
+        "count": 2568,
+        "percentile": 96.2
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 50,
+        "percentile": 89.8
+      }
+    },
+    {
+      "reportId": "PTR20003616",
+      "acnArbn": "653475417",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.88,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 98.97,
+      "payments31To60Days": 0.93,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-12",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 2498,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 50,
+        "percentile": 87.8
+      }
+    }
+  ]
+}

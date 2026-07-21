@@ -1,0 +1,67 @@
+{
+  "slug": "stora-enso-australia-pty-ltd-64099948491",
+  "businessName": "STORA ENSO AUSTRALIA PTY LTD",
+  "abn": "64099948491",
+  "acnArbn": "099948491",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011586",
+      "acnArbn": "099948491",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.28,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 36.83,
+      "payments31To60Days": 62.6,
+      "paymentsMoreThan60Days": 0.57,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 988,
+        "count": 2613,
+        "percentile": 61.3
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 329,
+        "percentile": 74.7
+      }
+    },
+    {
+      "reportId": "PTR20003050",
+      "acnArbn": "099948491",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.51,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 95.1,
+      "payments31To60Days": 4.9,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-06",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 323,
+        "percentile": 88.8
+      }
+    }
+  ]
+}

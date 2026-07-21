@@ -1,0 +1,39 @@
+{
+  "slug": "big-ben-holdings-pty-limited-63008434562",
+  "businessName": "BIG BEN HOLDINGS PTY. LIMITED",
+  "abn": "63008434562",
+  "acnArbn": "008434562",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011236",
+      "acnArbn": "008434562",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.04,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 27.51,
+      "payments31To60Days": 72.31,
+      "paymentsMoreThan60Days": 0.18,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-06-02",
+      "overallP95Position": {
+        "rank": 114,
+        "count": 193,
+        "percentile": 39.1
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 10,
+        "percentile": 11.1
+      }
+    }
+  ]
+}

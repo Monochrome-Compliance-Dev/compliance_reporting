@@ -1,0 +1,95 @@
+{
+  "slug": "united-malt-group-pty-ltd-61140174189",
+  "businessName": "UNITED MALT GROUP PTY LTD",
+  "abn": "61140174189",
+  "acnArbn": "140174189",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007489",
+      "acnArbn": "140174189",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.1,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 85.24,
+      "payments31To60Days": 13.82,
+      "paymentsMoreThan60Days": 0.94,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 347,
+        "percentile": 87.9
+      }
+    },
+    {
+      "reportId": "PTR20003419",
+      "acnArbn": "140174189",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.92,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 80.45,
+      "payments31To60Days": 17.66,
+      "paymentsMoreThan60Days": 1.89,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-05",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 335,
+        "percentile": 82.9
+      }
+    },
+    {
+      "reportId": "PTR20000661",
+      "acnArbn": "140174189",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.86,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 80.35,
+      "payments31To60Days": 18.42,
+      "paymentsMoreThan60Days": 1.23,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 798,
+        "count": 2498,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 323,
+        "percentile": 87
+      }
+    }
+  ]
+}

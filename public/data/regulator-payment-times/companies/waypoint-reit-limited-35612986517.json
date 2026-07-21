@@ -1,0 +1,95 @@
+{
+  "slug": "waypoint-reit-limited-35612986517",
+  "businessName": "WAYPOINT REIT LIMITED",
+  "abn": "35612986517",
+  "acnArbn": "612986517",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008401",
+      "acnArbn": "612986517",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.7,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 98.5,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 1.5,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-20",
+      "overallP95Position": {
+        "rank": 173,
+        "count": 2613,
+        "percentile": 92.9
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 66,
+        "percentile": 92.3
+      }
+    },
+    {
+      "reportId": "PTR20003689",
+      "acnArbn": "612986517",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.75,
+      "medianPaymentTimeDays": 10.5,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 168,
+        "count": 2568,
+        "percentile": 92.8
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 61,
+        "percentile": 93.3
+      }
+    },
+    {
+      "reportId": "PTR20000135",
+      "acnArbn": "612986517",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.14,
+      "medianPaymentTimeDays": 9.5,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 98.7,
+      "payments31To60Days": 1.3,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-05-22",
+      "overallP95Position": {
+        "rank": 123,
+        "count": 2498,
+        "percentile": 94.5
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 55,
+        "percentile": 92.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "adidas-australia-pty-limited-80058390659",
+  "businessName": "ADIDAS AUSTRALIA PTY LIMITED",
+  "abn": "80058390659",
+  "acnArbn": "058390659",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008099",
+      "acnArbn": "058390659",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.98,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 122,
+      "payments30DaysOrLess": 23.87,
+      "payments31To60Days": 60.88,
+      "paymentsMoreThan60Days": 15.24,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2556,
+        "count": 2613,
+        "percentile": 2.2
+      },
+      "industryP95Position": {
+        "rank": 205,
+        "count": 207,
+        "percentile": 1
+      }
+    },
+    {
+      "reportId": "PTR20003578",
+      "acnArbn": "058390659",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 64.71,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 86,
+      "p95PaymentTimeDays": 147,
+      "payments30DaysOrLess": 21.91,
+      "payments31To60Days": 50.9,
+      "paymentsMoreThan60Days": 27.19,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 2533,
+        "count": 2568,
+        "percentile": 1.3
+      },
+      "industryP95Position": {
+        "rank": 205,
+        "count": 208,
+        "percentile": 1.4
+      }
+    },
+    {
+      "reportId": "PTR20000104",
+      "acnArbn": "058390659",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 57.46,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 20.4,
+      "payments31To60Days": 59.1,
+      "paymentsMoreThan60Days": 20.5,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-05-19",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 2498,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 207,
+        "percentile": 12.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "argo-investments-limited-35007519520",
+  "businessName": "ARGO INVESTMENTS LIMITED",
+  "abn": "35007519520",
+  "acnArbn": "007519520",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011475",
+      "acnArbn": "007519520",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 338,
+        "percentile": 58.2
+      }
+    },
+    {
+      "reportId": "PTR20003420",
+      "acnArbn": "007519520",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.86,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-05",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 349,
+        "percentile": 64.9
+      }
+    },
+    {
+      "reportId": "PTR20001342",
+      "acnArbn": "007519520",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.78,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 339,
+        "percentile": 63.9
+      }
+    }
+  ]
+}

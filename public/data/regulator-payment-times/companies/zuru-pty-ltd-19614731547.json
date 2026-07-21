@@ -1,0 +1,95 @@
+{
+  "slug": "zuru-pty-ltd-19614731547",
+  "businessName": "ZURU PTY LTD",
+  "abn": "19614731547",
+  "acnArbn": "614731547",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010718",
+      "acnArbn": "614731547",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 72,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 48,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 30,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 2521,
+        "count": 2613,
+        "percentile": 3.3
+      },
+      "industryP95Position": {
+        "rank": 318,
+        "count": 329,
+        "percentile": 3
+      }
+    },
+    {
+      "reportId": "PTR20010717",
+      "acnArbn": "614731547",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 65,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 2387,
+        "count": 2568,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 295,
+        "count": 323,
+        "percentile": 7.5
+      }
+    },
+    {
+      "reportId": "PTR20010635",
+      "acnArbn": "614731547",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 323,
+        "percentile": 84.8
+      }
+    }
+  ]
+}

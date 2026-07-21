@@ -1,0 +1,67 @@
+{
+  "slug": "the-bank-of-nova-scotia-34133513827",
+  "businessName": "THE BANK OF NOVA SCOTIA",
+  "abn": "34133513827",
+  "acnArbn": "133513827",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20007019",
+      "acnArbn": "133513827",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.33,
+      "medianPaymentTimeDays": 7.5,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 83,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 8,
+        "count": 28,
+        "percentile": 74.1
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20002811",
+      "acnArbn": "133513827",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4.17,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 28,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    }
+  ]
+}

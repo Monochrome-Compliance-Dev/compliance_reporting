@@ -1,0 +1,95 @@
+{
+  "slug": "john-sands-australia-ltd-56072528600",
+  "businessName": "JOHN SANDS (AUSTRALIA) LTD.",
+  "abn": "56072528600",
+  "acnArbn": "072528600",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Pulp, paper and converted paper product mfg",
+  "latestReportingPeriodEndDate": "2026-02-28",
+  "reports": [
+    {
+      "reportId": "PTR20011043",
+      "acnArbn": "072528600",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.24,
+      "medianPaymentTimeDays": 8.5,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 97.5,
+      "payments31To60Days": 2.5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-12",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 24,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 6,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006450",
+      "acnArbn": "072528600",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.88,
+      "medianPaymentTimeDays": 8.5,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 174,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-10",
+      "overallP95Position": {
+        "rank": 25,
+        "count": 25,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 6,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20000130",
+      "acnArbn": "072528600",
+      "reportingPeriodStartDate": "2024-09-01",
+      "reportingPeriodEndDate": "2025-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.9,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 97.2,
+      "payments31To60Days": 1.4,
+      "paymentsMoreThan60Days": 1.4,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-05-21",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 22,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 6,
+        "percentile": 100
+      }
+    }
+  ]
+}

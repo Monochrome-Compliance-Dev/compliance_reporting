@@ -59,8 +59,7 @@ function Footer(props) {
         20687127386
         <span style={{ color: theme.palette.text.disabled }}>•</span>
         <Link
-          component={RouterLink}
-          to="/policy-documents/legal"
+          href="/policies/legal-disclaimer.docx"
           color="inherit"
           underline="hover"
         >
@@ -68,8 +67,7 @@ function Footer(props) {
         </Link>
         <span style={{ color: theme.palette.text.disabled }}>•</span>
         <Link
-          component={RouterLink}
-          to="/policy-documents/privacy-policy"
+          href="/policies/privacy-policy.docx"
           color="inherit"
           underline="hover"
         >
@@ -77,8 +75,7 @@ function Footer(props) {
         </Link>
         <span style={{ color: theme.palette.text.disabled }}>•</span>
         <Link
-          component={RouterLink}
-          to="/policy-documents/client-service-agreement"
+          href="/policies/client-service-agreement.docx"
           color="inherit"
           underline="hover"
         >

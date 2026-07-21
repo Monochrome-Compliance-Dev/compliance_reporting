@@ -1,0 +1,95 @@
+{
+  "slug": "janart-holdings-pty-ltd-13092037262",
+  "businessName": "JANART HOLDINGS PTY LTD",
+  "abn": "13092037262",
+  "acnArbn": "092037262",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011598",
+      "acnArbn": "092037262",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.04,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 75.12,
+      "payments31To60Days": 24.52,
+      "paymentsMoreThan60Days": 0.33,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 78,
+        "count": 207,
+        "percentile": 62.6
+      }
+    },
+    {
+      "reportId": "PTR20006745",
+      "acnArbn": "092037262",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.37,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 91.54,
+      "payments31To60Days": 7.81,
+      "paymentsMoreThan60Days": 0.27,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 208,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportId": "PTR20006747",
+      "acnArbn": "092037262",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 89.81,
+      "payments31To60Days": 9.66,
+      "paymentsMoreThan60Days": 0.36,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 207,
+        "percentile": 81.6
+      }
+    }
+  ]
+}

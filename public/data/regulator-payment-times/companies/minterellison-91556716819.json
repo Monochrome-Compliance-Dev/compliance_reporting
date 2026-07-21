@@ -1,0 +1,95 @@
+{
+  "slug": "minterellison-91556716819",
+  "businessName": "MINTERELLISON",
+  "abn": "91556716819",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007294",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.31,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 126,
+      "payments30DaysOrLess": 59.39,
+      "payments31To60Days": 21.43,
+      "paymentsMoreThan60Days": 19.18,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 2565,
+        "count": 2613,
+        "percentile": 1.6
+      },
+      "industryP95Position": {
+        "rank": 173,
+        "count": 183,
+        "percentile": 5.5
+      }
+    },
+    {
+      "reportId": "PTR20004688",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.88,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 134,
+      "payments30DaysOrLess": 60.37,
+      "payments31To60Days": 20.71,
+      "paymentsMoreThan60Days": 18.92,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 2520,
+        "count": 2568,
+        "percentile": 1.8
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 181,
+        "percentile": 5
+      }
+    },
+    {
+      "reportId": "PTR20001146",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.16,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 121,
+      "payments30DaysOrLess": 61.57,
+      "payments31To60Days": 21.22,
+      "paymentsMoreThan60Days": 17.21,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2429,
+        "count": 2498,
+        "percentile": 2.7
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 176,
+        "percentile": 6.3
+      }
+    }
+  ]
+}

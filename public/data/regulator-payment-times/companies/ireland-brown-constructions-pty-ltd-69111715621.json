@@ -1,0 +1,95 @@
+{
+  "slug": "ireland-brown-constructions-pty-ltd-69111715621",
+  "businessName": "IRELAND BROWN CONSTRUCTIONS PTY LTD",
+  "abn": "69111715621",
+  "acnArbn": "111715621",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009394",
+      "acnArbn": "111715621",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.32,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 42.8,
+      "payments31To60Days": 54.33,
+      "paymentsMoreThan60Days": 2.87,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 270,
+        "percentile": 54.6
+      }
+    },
+    {
+      "reportId": "PTR20006185",
+      "acnArbn": "111715621",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.02,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 45.57,
+      "payments31To60Days": 52.19,
+      "paymentsMoreThan60Days": 2.24,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 259,
+        "percentile": 62.4
+      }
+    },
+    {
+      "reportId": "PTR20006184",
+      "acnArbn": "111715621",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 100.2,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 40.95,
+      "payments31To60Days": 56.95,
+      "paymentsMoreThan60Days": 2.1,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-26",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 95,
+        "count": 250,
+        "percentile": 60.2
+      }
+    }
+  ]
+}

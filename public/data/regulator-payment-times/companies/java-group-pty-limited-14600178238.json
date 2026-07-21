@@ -1,0 +1,95 @@
+{
+  "slug": "java-group-pty-limited-14600178238",
+  "businessName": "JAVA GROUP PTY LIMITED",
+  "abn": "14600178238",
+  "acnArbn": "600178238",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011190",
+      "acnArbn": "600178238",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.9,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 42.06,
+      "payments31To60Days": 57.53,
+      "paymentsMoreThan60Days": 0.41,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-05-28",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 49,
+        "percentile": 35.4
+      }
+    },
+    {
+      "reportId": "PTR20007455",
+      "acnArbn": "600178238",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 32.23,
+      "payments31To60Days": 67.47,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 50,
+        "percentile": 30.6
+      }
+    },
+    {
+      "reportId": "PTR20007452",
+      "acnArbn": "600178238",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 31.03,
+      "payments31To60Days": 67.62,
+      "paymentsMoreThan60Days": 1.35,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 50,
+        "percentile": 40.8
+      }
+    }
+  ]
+}

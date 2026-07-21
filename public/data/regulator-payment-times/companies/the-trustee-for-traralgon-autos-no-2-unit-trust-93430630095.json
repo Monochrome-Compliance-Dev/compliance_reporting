@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-traralgon-autos-no-2-unit-trust-93430630095",
+  "businessName": "The Trustee for Traralgon Autos No 2 Unit Trust",
+  "abn": "93430630095",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008063",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.53,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 28.71,
+      "payments31To60Days": 60.44,
+      "paymentsMoreThan60Days": 10.85,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 329,
+        "percentile": 34.5
+      }
+    },
+    {
+      "reportId": "PTR20005121",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.11,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 28.19,
+      "payments31To60Days": 60.46,
+      "paymentsMoreThan60Days": 10.68,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 323,
+        "percentile": 36
+      }
+    },
+    {
+      "reportId": "PTR20003216",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.72,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 37.61,
+      "payments31To60Days": 55.12,
+      "paymentsMoreThan60Days": 6.8,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 188,
+        "count": 323,
+        "percentile": 40.7
+      }
+    }
+  ]
+}

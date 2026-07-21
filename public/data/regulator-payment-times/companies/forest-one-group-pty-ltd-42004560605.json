@@ -1,0 +1,95 @@
+{
+  "slug": "forest-one-group-pty-ltd-42004560605",
+  "businessName": "FOREST ONE GROUP PTY LTD",
+  "abn": "42004560605",
+  "acnArbn": "004560605",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Forestry and logging",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011002",
+      "acnArbn": "004560605",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.06,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 66.4,
+      "payments31To60Days": 33.4,
+      "paymentsMoreThan60Days": 0.2,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-05-07",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 102,
+        "percentile": 46.5
+      }
+    },
+    {
+      "reportId": "PTR20011003",
+      "acnArbn": "004560605",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.59,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 66.5,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-05-07",
+      "overallP95Position": {
+        "rank": 1178,
+        "count": 2568,
+        "percentile": 52.7
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 92,
+        "percentile": 39.6
+      }
+    },
+    {
+      "reportId": "PTR20002052",
+      "acnArbn": "004560605",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61,
+      "medianPaymentTimeDays": 61,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 30,
+      "payments31To60Days": 68,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2269,
+        "count": 2498,
+        "percentile": 8.7
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 85,
+        "percentile": 4.8
+      }
+    }
+  ]
+}

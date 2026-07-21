@@ -1,0 +1,95 @@
+{
+  "slug": "mandalay-resources-australia-pty-limited-38005482815",
+  "businessName": "MANDALAY RESOURCES AUSTRALIA PTY LIMITED",
+  "abn": "38005482815",
+  "acnArbn": "005482815",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010664",
+      "acnArbn": "005482815",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 49.9,
+      "payments31To60Days": 47.4,
+      "paymentsMoreThan60Days": 2.7,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 177,
+        "percentile": 79.5
+      }
+    },
+    {
+      "reportId": "PTR20006766",
+      "acnArbn": "005482815",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 53.5,
+      "payments31To60Days": 16.5,
+      "paymentsMoreThan60Days": 30,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-12-19",
+      "overallP95Position": {
+        "rank": 2483,
+        "count": 2568,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 173,
+        "percentile": 4.1
+      }
+    },
+    {
+      "reportId": "PTR20000897",
+      "acnArbn": "005482815",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.25,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 64.6,
+      "payments31To60Days": 32.3,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 170,
+        "percentile": 44.4
+      }
+    }
+  ]
+}

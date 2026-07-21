@@ -1,0 +1,95 @@
+{
+  "slug": "emerson-process-management-australia-pty-ltd-99004590005",
+  "businessName": "EMERSON PROCESS MANAGEMENT AUSTRALIA PTY LTD",
+  "abn": "99004590005",
+  "acnArbn": "004590005",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011468",
+      "acnArbn": "004590005",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.8,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 25.85,
+      "payments31To60Days": 53.24,
+      "paymentsMoreThan60Days": 20.9,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 173,
+        "count": 193,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 45,
+        "percentile": 4.5
+      }
+    },
+    {
+      "reportId": "PTR20006695",
+      "acnArbn": "004590005",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.3,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 29.1,
+      "payments31To60Days": 59.28,
+      "paymentsMoreThan60Days": 11.62,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-15",
+      "overallP95Position": {
+        "rank": 186,
+        "count": 228,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 59,
+        "percentile": 12.1
+      }
+    },
+    {
+      "reportId": "PTR20002554",
+      "acnArbn": "004590005",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.6,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 33.16,
+      "payments31To60Days": 56.22,
+      "paymentsMoreThan60Days": 10.62,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-17",
+      "overallP95Position": {
+        "rank": 187,
+        "count": 231,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 61,
+        "percentile": 11.7
+      }
+    }
+  ]
+}

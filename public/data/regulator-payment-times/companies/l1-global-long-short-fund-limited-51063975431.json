@@ -1,0 +1,67 @@
+{
+  "slug": "l1-global-long-short-fund-limited-51063975431",
+  "businessName": "L1 Global Long Short Fund Limited",
+  "abn": "51063975431",
+  "acnArbn": "063975431",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20005010",
+      "acnArbn": "063975431",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.08,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 349,
+        "percentile": 69
+      }
+    },
+    {
+      "reportId": "PTR20001036",
+      "acnArbn": "063975431",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.62,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 192,
+        "count": 2498,
+        "percentile": 91.8
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 339,
+        "percentile": 79
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "bml-ventures-pty-ltd-16648071587",
+  "businessName": "BML VENTURES PTY LTD",
+  "abn": "16648071587",
+  "acnArbn": "648071587",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010342",
+      "acnArbn": "648071587",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.24,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 60.91,
+      "payments31To60Days": 38.08,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 177,
+        "percentile": 51.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "qs-maps-holdings-no-3-pty-ltd-38163278500",
+  "businessName": "QS MAPS HOLDINGS NO. 3 PTY LTD",
+  "abn": "38163278500",
+  "acnArbn": "163278500",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Gas supply",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009586",
+      "acnArbn": "163278500",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.7,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 72.1,
+      "payments31To60Days": 24.44,
+      "paymentsMoreThan60Days": 3.46,
+      "industrySubdivision": "Gas supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 92,
+        "percentile": 23.1
+      }
+    },
+    {
+      "reportId": "PTR20004926",
+      "acnArbn": "163278500",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 66.39,
+      "payments31To60Days": 29.29,
+      "paymentsMoreThan60Days": 4.32,
+      "industrySubdivision": "Gas supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 70,
+        "count": 95,
+        "percentile": 23.4
+      }
+    },
+    {
+      "reportId": "PTR20001118",
+      "acnArbn": "163278500",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.63,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 68.53,
+      "payments31To60Days": 21.99,
+      "paymentsMoreThan60Days": 9.48,
+      "industrySubdivision": "Gas supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2243,
+        "count": 2498,
+        "percentile": 9.2
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 99,
+        "percentile": 4.1
+      }
+    }
+  ]
+}

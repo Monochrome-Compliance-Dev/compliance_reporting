@@ -1,0 +1,39 @@
+{
+  "slug": "bunge-australia-holdings-pty-ltd-81161229867",
+  "businessName": "Bunge Australia Holdings Pty Ltd",
+  "abn": "81161229867",
+  "acnArbn": "161229867",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007291",
+      "acnArbn": "161229867",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 3,
+      "p95PaymentTimeDays": 16,
+      "payments30DaysOrLess": 99.96,
+      "payments31To60Days": 0.04,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-02-18",
+      "overallP95Position": {
+        "rank": 76,
+        "count": 2613,
+        "percentile": 96.8
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 102,
+        "percentile": 95
+      }
+    }
+  ]
+}

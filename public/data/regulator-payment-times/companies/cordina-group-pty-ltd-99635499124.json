@@ -1,0 +1,95 @@
+{
+  "slug": "cordina-group-pty-ltd-99635499124",
+  "businessName": "CORDINA GROUP PTY LTD",
+  "abn": "99635499124",
+  "acnArbn": "635499124",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Personal and other services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008478",
+      "acnArbn": "635499124",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 71.74,
+      "payments31To60Days": 27.41,
+      "paymentsMoreThan60Days": 0.85,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-03-21",
+      "overallP95Position": {
+        "rank": 672,
+        "count": 2613,
+        "percentile": 73.2
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 25,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20003656",
+      "acnArbn": "635499124",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 87.44,
+      "payments31To60Days": 11.74,
+      "paymentsMoreThan60Days": 0.82,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-09-14",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 26,
+        "percentile": 80
+      }
+    },
+    {
+      "reportId": "PTR20000165",
+      "acnArbn": "635499124",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 89.68,
+      "payments31To60Days": 8.49,
+      "paymentsMoreThan60Days": 1.83,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-05-27",
+      "overallP95Position": {
+        "rank": 192,
+        "count": 2498,
+        "percentile": 91.8
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 22,
+        "percentile": 85.7
+      }
+    }
+  ]
+}

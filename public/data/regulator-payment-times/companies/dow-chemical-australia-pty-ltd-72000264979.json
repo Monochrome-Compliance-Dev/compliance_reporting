@@ -1,0 +1,95 @@
+{
+  "slug": "dow-chemical-australia-pty-ltd-72000264979",
+  "businessName": "DOW CHEMICAL (AUSTRALIA) PTY LTD",
+  "abn": "72000264979",
+  "acnArbn": "000264979",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007284",
+      "acnArbn": "000264979",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.27,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96.79,
+      "payments31To60Days": 1.61,
+      "paymentsMoreThan60Days": 1.6,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-18",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 347,
+        "percentile": 95.4
+      }
+    },
+    {
+      "reportId": "PTR20006516",
+      "acnArbn": "000264979",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.29,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.97,
+      "payments31To60Days": 0.4,
+      "paymentsMoreThan60Days": 3.63,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 335,
+        "percentile": 96.1
+      }
+    },
+    {
+      "reportId": "PTR20001112",
+      "acnArbn": "000264979",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 68.63,
+      "medianPaymentTimeDays": 70,
+      "p80PaymentTimeDays": 96,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 6.2,
+      "payments31To60Days": 32.56,
+      "paymentsMoreThan60Days": 61.24,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2345,
+        "count": 2498,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 299,
+        "count": 323,
+        "percentile": 7.1
+      }
+    }
+  ]
+}

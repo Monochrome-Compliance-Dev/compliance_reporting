@@ -1,0 +1,95 @@
+{
+  "slug": "cmc-markets-group-australia-pty-ltd-99128774890",
+  "businessName": "CMC MARKETS GROUP AUSTRALIA PTY LTD",
+  "abn": "99128774890",
+  "acnArbn": "128774890",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006904",
+      "acnArbn": "128774890",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.45,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 99.65,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0.35,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-01-12",
+      "overallP95Position": {
+        "rank": 221,
+        "count": 2613,
+        "percentile": 90.8
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 338,
+        "percentile": 73.3
+      }
+    },
+    {
+      "reportId": "PTR20003664",
+      "acnArbn": "128774890",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.17,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 82.19,
+      "payments31To60Days": 13.13,
+      "paymentsMoreThan60Days": 4.86,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 290,
+        "count": 349,
+        "percentile": 15.5
+      }
+    },
+    {
+      "reportId": "PTR20002003",
+      "acnArbn": "128774890",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.68,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 80.29,
+      "payments31To60Days": 15.19,
+      "paymentsMoreThan60Days": 4.7,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 339,
+        "percentile": 19.5
+      }
+    }
+  ]
+}

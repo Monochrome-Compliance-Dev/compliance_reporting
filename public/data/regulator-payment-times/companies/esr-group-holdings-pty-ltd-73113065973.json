@@ -1,0 +1,95 @@
+{
+  "slug": "esr-group-holdings-pty-ltd-73113065973",
+  "businessName": "ESR Group Holdings Pty Ltd",
+  "abn": "73113065973",
+  "acnArbn": "113065973",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-27",
+  "reports": [
+    {
+      "reportId": "PTR20007866",
+      "acnArbn": "113065973",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-27",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.67,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 86.61,
+      "payments31To60Days": 11.41,
+      "paymentsMoreThan60Days": 1.97,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 5,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20003536",
+      "acnArbn": "113065973",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.05,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 83.76,
+      "payments31To60Days": 13.05,
+      "paymentsMoreThan60Days": 3.19,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 13,
+        "percentile": 58.3
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 5,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20001290",
+      "acnArbn": "113065973",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.1,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 81.83,
+      "payments31To60Days": 15.15,
+      "paymentsMoreThan60Days": 3.01,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 207,
+        "percentile": 66.5
+      }
+    }
+  ]
+}

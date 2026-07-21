@@ -1,0 +1,95 @@
+{
+  "slug": "lg-electronics-australia-pty-limited-98064531264",
+  "businessName": "LG ELECTRONICS AUSTRALIA PTY LIMITED",
+  "abn": "98064531264",
+  "acnArbn": "064531264",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008953",
+      "acnArbn": "064531264",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.48,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 17.89,
+      "payments31To60Days": 77,
+      "paymentsMoreThan60Days": 5.11,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 182,
+        "count": 329,
+        "percentile": 42.1
+      }
+    },
+    {
+      "reportId": "PTR20005573",
+      "acnArbn": "064531264",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.16,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 16.5,
+      "payments31To60Days": 77.51,
+      "paymentsMoreThan60Days": 5.98,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 323,
+        "percentile": 40.1
+      }
+    },
+    {
+      "reportId": "PTR20001409",
+      "acnArbn": "064531264",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.69,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 16.86,
+      "payments31To60Days": 77.34,
+      "paymentsMoreThan60Days": 5.67,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 323,
+        "percentile": 37.6
+      }
+    }
+  ]
+}

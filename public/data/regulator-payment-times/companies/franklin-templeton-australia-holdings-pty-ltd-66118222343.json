@@ -1,0 +1,95 @@
+{
+  "slug": "franklin-templeton-australia-holdings-pty-ltd-66118222343",
+  "businessName": "FRANKLIN TEMPLETON (AUSTRALIA) HOLDINGS PTY LTD",
+  "abn": "66118222343",
+  "acnArbn": "118222343",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011689",
+      "acnArbn": "118222343",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.25,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 99.41,
+      "payments31To60Days": 0.59,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 193,
+        "percentile": 95.3
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 19,
+        "percentile": 94.4
+      }
+    },
+    {
+      "reportId": "PTR20006866",
+      "acnArbn": "118222343",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.77,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 91.12,
+      "payments31To60Days": 5.62,
+      "paymentsMoreThan60Days": 3.25,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-30",
+      "overallP95Position": {
+        "rank": 105,
+        "count": 228,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 22,
+        "percentile": 14.3
+      }
+    },
+    {
+      "reportId": "PTR20001686",
+      "acnArbn": "118222343",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.42,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 84.59,
+      "payments31To60Days": 9.59,
+      "paymentsMoreThan60Days": 5.82,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 160,
+        "count": 231,
+        "percentile": 29.6
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 20,
+        "percentile": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "xero-australia-pty-limited-89124215247",
+  "businessName": "XERO AUSTRALIA PTY LIMITED",
+  "abn": "89124215247",
+  "acnArbn": "124215247",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20002722",
+      "acnArbn": "124215247",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 97.19,
+      "payments31To60Days": 2.8,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 231,
+        "percentile": 87.4
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 26,
+        "percentile": 88
+      }
+    }
+  ]
+}

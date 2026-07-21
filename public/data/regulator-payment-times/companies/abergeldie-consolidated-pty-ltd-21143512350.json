@@ -1,0 +1,123 @@
+{
+  "slug": "abergeldie-consolidated-pty-ltd-21143512350",
+  "businessName": "ABERGELDIE CONSOLIDATED PTY LTD",
+  "abn": "21143512350",
+  "acnArbn": "143512350",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009084",
+      "acnArbn": "143512350",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.88,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 9.79,
+      "payments31To60Days": 78.3,
+      "paymentsMoreThan60Days": 11.91,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 192,
+        "count": 270,
+        "percentile": 27.5
+      }
+    },
+    {
+      "reportId": "PTR20006771",
+      "acnArbn": "143512350",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-10-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.46,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 17.38,
+      "payments31To60Days": 74.56,
+      "paymentsMoreThan60Days": 8.06,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-12-19",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20003626",
+      "acnArbn": "143512350",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.85,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 21,
+      "payments31To60Days": 70.66,
+      "paymentsMoreThan60Days": 8.33,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-12",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 259,
+        "percentile": 29.8
+      }
+    },
+    {
+      "reportId": "PTR20001897",
+      "acnArbn": "143512350",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 20.03,
+      "payments31To60Days": 71.86,
+      "paymentsMoreThan60Days": 8.11,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 250,
+        "percentile": 31.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-the-a-and-e-todaro-family-trust-27878519143",
+  "businessName": "THE TRUSTEE FOR THE A & E TODARO FAMILY TRUST",
+  "abn": "27878519143",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010309",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.39,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 59.02,
+      "payments31To60Days": 31.29,
+      "paymentsMoreThan60Days": 9.68,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2251,
+        "count": 2613,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 265,
+        "count": 329,
+        "percentile": 18.6
+      }
+    },
+    {
+      "reportId": "PTR20010417",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.38,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 46.05,
+      "payments31To60Days": 36.18,
+      "paymentsMoreThan60Days": 17.76,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 2270,
+        "count": 2568,
+        "percentile": 11.3
+      },
+      "industryP95Position": {
+        "rank": 271,
+        "count": 323,
+        "percentile": 16.1
+      }
+    },
+    {
+      "reportId": "PTR20010418",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.83,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 49.83,
+      "payments31To60Days": 37.44,
+      "paymentsMoreThan60Days": 12.73,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2498,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 262,
+        "count": 323,
+        "percentile": 18.3
+      }
+    }
+  ]
+}

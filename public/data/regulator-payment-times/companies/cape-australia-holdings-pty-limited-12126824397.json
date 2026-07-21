@@ -1,0 +1,95 @@
+{
+  "slug": "cape-australia-holdings-pty-limited-12126824397",
+  "businessName": "CAPE AUSTRALIA HOLDINGS PTY LIMITED",
+  "abn": "12126824397",
+  "acnArbn": "126824397",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2026-02-28",
+  "reports": [
+    {
+      "reportId": "PTR20011178",
+      "acnArbn": "126824397",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61,
+      "medianPaymentTimeDays": 59,
+      "p80PaymentTimeDays": 79,
+      "p95PaymentTimeDays": 112,
+      "payments30DaysOrLess": 22.1,
+      "payments31To60Days": 30.83,
+      "paymentsMoreThan60Days": 47.07,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-05-27",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 24,
+        "percentile": 4.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006635",
+      "acnArbn": "126824397",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 64,
+      "medianPaymentTimeDays": 61,
+      "p80PaymentTimeDays": 84,
+      "p95PaymentTimeDays": 114,
+      "payments30DaysOrLess": 18.9,
+      "payments31To60Days": 41.5,
+      "paymentsMoreThan60Days": 39.6,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-12-05",
+      "overallP95Position": {
+        "rank": 22,
+        "count": 25,
+        "percentile": 12.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006629",
+      "acnArbn": "126824397",
+      "reportingPeriodStartDate": "2024-09-01",
+      "reportingPeriodEndDate": "2025-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 70,
+      "medianPaymentTimeDays": 68,
+      "p80PaymentTimeDays": 87,
+      "p95PaymentTimeDays": 112,
+      "payments30DaysOrLess": 22.7,
+      "payments31To60Days": 32.7,
+      "paymentsMoreThan60Days": 44.6,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-12-05",
+      "overallP95Position": {
+        "rank": 21,
+        "count": 22,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

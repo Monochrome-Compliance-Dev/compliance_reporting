@@ -1,0 +1,95 @@
+{
+  "slug": "pastel-holdings-pty-limited-33168929566",
+  "businessName": "PASTEL HOLDINGS PTY LIMITED",
+  "abn": "33168929566",
+  "acnArbn": "168929566",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009264",
+      "acnArbn": "168929566",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.08,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 89.41,
+      "payments31To60Days": 10.37,
+      "paymentsMoreThan60Days": 0.21,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 776,
+        "count": 2613,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 338,
+        "percentile": 35.9
+      }
+    },
+    {
+      "reportId": "PTR20004255",
+      "acnArbn": "168929566",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.05,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 83.5,
+      "payments31To60Days": 13.08,
+      "paymentsMoreThan60Days": 3.42,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 349,
+        "percentile": 29.6
+      }
+    },
+    {
+      "reportId": "PTR20000749",
+      "acnArbn": "168929566",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.26,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 84.41,
+      "payments31To60Days": 12.92,
+      "paymentsMoreThan60Days": 2.67,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 909,
+        "count": 2498,
+        "percentile": 62.6
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 339,
+        "percentile": 34.6
+      }
+    }
+  ]
+}

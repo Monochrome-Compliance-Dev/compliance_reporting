@@ -1,0 +1,95 @@
+{
+  "slug": "patheon-biologics-australia-pty-ltd-33141099041",
+  "businessName": "PATHEON BIOLOGICS AUSTRALIA PTY LTD",
+  "abn": "33141099041",
+  "acnArbn": "141099041",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009144",
+      "acnArbn": "141099041",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 116,
+      "payments30DaysOrLess": 51,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 26,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 2532,
+        "count": 2613,
+        "percentile": 3
+      },
+      "industryP95Position": {
+        "rank": 331,
+        "count": 347,
+        "percentile": 4.6
+      }
+    },
+    {
+      "reportId": "PTR20006199",
+      "acnArbn": "141099041",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.35,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 104,
+      "payments30DaysOrLess": 63,
+      "payments31To60Days": 26,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 2418,
+        "count": 2568,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 317,
+        "count": 335,
+        "percentile": 5.4
+      }
+    },
+    {
+      "reportId": "PTR20001577",
+      "acnArbn": "141099041",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.75,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 73.13,
+      "payments31To60Days": 19.49,
+      "paymentsMoreThan60Days": 7.38,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2498,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 255,
+        "count": 323,
+        "percentile": 18.9
+      }
+    }
+  ]
+}

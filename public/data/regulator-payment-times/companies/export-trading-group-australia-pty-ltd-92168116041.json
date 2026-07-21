@@ -1,0 +1,39 @@
+{
+  "slug": "export-trading-group-australia-pty-ltd-92168116041",
+  "businessName": "EXPORT TRADING GROUP AUSTRALIA PTY LTD",
+  "abn": "92168116041",
+  "acnArbn": "168116041",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture, forestry and fishing support services",
+  "latestReportingPeriodEndDate": "2025-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20002148",
+      "acnArbn": "168116041",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.23,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 57.09,
+      "payments31To60Days": 41.21,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 185,
+        "count": 231,
+        "percentile": 20
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 9,
+        "percentile": 0
+      }
+    }
+  ]
+}

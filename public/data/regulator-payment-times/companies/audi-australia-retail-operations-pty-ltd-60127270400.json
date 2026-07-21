@@ -1,0 +1,95 @@
+{
+  "slug": "audi-australia-retail-operations-pty-ltd-60127270400",
+  "businessName": "Audi Australia Retail Operations Pty Ltd",
+  "abn": "60127270400",
+  "acnArbn": "127270400",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009105",
+      "acnArbn": "127270400",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.72,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 207,
+        "percentile": 92.7
+      }
+    },
+    {
+      "reportId": "PTR20003588",
+      "acnArbn": "127270400",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.24,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 208,
+        "percentile": 92.3
+      }
+    },
+    {
+      "reportId": "PTR20002425",
+      "acnArbn": "127270400",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.28,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-11",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 207,
+        "percentile": 87.9
+      }
+    }
+  ]
+}

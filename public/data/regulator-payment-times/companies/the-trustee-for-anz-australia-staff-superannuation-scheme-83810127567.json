@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-anz-australia-staff-superannuation-scheme-83810127567",
+  "businessName": "The Trustee for ANZ AUSTRALIA STAFF SUPERANNUATION SCHEME",
+  "abn": "83810127567",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20003342",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.33,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-02",
+      "overallP95Position": {
+        "rank": 139,
+        "count": 2568,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 349,
+        "percentile": 83.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "wiley-publishing-australia-pty-ltd-48085710952",
+  "businessName": "WILEY PUBLISHING AUSTRALIA PTY LTD",
+  "abn": "48085710952",
+  "acnArbn": "085710952",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Publishing (except internet and music publishing)",
+  "latestReportingPeriodEndDate": "2025-04-30",
+  "reports": [
+    {
+      "reportId": "PTR20002501",
+      "acnArbn": "085710952",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.46,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 92.89,
+      "payments31To60Days": 3.43,
+      "paymentsMoreThan60Days": 3.68,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-07-15",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 28,
+        "percentile": 77.8
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "mitsubishi-heavy-industries-air-conditioners-australia-pty-ltd-92133980275",
+  "businessName": "MITSUBISHI HEAVY INDUSTRIES AIR-CONDITIONERS AUSTRALIA, PTY. LTD.",
+  "abn": "92133980275",
+  "acnArbn": "133980275",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011486",
+      "acnArbn": "133980275",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 91.9,
+      "payments31To60Days": 5.17,
+      "paymentsMoreThan60Days": 2.93,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-23",
+      "overallP95Position": {
+        "rank": 60,
+        "count": 193,
+        "percentile": 68.2
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 45,
+        "percentile": 65.9
+      }
+    },
+    {
+      "reportId": "PTR20006721",
+      "acnArbn": "133980275",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 90.33,
+      "payments31To60Days": 5.94,
+      "paymentsMoreThan60Days": 3.73,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-16",
+      "overallP95Position": {
+        "rank": 109,
+        "count": 228,
+        "percentile": 49.8
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 59,
+        "percentile": 48.3
+      }
+    },
+    {
+      "reportId": "PTR20001226",
+      "acnArbn": "133980275",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 90.32,
+      "payments31To60Days": 5.03,
+      "paymentsMoreThan60Days": 4.65,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 128,
+        "count": 231,
+        "percentile": 42.2
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 61,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

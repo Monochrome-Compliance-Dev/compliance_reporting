@@ -1,0 +1,67 @@
+{
+  "slug": "o-s-alcorn-and-others-83508451308",
+  "businessName": "O.S ALCORN & Others",
+  "abn": "83508451308",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20007071",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 112,
+      "payments30DaysOrLess": 61.84,
+      "payments31To60Days": 22.88,
+      "paymentsMoreThan60Days": 15.28,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-01-30",
+      "overallP95Position": {
+        "rank": 24,
+        "count": 28,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 9,
+        "percentile": 37.5
+      }
+    },
+    {
+      "reportId": "PTR20003014",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 128,
+      "payments30DaysOrLess": 62.21,
+      "payments31To60Days": 20.1,
+      "paymentsMoreThan60Days": 17.69,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-31",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 28,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 7,
+        "percentile": 0
+      }
+    }
+  ]
+}

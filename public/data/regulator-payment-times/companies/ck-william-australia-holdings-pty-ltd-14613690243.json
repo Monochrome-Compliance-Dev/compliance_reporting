@@ -1,0 +1,67 @@
+{
+  "slug": "ck-william-australia-holdings-pty-ltd-14613690243",
+  "businessName": "CK WILLIAM AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "14613690243",
+  "acnArbn": "613690243",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20003064",
+      "acnArbn": "613690243",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 1,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 1,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-08-08",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 2568,
+        "percentile": 99.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 95,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000986",
+      "acnArbn": "613690243",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.5,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 99,
+        "percentile": 67.3
+      }
+    }
+  ]
+}

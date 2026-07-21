@@ -1,0 +1,95 @@
+{
+  "slug": "bnp-paribas-23000000117",
+  "businessName": "BNP PARIBAS",
+  "abn": "23000000117",
+  "acnArbn": "000000117",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007624",
+      "acnArbn": "000000117",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.47,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 90.97,
+      "payments31To60Days": 8.5,
+      "paymentsMoreThan60Days": 0.53,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-06",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 338,
+        "percentile": 46.6
+      }
+    },
+    {
+      "reportId": "PTR20003961",
+      "acnArbn": "000000117",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.79,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 70.41,
+      "payments31To60Days": 23.87,
+      "paymentsMoreThan60Days": 5.72,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-19",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 305,
+        "count": 349,
+        "percentile": 12.1
+      }
+    },
+    {
+      "reportId": "PTR20000467",
+      "acnArbn": "000000117",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.06,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 82.72,
+      "payments31To60Days": 12.56,
+      "paymentsMoreThan60Days": 4.73,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-13",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 251,
+        "count": 339,
+        "percentile": 24.9
+      }
+    }
+  ]
+}

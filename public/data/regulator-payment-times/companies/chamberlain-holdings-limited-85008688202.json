@@ -1,0 +1,95 @@
+{
+  "slug": "chamberlain-holdings-limited-85008688202",
+  "businessName": "CHAMBERLAIN HOLDINGS LIMITED",
+  "abn": "85008688202",
+  "acnArbn": "008688202",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-05-03",
+  "reports": [
+    {
+      "reportId": "PTR20011258",
+      "acnArbn": "008688202",
+      "reportingPeriodStartDate": "2025-11-03",
+      "reportingPeriodEndDate": "2026-05-03",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.12,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 85.98,
+      "payments31To60Days": 10.51,
+      "paymentsMoreThan60Days": 3.5,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-04",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006784",
+      "acnArbn": "008688202",
+      "reportingPeriodStartDate": "2025-04-28",
+      "reportingPeriodEndDate": "2025-11-02",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.64,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 91.8,
+      "payments31To60Days": 6.15,
+      "paymentsMoreThan60Days": 2.05,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-19",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 3,
+        "percentile": 50
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20003803",
+      "acnArbn": "008688202",
+      "reportingPeriodStartDate": "2024-10-28",
+      "reportingPeriodEndDate": "2025-04-27",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.57,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 82.72,
+      "payments31To60Days": 15.74,
+      "paymentsMoreThan60Days": 1.55,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

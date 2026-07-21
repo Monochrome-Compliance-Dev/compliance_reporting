@@ -1,0 +1,39 @@
+{
+  "slug": "arup-australia-services-pty-ltd-36625911686",
+  "businessName": "ARUP AUSTRALIA SERVICES PTY LTD",
+  "abn": "36625911686",
+  "acnArbn": "625911686",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20001480",
+      "acnArbn": "625911686",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.49,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 82.5,
+      "payments31To60Days": 15.4,
+      "paymentsMoreThan60Days": 2.1,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 79,
+        "count": 231,
+        "percentile": 63
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 7,
+        "percentile": 100
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "toga-pty-ltd-27000926947",
+  "businessName": "TOGA PTY. LTD.",
+  "abn": "27000926947",
+  "acnArbn": "000926947",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007142",
+      "acnArbn": "000926947",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.19,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-02-06",
+      "overallP95Position": {
+        "rank": 2295,
+        "count": 2613,
+        "percentile": 11.8
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 66,
+        "percentile": 15.4
+      }
+    },
+    {
+      "reportId": "PTR20003666",
+      "acnArbn": "000926947",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 104,
+      "payments30DaysOrLess": 67,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 2418,
+        "count": 2568,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 61,
+        "percentile": 5
+      }
+    },
+    {
+      "reportId": "PTR20001065",
+      "acnArbn": "000926947",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.8,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 77,
+      "payments31To60Days": 16,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1914,
+        "count": 2498,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 55,
+        "percentile": 20.4
+      }
+    }
+  ]
+}

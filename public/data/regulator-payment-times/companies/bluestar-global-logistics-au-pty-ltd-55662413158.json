@@ -1,0 +1,95 @@
+{
+  "slug": "bluestar-global-logistics-au-pty-ltd-55662413158",
+  "businessName": "BLUESTAR GLOBAL LOGISTICS AU PTY LTD",
+  "abn": "55662413158",
+  "acnArbn": "662413158",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007216",
+      "acnArbn": "662413158",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.21,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 41,
+      "payments31To60Days": 23.89,
+      "paymentsMoreThan60Days": 35.1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-02-16",
+      "overallP95Position": {
+        "rank": 2469,
+        "count": 2613,
+        "percentile": 5.3
+      },
+      "industryP95Position": {
+        "rank": 140,
+        "count": 143,
+        "percentile": 2.1
+      }
+    },
+    {
+      "reportId": "PTR20003418",
+      "acnArbn": "662413158",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.82,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 34.91,
+      "payments31To60Days": 41.54,
+      "paymentsMoreThan60Days": 23.55,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-05",
+      "overallP95Position": {
+        "rank": 2248,
+        "count": 2568,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 131,
+        "count": 144,
+        "percentile": 9.1
+      }
+    },
+    {
+      "reportId": "PTR20003417",
+      "acnArbn": "662413158",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.91,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 27.88,
+      "payments31To60Days": 50.49,
+      "paymentsMoreThan60Days": 21.62,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-05",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 2498,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 128,
+        "count": 140,
+        "percentile": 7.9
+      }
+    }
+  ]
+}

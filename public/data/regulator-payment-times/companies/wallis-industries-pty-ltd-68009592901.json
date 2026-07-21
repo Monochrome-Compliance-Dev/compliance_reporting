@@ -1,0 +1,39 @@
+{
+  "slug": "wallis-industries-pty-ltd-68009592901",
+  "businessName": "WALLIS INDUSTRIES PTY. LTD.",
+  "abn": "68009592901",
+  "acnArbn": "009592901",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20005912",
+      "acnArbn": "009592901",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.06,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 38.18,
+      "payments31To60Days": 58.04,
+      "paymentsMoreThan60Days": 3.78,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 100,
+        "count": 173,
+        "percentile": 40.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "hunter-water-corporation-46228513446",
+  "businessName": "HUNTER WATER CORPORATION",
+  "abn": "46228513446",
+  "acnArbn": "",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007351",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 89.9,
+      "payments31To60Days": 8.4,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-02-23",
+      "overallP95Position": {
+        "rank": 703,
+        "count": 2613,
+        "percentile": 71.9
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 92,
+        "percentile": 57.1
+      }
+    },
+    {
+      "reportId": "PTR20003973",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 93.88,
+      "payments31To60Days": 4.72,
+      "paymentsMoreThan60Days": 1.4,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-19",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 95,
+        "percentile": 63.8
+      }
+    },
+    {
+      "reportId": "PTR20000525",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.24,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 94.6,
+      "payments31To60Days": 4.78,
+      "paymentsMoreThan60Days": 0.62,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 533,
+        "count": 2498,
+        "percentile": 77.8
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 99,
+        "percentile": 61.2
+      }
+    }
+  ]
+}

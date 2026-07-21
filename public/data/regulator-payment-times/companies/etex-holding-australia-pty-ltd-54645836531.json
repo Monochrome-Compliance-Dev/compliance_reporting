@@ -1,0 +1,95 @@
+{
+  "slug": "etex-holding-australia-pty-ltd-54645836531",
+  "businessName": "ETEX HOLDING AUSTRALIA PTY LTD",
+  "abn": "54645836531",
+  "acnArbn": "645836531",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Non-metallic mineral product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009048",
+      "acnArbn": "645836531",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.74,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 51.47,
+      "payments31To60Days": 41.9,
+      "paymentsMoreThan60Days": 6.62,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 347,
+        "percentile": 48
+      }
+    },
+    {
+      "reportId": "PTR20005452",
+      "acnArbn": "645836531",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.08,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 53.9,
+      "payments31To60Days": 40.9,
+      "paymentsMoreThan60Days": 5.2,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 335,
+        "percentile": 53.6
+      }
+    },
+    {
+      "reportId": "PTR20006318",
+      "acnArbn": "645836531",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 53.6,
+      "payments31To60Days": 41.2,
+      "paymentsMoreThan60Days": 5.2,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 2113,
+        "count": 2498,
+        "percentile": 15
+      },
+      "industryP95Position": {
+        "rank": 245,
+        "count": 323,
+        "percentile": 23.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "aje-wholesaling-pty-ltd-26130160753",
+  "businessName": "AJE WHOLESALING PTY LTD",
+  "abn": "26130160753",
+  "acnArbn": "130160753",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008342",
+      "acnArbn": "130160753",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.83,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 82.39,
+      "payments31To60Days": 17.61,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 207,
+        "percentile": 80.1
+      }
+    },
+    {
+      "reportId": "PTR20004641",
+      "acnArbn": "130160753",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.43,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 32.16,
+      "payments31To60Days": 60.12,
+      "paymentsMoreThan60Days": 7.72,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 2368,
+        "count": 2568,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 197,
+        "count": 208,
+        "percentile": 4.8
+      }
+    }
+  ]
+}

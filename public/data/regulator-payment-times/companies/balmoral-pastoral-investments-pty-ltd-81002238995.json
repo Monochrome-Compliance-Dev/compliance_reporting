@@ -1,0 +1,95 @@
+{
+  "slug": "balmoral-pastoral-investments-pty-ltd-81002238995",
+  "businessName": "BALMORAL PASTORAL INVESTMENTS PTY. LTD.",
+  "abn": "81002238995",
+  "acnArbn": "002238995",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007115",
+      "acnArbn": "002238995",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 77.49,
+      "payments31To60Days": 20.41,
+      "paymentsMoreThan60Days": 2.1,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 38,
+        "percentile": 37.8
+      }
+    },
+    {
+      "reportId": "PTR20006522",
+      "acnArbn": "002238995",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 74.92,
+      "payments31To60Days": 20.77,
+      "paymentsMoreThan60Days": 4.31,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 36,
+        "percentile": 37.1
+      }
+    },
+    {
+      "reportId": "PTR20007114",
+      "acnArbn": "002238995",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.98,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 72.61,
+      "payments31To60Days": 23.98,
+      "paymentsMoreThan60Days": 3.41,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 30,
+        "percentile": 44.8
+      }
+    }
+  ]
+}

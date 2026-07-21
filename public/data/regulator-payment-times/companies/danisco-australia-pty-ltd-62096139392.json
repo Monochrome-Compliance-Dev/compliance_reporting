@@ -1,0 +1,95 @@
+{
+  "slug": "danisco-australia-pty-ltd-62096139392",
+  "businessName": "DANISCO AUSTRALIA PTY LTD",
+  "abn": "62096139392",
+  "acnArbn": "096139392",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009864",
+      "acnArbn": "096139392",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 85,
+      "medianPaymentTimeDays": 64,
+      "p80PaymentTimeDays": 132,
+      "p95PaymentTimeDays": 219,
+      "payments30DaysOrLess": 43,
+      "payments31To60Days": 23,
+      "paymentsMoreThan60Days": 34,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2610,
+        "count": 2613,
+        "percentile": 0.1
+      },
+      "industryP95Position": {
+        "rank": 347,
+        "count": 347,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003839",
+      "acnArbn": "096139392",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.23,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 77,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 2037,
+        "count": 2568,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 226,
+        "count": 335,
+        "percentile": 32.3
+      }
+    },
+    {
+      "reportId": "PTR20003840",
+      "acnArbn": "096139392",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 52,
+      "payments31To60Days": 48,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 323,
+        "percentile": 80.4
+      }
+    }
+  ]
+}

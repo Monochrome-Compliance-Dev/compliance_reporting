@@ -1,0 +1,95 @@
+{
+  "slug": "ampcontrol-limited-28000915542",
+  "businessName": "AMPCONTROL LIMITED",
+  "abn": "28000915542",
+  "acnArbn": "000915542",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2026-01-31",
+  "reports": [
+    {
+      "reportId": "PTR20009478",
+      "acnArbn": "000915542",
+      "reportingPeriodStartDate": "2025-08-01",
+      "reportingPeriodEndDate": "2026-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.44,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 37.27,
+      "payments31To60Days": 49.49,
+      "paymentsMoreThan60Days": 13.24,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 26,
+        "count": 31,
+        "percentile": 16.7
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20006356",
+      "acnArbn": "000915542",
+      "reportingPeriodStartDate": "2025-02-01",
+      "reportingPeriodEndDate": "2025-07-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.3,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 27.69,
+      "payments31To60Days": 51.14,
+      "paymentsMoreThan60Days": 21.17,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-31",
+      "overallP95Position": {
+        "rank": 28,
+        "count": 34,
+        "percentile": 15.2
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 7,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20001716",
+      "acnArbn": "000915542",
+      "reportingPeriodStartDate": "2024-08-01",
+      "reportingPeriodEndDate": "2025-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.98,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 22.94,
+      "payments31To60Days": 55.48,
+      "paymentsMoreThan60Days": 21.58,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 25,
+        "count": 30,
+        "percentile": 13.8
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 6,
+        "percentile": 40
+      }
+    }
+  ]
+}

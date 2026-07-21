@@ -1,0 +1,95 @@
+{
+  "slug": "reserve-bank-of-australia-50008559486",
+  "businessName": "RESERVE BANK OF AUSTRALIA",
+  "abn": "50008559486",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008437",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.2,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 97.83,
+      "payments31To60Days": 2.17,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-20",
+      "overallP95Position": {
+        "rank": 160,
+        "count": 2613,
+        "percentile": 93.5
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 338,
+        "percentile": 82.2
+      }
+    },
+    {
+      "reportId": "PTR20003036",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.2,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.5,
+      "payments31To60Days": 3.3,
+      "paymentsMoreThan60Days": 1.2,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-04",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 349,
+        "percentile": 69
+      }
+    },
+    {
+      "reportId": "PTR20002799",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.6,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 89.2,
+      "payments31To60Days": 8.4,
+      "paymentsMoreThan60Days": 2.4,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-26",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 212,
+        "count": 339,
+        "percentile": 36.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "surbana-jurong-holdings-australia-pty-ltd-49612229197",
+  "businessName": "SURBANA JURONG HOLDINGS (AUSTRALIA) PTY LTD",
+  "abn": "49612229197",
+  "acnArbn": "612229197",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010118",
+      "acnArbn": "612229197",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.09,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 30.68,
+      "payments31To60Days": 61.4,
+      "paymentsMoreThan60Days": 7.92,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2227,
+        "count": 2613,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 227,
+        "count": 270,
+        "percentile": 13.8
+      }
+    },
+    {
+      "reportId": "PTR20004165",
+      "acnArbn": "612229197",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.57,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 33.07,
+      "payments31To60Days": 60.17,
+      "paymentsMoreThan60Days": 6.74,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 191,
+        "count": 259,
+        "percentile": 25.2
+      }
+    },
+    {
+      "reportId": "PTR20000899",
+      "acnArbn": "612229197",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.06,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 26.79,
+      "payments31To60Days": 64.25,
+      "paymentsMoreThan60Days": 8.96,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 250,
+        "percentile": 16.9
+      }
+    }
+  ]
+}

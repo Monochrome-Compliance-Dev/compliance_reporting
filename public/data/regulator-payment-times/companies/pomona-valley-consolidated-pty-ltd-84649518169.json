@@ -1,0 +1,39 @@
+{
+  "slug": "pomona-valley-consolidated-pty-ltd-84649518169",
+  "businessName": "POMONA VALLEY CONSOLIDATED PTY LTD",
+  "abn": "84649518169",
+  "acnArbn": "649518169",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009978",
+      "acnArbn": "649518169",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.61,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 61.6,
+      "payments31To60Days": 35.9,
+      "paymentsMoreThan60Days": 2.5,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-04-13",
+      "overallP95Position": {
+        "rank": 988,
+        "count": 2613,
+        "percentile": 61.3
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 102,
+        "percentile": 60.4
+      }
+    }
+  ]
+}

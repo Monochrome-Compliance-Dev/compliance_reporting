@@ -1,0 +1,95 @@
+{
+  "slug": "hewlett-packard-australia-pty-ltd-74004394763",
+  "businessName": "HEWLETT-PACKARD AUSTRALIA PTY LTD",
+  "abn": "74004394763",
+  "acnArbn": "004394763",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-04-30",
+  "reports": [
+    {
+      "reportId": "PTR20011323",
+      "acnArbn": "004394763",
+      "reportingPeriodStartDate": "2025-11-01",
+      "reportingPeriodEndDate": "2026-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.67,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 78,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 48.05,
+      "payments31To60Days": 13.43,
+      "paymentsMoreThan60Days": 38.52,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-11",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 6,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006639",
+      "acnArbn": "004394763",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 79.25,
+      "medianPaymentTimeDays": 79,
+      "p80PaymentTimeDays": 88,
+      "p95PaymentTimeDays": 986,
+      "payments30DaysOrLess": 3.91,
+      "payments31To60Days": 0.88,
+      "paymentsMoreThan60Days": 95.22,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-08",
+      "overallP95Position": {
+        "rank": 28,
+        "count": 28,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 9,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20000544",
+      "acnArbn": "004394763",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 76.54,
+      "medianPaymentTimeDays": 76,
+      "p80PaymentTimeDays": 89,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 4.15,
+      "payments31To60Days": 0.36,
+      "paymentsMoreThan60Days": 95.49,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 25,
+        "count": 28,
+        "percentile": 11.1
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    }
+  ]
+}

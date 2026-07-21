@@ -1,0 +1,95 @@
+{
+  "slug": "slater-and-gordon-ltd-93097297400",
+  "businessName": "SLATER & GORDON LTD",
+  "abn": "93097297400",
+  "acnArbn": "097297400",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007409",
+      "acnArbn": "097297400",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.26,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 179,
+      "payments30DaysOrLess": 82.97,
+      "payments31To60Days": 8.85,
+      "paymentsMoreThan60Days": 8.18,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 2602,
+        "count": 2613,
+        "percentile": 0.4
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 183,
+        "percentile": 1.6
+      }
+    },
+    {
+      "reportId": "PTR20004965",
+      "acnArbn": "097297400",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.39,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 77.76,
+      "payments31To60Days": 13.71,
+      "paymentsMoreThan60Days": 8.53,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2218,
+        "count": 2568,
+        "percentile": 12.8
+      },
+      "industryP95Position": {
+        "rank": 141,
+        "count": 181,
+        "percentile": 21.7
+      }
+    },
+    {
+      "reportId": "PTR20001909",
+      "acnArbn": "097297400",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.16,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 80.79,
+      "payments31To60Days": 12.65,
+      "paymentsMoreThan60Days": 6.56,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2498,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 128,
+        "count": 176,
+        "percentile": 27.4
+      }
+    }
+  ]
+}

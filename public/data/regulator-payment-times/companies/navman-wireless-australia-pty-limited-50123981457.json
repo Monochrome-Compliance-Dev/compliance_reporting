@@ -1,0 +1,39 @@
+{
+  "slug": "navman-wireless-australia-pty-limited-50123981457",
+  "businessName": "NAVMAN WIRELESS AUSTRALIA PTY LIMITED",
+  "abn": "50123981457",
+  "acnArbn": "123981457",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009744",
+      "acnArbn": "123981457",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.23,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 68.76,
+      "payments31To60Days": 30.25,
+      "paymentsMoreThan60Days": 0.99,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 988,
+        "count": 2613,
+        "percentile": 61.3
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 60,
+        "percentile": 50.8
+      }
+    }
+  ]
+}

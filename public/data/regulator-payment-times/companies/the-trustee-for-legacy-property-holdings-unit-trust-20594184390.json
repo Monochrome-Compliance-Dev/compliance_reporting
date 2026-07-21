@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-legacy-property-holdings-unit-trust-20594184390",
+  "businessName": "The Trustee for Legacy Property Holdings Unit Trust",
+  "abn": "20594184390",
+  "acnArbn": "",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008641",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 84.6,
+      "payments31To60Days": 14.9,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 66,
+        "percentile": 36.9
+      }
+    }
+  ]
+}

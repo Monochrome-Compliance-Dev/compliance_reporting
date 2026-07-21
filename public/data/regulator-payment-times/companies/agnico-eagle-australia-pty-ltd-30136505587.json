@@ -1,0 +1,95 @@
+{
+  "slug": "agnico-eagle-australia-pty-ltd-30136505587",
+  "businessName": "AGNICO EAGLE AUSTRALIA PTY LTD",
+  "abn": "30136505587",
+  "acnArbn": "136505587",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007298",
+      "acnArbn": "136505587",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 41.14,
+      "payments31To60Days": 55.13,
+      "paymentsMoreThan60Days": 3.73,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-02-19",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 103,
+        "count": 177,
+        "percentile": 37.5
+      }
+    },
+    {
+      "reportId": "PTR20003199",
+      "acnArbn": "136505587",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 45.15,
+      "payments31To60Days": 51.95,
+      "paymentsMoreThan60Days": 2.9,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-08-25",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 173,
+        "percentile": 47.1
+      }
+    },
+    {
+      "reportId": "PTR20000542",
+      "acnArbn": "136505587",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.75,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 61.1,
+      "payments31To60Days": 35.4,
+      "paymentsMoreThan60Days": 3.5,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 170,
+        "percentile": 39.6
+      }
+    }
+  ]
+}

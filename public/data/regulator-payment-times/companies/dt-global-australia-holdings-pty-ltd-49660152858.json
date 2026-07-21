@@ -1,0 +1,95 @@
+{
+  "slug": "dt-global-australia-holdings-pty-ltd-49660152858",
+  "businessName": "DT GLOBAL AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "49660152858",
+  "acnArbn": "660152858",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011137",
+      "acnArbn": "660152858",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.19,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.06,
+      "payments31To60Days": 3.87,
+      "paymentsMoreThan60Days": 0.07,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-05-25",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 193,
+        "percentile": 84.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 25,
+        "percentile": 95.8
+      }
+    },
+    {
+      "reportId": "PTR20006582",
+      "acnArbn": "660152858",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.13,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 99.35,
+      "payments31To60Days": 0.65,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-28",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 228,
+        "percentile": 91.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 27,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000248",
+      "acnArbn": "660152858",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.82,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 98.85,
+      "payments31To60Days": 0.99,
+      "paymentsMoreThan60Days": 0.16,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 13,
+        "count": 231,
+        "percentile": 93.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 26,
+        "percentile": 100
+      }
+    }
+  ]
+}

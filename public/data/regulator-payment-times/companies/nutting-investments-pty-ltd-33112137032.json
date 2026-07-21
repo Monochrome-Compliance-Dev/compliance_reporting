@@ -1,0 +1,95 @@
+{
+  "slug": "nutting-investments-pty-ltd-33112137032",
+  "businessName": "NUTTING INVESTMENTS PTY. LTD.",
+  "abn": "33112137032",
+  "acnArbn": "112137032",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009772",
+      "acnArbn": "112137032",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.44,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 25.92,
+      "payments31To60Days": 51.23,
+      "paymentsMoreThan60Days": 22.85,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2135,
+        "count": 2613,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 215,
+        "count": 270,
+        "percentile": 18.2
+      }
+    },
+    {
+      "reportId": "PTR20005583",
+      "acnArbn": "112137032",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.54,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 28.75,
+      "payments31To60Days": 55.58,
+      "paymentsMoreThan60Days": 15.67,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2568,
+        "percentile": 22.6
+      },
+      "industryP95Position": {
+        "rank": 195,
+        "count": 259,
+        "percentile": 23.3
+      }
+    },
+    {
+      "reportId": "PTR20005604",
+      "acnArbn": "112137032",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.02,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 24.1,
+      "payments31To60Days": 54.08,
+      "paymentsMoreThan60Days": 21.81,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2498,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 199,
+        "count": 250,
+        "percentile": 19.7
+      }
+    }
+  ]
+}

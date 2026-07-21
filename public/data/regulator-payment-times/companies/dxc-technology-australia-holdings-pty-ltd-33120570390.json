@@ -1,0 +1,95 @@
+{
+  "slug": "dxc-technology-australia-holdings-pty-ltd-33120570390",
+  "businessName": "DXC TECHNOLOGY AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "33120570390",
+  "acnArbn": "120570390",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011619",
+      "acnArbn": "120570390",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.83,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 87.9,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 0.42,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 64,
+        "count": 193,
+        "percentile": 64.6
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 25,
+        "percentile": 91.7
+      }
+    },
+    {
+      "reportId": "PTR20006805",
+      "acnArbn": "120570390",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.67,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.91,
+      "payments31To60Days": 4.95,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-22",
+      "overallP95Position": {
+        "rank": 38,
+        "count": 228,
+        "percentile": 81.9
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 27,
+        "percentile": 92.3
+      }
+    },
+    {
+      "reportId": "PTR20001597",
+      "acnArbn": "120570390",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.83,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 84.65,
+      "payments31To60Days": 14.36,
+      "paymentsMoreThan60Days": 0.99,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 231,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 26,
+        "percentile": 80
+      }
+    }
+  ]
+}

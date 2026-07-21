@@ -1,0 +1,95 @@
+{
+  "slug": "idemitsu-australia-pty-ltd-45010236272",
+  "businessName": "IDEMITSU AUSTRALIA PTY LTD",
+  "abn": "45010236272",
+  "acnArbn": "010236272",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009984",
+      "acnArbn": "010236272",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.79,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 89.06,
+      "payments31To60Days": 10.45,
+      "paymentsMoreThan60Days": 0.48,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 177,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportId": "PTR20005333",
+      "acnArbn": "010236272",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.62,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 90.47,
+      "payments31To60Days": 8.76,
+      "paymentsMoreThan60Days": 0.77,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 173,
+        "percentile": 77.9
+      }
+    },
+    {
+      "reportId": "PTR20001444",
+      "acnArbn": "010236272",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.77,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 89.78,
+      "payments31To60Days": 9.64,
+      "paymentsMoreThan60Days": 0.58,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 170,
+        "percentile": 75.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "green-endeavour-group-pty-ltd-89649972181",
+  "businessName": "GREEN ENDEAVOUR GROUP PTY LTD",
+  "abn": "89649972181",
+  "acnArbn": "649972181",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008375",
+      "acnArbn": "649972181",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.61,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 99.31,
+      "payments31To60Days": 0.69,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-20",
+      "overallP95Position": {
+        "rank": 109,
+        "count": 2613,
+        "percentile": 95.6
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 329,
+        "percentile": 97.6
+      }
+    }
+  ]
+}

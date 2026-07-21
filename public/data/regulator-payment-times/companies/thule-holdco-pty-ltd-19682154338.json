@@ -1,0 +1,67 @@
+{
+  "slug": "thule-holdco-pty-ltd-19682154338",
+  "businessName": "THULE HOLDCO PTY LTD",
+  "abn": "19682154338",
+  "acnArbn": "682154338",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011551",
+      "acnArbn": "682154338",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.14,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 96.5,
+      "payments31To60Days": 3.5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 243,
+        "count": 2613,
+        "percentile": 89.2
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 207,
+        "percentile": 94.2
+      }
+    },
+    {
+      "reportId": "PTR20011550",
+      "acnArbn": "682154338",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.9,
+      "payments31To60Days": 5.1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 208,
+        "percentile": 87.4
+      }
+    }
+  ]
+}

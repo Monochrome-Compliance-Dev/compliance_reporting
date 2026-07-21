@@ -1,0 +1,67 @@
+{
+  "slug": "harpercollins-publishers-australia-pty-limited-36009913517",
+  "businessName": "HARPERCOLLINS PUBLISHERS AUSTRALIA PTY. LIMITED",
+  "abn": "36009913517",
+  "acnArbn": "009913517",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Publishing (except internet and music publishing)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008589",
+      "acnArbn": "009913517",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.93,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 77.47,
+      "payments31To60Days": 8.23,
+      "paymentsMoreThan60Days": 14.3,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2307,
+        "count": 2613,
+        "percentile": 11.4
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 60,
+        "percentile": 15.3
+      }
+    },
+    {
+      "reportId": "PTR20000736",
+      "acnArbn": "009913517",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.38,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 85.27,
+      "payments31To60Days": 7.59,
+      "paymentsMoreThan60Days": 7.14,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 1914,
+        "count": 2498,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 58,
+        "percentile": 22.8
+      }
+    }
+  ]
+}

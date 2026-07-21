@@ -1,0 +1,95 @@
+{
+  "slug": "peter-g-ward-industries-pty-limited-82002306149",
+  "businessName": "PETER G WARD INDUSTRIES PTY LIMITED",
+  "abn": "82002306149",
+  "acnArbn": "002306149",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010682",
+      "acnArbn": "002306149",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 38,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 776,
+        "count": 2613,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 270,
+        "percentile": 86.6
+      }
+    },
+    {
+      "reportId": "PTR20011021",
+      "acnArbn": "002306149",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 63,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-05-08",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 259,
+        "percentile": 84.1
+      }
+    },
+    {
+      "reportId": "PTR20011022",
+      "acnArbn": "002306149",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 53,
+      "payments31To60Days": 45,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-05-08",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 250,
+        "percentile": 79.1
+      }
+    }
+  ]
+}

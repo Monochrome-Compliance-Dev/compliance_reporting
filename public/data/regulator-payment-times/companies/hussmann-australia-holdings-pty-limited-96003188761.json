@@ -1,0 +1,67 @@
+{
+  "slug": "hussmann-australia-holdings-pty-limited-96003188761",
+  "businessName": "HUSSMANN AUSTRALIA HOLDINGS PTY LIMITED",
+  "abn": "96003188761",
+  "acnArbn": "003188761",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-30",
+  "reports": [
+    {
+      "reportId": "PTR20006821",
+      "acnArbn": "003188761",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.7,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 91.64,
+      "payments31To60Days": 8.01,
+      "paymentsMoreThan60Days": 0.35,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-23",
+      "overallP95Position": {
+        "rank": 66,
+        "count": 228,
+        "percentile": 70
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 59,
+        "percentile": 72.4
+      }
+    },
+    {
+      "reportId": "PTR20001452",
+      "acnArbn": "003188761",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.79,
+      "medianPaymentTimeDays": 21.74,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 64.04,
+      "payments31To60Days": 22.17,
+      "paymentsMoreThan60Days": 13.79,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 226,
+        "count": 231,
+        "percentile": 2.2
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 61,
+        "percentile": 0
+      }
+    }
+  ]
+}

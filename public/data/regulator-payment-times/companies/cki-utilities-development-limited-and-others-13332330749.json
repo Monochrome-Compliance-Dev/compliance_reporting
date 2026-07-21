@@ -1,0 +1,39 @@
+{
+  "slug": "cki-utilities-development-limited-and-others-13332330749",
+  "businessName": "CKI UTILITIES DEVELOPMENT LIMITED & Others",
+  "abn": "13332330749",
+  "acnArbn": "",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20000344",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.56,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 95.42,
+      "payments31To60Days": 4.58,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 505,
+        "count": 2498,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 99,
+        "percentile": 63.3
+      }
+    }
+  ]
+}

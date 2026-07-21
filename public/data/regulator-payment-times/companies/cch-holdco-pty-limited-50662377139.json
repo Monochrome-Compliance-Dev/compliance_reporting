@@ -1,0 +1,95 @@
+{
+  "slug": "cch-holdco-pty-limited-50662377139",
+  "businessName": "CCH HOLDCO PTY LIMITED",
+  "abn": "50662377139",
+  "acnArbn": "662377139",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009870",
+      "acnArbn": "662377139",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.18,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 79.47,
+      "payments31To60Days": 13.16,
+      "paymentsMoreThan60Days": 7.37,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 306,
+        "count": 338,
+        "percentile": 8.3
+      }
+    },
+    {
+      "reportId": "PTR20005656",
+      "acnArbn": "662377139",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 13,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 221,
+        "count": 349,
+        "percentile": 35.3
+      }
+    },
+    {
+      "reportId": "PTR20005653",
+      "acnArbn": "662377139",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 87,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 533,
+        "count": 2498,
+        "percentile": 77.8
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 339,
+        "percentile": 54.7
+      }
+    }
+  ]
+}

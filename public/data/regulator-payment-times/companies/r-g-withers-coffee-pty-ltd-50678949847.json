@@ -1,0 +1,39 @@
+{
+  "slug": "r-g-withers-coffee-pty-ltd-50678949847",
+  "businessName": "R.G. WITHERS COFFEE PTY. LTD.",
+  "abn": "50678949847",
+  "acnArbn": "678949847",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009588",
+      "acnArbn": "678949847",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.26,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 88.81,
+      "payments31To60Days": 10.35,
+      "paymentsMoreThan60Days": 0.84,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 38,
+        "percentile": 56.8
+      }
+    }
+  ]
+}

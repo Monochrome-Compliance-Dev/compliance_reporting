@@ -1,0 +1,95 @@
+{
+  "slug": "royal-automobile-association-of-south-australia-ltd-90020001807",
+  "businessName": "ROYAL AUTOMOBILE ASSOCIATION OF SOUTH AUSTRALIA LTD",
+  "abn": "90020001807",
+  "acnArbn": "677371274",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008400",
+      "acnArbn": "677371274",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.1,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 86.23,
+      "payments31To60Days": 13.53,
+      "paymentsMoreThan60Days": 0.24,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 231,
+        "count": 338,
+        "percentile": 30.6
+      }
+    },
+    {
+      "reportId": "PTR20004763",
+      "acnArbn": "677371274",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.47,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 88.32,
+      "payments31To60Days": 8.75,
+      "paymentsMoreThan60Days": 2.93,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 214,
+        "count": 349,
+        "percentile": 37.1
+      }
+    },
+    {
+      "reportId": "PTR20001195",
+      "acnArbn": "677371274",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.45,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 88.86,
+      "payments31To60Days": 7.5,
+      "paymentsMoreThan60Days": 3.64,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 256,
+        "count": 339,
+        "percentile": 24
+      }
+    }
+  ]
+}

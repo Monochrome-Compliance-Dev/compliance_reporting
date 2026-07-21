@@ -1,0 +1,67 @@
+{
+  "slug": "tasman-cargo-airlines-pty-ltd-50073412272",
+  "businessName": "TASMAN CARGO AIRLINES PTY LTD",
+  "abn": "50073412272",
+  "acnArbn": "073412272",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20002568",
+      "acnArbn": "073412272",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-18",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 144,
+        "percentile": 32.2
+      }
+    },
+    {
+      "reportId": "PTR20002567",
+      "acnArbn": "073412272",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 74,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-18",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 140,
+        "percentile": 23.7
+      }
+    }
+  ]
+}

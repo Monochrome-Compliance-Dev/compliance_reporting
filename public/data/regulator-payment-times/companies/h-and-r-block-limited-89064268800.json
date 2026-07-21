@@ -1,0 +1,95 @@
+{
+  "slug": "h-and-r-block-limited-89064268800",
+  "businessName": "H & R BLOCK LIMITED",
+  "abn": "89064268800",
+  "acnArbn": "064268800",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008714",
+      "acnArbn": "064268800",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.94,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 91,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 183,
+        "percentile": 65.4
+      }
+    },
+    {
+      "reportId": "PTR20004806",
+      "acnArbn": "064268800",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.71,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 99.61,
+      "payments31To60Days": 0.39,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 181,
+        "percentile": 87.8
+      }
+    },
+    {
+      "reportId": "PTR20001435",
+      "acnArbn": "064268800",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.15,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 99,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 176,
+        "percentile": 84
+      }
+    }
+  ]
+}

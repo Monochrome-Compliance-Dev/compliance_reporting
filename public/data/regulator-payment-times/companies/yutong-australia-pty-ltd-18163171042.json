@@ -1,0 +1,39 @@
+{
+  "slug": "yutong-australia-pty-ltd-18163171042",
+  "businessName": "YUTONG AUSTRALIA PTY LTD",
+  "abn": "18163171042",
+  "acnArbn": "163171042",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010659",
+      "acnArbn": "163171042",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.85,
+      "medianPaymentTimeDays": 30.5,
+      "p80PaymentTimeDays": 74,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 20.59,
+      "paymentsMoreThan60Days": 29.41,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-23",
+      "overallP95Position": {
+        "rank": 2501,
+        "count": 2613,
+        "percentile": 4.1
+      },
+      "industryP95Position": {
+        "rank": 316,
+        "count": 329,
+        "percentile": 3.7
+      }
+    }
+  ]
+}

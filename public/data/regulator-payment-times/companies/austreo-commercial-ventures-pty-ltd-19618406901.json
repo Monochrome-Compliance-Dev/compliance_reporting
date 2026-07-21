@@ -1,0 +1,39 @@
+{
+  "slug": "austreo-commercial-ventures-pty-ltd-19618406901",
+  "businessName": "AUSTREO COMMERCIAL VENTURES PTY LTD",
+  "abn": "19618406901",
+  "acnArbn": "618406901",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006347",
+      "acnArbn": "618406901",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 38,
+      "payments31To60Days": 54,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-31",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 308,
+        "count": 339,
+        "percentile": 8.6
+      }
+    }
+  ]
+}

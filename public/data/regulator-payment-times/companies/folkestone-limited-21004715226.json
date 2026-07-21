@@ -1,0 +1,95 @@
+{
+  "slug": "folkestone-limited-21004715226",
+  "businessName": "FOLKESTONE LIMITED",
+  "abn": "21004715226",
+  "acnArbn": "004715226",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006929",
+      "acnArbn": "004715226",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-01-15",
+      "overallP95Position": {
+        "rank": 173,
+        "count": 2613,
+        "percentile": 92.9
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 66,
+        "percentile": 92.3
+      }
+    },
+    {
+      "reportId": "PTR20005174",
+      "acnArbn": "004715226",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 205,
+        "count": 2568,
+        "percentile": 91.3
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 61,
+        "percentile": 91.7
+      }
+    },
+    {
+      "reportId": "PTR20002089",
+      "acnArbn": "004715226",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 13,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 2498,
+        "percentile": 97.6
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 55,
+        "percentile": 98.1
+      }
+    }
+  ]
+}

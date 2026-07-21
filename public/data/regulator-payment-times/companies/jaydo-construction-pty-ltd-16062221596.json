@@ -1,0 +1,95 @@
+{
+  "slug": "jaydo-construction-pty-ltd-16062221596",
+  "businessName": "JAYDO CONSTRUCTION PTY LTD",
+  "abn": "16062221596",
+  "acnArbn": "062221596",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008164",
+      "acnArbn": "062221596",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.81,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 51.42,
+      "payments31To60Days": 43.24,
+      "paymentsMoreThan60Days": 5.34,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 270,
+        "percentile": 39.4
+      }
+    },
+    {
+      "reportId": "PTR20003876",
+      "acnArbn": "062221596",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.43,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 50.48,
+      "payments31To60Days": 45.82,
+      "paymentsMoreThan60Days": 3.7,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 123,
+        "count": 259,
+        "percentile": 50.4
+      }
+    },
+    {
+      "reportId": "PTR20001380",
+      "acnArbn": "062221596",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.81,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 49.46,
+      "payments31To60Days": 44.54,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 130,
+        "count": 250,
+        "percentile": 45
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "sungenia-development-pty-limited-32629790343",
+  "businessName": "SUNGENIA DEVELOPMENT PTY LIMITED",
+  "abn": "32629790343",
+  "acnArbn": "629790343",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007924",
+      "acnArbn": "629790343",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.02,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 88.36,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 2.64,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 270,
+        "percentile": 82.5
+      }
+    }
+  ]
+}

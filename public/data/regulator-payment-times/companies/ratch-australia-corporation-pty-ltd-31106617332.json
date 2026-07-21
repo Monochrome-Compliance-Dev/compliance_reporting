@@ -1,0 +1,95 @@
+{
+  "slug": "ratch-australia-corporation-pty-ltd-31106617332",
+  "businessName": "RATCH - AUSTRALIA CORPORATION PTY LTD",
+  "abn": "31106617332",
+  "acnArbn": "106617332",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009914",
+      "acnArbn": "106617332",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.59,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 73.49,
+      "payments31To60Days": 24.1,
+      "paymentsMoreThan60Days": 2.41,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 92,
+        "percentile": 31.9
+      }
+    },
+    {
+      "reportId": "PTR20005236",
+      "acnArbn": "106617332",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.09,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 86.94,
+      "payments31To60Days": 12.31,
+      "paymentsMoreThan60Days": 0.75,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 95,
+        "percentile": 57.4
+      }
+    },
+    {
+      "reportId": "PTR20001401",
+      "acnArbn": "106617332",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.93,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 89.01,
+      "payments31To60Days": 9.22,
+      "paymentsMoreThan60Days": 1.77,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 720,
+        "count": 2498,
+        "percentile": 70.2
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 99,
+        "percentile": 51
+      }
+    }
+  ]
+}

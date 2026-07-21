@@ -1,0 +1,67 @@
+{
+  "slug": "amentum-australia-proprietary-limited-12079749287",
+  "businessName": "AMENTUM AUSTRALIA PROPRIETARY LIMITED",
+  "abn": "12079749287",
+  "acnArbn": "079749287",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-10-03",
+  "reports": [
+    {
+      "reportId": "PTR20006752",
+      "acnArbn": "079749287",
+      "reportingPeriodStartDate": "2025-03-29",
+      "reportingPeriodEndDate": "2025-10-03",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.81,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 99.86,
+      "payments31To60Days": 0.14,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20001555",
+      "acnArbn": "079749287",
+      "reportingPeriodStartDate": "2024-09-28",
+      "reportingPeriodEndDate": "2025-03-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.46,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "australasian-performing-right-association-ltd-42000016099",
+  "businessName": "AUSTRALASIAN PERFORMING RIGHT ASSOCIATION LTD",
+  "abn": "42000016099",
+  "acnArbn": "000016099",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Creative and performing arts activities",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010172",
+      "acnArbn": "000016099",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.27,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 92.14,
+      "payments31To60Days": 5.45,
+      "paymentsMoreThan60Days": 2.41,
+      "industrySubdivision": "Creative and performing arts activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 34,
+        "percentile": 42.4
+      }
+    },
+    {
+      "reportId": "PTR20005162",
+      "acnArbn": "000016099",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.36,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 98.88,
+      "payments31To60Days": 0.93,
+      "paymentsMoreThan60Days": 0.19,
+      "industrySubdivision": "Creative and performing arts activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 156,
+        "count": 2568,
+        "percentile": 93.5
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 35,
+        "percentile": 94.1
+      }
+    }
+  ]
+}

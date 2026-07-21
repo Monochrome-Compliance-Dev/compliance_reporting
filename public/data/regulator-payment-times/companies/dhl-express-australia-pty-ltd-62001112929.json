@@ -1,0 +1,95 @@
+{
+  "slug": "dhl-express-australia-pty-ltd-62001112929",
+  "businessName": "DHL EXPRESS (AUSTRALIA) PTY LTD",
+  "abn": "62001112929",
+  "acnArbn": "001112929",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Postal and courier pick-up and delivery services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007470",
+      "acnArbn": "001112929",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.79,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 76.2,
+      "payments31To60Days": 10.1,
+      "paymentsMoreThan60Days": 13.7,
+      "industrySubdivision": "Postal and courier pick-up and delivery services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-09",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 109,
+        "count": 143,
+        "percentile": 21.8
+      }
+    },
+    {
+      "reportId": "PTR20003444",
+      "acnArbn": "001112929",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.89,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 73.4,
+      "payments31To60Days": 11.6,
+      "paymentsMoreThan60Days": 15.1,
+      "industrySubdivision": "Postal and courier pick-up and delivery services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2568,
+        "percentile": 22.6
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 144,
+        "percentile": 18.9
+      }
+    },
+    {
+      "reportId": "PTR20000136",
+      "acnArbn": "001112929",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.14,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 72.9,
+      "payments31To60Days": 10.9,
+      "paymentsMoreThan60Days": 16.3,
+      "industrySubdivision": "Postal and courier pick-up and delivery services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-05-22",
+      "overallP95Position": {
+        "rank": 1914,
+        "count": 2498,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 140,
+        "percentile": 20.9
+      }
+    }
+  ]
+}

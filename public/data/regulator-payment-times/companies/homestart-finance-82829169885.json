@@ -1,0 +1,39 @@
+{
+  "slug": "homestart-finance-82829169885",
+  "businessName": "HOMESTART FINANCE",
+  "abn": "82829169885",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009739",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.36,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 99.63,
+      "payments31To60Days": 0.37,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 51,
+        "count": 2613,
+        "percentile": 97.5
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 338,
+        "percentile": 92.3
+      }
+    }
+  ]
+}

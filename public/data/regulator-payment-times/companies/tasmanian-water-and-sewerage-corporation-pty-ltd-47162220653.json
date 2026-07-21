@@ -1,0 +1,95 @@
+{
+  "slug": "tasmanian-water-and-sewerage-corporation-pty-ltd-47162220653",
+  "businessName": "TASMANIAN WATER & SEWERAGE CORPORATION PTY LTD",
+  "abn": "47162220653",
+  "acnArbn": "162220653",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007523",
+      "acnArbn": "162220653",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.28,
+      "medianPaymentTimeDays": 7.44,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 97.52,
+      "payments31To60Days": 2.12,
+      "paymentsMoreThan60Days": 0.36,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-02-27",
+      "overallP95Position": {
+        "rank": 160,
+        "count": 2613,
+        "percentile": 93.5
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 92,
+        "percentile": 85.7
+      }
+    },
+    {
+      "reportId": "PTR20003309",
+      "acnArbn": "162220653",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 97,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-08-29",
+      "overallP95Position": {
+        "rank": 205,
+        "count": 2568,
+        "percentile": 91.3
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 95,
+        "percentile": 84
+      }
+    },
+    {
+      "reportId": "PTR20000479",
+      "acnArbn": "162220653",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.83,
+      "medianPaymentTimeDays": 13.62,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 97,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-16",
+      "overallP95Position": {
+        "rank": 174,
+        "count": 2498,
+        "percentile": 92.4
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 99,
+        "percentile": 87.8
+      }
+    }
+  ]
+}

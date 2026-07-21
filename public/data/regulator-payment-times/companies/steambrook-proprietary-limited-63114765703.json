@@ -1,0 +1,95 @@
+{
+  "slug": "steambrook-proprietary-limited-63114765703",
+  "businessName": "STEAMBROOK PROPRIETARY LIMITED",
+  "abn": "63114765703",
+  "acnArbn": "114765703",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007684",
+      "acnArbn": "114765703",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 82.77,
+      "payments31To60Days": 16.22,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 207,
+        "percentile": 68
+      }
+    },
+    {
+      "reportId": "PTR20005138",
+      "acnArbn": "114765703",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 58,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2342,
+        "count": 2568,
+        "percentile": 8.6
+      },
+      "industryP95Position": {
+        "rank": 194,
+        "count": 208,
+        "percentile": 6.3
+      }
+    },
+    {
+      "reportId": "PTR20000965",
+      "acnArbn": "114765703",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 59,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1980,
+        "count": 2498,
+        "percentile": 20
+      },
+      "industryP95Position": {
+        "rank": 161,
+        "count": 207,
+        "percentile": 20.9
+      }
+    }
+  ]
+}

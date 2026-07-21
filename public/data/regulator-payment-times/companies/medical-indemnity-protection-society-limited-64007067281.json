@@ -1,0 +1,95 @@
+{
+  "slug": "medical-indemnity-protection-society-limited-64007067281",
+  "businessName": "MEDICAL INDEMNITY PROTECTION SOCIETY LIMITED",
+  "abn": "64007067281",
+  "acnArbn": "007067281",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008224",
+      "acnArbn": "007067281",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 32,
+        "count": 2613,
+        "percentile": 98.7
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 338,
+        "percentile": 96.4
+      }
+    },
+    {
+      "reportId": "PTR20002712",
+      "acnArbn": "007067281",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 36,
+        "count": 2568,
+        "percentile": 98.4
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 349,
+        "percentile": 96.6
+      }
+    },
+    {
+      "reportId": "PTR20002382",
+      "acnArbn": "007067281",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-08",
+      "overallP95Position": {
+        "rank": 39,
+        "count": 2498,
+        "percentile": 98.2
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 339,
+        "percentile": 94.7
+      }
+    }
+  ]
+}

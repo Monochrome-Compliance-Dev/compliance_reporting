@@ -1,0 +1,95 @@
+{
+  "slug": "asics-oceania-pty-ltd-59003091389",
+  "businessName": "ASICS OCEANIA PTY LTD",
+  "abn": "59003091389",
+  "acnArbn": "003091389",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010780",
+      "acnArbn": "003091389",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.94,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 99,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 207,
+        "percentile": 90.3
+      }
+    },
+    {
+      "reportId": "PTR20010545",
+      "acnArbn": "003091389",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.96,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 99.53,
+      "payments31To60Days": 0.4,
+      "paymentsMoreThan60Days": 0.07,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-16",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 208,
+        "percentile": 92.3
+      }
+    },
+    {
+      "reportId": "PTR20010099",
+      "acnArbn": "003091389",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.02,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 99,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 207,
+        "percentile": 92.2
+      }
+    }
+  ]
+}

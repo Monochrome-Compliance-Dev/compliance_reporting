@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-07-21T04:00:35.724Z",
+  "sourceWorkbook": "15072026-Payment-Times-Reports-Register.xlsx",
+  "sourceWorksheet": "Standard report",
+  "sourceRowCount": 9183,
+  "candidateStandardReportCount": 9165,
+  "publishedReportCount": 8723,
+  "companyCount": 3206,
+  "excludedMissingAbnCount": 18,
+  "excludedNonStandardCount": 0,
+  "supersededReportCount": 442,
+  "outputs": {
+    "searchIndex": "public/data/regulator-payment-times/search-index.json",
+    "companyDirectory": "public/data/regulator-payment-times/companies",
+    "paymentTimesSitemap": "public/sitemap-payment-times.xml",
+    "importSummary": "public/data/regulator-payment-times/import-summary.json"
+  }
+}

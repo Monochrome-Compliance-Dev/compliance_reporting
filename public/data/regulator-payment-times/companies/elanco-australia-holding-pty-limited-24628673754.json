@@ -1,0 +1,95 @@
+{
+  "slug": "elanco-australia-holding-pty-limited-24628673754",
+  "businessName": "ELANCO AUSTRALIA HOLDING PTY LIMITED",
+  "abn": "24628673754",
+  "acnArbn": "628673754",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007729",
+      "acnArbn": "628673754",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.06,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 47.78,
+      "payments31To60Days": 39.71,
+      "paymentsMoreThan60Days": 12.51,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 329,
+        "percentile": 31.7
+      }
+    },
+    {
+      "reportId": "PTR20003390",
+      "acnArbn": "628673754",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.33,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 41.71,
+      "payments31To60Days": 50.17,
+      "paymentsMoreThan60Days": 8.11,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-04",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 323,
+        "percentile": 36
+      }
+    },
+    {
+      "reportId": "PTR20000841",
+      "acnArbn": "628673754",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.18,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 46.91,
+      "payments31To60Days": 33.78,
+      "paymentsMoreThan60Days": 19.31,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 206,
+        "count": 323,
+        "percentile": 35.4
+      }
+    }
+  ]
+}

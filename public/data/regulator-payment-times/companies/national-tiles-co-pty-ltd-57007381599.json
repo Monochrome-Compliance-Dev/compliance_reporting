@@ -1,0 +1,95 @@
+{
+  "slug": "national-tiles-co-pty-ltd-57007381599",
+  "businessName": "NATIONAL TILES CO PTY LTD",
+  "abn": "57007381599",
+  "acnArbn": "007381599",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011420",
+      "acnArbn": "007381599",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.7,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 31.88,
+      "payments31To60Days": 60.57,
+      "paymentsMoreThan60Days": 7.56,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-19",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 207,
+        "percentile": 24.8
+      }
+    },
+    {
+      "reportId": "PTR20003769",
+      "acnArbn": "007381599",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.47,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 30.18,
+      "payments31To60Days": 61.48,
+      "paymentsMoreThan60Days": 8.34,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 208,
+        "percentile": 26.6
+      }
+    },
+    {
+      "reportId": "PTR20000372",
+      "acnArbn": "007381599",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.04,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 35.28,
+      "payments31To60Days": 60.38,
+      "paymentsMoreThan60Days": 4.34,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 207,
+        "percentile": 37.4
+      }
+    }
+  ]
+}

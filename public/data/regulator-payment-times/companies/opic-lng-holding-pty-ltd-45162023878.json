@@ -1,0 +1,95 @@
+{
+  "slug": "opic-lng-holding-pty-ltd-45162023878",
+  "businessName": "OPIC LNG HOLDING PTY LTD.",
+  "abn": "45162023878",
+  "acnArbn": "162023878",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007410",
+      "acnArbn": "162023878",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.25,
+      "medianPaymentTimeDays": 3.5,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 16.67,
+      "paymentsMoreThan60Days": 8.33,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 2027,
+        "count": 2613,
+        "percentile": 21.9
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 177,
+        "percentile": 22.2
+      }
+    },
+    {
+      "reportId": "PTR20005803",
+      "acnArbn": "162023878",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.33,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 2568,
+        "percentile": 97.5
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 173,
+        "percentile": 96.5
+      }
+    },
+    {
+      "reportId": "PTR20011319",
+      "acnArbn": "162023878",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.4,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-06-11",
+      "overallP95Position": {
+        "rank": 68,
+        "count": 2498,
+        "percentile": 96.6
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 170,
+        "percentile": 97
+      }
+    }
+  ]
+}

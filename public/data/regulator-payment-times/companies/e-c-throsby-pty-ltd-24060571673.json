@@ -1,0 +1,95 @@
+{
+  "slug": "e-c-throsby-pty-ltd-24060571673",
+  "businessName": "E C THROSBY PTY LTD",
+  "abn": "24060571673",
+  "acnArbn": "060571673",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010503",
+      "acnArbn": "060571673",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.82,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 97.8,
+      "payments31To60Days": 1.8,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-13",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 347,
+        "percentile": 86.7
+      }
+    },
+    {
+      "reportId": "PTR20004586",
+      "acnArbn": "060571673",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.43,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 96.4,
+      "payments31To60Days": 2.7,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 335,
+        "percentile": 93.4
+      }
+    },
+    {
+      "reportId": "PTR20000142",
+      "acnArbn": "060571673",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.75,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 97.7,
+      "payments31To60Days": 1.8,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-05-23",
+      "overallP95Position": {
+        "rank": 674,
+        "count": 2498,
+        "percentile": 72.3
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 323,
+        "percentile": 91
+      }
+    }
+  ]
+}

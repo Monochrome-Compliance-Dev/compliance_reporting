@@ -1,0 +1,95 @@
+{
+  "slug": "wrightville-corporation-pty-ltd-34097843091",
+  "businessName": "WRIGHTVILLE CORPORATION PTY LTD",
+  "abn": "34097843091",
+  "acnArbn": "097843091",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007166",
+      "acnArbn": "097843091",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51.59,
+      "medianPaymentTimeDays": 39.5,
+      "p80PaymentTimeDays": 85,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 33.67,
+      "payments31To60Days": 35.95,
+      "paymentsMoreThan60Days": 30.34,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 2545,
+        "count": 2613,
+        "percentile": 2.3
+      },
+      "industryP95Position": {
+        "rank": 204,
+        "count": 207,
+        "percentile": 1.5
+      }
+    },
+    {
+      "reportId": "PTR20003155",
+      "acnArbn": "097843091",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.65,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 25.81,
+      "payments31To60Days": 71.66,
+      "paymentsMoreThan60Days": 2.53,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-08-20",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 208,
+        "percentile": 43.5
+      }
+    },
+    {
+      "reportId": "PTR20002379",
+      "acnArbn": "097843091",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 125.87,
+      "medianPaymentTimeDays": 83,
+      "p80PaymentTimeDays": 239,
+      "p95PaymentTimeDays": 296,
+      "payments30DaysOrLess": 12.77,
+      "payments31To60Days": 28.3,
+      "paymentsMoreThan60Days": 58.93,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-08",
+      "overallP95Position": {
+        "rank": 2492,
+        "count": 2498,
+        "percentile": 0.2
+      },
+      "industryP95Position": {
+        "rank": 207,
+        "count": 207,
+        "percentile": 0
+      }
+    }
+  ]
+}

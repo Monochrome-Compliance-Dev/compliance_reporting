@@ -1,0 +1,39 @@
+{
+  "slug": "paladin-energy-ltd-47061681098",
+  "businessName": "PALADIN ENERGY LTD",
+  "abn": "47061681098",
+  "acnArbn": "061681098",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010045",
+      "acnArbn": "061681098",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 577,
+        "count": 2613,
+        "percentile": 77
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 177,
+        "percentile": 71.6
+      }
+    }
+  ]
+}

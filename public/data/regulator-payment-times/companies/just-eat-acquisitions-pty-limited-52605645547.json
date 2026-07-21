@@ -1,0 +1,39 @@
+{
+  "slug": "just-eat-acquisitions-pty-limited-52605645547",
+  "businessName": "JUST EAT (ACQUISITIONS) PTY LIMITED",
+  "abn": "52605645547",
+  "acnArbn": "605645547",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Postal and courier pick-up and delivery services",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20001225",
+      "acnArbn": "605645547",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 0,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 0,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Postal and courier pick-up and delivery services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 2498,
+        "percentile": 99.9
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 140,
+        "percentile": 100
+      }
+    }
+  ]
+}

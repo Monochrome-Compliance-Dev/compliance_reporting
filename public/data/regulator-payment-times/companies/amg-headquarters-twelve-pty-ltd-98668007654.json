@@ -1,0 +1,95 @@
+{
+  "slug": "amg-headquarters-twelve-pty-ltd-98668007654",
+  "businessName": "AMG HEADQUARTERS TWELVE PTY LTD",
+  "abn": "98668007654",
+  "acnArbn": "668007654",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007031",
+      "acnArbn": "668007654",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 68,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-28",
+      "overallP95Position": {
+        "rank": 2265,
+        "count": 2613,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 184,
+        "count": 207,
+        "percentile": 10.2
+      }
+    },
+    {
+      "reportId": "PTR20003088",
+      "acnArbn": "668007654",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 71,
+      "p80PaymentTimeDays": 82,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 8,
+      "payments31To60Days": 66,
+      "paymentsMoreThan60Days": 26,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-08-12",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2568,
+        "percentile": 8.8
+      },
+      "industryP95Position": {
+        "rank": 191,
+        "count": 208,
+        "percentile": 7.2
+      }
+    },
+    {
+      "reportId": "PTR20000035",
+      "acnArbn": "668007654",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.6,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 84,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 23,
+      "payments31To60Days": 45,
+      "paymentsMoreThan60Days": 32,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-05-07",
+      "overallP95Position": {
+        "rank": 2322,
+        "count": 2498,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 207,
+        "percentile": 8.3
+      }
+    }
+  ]
+}

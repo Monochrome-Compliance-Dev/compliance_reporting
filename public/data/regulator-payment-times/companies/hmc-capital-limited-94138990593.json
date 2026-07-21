@@ -1,0 +1,67 @@
+{
+  "slug": "hmc-capital-limited-94138990593",
+  "businessName": "HMC CAPITAL LIMITED",
+  "abn": "94138990593",
+  "acnArbn": "138990593",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20006292",
+      "acnArbn": "138990593",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.07,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 61.11,
+      "payments31To60Days": 30.56,
+      "paymentsMoreThan60Days": 8.33,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 325,
+        "count": 349,
+        "percentile": 6.9
+      }
+    },
+    {
+      "reportId": "PTR20005866",
+      "acnArbn": "138990593",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.18,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 72.67,
+      "payments31To60Days": 22.36,
+      "paymentsMoreThan60Days": 4.97,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 251,
+        "count": 339,
+        "percentile": 24.9
+      }
+    }
+  ]
+}

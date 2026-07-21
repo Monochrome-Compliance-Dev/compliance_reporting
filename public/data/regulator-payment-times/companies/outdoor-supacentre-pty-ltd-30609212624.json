@@ -1,0 +1,95 @@
+{
+  "slug": "outdoor-supacentre-pty-ltd-30609212624",
+  "businessName": "OUTDOOR SUPACENTRE PTY LTD",
+  "abn": "30609212624",
+  "acnArbn": "609212624",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007219",
+      "acnArbn": "609212624",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.59,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 34.99,
+      "payments31To60Days": 36.49,
+      "paymentsMoreThan60Days": 28.52,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 207,
+        "percentile": 22.3
+      }
+    },
+    {
+      "reportId": "PTR20006525",
+      "acnArbn": "609212624",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.76,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 40.83,
+      "payments31To60Days": 37.97,
+      "paymentsMoreThan60Days": 21.2,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 154,
+        "count": 208,
+        "percentile": 24.2
+      }
+    },
+    {
+      "reportId": "PTR20000911",
+      "acnArbn": "609212624",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.32,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 47.37,
+      "payments31To60Days": 28.94,
+      "paymentsMoreThan60Days": 23.69,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 207,
+        "percentile": 27.2
+      }
+    }
+  ]
+}

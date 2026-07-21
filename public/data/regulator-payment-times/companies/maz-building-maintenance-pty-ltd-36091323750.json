@@ -1,0 +1,39 @@
+{
+  "slug": "maz-building-maintenance-pty-ltd-36091323750",
+  "businessName": "MAZ BUILDING MAINTENANCE PTY LTD",
+  "abn": "36091323750",
+  "acnArbn": "091323750",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011309",
+      "acnArbn": "091323750",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.23,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 36.53,
+      "payments31To60Days": 57.99,
+      "paymentsMoreThan60Days": 5.48,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-06-11",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 270,
+        "percentile": 39.4
+      }
+    }
+  ]
+}

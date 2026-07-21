@@ -1,0 +1,39 @@
+{
+  "slug": "construction-2-operation-group-pty-ltd-66651250592",
+  "businessName": "CONSTRUCTION 2 OPERATION GROUP PTY LTD",
+  "abn": "66651250592",
+  "acnArbn": "651250592",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007386",
+      "acnArbn": "651250592",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.04,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 81.2,
+      "payments31To60Days": 17.93,
+      "paymentsMoreThan60Days": 0.88,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 805,
+        "count": 2613,
+        "percentile": 67.8
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 270,
+        "percentile": 85.5
+      }
+    }
+  ]
+}

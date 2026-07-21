@@ -1,0 +1,95 @@
+{
+  "slug": "terex-australia-pty-ltd-86010671048",
+  "businessName": "TEREX AUSTRALIA PTY LTD",
+  "abn": "86010671048",
+  "acnArbn": "010671048",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007231",
+      "acnArbn": "010671048",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 76,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-16",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 347,
+        "percentile": 72.5
+      }
+    },
+    {
+      "reportId": "PTR20003067",
+      "acnArbn": "010671048",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 74,
+      "payments31To60Days": 23,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-08",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 79,
+        "count": 335,
+        "percentile": 74.9
+      }
+    },
+    {
+      "reportId": "PTR20000242",
+      "acnArbn": "010671048",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 77,
+      "payments31To60Days": 23,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 323,
+        "percentile": 78.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "casey-block-services-pty-ltd-19619574186",
+  "businessName": "CASEY BLOCK SERVICES PTY LTD",
+  "abn": "19619574186",
+  "acnArbn": "619574186",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010159",
+      "acnArbn": "619574186",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.22,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 99.5,
+      "payments31To60Days": 0.5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 338,
+        "percentile": 58.2
+      }
+    },
+    {
+      "reportId": "PTR20005839",
+      "acnArbn": "619574186",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.5,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 225,
+        "count": 2568,
+        "percentile": 89.6
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 349,
+        "percentile": 73.9
+      }
+    },
+    {
+      "reportId": "PTR20001683",
+      "acnArbn": "619574186",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.17,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 99.8,
+      "payments31To60Days": 0.2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 162,
+        "count": 2498,
+        "percentile": 93.1
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 339,
+        "percentile": 82.5
+      }
+    }
+  ]
+}

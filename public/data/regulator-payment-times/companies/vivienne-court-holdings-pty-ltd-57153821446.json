@@ -1,0 +1,95 @@
+{
+  "slug": "vivienne-court-holdings-pty-ltd-57153821446",
+  "businessName": "Vivienne Court Holdings Pty Ltd",
+  "abn": "57153821446",
+  "acnArbn": "153821446",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006970",
+      "acnArbn": "153821446",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.11,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98.04,
+      "payments31To60Days": 1.96,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-01-20",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 338,
+        "percentile": 58.2
+      }
+    },
+    {
+      "reportId": "PTR20006134",
+      "acnArbn": "153821446",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.46,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98.2,
+      "payments31To60Days": 1.8,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 349,
+        "percentile": 64.9
+      }
+    },
+    {
+      "reportId": "PTR20006133",
+      "acnArbn": "153821446",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 97.9,
+      "payments31To60Days": 2.1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 339,
+        "percentile": 63.9
+      }
+    }
+  ]
+}

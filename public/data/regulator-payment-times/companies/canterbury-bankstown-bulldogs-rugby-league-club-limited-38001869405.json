@@ -1,0 +1,67 @@
+{
+  "slug": "canterbury-bankstown-bulldogs-rugby-league-club-limited-38001869405",
+  "businessName": "CANTERBURY BANKSTOWN BULLDOGS RUGBY LEAGUE CLUB LIMITED",
+  "abn": "38001869405",
+  "acnArbn": "001869405",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20007072",
+      "acnArbn": "001869405",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 57.1,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 83,
+      "p95PaymentTimeDays": 131,
+      "payments30DaysOrLess": 26.66,
+      "payments31To60Days": 36.11,
+      "paymentsMoreThan60Days": 37.23,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-01-30",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 28,
+        "percentile": 3.7
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 6,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003071",
+      "acnArbn": "001869405",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.52,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 128,
+      "payments30DaysOrLess": 66.07,
+      "payments31To60Days": 13.96,
+      "paymentsMoreThan60Days": 19.97,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-08-08",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 28,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 6,
+        "percentile": 0
+      }
+    }
+  ]
+}

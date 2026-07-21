@@ -1,0 +1,95 @@
+{
+  "slug": "century-yuasa-batteries-pty-limited-66009685232",
+  "businessName": "CENTURY YUASA BATTERIES PTY. LIMITED",
+  "abn": "66009685232",
+  "acnArbn": "009685232",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011124",
+      "acnArbn": "009685232",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.42,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 60.29,
+      "payments31To60Days": 38.59,
+      "paymentsMoreThan60Days": 1.12,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-21",
+      "overallP95Position": {
+        "rank": 114,
+        "count": 193,
+        "percentile": 39.1
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 25,
+        "percentile": 70.8
+      }
+    },
+    {
+      "reportId": "PTR20006475",
+      "acnArbn": "009685232",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.18,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 53.97,
+      "payments31To60Days": 44.57,
+      "paymentsMoreThan60Days": 1.46,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-17",
+      "overallP95Position": {
+        "rank": 142,
+        "count": 228,
+        "percentile": 36.1
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 28,
+        "percentile": 74.1
+      }
+    },
+    {
+      "reportId": "PTR20006476",
+      "acnArbn": "009685232",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.27,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 61.03,
+      "payments31To60Days": 37.31,
+      "paymentsMoreThan60Days": 1.66,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-17",
+      "overallP95Position": {
+        "rank": 128,
+        "count": 231,
+        "percentile": 42.2
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 32,
+        "percentile": 67.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "neste-australia-pty-ltd-99636657488",
+  "businessName": "NESTE AUSTRALIA PTY LTD",
+  "abn": "99636657488",
+  "acnArbn": "636657488",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009921",
+      "acnArbn": "636657488",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.61,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 76.7,
+      "payments31To60Days": 21.3,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 102,
+        "percentile": 16.8
+      }
+    },
+    {
+      "reportId": "PTR20006876",
+      "acnArbn": "636657488",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.32,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 74.6,
+      "payments31To60Days": 23.7,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-01-02",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 92,
+        "percentile": 17.6
+      }
+    }
+  ]
+}

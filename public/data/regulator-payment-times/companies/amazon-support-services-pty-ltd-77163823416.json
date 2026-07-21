@@ -1,0 +1,95 @@
+{
+  "slug": "amazon-support-services-pty-ltd-77163823416",
+  "businessName": "AMAZON SUPPORT SERVICES PTY LTD",
+  "abn": "77163823416",
+  "acnArbn": "163823416",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Personal and other services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008047",
+      "acnArbn": "163823416",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.41,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 11.76,
+      "payments31To60Days": 88.24,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 25,
+        "percentile": 25
+      }
+    },
+    {
+      "reportId": "PTR20004265",
+      "acnArbn": "163823416",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 41.67,
+      "paymentsMoreThan60Days": 8.38,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 26,
+        "percentile": 24
+      }
+    },
+    {
+      "reportId": "PTR20011613",
+      "acnArbn": "163823416",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 21.43,
+      "payments31To60Days": 57.14,
+      "paymentsMoreThan60Days": 21.43,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 22,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

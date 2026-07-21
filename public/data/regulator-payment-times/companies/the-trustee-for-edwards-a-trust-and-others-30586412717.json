@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-edwards-a-trust-and-others-30586412717",
+  "businessName": "The Trustee for Edwards A Trust & Others",
+  "abn": "30586412717",
+  "acnArbn": "",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010153",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 131,
+        "count": 2613,
+        "percentile": 94.3
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 92,
+        "percentile": 87.9
+      }
+    },
+    {
+      "reportId": "PTR20003408",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 13,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-05",
+      "overallP95Position": {
+        "rank": 49,
+        "count": 2568,
+        "percentile": 98
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 95,
+        "percentile": 97.9
+      }
+    },
+    {
+      "reportId": "PTR20002909",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 99,
+        "percentile": 67.3
+      }
+    }
+  ]
+}

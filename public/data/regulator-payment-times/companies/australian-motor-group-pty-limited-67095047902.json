@@ -1,0 +1,95 @@
+{
+  "slug": "australian-motor-group-pty-limited-67095047902",
+  "businessName": "AUSTRALIAN MOTOR GROUP PTY LIMITED",
+  "abn": "67095047902",
+  "acnArbn": "095047902",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006979",
+      "acnArbn": "095047902",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 98.69,
+      "payments31To60Days": 1.31,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 66,
+        "percentile": 41.5
+      }
+    },
+    {
+      "reportId": "PTR20003090",
+      "acnArbn": "095047902",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.4,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 60.25,
+      "payments31To60Days": 39.45,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-08-12",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 61,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20000032",
+      "acnArbn": "095047902",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.87,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 57.21,
+      "payments31To60Days": 42.53,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-05-07",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 55,
+        "percentile": 42.6
+      }
+    }
+  ]
+}

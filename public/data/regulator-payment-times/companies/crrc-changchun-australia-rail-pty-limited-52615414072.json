@@ -1,0 +1,95 @@
+{
+  "slug": "crrc-changchun-australia-rail-pty-limited-52615414072",
+  "businessName": "CRRC CHANGCHUN AUSTRALIA RAIL PTY LIMITED",
+  "abn": "52615414072",
+  "acnArbn": "615414072",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011519",
+      "acnArbn": "615414072",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.93,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 77,
+      "p95PaymentTimeDays": 110,
+      "payments30DaysOrLess": 46.51,
+      "payments31To60Days": 20.93,
+      "paymentsMoreThan60Days": 32.56,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-23",
+      "overallP95Position": {
+        "rank": 2517,
+        "count": 2613,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 328,
+        "count": 347,
+        "percentile": 5.5
+      }
+    },
+    {
+      "reportId": "PTR20011522",
+      "acnArbn": "615414072",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.5,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 63.89,
+      "payments31To60Days": 30.56,
+      "paymentsMoreThan60Days": 5.56,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-23",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 335,
+        "percentile": 46.1
+      }
+    },
+    {
+      "reportId": "PTR20011514",
+      "acnArbn": "615414072",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 93.47,
+      "medianPaymentTimeDays": 66,
+      "p80PaymentTimeDays": 165,
+      "p95PaymentTimeDays": 240,
+      "payments30DaysOrLess": 26.67,
+      "payments31To60Days": 17.78,
+      "paymentsMoreThan60Days": 55.56,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-23",
+      "overallP95Position": {
+        "rank": 2488,
+        "count": 2498,
+        "percentile": 0.4
+      },
+      "industryP95Position": {
+        "rank": 323,
+        "count": 323,
+        "percentile": 0
+      }
+    }
+  ]
+}

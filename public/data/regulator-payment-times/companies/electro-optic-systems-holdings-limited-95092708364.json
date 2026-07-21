@@ -1,0 +1,67 @@
+{
+  "slug": "electro-optic-systems-holdings-limited-95092708364",
+  "businessName": "ELECTRO OPTIC SYSTEMS HOLDINGS LIMITED",
+  "abn": "95092708364",
+  "acnArbn": "092708364",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010325",
+      "acnArbn": "092708364",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 63.92,
+      "payments31To60Days": 32.08,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 347,
+        "percentile": 52.6
+      }
+    },
+    {
+      "reportId": "PTR20003783",
+      "acnArbn": "092708364",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 57.13,
+      "payments31To60Days": 37.8,
+      "paymentsMoreThan60Days": 5.08,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 335,
+        "percentile": 53.6
+      }
+    }
+  ]
+}

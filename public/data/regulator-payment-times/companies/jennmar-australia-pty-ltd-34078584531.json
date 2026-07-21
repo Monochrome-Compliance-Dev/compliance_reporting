@@ -1,0 +1,95 @@
+{
+  "slug": "jennmar-australia-pty-ltd-34078584531",
+  "businessName": "JENNMAR AUSTRALIA PTY LTD",
+  "abn": "34078584531",
+  "acnArbn": "078584531",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010822",
+      "acnArbn": "078584531",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.78,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 36.62,
+      "payments31To60Days": 51.29,
+      "paymentsMoreThan60Days": 12.09,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2613,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 241,
+        "count": 347,
+        "percentile": 30.1
+      }
+    },
+    {
+      "reportId": "PTR20004778",
+      "acnArbn": "078584531",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.12,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 35.61,
+      "payments31To60Days": 52.39,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2568,
+        "percentile": 22.6
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 335,
+        "percentile": 35.9
+      }
+    },
+    {
+      "reportId": "PTR20001037",
+      "acnArbn": "078584531",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.07,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 38.58,
+      "payments31To60Days": 51.16,
+      "paymentsMoreThan60Days": 10.26,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 174,
+        "count": 323,
+        "percentile": 44.7
+      }
+    }
+  ]
+}

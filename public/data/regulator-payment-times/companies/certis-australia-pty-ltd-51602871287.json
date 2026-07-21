@@ -1,0 +1,95 @@
+{
+  "slug": "certis-australia-pty-ltd-51602871287",
+  "businessName": "CERTIS AUSTRALIA PTY LTD",
+  "abn": "51602871287",
+  "acnArbn": "602871287",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Personal and other services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011068",
+      "acnArbn": "602871287",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 92.7,
+      "payments31To60Days": 3.8,
+      "paymentsMoreThan60Days": 3.5,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-05-15",
+      "overallP95Position": {
+        "rank": 70,
+        "count": 193,
+        "percentile": 62.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006941",
+      "acnArbn": "602871287",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 7.5,
+      "paymentsMoreThan60Days": 2.5,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-01-15",
+      "overallP95Position": {
+        "rank": 70,
+        "count": 228,
+        "percentile": 68.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002423",
+      "acnArbn": "602871287",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 75.78,
+      "payments31To60Days": 16.89,
+      "paymentsMoreThan60Days": 7.33,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-07-11",
+      "overallP95Position": {
+        "rank": 193,
+        "count": 231,
+        "percentile": 15.2
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 3,
+        "percentile": 50
+      }
+    }
+  ]
+}

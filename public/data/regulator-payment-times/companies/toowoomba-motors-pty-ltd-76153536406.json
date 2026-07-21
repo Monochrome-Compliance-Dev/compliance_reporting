@@ -1,0 +1,95 @@
+{
+  "slug": "toowoomba-motors-pty-ltd-76153536406",
+  "businessName": "Toowoomba Motors Pty Ltd",
+  "abn": "76153536406",
+  "acnArbn": "153536406",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007895",
+      "acnArbn": "153536406",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.98,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 29.44,
+      "payments31To60Days": 70.35,
+      "paymentsMoreThan60Days": 0.16,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 207,
+        "percentile": 48.5
+      }
+    },
+    {
+      "reportId": "PTR20003937",
+      "acnArbn": "153536406",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.67,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 27.75,
+      "payments31To60Days": 71.79,
+      "paymentsMoreThan60Days": 0.42,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-19",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 208,
+        "percentile": 49.3
+      }
+    },
+    {
+      "reportId": "PTR20011053",
+      "acnArbn": "153536406",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.06,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 30.18,
+      "payments31To60Days": 69.71,
+      "paymentsMoreThan60Days": 0.11,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-05-14",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 207,
+        "percentile": 60.7
+      }
+    }
+  ]
+}

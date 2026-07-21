@@ -1,0 +1,95 @@
+{
+  "slug": "chartered-accountants-australia-and-new-zealand-50084642571",
+  "businessName": "CHARTERED ACCOUNTANTS AUSTRALIA AND NEW ZEALAND",
+  "abn": "50084642571",
+  "acnArbn": "084642571",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Personal and other services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009619",
+      "acnArbn": "084642571",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.44,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 88.41,
+      "payments31To60Days": 7.92,
+      "paymentsMoreThan60Days": 3.67,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2135,
+        "count": 2613,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 25,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003150",
+      "acnArbn": "084642571",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.04,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 88.03,
+      "payments31To60Days": 9.17,
+      "paymentsMoreThan60Days": 2.8,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-08-20",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 26,
+        "percentile": 72
+      }
+    },
+    {
+      "reportId": "PTR20001284",
+      "acnArbn": "084642571",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.02,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 89.71,
+      "payments31To60Days": 6.76,
+      "paymentsMoreThan60Days": 3.53,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2269,
+        "count": 2498,
+        "percentile": 8.7
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 22,
+        "percentile": 4.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "bapcor-limited-80153199912",
+  "businessName": "BAPCOR LIMITED",
+  "abn": "80153199912",
+  "acnArbn": "153199912",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20002846",
+      "acnArbn": "153199912",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 56.89,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 78,
+      "p95PaymentTimeDays": 108,
+      "payments30DaysOrLess": 15.77,
+      "payments31To60Days": 44.81,
+      "paymentsMoreThan60Days": 39.42,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 2383,
+        "count": 2498,
+        "percentile": 4.5
+      },
+      "industryP95Position": {
+        "rank": 196,
+        "count": 207,
+        "percentile": 5.3
+      }
+    }
+  ]
+}

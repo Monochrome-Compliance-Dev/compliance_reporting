@@ -1,0 +1,95 @@
+{
+  "slug": "queensland-alumina-limited-98009725044",
+  "businessName": "QUEENSLAND ALUMINA LIMITED",
+  "abn": "98009725044",
+  "acnArbn": "009725044",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007842",
+      "acnArbn": "009725044",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.52,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.61,
+      "payments31To60Days": 4.18,
+      "paymentsMoreThan60Days": 1.21,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 347,
+        "percentile": 94.5
+      }
+    },
+    {
+      "reportId": "PTR20003562",
+      "acnArbn": "009725044",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.89,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 92.39,
+      "payments31To60Days": 6.16,
+      "paymentsMoreThan60Days": 1.45,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 519,
+        "count": 2568,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 335,
+        "percentile": 94.3
+      }
+    },
+    {
+      "reportId": "PTR20001098",
+      "acnArbn": "009725044",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.2,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 88.44,
+      "payments31To60Days": 9.92,
+      "paymentsMoreThan60Days": 1.64,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 323,
+        "percentile": 92.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "ifm-real-estate-fiduciary-pty-ltd-28064041283",
+  "businessName": "IFM REAL ESTATE FIDUCIARY PTY LTD",
+  "abn": "28064041283",
+  "acnArbn": "064041283",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010054",
+      "acnArbn": "064041283",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 89,
+      "medianPaymentTimeDays": 89,
+      "p80PaymentTimeDays": 94,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 100,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2469,
+        "count": 2613,
+        "percentile": 5.3
+      },
+      "industryP95Position": {
+        "rank": 334,
+        "count": 338,
+        "percentile": 0.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "peoplecare-health-limited-95087648753",
+  "businessName": "PEOPLECARE HEALTH LIMITED",
+  "abn": "95087648753",
+  "acnArbn": "087648753",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008265",
+      "acnArbn": "087648753",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.28,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 91.67,
+      "payments31To60Days": 6.67,
+      "paymentsMoreThan60Days": 1.66,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 672,
+        "count": 2613,
+        "percentile": 73.2
+      },
+      "industryP95Position": {
+        "rank": 191,
+        "count": 338,
+        "percentile": 43
+      }
+    },
+    {
+      "reportId": "PTR20004650",
+      "acnArbn": "087648753",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.44,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 87.82,
+      "payments31To60Days": 7.13,
+      "paymentsMoreThan60Days": 5.06,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 290,
+        "count": 349,
+        "percentile": 15.5
+      }
+    },
+    {
+      "reportId": "PTR20000813",
+      "acnArbn": "087648753",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.9,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 88.8,
+      "payments31To60Days": 9.5,
+      "paymentsMoreThan60Days": 1.6,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 693,
+        "count": 2498,
+        "percentile": 71.2
+      },
+      "industryP95Position": {
+        "rank": 185,
+        "count": 339,
+        "percentile": 44.7
+      }
+    }
+  ]
+}

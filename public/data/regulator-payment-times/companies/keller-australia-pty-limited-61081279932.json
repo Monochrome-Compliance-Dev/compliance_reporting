@@ -1,0 +1,95 @@
+{
+  "slug": "keller-australia-pty-limited-61081279932",
+  "businessName": "KELLER AUSTRALIA PTY LIMITED",
+  "abn": "61081279932",
+  "acnArbn": "081279932",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010294",
+      "acnArbn": "081279932",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.88,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 42.84,
+      "payments31To60Days": 50.37,
+      "paymentsMoreThan60Days": 6.79,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 192,
+        "count": 270,
+        "percentile": 27.5
+      }
+    },
+    {
+      "reportId": "PTR20004529",
+      "acnArbn": "081279932",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.31,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 43.06,
+      "payments31To60Days": 50.31,
+      "paymentsMoreThan60Days": 6.63,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 259,
+        "percentile": 34.1
+      }
+    },
+    {
+      "reportId": "PTR20002747",
+      "acnArbn": "081279932",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.76,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 41.6,
+      "payments31To60Days": 53.27,
+      "paymentsMoreThan60Days": 5.13,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 130,
+        "count": 250,
+        "percentile": 45
+      }
+    }
+  ]
+}

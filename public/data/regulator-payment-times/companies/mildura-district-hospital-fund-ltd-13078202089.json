@@ -1,0 +1,95 @@
+{
+  "slug": "mildura-district-hospital-fund-ltd-13078202089",
+  "businessName": "MILDURA DISTRICT HOSPITAL FUND LTD.",
+  "abn": "13078202089",
+  "acnArbn": "078202089",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008887",
+      "acnArbn": "078202089",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.22,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 60.34,
+      "payments31To60Days": 39.15,
+      "paymentsMoreThan60Days": 0.51,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 274,
+        "count": 338,
+        "percentile": 18.1
+      }
+    },
+    {
+      "reportId": "PTR20006128",
+      "acnArbn": "078202089",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.26,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 53.38,
+      "payments31To60Days": 46.43,
+      "paymentsMoreThan60Days": 0.19,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 349,
+        "percentile": 22.1
+      }
+    },
+    {
+      "reportId": "PTR20001402",
+      "acnArbn": "078202089",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.6,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 50.46,
+      "payments31To60Days": 47.15,
+      "paymentsMoreThan60Days": 2.38,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 339,
+        "percentile": 19.5
+      }
+    }
+  ]
+}

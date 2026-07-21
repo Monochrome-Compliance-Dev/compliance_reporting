@@ -1,0 +1,95 @@
+{
+  "slug": "knorr-bremse-australia-pty-limited-31092562671",
+  "businessName": "KNORR-BREMSE AUSTRALIA PTY LIMITED",
+  "abn": "31092562671",
+  "acnArbn": "092562671",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009182",
+      "acnArbn": "092562671",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 69,
+      "medianPaymentTimeDays": 67,
+      "p80PaymentTimeDays": 91,
+      "p95PaymentTimeDays": 126,
+      "payments30DaysOrLess": 8.58,
+      "payments31To60Days": 25.25,
+      "paymentsMoreThan60Days": 66.17,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2565,
+        "count": 2613,
+        "percentile": 1.6
+      },
+      "industryP95Position": {
+        "rank": 340,
+        "count": 347,
+        "percentile": 1.4
+      }
+    },
+    {
+      "reportId": "PTR20003785",
+      "acnArbn": "092562671",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 64.8,
+      "medianPaymentTimeDays": 63,
+      "p80PaymentTimeDays": 88,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 15.4,
+      "payments31To60Days": 34.8,
+      "paymentsMoreThan60Days": 49.8,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 2399,
+        "count": 2568,
+        "percentile": 6.3
+      },
+      "industryP95Position": {
+        "rank": 311,
+        "count": 335,
+        "percentile": 6.9
+      }
+    },
+    {
+      "reportId": "PTR20001227",
+      "acnArbn": "092562671",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 66,
+      "medianPaymentTimeDays": 64,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 102,
+      "payments30DaysOrLess": 10,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 58,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2363,
+        "count": 2498,
+        "percentile": 5.3
+      },
+      "industryP95Position": {
+        "rank": 302,
+        "count": 323,
+        "percentile": 6.2
+      }
+    }
+  ]
+}

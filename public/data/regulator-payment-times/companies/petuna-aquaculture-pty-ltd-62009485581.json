@@ -1,0 +1,67 @@
+{
+  "slug": "petuna-aquaculture-pty-ltd-62009485581",
+  "businessName": "PETUNA AQUACULTURE PTY LTD",
+  "abn": "62009485581",
+  "acnArbn": "009485581",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Aquaculture",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011640",
+      "acnArbn": "009485581",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 40,
+      "payments31To60Days": 56,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Aquaculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 124,
+        "count": 193,
+        "percentile": 33.9
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 8,
+        "percentile": 28.6
+      }
+    },
+    {
+      "reportId": "PTR20006824",
+      "acnArbn": "009485581",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 36,
+      "payments31To60Days": 62,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Aquaculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-12-23",
+      "overallP95Position": {
+        "rank": 186,
+        "count": 228,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 10,
+        "percentile": 11.1
+      }
+    }
+  ]
+}

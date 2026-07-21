@@ -1,0 +1,95 @@
+{
+  "slug": "acciona-infrastructure-asia-pacific-pty-ltd-19609210139",
+  "businessName": "ACCIONA INFRASTRUCTURE ASIA PACIFIC PTY LTD",
+  "abn": "19609210139",
+  "acnArbn": "609210139",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009940",
+      "acnArbn": "609210139",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.33,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 70.38,
+      "payments31To60Days": 24.34,
+      "paymentsMoreThan60Days": 5.28,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 270,
+        "percentile": 36.4
+      }
+    },
+    {
+      "reportId": "PTR20004531",
+      "acnArbn": "609210139",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.22,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 60.42,
+      "payments31To60Days": 31.95,
+      "paymentsMoreThan60Days": 7.63,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1855,
+        "count": 2568,
+        "percentile": 26.7
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 259,
+        "percentile": 29.8
+      }
+    },
+    {
+      "reportId": "PTR20002031",
+      "acnArbn": "609210139",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.9,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 62.75,
+      "payments31To60Days": 30.67,
+      "paymentsMoreThan60Days": 6.58,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 250,
+        "percentile": 31.3
+      }
+    }
+  ]
+}

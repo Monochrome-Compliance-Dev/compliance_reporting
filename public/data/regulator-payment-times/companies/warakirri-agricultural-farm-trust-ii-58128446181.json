@@ -1,0 +1,39 @@
+{
+  "slug": "warakirri-agricultural-farm-trust-ii-58128446181",
+  "businessName": "WARAKIRRI AGRICULTURAL FARM TRUST II",
+  "abn": "58128446181",
+  "acnArbn": "",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010146",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.12,
+      "payments31To60Days": 5.69,
+      "paymentsMoreThan60Days": 0.19,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 102,
+        "percentile": 84.2
+      }
+    }
+  ]
+}

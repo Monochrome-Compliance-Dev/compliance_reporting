@@ -1,0 +1,95 @@
+{
+  "slug": "mh-premium-farms-holdings-pty-ltd-34125875112",
+  "businessName": "MH PREMIUM FARMS HOLDINGS PTY LTD",
+  "abn": "34125875112",
+  "acnArbn": "125875112",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture, forestry and fishing support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007610",
+      "acnArbn": "125875112",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 18.8,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 102,
+        "percentile": 37.6
+      }
+    },
+    {
+      "reportId": "PTR20003538",
+      "acnArbn": "125875112",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.87,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 80.76,
+      "payments31To60Days": 18.46,
+      "paymentsMoreThan60Days": 0.78,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 92,
+        "percentile": 59.3
+      }
+    },
+    {
+      "reportId": "PTR20003539",
+      "acnArbn": "125875112",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.3,
+      "medianPaymentTimeDays": 20.8,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 71.38,
+      "payments31To60Days": 26.94,
+      "paymentsMoreThan60Days": 1.68,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 85,
+        "percentile": 27.4
+      }
+    }
+  ]
+}
