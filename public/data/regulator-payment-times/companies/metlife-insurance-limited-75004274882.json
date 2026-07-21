@@ -5,13 +5,13 @@
   "acnArbn": "004274882",
   "industryDivision": "Financial and Insurance Services",
   "industrySubdivision": "Insurance and superannuation funds",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008009",
       "acnArbn": "004274882",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.46,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 5.68,
       "industrySubdivision": "Insurance and superannuation funds",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2026-03-16",
+      "submittedDate": "2026-03-17",
       "overallP95Position": {
         "rank": 2394,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003972",
       "acnArbn": "004274882",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 50.73,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 6,
       "industrySubdivision": "Insurance and superannuation funds",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-09-18",
+      "submittedDate": "2025-09-19",
       "overallP95Position": {
         "rank": 1543,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000281",
       "acnArbn": "004274882",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.05,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 9,
       "industrySubdivision": "Insurance and superannuation funds",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-06-04",
+      "submittedDate": "2025-06-05",
       "overallP95Position": {
         "rank": 2418,
         "count": 2498,

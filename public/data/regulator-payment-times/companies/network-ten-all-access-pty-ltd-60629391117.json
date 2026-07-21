@@ -5,13 +5,13 @@
   "acnArbn": "629391117",
   "industryDivision": "Information Media and Telecommunications",
   "industrySubdivision": "Broadcasting (except internet)",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20009362",
       "acnArbn": "629391117",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 42,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 14,
       "industrySubdivision": "Broadcasting (except internet)",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-03-26",
+      "submittedDate": "2026-03-27",
       "overallP95Position": {
         "rank": 2499,
         "count": 2613,

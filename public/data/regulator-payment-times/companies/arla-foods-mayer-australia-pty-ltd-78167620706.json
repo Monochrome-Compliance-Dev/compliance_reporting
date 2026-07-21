@@ -5,13 +5,13 @@
   "acnArbn": "167620706",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20009435",
       "acnArbn": "167620706",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30.27,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.98,
       "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-03-26",
+      "submittedDate": "2026-03-27",
       "overallP95Position": {
         "rank": 950,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20005613",
       "acnArbn": "167620706",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.17,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 16.67,
       "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-09-29",
+      "submittedDate": "2025-09-30",
       "overallP95Position": {
         "rank": 2096,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001997",
       "acnArbn": "167620706",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 67.79,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 9.97,
       "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-06-29",
+      "submittedDate": "2025-06-30",
       "overallP95Position": {
         "rank": 2071,
         "count": 2498,

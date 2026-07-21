@@ -5,13 +5,13 @@
   "acnArbn": "135701610",
   "industryDivision": "Construction",
   "industrySubdivision": "Construction services",
-  "latestReportingPeriodEndDate": "2024-12-30",
+  "latestReportingPeriodEndDate": "2024-12-31",
   "reports": [
     {
       "reportId": "PTR20000082",
       "acnArbn": "135701610",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 36.05,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.3,
       "industrySubdivision": "Construction services",
       "industryDivision": "Construction",
-      "submittedDate": "2025-05-14",
+      "submittedDate": "2025-05-15",
       "overallP95Position": {
         "rank": 1123,
         "count": 2498,

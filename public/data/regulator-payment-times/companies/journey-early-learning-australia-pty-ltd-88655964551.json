@@ -5,13 +5,13 @@
   "acnArbn": "655964551",
   "industryDivision": "Education and Training",
   "industrySubdivision": "Preschool and school education",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007167",
       "acnArbn": "655964551",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 17.55,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.15,
       "industrySubdivision": "Preschool and school education",
       "industryDivision": "Education and Training",
-      "submittedDate": "2026-02-10",
+      "submittedDate": "2026-02-11",
       "overallP95Position": {
         "rank": 577,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20005328",
       "acnArbn": "655964551",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 16.6,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.51,
       "industrySubdivision": "Preschool and school education",
       "industryDivision": "Education and Training",
-      "submittedDate": "2025-09-29",
+      "submittedDate": "2025-09-30",
       "overallP95Position": {
         "rank": 583,
         "count": 2568,

@@ -5,13 +5,13 @@
   "acnArbn": "000329699",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Basic metal wholesaling",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007673",
       "acnArbn": "000329699",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.53,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 9,
       "industrySubdivision": "Basic metal wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-03-12",
+      "submittedDate": "2026-03-13",
       "overallP95Position": {
         "rank": 2043,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003573",
       "acnArbn": "000329699",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 21.05,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Basic metal wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-09-10",
+      "submittedDate": "2025-09-11",
       "overallP95Position": {
         "rank": 893,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000780",
       "acnArbn": "000329699",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 17.75,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Basic metal wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-06-22",
+      "submittedDate": "2025-06-23",
       "overallP95Position": {
         "rank": 652,
         "count": 2498,

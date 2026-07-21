@@ -5,13 +5,13 @@
   "acnArbn": "000143733",
   "industryDivision": "Administrative and Support Services",
   "industrySubdivision": "Building cleaning, pest control and other support services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20009714",
       "acnArbn": "000143733",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 37,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 13.82,
       "industrySubdivision": "Building cleaning, pest control and other support services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2026-03-29",
+      "submittedDate": "2026-03-30",
       "overallP95Position": {
         "rank": 2094,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006681",
       "acnArbn": "000143733",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 38.82,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 11.66,
       "industrySubdivision": "Building cleaning, pest control and other support services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-12-11",
+      "submittedDate": "2025-12-12",
       "overallP95Position": {
         "rank": 2096,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000134",
       "acnArbn": "000143733",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 36.82,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 10.28,
       "industrySubdivision": "Building cleaning, pest control and other support services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-05-21",
+      "submittedDate": "2025-05-22",
       "overallP95Position": {
         "rank": 1851,
         "count": 2498,

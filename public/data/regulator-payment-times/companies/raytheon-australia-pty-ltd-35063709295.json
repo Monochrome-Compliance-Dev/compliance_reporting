@@ -5,13 +5,13 @@
   "acnArbn": "063709295",
   "industryDivision": "Public Administration and Safety",
   "industrySubdivision": "Defence",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20009814",
       "acnArbn": "063709295",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 25.2,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 1.5,
       "industrySubdivision": "Defence",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2026-03-29",
+      "submittedDate": "2026-03-30",
       "overallP95Position": {
         "rank": 603,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003653",
       "acnArbn": "063709295",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.4,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 2.8,
       "industrySubdivision": "Defence",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2025-09-11",
+      "submittedDate": "2025-09-12",
       "overallP95Position": {
         "rank": 944,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20007547",
       "acnArbn": "063709295",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 26.7,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 1.9,
       "industrySubdivision": "Defence",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2026-03-01",
+      "submittedDate": "2026-03-02",
       "overallP95Position": {
         "rank": 615,
         "count": 2498,

@@ -5,13 +5,13 @@
   "acnArbn": "",
   "industryDivision": "Health Care and Social Assistance",
   "industrySubdivision": "Residential care services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007765",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 1.01,
       "industrySubdivision": "Residential care services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2026-03-09",
+      "submittedDate": "2026-03-10",
       "overallP95Position": {
         "rank": 346,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003465",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 1.46,
       "industrySubdivision": "Residential care services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2025-09-08",
+      "submittedDate": "2025-09-09",
       "overallP95Position": {
         "rank": 583,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000380",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 1.35,
       "industrySubdivision": "Residential care services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2025-06-11",
+      "submittedDate": "2025-06-12",
       "overallP95Position": {
         "rank": 533,
         "count": 2498,

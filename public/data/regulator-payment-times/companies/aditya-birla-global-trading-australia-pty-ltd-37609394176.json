@@ -5,13 +5,13 @@
   "acnArbn": "609394176",
   "industryDivision": "Agriculture, Forestry and Fishing",
   "industrySubdivision": "Agriculture, forestry and fishing support services",
-  "latestReportingPeriodEndDate": "2026-03-30",
+  "latestReportingPeriodEndDate": "2026-03-31",
   "reports": [
     {
       "reportId": "PTR20011411",
       "acnArbn": "609394176",
-      "reportingPeriodStartDate": "2025-09-30",
-      "reportingPeriodEndDate": "2026-03-30",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 12.86,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Agriculture, forestry and fishing support services",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2026-06-18",
+      "submittedDate": "2026-06-19",
       "overallP95Position": {
         "rank": 38,
         "count": 193,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006597",
       "acnArbn": "609394176",
-      "reportingPeriodStartDate": "2025-03-31",
-      "reportingPeriodEndDate": "2025-09-29",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 39.45,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 9.09,
       "industrySubdivision": "Agriculture, forestry and fishing support services",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-11-30",
+      "submittedDate": "2025-12-01",
       "overallP95Position": {
         "rank": 221,
         "count": 228,

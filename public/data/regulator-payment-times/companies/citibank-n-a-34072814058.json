@@ -5,13 +5,13 @@
   "acnArbn": "072814058",
   "industryDivision": "Financial and Insurance Services",
   "industrySubdivision": "Finance",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007621",
       "acnArbn": "072814058",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 9.83,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.67,
       "industrySubdivision": "Finance",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2026-03-04",
+      "submittedDate": "2026-03-05",
       "overallP95Position": {
         "rank": 346,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003851",
       "acnArbn": "072814058",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 8.2,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Finance",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-09-17",
+      "submittedDate": "2025-09-18",
       "overallP95Position": {
         "rank": 225,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000628",
       "acnArbn": "072814058",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 7.02,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Finance",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-06-18",
+      "submittedDate": "2025-06-19",
       "overallP95Position": {
         "rank": 234,
         "count": 2498,

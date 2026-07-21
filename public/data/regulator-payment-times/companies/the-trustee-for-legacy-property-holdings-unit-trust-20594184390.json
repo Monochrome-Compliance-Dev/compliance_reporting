@@ -5,13 +5,13 @@
   "acnArbn": "",
   "industryDivision": "Rental, Hiring and Real Estate Services",
   "industrySubdivision": "Property operators and real estate services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008641",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.5,
       "industrySubdivision": "Property operators and real estate services",
       "industryDivision": "Rental, Hiring and Real Estate Services",
-      "submittedDate": "2026-03-22",
+      "submittedDate": "2026-03-23",
       "overallP95Position": {
         "rank": 1648,
         "count": 2613,

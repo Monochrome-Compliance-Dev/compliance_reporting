@@ -5,13 +5,13 @@
   "acnArbn": "001085561",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Non-metallic mineral product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007238",
       "acnArbn": "001085561",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 45.96,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 23.6,
       "industrySubdivision": "Non-metallic mineral product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-02-16",
+      "submittedDate": "2026-02-17",
       "overallP95Position": {
         "rank": 2190,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20002655",
       "acnArbn": "001085561",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 55.63,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 38.6,
       "industrySubdivision": "Non-metallic mineral product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-07-22",
+      "submittedDate": "2025-07-23",
       "overallP95Position": {
         "rank": 2081,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002651",
       "acnArbn": "001085561",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 57.56,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 39.9,
       "industrySubdivision": "Non-metallic mineral product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-07-22",
+      "submittedDate": "2025-07-23",
       "overallP95Position": {
         "rank": 2026,
         "count": 2498,

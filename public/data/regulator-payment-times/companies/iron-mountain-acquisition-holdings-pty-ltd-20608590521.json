@@ -5,13 +5,13 @@
   "acnArbn": "608590521",
   "industryDivision": "Information Media and Telecommunications",
   "industrySubdivision": "Library and other information services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20009157",
       "acnArbn": "608590521",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.7,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 5.83,
       "industrySubdivision": "Library and other information services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-03-26",
+      "submittedDate": "2026-03-27",
       "overallP95Position": {
         "rank": 1794,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20011222",
       "acnArbn": "608590521",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.26,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 11.3,
       "industrySubdivision": "Library and other information services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-05-28",
+      "submittedDate": "2026-05-29",
       "overallP95Position": {
         "rank": 2500,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002703",
       "acnArbn": "608590521",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.17,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 12.92,
       "industrySubdivision": "Library and other information services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-07-23",
+      "submittedDate": "2025-07-24",
       "overallP95Position": {
         "rank": 1937,
         "count": 2498,

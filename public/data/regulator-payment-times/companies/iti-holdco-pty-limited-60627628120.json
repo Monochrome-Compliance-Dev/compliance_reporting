@@ -5,13 +5,13 @@
   "acnArbn": "627628120",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Other goods wholesaling",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20003747",
       "acnArbn": "627628120",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 39.68,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 4,
       "industrySubdivision": "Other goods wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-09-15",
+      "submittedDate": "2025-09-16",
       "overallP95Position": {
         "rank": 1902,
         "count": 2568,

@@ -5,13 +5,13 @@
   "acnArbn": "089200448",
   "industryDivision": "Construction",
   "industrySubdivision": "Building construction",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20011481",
       "acnArbn": "089200448",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 10.54,
       "industrySubdivision": "Building construction",
       "industryDivision": "Construction",
-      "submittedDate": "2026-06-21",
+      "submittedDate": "2026-06-22",
       "overallP95Position": {
         "rank": 2057,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003740",
       "acnArbn": "089200448",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 8.74,
       "industrySubdivision": "Building construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-09-15",
+      "submittedDate": "2025-09-16",
       "overallP95Position": {
         "rank": 1855,
         "count": 2568,

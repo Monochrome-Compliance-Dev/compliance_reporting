@@ -5,13 +5,13 @@
   "acnArbn": "126824397",
   "industryDivision": "Construction",
   "industrySubdivision": "Heavy and civil engineering construction",
-  "latestReportingPeriodEndDate": "2026-02-27",
+  "latestReportingPeriodEndDate": "2026-02-28",
   "reports": [
     {
       "reportId": "PTR20011178",
       "acnArbn": "126824397",
-      "reportingPeriodStartDate": "2025-08-31",
-      "reportingPeriodEndDate": "2026-02-27",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 61,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 47.07,
       "industrySubdivision": "Heavy and civil engineering construction",
       "industryDivision": "Construction",
-      "submittedDate": "2026-05-26",
+      "submittedDate": "2026-05-27",
       "overallP95Position": {
         "rank": 23,
         "count": 24,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006635",
       "acnArbn": "126824397",
-      "reportingPeriodStartDate": "2025-02-28",
-      "reportingPeriodEndDate": "2025-08-30",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 64,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 39.6,
       "industrySubdivision": "Heavy and civil engineering construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-12-04",
+      "submittedDate": "2025-12-05",
       "overallP95Position": {
         "rank": 22,
         "count": 25,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20006629",
       "acnArbn": "126824397",
-      "reportingPeriodStartDate": "2024-08-31",
-      "reportingPeriodEndDate": "2025-02-27",
+      "reportingPeriodStartDate": "2024-09-01",
+      "reportingPeriodEndDate": "2025-02-28",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 70,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 44.6,
       "industrySubdivision": "Heavy and civil engineering construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-12-04",
+      "submittedDate": "2025-12-05",
       "overallP95Position": {
         "rank": 21,
         "count": 22,

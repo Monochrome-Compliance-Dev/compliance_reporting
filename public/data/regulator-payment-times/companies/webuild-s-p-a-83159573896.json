@@ -5,13 +5,13 @@
   "acnArbn": "159573896",
   "industryDivision": "Construction",
   "industrySubdivision": "Construction services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010794",
       "acnArbn": "159573896",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 39.59,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 13.69,
       "industrySubdivision": "Construction services",
       "industryDivision": "Construction",
-      "submittedDate": "2026-04-29",
+      "submittedDate": "2026-04-30",
       "overallP95Position": {
         "rank": 2265,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20005917",
       "acnArbn": "159573896",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 47.84,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 17.45,
       "industrySubdivision": "Construction services",
       "industryDivision": "Construction",
-      "submittedDate": "2025-09-30",
+      "submittedDate": "2025-10-01",
       "overallP95Position": {
         "rank": 2457,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002328",
       "acnArbn": "159573896",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 37.3,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 6.8,
       "industrySubdivision": "Construction services",
       "industryDivision": "Construction",
-      "submittedDate": "2025-07-02",
+      "submittedDate": "2025-07-03",
       "overallP95Position": {
         "rank": 2356,
         "count": 2498,

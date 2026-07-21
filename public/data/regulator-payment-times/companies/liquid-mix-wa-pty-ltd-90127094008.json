@@ -5,13 +5,13 @@
   "acnArbn": "127094008",
   "industryDivision": "Transport, Postal and Warehousing",
   "industrySubdivision": "Warehousing and storage services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008180",
       "acnArbn": "127094008",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33.86,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Warehousing and storage services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2026-03-16",
+      "submittedDate": "2026-03-17",
       "overallP95Position": {
         "rank": 1521,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006648",
       "acnArbn": "127094008",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33.65,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Warehousing and storage services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-12-08",
+      "submittedDate": "2025-12-09",
       "overallP95Position": {
         "rank": 1335,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000374",
       "acnArbn": "127094008",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33.7,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0.15,
       "industrySubdivision": "Warehousing and storage services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-06-10",
+      "submittedDate": "2025-06-11",
       "overallP95Position": {
         "rank": 1347,
         "count": 2498,

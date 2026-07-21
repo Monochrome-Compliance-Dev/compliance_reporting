@@ -5,13 +5,13 @@
   "acnArbn": "091439333",
   "industryDivision": "Mining",
   "industrySubdivision": "Metal ore mining",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010800",
       "acnArbn": "091439333",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 34.26,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 3.26,
       "industrySubdivision": "Metal ore mining",
       "industryDivision": "Mining",
-      "submittedDate": "2026-04-27",
+      "submittedDate": "2026-04-28",
       "overallP95Position": {
         "rank": 1521,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004805",
       "acnArbn": "091439333",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 32.15,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 10.9,
       "industrySubdivision": "Metal ore mining",
       "industryDivision": "Mining",
-      "submittedDate": "2025-09-28",
+      "submittedDate": "2025-09-29",
       "overallP95Position": {
         "rank": 2197,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002924",
       "acnArbn": "091439333",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24.26,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 6.43,
       "industrySubdivision": "Metal ore mining",
       "industryDivision": "Mining",
-      "submittedDate": "2025-07-27",
+      "submittedDate": "2025-07-28",
       "overallP95Position": {
         "rank": 1894,
         "count": 2498,

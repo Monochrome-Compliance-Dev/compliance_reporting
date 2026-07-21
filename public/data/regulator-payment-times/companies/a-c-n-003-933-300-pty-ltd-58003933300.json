@@ -5,13 +5,13 @@
   "acnArbn": "003933300",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Food retailing",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20006089",
       "acnArbn": "003933300",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 15.4,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 1,
       "industrySubdivision": "Food retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-10-19",
+      "submittedDate": "2025-10-20",
       "overallP95Position": {
         "rank": 397,
         "count": 2568,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20000163",
       "acnArbn": "003933300",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.5,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 5,
       "industrySubdivision": "Food retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-05-25",
+      "submittedDate": "2025-05-26",
       "overallP95Position": {
         "rank": 1566,
         "count": 2498,

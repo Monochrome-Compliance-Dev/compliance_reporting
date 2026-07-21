@@ -5,13 +5,13 @@
   "acnArbn": "120952150",
   "industryDivision": "Mining",
   "industrySubdivision": "Metal ore mining",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007254",
       "acnArbn": "120952150",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 15.57,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Metal ore mining",
       "industryDivision": "Mining",
-      "submittedDate": "2026-02-16",
+      "submittedDate": "2026-02-17",
       "overallP95Position": {
         "rank": 438,
         "count": 2613,

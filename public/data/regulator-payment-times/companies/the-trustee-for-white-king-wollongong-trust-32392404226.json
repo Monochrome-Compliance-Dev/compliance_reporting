@@ -5,13 +5,13 @@
   "acnArbn": "",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008060",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 29.66,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 2.21,
       "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-03-15",
+      "submittedDate": "2026-03-16",
       "overallP95Position": {
         "rank": 1366,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20005101",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24.65,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 5.56,
       "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-09-28",
+      "submittedDate": "2025-09-29",
       "overallP95Position": {
         "rank": 1680,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20003212",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 27.57,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 9.38,
       "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-08-25",
+      "submittedDate": "2025-08-26",
       "overallP95Position": {
         "rank": 2243,
         "count": 2498,

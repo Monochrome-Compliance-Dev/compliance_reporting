@@ -5,13 +5,13 @@
   "acnArbn": "072725403",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20011417",
       "acnArbn": "072725403",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.65,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.09,
       "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-06-18",
+      "submittedDate": "2026-06-19",
       "overallP95Position": {
         "rank": 1305,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003181",
       "acnArbn": "072725403",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-08-21",
+      "submittedDate": "2025-08-22",
       "overallP95Position": {
         "rank": 1133,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20003180",
       "acnArbn": "072725403",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-08-21",
+      "submittedDate": "2025-08-22",
       "overallP95Position": {
         "rank": 1150,
         "count": 2498,

@@ -5,13 +5,13 @@
   "acnArbn": "138200049",
   "industryDivision": "Rental, Hiring and Real Estate Services",
   "industrySubdivision": "Property operators and real estate services",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20005877",
       "acnArbn": "138200049",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 42.76,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 22.47,
       "industrySubdivision": "Property operators and real estate services",
       "industryDivision": "Rental, Hiring and Real Estate Services",
-      "submittedDate": "2025-09-30",
+      "submittedDate": "2025-10-01",
       "overallP95Position": {
         "rank": 2270,
         "count": 2568,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20002896",
       "acnArbn": "138200049",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 34.27,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 5.92,
       "industrySubdivision": "Property operators and real estate services",
       "industryDivision": "Rental, Hiring and Real Estate Services",
-      "submittedDate": "2025-07-27",
+      "submittedDate": "2025-07-28",
       "overallP95Position": {
         "rank": 1617,
         "count": 2498,

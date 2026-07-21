@@ -5,13 +5,13 @@
   "acnArbn": "054610025",
   "industryDivision": "Information Media and Telecommunications",
   "industrySubdivision": "Motion picture and sound recording activities",
-  "latestReportingPeriodEndDate": "2026-03-30",
+  "latestReportingPeriodEndDate": "2026-03-31",
   "reports": [
     {
       "reportId": "PTR20011645",
       "acnArbn": "054610025",
-      "reportingPeriodStartDate": "2025-09-30",
-      "reportingPeriodEndDate": "2026-03-30",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 4,
       "industrySubdivision": "Motion picture and sound recording activities",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-06-26",
+      "submittedDate": "2026-06-27",
       "overallP95Position": {
         "rank": 132,
         "count": 193,

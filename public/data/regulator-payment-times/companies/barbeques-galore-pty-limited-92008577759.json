@@ -5,13 +5,13 @@
   "acnArbn": "008577759",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Other store-based retailing",
-  "latestReportingPeriodEndDate": "2024-12-30",
+  "latestReportingPeriodEndDate": "2024-12-31",
   "reports": [
     {
       "reportId": "PTR20000836",
       "acnArbn": "008577759",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.12,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 14.48,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-06-22",
+      "submittedDate": "2025-06-23",
       "overallP95Position": {
         "rank": 2041,
         "count": 2498,

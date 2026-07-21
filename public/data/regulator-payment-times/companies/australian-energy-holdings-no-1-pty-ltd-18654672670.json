@@ -5,13 +5,13 @@
   "acnArbn": "654672670",
   "industryDivision": "Electricity, Gas, Water and Waste Services",
   "industrySubdivision": "Electricity supply",
-  "latestReportingPeriodEndDate": "2024-12-30",
+  "latestReportingPeriodEndDate": "2024-12-31",
   "reports": [
     {
       "reportId": "PTR20001460",
       "acnArbn": "654672670",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 20.93,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 2.3,
       "industrySubdivision": "Electricity supply",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-27",
       "overallP95Position": {
         "rank": 965,
         "count": 2498,

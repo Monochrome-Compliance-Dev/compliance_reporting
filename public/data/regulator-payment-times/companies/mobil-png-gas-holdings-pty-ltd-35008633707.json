@@ -5,13 +5,13 @@
   "acnArbn": "008633707",
   "industryDivision": "Mining",
   "industrySubdivision": "Oil and gas extraction",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20009124",
       "acnArbn": "008633707",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 81,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 37.5,
       "industrySubdivision": "Oil and gas extraction",
       "industryDivision": "Mining",
-      "submittedDate": "2026-03-25",
+      "submittedDate": "2026-03-26",
       "overallP95Position": {
         "rank": 2600,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003784",
       "acnArbn": "008633707",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 50,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 12.12,
       "industrySubdivision": "Oil and gas extraction",
       "industryDivision": "Mining",
-      "submittedDate": "2025-09-16",
+      "submittedDate": "2025-09-17",
       "overallP95Position": {
         "rank": 2505,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002508",
       "acnArbn": "008633707",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 36.2,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 6.67,
       "industrySubdivision": "Oil and gas extraction",
       "industryDivision": "Mining",
-      "submittedDate": "2025-07-14",
+      "submittedDate": "2025-07-15",
       "overallP95Position": {
         "rank": 1661,
         "count": 2498,

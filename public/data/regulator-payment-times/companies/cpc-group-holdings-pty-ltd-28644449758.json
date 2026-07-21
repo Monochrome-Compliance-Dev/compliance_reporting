@@ -5,13 +5,13 @@
   "acnArbn": "644449758",
   "industryDivision": "Agriculture, Forestry and Fishing",
   "industrySubdivision": "Agriculture",
-  "latestReportingPeriodEndDate": "2026-03-30",
+  "latestReportingPeriodEndDate": "2026-03-31",
   "reports": [
     {
       "reportId": "PTR20011050",
       "acnArbn": "644449758",
-      "reportingPeriodStartDate": "2025-09-30",
-      "reportingPeriodEndDate": "2026-03-30",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 21,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 2,
       "industrySubdivision": "Agriculture",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2026-05-13",
+      "submittedDate": "2026-05-14",
       "overallP95Position": {
         "rank": 99,
         "count": 193,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006769",
       "acnArbn": "644449758",
-      "reportingPeriodStartDate": "2025-03-31",
-      "reportingPeriodEndDate": "2025-09-29",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 21,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 2,
       "industrySubdivision": "Agriculture",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-12-18",
+      "submittedDate": "2025-12-19",
       "overallP95Position": {
         "rank": 88,
         "count": 228,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001599",
       "acnArbn": "644449758",
-      "reportingPeriodStartDate": "2024-09-30",
-      "reportingPeriodEndDate": "2025-03-30",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 3,
       "industrySubdivision": "Agriculture",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-27",
       "overallP95Position": {
         "rank": 87,
         "count": 231,

@@ -5,13 +5,13 @@
   "acnArbn": "637047066",
   "industryDivision": "Other Services",
   "industrySubdivision": "Personal and other services",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20004438",
       "acnArbn": "637047066",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 108,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 100,
       "industrySubdivision": "Personal and other services",
       "industryDivision": "Other Services",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2025-09-25",
       "overallP95Position": {
         "rank": 2435,
         "count": 2568,

@@ -5,13 +5,13 @@
   "acnArbn": "088347602",
   "industryDivision": "Health Care and Social Assistance",
   "industrySubdivision": "Medical and other health care services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007374",
       "acnArbn": "088347602",
-      "reportingPeriodStartDate": "2025-06-29",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 37.84,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 5.46,
       "industrySubdivision": "Medical and other health care services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2026-02-23",
+      "submittedDate": "2026-02-24",
       "overallP95Position": {
         "rank": 1934,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003801",
       "acnArbn": "088347602",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-28",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 37.41,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 10.59,
       "industrySubdivision": "Medical and other health care services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2025-09-16",
+      "submittedDate": "2025-09-17",
       "overallP95Position": {
         "rank": 12,
         "count": 13,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000751",
       "acnArbn": "088347602",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 26.74,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 5.68,
       "industrySubdivision": "Medical and other health care services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2025-06-22",
+      "submittedDate": "2025-06-23",
       "overallP95Position": {
         "rank": 1699,
         "count": 2498,

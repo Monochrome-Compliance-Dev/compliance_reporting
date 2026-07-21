@@ -5,13 +5,13 @@
   "acnArbn": "637730511",
   "industryDivision": "Electricity, Gas, Water and Waste Services",
   "industrySubdivision": "Waste collection, treatment and disposal services",
-  "latestReportingPeriodEndDate": "2024-12-30",
+  "latestReportingPeriodEndDate": "2024-12-31",
   "reports": [
     {
       "reportId": "PTR20001632",
       "acnArbn": "637730511",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 32,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 3,
       "industrySubdivision": "Waste collection, treatment and disposal services",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-27",
       "overallP95Position": {
         "rank": 533,
         "count": 2498,

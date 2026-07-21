@@ -5,13 +5,13 @@
   "acnArbn": "",
   "industryDivision": "Arts and Recreation Services",
   "industrySubdivision": "Heritage activities",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007598",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 2.61,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.42,
       "industrySubdivision": "Heritage activities",
       "industryDivision": "Arts and Recreation Services",
-      "submittedDate": "2026-03-10",
+      "submittedDate": "2026-03-11",
       "overallP95Position": {
         "rank": 32,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004963",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 4.28,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 1.06,
       "industrySubdivision": "Heritage activities",
       "industryDivision": "Arts and Recreation Services",
-      "submittedDate": "2025-09-28",
+      "submittedDate": "2025-09-29",
       "overallP95Position": {
         "rank": 76,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20004961",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 2.99,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0.3,
       "industrySubdivision": "Heritage activities",
       "industryDivision": "Arts and Recreation Services",
-      "submittedDate": "2025-09-28",
+      "submittedDate": "2025-09-29",
       "overallP95Position": {
         "rank": 39,
         "count": 2498,

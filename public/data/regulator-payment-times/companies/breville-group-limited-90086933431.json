@@ -5,13 +5,13 @@
   "acnArbn": "086933431",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Machinery and equipment wholesaling",
-  "latestReportingPeriodEndDate": "2024-12-30",
+  "latestReportingPeriodEndDate": "2024-12-31",
   "reports": [
     {
       "reportId": "PTR20005998",
       "acnArbn": "086933431",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 31.53,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 11.84,
       "industrySubdivision": "Machinery and equipment wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-10-08",
+      "submittedDate": "2025-10-09",
       "overallP95Position": {
         "rank": 2041,
         "count": 2498,

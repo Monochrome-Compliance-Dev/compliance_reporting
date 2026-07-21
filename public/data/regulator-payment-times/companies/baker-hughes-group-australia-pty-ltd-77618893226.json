@@ -5,13 +5,13 @@
   "acnArbn": "618893226",
   "industryDivision": "Mining",
   "industrySubdivision": "Exploration and other mining support services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007609",
       "acnArbn": "618893226",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 3.11,
       "industrySubdivision": "Exploration and other mining support services",
       "industryDivision": "Mining",
-      "submittedDate": "2026-03-03",
+      "submittedDate": "2026-03-04",
       "overallP95Position": {
         "rank": 1012,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004379",
       "acnArbn": "618893226",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 14,
       "industrySubdivision": "Exploration and other mining support services",
       "industryDivision": "Mining",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2025-09-25",
       "overallP95Position": {
         "rank": 2058,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002279",
       "acnArbn": "618893226",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 44,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 21,
       "industrySubdivision": "Exploration and other mining support services",
       "industryDivision": "Mining",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-07-01",
       "overallP95Position": {
         "rank": 2181,
         "count": 2498,

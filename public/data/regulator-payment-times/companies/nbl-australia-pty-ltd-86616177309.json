@@ -5,13 +5,13 @@
   "acnArbn": "616177309",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Beverage and tobacco product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010019",
       "acnArbn": "616177309",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 15,
       "industrySubdivision": "Beverage and tobacco product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-31",
       "overallP95Position": {
         "rank": 2165,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004658",
       "acnArbn": "616177309",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 32,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 15,
       "industrySubdivision": "Beverage and tobacco product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-25",
+      "submittedDate": "2025-09-26",
       "overallP95Position": {
         "rank": 2081,
         "count": 2568,

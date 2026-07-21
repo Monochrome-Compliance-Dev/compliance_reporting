@@ -5,13 +5,13 @@
   "acnArbn": "000180389",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Machinery and equipment wholesaling",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008013",
       "acnArbn": "000180389",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 49.11,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 27.49,
       "industrySubdivision": "Machinery and equipment wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-03-12",
+      "submittedDate": "2026-03-13",
       "overallP95Position": {
         "rank": 2561,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003989",
       "acnArbn": "000180389",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 53.74,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 32.71,
       "industrySubdivision": "Machinery and equipment wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-09-18",
+      "submittedDate": "2025-09-19",
       "overallP95Position": {
         "rank": 2526,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000234",
       "acnArbn": "000180389",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 62,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 44.11,
       "industrySubdivision": "Machinery and equipment wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-06-02",
+      "submittedDate": "2025-06-03",
       "overallP95Position": {
         "rank": 2456,
         "count": 2498,

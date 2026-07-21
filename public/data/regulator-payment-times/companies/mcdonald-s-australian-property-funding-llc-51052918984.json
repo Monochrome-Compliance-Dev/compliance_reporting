@@ -5,13 +5,13 @@
   "acnArbn": "052918984",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Food retailing",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20009316",
       "acnArbn": "052918984",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 10.31,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 1.57,
       "industrySubdivision": "Food retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-03-26",
+      "submittedDate": "2026-03-27",
       "overallP95Position": {
         "rank": 577,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006106",
       "acnArbn": "052918984",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 10.81,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.74,
       "industrySubdivision": "Food retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-10-20",
+      "submittedDate": "2025-10-21",
       "overallP95Position": {
         "rank": 316,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20007188",
       "acnArbn": "052918984",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 12.84,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 1.32,
       "industrySubdivision": "Food retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-02-11",
+      "submittedDate": "2026-02-12",
       "overallP95Position": {
         "rank": 533,
         "count": 2498,

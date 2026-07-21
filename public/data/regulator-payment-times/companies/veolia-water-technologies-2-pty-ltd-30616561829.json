@@ -5,13 +5,13 @@
   "acnArbn": "616561829",
   "industryDivision": "Electricity, Gas, Water and Waste Services",
   "industrySubdivision": "Water supply, sewerage and drainage services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010031",
       "acnArbn": "616561829",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 41.35,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 16.71,
       "industrySubdivision": "Water supply, sewerage and drainage services",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-31",
       "overallP95Position": {
         "rank": 1979,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006182",
       "acnArbn": "616561829",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.05,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 7.83,
       "industrySubdivision": "Water supply, sewerage and drainage services",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-10-24",
+      "submittedDate": "2025-10-25",
       "overallP95Position": {
         "rank": 1754,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20006488",
       "acnArbn": "616561829",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 27.89,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 10.58,
       "industrySubdivision": "Water supply, sewerage and drainage services",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-11-18",
+      "submittedDate": "2025-11-19",
       "overallP95Position": {
         "rank": 1699,
         "count": 2498,

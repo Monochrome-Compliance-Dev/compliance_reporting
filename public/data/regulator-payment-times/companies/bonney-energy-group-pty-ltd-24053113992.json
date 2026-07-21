@@ -5,13 +5,13 @@
   "acnArbn": "053113992",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Fuel retailing",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20006096",
       "acnArbn": "053113992",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 29.76,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 5.81,
       "industrySubdivision": "Fuel retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-10-19",
+      "submittedDate": "2025-10-20",
       "overallP95Position": {
         "rank": 1823,
         "count": 2568,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20001276",
       "acnArbn": "053113992",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.77,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 7.8,
       "industrySubdivision": "Fuel retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-06-25",
+      "submittedDate": "2025-06-26",
       "overallP95Position": {
         "rank": 2281,
         "count": 2498,

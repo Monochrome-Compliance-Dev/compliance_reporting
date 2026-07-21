@@ -5,13 +5,13 @@
   "acnArbn": "607875490",
   "industryDivision": "Health Care and Social Assistance",
   "industrySubdivision": "Residential care services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010328",
       "acnArbn": "607875490",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 29.12,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 7.8,
       "industrySubdivision": "Residential care services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-31",
       "overallP95Position": {
         "rank": 2326,
         "count": 2613,

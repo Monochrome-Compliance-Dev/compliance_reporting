@@ -14,6 +14,8 @@ import ForgotPassword from "slices/users/components/ForgotPassword";
 import ResetPassword from "slices/users/components/ResetPassword";
 import VerifyEmail from "slices/users/components/VerifyEmail";
 import ConstructionPaymentDiagnostic from "slices/marketing/construction/ConstructionPaymentDiagnostic";
+import RegulatorPaymentTimesSearchPage from "slices/marketing/regulatorPaymentTimes/RegulatorPaymentTimesSearchPage";
+import RegulatorPaymentTimesCompanyPage from "slices/marketing/regulatorPaymentTimes/RegulatorPaymentTimesCompanyPage";
 
 const isPublicOnlyMode =
   String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
@@ -45,9 +47,16 @@ export const publicRoutes = [
   { path: "insights/blog", Component: BlogIndex },
   { path: "insights/blog/:slug", Component: BlogPostPage },
   { path: "insights", Component: IndustryInsights },
-  { path: "pricing", Component: PricingPage },
   {
     path: "payment-times-reporting-print",
     Component: PaymentTimesReportingPrint,
+  },
+  {
+    path: "regulator-payment-times",
+    Component: RegulatorPaymentTimesSearchPage,
+  },
+  {
+    path: "regulator-payment-times/:companySlug",
+    Component: RegulatorPaymentTimesCompanyPage,
   },
 ];

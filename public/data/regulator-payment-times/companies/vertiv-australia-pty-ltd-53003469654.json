@@ -5,13 +5,13 @@
   "acnArbn": "003469654",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Machinery and equipment mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010236",
       "acnArbn": "003469654",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 51.01,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 18,
       "industrySubdivision": "Machinery and equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-31",
       "overallP95Position": {
         "rank": 2424,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004645",
       "acnArbn": "003469654",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 52.52,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 20,
       "industrySubdivision": "Machinery and equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-25",
+      "submittedDate": "2025-09-26",
       "overallP95Position": {
         "rank": 2376,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000904",
       "acnArbn": "003469654",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 52,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 21,
       "industrySubdivision": "Machinery and equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-23",
+      "submittedDate": "2025-06-24",
       "overallP95Position": {
         "rank": 2292,
         "count": 2498,

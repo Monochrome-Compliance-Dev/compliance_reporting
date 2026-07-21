@@ -5,13 +5,13 @@
   "acnArbn": "009487807",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007692",
       "acnArbn": "009487807",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 38.23,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 4.15,
       "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-03-07",
+      "submittedDate": "2026-03-08",
       "overallP95Position": {
         "rank": 1648,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20007691",
       "acnArbn": "009487807",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 36.95,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 4.51,
       "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-03-07",
+      "submittedDate": "2026-03-08",
       "overallP95Position": {
         "rank": 1543,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20007512",
       "acnArbn": "009487807",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 39.13,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 5.21,
       "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-02-26",
+      "submittedDate": "2026-02-27",
       "overallP95Position": {
         "rank": 1566,
         "count": 2498,

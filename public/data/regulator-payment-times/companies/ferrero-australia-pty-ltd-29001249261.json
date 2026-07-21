@@ -5,13 +5,13 @@
   "acnArbn": "001249261",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Other goods wholesaling",
-  "latestReportingPeriodEndDate": "2024-08-30",
+  "latestReportingPeriodEndDate": "2024-08-31",
   "reports": [
     {
       "reportId": "PTR20002468",
       "acnArbn": "001249261",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-08-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-08-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 43.2,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 14.78,
       "industrySubdivision": "Other goods wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-07-13",
+      "submittedDate": "2025-07-14",
       "overallP95Position": {
         "rank": 1,
         "count": 1,

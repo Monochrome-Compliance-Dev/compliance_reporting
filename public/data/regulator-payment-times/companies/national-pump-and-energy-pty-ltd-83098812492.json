@@ -5,13 +5,13 @@
   "acnArbn": "098812492",
   "industryDivision": "Rental, Hiring and Real Estate Services",
   "industrySubdivision": "Rental and hiring services (except real estate)",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008350",
       "acnArbn": "098812492",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.33,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.04,
       "industrySubdivision": "Rental and hiring services (except real estate)",
       "industryDivision": "Rental, Hiring and Real Estate Services",
-      "submittedDate": "2026-03-18",
+      "submittedDate": "2026-03-19",
       "overallP95Position": {
         "rank": 1266,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004432",
       "acnArbn": "098812492",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.02,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.04,
       "industrySubdivision": "Rental and hiring services (except real estate)",
       "industryDivision": "Rental, Hiring and Real Estate Services",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2025-09-25",
       "overallP95Position": {
         "rank": 1133,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001216",
       "acnArbn": "098812492",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.33,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Rental and hiring services (except real estate)",
       "industryDivision": "Rental, Hiring and Real Estate Services",
-      "submittedDate": "2025-06-25",
+      "submittedDate": "2025-06-26",
       "overallP95Position": {
         "rank": 323,
         "count": 2498,

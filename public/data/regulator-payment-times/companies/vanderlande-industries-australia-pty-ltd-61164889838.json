@@ -5,13 +5,13 @@
   "acnArbn": "164889838",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Machinery and equipment mfg",
-  "latestReportingPeriodEndDate": "2025-09-29",
+  "latestReportingPeriodEndDate": "2025-09-30",
   "reports": [
     {
       "reportId": "PTR20010853",
       "acnArbn": "164889838",
-      "reportingPeriodStartDate": "2025-03-31",
-      "reportingPeriodEndDate": "2025-09-29",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 47,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 26,
       "industrySubdivision": "Machinery and equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-04-28",
+      "submittedDate": "2026-04-29",
       "overallP95Position": {
         "rank": 216,
         "count": 228,

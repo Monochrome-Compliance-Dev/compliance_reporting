@@ -5,13 +5,13 @@
   "acnArbn": "143599759",
   "industryDivision": "Accommodation and Food Services",
   "industrySubdivision": "Accommodation",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008415",
       "acnArbn": "143599759",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 25,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 1.68,
       "industrySubdivision": "Accommodation",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2026-03-19",
+      "submittedDate": "2026-03-20",
       "overallP95Position": {
         "rank": 873,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20005407",
       "acnArbn": "143599759",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33.62,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 7.33,
       "industrySubdivision": "Accommodation",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2025-09-29",
+      "submittedDate": "2025-09-30",
       "overallP95Position": {
         "rank": 2142,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001375",
       "acnArbn": "143599759",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 32.1,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 7.1,
       "industrySubdivision": "Accommodation",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-27",
       "overallP95Position": {
         "rank": 2026,
         "count": 2498,

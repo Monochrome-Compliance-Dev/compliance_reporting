@@ -5,13 +5,13 @@
   "acnArbn": "000289958",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Fabricated metal product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008821",
       "acnArbn": "000289958",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.31,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Fabricated metal product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-23",
+      "submittedDate": "2026-03-24",
       "overallP95Position": {
         "rank": 805,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003347",
       "acnArbn": "000289958",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 20.99,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.78,
       "industrySubdivision": "Fabricated metal product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-01",
+      "submittedDate": "2025-09-02",
       "overallP95Position": {
         "rank": 1007,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001596",
       "acnArbn": "000289958",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.53,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0.67,
       "industrySubdivision": "Fabricated metal product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-27",
       "overallP95Position": {
         "rank": 871,
         "count": 2498,

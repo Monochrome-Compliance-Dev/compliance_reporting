@@ -5,13 +5,13 @@
   "acnArbn": "089983317",
   "industryDivision": "Information Media and Telecommunications",
   "industrySubdivision": "Telecommunications services",
-  "latestReportingPeriodEndDate": "2025-03-30",
+  "latestReportingPeriodEndDate": "2025-03-31",
   "reports": [
     {
       "reportId": "PTR20006357",
       "acnArbn": "089983317",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2025-03-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2025-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 26.74,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 10.92,
       "industrySubdivision": "Telecommunications services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-10-30",
+      "submittedDate": "2025-10-31",
       "overallP95Position": {
         "rank": 197,
         "count": 231,

@@ -5,13 +5,13 @@
   "acnArbn": "083405556",
   "industryDivision": "Mining",
   "industrySubdivision": "Metal ore mining",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008613",
       "acnArbn": "083405556",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 40.1,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 9,
       "industrySubdivision": "Metal ore mining",
       "industryDivision": "Mining",
-      "submittedDate": "2026-03-22",
+      "submittedDate": "2026-03-23",
       "overallP95Position": {
         "rank": 2326,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004967",
       "acnArbn": "083405556",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 45,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 11,
       "industrySubdivision": "Metal ore mining",
       "industryDivision": "Mining",
-      "submittedDate": "2025-09-28",
+      "submittedDate": "2025-09-29",
       "overallP95Position": {
         "rank": 2218,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001505",
       "acnArbn": "083405556",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 44.5,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 9,
       "industrySubdivision": "Metal ore mining",
       "industryDivision": "Mining",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-27",
       "overallP95Position": {
         "rank": 2153,
         "count": 2498,

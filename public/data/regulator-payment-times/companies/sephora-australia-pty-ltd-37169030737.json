@@ -5,13 +5,13 @@
   "acnArbn": "169030737",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Other store-based retailing",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20003969",
       "acnArbn": "169030737",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 41,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 8,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-09-18",
+      "submittedDate": "2025-09-19",
       "overallP95Position": {
         "rank": 2500,
         "count": 2568,

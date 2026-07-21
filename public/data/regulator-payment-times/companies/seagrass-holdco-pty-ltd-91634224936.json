@@ -5,13 +5,13 @@
   "acnArbn": "634224936",
   "industryDivision": "Accommodation and Food Services",
   "industrySubdivision": "Food and beverage services",
-  "latestReportingPeriodEndDate": "2026-03-30",
+  "latestReportingPeriodEndDate": "2026-03-31",
   "reports": [
     {
       "reportId": "PTR20011144",
       "acnArbn": "634224936",
-      "reportingPeriodStartDate": "2025-12-31",
-      "reportingPeriodEndDate": "2026-03-30",
+      "reportingPeriodStartDate": "2026-01-01",
+      "reportingPeriodEndDate": "2026-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 18.3,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Food and beverage services",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2026-05-24",
+      "submittedDate": "2026-05-25",
       "overallP95Position": {
         "rank": 32,
         "count": 193,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20008253",
       "acnArbn": "634224936",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 18.8,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.03,
       "industrySubdivision": "Food and beverage services",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2026-03-17",
+      "submittedDate": "2026-03-18",
       "overallP95Position": {
         "rank": 438,
         "count": 2613,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20004361",
       "acnArbn": "634224936",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.15,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0.07,
       "industrySubdivision": "Food and beverage services",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2025-09-25",
       "overallP95Position": {
         "rank": 549,
         "count": 2568,
@@ -94,8 +94,8 @@
     {
       "reportId": "PTR20002868",
       "acnArbn": "634224936",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.97,
@@ -107,7 +107,7 @@
       "paymentsMoreThan60Days": 0.19,
       "industrySubdivision": "Food and beverage services",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2025-07-27",
+      "submittedDate": "2025-07-28",
       "overallP95Position": {
         "rank": 615,
         "count": 2498,

@@ -5,13 +5,13 @@
   "acnArbn": "000449990",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Basic chemical and chemical product mfg",
-  "latestReportingPeriodEndDate": "2025-11-29",
+  "latestReportingPeriodEndDate": "2025-11-30",
   "reports": [
     {
       "reportId": "PTR20007585",
       "acnArbn": "000449990",
-      "reportingPeriodStartDate": "2025-05-31",
-      "reportingPeriodEndDate": "2025-11-29",
+      "reportingPeriodStartDate": "2025-06-01",
+      "reportingPeriodEndDate": "2025-11-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 53,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 30,
       "industrySubdivision": "Basic chemical and chemical product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-03",
+      "submittedDate": "2026-03-04",
       "overallP95Position": {
         "rank": 21,
         "count": 22,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004110",
       "acnArbn": "000449990",
-      "reportingPeriodStartDate": "2024-11-30",
-      "reportingPeriodEndDate": "2025-05-30",
+      "reportingPeriodStartDate": "2024-12-01",
+      "reportingPeriodEndDate": "2025-05-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 53,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 28,
       "industrySubdivision": "Basic chemical and chemical product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-21",
+      "submittedDate": "2025-09-22",
       "overallP95Position": {
         "rank": 19,
         "count": 22,

@@ -5,13 +5,13 @@
   "acnArbn": "092499431",
   "industryDivision": "Information Media and Telecommunications",
   "industrySubdivision": "Internet service providers, web search portals and data processing services",
-  "latestReportingPeriodEndDate": "2026-04-29",
+  "latestReportingPeriodEndDate": "2026-04-30",
   "reports": [
     {
       "reportId": "PTR20007483",
       "acnArbn": "092499431",
-      "reportingPeriodStartDate": "2025-10-31",
-      "reportingPeriodEndDate": "2026-04-29",
+      "reportingPeriodStartDate": "2025-11-01",
+      "reportingPeriodEndDate": "2026-04-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 47,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 20.99,
       "industrySubdivision": "Internet service providers, web search portals and data processing services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-05-13",
+      "submittedDate": "2026-05-14",
       "overallP95Position": {
         "rank": 5,
         "count": 6,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20008033",
       "acnArbn": "092499431",
-      "reportingPeriodStartDate": "2025-04-30",
-      "reportingPeriodEndDate": "2025-10-30",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 54.9,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 52.17,
       "industrySubdivision": "Internet service providers, web search portals and data processing services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-03-15",
+      "submittedDate": "2026-03-16",
       "overallP95Position": {
         "rank": 21,
         "count": 28,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20006064",
       "acnArbn": "092499431",
-      "reportingPeriodStartDate": "2024-10-31",
-      "reportingPeriodEndDate": "2025-04-29",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 63.62,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 62.5,
       "industrySubdivision": "Internet service providers, web search portals and data processing services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-10-15",
+      "submittedDate": "2025-10-16",
       "overallP95Position": {
         "rank": 21,
         "count": 28,

@@ -5,13 +5,13 @@
   "acnArbn": "003617561",
   "industryDivision": "Transport, Postal and Warehousing",
   "industrySubdivision": "Transport support services",
-  "latestReportingPeriodEndDate": "2026-03-30",
+  "latestReportingPeriodEndDate": "2026-03-31",
   "reports": [
     {
       "reportId": "PTR20011123",
       "acnArbn": "003617561",
-      "reportingPeriodStartDate": "2025-09-30",
-      "reportingPeriodEndDate": "2026-03-30",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 1,
       "industrySubdivision": "Transport support services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2026-05-20",
+      "submittedDate": "2026-05-21",
       "overallP95Position": {
         "rank": 47,
         "count": 193,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006641",
       "acnArbn": "003617561",
-      "reportingPeriodStartDate": "2025-03-31",
-      "reportingPeriodEndDate": "2025-09-29",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 2,
       "industrySubdivision": "Transport support services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-12-07",
+      "submittedDate": "2025-12-08",
       "overallP95Position": {
         "rank": 53,
         "count": 228,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001670",
       "acnArbn": "003617561",
-      "reportingPeriodStartDate": "2024-09-30",
-      "reportingPeriodEndDate": "2025-03-30",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 38,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 5,
       "industrySubdivision": "Transport support services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-06-28",
+      "submittedDate": "2025-06-29",
       "overallP95Position": {
         "rank": 149,
         "count": 231,

@@ -5,13 +5,13 @@
   "acnArbn": "008434562",
   "industryDivision": "Mining",
   "industrySubdivision": "Coal mining",
-  "latestReportingPeriodEndDate": "2026-03-30",
+  "latestReportingPeriodEndDate": "2026-03-31",
   "reports": [
     {
       "reportId": "PTR20011236",
       "acnArbn": "008434562",
-      "reportingPeriodStartDate": "2025-09-30",
-      "reportingPeriodEndDate": "2026-03-30",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 37.04,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.18,
       "industrySubdivision": "Coal mining",
       "industryDivision": "Mining",
-      "submittedDate": "2026-06-01",
+      "submittedDate": "2026-06-02",
       "overallP95Position": {
         "rank": 114,
         "count": 193,

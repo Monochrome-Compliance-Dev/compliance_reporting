@@ -5,13 +5,13 @@
   "acnArbn": "113288323",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Food product mfg",
-  "latestReportingPeriodEndDate": "2024-09-29",
+  "latestReportingPeriodEndDate": "2024-09-30",
   "reports": [
     {
       "reportId": "PTR20002420",
       "acnArbn": "113288323",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-09-29",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-09-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.73,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.33,
       "industrySubdivision": "Food product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-07-10",
+      "submittedDate": "2025-07-11",
       "overallP95Position": {
         "rank": 4,
         "count": 7,

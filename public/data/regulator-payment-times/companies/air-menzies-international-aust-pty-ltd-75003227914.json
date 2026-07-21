@@ -5,13 +5,13 @@
   "acnArbn": "003227914",
   "industryDivision": "Transport, Postal and Warehousing",
   "industrySubdivision": "Air and space transport",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008368",
       "acnArbn": "003227914",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.8,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 9.21,
       "industrySubdivision": "Air and space transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2026-03-19",
+      "submittedDate": "2026-03-20",
       "overallP95Position": {
         "rank": 2436,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20005131",
       "acnArbn": "003227914",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.1,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 4.28,
       "industrySubdivision": "Air and space transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-09-28",
+      "submittedDate": "2025-09-29",
       "overallP95Position": {
         "rank": 1265,
         "count": 2568,

@@ -5,13 +5,13 @@
   "acnArbn": "107998443",
   "industryDivision": "Transport, Postal and Warehousing",
   "industrySubdivision": "Water transport",
-  "latestReportingPeriodEndDate": "2025-11-29",
+  "latestReportingPeriodEndDate": "2025-11-30",
   "reports": [
     {
       "reportId": "PTR20007240",
       "acnArbn": "107998443",
-      "reportingPeriodStartDate": "2025-05-31",
-      "reportingPeriodEndDate": "2025-11-29",
+      "reportingPeriodStartDate": "2025-06-01",
+      "reportingPeriodEndDate": "2025-11-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 40.88,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 13.56,
       "industrySubdivision": "Water transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2026-02-26",
+      "submittedDate": "2026-02-27",
       "overallP95Position": {
         "rank": 22,
         "count": 22,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003233",
       "acnArbn": "107998443",
-      "reportingPeriodStartDate": "2024-11-30",
-      "reportingPeriodEndDate": "2025-05-30",
+      "reportingPeriodStartDate": "2024-12-01",
+      "reportingPeriodEndDate": "2025-05-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.54,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 10.98,
       "industrySubdivision": "Water transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-08-25",
+      "submittedDate": "2025-08-26",
       "overallP95Position": {
         "rank": 19,
         "count": 22,

@@ -5,13 +5,13 @@
   "acnArbn": "110345750",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Commission-based wholesaling",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010024",
       "acnArbn": "110345750",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 21.92,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Commission-based wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-31",
       "overallP95Position": {
         "rank": 243,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20005170",
       "acnArbn": "110345750",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 26,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Commission-based wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-09-28",
+      "submittedDate": "2025-09-29",
       "overallP95Position": {
         "rank": 188,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20007163",
       "acnArbn": "110345750",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 86.22,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 55.56,
       "industrySubdivision": "Commission-based wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-02-10",
+      "submittedDate": "2026-02-11",
       "overallP95Position": {
         "rank": 2458,
         "count": 2498,

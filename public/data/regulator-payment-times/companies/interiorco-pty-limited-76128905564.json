@@ -5,13 +5,13 @@
   "acnArbn": "128905564",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Furniture and other mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007233",
       "acnArbn": "128905564",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 43.07,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 22.01,
       "industrySubdivision": "Furniture and other mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-02-15",
+      "submittedDate": "2026-02-16",
       "overallP95Position": {
         "rank": 2343,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003438",
       "acnArbn": "128905564",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 50.99,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 29.5,
       "industrySubdivision": "Furniture and other mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-07",
+      "submittedDate": "2025-09-08",
       "overallP95Position": {
         "rank": 2376,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000000",
       "acnArbn": "128905564",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 44.61,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 21.78,
       "industrySubdivision": "Furniture and other mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-04-30",
+      "submittedDate": "2025-05-01",
       "overallP95Position": {
         "rank": 2000,
         "count": 2498,

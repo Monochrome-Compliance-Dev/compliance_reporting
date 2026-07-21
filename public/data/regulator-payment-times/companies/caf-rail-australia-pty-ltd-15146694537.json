@@ -5,13 +5,13 @@
   "acnArbn": "146694537",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Transport equipment mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010201",
       "acnArbn": "146694537",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 42.29,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 6.35,
       "industrySubdivision": "Transport equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-31",
       "overallP95Position": {
         "rank": 1979,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003623",
       "acnArbn": "146694537",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 43.95,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 11.87,
       "industrySubdivision": "Transport equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-11",
+      "submittedDate": "2025-09-12",
       "overallP95Position": {
         "rank": 2376,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20003625",
       "acnArbn": "146694537",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 42.35,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 8.47,
       "industrySubdivision": "Transport equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-11",
+      "submittedDate": "2025-09-12",
       "overallP95Position": {
         "rank": 2322,
         "count": 2498,

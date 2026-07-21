@@ -5,13 +5,13 @@
   "acnArbn": "008422348",
   "industryDivision": "Health Care and Social Assistance",
   "industrySubdivision": "Medical and other health care services",
-  "latestReportingPeriodEndDate": "2025-11-29",
+  "latestReportingPeriodEndDate": "2025-11-30",
   "reports": [
     {
       "reportId": "PTR20010481",
       "acnArbn": "008422348",
-      "reportingPeriodStartDate": "2025-05-31",
-      "reportingPeriodEndDate": "2025-11-29",
+      "reportingPeriodStartDate": "2025-06-01",
+      "reportingPeriodEndDate": "2025-11-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.57,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 3.65,
       "industrySubdivision": "Medical and other health care services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2026-04-08",
+      "submittedDate": "2026-04-09",
       "overallP95Position": {
         "rank": 3,
         "count": 22,

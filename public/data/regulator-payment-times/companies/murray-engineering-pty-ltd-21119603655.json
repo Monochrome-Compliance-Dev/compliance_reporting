@@ -5,13 +5,13 @@
   "acnArbn": "119603655",
   "industryDivision": "Other Services",
   "industrySubdivision": "Repair and maintenance",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008626",
       "acnArbn": "119603655",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 45.36,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 6.72,
       "industrySubdivision": "Repair and maintenance",
       "industryDivision": "Other Services",
-      "submittedDate": "2026-03-22",
+      "submittedDate": "2026-03-23",
       "overallP95Position": {
         "rank": 2057,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003174",
       "acnArbn": "119603655",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 46.01,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 6.93,
       "industrySubdivision": "Repair and maintenance",
       "industryDivision": "Other Services",
-      "submittedDate": "2025-08-20",
+      "submittedDate": "2025-08-21",
       "overallP95Position": {
         "rank": 1929,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000626",
       "acnArbn": "119603655",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 45.66,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 5.86,
       "industrySubdivision": "Repair and maintenance",
       "industryDivision": "Other Services",
-      "submittedDate": "2025-06-18",
+      "submittedDate": "2025-06-19",
       "overallP95Position": {
         "rank": 1661,
         "count": 2498,

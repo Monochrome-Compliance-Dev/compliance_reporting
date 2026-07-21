@@ -5,13 +5,13 @@
   "acnArbn": "143433569",
   "industryDivision": "Administrative and Support Services",
   "industrySubdivision": "Administrative services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010466",
       "acnArbn": "143433569",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.45,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Administrative services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2026-04-06",
+      "submittedDate": "2026-04-07",
       "overallP95Position": {
         "rank": 1227,
         "count": 2613,

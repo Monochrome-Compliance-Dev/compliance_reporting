@@ -5,13 +5,13 @@
   "acnArbn": "617016832",
   "industryDivision": "Public Administration and Safety",
   "industrySubdivision": "Public order, safety and regulatory services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010400",
       "acnArbn": "617016832",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 2,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.15,
       "industrySubdivision": "Public order, safety and regulatory services",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-04-01",
       "overallP95Position": {
         "rank": 3,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006471",
       "acnArbn": "617016832",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 2,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.26,
       "industrySubdivision": "Public order, safety and regulatory services",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2025-11-13",
+      "submittedDate": "2025-11-14",
       "overallP95Position": {
         "rank": 17,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20004035",
       "acnArbn": "617016832",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 41,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 15,
       "industrySubdivision": "Public order, safety and regulatory services",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2025-09-21",
+      "submittedDate": "2025-09-22",
       "overallP95Position": {
         "rank": 2238,
         "count": 2498,

@@ -5,13 +5,13 @@
   "acnArbn": "627366750",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Food product mfg",
-  "latestReportingPeriodEndDate": "2025-12-27",
+  "latestReportingPeriodEndDate": "2025-12-28",
   "reports": [
     {
       "reportId": "PTR20007884",
       "acnArbn": "627366750",
-      "reportingPeriodStartDate": "2025-06-29",
-      "reportingPeriodEndDate": "2025-12-27",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-28",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.6,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Food product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-11",
+      "submittedDate": "2026-03-12",
       "overallP95Position": {
         "rank": 2,
         "count": 9,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004367",
       "acnArbn": "627366750",
-      "reportingPeriodStartDate": "2024-12-29",
-      "reportingPeriodEndDate": "2025-06-28",
+      "reportingPeriodStartDate": "2024-12-30",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Food product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2025-09-25",
       "overallP95Position": {
         "rank": 3,
         "count": 13,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000614",
       "acnArbn": "627366750",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-28",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 18.45,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Food product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-18",
+      "submittedDate": "2025-06-19",
       "overallP95Position": {
         "rank": 3,
         "count": 11,

@@ -5,13 +5,13 @@
   "acnArbn": "160056548",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Other store-based retailing",
-  "latestReportingPeriodEndDate": "2025-11-29",
+  "latestReportingPeriodEndDate": "2025-11-30",
   "reports": [
     {
       "reportId": "PTR20007373",
       "acnArbn": "160056548",
-      "reportingPeriodStartDate": "2025-05-31",
-      "reportingPeriodEndDate": "2025-11-29",
+      "reportingPeriodStartDate": "2025-06-01",
+      "reportingPeriodEndDate": "2025-11-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 4.03,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-02-24",
+      "submittedDate": "2026-02-25",
       "overallP95Position": {
         "rank": 12,
         "count": 22,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20002414",
       "acnArbn": "160056548",
-      "reportingPeriodStartDate": "2024-11-30",
-      "reportingPeriodEndDate": "2025-05-30",
+      "reportingPeriodStartDate": "2024-12-01",
+      "reportingPeriodEndDate": "2025-05-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 26,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 4.9,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-07-09",
+      "submittedDate": "2025-07-10",
       "overallP95Position": {
         "rank": 11,
         "count": 22,

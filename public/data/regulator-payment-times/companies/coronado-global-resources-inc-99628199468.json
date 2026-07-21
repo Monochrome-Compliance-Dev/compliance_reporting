@@ -5,13 +5,13 @@
   "acnArbn": "628199468",
   "industryDivision": "Mining",
   "industrySubdivision": "Coal mining",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010653",
       "acnArbn": "628199468",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 46.48,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 19.17,
       "industrySubdivision": "Coal mining",
       "industryDivision": "Mining",
-      "submittedDate": "2026-04-24",
+      "submittedDate": "2026-04-25",
       "overallP95Position": {
         "rank": 2529,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004605",
       "acnArbn": "628199468",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 42.83,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 13.44,
       "industrySubdivision": "Coal mining",
       "industryDivision": "Mining",
-      "submittedDate": "2025-09-25",
+      "submittedDate": "2025-09-26",
       "overallP95Position": {
         "rank": 2449,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002958",
       "acnArbn": "628199468",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 34.62,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 6.37,
       "industrySubdivision": "Coal mining",
       "industryDivision": "Mining",
-      "submittedDate": "2025-07-27",
+      "submittedDate": "2025-07-28",
       "overallP95Position": {
         "rank": 1937,
         "count": 2498,

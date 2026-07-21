@@ -5,13 +5,13 @@
   "acnArbn": "120432144",
   "industryDivision": "Transport, Postal and Warehousing",
   "industrySubdivision": "Transport support services",
-  "latestReportingPeriodEndDate": "2024-12-30",
+  "latestReportingPeriodEndDate": "2024-12-31",
   "reports": [
     {
       "reportId": "PTR20002215",
       "acnArbn": "120432144",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24.28,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 3.17,
       "industrySubdivision": "Transport support services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-06-29",
+      "submittedDate": "2025-06-30",
       "overallP95Position": {
         "rank": 1009,
         "count": 2498,

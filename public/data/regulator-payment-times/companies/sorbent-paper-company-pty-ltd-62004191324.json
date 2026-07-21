@@ -5,13 +5,13 @@
   "acnArbn": "004191324",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Pulp, paper and converted paper product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008519",
       "acnArbn": "004191324",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 36.36,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 26,
       "industrySubdivision": "Pulp, paper and converted paper product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-22",
+      "submittedDate": "2026-03-23",
       "overallP95Position": {
         "rank": 2380,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004281",
       "acnArbn": "004191324",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 40.22,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 31,
       "industrySubdivision": "Pulp, paper and converted paper product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-23",
+      "submittedDate": "2025-09-24",
       "overallP95Position": {
         "rank": 2316,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001422",
       "acnArbn": "004191324",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 47.69,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 40,
       "industrySubdivision": "Pulp, paper and converted paper product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-27",
       "overallP95Position": {
         "rank": 2333,
         "count": 2498,

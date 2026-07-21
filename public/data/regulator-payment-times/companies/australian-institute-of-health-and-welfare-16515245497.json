@@ -5,13 +5,13 @@
   "acnArbn": "",
   "industryDivision": "Public Administration and Safety",
   "industrySubdivision": "Public administration",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007385",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 14,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 2.3,
       "industrySubdivision": "Public administration",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2026-03-04",
+      "submittedDate": "2026-03-05",
       "overallP95Position": {
         "rank": 636,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003916",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 15,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 2.4,
       "industrySubdivision": "Public administration",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2025-09-17",
+      "submittedDate": "2025-09-18",
       "overallP95Position": {
         "rank": 663,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000733",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 13.7,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 1.92,
       "industrySubdivision": "Public administration",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2025-06-19",
+      "submittedDate": "2025-06-20",
       "overallP95Position": {
         "rank": 556,
         "count": 2498,

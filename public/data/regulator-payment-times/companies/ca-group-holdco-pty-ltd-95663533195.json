@@ -5,13 +5,13 @@
   "acnArbn": "663533195",
   "industryDivision": "Education and Training",
   "industrySubdivision": "Preschool and school education",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20006259",
       "acnArbn": "663533195",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 36.44,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 13.1,
       "industrySubdivision": "Preschool and school education",
       "industryDivision": "Education and Training",
-      "submittedDate": "2025-10-27",
+      "submittedDate": "2025-10-28",
       "overallP95Position": {
         "rank": 2500,
         "count": 2568,

@@ -5,13 +5,13 @@
   "acnArbn": "606370576",
   "industryDivision": "Information Media and Telecommunications",
   "industrySubdivision": "Internet service providers, web search portals and data processing services",
-  "latestReportingPeriodEndDate": "2024-09-29",
+  "latestReportingPeriodEndDate": "2024-09-30",
   "reports": [
     {
       "reportId": "PTR20001982",
       "acnArbn": "606370576",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-09-29",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-09-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24.56,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 3.45,
       "industrySubdivision": "Internet service providers, web search portals and data processing services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-06-29",
+      "submittedDate": "2025-06-30",
       "overallP95Position": {
         "rank": 5,
         "count": 7,

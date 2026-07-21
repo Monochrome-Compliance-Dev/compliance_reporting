@@ -5,13 +5,13 @@
   "acnArbn": "120943615",
   "industryDivision": "Transport, Postal and Warehousing",
   "industrySubdivision": "Postal and courier pick-up and delivery services",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20004054",
       "acnArbn": "120943615",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 4,
       "industrySubdivision": "Postal and courier pick-up and delivery services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-09-21",
+      "submittedDate": "2025-09-22",
       "overallP95Position": {
         "rank": 1883,
         "count": 2568,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20001431",
       "acnArbn": "120943615",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 14,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.87,
       "industrySubdivision": "Postal and courier pick-up and delivery services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-27",
       "overallP95Position": {
         "rank": 2494,
         "count": 2498,

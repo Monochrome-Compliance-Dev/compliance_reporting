@@ -5,13 +5,13 @@
   "acnArbn": "650862721",
   "industryDivision": "Construction",
   "industrySubdivision": "Building construction",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20011029",
       "acnArbn": "650862721",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 41.04,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 6.53,
       "industrySubdivision": "Building construction",
       "industryDivision": "Construction",
-      "submittedDate": "2026-06-21",
+      "submittedDate": "2026-06-22",
       "overallP95Position": {
         "rank": 1839,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006481",
       "acnArbn": "650862721",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 57.87,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 10.74,
       "industrySubdivision": "Building construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-11-17",
+      "submittedDate": "2025-11-18",
       "overallP95Position": {
         "rank": 2156,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20006480",
       "acnArbn": "650862721",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 44.42,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 7.23,
       "industrySubdivision": "Building construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-11-17",
+      "submittedDate": "2025-11-18",
       "overallP95Position": {
         "rank": 1776,
         "count": 2498,

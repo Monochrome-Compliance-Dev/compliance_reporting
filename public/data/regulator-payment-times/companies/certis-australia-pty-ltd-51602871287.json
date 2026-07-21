@@ -5,13 +5,13 @@
   "acnArbn": "602871287",
   "industryDivision": "Other Services",
   "industrySubdivision": "Personal and other services",
-  "latestReportingPeriodEndDate": "2026-03-30",
+  "latestReportingPeriodEndDate": "2026-03-31",
   "reports": [
     {
       "reportId": "PTR20011068",
       "acnArbn": "602871287",
-      "reportingPeriodStartDate": "2025-09-30",
-      "reportingPeriodEndDate": "2026-03-30",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 18,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 3.5,
       "industrySubdivision": "Personal and other services",
       "industryDivision": "Other Services",
-      "submittedDate": "2026-05-14",
+      "submittedDate": "2026-05-15",
       "overallP95Position": {
         "rank": 70,
         "count": 193,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006941",
       "acnArbn": "602871287",
-      "reportingPeriodStartDate": "2025-03-31",
-      "reportingPeriodEndDate": "2025-09-29",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 2.5,
       "industrySubdivision": "Personal and other services",
       "industryDivision": "Other Services",
-      "submittedDate": "2026-01-14",
+      "submittedDate": "2026-01-15",
       "overallP95Position": {
         "rank": 70,
         "count": 228,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002423",
       "acnArbn": "602871287",
-      "reportingPeriodStartDate": "2024-09-30",
-      "reportingPeriodEndDate": "2025-03-30",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 7.33,
       "industrySubdivision": "Personal and other services",
       "industryDivision": "Other Services",
-      "submittedDate": "2025-07-10",
+      "submittedDate": "2025-07-11",
       "overallP95Position": {
         "rank": 193,
         "count": 231,

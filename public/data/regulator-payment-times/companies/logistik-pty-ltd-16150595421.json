@@ -5,13 +5,13 @@
   "acnArbn": "150595421",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Other goods wholesaling",
-  "latestReportingPeriodEndDate": "2025-11-29",
+  "latestReportingPeriodEndDate": "2025-11-30",
   "reports": [
     {
       "reportId": "PTR20010438",
       "acnArbn": "150595421",
-      "reportingPeriodStartDate": "2025-05-31",
-      "reportingPeriodEndDate": "2025-11-29",
+      "reportingPeriodStartDate": "2025-06-01",
+      "reportingPeriodEndDate": "2025-11-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 26.12,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 3,
       "industrySubdivision": "Other goods wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-04-01",
+      "submittedDate": "2026-04-02",
       "overallP95Position": {
         "rank": 9,
         "count": 22,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20010437",
       "acnArbn": "150595421",
-      "reportingPeriodStartDate": "2024-11-30",
-      "reportingPeriodEndDate": "2025-05-30",
+      "reportingPeriodStartDate": "2024-12-01",
+      "reportingPeriodEndDate": "2025-05-31",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 29.04,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 4,
       "industrySubdivision": "Other goods wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-04-01",
+      "submittedDate": "2026-04-02",
       "overallP95Position": {
         "rank": 10,
         "count": 22,

@@ -5,13 +5,13 @@
   "acnArbn": "000553284",
   "industryDivision": "Administrative and Support Services",
   "industrySubdivision": "Administrative services",
-  "latestReportingPeriodEndDate": "2026-03-30",
+  "latestReportingPeriodEndDate": "2026-03-31",
   "reports": [
     {
       "reportId": "PTR20010835",
       "acnArbn": "000553284",
-      "reportingPeriodStartDate": "2025-09-30",
-      "reportingPeriodEndDate": "2026-03-30",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.7,
       "industrySubdivision": "Administrative services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2026-06-02",
+      "submittedDate": "2026-06-03",
       "overallP95Position": {
         "rank": 70,
         "count": 193,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006624",
       "acnArbn": "000553284",
-      "reportingPeriodStartDate": "2025-03-31",
-      "reportingPeriodEndDate": "2025-09-29",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24.28,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.7,
       "industrySubdivision": "Administrative services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-12-03",
+      "submittedDate": "2025-12-04",
       "overallP95Position": {
         "rank": 74,
         "count": 228,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002634",
       "acnArbn": "000553284",
-      "reportingPeriodStartDate": "2024-09-30",
-      "reportingPeriodEndDate": "2025-03-30",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 27,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 2.3,
       "industrySubdivision": "Administrative services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-07-22",
+      "submittedDate": "2025-07-23",
       "overallP95Position": {
         "rank": 112,
         "count": 231,

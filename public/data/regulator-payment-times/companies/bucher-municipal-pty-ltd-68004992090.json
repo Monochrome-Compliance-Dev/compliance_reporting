@@ -5,13 +5,13 @@
   "acnArbn": "004992090",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Transport equipment mfg",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20010474",
       "acnArbn": "004992090",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 63.21,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 54.17,
       "industrySubdivision": "Transport equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-04-07",
+      "submittedDate": "2026-04-08",
       "overallP95Position": {
         "rank": 2409,
         "count": 2568,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20007168",
       "acnArbn": "004992090",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 43.77,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 10,
       "industrySubdivision": "Transport equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-02-10",
+      "submittedDate": "2026-02-11",
       "overallP95Position": {
         "rank": 1813,
         "count": 2498,

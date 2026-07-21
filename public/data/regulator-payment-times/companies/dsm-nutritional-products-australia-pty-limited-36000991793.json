@@ -5,13 +5,13 @@
   "acnArbn": "000991793",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Basic chemical and chemical product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010763",
       "acnArbn": "000991793",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 39.6,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 11,
       "industrySubdivision": "Basic chemical and chemical product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-04-26",
+      "submittedDate": "2026-04-27",
       "overallP95Position": {
         "rank": 2212,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20005363",
       "acnArbn": "000991793",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 39.28,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 10.89,
       "industrySubdivision": "Basic chemical and chemical product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-29",
+      "submittedDate": "2025-09-30",
       "overallP95Position": {
         "rank": 2197,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20006014",
       "acnArbn": "000991793",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 36.28,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 19.17,
       "industrySubdivision": "Basic chemical and chemical product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-10-09",
+      "submittedDate": "2025-10-10",
       "overallP95Position": {
         "rank": 1699,
         "count": 2498,

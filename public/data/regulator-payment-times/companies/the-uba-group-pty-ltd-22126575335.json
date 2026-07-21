@@ -5,13 +5,13 @@
   "acnArbn": "126575335",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Other goods wholesaling",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007177",
       "acnArbn": "126575335",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 10.57,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.13,
       "industrySubdivision": "Other goods wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-02-10",
+      "submittedDate": "2026-02-11",
       "overallP95Position": {
         "rank": 221,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006526",
       "acnArbn": "126575335",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 7.64,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.82,
       "industrySubdivision": "Other goods wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-11-24",
+      "submittedDate": "2025-11-25",
       "overallP95Position": {
         "rank": 168,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000166",
       "acnArbn": "126575335",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 7.71,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Other goods wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-05-26",
+      "submittedDate": "2025-05-27",
       "overallP95Position": {
         "rank": 162,
         "count": 2498,

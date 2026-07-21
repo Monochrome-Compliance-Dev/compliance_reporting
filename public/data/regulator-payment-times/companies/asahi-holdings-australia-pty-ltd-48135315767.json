@@ -5,13 +5,13 @@
   "acnArbn": "135315767",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Beverage and tobacco product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007517",
       "acnArbn": "135315767",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.63,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 7.94,
       "industrySubdivision": "Beverage and tobacco product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-02-26",
+      "submittedDate": "2026-02-27",
       "overallP95Position": {
         "rank": 2212,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004418",
       "acnArbn": "135315767",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.45,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 7.24,
       "industrySubdivision": "Beverage and tobacco product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2025-09-25",
       "overallP95Position": {
         "rank": 1960,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001041",
       "acnArbn": "135315767",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30.38,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 14.58,
       "industrySubdivision": "Beverage and tobacco product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-24",
+      "submittedDate": "2025-06-25",
       "overallP95Position": {
         "rank": 2386,
         "count": 2498,

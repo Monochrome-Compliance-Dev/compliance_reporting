@@ -5,13 +5,13 @@
   "acnArbn": "002955419",
   "industryDivision": "Transport, Postal and Warehousing",
   "industrySubdivision": "Road transport",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010167",
       "acnArbn": "002955419",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 4,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 1.3,
       "industrySubdivision": "Road transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-31",
       "overallP95Position": {
         "rank": 2453,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006315",
       "acnArbn": "002955419",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 5.38,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 1.66,
       "industrySubdivision": "Road transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-10-28",
+      "submittedDate": "2025-10-29",
       "overallP95Position": {
         "rank": 100,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20006412",
       "acnArbn": "002955419",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 17,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 2.12,
       "industrySubdivision": "Road transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-11-02",
+      "submittedDate": "2025-11-03",
       "overallP95Position": {
         "rank": 798,
         "count": 2498,

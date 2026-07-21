@@ -5,13 +5,13 @@
   "acnArbn": "091623326",
   "industryDivision": "Professional, Scientific and Technical Services",
   "industrySubdivision": "Computer system design and related services",
-  "latestReportingPeriodEndDate": "2025-02-27",
+  "latestReportingPeriodEndDate": "2025-02-28",
   "reports": [
     {
       "reportId": "PTR20001135",
       "acnArbn": "091623326",
-      "reportingPeriodStartDate": "2024-08-31",
-      "reportingPeriodEndDate": "2025-02-27",
+      "reportingPeriodStartDate": "2024-09-01",
+      "reportingPeriodEndDate": "2025-02-28",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 37.86,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 7.07,
       "industrySubdivision": "Computer system design and related services",
       "industryDivision": "Professional, Scientific and Technical Services",
-      "submittedDate": "2025-06-24",
+      "submittedDate": "2025-06-25",
       "overallP95Position": {
         "rank": 19,
         "count": 22,

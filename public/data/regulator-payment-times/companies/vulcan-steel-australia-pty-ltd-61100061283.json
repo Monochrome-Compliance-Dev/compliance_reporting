@@ -5,13 +5,13 @@
   "acnArbn": "100061283",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Primary metal and metal product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20011356",
       "acnArbn": "100061283",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 50.8,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 22.62,
       "industrySubdivision": "Primary metal and metal product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-06-14",
+      "submittedDate": "2026-06-15",
       "overallP95Position": {
         "rank": 2561,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20005243",
       "acnArbn": "100061283",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 19,
       "industrySubdivision": "Primary metal and metal product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-29",
+      "submittedDate": "2025-09-30",
       "overallP95Position": {
         "rank": 2197,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000305",
       "acnArbn": "100061283",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.55,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 47,
       "industrySubdivision": "Primary metal and metal product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-09",
+      "submittedDate": "2025-06-10",
       "overallP95Position": {
         "rank": 2373,
         "count": 2498,

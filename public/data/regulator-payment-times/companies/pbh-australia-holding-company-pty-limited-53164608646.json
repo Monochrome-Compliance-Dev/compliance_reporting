@@ -5,13 +5,13 @@
   "acnArbn": "164608646",
   "industryDivision": "Wholesale Trade",
   "industrySubdivision": "Other goods wholesaling",
-  "latestReportingPeriodEndDate": "2025-03-30",
+  "latestReportingPeriodEndDate": "2025-03-31",
   "reports": [
     {
       "reportId": "PTR20001032",
       "acnArbn": "164608646",
-      "reportingPeriodStartDate": "2024-09-30",
-      "reportingPeriodEndDate": "2025-03-30",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.95,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 1.05,
       "industrySubdivision": "Other goods wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-06-24",
+      "submittedDate": "2025-06-25",
       "overallP95Position": {
         "rank": 99,
         "count": 231,

@@ -5,13 +5,13 @@
   "acnArbn": "161922103",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Other store-based retailing",
-  "latestReportingPeriodEndDate": "2026-02-27",
+  "latestReportingPeriodEndDate": "2026-02-28",
   "reports": [
     {
       "reportId": "PTR20011167",
       "acnArbn": "161922103",
-      "reportingPeriodStartDate": "2025-08-31",
-      "reportingPeriodEndDate": "2026-02-27",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.48,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-05-26",
+      "submittedDate": "2026-05-27",
       "overallP95Position": {
         "rank": 15,
         "count": 24,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006500",
       "acnArbn": "161922103",
-      "reportingPeriodStartDate": "2025-02-28",
-      "reportingPeriodEndDate": "2025-08-30",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.51,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.2,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-11-19",
+      "submittedDate": "2025-11-20",
       "overallP95Position": {
         "rank": 13,
         "count": 25,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001696",
       "acnArbn": "161922103",
-      "reportingPeriodStartDate": "2024-08-31",
-      "reportingPeriodEndDate": "2025-02-27",
+      "reportingPeriodStartDate": "2024-09-01",
+      "reportingPeriodEndDate": "2025-02-28",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 39.61,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 2.99,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-06-29",
+      "submittedDate": "2025-06-30",
       "overallP95Position": {
         "rank": 15,
         "count": 22,

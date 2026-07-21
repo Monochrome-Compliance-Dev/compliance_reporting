@@ -5,13 +5,13 @@
   "acnArbn": "614061960",
   "industryDivision": "Transport, Postal and Warehousing",
   "industrySubdivision": "Rail transport",
-  "latestReportingPeriodEndDate": "2024-12-30",
+  "latestReportingPeriodEndDate": "2024-12-31",
   "reports": [
     {
       "reportId": "PTR20007569",
       "acnArbn": "614061960",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 43.92,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 4.7,
       "industrySubdivision": "Rail transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2026-03-02",
+      "submittedDate": "2026-03-03",
       "overallP95Position": {
         "rank": 1478,
         "count": 2498,

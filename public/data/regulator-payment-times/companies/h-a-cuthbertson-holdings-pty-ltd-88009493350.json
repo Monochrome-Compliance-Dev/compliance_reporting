@@ -5,13 +5,13 @@
   "acnArbn": "009493350",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008262",
       "acnArbn": "009493350",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 18.59,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 1.87,
       "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-17",
+      "submittedDate": "2026-03-18",
       "overallP95Position": {
         "rank": 1085,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20004767",
       "acnArbn": "009493350",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 21.51,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 3.08,
       "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-28",
+      "submittedDate": "2025-09-29",
       "overallP95Position": {
         "rank": 1096,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000243",
       "acnArbn": "009493350",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.6,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 3.61,
       "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-02",
+      "submittedDate": "2025-06-03",
       "overallP95Position": {
         "rank": 1123,
         "count": 2498,

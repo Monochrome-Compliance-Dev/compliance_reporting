@@ -5,13 +5,13 @@
   "acnArbn": "684352298",
   "industryDivision": "Information Media and Telecommunications",
   "industrySubdivision": "Publishing (except internet and music publishing)",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20009266",
       "acnArbn": "684352298",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 12.02,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.25,
       "industrySubdivision": "Publishing (except internet and music publishing)",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-03-26",
+      "submittedDate": "2026-03-27",
       "overallP95Position": {
         "rank": 283,
         "count": 2613,

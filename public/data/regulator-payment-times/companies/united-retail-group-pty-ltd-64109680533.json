@@ -5,13 +5,13 @@
   "acnArbn": "109680533",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Fuel retailing",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20011282",
       "acnArbn": "109680533",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 17,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Fuel retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-06-08",
+      "submittedDate": "2026-06-09",
       "overallP95Position": {
         "rank": 672,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20011280",
       "acnArbn": "109680533",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 15,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.28,
       "industrySubdivision": "Fuel retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-06-08",
+      "submittedDate": "2026-06-09",
       "overallP95Position": {
         "rank": 635,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20011277",
       "acnArbn": "109680533",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 23,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Fuel retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-06-08",
+      "submittedDate": "2026-06-09",
       "overallP95Position": {
         "rank": 1041,
         "count": 2498,

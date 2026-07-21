@@ -5,13 +5,13 @@
   "acnArbn": "633414007",
   "industryDivision": "Administrative and Support Services",
   "industrySubdivision": "Administrative services",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20006180",
       "acnArbn": "633414007",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 4,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 1,
       "industrySubdivision": "Administrative services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-10-24",
+      "submittedDate": "2025-10-25",
       "overallP95Position": {
         "rank": 225,
         "count": 2568,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20002600",
       "acnArbn": "633414007",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 4,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 1,
       "industrySubdivision": "Administrative services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-07-20",
+      "submittedDate": "2025-07-21",
       "overallP95Position": {
         "rank": 208,
         "count": 2498,

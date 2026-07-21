@@ -5,13 +5,13 @@
   "acnArbn": "008989982",
   "industryDivision": "Agriculture, Forestry and Fishing",
   "industrySubdivision": "Fishing, hunting and trapping",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20006898",
       "acnArbn": "008989982",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.78,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 2.09,
       "industrySubdivision": "Fishing, hunting and trapping",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2026-01-08",
+      "submittedDate": "2026-01-09",
       "overallP95Position": {
         "rank": 1227,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003111",
       "acnArbn": "008989982",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 34.15,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 7.75,
       "industrySubdivision": "Fishing, hunting and trapping",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-08-13",
+      "submittedDate": "2025-08-14",
       "overallP95Position": {
         "rank": 1823,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20003110",
       "acnArbn": "008989982",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 29.72,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 4.63,
       "industrySubdivision": "Fishing, hunting and trapping",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-08-13",
+      "submittedDate": "2025-08-14",
       "overallP95Position": {
         "rank": 1478,
         "count": 2498,

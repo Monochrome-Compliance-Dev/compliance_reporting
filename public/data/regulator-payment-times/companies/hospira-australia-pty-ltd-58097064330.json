@@ -5,13 +5,13 @@
   "acnArbn": "097064330",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Basic chemical and chemical product mfg",
-  "latestReportingPeriodEndDate": "2025-11-29",
+  "latestReportingPeriodEndDate": "2025-11-30",
   "reports": [
     {
       "reportId": "PTR20010485",
       "acnArbn": "097064330",
-      "reportingPeriodStartDate": "2025-05-31",
-      "reportingPeriodEndDate": "2025-11-29",
+      "reportingPeriodStartDate": "2025-06-01",
+      "reportingPeriodEndDate": "2025-11-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 25.33,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 4.79,
       "industrySubdivision": "Basic chemical and chemical product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-04-08",
+      "submittedDate": "2026-04-09",
       "overallP95Position": {
         "rank": 10,
         "count": 22,

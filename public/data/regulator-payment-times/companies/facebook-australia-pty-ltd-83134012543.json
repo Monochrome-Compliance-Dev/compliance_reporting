@@ -5,13 +5,13 @@
   "acnArbn": "134012543",
   "industryDivision": "Information Media and Telecommunications",
   "industrySubdivision": "Internet publishing and broadcasting",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007368",
       "acnArbn": "134012543",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 15.96,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.51,
       "industrySubdivision": "Internet publishing and broadcasting",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-02-22",
+      "submittedDate": "2026-02-23",
       "overallP95Position": {
         "rank": 209,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006114",
       "acnArbn": "134012543",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 14.86,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Internet publishing and broadcasting",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-10-20",
+      "submittedDate": "2025-10-21",
       "overallP95Position": {
         "rank": 188,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20006380",
       "acnArbn": "134012543",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 21.79,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 0.42,
       "industrySubdivision": "Internet publishing and broadcasting",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-10-30",
+      "submittedDate": "2025-10-31",
       "overallP95Position": {
         "rank": 323,
         "count": 2498,

@@ -5,13 +5,13 @@
   "acnArbn": "000587780",
   "industryDivision": "Accommodation and Food Services",
   "industrySubdivision": "Food and beverage services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20011345",
       "acnArbn": "000587780",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.35,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 3.26,
       "industrySubdivision": "Food and beverage services",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2026-06-11",
+      "submittedDate": "2026-06-12",
       "overallP95Position": {
         "rank": 950,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20011307",
       "acnArbn": "000587780",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.58,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 5.47,
       "industrySubdivision": "Food and beverage services",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2026-06-11",
+      "submittedDate": "2026-06-12",
       "overallP95Position": {
         "rank": 1754,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20000311",
       "acnArbn": "000587780",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-29",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 16.46,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 2.1,
       "industrySubdivision": "Food and beverage services",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2025-06-09",
+      "submittedDate": "2025-06-10",
       "overallP95Position": {
         "rank": 1,
         "count": 3,

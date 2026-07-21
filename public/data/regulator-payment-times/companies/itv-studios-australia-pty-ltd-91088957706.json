@@ -5,13 +5,13 @@
   "acnArbn": "088957706",
   "industryDivision": "Arts and Recreation Services",
   "industrySubdivision": "Creative and performing arts activities",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20011553",
       "acnArbn": "088957706",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 6,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.5,
       "industrySubdivision": "Creative and performing arts activities",
       "industryDivision": "Arts and Recreation Services",
-      "submittedDate": "2026-06-23",
+      "submittedDate": "2026-06-24",
       "overallP95Position": {
         "rank": 188,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20011541",
       "acnArbn": "088957706",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 8,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 2,
       "industrySubdivision": "Creative and performing arts activities",
       "industryDivision": "Arts and Recreation Services",
-      "submittedDate": "2026-06-23",
+      "submittedDate": "2026-06-24",
       "overallP95Position": {
         "rank": 316,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001122",
       "acnArbn": "088957706",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 14,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 3.5,
       "industrySubdivision": "Creative and performing arts activities",
       "industryDivision": "Arts and Recreation Services",
-      "submittedDate": "2025-06-24",
+      "submittedDate": "2025-06-25",
       "overallP95Position": {
         "rank": 1077,
         "count": 2498,

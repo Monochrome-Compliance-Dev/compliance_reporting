@@ -5,13 +5,13 @@
   "acnArbn": "000664942",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Polymer product and rubber product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20008859",
       "acnArbn": "000664942",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 36,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 8,
       "industrySubdivision": "Polymer product and rubber product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-31",
       "overallP95Position": {
         "rank": 2227,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003170",
       "acnArbn": "000664942",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 10,
       "industrySubdivision": "Polymer product and rubber product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-08-20",
+      "submittedDate": "2025-08-21",
       "overallP95Position": {
         "rank": 2058,
         "count": 2568,

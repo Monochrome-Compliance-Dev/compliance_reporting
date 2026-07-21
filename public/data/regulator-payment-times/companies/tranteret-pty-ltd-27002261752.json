@@ -5,13 +5,13 @@
   "acnArbn": "002261752",
   "industryDivision": "Electricity, Gas, Water and Waste Services",
   "industrySubdivision": "Waste collection, treatment and disposal services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20010168",
       "acnArbn": "002261752",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 40.65,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 13.33,
       "industrySubdivision": "Waste collection, treatment and disposal services",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-31",
       "overallP95Position": {
         "rank": 2027,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006008",
       "acnArbn": "002261752",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 54.19,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 31.78,
       "industrySubdivision": "Waste collection, treatment and disposal services",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-10-08",
+      "submittedDate": "2025-10-09",
       "overallP95Position": {
         "rank": 2362,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002761",
       "acnArbn": "002261752",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 42.74,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 16.39,
       "industrySubdivision": "Waste collection, treatment and disposal services",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-07-24",
+      "submittedDate": "2025-07-25",
       "overallP95Position": {
         "rank": 2000,
         "count": 2498,

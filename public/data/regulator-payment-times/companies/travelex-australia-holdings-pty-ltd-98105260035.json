@@ -5,13 +5,13 @@
   "acnArbn": "105260035",
   "industryDivision": "Financial and Insurance Services",
   "industrySubdivision": "Auxiliary finance and insurance services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20011203",
       "acnArbn": "105260035",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 21,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 11,
       "industrySubdivision": "Auxiliary finance and insurance services",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2026-05-27",
+      "submittedDate": "2026-05-28",
       "overallP95Position": {
         "rank": 2135,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006039",
       "acnArbn": "105260035",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 0,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 1,
       "industrySubdivision": "Auxiliary finance and insurance services",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-10-13",
+      "submittedDate": "2025-10-14",
       "overallP95Position": {
         "rank": 1,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002688",
       "acnArbn": "105260035",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 0.48,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 4,
       "industrySubdivision": "Auxiliary finance and insurance services",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-07-09",
+      "submittedDate": "2025-07-10",
       "overallP95Position": {
         "rank": 4,
         "count": 2498,

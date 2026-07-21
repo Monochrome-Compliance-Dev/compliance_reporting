@@ -5,13 +5,13 @@
   "acnArbn": "000870897",
   "industryDivision": "Professional, Scientific and Technical Services",
   "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007779",
       "acnArbn": "000870897",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.65,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 7.49,
       "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
       "industryDivision": "Professional, Scientific and Technical Services",
-      "submittedDate": "2026-03-11",
+      "submittedDate": "2026-03-12",
       "overallP95Position": {
         "rank": 2027,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006138",
       "acnArbn": "000870897",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.03,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 5.42,
       "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
       "industryDivision": "Professional, Scientific and Technical Services",
-      "submittedDate": "2025-10-22",
+      "submittedDate": "2025-10-23",
       "overallP95Position": {
         "rank": 1721,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20005400",
       "acnArbn": "000870897",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 29.59,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 8.66,
       "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
       "industryDivision": "Professional, Scientific and Technical Services",
-      "submittedDate": "2025-09-29",
+      "submittedDate": "2025-09-30",
       "overallP95Position": {
         "rank": 1937,
         "count": 2498,

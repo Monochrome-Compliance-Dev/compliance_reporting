@@ -5,13 +5,13 @@
   "acnArbn": "052954337",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Wood product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007339",
       "acnArbn": "052954337",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31.84,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.49,
       "industrySubdivision": "Wood product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-02-19",
+      "submittedDate": "2026-02-20",
       "overallP95Position": {
         "rank": 1366,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20002606",
       "acnArbn": "052954337",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31.96,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 0.93,
       "industrySubdivision": "Wood product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-07-21",
+      "submittedDate": "2025-07-22",
       "overallP95Position": {
         "rank": 1265,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20002605",
       "acnArbn": "052954337",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 34.49,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 1.05,
       "industrySubdivision": "Wood product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-07-21",
+      "submittedDate": "2025-07-22",
       "overallP95Position": {
         "rank": 1292,
         "count": 2498,

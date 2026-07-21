@@ -5,13 +5,13 @@
   "acnArbn": "631013860",
   "industryDivision": "Financial and Insurance Services",
   "industrySubdivision": "Finance",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [
     {
       "reportId": "PTR20006043",
       "acnArbn": "631013860",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 8.25,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 0.6,
       "industrySubdivision": "Finance",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-10-13",
+      "submittedDate": "2025-10-14",
       "overallP95Position": {
         "rank": 205,
         "count": 2568,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20006042",
       "acnArbn": "631013860",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 11.51,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 1.1,
       "industrySubdivision": "Finance",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-10-13",
+      "submittedDate": "2025-10-14",
       "overallP95Position": {
         "rank": 466,
         "count": 2498,

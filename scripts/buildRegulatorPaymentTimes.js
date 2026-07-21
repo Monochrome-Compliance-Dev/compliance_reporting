@@ -116,12 +116,30 @@ function normaliseNumber(value, fieldName, reportId) {
   return number;
 }
 
-function normaliseDate(value, fieldName, reportId) {
-  let date;
+function formatDateParts(year, month, day) {
+  return [
+    String(year).padStart(4, "0"),
+    String(month).padStart(2, "0"),
+    String(day).padStart(2, "0"),
+  ].join("-");
+}
 
+function normaliseDate(value, fieldName, reportId) {
   if (value instanceof Date) {
-    date = value;
-  } else if (typeof value === "number") {
+    if (Number.isNaN(value.getTime())) {
+      fail(
+        `${fieldName} contains an invalid date for report ${reportId}: ${value}`,
+      );
+    }
+
+    return formatDateParts(
+      value.getFullYear(),
+      value.getMonth() + 1,
+      value.getDate(),
+    );
+  }
+
+  if (typeof value === "number") {
     const parsedDate = XLSX.SSF.parse_date_code(value);
 
     if (!parsedDate) {
@@ -130,18 +148,19 @@ function normaliseDate(value, fieldName, reportId) {
       );
     }
 
-    date = new Date(Date.UTC(parsedDate.y, parsedDate.m - 1, parsedDate.d));
-  } else {
-    date = new Date(value);
+    return formatDateParts(parsedDate.y, parsedDate.m, parsedDate.d);
   }
 
-  if (Number.isNaN(date.getTime())) {
+  const normalisedValue = normaliseText(value);
+  const isoDateMatch = normalisedValue.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+  if (!isoDateMatch) {
     fail(
-      `${fieldName} contains an invalid date for report ${reportId}: ${value}`,
+      `${fieldName} contains an unsupported date for report ${reportId}: ${value}`,
     );
   }
 
-  return date.toISOString().slice(0, 10);
+  return normalisedValue;
 }
 
 function createSlug(businessName, abn) {
@@ -241,16 +260,16 @@ function validateColumns(rows) {
 }
 
 function compareReports(left, right) {
+  if (left.revisedReport !== right.revisedReport) {
+    return left.revisedReport ? 1 : -1;
+  }
+
   const submittedDateComparison = left.submittedDate.localeCompare(
     right.submittedDate,
   );
 
   if (submittedDateComparison !== 0) {
     return submittedDateComparison;
-  }
-
-  if (left.revisedReport !== right.revisedReport) {
-    return left.revisedReport ? 1 : -1;
   }
 
   return left.reportId.localeCompare(right.reportId);

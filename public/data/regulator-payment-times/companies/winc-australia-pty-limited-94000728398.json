@@ -5,13 +5,13 @@
   "acnArbn": "000728398",
   "industryDivision": "Retail Trade",
   "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [
     {
       "reportId": "PTR20007184",
       "acnArbn": "000728398",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-30",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 51.21,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 37.95,
       "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-02-11",
+      "submittedDate": "2026-02-12",
       "overallP95Position": {
         "rank": 2415,
         "count": 2613,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20003223",
       "acnArbn": "000728398",
-      "reportingPeriodStartDate": "2024-12-31",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 59.35,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 49.05,
       "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-08-25",
+      "submittedDate": "2025-08-26",
       "overallP95Position": {
         "rank": 2316,
         "count": 2568,
@@ -66,8 +66,8 @@
     {
       "reportId": "PTR20001860",
       "acnArbn": "000728398",
-      "reportingPeriodStartDate": "2024-06-30",
-      "reportingPeriodEndDate": "2024-12-30",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 58.72,
@@ -79,7 +79,7 @@
       "paymentsMoreThan60Days": 53.91,
       "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-06-29",
+      "submittedDate": "2025-06-30",
       "overallP95Position": {
         "rank": 2243,
         "count": 2498,

@@ -5,13 +5,13 @@
   "acnArbn": "001065096",
   "industryDivision": "Manufacturing",
   "industrySubdivision": "Printing (including the reproduction of recorded media)",
-  "latestReportingPeriodEndDate": "2025-09-29",
+  "latestReportingPeriodEndDate": "2025-09-30",
   "reports": [
     {
       "reportId": "PTR20006031",
       "acnArbn": "001065096",
-      "reportingPeriodStartDate": "2025-03-31",
-      "reportingPeriodEndDate": "2025-09-29",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 21,
@@ -23,7 +23,7 @@
       "paymentsMoreThan60Days": 3.9,
       "industrySubdivision": "Printing (including the reproduction of recorded media)",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-10-13",
+      "submittedDate": "2025-10-14",
       "overallP95Position": {
         "rank": 38,
         "count": 228,
@@ -38,8 +38,8 @@
     {
       "reportId": "PTR20001147",
       "acnArbn": "001065096",
-      "reportingPeriodStartDate": "2024-09-30",
-      "reportingPeriodEndDate": "2025-03-30",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 21,
@@ -51,7 +51,7 @@
       "paymentsMoreThan60Days": 4,
       "industrySubdivision": "Printing (including the reproduction of recorded media)",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-24",
+      "submittedDate": "2025-06-25",
       "overallP95Position": {
         "rank": 37,
         "count": 231,
