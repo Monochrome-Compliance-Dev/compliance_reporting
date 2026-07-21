@@ -4,6 +4,28 @@ const XLSX = require("xlsx");
 
 const SHEET_NAME = "Standard report";
 
+const ANZSIC_INDUSTRY_DIVISIONS = [
+  "Accommodation and Food Services",
+  "Administrative and Support Services",
+  "Agriculture, Forestry and Fishing",
+  "Arts and Recreation Services",
+  "Construction",
+  "Education and Training",
+  "Electricity, Gas, Water and Waste Services",
+  "Financial and Insurance Services",
+  "Health Care and Social Assistance",
+  "Information Media and Telecommunications",
+  "Manufacturing",
+  "Mining",
+  "Other Services",
+  "Professional, Scientific and Technical Services",
+  "Public Administration and Safety",
+  "Rental, Hiring and Real Estate Services",
+  "Retail Trade",
+  "Transport, Postal and Warehousing",
+  "Wholesale Trade",
+];
+
 const REQUIRED_COLUMNS = [
   "ReportId",
   "Business Name",
@@ -40,7 +62,11 @@ const OUTPUT_DIRECTORY = path.resolve(
 
 const COMPANY_OUTPUT_DIRECTORY = path.join(OUTPUT_DIRECTORY, "companies");
 
+const INDUSTRY_OUTPUT_DIRECTORY = path.join(OUTPUT_DIRECTORY, "industries");
+
 const SEARCH_INDEX_PATH = path.join(OUTPUT_DIRECTORY, "search-index.json");
+
+const INDUSTRY_INDEX_PATH = path.join(OUTPUT_DIRECTORY, "industry-index.json");
 
 const IMPORT_SUMMARY_PATH = path.join(OUTPUT_DIRECTORY, "import-summary.json");
 
@@ -171,8 +197,8 @@ function normaliseDate(value, fieldName, reportId) {
   return normalisedValue;
 }
 
-function createSlug(businessName, abn) {
-  const nameSlug = normaliseText(businessName)
+function createTextSlug(value, fieldName) {
+  const slug = normaliseText(value)
     .toLowerCase()
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -181,9 +207,15 @@ function createSlug(businessName, abn) {
     .replace(/^-+|-+$/g, "")
     .replace(/-{2,}/g, "-");
 
-  if (!nameSlug) {
-    fail(`Unable to create a slug for ABN ${abn}`);
+  if (!slug) {
+    fail(`Unable to create a slug for ${fieldName}`);
   }
+
+  return slug;
+}
+
+function createCompanySlug(businessName, abn) {
+  const nameSlug = createTextSlug(businessName, `business with ABN ${abn}`);
 
   return `${nameSlug}-${abn}`;
 }
@@ -267,6 +299,19 @@ function validateColumns(rows) {
   }
 }
 
+function validateIndustryDivision(industryDivision, reportId) {
+  if (!industryDivision) {
+    fail(`Industry Division is missing for report ${reportId}`);
+  }
+
+  if (!ANZSIC_INDUSTRY_DIVISIONS.includes(industryDivision)) {
+    fail(
+      `Industry Division contains an unsupported value for report ` +
+        `${reportId}: ${industryDivision}`,
+    );
+  }
+}
+
 function compareReports(left, right) {
   if (left.revisedReport !== right.revisedReport) {
     return left.revisedReport ? 1 : -1;
@@ -314,6 +359,33 @@ function calculatePosition(value, cohortValues) {
   };
 }
 
+function calculateAverage(values) {
+  if (values.length === 0) {
+    fail("Unable to calculate an average for an empty dataset");
+  }
+
+  const total = values.reduce((sum, value) => sum + value, 0);
+
+  return Number((total / values.length).toFixed(1));
+}
+
+function calculateMedian(values) {
+  if (values.length === 0) {
+    fail("Unable to calculate a median for an empty dataset");
+  }
+
+  const sortedValues = [...values].sort((left, right) => left - right);
+  const midpoint = Math.floor(sortedValues.length / 2);
+
+  if (sortedValues.length % 2 === 0) {
+    return Number(
+      ((sortedValues[midpoint - 1] + sortedValues[midpoint]) / 2).toFixed(1),
+    );
+  }
+
+  return Number(sortedValues[midpoint].toFixed(1));
+}
+
 function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
@@ -352,13 +424,22 @@ function createSitemapUrl({
   return lines.join("\n");
 }
 
-function writePaymentTimesSitemap(searchIndex) {
+function writePaymentTimesSitemap(searchIndex, industryIndex) {
   const sitemapEntries = [
     createSitemapUrl({
       location: `${SITE_URL}/regulator-payment-times`,
       changeFrequency: "monthly",
       priority: "0.8",
     }),
+    ...industryIndex.map((industry) =>
+      createSitemapUrl({
+        location:
+          `${SITE_URL}/regulator-payment-times/industry/` + industry.slug,
+        lastModified: industry.latestReportingPeriodEndDate,
+        changeFrequency: "monthly",
+        priority: "0.7",
+      }),
+    ),
     ...searchIndex.map((company) =>
       createSitemapUrl({
         location: `${SITE_URL}/regulator-payment-times/${company.slug}`,
@@ -380,16 +461,176 @@ function writePaymentTimesSitemap(searchIndex) {
   fs.writeFileSync(PAYMENT_TIMES_SITEMAP_PATH, sitemap, "utf8");
 }
 
-function prepareOutputDirectories() {
-  fs.mkdirSync(COMPANY_OUTPUT_DIRECTORY, {
+function clearJsonDirectory(directoryPath) {
+  fs.mkdirSync(directoryPath, {
     recursive: true,
   });
 
-  for (const fileName of fs.readdirSync(COMPANY_OUTPUT_DIRECTORY)) {
+  for (const fileName of fs.readdirSync(directoryPath)) {
     if (fileName.endsWith(".json")) {
-      fs.rmSync(path.join(COMPANY_OUTPUT_DIRECTORY, fileName));
+      fs.rmSync(path.join(directoryPath, fileName));
     }
   }
+}
+
+function prepareOutputDirectories() {
+  clearJsonDirectory(COMPANY_OUTPUT_DIRECTORY);
+  clearJsonDirectory(INDUSTRY_OUTPUT_DIRECTORY);
+}
+
+function createIndustryOutputs(publishedReports) {
+  const reportsByIndustry = new Map();
+
+  for (const report of publishedReports) {
+    if (!reportsByIndustry.has(report.industryDivision)) {
+      reportsByIndustry.set(report.industryDivision, []);
+    }
+
+    reportsByIndustry.get(report.industryDivision).push(report);
+  }
+
+  const industries = [];
+
+  for (const industryDivision of ANZSIC_INDUSTRY_DIVISIONS) {
+    const industryReports = reportsByIndustry.get(industryDivision);
+
+    if (!industryReports || industryReports.length === 0) {
+      continue;
+    }
+
+    const slug = createTextSlug(
+      industryDivision,
+      `industry division ${industryDivision}`,
+    );
+
+    const reportsByPeriod = new Map();
+
+    for (const report of industryReports) {
+      if (!reportsByPeriod.has(report.reportingPeriodEndDate)) {
+        reportsByPeriod.set(report.reportingPeriodEndDate, []);
+      }
+
+      reportsByPeriod.get(report.reportingPeriodEndDate).push(report);
+    }
+
+    const history = [...reportsByPeriod.entries()]
+      .map(([reportingPeriodEndDate, periodReports]) => {
+        const p95Values = periodReports.map(
+          (report) => report.p95PaymentTimeDays,
+        );
+
+        return {
+          reportingPeriodEndDate,
+          reportingEntityCount: periodReports.length,
+          averageP95PaymentTimeDays: calculateAverage(p95Values),
+          medianP95PaymentTimeDays: calculateMedian(p95Values),
+          minimumP95PaymentTimeDays: Math.min(...p95Values),
+          maximumP95PaymentTimeDays: Math.max(...p95Values),
+        };
+      })
+      .sort((left, right) =>
+        left.reportingPeriodEndDate.localeCompare(right.reportingPeriodEndDate),
+      );
+
+    industries.push({
+      slug,
+      industryDivision,
+      history,
+      reportsByPeriod,
+    });
+  }
+
+  const medianValuesByPeriod = new Map();
+
+  for (const industry of industries) {
+    for (const period of industry.history) {
+      if (!medianValuesByPeriod.has(period.reportingPeriodEndDate)) {
+        medianValuesByPeriod.set(period.reportingPeriodEndDate, []);
+      }
+
+      medianValuesByPeriod
+        .get(period.reportingPeriodEndDate)
+        .push(period.medianP95PaymentTimeDays);
+    }
+  }
+
+  for (const industry of industries) {
+    for (const period of industry.history) {
+      period.position = calculatePosition(
+        period.medianP95PaymentTimeDays,
+        medianValuesByPeriod.get(period.reportingPeriodEndDate),
+      );
+    }
+  }
+
+  const industryIndex = [];
+
+  for (const industry of industries) {
+    const latestPeriod = industry.history[industry.history.length - 1];
+
+    const latestPeriodReports = industry.reportsByPeriod.get(
+      latestPeriod.reportingPeriodEndDate,
+    );
+
+    const companies = latestPeriodReports
+      .map((report) => ({
+        businessName: report.businessName,
+        abn: report.abn,
+        slug: createCompanySlug(report.businessName, report.abn),
+        p95PaymentTimeDays: report.p95PaymentTimeDays,
+        industryP95Position: report.industryP95Position,
+      }))
+      .sort((left, right) => {
+        const p95Comparison =
+          left.p95PaymentTimeDays - right.p95PaymentTimeDays;
+
+        if (p95Comparison !== 0) {
+          return p95Comparison;
+        }
+
+        return left.businessName.localeCompare(right.businessName);
+      });
+
+    const industryOutput = {
+      slug: industry.slug,
+      industryDivision: industry.industryDivision,
+      latestReportingPeriodEndDate: latestPeriod.reportingPeriodEndDate,
+      reportingEntityCount: latestPeriod.reportingEntityCount,
+      latestPeriod,
+      history: industry.history,
+      companies,
+    };
+
+    writeJson(
+      path.join(INDUSTRY_OUTPUT_DIRECTORY, `${industry.slug}.json`),
+      industryOutput,
+    );
+
+    industryIndex.push({
+      slug: industry.slug,
+      industryDivision: industry.industryDivision,
+      latestReportingPeriodEndDate: latestPeriod.reportingPeriodEndDate,
+      reportingEntityCount: latestPeriod.reportingEntityCount,
+      averageP95PaymentTimeDays: latestPeriod.averageP95PaymentTimeDays,
+      medianP95PaymentTimeDays: latestPeriod.medianP95PaymentTimeDays,
+      minimumP95PaymentTimeDays: latestPeriod.minimumP95PaymentTimeDays,
+      maximumP95PaymentTimeDays: latestPeriod.maximumP95PaymentTimeDays,
+      position: latestPeriod.position,
+    });
+  }
+
+  industryIndex.sort((left, right) => {
+    const p95Comparison =
+      left.medianP95PaymentTimeDays - right.medianP95PaymentTimeDays;
+
+    if (p95Comparison !== 0) {
+      return p95Comparison;
+    }
+
+    return left.industryDivision.localeCompare(right.industryDivision);
+  });
+
+  return industryIndex;
 }
 
 function importRegulatorPaymentTimes() {
@@ -457,6 +698,10 @@ function importRegulatorPaymentTimes() {
       fail(`Business Name is missing for report ${reportId}`);
     }
 
+    const industryDivision = normaliseText(row["Industry Division"]);
+
+    validateIndustryDivision(industryDivision, reportId);
+
     candidateReports.push({
       reportId,
       businessName,
@@ -518,7 +763,7 @@ function importRegulatorPaymentTimes() {
         reportId,
       ),
       industrySubdivision: normaliseText(row["ANZSIC Industry subdivision"]),
-      industryDivision: normaliseText(row["Industry Division"]),
+      industryDivision,
       submittedDate: normaliseDate(
         row["Submitted date"],
         "Submitted date",
@@ -612,7 +857,12 @@ function importRegulatorPaymentTimes() {
 
     const latestReport = reports[0];
 
-    const slug = createSlug(latestReport.businessName, abn);
+    const slug = createCompanySlug(latestReport.businessName, abn);
+
+    const industrySlug = createTextSlug(
+      latestReport.industryDivision,
+      `industry division ${latestReport.industryDivision}`,
+    );
 
     const company = {
       slug,
@@ -620,6 +870,7 @@ function importRegulatorPaymentTimes() {
       abn,
       acnArbn: latestReport.acnArbn,
       industryDivision: latestReport.industryDivision,
+      industrySlug,
       industrySubdivision: latestReport.industrySubdivision,
       latestReportingPeriodEndDate: latestReport.reportingPeriodEndDate,
       reports: reports.map(
@@ -634,6 +885,7 @@ function importRegulatorPaymentTimes() {
       abn: company.abn,
       slug: company.slug,
       industryDivision: company.industryDivision,
+      industrySlug: company.industrySlug,
       industrySubdivision: company.industrySubdivision,
       latestReportingPeriodEndDate: company.latestReportingPeriodEndDate,
     });
@@ -643,6 +895,8 @@ function importRegulatorPaymentTimes() {
     left.businessName.localeCompare(right.businessName),
   );
 
+  const industryIndex = createIndustryOutputs(publishedReports);
+
   const summary = {
     generatedAt: new Date().toISOString(),
     sourceWorkbook: path.basename(workbookPath),
@@ -651,12 +905,18 @@ function importRegulatorPaymentTimes() {
     candidateStandardReportCount: candidateReports.length,
     publishedReportCount: publishedReports.length,
     companyCount: reportsByAbn.size,
+    industryCount: industryIndex.length,
     excludedMissingAbnCount,
     excludedNonStandardCount,
     supersededReportCount: candidateReports.length - publishedReports.length,
     outputs: {
       searchIndex: path.relative(process.cwd(), SEARCH_INDEX_PATH),
       companyDirectory: path.relative(process.cwd(), COMPANY_OUTPUT_DIRECTORY),
+      industryIndex: path.relative(process.cwd(), INDUSTRY_INDEX_PATH),
+      industryDirectory: path.relative(
+        process.cwd(),
+        INDUSTRY_OUTPUT_DIRECTORY,
+      ),
       paymentTimesSitemap: path.relative(
         process.cwd(),
         PAYMENT_TIMES_SITEMAP_PATH,
@@ -666,7 +926,8 @@ function importRegulatorPaymentTimes() {
   };
 
   writeJson(SEARCH_INDEX_PATH, searchIndex);
-  writePaymentTimesSitemap(searchIndex);
+  writeJson(INDUSTRY_INDEX_PATH, industryIndex);
+  writePaymentTimesSitemap(searchIndex, industryIndex);
   writeJson(IMPORT_SUMMARY_PATH, summary);
 
   console.log("Regulator Payment Times import completed successfully.");

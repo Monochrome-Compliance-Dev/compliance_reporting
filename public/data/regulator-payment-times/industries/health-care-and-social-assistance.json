@@ -1,0 +1,216 @@
+{
+  "slug": "health-care-and-social-assistance",
+  "industryDivision": "Health Care and Social Assistance",
+  "latestReportingPeriodEndDate": "2026-04-24",
+  "reportingEntityCount": 1,
+  "latestPeriod": {
+    "reportingPeriodEndDate": "2026-04-24",
+    "reportingEntityCount": 1,
+    "averageP95PaymentTimeDays": 90,
+    "medianP95PaymentTimeDays": 90,
+    "minimumP95PaymentTimeDays": 90,
+    "maximumP95PaymentTimeDays": 90,
+    "position": {
+      "rank": 1,
+      "count": 1,
+      "percentile": 100
+    }
+  },
+  "history": [
+    {
+      "reportingPeriodEndDate": "2024-12-31",
+      "reportingEntityCount": 97,
+      "averageP95PaymentTimeDays": 59.6,
+      "medianP95PaymentTimeDays": 59,
+      "minimumP95PaymentTimeDays": 8,
+      "maximumP95PaymentTimeDays": 174,
+      "position": {
+        "rank": 16,
+        "count": 19,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-02-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 58,
+      "medianP95PaymentTimeDays": 58,
+      "minimumP95PaymentTimeDays": 58,
+      "maximumP95PaymentTimeDays": 58,
+      "position": {
+        "rank": 6,
+        "count": 10,
+        "percentile": 44.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-31",
+      "reportingEntityCount": 5,
+      "averageP95PaymentTimeDays": 53.6,
+      "medianP95PaymentTimeDays": 45,
+      "minimumP95PaymentTimeDays": 32,
+      "maximumP95PaymentTimeDays": 90,
+      "position": {
+        "rank": 4,
+        "count": 18,
+        "percentile": 82.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-05-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 32,
+      "medianP95PaymentTimeDays": 32,
+      "minimumP95PaymentTimeDays": 32,
+      "maximumP95PaymentTimeDays": 32,
+      "position": {
+        "rank": 2,
+        "count": 8,
+        "percentile": 85.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-29",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 91,
+      "medianP95PaymentTimeDays": 91,
+      "minimumP95PaymentTimeDays": 91,
+      "maximumP95PaymentTimeDays": 91,
+      "position": {
+        "rank": 5,
+        "count": 5,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-30",
+      "reportingEntityCount": 97,
+      "averageP95PaymentTimeDays": 62.6,
+      "medianP95PaymentTimeDays": 59,
+      "minimumP95PaymentTimeDays": 23,
+      "maximumP95PaymentTimeDays": 212,
+      "position": {
+        "rank": 16,
+        "count": 19,
+        "percentile": 11.1
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-08-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 59,
+      "medianP95PaymentTimeDays": 59,
+      "minimumP95PaymentTimeDays": 59,
+      "maximumP95PaymentTimeDays": 59,
+      "position": {
+        "rank": 6,
+        "count": 11,
+        "percentile": 50
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-30",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 56.5,
+      "medianP95PaymentTimeDays": 50.5,
+      "minimumP95PaymentTimeDays": 35,
+      "maximumP95PaymentTimeDays": 90,
+      "position": {
+        "rank": 12,
+        "count": 18,
+        "percentile": 35.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-10-23",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 90,
+      "medianP95PaymentTimeDays": 90,
+      "minimumP95PaymentTimeDays": 90,
+      "maximumP95PaymentTimeDays": 90,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-11-30",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 37,
+      "medianP95PaymentTimeDays": 37,
+      "minimumP95PaymentTimeDays": 37,
+      "maximumP95PaymentTimeDays": 37,
+      "position": {
+        "rank": 2,
+        "count": 8,
+        "percentile": 85.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-31",
+      "reportingEntityCount": 106,
+      "averageP95PaymentTimeDays": 57.2,
+      "medianP95PaymentTimeDays": 56.5,
+      "minimumP95PaymentTimeDays": 2,
+      "maximumP95PaymentTimeDays": 172,
+      "position": {
+        "rank": 16,
+        "count": 19,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-02-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 59,
+      "medianP95PaymentTimeDays": 59,
+      "minimumP95PaymentTimeDays": 59,
+      "maximumP95PaymentTimeDays": 59,
+      "position": {
+        "rank": 6,
+        "count": 12,
+        "percentile": 54.5
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-31",
+      "reportingEntityCount": 5,
+      "averageP95PaymentTimeDays": 54.2,
+      "medianP95PaymentTimeDays": 46,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 90,
+      "position": {
+        "rank": 8,
+        "count": 17,
+        "percentile": 56.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-04-24",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 90,
+      "medianP95PaymentTimeDays": 90,
+      "minimumP95PaymentTimeDays": 90,
+      "maximumP95PaymentTimeDays": 90,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "MEDTRONIC AUSTRALASIA PTY LTD",
+      "abn": "47001162661",
+      "slug": "medtronic-australasia-pty-ltd-47001162661",
+      "p95PaymentTimeDays": 90,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

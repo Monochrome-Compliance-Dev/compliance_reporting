@@ -4,6 +4,7 @@
   "abn": "90004543800",
   "acnArbn": "004543800",
   "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
   "industrySubdivision": "Basic chemical and chemical product mfg",
   "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [

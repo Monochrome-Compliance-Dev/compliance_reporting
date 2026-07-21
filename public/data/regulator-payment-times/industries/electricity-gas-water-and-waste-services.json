@@ -1,0 +1,123 @@
+{
+  "slug": "electricity-gas-water-and-waste-services",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reportingEntityCount": 2,
+  "latestPeriod": {
+    "reportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 2,
+    "averageP95PaymentTimeDays": 27,
+    "medianP95PaymentTimeDays": 27,
+    "minimumP95PaymentTimeDays": 15,
+    "maximumP95PaymentTimeDays": 39,
+    "position": {
+      "rank": 1,
+      "count": 17,
+      "percentile": 100
+    }
+  },
+  "history": [
+    {
+      "reportingPeriodEndDate": "2024-12-31",
+      "reportingEntityCount": 99,
+      "averageP95PaymentTimeDays": 47.1,
+      "medianP95PaymentTimeDays": 42,
+      "minimumP95PaymentTimeDays": 8,
+      "maximumP95PaymentTimeDays": 172,
+      "position": {
+        "rank": 2,
+        "count": 19,
+        "percentile": 94.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-31",
+      "reportingEntityCount": 3,
+      "averageP95PaymentTimeDays": 54.7,
+      "medianP95PaymentTimeDays": 49,
+      "minimumP95PaymentTimeDays": 25,
+      "maximumP95PaymentTimeDays": 90,
+      "position": {
+        "rank": 6,
+        "count": 18,
+        "percentile": 64.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-30",
+      "reportingEntityCount": 95,
+      "averageP95PaymentTimeDays": 49.1,
+      "medianP95PaymentTimeDays": 48,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 203,
+      "position": {
+        "rank": 6,
+        "count": 19,
+        "percentile": 72.2
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-30",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 56.5,
+      "medianP95PaymentTimeDays": 48.5,
+      "minimumP95PaymentTimeDays": 11,
+      "maximumP95PaymentTimeDays": 118,
+      "position": {
+        "rank": 8,
+        "count": 18,
+        "percentile": 52.9
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-31",
+      "reportingEntityCount": 92,
+      "averageP95PaymentTimeDays": 43.3,
+      "medianP95PaymentTimeDays": 44,
+      "minimumP95PaymentTimeDays": 15,
+      "maximumP95PaymentTimeDays": 121,
+      "position": {
+        "rank": 4,
+        "count": 19,
+        "percentile": 83.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-31",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 27,
+      "medianP95PaymentTimeDays": 27,
+      "minimumP95PaymentTimeDays": 15,
+      "maximumP95PaymentTimeDays": 39,
+      "position": {
+        "rank": 1,
+        "count": 17,
+        "percentile": 100
+      }
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "BLUEWATERS POWER 1 PTY LTD",
+      "abn": "93106034879",
+      "slug": "bluewaters-power-1-pty-ltd-93106034879",
+      "p95PaymentTimeDays": 15,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "BLUEWATERS POWER 2 PTY LTD",
+      "abn": "57122896968",
+      "slug": "bluewaters-power-2-pty-ltd-57122896968",
+      "p95PaymentTimeDays": 39,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    }
+  ]
+}

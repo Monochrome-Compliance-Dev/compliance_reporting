@@ -4,6 +4,7 @@
   "abn": "61103902389",
   "acnArbn": "103902389",
   "industryDivision": "Mining",
+  "industrySlug": "mining",
   "industrySubdivision": "Coal mining",
   "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [

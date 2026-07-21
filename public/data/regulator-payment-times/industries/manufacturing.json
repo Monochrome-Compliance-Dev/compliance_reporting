@@ -1,0 +1,701 @@
+{
+  "slug": "manufacturing",
+  "industryDivision": "Manufacturing",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reportingEntityCount": 25,
+  "latestPeriod": {
+    "reportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 25,
+    "averageP95PaymentTimeDays": 63.4,
+    "medianP95PaymentTimeDays": 63,
+    "minimumP95PaymentTimeDays": 10,
+    "maximumP95PaymentTimeDays": 124,
+    "position": {
+      "rank": 16,
+      "count": 17,
+      "percentile": 6.3
+    }
+  },
+  "history": [
+    {
+      "reportingPeriodEndDate": "2024-09-30",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 50,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 50,
+      "maximumP95PaymentTimeDays": 50,
+      "position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2024-12-28",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 44.5,
+      "medianP95PaymentTimeDays": 44.5,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 59,
+      "position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2024-12-29",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 48.3,
+      "medianP95PaymentTimeDays": 47.5,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 68,
+      "position": {
+        "rank": 2,
+        "count": 6,
+        "percentile": 80
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2024-12-31",
+      "reportingEntityCount": 323,
+      "averageP95PaymentTimeDays": 67.2,
+      "medianP95PaymentTimeDays": 63,
+      "minimumP95PaymentTimeDays": 11,
+      "maximumP95PaymentTimeDays": 240,
+      "position": {
+        "rank": 19,
+        "count": 19,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-01-26",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 103,
+      "medianP95PaymentTimeDays": 103,
+      "minimumP95PaymentTimeDays": 103,
+      "maximumP95PaymentTimeDays": 103,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-01-31",
+      "reportingEntityCount": 6,
+      "averageP95PaymentTimeDays": 79.3,
+      "medianP95PaymentTimeDays": 84,
+      "minimumP95PaymentTimeDays": 60,
+      "maximumP95PaymentTimeDays": 95,
+      "position": {
+        "rank": 10,
+        "count": 11,
+        "percentile": 10
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-02-28",
+      "reportingEntityCount": 6,
+      "averageP95PaymentTimeDays": 48.3,
+      "medianP95PaymentTimeDays": 53,
+      "minimumP95PaymentTimeDays": 29,
+      "maximumP95PaymentTimeDays": 62,
+      "position": {
+        "rank": 5,
+        "count": 10,
+        "percentile": 55.6
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-30",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 62,
+      "medianP95PaymentTimeDays": 62,
+      "minimumP95PaymentTimeDays": 62,
+      "maximumP95PaymentTimeDays": 62,
+      "position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-31",
+      "reportingEntityCount": 32,
+      "averageP95PaymentTimeDays": 65.8,
+      "medianP95PaymentTimeDays": 64.5,
+      "minimumP95PaymentTimeDays": 20,
+      "maximumP95PaymentTimeDays": 132,
+      "position": {
+        "rank": 16,
+        "count": 18,
+        "percentile": 11.8
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-05-25",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 97,
+      "medianP95PaymentTimeDays": 97,
+      "minimumP95PaymentTimeDays": 97,
+      "maximumP95PaymentTimeDays": 97,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-05-31",
+      "reportingEntityCount": 8,
+      "averageP95PaymentTimeDays": 64.1,
+      "medianP95PaymentTimeDays": 59,
+      "minimumP95PaymentTimeDays": 37,
+      "maximumP95PaymentTimeDays": 93,
+      "position": {
+        "rank": 4,
+        "count": 8,
+        "percentile": 57.1
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-28",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 56,
+      "medianP95PaymentTimeDays": 56,
+      "minimumP95PaymentTimeDays": 53,
+      "maximumP95PaymentTimeDays": 59,
+      "position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-29",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 62.5,
+      "medianP95PaymentTimeDays": 60.5,
+      "minimumP95PaymentTimeDays": 37,
+      "maximumP95PaymentTimeDays": 92,
+      "position": {
+        "rank": 3,
+        "count": 5,
+        "percentile": 50
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-30",
+      "reportingEntityCount": 335,
+      "averageP95PaymentTimeDays": 67.6,
+      "medianP95PaymentTimeDays": 63,
+      "minimumP95PaymentTimeDays": 7,
+      "maximumP95PaymentTimeDays": 222,
+      "position": {
+        "rank": 19,
+        "count": 19,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-07-31",
+      "reportingEntityCount": 7,
+      "averageP95PaymentTimeDays": 80.1,
+      "medianP95PaymentTimeDays": 83,
+      "minimumP95PaymentTimeDays": 65,
+      "maximumP95PaymentTimeDays": 87,
+      "position": {
+        "rank": 12,
+        "count": 12,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-08-03",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 120,
+      "medianP95PaymentTimeDays": 120,
+      "minimumP95PaymentTimeDays": 120,
+      "maximumP95PaymentTimeDays": 120,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-08-31",
+      "reportingEntityCount": 6,
+      "averageP95PaymentTimeDays": 70.8,
+      "medianP95PaymentTimeDays": 57,
+      "minimumP95PaymentTimeDays": 36,
+      "maximumP95PaymentTimeDays": 174,
+      "position": {
+        "rank": 3,
+        "count": 11,
+        "percentile": 60
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 50,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 50,
+      "maximumP95PaymentTimeDays": 50,
+      "position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-30",
+      "reportingEntityCount": 28,
+      "averageP95PaymentTimeDays": 69.6,
+      "medianP95PaymentTimeDays": 66,
+      "minimumP95PaymentTimeDays": 20,
+      "maximumP95PaymentTimeDays": 155,
+      "position": {
+        "rank": 17,
+        "count": 18,
+        "percentile": 5.9
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-11-02",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 52,
+      "medianP95PaymentTimeDays": 52,
+      "minimumP95PaymentTimeDays": 52,
+      "maximumP95PaymentTimeDays": 52,
+      "position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-11-23",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 96,
+      "medianP95PaymentTimeDays": 96,
+      "minimumP95PaymentTimeDays": 96,
+      "maximumP95PaymentTimeDays": 96,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-11-30",
+      "reportingEntityCount": 7,
+      "averageP95PaymentTimeDays": 72.9,
+      "medianP95PaymentTimeDays": 62,
+      "minimumP95PaymentTimeDays": 56,
+      "maximumP95PaymentTimeDays": 110,
+      "position": {
+        "rank": 5,
+        "count": 8,
+        "percentile": 42.9
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-12",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 56,
+      "medianP95PaymentTimeDays": 56,
+      "minimumP95PaymentTimeDays": 56,
+      "maximumP95PaymentTimeDays": 56,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-27",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 67.5,
+      "medianP95PaymentTimeDays": 67.5,
+      "minimumP95PaymentTimeDays": 58,
+      "maximumP95PaymentTimeDays": 77,
+      "position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-28",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 51.5,
+      "medianP95PaymentTimeDays": 52.5,
+      "minimumP95PaymentTimeDays": 39,
+      "maximumP95PaymentTimeDays": 62,
+      "position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-31",
+      "reportingEntityCount": 347,
+      "averageP95PaymentTimeDays": 66.1,
+      "medianP95PaymentTimeDays": 61,
+      "minimumP95PaymentTimeDays": 7,
+      "maximumP95PaymentTimeDays": 219,
+      "position": {
+        "rank": 19,
+        "count": 19,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-01-31",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 77.3,
+      "medianP95PaymentTimeDays": 79.5,
+      "minimumP95PaymentTimeDays": 66,
+      "maximumP95PaymentTimeDays": 84,
+      "position": {
+        "rank": 11,
+        "count": 11,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-02-01",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 85.5,
+      "medianP95PaymentTimeDays": 85.5,
+      "minimumP95PaymentTimeDays": 76,
+      "maximumP95PaymentTimeDays": 95,
+      "position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-02-28",
+      "reportingEntityCount": 6,
+      "averageP95PaymentTimeDays": 47.7,
+      "medianP95PaymentTimeDays": 52,
+      "minimumP95PaymentTimeDays": 29,
+      "maximumP95PaymentTimeDays": 59,
+      "position": {
+        "rank": 4,
+        "count": 12,
+        "percentile": 72.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-29",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 60,
+      "medianP95PaymentTimeDays": 60,
+      "minimumP95PaymentTimeDays": 60,
+      "maximumP95PaymentTimeDays": 60,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-31",
+      "reportingEntityCount": 25,
+      "averageP95PaymentTimeDays": 63.4,
+      "medianP95PaymentTimeDays": 63,
+      "minimumP95PaymentTimeDays": 10,
+      "maximumP95PaymentTimeDays": 124,
+      "position": {
+        "rank": 16,
+        "count": 17,
+        "percentile": 6.3
+      }
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "ORICA MINING SERVICES PILBARA PTY LTD",
+      "abn": "65158151369",
+      "slug": "orica-mining-services-pilbara-pty-ltd-65158151369",
+      "p95PaymentTimeDays": 10,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 25,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "MARQUIS MACADAMIAS LTD",
+      "abn": "93002607972",
+      "slug": "marquis-macadamias-ltd-93002607972",
+      "p95PaymentTimeDays": 20,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 25,
+        "percentile": 95.8
+      }
+    },
+    {
+      "businessName": "HEP AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "22129428155",
+      "slug": "hep-australia-holdings-pty-ltd-22129428155",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 25,
+        "percentile": 91.7
+      }
+    },
+    {
+      "businessName": "NH FOODS AUSTRALIA PTY LTD",
+      "abn": "87001548401",
+      "slug": "nh-foods-australia-pty-ltd-87001548401",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 25,
+        "percentile": 87.5
+      }
+    },
+    {
+      "businessName": "ALPHA FLIGHT SERVICES PTY LTD",
+      "abn": "89064142418",
+      "slug": "alpha-flight-services-pty-ltd-89064142418",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 25,
+        "percentile": 83.3
+      }
+    },
+    {
+      "businessName": "RIVERINA (AUSTRALIA) PTY LIMITED",
+      "abn": "76010755254",
+      "slug": "riverina-australia-pty-limited-76010755254",
+      "p95PaymentTimeDays": 48,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 25,
+        "percentile": 79.2
+      }
+    },
+    {
+      "businessName": "HITACHI ENERGY AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "11632805862",
+      "slug": "hitachi-energy-australia-holdings-pty-ltd-11632805862",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 25,
+        "percentile": 75
+      }
+    },
+    {
+      "businessName": "CENTURY YUASA BATTERIES PTY. LIMITED",
+      "abn": "66009685232",
+      "slug": "century-yuasa-batteries-pty-limited-66009685232",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 25,
+        "percentile": 70.8
+      }
+    },
+    {
+      "businessName": "FINASUCRE INVESTMENTS (AUSTRALIA) PTY LIMITED",
+      "abn": "23062315593",
+      "slug": "finasucre-investments-australia-pty-limited-23062315593",
+      "p95PaymentTimeDays": 59,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 25,
+        "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "NYRSTAR SALES & MARKETING AG",
+      "abn": "46401415344",
+      "slug": "nyrstar-sales-and-marketing-ag-46401415344",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 25,
+        "percentile": 58.3
+      }
+    },
+    {
+      "businessName": "VOESTALPINE RAILWAY SYSTEMS AUSTRALIA PTY LTD",
+      "abn": "71011073108",
+      "slug": "voestalpine-railway-systems-australia-pty-ltd-71011073108",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 25,
+        "percentile": 58.3
+      }
+    },
+    {
+      "businessName": "JOY GLOBAL AUSTRALIA HOLDING COMPANY PTY LTD",
+      "abn": "70059870058",
+      "slug": "joy-global-australia-holding-company-pty-ltd-70059870058",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 25,
+        "percentile": 54.2
+      }
+    },
+    {
+      "businessName": "A.C.N. 166 119 133 PTY LTD",
+      "abn": "31166119133",
+      "slug": "a-c-n-166-119-133-pty-ltd-31166119133",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 25,
+        "percentile": 45.8
+      }
+    },
+    {
+      "businessName": "ALLIED PINNACLE PTY LIMITED",
+      "abn": "85161203005",
+      "slug": "allied-pinnacle-pty-limited-85161203005",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 25,
+        "percentile": 45.8
+      }
+    },
+    {
+      "businessName": "GRANGEHURST ENTERPRISES PTY. LTD.",
+      "abn": "18091454527",
+      "slug": "grangehurst-enterprises-pty-ltd-18091454527",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 25,
+        "percentile": 41.7
+      }
+    },
+    {
+      "businessName": "BRADKEN PTY LIMITED",
+      "abn": "33108693009",
+      "slug": "bradken-pty-limited-33108693009",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 16,
+        "count": 25,
+        "percentile": 37.5
+      }
+    },
+    {
+      "businessName": "FUJIFILM BUSINESS INNOVATION AUSTRALIA PTY LTD",
+      "abn": "63000341819",
+      "slug": "fujifilm-business-innovation-australia-pty-ltd-63000341819",
+      "p95PaymentTimeDays": 71,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 25,
+        "percentile": 33.3
+      }
+    },
+    {
+      "businessName": "NUFARM LIMITED",
+      "abn": "37091323312",
+      "slug": "nufarm-limited-37091323312",
+      "p95PaymentTimeDays": 73,
+      "industryP95Position": {
+        "rank": 18,
+        "count": 25,
+        "percentile": 29.2
+      }
+    },
+    {
+      "businessName": "DAIKIN AUSTRALIA PTY LTD",
+      "abn": "62000172967",
+      "slug": "daikin-australia-pty-ltd-62000172967",
+      "p95PaymentTimeDays": 75,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 25,
+        "percentile": 25
+      }
+    },
+    {
+      "businessName": "IX INFRASTRUCTURE PTY LTD",
+      "abn": "78629750401",
+      "slug": "ix-infrastructure-pty-ltd-78629750401",
+      "p95PaymentTimeDays": 79,
+      "industryP95Position": {
+        "rank": 20,
+        "count": 25,
+        "percentile": 20.8
+      }
+    },
+    {
+      "businessName": "SEELEY INTERNATIONAL PTY. LTD.",
+      "abn": "23054687035",
+      "slug": "seeley-international-pty-ltd-23054687035",
+      "p95PaymentTimeDays": 83,
+      "industryP95Position": {
+        "rank": 21,
+        "count": 25,
+        "percentile": 16.7
+      }
+    },
+    {
+      "businessName": "JAMES HARDIE AUSTRALIA PTY LTD",
+      "abn": "12084635558",
+      "slug": "james-hardie-australia-pty-ltd-12084635558",
+      "p95PaymentTimeDays": 84,
+      "industryP95Position": {
+        "rank": 22,
+        "count": 25,
+        "percentile": 12.5
+      }
+    },
+    {
+      "businessName": "DYNO NOBEL LIMITED",
+      "abn": "42004080264",
+      "slug": "dyno-nobel-limited-42004080264",
+      "p95PaymentTimeDays": 85,
+      "industryP95Position": {
+        "rank": 23,
+        "count": 25,
+        "percentile": 8.3
+      }
+    },
+    {
+      "businessName": "SIEMENS MOBILITY PTY. LTD.",
+      "abn": "39625304556",
+      "slug": "siemens-mobility-pty-ltd-39625304556",
+      "p95PaymentTimeDays": 91,
+      "industryP95Position": {
+        "rank": 24,
+        "count": 25,
+        "percentile": 4.2
+      }
+    },
+    {
+      "businessName": "ALSTOM TRANSPORT AUSTRALIA HOLDINGS PTY LIMITED",
+      "abn": "28644102992",
+      "slug": "alstom-transport-australia-holdings-pty-limited-28644102992",
+      "p95PaymentTimeDays": 124,
+      "industryP95Position": {
+        "rank": 25,
+        "count": 25,
+        "percentile": 0
+      }
+    }
+  ]
+}

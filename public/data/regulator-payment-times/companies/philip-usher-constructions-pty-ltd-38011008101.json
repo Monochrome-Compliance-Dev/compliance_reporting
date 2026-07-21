@@ -4,6 +4,7 @@
   "abn": "38011008101",
   "acnArbn": "011008101",
   "industryDivision": "Construction",
+  "industrySlug": "construction",
   "industrySubdivision": "Building construction",
   "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [

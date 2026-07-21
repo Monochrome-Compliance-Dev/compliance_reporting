@@ -4,6 +4,7 @@
   "abn": "99000401025",
   "acnArbn": "000401025",
   "industryDivision": "Mining",
+  "industrySlug": "mining",
   "industrySubdivision": "Exploration and other mining support services",
   "latestReportingPeriodEndDate": "2024-12-31",
   "reports": [

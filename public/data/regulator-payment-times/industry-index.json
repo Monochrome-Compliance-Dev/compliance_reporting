@@ -1,0 +1,287 @@
+[
+  {
+    "slug": "electricity-gas-water-and-waste-services",
+    "industryDivision": "Electricity, Gas, Water and Waste Services",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 2,
+    "averageP95PaymentTimeDays": 27,
+    "medianP95PaymentTimeDays": 27,
+    "minimumP95PaymentTimeDays": 15,
+    "maximumP95PaymentTimeDays": 39,
+    "position": {
+      "rank": 1,
+      "count": 17,
+      "percentile": 100
+    }
+  },
+  {
+    "slug": "accommodation-and-food-services",
+    "industryDivision": "Accommodation and Food Services",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 1,
+    "averageP95PaymentTimeDays": 30,
+    "medianP95PaymentTimeDays": 30,
+    "minimumP95PaymentTimeDays": 30,
+    "maximumP95PaymentTimeDays": 30,
+    "position": {
+      "rank": 2,
+      "count": 17,
+      "percentile": 93.8
+    }
+  },
+  {
+    "slug": "retail-trade",
+    "industryDivision": "Retail Trade",
+    "latestReportingPeriodEndDate": "2026-04-26",
+    "reportingEntityCount": 1,
+    "averageP95PaymentTimeDays": 30,
+    "medianP95PaymentTimeDays": 30,
+    "minimumP95PaymentTimeDays": 30,
+    "maximumP95PaymentTimeDays": 30,
+    "position": {
+      "rank": 1,
+      "count": 1,
+      "percentile": 100
+    }
+  },
+  {
+    "slug": "mining",
+    "industryDivision": "Mining",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 10,
+    "averageP95PaymentTimeDays": 36.7,
+    "medianP95PaymentTimeDays": 30.5,
+    "minimumP95PaymentTimeDays": 16,
+    "maximumP95PaymentTimeDays": 72,
+    "position": {
+      "rank": 3,
+      "count": 17,
+      "percentile": 87.5
+    }
+  },
+  {
+    "slug": "arts-and-recreation-services",
+    "industryDivision": "Arts and Recreation Services",
+    "latestReportingPeriodEndDate": "2026-04-30",
+    "reportingEntityCount": 3,
+    "averageP95PaymentTimeDays": 37.7,
+    "medianP95PaymentTimeDays": 35,
+    "minimumP95PaymentTimeDays": 26,
+    "maximumP95PaymentTimeDays": 52,
+    "position": {
+      "rank": 1,
+      "count": 3,
+      "percentile": 100
+    }
+  },
+  {
+    "slug": "administrative-and-support-services",
+    "industryDivision": "Administrative and Support Services",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 7,
+    "averageP95PaymentTimeDays": 41.4,
+    "medianP95PaymentTimeDays": 40,
+    "minimumP95PaymentTimeDays": 11,
+    "maximumP95PaymentTimeDays": 77,
+    "position": {
+      "rank": 5,
+      "count": 17,
+      "percentile": 75
+    }
+  },
+  {
+    "slug": "financial-and-insurance-services",
+    "industryDivision": "Financial and Insurance Services",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 19,
+    "averageP95PaymentTimeDays": 40.1,
+    "medianP95PaymentTimeDays": 43,
+    "minimumP95PaymentTimeDays": 7,
+    "maximumP95PaymentTimeDays": 83,
+    "position": {
+      "rank": 7,
+      "count": 17,
+      "percentile": 62.5
+    }
+  },
+  {
+    "slug": "public-administration-and-safety",
+    "industryDivision": "Public Administration and Safety",
+    "latestReportingPeriodEndDate": "2025-12-31",
+    "reportingEntityCount": 33,
+    "averageP95PaymentTimeDays": 42.8,
+    "medianP95PaymentTimeDays": 43,
+    "minimumP95PaymentTimeDays": 1,
+    "maximumP95PaymentTimeDays": 85,
+    "position": {
+      "rank": 3,
+      "count": 19,
+      "percentile": 88.9
+    }
+  },
+  {
+    "slug": "other-services",
+    "industryDivision": "Other Services",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 2,
+    "averageP95PaymentTimeDays": 47,
+    "medianP95PaymentTimeDays": 47,
+    "minimumP95PaymentTimeDays": 44,
+    "maximumP95PaymentTimeDays": 50,
+    "position": {
+      "rank": 9,
+      "count": 17,
+      "percentile": 43.8
+    }
+  },
+  {
+    "slug": "transport-postal-and-warehousing",
+    "industryDivision": "Transport, Postal and Warehousing",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 14,
+    "averageP95PaymentTimeDays": 52.2,
+    "medianP95PaymentTimeDays": 48.5,
+    "minimumP95PaymentTimeDays": 18,
+    "maximumP95PaymentTimeDays": 116,
+    "position": {
+      "rank": 11,
+      "count": 17,
+      "percentile": 37.5
+    }
+  },
+  {
+    "slug": "agriculture-forestry-and-fishing",
+    "industryDivision": "Agriculture, Forestry and Fishing",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 8,
+    "averageP95PaymentTimeDays": 49.1,
+    "medianP95PaymentTimeDays": 49.5,
+    "minimumP95PaymentTimeDays": 31,
+    "maximumP95PaymentTimeDays": 62,
+    "position": {
+      "rank": 12,
+      "count": 17,
+      "percentile": 31.3
+    }
+  },
+  {
+    "slug": "wholesale-trade",
+    "industryDivision": "Wholesale Trade",
+    "latestReportingPeriodEndDate": "2026-05-03",
+    "reportingEntityCount": 1,
+    "averageP95PaymentTimeDays": 51,
+    "medianP95PaymentTimeDays": 51,
+    "minimumP95PaymentTimeDays": 51,
+    "maximumP95PaymentTimeDays": 51,
+    "position": {
+      "rank": 1,
+      "count": 1,
+      "percentile": 100
+    }
+  },
+  {
+    "slug": "construction",
+    "industryDivision": "Construction",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 5,
+    "averageP95PaymentTimeDays": 55.8,
+    "medianP95PaymentTimeDays": 52,
+    "minimumP95PaymentTimeDays": 46,
+    "maximumP95PaymentTimeDays": 72,
+    "position": {
+      "rank": 13,
+      "count": 17,
+      "percentile": 25
+    }
+  },
+  {
+    "slug": "education-and-training",
+    "industryDivision": "Education and Training",
+    "latestReportingPeriodEndDate": "2025-12-31",
+    "reportingEntityCount": 14,
+    "averageP95PaymentTimeDays": 47.3,
+    "medianP95PaymentTimeDays": 52.5,
+    "minimumP95PaymentTimeDays": 13,
+    "maximumP95PaymentTimeDays": 76,
+    "position": {
+      "rank": 11,
+      "count": 19,
+      "percentile": 44.4
+    }
+  },
+  {
+    "slug": "professional-scientific-and-technical-services",
+    "industryDivision": "Professional, Scientific and Technical Services",
+    "latestReportingPeriodEndDate": "2026-04-30",
+    "reportingEntityCount": 2,
+    "averageP95PaymentTimeDays": 55.5,
+    "medianP95PaymentTimeDays": 55.5,
+    "minimumP95PaymentTimeDays": 21,
+    "maximumP95PaymentTimeDays": 90,
+    "position": {
+      "rank": 2,
+      "count": 3,
+      "percentile": 50
+    }
+  },
+  {
+    "slug": "manufacturing",
+    "industryDivision": "Manufacturing",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 25,
+    "averageP95PaymentTimeDays": 63.4,
+    "medianP95PaymentTimeDays": 63,
+    "minimumP95PaymentTimeDays": 10,
+    "maximumP95PaymentTimeDays": 124,
+    "position": {
+      "rank": 16,
+      "count": 17,
+      "percentile": 6.3
+    }
+  },
+  {
+    "slug": "rental-hiring-and-real-estate-services",
+    "industryDivision": "Rental, Hiring and Real Estate Services",
+    "latestReportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 2,
+    "averageP95PaymentTimeDays": 75.5,
+    "medianP95PaymentTimeDays": 75.5,
+    "minimumP95PaymentTimeDays": 68,
+    "maximumP95PaymentTimeDays": 83,
+    "position": {
+      "rank": 17,
+      "count": 17,
+      "percentile": 0
+    }
+  },
+  {
+    "slug": "information-media-and-telecommunications",
+    "industryDivision": "Information Media and Telecommunications",
+    "latestReportingPeriodEndDate": "2026-04-30",
+    "reportingEntityCount": 1,
+    "averageP95PaymentTimeDays": 89,
+    "medianP95PaymentTimeDays": 89,
+    "minimumP95PaymentTimeDays": 89,
+    "maximumP95PaymentTimeDays": 89,
+    "position": {
+      "rank": 3,
+      "count": 3,
+      "percentile": 0
+    }
+  },
+  {
+    "slug": "health-care-and-social-assistance",
+    "industryDivision": "Health Care and Social Assistance",
+    "latestReportingPeriodEndDate": "2026-04-24",
+    "reportingEntityCount": 1,
+    "averageP95PaymentTimeDays": 90,
+    "medianP95PaymentTimeDays": 90,
+    "minimumP95PaymentTimeDays": 90,
+    "maximumP95PaymentTimeDays": 90,
+    "position": {
+      "rank": 1,
+      "count": 1,
+      "percentile": 100
+    }
+  }
+]

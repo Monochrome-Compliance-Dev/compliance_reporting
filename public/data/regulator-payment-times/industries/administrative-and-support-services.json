@@ -1,0 +1,243 @@
+{
+  "slug": "administrative-and-support-services",
+  "industryDivision": "Administrative and Support Services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reportingEntityCount": 7,
+  "latestPeriod": {
+    "reportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 7,
+    "averageP95PaymentTimeDays": 41.4,
+    "medianP95PaymentTimeDays": 40,
+    "minimumP95PaymentTimeDays": 11,
+    "maximumP95PaymentTimeDays": 77,
+    "position": {
+      "rank": 5,
+      "count": 17,
+      "percentile": 75
+    }
+  },
+  "history": [
+    {
+      "reportingPeriodEndDate": "2024-12-08",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 63,
+      "medianP95PaymentTimeDays": 63,
+      "minimumP95PaymentTimeDays": 63,
+      "maximumP95PaymentTimeDays": 63,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2024-12-31",
+      "reportingEntityCount": 50,
+      "averageP95PaymentTimeDays": 53.8,
+      "medianP95PaymentTimeDays": 45.5,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 325,
+      "position": {
+        "rank": 4,
+        "count": 19,
+        "percentile": 83.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-02-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 30,
+      "medianP95PaymentTimeDays": 30,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 30,
+      "position": {
+        "rank": 1,
+        "count": 10,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-31",
+      "reportingEntityCount": 8,
+      "averageP95PaymentTimeDays": 42.8,
+      "medianP95PaymentTimeDays": 35.5,
+      "minimumP95PaymentTimeDays": 12,
+      "maximumP95PaymentTimeDays": 86,
+      "position": {
+        "rank": 3,
+        "count": 18,
+        "percentile": 88.2
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-30",
+      "reportingEntityCount": 50,
+      "averageP95PaymentTimeDays": 45.6,
+      "medianP95PaymentTimeDays": 40,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 124,
+      "position": {
+        "rank": 3,
+        "count": 19,
+        "percentile": 88.9
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-07-06",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 59,
+      "medianP95PaymentTimeDays": 59,
+      "minimumP95PaymentTimeDays": 59,
+      "maximumP95PaymentTimeDays": 59,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-30",
+      "reportingEntityCount": 8,
+      "averageP95PaymentTimeDays": 35.9,
+      "medianP95PaymentTimeDays": 35.5,
+      "minimumP95PaymentTimeDays": 11,
+      "maximumP95PaymentTimeDays": 53,
+      "position": {
+        "rank": 2,
+        "count": 18,
+        "percentile": 94.1
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-31",
+      "reportingEntityCount": 49,
+      "averageP95PaymentTimeDays": 46.7,
+      "medianP95PaymentTimeDays": 45,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 126,
+      "position": {
+        "rank": 5,
+        "count": 19,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-01-04",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 37,
+      "medianP95PaymentTimeDays": 37,
+      "minimumP95PaymentTimeDays": 37,
+      "maximumP95PaymentTimeDays": 37,
+      "position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-02-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 60,
+      "medianP95PaymentTimeDays": 60,
+      "minimumP95PaymentTimeDays": 60,
+      "maximumP95PaymentTimeDays": 60,
+      "position": {
+        "rank": 7,
+        "count": 12,
+        "percentile": 36.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-31",
+      "reportingEntityCount": 7,
+      "averageP95PaymentTimeDays": 41.4,
+      "medianP95PaymentTimeDays": 40,
+      "minimumP95PaymentTimeDays": 11,
+      "maximumP95PaymentTimeDays": 77,
+      "position": {
+        "rank": 5,
+        "count": 17,
+        "percentile": 75
+      }
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "RGF STAFFING ANZ PTY LTD",
+      "abn": "84603568403",
+      "slug": "rgf-staffing-anz-pty-ltd-84603568403",
+      "p95PaymentTimeDays": 11,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 7,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "ETHOS BEATHCHAPMAN AUSTRALIA PTY LTD",
+      "abn": "15628088451",
+      "slug": "ethos-beathchapman-australia-pty-ltd-15628088451",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 7,
+        "percentile": 83.3
+      }
+    },
+    {
+      "businessName": "DRAKE AUSTRALIA PTY LTD",
+      "abn": "42004939771",
+      "slug": "drake-australia-pty-ltd-42004939771",
+      "p95PaymentTimeDays": 38,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 7,
+        "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "Visa AP (Australia) Pty Ltd",
+      "abn": "20134885564",
+      "slug": "visa-ap-australia-pty-ltd-20134885564",
+      "p95PaymentTimeDays": 40,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 7,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "FUJIFILM DATA MANAGEMENT SOLUTIONS PTY LTD",
+      "abn": "74000553284",
+      "slug": "fujifilm-data-management-solutions-pty-ltd-74000553284",
+      "p95PaymentTimeDays": 44,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 7,
+        "percentile": 33.3
+      }
+    },
+    {
+      "businessName": "TRAVELCUBE PACIFIC PTY. LTD.",
+      "abn": "52099122577",
+      "slug": "travelcube-pacific-pty-ltd-52099122577",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    },
+    {
+      "businessName": "MS OPERATIONS PTY LTD",
+      "abn": "37673801262",
+      "slug": "ms-operations-pty-ltd-37673801262",
+      "p95PaymentTimeDays": 77,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 7,
+        "percentile": 0
+      }
+    }
+  ]
+}

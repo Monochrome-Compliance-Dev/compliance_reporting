@@ -4,6 +4,7 @@
   "abn": "44000537333",
   "acnArbn": "000537333",
   "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
   "industrySubdivision": "Transport equipment mfg",
   "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [

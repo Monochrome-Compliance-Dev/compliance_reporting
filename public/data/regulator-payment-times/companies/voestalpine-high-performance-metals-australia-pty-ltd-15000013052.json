@@ -4,6 +4,7 @@
   "abn": "15000013052",
   "acnArbn": "000013052",
   "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
   "industrySubdivision": "Fabricated metal product mfg",
   "latestReportingPeriodEndDate": "2025-09-30",
   "reports": [

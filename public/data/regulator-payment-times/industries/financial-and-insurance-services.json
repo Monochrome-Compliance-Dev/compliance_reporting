@@ -1,0 +1,479 @@
+{
+  "slug": "financial-and-insurance-services",
+  "industryDivision": "Financial and Insurance Services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reportingEntityCount": 19,
+  "latestPeriod": {
+    "reportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 19,
+    "averageP95PaymentTimeDays": 40.1,
+    "medianP95PaymentTimeDays": 43,
+    "minimumP95PaymentTimeDays": 7,
+    "maximumP95PaymentTimeDays": 83,
+    "position": {
+      "rank": 7,
+      "count": 17,
+      "percentile": 62.5
+    }
+  },
+  "history": [
+    {
+      "reportingPeriodEndDate": "2024-12-30",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 48,
+      "medianP95PaymentTimeDays": 48,
+      "minimumP95PaymentTimeDays": 21,
+      "maximumP95PaymentTimeDays": 75,
+      "position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2024-12-31",
+      "reportingEntityCount": 339,
+      "averageP95PaymentTimeDays": 43,
+      "medianP95PaymentTimeDays": 37,
+      "minimumP95PaymentTimeDays": 0,
+      "maximumP95PaymentTimeDays": 168,
+      "position": {
+        "rank": 1,
+        "count": 19,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-01-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 33,
+      "medianP95PaymentTimeDays": 33,
+      "minimumP95PaymentTimeDays": 33,
+      "maximumP95PaymentTimeDays": 33,
+      "position": {
+        "rank": 2,
+        "count": 11,
+        "percentile": 90
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-02-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 44,
+      "medianP95PaymentTimeDays": 44,
+      "minimumP95PaymentTimeDays": 44,
+      "maximumP95PaymentTimeDays": 44,
+      "position": {
+        "rank": 3,
+        "count": 10,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-31",
+      "reportingEntityCount": 20,
+      "averageP95PaymentTimeDays": 36.3,
+      "medianP95PaymentTimeDays": 33,
+      "minimumP95PaymentTimeDays": 8,
+      "maximumP95PaymentTimeDays": 63,
+      "position": {
+        "rank": 2,
+        "count": 18,
+        "percentile": 94.1
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-04-27",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 77,
+      "medianP95PaymentTimeDays": 77,
+      "minimumP95PaymentTimeDays": 77,
+      "maximumP95PaymentTimeDays": 77,
+      "position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-04-30",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 56.3,
+      "medianP95PaymentTimeDays": 71,
+      "minimumP95PaymentTimeDays": 7,
+      "maximumP95PaymentTimeDays": 76,
+      "position": {
+        "rank": 6,
+        "count": 9,
+        "percentile": 25
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-05-31",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 40,
+      "medianP95PaymentTimeDays": 40,
+      "minimumP95PaymentTimeDays": 33,
+      "maximumP95PaymentTimeDays": 47,
+      "position": {
+        "rank": 3,
+        "count": 8,
+        "percentile": 71.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-30",
+      "reportingEntityCount": 349,
+      "averageP95PaymentTimeDays": 42.6,
+      "medianP95PaymentTimeDays": 37,
+      "minimumP95PaymentTimeDays": 0,
+      "maximumP95PaymentTimeDays": 268,
+      "position": {
+        "rank": 2,
+        "count": 19,
+        "percentile": 94.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-07-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 38,
+      "medianP95PaymentTimeDays": 38,
+      "minimumP95PaymentTimeDays": 38,
+      "maximumP95PaymentTimeDays": 38,
+      "position": {
+        "rank": 3,
+        "count": 12,
+        "percentile": 81.8
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-08-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 75,
+      "medianP95PaymentTimeDays": 75,
+      "minimumP95PaymentTimeDays": 75,
+      "maximumP95PaymentTimeDays": 75,
+      "position": {
+        "rank": 8,
+        "count": 11,
+        "percentile": 30
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-30",
+      "reportingEntityCount": 22,
+      "averageP95PaymentTimeDays": 37.6,
+      "medianP95PaymentTimeDays": 37.5,
+      "minimumP95PaymentTimeDays": 7,
+      "maximumP95PaymentTimeDays": 90,
+      "position": {
+        "rank": 4,
+        "count": 18,
+        "percentile": 82.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-10-31",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 54,
+      "medianP95PaymentTimeDays": 53,
+      "minimumP95PaymentTimeDays": 39,
+      "maximumP95PaymentTimeDays": 71,
+      "position": {
+        "rank": 4,
+        "count": 9,
+        "percentile": 62.5
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-11-02",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 30,
+      "medianP95PaymentTimeDays": 30,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 30,
+      "position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-11-30",
+      "reportingEntityCount": 3,
+      "averageP95PaymentTimeDays": 41,
+      "medianP95PaymentTimeDays": 39,
+      "minimumP95PaymentTimeDays": 39,
+      "maximumP95PaymentTimeDays": 45,
+      "position": {
+        "rank": 3,
+        "count": 8,
+        "percentile": 71.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-31",
+      "reportingEntityCount": 338,
+      "averageP95PaymentTimeDays": 38.8,
+      "medianP95PaymentTimeDays": 33,
+      "minimumP95PaymentTimeDays": 2,
+      "maximumP95PaymentTimeDays": 191,
+      "position": {
+        "rank": 1,
+        "count": 19,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-01-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 37,
+      "medianP95PaymentTimeDays": 37,
+      "minimumP95PaymentTimeDays": 37,
+      "maximumP95PaymentTimeDays": 37,
+      "position": {
+        "rank": 2,
+        "count": 11,
+        "percentile": 80
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-02-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 31,
+      "medianP95PaymentTimeDays": 31,
+      "minimumP95PaymentTimeDays": 31,
+      "maximumP95PaymentTimeDays": 31,
+      "position": {
+        "rank": 1,
+        "count": 12,
+        "percentile": 90.9
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-31",
+      "reportingEntityCount": 19,
+      "averageP95PaymentTimeDays": 40.1,
+      "medianP95PaymentTimeDays": 43,
+      "minimumP95PaymentTimeDays": 7,
+      "maximumP95PaymentTimeDays": 83,
+      "position": {
+        "rank": 7,
+        "count": 17,
+        "percentile": 62.5
+      }
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "SUMMIT AUTO LEASE AUSTRALIA PTY LIMITED",
+      "abn": "87054704737",
+      "slug": "summit-auto-lease-australia-pty-limited-87054704737",
+      "p95PaymentTimeDays": 7,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 19,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "FRANKLIN TEMPLETON (AUSTRALIA) HOLDINGS PTY LTD",
+      "abn": "66118222343",
+      "slug": "franklin-templeton-australia-holdings-pty-ltd-66118222343",
+      "p95PaymentTimeDays": 15,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 19,
+        "percentile": 94.4
+      }
+    },
+    {
+      "businessName": "GRESHAM PARTNERS GROUP LIMITED",
+      "abn": "75003856933",
+      "slug": "gresham-partners-group-limited-75003856933",
+      "p95PaymentTimeDays": 19,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 19,
+        "percentile": 88.9
+      }
+    },
+    {
+      "businessName": "NATIONAL AUSTRALIA BANK LIMITED",
+      "abn": "12004044937",
+      "slug": "national-australia-bank-limited-12004044937",
+      "p95PaymentTimeDays": 23,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 19,
+        "percentile": 83.3
+      }
+    },
+    {
+      "businessName": "DOMESTIC & GENERAL INSURANCE PLC",
+      "abn": "11124040768",
+      "slug": "domestic-and-general-insurance-plc-11124040768",
+      "p95PaymentTimeDays": 24,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 19,
+        "percentile": 77.8
+      }
+    },
+    {
+      "businessName": "ORIX AUSTRALIA CORPORATION LIMITED",
+      "abn": "79002992681",
+      "slug": "orix-australia-corporation-limited-79002992681",
+      "p95PaymentTimeDays": 25,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 19,
+        "percentile": 72.2
+      }
+    },
+    {
+      "businessName": "NORINCHUKIN AUSTRALIA PTY LIMITED",
+      "abn": "57617251617",
+      "slug": "norinchukin-australia-pty-limited-57617251617",
+      "p95PaymentTimeDays": 27,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 19,
+        "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "MORRISON AUSTRALIA PTY LIMITED",
+      "abn": "39073922102",
+      "slug": "morrison-australia-pty-limited-39073922102",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 19,
+        "percentile": 61.1
+      }
+    },
+    {
+      "businessName": "OFX GROUP LIMITED",
+      "abn": "12165602273",
+      "slug": "ofx-group-limited-12165602273",
+      "p95PaymentTimeDays": 40,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 19,
+        "percentile": 55.6
+      }
+    },
+    {
+      "businessName": "MIZUHO BANK, LTD.",
+      "abn": "83099031106",
+      "slug": "mizuho-bank-ltd-83099031106",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 19,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "JARDEN AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "31608611614",
+      "slug": "jarden-australia-holdings-pty-ltd-31608611614",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 19,
+        "percentile": 38.9
+      }
+    },
+    {
+      "businessName": "MITSUI SUMITOMO INSURANCE COMPANY, LIMITED",
+      "abn": "49000525637",
+      "slug": "mitsui-sumitomo-insurance-company-limited-49000525637",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 19,
+        "percentile": 38.9
+      }
+    },
+    {
+      "businessName": "TOKIO MARINE MANAGEMENT (AUSTRALASIA) PTY LTD",
+      "abn": "69001488455",
+      "slug": "tokio-marine-management-australasia-pty-ltd-69001488455",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 19,
+        "percentile": 33.3
+      }
+    },
+    {
+      "businessName": "TAL Dai-ichi Life Australia Pty Ltd",
+      "abn": "97150070483",
+      "slug": "tal-dai-ichi-life-australia-pty-ltd-97150070483",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 19,
+        "percentile": 27.8
+      }
+    },
+    {
+      "businessName": "MUFG BANK, LTD.",
+      "abn": "75103418882",
+      "slug": "mufg-bank-ltd-75103418882",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 19,
+        "percentile": 16.7
+      }
+    },
+    {
+      "businessName": "STATE BANK OF INDIA",
+      "abn": "95082610008",
+      "slug": "state-bank-of-india-95082610008",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 19,
+        "percentile": 16.7
+      }
+    },
+    {
+      "businessName": "WISE AUSTRALIA PTY LTD",
+      "abn": "38616463855",
+      "slug": "wise-australia-pty-ltd-38616463855",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 19,
+        "percentile": 11.1
+      }
+    },
+    {
+      "businessName": "SUMITOMO MITSUI BANKING CORPORATION",
+      "abn": "98114053459",
+      "slug": "sumitomo-mitsui-banking-corporation-98114053459",
+      "p95PaymentTimeDays": 70,
+      "industryP95Position": {
+        "rank": 18,
+        "count": 19,
+        "percentile": 5.6
+      }
+    },
+    {
+      "businessName": "TOKIO MARINE & NICHIDO FIRE INSURANCE CO., LTD.",
+      "abn": "80000438291",
+      "slug": "tokio-marine-and-nichido-fire-insurance-co-ltd-80000438291",
+      "p95PaymentTimeDays": 83,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 19,
+        "percentile": 0
+      }
+    }
+  ]
+}

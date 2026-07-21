@@ -1,0 +1,554 @@
+{
+  "slug": "retail-trade",
+  "industryDivision": "Retail Trade",
+  "latestReportingPeriodEndDate": "2026-04-26",
+  "reportingEntityCount": 1,
+  "latestPeriod": {
+    "reportingPeriodEndDate": "2026-04-26",
+    "reportingEntityCount": 1,
+    "averageP95PaymentTimeDays": 30,
+    "medianP95PaymentTimeDays": 30,
+    "minimumP95PaymentTimeDays": 30,
+    "maximumP95PaymentTimeDays": 30,
+    "position": {
+      "rank": 1,
+      "count": 1,
+      "percentile": 100
+    }
+  },
+  "history": [
+    {
+      "reportingPeriodEndDate": "2024-12-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 37,
+      "medianP95PaymentTimeDays": 37,
+      "minimumP95PaymentTimeDays": 37,
+      "maximumP95PaymentTimeDays": 37,
+      "position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2024-12-29",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 48.5,
+      "medianP95PaymentTimeDays": 48.5,
+      "minimumP95PaymentTimeDays": 41,
+      "maximumP95PaymentTimeDays": 56,
+      "position": {
+        "rank": 3,
+        "count": 6,
+        "percentile": 60
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2024-12-31",
+      "reportingEntityCount": 207,
+      "averageP95PaymentTimeDays": 61,
+      "medianP95PaymentTimeDays": 57,
+      "minimumP95PaymentTimeDays": 7,
+      "maximumP95PaymentTimeDays": 296,
+      "position": {
+        "rank": 15,
+        "count": 19,
+        "percentile": 22.2
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-01-25",
+      "reportingEntityCount": 3,
+      "averageP95PaymentTimeDays": 82,
+      "medianP95PaymentTimeDays": 91,
+      "minimumP95PaymentTimeDays": 50,
+      "maximumP95PaymentTimeDays": 105,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-01-31",
+      "reportingEntityCount": 5,
+      "averageP95PaymentTimeDays": 59,
+      "medianP95PaymentTimeDays": 57,
+      "minimumP95PaymentTimeDays": 41,
+      "maximumP95PaymentTimeDays": 83,
+      "position": {
+        "rank": 7,
+        "count": 11,
+        "percentile": 40
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-02-01",
+      "reportingEntityCount": 3,
+      "averageP95PaymentTimeDays": 53.7,
+      "medianP95PaymentTimeDays": 37,
+      "minimumP95PaymentTimeDays": 34,
+      "maximumP95PaymentTimeDays": 90,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-02-16",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 57,
+      "medianP95PaymentTimeDays": 57,
+      "minimumP95PaymentTimeDays": 57,
+      "maximumP95PaymentTimeDays": 57,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-02-28",
+      "reportingEntityCount": 5,
+      "averageP95PaymentTimeDays": 58,
+      "medianP95PaymentTimeDays": 62,
+      "minimumP95PaymentTimeDays": 33,
+      "maximumP95PaymentTimeDays": 72,
+      "position": {
+        "rank": 8,
+        "count": 10,
+        "percentile": 22.2
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-02",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 30,
+      "medianP95PaymentTimeDays": 30,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 30,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-30",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 36,
+      "medianP95PaymentTimeDays": 36,
+      "minimumP95PaymentTimeDays": 36,
+      "maximumP95PaymentTimeDays": 36,
+      "position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-31",
+      "reportingEntityCount": 14,
+      "averageP95PaymentTimeDays": 133.9,
+      "medianP95PaymentTimeDays": 51,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 701,
+      "position": {
+        "rank": 10,
+        "count": 18,
+        "percentile": 47.1
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-04-30",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 25.5,
+      "medianP95PaymentTimeDays": 25.5,
+      "minimumP95PaymentTimeDays": 21,
+      "maximumP95PaymentTimeDays": 30,
+      "position": {
+        "rank": 1,
+        "count": 9,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-05-31",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 70.5,
+      "medianP95PaymentTimeDays": 70.5,
+      "minimumP95PaymentTimeDays": 60,
+      "maximumP95PaymentTimeDays": 81,
+      "position": {
+        "rank": 7,
+        "count": 8,
+        "percentile": 14.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-25",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 62,
+      "medianP95PaymentTimeDays": 62,
+      "minimumP95PaymentTimeDays": 62,
+      "maximumP95PaymentTimeDays": 62,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 46,
+      "medianP95PaymentTimeDays": 46,
+      "minimumP95PaymentTimeDays": 46,
+      "maximumP95PaymentTimeDays": 46,
+      "position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-29",
+      "reportingEntityCount": 5,
+      "averageP95PaymentTimeDays": 47.8,
+      "medianP95PaymentTimeDays": 46,
+      "minimumP95PaymentTimeDays": 36,
+      "maximumP95PaymentTimeDays": 71,
+      "position": {
+        "rank": 1,
+        "count": 5,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-30",
+      "reportingEntityCount": 208,
+      "averageP95PaymentTimeDays": 59.2,
+      "medianP95PaymentTimeDays": 57,
+      "minimumP95PaymentTimeDays": 7,
+      "maximumP95PaymentTimeDays": 202,
+      "position": {
+        "rank": 14,
+        "count": 19,
+        "percentile": 22.2
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-07-25",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 105,
+      "medianP95PaymentTimeDays": 105,
+      "minimumP95PaymentTimeDays": 105,
+      "maximumP95PaymentTimeDays": 105,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-07-26",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 66.5,
+      "medianP95PaymentTimeDays": 66.5,
+      "minimumP95PaymentTimeDays": 42,
+      "maximumP95PaymentTimeDays": 91,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-07-31",
+      "reportingEntityCount": 5,
+      "averageP95PaymentTimeDays": 57.4,
+      "medianP95PaymentTimeDays": 46,
+      "minimumP95PaymentTimeDays": 41,
+      "maximumP95PaymentTimeDays": 91,
+      "position": {
+        "rank": 5,
+        "count": 12,
+        "percentile": 63.6
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-08-01",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 49,
+      "medianP95PaymentTimeDays": 49,
+      "minimumP95PaymentTimeDays": 49,
+      "maximumP95PaymentTimeDays": 49,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-08-02",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 48,
+      "medianP95PaymentTimeDays": 48,
+      "minimumP95PaymentTimeDays": 36,
+      "maximumP95PaymentTimeDays": 60,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-08-31",
+      "reportingEntityCount": 7,
+      "averageP95PaymentTimeDays": 60.3,
+      "medianP95PaymentTimeDays": 57,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 115,
+      "position": {
+        "rank": 3,
+        "count": 11,
+        "percentile": 60
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 51,
+      "medianP95PaymentTimeDays": 51,
+      "minimumP95PaymentTimeDays": 51,
+      "maximumP95PaymentTimeDays": 51,
+      "position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-30",
+      "reportingEntityCount": 14,
+      "averageP95PaymentTimeDays": 51.4,
+      "medianP95PaymentTimeDays": 46.5,
+      "minimumP95PaymentTimeDays": 13,
+      "maximumP95PaymentTimeDays": 115,
+      "position": {
+        "rank": 6,
+        "count": 18,
+        "percentile": 70.6
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-10-26",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 30,
+      "medianP95PaymentTimeDays": 30,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 30,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-10-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 22,
+      "medianP95PaymentTimeDays": 22,
+      "minimumP95PaymentTimeDays": 22,
+      "maximumP95PaymentTimeDays": 22,
+      "position": {
+        "rank": 1,
+        "count": 9,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-11-30",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 68,
+      "medianP95PaymentTimeDays": 68,
+      "minimumP95PaymentTimeDays": 58,
+      "maximumP95PaymentTimeDays": 78,
+      "position": {
+        "rank": 7,
+        "count": 8,
+        "percentile": 14.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-24",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 47,
+      "medianP95PaymentTimeDays": 47,
+      "minimumP95PaymentTimeDays": 47,
+      "maximumP95PaymentTimeDays": 47,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-27",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 49,
+      "medianP95PaymentTimeDays": 49,
+      "minimumP95PaymentTimeDays": 43,
+      "maximumP95PaymentTimeDays": 55,
+      "position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-28",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 38,
+      "medianP95PaymentTimeDays": 38,
+      "minimumP95PaymentTimeDays": 36,
+      "maximumP95PaymentTimeDays": 40,
+      "position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-31",
+      "reportingEntityCount": 207,
+      "averageP95PaymentTimeDays": 56.2,
+      "medianP95PaymentTimeDays": 56,
+      "minimumP95PaymentTimeDays": 11,
+      "maximumP95PaymentTimeDays": 202,
+      "position": {
+        "rank": 14,
+        "count": 19,
+        "percentile": 22.2
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-01-24",
+      "reportingEntityCount": 3,
+      "averageP95PaymentTimeDays": 89.7,
+      "medianP95PaymentTimeDays": 91,
+      "minimumP95PaymentTimeDays": 63,
+      "maximumP95PaymentTimeDays": 115,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-01-31",
+      "reportingEntityCount": 7,
+      "averageP95PaymentTimeDays": 51.3,
+      "medianP95PaymentTimeDays": 56,
+      "minimumP95PaymentTimeDays": 28,
+      "maximumP95PaymentTimeDays": 73,
+      "position": {
+        "rank": 7,
+        "count": 11,
+        "percentile": 30
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-02-01",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 36,
+      "medianP95PaymentTimeDays": 36,
+      "minimumP95PaymentTimeDays": 36,
+      "maximumP95PaymentTimeDays": 36,
+      "position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-02-15",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 57,
+      "medianP95PaymentTimeDays": 57,
+      "minimumP95PaymentTimeDays": 57,
+      "maximumP95PaymentTimeDays": 57,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-02-28",
+      "reportingEntityCount": 5,
+      "averageP95PaymentTimeDays": 74.6,
+      "medianP95PaymentTimeDays": 60,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 165,
+      "position": {
+        "rank": 7,
+        "count": 12,
+        "percentile": 36.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-01",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 14,
+      "medianP95PaymentTimeDays": 14,
+      "minimumP95PaymentTimeDays": 14,
+      "maximumP95PaymentTimeDays": 14,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-31",
+      "reportingEntityCount": 13,
+      "averageP95PaymentTimeDays": 43.9,
+      "medianP95PaymentTimeDays": 33,
+      "minimumP95PaymentTimeDays": 11,
+      "maximumP95PaymentTimeDays": 78,
+      "position": {
+        "rank": 4,
+        "count": 17,
+        "percentile": 81.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-04-26",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 30,
+      "medianP95PaymentTimeDays": 30,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 30,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "Adcome Pty Ltd",
+      "abn": "99110315681",
+      "slug": "adcome-pty-ltd-99110315681",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

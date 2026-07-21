@@ -1,0 +1,237 @@
+{
+  "slug": "mining",
+  "industryDivision": "Mining",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reportingEntityCount": 10,
+  "latestPeriod": {
+    "reportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 10,
+    "averageP95PaymentTimeDays": 36.7,
+    "medianP95PaymentTimeDays": 30.5,
+    "minimumP95PaymentTimeDays": 16,
+    "maximumP95PaymentTimeDays": 72,
+    "position": {
+      "rank": 3,
+      "count": 17,
+      "percentile": 87.5
+    }
+  },
+  "history": [
+    {
+      "reportingPeriodEndDate": "2024-12-31",
+      "reportingEntityCount": 170,
+      "averageP95PaymentTimeDays": 56,
+      "medianP95PaymentTimeDays": 56.5,
+      "minimumP95PaymentTimeDays": 8,
+      "maximumP95PaymentTimeDays": 273,
+      "position": {
+        "rank": 13,
+        "count": 19,
+        "percentile": 27.8
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-31",
+      "reportingEntityCount": 10,
+      "averageP95PaymentTimeDays": 39,
+      "medianP95PaymentTimeDays": 32.5,
+      "minimumP95PaymentTimeDays": 18,
+      "maximumP95PaymentTimeDays": 69,
+      "position": {
+        "rank": 1,
+        "count": 18,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-30",
+      "reportingEntityCount": 173,
+      "averageP95PaymentTimeDays": 73.6,
+      "medianP95PaymentTimeDays": 55,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 2940,
+      "position": {
+        "rank": 11,
+        "count": 19,
+        "percentile": 44.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-08-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 96,
+      "medianP95PaymentTimeDays": 96,
+      "minimumP95PaymentTimeDays": 96,
+      "maximumP95PaymentTimeDays": 96,
+      "position": {
+        "rank": 9,
+        "count": 11,
+        "percentile": 20
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-30",
+      "reportingEntityCount": 10,
+      "averageP95PaymentTimeDays": 35.1,
+      "medianP95PaymentTimeDays": 32,
+      "minimumP95PaymentTimeDays": 16,
+      "maximumP95PaymentTimeDays": 59,
+      "position": {
+        "rank": 1,
+        "count": 18,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-31",
+      "reportingEntityCount": 177,
+      "averageP95PaymentTimeDays": 54.7,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 12,
+      "maximumP95PaymentTimeDays": 209,
+      "position": {
+        "rank": 9,
+        "count": 19,
+        "percentile": 50
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-02-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 97,
+      "medianP95PaymentTimeDays": 97,
+      "minimumP95PaymentTimeDays": 97,
+      "maximumP95PaymentTimeDays": 97,
+      "position": {
+        "rank": 11,
+        "count": 12,
+        "percentile": 9.1
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-31",
+      "reportingEntityCount": 10,
+      "averageP95PaymentTimeDays": 36.7,
+      "medianP95PaymentTimeDays": 30.5,
+      "minimumP95PaymentTimeDays": 16,
+      "maximumP95PaymentTimeDays": 72,
+      "position": {
+        "rank": 3,
+        "count": 17,
+        "percentile": 87.5
+      }
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "SUMISHO COAL AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "71057890865",
+      "slug": "sumisho-coal-australia-holdings-pty-ltd-71057890865",
+      "p95PaymentTimeDays": 16,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 10,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "MITSUBISHI DEVELOPMENT PTY LTD",
+      "abn": "17009779873",
+      "slug": "mitsubishi-development-pty-ltd-17009779873",
+      "p95PaymentTimeDays": 19,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 10,
+        "percentile": 88.9
+      }
+    },
+    {
+      "businessName": "MITSUI & CO. MINERAL RESOURCES DEVELOPMENT PTY LTD",
+      "abn": "27160296462",
+      "slug": "mitsui-and-co-mineral-resources-development-pty-ltd-27160296462",
+      "p95PaymentTimeDays": 24,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 10,
+        "percentile": 77.8
+      }
+    },
+    {
+      "businessName": "ITOCHU MINERALS & ENERGY OF AUSTRALIA PTY LTD",
+      "abn": "44009256259",
+      "slug": "itochu-minerals-and-energy-of-australia-pty-ltd-44009256259",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 10,
+        "percentile": 55.6
+      }
+    },
+    {
+      "businessName": "MARUBENI-ITOCHU TUBULARS OCEANIA PTY LTD",
+      "abn": "87077953827",
+      "slug": "marubeni-itochu-tubulars-oceania-pty-ltd-87077953827",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 10,
+        "percentile": 55.6
+      }
+    },
+    {
+      "businessName": "MITSUI E&P AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "70077897440",
+      "slug": "mitsui-e-and-p-australia-holdings-pty-ltd-70077897440",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 10,
+        "percentile": 44.4
+      }
+    },
+    {
+      "businessName": "MITSUI RESOURCES PTY. LTD.",
+      "abn": "24002373588",
+      "slug": "mitsui-resources-pty-ltd-24002373588",
+      "p95PaymentTimeDays": 33,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 10,
+        "percentile": 33.3
+      }
+    },
+    {
+      "businessName": "BIG BEN HOLDINGS PTY. LIMITED",
+      "abn": "63008434562",
+      "slug": "big-ben-holdings-pty-limited-63008434562",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 10,
+        "percentile": 11.1
+      }
+    },
+    {
+      "businessName": "SHARK BAY SALT PTY LTD",
+      "abn": "89008759500",
+      "slug": "shark-bay-salt-pty-ltd-89008759500",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 10,
+        "percentile": 11.1
+      }
+    },
+    {
+      "businessName": "ADANI MINING PTY LTD",
+      "abn": "27145455205",
+      "slug": "adani-mining-pty-ltd-27145455205",
+      "p95PaymentTimeDays": 72,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 10,
+        "percentile": 0
+      }
+    }
+  ]
+}

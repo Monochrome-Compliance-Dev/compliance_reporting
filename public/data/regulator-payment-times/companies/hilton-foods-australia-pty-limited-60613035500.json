@@ -4,6 +4,7 @@
   "abn": "60613035500",
   "acnArbn": "613035500",
   "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
   "industrySubdivision": "Food product mfg",
   "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [

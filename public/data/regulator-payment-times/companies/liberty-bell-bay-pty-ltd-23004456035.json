@@ -4,6 +4,7 @@
   "abn": "23004456035",
   "acnArbn": "004456035",
   "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
   "industrySubdivision": "Primary metal and metal product mfg",
   "latestReportingPeriodEndDate": "2025-06-30",
   "reports": [

@@ -1,0 +1,216 @@
+{
+  "slug": "information-media-and-telecommunications",
+  "industryDivision": "Information Media and Telecommunications",
+  "latestReportingPeriodEndDate": "2026-04-30",
+  "reportingEntityCount": 1,
+  "latestPeriod": {
+    "reportingPeriodEndDate": "2026-04-30",
+    "reportingEntityCount": 1,
+    "averageP95PaymentTimeDays": 89,
+    "medianP95PaymentTimeDays": 89,
+    "minimumP95PaymentTimeDays": 89,
+    "maximumP95PaymentTimeDays": 89,
+    "position": {
+      "rank": 3,
+      "count": 3,
+      "percentile": 0
+    }
+  },
+  "history": [
+    {
+      "reportingPeriodEndDate": "2024-09-30",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 45.5,
+      "medianP95PaymentTimeDays": 45.5,
+      "minimumP95PaymentTimeDays": 37,
+      "maximumP95PaymentTimeDays": 54,
+      "position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2024-12-31",
+      "reportingEntityCount": 58,
+      "averageP95PaymentTimeDays": 58,
+      "medianP95PaymentTimeDays": 47.5,
+      "minimumP95PaymentTimeDays": 10,
+      "maximumP95PaymentTimeDays": 389,
+      "position": {
+        "rank": 6,
+        "count": 19,
+        "percentile": 72.2
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-01-31",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 58,
+      "medianP95PaymentTimeDays": 58,
+      "minimumP95PaymentTimeDays": 56,
+      "maximumP95PaymentTimeDays": 60,
+      "position": {
+        "rank": 8,
+        "count": 11,
+        "percentile": 30
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-31",
+      "reportingEntityCount": 7,
+      "averageP95PaymentTimeDays": 66.3,
+      "medianP95PaymentTimeDays": 58,
+      "minimumP95PaymentTimeDays": 31,
+      "maximumP95PaymentTimeDays": 97,
+      "position": {
+        "rank": 13,
+        "count": 18,
+        "percentile": 23.5
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-04-30",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 58,
+      "medianP95PaymentTimeDays": 58,
+      "minimumP95PaymentTimeDays": 37,
+      "maximumP95PaymentTimeDays": 79,
+      "position": {
+        "rank": 5,
+        "count": 9,
+        "percentile": 50
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-20",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 31,
+      "medianP95PaymentTimeDays": 31,
+      "minimumP95PaymentTimeDays": 31,
+      "maximumP95PaymentTimeDays": 31,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-30",
+      "reportingEntityCount": 55,
+      "averageP95PaymentTimeDays": 52.6,
+      "medianP95PaymentTimeDays": 46,
+      "minimumP95PaymentTimeDays": 14,
+      "maximumP95PaymentTimeDays": 136,
+      "position": {
+        "rank": 4,
+        "count": 19,
+        "percentile": 83.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-07-31",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 71.5,
+      "medianP95PaymentTimeDays": 60.5,
+      "minimumP95PaymentTimeDays": 60,
+      "maximumP95PaymentTimeDays": 105,
+      "position": {
+        "rank": 10,
+        "count": 12,
+        "percentile": 18.2
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-30",
+      "reportingEntityCount": 6,
+      "averageP95PaymentTimeDays": 49,
+      "medianP95PaymentTimeDays": 48.5,
+      "minimumP95PaymentTimeDays": 14,
+      "maximumP95PaymentTimeDays": 74,
+      "position": {
+        "rank": 8,
+        "count": 18,
+        "percentile": 52.9
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-10-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 91,
+      "medianP95PaymentTimeDays": 91,
+      "minimumP95PaymentTimeDays": 91,
+      "maximumP95PaymentTimeDays": 91,
+      "position": {
+        "rank": 8,
+        "count": 9,
+        "percentile": 12.5
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-31",
+      "reportingEntityCount": 60,
+      "averageP95PaymentTimeDays": 54.1,
+      "medianP95PaymentTimeDays": 47.5,
+      "minimumP95PaymentTimeDays": 19,
+      "maximumP95PaymentTimeDays": 132,
+      "position": {
+        "rank": 7,
+        "count": 19,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-01-31",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 85.5,
+      "medianP95PaymentTimeDays": 75,
+      "minimumP95PaymentTimeDays": 56,
+      "maximumP95PaymentTimeDays": 136,
+      "position": {
+        "rank": 10,
+        "count": 11,
+        "percentile": 10
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-31",
+      "reportingEntityCount": 7,
+      "averageP95PaymentTimeDays": 49.4,
+      "medianP95PaymentTimeDays": 57,
+      "minimumP95PaymentTimeDays": 15,
+      "maximumP95PaymentTimeDays": 69,
+      "position": {
+        "rank": 14,
+        "count": 17,
+        "percentile": 18.8
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-04-30",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 89,
+      "medianP95PaymentTimeDays": 89,
+      "minimumP95PaymentTimeDays": 89,
+      "maximumP95PaymentTimeDays": 89,
+      "position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "NETAPP AUSTRALIA PTY LTD",
+      "abn": "14092499431",
+      "slug": "netapp-australia-pty-ltd-14092499431",
+      "p95PaymentTimeDays": 89,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

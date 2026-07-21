@@ -4,6 +4,7 @@
   "abn": "94112233744",
   "acnArbn": "112233744",
   "industryDivision": "Retail Trade",
+  "industrySlug": "retail-trade",
   "industrySubdivision": "Fuel retailing",
   "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [

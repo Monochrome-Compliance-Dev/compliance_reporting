@@ -4,6 +4,7 @@
   "abn": "24010007315",
   "acnArbn": "010007315",
   "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
   "industrySubdivision": "Wood product mfg",
   "latestReportingPeriodEndDate": "2025-12-31",
   "reports": [

@@ -4,6 +4,7 @@
   "abn": "44009256259",
   "acnArbn": "009256259",
   "industryDivision": "Mining",
+  "industrySlug": "mining",
   "industrySubdivision": "Metal ore mining",
   "latestReportingPeriodEndDate": "2026-03-31",
   "reports": [

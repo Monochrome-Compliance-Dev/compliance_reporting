@@ -1,0 +1,306 @@
+{
+  "slug": "agriculture-forestry-and-fishing",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reportingEntityCount": 8,
+  "latestPeriod": {
+    "reportingPeriodEndDate": "2026-03-31",
+    "reportingEntityCount": 8,
+    "averageP95PaymentTimeDays": 49.1,
+    "medianP95PaymentTimeDays": 49.5,
+    "minimumP95PaymentTimeDays": 31,
+    "maximumP95PaymentTimeDays": 62,
+    "position": {
+      "rank": 12,
+      "count": 17,
+      "percentile": 31.3
+    }
+  },
+  "history": [
+    {
+      "reportingPeriodEndDate": "2024-12-29",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 67,
+      "medianP95PaymentTimeDays": 67,
+      "minimumP95PaymentTimeDays": 67,
+      "maximumP95PaymentTimeDays": 67,
+      "position": {
+        "rank": 5,
+        "count": 6,
+        "percentile": 20
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2024-12-31",
+      "reportingEntityCount": 85,
+      "averageP95PaymentTimeDays": 47.7,
+      "medianP95PaymentTimeDays": 47,
+      "minimumP95PaymentTimeDays": 0,
+      "maximumP95PaymentTimeDays": 119,
+      "position": {
+        "rank": 5,
+        "count": 19,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-01-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 49,
+      "medianP95PaymentTimeDays": 49,
+      "minimumP95PaymentTimeDays": 49,
+      "maximumP95PaymentTimeDays": 49,
+      "position": {
+        "rank": 4,
+        "count": 11,
+        "percentile": 70
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-02-28",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 61.5,
+      "medianP95PaymentTimeDays": 61.5,
+      "minimumP95PaymentTimeDays": 60,
+      "maximumP95PaymentTimeDays": 63,
+      "position": {
+        "rank": 7,
+        "count": 10,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-31",
+      "reportingEntityCount": 9,
+      "averageP95PaymentTimeDays": 52.6,
+      "medianP95PaymentTimeDays": 53,
+      "minimumP95PaymentTimeDays": 40,
+      "maximumP95PaymentTimeDays": 74,
+      "position": {
+        "rank": 11,
+        "count": 18,
+        "percentile": 41.2
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-05-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 31,
+      "medianP95PaymentTimeDays": 31,
+      "minimumP95PaymentTimeDays": 31,
+      "maximumP95PaymentTimeDays": 31,
+      "position": {
+        "rank": 1,
+        "count": 8,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-30",
+      "reportingEntityCount": 92,
+      "averageP95PaymentTimeDays": 48.6,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 0,
+      "maximumP95PaymentTimeDays": 120,
+      "position": {
+        "rank": 8,
+        "count": 19,
+        "percentile": 55.6
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-07-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 51,
+      "medianP95PaymentTimeDays": 51,
+      "minimumP95PaymentTimeDays": 51,
+      "maximumP95PaymentTimeDays": 51,
+      "position": {
+        "rank": 7,
+        "count": 12,
+        "percentile": 45.5
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-08-31",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 62.5,
+      "medianP95PaymentTimeDays": 62.5,
+      "minimumP95PaymentTimeDays": 60,
+      "maximumP95PaymentTimeDays": 65,
+      "position": {
+        "rank": 7,
+        "count": 11,
+        "percentile": 40
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-30",
+      "reportingEntityCount": 10,
+      "averageP95PaymentTimeDays": 51.6,
+      "medianP95PaymentTimeDays": 45.5,
+      "minimumP95PaymentTimeDays": 12,
+      "maximumP95PaymentTimeDays": 110,
+      "position": {
+        "rank": 5,
+        "count": 18,
+        "percentile": 76.5
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-11-30",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 35,
+      "medianP95PaymentTimeDays": 35,
+      "minimumP95PaymentTimeDays": 35,
+      "maximumP95PaymentTimeDays": 35,
+      "position": {
+        "rank": 1,
+        "count": 8,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-31",
+      "reportingEntityCount": 102,
+      "averageP95PaymentTimeDays": 49.2,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 0,
+      "maximumP95PaymentTimeDays": 129,
+      "position": {
+        "rank": 9,
+        "count": 19,
+        "percentile": 50
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-01-31",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 49,
+      "medianP95PaymentTimeDays": 49,
+      "minimumP95PaymentTimeDays": 49,
+      "maximumP95PaymentTimeDays": 49,
+      "position": {
+        "rank": 5,
+        "count": 11,
+        "percentile": 60
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-02-28",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 62,
+      "medianP95PaymentTimeDays": 62,
+      "minimumP95PaymentTimeDays": 60,
+      "maximumP95PaymentTimeDays": 64,
+      "position": {
+        "rank": 9,
+        "count": 12,
+        "percentile": 27.3
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-31",
+      "reportingEntityCount": 8,
+      "averageP95PaymentTimeDays": 49.1,
+      "medianP95PaymentTimeDays": 49.5,
+      "minimumP95PaymentTimeDays": 31,
+      "maximumP95PaymentTimeDays": 62,
+      "position": {
+        "rank": 12,
+        "count": 17,
+        "percentile": 31.3
+      }
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "ADITYA BIRLA GLOBAL TRADING (AUSTRALIA) PTY LTD",
+      "abn": "37609394176",
+      "slug": "aditya-birla-global-trading-australia-pty-ltd-37609394176",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 8,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "STAHMANN HOLDINGS PTY LTD",
+      "abn": "68617861677",
+      "slug": "stahmann-holdings-pty-ltd-68617861677",
+      "p95PaymentTimeDays": 38,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 8,
+        "percentile": 85.7
+      }
+    },
+    {
+      "businessName": "MITSUI & CO. WOOD RESOURCES OCEANIA PTY. LTD.",
+      "abn": "14070210990",
+      "slug": "mitsui-and-co-wood-resources-oceania-pty-ltd-14070210990",
+      "p95PaymentTimeDays": 44,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 8,
+        "percentile": 71.4
+      }
+    },
+    {
+      "businessName": "SUMMIT RURAL (WA) PTY LIMITED",
+      "abn": "49058794737",
+      "slug": "summit-rural-wa-pty-limited-49058794737",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 8,
+        "percentile": 57.1
+      }
+    },
+    {
+      "businessName": "CPC GROUP HOLDINGS PTY LTD",
+      "abn": "28644449758",
+      "slug": "cpc-group-holdings-pty-ltd-28644449758",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 8,
+        "percentile": 42.9
+      }
+    },
+    {
+      "businessName": "PETUNA AQUACULTURE PTY LTD",
+      "abn": "62009485581",
+      "slug": "petuna-aquaculture-pty-ltd-62009485581",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 8,
+        "percentile": 28.6
+      }
+    },
+    {
+      "businessName": "A. A. COMPANY PTY. LTD.",
+      "abn": "86010317067",
+      "slug": "a-a-company-pty-ltd-86010317067",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 8,
+        "percentile": 14.3
+      }
+    },
+    {
+      "businessName": "ALTORA AG HOLDCO PTY LTD",
+      "abn": "29630396619",
+      "slug": "altora-ag-holdco-pty-ltd-29630396619",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 8,
+        "percentile": 0
+      }
+    }
+  ]
+}

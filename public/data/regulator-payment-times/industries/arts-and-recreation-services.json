@@ -1,0 +1,264 @@
+{
+  "slug": "arts-and-recreation-services",
+  "industryDivision": "Arts and Recreation Services",
+  "latestReportingPeriodEndDate": "2026-04-30",
+  "reportingEntityCount": 3,
+  "latestPeriod": {
+    "reportingPeriodEndDate": "2026-04-30",
+    "reportingEntityCount": 3,
+    "averageP95PaymentTimeDays": 37.7,
+    "medianP95PaymentTimeDays": 35,
+    "minimumP95PaymentTimeDays": 26,
+    "maximumP95PaymentTimeDays": 52,
+    "position": {
+      "rank": 1,
+      "count": 3,
+      "percentile": 100
+    }
+  },
+  "history": [
+    {
+      "reportingPeriodEndDate": "2024-12-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 31,
+      "medianP95PaymentTimeDays": 31,
+      "minimumP95PaymentTimeDays": 31,
+      "maximumP95PaymentTimeDays": 31,
+      "position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2024-12-31",
+      "reportingEntityCount": 31,
+      "averageP95PaymentTimeDays": 45,
+      "medianP95PaymentTimeDays": 43,
+      "minimumP95PaymentTimeDays": 10,
+      "maximumP95PaymentTimeDays": 93,
+      "position": {
+        "rank": 3,
+        "count": 19,
+        "percentile": 88.9
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-01-31",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 50,
+      "medianP95PaymentTimeDays": 45.5,
+      "minimumP95PaymentTimeDays": 40,
+      "maximumP95PaymentTimeDays": 69,
+      "position": {
+        "rank": 3,
+        "count": 11,
+        "percentile": 80
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-03-31",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 42.5,
+      "medianP95PaymentTimeDays": 45.5,
+      "minimumP95PaymentTimeDays": 29,
+      "maximumP95PaymentTimeDays": 50,
+      "position": {
+        "rank": 5,
+        "count": 18,
+        "percentile": 76.5
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-04-30",
+      "reportingEntityCount": 6,
+      "averageP95PaymentTimeDays": 64.5,
+      "medianP95PaymentTimeDays": 57.5,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 128,
+      "position": {
+        "rank": 4,
+        "count": 9,
+        "percentile": 62.5
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-28",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 55,
+      "medianP95PaymentTimeDays": 55,
+      "minimumP95PaymentTimeDays": 55,
+      "maximumP95PaymentTimeDays": 55,
+      "position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-06-30",
+      "reportingEntityCount": 35,
+      "averageP95PaymentTimeDays": 42,
+      "medianP95PaymentTimeDays": 36,
+      "minimumP95PaymentTimeDays": 16,
+      "maximumP95PaymentTimeDays": 86,
+      "position": {
+        "rank": 1,
+        "count": 19,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-07-01",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 28,
+      "medianP95PaymentTimeDays": 28,
+      "minimumP95PaymentTimeDays": 28,
+      "maximumP95PaymentTimeDays": 28,
+      "position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-07-31",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 46,
+      "medianP95PaymentTimeDays": 45.5,
+      "minimumP95PaymentTimeDays": 41,
+      "maximumP95PaymentTimeDays": 52,
+      "position": {
+        "rank": 4,
+        "count": 12,
+        "percentile": 72.7
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-09-30",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 56.8,
+      "medianP95PaymentTimeDays": 36,
+      "minimumP95PaymentTimeDays": 28,
+      "maximumP95PaymentTimeDays": 127,
+      "position": {
+        "rank": 3,
+        "count": 18,
+        "percentile": 88.2
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-10-31",
+      "reportingEntityCount": 6,
+      "averageP95PaymentTimeDays": 56.2,
+      "medianP95PaymentTimeDays": 49.5,
+      "minimumP95PaymentTimeDays": 26,
+      "maximumP95PaymentTimeDays": 131,
+      "position": {
+        "rank": 3,
+        "count": 9,
+        "percentile": 75
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-27",
+      "reportingEntityCount": 1,
+      "averageP95PaymentTimeDays": 53,
+      "medianP95PaymentTimeDays": 53,
+      "minimumP95PaymentTimeDays": 53,
+      "maximumP95PaymentTimeDays": 53,
+      "position": {
+        "rank": 2,
+        "count": 3,
+        "percentile": 50
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2025-12-31",
+      "reportingEntityCount": 34,
+      "averageP95PaymentTimeDays": 43.1,
+      "medianP95PaymentTimeDays": 38,
+      "minimumP95PaymentTimeDays": 10,
+      "maximumP95PaymentTimeDays": 130,
+      "position": {
+        "rank": 2,
+        "count": 19,
+        "percentile": 94.4
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-01-31",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 47.8,
+      "medianP95PaymentTimeDays": 44.5,
+      "minimumP95PaymentTimeDays": 42,
+      "maximumP95PaymentTimeDays": 60,
+      "position": {
+        "rank": 4,
+        "count": 11,
+        "percentile": 70
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-03-31",
+      "reportingEntityCount": 3,
+      "averageP95PaymentTimeDays": 47.7,
+      "medianP95PaymentTimeDays": 41,
+      "minimumP95PaymentTimeDays": 29,
+      "maximumP95PaymentTimeDays": 73,
+      "position": {
+        "rank": 6,
+        "count": 17,
+        "percentile": 68.8
+      }
+    },
+    {
+      "reportingPeriodEndDate": "2026-04-30",
+      "reportingEntityCount": 3,
+      "averageP95PaymentTimeDays": 37.7,
+      "medianP95PaymentTimeDays": 35,
+      "minimumP95PaymentTimeDays": 26,
+      "maximumP95PaymentTimeDays": 52,
+      "position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 100
+      }
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "WESTERN SUBURBS LEAGUE CLUB (CAMPBELLTOWN) LTD",
+      "abn": "43000841958",
+      "slug": "western-suburbs-league-club-campbelltown-ltd-43000841958",
+      "p95PaymentTimeDays": 26,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "CANTERBURY LEAGUE CLUB LIMITED",
+      "abn": "84000191248",
+      "slug": "canterbury-league-club-limited-84000191248",
+      "p95PaymentTimeDays": 35,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 3,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "ADELAIDE OVAL SMA LIMITED",
+      "abn": "46141259538",
+      "slug": "adelaide-oval-sma-limited-46141259538",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    }
+  ]
+}
