@@ -44,6 +44,14 @@ const SEARCH_INDEX_PATH = path.join(OUTPUT_DIRECTORY, "search-index.json");
 
 const IMPORT_SUMMARY_PATH = path.join(OUTPUT_DIRECTORY, "import-summary.json");
 
+const SITE_URL = "https://monochrome-compliance.com";
+
+const PAYMENT_TIMES_SITEMAP_PATH = path.resolve(
+  process.cwd(),
+  "public",
+  "sitemap-payment-times.xml",
+);
+
 function fail(message) {
   throw new Error(`Regulator Payment Times import failed: ${message}`);
 }
@@ -308,6 +316,68 @@ function calculatePosition(value, cohortValues) {
 
 function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function createSitemapUrl({
+  location,
+  lastModified,
+  changeFrequency,
+  priority,
+}) {
+  const lines = ["  <url>", `    <loc>${escapeXml(location)}</loc>`];
+
+  if (lastModified) {
+    lines.push(`    <lastmod>${escapeXml(lastModified)}</lastmod>`);
+  }
+
+  if (changeFrequency) {
+    lines.push(`    <changefreq>${escapeXml(changeFrequency)}</changefreq>`);
+  }
+
+  if (priority !== undefined) {
+    lines.push(`    <priority>${priority}</priority>`);
+  }
+
+  lines.push("  </url>");
+
+  return lines.join("\n");
+}
+
+function writePaymentTimesSitemap(searchIndex) {
+  const sitemapEntries = [
+    createSitemapUrl({
+      location: `${SITE_URL}/regulator-payment-times`,
+      changeFrequency: "monthly",
+      priority: "0.8",
+    }),
+    ...searchIndex.map((company) =>
+      createSitemapUrl({
+        location: `${SITE_URL}/regulator-payment-times/${company.slug}`,
+        lastModified: company.latestReportingPeriodEndDate,
+        changeFrequency: "monthly",
+        priority: "0.6",
+      }),
+    ),
+  ];
+
+  const sitemap = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...sitemapEntries,
+    "</urlset>",
+    "",
+  ].join("\n");
+
+  fs.writeFileSync(PAYMENT_TIMES_SITEMAP_PATH, sitemap, "utf8");
 }
 
 function prepareOutputDirectories() {
@@ -587,11 +657,16 @@ function importRegulatorPaymentTimes() {
     outputs: {
       searchIndex: path.relative(process.cwd(), SEARCH_INDEX_PATH),
       companyDirectory: path.relative(process.cwd(), COMPANY_OUTPUT_DIRECTORY),
+      paymentTimesSitemap: path.relative(
+        process.cwd(),
+        PAYMENT_TIMES_SITEMAP_PATH,
+      ),
       importSummary: path.relative(process.cwd(), IMPORT_SUMMARY_PATH),
     },
   };
 
   writeJson(SEARCH_INDEX_PATH, searchIndex);
+  writePaymentTimesSitemap(searchIndex);
   writeJson(IMPORT_SUMMARY_PATH, summary);
 
   console.log("Regulator Payment Times import completed successfully.");
