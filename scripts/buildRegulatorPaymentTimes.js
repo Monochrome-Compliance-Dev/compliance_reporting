@@ -44,7 +44,7 @@ const SEARCH_INDEX_PATH = path.join(OUTPUT_DIRECTORY, "search-index.json");
 
 const IMPORT_SUMMARY_PATH = path.join(OUTPUT_DIRECTORY, "import-summary.json");
 
-const SITE_URL = "https://monochrome-compliance.com";
+const SITE_URL = "https://www.monochrome-compliance.com";
 
 const PAYMENT_TIMES_SITEMAP_PATH = path.resolve(
   process.cwd(),
