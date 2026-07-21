@@ -1,0 +1,67 @@
+{
+  "slug": "achmea-schadeverzekeringen-n-v-86158237702",
+  "businessName": "ACHMEA SCHADEVERZEKERINGEN N.V.",
+  "abn": "86158237702",
+  "acnArbn": "158237702",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010249",
+      "acnArbn": "158237702",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.18,
+      "medianPaymentTimeDays": 3.35,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 92.3,
+      "payments31To60Days": 3.6,
+      "paymentsMoreThan60Days": 4.04,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 236,
+        "count": 338,
+        "percentile": 28.8
+      }
+    },
+    {
+      "reportId": "PTR20004617",
+      "acnArbn": "158237702",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.85,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 96.02,
+      "payments31To60Days": 1.93,
+      "paymentsMoreThan60Days": 2.05,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 156,
+        "count": 2568,
+        "percentile": 93.5
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 349,
+        "percentile": 82.8
+      }
+    }
+  ]
+}

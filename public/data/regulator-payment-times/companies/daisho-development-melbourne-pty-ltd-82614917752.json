@@ -1,0 +1,67 @@
+{
+  "slug": "daisho-development-melbourne-pty-ltd-82614917752",
+  "businessName": "DAISHO DEVELOPMENT MELBOURNE PTY LTD",
+  "abn": "82614917752",
+  "acnArbn": "614917752",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008193",
+      "acnArbn": "614917752",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.85,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 99.98,
+      "payments31To60Days": 0.02,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 209,
+        "count": 2613,
+        "percentile": 91.6
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 38,
+        "percentile": 94.6
+      }
+    },
+    {
+      "reportId": "PTR20006156",
+      "acnArbn": "614917752",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.71,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 99.42,
+      "payments31To60Days": 0.55,
+      "paymentsMoreThan60Days": 0.03,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-10-24",
+      "overallP95Position": {
+        "rank": 205,
+        "count": 2568,
+        "percentile": 91.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 36,
+        "percentile": 94.3
+      }
+    }
+  ]
+}

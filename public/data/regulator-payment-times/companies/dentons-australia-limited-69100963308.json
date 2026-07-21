@@ -1,0 +1,95 @@
+{
+  "slug": "dentons-australia-limited-69100963308",
+  "businessName": "DENTONS AUSTRALIA LIMITED",
+  "abn": "69100963308",
+  "acnArbn": "100963308",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009964",
+      "acnArbn": "100963308",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.41,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 14.9,
+      "paymentsMoreThan60Days": 5.1,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 124,
+        "count": 183,
+        "percentile": 30.8
+      }
+    },
+    {
+      "reportId": "PTR20005624",
+      "acnArbn": "100963308",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.95,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 80.5,
+      "payments31To60Days": 13.4,
+      "paymentsMoreThan60Days": 6.1,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 181,
+        "percentile": 30.6
+      }
+    },
+    {
+      "reportId": "PTR20002015",
+      "acnArbn": "100963308",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.5,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 84,
+      "payments31To60Days": 11,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 106,
+        "count": 176,
+        "percentile": 38.3
+      }
+    }
+  ]
+}

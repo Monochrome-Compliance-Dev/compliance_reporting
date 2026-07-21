@@ -1,0 +1,39 @@
+{
+  "slug": "saddleback-investments-pty-ltd-96134978224",
+  "businessName": "Saddleback Investments Pty Ltd",
+  "abn": "96134978224",
+  "acnArbn": "134978224",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20006547",
+      "acnArbn": "134978224",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3.5,
+      "medianPaymentTimeDays": 3.5,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0.01,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 21,
+        "count": 2568,
+        "percentile": 99
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 173,
+        "percentile": 98.8
+      }
+    }
+  ]
+}

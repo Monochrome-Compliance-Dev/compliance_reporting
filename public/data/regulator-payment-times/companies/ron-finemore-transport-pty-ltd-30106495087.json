@@ -1,0 +1,95 @@
+{
+  "slug": "ron-finemore-transport-pty-ltd-30106495087",
+  "businessName": "RON FINEMORE TRANSPORT PTY. LTD.",
+  "abn": "30106495087",
+  "acnArbn": "106495087",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-28",
+  "reports": [
+    {
+      "reportId": "PTR20011156",
+      "acnArbn": "106495087",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.77,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 86.85,
+      "payments31To60Days": 12.78,
+      "paymentsMoreThan60Days": 0.37,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 9,
+        "percentile": 62.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20011160",
+      "acnArbn": "106495087",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.8,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 88.12,
+      "payments31To60Days": 11.62,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 4,
+        "count": 13,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20011153",
+      "acnArbn": "106495087",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 68.57,
+      "payments31To60Days": 31.07,
+      "paymentsMoreThan60Days": 0.36,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 140,
+        "percentile": 53.2
+      }
+    }
+  ]
+}

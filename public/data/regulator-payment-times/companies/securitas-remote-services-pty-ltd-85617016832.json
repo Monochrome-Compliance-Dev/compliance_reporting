@@ -1,0 +1,95 @@
+{
+  "slug": "securitas-remote-services-pty-ltd-85617016832",
+  "businessName": "SECURITAS REMOTE SERVICES PTY LTD",
+  "abn": "85617016832",
+  "acnArbn": "617016832",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Public order, safety and regulatory services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010400",
+      "acnArbn": "617016832",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 1,
+      "payments30DaysOrLess": 99.17,
+      "payments31To60Days": 0.68,
+      "paymentsMoreThan60Days": 0.15,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 2613,
+        "percentile": 99.8
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 33,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006471",
+      "acnArbn": "617016832",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 1,
+      "p95PaymentTimeDays": 5,
+      "payments30DaysOrLess": 99.13,
+      "payments31To60Days": 0.61,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-11-14",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 2568,
+        "percentile": 99.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 34,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20004035",
+      "acnArbn": "617016832",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 8,
+      "payments31To60Days": 77,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2238,
+        "count": 2498,
+        "percentile": 10.3
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 31,
+        "percentile": 0
+      }
+    }
+  ]
+}

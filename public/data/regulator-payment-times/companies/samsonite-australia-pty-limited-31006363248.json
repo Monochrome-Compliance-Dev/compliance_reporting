@@ -1,0 +1,95 @@
+{
+  "slug": "samsonite-australia-pty-limited-31006363248",
+  "businessName": "SAMSONITE AUSTRALIA PTY LIMITED",
+  "abn": "31006363248",
+  "acnArbn": "006363248",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010014",
+      "acnArbn": "006363248",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.48,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 79,
+      "payments31To60Days": 19.81,
+      "paymentsMoreThan60Days": 1.19,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 329,
+        "percentile": 77.1
+      }
+    },
+    {
+      "reportId": "PTR20004091",
+      "acnArbn": "006363248",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.47,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 77.56,
+      "payments31To60Days": 22.2,
+      "paymentsMoreThan60Days": 0.24,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 765,
+        "count": 2568,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 323,
+        "percentile": 79.5
+      }
+    },
+    {
+      "reportId": "PTR20001242",
+      "acnArbn": "006363248",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.9,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 85.88,
+      "payments31To60Days": 12.53,
+      "paymentsMoreThan60Days": 1.59,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 674,
+        "count": 2498,
+        "percentile": 72.3
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 323,
+        "percentile": 82
+      }
+    }
+  ]
+}

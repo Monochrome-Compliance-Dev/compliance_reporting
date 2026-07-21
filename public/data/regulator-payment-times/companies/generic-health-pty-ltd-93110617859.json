@@ -1,0 +1,39 @@
+{
+  "slug": "generic-health-pty-ltd-93110617859",
+  "businessName": "GENERIC HEALTH PTY LTD",
+  "abn": "93110617859",
+  "acnArbn": "110617859",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20001150",
+      "acnArbn": "110617859",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.06,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 88.99,
+      "payments31To60Days": 6.76,
+      "paymentsMoreThan60Days": 4.25,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 120,
+        "count": 231,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 32,
+        "percentile": 71
+      }
+    }
+  ]
+}

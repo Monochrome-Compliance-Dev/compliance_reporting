@@ -122,6 +122,11 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
         to: "/industries/construction/payment-reporting",
       },
     ],
+    insights: [
+      { label: "Payment Times Register", to: "/regulator-payment-times" },
+      { label: "Industry Insights", to: "/insights" },
+      { label: "Blog", to: "/insights/blog" },
+    ],
     company: [
       { label: "About", to: "/about" },
       { label: "Contact", to: "/contact" },
@@ -515,34 +520,45 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                         }}
                       >
                         <MenuList variant="menu" autoFocusItem={false}>
-                          <MenuItem
-                            onClick={() => {
-                              cancelMarketingClose();
-                              closeAllMarketingDropdowns();
-                              handleMenuClose();
-                            }}
-                            component={Link}
-                            to="/insights"
-                          >
-                            Industry Insights
-                          </MenuItem>
-                          <MenuItem
-                            onClick={() => {
-                              cancelMarketingClose();
-                              closeAllMarketingDropdowns();
-                              handleMenuClose();
-                            }}
-                            component={Link}
-                            to="/insights/blog"
-                          >
-                            Blog
-                          </MenuItem>
+                          {marketingNav.insights.map((item) => (
+                            <MenuItem
+                              key={item.to}
+                              onClick={() => {
+                                cancelMarketingClose();
+                                closeAllMarketingDropdowns();
+                                handleMenuClose();
+                              }}
+                              component={Link}
+                              to={item.to}
+                              sx={{ color: theme.palette.text.primary }}
+                            >
+                              {item.label}
+                            </MenuItem>
+                          ))}
                         </MenuList>
                       </ClickAwayListener>
                     </Paper>
                   </Grow>
                 )}
               </Popper>
+
+              <Button
+                color="inherit"
+                component={Link}
+                to="/pricing"
+                onClick={() => {
+                  closeAllMarketingDropdowns();
+                  handleMenuClose();
+                }}
+                sx={{
+                  color: theme.palette.text.primary,
+                  textTransform: "none",
+                  fontWeight: 500,
+                  fontSize: theme.typography.body1.fontSize,
+                }}
+              >
+                Pricing
+              </Button>
 
               <Button
                 color="inherit"
@@ -635,21 +651,24 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                 <MenuItem onClick={handleExploreClose} disabled>
                   Insights
                 </MenuItem>
+                {marketingNav.insights.map((item) => (
+                  <MenuItem
+                    key={item.to}
+                    onClick={handleExploreClose}
+                    component={Link}
+                    to={item.to}
+                  >
+                    <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
+                    {item.label}
+                  </MenuItem>
+                ))}
                 <MenuItem
                   onClick={handleExploreClose}
                   component={Link}
-                  to="/insights"
+                  to="/pricing"
                 >
                   <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
-                  Industry Insights
-                </MenuItem>
-                <MenuItem
-                  onClick={handleExploreClose}
-                  component={Link}
-                  to="/insights/blog"
-                >
-                  <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
-                  Blog
+                  Pricing
                 </MenuItem>
 
                 <Divider />
@@ -746,21 +765,24 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                   </MenuItem>
                 ))}
                 <Divider />
+                {marketingNav.insights.map((item) => (
+                  <MenuItem
+                    key={item.to}
+                    onClick={handleMenuClose}
+                    component={Link}
+                    to={item.to}
+                    sx={{ color: theme.palette.text.primary }}
+                  >
+                    {item.label}
+                  </MenuItem>
+                ))}
                 <MenuItem
                   onClick={handleMenuClose}
                   component={Link}
-                  to="/insights"
+                  to="/pricing"
                   sx={{ color: theme.palette.text.primary }}
                 >
-                  Industry Insights
-                </MenuItem>
-                <MenuItem
-                  onClick={handleMenuClose}
-                  component={Link}
-                  to="/insights/blog"
-                  sx={{ color: theme.palette.text.primary }}
-                >
-                  Blog
+                  Pricing
                 </MenuItem>
                 <Divider />
                 {marketingNav.company.map((item) => (

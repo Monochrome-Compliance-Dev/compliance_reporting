@@ -1,0 +1,95 @@
+{
+  "slug": "penske-transportation-group-international-pty-ltd-42164850355",
+  "businessName": "PENSKE TRANSPORTATION GROUP INTERNATIONAL PTY LTD",
+  "abn": "42164850355",
+  "acnArbn": "164850355",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008949",
+      "acnArbn": "164850355",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.35,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 82.2,
+      "payments31To60Days": 14.4,
+      "paymentsMoreThan60Days": 3.4,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 129,
+        "count": 329,
+        "percentile": 58.8
+      }
+    },
+    {
+      "reportId": "PTR20004297",
+      "acnArbn": "164850355",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.75,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 85.5,
+      "payments31To60Days": 11.9,
+      "paymentsMoreThan60Days": 2.6,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 323,
+        "percentile": 68.6
+      }
+    },
+    {
+      "reportId": "PTR20001984",
+      "acnArbn": "164850355",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.03,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 5,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 323,
+        "percentile": 88.5
+      }
+    }
+  ]
+}

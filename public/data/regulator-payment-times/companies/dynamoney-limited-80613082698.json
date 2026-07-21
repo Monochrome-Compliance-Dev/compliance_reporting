@@ -1,0 +1,39 @@
+{
+  "slug": "dynamoney-limited-80613082698",
+  "businessName": "DYNAMONEY LIMITED",
+  "abn": "80613082698",
+  "acnArbn": "613082698",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20006220",
+      "acnArbn": "613082698",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.8,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.6,
+      "payments31To60Days": 4.4,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 349,
+        "percentile": 69
+      }
+    }
+  ]
+}

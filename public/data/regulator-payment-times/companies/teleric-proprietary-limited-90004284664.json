@@ -1,0 +1,95 @@
+{
+  "slug": "teleric-proprietary-limited-90004284664",
+  "businessName": "TELERIC PROPRIETARY LIMITED",
+  "abn": "90004284664",
+  "acnArbn": "004284664",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008672",
+      "acnArbn": "004284664",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.65,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 132,
+      "payments30DaysOrLess": 11.02,
+      "payments31To60Days": 46.56,
+      "paymentsMoreThan60Days": 42.41,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 2581,
+        "count": 2613,
+        "percentile": 1.2
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 60,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003872",
+      "acnArbn": "004284664",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.55,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 127,
+      "payments30DaysOrLess": 10.99,
+      "payments31To60Days": 28.95,
+      "paymentsMoreThan60Days": 60.05,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 2513,
+        "count": 2568,
+        "percentile": 2.1
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 55,
+        "percentile": 1.9
+      }
+    },
+    {
+      "reportId": "PTR20003871",
+      "acnArbn": "004284664",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.24,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 124,
+      "payments30DaysOrLess": 16.64,
+      "payments31To60Days": 49.08,
+      "paymentsMoreThan60Days": 34.28,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 2435,
+        "count": 2498,
+        "percentile": 2.4
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 58,
+        "percentile": 1.8
+      }
+    }
+  ]
+}

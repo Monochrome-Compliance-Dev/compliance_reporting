@@ -1,0 +1,67 @@
+{
+  "slug": "catalyst-metals-limited-54118912495",
+  "businessName": "CATALYST METALS LIMITED",
+  "abn": "54118912495",
+  "acnArbn": "118912495",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20006075",
+      "acnArbn": "118912495",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.61,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 13.3,
+      "payments31To60Days": 75.3,
+      "paymentsMoreThan60Days": 11.4,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-10-17",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 118,
+        "count": 173,
+        "percentile": 30.2
+      }
+    },
+    {
+      "reportId": "PTR20001848",
+      "acnArbn": "118912495",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 14.3,
+      "payments31To60Days": 66.1,
+      "paymentsMoreThan60Days": 19.6,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1980,
+        "count": 2498,
+        "percentile": 20
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 170,
+        "percentile": 17.8
+      }
+    }
+  ]
+}

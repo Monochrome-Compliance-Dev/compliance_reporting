@@ -1,0 +1,95 @@
+{
+  "slug": "ventora-group-pty-limited-62087012226",
+  "businessName": "VENTORA GROUP PTY LIMITED",
+  "abn": "62087012226",
+  "acnArbn": "087012226",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008472",
+      "acnArbn": "087012226",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.05,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 40.59,
+      "payments31To60Days": 42.65,
+      "paymentsMoreThan60Days": 16.75,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-20",
+      "overallP95Position": {
+        "rank": 2265,
+        "count": 2613,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 270,
+        "percentile": 11.9
+      }
+    },
+    {
+      "reportId": "PTR20006036",
+      "acnArbn": "087012226",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.6,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 39.87,
+      "payments31To60Days": 47.12,
+      "paymentsMoreThan60Days": 13.01,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-14",
+      "overallP95Position": {
+        "rank": 1988,
+        "count": 2568,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 259,
+        "percentile": 22.5
+      }
+    },
+    {
+      "reportId": "PTR20001602",
+      "acnArbn": "087012226",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.06,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 44.04,
+      "payments31To60Days": 43.95,
+      "paymentsMoreThan60Days": 12.01,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 250,
+        "percentile": 23.7
+      }
+    }
+  ]
+}

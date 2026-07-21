@@ -1,0 +1,95 @@
+{
+  "slug": "pact-group-holdings-ltd-55145989644",
+  "businessName": "PACT GROUP HOLDINGS LTD",
+  "abn": "55145989644",
+  "acnArbn": "145989644",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Polymer product and rubber product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007423",
+      "acnArbn": "145989644",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.82,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 61.59,
+      "payments31To60Days": 29.35,
+      "paymentsMoreThan60Days": 9.06,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2613,
+        "percentile": 16.2
+      },
+      "industryP95Position": {
+        "rank": 249,
+        "count": 347,
+        "percentile": 26
+      }
+    },
+    {
+      "reportId": "PTR20003099",
+      "acnArbn": "145989644",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.52,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 30.76,
+      "payments31To60Days": 55.04,
+      "paymentsMoreThan60Days": 14.2,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-13",
+      "overallP95Position": {
+        "rank": 2189,
+        "count": 2568,
+        "percentile": 14.5
+      },
+      "industryP95Position": {
+        "rank": 259,
+        "count": 335,
+        "percentile": 22.2
+      }
+    },
+    {
+      "reportId": "PTR20001193",
+      "acnArbn": "145989644",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51.17,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 22.97,
+      "payments31To60Days": 57.37,
+      "paymentsMoreThan60Days": 19.66,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2243,
+        "count": 2498,
+        "percentile": 9.2
+      },
+      "industryP95Position": {
+        "rank": 276,
+        "count": 323,
+        "percentile": 13
+      }
+    }
+  ]
+}

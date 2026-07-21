@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-forestry-investment-trust-83970141211",
+  "businessName": "The trustee for Forestry Investment Trust",
+  "abn": "83970141211",
+  "acnArbn": "",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture, forestry and fishing support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010447",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 66.56,
+      "payments31To60Days": 33.44,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-04-02",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 102,
+        "percentile": 59.4
+      }
+    }
+  ]
+}

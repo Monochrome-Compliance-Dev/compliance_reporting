@@ -1,0 +1,95 @@
+{
+  "slug": "colas-australia-group-pty-ltd-11000388161",
+  "businessName": "COLAS AUSTRALIA GROUP PTY LTD",
+  "abn": "11000388161",
+  "acnArbn": "000388161",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008215",
+      "acnArbn": "000388161",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.57,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 31.77,
+      "payments31To60Days": 62.26,
+      "paymentsMoreThan60Days": 5.97,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 270,
+        "percentile": 39.4
+      }
+    },
+    {
+      "reportId": "PTR20003564",
+      "acnArbn": "000388161",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.97,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 37.66,
+      "payments31To60Days": 55.68,
+      "paymentsMoreThan60Days": 6.66,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 130,
+        "count": 259,
+        "percentile": 45.7
+      }
+    },
+    {
+      "reportId": "PTR20000385",
+      "acnArbn": "000388161",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.27,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 38.88,
+      "payments31To60Days": 56.94,
+      "paymentsMoreThan60Days": 4.18,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-12",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 130,
+        "count": 250,
+        "percentile": 45
+      }
+    }
+  ]
+}

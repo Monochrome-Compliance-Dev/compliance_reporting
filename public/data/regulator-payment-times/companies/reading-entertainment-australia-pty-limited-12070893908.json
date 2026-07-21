@@ -1,0 +1,95 @@
+{
+  "slug": "reading-entertainment-australia-pty-limited-12070893908",
+  "businessName": "READING ENTERTAINMENT AUSTRALIA PTY LIMITED",
+  "abn": "12070893908",
+  "acnArbn": "070893908",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Motion picture and sound recording activities",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009235",
+      "acnArbn": "070893908",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 76,
+      "medianPaymentTimeDays": 70,
+      "p80PaymentTimeDays": 96,
+      "p95PaymentTimeDays": 127,
+      "payments30DaysOrLess": 6.83,
+      "payments31To60Days": 33.47,
+      "paymentsMoreThan60Days": 59.7,
+      "industrySubdivision": "Motion picture and sound recording activities",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 2571,
+        "count": 2613,
+        "percentile": 1.5
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 60,
+        "percentile": 1.7
+      }
+    },
+    {
+      "reportId": "PTR20004350",
+      "acnArbn": "070893908",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 63,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 85,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 11.81,
+      "payments31To60Days": 43.81,
+      "paymentsMoreThan60Days": 44.37,
+      "industrySubdivision": "Motion picture and sound recording activities",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2443,
+        "count": 2568,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 55,
+        "percentile": 5.6
+      }
+    },
+    {
+      "reportId": "PTR20002919",
+      "acnArbn": "070893908",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.5,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 41.75,
+      "payments31To60Days": 37.8,
+      "paymentsMoreThan60Days": 20.44,
+      "industrySubdivision": "Motion picture and sound recording activities",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 2196,
+        "count": 2498,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 58,
+        "percentile": 8.8
+      }
+    }
+  ]
+}

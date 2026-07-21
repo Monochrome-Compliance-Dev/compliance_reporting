@@ -1,0 +1,95 @@
+{
+  "slug": "petrofac-facilities-management-limited-51138094470",
+  "businessName": "Petrofac Facilities Management Limited",
+  "abn": "51138094470",
+  "acnArbn": "138094470",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009433",
+      "acnArbn": "138094470",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.35,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 37.09,
+      "payments31To60Days": 57.39,
+      "paymentsMoreThan60Days": 5.51,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 151,
+        "count": 270,
+        "percentile": 39.4
+      }
+    },
+    {
+      "reportId": "PTR20004468",
+      "acnArbn": "138094470",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.89,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 10.43,
+      "payments31To60Days": 73.83,
+      "paymentsMoreThan60Days": 15.74,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2181,
+        "count": 2568,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 219,
+        "count": 259,
+        "percentile": 14.3
+      }
+    },
+    {
+      "reportId": "PTR20001319",
+      "acnArbn": "138094470",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 66.07,
+      "payments31To60Days": 30.98,
+      "paymentsMoreThan60Days": 2.95,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 250,
+        "percentile": 69.9
+      }
+    }
+  ]
+}

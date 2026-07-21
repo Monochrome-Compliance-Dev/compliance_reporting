@@ -1,0 +1,95 @@
+{
+  "slug": "dematic-holdings-pty-ltd-50121488202",
+  "businessName": "DEMATIC HOLDINGS PTY LTD",
+  "abn": "50121488202",
+  "acnArbn": "121488202",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010482",
+      "acnArbn": "121488202",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 23.5,
+      "payments31To60Days": 67.8,
+      "paymentsMoreThan60Days": 8.7,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-09",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 182,
+        "count": 347,
+        "percentile": 46.2
+      }
+    },
+    {
+      "reportId": "PTR20005561",
+      "acnArbn": "121488202",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 18.9,
+      "payments31To60Days": 73.1,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 335,
+        "percentile": 49.1
+      }
+    },
+    {
+      "reportId": "PTR20000829",
+      "acnArbn": "121488202",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.74,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 21.34,
+      "payments31To60Days": 67,
+      "paymentsMoreThan60Days": 11.66,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1851,
+        "count": 2498,
+        "percentile": 25.3
+      },
+      "industryP95Position": {
+        "rank": 198,
+        "count": 323,
+        "percentile": 38.2
+      }
+    }
+  ]
+}

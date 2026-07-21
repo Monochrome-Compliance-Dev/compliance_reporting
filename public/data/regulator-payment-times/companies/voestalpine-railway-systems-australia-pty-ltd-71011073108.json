@@ -1,0 +1,95 @@
+{
+  "slug": "voestalpine-railway-systems-australia-pty-ltd-71011073108",
+  "businessName": "VOESTALPINE RAILWAY SYSTEMS AUSTRALIA PTY LTD",
+  "abn": "71011073108",
+  "acnArbn": "011073108",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011530",
+      "acnArbn": "011073108",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.17,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 23,
+      "payments31To60Days": 73,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 132,
+        "count": 193,
+        "percentile": 29.2
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 25,
+        "percentile": 58.3
+      }
+    },
+    {
+      "reportId": "PTR20006486",
+      "acnArbn": "011073108",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 97,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-19",
+      "overallP95Position": {
+        "rank": 154,
+        "count": 228,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 28,
+        "percentile": 63
+      }
+    },
+    {
+      "reportId": "PTR20000169",
+      "acnArbn": "011073108",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 22,
+      "payments31To60Days": 76,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-05-27",
+      "overallP95Position": {
+        "rank": 138,
+        "count": 231,
+        "percentile": 38.7
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 32,
+        "percentile": 64.5
+      }
+    }
+  ]
+}

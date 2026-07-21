@@ -1,0 +1,95 @@
+{
+  "slug": "rheinmetall-man-military-vehicles-australia-pty-limited-87114035595",
+  "businessName": "RHEINMETALL MAN MILITARY VEHICLES AUSTRALIA PTY LIMITED",
+  "abn": "87114035595",
+  "acnArbn": "114035595",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010191",
+      "acnArbn": "114035595",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 82.87,
+      "payments31To60Days": 17.13,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 347,
+        "percentile": 66.2
+      }
+    },
+    {
+      "reportId": "PTR20005250",
+      "acnArbn": "114035595",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 89.56,
+      "payments31To60Days": 10.44,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 335,
+        "percentile": 93.4
+      }
+    },
+    {
+      "reportId": "PTR20001285",
+      "acnArbn": "114035595",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.42,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 82.69,
+      "payments31To60Days": 13.46,
+      "paymentsMoreThan60Days": 3.85,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 323,
+        "percentile": 39.1
+      }
+    }
+  ]
+}

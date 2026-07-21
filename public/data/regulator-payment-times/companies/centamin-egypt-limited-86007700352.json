@@ -1,0 +1,95 @@
+{
+  "slug": "centamin-egypt-limited-86007700352",
+  "businessName": "CENTAMIN EGYPT LIMITED",
+  "abn": "86007700352",
+  "acnArbn": "007700352",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008273",
+      "acnArbn": "007700352",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 118,
+      "payments30DaysOrLess": 42,
+      "payments31To60Days": 44,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 2536,
+        "count": 2613,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 177,
+        "percentile": 2.8
+      }
+    },
+    {
+      "reportId": "PTR20005859",
+      "acnArbn": "007700352",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 68,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 31,
+      "payments31To60Days": 44,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2443,
+        "count": 2568,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 163,
+        "count": 173,
+        "percentile": 5.8
+      }
+    },
+    {
+      "reportId": "PTR20005829",
+      "acnArbn": "007700352",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 64,
+      "medianPaymentTimeDays": 58,
+      "p80PaymentTimeDays": 85,
+      "p95PaymentTimeDays": 134,
+      "payments30DaysOrLess": 16,
+      "payments31To60Days": 36,
+      "paymentsMoreThan60Days": 48,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2451,
+        "count": 2498,
+        "percentile": 1.8
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 170,
+        "percentile": 1.8
+      }
+    }
+  ]
+}

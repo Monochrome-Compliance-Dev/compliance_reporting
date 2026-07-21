@@ -1,0 +1,95 @@
+{
+  "slug": "bechtel-western-australia-pty-ltd-25147531226",
+  "businessName": "Bechtel (Western Australia) Pty Ltd",
+  "abn": "25147531226",
+  "acnArbn": "147531226",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007954",
+      "acnArbn": "147531226",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.37,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 70.33,
+      "payments31To60Days": 27.32,
+      "paymentsMoreThan60Days": 2.35,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-13",
+      "overallP95Position": {
+        "rank": 1305,
+        "count": 2613,
+        "percentile": 47.8
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 183,
+        "percentile": 47.3
+      }
+    },
+    {
+      "reportId": "PTR20003658",
+      "acnArbn": "147531226",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 56.12,
+      "payments31To60Days": 39.63,
+      "paymentsMoreThan60Days": 4.25,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 181,
+        "percentile": 43.3
+      }
+    },
+    {
+      "reportId": "PTR20000246",
+      "acnArbn": "147531226",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.21,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 37.2,
+      "payments31To60Days": 59.04,
+      "paymentsMoreThan60Days": 3.76,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 176,
+        "percentile": 47.4
+      }
+    }
+  ]
+}

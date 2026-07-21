@@ -1,0 +1,95 @@
+{
+  "slug": "china-yunnan-copper-australia-investment-and-development-pty-ltd-32110345750",
+  "businessName": "CHINA YUNNAN COPPER (AUSTRALIA) INVESTMENT AND DEVELOPMENT PTY LTD",
+  "abn": "32110345750",
+  "acnArbn": "110345750",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Commission-based wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010024",
+      "acnArbn": "110345750",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.92,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Commission-based wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 243,
+        "count": 2613,
+        "percentile": 89.2
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 329,
+        "percentile": 94.2
+      }
+    },
+    {
+      "reportId": "PTR20005170",
+      "acnArbn": "110345750",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Commission-based wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2568,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 323,
+        "percentile": 94.7
+      }
+    },
+    {
+      "reportId": "PTR20007163",
+      "acnArbn": "110345750",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 86.22,
+      "medianPaymentTimeDays": 95,
+      "p80PaymentTimeDays": 124,
+      "p95PaymentTimeDays": 138,
+      "payments30DaysOrLess": 11.11,
+      "payments31To60Days": 33.33,
+      "paymentsMoreThan60Days": 55.56,
+      "industrySubdivision": "Commission-based wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 2458,
+        "count": 2498,
+        "percentile": 1.5
+      },
+      "industryP95Position": {
+        "rank": 316,
+        "count": 323,
+        "percentile": 2.2
+      }
+    }
+  ]
+}

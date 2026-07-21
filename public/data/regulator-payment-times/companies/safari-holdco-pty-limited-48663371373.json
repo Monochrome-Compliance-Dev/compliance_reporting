@@ -1,0 +1,95 @@
+{
+  "slug": "safari-holdco-pty-limited-48663371373",
+  "businessName": "SAFARI HOLDCO PTY LIMITED",
+  "abn": "48663371373",
+  "acnArbn": "663371373",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010358",
+      "acnArbn": "663371373",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.55,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 72.68,
+      "payments31To60Days": 24.81,
+      "paymentsMoreThan60Days": 2.51,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 207,
+        "percentile": 63.1
+      }
+    },
+    {
+      "reportId": "PTR20005843",
+      "acnArbn": "663371373",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.96,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 83.82,
+      "payments31To60Days": 11.46,
+      "paymentsMoreThan60Days": 4.72,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 208,
+        "percentile": 43.5
+      }
+    },
+    {
+      "reportId": "PTR20002357",
+      "acnArbn": "663371373",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.9,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 83.14,
+      "payments31To60Days": 12.57,
+      "paymentsMoreThan60Days": 4.29,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-04",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 98,
+        "count": 207,
+        "percentile": 50
+      }
+    }
+  ]
+}

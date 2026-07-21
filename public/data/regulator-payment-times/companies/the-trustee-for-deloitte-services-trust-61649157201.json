@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-deloitte-services-trust-61649157201",
+  "businessName": "THE TRUSTEE FOR DELOITTE SERVICES TRUST",
+  "abn": "61649157201",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007469",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.3,
+      "payments31To60Days": 4.83,
+      "paymentsMoreThan60Days": 0.87,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 183,
+        "percentile": 79.1
+      }
+    },
+    {
+      "reportId": "PTR20003547",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 92.88,
+      "payments31To60Days": 6.14,
+      "paymentsMoreThan60Days": 0.98,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 181,
+        "percentile": 80
+      }
+    },
+    {
+      "reportId": "PTR20001439",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 92.59,
+      "payments31To60Days": 6.66,
+      "paymentsMoreThan60Days": 0.76,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 176,
+        "percentile": 74.9
+      }
+    }
+  ]
+}

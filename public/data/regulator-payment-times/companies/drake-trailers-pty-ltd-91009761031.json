@@ -1,0 +1,95 @@
+{
+  "slug": "drake-trailers-pty-ltd-91009761031",
+  "businessName": "DRAKE TRAILERS PTY. LTD.",
+  "abn": "91009761031",
+  "acnArbn": "009761031",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007553",
+      "acnArbn": "009761031",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 23,
+      "payments31To60Days": 62.51,
+      "paymentsMoreThan60Days": 14.49,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-02",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 202,
+        "count": 347,
+        "percentile": 39.9
+      }
+    },
+    {
+      "reportId": "PTR20003727",
+      "acnArbn": "009761031",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 22.42,
+      "payments31To60Days": 57.85,
+      "paymentsMoreThan60Days": 19.73,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 1883,
+        "count": 2568,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 191,
+        "count": 335,
+        "percentile": 42.8
+      }
+    },
+    {
+      "reportId": "PTR20001938",
+      "acnArbn": "009761031",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 28,
+      "payments31To60Days": 64,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 323,
+        "percentile": 50.6
+      }
+    }
+  ]
+}

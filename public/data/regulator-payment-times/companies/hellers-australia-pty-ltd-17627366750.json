@@ -1,0 +1,95 @@
+{
+  "slug": "hellers-australia-pty-ltd-17627366750",
+  "businessName": "HELLERS AUSTRALIA PTY LTD",
+  "abn": "17627366750",
+  "acnArbn": "627366750",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-28",
+  "reports": [
+    {
+      "reportId": "PTR20007884",
+      "acnArbn": "627366750",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.6,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 9,
+        "percentile": 87.5
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20004367",
+      "acnArbn": "627366750",
+      "reportingPeriodStartDate": "2024-12-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 13,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000614",
+      "acnArbn": "627366750",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.45,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 11,
+        "percentile": 80
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "cuscal-limited-95087822455",
+  "businessName": "CUSCAL LIMITED",
+  "abn": "95087822455",
+  "acnArbn": "087822455",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009521",
+      "acnArbn": "087822455",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.16,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 96.38,
+      "payments31To60Days": 2.99,
+      "paymentsMoreThan60Days": 0.64,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 173,
+        "count": 2613,
+        "percentile": 92.9
+      },
+      "industryP95Position": {
+        "rank": 62,
+        "count": 338,
+        "percentile": 80.7
+      }
+    },
+    {
+      "reportId": "PTR20004640",
+      "acnArbn": "087822455",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.86,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 94.27,
+      "payments31To60Days": 2.36,
+      "paymentsMoreThan60Days": 3.37,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 349,
+        "percentile": 50.3
+      }
+    },
+    {
+      "reportId": "PTR20001547",
+      "acnArbn": "087822455",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.77,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 87.96,
+      "payments31To60Days": 9.71,
+      "paymentsMoreThan60Days": 2.33,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 720,
+        "count": 2498,
+        "percentile": 70.2
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 339,
+        "percentile": 43.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "incat-holdings-limited-50128645885",
+  "businessName": "Incat Holdings Limited",
+  "abn": "50128645885",
+  "acnArbn": "128645885",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008128",
+      "acnArbn": "128645885",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.5,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 27.16,
+      "payments31To60Days": 70.89,
+      "paymentsMoreThan60Days": 1.95,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 347,
+        "percentile": 59
+      }
+    },
+    {
+      "reportId": "PTR20004097",
+      "acnArbn": "128645885",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.84,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 36.71,
+      "payments31To60Days": 61.77,
+      "paymentsMoreThan60Days": 1.52,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 335,
+        "percentile": 66.5
+      }
+    },
+    {
+      "reportId": "PTR20002573",
+      "acnArbn": "128645885",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.06,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 39.97,
+      "payments31To60Days": 58.09,
+      "paymentsMoreThan60Days": 1.94,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-18",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 323,
+        "percentile": 63.4
+      }
+    }
+  ]
+}

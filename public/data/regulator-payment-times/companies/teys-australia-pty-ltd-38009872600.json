@@ -1,0 +1,67 @@
+{
+  "slug": "teys-australia-pty-ltd-38009872600",
+  "businessName": "TEYS AUSTRALIA PTY LTD",
+  "abn": "38009872600",
+  "acnArbn": "009872600",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-12",
+  "reports": [
+    {
+      "reportId": "PTR20007160",
+      "acnArbn": "009872600",
+      "reportingPeriodStartDate": "2025-06-02",
+      "reportingPeriodEndDate": "2025-12-12",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.66,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 64.58,
+      "payments31To60Days": 34.24,
+      "paymentsMoreThan60Days": 1.18,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20003272",
+      "acnArbn": "009872600",
+      "reportingPeriodStartDate": "2024-12-03",
+      "reportingPeriodEndDate": "2025-05-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.08,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 66.44,
+      "payments31To60Days": 32.05,
+      "paymentsMoreThan60Days": 1.52,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-28",
+      "overallP95Position": {
+        "rank": 8,
+        "count": 22,
+        "percentile": 61.9
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 8,
+        "percentile": 57.1
+      }
+    }
+  ]
+}

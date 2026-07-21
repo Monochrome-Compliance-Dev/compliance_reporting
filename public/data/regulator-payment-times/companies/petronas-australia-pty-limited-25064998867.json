@@ -1,0 +1,95 @@
+{
+  "slug": "petronas-australia-pty-limited-25064998867",
+  "businessName": "PETRONAS AUSTRALIA PTY LIMITED",
+  "abn": "25064998867",
+  "acnArbn": "064998867",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009796",
+      "acnArbn": "064998867",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.54,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 131,
+        "count": 2613,
+        "percentile": 94.3
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 177,
+        "percentile": 96.6
+      }
+    },
+    {
+      "reportId": "PTR20005252",
+      "acnArbn": "064998867",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.78,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 97.87,
+      "payments31To60Days": 2.13,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 168,
+        "count": 2568,
+        "percentile": 92.8
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 173,
+        "percentile": 88.4
+      }
+    },
+    {
+      "reportId": "PTR20001735",
+      "acnArbn": "064998867",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.71,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 97.83,
+      "payments31To60Days": 2.17,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 192,
+        "count": 2498,
+        "percentile": 91.8
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 170,
+        "percentile": 91.7
+      }
+    }
+  ]
+}

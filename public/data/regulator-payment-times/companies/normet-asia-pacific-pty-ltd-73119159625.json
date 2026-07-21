@@ -1,0 +1,95 @@
+{
+  "slug": "normet-asia-pacific-pty-ltd-73119159625",
+  "businessName": "NORMET ASIA PACIFIC PTY. LTD.",
+  "abn": "73119159625",
+  "acnArbn": "119159625",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009844",
+      "acnArbn": "119159625",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.54,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 57.25,
+      "payments31To60Days": 36.28,
+      "paymentsMoreThan60Days": 6.47,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 347,
+        "percentile": 42.2
+      }
+    },
+    {
+      "reportId": "PTR20006711",
+      "acnArbn": "119159625",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.57,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 59.59,
+      "payments31To60Days": 36.04,
+      "paymentsMoreThan60Days": 4.37,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-15",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    },
+    {
+      "reportId": "PTR20006712",
+      "acnArbn": "119159625",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.06,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 61.69,
+      "payments31To60Days": 33.59,
+      "paymentsMoreThan60Days": 4.72,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-15",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 323,
+        "percentile": 59.3
+      }
+    }
+  ]
+}

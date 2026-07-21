@@ -1,0 +1,95 @@
+{
+  "slug": "aeris-resources-limited-30147131977",
+  "businessName": "AERIS RESOURCES LIMITED",
+  "abn": "30147131977",
+  "acnArbn": "147131977",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009915",
+      "acnArbn": "147131977",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.05,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 24.71,
+      "payments31To60Days": 50.6,
+      "paymentsMoreThan60Days": 24.68,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2281,
+        "count": 2613,
+        "percentile": 12.2
+      },
+      "industryP95Position": {
+        "rank": 155,
+        "count": 177,
+        "percentile": 11.9
+      }
+    },
+    {
+      "reportId": "PTR20005379",
+      "acnArbn": "147131977",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.98,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 78,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 17.34,
+      "payments31To60Days": 41.36,
+      "paymentsMoreThan60Days": 41.3,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2362,
+        "count": 2568,
+        "percentile": 7.8
+      },
+      "industryP95Position": {
+        "rank": 160,
+        "count": 173,
+        "percentile": 7.6
+      }
+    },
+    {
+      "reportId": "PTR20001906",
+      "acnArbn": "147131977",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 57.52,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 84,
+      "p95PaymentTimeDays": 103,
+      "payments30DaysOrLess": 18.15,
+      "payments31To60Days": 35.86,
+      "paymentsMoreThan60Days": 45.98,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2366,
+        "count": 2498,
+        "percentile": 5.2
+      },
+      "industryP95Position": {
+        "rank": 163,
+        "count": 170,
+        "percentile": 4.1
+      }
+    }
+  ]
+}

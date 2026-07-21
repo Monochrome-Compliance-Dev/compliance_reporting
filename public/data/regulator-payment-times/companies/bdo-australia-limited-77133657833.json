@@ -1,0 +1,95 @@
+{
+  "slug": "bdo-australia-limited-77133657833",
+  "businessName": "BDO AUSTRALIA LIMITED",
+  "abn": "77133657833",
+  "acnArbn": "133657833",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008340",
+      "acnArbn": "133657833",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.57,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 76.38,
+      "payments31To60Days": 15.69,
+      "paymentsMoreThan60Days": 7.94,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 2343,
+        "count": 2613,
+        "percentile": 9.7
+      },
+      "industryP95Position": {
+        "rank": 147,
+        "count": 183,
+        "percentile": 18.7
+      }
+    },
+    {
+      "reportId": "PTR20006233",
+      "acnArbn": "133657833",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 101,
+      "payments30DaysOrLess": 72,
+      "payments31To60Days": 17,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 2406,
+        "count": 2568,
+        "percentile": 6.2
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 181,
+        "percentile": 13.3
+      }
+    },
+    {
+      "reportId": "PTR20002094",
+      "acnArbn": "133657833",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 13,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1851,
+        "count": 2498,
+        "percentile": 25.3
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 176,
+        "percentile": 32
+      }
+    }
+  ]
+}

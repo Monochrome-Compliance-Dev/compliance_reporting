@@ -1,0 +1,95 @@
+{
+  "slug": "wpp-aunz-pty-ltd-84001657370",
+  "businessName": "WPP AUNZ PTY LTD",
+  "abn": "84001657370",
+  "acnArbn": "001657370",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010805",
+      "acnArbn": "001657370",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.51,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 22.64,
+      "payments31To60Days": 71.81,
+      "paymentsMoreThan60Days": 5.54,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 117,
+        "count": 183,
+        "percentile": 33.5
+      }
+    },
+    {
+      "reportId": "PTR20005224",
+      "acnArbn": "001657370",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.41,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 30.7,
+      "payments31To60Days": 65.59,
+      "paymentsMoreThan60Days": 3.71,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 181,
+        "percentile": 45
+      }
+    },
+    {
+      "reportId": "PTR20001449",
+      "acnArbn": "001657370",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.2,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 26.72,
+      "payments31To60Days": 71.04,
+      "paymentsMoreThan60Days": 2.24,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 176,
+        "percentile": 61.7
+      }
+    }
+  ]
+}

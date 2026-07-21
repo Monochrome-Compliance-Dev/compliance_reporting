@@ -1,0 +1,95 @@
+{
+  "slug": "endava-australia-pty-ltd-90642165740",
+  "businessName": "ENDAVA AUSTRALIA PTY LTD",
+  "abn": "90642165740",
+  "acnArbn": "642165740",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Library and other information services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008268",
+      "acnArbn": "642165740",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 72,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Library and other information services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 2521,
+        "count": 2613,
+        "percentile": 3.3
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 60,
+        "percentile": 5.1
+      }
+    },
+    {
+      "reportId": "PTR20006221",
+      "acnArbn": "642165740",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.27,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 94.8,
+      "payments31To60Days": 2.89,
+      "paymentsMoreThan60Days": 2.31,
+      "industrySubdivision": "Library and other information services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 55,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20002596",
+      "acnArbn": "642165740",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.67,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 95.62,
+      "payments31To60Days": 3.65,
+      "paymentsMoreThan60Days": 0.73,
+      "industrySubdivision": "Library and other information services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-07-21",
+      "overallP95Position": {
+        "rank": 505,
+        "count": 2498,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 58,
+        "percentile": 77.2
+      }
+    }
+  ]
+}

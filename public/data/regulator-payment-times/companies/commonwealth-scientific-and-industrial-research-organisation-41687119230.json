@@ -1,0 +1,95 @@
+{
+  "slug": "commonwealth-scientific-and-industrial-research-organisation-41687119230",
+  "businessName": "COMMONWEALTH SCIENTIFIC AND INDUSTRIAL RESEARCH ORGANISATION",
+  "abn": "41687119230",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007467",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.42,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 98.71,
+      "payments31To60Days": 1.02,
+      "paymentsMoreThan60Days": 0.27,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 67,
+        "count": 2613,
+        "percentile": 97.2
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 183,
+        "percentile": 98.4
+      }
+    },
+    {
+      "reportId": "PTR20004889",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.09,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 10,
+      "payments30DaysOrLess": 99.48,
+      "payments31To60Days": 0.25,
+      "paymentsMoreThan60Days": 0.27,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 36,
+        "count": 2568,
+        "percentile": 98.4
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 181,
+        "percentile": 98.9
+      }
+    },
+    {
+      "reportId": "PTR20001723",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.96,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 99.66,
+      "payments31To60Days": 0.21,
+      "paymentsMoreThan60Days": 0.11,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 47,
+        "count": 2498,
+        "percentile": 98
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 176,
+        "percentile": 98.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "tech-mahindra-limited-15092511558",
+  "businessName": "TECH MAHINDRA LIMITED",
+  "abn": "15092511558",
+  "acnArbn": "092511558",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011674",
+      "acnArbn": "092511558",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.06,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 71.47,
+      "payments31To60Days": 17.58,
+      "paymentsMoreThan60Days": 10.95,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 187,
+        "count": 193,
+        "percentile": 2.6
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 25,
+        "percentile": 12.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "auto-and-general-insurance-company-limited-42111586353",
+  "businessName": "Auto & General Insurance Company Limited",
+  "abn": "42111586353",
+  "acnArbn": "111586353",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009813",
+      "acnArbn": "111586353",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.89,
+      "medianPaymentTimeDays": 23.5,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 72.22,
+      "payments31To60Days": 27.78,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 242,
+        "count": 338,
+        "percentile": 27.3
+      }
+    },
+    {
+      "reportId": "PTR20005251",
+      "acnArbn": "111586353",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.95,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1096,
+        "count": 2568,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 249,
+        "count": 349,
+        "percentile": 27.3
+      }
+    },
+    {
+      "reportId": "PTR20002222",
+      "acnArbn": "111586353",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.62,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 71.43,
+      "payments31To60Days": 23.81,
+      "paymentsMoreThan60Days": 4.76,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 237,
+        "count": 339,
+        "percentile": 29.3
+      }
+    }
+  ]
+}

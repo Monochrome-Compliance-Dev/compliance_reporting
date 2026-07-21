@@ -1,0 +1,95 @@
+{
+  "slug": "aqualand-holding-pty-ltd-19614472347",
+  "businessName": "AQUALAND HOLDING PTY LTD",
+  "abn": "19614472347",
+  "acnArbn": "614472347",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008848",
+      "acnArbn": "614472347",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 82,
+      "p95PaymentTimeDays": 148,
+      "payments30DaysOrLess": 39.09,
+      "payments31To60Days": 29.91,
+      "paymentsMoreThan60Days": 31.17,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2589,
+        "count": 2613,
+        "percentile": 0.9
+      },
+      "industryP95Position": {
+        "rank": 266,
+        "count": 270,
+        "percentile": 1.5
+      }
+    },
+    {
+      "reportId": "PTR20007088",
+      "acnArbn": "614472347",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 73,
+      "medianPaymentTimeDays": 57,
+      "p80PaymentTimeDays": 109,
+      "p95PaymentTimeDays": 196,
+      "payments30DaysOrLess": 25.96,
+      "payments31To60Days": 27.19,
+      "paymentsMoreThan60Days": 47.54,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-01-30",
+      "overallP95Position": {
+        "rank": 2550,
+        "count": 2568,
+        "percentile": 0.7
+      },
+      "industryP95Position": {
+        "rank": 255,
+        "count": 259,
+        "percentile": 1.6
+      }
+    },
+    {
+      "reportId": "PTR20000156",
+      "acnArbn": "614472347",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.55,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 38.68,
+      "payments31To60Days": 42.31,
+      "paymentsMoreThan60Days": 19.01,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-05-26",
+      "overallP95Position": {
+        "rank": 2312,
+        "count": 2498,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 236,
+        "count": 250,
+        "percentile": 5.2
+      }
+    }
+  ]
+}

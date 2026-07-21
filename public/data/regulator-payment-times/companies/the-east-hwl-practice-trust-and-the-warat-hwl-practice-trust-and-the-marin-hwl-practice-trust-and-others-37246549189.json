@@ -1,0 +1,95 @@
+{
+  "slug": "the-east-hwl-practice-trust-and-the-warat-hwl-practice-trust-and-the-marin-hwl-practice-trust-and-others-37246549189",
+  "businessName": "THE EAST HWL PRACTICE TRUST & THE WARAT HWL PRACTICE TRUST & THE MARIN HWL PRACTICE TRUST & OTHERS",
+  "abn": "37246549189",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009795",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 62.59,
+      "payments31To60Days": 23.11,
+      "paymentsMoreThan60Days": 14.29,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2424,
+        "count": 2613,
+        "percentile": 6.8
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 183,
+        "percentile": 17
+      }
+    },
+    {
+      "reportId": "PTR20005566",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2568,
+        "percentile": 8.8
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 181,
+        "percentile": 15.6
+      }
+    },
+    {
+      "reportId": "PTR20002223",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 116,
+      "payments30DaysOrLess": 58.1,
+      "payments31To60Days": 23.6,
+      "paymentsMoreThan60Days": 18.3,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2404,
+        "count": 2498,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 162,
+        "count": 176,
+        "percentile": 8
+      }
+    }
+  ]
+}

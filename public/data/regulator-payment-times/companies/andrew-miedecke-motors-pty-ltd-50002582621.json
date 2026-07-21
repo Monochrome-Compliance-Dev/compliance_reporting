@@ -1,0 +1,95 @@
+{
+  "slug": "andrew-miedecke-motors-pty-ltd-50002582621",
+  "businessName": "ANDREW MIEDECKE MOTORS PTY LTD",
+  "abn": "50002582621",
+  "acnArbn": "002582621",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010646",
+      "acnArbn": "002582621",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 75.31,
+      "payments31To60Days": 24.68,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-22",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 207,
+        "percentile": 84.5
+      }
+    },
+    {
+      "reportId": "PTR20010642",
+      "acnArbn": "002582621",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 73.48,
+      "payments31To60Days": 26.52,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-22",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 208,
+        "percentile": 81.2
+      }
+    },
+    {
+      "reportId": "PTR20010631",
+      "acnArbn": "002582621",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 81.75,
+      "payments31To60Days": 18.24,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-22",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 207,
+        "percentile": 73.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "royal-bank-of-canada-86076940880",
+  "businessName": "ROYAL BANK OF CANADA",
+  "abn": "86076940880",
+  "acnArbn": "076940880",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20007028",
+      "acnArbn": "076940880",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 76,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-01-28",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 28,
+        "percentile": 77.8
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002873",
+      "acnArbn": "076940880",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 51,
+      "payments31To60Days": 40,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 20,
+        "count": 28,
+        "percentile": 29.6
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "t-c-drainage-wa-pty-ltd-37064603096",
+  "businessName": "T.C. DRAINAGE (WA) PTY LTD",
+  "abn": "37064603096",
+  "acnArbn": "064603096",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011188",
+      "acnArbn": "064603096",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.16,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 32.43,
+      "payments31To60Days": 59.27,
+      "paymentsMoreThan60Days": 8.3,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-05-27",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 270,
+        "percentile": 36.4
+      }
+    },
+    {
+      "reportId": "PTR20005606",
+      "acnArbn": "064603096",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.92,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 26.54,
+      "payments31To60Days": 58.83,
+      "paymentsMoreThan60Days": 14.63,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1883,
+        "count": 2568,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 259,
+        "percentile": 28.7
+      }
+    }
+  ]
+}

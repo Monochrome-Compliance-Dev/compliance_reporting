@@ -1,0 +1,95 @@
+{
+  "slug": "serco-group-pty-limited-55061889763",
+  "businessName": "SERCO GROUP PTY LIMITED",
+  "abn": "55061889763",
+  "acnArbn": "061889763",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006935",
+      "acnArbn": "061889763",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.6,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 83.1,
+      "payments31To60Days": 14.9,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-01-15",
+      "overallP95Position": {
+        "rank": 900,
+        "count": 2613,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 49,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20003776",
+      "acnArbn": "061889763",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 79.9,
+      "payments31To60Days": 16.1,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 50,
+        "percentile": 42.9
+      }
+    },
+    {
+      "reportId": "PTR20000382",
+      "acnArbn": "061889763",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.2,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 83.3,
+      "payments31To60Days": 12.4,
+      "paymentsMoreThan60Days": 4.3,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-12",
+      "overallP95Position": {
+        "rank": 1123,
+        "count": 2498,
+        "percentile": 54
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 50,
+        "percentile": 42.9
+      }
+    }
+  ]
+}

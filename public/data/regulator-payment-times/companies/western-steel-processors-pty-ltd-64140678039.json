@@ -1,0 +1,67 @@
+{
+  "slug": "western-steel-processors-pty-ltd-64140678039",
+  "businessName": "Western Steel Processors Pty Ltd",
+  "abn": "64140678039",
+  "acnArbn": "140678039",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009214",
+      "acnArbn": "140678039",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60.43,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 41.82,
+      "payments31To60Days": 52.89,
+      "paymentsMoreThan60Days": 5.29,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 347,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20001926",
+      "acnArbn": "140678039",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.38,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 43.66,
+      "payments31To60Days": 51.02,
+      "paymentsMoreThan60Days": 5.32,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 161,
+        "count": 323,
+        "percentile": 49.4
+      }
+    }
+  ]
+}

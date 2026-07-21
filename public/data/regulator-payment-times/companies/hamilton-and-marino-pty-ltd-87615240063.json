@@ -1,0 +1,95 @@
+{
+  "slug": "hamilton-and-marino-pty-ltd-87615240063",
+  "businessName": "HAMILTON & MARINO PTY LTD",
+  "abn": "87615240063",
+  "acnArbn": "615240063",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006953",
+      "acnArbn": "615240063",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 29.37,
+      "payments31To60Days": 67.9,
+      "paymentsMoreThan60Days": 2.73,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-01-16",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 140,
+        "count": 270,
+        "percentile": 44.6
+      }
+    },
+    {
+      "reportId": "PTR20003677",
+      "acnArbn": "615240063",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 45,
+      "payments31To60Days": 51,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 259,
+        "percentile": 88
+      }
+    },
+    {
+      "reportId": "PTR20003665",
+      "acnArbn": "615240063",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 45.3,
+      "payments31To60Days": 51.3,
+      "paymentsMoreThan60Days": 3.4,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 693,
+        "count": 2498,
+        "percentile": 71.2
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 250,
+        "percentile": 84.7
+      }
+    }
+  ]
+}

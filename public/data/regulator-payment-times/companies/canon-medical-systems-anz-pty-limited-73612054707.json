@@ -1,0 +1,95 @@
+{
+  "slug": "canon-medical-systems-anz-pty-limited-73612054707",
+  "businessName": "CANON MEDICAL SYSTEMS ANZ PTY LIMITED",
+  "abn": "73612054707",
+  "acnArbn": "612054707",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008434",
+      "acnArbn": "612054707",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.49,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 85.28,
+      "payments31To60Days": 10.46,
+      "paymentsMoreThan60Days": 4.26,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 329,
+        "percentile": 64.6
+      }
+    },
+    {
+      "reportId": "PTR20005565",
+      "acnArbn": "612054707",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.85,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 81.39,
+      "payments31To60Days": 13.42,
+      "paymentsMoreThan60Days": 5.19,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 323,
+        "percentile": 41.9
+      }
+    },
+    {
+      "reportId": "PTR20005592",
+      "acnArbn": "612054707",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.31,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 75.99,
+      "payments31To60Days": 16.52,
+      "paymentsMoreThan60Days": 7.49,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2100,
+        "count": 2498,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 254,
+        "count": 323,
+        "percentile": 20.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "equinix-australia-pty-limited-25092807264",
+  "businessName": "EQUINIX AUSTRALIA PTY LIMITED",
+  "abn": "25092807264",
+  "acnArbn": "092807264",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007973",
+      "acnArbn": "092807264",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.28,
+      "medianPaymentTimeDays": 29.79,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 51.58,
+      "payments31To60Days": 47.52,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-13",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 60,
+        "percentile": 59.3
+      }
+    },
+    {
+      "reportId": "PTR20004149",
+      "acnArbn": "092807264",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.1,
+      "medianPaymentTimeDays": 30.01,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 49.36,
+      "payments31To60Days": 49.15,
+      "paymentsMoreThan60Days": 1.49,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 55,
+        "percentile": 55.6
+      }
+    },
+    {
+      "reportId": "PTR20001211",
+      "acnArbn": "092807264",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.68,
+      "medianPaymentTimeDays": 28.55,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 53.45,
+      "payments31To60Days": 43.61,
+      "paymentsMoreThan60Days": 2.96,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 798,
+        "count": 2498,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 58,
+        "percentile": 57.9
+      }
+    }
+  ]
+}

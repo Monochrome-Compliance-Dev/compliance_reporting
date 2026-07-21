@@ -1,0 +1,95 @@
+{
+  "slug": "astellas-pharma-australia-pty-ltd-81147915482",
+  "businessName": "ASTELLAS PHARMA AUSTRALIA PTY LTD",
+  "abn": "81147915482",
+  "acnArbn": "147915482",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011408",
+      "acnArbn": "147915482",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.13,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 77.59,
+      "payments31To60Days": 13.69,
+      "paymentsMoreThan60Days": 8.71,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-19",
+      "overallP95Position": {
+        "rank": 187,
+        "count": 193,
+        "percentile": 2.6
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 45,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006807",
+      "acnArbn": "147915482",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.3,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 70.75,
+      "payments31To60Days": 21.43,
+      "paymentsMoreThan60Days": 7.82,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-22",
+      "overallP95Position": {
+        "rank": 192,
+        "count": 228,
+        "percentile": 15
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 59,
+        "percentile": 10.3
+      }
+    },
+    {
+      "reportId": "PTR20000971",
+      "acnArbn": "147915482",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.72,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 73.85,
+      "payments31To60Days": 20.38,
+      "paymentsMoreThan60Days": 5.77,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 154,
+        "count": 231,
+        "percentile": 31.3
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 61,
+        "percentile": 23.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "scor-global-life-australia-pty-limited-83148897670",
+  "businessName": "SCOR Global Life Australia Pty Limited",
+  "abn": "83148897670",
+  "acnArbn": "148897670",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009409",
+      "acnArbn": "148897670",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.57,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 83,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 776,
+        "count": 2613,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 338,
+        "percentile": 35.9
+      }
+    },
+    {
+      "reportId": "PTR20005123",
+      "acnArbn": "148897670",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.99,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 71,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 196,
+        "count": 349,
+        "percentile": 42.5
+      }
+    },
+    {
+      "reportId": "PTR20001416",
+      "acnArbn": "148897670",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.25,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 720,
+        "count": 2498,
+        "percentile": 70.2
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 339,
+        "percentile": 43.2
+      }
+    }
+  ]
+}

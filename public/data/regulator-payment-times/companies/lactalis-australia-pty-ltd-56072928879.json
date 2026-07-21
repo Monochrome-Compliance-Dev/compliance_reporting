@@ -1,0 +1,95 @@
+{
+  "slug": "lactalis-australia-pty-ltd-56072928879",
+  "businessName": "LACTALIS AUSTRALIA PTY LTD",
+  "abn": "56072928879",
+  "acnArbn": "072928879",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009542",
+      "acnArbn": "072928879",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.38,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 54.15,
+      "payments31To60Days": 30.21,
+      "paymentsMoreThan60Days": 15.66,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2463,
+        "count": 2613,
+        "percentile": 5.6
+      },
+      "industryP95Position": {
+        "rank": 319,
+        "count": 347,
+        "percentile": 7.8
+      }
+    },
+    {
+      "reportId": "PTR20003696",
+      "acnArbn": "072928879",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 2422,
+        "count": 2568,
+        "percentile": 5.5
+      },
+      "industryP95Position": {
+        "rank": 318,
+        "count": 335,
+        "percentile": 4.8
+      }
+    },
+    {
+      "reportId": "PTR20001605",
+      "acnArbn": "072928879",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 53,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 2312,
+        "count": 2498,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 291,
+        "count": 323,
+        "percentile": 9.3
+      }
+    }
+  ]
+}

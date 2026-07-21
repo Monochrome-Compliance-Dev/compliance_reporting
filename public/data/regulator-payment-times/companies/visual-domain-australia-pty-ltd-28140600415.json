@@ -1,0 +1,95 @@
+{
+  "slug": "visual-domain-australia-pty-ltd-28140600415",
+  "businessName": "Visual Domain Australia Pty Ltd",
+  "abn": "28140600415",
+  "acnArbn": "140600415",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Publishing (except internet and music publishing)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009934",
+      "acnArbn": "140600415",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.27,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 90.5,
+      "payments31To60Days": 9.5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 577,
+        "count": 2613,
+        "percentile": 77
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 60,
+        "percentile": 76.3
+      }
+    },
+    {
+      "reportId": "PTR20005908",
+      "acnArbn": "140600415",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.74,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 82.12,
+      "payments31To60Days": 17.88,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 55,
+        "percentile": 74.1
+      }
+    },
+    {
+      "reportId": "PTR20001382",
+      "acnArbn": "140600415",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.87,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 91,
+      "payments31To60Days": 8,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Publishing (except internet and music publishing)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 533,
+        "count": 2498,
+        "percentile": 77.8
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 58,
+        "percentile": 73.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "bbmg-investments-pty-ltd-98624128749",
+  "businessName": "BBMG INVESTMENTS PTY LTD",
+  "abn": "98624128749",
+  "acnArbn": "624128749",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009942",
+      "acnArbn": "624128749",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.03,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 51.26,
+      "payments31To60Days": 42.25,
+      "paymentsMoreThan60Days": 6.49,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 207,
+        "percentile": 24.8
+      }
+    },
+    {
+      "reportId": "PTR20009886",
+      "acnArbn": "624128749",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.91,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 53.58,
+      "payments31To60Days": 37.15,
+      "paymentsMoreThan60Days": 9.27,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2218,
+        "count": 2568,
+        "percentile": 12.8
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 208,
+        "percentile": 11.1
+      }
+    },
+    {
+      "reportId": "PTR20009885",
+      "acnArbn": "624128749",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.04,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 45.4,
+      "payments31To60Days": 43.46,
+      "paymentsMoreThan60Days": 11.14,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2100,
+        "count": 2498,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 173,
+        "count": 207,
+        "percentile": 16.5
+      }
+    }
+  ]
+}

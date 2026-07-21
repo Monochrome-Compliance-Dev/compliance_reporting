@@ -1,0 +1,95 @@
+{
+  "slug": "united-energy-distribution-holdings-pty-limited-15104381660",
+  "businessName": "UNITED ENERGY DISTRIBUTION HOLDINGS PTY LIMITED",
+  "abn": "15104381660",
+  "acnArbn": "104381660",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007502",
+      "acnArbn": "104381660",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.53,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 54.81,
+      "payments31To60Days": 39.39,
+      "paymentsMoreThan60Days": 5.8,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 92,
+        "percentile": 5.5
+      }
+    },
+    {
+      "reportId": "PTR20003062",
+      "acnArbn": "104381660",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.73,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 49.74,
+      "payments31To60Days": 39.71,
+      "paymentsMoreThan60Days": 10.55,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-08-08",
+      "overallP95Position": {
+        "rank": 2422,
+        "count": 2568,
+        "percentile": 5.5
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 95,
+        "percentile": 3.2
+      }
+    },
+    {
+      "reportId": "PTR20000351",
+      "acnArbn": "104381660",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 55.96,
+      "payments31To60Days": 38.86,
+      "paymentsMoreThan60Days": 5.18,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 99,
+        "percentile": 20.4
+      }
+    }
+  ]
+}

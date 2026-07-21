@@ -1,0 +1,95 @@
+{
+  "slug": "lb-australia-holdings-pty-ltd-96165597482",
+  "businessName": "LB AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "96165597482",
+  "acnArbn": "165597482",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Gambling activities",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009913",
+      "acnArbn": "165597482",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.26,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 97.06,
+      "payments31To60Days": 1.4,
+      "paymentsMoreThan60Days": 1.53,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 34,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20004301",
+      "acnArbn": "165597482",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.36,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 99.44,
+      "payments31To60Days": 0.56,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 168,
+        "count": 2568,
+        "percentile": 92.8
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 35,
+        "percentile": 91.2
+      }
+    },
+    {
+      "reportId": "PTR20001151",
+      "acnArbn": "165597482",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.85,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 92.17,
+      "payments31To60Days": 5.4,
+      "paymentsMoreThan60Days": 2.43,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 652,
+        "count": 2498,
+        "percentile": 73.1
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 31,
+        "percentile": 56.7
+      }
+    }
+  ]
+}

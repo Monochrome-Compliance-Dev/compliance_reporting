@@ -1,0 +1,95 @@
+{
+  "slug": "ncig-holdings-pty-ltd-98124700483",
+  "businessName": "NCIG HOLDINGS PTY LTD",
+  "abn": "98124700483",
+  "acnArbn": "124700483",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Other transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007495",
+      "acnArbn": "124700483",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.74,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 22.35,
+      "payments31To60Days": 74.29,
+      "paymentsMoreThan60Days": 3.36,
+      "industrySubdivision": "Other transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 88,
+        "count": 143,
+        "percentile": 36.6
+      }
+    },
+    {
+      "reportId": "PTR20004562",
+      "acnArbn": "124700483",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.62,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 17.02,
+      "payments31To60Days": 78.94,
+      "paymentsMoreThan60Days": 4.03,
+      "industrySubdivision": "Other transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 144,
+        "percentile": 32.2
+      }
+    },
+    {
+      "reportId": "PTR20001677",
+      "acnArbn": "124700483",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.83,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 19.11,
+      "payments31To60Days": 78.5,
+      "paymentsMoreThan60Days": 2.39,
+      "industrySubdivision": "Other transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-29",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 140,
+        "percentile": 40.3
+      }
+    }
+  ]
+}

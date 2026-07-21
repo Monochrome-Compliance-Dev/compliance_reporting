@@ -1,0 +1,95 @@
+{
+  "slug": "china-everbright-bank-co-ltd-69322403457",
+  "businessName": "China Everbright Bank Co. Ltd",
+  "abn": "69322403457",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009219",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.21,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 90.48,
+      "payments31To60Days": 7.14,
+      "paymentsMoreThan60Days": 2.38,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 776,
+        "count": 2613,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 338,
+        "percentile": 35.9
+      }
+    },
+    {
+      "reportId": "PTR20005598",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.19,
+      "medianPaymentTimeDays": 13.5,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.19,
+      "payments31To60Days": 3.85,
+      "paymentsMoreThan60Days": 0.96,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 349,
+        "percentile": 64.9
+      }
+    },
+    {
+      "reportId": "PTR20000953",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.81,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 84.44,
+      "payments31To60Days": 8.89,
+      "paymentsMoreThan60Days": 6.67,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 286,
+        "count": 339,
+        "percentile": 15.7
+      }
+    }
+  ]
+}

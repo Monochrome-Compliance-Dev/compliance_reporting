@@ -1,0 +1,95 @@
+{
+  "slug": "ikea-pty-limited-84006270757",
+  "businessName": "IKEA PTY LIMITED",
+  "abn": "84006270757",
+  "acnArbn": "006270757",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-02-28",
+  "reports": [
+    {
+      "reportId": "PTR20011207",
+      "acnArbn": "006270757",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 165,
+      "payments30DaysOrLess": 23.66,
+      "payments31To60Days": 55.58,
+      "paymentsMoreThan60Days": 20.75,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-05-28",
+      "overallP95Position": {
+        "rank": 24,
+        "count": 24,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 5,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006916",
+      "acnArbn": "006270757",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.81,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 115,
+      "payments30DaysOrLess": 45.03,
+      "payments31To60Days": 41.14,
+      "paymentsMoreThan60Days": 13.82,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-14",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 25,
+        "percentile": 8.3
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 7,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20002938",
+      "acnArbn": "006270757",
+      "reportingPeriodStartDate": "2024-09-01",
+      "reportingPeriodEndDate": "2025-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.02,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 63.25,
+      "payments31To60Days": 29.25,
+      "paymentsMoreThan60Days": 7.5,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 22,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 5,
+        "percentile": 25
+      }
+    }
+  ]
+}

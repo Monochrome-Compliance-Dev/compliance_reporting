@@ -1,0 +1,95 @@
+{
+  "slug": "rheinmetall-defence-australia-pty-ltd-62137668092",
+  "businessName": "RHEINMETALL DEFENCE AUSTRALIA PTY LTD",
+  "abn": "62137668092",
+  "acnArbn": "137668092",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009206",
+      "acnArbn": "137668092",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 71.76,
+      "payments31To60Days": 16.45,
+      "paymentsMoreThan60Days": 11.79,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2281,
+        "count": 2613,
+        "percentile": 12.2
+      },
+      "industryP95Position": {
+        "rank": 278,
+        "count": 347,
+        "percentile": 19.1
+      }
+    },
+    {
+      "reportId": "PTR20005151",
+      "acnArbn": "137668092",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 72.81,
+      "payments31To60Days": 17.27,
+      "paymentsMoreThan60Days": 9.92,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2399,
+        "count": 2568,
+        "percentile": 6.3
+      },
+      "industryP95Position": {
+        "rank": 311,
+        "count": 335,
+        "percentile": 6.9
+      }
+    },
+    {
+      "reportId": "PTR20000789",
+      "acnArbn": "137668092",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.27,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 81.93,
+      "payments31To60Days": 10.57,
+      "paymentsMoreThan60Days": 7.5,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 323,
+        "percentile": 82
+      }
+    }
+  ]
+}

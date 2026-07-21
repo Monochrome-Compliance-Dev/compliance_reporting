@@ -1,0 +1,67 @@
+{
+  "slug": "devro-pty-limited-70050095755",
+  "businessName": "DEVRO PTY LIMITED",
+  "abn": "70050095755",
+  "acnArbn": "050095755",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007447",
+      "acnArbn": "050095755",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 63,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 3.99,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 2027,
+        "count": 2613,
+        "percentile": 21.9
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 347,
+        "percentile": 36.1
+      }
+    },
+    {
+      "reportId": "PTR20003868",
+      "acnArbn": "050095755",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.28,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 63.46,
+      "payments31To60Days": 32.83,
+      "paymentsMoreThan60Days": 3.7,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    }
+  ]
+}

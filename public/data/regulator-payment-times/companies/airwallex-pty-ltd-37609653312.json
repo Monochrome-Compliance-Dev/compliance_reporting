@@ -1,0 +1,67 @@
+{
+  "slug": "airwallex-pty-ltd-37609653312",
+  "businessName": "AIRWALLEX PTY LTD",
+  "abn": "37609653312",
+  "acnArbn": "609653312",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007546",
+      "acnArbn": "609653312",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.38,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 91.06,
+      "payments31To60Days": 7.95,
+      "paymentsMoreThan60Days": 0.99,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-27",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 182,
+        "count": 338,
+        "percentile": 43.9
+      }
+    },
+    {
+      "reportId": "PTR20004871",
+      "acnArbn": "609653312",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.42,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 85.71,
+      "payments31To60Days": 12.17,
+      "paymentsMoreThan60Days": 2.12,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 349,
+        "percentile": 39.9
+      }
+    }
+  ]
+}

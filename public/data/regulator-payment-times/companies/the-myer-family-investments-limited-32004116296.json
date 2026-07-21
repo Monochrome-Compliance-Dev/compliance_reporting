@@ -1,0 +1,95 @@
+{
+  "slug": "the-myer-family-investments-limited-32004116296",
+  "businessName": "THE MYER FAMILY INVESTMENTS LIMITED",
+  "abn": "32004116296",
+  "acnArbn": "004116296",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007643",
+      "acnArbn": "004116296",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.01,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.25,
+      "payments31To60Days": 4.07,
+      "paymentsMoreThan60Days": 0.68,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-09",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 338,
+        "percentile": 63.5
+      }
+    },
+    {
+      "reportId": "PTR20003365",
+      "acnArbn": "004116296",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.19,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.03,
+      "payments31To60Days": 3.97,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-03",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 349,
+        "percentile": 69
+      }
+    },
+    {
+      "reportId": "PTR20000745",
+      "acnArbn": "004116296",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.46,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 94.74,
+      "payments31To60Days": 3.95,
+      "paymentsMoreThan60Days": 1.32,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 505,
+        "count": 2498,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 339,
+        "percentile": 56.2
+      }
+    }
+  ]
+}

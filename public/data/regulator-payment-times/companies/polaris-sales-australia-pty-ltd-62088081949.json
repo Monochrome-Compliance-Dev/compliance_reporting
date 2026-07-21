@@ -1,0 +1,95 @@
+{
+  "slug": "polaris-sales-australia-pty-ltd-62088081949",
+  "businessName": "POLARIS SALES AUSTRALIA PTY LTD",
+  "abn": "62088081949",
+  "acnArbn": "088081949",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010421",
+      "acnArbn": "088081949",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 94,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 703,
+        "count": 2613,
+        "percentile": 71.9
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 329,
+        "percentile": 81.7
+      }
+    },
+    {
+      "reportId": "PTR20005132",
+      "acnArbn": "088081949",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 94.56,
+      "payments31To60Days": 5.27,
+      "paymentsMoreThan60Days": 0.17,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 323,
+        "percentile": 82.3
+      }
+    },
+    {
+      "reportId": "PTR20005090",
+      "acnArbn": "088081949",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 94.63,
+      "payments31To60Days": 4.75,
+      "paymentsMoreThan60Days": 0.61,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 323,
+        "percentile": 83.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "wilson-parking-australia-1992-pty-ltd-67052475911",
+  "businessName": "WILSON PARKING AUSTRALIA 1992 PTY LTD",
+  "abn": "67052475911",
+  "acnArbn": "052475911",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Personal and other services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009422",
+      "acnArbn": "052475911",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.28,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 79.52,
+      "payments31To60Days": 15.15,
+      "paymentsMoreThan60Days": 5.34,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 25,
+        "percentile": 12.5
+      }
+    },
+    {
+      "reportId": "PTR20006275",
+      "acnArbn": "052475911",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.91,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 74.64,
+      "payments31To60Days": 18.86,
+      "paymentsMoreThan60Days": 6.5,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 2014,
+        "count": 2568,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 26,
+        "percentile": 12
+      }
+    },
+    {
+      "reportId": "PTR20002039",
+      "acnArbn": "052475911",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.23,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 74.99,
+      "payments31To60Days": 17.25,
+      "paymentsMoreThan60Days": 7.75,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2498,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 22,
+        "percentile": 14.3
+      }
+    }
+  ]
+}

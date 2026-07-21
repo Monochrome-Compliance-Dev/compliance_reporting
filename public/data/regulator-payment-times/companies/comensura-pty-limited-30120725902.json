@@ -1,0 +1,95 @@
+{
+  "slug": "comensura-pty-limited-30120725902",
+  "businessName": "Comensura Pty Limited",
+  "abn": "30120725902",
+  "acnArbn": "120725902",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-01-02",
+  "reports": [
+    {
+      "reportId": "PTR20011010",
+      "acnArbn": "120725902",
+      "reportingPeriodStartDate": "2025-07-05",
+      "reportingPeriodEndDate": "2026-01-02",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 55.15,
+      "payments31To60Days": 41.49,
+      "paymentsMoreThan60Days": 3.36,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-05-07",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20011009",
+      "acnArbn": "120725902",
+      "reportingPeriodStartDate": "2025-01-04",
+      "reportingPeriodEndDate": "2025-07-04",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 49.58,
+      "payments31To60Days": 49.97,
+      "paymentsMoreThan60Days": 0.46,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-05-07",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000654",
+      "acnArbn": "120725902",
+      "reportingPeriodStartDate": "2024-07-06",
+      "reportingPeriodEndDate": "2025-01-03",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 26,
+      "payments31To60Days": 72,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-19",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

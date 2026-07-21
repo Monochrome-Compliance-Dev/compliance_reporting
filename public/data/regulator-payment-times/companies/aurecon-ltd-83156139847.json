@@ -1,0 +1,95 @@
+{
+  "slug": "aurecon-ltd-83156139847",
+  "businessName": "AURECON LTD",
+  "abn": "83156139847",
+  "acnArbn": "156139847",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008165",
+      "acnArbn": "156139847",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.29,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 87.98,
+      "payments31To60Days": 10.49,
+      "paymentsMoreThan60Days": 1.53,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 756,
+        "count": 2613,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 183,
+        "percentile": 67.6
+      }
+    },
+    {
+      "reportId": "PTR20003669",
+      "acnArbn": "156139847",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.82,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 61.16,
+      "payments31To60Days": 35.01,
+      "paymentsMoreThan60Days": 3.82,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 181,
+        "percentile": 45
+      }
+    },
+    {
+      "reportId": "PTR20001719",
+      "acnArbn": "156139847",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.31,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 64.51,
+      "payments31To60Days": 33.26,
+      "paymentsMoreThan60Days": 2.23,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 909,
+        "count": 2498,
+        "percentile": 62.6
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 176,
+        "percentile": 60
+      }
+    }
+  ]
+}

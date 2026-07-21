@@ -1,0 +1,95 @@
+{
+  "slug": "gusto-aus-holdco-pty-ltd-22661078146",
+  "businessName": "GUSTO AUS HOLDCO PTY LTD",
+  "abn": "22661078146",
+  "acnArbn": "661078146",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008312",
+      "acnArbn": "661078146",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.19,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 86.83,
+      "payments31To60Days": 13.17,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 577,
+        "count": 2613,
+        "percentile": 77
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 329,
+        "percentile": 86.3
+      }
+    },
+    {
+      "reportId": "PTR20004302",
+      "acnArbn": "661078146",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.38,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 92.49,
+      "payments31To60Days": 7.13,
+      "paymentsMoreThan60Days": 0.39,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 323,
+        "percentile": 88.8
+      }
+    },
+    {
+      "reportId": "PTR20006968",
+      "acnArbn": "661078146",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.89,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96.28,
+      "payments31To60Days": 3.72,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-20",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 323,
+        "percentile": 90.4
+      }
+    }
+  ]
+}

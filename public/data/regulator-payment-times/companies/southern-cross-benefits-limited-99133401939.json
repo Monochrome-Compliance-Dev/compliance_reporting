@@ -1,0 +1,39 @@
+{
+  "slug": "southern-cross-benefits-limited-99133401939",
+  "businessName": "Southern Cross Benefits Limited",
+  "abn": "99133401939",
+  "acnArbn": "133401939",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009465",
+      "acnArbn": "133401939",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.63,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 90.82,
+      "payments31To60Days": 6.12,
+      "paymentsMoreThan60Days": 3.06,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 182,
+        "count": 338,
+        "percentile": 43.9
+      }
+    }
+  ]
+}

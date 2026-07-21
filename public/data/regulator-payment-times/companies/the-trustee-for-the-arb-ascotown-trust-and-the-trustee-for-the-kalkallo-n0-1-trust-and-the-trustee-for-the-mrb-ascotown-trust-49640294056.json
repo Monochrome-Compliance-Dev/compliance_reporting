@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-the-arb-ascotown-trust-and-the-trustee-for-the-kalkallo-n0-1-trust-and-the-trustee-for-the-mrb-ascotown-trust-49640294056",
+  "businessName": "THE TRUSTEE FOR THE ARB ASCOTOWN TRUST & THE TRUSTEE FOR THE KALKALLO N0.1 TRUST & THE TRUSTEE FOR THE MRB ASCOTOWN TRUST",
+  "abn": "49640294056",
+  "acnArbn": "",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008249",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.19,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 66.66,
+      "payments31To60Days": 18.52,
+      "paymentsMoreThan60Days": 14.82,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2506,
+        "count": 2613,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 66,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20004760",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.49,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 64.79,
+      "payments31To60Days": 25.09,
+      "paymentsMoreThan60Days": 10.12,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2270,
+        "count": 2568,
+        "percentile": 11.3
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 61,
+        "percentile": 13.3
+      }
+    },
+    {
+      "reportId": "PTR20001174",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.72,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 83.6,
+      "payments31To60Days": 9.51,
+      "paymentsMoreThan60Days": 6.89,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2125,
+        "count": 2498,
+        "percentile": 14.3
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 55,
+        "percentile": 9.3
+      }
+    }
+  ]
+}

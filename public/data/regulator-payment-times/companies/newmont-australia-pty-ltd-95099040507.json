@@ -1,0 +1,95 @@
+{
+  "slug": "newmont-australia-pty-ltd-95099040507",
+  "businessName": "NEWMONT AUSTRALIA PTY LTD",
+  "abn": "95099040507",
+  "acnArbn": "099040507",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009861",
+      "acnArbn": "099040507",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.87,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 78,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 177,
+        "percentile": 59.1
+      }
+    },
+    {
+      "reportId": "PTR20005459",
+      "acnArbn": "099040507",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.98,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 51.52,
+      "payments31To60Days": 48.42,
+      "paymentsMoreThan60Days": 0.06,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 173,
+        "percentile": 58.1
+      }
+    },
+    {
+      "reportId": "PTR20000239",
+      "acnArbn": "099040507",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.7,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 87.71,
+      "payments31To60Days": 12.14,
+      "paymentsMoreThan60Days": 0.16,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 779,
+        "count": 2498,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 170,
+        "percentile": 65.7
+      }
+    }
+  ]
+}

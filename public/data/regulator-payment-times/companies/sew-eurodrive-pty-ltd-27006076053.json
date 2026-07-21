@@ -1,0 +1,67 @@
+{
+  "slug": "sew-eurodrive-pty-ltd-27006076053",
+  "businessName": "SEW-EURODRIVE PTY. LTD.",
+  "abn": "27006076053",
+  "acnArbn": "006076053",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008329",
+      "acnArbn": "006076053",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.93,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 73.85,
+      "payments31To60Days": 25.24,
+      "paymentsMoreThan60Days": 0.91,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 57,
+        "count": 347,
+        "percentile": 82.9
+      }
+    },
+    {
+      "reportId": "PTR20011284",
+      "acnArbn": "006076053",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.59,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 81.92,
+      "payments31To60Days": 17.82,
+      "paymentsMoreThan60Days": 0.27,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-09",
+      "overallP95Position": {
+        "rank": 779,
+        "count": 2498,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 323,
+        "percentile": 87.3
+      }
+    }
+  ]
+}

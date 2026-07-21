@@ -1,0 +1,67 @@
+{
+  "slug": "amplifon-australia-holding-pty-ltd-34147231561",
+  "businessName": "Amplifon Australia Holding Pty Ltd",
+  "abn": "34147231561",
+  "acnArbn": "147231561",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009480",
+      "acnArbn": "147231561",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.66,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 110,
+      "payments30DaysOrLess": 32.02,
+      "payments31To60Days": 29.38,
+      "paymentsMoreThan60Days": 38.61,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2517,
+        "count": 2613,
+        "percentile": 3.6
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 106,
+        "percentile": 1.9
+      }
+    },
+    {
+      "reportId": "PTR20004381",
+      "acnArbn": "147231561",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 58.91,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 82,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 14.91,
+      "payments31To60Days": 40.36,
+      "paymentsMoreThan60Days": 44.73,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2373,
+        "count": 2498,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 97,
+        "percentile": 6.3
+      }
+    }
+  ]
+}

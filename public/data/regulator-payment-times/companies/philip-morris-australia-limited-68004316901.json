@@ -1,0 +1,95 @@
+{
+  "slug": "philip-morris-australia-limited-68004316901",
+  "businessName": "PHILIP MORRIS (AUSTRALIA) LIMITED",
+  "abn": "68004316901",
+  "acnArbn": "004316901",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009534",
+      "acnArbn": "004316901",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 46.4,
+      "payments31To60Days": 50.6,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 329,
+        "percentile": 31.7
+      }
+    },
+    {
+      "reportId": "PTR20009129",
+      "acnArbn": "004316901",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.5,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 63,
+      "payments31To60Days": 33.7,
+      "paymentsMoreThan60Days": 3.3,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 323,
+        "percentile": 35.4
+      }
+    },
+    {
+      "reportId": "PTR20002343",
+      "acnArbn": "004316901",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.4,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 50.6,
+      "payments31To60Days": 32.1,
+      "paymentsMoreThan60Days": 17.3,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-03",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 206,
+        "count": 323,
+        "percentile": 35.4
+      }
+    }
+  ]
+}

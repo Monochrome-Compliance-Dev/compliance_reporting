@@ -1,0 +1,95 @@
+{
+  "slug": "harmony-gold-australia-pty-limited-64091439333",
+  "businessName": "HARMONY GOLD (AUSTRALIA) PTY LIMITED",
+  "abn": "64091439333",
+  "acnArbn": "091439333",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010800",
+      "acnArbn": "091439333",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.26,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 48.82,
+      "payments31To60Days": 47.92,
+      "paymentsMoreThan60Days": 3.26,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 103,
+        "count": 177,
+        "percentile": 37.5
+      }
+    },
+    {
+      "reportId": "PTR20004805",
+      "acnArbn": "091439333",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.15,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 58.7,
+      "payments31To60Days": 30.4,
+      "paymentsMoreThan60Days": 10.9,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 147,
+        "count": 173,
+        "percentile": 14.5
+      }
+    },
+    {
+      "reportId": "PTR20002924",
+      "acnArbn": "091439333",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.26,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 77.51,
+      "payments31To60Days": 16.06,
+      "paymentsMoreThan60Days": 6.43,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 1894,
+        "count": 2498,
+        "percentile": 23.4
+      },
+      "industryP95Position": {
+        "rank": 131,
+        "count": 170,
+        "percentile": 22.5
+      }
+    }
+  ]
+}

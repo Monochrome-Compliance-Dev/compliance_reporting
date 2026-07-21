@@ -1,0 +1,95 @@
+{
+  "slug": "lynch-group-holdings-limited-35608543219",
+  "businessName": "LYNCH GROUP HOLDINGS LIMITED",
+  "abn": "35608543219",
+  "acnArbn": "608543219",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-28",
+  "reports": [
+    {
+      "reportId": "PTR20010133",
+      "acnArbn": "608543219",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.6,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 46.5,
+      "payments31To60Days": 37.5,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 9,
+        "count": 9,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20003267",
+      "acnArbn": "608543219",
+      "reportingPeriodStartDate": "2024-12-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.55,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 52.1,
+      "payments31To60Days": 33.4,
+      "paymentsMoreThan60Days": 14.4,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-28",
+      "overallP95Position": {
+        "rank": 11,
+        "count": 13,
+        "percentile": 16.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000694",
+      "acnArbn": "608543219",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.98,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 46.1,
+      "payments31To60Days": 33.3,
+      "paymentsMoreThan60Days": 20.5,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 11,
+        "count": 11,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "motor-accidents-insurance-board-93610406210",
+  "businessName": "MOTOR ACCIDENTS INSURANCE BOARD",
+  "abn": "93610406210",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008334",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.8,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 98.07,
+      "payments31To60Days": 1.17,
+      "paymentsMoreThan60Days": 0.76,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 221,
+        "count": 2613,
+        "percentile": 90.8
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 338,
+        "percentile": 73.3
+      }
+    },
+    {
+      "reportId": "PTR20003914",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.1,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 97.11,
+      "payments31To60Days": 2.3,
+      "paymentsMoreThan60Days": 0.59,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 349,
+        "percentile": 69
+      }
+    },
+    {
+      "reportId": "PTR20002377",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.6,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 96.76,
+      "payments31To60Days": 2.54,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-08",
+      "overallP95Position": {
+        "rank": 234,
+        "count": 2498,
+        "percentile": 89.3
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 339,
+        "percentile": 71.9
+      }
+    }
+  ]
+}

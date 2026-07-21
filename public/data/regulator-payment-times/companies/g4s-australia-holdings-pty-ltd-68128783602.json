@@ -1,0 +1,95 @@
+{
+  "slug": "g4s-australia-holdings-pty-ltd-68128783602",
+  "businessName": "G4S AUSTRALIA HOLDINGS Pty Ltd",
+  "abn": "68128783602",
+  "acnArbn": "128783602",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Public order, safety and regulatory services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009706",
+      "acnArbn": "128783602",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.95,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 51.67,
+      "payments31To60Days": 42.62,
+      "paymentsMoreThan60Days": 5.71,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 33,
+        "percentile": 9.4
+      }
+    },
+    {
+      "reportId": "PTR20004779",
+      "acnArbn": "128783602",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.45,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 52.19,
+      "payments31To60Days": 44.41,
+      "paymentsMoreThan60Days": 3.4,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 34,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20000746",
+      "acnArbn": "128783602",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.1,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 45.45,
+      "payments31To60Days": 50.29,
+      "paymentsMoreThan60Days": 4.26,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 31,
+        "percentile": 43.3
+      }
+    }
+  ]
+}

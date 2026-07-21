@@ -1,0 +1,67 @@
+{
+  "slug": "weber-stephen-products-co-australia-pty-ltd-18006305237",
+  "businessName": "WEBER-STEPHEN PRODUCTS CO. (AUSTRALIA) PTY. LTD.",
+  "abn": "18006305237",
+  "acnArbn": "006305237",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-09-30",
+  "reports": [
+    {
+      "reportId": "PTR20008933",
+      "acnArbn": "006305237",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 91,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 129,
+        "count": 228,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 59,
+        "percentile": 36.2
+      }
+    },
+    {
+      "reportId": "PTR20006375",
+      "acnArbn": "006305237",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93.2,
+      "payments31To60Days": 3.5,
+      "paymentsMoreThan60Days": 3.3,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-31",
+      "overallP95Position": {
+        "rank": 58,
+        "count": 231,
+        "percentile": 73.5
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 61,
+        "percentile": 75
+      }
+    }
+  ]
+}

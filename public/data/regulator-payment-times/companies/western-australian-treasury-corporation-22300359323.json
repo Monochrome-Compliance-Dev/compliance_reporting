@@ -1,0 +1,67 @@
+{
+  "slug": "western-australian-treasury-corporation-22300359323",
+  "businessName": "WESTERN AUSTRALIAN TREASURY CORPORATION",
+  "abn": "22300359323",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20005417",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4.23,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 9,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 31,
+        "count": 2568,
+        "percentile": 98.7
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 349,
+        "percentile": 96.8
+      }
+    },
+    {
+      "reportId": "PTR20002417",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 6,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-11",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 2498,
+        "percentile": 99.2
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 339,
+        "percentile": 97
+      }
+    }
+  ]
+}

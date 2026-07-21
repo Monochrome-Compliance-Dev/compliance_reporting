@@ -1,0 +1,95 @@
+{
+  "slug": "woodbrook-wines-pty-ltd-18663564850",
+  "businessName": "WOODBROOK WINES PTY LTD",
+  "abn": "18663564850",
+  "acnArbn": "663564850",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007116",
+      "acnArbn": "663564850",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 93,
+      "p95PaymentTimeDays": 119,
+      "payments30DaysOrLess": 48.05,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 37.94,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 2540,
+        "count": 2613,
+        "percentile": 2.6
+      },
+      "industryP95Position": {
+        "rank": 320,
+        "count": 329,
+        "percentile": 2.7
+      }
+    },
+    {
+      "reportId": "PTR20006511",
+      "acnArbn": "663564850",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 94,
+      "p95PaymentTimeDays": 121,
+      "payments30DaysOrLess": 44.55,
+      "payments31To60Days": 12.44,
+      "paymentsMoreThan60Days": 43.01,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 2496,
+        "count": 2568,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 312,
+        "count": 323,
+        "percentile": 3.4
+      }
+    },
+    {
+      "reportId": "PTR20002165",
+      "acnArbn": "663564850",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 57.17,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 93,
+      "p95PaymentTimeDays": 162,
+      "payments30DaysOrLess": 34.76,
+      "payments31To60Days": 28.68,
+      "paymentsMoreThan60Days": 36.56,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2471,
+        "count": 2498,
+        "percentile": 1.1
+      },
+      "industryP95Position": {
+        "rank": 320,
+        "count": 323,
+        "percentile": 0.9
+      }
+    }
+  ]
+}

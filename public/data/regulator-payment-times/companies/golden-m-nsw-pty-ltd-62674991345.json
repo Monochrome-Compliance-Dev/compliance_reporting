@@ -1,0 +1,67 @@
+{
+  "slug": "golden-m-nsw-pty-ltd-62674991345",
+  "businessName": "GOLDEN M NSW PTY LTD",
+  "abn": "62674991345",
+  "acnArbn": "674991345",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009343",
+      "acnArbn": "674991345",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.84,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 87.35,
+      "payments31To60Days": 8.77,
+      "paymentsMoreThan60Days": 3.88,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 177,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20009363",
+      "acnArbn": "674991345",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.28,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 57.4,
+      "payments31To60Days": 39.47,
+      "paymentsMoreThan60Days": 3.13,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 173,
+        "percentile": 57
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "geraldton-fishermen-s-co-operative-ltd-52425663385",
+  "businessName": "Geraldton Fishermen's Co-operative Ltd",
+  "abn": "52425663385",
+  "acnArbn": "",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009375",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.47,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 99.73,
+      "payments31To60Days": 0.23,
+      "paymentsMoreThan60Days": 0.04,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 131,
+        "count": 2613,
+        "percentile": 94.3
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 347,
+        "percentile": 98
+      }
+    },
+    {
+      "reportId": "PTR20006255",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.2,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 98.1,
+      "payments31To60Days": 1.68,
+      "paymentsMoreThan60Days": 0.22,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 156,
+        "count": 2568,
+        "percentile": 93.5
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 335,
+        "percentile": 99.4
+      }
+    },
+    {
+      "reportId": "PTR20002076",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.55,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 97.32,
+      "payments31To60Days": 2.56,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 162,
+        "count": 2498,
+        "percentile": 93.1
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 323,
+        "percentile": 97.8
+      }
+    }
+  ]
+}

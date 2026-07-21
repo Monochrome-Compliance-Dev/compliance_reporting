@@ -1,0 +1,95 @@
+{
+  "slug": "newell-australia-pty-limited-68075071233",
+  "businessName": "NEWELL AUSTRALIA PTY LIMITED",
+  "abn": "68075071233",
+  "acnArbn": "075071233",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009315",
+      "acnArbn": "075071233",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.35,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 63.84,
+      "payments31To60Days": 25.21,
+      "paymentsMoreThan60Days": 10.96,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 2316,
+        "count": 2613,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 280,
+        "count": 329,
+        "percentile": 14
+      }
+    },
+    {
+      "reportId": "PTR20004180",
+      "acnArbn": "075071233",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.54,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 58.54,
+      "payments31To60Days": 27.03,
+      "paymentsMoreThan60Days": 14.43,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 272,
+        "count": 323,
+        "percentile": 12.7
+      }
+    },
+    {
+      "reportId": "PTR20001584",
+      "acnArbn": "075071233",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.9,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 41.49,
+      "payments31To60Days": 43.31,
+      "paymentsMoreThan60Days": 15.2,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 2281,
+        "count": 2498,
+        "percentile": 8.3
+      },
+      "industryP95Position": {
+        "rank": 285,
+        "count": 323,
+        "percentile": 10.6
+      }
+    }
+  ]
+}

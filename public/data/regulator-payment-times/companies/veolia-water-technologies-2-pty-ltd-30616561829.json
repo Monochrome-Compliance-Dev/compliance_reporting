@@ -1,0 +1,95 @@
+{
+  "slug": "veolia-water-technologies-2-pty-ltd-30616561829",
+  "businessName": "VEOLIA WATER TECHNOLOGIES 2 PTY LTD",
+  "abn": "30616561829",
+  "acnArbn": "616561829",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010031",
+      "acnArbn": "616561829",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.35,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 42.19,
+      "payments31To60Days": 41.1,
+      "paymentsMoreThan60Days": 16.71,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 92,
+        "percentile": 5.5
+      }
+    },
+    {
+      "reportId": "PTR20006182",
+      "acnArbn": "616561829",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.05,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 69.88,
+      "payments31To60Days": 22.29,
+      "paymentsMoreThan60Days": 7.83,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-10-25",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 78,
+        "count": 95,
+        "percentile": 18.1
+      }
+    },
+    {
+      "reportId": "PTR20006488",
+      "acnArbn": "616561829",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.89,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 73.02,
+      "payments31To60Days": 16.4,
+      "paymentsMoreThan60Days": 10.58,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-11-19",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 83,
+        "count": 99,
+        "percentile": 16.3
+      }
+    }
+  ]
+}

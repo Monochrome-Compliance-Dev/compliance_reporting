@@ -1,0 +1,95 @@
+{
+  "slug": "nintendo-australia-pty-limited-43060566083",
+  "businessName": "NINTENDO AUSTRALIA PTY LIMITED",
+  "abn": "43060566083",
+  "acnArbn": "060566083",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011294",
+      "acnArbn": "060566083",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.61,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 96.43,
+      "payments31To60Days": 0.42,
+      "paymentsMoreThan60Days": 3.15,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-10",
+      "overallP95Position": {
+        "rank": 25,
+        "count": 193,
+        "percentile": 87.5
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 45,
+        "percentile": 84.1
+      }
+    },
+    {
+      "reportId": "PTR20006504",
+      "acnArbn": "060566083",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.55,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 95.67,
+      "payments31To60Days": 3.74,
+      "paymentsMoreThan60Days": 0.45,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-11-21",
+      "overallP95Position": {
+        "rank": 25,
+        "count": 228,
+        "percentile": 89
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 59,
+        "percentile": 86.2
+      }
+    },
+    {
+      "reportId": "PTR20002751",
+      "acnArbn": "060566083",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.64,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 86.5,
+      "payments31To60Days": 8.5,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 135,
+        "count": 231,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 61,
+        "percentile": 30
+      }
+    }
+  ]
+}

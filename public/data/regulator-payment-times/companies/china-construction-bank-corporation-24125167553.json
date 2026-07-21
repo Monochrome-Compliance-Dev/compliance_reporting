@@ -1,0 +1,95 @@
+{
+  "slug": "china-construction-bank-corporation-24125167553",
+  "businessName": "China Construction Bank Corporation",
+  "abn": "24125167553",
+  "acnArbn": "125167553",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007899",
+      "acnArbn": "125167553",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.45,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 99.11,
+      "payments31To60Days": 0.89,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 67,
+        "count": 2613,
+        "percentile": 97.2
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 338,
+        "percentile": 91.4
+      }
+    },
+    {
+      "reportId": "PTR20004374",
+      "acnArbn": "125167553",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.51,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.05,
+      "payments31To60Days": 5.95,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 459,
+        "count": 2568,
+        "percentile": 81
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 349,
+        "percentile": 58.9
+      }
+    },
+    {
+      "reportId": "PTR20000464",
+      "acnArbn": "125167553",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.21,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 97.76,
+      "payments31To60Days": 2.24,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-13",
+      "overallP95Position": {
+        "rank": 123,
+        "count": 2498,
+        "percentile": 94.5
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 339,
+        "percentile": 85.2
+      }
+    }
+  ]
+}

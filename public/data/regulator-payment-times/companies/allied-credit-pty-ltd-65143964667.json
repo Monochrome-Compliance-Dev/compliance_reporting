@@ -1,0 +1,95 @@
+{
+  "slug": "allied-credit-pty-ltd-65143964667",
+  "businessName": "ALLIED CREDIT PTY LTD",
+  "abn": "65143964667",
+  "acnArbn": "143964667",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009190",
+      "acnArbn": "143964667",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3.63,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 13,
+      "payments30DaysOrLess": 99.92,
+      "payments31To60Days": 0.08,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 43,
+        "count": 2613,
+        "percentile": 98.1
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 338,
+        "percentile": 94.7
+      }
+    },
+    {
+      "reportId": "PTR20004564",
+      "acnArbn": "143964667",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.52,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 5,
+      "p95PaymentTimeDays": 14,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 2568,
+        "percentile": 97.5
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 349,
+        "percentile": 93.7
+      }
+    },
+    {
+      "reportId": "PTR20001626",
+      "acnArbn": "143964667",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.47,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 99.93,
+      "payments31To60Days": 0.07,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 68,
+        "count": 2498,
+        "percentile": 96.6
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 339,
+        "percentile": 89.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "likewize-olive-holdings-pty-ltd-16656107970",
+  "businessName": "LIKEWIZE OLIVE HOLDINGS PTY LTD",
+  "abn": "16656107970",
+  "acnArbn": "656107970",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007894",
+      "acnArbn": "656107970",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.48,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 101,
+      "payments30DaysOrLess": 34,
+      "payments31To60Days": 42,
+      "paymentsMoreThan60Days": 24,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2492,
+        "count": 2613,
+        "percentile": 4.6
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 60,
+        "percentile": 8.5
+      }
+    },
+    {
+      "reportId": "PTR20008813",
+      "acnArbn": "656107970",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.04,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 136,
+      "payments30DaysOrLess": 35.56,
+      "payments31To60Days": 42.22,
+      "paymentsMoreThan60Days": 22.22,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2523,
+        "count": 2568,
+        "percentile": 1.7
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 55,
+        "percentile": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "first-sentier-group-limited-49630725558",
+  "businessName": "FIRST SENTIER GROUP LIMITED",
+  "abn": "49630725558",
+  "acnArbn": "630725558",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007105",
+      "acnArbn": "630725558",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.65,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 87.2,
+      "payments31To60Days": 9.4,
+      "paymentsMoreThan60Days": 3.5,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-03",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 271,
+        "count": 338,
+        "percentile": 19.3
+      }
+    },
+    {
+      "reportId": "PTR20003220",
+      "acnArbn": "630725558",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.75,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 75.3,
+      "payments31To60Days": 14.1,
+      "paymentsMoreThan60Days": 10.7,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 2422,
+        "count": 2568,
+        "percentile": 5.5
+      },
+      "industryP95Position": {
+        "rank": 340,
+        "count": 349,
+        "percentile": 2.6
+      }
+    },
+    {
+      "reportId": "PTR20000919",
+      "acnArbn": "630725558",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.31,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 80.21,
+      "payments31To60Days": 9.9,
+      "paymentsMoreThan60Days": 9.91,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2373,
+        "count": 2498,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 330,
+        "count": 339,
+        "percentile": 2.7
+      }
+    }
+  ]
+}

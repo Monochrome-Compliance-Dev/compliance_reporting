@@ -1,0 +1,95 @@
+{
+  "slug": "isuzu-ute-australia-pty-ltd-80129563739",
+  "businessName": "Isuzu Ute Australia Pty Ltd",
+  "abn": "80129563739",
+  "acnArbn": "129563739",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011378",
+      "acnArbn": "129563739",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.24,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 85.39,
+      "payments31To60Days": 14.27,
+      "paymentsMoreThan60Days": 0.34,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-16",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 193,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 45,
+        "percentile": 36.4
+      }
+    },
+    {
+      "reportId": "PTR20006665",
+      "acnArbn": "129563739",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.69,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 77.77,
+      "payments31To60Days": 21.62,
+      "paymentsMoreThan60Days": 0.61,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-11",
+      "overallP95Position": {
+        "rank": 133,
+        "count": 228,
+        "percentile": 40.1
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 59,
+        "percentile": 32.8
+      }
+    },
+    {
+      "reportId": "PTR20000282",
+      "acnArbn": "129563739",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.65,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 76.68,
+      "payments31To60Days": 22.97,
+      "paymentsMoreThan60Days": 0.35,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-05",
+      "overallP95Position": {
+        "rank": 112,
+        "count": 231,
+        "percentile": 49.1
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 61,
+        "percentile": 43.3
+      }
+    }
+  ]
+}

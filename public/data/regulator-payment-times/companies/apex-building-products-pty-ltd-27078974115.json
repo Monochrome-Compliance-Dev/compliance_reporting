@@ -1,0 +1,39 @@
+{
+  "slug": "apex-building-products-pty-ltd-27078974115",
+  "businessName": "APEX BUILDING PRODUCTS PTY LTD",
+  "abn": "27078974115",
+  "acnArbn": "078974115",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20000005",
+      "acnArbn": "078974115",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 5,
+      "payments31To60Days": 90,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-05-01",
+      "overallP95Position": {
+        "rank": 693,
+        "count": 2498,
+        "percentile": 71.2
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 323,
+        "percentile": 90.4
+      }
+    }
+  ]
+}

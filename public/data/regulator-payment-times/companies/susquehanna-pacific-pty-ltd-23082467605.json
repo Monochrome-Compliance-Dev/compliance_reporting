@@ -1,0 +1,95 @@
+{
+  "slug": "susquehanna-pacific-pty-ltd-23082467605",
+  "businessName": "SUSQUEHANNA PACIFIC PTY LTD",
+  "abn": "23082467605",
+  "acnArbn": "082467605",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008820",
+      "acnArbn": "082467605",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.96,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 94,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 338,
+        "percentile": 46.6
+      }
+    },
+    {
+      "reportId": "PTR20003231",
+      "acnArbn": "082467605",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.6,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 88,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-08-26",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 196,
+        "count": 349,
+        "percentile": 42.5
+      }
+    },
+    {
+      "reportId": "PTR20002786",
+      "acnArbn": "082467605",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.48,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 96,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 208,
+        "count": 2498,
+        "percentile": 90.7
+      },
+      "industryP95Position": {
+        "rank": 73,
+        "count": 339,
+        "percentile": 75.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "travel-and-leisure-south-pacific-pty-ltd-82673494981",
+  "businessName": "TRAVEL AND LEISURE SOUTH PACIFIC PTY LTD",
+  "abn": "82673494981",
+  "acnArbn": "673494981",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010063",
+      "acnArbn": "673494981",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.32,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 89.52,
+      "payments31To60Days": 6.44,
+      "paymentsMoreThan60Days": 4.05,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 38,
+        "percentile": 37.8
+      }
+    },
+    {
+      "reportId": "PTR20006178",
+      "acnArbn": "673494981",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.71,
+      "medianPaymentTimeDays": 12.56,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 93.62,
+      "payments31To60Days": 4.33,
+      "paymentsMoreThan60Days": 2.05,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-10-24",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 36,
+        "percentile": 65.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "paper-australia-pty-ltd-63061583533",
+  "businessName": "PAPER AUSTRALIA PTY LTD",
+  "abn": "63061583533",
+  "acnArbn": "061583533",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Pulp, paper and converted paper product mfg",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20004755",
+      "acnArbn": "061583533",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.35,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 30.84,
+      "payments31To60Days": 45.48,
+      "paymentsMoreThan60Days": 23.68,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2096,
+        "count": 2568,
+        "percentile": 17.5
+      },
+      "industryP95Position": {
+        "rank": 237,
+        "count": 335,
+        "percentile": 27.8
+      }
+    },
+    {
+      "reportId": "PTR20004754",
+      "acnArbn": "061583533",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.97,
+      "medianPaymentTimeDays": 40.6,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 32.43,
+      "payments31To60Days": 43.74,
+      "paymentsMoreThan60Days": 23.83,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-28",
+      "overallP95Position": {
+        "rank": 2100,
+        "count": 2498,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 241,
+        "count": 323,
+        "percentile": 24.5
+      }
+    }
+  ]
+}

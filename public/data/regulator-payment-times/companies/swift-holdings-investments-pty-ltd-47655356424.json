@@ -1,0 +1,95 @@
+{
+  "slug": "swift-holdings-investments-pty-ltd-47655356424",
+  "businessName": "SWIFT HOLDINGS INVESTMENTS PTY LTD",
+  "abn": "47655356424",
+  "acnArbn": "655356424",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008757",
+      "acnArbn": "655356424",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.38,
+      "medianPaymentTimeDays": 20.16,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 63.77,
+      "payments31To60Days": 31.77,
+      "paymentsMoreThan60Days": 4.45,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 127,
+        "count": 207,
+        "percentile": 34
+      }
+    },
+    {
+      "reportId": "PTR20004202",
+      "acnArbn": "655356424",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.28,
+      "medianPaymentTimeDays": 23.77,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 60,
+      "payments31To60Days": 31.6,
+      "paymentsMoreThan60Days": 8.4,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 142,
+        "count": 208,
+        "percentile": 31.4
+      }
+    },
+    {
+      "reportId": "PTR20002629",
+      "acnArbn": "655356424",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 60.5,
+      "payments31To60Days": 33.2,
+      "paymentsMoreThan60Days": 6.2,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-22",
+      "overallP95Position": {
+        "rank": 2181,
+        "count": 2498,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 178,
+        "count": 207,
+        "percentile": 14.1
+      }
+    }
+  ]
+}

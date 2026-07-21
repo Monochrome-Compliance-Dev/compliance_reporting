@@ -1,0 +1,95 @@
+{
+  "slug": "barwon-region-water-corporation-86348316514",
+  "businessName": "BARWON REGION WATER CORPORATION",
+  "abn": "86348316514",
+  "acnArbn": "",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010222",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 89.97,
+      "payments31To60Days": 7.57,
+      "paymentsMoreThan60Days": 2.45,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 92,
+        "percentile": 51.6
+      }
+    },
+    {
+      "reportId": "PTR20003974",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.67,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 88.45,
+      "payments31To60Days": 8.21,
+      "paymentsMoreThan60Days": 3.34,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-19",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 95,
+        "percentile": 55.3
+      }
+    },
+    {
+      "reportId": "PTR20001830",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.55,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 87.57,
+      "payments31To60Days": 9.02,
+      "paymentsMoreThan60Days": 3.41,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 909,
+        "count": 2498,
+        "percentile": 62.6
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 99,
+        "percentile": 43.9
+      }
+    }
+  ]
+}

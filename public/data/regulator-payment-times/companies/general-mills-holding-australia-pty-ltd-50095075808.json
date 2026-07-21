@@ -1,0 +1,67 @@
+{
+  "slug": "general-mills-holding-australia-pty-ltd-50095075808",
+  "businessName": "GENERAL MILLS HOLDING (AUSTRALIA) PTY LTD",
+  "abn": "50095075808",
+  "acnArbn": "095075808",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-11-23",
+  "reports": [
+    {
+      "reportId": "PTR20007245",
+      "acnArbn": "095075808",
+      "reportingPeriodStartDate": "2025-05-26",
+      "reportingPeriodEndDate": "2025-11-23",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 67.56,
+      "medianPaymentTimeDays": 77,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 17.76,
+      "payments31To60Days": 20.02,
+      "paymentsMoreThan60Days": 62.22,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-17",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20003148",
+      "acnArbn": "095075808",
+      "reportingPeriodStartDate": "2024-11-28",
+      "reportingPeriodEndDate": "2025-05-25",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 66.99,
+      "medianPaymentTimeDays": 70,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 17.1,
+      "payments31To60Days": 15.88,
+      "paymentsMoreThan60Days": 67.13,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-20",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

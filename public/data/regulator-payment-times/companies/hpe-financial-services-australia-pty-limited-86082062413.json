@@ -1,0 +1,67 @@
+{
+  "slug": "hpe-financial-services-australia-pty-limited-86082062413",
+  "businessName": "HPE FINANCIAL SERVICES (AUSTRALIA) PTY LIMITED",
+  "abn": "86082062413",
+  "acnArbn": "082062413",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20007084",
+      "acnArbn": "082062413",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.65,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 88.58,
+      "payments31To60Days": 1.93,
+      "paymentsMoreThan60Days": 9.5,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-01-30",
+      "overallP95Position": {
+        "rank": 19,
+        "count": 28,
+        "percentile": 33.3
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20002599",
+      "acnArbn": "082062413",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.46,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 83.84,
+      "payments31To60Days": 4.6,
+      "paymentsMoreThan60Days": 11.57,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-21",
+      "overallP95Position": {
+        "rank": 19,
+        "count": 28,
+        "percentile": 33.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "norkem-ltd-40429611013",
+  "businessName": "NORKEM LTD",
+  "abn": "40429611013",
+  "acnArbn": "",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008080",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.79,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 29.73,
+      "payments31To60Days": 69.97,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 329,
+        "percentile": 67.7
+      }
+    },
+    {
+      "reportId": "PTR20004118",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.98,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 44.19,
+      "payments31To60Days": 55.6,
+      "paymentsMoreThan60Days": 0.21,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 323,
+        "percentile": 73.6
+      }
+    },
+    {
+      "reportId": "PTR20000852",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.03,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 48.04,
+      "payments31To60Days": 50.49,
+      "paymentsMoreThan60Days": 1.47,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 98,
+        "count": 323,
+        "percentile": 68.3
+      }
+    }
+  ]
+}

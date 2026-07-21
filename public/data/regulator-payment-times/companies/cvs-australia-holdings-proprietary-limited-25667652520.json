@@ -1,0 +1,39 @@
+{
+  "slug": "cvs-australia-holdings-proprietary-limited-25667652520",
+  "businessName": "CVS (AUSTRALIA) HOLDINGS PROPRIETARY LIMITED",
+  "abn": "25667652520",
+  "acnArbn": "667652520",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture, forestry and fishing support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009471",
+      "acnArbn": "667652520",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 69.4,
+      "payments31To60Days": 20.5,
+      "paymentsMoreThan60Days": 10.1,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2613,
+        "percentile": 10.4
+      },
+      "industryP95Position": {
+        "rank": 97,
+        "count": 102,
+        "percentile": 5
+      }
+    }
+  ]
+}

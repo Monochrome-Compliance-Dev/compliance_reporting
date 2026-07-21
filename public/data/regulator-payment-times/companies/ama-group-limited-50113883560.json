@@ -1,0 +1,95 @@
+{
+  "slug": "ama-group-limited-50113883560",
+  "businessName": "AMA GROUP LIMITED",
+  "abn": "50113883560",
+  "acnArbn": "113883560",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Repair and maintenance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008338",
+      "acnArbn": "113883560",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 29.48,
+      "payments31To60Days": 62.17,
+      "paymentsMoreThan60Days": 8.35,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 25,
+        "percentile": 20.8
+      }
+    },
+    {
+      "reportId": "PTR20006519",
+      "acnArbn": "113883560",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 30.86,
+      "payments31To60Days": 61.28,
+      "paymentsMoreThan60Days": 7.86,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 26,
+        "percentile": 20
+      }
+    },
+    {
+      "reportId": "PTR20002012",
+      "acnArbn": "113883560",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.29,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 29.28,
+      "payments31To60Days": 61.19,
+      "paymentsMoreThan60Days": 9.53,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 22,
+        "percentile": 23.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "smartgroup-corporation-ltd-48126266831",
+  "businessName": "SMARTGROUP CORPORATION LTD",
+  "abn": "48126266831",
+  "acnArbn": "126266831",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010425",
+      "acnArbn": "126266831",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.78,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.1,
+      "payments31To60Days": 3.34,
+      "paymentsMoreThan60Days": 1.56,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-04-02",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 338,
+        "percentile": 58.2
+      }
+    },
+    {
+      "reportId": "PTR20005253",
+      "acnArbn": "126266831",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.99,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 89.64,
+      "payments31To60Days": 6.73,
+      "paymentsMoreThan60Days": 3.64,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 196,
+        "count": 349,
+        "percentile": 42.5
+      }
+    },
+    {
+      "reportId": "PTR20001749",
+      "acnArbn": "126266831",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.88,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 89.3,
+      "payments31To60Days": 9.45,
+      "paymentsMoreThan60Days": 1.25,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 339,
+        "percentile": 52.1
+      }
+    }
+  ]
+}

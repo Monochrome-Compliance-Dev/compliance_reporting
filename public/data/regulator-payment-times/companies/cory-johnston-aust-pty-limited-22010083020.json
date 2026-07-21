@@ -1,0 +1,95 @@
+{
+  "slug": "cory-johnston-aust-pty-limited-22010083020",
+  "businessName": "CORY JOHNSTON (AUST) PTY. LIMITED",
+  "abn": "22010083020",
+  "acnArbn": "010083020",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006937",
+      "acnArbn": "010083020",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 86.58,
+      "payments31To60Days": 12.97,
+      "paymentsMoreThan60Days": 0.45,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-15",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 329,
+        "percentile": 88.7
+      }
+    },
+    {
+      "reportId": "PTR20003399",
+      "acnArbn": "010083020",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.75,
+      "medianPaymentTimeDays": 20.5,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-04",
+      "overallP95Position": {
+        "rank": 139,
+        "count": 2568,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 323,
+        "percentile": 96.6
+      }
+    },
+    {
+      "reportId": "PTR20000673",
+      "acnArbn": "010083020",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 83.07,
+      "payments31To60Days": 16.51,
+      "paymentsMoreThan60Days": 0.42,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 323,
+        "percentile": 88.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "oakmoore-pty-ltd-13056159570",
+  "businessName": "OAKMOORE PTY. LTD.",
+  "abn": "13056159570",
+  "acnArbn": "056159570",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Polymer product and rubber product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008358",
+      "acnArbn": "056159570",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 51,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 102,
+      "payments30DaysOrLess": 18,
+      "payments31To60Days": 57,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 2495,
+        "count": 2613,
+        "percentile": 4.4
+      },
+      "industryP95Position": {
+        "rank": 323,
+        "count": 347,
+        "percentile": 6.9
+      }
+    },
+    {
+      "reportId": "PTR20005045",
+      "acnArbn": "056159570",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.68,
+      "medianPaymentTimeDays": 84.5,
+      "p80PaymentTimeDays": 141,
+      "p95PaymentTimeDays": 222,
+      "payments30DaysOrLess": 14.87,
+      "payments31To60Days": 53.41,
+      "paymentsMoreThan60Days": 31.72,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2556,
+        "count": 2568,
+        "percentile": 0.5
+      },
+      "industryP95Position": {
+        "rank": 335,
+        "count": 335,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20001295",
+      "acnArbn": "056159570",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.7,
+      "medianPaymentTimeDays": 73,
+      "p80PaymentTimeDays": 132,
+      "p95PaymentTimeDays": 193,
+      "payments30DaysOrLess": 22.4,
+      "payments31To60Days": 60.53,
+      "paymentsMoreThan60Days": 17.07,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2487,
+        "count": 2498,
+        "percentile": 0.4
+      },
+      "industryP95Position": {
+        "rank": 322,
+        "count": 323,
+        "percentile": 0.3
+      }
+    }
+  ]
+}

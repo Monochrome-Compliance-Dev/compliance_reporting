@@ -1,0 +1,67 @@
+{
+  "slug": "hp-pps-australia-pty-ltd-16603480628",
+  "businessName": "HP PPS AUSTRALIA PTY LTD",
+  "abn": "16603480628",
+  "acnArbn": "603480628",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20007023",
+      "acnArbn": "603480628",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60.13,
+      "medianPaymentTimeDays": 69,
+      "p80PaymentTimeDays": 93,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 30.05,
+      "payments31To60Days": 13.75,
+      "paymentsMoreThan60Days": 56.2,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 28,
+        "percentile": 18.5
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003206",
+      "acnArbn": "603480628",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 63.66,
+      "medianPaymentTimeDays": 73,
+      "p80PaymentTimeDays": 94,
+      "p95PaymentTimeDays": 112,
+      "payments30DaysOrLess": 25.71,
+      "payments31To60Days": 15.12,
+      "paymentsMoreThan60Days": 59.17,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-25",
+      "overallP95Position": {
+        "rank": 26,
+        "count": 28,
+        "percentile": 7.4
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    }
+  ]
+}

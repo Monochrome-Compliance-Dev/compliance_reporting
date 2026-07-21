@@ -1,0 +1,95 @@
+{
+  "slug": "amazon-commercial-services-pty-ltd-30616935623",
+  "businessName": "AMAZON COMMERCIAL SERVICES PTY LTD",
+  "abn": "30616935623",
+  "acnArbn": "616935623",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008029",
+      "acnArbn": "616935623",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.07,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 74.78,
+      "payments31To60Days": 19.19,
+      "paymentsMoreThan60Days": 6.03,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 207,
+        "percentile": 31.1
+      }
+    },
+    {
+      "reportId": "PTR20004260",
+      "acnArbn": "616935623",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 70.32,
+      "payments31To60Days": 20.62,
+      "paymentsMoreThan60Days": 9.06,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 137,
+        "count": 208,
+        "percentile": 32.4
+      }
+    },
+    {
+      "reportId": "PTR20000880",
+      "acnArbn": "616935623",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 65.51,
+      "payments31To60Days": 22.98,
+      "paymentsMoreThan60Days": 11.5,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 136,
+        "count": 207,
+        "percentile": 33
+      }
+    }
+  ]
+}

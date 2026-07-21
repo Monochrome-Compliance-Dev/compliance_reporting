@@ -1,0 +1,95 @@
+{
+  "slug": "queensland-titles-registry-pty-ltd-23648568101",
+  "businessName": "QUEENSLAND TITLES REGISTRY PTY LTD",
+  "abn": "23648568101",
+  "acnArbn": "648568101",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010526",
+      "acnArbn": "648568101",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.3,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.37,
+      "payments31To60Days": 3.86,
+      "paymentsMoreThan60Days": 0.77,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 183,
+        "percentile": 84.1
+      }
+    },
+    {
+      "reportId": "PTR20005089",
+      "acnArbn": "648568101",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.08,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 93.37,
+      "payments31To60Days": 5.1,
+      "paymentsMoreThan60Days": 1.53,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 181,
+        "percentile": 64.4
+      }
+    },
+    {
+      "reportId": "PTR20002350",
+      "acnArbn": "648568101",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.49,
+      "medianPaymentTimeDays": 16.5,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 97.93,
+      "payments31To60Days": 2.07,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-04",
+      "overallP95Position": {
+        "rank": 208,
+        "count": 2498,
+        "percentile": 90.7
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 176,
+        "percentile": 92
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "marubeni-australia-ltd-53000329699",
+  "businessName": "MARUBENI AUSTRALIA LTD",
+  "abn": "53000329699",
+  "acnArbn": "000329699",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007673",
+      "acnArbn": "000329699",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.53,
+      "medianPaymentTimeDays": 9.5,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 18,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-13",
+      "overallP95Position": {
+        "rank": 2043,
+        "count": 2613,
+        "percentile": 21.3
+      },
+      "industryP95Position": {
+        "rank": 231,
+        "count": 329,
+        "percentile": 28.7
+      }
+    },
+    {
+      "reportId": "PTR20003573",
+      "acnArbn": "000329699",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.05,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 323,
+        "percentile": 73.6
+      }
+    },
+    {
+      "reportId": "PTR20000780",
+      "acnArbn": "000329699",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.75,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 71,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 652,
+        "count": 2498,
+        "percentile": 73.1
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 323,
+        "percentile": 82.9
+      }
+    }
+  ]
+}

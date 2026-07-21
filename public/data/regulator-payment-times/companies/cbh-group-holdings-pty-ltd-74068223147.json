@@ -1,0 +1,95 @@
+{
+  "slug": "cbh-group-holdings-pty-ltd-74068223147",
+  "businessName": "CBH GROUP HOLDINGS PTY LTD",
+  "abn": "74068223147",
+  "acnArbn": "068223147",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011405",
+      "acnArbn": "068223147",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.65,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 69,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-18",
+      "overallP95Position": {
+        "rank": 64,
+        "count": 193,
+        "percentile": 64.6
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 45,
+        "percentile": 56.8
+      }
+    },
+    {
+      "reportId": "PTR20006848",
+      "acnArbn": "068223147",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.11,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 85.6,
+      "payments31To60Days": 12.2,
+      "paymentsMoreThan60Days": 2.2,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-29",
+      "overallP95Position": {
+        "rank": 38,
+        "count": 228,
+        "percentile": 81.9
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 59,
+        "percentile": 81
+      }
+    },
+    {
+      "reportId": "PTR20002955",
+      "acnArbn": "068223147",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.58,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 67.3,
+      "payments31To60Days": 32.2,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 231,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 61,
+        "percentile": 76.7
+      }
+    }
+  ]
+}

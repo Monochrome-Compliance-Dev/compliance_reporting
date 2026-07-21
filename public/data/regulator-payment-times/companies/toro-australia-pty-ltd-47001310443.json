@@ -1,0 +1,67 @@
+{
+  "slug": "toro-australia-pty-ltd-47001310443",
+  "businessName": "TORO AUSTRALIA PTY LTD",
+  "abn": "47001310443",
+  "acnArbn": "001310443",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20011517",
+      "acnArbn": "001310443",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.32,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 70.56,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 4.44,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-23",
+      "overallP95Position": {
+        "rank": 12,
+        "count": 28,
+        "percentile": 59.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20011410",
+      "acnArbn": "001310443",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.48,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 63.13,
+      "payments31To60Days": 28.27,
+      "paymentsMoreThan60Days": 8.6,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-06-19",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 28,
+        "percentile": 18.5
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

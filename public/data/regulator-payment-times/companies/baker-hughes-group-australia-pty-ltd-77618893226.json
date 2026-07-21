@@ -1,0 +1,95 @@
+{
+  "slug": "baker-hughes-group-australia-pty-ltd-77618893226",
+  "businessName": "BAKER HUGHES GROUP AUSTRALIA PTY LTD",
+  "abn": "77618893226",
+  "acnArbn": "618893226",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007609",
+      "acnArbn": "618893226",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 91.1,
+      "payments31To60Days": 5.79,
+      "paymentsMoreThan60Days": 3.11,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 82,
+        "count": 177,
+        "percentile": 53.4
+      }
+    },
+    {
+      "reportId": "PTR20004379",
+      "acnArbn": "618893226",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 62,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 173,
+        "percentile": 20.3
+      }
+    },
+    {
+      "reportId": "PTR20002279",
+      "acnArbn": "618893226",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 34,
+      "payments31To60Days": 45,
+      "paymentsMoreThan60Days": 21,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-07-01",
+      "overallP95Position": {
+        "rank": 2181,
+        "count": 2498,
+        "percentile": 12.1
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 170,
+        "percentile": 10.1
+      }
+    }
+  ]
+}

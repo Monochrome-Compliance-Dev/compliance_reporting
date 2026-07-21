@@ -1,0 +1,39 @@
+{
+  "slug": "south-australian-housing-trust-17545435789",
+  "businessName": "SOUTH AUSTRALIAN HOUSING TRUST",
+  "abn": "17545435789",
+  "acnArbn": "",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Social assistance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010315",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.69,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 4,
+      "p95PaymentTimeDays": 8,
+      "payments30DaysOrLess": 99.99,
+      "payments31To60Days": 0.01,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Social assistance services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 27,
+        "count": 2613,
+        "percentile": 98.9
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 106,
+        "percentile": 99
+      }
+    }
+  ]
+}

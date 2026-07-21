@@ -1,0 +1,67 @@
+{
+  "slug": "air-menzies-international-aust-pty-ltd-75003227914",
+  "businessName": "AIR MENZIES INTERNATIONAL (AUST) PTY LTD",
+  "abn": "75003227914",
+  "acnArbn": "003227914",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008368",
+      "acnArbn": "003227914",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.8,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 76.63,
+      "payments31To60Days": 14.16,
+      "paymentsMoreThan60Days": 9.21,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-20",
+      "overallP95Position": {
+        "rank": 2436,
+        "count": 2613,
+        "percentile": 6.4
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 143,
+        "percentile": 4.9
+      }
+    },
+    {
+      "reportId": "PTR20005131",
+      "acnArbn": "003227914",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.1,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 79.07,
+      "payments31To60Days": 16.65,
+      "paymentsMoreThan60Days": 4.28,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 144,
+        "percentile": 45.5
+      }
+    }
+  ]
+}

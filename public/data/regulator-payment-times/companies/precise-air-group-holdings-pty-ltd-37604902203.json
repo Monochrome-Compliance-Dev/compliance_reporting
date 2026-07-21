@@ -1,0 +1,67 @@
+{
+  "slug": "precise-air-group-holdings-pty-ltd-37604902203",
+  "businessName": "PRECISE AIR GROUP (HOLDINGS) PTY LTD",
+  "abn": "37604902203",
+  "acnArbn": "604902203",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Repair and maintenance",
+  "latestReportingPeriodEndDate": "2025-09-30",
+  "reports": [
+    {
+      "reportId": "PTR20006124",
+      "acnArbn": "604902203",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 13.84,
+      "payments31To60Days": 67.5,
+      "paymentsMoreThan60Days": 18.66,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 182,
+        "count": 228,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20002822",
+      "acnArbn": "604902203",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.92,
+      "medianPaymentTimeDays": 52,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 9.25,
+      "payments31To60Days": 65.47,
+      "paymentsMoreThan60Days": 25.28,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 180,
+        "count": 231,
+        "percentile": 21.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 100
+      }
+    }
+  ]
+}

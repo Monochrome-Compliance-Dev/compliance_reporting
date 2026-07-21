@@ -1,0 +1,95 @@
+{
+  "slug": "loyalty-pacific-pty-ltd-82057931334",
+  "businessName": "LOYALTY PACIFIC PTY LTD",
+  "abn": "82057931334",
+  "acnArbn": "057931334",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Internet service providers, web search portals and data processing services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008998",
+      "acnArbn": "057931334",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.19,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.67,
+      "payments31To60Days": 3.46,
+      "paymentsMoreThan60Days": 0.87,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 60,
+        "percentile": 81.4
+      }
+    },
+    {
+      "reportId": "PTR20003410",
+      "acnArbn": "057931334",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-20",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.97,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.62,
+      "payments31To60Days": 5.38,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-05",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002273",
+      "acnArbn": "057931334",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.25,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.97,
+      "payments31To60Days": 2.82,
+      "paymentsMoreThan60Days": 1.21,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-07-01",
+      "overallP95Position": {
+        "rank": 323,
+        "count": 2498,
+        "percentile": 83.8
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 58,
+        "percentile": 82.5
+      }
+    }
+  ]
+}

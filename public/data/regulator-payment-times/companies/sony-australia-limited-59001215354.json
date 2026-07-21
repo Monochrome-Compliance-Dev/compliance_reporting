@@ -1,0 +1,95 @@
+{
+  "slug": "sony-australia-limited-59001215354",
+  "businessName": "SONY AUSTRALIA LIMITED",
+  "abn": "59001215354",
+  "acnArbn": "001215354",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011168",
+      "acnArbn": "001215354",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 107,
+        "count": 193,
+        "percentile": 44.3
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 45,
+        "percentile": 34.1
+      }
+    },
+    {
+      "reportId": "PTR20006960",
+      "acnArbn": "001215354",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 69,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-19",
+      "overallP95Position": {
+        "rank": 174,
+        "count": 228,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 59,
+        "percentile": 17.2
+      }
+    },
+    {
+      "reportId": "PTR20006959",
+      "acnArbn": "001215354",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-19",
+      "overallP95Position": {
+        "rank": 180,
+        "count": 231,
+        "percentile": 21.3
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 61,
+        "percentile": 15
+      }
+    }
+  ]
+}

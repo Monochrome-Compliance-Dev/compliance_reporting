@@ -1,0 +1,95 @@
+{
+  "slug": "the-hospitals-contribution-fund-of-australia-ltd-68000026746",
+  "businessName": "THE HOSPITALS CONTRIBUTION FUND OF AUSTRALIA LTD",
+  "abn": "68000026746",
+  "acnArbn": "000026746",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007608",
+      "acnArbn": "000026746",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.06,
+      "medianPaymentTimeDays": 10.01,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 83.83,
+      "payments31To60Days": 12.74,
+      "paymentsMoreThan60Days": 3.43,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-04",
+      "overallP95Position": {
+        "rank": 988,
+        "count": 2613,
+        "percentile": 61.3
+      },
+      "industryP95Position": {
+        "rank": 247,
+        "count": 338,
+        "percentile": 25.8
+      }
+    },
+    {
+      "reportId": "PTR20003613",
+      "acnArbn": "000026746",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.79,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 92.2,
+      "payments31To60Days": 6.75,
+      "paymentsMoreThan60Days": 1.05,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-12",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 349,
+        "percentile": 46.8
+      }
+    },
+    {
+      "reportId": "PTR20001477",
+      "acnArbn": "000026746",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.28,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 83.13,
+      "payments31To60Days": 14.6,
+      "paymentsMoreThan60Days": 2.27,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 241,
+        "count": 339,
+        "percentile": 28.1
+      }
+    }
+  ]
+}

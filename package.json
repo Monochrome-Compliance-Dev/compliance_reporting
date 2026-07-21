@@ -59,7 +59,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "react-scripts start"
+    "dev": "react-scripts start",
+    "build:regulator-payment-times": "node scripts/buildRegulatorPaymentTimes.js"
   },
   "eslintConfig": {
     "extends": [
@@ -91,7 +92,8 @@
     "dom-accessibility-api": "0.5.16",
     "lz-string": "1.5.0",
     "prettier": "3.8.1",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "xlsx": "^0.18.5"
   },
   "overrides": {
     "nth-check": "^2.0.1",

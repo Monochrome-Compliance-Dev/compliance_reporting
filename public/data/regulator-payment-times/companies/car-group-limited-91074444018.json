@@ -1,0 +1,95 @@
+{
+  "slug": "car-group-limited-91074444018",
+  "businessName": "CAR GROUP LIMITED",
+  "abn": "91074444018",
+  "acnArbn": "074444018",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008682",
+      "acnArbn": "074444018",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.07,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.57,
+      "payments31To60Days": 4.5,
+      "paymentsMoreThan60Days": 0.93,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 438,
+        "count": 2613,
+        "percentile": 80.9
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 183,
+        "percentile": 81.3
+      }
+    },
+    {
+      "reportId": "PTR20004176",
+      "acnArbn": "074444018",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.74,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 91.03,
+      "payments31To60Days": 7.94,
+      "paymentsMoreThan60Days": 1.03,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 181,
+        "percentile": 77.2
+      }
+    },
+    {
+      "reportId": "PTR20001764",
+      "acnArbn": "074444018",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.77,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 91.97,
+      "payments31To60Days": 7.4,
+      "paymentsMoreThan60Days": 0.63,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 176,
+        "percentile": 74.9
+      }
+    }
+  ]
+}

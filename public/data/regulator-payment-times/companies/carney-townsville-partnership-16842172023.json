@@ -1,0 +1,67 @@
+{
+  "slug": "carney-townsville-partnership-16842172023",
+  "businessName": "Carney Townsville Partnership",
+  "abn": "16842172023",
+  "acnArbn": "",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20004192",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.28,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 65.8,
+      "payments31To60Days": 30.38,
+      "paymentsMoreThan60Days": 3.82,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 208,
+        "percentile": 60.9
+      }
+    },
+    {
+      "reportId": "PTR20000483",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 69.58,
+      "payments31To60Days": 28.67,
+      "paymentsMoreThan60Days": 1.74,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-16",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 207,
+        "percentile": 60.7
+      }
+    }
+  ]
+}

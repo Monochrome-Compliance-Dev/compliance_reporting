@@ -1,0 +1,95 @@
+{
+  "slug": "drake-australia-pty-ltd-42004939771",
+  "businessName": "DRAKE AUSTRALIA PTY LTD",
+  "abn": "42004939771",
+  "acnArbn": "004939771",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011438",
+      "acnArbn": "004939771",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 92.7,
+      "payments31To60Days": 7.3,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 54,
+        "count": 193,
+        "percentile": 71.9
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 7,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20006854",
+      "acnArbn": "004939771",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.8,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 6.1,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-12-29",
+      "overallP95Position": {
+        "rank": 51,
+        "count": 228,
+        "percentile": 77.5
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 8,
+        "percentile": 57.1
+      }
+    },
+    {
+      "reportId": "PTR20002112",
+      "acnArbn": "004939771",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 93.74,
+      "payments31To60Days": 4.53,
+      "paymentsMoreThan60Days": 1.73,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 69,
+        "count": 231,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 8,
+        "percentile": 42.9
+      }
+    }
+  ]
+}

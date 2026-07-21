@@ -1,0 +1,95 @@
+{
+  "slug": "liquid-mix-wa-pty-ltd-90127094008",
+  "businessName": "LIQUID MIX (WA) PTY LTD",
+  "abn": "90127094008",
+  "acnArbn": "127094008",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Warehousing and storage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008180",
+      "acnArbn": "127094008",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.86,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 38.48,
+      "payments31To60Days": 61.52,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 143,
+        "percentile": 39.4
+      }
+    },
+    {
+      "reportId": "PTR20006648",
+      "acnArbn": "127094008",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.65,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 38.11,
+      "payments31To60Days": 61.89,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-12-09",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 80,
+        "count": 144,
+        "percentile": 42.7
+      }
+    },
+    {
+      "reportId": "PTR20000374",
+      "acnArbn": "127094008",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.7,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 39.15,
+      "payments31To60Days": 60.7,
+      "paymentsMoreThan60Days": 0.15,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 140,
+        "percentile": 43.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "dahua-group-sydney-investment-pty-ltd-22606376416",
+  "businessName": "DAHUA GROUP SYDNEY INVESTMENT PTY LTD",
+  "abn": "22606376416",
+  "acnArbn": "606376416",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008378",
+      "acnArbn": "606376416",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.54,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 80.83,
+      "payments31To60Days": 15.8,
+      "paymentsMoreThan60Days": 3.37,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-20",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 270,
+        "percentile": 76.6
+      }
+    },
+    {
+      "reportId": "PTR20003977",
+      "acnArbn": "606376416",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.55,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 67.74,
+      "payments31To60Days": 31.85,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-19",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 259,
+        "percentile": 79.8
+      }
+    },
+    {
+      "reportId": "PTR20001083",
+      "acnArbn": "606376416",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.71,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 81.32,
+      "payments31To60Days": 18.68,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 909,
+        "count": 2498,
+        "percentile": 62.6
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 250,
+        "percentile": 78.3
+      }
+    }
+  ]
+}

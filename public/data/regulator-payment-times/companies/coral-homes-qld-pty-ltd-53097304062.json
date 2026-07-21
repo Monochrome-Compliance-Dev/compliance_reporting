@@ -1,0 +1,95 @@
+{
+  "slug": "coral-homes-qld-pty-ltd-53097304062",
+  "businessName": "CORAL HOMES QLD PTY LTD",
+  "abn": "53097304062",
+  "acnArbn": "097304062",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009785",
+      "acnArbn": "097304062",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.25,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 78.97,
+      "payments31To60Days": 20.99,
+      "paymentsMoreThan60Days": 0.04,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 270,
+        "percentile": 78.1
+      }
+    },
+    {
+      "reportId": "PTR20005304",
+      "acnArbn": "097304062",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.46,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 74.12,
+      "payments31To60Days": 25.83,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 259,
+        "percentile": 78.3
+      }
+    },
+    {
+      "reportId": "PTR20000686",
+      "acnArbn": "097304062",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.76,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 80.46,
+      "payments31To60Days": 19.53,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 1041,
+        "count": 2498,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 63,
+        "count": 250,
+        "percentile": 72.3
+      }
+    }
+  ]
+}

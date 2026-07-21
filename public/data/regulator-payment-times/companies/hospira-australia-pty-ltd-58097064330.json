@@ -1,0 +1,39 @@
+{
+  "slug": "hospira-australia-pty-ltd-58097064330",
+  "businessName": "HOSPIRA AUSTRALIA PTY LTD",
+  "abn": "58097064330",
+  "acnArbn": "097064330",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-11-30",
+  "reports": [
+    {
+      "reportId": "PTR20010485",
+      "acnArbn": "097064330",
+      "reportingPeriodStartDate": "2025-06-01",
+      "reportingPeriodEndDate": "2025-11-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.33,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 90.59,
+      "payments31To60Days": 4.62,
+      "paymentsMoreThan60Days": 4.79,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-09",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 22,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 7,
+        "percentile": 83.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "langdon-group-pty-limited-34004116241",
+  "businessName": "LANGDON GROUP PTY LIMITED",
+  "abn": "34004116241",
+  "acnArbn": "004116241",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007110",
+      "acnArbn": "004116241",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.7,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 46.44,
+      "payments31To60Days": 41.68,
+      "paymentsMoreThan60Days": 11.88,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 2057,
+        "count": 2613,
+        "percentile": 19.9
+      },
+      "industryP95Position": {
+        "rank": 236,
+        "count": 329,
+        "percentile": 26.8
+      }
+    },
+    {
+      "reportId": "PTR20007111",
+      "acnArbn": "004116241",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.3,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 44.56,
+      "payments31To60Days": 34.91,
+      "paymentsMoreThan60Days": 20.53,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 264,
+        "count": 323,
+        "percentile": 18
+      }
+    },
+    {
+      "reportId": "PTR20007112",
+      "acnArbn": "004116241",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.1,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 49.32,
+      "payments31To60Days": 41.95,
+      "paymentsMoreThan60Days": 8.73,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 1894,
+        "count": 2498,
+        "percentile": 23.4
+      },
+      "industryP95Position": {
+        "rank": 225,
+        "count": 323,
+        "percentile": 29.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "biopak-pty-ltd-48119998711",
+  "businessName": "BIOPAK PTY LTD",
+  "abn": "48119998711",
+  "acnArbn": "119998711",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Pulp, paper and converted paper product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010196",
+      "acnArbn": "119998711",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 92,
+      "p95PaymentTimeDays": 148,
+      "payments30DaysOrLess": 46.29,
+      "payments31To60Days": 25.14,
+      "paymentsMoreThan60Days": 28.57,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2589,
+        "count": 2613,
+        "percentile": 0.9
+      },
+      "industryP95Position": {
+        "rank": 344,
+        "count": 347,
+        "percentile": 0.9
+      }
+    },
+    {
+      "reportId": "PTR20005410",
+      "acnArbn": "119998711",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 75.89,
+      "payments31To60Days": 24.07,
+      "paymentsMoreThan60Days": 0.04,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 335,
+        "percentile": 54.8
+      }
+    },
+    {
+      "reportId": "PTR20000681",
+      "acnArbn": "119998711",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 84.76,
+      "payments31To60Days": 14.6,
+      "paymentsMoreThan60Days": 0.64,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 55.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "airtrunk-australia-holding-pty-ltd-50616379232",
+  "businessName": "AIRTRUNK AUSTRALIA HOLDING PTY LTD",
+  "abn": "50616379232",
+  "acnArbn": "616379232",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007515",
+      "acnArbn": "616379232",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.08,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 83.35,
+      "payments31To60Days": 12.1,
+      "paymentsMoreThan60Days": 4.55,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 183,
+        "percentile": 41.8
+      }
+    }
+  ]
+}

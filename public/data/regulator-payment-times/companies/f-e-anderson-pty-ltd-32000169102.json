@@ -1,0 +1,95 @@
+{
+  "slug": "f-e-anderson-pty-ltd-32000169102",
+  "businessName": "F.E. ANDERSON PTY LTD",
+  "abn": "32000169102",
+  "acnArbn": "000169102",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006964",
+      "acnArbn": "000169102",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.37,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 38.02,
+      "payments31To60Days": 61.79,
+      "paymentsMoreThan60Days": 0.18,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-01-20",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 49,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20003184",
+      "acnArbn": "000169102",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.02,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 38.06,
+      "payments31To60Days": 61.49,
+      "paymentsMoreThan60Days": 0.45,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-08-22",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 50,
+        "percentile": 30.6
+      }
+    },
+    {
+      "reportId": "PTR20000304",
+      "acnArbn": "000169102",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.72,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 34.91,
+      "payments31To60Days": 59.63,
+      "paymentsMoreThan60Days": 5.46,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-10",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 50,
+        "percentile": 26.5
+      }
+    }
+  ]
+}

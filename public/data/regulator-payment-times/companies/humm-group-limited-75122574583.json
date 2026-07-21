@@ -1,0 +1,67 @@
+{
+  "slug": "humm-group-limited-75122574583",
+  "businessName": "HUMM GROUP LIMITED",
+  "abn": "75122574583",
+  "acnArbn": "122574583",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007745",
+      "acnArbn": "122574583",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 291,
+        "count": 338,
+        "percentile": 13.6
+      }
+    },
+    {
+      "reportId": "PTR20005825",
+      "acnArbn": "122574583",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 94,
+      "payments30DaysOrLess": 50.9,
+      "payments31To60Days": 31.8,
+      "paymentsMoreThan60Days": 17.3,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2349,
+        "count": 2568,
+        "percentile": 8.4
+      },
+      "industryP95Position": {
+        "rank": 335,
+        "count": 349,
+        "percentile": 4
+      }
+    }
+  ]
+}

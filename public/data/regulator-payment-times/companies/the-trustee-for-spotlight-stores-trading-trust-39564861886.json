@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-spotlight-stores-trading-trust-39564861886",
+  "businessName": "THE TRUSTEE FOR SPOTLIGHT STORES TRADING TRUST",
+  "abn": "39564861886",
+  "acnArbn": "",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010264",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 56.7,
+      "payments31To60Days": 30.6,
+      "paymentsMoreThan60Days": 12.7,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 207,
+        "percentile": 22.3
+      }
+    },
+    {
+      "reportId": "PTR20005134",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 69,
+      "payments31To60Days": 22.4,
+      "paymentsMoreThan60Days": 8.6,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 208,
+        "percentile": 28.5
+      }
+    },
+    {
+      "reportId": "PTR20001469",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 56.44,
+      "payments31To60Days": 37.38,
+      "paymentsMoreThan60Days": 6.18,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 207,
+        "percentile": 29.1
+      }
+    }
+  ]
+}

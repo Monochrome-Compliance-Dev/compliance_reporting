@@ -1,0 +1,95 @@
+{
+  "slug": "g-and-k-o-connor-pty-ltd-49005934029",
+  "businessName": "G. & K. O'CONNOR PTY. LTD.",
+  "abn": "49005934029",
+  "acnArbn": "005934029",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007791",
+      "acnArbn": "005934029",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 22,
+        "count": 2613,
+        "percentile": 99
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 102,
+        "percentile": 99
+      }
+    },
+    {
+      "reportId": "PTR20003441",
+      "acnArbn": "005934029",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 21,
+        "count": 2568,
+        "percentile": 99
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 92,
+        "percentile": 97.8
+      }
+    },
+    {
+      "reportId": "PTR20000790",
+      "acnArbn": "005934029",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 2498,
+        "percentile": 98.9
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 85,
+        "percentile": 98.8
+      }
+    }
+  ]
+}

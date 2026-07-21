@@ -1,0 +1,95 @@
+{
+  "slug": "azz-pty-ltd-38107919988",
+  "businessName": "AZZ Pty Ltd",
+  "abn": "38107919988",
+  "acnArbn": "107919988",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010823",
+      "acnArbn": "107919988",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.9,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 76.98,
+      "payments31To60Days": 22.8,
+      "paymentsMoreThan60Days": 0.22,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 38,
+        "percentile": 59.5
+      }
+    },
+    {
+      "reportId": "PTR20010821",
+      "acnArbn": "107919988",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.92,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 76.41,
+      "payments31To60Days": 23.47,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 820,
+        "count": 2568,
+        "percentile": 67
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 36,
+        "percentile": 57.1
+      }
+    },
+    {
+      "reportId": "PTR20010706",
+      "acnArbn": "107919988",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.61,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 73.62,
+      "payments31To60Days": 25.92,
+      "paymentsMoreThan60Days": 0.46,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 798,
+        "count": 2498,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 30,
+        "percentile": 69
+      }
+    }
+  ]
+}

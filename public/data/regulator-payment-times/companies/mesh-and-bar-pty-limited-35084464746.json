@@ -1,0 +1,95 @@
+{
+  "slug": "mesh-and-bar-pty-limited-35084464746",
+  "businessName": "MESH & BAR PTY. LIMITED",
+  "abn": "35084464746",
+  "acnArbn": "084464746",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009800",
+      "acnArbn": "084464746",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.25,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 61.45,
+      "payments31To60Days": 31.11,
+      "paymentsMoreThan60Days": 7.43,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 202,
+        "count": 347,
+        "percentile": 39.9
+      }
+    },
+    {
+      "reportId": "PTR20004517",
+      "acnArbn": "084464746",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.25,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 55.65,
+      "payments31To60Days": 38.17,
+      "paymentsMoreThan60Days": 6.18,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 335,
+        "percentile": 49.1
+      }
+    },
+    {
+      "reportId": "PTR20001220",
+      "acnArbn": "084464746",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.71,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 60.73,
+      "payments31To60Days": 33.77,
+      "paymentsMoreThan60Days": 5.5,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 152,
+        "count": 323,
+        "percentile": 50.6
+      }
+    }
+  ]
+}

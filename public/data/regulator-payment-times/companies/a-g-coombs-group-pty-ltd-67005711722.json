@@ -1,0 +1,95 @@
+{
+  "slug": "a-g-coombs-group-pty-ltd-67005711722",
+  "businessName": "A.G. COOMBS GROUP PTY. LTD.",
+  "abn": "67005711722",
+  "acnArbn": "005711722",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007510",
+      "acnArbn": "005711722",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.44,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 29.73,
+      "payments31To60Days": 67.73,
+      "paymentsMoreThan60Days": 2.54,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 2613,
+        "percentile": 56.3
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 270,
+        "percentile": 76.6
+      }
+    },
+    {
+      "reportId": "PTR20006309",
+      "acnArbn": "005711722",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.72,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 10.14,
+      "payments31To60Days": 85.84,
+      "paymentsMoreThan60Days": 4.02,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-29",
+      "overallP95Position": {
+        "rank": 1178,
+        "count": 2568,
+        "percentile": 52.7
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 259,
+        "percentile": 69.8
+      }
+    },
+    {
+      "reportId": "PTR20006132",
+      "acnArbn": "005711722",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 12.33,
+      "payments31To60Days": 81.7,
+      "paymentsMoreThan60Days": 5.97,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-22",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 139,
+        "count": 250,
+        "percentile": 41.4
+      }
+    }
+  ]
+}

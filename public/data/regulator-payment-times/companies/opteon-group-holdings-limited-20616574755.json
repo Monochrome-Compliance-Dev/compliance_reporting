@@ -1,0 +1,95 @@
+{
+  "slug": "opteon-group-holdings-limited-20616574755",
+  "businessName": "OPTEON GROUP HOLDINGS LIMITED",
+  "abn": "20616574755",
+  "acnArbn": "616574755",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007946",
+      "acnArbn": "616574755",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.8,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 87.9,
+      "payments31To60Days": 10.5,
+      "paymentsMoreThan60Days": 1.6,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 66,
+        "percentile": 69.2
+      }
+    },
+    {
+      "reportId": "PTR20003192",
+      "acnArbn": "616574755",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.44,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 77.2,
+      "payments31To60Days": 20.5,
+      "paymentsMoreThan60Days": 2.4,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-08-25",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 61,
+        "percentile": 70
+      }
+    },
+    {
+      "reportId": "PTR20011047",
+      "acnArbn": "616574755",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.05,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 75.6,
+      "payments31To60Days": 22.8,
+      "paymentsMoreThan60Days": 1.6,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-05-14",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 55,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

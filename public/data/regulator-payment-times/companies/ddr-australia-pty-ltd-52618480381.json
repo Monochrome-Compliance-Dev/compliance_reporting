@@ -1,0 +1,39 @@
+{
+  "slug": "ddr-australia-pty-ltd-52618480381",
+  "businessName": "DDR AUSTRALIA PTY LTD",
+  "abn": "52618480381",
+  "acnArbn": "618480381",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010570",
+      "acnArbn": "618480381",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.8,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 161,
+      "payments30DaysOrLess": 60.42,
+      "payments31To60Days": 25.44,
+      "paymentsMoreThan60Days": 14.14,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-17",
+      "overallP95Position": {
+        "rank": 2594,
+        "count": 2613,
+        "percentile": 0.7
+      },
+      "industryP95Position": {
+        "rank": 268,
+        "count": 270,
+        "percentile": 0.7
+      }
+    }
+  ]
+}

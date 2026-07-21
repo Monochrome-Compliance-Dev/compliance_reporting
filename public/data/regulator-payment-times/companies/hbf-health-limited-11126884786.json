@@ -1,0 +1,67 @@
+{
+  "slug": "hbf-health-limited-11126884786",
+  "businessName": "HBF HEALTH LIMITED",
+  "abn": "11126884786",
+  "acnArbn": "126884786",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008920",
+      "acnArbn": "126884786",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.39,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 90.62,
+      "payments31To60Days": 6.34,
+      "paymentsMoreThan60Days": 3.03,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-22",
+      "overallP95Position": {
+        "rank": 1012,
+        "count": 2613,
+        "percentile": 60.1
+      },
+      "industryP95Position": {
+        "rank": 252,
+        "count": 338,
+        "percentile": 25.5
+      }
+    },
+    {
+      "reportId": "PTR20004533",
+      "acnArbn": "126884786",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 83.6,
+      "payments31To60Days": 14.2,
+      "paymentsMoreThan60Days": 2.2,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 221,
+        "count": 349,
+        "percentile": 35.3
+      }
+    }
+  ]
+}

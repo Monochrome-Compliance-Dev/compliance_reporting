@@ -1,0 +1,95 @@
+{
+  "slug": "apco-service-stations-pty-ltd-91007229898",
+  "businessName": "APCO SERVICE STATIONS PTY. LTD.",
+  "abn": "91007229898",
+  "acnArbn": "007229898",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Fuel retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011315",
+      "acnArbn": "007229898",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 92.37,
+      "payments31To60Days": 7.39,
+      "paymentsMoreThan60Days": 0.24,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-11",
+      "overallP95Position": {
+        "rank": 542,
+        "count": 2613,
+        "percentile": 78
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 207,
+        "percentile": 83.5
+      }
+    },
+    {
+      "reportId": "PTR20011313",
+      "acnArbn": "007229898",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.58,
+      "payments31To60Days": 5.14,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-11",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 208,
+        "percentile": 87.4
+      }
+    },
+    {
+      "reportId": "PTR20011312",
+      "acnArbn": "007229898",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 91.24,
+      "payments31To60Days": 8.23,
+      "paymentsMoreThan60Days": 0.53,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-11",
+      "overallP95Position": {
+        "rank": 533,
+        "count": 2498,
+        "percentile": 77.8
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 207,
+        "percentile": 85
+      }
+    }
+  ]
+}

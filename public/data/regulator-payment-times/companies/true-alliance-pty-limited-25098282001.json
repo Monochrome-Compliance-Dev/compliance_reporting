@@ -1,0 +1,39 @@
+{
+  "slug": "true-alliance-pty-limited-25098282001",
+  "businessName": "TRUE ALLIANCE PTY LIMITED",
+  "abn": "25098282001",
+  "acnArbn": "098282001",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20002385",
+      "acnArbn": "098282001",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.84,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 84.3,
+      "payments31To60Days": 12.4,
+      "paymentsMoreThan60Days": 3.3,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-08",
+      "overallP95Position": {
+        "rank": 1150,
+        "count": 2498,
+        "percentile": 52.4
+      },
+      "industryP95Position": {
+        "rank": 113,
+        "count": 323,
+        "percentile": 63.7
+      }
+    }
+  ]
+}

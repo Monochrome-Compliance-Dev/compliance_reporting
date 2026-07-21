@@ -1,0 +1,95 @@
+{
+  "slug": "rema-tip-top-asia-pacific-pty-ltd-63104702614",
+  "businessName": "REMA TIP TOP ASIA PACIFIC PTY LTD",
+  "abn": "63104702614",
+  "acnArbn": "104702614",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009341",
+      "acnArbn": "104702614",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.47,
+      "medianPaymentTimeDays": 31.99,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 51.57,
+      "payments31To60Days": 32.8,
+      "paymentsMoreThan60Days": 15.64,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 2227,
+        "count": 2613,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 261,
+        "count": 329,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20005506",
+      "acnArbn": "104702614",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.54,
+      "medianPaymentTimeDays": 40.93,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 45.54,
+      "payments31To60Days": 27.84,
+      "paymentsMoreThan60Days": 26.61,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 264,
+        "count": 323,
+        "percentile": 18
+      }
+    },
+    {
+      "reportId": "PTR20002929",
+      "acnArbn": "104702614",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.49,
+      "medianPaymentTimeDays": 32.99,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 49.98,
+      "payments31To60Days": 42.11,
+      "paymentsMoreThan60Days": 7.92,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 214,
+        "count": 323,
+        "percentile": 32.9
+      }
+    }
+  ]
+}

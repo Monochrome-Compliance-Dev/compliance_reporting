@@ -1,0 +1,95 @@
+{
+  "slug": "bayer-australia-ltd-22000138714",
+  "businessName": "BAYER AUSTRALIA LTD",
+  "abn": "22000138714",
+  "acnArbn": "000138714",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007840",
+      "acnArbn": "000138714",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.67,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 54.43,
+      "payments31To60Days": 40.49,
+      "paymentsMoreThan60Days": 5.08,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 192,
+        "count": 329,
+        "percentile": 39.3
+      }
+    },
+    {
+      "reportId": "PTR20004461",
+      "acnArbn": "000138714",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.29,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 48.64,
+      "payments31To60Days": 41.67,
+      "paymentsMoreThan60Days": 9.69,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 272,
+        "count": 323,
+        "percentile": 12.7
+      }
+    },
+    {
+      "reportId": "PTR20000435",
+      "acnArbn": "000138714",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.05,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 49.02,
+      "payments31To60Days": 45.81,
+      "paymentsMoreThan60Days": 5.17,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-13",
+      "overallP95Position": {
+        "rank": 1617,
+        "count": 2498,
+        "percentile": 33.6
+      },
+      "industryP95Position": {
+        "rank": 188,
+        "count": 323,
+        "percentile": 40.7
+      }
+    }
+  ]
+}

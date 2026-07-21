@@ -1,0 +1,95 @@
+{
+  "slug": "epiroc-south-pacific-holdings-pty-ltd-87107374550",
+  "businessName": "EPIROC SOUTH PACIFIC HOLDINGS PTY LTD",
+  "abn": "87107374550",
+  "acnArbn": "107374550",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007367",
+      "acnArbn": "107374550",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.32,
+      "medianPaymentTimeDays": 28.5,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 55.74,
+      "payments31To60Days": 37.89,
+      "paymentsMoreThan60Days": 6.37,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-23",
+      "overallP95Position": {
+        "rank": 1725,
+        "count": 2613,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 347,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20003791",
+      "acnArbn": "107374550",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.8,
+      "medianPaymentTimeDays": 25.5,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 60.61,
+      "payments31To60Days": 32.97,
+      "paymentsMoreThan60Days": 6.42,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 335,
+        "percentile": 54.8
+      }
+    },
+    {
+      "reportId": "PTR20000019",
+      "acnArbn": "107374550",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.82,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 50.62,
+      "payments31To60Days": 41.37,
+      "paymentsMoreThan60Days": 8.01,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-05-02",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2498,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 255,
+        "count": 323,
+        "percentile": 18.9
+      }
+    }
+  ]
+}

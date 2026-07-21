@@ -1,0 +1,95 @@
+{
+  "slug": "n-g-p-investments-no-1-pty-ltd-80001495352",
+  "businessName": "N G P INVESTMENTS (NO 1) PTY LTD",
+  "abn": "80001495352",
+  "acnArbn": "001495352",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008845",
+      "acnArbn": "001495352",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 80.83,
+      "payments31To60Days": 15.72,
+      "paymentsMoreThan60Days": 3.45,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 207,
+        "percentile": 48.5
+      }
+    },
+    {
+      "reportId": "PTR20004244",
+      "acnArbn": "001495352",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 64.93,
+      "payments31To60Days": 30.84,
+      "paymentsMoreThan60Days": 4.23,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 208,
+        "percentile": 43.5
+      }
+    },
+    {
+      "reportId": "PTR20003124",
+      "acnArbn": "001495352",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 88.79,
+      "payments31To60Days": 10.78,
+      "paymentsMoreThan60Days": 0.43,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-08-15",
+      "overallP95Position": {
+        "rank": 2071,
+        "count": 2498,
+        "percentile": 16
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 207,
+        "percentile": 17
+      }
+    }
+  ]
+}

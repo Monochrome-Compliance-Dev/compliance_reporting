@@ -1,0 +1,95 @@
+{
+  "slug": "sumitomo-forestry-australia-pty-ltd-70101550109",
+  "businessName": "SUMITOMO FORESTRY AUSTRALIA PTY LTD",
+  "abn": "70101550109",
+  "acnArbn": "101550109",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010838",
+      "acnArbn": "101550109",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.33,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 73.48,
+      "payments31To60Days": 18.59,
+      "paymentsMoreThan60Days": 7.93,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 2212,
+        "count": 2613,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 226,
+        "count": 270,
+        "percentile": 16.4
+      }
+    },
+    {
+      "reportId": "PTR20006190",
+      "acnArbn": "101550109",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.34,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 73.44,
+      "payments31To60Days": 18.42,
+      "paymentsMoreThan60Days": 8.14,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 259,
+        "percentile": 31.8
+      }
+    },
+    {
+      "reportId": "PTR20002783",
+      "acnArbn": "101550109",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.59,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 74.59,
+      "payments31To60Days": 18,
+      "paymentsMoreThan60Days": 7.41,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 121,
+        "count": 250,
+        "percentile": 48.6
+      }
+    }
+  ]
+}

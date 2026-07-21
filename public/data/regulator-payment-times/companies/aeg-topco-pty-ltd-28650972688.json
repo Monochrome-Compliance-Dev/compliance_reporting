@@ -1,0 +1,67 @@
+{
+  "slug": "aeg-topco-pty-ltd-28650972688",
+  "businessName": "AEG TOPCO PTY LTD",
+  "abn": "28650972688",
+  "acnArbn": "650972688",
+  "industryDivision": "Education and Training",
+  "industrySubdivision": "Preschool and school education",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20005485",
+      "acnArbn": "650972688",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 62,
+      "payments31To60Days": 27,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2568,
+        "percentile": 8.8
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 15,
+        "percentile": 7.1
+      }
+    },
+    {
+      "reportId": "PTR20002170",
+      "acnArbn": "650972688",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.11,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 68,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2225,
+        "count": 2498,
+        "percentile": 10.5
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 12,
+        "percentile": 0
+      }
+    }
+  ]
+}

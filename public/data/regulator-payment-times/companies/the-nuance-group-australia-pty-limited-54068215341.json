@@ -1,0 +1,95 @@
+{
+  "slug": "the-nuance-group-australia-pty-limited-54068215341",
+  "businessName": "THE NUANCE GROUP (AUSTRALIA) PTY LIMITED",
+  "abn": "54068215341",
+  "acnArbn": "068215341",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010036",
+      "acnArbn": "068215341",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.2,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 102,
+      "payments30DaysOrLess": 43.3,
+      "payments31To60Days": 39.17,
+      "paymentsMoreThan60Days": 17.52,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2495,
+        "count": 2613,
+        "percentile": 4.4
+      },
+      "industryP95Position": {
+        "rank": 201,
+        "count": 207,
+        "percentile": 2.9
+      }
+    },
+    {
+      "reportId": "PTR20006224",
+      "acnArbn": "068215341",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 33.92,
+      "payments31To60Days": 49.12,
+      "paymentsMoreThan60Days": 16.96,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 2270,
+        "count": 2568,
+        "percentile": 11.3
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 208,
+        "percentile": 9.2
+      }
+    },
+    {
+      "reportId": "PTR20003011",
+      "acnArbn": "068215341",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.1,
+      "medianPaymentTimeDays": 32.5,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 106,
+      "payments30DaysOrLess": 40.78,
+      "payments31To60Days": 45,
+      "paymentsMoreThan60Days": 14.22,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-30",
+      "overallP95Position": {
+        "rank": 2373,
+        "count": 2498,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 194,
+        "count": 207,
+        "percentile": 6.3
+      }
+    }
+  ]
+}

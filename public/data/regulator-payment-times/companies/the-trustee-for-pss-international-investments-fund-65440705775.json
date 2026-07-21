@@ -1,0 +1,39 @@
+{
+  "slug": "the-trustee-for-pss-international-investments-fund-65440705775",
+  "businessName": "The Trustee for PSS INTERNATIONAL INVESTMENTS FUND",
+  "abn": "65440705775",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20001109",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 12,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 51,
+        "count": 2498,
+        "percentile": 97.9
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 339,
+        "percentile": 94.4
+      }
+    }
+  ]
+}

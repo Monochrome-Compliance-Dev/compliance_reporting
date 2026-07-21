@@ -1,0 +1,95 @@
+{
+  "slug": "latran-capital-pty-ltd-76615781185",
+  "businessName": "LATRAN CAPITAL PTY LTD",
+  "abn": "76615781185",
+  "acnArbn": "615781185",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011266",
+      "acnArbn": "615781185",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 2,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 2,
+      "p95PaymentTimeDays": 2,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-04",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 2613,
+        "percentile": 99.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 338,
+        "percentile": 99.4
+      }
+    },
+    {
+      "reportId": "PTR20011263",
+      "acnArbn": "615781185",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 2,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 2,
+      "p95PaymentTimeDays": 2,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-04",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 2568,
+        "percentile": 99.6
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 349,
+        "percentile": 99.1
+      }
+    },
+    {
+      "reportId": "PTR20011262",
+      "acnArbn": "615781185",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 2,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 2,
+      "p95PaymentTimeDays": 2,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-04",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 2498,
+        "percentile": 99.5
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 339,
+        "percentile": 98.2
+      }
+    }
+  ]
+}

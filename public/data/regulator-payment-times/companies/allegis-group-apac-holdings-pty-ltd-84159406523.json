@@ -1,0 +1,95 @@
+{
+  "slug": "allegis-group-apac-holdings-pty-ltd-84159406523",
+  "businessName": "ALLEGIS GROUP APAC HOLDINGS PTY LTD",
+  "abn": "84159406523",
+  "acnArbn": "159406523",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007257",
+      "acnArbn": "159406523",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.01,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 98.45,
+      "payments31To60Days": 1.43,
+      "paymentsMoreThan60Days": 0.12,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 151,
+        "count": 2613,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 183,
+        "percentile": 95.6
+      }
+    },
+    {
+      "reportId": "PTR20004740",
+      "acnArbn": "159406523",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 1.61,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 15,
+      "payments30DaysOrLess": 98.6,
+      "payments31To60Days": 1.22,
+      "paymentsMoreThan60Days": 0.19,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 67,
+        "count": 2568,
+        "percentile": 97.1
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 181,
+        "percentile": 97.8
+      }
+    },
+    {
+      "reportId": "PTR20001493",
+      "acnArbn": "159406523",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.68,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 2,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 98.33,
+      "payments31To60Days": 1.31,
+      "paymentsMoreThan60Days": 0.35,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 123,
+        "count": 2498,
+        "percentile": 94.5
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 176,
+        "percentile": 95.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "e-b-mawson-and-sons-proprietary-limited-14004519617",
+  "businessName": "E.B. MAWSON & SONS PROPRIETARY LIMITED",
+  "abn": "14004519617",
+  "acnArbn": "004519617",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Non-metallic mineral mining and quarrying",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007236",
+      "acnArbn": "004519617",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.42,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 67.11,
+      "payments31To60Days": 28.82,
+      "paymentsMoreThan60Days": 4.07,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-02-17",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 177,
+        "percentile": 33.5
+      }
+    },
+    {
+      "reportId": "PTR20005474",
+      "acnArbn": "004519617",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.63,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 60.44,
+      "payments31To60Days": 34.61,
+      "paymentsMoreThan60Days": 4.94,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 105,
+        "count": 173,
+        "percentile": 37.2
+      }
+    },
+    {
+      "reportId": "PTR20000535",
+      "acnArbn": "004519617",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.8,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 55.32,
+      "payments31To60Days": 39.03,
+      "paymentsMoreThan60Days": 5.65,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-17",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 111,
+        "count": 170,
+        "percentile": 32.5
+      }
+    }
+  ]
+}

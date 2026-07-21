@@ -1,0 +1,39 @@
+{
+  "slug": "telco-sales-australia-pty-ltd-50153951841",
+  "businessName": "Telco Sales Australia Pty Ltd",
+  "abn": "50153951841",
+  "acnArbn": "153951841",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20002338",
+      "acnArbn": "153951841",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 80,
+      "paymentsMoreThan60Days": 20,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-07-03",
+      "overallP95Position": {
+        "rank": 1894,
+        "count": 2498,
+        "percentile": 23.4
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 50,
+        "percentile": 16.3
+      }
+    }
+  ]
+}

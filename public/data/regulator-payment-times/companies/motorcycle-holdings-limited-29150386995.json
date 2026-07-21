@@ -1,0 +1,39 @@
+{
+  "slug": "motorcycle-holdings-limited-29150386995",
+  "businessName": "MOTORCYCLE HOLDINGS LIMITED",
+  "abn": "29150386995",
+  "acnArbn": "150386995",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010182",
+      "acnArbn": "150386995",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 62.5,
+      "payments31To60Days": 35.8,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 207,
+        "percentile": 48.5
+      }
+    }
+  ]
+}

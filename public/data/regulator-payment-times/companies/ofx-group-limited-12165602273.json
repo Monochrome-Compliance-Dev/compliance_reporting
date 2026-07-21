@@ -1,0 +1,95 @@
+{
+  "slug": "ofx-group-limited-12165602273",
+  "businessName": "OFX GROUP LIMITED",
+  "abn": "12165602273",
+  "acnArbn": "165602273",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011327",
+      "acnArbn": "165602273",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.68,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-12",
+      "overallP95Position": {
+        "rank": 57,
+        "count": 193,
+        "percentile": 69.8
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 19,
+        "percentile": 55.6
+      }
+    },
+    {
+      "reportId": "PTR20006697",
+      "acnArbn": "165602273",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.98,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-12-15",
+      "overallP95Position": {
+        "rank": 46,
+        "count": 228,
+        "percentile": 78.4
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 22,
+        "percentile": 61.9
+      }
+    },
+    {
+      "reportId": "PTR20001324",
+      "acnArbn": "165602273",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.44,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 58,
+        "count": 231,
+        "percentile": 73.5
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 20,
+        "percentile": 36.8
+      }
+    }
+  ]
+}

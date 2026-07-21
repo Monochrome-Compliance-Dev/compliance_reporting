@@ -1,0 +1,95 @@
+{
+  "slug": "bradnam-s-windows-and-doors-pty-ltd-78010409819",
+  "businessName": "BRADNAM'S WINDOWS AND DOORS PTY. LTD.",
+  "abn": "78010409819",
+  "acnArbn": "010409819",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Furniture and other mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007806",
+      "acnArbn": "010409819",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.78,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 29,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-13",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 182,
+        "count": 347,
+        "percentile": 46.2
+      }
+    },
+    {
+      "reportId": "PTR20004352",
+      "acnArbn": "010409819",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.66,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 66,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 335,
+        "percentile": 54.8
+      }
+    },
+    {
+      "reportId": "PTR20001152",
+      "acnArbn": "010409819",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.73,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 65,
+      "payments31To60Days": 30,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Furniture and other mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 133,
+        "count": 323,
+        "percentile": 55.3
+      }
+    }
+  ]
+}

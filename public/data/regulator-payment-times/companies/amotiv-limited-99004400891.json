@@ -1,0 +1,39 @@
+{
+  "slug": "amotiv-limited-99004400891",
+  "businessName": "AMOTIV LIMITED",
+  "abn": "99004400891",
+  "acnArbn": "004400891",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20002711",
+      "acnArbn": "004400891",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.81,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 113,
+      "payments30DaysOrLess": 49.03,
+      "payments31To60Days": 34.74,
+      "paymentsMoreThan60Days": 16.23,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-24",
+      "overallP95Position": {
+        "rank": 2397,
+        "count": 2498,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 303,
+        "count": 323,
+        "percentile": 6.2
+      }
+    }
+  ]
+}

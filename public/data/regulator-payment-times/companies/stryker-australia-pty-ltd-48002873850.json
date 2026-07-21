@@ -1,0 +1,95 @@
+{
+  "slug": "stryker-australia-pty-ltd-48002873850",
+  "businessName": "STRYKER AUSTRALIA PTY LTD",
+  "abn": "48002873850",
+  "acnArbn": "002873850",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011070",
+      "acnArbn": "002873850",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 84.1,
+      "payments31To60Days": 10.43,
+      "paymentsMoreThan60Days": 5.45,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-15",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 329,
+        "percentile": 31.7
+      }
+    },
+    {
+      "reportId": "PTR20004785",
+      "acnArbn": "002873850",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 83.8,
+      "payments31To60Days": 12.9,
+      "paymentsMoreThan60Days": 3.1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 323,
+        "percentile": 73.6
+      }
+    },
+    {
+      "reportId": "PTR20001529",
+      "acnArbn": "002873850",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 1,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 87.96,
+      "payments31To60Days": 10.23,
+      "paymentsMoreThan60Days": 1.81,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

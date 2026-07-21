@@ -1,0 +1,95 @@
+{
+  "slug": "palo-alto-networks-australia-pty-ltd-43160218379",
+  "businessName": "PALO ALTO NETWORKS (AUSTRALIA) PTY LTD",
+  "abn": "43160218379",
+  "acnArbn": "160218379",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-01-31",
+  "reports": [
+    {
+      "reportId": "PTR20007578",
+      "acnArbn": "160218379",
+      "reportingPeriodStartDate": "2025-08-01",
+      "reportingPeriodEndDate": "2026-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.25,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 56.79,
+      "payments31To60Days": 38.58,
+      "paymentsMoreThan60Days": 4.63,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-03",
+      "overallP95Position": {
+        "rank": 16,
+        "count": 31,
+        "percentile": 46.7
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20004117",
+      "acnArbn": "160218379",
+      "reportingPeriodStartDate": "2025-02-01",
+      "reportingPeriodEndDate": "2025-07-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.23,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 76.9,
+      "payments31To60Days": 23.1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 12,
+        "count": 34,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20000989",
+      "acnArbn": "160218379",
+      "reportingPeriodStartDate": "2024-08-01",
+      "reportingPeriodEndDate": "2025-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.36,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 65.25,
+      "payments31To60Days": 29.1,
+      "paymentsMoreThan60Days": 5.65,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 19,
+        "count": 30,
+        "percentile": 37.9
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

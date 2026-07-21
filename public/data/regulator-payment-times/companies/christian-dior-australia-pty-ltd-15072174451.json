@@ -1,0 +1,67 @@
+{
+  "slug": "christian-dior-australia-pty-ltd-15072174451",
+  "businessName": "CHRISTIAN DIOR AUSTRALIA PTY LTD",
+  "abn": "15072174451",
+  "acnArbn": "072174451",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009300",
+      "acnArbn": "072174451",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 63.7,
+      "payments31To60Days": 26.66,
+      "paymentsMoreThan60Days": 9.64,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2613,
+        "percentile": 16.2
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 207,
+        "percentile": 13.1
+      }
+    },
+    {
+      "reportId": "PTR20004684",
+      "acnArbn": "072174451",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 66.98,
+      "payments31To60Days": 24.42,
+      "paymentsMoreThan60Days": 8.61,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 208,
+        "percentile": 49.3
+      }
+    }
+  ]
+}

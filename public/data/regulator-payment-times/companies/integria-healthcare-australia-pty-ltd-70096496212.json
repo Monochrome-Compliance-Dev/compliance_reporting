@@ -1,0 +1,95 @@
+{
+  "slug": "integria-healthcare-australia-pty-ltd-70096496212",
+  "businessName": "INTEGRIA HEALTHCARE (AUSTRALIA) PTY LTD",
+  "abn": "70096496212",
+  "acnArbn": "096496212",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010109",
+      "acnArbn": "096496212",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 78,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 0.38,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 347,
+        "percentile": 86.7
+      }
+    },
+    {
+      "reportId": "PTR20010027",
+      "acnArbn": "096496212",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 335,
+        "percentile": 84.4
+      }
+    },
+    {
+      "reportId": "PTR20010098",
+      "acnArbn": "096496212",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 68,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 60,
+        "count": 323,
+        "percentile": 80.4
+      }
+    }
+  ]
+}

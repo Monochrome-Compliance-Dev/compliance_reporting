@@ -1,0 +1,95 @@
+{
+  "slug": "garnet-international-resources-pty-ltd-77081244715",
+  "businessName": "GARNET INTERNATIONAL RESOURCES PTY LTD",
+  "abn": "77081244715",
+  "acnArbn": "081244715",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Non-metallic mineral mining and quarrying",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008196",
+      "acnArbn": "081244715",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.46,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 55.3,
+      "payments31To60Days": 42.3,
+      "paymentsMoreThan60Days": 2.4,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-17",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 177,
+        "percentile": 42.6
+      }
+    },
+    {
+      "reportId": "PTR20003455",
+      "acnArbn": "081244715",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.45,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 57.8,
+      "payments31To60Days": 41.2,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 85,
+        "count": 173,
+        "percentile": 49.4
+      }
+    },
+    {
+      "reportId": "PTR20000287",
+      "acnArbn": "081244715",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.55,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 49.4,
+      "payments31To60Days": 46.7,
+      "paymentsMoreThan60Days": 3.9,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-05",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 170,
+        "percentile": 39.6
+      }
+    }
+  ]
+}

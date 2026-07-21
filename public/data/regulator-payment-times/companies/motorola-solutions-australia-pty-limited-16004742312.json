@@ -1,0 +1,95 @@
+{
+  "slug": "motorola-solutions-australia-pty-limited-16004742312",
+  "businessName": "MOTOROLA SOLUTIONS AUSTRALIA PTY. LIMITED",
+  "abn": "16004742312",
+  "acnArbn": "004742312",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007497",
+      "acnArbn": "004742312",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.73,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 42.39,
+      "payments31To60Days": 37.09,
+      "paymentsMoreThan60Days": 20.51,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-02-26",
+      "overallP95Position": {
+        "rank": 2212,
+        "count": 2613,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 60,
+        "percentile": 16.9
+      }
+    },
+    {
+      "reportId": "PTR20004278",
+      "acnArbn": "004742312",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.76,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 33.17,
+      "payments31To60Days": 20.45,
+      "paymentsMoreThan60Days": 46.38,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 2259,
+        "count": 2568,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 55,
+        "percentile": 11.1
+      }
+    },
+    {
+      "reportId": "PTR20001433",
+      "acnArbn": "004742312",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.92,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 44.19,
+      "payments31To60Days": 45.06,
+      "paymentsMoreThan60Days": 10.75,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 58,
+        "percentile": 17.5
+      }
+    }
+  ]
+}

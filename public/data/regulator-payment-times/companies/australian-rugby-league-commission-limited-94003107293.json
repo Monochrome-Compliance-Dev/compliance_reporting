@@ -1,0 +1,67 @@
+{
+  "slug": "australian-rugby-league-commission-limited-94003107293",
+  "businessName": "AUSTRALIAN RUGBY LEAGUE COMMISSION LIMITED",
+  "abn": "94003107293",
+  "acnArbn": "003107293",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Sports and recreation activities",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009282",
+      "acnArbn": "003107293",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.84,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 130,
+      "payments30DaysOrLess": 75.94,
+      "payments31To60Days": 12.41,
+      "paymentsMoreThan60Days": 11.65,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 2577,
+        "count": 2613,
+        "percentile": 1.3
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 34,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006101",
+      "acnArbn": "003107293",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7.92,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.04,
+      "payments31To60Days": 4.88,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-10-21",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 35,
+        "percentile": 70.6
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "simon-george-and-sons-pty-ltd-55104866284",
+  "businessName": "SIMON GEORGE AND SONS PTY LTD",
+  "abn": "55104866284",
+  "acnArbn": "104866284",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009405",
+      "acnArbn": "104866284",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.72,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 98.7,
+      "payments31To60Days": 0.8,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 109,
+        "count": 2613,
+        "percentile": 95.6
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 329,
+        "percentile": 97.6
+      }
+    },
+    {
+      "reportId": "PTR20003123",
+      "acnArbn": "104866284",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.09,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 97.9,
+      "payments31To60Days": 1.4,
+      "paymentsMoreThan60Days": 0.6,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-15",
+      "overallP95Position": {
+        "rank": 100,
+        "count": 2568,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 323,
+        "percentile": 97.5
+      }
+    },
+    {
+      "reportId": "PTR20000388",
+      "acnArbn": "104866284",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.81,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 98.5,
+      "payments31To60Days": 0.8,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-12",
+      "overallP95Position": {
+        "rank": 99,
+        "count": 2498,
+        "percentile": 95.7
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 323,
+        "percentile": 97.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "comcater-pty-ltd-53005974185",
+  "businessName": "COMCATER PTY. LTD.",
+  "abn": "53005974185",
+  "acnArbn": "005974185",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009402",
+      "acnArbn": "005974185",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.23,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 56.84,
+      "payments31To60Days": 33.89,
+      "paymentsMoreThan60Days": 9.26,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2380,
+        "count": 2613,
+        "percentile": 8.5
+      },
+      "industryP95Position": {
+        "rank": 290,
+        "count": 329,
+        "percentile": 11.3
+      }
+    }
+  ]
+}

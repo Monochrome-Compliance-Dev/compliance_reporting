@@ -1,0 +1,95 @@
+{
+  "slug": "info-management-services-pty-ltd-88119821457",
+  "businessName": "Info Management Services Pty Ltd",
+  "abn": "88119821457",
+  "acnArbn": "119821457",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010831",
+      "acnArbn": "119821457",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 89.8,
+      "payments31To60Days": 8.7,
+      "paymentsMoreThan60Days": 1.5,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 672,
+        "count": 2613,
+        "percentile": 73.2
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 143,
+        "percentile": 79.6
+      }
+    },
+    {
+      "reportId": "PTR20006263",
+      "acnArbn": "119821457",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 92.6,
+      "payments31To60Days": 5.8,
+      "paymentsMoreThan60Days": 1.6,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 635,
+        "count": 2568,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 144,
+        "percentile": 81.8
+      }
+    },
+    {
+      "reportId": "PTR20003837",
+      "acnArbn": "119821457",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 94,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 140,
+        "percentile": 82
+      }
+    }
+  ]
+}

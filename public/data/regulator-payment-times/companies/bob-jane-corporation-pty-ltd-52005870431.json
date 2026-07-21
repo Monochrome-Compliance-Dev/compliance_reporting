@@ -1,0 +1,95 @@
+{
+  "slug": "bob-jane-corporation-pty-ltd-52005870431",
+  "businessName": "BOB JANE CORPORATION PTY LTD",
+  "abn": "52005870431",
+  "acnArbn": "005870431",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010807",
+      "acnArbn": "005870431",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 99.6,
+      "payments31To60Days": 0.3,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 35,
+        "count": 2613,
+        "percentile": 98.6
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 207,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006227",
+      "acnArbn": "005870431",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 87.1,
+      "payments31To60Days": 7.2,
+      "paymentsMoreThan60Days": 5.7,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-27",
+      "overallP95Position": {
+        "rank": 2096,
+        "count": 2568,
+        "percentile": 17.5
+      },
+      "industryP95Position": {
+        "rank": 174,
+        "count": 208,
+        "percentile": 15
+      }
+    },
+    {
+      "reportId": "PTR20002400",
+      "acnArbn": "005870431",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 87.1,
+      "payments31To60Days": 7.3,
+      "paymentsMoreThan60Days": 5.6,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-10",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 207,
+        "percentile": 27.2
+      }
+    }
+  ]
+}

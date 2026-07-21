@@ -1,0 +1,95 @@
+{
+  "slug": "seeley-international-pty-ltd-23054687035",
+  "businessName": "SEELEY INTERNATIONAL PTY. LTD.",
+  "abn": "23054687035",
+  "acnArbn": "054687035",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011401",
+      "acnArbn": "054687035",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.31,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 33.26,
+      "payments31To60Days": 51.85,
+      "paymentsMoreThan60Days": 14.9,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-18",
+      "overallP95Position": {
+        "rank": 176,
+        "count": 193,
+        "percentile": 7.8
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 25,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20006850",
+      "acnArbn": "054687035",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.98,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 36.16,
+      "payments31To60Days": 48.71,
+      "paymentsMoreThan60Days": 15.13,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-29",
+      "overallP95Position": {
+        "rank": 198,
+        "count": 228,
+        "percentile": 12.8
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 28,
+        "percentile": 29.6
+      }
+    },
+    {
+      "reportId": "PTR20001153",
+      "acnArbn": "054687035",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.27,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 43.65,
+      "payments31To60Days": 43.76,
+      "paymentsMoreThan60Days": 12.59,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 190,
+        "count": 231,
+        "percentile": 17.4
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 32,
+        "percentile": 35.5
+      }
+    }
+  ]
+}

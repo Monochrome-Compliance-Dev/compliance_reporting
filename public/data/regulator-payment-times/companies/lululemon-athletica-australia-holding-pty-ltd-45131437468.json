@@ -1,0 +1,95 @@
+{
+  "slug": "lululemon-athletica-australia-holding-pty-ltd-45131437468",
+  "businessName": "LULULEMON ATHLETICA AUSTRALIA HOLDING PTY LTD",
+  "abn": "45131437468",
+  "acnArbn": "131437468",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-01-31",
+  "reports": [
+    {
+      "reportId": "PTR20010587",
+      "acnArbn": "131437468",
+      "reportingPeriodStartDate": "2025-08-01",
+      "reportingPeriodEndDate": "2026-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.73,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 98.45,
+      "payments31To60Days": 1.55,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-20",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 31,
+        "percentile": 93.3
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 7,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006135",
+      "acnArbn": "131437468",
+      "reportingPeriodStartDate": "2025-02-01",
+      "reportingPeriodEndDate": "2025-07-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.14,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 84.21,
+      "payments31To60Days": 7.54,
+      "paymentsMoreThan60Days": 8.25,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-23",
+      "overallP95Position": {
+        "rank": 33,
+        "count": 34,
+        "percentile": 3
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 5,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003587",
+      "acnArbn": "131437468",
+      "reportingPeriodStartDate": "2024-08-01",
+      "reportingPeriodEndDate": "2025-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 79,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 24,
+        "count": 30,
+        "percentile": 20.7
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 5,
+        "percentile": 0
+      }
+    }
+  ]
+}

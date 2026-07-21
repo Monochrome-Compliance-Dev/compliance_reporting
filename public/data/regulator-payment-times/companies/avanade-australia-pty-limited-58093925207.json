@@ -1,0 +1,95 @@
+{
+  "slug": "avanade-australia-pty-limited-58093925207",
+  "businessName": "AVANADE AUSTRALIA PTY LIMITED",
+  "abn": "58093925207",
+  "acnArbn": "093925207",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-02-28",
+  "reports": [
+    {
+      "reportId": "PTR20011155",
+      "acnArbn": "093925207",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.29,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 68.97,
+      "payments31To60Days": 31.03,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 24,
+        "percentile": 73.9
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20006507",
+      "acnArbn": "093925207",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.48,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 64.06,
+      "payments31To60Days": 34.38,
+      "paymentsMoreThan60Days": 1.56,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 25,
+        "percentile": 75
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 50
+      }
+    },
+    {
+      "reportId": "PTR20001020",
+      "acnArbn": "093925207",
+      "reportingPeriodStartDate": "2024-09-01",
+      "reportingPeriodEndDate": "2025-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.6,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 63.79,
+      "payments31To60Days": 36.21,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 6,
+        "count": 22,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 50
+      }
+    }
+  ]
+}

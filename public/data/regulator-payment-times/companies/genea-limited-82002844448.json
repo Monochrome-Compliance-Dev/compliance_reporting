@@ -1,0 +1,39 @@
+{
+  "slug": "genea-limited-82002844448",
+  "businessName": "GENEA LIMITED",
+  "abn": "82002844448",
+  "acnArbn": "002844448",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20000515",
+      "acnArbn": "002844448",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 71,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-16",
+      "overallP95Position": {
+        "rank": 2345,
+        "count": 2498,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 97,
+        "percentile": 7.3
+      }
+    }
+  ]
+}

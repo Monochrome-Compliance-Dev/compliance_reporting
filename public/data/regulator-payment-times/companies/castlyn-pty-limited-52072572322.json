@@ -1,0 +1,95 @@
+{
+  "slug": "castlyn-pty-limited-52072572322",
+  "businessName": "CASTLYN PTY LIMITED",
+  "abn": "52072572322",
+  "acnArbn": "072572322",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Fuel retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011076",
+      "acnArbn": "072572322",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.65,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 80.3,
+      "payments31To60Days": 19.37,
+      "paymentsMoreThan60Days": 0.27,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-05-17",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 207,
+        "percentile": 65
+      }
+    },
+    {
+      "reportId": "PTR20006550",
+      "acnArbn": "072572322",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.2,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 81.3,
+      "payments31To60Days": 18.4,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-26",
+      "overallP95Position": {
+        "rank": 944,
+        "count": 2568,
+        "percentile": 62
+      },
+      "industryP95Position": {
+        "rank": 62,
+        "count": 208,
+        "percentile": 69.1
+      }
+    },
+    {
+      "reportId": "PTR20000116",
+      "acnArbn": "072572322",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.3,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 80.25,
+      "payments31To60Days": 19.57,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Fuel retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-05-20",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 207,
+        "percentile": 68.9
+      }
+    }
+  ]
+}

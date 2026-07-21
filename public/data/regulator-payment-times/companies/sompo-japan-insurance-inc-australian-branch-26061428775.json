@@ -1,0 +1,95 @@
+{
+  "slug": "sompo-japan-insurance-inc-australian-branch-26061428775",
+  "businessName": "SOMPO JAPAN INSURANCE INC (AUSTRALIAN BRANCH)",
+  "abn": "26061428775",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008685",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.33,
+      "medianPaymentTimeDays": 6.5,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 94.44,
+      "payments31To60Days": 3.7,
+      "paymentsMoreThan60Days": 1.85,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 542,
+        "count": 2613,
+        "percentile": 78
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 338,
+        "percentile": 49.9
+      }
+    },
+    {
+      "reportId": "PTR20004582",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.67,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 93.75,
+      "payments31To60Days": 2.08,
+      "paymentsMoreThan60Days": 4.17,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 124,
+        "count": 349,
+        "percentile": 60.9
+      }
+    },
+    {
+      "reportId": "PTR20002759",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.58,
+      "medianPaymentTimeDays": 7.5,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 88.46,
+      "payments31To60Days": 5.77,
+      "paymentsMoreThan60Days": 5.77,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 267,
+        "count": 339,
+        "percentile": 19.5
+      }
+    }
+  ]
+}

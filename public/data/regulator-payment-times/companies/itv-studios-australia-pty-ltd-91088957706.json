@@ -1,0 +1,95 @@
+{
+  "slug": "itv-studios-australia-pty-ltd-91088957706",
+  "businessName": "ITV STUDIOS AUSTRALIA PTY LTD",
+  "abn": "91088957706",
+  "acnArbn": "088957706",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Creative and performing arts activities",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011553",
+      "acnArbn": "088957706",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 1.5,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Creative and performing arts activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2613,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 34,
+        "percentile": 87.9
+      }
+    },
+    {
+      "reportId": "PTR20011541",
+      "acnArbn": "088957706",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Creative and performing arts activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-06-24",
+      "overallP95Position": {
+        "rank": 316,
+        "count": 2568,
+        "percentile": 84.6
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 35,
+        "percentile": 70.6
+      }
+    },
+    {
+      "reportId": "PTR20001122",
+      "acnArbn": "088957706",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 90.4,
+      "payments31To60Days": 6.1,
+      "paymentsMoreThan60Days": 3.5,
+      "industrySubdivision": "Creative and performing arts activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 31,
+        "percentile": 20
+      }
+    }
+  ]
+}

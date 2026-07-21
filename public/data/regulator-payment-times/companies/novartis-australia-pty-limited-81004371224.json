@@ -1,0 +1,95 @@
+{
+  "slug": "novartis-australia-pty-limited-81004371224",
+  "businessName": "NOVARTIS AUSTRALIA PTY LIMITED",
+  "abn": "81004371224",
+  "acnArbn": "004371224",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010415",
+      "acnArbn": "004371224",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.43,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 52.2,
+      "payments31To60Days": 15.72,
+      "paymentsMoreThan60Days": 32.08,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 2415,
+        "count": 2613,
+        "percentile": 7.3
+      },
+      "industryP95Position": {
+        "rank": 95,
+        "count": 106,
+        "percentile": 10.5
+      }
+    },
+    {
+      "reportId": "PTR20004075",
+      "acnArbn": "004371224",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.5,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 53.38,
+      "payments31To60Days": 19.7,
+      "paymentsMoreThan60Days": 26.92,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2316,
+        "count": 2568,
+        "percentile": 9.5
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 97,
+        "percentile": 12.5
+      }
+    },
+    {
+      "reportId": "PTR20004030",
+      "acnArbn": "004371224",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.89,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 51.44,
+      "payments31To60Days": 28.27,
+      "paymentsMoreThan60Days": 20.29,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 2243,
+        "count": 2498,
+        "percentile": 9.2
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 97,
+        "percentile": 11.5
+      }
+    }
+  ]
+}

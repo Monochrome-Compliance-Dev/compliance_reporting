@@ -1,0 +1,95 @@
+{
+  "slug": "kogan-com-ltd-96612447293",
+  "businessName": "KOGAN.COM LTD",
+  "abn": "96612447293",
+  "acnArbn": "612447293",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009696",
+      "acnArbn": "612447293",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1934,
+        "count": 2613,
+        "percentile": 24.3
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 207,
+        "percentile": 24.3
+      }
+    },
+    {
+      "reportId": "PTR20005140",
+      "acnArbn": "612447293",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.5,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 139,
+        "count": 2568,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 208,
+        "percentile": 99
+      }
+    },
+    {
+      "reportId": "PTR20005136",
+      "acnArbn": "612447293",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.69,
+      "medianPaymentTimeDays": 31.5,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 125,
+      "payments30DaysOrLess": 42.31,
+      "payments31To60Days": 30.77,
+      "paymentsMoreThan60Days": 26.92,
+      "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2439,
+        "count": 2498,
+        "percentile": 2.3
+      },
+      "industryP95Position": {
+        "rank": 202,
+        "count": 207,
+        "percentile": 2.4
+      }
+    }
+  ]
+}

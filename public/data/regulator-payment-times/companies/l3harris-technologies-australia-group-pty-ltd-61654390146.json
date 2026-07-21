@@ -1,0 +1,95 @@
+{
+  "slug": "l3harris-technologies-australia-group-pty-ltd-61654390146",
+  "businessName": "L3HARRIS TECHNOLOGIES AUSTRALIA GROUP PTY LTD",
+  "abn": "61654390146",
+  "acnArbn": "654390146",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Defence",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008044",
+      "acnArbn": "654390146",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.59,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 57.72,
+      "payments31To60Days": 33.19,
+      "paymentsMoreThan60Days": 9.09,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-03-16",
+      "overallP95Position": {
+        "rank": 2343,
+        "count": 2613,
+        "percentile": 9.7
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 33,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003583",
+      "acnArbn": "654390146",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.22,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 58.2,
+      "payments31To60Days": 29.4,
+      "paymentsMoreThan60Days": 12.4,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 2387,
+        "count": 2568,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 34,
+        "percentile": 3
+      }
+    },
+    {
+      "reportId": "PTR20002369",
+      "acnArbn": "654390146",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.42,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 52.76,
+      "payments31To60Days": 39.01,
+      "paymentsMoreThan60Days": 8.23,
+      "industrySubdivision": "Defence",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-07-07",
+      "overallP95Position": {
+        "rank": 1813,
+        "count": 2498,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 31,
+        "percentile": 13.3
+      }
+    }
+  ]
+}

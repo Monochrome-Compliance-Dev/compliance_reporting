@@ -1,0 +1,95 @@
+{
+  "slug": "queensland-airports-limited-61104121824",
+  "businessName": "Queensland Airports Limited",
+  "abn": "61104121824",
+  "acnArbn": "104121824",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010508",
+      "acnArbn": "104121824",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.89,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 82.93,
+      "payments31To60Days": 12.41,
+      "paymentsMoreThan60Days": 4.66,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-04-15",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 143,
+        "percentile": 44.4
+      }
+    },
+    {
+      "reportId": "PTR20005633",
+      "acnArbn": "104121824",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 71.13,
+      "payments31To60Days": 23.67,
+      "paymentsMoreThan60Days": 5.11,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 127,
+        "count": 144,
+        "percentile": 10.5
+      }
+    },
+    {
+      "reportId": "PTR20010997",
+      "acnArbn": "104121824",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.72,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 71.33,
+      "payments31To60Days": 16.46,
+      "paymentsMoreThan60Days": 12.21,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-05-07",
+      "overallP95Position": {
+        "rank": 2312,
+        "count": 2498,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 140,
+        "percentile": 5.8
+      }
+    }
+  ]
+}

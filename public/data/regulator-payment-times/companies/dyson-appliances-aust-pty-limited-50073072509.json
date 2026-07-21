@@ -1,0 +1,95 @@
+{
+  "slug": "dyson-appliances-aust-pty-limited-50073072509",
+  "businessName": "DYSON APPLIANCES (AUST.) PTY LIMITED",
+  "abn": "50073072509",
+  "acnArbn": "073072509",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007304",
+      "acnArbn": "073072509",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53.35,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 111,
+      "payments30DaysOrLess": 5.77,
+      "payments31To60Days": 76.67,
+      "paymentsMoreThan60Days": 17.55,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-02-23",
+      "overallP95Position": {
+        "rank": 2521,
+        "count": 2613,
+        "percentile": 3.3
+      },
+      "industryP95Position": {
+        "rank": 203,
+        "count": 207,
+        "percentile": 1.9
+      }
+    },
+    {
+      "reportId": "PTR20007018",
+      "acnArbn": "073072509",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.2,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 10.86,
+      "payments31To60Days": 82.13,
+      "paymentsMoreThan60Days": 7.01,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 1628,
+        "count": 2568,
+        "percentile": 34.6
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 208,
+        "percentile": 34.8
+      }
+    },
+    {
+      "reportId": "PTR20007017",
+      "acnArbn": "073072509",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.24,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 15.31,
+      "payments31To60Days": 76.34,
+      "paymentsMoreThan60Days": 8.35,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 131,
+        "count": 207,
+        "percentile": 35
+      }
+    }
+  ]
+}

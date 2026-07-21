@@ -1,0 +1,95 @@
+{
+  "slug": "hillside-australia-new-media-pty-limited-75148920665",
+  "businessName": "HILLSIDE (AUSTRALIA NEW MEDIA) PTY LIMITED",
+  "abn": "75148920665",
+  "acnArbn": "148920665",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Gambling activities",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011297",
+      "acnArbn": "148920665",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-06-10",
+      "overallP95Position": {
+        "rank": 168,
+        "count": 193,
+        "percentile": 12.5
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006740",
+      "acnArbn": "148920665",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 127,
+      "payments30DaysOrLess": 83,
+      "payments31To60Days": 16,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-12-17",
+      "overallP95Position": {
+        "rank": 226,
+        "count": 228,
+        "percentile": 0.9
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20001834",
+      "acnArbn": "148920665",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 16,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 79,
+        "count": 231,
+        "percentile": 63
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

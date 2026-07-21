@@ -1,0 +1,95 @@
+{
+  "slug": "boom-logistics-ltd-28095466961",
+  "businessName": "BOOM LOGISTICS LTD",
+  "abn": "28095466961",
+  "acnArbn": "095466961",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Rental and hiring services (except real estate)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007007",
+      "acnArbn": "095466961",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 41.3,
+      "payments31To60Days": 53.6,
+      "paymentsMoreThan60Days": 5.1,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-01-27",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 66,
+        "percentile": 32.3
+      }
+    },
+    {
+      "reportId": "PTR20003339",
+      "acnArbn": "095466961",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 49.5,
+      "payments31To60Days": 47.1,
+      "paymentsMoreThan60Days": 3.4,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-02",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 61,
+        "percentile": 36.7
+      }
+    },
+    {
+      "reportId": "PTR20010962",
+      "acnArbn": "095466961",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 42.4,
+      "payments31To60Days": 51.7,
+      "paymentsMoreThan60Days": 5.9,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-05-04",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 55,
+        "percentile": 25.9
+      }
+    }
+  ]
+}

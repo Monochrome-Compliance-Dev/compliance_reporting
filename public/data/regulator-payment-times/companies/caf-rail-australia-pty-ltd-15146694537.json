@@ -1,0 +1,95 @@
+{
+  "slug": "caf-rail-australia-pty-ltd-15146694537",
+  "businessName": "CAF Rail Australia Pty Ltd",
+  "abn": "15146694537",
+  "acnArbn": "146694537",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010201",
+      "acnArbn": "146694537",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.29,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 18.65,
+      "paymentsMoreThan60Days": 6.35,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 202,
+        "count": 347,
+        "percentile": 39.9
+      }
+    },
+    {
+      "reportId": "PTR20003623",
+      "acnArbn": "146694537",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.95,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 54.01,
+      "payments31To60Days": 34.11,
+      "paymentsMoreThan60Days": 11.87,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-12",
+      "overallP95Position": {
+        "rank": 2376,
+        "count": 2568,
+        "percentile": 7.1
+      },
+      "industryP95Position": {
+        "rank": 305,
+        "count": 335,
+        "percentile": 8.1
+      }
+    },
+    {
+      "reportId": "PTR20003625",
+      "acnArbn": "146694537",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.35,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 55.03,
+      "payments31To60Days": 36.5,
+      "paymentsMoreThan60Days": 8.47,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-12",
+      "overallP95Position": {
+        "rank": 2322,
+        "count": 2498,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 294,
+        "count": 323,
+        "percentile": 8.7
+      }
+    }
+  ]
+}

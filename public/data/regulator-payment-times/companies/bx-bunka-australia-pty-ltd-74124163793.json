@@ -1,0 +1,95 @@
+{
+  "slug": "bx-bunka-australia-pty-ltd-74124163793",
+  "businessName": "BX BUNKA AUSTRALIA PTY LTD",
+  "abn": "74124163793",
+  "acnArbn": "124163793",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009502",
+      "acnArbn": "124163793",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.87,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 57.9,
+      "payments31To60Days": 34.06,
+      "paymentsMoreThan60Days": 8.05,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2007,
+        "count": 2613,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 347,
+        "percentile": 37.9
+      }
+    },
+    {
+      "reportId": "PTR20004653",
+      "acnArbn": "124163793",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.88,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 74.96,
+      "payments31To60Days": 22.47,
+      "paymentsMoreThan60Days": 2.55,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 335,
+        "percentile": 70.4
+      }
+    },
+    {
+      "reportId": "PTR20001205",
+      "acnArbn": "124163793",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.29,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 74.59,
+      "payments31To60Days": 22.38,
+      "paymentsMoreThan60Days": 3.03,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 95,
+        "count": 323,
+        "percentile": 69.3
+      }
+    }
+  ]
+}

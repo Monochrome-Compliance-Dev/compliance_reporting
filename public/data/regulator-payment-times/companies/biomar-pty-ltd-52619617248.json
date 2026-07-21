@@ -1,0 +1,95 @@
+{
+  "slug": "biomar-pty-ltd-52619617248",
+  "businessName": "BIOMAR PTY LTD",
+  "abn": "52619617248",
+  "acnArbn": "619617248",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010582",
+      "acnArbn": "619617248",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.2,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 31,
+      "payments31To60Days": 46,
+      "paymentsMoreThan60Days": 23,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-17",
+      "overallP95Position": {
+        "rank": 2343,
+        "count": 2613,
+        "percentile": 9.7
+      },
+      "industryP95Position": {
+        "rank": 292,
+        "count": 347,
+        "percentile": 15
+      }
+    },
+    {
+      "reportId": "PTR20006535",
+      "acnArbn": "619617248",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.02,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 30,
+      "payments31To60Days": 45,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2568,
+        "percentile": 13.7
+      },
+      "industryP95Position": {
+        "rank": 262,
+        "count": 335,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20002376",
+      "acnArbn": "619617248",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 25,
+      "payments31To60Days": 53,
+      "paymentsMoreThan60Days": 22,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-08",
+      "overallP95Position": {
+        "rank": 2165,
+        "count": 2498,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 255,
+        "count": 323,
+        "percentile": 18.9
+      }
+    }
+  ]
+}

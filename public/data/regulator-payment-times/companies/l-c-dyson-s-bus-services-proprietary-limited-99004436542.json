@@ -1,0 +1,67 @@
+{
+  "slug": "l-c-dyson-s-bus-services-proprietary-limited-99004436542",
+  "businessName": "L.C. DYSON'S BUS SERVICES PROPRIETARY LIMITED",
+  "abn": "99004436542",
+  "acnArbn": "004436542",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20004832",
+      "acnArbn": "004436542",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 60,
+      "payments31To60Days": 36,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1543,
+        "count": 2568,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 144,
+        "percentile": 32.2
+      }
+    },
+    {
+      "reportId": "PTR20002776",
+      "acnArbn": "004436542",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 84,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 85,
+        "count": 140,
+        "percentile": 37.4
+      }
+    }
+  ]
+}

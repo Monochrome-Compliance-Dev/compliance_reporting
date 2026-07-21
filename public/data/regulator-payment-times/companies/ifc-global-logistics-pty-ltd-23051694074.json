@@ -1,0 +1,95 @@
+{
+  "slug": "ifc-global-logistics-pty-ltd-23051694074",
+  "businessName": "IFC GLOBAL LOGISTICS PTY LTD",
+  "abn": "23051694074",
+  "acnArbn": "051694074",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008591",
+      "acnArbn": "051694074",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.85,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 61.48,
+      "payments31To60Days": 35.63,
+      "paymentsMoreThan60Days": 2.89,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 143,
+        "percentile": 44.4
+      }
+    },
+    {
+      "reportId": "PTR20006527",
+      "acnArbn": "051694074",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.28,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 62.87,
+      "payments31To60Days": 34.88,
+      "paymentsMoreThan60Days": 2.25,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-11-25",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 144,
+        "percentile": 51.7
+      }
+    },
+    {
+      "reportId": "PTR20000833",
+      "acnArbn": "051694074",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.37,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 28.92,
+      "payments31To60Days": 70.18,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 140,
+        "percentile": 46.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "ocwen-energy-pty-ltd-44605178578",
+  "businessName": "OCWEN ENERGY PTY LTD",
+  "abn": "44605178578",
+  "acnArbn": "605178578",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008769",
+      "acnArbn": "605178578",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.89,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 76.11,
+      "payments31To60Days": 21.71,
+      "paymentsMoreThan60Days": 2.18,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1143,
+        "count": 2613,
+        "percentile": 54.7
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 143,
+        "percentile": 59.2
+      }
+    },
+    {
+      "reportId": "PTR20003525",
+      "acnArbn": "605178578",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.99,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 77.76,
+      "payments31To60Days": 19.03,
+      "paymentsMoreThan60Days": 2.98,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 144,
+        "percentile": 56.6
+      }
+    },
+    {
+      "reportId": "PTR20002563",
+      "acnArbn": "605178578",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.13,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 73.34,
+      "payments31To60Days": 23.06,
+      "paymentsMoreThan60Days": 3.6,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-18",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 140,
+        "percentile": 49.6
+      }
+    }
+  ]
+}

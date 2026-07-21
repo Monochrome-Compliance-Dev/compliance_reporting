@@ -1,0 +1,95 @@
+{
+  "slug": "svitzer-australasia-holdings-pty-limited-16120555302",
+  "businessName": "SVITZER AUSTRALASIA HOLDINGS PTY LIMITED",
+  "abn": "16120555302",
+  "acnArbn": "120555302",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010326",
+      "acnArbn": "120555302",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.87,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 74.15,
+      "payments31To60Days": 16.92,
+      "paymentsMoreThan60Days": 8.93,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2251,
+        "count": 2613,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 124,
+        "count": 143,
+        "percentile": 12.7
+      }
+    },
+    {
+      "reportId": "PTR20004918",
+      "acnArbn": "120555302",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.49,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 73.72,
+      "payments31To60Days": 22.1,
+      "paymentsMoreThan60Days": 4.17,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 144,
+        "percentile": 40.6
+      }
+    },
+    {
+      "reportId": "PTR20002011",
+      "acnArbn": "120555302",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.33,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 80.07,
+      "payments31To60Days": 16.46,
+      "paymentsMoreThan60Days": 3.47,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1191,
+        "count": 2498,
+        "percentile": 51
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 140,
+        "percentile": 53.2
+      }
+    }
+  ]
+}

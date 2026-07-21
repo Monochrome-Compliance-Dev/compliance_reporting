@@ -1,0 +1,95 @@
+{
+  "slug": "iqvia-solutions-australia-holdings-pty-ltd-42104475363",
+  "businessName": "IQVIA SOLUTIONS AUSTRALIA HOLDINGS PTY. LTD.",
+  "abn": "42104475363",
+  "acnArbn": "104475363",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008228",
+      "acnArbn": "104475363",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 65,
+      "medianPaymentTimeDays": 64,
+      "p80PaymentTimeDays": 94,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 5.81,
+      "payments31To60Days": 30.42,
+      "paymentsMoreThan60Days": 63.77,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2476,
+        "count": 2613,
+        "percentile": 5.1
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 183,
+        "percentile": 14.8
+      }
+    },
+    {
+      "reportId": "PTR20004140",
+      "acnArbn": "104475363",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 72,
+      "medianPaymentTimeDays": 65,
+      "p80PaymentTimeDays": 98,
+      "p95PaymentTimeDays": 102,
+      "payments30DaysOrLess": 3.31,
+      "payments31To60Days": 24.44,
+      "paymentsMoreThan60Days": 72.44,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 2409,
+        "count": 2568,
+        "percentile": 6
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 181,
+        "percentile": 12.2
+      }
+    },
+    {
+      "reportId": "PTR20000700",
+      "acnArbn": "104475363",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 92,
+      "medianPaymentTimeDays": 91,
+      "p80PaymentTimeDays": 99,
+      "p95PaymentTimeDays": 274,
+      "payments30DaysOrLess": 4.8,
+      "payments31To60Days": 17.1,
+      "paymentsMoreThan60Days": 78.1,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 2490,
+        "count": 2498,
+        "percentile": 0.3
+      },
+      "industryP95Position": {
+        "rank": 174,
+        "count": 176,
+        "percentile": 1.1
+      }
+    }
+  ]
+}

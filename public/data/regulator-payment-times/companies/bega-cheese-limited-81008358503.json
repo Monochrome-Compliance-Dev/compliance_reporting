@@ -1,0 +1,95 @@
+{
+  "slug": "bega-cheese-limited-81008358503",
+  "businessName": "BEGA CHEESE LIMITED",
+  "abn": "81008358503",
+  "acnArbn": "008358503",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009901",
+      "acnArbn": "008358503",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.63,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 84.87,
+      "payments31To60Days": 13.31,
+      "paymentsMoreThan60Days": 1.82,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 347,
+        "percentile": 90.2
+      }
+    },
+    {
+      "reportId": "PTR20006235",
+      "acnArbn": "008358503",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.3,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 84.71,
+      "payments31To60Days": 13.38,
+      "paymentsMoreThan60Days": 1.91,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 850,
+        "count": 2568,
+        "percentile": 65.3
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 335,
+        "percentile": 87.7
+      }
+    },
+    {
+      "reportId": "PTR20001935",
+      "acnArbn": "008358503",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.7,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 84.04,
+      "payments31To60Days": 13.76,
+      "paymentsMoreThan60Days": 2.2,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 323,
+        "percentile": 85.7
+      }
+    }
+  ]
+}

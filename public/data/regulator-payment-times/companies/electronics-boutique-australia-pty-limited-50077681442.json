@@ -1,0 +1,95 @@
+{
+  "slug": "electronics-boutique-australia-pty-limited-50077681442",
+  "businessName": "ELECTRONICS BOUTIQUE AUSTRALIA PTY LIMITED",
+  "abn": "50077681442",
+  "acnArbn": "077681442",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-01-31",
+  "reports": [
+    {
+      "reportId": "PTR20010842",
+      "acnArbn": "077681442",
+      "reportingPeriodStartDate": "2025-08-03",
+      "reportingPeriodEndDate": "2026-01-31",
+      "revisedReport": false,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 68.4,
+      "payments31To60Days": 27.1,
+      "paymentsMoreThan60Days": 4.5,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 16,
+        "count": 31,
+        "percentile": 46.7
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 7,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20003560",
+      "acnArbn": "077681442",
+      "reportingPeriodStartDate": "2025-02-02",
+      "reportingPeriodEndDate": "2025-08-02",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 70.8,
+      "payments31To60Days": 24.1,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20002268",
+      "acnArbn": "077681442",
+      "reportingPeriodStartDate": "2024-08-04",
+      "reportingPeriodEndDate": "2025-02-01",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 50.9,
+      "payments31To60Days": 39.8,
+      "paymentsMoreThan60Days": 9.4,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-01",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    }
+  ]
+}

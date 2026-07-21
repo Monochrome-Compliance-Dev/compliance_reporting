@@ -1,0 +1,95 @@
+{
+  "slug": "tianqi-lithium-energy-australia-pty-ltd-24862057747",
+  "businessName": "Tianqi Lithium Energy Australia Pty Ltd",
+  "abn": "24862057747",
+  "acnArbn": "",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Basic chemical and chemical product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007369",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.84,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 29.25,
+      "payments31To60Days": 66.94,
+      "paymentsMoreThan60Days": 3.81,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-23",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 347,
+        "percentile": 59
+      }
+    },
+    {
+      "reportId": "PTR20003604",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.55,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 26.32,
+      "payments31To60Days": 63.58,
+      "paymentsMoreThan60Days": 10.1,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-11",
+      "overallP95Position": {
+        "rank": 2270,
+        "count": 2568,
+        "percentile": 11.3
+      },
+      "industryP95Position": {
+        "rank": 280,
+        "count": 335,
+        "percentile": 16.2
+      }
+    },
+    {
+      "reportId": "PTR20002795",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.91,
+      "medianPaymentTimeDays": 38.5,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 30.24,
+      "payments31To60Days": 57.07,
+      "paymentsMoreThan60Days": 12.68,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 2281,
+        "count": 2498,
+        "percentile": 8.3
+      },
+      "industryP95Position": {
+        "rank": 284,
+        "count": 323,
+        "percentile": 11.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "amadeus-it-pacific-pty-ltd-22080674255",
+  "businessName": "AMADEUS IT PACIFIC PTY LTD",
+  "abn": "22080674255",
+  "acnArbn": "080674255",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007390",
+      "acnArbn": "080674255",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.66,
+      "medianPaymentTimeDays": 21.5,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 68.82,
+      "payments31To60Days": 27.24,
+      "paymentsMoreThan60Days": 3.94,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 111,
+        "count": 183,
+        "percentile": 39.6
+      }
+    },
+    {
+      "reportId": "PTR20004741",
+      "acnArbn": "080674255",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.81,
+      "medianPaymentTimeDays": 20.5,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 75.23,
+      "payments31To60Days": 21.43,
+      "paymentsMoreThan60Days": 3.34,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-27",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 181,
+        "percentile": 53.9
+      }
+    },
+    {
+      "reportId": "PTR20002522",
+      "acnArbn": "080674255",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 51,
+      "payments31To60Days": 44,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-15",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 176,
+        "percentile": 58.3
+      }
+    }
+  ]
+}

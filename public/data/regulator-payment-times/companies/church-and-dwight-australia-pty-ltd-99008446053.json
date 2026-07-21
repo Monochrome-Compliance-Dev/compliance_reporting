@@ -1,0 +1,95 @@
+{
+  "slug": "church-and-dwight-australia-pty-ltd-99008446053",
+  "businessName": "CHURCH & DWIGHT (AUSTRALIA) PTY LTD",
+  "abn": "99008446053",
+  "acnArbn": "008446053",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008645",
+      "acnArbn": "008446053",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 17.92,
+      "payments31To60Days": 61.69,
+      "paymentsMoreThan60Days": 20.39,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 329,
+        "percentile": 34.5
+      }
+    },
+    {
+      "reportId": "PTR20004237",
+      "acnArbn": "008446053",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 32,
+      "payments31To60Days": 49,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 2342,
+        "count": 2568,
+        "percentile": 8.6
+      },
+      "industryP95Position": {
+        "rank": 288,
+        "count": 323,
+        "percentile": 10.2
+      }
+    },
+    {
+      "reportId": "PTR20000870",
+      "acnArbn": "008446053",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 27.92,
+      "payments31To60Days": 54.72,
+      "paymentsMoreThan60Days": 17.36,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 221,
+        "count": 323,
+        "percentile": 30.7
+      }
+    }
+  ]
+}

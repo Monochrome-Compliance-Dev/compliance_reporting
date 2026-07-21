@@ -1,0 +1,95 @@
+{
+  "slug": "piacentini-and-son-pty-ltd-18008797715",
+  "businessName": "PIACENTINI & SON PTY LTD",
+  "abn": "18008797715",
+  "acnArbn": "008797715",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007117",
+      "acnArbn": "008797715",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.83,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 11.55,
+      "payments31To60Days": 83.74,
+      "paymentsMoreThan60Days": 4.7,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-02-04",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 177,
+        "percentile": 31.3
+      }
+    },
+    {
+      "reportId": "PTR20003842",
+      "acnArbn": "008797715",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.05,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 12.79,
+      "payments31To60Days": 86.11,
+      "paymentsMoreThan60Days": 1.1,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 173,
+        "percentile": 43
+      }
+    },
+    {
+      "reportId": "PTR20002793",
+      "acnArbn": "008797715",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.08,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 10.7,
+      "payments31To60Days": 86.12,
+      "paymentsMoreThan60Days": 3.18,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 170,
+        "percentile": 39.6
+      }
+    }
+  ]
+}

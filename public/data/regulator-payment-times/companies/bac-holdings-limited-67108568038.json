@@ -1,0 +1,95 @@
+{
+  "slug": "bac-holdings-limited-67108568038",
+  "businessName": "BAC HOLDINGS LIMITED",
+  "abn": "67108568038",
+  "acnArbn": "108568038",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010136",
+      "acnArbn": "108568038",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.19,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 83,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 143,
+        "percentile": 39.4
+      }
+    },
+    {
+      "reportId": "PTR20006334",
+      "acnArbn": "108568038",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.65,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 82,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 144,
+        "percentile": 25.9
+      }
+    },
+    {
+      "reportId": "PTR20006333",
+      "acnArbn": "108568038",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.5,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 81,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 140,
+        "percentile": 60.4
+      }
+    }
+  ]
+}

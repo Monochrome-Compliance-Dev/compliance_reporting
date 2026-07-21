@@ -1,0 +1,95 @@
+{
+  "slug": "quartz-reef-hill-investments-pty-ltd-34612741812",
+  "businessName": "QUARTZ REEF HILL INVESTMENTS PTY LTD",
+  "abn": "34612741812",
+  "acnArbn": "612741812",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010158",
+      "acnArbn": "612741812",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 97,
+      "payments31To60Days": 2.7,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 44,
+        "count": 347,
+        "percentile": 86.7
+      }
+    },
+    {
+      "reportId": "PTR20004953",
+      "acnArbn": "612741812",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 96.1,
+      "payments31To60Days": 3.6,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 335,
+        "percentile": 84.4
+      }
+    },
+    {
+      "reportId": "PTR20000458",
+      "acnArbn": "612741812",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 47,
+      "payments30DaysOrLess": 92.4,
+      "payments31To60Days": 7.1,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-13",
+      "overallP95Position": {
+        "rank": 909,
+        "count": 2498,
+        "percentile": 62.6
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 323,
+        "percentile": 83.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "latam-airlines-group-s-a-96081261869",
+  "businessName": "LATAM AIRLINES GROUP S.A.",
+  "abn": "96081261869",
+  "acnArbn": "081261869",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Air and space transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007658",
+      "acnArbn": "081261869",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 62.71,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 85,
+      "p95PaymentTimeDays": 184,
+      "payments30DaysOrLess": 31.11,
+      "payments31To60Days": 38.89,
+      "paymentsMoreThan60Days": 30,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-06",
+      "overallP95Position": {
+        "rank": 2603,
+        "count": 2613,
+        "percentile": 0.3
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 143,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003856",
+      "acnArbn": "081261869",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 68.48,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 96,
+      "p95PaymentTimeDays": 165,
+      "payments30DaysOrLess": 21.67,
+      "payments31To60Days": 38.33,
+      "paymentsMoreThan60Days": 40,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 2541,
+        "count": 2568,
+        "percentile": 1.1
+      },
+      "industryP95Position": {
+        "rank": 142,
+        "count": 144,
+        "percentile": 1.4
+      }
+    },
+    {
+      "reportId": "PTR20003857",
+      "acnArbn": "081261869",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 65.8,
+      "medianPaymentTimeDays": 54,
+      "p80PaymentTimeDays": 91,
+      "p95PaymentTimeDays": 134,
+      "payments30DaysOrLess": 10,
+      "payments31To60Days": 46,
+      "paymentsMoreThan60Days": 44,
+      "industrySubdivision": "Air and space transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 2451,
+        "count": 2498,
+        "percentile": 1.8
+      },
+      "industryP95Position": {
+        "rank": 137,
+        "count": 140,
+        "percentile": 1.4
+      }
+    }
+  ]
+}

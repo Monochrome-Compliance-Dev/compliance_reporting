@@ -1,0 +1,95 @@
+{
+  "slug": "dorsett-investments-pty-ltd-60008676819",
+  "businessName": "DORSETT INVESTMENTS PTY LTD",
+  "abn": "60008676819",
+  "acnArbn": "008676819",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007472",
+      "acnArbn": "008676819",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.32,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 41.96,
+      "payments31To60Days": 52.23,
+      "paymentsMoreThan60Days": 5.81,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-02-25",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 207,
+        "percentile": 29.1
+      }
+    },
+    {
+      "reportId": "PTR20006367",
+      "acnArbn": "008676819",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.72,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 46.58,
+      "payments31To60Days": 46.38,
+      "paymentsMoreThan60Days": 7.04,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-31",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 208,
+        "percentile": 28.5
+      }
+    },
+    {
+      "reportId": "PTR20006330",
+      "acnArbn": "008676819",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.6,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 32.59,
+      "payments31To60Days": 58.04,
+      "paymentsMoreThan60Days": 9.37,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-30",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 140,
+        "count": 207,
+        "percentile": 32
+      }
+    }
+  ]
+}

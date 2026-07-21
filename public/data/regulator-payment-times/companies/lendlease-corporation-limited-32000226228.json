@@ -1,0 +1,39 @@
+{
+  "slug": "lendlease-corporation-limited-32000226228",
+  "businessName": "LENDLEASE CORPORATION LIMITED",
+  "abn": "32000226228",
+  "acnArbn": "000226228",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20000857",
+      "acnArbn": "000226228",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.87,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 86.32,
+      "payments31To60Days": 10.43,
+      "paymentsMoreThan60Days": 3.25,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 250,
+        "percentile": 76.3
+      }
+    }
+  ]
+}

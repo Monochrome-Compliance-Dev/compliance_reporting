@@ -1,0 +1,95 @@
+{
+  "slug": "digga-australia-pty-ltd-86010443875",
+  "businessName": "DIGGA AUSTRALIA PTY. LTD.",
+  "abn": "86010443875",
+  "acnArbn": "010443875",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007203",
+      "acnArbn": "010443875",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 45.7,
+      "paymentsMoreThan60Days": 4.3,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-02-13",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 89,
+        "count": 347,
+        "percentile": 72.5
+      }
+    },
+    {
+      "reportId": "PTR20004838",
+      "acnArbn": "010443875",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 60,
+      "payments31To60Days": 37.7,
+      "paymentsMoreThan60Days": 2.3,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    },
+    {
+      "reportId": "PTR20001110",
+      "acnArbn": "010443875",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 48.5,
+      "payments31To60Days": 41.8,
+      "paymentsMoreThan60Days": 9.7,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 2026,
+        "count": 2498,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 223,
+        "count": 323,
+        "percentile": 29.5
+      }
+    }
+  ]
+}

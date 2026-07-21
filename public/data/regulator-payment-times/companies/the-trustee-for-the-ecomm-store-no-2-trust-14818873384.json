@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-the-ecomm-store-no-2-trust-14818873384",
+  "businessName": "THE TRUSTEE FOR THE ECOMM STORE NO 2 TRUST",
+  "abn": "14818873384",
+  "acnArbn": "",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010165",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.71,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 40,
+      "payments31To60Days": 31.32,
+      "paymentsMoreThan60Days": 28.68,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2135,
+        "count": 2613,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 207,
+        "percentile": 16
+      }
+    },
+    {
+      "reportId": "PTR20005442",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.37,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 62.84,
+      "payments31To60Days": 16.47,
+      "paymentsMoreThan60Days": 20.69,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1988,
+        "count": 2568,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 163,
+        "count": 208,
+        "percentile": 19.8
+      }
+    },
+    {
+      "reportId": "PTR20002849",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53.43,
+      "medianPaymentTimeDays": 56,
+      "p80PaymentTimeDays": 68,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 17.54,
+      "payments31To60Days": 47.95,
+      "paymentsMoreThan60Days": 34.51,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 2026,
+        "count": 2498,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 167,
+        "count": 207,
+        "percentile": 18.9
+      }
+    }
+  ]
+}

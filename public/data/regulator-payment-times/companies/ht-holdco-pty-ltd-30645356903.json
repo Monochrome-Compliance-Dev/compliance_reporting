@@ -1,0 +1,95 @@
+{
+  "slug": "ht-holdco-pty-ltd-30645356903",
+  "businessName": "HT Holdco Pty Ltd",
+  "abn": "30645356903",
+  "acnArbn": "645356903",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008691",
+      "acnArbn": "645356903",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.5,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 32.7,
+      "payments31To60Days": 48.09,
+      "paymentsMoreThan60Days": 19.21,
+      "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 2007,
+        "count": 2613,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 347,
+        "percentile": 37.9
+      }
+    },
+    {
+      "reportId": "PTR20005617",
+      "acnArbn": "645356903",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.48,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 32.21,
+      "payments31To60Days": 49.62,
+      "paymentsMoreThan60Days": 17.88,
+      "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1823,
+        "count": 2568,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 182,
+        "count": 335,
+        "percentile": 45.2
+      }
+    },
+    {
+      "reportId": "PTR20000787",
+      "acnArbn": "645356903",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.62,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 88.42,
+      "payments31To60Days": 10.88,
+      "paymentsMoreThan60Days": 0.7,
+      "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 323,
+        "percentile": 41.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "autopact-pty-ltd-44608040606",
+  "businessName": "AUTOPACT PTY LTD",
+  "abn": "44608040606",
+  "acnArbn": "608040606",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-09-30",
+  "reports": [
+    {
+      "reportId": "PTR20007055",
+      "acnArbn": "608040606",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 72.48,
+      "payments31To60Days": 24.68,
+      "paymentsMoreThan60Days": 2.84,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 121,
+        "count": 228,
+        "percentile": 45.4
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 14,
+        "percentile": 30.8
+      }
+    },
+    {
+      "reportId": "PTR20007053",
+      "acnArbn": "608040606",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 72,
+      "payments31To60Days": 24.32,
+      "paymentsMoreThan60Days": 3.68,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 112,
+        "count": 231,
+        "percentile": 49.1
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 14,
+        "percentile": 46.2
+      }
+    },
+    {
+      "reportId": "PTR20007052",
+      "acnArbn": "608040606",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 66.36,
+      "payments31To60Days": 30.31,
+      "paymentsMoreThan60Days": 3.33,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-01-29",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 66,
+        "count": 207,
+        "percentile": 68
+      }
+    }
+  ]
+}

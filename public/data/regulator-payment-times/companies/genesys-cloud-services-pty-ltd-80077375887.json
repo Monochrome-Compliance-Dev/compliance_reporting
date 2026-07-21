@@ -1,0 +1,95 @@
+{
+  "slug": "genesys-cloud-services-pty-ltd-80077375887",
+  "businessName": "GENESYS CLOUD SERVICES PTY. LTD.",
+  "abn": "80077375887",
+  "acnArbn": "077375887",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2026-01-31",
+  "reports": [
+    {
+      "reportId": "PTR20009159",
+      "acnArbn": "077375887",
+      "reportingPeriodStartDate": "2025-08-01",
+      "reportingPeriodEndDate": "2026-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 45,
+      "payments31To60Days": 52,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 31,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20006172",
+      "acnArbn": "077375887",
+      "reportingPeriodStartDate": "2025-02-01",
+      "reportingPeriodEndDate": "2025-07-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 60,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 35,
+      "payments31To60Days": 53,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-10-24",
+      "overallP95Position": {
+        "rank": 19,
+        "count": 34,
+        "percentile": 42.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20006170",
+      "acnArbn": "077375887",
+      "reportingPeriodStartDate": "2024-08-01",
+      "reportingPeriodEndDate": "2025-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.67,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 67,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2025-10-24",
+      "overallP95Position": {
+        "rank": 15,
+        "count": 30,
+        "percentile": 41.4
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 0
+      }
+    }
+  ]
+}

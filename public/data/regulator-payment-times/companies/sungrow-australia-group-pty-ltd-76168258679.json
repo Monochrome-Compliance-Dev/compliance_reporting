@@ -1,0 +1,95 @@
+{
+  "slug": "sungrow-australia-group-pty-ltd-76168258679",
+  "businessName": "SUNGROW AUSTRALIA GROUP PTY LTD",
+  "abn": "76168258679",
+  "acnArbn": "168258679",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007812",
+      "acnArbn": "168258679",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 92,
+        "percentile": 59.3
+      }
+    },
+    {
+      "reportId": "PTR20007811",
+      "acnArbn": "168258679",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 95,
+        "percentile": 72.3
+      }
+    },
+    {
+      "reportId": "PTR20007689",
+      "acnArbn": "168258679",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 693,
+        "count": 2498,
+        "percentile": 71.2
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 99,
+        "percentile": 53.1
+      }
+    }
+  ]
+}

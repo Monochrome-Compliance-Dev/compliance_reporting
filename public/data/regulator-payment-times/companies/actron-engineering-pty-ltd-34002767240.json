@@ -1,0 +1,95 @@
+{
+  "slug": "actron-engineering-pty-ltd-34002767240",
+  "businessName": "ACTRON ENGINEERING PTY LTD",
+  "abn": "34002767240",
+  "acnArbn": "002767240",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008568",
+      "acnArbn": "002767240",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.69,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 46.09,
+      "payments31To60Days": 43.55,
+      "paymentsMoreThan60Days": 10.34,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2394,
+        "count": 2613,
+        "percentile": 7.6
+      },
+      "industryP95Position": {
+        "rank": 304,
+        "count": 347,
+        "percentile": 10.7
+      }
+    },
+    {
+      "reportId": "PTR20003737",
+      "acnArbn": "002767240",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.09,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 41.11,
+      "payments31To60Days": 48.74,
+      "paymentsMoreThan60Days": 10.13,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 1988,
+        "count": 2568,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 216,
+        "count": 335,
+        "percentile": 34.7
+      }
+    },
+    {
+      "reportId": "PTR20003735",
+      "acnArbn": "002767240",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.35,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 66.46,
+      "payments31To60Days": 28.08,
+      "paymentsMoreThan60Days": 5.44,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-16",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 146,
+        "count": 323,
+        "percentile": 53.4
+      }
+    }
+  ]
+}

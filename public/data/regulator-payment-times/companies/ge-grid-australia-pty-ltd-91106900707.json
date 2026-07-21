@@ -1,0 +1,95 @@
+{
+  "slug": "ge-grid-australia-pty-ltd-91106900707",
+  "businessName": "GE GRID AUSTRALIA PTY LTD",
+  "abn": "91106900707",
+  "acnArbn": "106900707",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008989",
+      "acnArbn": "106900707",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 121,
+      "payments30DaysOrLess": 37,
+      "payments31To60Days": 46,
+      "paymentsMoreThan60Days": 16,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2553,
+        "count": 2613,
+        "percentile": 2.2
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 92,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20010208",
+      "acnArbn": "106900707",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 69,
+      "p95PaymentTimeDays": 203,
+      "payments30DaysOrLess": 36,
+      "payments31To60Days": 41.99,
+      "paymentsMoreThan60Days": 23,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2552,
+        "count": 2568,
+        "percentile": 0.6
+      },
+      "industryP95Position": {
+        "rank": 95,
+        "count": 95,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20003093",
+      "acnArbn": "106900707",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 23,
+      "payments31To60Days": 62,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-08-12",
+      "overallP95Position": {
+        "rank": 2243,
+        "count": 2498,
+        "percentile": 9.2
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 99,
+        "percentile": 4.1
+      }
+    }
+  ]
+}

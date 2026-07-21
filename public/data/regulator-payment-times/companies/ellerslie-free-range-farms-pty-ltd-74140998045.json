@@ -1,0 +1,95 @@
+{
+  "slug": "ellerslie-free-range-farms-pty-ltd-74140998045",
+  "businessName": "Ellerslie Free Range Farms Pty Ltd",
+  "abn": "74140998045",
+  "acnArbn": "140998045",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009728",
+      "acnArbn": "140998045",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.41,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 71.39,
+      "payments31To60Days": 28.32,
+      "paymentsMoreThan60Days": 0.29,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 102,
+        "percentile": 42.6
+      }
+    },
+    {
+      "reportId": "PTR20003519",
+      "acnArbn": "140998045",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.95,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 92.64,
+      "payments31To60Days": 7.36,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-10",
+      "overallP95Position": {
+        "rank": 491,
+        "count": 2568,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 92,
+        "percentile": 76.9
+      }
+    },
+    {
+      "reportId": "PTR20001071",
+      "acnArbn": "140998045",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.54,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.2,
+      "payments31To60Days": 5.66,
+      "paymentsMoreThan60Days": 0.14,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 85,
+        "percentile": 76.2
+      }
+    }
+  ]
+}

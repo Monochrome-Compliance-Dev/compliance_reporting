@@ -1,0 +1,95 @@
+{
+  "slug": "st-barbara-limited-36009165066",
+  "businessName": "ST BARBARA LIMITED",
+  "abn": "36009165066",
+  "acnArbn": "009165066",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007981",
+      "acnArbn": "009165066",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.44,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.24,
+      "payments31To60Days": 4.76,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-13",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 177,
+        "percentile": 84.7
+      }
+    },
+    {
+      "reportId": "PTR20003472",
+      "acnArbn": "009165066",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.94,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94.95,
+      "payments31To60Days": 5.05,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-09",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 173,
+        "percentile": 77.9
+      }
+    },
+    {
+      "reportId": "PTR20001840",
+      "acnArbn": "009165066",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.35,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 64.58,
+      "payments31To60Days": 35.42,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 652,
+        "count": 2498,
+        "percentile": 73.1
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 170,
+        "percentile": 69.8
+      }
+    }
+  ]
+}

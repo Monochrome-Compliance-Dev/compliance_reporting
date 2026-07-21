@@ -1,0 +1,95 @@
+{
+  "slug": "edwards-lifesciences-pty-limited-77098906873",
+  "businessName": "EDWARDS LIFESCIENCES PTY LIMITED",
+  "abn": "77098906873",
+  "acnArbn": "098906873",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010217",
+      "acnArbn": "098906873",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.15,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 73.24,
+      "payments31To60Days": 17.73,
+      "paymentsMoreThan60Days": 9.03,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2372,
+        "count": 2613,
+        "percentile": 9
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 106,
+        "percentile": 12.4
+      }
+    },
+    {
+      "reportId": "PTR20004515",
+      "acnArbn": "098906873",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.71,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 114,
+      "payments30DaysOrLess": 63.86,
+      "payments31To60Days": 18.95,
+      "paymentsMoreThan60Days": 17.19,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2460,
+        "count": 2568,
+        "percentile": 4.1
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 97,
+        "percentile": 7.3
+      }
+    },
+    {
+      "reportId": "PTR20002160",
+      "acnArbn": "098906873",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.68,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 75.34,
+      "payments31To60Days": 15.45,
+      "paymentsMoreThan60Days": 9.21,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2125,
+        "count": 2498,
+        "percentile": 14.3
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 97,
+        "percentile": 16.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "boart-longyear-australia-pty-ltd-99000401025",
+  "businessName": "BOART LONGYEAR AUSTRALIA PTY LTD",
+  "abn": "99000401025",
+  "acnArbn": "000401025",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006018",
+      "acnArbn": "000401025",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52.73,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 68,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 15.26,
+      "payments31To60Days": 56.38,
+      "paymentsMoreThan60Days": 28.37,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-10-13",
+      "overallP95Position": {
+        "rank": 2225,
+        "count": 2498,
+        "percentile": 10.5
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 170,
+        "percentile": 8.3
+      }
+    }
+  ]
+}

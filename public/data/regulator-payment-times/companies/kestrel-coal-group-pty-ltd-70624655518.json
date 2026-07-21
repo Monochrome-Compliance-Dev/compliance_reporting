@@ -1,0 +1,95 @@
+{
+  "slug": "kestrel-coal-group-pty-ltd-70624655518",
+  "businessName": "KESTREL COAL GROUP PTY LTD",
+  "abn": "70624655518",
+  "acnArbn": "624655518",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010538",
+      "acnArbn": "624655518",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.13,
+      "payments31To60Days": 5.59,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-04-16",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 177,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportId": "PTR20003442",
+      "acnArbn": "624655518",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.26,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 93.45,
+      "payments31To60Days": 6.05,
+      "paymentsMoreThan60Days": 0.5,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-08",
+      "overallP95Position": {
+        "rank": 459,
+        "count": 2568,
+        "percentile": 81
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 173,
+        "percentile": 76.2
+      }
+    },
+    {
+      "reportId": "PTR20000141",
+      "acnArbn": "624655518",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.81,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 93.9,
+      "payments31To60Days": 6,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-05-23",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 170,
+        "percentile": 75.1
+      }
+    }
+  ]
+}

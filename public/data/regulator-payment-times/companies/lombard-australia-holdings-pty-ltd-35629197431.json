@@ -1,0 +1,95 @@
+{
+  "slug": "lombard-australia-holdings-pty-ltd-35629197431",
+  "businessName": "LOMBARD AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "35629197431",
+  "acnArbn": "629197431",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009618",
+      "acnArbn": "629197431",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.38,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 92.24,
+      "payments31To60Days": 3.73,
+      "paymentsMoreThan60Days": 4.03,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 231,
+        "count": 338,
+        "percentile": 30.6
+      }
+    },
+    {
+      "reportId": "PTR20003968",
+      "acnArbn": "629197431",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.71,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 88.42,
+      "payments31To60Days": 6.78,
+      "paymentsMoreThan60Days": 4.8,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-19",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 260,
+        "count": 349,
+        "percentile": 23.9
+      }
+    },
+    {
+      "reportId": "PTR20001760",
+      "acnArbn": "629197431",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.79,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 87.84,
+      "payments31To60Days": 4.81,
+      "paymentsMoreThan60Days": 7.35,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2498,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 316,
+        "count": 339,
+        "percentile": 6.8
+      }
+    }
+  ]
+}

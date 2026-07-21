@@ -1,0 +1,95 @@
+{
+  "slug": "vegie-bandits-pty-ltd-31079441044",
+  "businessName": "VEGIE BANDITS PTY LTD",
+  "abn": "31079441044",
+  "acnArbn": "079441044",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010357",
+      "acnArbn": "079441044",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.8,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 72.3,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 5.7,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2135,
+        "count": 2613,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 207,
+        "percentile": 16
+      }
+    },
+    {
+      "reportId": "PTR20005965",
+      "acnArbn": "079441044",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.2,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 70.3,
+      "payments31To60Days": 22.9,
+      "paymentsMoreThan60Days": 6.8,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-06",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 170,
+        "count": 208,
+        "percentile": 17.4
+      }
+    },
+    {
+      "reportId": "PTR20000176",
+      "acnArbn": "079441044",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.5,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 72.2,
+      "payments31To60Days": 21.7,
+      "paymentsMoreThan60Days": 6.1,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-05-27",
+      "overallP95Position": {
+        "rank": 1980,
+        "count": 2498,
+        "percentile": 20
+      },
+      "industryP95Position": {
+        "rank": 161,
+        "count": 207,
+        "percentile": 20.9
+      }
+    }
+  ]
+}

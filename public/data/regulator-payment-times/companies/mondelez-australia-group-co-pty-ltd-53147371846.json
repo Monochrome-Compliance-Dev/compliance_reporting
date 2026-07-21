@@ -1,0 +1,95 @@
+{
+  "slug": "mondelez-australia-group-co-pty-ltd-53147371846",
+  "businessName": "MONDELEZ AUSTRALIA GROUP CO PTY LTD",
+  "abn": "53147371846",
+  "acnArbn": "147371846",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008117",
+      "acnArbn": "147371846",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 119,
+      "payments30DaysOrLess": 65.28,
+      "payments31To60Days": 19.43,
+      "paymentsMoreThan60Days": 15.29,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 2540,
+        "count": 2613,
+        "percentile": 2.6
+      },
+      "industryP95Position": {
+        "rank": 332,
+        "count": 347,
+        "percentile": 4
+      }
+    },
+    {
+      "reportId": "PTR20004405",
+      "acnArbn": "147371846",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.85,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 59.95,
+      "payments31To60Days": 20.26,
+      "paymentsMoreThan60Days": 19.78,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 2483,
+        "count": 2568,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 328,
+        "count": 335,
+        "percentile": 1.5
+      }
+    },
+    {
+      "reportId": "PTR20005890",
+      "acnArbn": "147371846",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.24,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 119,
+      "payments30DaysOrLess": 64.32,
+      "payments31To60Days": 20.17,
+      "paymentsMoreThan60Days": 15.52,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-01",
+      "overallP95Position": {
+        "rank": 2414,
+        "count": 2498,
+        "percentile": 3.2
+      },
+      "industryP95Position": {
+        "rank": 312,
+        "count": 323,
+        "percentile": 3.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "cigarette-and-gift-warehouse-franchising-pty-ltd-52055030567",
+  "businessName": "CIGARETTE & GIFT WAREHOUSE (FRANCHISING) PTY LTD",
+  "abn": "52055030567",
+  "acnArbn": "055030567",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010863",
+      "acnArbn": "055030567",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.54,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 97.56,
+      "payments31To60Days": 2.44,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-29",
+      "overallP95Position": {
+        "rank": 151,
+        "count": 2613,
+        "percentile": 94
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 207,
+        "percentile": 98.5
+      }
+    },
+    {
+      "reportId": "PTR20010940",
+      "acnArbn": "055030567",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.74,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 97.83,
+      "payments31To60Days": 2.17,
+      "paymentsMoreThan60Days": 0.36,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-30",
+      "overallP95Position": {
+        "rank": 459,
+        "count": 2568,
+        "percentile": 81
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 208,
+        "percentile": 87
+      }
+    },
+    {
+      "reportId": "PTR20010937",
+      "acnArbn": "055030567",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.34,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.07,
+      "payments31To60Days": 5.93,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-04-30",
+      "overallP95Position": {
+        "rank": 466,
+        "count": 2498,
+        "percentile": 79.9
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 207,
+        "percentile": 86.9
+      }
+    }
+  ]
+}

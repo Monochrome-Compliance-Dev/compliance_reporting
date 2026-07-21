@@ -1,0 +1,67 @@
+{
+  "slug": "altrad-australia-pty-ltd-56652016807",
+  "businessName": "ALTRAD AUSTRALIA PTY LTD",
+  "abn": "56652016807",
+  "acnArbn": "652016807",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2026-02-28",
+  "reports": [
+    {
+      "reportId": "PTR20011223",
+      "acnArbn": "652016807",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 66,
+      "medianPaymentTimeDays": 63,
+      "p80PaymentTimeDays": 77,
+      "p95PaymentTimeDays": 97,
+      "payments30DaysOrLess": 11.53,
+      "payments31To60Days": 37.73,
+      "paymentsMoreThan60Days": 50.74,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-05-29",
+      "overallP95Position": {
+        "rank": 22,
+        "count": 24,
+        "percentile": 8.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006709",
+      "acnArbn": "652016807",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 29,
+      "payments31To60Days": 38,
+      "paymentsMoreThan60Days": 32,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-12-15",
+      "overallP95Position": {
+        "rank": 21,
+        "count": 25,
+        "percentile": 16.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

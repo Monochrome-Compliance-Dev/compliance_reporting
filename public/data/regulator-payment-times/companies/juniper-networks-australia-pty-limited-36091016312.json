@@ -1,0 +1,67 @@
+{
+  "slug": "juniper-networks-australia-pty-limited-36091016312",
+  "businessName": "JUNIPER NETWORKS AUSTRALIA PTY LIMITED",
+  "abn": "36091016312",
+  "acnArbn": "091016312",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20010640",
+      "acnArbn": "091016312",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.06,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 73.85,
+      "payments31To60Days": 23.08,
+      "paymentsMoreThan60Days": 3.08,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-04-22",
+      "overallP95Position": {
+        "rank": 1484,
+        "count": 2568,
+        "percentile": 40
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 181,
+        "percentile": 43.3
+      }
+    },
+    {
+      "reportId": "PTR20010549",
+      "acnArbn": "091016312",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.74,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 60.53,
+      "payments31To60Days": 35.53,
+      "paymentsMoreThan60Days": 3.95,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-04-16",
+      "overallP95Position": {
+        "rank": 1347,
+        "count": 2498,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 176,
+        "percentile": 45.1
+      }
+    }
+  ]
+}

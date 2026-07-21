@@ -1,0 +1,95 @@
+{
+  "slug": "western-australian-specialty-alloys-pty-ltd-14053910188",
+  "businessName": "WESTERN AUSTRALIAN SPECIALTY ALLOYS PTY. LTD.",
+  "abn": "14053910188",
+  "acnArbn": "053910188",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-28",
+  "reports": [
+    {
+      "reportId": "PTR20010190",
+      "acnArbn": "053910188",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.92,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 33.95,
+      "payments31To60Days": 59.25,
+      "paymentsMoreThan60Days": 6.8,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 8,
+        "count": 9,
+        "percentile": 12.5
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20004732",
+      "acnArbn": "053910188",
+      "reportingPeriodStartDate": "2024-12-30",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.52,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 27.5,
+      "payments31To60Days": 65.77,
+      "paymentsMoreThan60Days": 6.73,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 9,
+        "count": 13,
+        "percentile": 33.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20001650",
+      "acnArbn": "053910188",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.38,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 23.36,
+      "payments31To60Days": 68.18,
+      "paymentsMoreThan60Days": 8.46,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 11,
+        "percentile": 10
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    }
+  ]
+}

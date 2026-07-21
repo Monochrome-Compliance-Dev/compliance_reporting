@@ -1,0 +1,95 @@
+{
+  "slug": "robert-half-australia-pty-limited-32081257052",
+  "businessName": "ROBERT HALF AUSTRALIA PTY LIMITED",
+  "abn": "32081257052",
+  "acnArbn": "081257052",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009948",
+      "acnArbn": "081257052",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.35,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 19,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 0.88,
+      "paymentsMoreThan60Days": 0.22,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 109,
+        "count": 2613,
+        "percentile": 95.6
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 49,
+        "percentile": 87.5
+      }
+    },
+    {
+      "reportId": "PTR20005409",
+      "acnArbn": "081257052",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.76,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 21,
+      "payments30DaysOrLess": 98.32,
+      "payments31To60Days": 1.26,
+      "paymentsMoreThan60Days": 0.42,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 113,
+        "count": 2568,
+        "percentile": 95.1
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 50,
+        "percentile": 87.8
+      }
+    },
+    {
+      "reportId": "PTR20002492",
+      "acnArbn": "081257052",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.7,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 4.2,
+      "paymentsMoreThan60Days": 0.8,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-07-15",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 50,
+        "percentile": 51
+      }
+    }
+  ]
+}

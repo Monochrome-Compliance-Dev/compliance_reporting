@@ -1,0 +1,67 @@
+{
+  "slug": "goodyear-australia-pty-limited-75000017489",
+  "businessName": "GOODYEAR AUSTRALIA PTY LIMITED",
+  "abn": "75000017489",
+  "acnArbn": "000017489",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010094",
+      "acnArbn": "000017489",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 58,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2343,
+        "count": 2613,
+        "percentile": 9.7
+      },
+      "industryP95Position": {
+        "rank": 193,
+        "count": 207,
+        "percentile": 6.8
+      }
+    },
+    {
+      "reportId": "PTR20005196",
+      "acnArbn": "000017489",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 62,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 725,
+        "count": 2568,
+        "percentile": 71.1
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 208,
+        "percentile": 75.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "endeavour-wool-exports-pty-ltd-28621014293",
+  "businessName": "ENDEAVOUR WOOL EXPORTS PTY LTD",
+  "abn": "28621014293",
+  "acnArbn": "621014293",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009731",
+      "acnArbn": "621014293",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 703,
+        "count": 2613,
+        "percentile": 71.9
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 102,
+        "percentile": 72.3
+      }
+    },
+    {
+      "reportId": "PTR20004300",
+      "acnArbn": "621014293",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 47,
+      "payments31To60Days": 51.7,
+      "paymentsMoreThan60Days": 1.3,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 549,
+        "count": 2568,
+        "percentile": 77.4
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 92,
+        "percentile": 71.4
+      }
+    },
+    {
+      "reportId": "PTR20002294",
+      "acnArbn": "621014293",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 17,
+      "payments30DaysOrLess": 99,
+      "payments31To60Days": 1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-07-01",
+      "overallP95Position": {
+        "rank": 90,
+        "count": 2498,
+        "percentile": 96.3
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 85,
+        "percentile": 94
+      }
+    }
+  ]
+}

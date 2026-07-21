@@ -1,0 +1,95 @@
+{
+  "slug": "nyrstar-sales-and-marketing-ag-46401415344",
+  "businessName": "NYRSTAR SALES & MARKETING AG",
+  "abn": "46401415344",
+  "acnArbn": "",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011339",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.75,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 58.46,
+      "payments31To60Days": 37.17,
+      "paymentsMoreThan60Days": 4.37,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-06-12",
+      "overallP95Position": {
+        "rank": 132,
+        "count": 193,
+        "percentile": 29.2
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 25,
+        "percentile": 58.3
+      }
+    },
+    {
+      "reportId": "PTR20006678",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.12,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 46.75,
+      "payments31To60Days": 41.2,
+      "paymentsMoreThan60Days": 12.05,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-12-12",
+      "overallP95Position": {
+        "rank": 198,
+        "count": 228,
+        "percentile": 12.8
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 28,
+        "percentile": 29.6
+      }
+    },
+    {
+      "reportId": "PTR20001742",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.62,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 44.88,
+      "payments31To60Days": 42.01,
+      "paymentsMoreThan60Days": 13.11,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 200,
+        "count": 231,
+        "percentile": 12.6
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 32,
+        "percentile": 19.4
+      }
+    }
+  ]
+}

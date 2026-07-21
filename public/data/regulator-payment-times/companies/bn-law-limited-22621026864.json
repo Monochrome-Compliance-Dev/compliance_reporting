@@ -1,0 +1,95 @@
+{
+  "slug": "bn-law-limited-22621026864",
+  "businessName": "BN LAW LIMITED",
+  "abn": "22621026864",
+  "acnArbn": "621026864",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20006985",
+      "acnArbn": "621026864",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.15,
+      "medianPaymentTimeDays": 12.5,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 97.95,
+      "payments31To60Days": 1.73,
+      "paymentsMoreThan60Days": 0.32,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 243,
+        "count": 2613,
+        "percentile": 89.2
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 183,
+        "percentile": 91.2
+      }
+    },
+    {
+      "reportId": "PTR20003796",
+      "acnArbn": "621026864",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.42,
+      "medianPaymentTimeDays": 11.54,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 96.9,
+      "payments31To60Days": 2.7,
+      "paymentsMoreThan60Days": 0.38,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 225,
+        "count": 2568,
+        "percentile": 89.6
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 181,
+        "percentile": 92.8
+      }
+    },
+    {
+      "reportId": "PTR20000487",
+      "acnArbn": "621026864",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.67,
+      "medianPaymentTimeDays": 16.59,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 98,
+      "payments30DaysOrLess": 68.24,
+      "payments31To60Days": 17.56,
+      "paymentsMoreThan60Days": 14.2,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-16",
+      "overallP95Position": {
+        "rank": 2333,
+        "count": 2498,
+        "percentile": 6.5
+      },
+      "industryP95Position": {
+        "rank": 153,
+        "count": 176,
+        "percentile": 13.1
+      }
+    }
+  ]
+}

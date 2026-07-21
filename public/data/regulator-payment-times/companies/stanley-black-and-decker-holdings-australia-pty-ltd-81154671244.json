@@ -1,0 +1,95 @@
+{
+  "slug": "stanley-black-and-decker-holdings-australia-pty-ltd-81154671244",
+  "businessName": "Stanley Black & Decker Holdings Australia Pty Ltd",
+  "abn": "81154671244",
+  "acnArbn": "154671244",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-01-03",
+  "reports": [
+    {
+      "reportId": "PTR20008130",
+      "acnArbn": "154671244",
+      "reportingPeriodStartDate": "2025-06-29",
+      "reportingPeriodEndDate": "2026-01-03",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.82,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 12.48,
+      "payments31To60Days": 85.35,
+      "paymentsMoreThan60Days": 2.17,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20004309",
+      "acnArbn": "154671244",
+      "reportingPeriodStartDate": "2024-12-29",
+      "reportingPeriodEndDate": "2025-06-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 50.04,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 21.58,
+      "payments31To60Days": 65.3,
+      "paymentsMoreThan60Days": 13.12,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-24",
+      "overallP95Position": {
+        "rank": 5,
+        "count": 5,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20003103",
+      "acnArbn": "154671244",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-28",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 48.52,
+      "medianPaymentTimeDays": 60,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 26.78,
+      "payments31To60Days": 57.44,
+      "paymentsMoreThan60Days": 15.78,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-13",
+      "overallP95Position": {
+        "rank": 5,
+        "count": 5,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

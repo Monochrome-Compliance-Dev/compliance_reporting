@@ -1,0 +1,39 @@
+{
+  "slug": "australian-construction-group-pty-ltd-19604459127",
+  "businessName": "AUSTRALIAN CONSTRUCTION GROUP PTY LTD",
+  "abn": "19604459127",
+  "acnArbn": "604459127",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007774",
+      "acnArbn": "604459127",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.37,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 51.12,
+      "payments31To60Days": 47.77,
+      "paymentsMoreThan60Days": 1.11,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-13",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 270,
+        "percentile": 54.6
+      }
+    }
+  ]
+}

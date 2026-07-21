@@ -1,0 +1,95 @@
+{
+  "slug": "dr-oetker-queen-australia-pty-ltd-92606358516",
+  "businessName": "DR. OETKER QUEEN AUSTRALIA PTY LTD",
+  "abn": "92606358516",
+  "acnArbn": "606358516",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010154",
+      "acnArbn": "606358516",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.44,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 74.8,
+      "payments31To60Days": 24.8,
+      "paymentsMoreThan60Days": 0.39,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2613,
+        "percentile": 53.1
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 347,
+        "percentile": 76.6
+      }
+    },
+    {
+      "reportId": "PTR20010150",
+      "acnArbn": "606358516",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.26,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 69.56,
+      "payments31To60Days": 29.6,
+      "paymentsMoreThan60Days": 0.85,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1133,
+        "count": 2568,
+        "percentile": 54.2
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 335,
+        "percentile": 78.4
+      }
+    },
+    {
+      "reportId": "PTR20010057",
+      "acnArbn": "606358516",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.23,
+      "medianPaymentTimeDays": 20.5,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 75.16,
+      "payments31To60Days": 24.08,
+      "paymentsMoreThan60Days": 0.76,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1077,
+        "count": 2498,
+        "percentile": 55.1
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 323,
+        "percentile": 76.7
+      }
+    }
+  ]
+}

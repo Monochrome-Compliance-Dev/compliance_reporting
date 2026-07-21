@@ -1,0 +1,95 @@
+{
+  "slug": "mmg-dugald-river-pty-ltd-19083405556",
+  "businessName": "MMG DUGALD RIVER PTY LTD",
+  "abn": "19083405556",
+  "acnArbn": "083405556",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008613",
+      "acnArbn": "083405556",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.1,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 40,
+      "payments31To60Days": 51,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2613,
+        "percentile": 10.4
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 177,
+        "percentile": 11.4
+      }
+    },
+    {
+      "reportId": "PTR20004967",
+      "acnArbn": "083405556",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 28,
+      "payments31To60Days": 61,
+      "paymentsMoreThan60Days": 11,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 2218,
+        "count": 2568,
+        "percentile": 12.8
+      },
+      "industryP95Position": {
+        "rank": 149,
+        "count": 173,
+        "percentile": 12.8
+      }
+    },
+    {
+      "reportId": "PTR20001505",
+      "acnArbn": "083405556",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.5,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 26,
+      "payments31To60Days": 65,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 2153,
+        "count": 2498,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 170,
+        "percentile": 10.7
+      }
+    }
+  ]
+}

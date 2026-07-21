@@ -1,0 +1,95 @@
+{
+  "slug": "jason-windows-pty-ltd-86060974138",
+  "businessName": "JASON WINDOWS PTY. LTD.",
+  "abn": "86060974138",
+  "acnArbn": "060974138",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008330",
+      "acnArbn": "060974138",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.76,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 85.86,
+      "payments31To60Days": 14.06,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 270,
+        "percentile": 80.7
+      }
+    },
+    {
+      "reportId": "PTR20006520",
+      "acnArbn": "060974138",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.09,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 87.76,
+      "payments31To60Days": 12.23,
+      "paymentsMoreThan60Days": 0.01,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 259,
+        "percentile": 81
+      }
+    },
+    {
+      "reportId": "PTR20006509",
+      "acnArbn": "060974138",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.18,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 86.92,
+      "payments31To60Days": 13.06,
+      "paymentsMoreThan60Days": 0.02,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-11-24",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 250,
+        "percentile": 79.1
+      }
+    }
+  ]
+}

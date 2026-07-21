@@ -1,0 +1,95 @@
+{
+  "slug": "s-process-equipment-australia-pty-limited-21127927226",
+  "businessName": "S-Process Equipment Australia Pty Limited",
+  "abn": "21127927226",
+  "acnArbn": "127927226",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007681",
+      "acnArbn": "127927226",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.84,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 36,
+      "payments31To60Days": 40,
+      "paymentsMoreThan60Days": 24,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-06",
+      "overallP95Position": {
+        "rank": 2265,
+        "count": 2613,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 274,
+        "count": 347,
+        "percentile": 20.2
+      }
+    },
+    {
+      "reportId": "PTR20003048",
+      "acnArbn": "127927226",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.46,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 33,
+      "payments31To60Days": 39.4,
+      "paymentsMoreThan60Days": 27.5,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-06",
+      "overallP95Position": {
+        "rank": 2156,
+        "count": 2568,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 252,
+        "count": 335,
+        "percentile": 24.3
+      }
+    },
+    {
+      "reportId": "PTR20001313",
+      "acnArbn": "127927226",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.03,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 39.7,
+      "payments31To60Days": 36.3,
+      "paymentsMoreThan60Days": 24,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 229,
+        "count": 323,
+        "percentile": 27.6
+      }
+    }
+  ]
+}

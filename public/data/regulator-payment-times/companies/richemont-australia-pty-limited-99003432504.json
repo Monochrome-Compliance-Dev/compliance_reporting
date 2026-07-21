@@ -1,0 +1,95 @@
+{
+  "slug": "richemont-australia-pty-limited-99003432504",
+  "businessName": "RICHEMONT AUSTRALIA PTY LIMITED",
+  "abn": "99003432504",
+  "acnArbn": "003432504",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011364",
+      "acnArbn": "003432504",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.87,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 93.32,
+      "payments31To60Days": 5.83,
+      "paymentsMoreThan60Days": 0.45,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 38,
+        "count": 193,
+        "percentile": 79.2
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 13,
+        "percentile": 83.3
+      }
+    },
+    {
+      "reportId": "PTR20006838",
+      "acnArbn": "003432504",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.25,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.82,
+      "payments31To60Days": 3.75,
+      "paymentsMoreThan60Days": 0.43,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-12-24",
+      "overallP95Position": {
+        "rank": 33,
+        "count": 228,
+        "percentile": 84.1
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 14,
+        "percentile": 84.6
+      }
+    },
+    {
+      "reportId": "PTR20001662",
+      "acnArbn": "003432504",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.01,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-28",
+      "overallP95Position": {
+        "rank": 31,
+        "count": 231,
+        "percentile": 84.8
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 14,
+        "percentile": 92.3
+      }
+    }
+  ]
+}

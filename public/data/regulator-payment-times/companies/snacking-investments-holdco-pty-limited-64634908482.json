@@ -1,0 +1,95 @@
+{
+  "slug": "snacking-investments-holdco-pty-limited-64634908482",
+  "businessName": "SNACKING INVESTMENTS HOLDCO PTY LIMITED",
+  "abn": "64634908482",
+  "acnArbn": "634908482",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2026-02-01",
+  "reports": [
+    {
+      "reportId": "PTR20010618",
+      "acnArbn": "634908482",
+      "reportingPeriodStartDate": "2025-08-04",
+      "reportingPeriodEndDate": "2026-02-01",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 74,
+      "p95PaymentTimeDays": 95,
+      "payments30DaysOrLess": 21.4,
+      "payments31To60Days": 44.6,
+      "paymentsMoreThan60Days": 34,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-21",
+      "overallP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006288",
+      "acnArbn": "634908482",
+      "reportingPeriodStartDate": "2025-01-27",
+      "reportingPeriodEndDate": "2025-08-03",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 59,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 77,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 23.1,
+      "payments31To60Days": 45,
+      "paymentsMoreThan60Days": 31.9,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-10-28",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002301",
+      "acnArbn": "634908482",
+      "reportingPeriodStartDate": "2024-07-29",
+      "reportingPeriodEndDate": "2025-01-26",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 74,
+      "p95PaymentTimeDays": 103,
+      "payments30DaysOrLess": 23,
+      "payments31To60Days": 47.4,
+      "paymentsMoreThan60Days": 29.6,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-02",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    }
+  ]
+}

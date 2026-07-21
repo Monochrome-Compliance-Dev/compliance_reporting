@@ -1,0 +1,95 @@
+{
+  "slug": "mct-automotive-group-pty-ltd-59636285017",
+  "businessName": "MCT AUTOMOTIVE GROUP PTY LTD",
+  "abn": "59636285017",
+  "acnArbn": "636285017",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010951",
+      "acnArbn": "636285017",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.21,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.28,
+      "payments31To60Days": 5.64,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-01",
+      "overallP95Position": {
+        "rank": 502,
+        "count": 2613,
+        "percentile": 79.3
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 329,
+        "percentile": 87.5
+      }
+    },
+    {
+      "reportId": "PTR20010950",
+      "acnArbn": "636285017",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.58,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 95.86,
+      "payments31To60Days": 4.02,
+      "paymentsMoreThan60Days": 0.11,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-01",
+      "overallP95Position": {
+        "rank": 268,
+        "count": 2568,
+        "percentile": 87.8
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 323,
+        "percentile": 92.9
+      }
+    },
+    {
+      "reportId": "PTR20010949",
+      "acnArbn": "636285017",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.18,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 87.59,
+      "payments31To60Days": 12.3,
+      "paymentsMoreThan60Days": 0.03,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-05-01",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2498,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 51,
+        "count": 323,
+        "percentile": 83.9
+      }
+    }
+  ]
+}

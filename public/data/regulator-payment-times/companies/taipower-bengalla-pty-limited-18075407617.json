@@ -1,0 +1,67 @@
+{
+  "slug": "taipower-bengalla-pty-limited-18075407617",
+  "businessName": "TAIPOWER BENGALLA PTY. LIMITED",
+  "abn": "18075407617",
+  "acnArbn": "075407617",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20007141",
+      "acnArbn": "075407617",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.21,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 22,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-02-06",
+      "overallP95Position": {
+        "rank": 127,
+        "count": 2568,
+        "percentile": 94.7
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 173,
+        "percentile": 91.3
+      }
+    },
+    {
+      "reportId": "PTR20006946",
+      "acnArbn": "075407617",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.74,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 12,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-01-16",
+      "overallP95Position": {
+        "rank": 51,
+        "count": 2498,
+        "percentile": 97.9
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 170,
+        "percentile": 98.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "queensland-bulk-water-supply-authority-75450239876",
+  "businessName": "Queensland Bulk Water Supply authority",
+  "abn": "75450239876",
+  "acnArbn": "",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Water supply, sewerage and drainage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008554",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.31,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 92.82,
+      "payments31To60Days": 6.13,
+      "paymentsMoreThan60Days": 1.05,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 636,
+        "count": 2613,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 92,
+        "percentile": 58.2
+      }
+    },
+    {
+      "reportId": "PTR20005176",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.78,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 87.9,
+      "payments31To60Days": 9.82,
+      "paymentsMoreThan60Days": 2.29,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-29",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 95,
+        "percentile": 57.4
+      }
+    },
+    {
+      "reportId": "PTR20000298",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 92.46,
+      "payments31To60Days": 6.58,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Water supply, sewerage and drainage services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-09",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 99,
+        "percentile": 44.9
+      }
+    }
+  ]
+}

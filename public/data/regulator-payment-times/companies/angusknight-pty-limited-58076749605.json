@@ -1,0 +1,95 @@
+{
+  "slug": "angusknight-pty-limited-58076749605",
+  "businessName": "AngusKnight Pty Limited",
+  "abn": "58076749605",
+  "acnArbn": "076749605",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010324",
+      "acnArbn": "076749605",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 87,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 842,
+        "count": 2613,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 49,
+        "percentile": 54.2
+      }
+    },
+    {
+      "reportId": "PTR20004467",
+      "acnArbn": "076749605",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.63,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 62,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 43,
+        "count": 50,
+        "percentile": 14.3
+      }
+    },
+    {
+      "reportId": "PTR20002184",
+      "acnArbn": "076749605",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 83,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 50,
+        "percentile": 28.6
+      }
+    }
+  ]
+}

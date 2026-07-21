@@ -1,0 +1,95 @@
+{
+  "slug": "ad-astra-holdings-pty-limited-19111061726",
+  "businessName": "AD ASTRA HOLDINGS PTY. LIMITED",
+  "abn": "19111061726",
+  "acnArbn": "111061726",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011488",
+      "acnArbn": "111061726",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 63.05,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 112,
+      "p95PaymentTimeDays": 124,
+      "payments30DaysOrLess": 39.09,
+      "payments31To60Days": 20.41,
+      "paymentsMoreThan60Days": 40.5,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-23",
+      "overallP95Position": {
+        "rank": 2558,
+        "count": 2613,
+        "percentile": 2
+      },
+      "industryP95Position": {
+        "rank": 206,
+        "count": 207,
+        "percentile": 0.5
+      }
+    },
+    {
+      "reportId": "PTR20003793",
+      "acnArbn": "111061726",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47.2,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 81,
+      "p95PaymentTimeDays": 115,
+      "payments30DaysOrLess": 53,
+      "payments31To60Days": 24,
+      "paymentsMoreThan60Days": 23,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 2465,
+        "count": 2568,
+        "percentile": 4
+      },
+      "industryP95Position": {
+        "rank": 201,
+        "count": 208,
+        "percentile": 3.4
+      }
+    },
+    {
+      "reportId": "PTR20003069",
+      "acnArbn": "111061726",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.6,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 128,
+      "payments30DaysOrLess": 44.84,
+      "payments31To60Days": 30.65,
+      "paymentsMoreThan60Days": 25.3,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-04",
+      "overallP95Position": {
+        "rank": 2447,
+        "count": 2498,
+        "percentile": 2
+      },
+      "industryP95Position": {
+        "rank": 203,
+        "count": 207,
+        "percentile": 1.9
+      }
+    }
+  ]
+}

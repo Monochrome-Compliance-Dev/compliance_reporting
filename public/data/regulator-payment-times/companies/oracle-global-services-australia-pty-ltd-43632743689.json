@@ -1,0 +1,67 @@
+{
+  "slug": "oracle-global-services-australia-pty-ltd-43632743689",
+  "businessName": "ORACLE GLOBAL SERVICES AUSTRALIA PTY LTD",
+  "abn": "43632743689",
+  "acnArbn": "632743689",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-11-30",
+  "reports": [
+    {
+      "reportId": "PTR20007322",
+      "acnArbn": "632743689",
+      "reportingPeriodStartDate": "2025-06-01",
+      "reportingPeriodEndDate": "2025-11-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 94.37,
+      "payments31To60Days": 1.3,
+      "paymentsMoreThan60Days": 4.33,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-20",
+      "overallP95Position": {
+        "rank": 7,
+        "count": 22,
+        "percentile": 71.4
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20003313",
+      "acnArbn": "632743689",
+      "reportingPeriodStartDate": "2024-12-01",
+      "reportingPeriodEndDate": "2025-05-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.78,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 251,
+      "payments30DaysOrLess": 85.4,
+      "payments31To60Days": 4.42,
+      "paymentsMoreThan60Days": 10.18,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-29",
+      "overallP95Position": {
+        "rank": 22,
+        "count": 22,
+        "percentile": 0
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 5,
+        "percentile": 0
+      }
+    }
+  ]
+}

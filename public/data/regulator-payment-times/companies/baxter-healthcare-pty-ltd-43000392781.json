@@ -1,0 +1,95 @@
+{
+  "slug": "baxter-healthcare-pty-ltd-43000392781",
+  "businessName": "BAXTER HEALTHCARE PTY LTD",
+  "abn": "43000392781",
+  "acnArbn": "000392781",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008602",
+      "acnArbn": "000392781",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 37,
+      "payments31To60Days": 57,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2007,
+        "count": 2613,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 106,
+        "percentile": 32.4
+      }
+    },
+    {
+      "reportId": "PTR20003691",
+      "acnArbn": "000392781",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 44,
+      "payments31To60Days": 47,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-15",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2568,
+        "percentile": 16.1
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 97,
+        "percentile": 20.8
+      }
+    },
+    {
+      "reportId": "PTR20000368",
+      "acnArbn": "000392781",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 77,
+      "payments30DaysOrLess": 34,
+      "payments31To60Days": 53,
+      "paymentsMoreThan60Days": 13,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-11",
+      "overallP95Position": {
+        "rank": 2041,
+        "count": 2498,
+        "percentile": 17.1
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 97,
+        "percentile": 20.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "fluence-energy-pty-ltd-18627071461",
+  "businessName": "FLUENCE ENERGY PTY LTD",
+  "abn": "18627071461",
+  "acnArbn": "627071461",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20010764",
+      "acnArbn": "627071461",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 79,
+        "count": 193,
+        "percentile": 57.8
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 5,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006706",
+      "acnArbn": "627071461",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 55,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 14,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-12-15",
+      "overallP95Position": {
+        "rank": 207,
+        "count": 228,
+        "percentile": 8.4
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 6,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20000805",
+      "acnArbn": "627071461",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 101,
+      "payments30DaysOrLess": 44,
+      "payments31To60Days": 40,
+      "paymentsMoreThan60Days": 16,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-23",
+      "overallP95Position": {
+        "rank": 223,
+        "count": 231,
+        "percentile": 3.5
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 7,
+        "percentile": 0
+      }
+    }
+  ]
+}

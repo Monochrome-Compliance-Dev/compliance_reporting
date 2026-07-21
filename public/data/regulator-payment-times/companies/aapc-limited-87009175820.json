@@ -1,0 +1,95 @@
+{
+  "slug": "aapc-limited-87009175820",
+  "businessName": "AAPC LIMITED",
+  "abn": "87009175820",
+  "acnArbn": "009175820",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009189",
+      "acnArbn": "009175820",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 79.25,
+      "payments31To60Days": 14.85,
+      "paymentsMoreThan60Days": 5.9,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 35,
+        "count": 38,
+        "percentile": 5.4
+      }
+    },
+    {
+      "reportId": "PTR20007554",
+      "acnArbn": "009175820",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 74.89,
+      "payments31To60Days": 19.71,
+      "paymentsMoreThan60Days": 5.4,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-02",
+      "overallP95Position": {
+        "rank": 1680,
+        "count": 2568,
+        "percentile": 33
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 36,
+        "percentile": 20
+      }
+    },
+    {
+      "reportId": "PTR20007560",
+      "acnArbn": "009175820",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 74.23,
+      "payments31To60Days": 20.18,
+      "paymentsMoreThan60Days": 5.59,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-03-02",
+      "overallP95Position": {
+        "rank": 1661,
+        "count": 2498,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 30,
+        "percentile": 13.8
+      }
+    }
+  ]
+}

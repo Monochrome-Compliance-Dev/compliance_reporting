@@ -1,0 +1,95 @@
+{
+  "slug": "leonardo-holdco-pty-ltd-63629681116",
+  "businessName": "LEONARDO HOLDCO PTY LTD",
+  "abn": "63629681116",
+  "acnArbn": "629681116",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008592",
+      "acnArbn": "629681116",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.38,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 96,
+      "payments30DaysOrLess": 54,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 18,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2463,
+        "count": 2613,
+        "percentile": 5.6
+      },
+      "industryP95Position": {
+        "rank": 98,
+        "count": 106,
+        "percentile": 6.7
+      }
+    },
+    {
+      "reportId": "PTR20004735",
+      "acnArbn": "629681116",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.5,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 104,
+      "payments30DaysOrLess": 55,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 21,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 2418,
+        "count": 2568,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 97,
+        "percentile": 9.4
+      }
+    },
+    {
+      "reportId": "PTR20000968",
+      "acnArbn": "629681116",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 68,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 48,
+      "payments31To60Days": 26,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2418,
+        "count": 2498,
+        "percentile": 2.8
+      },
+      "industryP95Position": {
+        "rank": 94,
+        "count": 97,
+        "percentile": 3.1
+      }
+    }
+  ]
+}

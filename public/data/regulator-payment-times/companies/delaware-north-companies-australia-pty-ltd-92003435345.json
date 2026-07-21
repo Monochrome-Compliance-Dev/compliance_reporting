@@ -1,0 +1,67 @@
+{
+  "slug": "delaware-north-companies-australia-pty-ltd-92003435345",
+  "businessName": "DELAWARE NORTH COMPANIES AUSTRALIA PTY LTD",
+  "abn": "92003435345",
+  "acnArbn": "003435345",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2026-01-04",
+  "reports": [
+    {
+      "reportId": "PTR20010410",
+      "acnArbn": "003435345",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2026-01-04",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.97,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.01,
+      "payments31To60Days": 4.2,
+      "paymentsMoreThan60Days": 0.79,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20000956",
+      "acnArbn": "003435345",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.76,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 97.82,
+      "payments31To60Days": 1.58,
+      "paymentsMoreThan60Days": 0.6,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 11,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    }
+  ]
+}

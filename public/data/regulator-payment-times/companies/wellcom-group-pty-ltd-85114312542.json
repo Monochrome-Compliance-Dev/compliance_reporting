@@ -1,0 +1,95 @@
+{
+  "slug": "wellcom-group-pty-ltd-85114312542",
+  "businessName": "WELLCOM GROUP PTY LTD",
+  "abn": "85114312542",
+  "acnArbn": "114312542",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008950",
+      "acnArbn": "114312542",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.6,
+      "medianPaymentTimeDays": 30.5,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 30.43,
+      "paymentsMoreThan60Days": 19.57,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2316,
+        "count": 2613,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 49,
+        "percentile": 6.3
+      }
+    },
+    {
+      "reportId": "PTR20005248",
+      "acnArbn": "114312542",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.4,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 71,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 46.41,
+      "payments31To60Days": 22.91,
+      "paymentsMoreThan60Days": 30.68,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2259,
+        "count": 2568,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 50,
+        "percentile": 6.1
+      }
+    },
+    {
+      "reportId": "PTR20000693",
+      "acnArbn": "114312542",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.27,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 41.81,
+      "payments31To60Days": 35.92,
+      "paymentsMoreThan60Days": 22.9,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-20",
+      "overallP95Position": {
+        "rank": 2153,
+        "count": 2498,
+        "percentile": 13.4
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 50,
+        "percentile": 10.2
+      }
+    }
+  ]
+}

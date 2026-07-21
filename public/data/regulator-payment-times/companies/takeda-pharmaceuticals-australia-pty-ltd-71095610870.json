@@ -1,0 +1,95 @@
+{
+  "slug": "takeda-pharmaceuticals-australia-pty-ltd-71095610870",
+  "businessName": "TAKEDA PHARMACEUTICALS AUSTRALIA PTY. LTD.",
+  "abn": "71095610870",
+  "acnArbn": "095610870",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011048",
+      "acnArbn": "095610870",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 47,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 84.83,
+      "payments31To60Days": 11.24,
+      "paymentsMoreThan60Days": 3.93,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-05-13",
+      "overallP95Position": {
+        "rank": 183,
+        "count": 193,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 5,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20005971",
+      "acnArbn": "095610870",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.76,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 84,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 66.7,
+      "payments31To60Days": 26.7,
+      "paymentsMoreThan60Days": 6.6,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-10-07",
+      "overallP95Position": {
+        "rank": 212,
+        "count": 228,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20000051",
+      "acnArbn": "095610870",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.74,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 72.7,
+      "payments31To60Days": 14.6,
+      "paymentsMoreThan60Days": 12.6,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-05-12",
+      "overallP95Position": {
+        "rank": 211,
+        "count": 231,
+        "percentile": 7.8
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 5,
+        "percentile": 0
+      }
+    }
+  ]
+}

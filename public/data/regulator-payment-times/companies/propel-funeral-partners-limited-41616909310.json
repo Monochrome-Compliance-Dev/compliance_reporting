@@ -1,0 +1,67 @@
+{
+  "slug": "propel-funeral-partners-limited-41616909310",
+  "businessName": "PROPEL FUNERAL PARTNERS LIMITED",
+  "abn": "41616909310",
+  "acnArbn": "616909310",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Personal and other services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008402",
+      "acnArbn": "616909310",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.66,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.09,
+      "payments31To60Days": 4.87,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-03-20",
+      "overallP95Position": {
+        "rank": 346,
+        "count": 2613,
+        "percentile": 83.3
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 25,
+        "percentile": 83.3
+      }
+    },
+    {
+      "reportId": "PTR20000991",
+      "acnArbn": "616909310",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.39,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 90.86,
+      "payments31To60Days": 9.05,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 674,
+        "count": 2498,
+        "percentile": 72.3
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 22,
+        "percentile": 66.7
+      }
+    }
+  ]
+}

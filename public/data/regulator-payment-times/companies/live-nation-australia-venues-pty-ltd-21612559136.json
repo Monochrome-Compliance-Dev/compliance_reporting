@@ -1,0 +1,95 @@
+{
+  "slug": "live-nation-australia-venues-pty-ltd-21612559136",
+  "businessName": "LIVE NATION AUSTRALIA VENUES PTY LTD",
+  "abn": "21612559136",
+  "acnArbn": "612559136",
+  "industryDivision": "Arts and Recreation Services",
+  "industrySubdivision": "Creative and performing arts activities",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010015",
+      "acnArbn": "612559136",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.73,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Creative and performing arts activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 756,
+        "count": 2613,
+        "percentile": 70.4
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 34,
+        "percentile": 48.5
+      }
+    },
+    {
+      "reportId": "PTR20004383",
+      "acnArbn": "612559136",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.26,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 92,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Creative and performing arts activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 765,
+        "count": 2568,
+        "percentile": 69.3
+      },
+      "industryP95Position": {
+        "rank": 20,
+        "count": 35,
+        "percentile": 41.2
+      }
+    },
+    {
+      "reportId": "PTR20001356",
+      "acnArbn": "612559136",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.43,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Creative and performing arts activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 779,
+        "count": 2498,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 31,
+        "percentile": 50
+      }
+    }
+  ]
+}

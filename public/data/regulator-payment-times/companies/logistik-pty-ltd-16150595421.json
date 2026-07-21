@@ -1,0 +1,67 @@
+{
+  "slug": "logistik-pty-ltd-16150595421",
+  "businessName": "LOGISTIK PTY LTD",
+  "abn": "16150595421",
+  "acnArbn": "150595421",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-11-30",
+  "reports": [
+    {
+      "reportId": "PTR20010438",
+      "acnArbn": "150595421",
+      "reportingPeriodStartDate": "2025-06-01",
+      "reportingPeriodEndDate": "2025-11-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.12,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 71,
+      "payments31To60Days": 27,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-02",
+      "overallP95Position": {
+        "rank": 9,
+        "count": 22,
+        "percentile": 61.9
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20010437",
+      "acnArbn": "150595421",
+      "reportingPeriodStartDate": "2024-12-01",
+      "reportingPeriodEndDate": "2025-05-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.04,
+      "medianPaymentTimeDays": 26.5,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 65,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-04-02",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 22,
+        "percentile": 57.1
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 5,
+        "percentile": 100
+      }
+    }
+  ]
+}

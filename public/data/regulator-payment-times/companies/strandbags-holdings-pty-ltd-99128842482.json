@@ -1,0 +1,95 @@
+{
+  "slug": "strandbags-holdings-pty-ltd-99128842482",
+  "businessName": "Strandbags Holdings Pty Ltd",
+  "abn": "99128842482",
+  "acnArbn": "128842482",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-02-28",
+  "reports": [
+    {
+      "reportId": "PTR20011671",
+      "acnArbn": "128842482",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.12,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 79,
+      "payments31To60Days": 19,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 9,
+        "count": 24,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 5,
+        "percentile": 75
+      }
+    },
+    {
+      "reportId": "PTR20006051",
+      "acnArbn": "128842482",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.76,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 78,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-10-15",
+      "overallP95Position": {
+        "rank": 8,
+        "count": 25,
+        "percentile": 70.8
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 7,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20003021",
+      "acnArbn": "128842482",
+      "reportingPeriodStartDate": "2024-09-01",
+      "reportingPeriodEndDate": "2025-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.26,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 77,
+      "payments31To60Days": 21,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-31",
+      "overallP95Position": {
+        "rank": 10,
+        "count": 22,
+        "percentile": 57.1
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 5,
+        "percentile": 75
+      }
+    }
+  ]
+}

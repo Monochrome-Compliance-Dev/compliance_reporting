@@ -1,0 +1,95 @@
+{
+  "slug": "ab-food-holdings-pty-ltd-27681237454",
+  "businessName": "AB FOOD HOLDINGS PTY LTD",
+  "abn": "27681237454",
+  "acnArbn": "681237454",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010347",
+      "acnArbn": "681237454",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.19,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 57.62,
+      "payments31To60Days": 34.3,
+      "paymentsMoreThan60Days": 8.08,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2135,
+        "count": 2613,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 244,
+        "count": 347,
+        "percentile": 28.6
+      }
+    },
+    {
+      "reportId": "PTR20008277",
+      "acnArbn": "681237454",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.71,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 65.65,
+      "payments31To60Days": 27.76,
+      "paymentsMoreThan60Days": 6.59,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 1988,
+        "count": 2568,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 216,
+        "count": 335,
+        "percentile": 34.7
+      }
+    },
+    {
+      "reportId": "PTR20008275",
+      "acnArbn": "681237454",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.1,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 48,
+      "payments30DaysOrLess": 78.32,
+      "payments31To60Days": 19.93,
+      "paymentsMoreThan60Days": 1.75,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-18",
+      "overallP95Position": {
+        "rank": 936,
+        "count": 2498,
+        "percentile": 61.4
+      },
+      "industryP95Position": {
+        "rank": 55,
+        "count": 323,
+        "percentile": 82
+      }
+    }
+  ]
+}

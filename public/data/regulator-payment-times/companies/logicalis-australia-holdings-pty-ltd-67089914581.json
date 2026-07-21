@@ -1,0 +1,67 @@
+{
+  "slug": "logicalis-australia-holdings-pty-ltd-67089914581",
+  "businessName": "LOGICALIS AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "67089914581",
+  "acnArbn": "089914581",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-02-28",
+  "reports": [
+    {
+      "reportId": "PTR20011177",
+      "acnArbn": "089914581",
+      "reportingPeriodStartDate": "2025-09-01",
+      "reportingPeriodEndDate": "2026-02-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.51,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 36.95,
+      "payments31To60Days": 57.54,
+      "paymentsMoreThan60Days": 5.51,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-05-27",
+      "overallP95Position": {
+        "rank": 18,
+        "count": 24,
+        "percentile": 26.1
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006592",
+      "acnArbn": "089914581",
+      "reportingPeriodStartDate": "2025-03-01",
+      "reportingPeriodEndDate": "2025-08-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.94,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 53.79,
+      "payments31To60Days": 42.76,
+      "paymentsMoreThan60Days": 3.45,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-11-28",
+      "overallP95Position": {
+        "rank": 9,
+        "count": 25,
+        "percentile": 66.7
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 3,
+        "percentile": 0
+      }
+    }
+  ]
+}

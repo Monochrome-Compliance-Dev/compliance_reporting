@@ -1,0 +1,95 @@
+{
+  "slug": "blenner-s-transport-qld-pty-ltd-36169008495",
+  "businessName": "BLENNER'S TRANSPORT QLD PTY LTD",
+  "abn": "36169008495",
+  "acnArbn": "169008495",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007799",
+      "acnArbn": "169008495",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 62.69,
+      "payments31To60Days": 37.21,
+      "paymentsMoreThan60Days": 0.1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 143,
+        "percentile": 44.4
+      }
+    },
+    {
+      "reportId": "PTR20010080",
+      "acnArbn": "169008495",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 39,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 144,
+        "percentile": 51.7
+      }
+    },
+    {
+      "reportId": "PTR20010073",
+      "acnArbn": "169008495",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.53,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 38.46,
+      "payments31To60Days": 61.52,
+      "paymentsMoreThan60Days": 0.02,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1292,
+        "count": 2498,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 140,
+        "percentile": 46.8
+      }
+    }
+  ]
+}

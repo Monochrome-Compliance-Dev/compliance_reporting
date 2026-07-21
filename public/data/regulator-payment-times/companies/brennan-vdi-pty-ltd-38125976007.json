@@ -1,0 +1,95 @@
+{
+  "slug": "brennan-vdi-pty-ltd-38125976007",
+  "businessName": "BRENNAN VDI PTY LTD",
+  "abn": "38125976007",
+  "acnArbn": "125976007",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010144",
+      "acnArbn": "125976007",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.36,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 66.56,
+      "payments31To60Days": 27.78,
+      "paymentsMoreThan60Days": 5.66,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 117,
+        "count": 183,
+        "percentile": 33.5
+      }
+    },
+    {
+      "reportId": "PTR20005729",
+      "acnArbn": "125976007",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.72,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 62.17,
+      "payments31To60Days": 30.07,
+      "paymentsMoreThan60Days": 7.76,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2058,
+        "count": 2568,
+        "percentile": 19
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 181,
+        "percentile": 26.1
+      }
+    },
+    {
+      "reportId": "PTR20002821",
+      "acnArbn": "125976007",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.98,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 64.37,
+      "payments31To60Days": 30.29,
+      "paymentsMoreThan60Days": 5.34,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 2281,
+        "count": 2498,
+        "percentile": 8.3
+      },
+      "industryP95Position": {
+        "rank": 147,
+        "count": 176,
+        "percentile": 16.6
+      }
+    }
+  ]
+}

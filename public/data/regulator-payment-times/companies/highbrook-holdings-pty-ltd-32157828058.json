@@ -1,0 +1,67 @@
+{
+  "slug": "highbrook-holdings-pty-ltd-32157828058",
+  "businessName": "HIGHBROOK HOLDINGS PTY LTD",
+  "abn": "32157828058",
+  "acnArbn": "157828058",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20005675",
+      "acnArbn": "157828058",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.06,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 39.73,
+      "payments31To60Days": 56.75,
+      "paymentsMoreThan60Days": 3.52,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1721,
+        "count": 2568,
+        "percentile": 31.7
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 335,
+        "percentile": 49.1
+      }
+    },
+    {
+      "reportId": "PTR20003305",
+      "acnArbn": "157828058",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.7,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 107,
+      "payments30DaysOrLess": 32.8,
+      "payments31To60Days": 55,
+      "paymentsMoreThan60Days": 12,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-08-29",
+      "overallP95Position": {
+        "rank": 2379,
+        "count": 2498,
+        "percentile": 4.6
+      },
+      "industryP95Position": {
+        "rank": 306,
+        "count": 323,
+        "percentile": 5.3
+      }
+    }
+  ]
+}

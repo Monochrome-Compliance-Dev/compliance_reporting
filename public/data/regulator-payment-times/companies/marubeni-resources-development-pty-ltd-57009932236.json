@@ -1,0 +1,95 @@
+{
+  "slug": "marubeni-resources-development-pty-ltd-57009932236",
+  "businessName": "MARUBENI RESOURCES DEVELOPMENT PTY LTD",
+  "abn": "57009932236",
+  "acnArbn": "009932236",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009678",
+      "acnArbn": "009932236",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 5.69,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 85.08,
+      "payments31To60Days": 14.92,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2613,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 52,
+        "count": 177,
+        "percentile": 68.8
+      }
+    },
+    {
+      "reportId": "PTR20003779",
+      "acnArbn": "009932236",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 3.54,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 6,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 21,
+        "count": 2568,
+        "percentile": 99
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 173,
+        "percentile": 98.8
+      }
+    },
+    {
+      "reportId": "PTR20001332",
+      "acnArbn": "009932236",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4.7,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 8,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 29,
+        "count": 2498,
+        "percentile": 98.7
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 170,
+        "percentile": 100
+      }
+    }
+  ]
+}

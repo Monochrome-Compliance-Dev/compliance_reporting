@@ -1,0 +1,67 @@
+{
+  "slug": "nido-education-limited-12650967703",
+  "businessName": "Nido Education Limited",
+  "abn": "12650967703",
+  "acnArbn": "650967703",
+  "industryDivision": "Education and Training",
+  "industrySubdivision": "Preschool and school education",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009661",
+      "acnArbn": "650967703",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 74.63,
+      "payments31To60Days": 20.6,
+      "paymentsMoreThan60Days": 4.77,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 14,
+        "percentile": 38.5
+      }
+    },
+    {
+      "reportId": "PTR20010604",
+      "acnArbn": "650967703",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.66,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 79.23,
+      "payments31To60Days": 19.98,
+      "paymentsMoreThan60Days": 0.78,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 15,
+        "percentile": 57.1
+      }
+    }
+  ]
+}

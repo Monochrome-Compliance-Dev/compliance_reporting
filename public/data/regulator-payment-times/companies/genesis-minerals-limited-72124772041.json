@@ -1,0 +1,95 @@
+{
+  "slug": "genesis-minerals-limited-72124772041",
+  "businessName": "GENESIS MINERALS LIMITED",
+  "abn": "72124772041",
+  "acnArbn": "124772041",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008336",
+      "acnArbn": "124772041",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.67,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 81.6,
+      "payments31To60Days": 16.9,
+      "paymentsMoreThan60Days": 1.5,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-03-19",
+      "overallP95Position": {
+        "rank": 1044,
+        "count": 2613,
+        "percentile": 58.5
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 177,
+        "percentile": 51.7
+      }
+    },
+    {
+      "reportId": "PTR20004161",
+      "acnArbn": "124772041",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.14,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 35.33,
+      "payments31To60Days": 54.99,
+      "paymentsMoreThan60Days": 9.68,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-23",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2568,
+        "percentile": 16.1
+      },
+      "industryP95Position": {
+        "rank": 142,
+        "count": 173,
+        "percentile": 18
+      }
+    },
+    {
+      "reportId": "PTR20001487",
+      "acnArbn": "124772041",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.27,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 35.49,
+      "payments31To60Days": 59.76,
+      "paymentsMoreThan60Days": 4.75,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1478,
+        "count": 2498,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 104,
+        "count": 170,
+        "percentile": 35.5
+      }
+    }
+  ]
+}

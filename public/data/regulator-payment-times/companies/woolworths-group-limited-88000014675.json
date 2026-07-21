@@ -1,0 +1,95 @@
+{
+  "slug": "woolworths-group-limited-88000014675",
+  "businessName": "WOOLWORTHS GROUP LIMITED",
+  "abn": "88000014675",
+  "acnArbn": "000014675",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009224",
+      "acnArbn": "000014675",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.49,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 95.85,
+      "payments31To60Days": 4.06,
+      "paymentsMoreThan60Days": 0.09,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 144,
+        "count": 207,
+        "percentile": 29.1
+      }
+    },
+    {
+      "reportId": "PTR20005360",
+      "acnArbn": "000014675",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.38,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 95.17,
+      "payments31To60Days": 2.43,
+      "paymentsMoreThan60Days": 2.4,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 150,
+        "count": 208,
+        "percentile": 26.6
+      }
+    },
+    {
+      "reportId": "PTR20002119",
+      "acnArbn": "000014675",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.79,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 94.71,
+      "payments31To60Days": 2.67,
+      "paymentsMoreThan60Days": 2.62,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1868,
+        "count": 2498,
+        "percentile": 24.2
+      },
+      "industryP95Position": {
+        "rank": 155,
+        "count": 207,
+        "percentile": 25.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "rivergum-homes-group-aust-pty-ltd-62074736762",
+  "businessName": "RIVERGUM HOMES GROUP (AUST.) PTY LTD",
+  "abn": "62074736762",
+  "acnArbn": "074736762",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007927",
+      "acnArbn": "074736762",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.1,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 71.3,
+      "payments31To60Days": 26.3,
+      "paymentsMoreThan60Days": 2.3,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 1794,
+        "count": 2613,
+        "percentile": 29.7
+      },
+      "industryP95Position": {
+        "rank": 165,
+        "count": 270,
+        "percentile": 36.4
+      }
+    },
+    {
+      "reportId": "PTR20007906",
+      "acnArbn": "074736762",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.2,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 62.2,
+      "payments31To60Days": 33.9,
+      "paymentsMoreThan60Days": 3.8,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-12",
+      "overallP95Position": {
+        "rank": 1883,
+        "count": 2568,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 259,
+        "percentile": 28.7
+      }
+    },
+    {
+      "reportId": "PTR20007776",
+      "acnArbn": "074736762",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": true,
+      "averagePaymentTimeDays": 29.9,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 70.6,
+      "payments31To60Days": 27.1,
+      "paymentsMoreThan60Days": 2.4,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-10",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 250,
+        "percentile": 33.7
+      }
+    }
+  ]
+}

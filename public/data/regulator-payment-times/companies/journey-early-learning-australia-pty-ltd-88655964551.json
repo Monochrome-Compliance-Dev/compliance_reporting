@@ -1,0 +1,67 @@
+{
+  "slug": "journey-early-learning-australia-pty-ltd-88655964551",
+  "businessName": "JOURNEY EARLY LEARNING AUSTRALIA PTY LTD",
+  "abn": "88655964551",
+  "acnArbn": "655964551",
+  "industryDivision": "Education and Training",
+  "industrySubdivision": "Preschool and school education",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007167",
+      "acnArbn": "655964551",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.55,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 90.84,
+      "payments31To60Days": 9.01,
+      "paymentsMoreThan60Days": 0.15,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2026-02-11",
+      "overallP95Position": {
+        "rank": 577,
+        "count": 2613,
+        "percentile": 77
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 14,
+        "percentile": 69.2
+      }
+    },
+    {
+      "reportId": "PTR20005328",
+      "acnArbn": "655964551",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.6,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 89.71,
+      "payments31To60Days": 9.79,
+      "paymentsMoreThan60Days": 0.51,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 15,
+        "percentile": 71.4
+      }
+    }
+  ]
+}

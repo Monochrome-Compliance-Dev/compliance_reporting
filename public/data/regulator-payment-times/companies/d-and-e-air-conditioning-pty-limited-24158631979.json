@@ -1,0 +1,95 @@
+{
+  "slug": "d-and-e-air-conditioning-pty-limited-24158631979",
+  "businessName": "D & E AIR CONDITIONING PTY LIMITED",
+  "abn": "24158631979",
+  "acnArbn": "158631979",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010829",
+      "acnArbn": "158631979",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.64,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 18.8,
+      "payments31To60Days": 71,
+      "paymentsMoreThan60Days": 9.85,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 183,
+        "count": 270,
+        "percentile": 29.4
+      }
+    },
+    {
+      "reportId": "PTR20004547",
+      "acnArbn": "158631979",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.63,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 16.29,
+      "payments31To60Days": 74.56,
+      "paymentsMoreThan60Days": 9.08,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 157,
+        "count": 259,
+        "percentile": 36.4
+      }
+    },
+    {
+      "reportId": "PTR20001959",
+      "acnArbn": "158631979",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.69,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 18.23,
+      "payments31To60Days": 71.74,
+      "paymentsMoreThan60Days": 9.63,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1699,
+        "count": 2498,
+        "percentile": 30.4
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 250,
+        "percentile": 33.7
+      }
+    }
+  ]
+}

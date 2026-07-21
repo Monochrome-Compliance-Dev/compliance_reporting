@@ -1,0 +1,95 @@
+{
+  "slug": "movigo-pty-ltd-57606409394",
+  "businessName": "MOVIGO PTY LTD",
+  "abn": "57606409394",
+  "acnArbn": "606409394",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Rental and hiring services (except real estate)",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011602",
+      "acnArbn": "606409394",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.9,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 66.17,
+      "payments31To60Days": 27.09,
+      "paymentsMoreThan60Days": 6.74,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-06-26",
+      "overallP95Position": {
+        "rank": 157,
+        "count": 193,
+        "percentile": 18.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006956",
+      "acnArbn": "606409394",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.64,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 90.22,
+      "payments31To60Days": 8.08,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-01-19",
+      "overallP95Position": {
+        "rank": 66,
+        "count": 228,
+        "percentile": 70
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20001993",
+      "acnArbn": "606409394",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.96,
+      "medianPaymentTimeDays": 3,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 97.76,
+      "payments31To60Days": 2.13,
+      "paymentsMoreThan60Days": 0.11,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 17,
+        "count": 231,
+        "percentile": 90.9
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    }
+  ]
+}

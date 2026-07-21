@@ -1,0 +1,95 @@
+{
+  "slug": "the-trustee-for-host-plus-superannuation-fund-68657495890",
+  "businessName": "THE TRUSTEE FOR HOST PLUS SUPERANNUATION FUND",
+  "abn": "68657495890",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Insurance and superannuation funds",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009285",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.48,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 85.78,
+      "payments31To60Days": 9.53,
+      "paymentsMoreThan60Days": 4.69,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 1590,
+        "count": 2613,
+        "percentile": 37
+      },
+      "industryP95Position": {
+        "rank": 293,
+        "count": 338,
+        "percentile": 12.8
+      }
+    },
+    {
+      "reportId": "PTR20007138",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.6,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 72.73,
+      "payments31To60Days": 21.47,
+      "paymentsMoreThan60Days": 5.8,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-06",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 305,
+        "count": 349,
+        "percentile": 12.1
+      }
+    },
+    {
+      "reportId": "PTR20007137",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.19,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 70.89,
+      "payments31To60Days": 19.38,
+      "paymentsMoreThan60Days": 9.73,
+      "industrySubdivision": "Insurance and superannuation funds",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-02-06",
+      "overallP95Position": {
+        "rank": 1914,
+        "count": 2498,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 296,
+        "count": 339,
+        "percentile": 12.1
+      }
+    }
+  ]
+}

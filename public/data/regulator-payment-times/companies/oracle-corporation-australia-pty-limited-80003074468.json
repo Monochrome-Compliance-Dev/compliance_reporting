@@ -1,0 +1,67 @@
+{
+  "slug": "oracle-corporation-australia-pty-limited-80003074468",
+  "businessName": "ORACLE CORPORATION AUSTRALIA PTY LIMITED",
+  "abn": "80003074468",
+  "acnArbn": "003074468",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-11-30",
+  "reports": [
+    {
+      "reportId": "PTR20007321",
+      "acnArbn": "003074468",
+      "reportingPeriodStartDate": "2025-06-01",
+      "reportingPeriodEndDate": "2025-11-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 95.65,
+      "payments31To60Days": 2.75,
+      "paymentsMoreThan60Days": 1.63,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-02-20",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 22,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20003312",
+      "acnArbn": "003074468",
+      "reportingPeriodStartDate": "2024-12-01",
+      "reportingPeriodEndDate": "2025-05-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.85,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-08-29",
+      "overallP95Position": {
+        "rank": 14,
+        "count": 22,
+        "percentile": 33.3
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 5,
+        "percentile": 50
+      }
+    }
+  ]
+}

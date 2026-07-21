@@ -1,0 +1,95 @@
+{
+  "slug": "roche-products-pty-ltd-70000132865",
+  "businessName": "ROCHE PRODUCTS PTY LTD",
+  "abn": "70000132865",
+  "acnArbn": "000132865",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007851",
+      "acnArbn": "000132865",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.66,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 87,
+      "payments30DaysOrLess": 58.4,
+      "payments31To60Days": 31.9,
+      "paymentsMoreThan60Days": 9.7,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 2372,
+        "count": 2613,
+        "percentile": 9
+      },
+      "industryP95Position": {
+        "rank": 92,
+        "count": 106,
+        "percentile": 12.4
+      }
+    },
+    {
+      "reportId": "PTR20006090",
+      "acnArbn": "000132865",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.72,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 53.1,
+      "payments31To60Days": 39,
+      "paymentsMoreThan60Days": 7.9,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-10-20",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2568,
+        "percentile": 16.6
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 97,
+        "percentile": 21.9
+      }
+    },
+    {
+      "reportId": "PTR20001390",
+      "acnArbn": "000132865",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.02,
+      "medianPaymentTimeDays": 54,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 44.29,
+      "payments31To60Days": 51.24,
+      "paymentsMoreThan60Days": 4.46,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 97,
+        "percentile": 43.8
+      }
+    }
+  ]
+}

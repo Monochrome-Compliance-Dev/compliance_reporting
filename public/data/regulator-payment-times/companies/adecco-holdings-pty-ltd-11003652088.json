@@ -1,0 +1,95 @@
+{
+  "slug": "adecco-holdings-pty-ltd-11003652088",
+  "businessName": "ADECCO HOLDINGS PTY LTD",
+  "abn": "11003652088",
+  "acnArbn": "003652088",
+  "industryDivision": "Other Services",
+  "industrySubdivision": "Personal and other services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010825",
+      "acnArbn": "003652088",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 69,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 2120,
+        "count": 2613,
+        "percentile": 18.3
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 25,
+        "percentile": 4.2
+      }
+    },
+    {
+      "reportId": "PTR20004423",
+      "acnArbn": "003652088",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 83,
+      "payments31To60Days": 12,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 16,
+        "count": 26,
+        "percentile": 40
+      }
+    },
+    {
+      "reportId": "PTR20002154",
+      "acnArbn": "003652088",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 64,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Personal and other services",
+      "industryDivision": "Other Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1914,
+        "count": 2498,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 22,
+        "percentile": 19
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "north-queensland-export-terminal-holdings-pty-ltd-17154644685",
+  "businessName": "NORTH QUEENSLAND EXPORT TERMINAL HOLDINGS PTY LTD",
+  "abn": "17154644685",
+  "acnArbn": "154644685",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Transport support services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011593",
+      "acnArbn": "154644685",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.18,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 12,
+      "p95PaymentTimeDays": 18,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 12,
+        "count": 193,
+        "percentile": 93.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 14,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006606",
+      "acnArbn": "154644685",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.39,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-12-02",
+      "overallP95Position": {
+        "rank": 15,
+        "count": 228,
+        "percentile": 93
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 18,
+        "percentile": 94.1
+      }
+    },
+    {
+      "reportId": "PTR20002901",
+      "acnArbn": "154644685",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13.73,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 91,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Transport support services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 47,
+        "count": 231,
+        "percentile": 80
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 17,
+        "percentile": 100
+      }
+    }
+  ]
+}

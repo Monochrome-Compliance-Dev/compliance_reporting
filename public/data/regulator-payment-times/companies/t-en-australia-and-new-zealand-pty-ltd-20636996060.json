@@ -1,0 +1,39 @@
+{
+  "slug": "t-en-australia-and-new-zealand-pty-ltd-20636996060",
+  "businessName": "T.EN AUSTRALIA AND NEW ZEALAND PTY LTD",
+  "abn": "20636996060",
+  "acnArbn": "636996060",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007786",
+      "acnArbn": "636996060",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 64.5,
+      "payments31To60Days": 26.5,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 2316,
+        "count": 2613,
+        "percentile": 11
+      },
+      "industryP95Position": {
+        "rank": 146,
+        "count": 183,
+        "percentile": 20.3
+      }
+    }
+  ]
+}

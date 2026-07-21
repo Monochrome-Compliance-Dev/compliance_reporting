@@ -1,0 +1,95 @@
+{
+  "slug": "sherriff-electrical-pty-ltd-63010059837",
+  "businessName": "SHERRIFF ELECTRICAL PTY LTD",
+  "abn": "63010059837",
+  "acnArbn": "010059837",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009960",
+      "acnArbn": "010059837",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 63.57,
+      "medianPaymentTimeDays": 59,
+      "p80PaymentTimeDays": 84,
+      "p95PaymentTimeDays": 102,
+      "payments30DaysOrLess": 6,
+      "payments31To60Days": 46,
+      "paymentsMoreThan60Days": 48,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2495,
+        "count": 2613,
+        "percentile": 4.4
+      },
+      "industryP95Position": {
+        "rank": 314,
+        "count": 329,
+        "percentile": 4.3
+      }
+    },
+    {
+      "reportId": "PTR20006307",
+      "acnArbn": "010059837",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61.66,
+      "medianPaymentTimeDays": 59,
+      "p80PaymentTimeDays": 84,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 8.13,
+      "payments31To60Days": 43.46,
+      "paymentsMoreThan60Days": 48.41,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-29",
+      "overallP95Position": {
+        "rank": 2387,
+        "count": 2568,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 295,
+        "count": 323,
+        "percentile": 7.5
+      }
+    },
+    {
+      "reportId": "PTR20000931",
+      "acnArbn": "010059837",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53.52,
+      "medianPaymentTimeDays": 52,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 9.05,
+      "payments31To60Days": 58.7,
+      "paymentsMoreThan60Days": 32.25,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 2196,
+        "count": 2498,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 269,
+        "count": 323,
+        "percentile": 16.5
+      }
+    }
+  ]
+}

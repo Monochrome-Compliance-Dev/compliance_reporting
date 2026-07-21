@@ -1,0 +1,95 @@
+{
+  "slug": "adcome-pty-ltd-99110315681",
+  "businessName": "Adcome Pty Ltd",
+  "abn": "99110315681",
+  "acnArbn": "110315681",
+  "industryDivision": "Retail Trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2026-04-26",
+  "reports": [
+    {
+      "reportId": "PTR20011394",
+      "acnArbn": "110315681",
+      "reportingPeriodStartDate": "2025-10-27",
+      "reportingPeriodEndDate": "2026-04-26",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.26,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.09,
+      "payments31To60Days": 2.81,
+      "paymentsMoreThan60Days": 2.1,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-06-17",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006495",
+      "acnArbn": "110315681",
+      "reportingPeriodStartDate": "2025-04-28",
+      "reportingPeriodEndDate": "2025-10-26",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 2.34,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 96.05,
+      "payments31To60Days": 2.33,
+      "paymentsMoreThan60Days": 1.63,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-11-20",
+      "overallP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 1,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20002586",
+      "acnArbn": "110315681",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.35,
+      "payments31To60Days": 2.77,
+      "paymentsMoreThan60Days": 1.88,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2025-07-21",
+      "overallP95Position": {
+        "rank": 5,
+        "count": 28,
+        "percentile": 81.5
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "easygo-group-holdings-pty-ltd-50676669686",
+  "businessName": "EASYGO GROUP HOLDINGS PTY LTD",
+  "abn": "50676669686",
+  "acnArbn": "676669686",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010189",
+      "acnArbn": "676669686",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.28,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 96.23,
+      "payments31To60Days": 3.1,
+      "paymentsMoreThan60Days": 0.22,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 283,
+        "count": 2613,
+        "percentile": 86.8
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 183,
+        "percentile": 89.6
+      }
+    }
+  ]
+}

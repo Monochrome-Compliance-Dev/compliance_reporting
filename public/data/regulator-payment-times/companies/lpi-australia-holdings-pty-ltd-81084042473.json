@@ -1,0 +1,95 @@
+{
+  "slug": "lpi-australia-holdings-pty-ltd-81084042473",
+  "businessName": "LPI (AUSTRALIA) HOLDINGS PTY LTD",
+  "abn": "81084042473",
+  "acnArbn": "084042473",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009023",
+      "acnArbn": "084042473",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.67,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 52.73,
+      "payments31To60Days": 33.02,
+      "paymentsMoreThan60Days": 14.25,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2212,
+        "count": 2613,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 53,
+        "count": 66,
+        "percentile": 18.5
+      }
+    },
+    {
+      "reportId": "PTR20003798",
+      "acnArbn": "084042473",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.38,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 64.59,
+      "payments31To60Days": 23.81,
+      "paymentsMoreThan60Days": 11.6,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 2156,
+        "count": 2568,
+        "percentile": 15.5
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 61,
+        "percentile": 23.3
+      }
+    },
+    {
+      "reportId": "PTR20003797",
+      "acnArbn": "084042473",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.95,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 71.19,
+      "payments31To60Days": 18.21,
+      "paymentsMoreThan60Days": 10.6,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2498,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 55,
+        "percentile": 16.7
+      }
+    }
+  ]
+}

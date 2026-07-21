@@ -1,0 +1,67 @@
+{
+  "slug": "moderna-australia-pty-ltd-65650204872",
+  "businessName": "MODERNA AUSTRALIA PTY LTD",
+  "abn": "65650204872",
+  "acnArbn": "650204872",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008352",
+      "acnArbn": "650204872",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.93,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 65.69,
+      "payments31To60Days": 24.51,
+      "paymentsMoreThan60Days": 9.8,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-23",
+      "overallP95Position": {
+        "rank": 2265,
+        "count": 2613,
+        "percentile": 12.7
+      },
+      "industryP95Position": {
+        "rank": 269,
+        "count": 329,
+        "percentile": 18
+      }
+    },
+    {
+      "reportId": "PTR20006742",
+      "acnArbn": "650204872",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.96,
+      "medianPaymentTimeDays": 50,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 44.74,
+      "payments31To60Days": 49.12,
+      "paymentsMoreThan60Days": 6.14,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 1799,
+        "count": 2568,
+        "percentile": 29.1
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 323,
+        "percentile": 35.4
+      }
+    }
+  ]
+}

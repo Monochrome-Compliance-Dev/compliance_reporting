@@ -1,0 +1,67 @@
+{
+  "slug": "corporate-travel-management-group-pty-ltd-52005000895",
+  "businessName": "CORPORATE TRAVEL MANAGEMENT GROUP PTY LTD",
+  "abn": "52005000895",
+  "acnArbn": "005000895",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Other transport",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20006402",
+      "acnArbn": "005000895",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 76.3,
+      "payments31To60Days": 13.9,
+      "paymentsMoreThan60Days": 9.76,
+      "industrySubdivision": "Other transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-31",
+      "overallP95Position": {
+        "rank": 2278,
+        "count": 2568,
+        "percentile": 9.9
+      },
+      "industryP95Position": {
+        "rank": 132,
+        "count": 144,
+        "percentile": 7.7
+      }
+    },
+    {
+      "reportId": "PTR20006398",
+      "acnArbn": "005000895",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 87,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 6,
+      "industrySubdivision": "Other transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-10-31",
+      "overallP95Position": {
+        "rank": 1740,
+        "count": 2498,
+        "percentile": 29
+      },
+      "industryP95Position": {
+        "rank": 97,
+        "count": 140,
+        "percentile": 30.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "nci-holdings-pty-ltd-68004328241",
+  "businessName": "NCI HOLDINGS PTY LTD",
+  "abn": "68004328241",
+  "acnArbn": "004328241",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009153",
+      "acnArbn": "004328241",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.51,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 46.19,
+      "payments31To60Days": 44.44,
+      "paymentsMoreThan60Days": 9.37,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-26",
+      "overallP95Position": {
+        "rank": 2007,
+        "count": 2613,
+        "percentile": 22.5
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 347,
+        "percentile": 37.9
+      }
+    },
+    {
+      "reportId": "PTR20003476",
+      "acnArbn": "004328241",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.32,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 44.79,
+      "payments31To60Days": 46.1,
+      "paymentsMoreThan60Days": 9.11,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-09",
+      "overallP95Position": {
+        "rank": 1929,
+        "count": 2568,
+        "percentile": 23.7
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 335,
+        "percentile": 37.7
+      }
+    },
+    {
+      "reportId": "PTR20000299",
+      "acnArbn": "004328241",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 40,
+      "payments31To60Days": 51,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-09",
+      "overallP95Position": {
+        "rank": 1566,
+        "count": 2498,
+        "percentile": 35.3
+      },
+      "industryP95Position": {
+        "rank": 146,
+        "count": 323,
+        "percentile": 53.4
+      }
+    }
+  ]
+}

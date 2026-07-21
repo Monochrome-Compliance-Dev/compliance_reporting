@@ -1,0 +1,95 @@
+{
+  "slug": "ilwella-pty-ltd-33003220371",
+  "businessName": "ILWELLA PTY LTD",
+  "abn": "33003220371",
+  "acnArbn": "003220371",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010376",
+      "acnArbn": "003220371",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 82.58,
+      "payments31To60Days": 16,
+      "paymentsMoreThan60Days": 1.42,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 231,
+        "count": 338,
+        "percentile": 30.6
+      }
+    },
+    {
+      "reportId": "PTR20005733",
+      "acnArbn": "003220371",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 87.5,
+      "payments31To60Days": 11.1,
+      "paymentsMoreThan60Days": 1.4,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 181,
+        "count": 349,
+        "percentile": 46.8
+      }
+    },
+    {
+      "reportId": "PTR20002250",
+      "acnArbn": "003220371",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 89.11,
+      "payments31To60Days": 10.08,
+      "paymentsMoreThan60Days": 0.81,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 339,
+        "percentile": 49.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "anabelle-bits-pty-ltd-40068649972",
+  "businessName": "ANABELLE BITS PTY LTD",
+  "abn": "40068649972",
+  "acnArbn": "068649972",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009657",
+      "acnArbn": "068649972",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 72.7,
+      "payments31To60Days": 22.4,
+      "paymentsMoreThan60Days": 4.9,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 1521,
+        "count": 2613,
+        "percentile": 39.2
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 183,
+        "percentile": 40.1
+      }
+    },
+    {
+      "reportId": "PTR20004655",
+      "acnArbn": "068649972",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 80.9,
+      "payments31To60Days": 17.3,
+      "paymentsMoreThan60Days": 1.8,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 978,
+        "count": 2568,
+        "percentile": 60.8
+      },
+      "industryP95Position": {
+        "rank": 76,
+        "count": 181,
+        "percentile": 57.8
+      }
+    },
+    {
+      "reportId": "PTR20001162",
+      "acnArbn": "068649972",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 76.7,
+      "payments31To60Days": 21.3,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 1009,
+        "count": 2498,
+        "percentile": 58.4
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 176,
+        "percentile": 54.3
+      }
+    }
+  ]
+}

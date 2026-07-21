@@ -1,0 +1,95 @@
+{
+  "slug": "tasman-k-b-pty-ltd-18003044102",
+  "businessName": "TASMAN K B PTY LTD",
+  "abn": "18003044102",
+  "acnArbn": "003044102",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Forestry and logging",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010730",
+      "acnArbn": "003044102",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 98.4,
+      "payments31To60Days": 1.6,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-04-24",
+      "overallP95Position": {
+        "rank": 735,
+        "count": 2613,
+        "percentile": 71.1
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 102,
+        "percentile": 71.3
+      }
+    },
+    {
+      "reportId": "PTR20011073",
+      "acnArbn": "003044102",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 94,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-05-15",
+      "overallP95Position": {
+        "rank": 397,
+        "count": 2568,
+        "percentile": 82.2
+      },
+      "industryP95Position": {
+        "rank": 17,
+        "count": 92,
+        "percentile": 81.3
+      }
+    },
+    {
+      "reportId": "PTR20011074",
+      "acnArbn": "003044102",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 94,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Forestry and logging",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-06-29",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 85,
+        "percentile": 70.2
+      }
+    }
+  ]
+}

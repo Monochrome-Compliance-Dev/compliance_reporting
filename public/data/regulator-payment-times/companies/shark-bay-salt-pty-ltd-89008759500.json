@@ -1,0 +1,95 @@
+{
+  "slug": "shark-bay-salt-pty-ltd-89008759500",
+  "businessName": "SHARK BAY SALT PTY LTD",
+  "abn": "89008759500",
+  "acnArbn": "008759500",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Non-metallic mineral mining and quarrying",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011592",
+      "acnArbn": "008759500",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.3,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 40,
+      "payments31To60Days": 60,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-06-25",
+      "overallP95Position": {
+        "rank": 114,
+        "count": 193,
+        "percentile": 39.1
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 10,
+        "percentile": 11.1
+      }
+    },
+    {
+      "reportId": "PTR20006862",
+      "acnArbn": "008759500",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.7,
+      "medianPaymentTimeDays": 8.1,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 50,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-12-30",
+      "overallP95Position": {
+        "rank": 116,
+        "count": 228,
+        "percentile": 47.6
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 10,
+        "percentile": 22.2
+      }
+    },
+    {
+      "reportId": "PTR20001398",
+      "acnArbn": "008759500",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.7,
+      "medianPaymentTimeDays": 28.7,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 59.2,
+      "payments31To60Days": 37.5,
+      "paymentsMoreThan60Days": 3.3,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 164,
+        "count": 231,
+        "percentile": 26.5
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 10,
+        "percentile": 11.1
+      }
+    }
+  ]
+}

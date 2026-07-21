@@ -1,0 +1,95 @@
+{
+  "slug": "unigrain-pty-ltd-trading-as-essantis-67120061841",
+  "businessName": "Unigrain Pty Ltd Trading As Essantis",
+  "abn": "67120061841",
+  "acnArbn": "120061841",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011164",
+      "acnArbn": "120061841",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.64,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 34.67,
+      "payments31To60Days": 57.83,
+      "paymentsMoreThan60Days": 7.5,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 1979,
+        "count": 2613,
+        "percentile": 23.2
+      },
+      "industryP95Position": {
+        "rank": 202,
+        "count": 347,
+        "percentile": 39.9
+      }
+    },
+    {
+      "reportId": "PTR20011161",
+      "acnArbn": "120061841",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.45,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 79,
+      "payments30DaysOrLess": 25.38,
+      "payments31To60Days": 59.8,
+      "paymentsMoreThan60Days": 14.81,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-05-26",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2568,
+        "percentile": 16.1
+      },
+      "industryP95Position": {
+        "rank": 247,
+        "count": 335,
+        "percentile": 25.1
+      }
+    },
+    {
+      "reportId": "PTR20009358",
+      "acnArbn": "120061841",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.64,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 34.2,
+      "payments31To60Days": 57.1,
+      "paymentsMoreThan60Days": 8.7,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-27",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 323,
+        "percentile": 41.9
+      }
+    }
+  ]
+}

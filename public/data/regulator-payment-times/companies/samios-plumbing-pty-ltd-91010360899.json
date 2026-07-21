@@ -1,0 +1,95 @@
+{
+  "slug": "samios-plumbing-pty-ltd-91010360899",
+  "businessName": "SAMIOS PLUMBING PTY LTD",
+  "abn": "91010360899",
+  "acnArbn": "010360899",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009971",
+      "acnArbn": "010360899",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.42,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 5,
+      "payments31To60Days": 64,
+      "paymentsMoreThan60Days": 30,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2326,
+        "count": 2613,
+        "percentile": 10.4
+      },
+      "industryP95Position": {
+        "rank": 284,
+        "count": 329,
+        "percentile": 13.7
+      }
+    },
+    {
+      "reportId": "PTR20006306",
+      "acnArbn": "010360899",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.89,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 4.94,
+      "payments31To60Days": 64.75,
+      "paymentsMoreThan60Days": 30.31,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-29",
+      "overallP95Position": {
+        "rank": 2218,
+        "count": 2568,
+        "percentile": 12.8
+      },
+      "industryP95Position": {
+        "rank": 266,
+        "count": 323,
+        "percentile": 17.4
+      }
+    },
+    {
+      "reportId": "PTR20000929",
+      "acnArbn": "010360899",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 53.1,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 3.43,
+      "payments31To60Days": 69.59,
+      "paymentsMoreThan60Days": 26.98,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-24",
+      "overallP95Position": {
+        "rank": 1960,
+        "count": 2498,
+        "percentile": 20.8
+      },
+      "industryP95Position": {
+        "rank": 232,
+        "count": 323,
+        "percentile": 27.6
+      }
+    }
+  ]
+}

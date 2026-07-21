@@ -1,31 +1,21 @@
-// Industry pages
-import Industries from "slices/marketing/industries/Industries";
-import ConstructionPaymentReporting from "slices/marketing/construction/ConstructionPaymentReporting";
-import ConstructionPaymentDiagnostic from "slices/marketing/construction/ConstructionPaymentDiagnostic";
+import PaymentTimesReporting from "slices/marketing/ptrs/PaymentTimesReporting";
+import { PricingPage } from "slices/marketing/pricing/PricingPage";
 import PaymentTimesReportingPrint from "slices/marketing/ptrs/PaymentTimesReporting.print";
-
-// Insights
+import ConstructionPaymentReporting from "slices/marketing/construction/ConstructionPaymentReporting";
 import IndustryInsights from "slices/marketing/insights/IndustryInsights";
+import Services from "slices/marketing/services/Services";
+import Industries from "slices/marketing/industries/Industries";
 import BlogIndex from "slices/marketing/insights/blog/BlogIndex";
 import BlogPostPage from "slices/marketing/insights/blog/BlogPostPage";
-import KnowledgeIndex from "slices/marketing/insights/knowledge/KnowledgeIndex";
-import KnowledgeArticlePage from "slices/marketing/insights/knowledge/KnowledgeArticlePage";
-
-// Service pages
-import Services from "slices/marketing/services/Services";
-import PaymentHealthCheck from "slices/marketing/services/PaymentHealthCheck";
-import PaymentTimesReporting from "slices/marketing/ptrs/PaymentTimesReporting";
-
-// Public pages
-import { About } from "slices/public/static";
 import { Contact, ContactThankyou } from "slices/public/forms";
-import PriceTier from "slices/marketing/pricing/PriceTier";
-
-// App routes
+import { About } from "slices/public/static";
 import Login from "slices/users/components/Login";
 import ForgotPassword from "slices/users/components/ForgotPassword";
 import ResetPassword from "slices/users/components/ResetPassword";
 import VerifyEmail from "slices/users/components/VerifyEmail";
+import ConstructionPaymentDiagnostic from "slices/marketing/construction/ConstructionPaymentDiagnostic";
+import RegulatorPaymentTimesSearchPage from "slices/marketing/regulatorPaymentTimes/RegulatorPaymentTimesSearchPage";
+import RegulatorPaymentTimesCompanyPage from "slices/marketing/regulatorPaymentTimes/RegulatorPaymentTimesCompanyPage";
 
 const isPublicOnlyMode =
   String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
@@ -39,48 +29,34 @@ export const publicRoutes = [
         { path: "reset-password", Component: ResetPassword },
         { path: "verify", Component: VerifyEmail },
       ]),
-
-  // Industry pages
+  { path: "contact", Component: Contact },
+  { path: "thankyou-contact", Component: ContactThankyou },
+  { path: "about", Component: About },
+  { path: "services", Component: Services },
   { path: "industries", Component: Industries },
+  { path: "payment-times-reporting", Component: PaymentTimesReporting },
+  { path: "pricing", Component: PricingPage },
   {
-    path: "industries/construction/payment-reporting",
+    path: "construction-payment-reporting",
     Component: ConstructionPaymentReporting,
   },
   {
-    path: "industries/construction/payment-diagnostic",
+    path: "construction-payment-diagnostic",
     Component: ConstructionPaymentDiagnostic,
   },
-
-  // Utility pages
+  { path: "insights/blog", Component: BlogIndex },
+  { path: "insights/blog/:slug", Component: BlogPostPage },
+  { path: "insights", Component: IndustryInsights },
   {
     path: "payment-times-reporting-print",
     Component: PaymentTimesReportingPrint,
   },
-
-  // Insights
-  { path: "insights", Component: IndustryInsights },
-  { path: "insights/blog", Component: BlogIndex },
-  { path: "insights/blog/:slug", Component: BlogPostPage },
-  { path: "insights/knowledge", Component: KnowledgeIndex },
-  { path: "insights/knowledge/:slug", Component: KnowledgeArticlePage },
-
-  // Service pages
-  { path: "services", Component: Services },
   {
-    path: "services/payment-health-check",
-    Component: PaymentHealthCheck,
+    path: "regulator-payment-times",
+    Component: RegulatorPaymentTimesSearchPage,
   },
   {
-    path: "services/payment-times-reporting",
-    Component: PaymentTimesReporting,
+    path: "regulator-payment-times/:companySlug",
+    Component: RegulatorPaymentTimesCompanyPage,
   },
-
-  // Public pages
-  { path: "about", Component: About },
-
-  // Public forms
-  { path: "contact", Component: Contact },
-  { path: "thankyou-contact", Component: ContactThankyou },
-
-  { path: "pricing", Component: PriceTier },
 ];

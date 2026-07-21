@@ -1,0 +1,67 @@
+{
+  "slug": "thomas-cappo-seafoods-pty-limited-80621912007",
+  "businessName": "THOMAS CAPPO SEAFOODS PTY LIMITED",
+  "abn": "80621912007",
+  "acnArbn": "621912007",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20005572",
+      "acnArbn": "621912007",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 90.24,
+      "payments31To60Days": 4.88,
+      "paymentsMoreThan60Days": 4.88,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 114,
+        "count": 335,
+        "percentile": 62.3
+      }
+    },
+    {
+      "reportId": "PTR20002240",
+      "acnArbn": "621912007",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 85.39,
+      "payments31To60Days": 11.46,
+      "paymentsMoreThan60Days": 3.15,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1123,
+        "count": 2498,
+        "percentile": 54
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

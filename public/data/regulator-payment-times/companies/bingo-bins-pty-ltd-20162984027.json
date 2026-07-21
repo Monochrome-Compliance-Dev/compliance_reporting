@@ -1,0 +1,95 @@
+{
+  "slug": "bingo-bins-pty-ltd-20162984027",
+  "businessName": "BINGO BINS PTY LTD",
+  "abn": "20162984027",
+  "acnArbn": "162984027",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Waste collection, treatment and disposal services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007384",
+      "acnArbn": "162984027",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.4,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 22.8,
+      "payments31To60Days": 65,
+      "paymentsMoreThan60Days": 12.2,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-02-24",
+      "overallP95Position": {
+        "rank": 1839,
+        "count": 2613,
+        "percentile": 27.8
+      },
+      "industryP95Position": {
+        "rank": 83,
+        "count": 92,
+        "percentile": 8.8
+      }
+    },
+    {
+      "reportId": "PTR20005979",
+      "acnArbn": "162984027",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 54.8,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 76,
+      "p95PaymentTimeDays": 116,
+      "payments30DaysOrLess": 23.1,
+      "payments31To60Days": 47.2,
+      "paymentsMoreThan60Days": 29.7,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-10-07",
+      "overallP95Position": {
+        "rank": 2467,
+        "count": 2568,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 93,
+        "count": 95,
+        "percentile": 2.1
+      }
+    },
+    {
+      "reportId": "PTR20005931",
+      "acnArbn": "162984027",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.9,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 33.2,
+      "payments31To60Days": 60.3,
+      "paymentsMoreThan60Days": 6.5,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-10-02",
+      "overallP95Position": {
+        "rank": 1937,
+        "count": 2498,
+        "percentile": 21.6
+      },
+      "industryP95Position": {
+        "rank": 88,
+        "count": 99,
+        "percentile": 11.2
+      }
+    }
+  ]
+}

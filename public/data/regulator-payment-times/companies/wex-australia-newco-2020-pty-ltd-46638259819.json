@@ -1,0 +1,95 @@
+{
+  "slug": "wex-australia-newco-2020-pty-ltd-46638259819",
+  "businessName": "WEX AUSTRALIA NEWCO 2020 PTY LTD",
+  "abn": "46638259819",
+  "acnArbn": "638259819",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Auxiliary finance and insurance services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008771",
+      "acnArbn": "638259819",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.52,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 188,
+        "count": 2613,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 338,
+        "percentile": 78
+      }
+    },
+    {
+      "reportId": "PTR20003986",
+      "acnArbn": "638259819",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.86,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 93,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-09-19",
+      "overallP95Position": {
+        "rank": 583,
+        "count": 2568,
+        "percentile": 75.3
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 349,
+        "percentile": 50.3
+      }
+    },
+    {
+      "reportId": "PTR20001983",
+      "acnArbn": "638259819",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.09,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 37,
+      "payments30DaysOrLess": 90.91,
+      "payments31To60Days": 6.06,
+      "paymentsMoreThan60Days": 3.03,
+      "industrySubdivision": "Auxiliary finance and insurance services",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 615,
+        "count": 2498,
+        "percentile": 74
+      },
+      "industryP95Position": {
+        "rank": 164,
+        "count": 339,
+        "percentile": 49.4
+      }
+    }
+  ]
+}

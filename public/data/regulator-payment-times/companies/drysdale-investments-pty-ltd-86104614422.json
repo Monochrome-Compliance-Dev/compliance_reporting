@@ -1,0 +1,95 @@
+{
+  "slug": "drysdale-investments-pty-ltd-86104614422",
+  "businessName": "DRYSDALE INVESTMENTS PTY LTD",
+  "abn": "86104614422",
+  "acnArbn": "104614422",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010385",
+      "acnArbn": "104614422",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 70,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 43,
+      "payments31To60Days": 27,
+      "paymentsMoreThan60Days": 30,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 2391,
+        "count": 2613,
+        "percentile": 8.4
+      },
+      "industryP95Position": {
+        "rank": 302,
+        "count": 347,
+        "percentile": 12.7
+      }
+    },
+    {
+      "reportId": "PTR20010387",
+      "acnArbn": "104614422",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 48.7,
+      "payments31To60Days": 26.7,
+      "paymentsMoreThan60Days": 24.6,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 2259,
+        "count": 2568,
+        "percentile": 11.6
+      },
+      "industryP95Position": {
+        "rank": 278,
+        "count": 335,
+        "percentile": 16.8
+      }
+    },
+    {
+      "reportId": "PTR20007822",
+      "acnArbn": "104614422",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 53,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 19,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-11",
+      "overallP95Position": {
+        "rank": 2142,
+        "count": 2498,
+        "percentile": 13.9
+      },
+      "industryP95Position": {
+        "rank": 250,
+        "count": 323,
+        "percentile": 21.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "google-australia-pty-ltd-33102417032",
+  "businessName": "GOOGLE AUSTRALIA PTY LTD",
+  "abn": "33102417032",
+  "acnArbn": "102417032",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010808",
+      "acnArbn": "102417032",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.06,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 10.28,
+      "payments31To60Days": 86.92,
+      "paymentsMoreThan60Days": 2.8,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-04-28",
+      "overallP95Position": {
+        "rank": 1648,
+        "count": 2613,
+        "percentile": 34
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 183,
+        "percentile": 39
+      }
+    },
+    {
+      "reportId": "PTR20004612",
+      "acnArbn": "102417032",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.08,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 13.13,
+      "payments31To60Days": 84.42,
+      "paymentsMoreThan60Days": 2.45,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-09-26",
+      "overallP95Position": {
+        "rank": 1406,
+        "count": 2568,
+        "percentile": 42.3
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 181,
+        "percentile": 45
+      }
+    },
+    {
+      "reportId": "PTR20001345",
+      "acnArbn": "102417032",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.14,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 9.61,
+      "payments31To60Days": 88.23,
+      "paymentsMoreThan60Days": 2.17,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2025-06-26",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 176,
+        "percentile": 54.9
+      }
+    }
+  ]
+}

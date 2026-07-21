@@ -1,0 +1,67 @@
+{
+  "slug": "australian-motoring-services-pty-ltd-60100488613",
+  "businessName": "Australian Motoring Services Pty Ltd",
+  "abn": "60100488613",
+  "acnArbn": "100488613",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20006169",
+      "acnArbn": "100488613",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.55,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 76,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 3,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-10-24",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 323,
+        "percentile": 59.6
+      }
+    },
+    {
+      "reportId": "PTR20001393",
+      "acnArbn": "100488613",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 87.73,
+      "payments31To60Days": 8.92,
+      "paymentsMoreThan60Days": 3.35,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 833,
+        "count": 2498,
+        "percentile": 65.2
+      },
+      "industryP95Position": {
+        "rank": 75,
+        "count": 323,
+        "percentile": 74.5
+      }
+    }
+  ]
+}

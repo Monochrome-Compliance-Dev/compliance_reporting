@@ -1,0 +1,95 @@
+{
+  "slug": "chobani-australia-pty-ltd-60150876305",
+  "businessName": "CHOBANI AUSTRALIA PTY LTD",
+  "abn": "60150876305",
+  "acnArbn": "150876305",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008477",
+      "acnArbn": "150876305",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.21,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 69.33,
+      "payments31To60Days": 26.8,
+      "paymentsMoreThan60Days": 3.87,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-21",
+      "overallP95Position": {
+        "rank": 1366,
+        "count": 2613,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 102,
+        "count": 347,
+        "percentile": 66.2
+      }
+    },
+    {
+      "reportId": "PTR20004537",
+      "acnArbn": "150876305",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.2,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 28.5,
+      "payments31To60Days": 68.95,
+      "paymentsMoreThan60Days": 2.55,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-25",
+      "overallP95Position": {
+        "rank": 1335,
+        "count": 2568,
+        "percentile": 45.3
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 335,
+        "percentile": 66.5
+      }
+    },
+    {
+      "reportId": "PTR20000521",
+      "acnArbn": "150876305",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.75,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 34.04,
+      "payments31To60Days": 58,
+      "paymentsMoreThan60Days": 7.96,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-06-16",
+      "overallP95Position": {
+        "rank": 2000,
+        "count": 2498,
+        "percentile": 18.9
+      },
+      "industryP95Position": {
+        "rank": 217,
+        "count": 323,
+        "percentile": 31.4
+      }
+    }
+  ]
+}

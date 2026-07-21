@@ -1,0 +1,95 @@
+{
+  "slug": "altora-ag-holdco-pty-ltd-29630396619",
+  "businessName": "ALTORA AG HOLDCO PTY LTD",
+  "abn": "29630396619",
+  "acnArbn": "630396619",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011314",
+      "acnArbn": "630396619",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.8,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 66.75,
+      "payments31To60Days": 30.8,
+      "paymentsMoreThan60Days": 2.45,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-06-11",
+      "overallP95Position": {
+        "rank": 142,
+        "count": 193,
+        "percentile": 25.5
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 8,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20006757",
+      "acnArbn": "630396619",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.33,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 61.65,
+      "payments31To60Days": 34.6,
+      "paymentsMoreThan60Days": 3.75,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-12-18",
+      "overallP95Position": {
+        "rank": 159,
+        "count": 228,
+        "percentile": 28.6
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 10,
+        "percentile": 22.2
+      }
+    },
+    {
+      "reportId": "PTR20001542",
+      "acnArbn": "630396619",
+      "reportingPeriodStartDate": "2024-10-01",
+      "reportingPeriodEndDate": "2025-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.15,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 60.3,
+      "payments31To60Days": 36.45,
+      "paymentsMoreThan60Days": 3.3,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-06-27",
+      "overallP95Position": {
+        "rank": 152,
+        "count": 231,
+        "percentile": 33.9
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 9,
+        "percentile": 12.5
+      }
+    }
+  ]
+}

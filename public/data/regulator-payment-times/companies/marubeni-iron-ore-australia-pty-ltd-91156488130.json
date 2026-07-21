@@ -1,0 +1,95 @@
+{
+  "slug": "marubeni-iron-ore-australia-pty-ltd-91156488130",
+  "businessName": "MARUBENI IRON ORE AUSTRALIA PTY. LTD.",
+  "abn": "91156488130",
+  "acnArbn": "156488130",
+  "industryDivision": "Mining",
+  "industrySubdivision": "Metal ore mining",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007042",
+      "acnArbn": "156488130",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.51,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 87.5,
+      "payments31To60Days": 12.5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-01-28",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 177,
+        "percentile": 58.5
+      }
+    },
+    {
+      "reportId": "PTR20003900",
+      "acnArbn": "156488130",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.16,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 89.01,
+      "payments31To60Days": 8.79,
+      "paymentsMoreThan60Days": 2.2,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-09-18",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 173,
+        "percentile": 66.3
+      }
+    },
+    {
+      "reportId": "PTR20001043",
+      "acnArbn": "156488130",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.36,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 92.9,
+      "payments31To60Days": 7.1,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Metal ore mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2025-06-25",
+      "overallP95Position": {
+        "rank": 406,
+        "count": 2498,
+        "percentile": 81.4
+      },
+      "industryP95Position": {
+        "rank": 31,
+        "count": 170,
+        "percentile": 78.1
+      }
+    }
+  ]
+}

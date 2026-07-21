@@ -1,0 +1,39 @@
+{
+  "slug": "thyme-hospitality-pty-ltd-41143433998",
+  "businessName": "THYME HOSPITALITY PTY LTD",
+  "abn": "41143433998",
+  "acnArbn": "143433998",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010465",
+      "acnArbn": "143433998",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.97,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 39.93,
+      "payments31To60Days": 60.07,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-04-07",
+      "overallP95Position": {
+        "rank": 1266,
+        "count": 2613,
+        "percentile": 50.1
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 38,
+        "percentile": 32.4
+      }
+    }
+  ]
+}

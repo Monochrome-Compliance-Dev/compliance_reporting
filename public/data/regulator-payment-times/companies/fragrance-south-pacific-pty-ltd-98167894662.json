@@ -1,0 +1,95 @@
+{
+  "slug": "fragrance-south-pacific-pty-ltd-98167894662",
+  "businessName": "FRAGRANCE SOUTH PACIFIC PTY LTD",
+  "abn": "98167894662",
+  "acnArbn": "167894662",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20011398",
+      "acnArbn": "167894662",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.64,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 89.86,
+      "payments31To60Days": 7.05,
+      "paymentsMoreThan60Days": 3.09,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-18",
+      "overallP95Position": {
+        "rank": 950,
+        "count": 2613,
+        "percentile": 62.3
+      },
+      "industryP95Position": {
+        "rank": 242,
+        "count": 338,
+        "percentile": 27.3
+      }
+    },
+    {
+      "reportId": "PTR20011390",
+      "acnArbn": "167894662",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.14,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 89.42,
+      "payments31To60Days": 7.69,
+      "paymentsMoreThan60Days": 2.89,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-17",
+      "overallP95Position": {
+        "rank": 789,
+        "count": 2568,
+        "percentile": 68.1
+      },
+      "industryP95Position": {
+        "rank": 208,
+        "count": 349,
+        "percentile": 39.9
+      }
+    },
+    {
+      "reportId": "PTR20011399",
+      "acnArbn": "167894662",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.92,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 92.18,
+      "payments31To60Days": 5.56,
+      "paymentsMoreThan60Days": 2.26,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-06-18",
+      "overallP95Position": {
+        "rank": 720,
+        "count": 2498,
+        "percentile": 70.2
+      },
+      "industryP95Position": {
+        "rank": 189,
+        "count": 339,
+        "percentile": 43.2
+      }
+    }
+  ]
+}

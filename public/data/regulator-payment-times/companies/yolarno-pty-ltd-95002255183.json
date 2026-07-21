@@ -1,0 +1,95 @@
+{
+  "slug": "yolarno-pty-ltd-95002255183",
+  "businessName": "Yolarno Pty Ltd",
+  "abn": "95002255183",
+  "acnArbn": "002255183",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010772",
+      "acnArbn": "002255183",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 60,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 8.99,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 88,
+        "count": 102,
+        "percentile": 11.9
+      }
+    },
+    {
+      "reportId": "PTR20010770",
+      "acnArbn": "002255183",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 50,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 59,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 1902,
+        "count": 2568,
+        "percentile": 24.9
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 92,
+        "percentile": 11
+      }
+    },
+    {
+      "reportId": "PTR20010767",
+      "acnArbn": "002255183",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 59,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-04-27",
+      "overallP95Position": {
+        "rank": 1894,
+        "count": 2498,
+        "percentile": 23.4
+      },
+      "industryP95Position": {
+        "rank": 78,
+        "count": 85,
+        "percentile": 8.3
+      }
+    }
+  ]
+}

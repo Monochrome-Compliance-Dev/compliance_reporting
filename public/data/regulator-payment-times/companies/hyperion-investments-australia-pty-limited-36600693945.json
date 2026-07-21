@@ -1,0 +1,95 @@
+{
+  "slug": "hyperion-investments-australia-pty-limited-36600693945",
+  "businessName": "HYPERION INVESTMENTS AUSTRALIA PTY LIMITED",
+  "abn": "36600693945",
+  "acnArbn": "600693945",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySubdivision": "Warehousing and storage services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007274",
+      "acnArbn": "600693945",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 86,
+      "payments30DaysOrLess": 64.48,
+      "payments31To60Days": 28.1,
+      "paymentsMoreThan60Days": 7.42,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-02-18",
+      "overallP95Position": {
+        "rank": 2360,
+        "count": 2613,
+        "percentile": 9.3
+      },
+      "industryP95Position": {
+        "rank": 131,
+        "count": 143,
+        "percentile": 8.5
+      }
+    },
+    {
+      "reportId": "PTR20003294",
+      "acnArbn": "600693945",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.3,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 69.56,
+      "payments31To60Days": 26.93,
+      "paymentsMoreThan60Days": 3.51,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-08-29",
+      "overallP95Position": {
+        "rank": 1265,
+        "count": 2568,
+        "percentile": 48.1
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 144,
+        "percentile": 45.5
+      }
+    },
+    {
+      "reportId": "PTR20000252",
+      "acnArbn": "600693945",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 63,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Warehousing and storage services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2025-06-03",
+      "overallP95Position": {
+        "rank": 1408,
+        "count": 2498,
+        "percentile": 40.9
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 140,
+        "percentile": 40.3
+      }
+    }
+  ]
+}

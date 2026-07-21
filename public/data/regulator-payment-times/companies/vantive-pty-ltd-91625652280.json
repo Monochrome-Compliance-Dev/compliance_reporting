@@ -1,0 +1,67 @@
+{
+  "slug": "vantive-pty-ltd-91625652280",
+  "businessName": "VANTIVE PTY LTD",
+  "abn": "91625652280",
+  "acnArbn": "625652280",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008806",
+      "acnArbn": "625652280",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.02,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 93.86,
+      "payments31To60Days": 2.69,
+      "paymentsMoreThan60Days": 3.45,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-25",
+      "overallP95Position": {
+        "rank": 2281,
+        "count": 2613,
+        "percentile": 12.2
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 106,
+        "percentile": 18.1
+      }
+    },
+    {
+      "reportId": "PTR20006079",
+      "acnArbn": "625652280",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 92.82,
+      "payments31To60Days": 5.44,
+      "paymentsMoreThan60Days": 1.74,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-10-20",
+      "overallP95Position": {
+        "rank": 893,
+        "count": 2568,
+        "percentile": 63.9
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 97,
+        "percentile": 61.5
+      }
+    }
+  ]
+}

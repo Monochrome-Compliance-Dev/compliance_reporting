@@ -1,0 +1,95 @@
+{
+  "slug": "ironman-4x4-pty-ltd-75005327882",
+  "businessName": "IRONMAN 4X4 PTY LTD",
+  "abn": "75005327882",
+  "acnArbn": "005327882",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20009640",
+      "acnArbn": "005327882",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 67,
+      "payments31To60Days": 26,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-03-30",
+      "overallP95Position": {
+        "rank": 2027,
+        "count": 2613,
+        "percentile": 21.9
+      },
+      "industryP95Position": {
+        "rank": 229,
+        "count": 329,
+        "percentile": 30.2
+      }
+    },
+    {
+      "reportId": "PTR20005544",
+      "acnArbn": "005327882",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.69,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 99,
+      "payments30DaysOrLess": 63.5,
+      "payments31To60Days": 24.7,
+      "paymentsMoreThan60Days": 11.8,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2387,
+        "count": 2568,
+        "percentile": 6.6
+      },
+      "industryP95Position": {
+        "rank": 295,
+        "count": 323,
+        "percentile": 7.5
+      }
+    },
+    {
+      "reportId": "PTR20001955",
+      "acnArbn": "005327882",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 75.7,
+      "payments31To60Days": 22.7,
+      "paymentsMoreThan60Days": 1.6,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 323,
+        "percentile": 70.2
+      }
+    }
+  ]
+}

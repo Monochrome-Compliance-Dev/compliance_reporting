@@ -1,0 +1,95 @@
+{
+  "slug": "johnson-and-johnson-australia-pty-ltd-36658579456",
+  "businessName": "JOHNSON & JOHNSON (AUSTRALIA) PTY LTD",
+  "abn": "36658579456",
+  "acnArbn": "658579456",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySubdivision": "Medical and other health care services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008854",
+      "acnArbn": "658579456",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.54,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 60.9,
+      "payments31To60Days": 22.28,
+      "paymentsMoreThan60Days": 16.82,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 2135,
+        "count": 2613,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 77,
+        "count": 106,
+        "percentile": 24.8
+      }
+    },
+    {
+      "reportId": "PTR20005538",
+      "acnArbn": "658579456",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.66,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 47.81,
+      "payments31To60Days": 25.81,
+      "paymentsMoreThan60Days": 26.38,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 2270,
+        "count": 2568,
+        "percentile": 11.3
+      },
+      "industryP95Position": {
+        "rank": 81,
+        "count": 97,
+        "percentile": 16.7
+      }
+    },
+    {
+      "reportId": "PTR20002255",
+      "acnArbn": "658579456",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.77,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 67.78,
+      "payments31To60Days": 12.68,
+      "paymentsMoreThan60Days": 19.54,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1776,
+        "count": 2498,
+        "percentile": 27.5
+      },
+      "industryP95Position": {
+        "rank": 69,
+        "count": 97,
+        "percentile": 29.2
+      }
+    }
+  ]
+}

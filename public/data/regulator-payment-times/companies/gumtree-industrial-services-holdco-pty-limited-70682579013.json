@@ -1,0 +1,67 @@
+{
+  "slug": "gumtree-industrial-services-holdco-pty-limited-70682579013",
+  "businessName": "GUMTREE INDUSTRIAL SERVICES HOLDCO PTY LIMITED",
+  "abn": "70682579013",
+  "acnArbn": "682579013",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySubdivision": "Waste collection, treatment and disposal services",
+  "latestReportingPeriodEndDate": "2025-06-30",
+  "reports": [
+    {
+      "reportId": "PTR20003628",
+      "acnArbn": "682579013",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.25,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 38.42,
+      "payments31To60Days": 59.42,
+      "paymentsMoreThan60Days": 2.17,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-09-12",
+      "overallP95Position": {
+        "rank": 1216,
+        "count": 2568,
+        "percentile": 50.8
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 95,
+        "percentile": 30.9
+      }
+    },
+    {
+      "reportId": "PTR20001871",
+      "acnArbn": "682579013",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.28,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 52.97,
+      "payments31To60Days": 46.25,
+      "paymentsMoreThan60Days": 0.78,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1225,
+        "count": 2498,
+        "percentile": 48.3
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 99,
+        "percentile": 27.6
+      }
+    }
+  ]
+}

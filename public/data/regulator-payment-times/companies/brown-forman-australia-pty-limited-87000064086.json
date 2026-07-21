@@ -1,0 +1,67 @@
+{
+  "slug": "brown-forman-australia-pty-limited-87000064086",
+  "businessName": "BROWN-FORMAN AUSTRALIA PTY LIMITED",
+  "abn": "87000064086",
+  "acnArbn": "000064086",
+  "industryDivision": "Wholesale Trade",
+  "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+  "latestReportingPeriodEndDate": "2025-10-31",
+  "reports": [
+    {
+      "reportId": "PTR20006990",
+      "acnArbn": "000064086",
+      "reportingPeriodStartDate": "2025-05-01",
+      "reportingPeriodEndDate": "2025-10-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.06,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 42.74,
+      "payments31To60Days": 46.93,
+      "paymentsMoreThan60Days": 10.33,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-01-22",
+      "overallP95Position": {
+        "rank": 22,
+        "count": 28,
+        "percentile": 22.2
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "reportId": "PTR20002797",
+      "acnArbn": "000064086",
+      "reportingPeriodStartDate": "2024-11-01",
+      "reportingPeriodEndDate": "2025-04-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 44,
+      "payments31To60Days": 47,
+      "paymentsMoreThan60Days": 9,
+      "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2025-07-25",
+      "overallP95Position": {
+        "rank": 24,
+        "count": 28,
+        "percentile": 14.8
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

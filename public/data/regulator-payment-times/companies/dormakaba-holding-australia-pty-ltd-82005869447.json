@@ -1,0 +1,95 @@
+{
+  "slug": "dormakaba-holding-australia-pty-ltd-82005869447",
+  "businessName": "DORMAKABA HOLDING AUSTRALIA PTY LTD",
+  "abn": "82005869447",
+  "acnArbn": "005869447",
+  "industryDivision": "Manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010125",
+      "acnArbn": "005869447",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.27,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 32.68,
+      "payments31To60Days": 58.64,
+      "paymentsMoreThan60Days": 8.68,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-03-31",
+      "overallP95Position": {
+        "rank": 1887,
+        "count": 2613,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 188,
+        "count": 347,
+        "percentile": 44.8
+      }
+    },
+    {
+      "reportId": "PTR20005547",
+      "acnArbn": "005869447",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.36,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 64,
+      "payments30DaysOrLess": 28.88,
+      "payments31To60Days": 63.12,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-09-30",
+      "overallP95Position": {
+        "rank": 1754,
+        "count": 2568,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 335,
+        "percentile": 47.3
+      }
+    },
+    {
+      "reportId": "PTR20002926",
+      "acnArbn": "005869447",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.82,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 28.75,
+      "payments31To60Days": 62.45,
+      "paymentsMoreThan60Days": 8.8,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 1894,
+        "count": 2498,
+        "percentile": 23.4
+      },
+      "industryP95Position": {
+        "rank": 205,
+        "count": 323,
+        "percentile": 35.7
+      }
+    }
+  ]
+}

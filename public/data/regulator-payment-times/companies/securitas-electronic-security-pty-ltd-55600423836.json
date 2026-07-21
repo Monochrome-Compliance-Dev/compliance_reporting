@@ -1,0 +1,95 @@
+{
+  "slug": "securitas-electronic-security-pty-ltd-55600423836",
+  "businessName": "SECURITAS ELECTRONIC SECURITY PTY LTD",
+  "abn": "55600423836",
+  "acnArbn": "600423836",
+  "industryDivision": "Construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20008701",
+      "acnArbn": "600423836",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 56.86,
+      "payments31To60Days": 38.7,
+      "paymentsMoreThan60Days": 4.44,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-03-24",
+      "overallP95Position": {
+        "rank": 1440,
+        "count": 2613,
+        "percentile": 41.8
+      },
+      "industryP95Position": {
+        "rank": 110,
+        "count": 270,
+        "percentile": 54.6
+      }
+    },
+    {
+      "reportId": "PTR20004038",
+      "acnArbn": "600423836",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 58,
+      "payments31To60Days": 41,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 743,
+        "count": 2568,
+        "percentile": 70.3
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 259,
+        "percentile": 86
+      }
+    },
+    {
+      "reportId": "PTR20003836",
+      "acnArbn": "600423836",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 14,
+      "payments31To60Days": 70,
+      "paymentsMoreThan60Days": 16,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 2225,
+        "count": 2498,
+        "percentile": 10.5
+      },
+      "industryP95Position": {
+        "rank": 227,
+        "count": 250,
+        "percentile": 8.8
+      }
+    }
+  ]
+}

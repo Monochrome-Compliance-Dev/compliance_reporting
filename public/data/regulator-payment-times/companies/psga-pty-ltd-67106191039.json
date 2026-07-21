@@ -1,0 +1,95 @@
+{
+  "slug": "psga-pty-ltd-67106191039",
+  "businessName": "PSGA PTY. LTD.",
+  "abn": "67106191039",
+  "acnArbn": "106191039",
+  "industryDivision": "Public Administration and Safety",
+  "industrySubdivision": "Public order, safety and regulatory services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20010399",
+      "acnArbn": "106191039",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 73.19,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 6.81,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2026-04-01",
+      "overallP95Position": {
+        "rank": 2135,
+        "count": 2613,
+        "percentile": 17.2
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 33,
+        "percentile": 3.1
+      }
+    },
+    {
+      "reportId": "PTR20004039",
+      "acnArbn": "106191039",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 38,
+      "payments30DaysOrLess": 69,
+      "payments31To60Days": 27,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-22",
+      "overallP95Position": {
+        "rank": 663,
+        "count": 2568,
+        "percentile": 72.8
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 34,
+        "percentile": 72.7
+      }
+    },
+    {
+      "reportId": "PTR20003835",
+      "acnArbn": "106191039",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 70,
+      "payments31To60Days": 28,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Public order, safety and regulatory services",
+      "industryDivision": "Public Administration and Safety",
+      "submittedDate": "2025-09-17",
+      "overallP95Position": {
+        "rank": 556,
+        "count": 2498,
+        "percentile": 76.5
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 31,
+        "percentile": 76.7
+      }
+    }
+  ]
+}

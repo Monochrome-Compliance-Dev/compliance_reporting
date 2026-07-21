@@ -1,0 +1,39 @@
+{
+  "slug": "mfs-international-australia-pty-ltd-68607579537",
+  "businessName": "MFS INTERNATIONAL AUSTRALIA PTY LTD",
+  "abn": "68607579537",
+  "acnArbn": "607579537",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2024-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20002810",
+      "acnArbn": "607579537",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.51,
+      "medianPaymentTimeDays": 9.5,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 91.11,
+      "payments31To60Days": 5.56,
+      "paymentsMoreThan60Days": 3.33,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2025-07-28",
+      "overallP95Position": {
+        "rank": 965,
+        "count": 2498,
+        "percentile": 59.7
+      },
+      "industryP95Position": {
+        "rank": 227,
+        "count": 339,
+        "percentile": 30.8
+      }
+    }
+  ]
+}

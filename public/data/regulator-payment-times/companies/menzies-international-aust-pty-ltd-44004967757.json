@@ -1,0 +1,95 @@
+{
+  "slug": "menzies-international-aust-pty-ltd-44004967757",
+  "businessName": "MENZIES INTERNATIONAL (AUST.) PTY. LTD.",
+  "abn": "44004967757",
+  "acnArbn": "004967757",
+  "industryDivision": "Administrative and Support Services",
+  "industrySubdivision": "Building cleaning, pest control and other support services",
+  "latestReportingPeriodEndDate": "2025-12-31",
+  "reports": [
+    {
+      "reportId": "PTR20007350",
+      "acnArbn": "004967757",
+      "reportingPeriodStartDate": "2025-07-01",
+      "reportingPeriodEndDate": "2025-12-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.58,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 71.53,
+      "payments31To60Days": 26.48,
+      "paymentsMoreThan60Days": 1.99,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-02-23",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 2613,
+        "percentile": 65.6
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 49,
+        "percentile": 52.1
+      }
+    },
+    {
+      "reportId": "PTR20003333",
+      "acnArbn": "004967757",
+      "reportingPeriodStartDate": "2025-01-01",
+      "reportingPeriodEndDate": "2025-06-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.65,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 37,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 33.54,
+      "payments31To60Days": 63.29,
+      "paymentsMoreThan60Days": 3.17,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-09-02",
+      "overallP95Position": {
+        "rank": 1007,
+        "count": 2568,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 50,
+        "percentile": 40.8
+      }
+    },
+    {
+      "reportId": "PTR20000226",
+      "acnArbn": "004967757",
+      "reportingPeriodStartDate": "2024-07-01",
+      "reportingPeriodEndDate": "2024-12-31",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.94,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 41.46,
+      "payments31To60Days": 55.9,
+      "paymentsMoreThan60Days": 2.64,
+      "industrySubdivision": "Building cleaning, pest control and other support services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2025-06-02",
+      "overallP95Position": {
+        "rank": 871,
+        "count": 2498,
+        "percentile": 63.7
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 50,
+        "percentile": 49
+      }
+    }
+  ]
+}

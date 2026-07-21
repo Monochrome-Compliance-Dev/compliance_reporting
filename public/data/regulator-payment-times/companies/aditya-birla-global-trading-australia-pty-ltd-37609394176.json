@@ -1,0 +1,67 @@
+{
+  "slug": "aditya-birla-global-trading-australia-pty-ltd-37609394176",
+  "businessName": "ADITYA BIRLA GLOBAL TRADING (AUSTRALIA) PTY LTD",
+  "abn": "37609394176",
+  "acnArbn": "609394176",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySubdivision": "Agriculture, forestry and fishing support services",
+  "latestReportingPeriodEndDate": "2026-03-31",
+  "reports": [
+    {
+      "reportId": "PTR20011411",
+      "acnArbn": "609394176",
+      "reportingPeriodStartDate": "2025-10-01",
+      "reportingPeriodEndDate": "2026-03-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.86,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 85.71,
+      "payments31To60Days": 14.29,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-06-19",
+      "overallP95Position": {
+        "rank": 38,
+        "count": 193,
+        "percentile": 79.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 8,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20006597",
+      "acnArbn": "609394176",
+      "reportingPeriodStartDate": "2025-04-01",
+      "reportingPeriodEndDate": "2025-09-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.45,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 110,
+      "payments30DaysOrLess": 54.55,
+      "payments31To60Days": 36.36,
+      "paymentsMoreThan60Days": 9.09,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2025-12-01",
+      "overallP95Position": {
+        "rank": 221,
+        "count": 228,
+        "percentile": 3.1
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 10,
+        "percentile": 0
+      }
+    }
+  ]
+}
