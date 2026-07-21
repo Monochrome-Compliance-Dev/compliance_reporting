@@ -596,14 +596,14 @@ function RegulatorPaymentTimesCompanyPage() {
                 )}
               </Stack>
 
-              {(company.industrySubdivision || company.industryDivision) && (
+              {company.industryDivision && (
                 <Typography
                   variant="body1"
                   sx={{
                     color: theme.palette.text.secondary,
                   }}
                 >
-                  {company.industrySubdivision || company.industryDivision}
+                  ANZSIC Industry Division: {company.industryDivision}
                 </Typography>
               )}
 
@@ -728,6 +728,16 @@ function RegulatorPaymentTimesCompanyPage() {
                       }}
                     >
                       Industry position
+                    </Typography>
+
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        mt: 0.5,
+                        color: theme.palette.text.secondary,
+                      }}
+                    >
+                      {company.industryDivision}
                     </Typography>
                   </Box>
 
