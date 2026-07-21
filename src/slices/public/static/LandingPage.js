@@ -247,6 +247,68 @@ export function LandingPage() {
         </Grid>
       </Box>
 
+      <Box
+        sx={{
+          ...sectionSx,
+          px: { xs: 2, sm: 4, md: 6 },
+          pb: { xs: 6, md: 8 },
+        }}
+      >
+        <Card
+          variant="outlined"
+          sx={{
+            p: { xs: 3, md: 4 },
+            backgroundColor: theme.palette.background.paper,
+            borderColor: theme.palette.divider,
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: { xs: "flex-start", md: "center" },
+            justifyContent: "space-between",
+            gap: 3,
+          }}
+        >
+          <Box sx={{ maxWidth: 760 }}>
+            <Typography
+              variant="overline"
+              sx={{
+                color: theme.palette.primary.main,
+                fontWeight: 800,
+                letterSpacing: 1.4,
+              }}
+            >
+              Explore the public register
+            </Typography>
+
+            <Typography variant="h5" sx={{ fontWeight: 800, mt: 0.5, mb: 1 }}>
+              See how reporting entities are paying small businesses
+            </Typography>
+
+            <Typography
+              variant="body2"
+              color={theme.palette.text.secondary}
+              sx={{ lineHeight: 1.7 }}
+            >
+              Search thousands of Payment Times Reports, compare results within
+              each industry division and review payment performance trends over
+              time.
+            </Typography>
+          </Box>
+
+          <Button
+            variant="contained"
+            component={RouterLink}
+            to="/regulator-payment-times"
+            sx={{
+              flexShrink: 0,
+              px: 3,
+              fontWeight: 800,
+            }}
+          >
+            Explore the register
+          </Button>
+        </Card>
+      </Box>
+
       <Divider />
 
       <Box sx={{ ...sectionSx, px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
