@@ -11,20 +11,35 @@ import { LoadingSpinner } from "shared/ui";
 import Footer from "shared/navigation/Footer";
 
 export default function Layout() {
-  const [isDarkTheme, setIsDarkTheme] = useState(true); // true for dark mode, false for light mode
+  const [isDarkTheme, setIsDarkTheme] = useState(
+    () => window.matchMedia("(prefers-color-scheme: dark)").matches,
+  );
   const location = useLocation();
 
   const theme = useMemo(() => {
-    const mode = isDarkTheme ? "dark" : "light"; // Determine the mode
-    return globalTheme(mode); // Use the globalTheme function
+    const mode = isDarkTheme ? "dark" : "light";
+    return globalTheme(mode);
   }, [isDarkTheme]);
 
-  // Scroll to the top of the screen when the pathname changes
+  useEffect(() => {
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const handleSystemThemeChange = (event) => {
+      setIsDarkTheme(event.matches);
+    };
+
+    systemTheme.addEventListener("change", handleSystemThemeChange);
+
+    return () => {
+      systemTheme.removeEventListener("change", handleSystemThemeChange);
+    };
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  const toggleTheme = () => setIsDarkTheme((prev) => !prev); // Toggle between light and dark modes
+  const toggleTheme = () => setIsDarkTheme((previous) => !previous);
 
   const { alertOpen, alertMessage, alertSeverity, closeAlert } = useAlert();
 
