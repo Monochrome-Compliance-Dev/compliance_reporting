@@ -6,13 +6,13 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Pulp, paper and converted paper product mfg",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20010285",
       "acnArbn": "649073003",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.85,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 24.34,
       "industrySubdivision": "Pulp, paper and converted paper product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2394,
-        "count": 2613,
-        "percentile": 7.6
+        "rank": 2716,
+        "count": 2976,
+        "percentile": 7.8
       },
       "industryP95Position": {
-        "rank": 304,
-        "count": 347,
-        "percentile": 10.7
+        "rank": 351,
+        "count": 404,
+        "percentile": 11.2
       }
     },
     {
       "reportId": "PTR20005837",
       "acnArbn": "649073003",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 34.54,
@@ -52,16 +56,20 @@
       "paymentsMoreThan60Days": 19.82,
       "industrySubdivision": "Pulp, paper and converted paper product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-30",
+      "submittedDate": "2025-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2189,
-        "count": 2568,
+        "rank": 2497,
+        "count": 2935,
         "percentile": 14.5
       },
       "industryP95Position": {
-        "rank": 259,
-        "count": 335,
-        "percentile": 22.2
+        "rank": 302,
+        "count": 393,
+        "percentile": 22.4
       }
     }
   ]

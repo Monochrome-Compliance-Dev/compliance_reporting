@@ -6,13 +6,13 @@
   "industryDivision": "Retail Trade",
   "industrySlug": "retail-trade",
   "industrySubdivision": "Other store-based retailing",
-  "latestReportingPeriodEndDate": "2025-12-27",
+  "latestReportingPeriodEndDate": "2025-12-26",
   "reports": [
     {
       "reportId": "PTR20008396",
       "acnArbn": "622183224",
-      "reportingPeriodStartDate": "2025-06-29",
-      "reportingPeriodEndDate": "2025-12-27",
+      "reportingPeriodStartDate": "2025-06-28",
+      "reportingPeriodEndDate": "2025-12-26",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30.27,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 1.11,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 3,
-        "count": 5,
-        "percentile": 50
+        "rank": 1502,
+        "count": 2976,
+        "percentile": 47.5
       },
       "industryP95Position": {
-        "rank": 2,
-        "count": 2,
-        "percentile": 0
+        "rank": 114,
+        "count": 249,
+        "percentile": 52.4
       }
     },
     {
       "reportId": "PTR20005320",
       "acnArbn": "622183224",
-      "reportingPeriodStartDate": "2024-12-29",
-      "reportingPeriodEndDate": "2025-06-28",
+      "reportingPeriodStartDate": "2024-12-28",
+      "reportingPeriodEndDate": "2025-06-27",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31.17,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 2.49,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-09-30",
+      "submittedDate": "2025-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1,
-        "count": 5,
-        "percentile": 100
+        "rank": 1015,
+        "count": 2935,
+        "percentile": 63.9
       },
       "industryP95Position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
+        "rank": 78,
+        "count": 252,
+        "percentile": 68.5
       }
     },
     {
       "reportId": "PTR20001721",
       "acnArbn": "622183224",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-28",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-27",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31.22,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 1.69,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 3,
-        "count": 5,
-        "percentile": 50
+        "rank": 621,
+        "count": 2524,
+        "percentile": 73.9
       },
       "industryP95Position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
+        "rank": 38,
+        "count": 210,
+        "percentile": 81.3
       }
     }
   ]

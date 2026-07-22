@@ -6,13 +6,13 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Beverage and tobacco product mfg",
-  "latestReportingPeriodEndDate": "2024-12-31",
+  "latestReportingPeriodEndDate": "2024-12-30",
   "reports": [
     {
       "reportId": "PTR20000737",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30,
@@ -24,16 +24,20 @@
       "paymentsMoreThan60Days": 12,
       "industrySubdivision": "Beverage and tobacco product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-20",
+      "submittedDate": "2025-06-19",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1776,
-        "count": 2498,
+        "rank": 1795,
+        "count": 2524,
         "percentile": 27.5
       },
       "industryP95Position": {
-        "rank": 180,
-        "count": 323,
-        "percentile": 41.9
+        "rank": 186,
+        "count": 330,
+        "percentile": 41.3
       }
     }
   ]

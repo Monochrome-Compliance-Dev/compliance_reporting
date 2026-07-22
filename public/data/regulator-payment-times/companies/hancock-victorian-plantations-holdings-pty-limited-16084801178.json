@@ -6,13 +6,13 @@
   "industryDivision": "Agriculture, Forestry and Fishing",
   "industrySlug": "agriculture-forestry-and-fishing",
   "industrySubdivision": "Forestry and logging",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20010424",
       "acnArbn": "084801178",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24.8,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 0.63,
       "industrySubdivision": "Forestry and logging",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2026-04-02",
+      "submittedDate": "2026-04-01",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 502,
-        "count": 2613,
-        "percentile": 79.3
+        "rank": 555,
+        "count": 2976,
+        "percentile": 80
       },
       "industryP95Position": {
-        "rank": 18,
-        "count": 102,
-        "percentile": 78.2
+        "rank": 19,
+        "count": 116,
+        "percentile": 80
       }
     },
     {
       "reportId": "PTR20001816",
       "acnArbn": "084801178",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23,
@@ -52,16 +56,20 @@
       "paymentsMoreThan60Days": 1,
       "industrySubdivision": "Forestry and logging",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 323,
-        "count": 2498,
+        "rank": 326,
+        "count": 2524,
         "percentile": 83.8
       },
       "industryP95Position": {
         "rank": 13,
-        "count": 85,
-        "percentile": 79.8
+        "count": 86,
+        "percentile": 80
       }
     }
   ]

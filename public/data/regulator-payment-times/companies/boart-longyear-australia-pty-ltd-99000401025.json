@@ -6,13 +6,13 @@
   "industryDivision": "Mining",
   "industrySlug": "mining",
   "industrySubdivision": "Exploration and other mining support services",
-  "latestReportingPeriodEndDate": "2024-12-31",
+  "latestReportingPeriodEndDate": "2024-12-30",
   "reports": [
     {
       "reportId": "PTR20006018",
       "acnArbn": "000401025",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 52.73,
@@ -24,10 +24,14 @@
       "paymentsMoreThan60Days": 28.37,
       "industrySubdivision": "Exploration and other mining support services",
       "industryDivision": "Mining",
-      "submittedDate": "2025-10-13",
+      "submittedDate": "2025-10-12",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2225,
-        "count": 2498,
+        "rank": 2248,
+        "count": 2524,
         "percentile": 10.5
       },
       "industryP95Position": {

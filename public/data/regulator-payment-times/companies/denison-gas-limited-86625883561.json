@@ -6,13 +6,13 @@
   "industryDivision": "Mining",
   "industrySlug": "mining",
   "industrySubdivision": "Oil and gas extraction",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20006974",
       "acnArbn": "625883561",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 21.53,
@@ -24,16 +24,20 @@
       "paymentsMoreThan60Days": 0.89,
       "industrySubdivision": "Oil and gas extraction",
       "industryDivision": "Mining",
-      "submittedDate": "2026-01-21",
+      "submittedDate": "2026-01-20",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 842,
-        "count": 2613,
-        "percentile": 66.7
+        "rank": 950,
+        "count": 2976,
+        "percentile": 66.9
       },
       "industryP95Position": {
-        "rank": 71,
-        "count": 177,
-        "percentile": 59.1
+        "rank": 77,
+        "count": 187,
+        "percentile": 58.1
       }
     }
   ]

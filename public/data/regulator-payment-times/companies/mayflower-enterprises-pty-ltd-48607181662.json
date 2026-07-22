@@ -6,13 +6,13 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Wood product mfg",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008174",
       "acnArbn": "607181662",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 1.6,
       "industrySubdivision": "Wood product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-17",
+      "submittedDate": "2026-03-16",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1440,
-        "count": 2613,
+        "rank": 1646,
+        "count": 2976,
         "percentile": 41.8
       },
       "industryP95Position": {
-        "rank": 119,
-        "count": 347,
-        "percentile": 61.6
+        "rank": 137,
+        "count": 404,
+        "percentile": 62.3
       }
     },
     {
       "reportId": "PTR20004259",
       "acnArbn": "607181662",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 2.86,
       "industrySubdivision": "Wood product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2025-09-23",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1406,
-        "count": 2568,
-        "percentile": 42.3
+        "rank": 1609,
+        "count": 2935,
+        "percentile": 42.4
       },
       "industryP95Position": {
-        "rank": 114,
-        "count": 335,
-        "percentile": 62.3
+        "rank": 137,
+        "count": 393,
+        "percentile": 62
       }
     },
     {
       "reportId": "PTR20001057",
       "acnArbn": "607181662",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 29,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 2.83,
       "industrySubdivision": "Wood product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-25",
+      "submittedDate": "2025-06-24",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1408,
-        "count": 2498,
+        "rank": 1423,
+        "count": 2524,
         "percentile": 40.9
       },
       "industryP95Position": {
-        "rank": 120,
-        "count": 323,
-        "percentile": 59.3
+        "rank": 125,
+        "count": 330,
+        "percentile": 58.4
       }
     }
   ]

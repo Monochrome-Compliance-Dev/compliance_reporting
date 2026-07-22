@@ -1,86 +1,40 @@
 {
   "slug": "public-administration-and-safety",
   "industryDivision": "Public Administration and Safety",
-  "latestReportingPeriodEndDate": "2025-12-31",
-  "reportingEntityCount": 33,
-  "latestPeriod": {
-    "reportingPeriodEndDate": "2025-12-31",
-    "reportingEntityCount": 33,
-    "averageP95PaymentTimeDays": 42.8,
-    "medianP95PaymentTimeDays": 43,
-    "minimumP95PaymentTimeDays": 1,
-    "maximumP95PaymentTimeDays": 85,
-    "position": {
-      "rank": 3,
-      "count": 19,
-      "percentile": 88.9
-    }
-  },
-  "history": [
+  "latestReportingCycleId": "2025-H2",
+  "cycles": [
     {
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "reportingEntityCount": 31,
       "averageP95PaymentTimeDays": 49.7,
       "medianP95PaymentTimeDays": 51,
       "minimumP95PaymentTimeDays": 16,
-      "maximumP95PaymentTimeDays": 89,
-      "position": {
-        "rank": 8,
-        "count": 19,
-        "percentile": 61.1
-      }
+      "maximumP95PaymentTimeDays": 89
     },
     {
-      "reportingPeriodEndDate": "2025-03-31",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 49.5,
-      "medianP95PaymentTimeDays": 49.5,
-      "minimumP95PaymentTimeDays": 35,
-      "maximumP95PaymentTimeDays": 64,
-      "position": {
-        "rank": 8,
-        "count": 18,
-        "percentile": 58.8
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-06-30",
-      "reportingEntityCount": 34,
-      "averageP95PaymentTimeDays": 51.9,
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 36,
+      "averageP95PaymentTimeDays": 51.8,
       "medianP95PaymentTimeDays": 48.5,
       "minimumP95PaymentTimeDays": 5,
-      "maximumP95PaymentTimeDays": 141,
-      "position": {
-        "rank": 7,
-        "count": 19,
-        "percentile": 66.7
-      }
+      "maximumP95PaymentTimeDays": 141
     },
     {
-      "reportingPeriodEndDate": "2025-09-30",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 50,
-      "medianP95PaymentTimeDays": 50,
-      "minimumP95PaymentTimeDays": 31,
-      "maximumP95PaymentTimeDays": 69,
-      "position": {
-        "rank": 11,
-        "count": 18,
-        "percentile": 41.2
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-12-31",
-      "reportingEntityCount": 33,
-      "averageP95PaymentTimeDays": 42.8,
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 35,
+      "averageP95PaymentTimeDays": 43.2,
       "medianP95PaymentTimeDays": 43,
       "minimumP95PaymentTimeDays": 1,
-      "maximumP95PaymentTimeDays": 85,
-      "position": {
-        "rank": 3,
-        "count": 19,
-        "percentile": 88.9
-      }
+      "maximumP95PaymentTimeDays": 85
     }
   ],
   "companies": [
@@ -91,7 +45,7 @@
       "p95PaymentTimeDays": 1,
       "industryP95Position": {
         "rank": 1,
-        "count": 33,
+        "count": 35,
         "percentile": 100
       }
     },
@@ -102,8 +56,8 @@
       "p95PaymentTimeDays": 13,
       "industryP95Position": {
         "rank": 2,
-        "count": 33,
-        "percentile": 96.9
+        "count": 35,
+        "percentile": 97.1
       }
     },
     {
@@ -113,8 +67,8 @@
       "p95PaymentTimeDays": 17,
       "industryP95Position": {
         "rank": 3,
-        "count": 33,
-        "percentile": 93.8
+        "count": 35,
+        "percentile": 94.1
       }
     },
     {
@@ -124,8 +78,8 @@
       "p95PaymentTimeDays": 20,
       "industryP95Position": {
         "rank": 4,
-        "count": 33,
-        "percentile": 90.6
+        "count": 35,
+        "percentile": 91.2
       }
     },
     {
@@ -135,8 +89,8 @@
       "p95PaymentTimeDays": 29,
       "industryP95Position": {
         "rank": 5,
-        "count": 33,
-        "percentile": 81.3
+        "count": 35,
+        "percentile": 82.4
       }
     },
     {
@@ -146,8 +100,8 @@
       "p95PaymentTimeDays": 29,
       "industryP95Position": {
         "rank": 5,
-        "count": 33,
-        "percentile": 81.3
+        "count": 35,
+        "percentile": 82.4
       }
     },
     {
@@ -157,8 +111,8 @@
       "p95PaymentTimeDays": 29,
       "industryP95Position": {
         "rank": 5,
-        "count": 33,
-        "percentile": 81.3
+        "count": 35,
+        "percentile": 82.4
       }
     },
     {
@@ -168,8 +122,19 @@
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
         "rank": 8,
-        "count": 33,
-        "percentile": 78.1
+        "count": 35,
+        "percentile": 79.4
+      }
+    },
+    {
+      "businessName": "SOUTHERN CROSS PROTECTION PTY LTD",
+      "abn": "93094077255",
+      "slug": "southern-cross-protection-pty-ltd-93094077255",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 35,
+        "percentile": 76.5
       }
     },
     {
@@ -178,9 +143,9 @@
       "slug": "the-geo-group-australasia-pty-limited-79051914688",
       "p95PaymentTimeDays": 33,
       "industryP95Position": {
-        "rank": 9,
-        "count": 33,
-        "percentile": 75
+        "rank": 10,
+        "count": 35,
+        "percentile": 73.5
       }
     },
     {
@@ -189,9 +154,9 @@
       "slug": "raytheon-australia-pty-ltd-35063709295",
       "p95PaymentTimeDays": 35,
       "industryP95Position": {
-        "rank": 10,
-        "count": 33,
-        "percentile": 71.9
+        "rank": 11,
+        "count": 35,
+        "percentile": 70.6
       }
     },
     {
@@ -200,9 +165,9 @@
       "slug": "australian-institute-of-health-and-welfare-16515245497",
       "p95PaymentTimeDays": 36,
       "industryP95Position": {
-        "rank": 11,
-        "count": 33,
-        "percentile": 65.6
+        "rank": 12,
+        "count": 35,
+        "percentile": 64.7
       }
     },
     {
@@ -211,9 +176,9 @@
       "slug": "queensland-building-and-construction-commission-88568500260",
       "p95PaymentTimeDays": 36,
       "industryP95Position": {
-        "rank": 11,
-        "count": 33,
-        "percentile": 65.6
+        "rank": 12,
+        "count": 35,
+        "percentile": 64.7
       }
     },
     {
@@ -222,9 +187,9 @@
       "slug": "nhulunbuy-corporation-limited-57009596598",
       "p95PaymentTimeDays": 39,
       "industryP95Position": {
-        "rank": 13,
-        "count": 33,
-        "percentile": 62.5
+        "rank": 14,
+        "count": 35,
+        "percentile": 61.8
       }
     },
     {
@@ -233,9 +198,9 @@
       "slug": "australian-maritime-safety-authority-65377938320",
       "p95PaymentTimeDays": 41,
       "industryP95Position": {
-        "rank": 14,
-        "count": 33,
-        "percentile": 59.4
+        "rank": 15,
+        "count": 35,
+        "percentile": 58.8
       }
     },
     {
@@ -244,9 +209,9 @@
       "slug": "boeing-australia-holdings-proprietary-limited-42101168932",
       "p95PaymentTimeDays": 42,
       "industryP95Position": {
-        "rank": 15,
-        "count": 33,
-        "percentile": 56.3
+        "rank": 16,
+        "count": 35,
+        "percentile": 55.9
       }
     },
     {
@@ -255,8 +220,8 @@
       "slug": "comcare-australia-41640788304",
       "p95PaymentTimeDays": 43,
       "industryP95Position": {
-        "rank": 16,
-        "count": 33,
+        "rank": 17,
+        "count": 35,
         "percentile": 50
       }
     },
@@ -266,8 +231,8 @@
       "slug": "victorian-workcover-authority-90296467627",
       "p95PaymentTimeDays": 43,
       "industryP95Position": {
-        "rank": 16,
-        "count": 33,
+        "rank": 17,
+        "count": 35,
         "percentile": 50
       }
     },
@@ -277,9 +242,9 @@
       "slug": "northrop-grumman-australia-pty-limited-78156458981",
       "p95PaymentTimeDays": 44,
       "industryP95Position": {
-        "rank": 18,
-        "count": 33,
-        "percentile": 46.9
+        "rank": 19,
+        "count": 35,
+        "percentile": 47.1
       }
     },
     {
@@ -288,9 +253,9 @@
       "slug": "bae-systems-digital-intelligence-pty-limited-14111187270",
       "p95PaymentTimeDays": 45,
       "industryP95Position": {
-        "rank": 19,
-        "count": 33,
-        "percentile": 40.6
+        "rank": 20,
+        "count": 35,
+        "percentile": 41.2
       }
     },
     {
@@ -299,9 +264,9 @@
       "slug": "creative-australia-38392626187",
       "p95PaymentTimeDays": 45,
       "industryP95Position": {
-        "rank": 19,
-        "count": 33,
-        "percentile": 40.6
+        "rank": 20,
+        "count": 35,
+        "percentile": 41.2
       }
     },
     {
@@ -310,9 +275,9 @@
       "slug": "hanwha-defence-australia-pty-ltd-76630335616",
       "p95PaymentTimeDays": 46,
       "industryP95Position": {
-        "rank": 21,
-        "count": 33,
-        "percentile": 37.5
+        "rank": 22,
+        "count": 35,
+        "percentile": 38.2
       }
     },
     {
@@ -321,9 +286,9 @@
       "slug": "secom-australia-pty-limited-91050293420",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 22,
-        "count": 33,
-        "percentile": 31.3
+        "rank": 23,
+        "count": 35,
+        "percentile": 32.4
       }
     },
     {
@@ -332,9 +297,9 @@
       "slug": "the-trustee-for-australian-registry-investments-trust-23519493925",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 22,
-        "count": 33,
-        "percentile": 31.3
+        "rank": 23,
+        "count": 35,
+        "percentile": 32.4
       }
     },
     {
@@ -343,9 +308,9 @@
       "slug": "bae-systems-australia-holdings-limited-44008648333",
       "p95PaymentTimeDays": 52,
       "industryP95Position": {
-        "rank": 24,
-        "count": 33,
-        "percentile": 25
+        "rank": 25,
+        "count": 35,
+        "percentile": 26.5
       }
     },
     {
@@ -354,9 +319,9 @@
       "slug": "victorian-correctional-infrastructure-partnership-pty-ltd-15107247067",
       "p95PaymentTimeDays": 52,
       "industryP95Position": {
-        "rank": 24,
-        "count": 33,
-        "percentile": 25
+        "rank": 25,
+        "count": 35,
+        "percentile": 26.5
       }
     },
     {
@@ -365,9 +330,9 @@
       "slug": "asc-pty-ltd-64008605034",
       "p95PaymentTimeDays": 55,
       "industryP95Position": {
-        "rank": 26,
-        "count": 33,
-        "percentile": 21.9
+        "rank": 27,
+        "count": 35,
+        "percentile": 23.5
       }
     },
     {
@@ -376,9 +341,9 @@
       "slug": "cea-technologies-pty-limited-99059951183",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 27,
-        "count": 33,
-        "percentile": 15.6
+        "rank": 28,
+        "count": 35,
+        "percentile": 17.6
       }
     },
     {
@@ -387,9 +352,9 @@
       "slug": "moonee-valley-city-council-54651216324",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 27,
-        "count": 33,
-        "percentile": 15.6
+        "rank": 28,
+        "count": 35,
+        "percentile": 17.6
       }
     },
     {
@@ -398,9 +363,9 @@
       "slug": "g4s-australia-holdings-pty-ltd-68128783602",
       "p95PaymentTimeDays": 61,
       "industryP95Position": {
-        "rank": 29,
-        "count": 33,
-        "percentile": 9.4
+        "rank": 30,
+        "count": 35,
+        "percentile": 11.8
       }
     },
     {
@@ -409,9 +374,9 @@
       "slug": "saab-technologies-australia-pty-ltd-47002950790",
       "p95PaymentTimeDays": 61,
       "industryP95Position": {
-        "rank": 29,
-        "count": 33,
-        "percentile": 9.4
+        "rank": 30,
+        "count": 35,
+        "percentile": 11.8
       }
     },
     {
@@ -420,9 +385,20 @@
       "slug": "avada-group-limited-57648988783",
       "p95PaymentTimeDays": 64,
       "industryP95Position": {
-        "rank": 31,
-        "count": 33,
-        "percentile": 6.3
+        "rank": 32,
+        "count": 35,
+        "percentile": 8.8
+      }
+    },
+    {
+      "businessName": "BABCOCK AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "99602953739",
+      "slug": "babcock-australia-holdings-pty-ltd-99602953739",
+      "p95PaymentTimeDays": 69,
+      "industryP95Position": {
+        "rank": 33,
+        "count": 35,
+        "percentile": 5.9
       }
     },
     {
@@ -431,9 +407,9 @@
       "slug": "psga-pty-ltd-67106191039",
       "p95PaymentTimeDays": 73,
       "industryP95Position": {
-        "rank": 32,
-        "count": 33,
-        "percentile": 3.1
+        "rank": 34,
+        "count": 35,
+        "percentile": 2.9
       }
     },
     {
@@ -442,8 +418,8 @@
       "slug": "l3harris-technologies-australia-group-pty-ltd-61654390146",
       "p95PaymentTimeDays": 85,
       "industryP95Position": {
-        "rank": 33,
-        "count": 33,
+        "rank": 35,
+        "count": 35,
         "percentile": 0
       }
     }

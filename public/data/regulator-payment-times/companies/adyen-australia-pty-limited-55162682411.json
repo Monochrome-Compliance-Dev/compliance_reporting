@@ -6,13 +6,13 @@
   "industryDivision": "Information Media and Telecommunications",
   "industrySlug": "information-media-and-telecommunications",
   "industrySubdivision": "Internet service providers, web search portals and data processing services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20007525",
       "acnArbn": "162682411",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 14.84,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 2.08,
       "industrySubdivision": "Internet service providers, web search portals and data processing services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-02-27",
+      "submittedDate": "2026-02-26",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 842,
-        "count": 2613,
-        "percentile": 66.7
+        "rank": 950,
+        "count": 2976,
+        "percentile": 66.9
       },
       "industryP95Position": {
-        "rank": 23,
-        "count": 60,
-        "percentile": 59.3
+        "rank": 26,
+        "count": 71,
+        "percentile": 61.4
       }
     },
     {
       "reportId": "PTR20005297",
       "acnArbn": "162682411",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 13.12,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Internet service providers, web search portals and data processing services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-09-30",
+      "submittedDate": "2025-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 519,
-        "count": 2568,
-        "percentile": 78.7
+        "rank": 583,
+        "count": 2935,
+        "percentile": 79
       },
       "industryP95Position": {
-        "rank": 12,
-        "count": 55,
-        "percentile": 79.6
+        "rank": 14,
+        "count": 69,
+        "percentile": 80.9
       }
     },
     {
       "reportId": "PTR20000974",
       "acnArbn": "162682411",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 17.9,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 8.2,
       "industrySubdivision": "Internet service providers, web search portals and data processing services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-06-24",
+      "submittedDate": "2025-06-23",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1813,
-        "count": 2498,
-        "percentile": 26
+        "rank": 1832,
+        "count": 2524,
+        "percentile": 25.9
       },
       "industryP95Position": {
-        "rank": 41,
-        "count": 58,
-        "percentile": 28.1
+        "rank": 42,
+        "count": 59,
+        "percentile": 27.6
       }
     }
   ]

@@ -16,6 +16,7 @@ import VerifyEmail from "slices/users/components/VerifyEmail";
 import ConstructionPaymentDiagnostic from "slices/marketing/construction/ConstructionPaymentDiagnostic";
 import RegulatorPaymentTimesSearchPage from "slices/marketing/regulatorPaymentTimes/RegulatorPaymentTimesSearchPage";
 import RegulatorPaymentTimesCompanyPage from "slices/marketing/regulatorPaymentTimes/RegulatorPaymentTimesCompanyPage";
+import RegulatorPaymentTimesIndustryPage from "slices/marketing/regulatorPaymentTimes/RegulatorPaymentTimesIndustryPage";
 
 const isPublicOnlyMode =
   String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
@@ -54,6 +55,14 @@ export const publicRoutes = [
   {
     path: "regulator-payment-times",
     Component: RegulatorPaymentTimesSearchPage,
+  },
+  {
+    path: "regulator-payment-times/industries",
+    Component: RegulatorPaymentTimesIndustryPage,
+  },
+  {
+    path: "regulator-payment-times/industry/:industrySlug",
+    Component: RegulatorPaymentTimesIndustryPage,
   },
   {
     path: "regulator-payment-times/:companySlug",

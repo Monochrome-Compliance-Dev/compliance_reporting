@@ -1,99 +1,51 @@
 {
   "slug": "electricity-gas-water-and-waste-services",
   "industryDivision": "Electricity, Gas, Water and Waste Services",
-  "latestReportingPeriodEndDate": "2026-03-31",
-  "reportingEntityCount": 2,
-  "latestPeriod": {
-    "reportingPeriodEndDate": "2026-03-31",
-    "reportingEntityCount": 2,
-    "averageP95PaymentTimeDays": 27,
-    "medianP95PaymentTimeDays": 27,
-    "minimumP95PaymentTimeDays": 15,
-    "maximumP95PaymentTimeDays": 39,
-    "position": {
-      "rank": 1,
-      "count": 17,
-      "percentile": 100
-    }
-  },
-  "history": [
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
     {
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "reportingEntityCount": 99,
       "averageP95PaymentTimeDays": 47.1,
       "medianP95PaymentTimeDays": 42,
       "minimumP95PaymentTimeDays": 8,
-      "maximumP95PaymentTimeDays": 172,
-      "position": {
-        "rank": 2,
-        "count": 19,
-        "percentile": 94.4
-      }
+      "maximumP95PaymentTimeDays": 172
     },
     {
-      "reportingPeriodEndDate": "2025-03-31",
-      "reportingEntityCount": 3,
-      "averageP95PaymentTimeDays": 54.7,
-      "medianP95PaymentTimeDays": 49,
-      "minimumP95PaymentTimeDays": 25,
-      "maximumP95PaymentTimeDays": 90,
-      "position": {
-        "rank": 6,
-        "count": 18,
-        "percentile": 64.7
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-06-30",
-      "reportingEntityCount": 95,
-      "averageP95PaymentTimeDays": 49.1,
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 98,
+      "averageP95PaymentTimeDays": 49.2,
       "medianP95PaymentTimeDays": 48,
       "minimumP95PaymentTimeDays": 1,
-      "maximumP95PaymentTimeDays": 203,
-      "position": {
-        "rank": 6,
-        "count": 19,
-        "percentile": 72.2
-      }
+      "maximumP95PaymentTimeDays": 203
     },
     {
-      "reportingPeriodEndDate": "2025-09-30",
-      "reportingEntityCount": 4,
-      "averageP95PaymentTimeDays": 56.5,
-      "medianP95PaymentTimeDays": 48.5,
-      "minimumP95PaymentTimeDays": 11,
-      "maximumP95PaymentTimeDays": 118,
-      "position": {
-        "rank": 8,
-        "count": 18,
-        "percentile": 52.9
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-12-31",
-      "reportingEntityCount": 92,
-      "averageP95PaymentTimeDays": 43.3,
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 96,
+      "averageP95PaymentTimeDays": 43.8,
       "medianP95PaymentTimeDays": 44,
-      "minimumP95PaymentTimeDays": 15,
-      "maximumP95PaymentTimeDays": 121,
-      "position": {
-        "rank": 4,
-        "count": 19,
-        "percentile": 83.3
-      }
+      "minimumP95PaymentTimeDays": 11,
+      "maximumP95PaymentTimeDays": 121
     },
     {
-      "reportingPeriodEndDate": "2026-03-31",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
       "reportingEntityCount": 2,
       "averageP95PaymentTimeDays": 27,
       "medianP95PaymentTimeDays": 27,
       "minimumP95PaymentTimeDays": 15,
-      "maximumP95PaymentTimeDays": 39,
-      "position": {
-        "rank": 1,
-        "count": 17,
-        "percentile": 100
-      }
+      "maximumP95PaymentTimeDays": 39
     }
   ],
   "companies": [

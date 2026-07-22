@@ -6,13 +6,13 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Machinery and equipment mfg",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008329",
       "acnArbn": "006076053",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.93,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 0.91,
       "industrySubdivision": "Machinery and equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-19",
+      "submittedDate": "2026-03-18",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1044,
-        "count": 2613,
-        "percentile": 58.5
+        "rank": 1194,
+        "count": 2976,
+        "percentile": 58.2
       },
       "industryP95Position": {
-        "rank": 57,
-        "count": 347,
-        "percentile": 82.9
+        "rank": 64,
+        "count": 404,
+        "percentile": 83.6
       }
     },
     {
       "reportId": "PTR20011284",
       "acnArbn": "006076053",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 20.59,
@@ -52,16 +56,20 @@
       "paymentsMoreThan60Days": 0.27,
       "industrySubdivision": "Machinery and equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-06-09",
+      "submittedDate": "2026-06-08",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 779,
-        "count": 2498,
+        "rank": 788,
+        "count": 2524,
         "percentile": 68.1
       },
       "industryP95Position": {
-        "rank": 41,
-        "count": 323,
-        "percentile": 87.3
+        "rank": 44,
+        "count": 330,
+        "percentile": 86.6
       }
     }
   ]

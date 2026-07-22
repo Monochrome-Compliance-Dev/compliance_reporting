@@ -6,13 +6,13 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Primary metal and metal product mfg",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20007360",
       "acnArbn": "087542863",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 39.99,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 29.34,
       "industrySubdivision": "Primary metal and metal product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-02-23",
+      "submittedDate": "2026-02-22",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2391,
-        "count": 2613,
-        "percentile": 8.4
+        "rank": 2713,
+        "count": 2976,
+        "percentile": 8.8
       },
       "industryP95Position": {
-        "rank": 302,
-        "count": 347,
-        "percentile": 12.7
+        "rank": 349,
+        "count": 404,
+        "percentile": 13.4
       }
     },
     {
       "reportId": "PTR20007359",
       "acnArbn": "087542863",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 68.1,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 27.99,
       "industrySubdivision": "Primary metal and metal product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-02-23",
+      "submittedDate": "2026-02-22",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2362,
-        "count": 2568,
-        "percentile": 7.8
+        "rank": 2705,
+        "count": 2935,
+        "percentile": 7.7
       },
       "industryP95Position": {
-        "rank": 301,
-        "count": 335,
-        "percentile": 9.9
+        "rank": 355,
+        "count": 393,
+        "percentile": 9.4
       }
     },
     {
       "reportId": "PTR20007272",
       "acnArbn": "087542863",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 41.1,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 25.36,
       "industrySubdivision": "Primary metal and metal product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-02-23",
+      "submittedDate": "2026-02-22",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2209,
-        "count": 2498,
+        "rank": 2232,
+        "count": 2524,
         "percentile": 11
       },
       "industryP95Position": {
-        "rank": 267,
-        "count": 323,
-        "percentile": 16.1
+        "rank": 274,
+        "count": 330,
+        "percentile": 15.8
       }
     }
   ]

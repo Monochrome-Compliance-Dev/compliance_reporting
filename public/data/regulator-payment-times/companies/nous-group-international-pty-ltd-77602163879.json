@@ -6,13 +6,13 @@
   "industryDivision": "Professional, Scientific and Technical Services",
   "industrySlug": "professional-scientific-and-technical-services",
   "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008963",
       "acnArbn": "602163879",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 16,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
       "industryDivision": "Professional, Scientific and Technical Services",
-      "submittedDate": "2026-03-25",
+      "submittedDate": "2026-03-24",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 438,
-        "count": 2613,
-        "percentile": 80.9
+        "rank": 482,
+        "count": 2976,
+        "percentile": 81.4
       },
       "industryP95Position": {
-        "rank": 31,
-        "count": 183,
-        "percentile": 81.3
+        "rank": 35,
+        "count": 229,
+        "percentile": 82.5
       }
     },
     {
       "reportId": "PTR20004080",
       "acnArbn": "602163879",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 17,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 2,
       "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
       "industryDivision": "Professional, Scientific and Technical Services",
-      "submittedDate": "2025-09-22",
+      "submittedDate": "2025-09-21",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 583,
-        "count": 2568,
-        "percentile": 75.3
+        "rank": 655,
+        "count": 2935,
+        "percentile": 75.7
       },
       "industryP95Position": {
-        "rank": 38,
-        "count": 181,
+        "rank": 46,
+        "count": 225,
         "percentile": 77.2
       }
     },
     {
       "reportId": "PTR20001399",
       "acnArbn": "602163879",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 15,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 1,
       "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
       "industryDivision": "Professional, Scientific and Technical Services",
-      "submittedDate": "2025-06-27",
+      "submittedDate": "2025-06-26",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 556,
-        "count": 2498,
+        "rank": 562,
+        "count": 2524,
         "percentile": 76.5
       },
       "industryP95Position": {
         "rank": 43,
-        "count": 176,
-        "percentile": 74.9
+        "count": 178,
+        "percentile": 75.1
       }
     }
   ]

@@ -6,13 +6,13 @@
   "industryDivision": "Wholesale Trade",
   "industrySlug": "wholesale-trade",
   "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
-  "latestReportingPeriodEndDate": "2024-12-31",
+  "latestReportingPeriodEndDate": "2024-12-30",
   "reports": [
     {
       "reportId": "PTR20002711",
       "acnArbn": "004400891",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 40.81,
@@ -24,15 +24,19 @@
       "paymentsMoreThan60Days": 16.23,
       "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-07-24",
+      "submittedDate": "2025-07-23",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2397,
-        "count": 2498,
+        "rank": 2423,
+        "count": 2524,
         "percentile": 3.9
       },
       "industryP95Position": {
-        "rank": 303,
-        "count": 323,
+        "rank": 306,
+        "count": 326,
         "percentile": 6.2
       }
     }

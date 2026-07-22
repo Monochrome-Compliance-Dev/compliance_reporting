@@ -6,13 +6,13 @@
   "industryDivision": "Health Care and Social Assistance",
   "industrySlug": "health-care-and-social-assistance",
   "industrySubdivision": "Medical and other health care services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20010281",
       "acnArbn": "158390802",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 3.61,
       "industrySubdivision": "Medical and other health care services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 842,
-        "count": 2613,
-        "percentile": 66.7
+        "rank": 950,
+        "count": 2976,
+        "percentile": 66.9
       },
       "industryP95Position": {
-        "rank": 38,
-        "count": 106,
-        "percentile": 64.8
+        "rank": 40,
+        "count": 113,
+        "percentile": 65.2
       }
     },
     {
       "reportId": "PTR20002163",
       "acnArbn": "158390802",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22,
@@ -52,11 +56,15 @@
       "paymentsMoreThan60Days": 2.23,
       "industrySubdivision": "Medical and other health care services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 936,
-        "count": 2498,
-        "percentile": 61.4
+        "rank": 945,
+        "count": 2524,
+        "percentile": 61.5
       },
       "industryP95Position": {
         "rank": 33,

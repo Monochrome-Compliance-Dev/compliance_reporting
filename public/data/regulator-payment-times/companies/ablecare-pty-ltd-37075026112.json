@@ -6,13 +6,13 @@
   "industryDivision": "Health Care and Social Assistance",
   "industrySlug": "health-care-and-social-assistance",
   "industrySubdivision": "Social assistance services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20011464",
       "acnArbn": "075026112",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 13,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Social assistance services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2026-06-22",
+      "submittedDate": "2026-06-21",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 438,
-        "count": 2613,
-        "percentile": 80.9
+        "rank": 482,
+        "count": 2976,
+        "percentile": 81.4
       },
       "industryP95Position": {
         "rank": 15,
-        "count": 106,
-        "percentile": 81
+        "count": 113,
+        "percentile": 82.1
       }
     },
     {
       "reportId": "PTR20006351",
       "acnArbn": "075026112",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 18,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Social assistance services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2025-10-31",
+      "submittedDate": "2025-10-30",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 459,
-        "count": 2568,
-        "percentile": 81
+        "rank": 514,
+        "count": 2935,
+        "percentile": 81.3
       },
       "industryP95Position": {
         "rank": 13,
-        "count": 97,
-        "percentile": 84.4
+        "count": 105,
+        "percentile": 83.7
       }
     },
     {
       "reportId": "PTR20006350",
       "acnArbn": "075026112",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 13,
@@ -80,11 +88,15 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Social assistance services",
       "industryDivision": "Health Care and Social Assistance",
-      "submittedDate": "2025-10-31",
+      "submittedDate": "2025-10-30",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 140,
-        "count": 2498,
-        "percentile": 94
+        "rank": 142,
+        "count": 2524,
+        "percentile": 93.9
       },
       "industryP95Position": {
         "rank": 4,

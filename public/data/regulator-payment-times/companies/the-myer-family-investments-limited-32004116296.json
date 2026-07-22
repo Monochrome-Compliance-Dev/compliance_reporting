@@ -6,13 +6,13 @@
   "industryDivision": "Financial and Insurance Services",
   "industrySlug": "financial-and-insurance-services",
   "industrySubdivision": "Finance",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20007643",
       "acnArbn": "004116296",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 9.01,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 0.68,
       "industrySubdivision": "Finance",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2026-03-09",
+      "submittedDate": "2026-03-08",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 283,
-        "count": 2613,
-        "percentile": 86.8
+        "rank": 318,
+        "count": 2976,
+        "percentile": 87.3
       },
       "industryP95Position": {
-        "rank": 107,
-        "count": 338,
-        "percentile": 63.5
+        "rank": 114,
+        "count": 368,
+        "percentile": 64.6
       }
     },
     {
       "reportId": "PTR20003365",
       "acnArbn": "004116296",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 8.19,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Finance",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-09-03",
+      "submittedDate": "2025-09-02",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 268,
-        "count": 2568,
-        "percentile": 87.8
+        "rank": 299,
+        "count": 2935,
+        "percentile": 88
       },
       "industryP95Position": {
-        "rank": 93,
-        "count": 349,
+        "rank": 101,
+        "count": 378,
         "percentile": 69
       }
     },
     {
       "reportId": "PTR20000745",
       "acnArbn": "004116296",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 9.46,
@@ -80,15 +88,19 @@
       "paymentsMoreThan60Days": 1.32,
       "industrySubdivision": "Finance",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-06-23",
+      "submittedDate": "2025-06-22",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 505,
-        "count": 2498,
+        "rank": 511,
+        "count": 2524,
         "percentile": 78.7
       },
       "industryP95Position": {
-        "rank": 143,
-        "count": 339,
+        "rank": 144,
+        "count": 341,
         "percentile": 56.2
       }
     }

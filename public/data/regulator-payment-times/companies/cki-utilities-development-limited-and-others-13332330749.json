@@ -6,13 +6,13 @@
   "industryDivision": "Electricity, Gas, Water and Waste Services",
   "industrySlug": "electricity-gas-water-and-waste-services",
   "industrySubdivision": "Electricity supply",
-  "latestReportingPeriodEndDate": "2024-12-31",
+  "latestReportingPeriodEndDate": "2024-12-30",
   "reports": [
     {
       "reportId": "PTR20000344",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 17.56,
@@ -24,10 +24,14 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Electricity supply",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-06-11",
+      "submittedDate": "2025-06-10",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 505,
-        "count": 2498,
+        "rank": 511,
+        "count": 2524,
         "percentile": 78.7
       },
       "industryP95Position": {

@@ -1,229 +1,51 @@
 {
   "slug": "arts-and-recreation-services",
   "industryDivision": "Arts and Recreation Services",
-  "latestReportingPeriodEndDate": "2026-04-30",
-  "reportingEntityCount": 3,
-  "latestPeriod": {
-    "reportingPeriodEndDate": "2026-04-30",
-    "reportingEntityCount": 3,
-    "averageP95PaymentTimeDays": 37.7,
-    "medianP95PaymentTimeDays": 35,
-    "minimumP95PaymentTimeDays": 26,
-    "maximumP95PaymentTimeDays": 52,
-    "position": {
-      "rank": 1,
-      "count": 3,
-      "percentile": 100
-    }
-  },
-  "history": [
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
     {
-      "reportingPeriodEndDate": "2024-12-28",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 31,
-      "medianP95PaymentTimeDays": 31,
-      "minimumP95PaymentTimeDays": 31,
-      "maximumP95PaymentTimeDays": 31,
-      "position": {
-        "rank": 1,
-        "count": 4,
-        "percentile": 100
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2024-12-31",
-      "reportingEntityCount": 31,
-      "averageP95PaymentTimeDays": 45,
-      "medianP95PaymentTimeDays": 43,
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 32,
+      "averageP95PaymentTimeDays": 44.6,
+      "medianP95PaymentTimeDays": 42.5,
       "minimumP95PaymentTimeDays": 10,
-      "maximumP95PaymentTimeDays": 93,
-      "position": {
-        "rank": 3,
-        "count": 19,
-        "percentile": 88.9
-      }
+      "maximumP95PaymentTimeDays": 93
     },
     {
-      "reportingPeriodEndDate": "2025-01-31",
-      "reportingEntityCount": 4,
-      "averageP95PaymentTimeDays": 50,
-      "medianP95PaymentTimeDays": 45.5,
-      "minimumP95PaymentTimeDays": 40,
-      "maximumP95PaymentTimeDays": 69,
-      "position": {
-        "rank": 3,
-        "count": 11,
-        "percentile": 80
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-03-31",
-      "reportingEntityCount": 4,
-      "averageP95PaymentTimeDays": 42.5,
-      "medianP95PaymentTimeDays": 45.5,
-      "minimumP95PaymentTimeDays": 29,
-      "maximumP95PaymentTimeDays": 50,
-      "position": {
-        "rank": 5,
-        "count": 18,
-        "percentile": 76.5
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-04-30",
-      "reportingEntityCount": 6,
-      "averageP95PaymentTimeDays": 64.5,
-      "medianP95PaymentTimeDays": 57.5,
-      "minimumP95PaymentTimeDays": 30,
-      "maximumP95PaymentTimeDays": 128,
-      "position": {
-        "rank": 4,
-        "count": 9,
-        "percentile": 62.5
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-06-28",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 55,
-      "medianP95PaymentTimeDays": 55,
-      "minimumP95PaymentTimeDays": 55,
-      "maximumP95PaymentTimeDays": 55,
-      "position": {
-        "rank": 2,
-        "count": 4,
-        "percentile": 66.7
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-06-30",
-      "reportingEntityCount": 35,
-      "averageP95PaymentTimeDays": 42,
-      "medianP95PaymentTimeDays": 36,
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 50,
+      "averageP95PaymentTimeDays": 45.7,
+      "medianP95PaymentTimeDays": 43.5,
       "minimumP95PaymentTimeDays": 16,
-      "maximumP95PaymentTimeDays": 86,
-      "position": {
-        "rank": 1,
-        "count": 19,
-        "percentile": 100
-      }
+      "maximumP95PaymentTimeDays": 128
     },
     {
-      "reportingPeriodEndDate": "2025-07-01",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 28,
-      "medianP95PaymentTimeDays": 28,
-      "minimumP95PaymentTimeDays": 28,
-      "maximumP95PaymentTimeDays": 28,
-      "position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-07-31",
-      "reportingEntityCount": 4,
-      "averageP95PaymentTimeDays": 46,
-      "medianP95PaymentTimeDays": 45.5,
-      "minimumP95PaymentTimeDays": 41,
-      "maximumP95PaymentTimeDays": 52,
-      "position": {
-        "rank": 4,
-        "count": 12,
-        "percentile": 72.7
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-09-30",
-      "reportingEntityCount": 4,
-      "averageP95PaymentTimeDays": 56.8,
-      "medianP95PaymentTimeDays": 36,
-      "minimumP95PaymentTimeDays": 28,
-      "maximumP95PaymentTimeDays": 127,
-      "position": {
-        "rank": 3,
-        "count": 18,
-        "percentile": 88.2
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-10-31",
-      "reportingEntityCount": 6,
-      "averageP95PaymentTimeDays": 56.2,
-      "medianP95PaymentTimeDays": 49.5,
-      "minimumP95PaymentTimeDays": 26,
-      "maximumP95PaymentTimeDays": 131,
-      "position": {
-        "rank": 3,
-        "count": 9,
-        "percentile": 75
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-12-27",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 53,
-      "medianP95PaymentTimeDays": 53,
-      "minimumP95PaymentTimeDays": 53,
-      "maximumP95PaymentTimeDays": 53,
-      "position": {
-        "rank": 2,
-        "count": 3,
-        "percentile": 50
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-12-31",
-      "reportingEntityCount": 34,
-      "averageP95PaymentTimeDays": 43.1,
-      "medianP95PaymentTimeDays": 38,
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 49,
+      "averageP95PaymentTimeDays": 46.3,
+      "medianP95PaymentTimeDays": 42,
       "minimumP95PaymentTimeDays": 10,
-      "maximumP95PaymentTimeDays": 130,
-      "position": {
-        "rank": 2,
-        "count": 19,
-        "percentile": 94.4
-      }
+      "maximumP95PaymentTimeDays": 131
     },
     {
-      "reportingPeriodEndDate": "2026-01-31",
-      "reportingEntityCount": 4,
-      "averageP95PaymentTimeDays": 47.8,
-      "medianP95PaymentTimeDays": 44.5,
-      "minimumP95PaymentTimeDays": 42,
-      "maximumP95PaymentTimeDays": 60,
-      "position": {
-        "rank": 4,
-        "count": 11,
-        "percentile": 70
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2026-03-31",
-      "reportingEntityCount": 3,
-      "averageP95PaymentTimeDays": 47.7,
-      "medianP95PaymentTimeDays": 41,
-      "minimumP95PaymentTimeDays": 29,
-      "maximumP95PaymentTimeDays": 73,
-      "position": {
-        "rank": 6,
-        "count": 17,
-        "percentile": 68.8
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2026-04-30",
-      "reportingEntityCount": 3,
-      "averageP95PaymentTimeDays": 37.7,
-      "medianP95PaymentTimeDays": 35,
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 10,
+      "averageP95PaymentTimeDays": 44.7,
+      "medianP95PaymentTimeDays": 42.5,
       "minimumP95PaymentTimeDays": 26,
-      "maximumP95PaymentTimeDays": 52,
-      "position": {
-        "rank": 1,
-        "count": 3,
-        "percentile": 100
-      }
+      "maximumP95PaymentTimeDays": 73
     }
   ],
   "companies": [
@@ -234,8 +56,19 @@
       "p95PaymentTimeDays": 26,
       "industryP95Position": {
         "rank": 1,
-        "count": 3,
+        "count": 10,
         "percentile": 100
+      }
+    },
+    {
+      "businessName": "TENNIS AUSTRALIA LIMITED",
+      "abn": "61006281125",
+      "slug": "tennis-australia-limited-61006281125",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 10,
+        "percentile": 88.9
       }
     },
     {
@@ -244,9 +77,53 @@
       "slug": "canterbury-league-club-limited-84000191248",
       "p95PaymentTimeDays": 35,
       "industryP95Position": {
-        "rank": 2,
-        "count": 3,
-        "percentile": 50
+        "rank": 3,
+        "count": 10,
+        "percentile": 77.8
+      }
+    },
+    {
+      "businessName": "SONY MUSIC ENTERTAINMENT AUSTRALIA PTY LTD",
+      "abn": "95107133184",
+      "slug": "sony-music-entertainment-australia-pty-ltd-95107133184",
+      "p95PaymentTimeDays": 41,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 10,
+        "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "MOONEE VALLEY RACING CLUB INC",
+      "abn": "45806588917",
+      "slug": "moonee-valley-racing-club-inc-45806588917",
+      "p95PaymentTimeDays": 42,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 10,
+        "percentile": 55.6
+      }
+    },
+    {
+      "businessName": "Carlile Swim Pty Ltd",
+      "abn": "36623260033",
+      "slug": "carlile-swim-pty-ltd-36623260033",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 10,
+        "percentile": 44.4
+      }
+    },
+    {
+      "businessName": "Australian Turf Club Limited",
+      "abn": "81148157288",
+      "slug": "australian-turf-club-limited-81148157288",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 10,
+        "percentile": 33.3
       }
     },
     {
@@ -255,8 +132,30 @@
       "slug": "adelaide-oval-sma-limited-46141259538",
       "p95PaymentTimeDays": 52,
       "industryP95Position": {
-        "rank": 3,
-        "count": 3,
+        "rank": 8,
+        "count": 10,
+        "percentile": 22.2
+      }
+    },
+    {
+      "businessName": "VRV AUSTRALIA PTY LTD",
+      "abn": "66631624729",
+      "slug": "vrv-australia-pty-ltd-66631624729",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 10,
+        "percentile": 11.1
+      }
+    },
+    {
+      "businessName": "HILLSIDE (AUSTRALIA NEW MEDIA) PTY LIMITED",
+      "abn": "75148920665",
+      "slug": "hillside-australia-new-media-pty-limited-75148920665",
+      "p95PaymentTimeDays": 73,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 10,
         "percentile": 0
       }
     }

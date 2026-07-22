@@ -6,13 +6,13 @@
   "industryDivision": "Administrative and Support Services",
   "industrySlug": "administrative-and-support-services",
   "industrySubdivision": "Building cleaning, pest control and other support services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20007186",
       "acnArbn": "070013884",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31.45,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 3.52,
       "industrySubdivision": "Building cleaning, pest control and other support services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2026-02-12",
+      "submittedDate": "2026-02-11",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1590,
-        "count": 2613,
-        "percentile": 37
+        "rank": 1811,
+        "count": 2976,
+        "percentile": 36.9
       },
       "industryP95Position": {
-        "rank": 34,
-        "count": 49,
-        "percentile": 29.2
+        "rank": 42,
+        "count": 58,
+        "percentile": 24.6
       }
     },
     {
       "reportId": "PTR20005948",
       "acnArbn": "070013884",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 34.11,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 4.93,
       "industrySubdivision": "Building cleaning, pest control and other support services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-10-03",
+      "submittedDate": "2025-10-02",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1543,
-        "count": 2568,
-        "percentile": 36.7
+        "rank": 1762,
+        "count": 2935,
+        "percentile": 36.8
       },
       "industryP95Position": {
-        "rank": 36,
-        "count": 50,
-        "percentile": 28.6
+        "rank": 43,
+        "count": 59,
+        "percentile": 27.6
       }
     },
     {
       "reportId": "PTR20005947",
       "acnArbn": "070013884",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.12,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 10.34,
       "industrySubdivision": "Building cleaning, pest control and other support services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-10-03",
+      "submittedDate": "2025-10-02",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1960,
-        "count": 2498,
+        "rank": 1981,
+        "count": 2524,
         "percentile": 20.8
       },
       "industryP95Position": {
-        "rank": 43,
-        "count": 50,
-        "percentile": 14.3
+        "rank": 44,
+        "count": 51,
+        "percentile": 14
       }
     }
   ]

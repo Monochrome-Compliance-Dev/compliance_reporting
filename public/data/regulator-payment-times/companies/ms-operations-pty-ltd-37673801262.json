@@ -6,13 +6,13 @@
   "industryDivision": "Administrative and Support Services",
   "industrySlug": "administrative-and-support-services",
   "industrySubdivision": "Building cleaning, pest control and other support services",
-  "latestReportingPeriodEndDate": "2026-03-31",
+  "latestReportingPeriodEndDate": "2026-03-30",
   "reports": [
     {
       "reportId": "PTR20011749",
       "acnArbn": "673801262",
-      "reportingPeriodStartDate": "2025-10-01",
-      "reportingPeriodEndDate": "2026-03-31",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 59.14,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 49.2,
       "industrySubdivision": "Building cleaning, pest control and other support services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2026-06-30",
+      "submittedDate": "2026-06-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
       "overallP95Position": {
-        "rank": 172,
-        "count": 193,
-        "percentile": 10.9
+        "rank": 235,
+        "count": 270,
+        "percentile": 13
       },
       "industryP95Position": {
-        "rank": 7,
-        "count": 7,
+        "rank": 9,
+        "count": 9,
         "percentile": 0
       }
     },
     {
       "reportId": "PTR20006874",
       "acnArbn": "673801262",
-      "reportingPeriodStartDate": "2025-04-01",
-      "reportingPeriodEndDate": "2025-09-30",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33.83,
@@ -52,16 +56,20 @@
       "paymentsMoreThan60Days": 0.26,
       "industrySubdivision": "Building cleaning, pest control and other support services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-12-31",
+      "submittedDate": "2025-12-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 129,
-        "count": 228,
-        "percentile": 42.3
+        "rank": 1411,
+        "count": 2976,
+        "percentile": 51.1
       },
       "industryP95Position": {
-        "rank": 8,
-        "count": 8,
-        "percentile": 0
+        "rank": 37,
+        "count": 58,
+        "percentile": 33.3
       }
     }
   ]

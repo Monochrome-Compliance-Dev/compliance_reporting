@@ -6,13 +6,13 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Printing (including the reproduction of recorded media)",
-  "latestReportingPeriodEndDate": "2024-12-31",
+  "latestReportingPeriodEndDate": "2024-12-30",
   "reports": [
     {
       "reportId": "PTR20003070",
       "acnArbn": "000010382",
-      "reportingPeriodStartDate": "2024-07-03",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-07-02",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 14.29,
@@ -24,16 +24,20 @@
       "paymentsMoreThan60Days": 1.4,
       "industrySubdivision": "Printing (including the reproduction of recorded media)",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-08-08",
+      "submittedDate": "2025-08-07",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 909,
-        "count": 2498,
+        "rank": 918,
+        "count": 2524,
         "percentile": 62.6
       },
       "industryP95Position": {
-        "rank": 52,
-        "count": 323,
-        "percentile": 83.5
+        "rank": 55,
+        "count": 330,
+        "percentile": 83
       }
     }
   ]

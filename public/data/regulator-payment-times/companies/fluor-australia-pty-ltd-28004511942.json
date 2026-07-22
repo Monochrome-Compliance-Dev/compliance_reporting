@@ -6,13 +6,13 @@
   "industryDivision": "Mining",
   "industrySlug": "mining",
   "industrySubdivision": "Exploration and other mining support services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008605",
       "acnArbn": "004511942",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 15,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 7,
       "industrySubdivision": "Exploration and other mining support services",
       "industryDivision": "Mining",
-      "submittedDate": "2026-03-23",
+      "submittedDate": "2026-03-22",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1725,
-        "count": 2613,
-        "percentile": 31.4
+        "rank": 1963,
+        "count": 2976,
+        "percentile": 31.6
       },
       "industryP95Position": {
-        "rank": 123,
-        "count": 177,
-        "percentile": 27.3
+        "rank": 132,
+        "count": 187,
+        "percentile": 26.3
       }
     },
     {
       "reportId": "PTR20005725",
       "acnArbn": "004511942",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 15,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 10,
       "industrySubdivision": "Exploration and other mining support services",
       "industryDivision": "Mining",
-      "submittedDate": "2025-09-30",
+      "submittedDate": "2025-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 850,
-        "count": 2568,
-        "percentile": 65.3
+        "rank": 962,
+        "count": 2935,
+        "percentile": 65.5
       },
       "industryP95Position": {
-        "rank": 67,
-        "count": 173,
-        "percentile": 59.9
+        "rank": 74,
+        "count": 183,
+        "percentile": 58.2
       }
     },
     {
       "reportId": "PTR20001569",
       "acnArbn": "004511942",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 15,
@@ -80,10 +88,14 @@
       "paymentsMoreThan60Days": 3,
       "industrySubdivision": "Exploration and other mining support services",
       "industryDivision": "Mining",
-      "submittedDate": "2025-06-27",
+      "submittedDate": "2025-06-26",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 833,
-        "count": 2498,
+        "rank": 842,
+        "count": 2524,
         "percentile": 65.2
       },
       "industryP95Position": {

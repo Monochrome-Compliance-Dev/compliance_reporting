@@ -6,13 +6,13 @@
   "industryDivision": "Accommodation and Food Services",
   "industrySlug": "accommodation-and-food-services",
   "industrySubdivision": "Food and beverage services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008382",
       "acnArbn": "089163682",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.85,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Food and beverage services",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-29",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 542,
-        "count": 2613,
-        "percentile": 78
+        "rank": 598,
+        "count": 2976,
+        "percentile": 78.6
       },
       "industryP95Position": {
         "rank": 8,
-        "count": 38,
-        "percentile": 81.1
+        "count": 42,
+        "percentile": 82.9
       }
     },
     {
       "reportId": "PTR20004673",
       "acnArbn": "089163682",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.8,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 0.12,
       "industrySubdivision": "Food and beverage services",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2025-09-26",
+      "submittedDate": "2025-09-25",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 491,
-        "count": 2568,
-        "percentile": 79.9
+        "rank": 551,
+        "count": 2935,
+        "percentile": 80.2
       },
       "industryP95Position": {
         "rank": 7,
-        "count": 36,
-        "percentile": 82.9
+        "count": 39,
+        "percentile": 84.2
       }
     },
     {
       "reportId": "PTR20002853",
       "acnArbn": "089163682",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 17,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Food and beverage services",
       "industryDivision": "Accommodation and Food Services",
-      "submittedDate": "2025-07-28",
+      "submittedDate": "2025-07-27",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 466,
-        "count": 2498,
-        "percentile": 79.9
+        "rank": 472,
+        "count": 2524,
+        "percentile": 79.8
       },
       "industryP95Position": {
-        "rank": 4,
-        "count": 30,
-        "percentile": 86.2
+        "rank": 6,
+        "count": 33,
+        "percentile": 81.3
       }
     }
   ]

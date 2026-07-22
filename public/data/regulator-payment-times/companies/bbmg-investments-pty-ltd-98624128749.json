@@ -6,13 +6,13 @@
   "industryDivision": "Retail Trade",
   "industrySlug": "retail-trade",
   "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20009942",
       "acnArbn": "624128749",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33.03,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 6.49,
       "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1887,
-        "count": 2613,
-        "percentile": 26
+        "rank": 2139,
+        "count": 2976,
+        "percentile": 26.4
       },
       "industryP95Position": {
-        "rank": 152,
-        "count": 207,
-        "percentile": 24.8
+        "rank": 184,
+        "count": 249,
+        "percentile": 23.8
       }
     },
     {
       "reportId": "PTR20009886",
       "acnArbn": "624128749",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33.91,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 9.27,
       "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2218,
-        "count": 2568,
+        "rank": 2535,
+        "count": 2935,
         "percentile": 12.8
       },
       "industryP95Position": {
-        "rank": 183,
-        "count": 208,
-        "percentile": 11.1
+        "rank": 221,
+        "count": 252,
+        "percentile": 11.6
       }
     },
     {
       "reportId": "PTR20009885",
       "acnArbn": "624128749",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 37.04,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 11.14,
       "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2100,
-        "count": 2498,
-        "percentile": 15.5
+        "rank": 2123,
+        "count": 2524,
+        "percentile": 15.4
       },
       "industryP95Position": {
-        "rank": 173,
-        "count": 207,
-        "percentile": 16.5
+        "rank": 176,
+        "count": 210,
+        "percentile": 16.3
       }
     }
   ]

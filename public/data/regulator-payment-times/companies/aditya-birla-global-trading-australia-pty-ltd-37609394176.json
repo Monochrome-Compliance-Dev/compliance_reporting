@@ -6,13 +6,13 @@
   "industryDivision": "Agriculture, Forestry and Fishing",
   "industrySlug": "agriculture-forestry-and-fishing",
   "industrySubdivision": "Agriculture, forestry and fishing support services",
-  "latestReportingPeriodEndDate": "2026-03-31",
+  "latestReportingPeriodEndDate": "2026-03-30",
   "reports": [
     {
       "reportId": "PTR20011411",
       "acnArbn": "609394176",
-      "reportingPeriodStartDate": "2025-10-01",
-      "reportingPeriodEndDate": "2026-03-31",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 12.86,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Agriculture, forestry and fishing support services",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2026-06-19",
+      "submittedDate": "2026-06-18",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
       "overallP95Position": {
-        "rank": 38,
-        "count": 193,
-        "percentile": 79.2
+        "rank": 48,
+        "count": 270,
+        "percentile": 80.7
       },
       "industryP95Position": {
         "rank": 1,
-        "count": 8,
+        "count": 11,
         "percentile": 100
       }
     },
     {
       "reportId": "PTR20006597",
       "acnArbn": "609394176",
-      "reportingPeriodStartDate": "2025-04-01",
-      "reportingPeriodEndDate": "2025-09-30",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 39.45,
@@ -52,16 +56,20 @@
       "paymentsMoreThan60Days": 9.09,
       "industrySubdivision": "Agriculture, forestry and fishing support services",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-12-01",
+      "submittedDate": "2025-11-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 221,
-        "count": 228,
-        "percentile": 3.1
+        "rank": 2859,
+        "count": 2976,
+        "percentile": 3.8
       },
       "industryP95Position": {
-        "rank": 10,
-        "count": 10,
-        "percentile": 0
+        "rank": 115,
+        "count": 116,
+        "percentile": 0.9
       }
     }
   ]

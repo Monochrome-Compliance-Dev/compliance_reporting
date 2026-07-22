@@ -6,13 +6,13 @@
   "industryDivision": "Administrative and Support Services",
   "industrySlug": "administrative-and-support-services",
   "industrySubdivision": "Administrative services",
-  "latestReportingPeriodEndDate": "2024-12-31",
+  "latestReportingPeriodEndDate": "2024-12-30",
   "reports": [
     {
       "reportId": "PTR20002275",
       "acnArbn": "096418101",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 20,
@@ -24,16 +24,20 @@
       "paymentsMoreThan60Days": 1.1,
       "industrySubdivision": "Administrative services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-07-01",
+      "submittedDate": "2025-06-30",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 693,
-        "count": 2498,
+        "rank": 701,
+        "count": 2524,
         "percentile": 71.2
       },
       "industryP95Position": {
         "rank": 19,
-        "count": 50,
-        "percentile": 63.3
+        "count": 51,
+        "percentile": 64
       }
     }
   ]

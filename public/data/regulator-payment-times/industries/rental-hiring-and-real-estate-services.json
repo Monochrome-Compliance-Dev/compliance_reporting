@@ -1,150 +1,74 @@
 {
   "slug": "rental-hiring-and-real-estate-services",
   "industryDivision": "Rental, Hiring and Real Estate Services",
-  "latestReportingPeriodEndDate": "2026-03-31",
-  "reportingEntityCount": 2,
-  "latestPeriod": {
-    "reportingPeriodEndDate": "2026-03-31",
-    "reportingEntityCount": 2,
-    "averageP95PaymentTimeDays": 75.5,
-    "medianP95PaymentTimeDays": 75.5,
-    "minimumP95PaymentTimeDays": 68,
-    "maximumP95PaymentTimeDays": 83,
-    "position": {
-      "rank": 17,
-      "count": 17,
-      "percentile": 0
-    }
-  },
-  "history": [
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
     {
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "reportingEntityCount": 55,
       "averageP95PaymentTimeDays": 50.3,
       "medianP95PaymentTimeDays": 50,
       "minimumP95PaymentTimeDays": 6,
-      "maximumP95PaymentTimeDays": 100,
-      "position": {
-        "rank": 7,
-        "count": 19,
-        "percentile": 66.7
-      }
+      "maximumP95PaymentTimeDays": 100
     },
     {
-      "reportingPeriodEndDate": "2025-01-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 9,
-      "medianP95PaymentTimeDays": 9,
-      "minimumP95PaymentTimeDays": 9,
-      "maximumP95PaymentTimeDays": 9,
-      "position": {
-        "rank": 1,
-        "count": 11,
-        "percentile": 100
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-03-31",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 50.5,
-      "medianP95PaymentTimeDays": 50.5,
-      "minimumP95PaymentTimeDays": 25,
-      "maximumP95PaymentTimeDays": 76,
-      "position": {
-        "rank": 9,
-        "count": 18,
-        "percentile": 52.9
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-06-30",
-      "reportingEntityCount": 61,
-      "averageP95PaymentTimeDays": 57.7,
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 64,
+      "averageP95PaymentTimeDays": 56.7,
       "medianP95PaymentTimeDays": 53,
       "minimumP95PaymentTimeDays": 5,
-      "maximumP95PaymentTimeDays": 112,
-      "position": {
-        "rank": 10,
-        "count": 19,
-        "percentile": 50
-      }
+      "maximumP95PaymentTimeDays": 112
     },
     {
-      "reportingPeriodEndDate": "2025-07-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 9,
-      "medianP95PaymentTimeDays": 9,
-      "minimumP95PaymentTimeDays": 9,
-      "maximumP95PaymentTimeDays": 9,
-      "position": {
-        "rank": 1,
-        "count": 12,
-        "percentile": 100
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-09-30",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 57,
-      "medianP95PaymentTimeDays": 57,
-      "minimumP95PaymentTimeDays": 39,
-      "maximumP95PaymentTimeDays": 75,
-      "position": {
-        "rank": 15,
-        "count": 18,
-        "percentile": 17.6
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-12-31",
-      "reportingEntityCount": 66,
-      "averageP95PaymentTimeDays": 52.3,
-      "medianP95PaymentTimeDays": 49.5,
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 69,
+      "averageP95PaymentTimeDays": 51.8,
+      "medianP95PaymentTimeDays": 49,
       "minimumP95PaymentTimeDays": 6,
-      "maximumP95PaymentTimeDays": 106,
-      "position": {
-        "rank": 8,
-        "count": 19,
-        "percentile": 61.1
-      }
+      "maximumP95PaymentTimeDays": 106
     },
     {
-      "reportingPeriodEndDate": "2026-01-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 10,
-      "medianP95PaymentTimeDays": 10,
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 3,
+      "averageP95PaymentTimeDays": 53.7,
+      "medianP95PaymentTimeDays": 68,
       "minimumP95PaymentTimeDays": 10,
-      "maximumP95PaymentTimeDays": 10,
-      "position": {
-        "rank": 1,
-        "count": 11,
-        "percentile": 100
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2026-03-31",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 75.5,
-      "medianP95PaymentTimeDays": 75.5,
-      "minimumP95PaymentTimeDays": 68,
-      "maximumP95PaymentTimeDays": 83,
-      "position": {
-        "rank": 17,
-        "count": 17,
-        "percentile": 0
-      }
+      "maximumP95PaymentTimeDays": 83
     }
   ],
   "companies": [
+    {
+      "businessName": "NORGAP PTY. LIMITED",
+      "abn": "34008553955",
+      "slug": "norgap-pty-limited-34008553955",
+      "p95PaymentTimeDays": 10,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 3,
+        "percentile": 100
+      }
+    },
     {
       "businessName": "MOVIGO PTY LTD",
       "abn": "57606409394",
       "slug": "movigo-pty-ltd-57606409394",
       "p95PaymentTimeDays": 68,
       "industryP95Position": {
-        "rank": 1,
-        "count": 2,
-        "percentile": 100
+        "rank": 2,
+        "count": 3,
+        "percentile": 50
       }
     },
     {
@@ -153,8 +77,8 @@
       "slug": "tutt-bryant-group-limited-89009242675",
       "p95PaymentTimeDays": 83,
       "industryP95Position": {
-        "rank": 2,
-        "count": 2,
+        "rank": 3,
+        "count": 3,
         "percentile": 0
       }
     }

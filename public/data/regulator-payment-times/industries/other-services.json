@@ -1,99 +1,51 @@
 {
   "slug": "other-services",
   "industryDivision": "Other Services",
-  "latestReportingPeriodEndDate": "2026-03-31",
-  "reportingEntityCount": 2,
-  "latestPeriod": {
-    "reportingPeriodEndDate": "2026-03-31",
-    "reportingEntityCount": 2,
-    "averageP95PaymentTimeDays": 47,
-    "medianP95PaymentTimeDays": 47,
-    "minimumP95PaymentTimeDays": 44,
-    "maximumP95PaymentTimeDays": 50,
-    "position": {
-      "rank": 9,
-      "count": 17,
-      "percentile": 43.8
-    }
-  },
-  "history": [
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
     {
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "reportingEntityCount": 22,
       "averageP95PaymentTimeDays": 52.9,
       "medianP95PaymentTimeDays": 56.5,
       "minimumP95PaymentTimeDays": 8,
-      "maximumP95PaymentTimeDays": 120,
-      "position": {
-        "rank": 13,
-        "count": 19,
-        "percentile": 27.8
-      }
+      "maximumP95PaymentTimeDays": 120
     },
     {
-      "reportingPeriodEndDate": "2025-03-31",
-      "reportingEntityCount": 3,
-      "averageP95PaymentTimeDays": 89,
-      "medianP95PaymentTimeDays": 80,
-      "minimumP95PaymentTimeDays": 70,
-      "maximumP95PaymentTimeDays": 117,
-      "position": {
-        "rank": 17,
-        "count": 18,
-        "percentile": 5.9
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-06-30",
-      "reportingEntityCount": 26,
-      "averageP95PaymentTimeDays": 54.2,
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 29,
+      "averageP95PaymentTimeDays": 57.8,
       "medianP95PaymentTimeDays": 57,
       "minimumP95PaymentTimeDays": 9,
-      "maximumP95PaymentTimeDays": 120,
-      "position": {
-        "rank": 14,
-        "count": 19,
-        "percentile": 22.2
-      }
+      "maximumP95PaymentTimeDays": 120
     },
     {
-      "reportingPeriodEndDate": "2025-09-30",
-      "reportingEntityCount": 3,
-      "averageP95PaymentTimeDays": 54.3,
-      "medianP95PaymentTimeDays": 54,
-      "minimumP95PaymentTimeDays": 40,
-      "maximumP95PaymentTimeDays": 69,
-      "position": {
-        "rank": 13,
-        "count": 18,
-        "percentile": 29.4
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-12-31",
-      "reportingEntityCount": 25,
-      "averageP95PaymentTimeDays": 47.4,
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 28,
+      "averageP95PaymentTimeDays": 48.2,
       "medianP95PaymentTimeDays": 54,
       "minimumP95PaymentTimeDays": 13,
-      "maximumP95PaymentTimeDays": 73,
-      "position": {
-        "rank": 12,
-        "count": 19,
-        "percentile": 38.9
-      }
+      "maximumP95PaymentTimeDays": 73
     },
     {
-      "reportingPeriodEndDate": "2026-03-31",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
       "reportingEntityCount": 2,
       "averageP95PaymentTimeDays": 47,
       "medianP95PaymentTimeDays": 47,
       "minimumP95PaymentTimeDays": 44,
-      "maximumP95PaymentTimeDays": 50,
-      "position": {
-        "rank": 9,
-        "count": 17,
-        "percentile": 43.8
-      }
+      "maximumP95PaymentTimeDays": 50
     }
   ],
   "companies": [

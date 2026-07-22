@@ -1,241 +1,74 @@
 {
   "slug": "construction",
   "industryDivision": "Construction",
-  "latestReportingPeriodEndDate": "2026-03-31",
-  "reportingEntityCount": 5,
-  "latestPeriod": {
-    "reportingPeriodEndDate": "2026-03-31",
-    "reportingEntityCount": 5,
-    "averageP95PaymentTimeDays": 55.8,
-    "medianP95PaymentTimeDays": 52,
-    "minimumP95PaymentTimeDays": 46,
-    "maximumP95PaymentTimeDays": 72,
-    "position": {
-      "rank": 13,
-      "count": 17,
-      "percentile": 25
-    }
-  },
-  "history": [
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
     {
-      "reportingPeriodEndDate": "2024-07-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 53,
-      "medianP95PaymentTimeDays": 53,
-      "minimumP95PaymentTimeDays": 53,
-      "maximumP95PaymentTimeDays": 53,
-      "position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2024-12-31",
-      "reportingEntityCount": 250,
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 251,
       "averageP95PaymentTimeDays": 67.3,
       "medianP95PaymentTimeDays": 60,
       "minimumP95PaymentTimeDays": 9,
-      "maximumP95PaymentTimeDays": 1445,
-      "position": {
-        "rank": 17,
-        "count": 19,
-        "percentile": 5.6
-      }
+      "maximumP95PaymentTimeDays": 1445
     },
     {
-      "reportingPeriodEndDate": "2025-01-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 101,
-      "medianP95PaymentTimeDays": 101,
-      "minimumP95PaymentTimeDays": 101,
-      "maximumP95PaymentTimeDays": 101,
-      "position": {
-        "rank": 11,
-        "count": 11,
-        "percentile": 0
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-02-28",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 112,
-      "medianP95PaymentTimeDays": 112,
-      "minimumP95PaymentTimeDays": 112,
-      "maximumP95PaymentTimeDays": 112,
-      "position": {
-        "rank": 9,
-        "count": 10,
-        "percentile": 11.1
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-03-31",
-      "reportingEntityCount": 7,
-      "averageP95PaymentTimeDays": 58.1,
-      "medianP95PaymentTimeDays": 54,
-      "minimumP95PaymentTimeDays": 45,
-      "maximumP95PaymentTimeDays": 101,
-      "position": {
-        "rank": 12,
-        "count": 18,
-        "percentile": 35.3
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-04-30",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 56,
-      "medianP95PaymentTimeDays": 56,
-      "minimumP95PaymentTimeDays": 56,
-      "maximumP95PaymentTimeDays": 56,
-      "position": {
-        "rank": 3,
-        "count": 9,
-        "percentile": 75
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-06-30",
-      "reportingEntityCount": 259,
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 269,
       "averageP95PaymentTimeDays": 67.9,
-      "medianP95PaymentTimeDays": 61,
+      "medianP95PaymentTimeDays": 60,
       "minimumP95PaymentTimeDays": 9,
-      "maximumP95PaymentTimeDays": 750,
-      "position": {
-        "rank": 18,
-        "count": 19,
-        "percentile": 5.6
-      }
+      "maximumP95PaymentTimeDays": 750
     },
     {
-      "reportingPeriodEndDate": "2025-07-31",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 28.5,
-      "medianP95PaymentTimeDays": 28.5,
-      "minimumP95PaymentTimeDays": 1,
-      "maximumP95PaymentTimeDays": 56,
-      "position": {
-        "rank": 2,
-        "count": 12,
-        "percentile": 90.9
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-08-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 114,
-      "medianP95PaymentTimeDays": 114,
-      "minimumP95PaymentTimeDays": 114,
-      "maximumP95PaymentTimeDays": 114,
-      "position": {
-        "rank": 10,
-        "count": 11,
-        "percentile": 10
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-09-30",
-      "reportingEntityCount": 6,
-      "averageP95PaymentTimeDays": 55,
-      "medianP95PaymentTimeDays": 47,
-      "minimumP95PaymentTimeDays": 43,
-      "maximumP95PaymentTimeDays": 86,
-      "position": {
-        "rank": 7,
-        "count": 18,
-        "percentile": 64.7
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-10-30",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 42,
-      "medianP95PaymentTimeDays": 42,
-      "minimumP95PaymentTimeDays": 42,
-      "maximumP95PaymentTimeDays": 42,
-      "position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-10-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 62,
-      "medianP95PaymentTimeDays": 62,
-      "minimumP95PaymentTimeDays": 62,
-      "maximumP95PaymentTimeDays": 62,
-      "position": {
-        "rank": 5,
-        "count": 9,
-        "percentile": 50
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-12-31",
-      "reportingEntityCount": 270,
-      "averageP95PaymentTimeDays": 62.1,
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 280,
+      "averageP95PaymentTimeDays": 61.9,
       "medianP95PaymentTimeDays": 59,
-      "minimumP95PaymentTimeDays": 11,
-      "maximumP95PaymentTimeDays": 346,
-      "position": {
-        "rank": 17,
-        "count": 19,
-        "percentile": 5.6
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2026-01-31",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 37,
-      "medianP95PaymentTimeDays": 37,
       "minimumP95PaymentTimeDays": 1,
-      "maximumP95PaymentTimeDays": 73,
-      "position": {
-        "rank": 2,
-        "count": 11,
-        "percentile": 80
-      }
+      "maximumP95PaymentTimeDays": 346
     },
     {
-      "reportingPeriodEndDate": "2026-02-28",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 112,
-      "medianP95PaymentTimeDays": 112,
-      "minimumP95PaymentTimeDays": 112,
-      "maximumP95PaymentTimeDays": 112,
-      "position": {
-        "rank": 12,
-        "count": 12,
-        "percentile": 0
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2026-03-31",
-      "reportingEntityCount": 5,
-      "averageP95PaymentTimeDays": 55.8,
-      "medianP95PaymentTimeDays": 52,
-      "minimumP95PaymentTimeDays": 46,
-      "maximumP95PaymentTimeDays": 72,
-      "position": {
-        "rank": 13,
-        "count": 17,
-        "percentile": 25
-      }
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 8,
+      "averageP95PaymentTimeDays": 58.1,
+      "medianP95PaymentTimeDays": 56.5,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 112
     }
   ],
   "companies": [
+    {
+      "businessName": "GAMUDA BERHAD",
+      "abn": "27632738768",
+      "slug": "gamuda-berhad-27632738768",
+      "p95PaymentTimeDays": 1,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 8,
+        "percentile": 100
+      }
+    },
     {
       "businessName": "FLUENCE ENERGY PTY LTD",
       "abn": "18627071461",
       "slug": "fluence-energy-pty-ltd-18627071461",
       "p95PaymentTimeDays": 46,
       "industryP95Position": {
-        "rank": 1,
-        "count": 5,
-        "percentile": 100
+        "rank": 2,
+        "count": 8,
+        "percentile": 85.7
       }
     },
     {
@@ -244,9 +77,9 @@
       "slug": "laing-o-rourke-australia-group-pty-limited-36001333900",
       "p95PaymentTimeDays": 48,
       "industryP95Position": {
-        "rank": 2,
-        "count": 5,
-        "percentile": 75
+        "rank": 3,
+        "count": 8,
+        "percentile": 71.4
       }
     },
     {
@@ -255,9 +88,9 @@
       "slug": "frasers-property-australia-pty-limited-89600448726",
       "p95PaymentTimeDays": 52,
       "industryP95Position": {
-        "rank": 3,
-        "count": 5,
-        "percentile": 50
+        "rank": 4,
+        "count": 8,
+        "percentile": 57.1
       }
     },
     {
@@ -266,9 +99,9 @@
       "slug": "nex-building-group-pty-ltd-59089524050",
       "p95PaymentTimeDays": 61,
       "industryP95Position": {
-        "rank": 4,
-        "count": 5,
-        "percentile": 25
+        "rank": 5,
+        "count": 8,
+        "percentile": 42.9
       }
     },
     {
@@ -277,8 +110,30 @@
       "slug": "far-east-consortium-holdings-australia-pty-limited-80062878880",
       "p95PaymentTimeDays": 72,
       "industryP95Position": {
-        "rank": 5,
-        "count": 5,
+        "rank": 6,
+        "count": 8,
+        "percentile": 28.6
+      }
+    },
+    {
+      "businessName": "Gamuda Holdings Pty Ltd",
+      "abn": "81665763020",
+      "slug": "gamuda-holdings-pty-ltd-81665763020",
+      "p95PaymentTimeDays": 73,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 8,
+        "percentile": 14.3
+      }
+    },
+    {
+      "businessName": "CAPE AUSTRALIA HOLDINGS PTY LIMITED",
+      "abn": "12126824397",
+      "slug": "cape-australia-holdings-pty-limited-12126824397",
+      "p95PaymentTimeDays": 112,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 8,
         "percentile": 0
       }
     }

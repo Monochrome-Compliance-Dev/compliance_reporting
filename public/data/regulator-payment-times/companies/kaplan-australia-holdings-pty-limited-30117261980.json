@@ -6,13 +6,13 @@
   "industryDivision": "Education and Training",
   "industrySlug": "education-and-training",
   "industrySubdivision": "Tertiary education",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20009148",
       "acnArbn": "117261980",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 45.51,
@@ -24,11 +24,15 @@
       "paymentsMoreThan60Days": 0.03,
       "industrySubdivision": "Tertiary education",
       "industryDivision": "Education and Training",
-      "submittedDate": "2026-03-26",
+      "submittedDate": "2026-03-25",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1648,
-        "count": 2613,
-        "percentile": 34
+        "rank": 1878,
+        "count": 2976,
+        "percentile": 34.1
       },
       "industryP95Position": {
         "rank": 10,
@@ -39,8 +43,8 @@
     {
       "reportId": "PTR20004852",
       "acnArbn": "117261980",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 45.44,
@@ -52,11 +56,15 @@
       "paymentsMoreThan60Days": 0.1,
       "industrySubdivision": "Tertiary education",
       "industryDivision": "Education and Training",
-      "submittedDate": "2025-09-29",
+      "submittedDate": "2025-09-28",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1543,
-        "count": 2568,
-        "percentile": 36.7
+        "rank": 1762,
+        "count": 2935,
+        "percentile": 36.8
       },
       "industryP95Position": {
         "rank": 11,
@@ -67,8 +75,8 @@
     {
       "reportId": "PTR20002832",
       "acnArbn": "117261980",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 38.33,
@@ -80,10 +88,14 @@
       "paymentsMoreThan60Days": 0.11,
       "industrySubdivision": "Tertiary education",
       "industryDivision": "Education and Training",
-      "submittedDate": "2025-07-28",
+      "submittedDate": "2025-07-27",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1478,
-        "count": 2498,
+        "rank": 1494,
+        "count": 2524,
         "percentile": 37.4
       },
       "industryP95Position": {

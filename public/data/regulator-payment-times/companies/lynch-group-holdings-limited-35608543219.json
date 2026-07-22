@@ -6,13 +6,13 @@
   "industryDivision": "Wholesale Trade",
   "industrySlug": "wholesale-trade",
   "industrySubdivision": "Basic metal wholesaling",
-  "latestReportingPeriodEndDate": "2025-12-28",
+  "latestReportingPeriodEndDate": "2025-12-27",
   "reports": [
     {
       "reportId": "PTR20010133",
       "acnArbn": "608543219",
-      "reportingPeriodStartDate": "2025-06-30",
-      "reportingPeriodEndDate": "2025-12-28",
+      "reportingPeriodStartDate": "2025-06-29",
+      "reportingPeriodEndDate": "2025-12-27",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.6,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 15,
       "industrySubdivision": "Basic metal wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 9,
-        "count": 9,
-        "percentile": 0
+        "rank": 2277,
+        "count": 2976,
+        "percentile": 22.8
       },
       "industryP95Position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
+        "rank": 283,
+        "count": 401,
+        "percentile": 29
       }
     },
     {
       "reportId": "PTR20003267",
       "acnArbn": "608543219",
-      "reportingPeriodStartDate": "2024-12-30",
-      "reportingPeriodEndDate": "2025-06-29",
+      "reportingPeriodStartDate": "2024-12-29",
+      "reportingPeriodEndDate": "2025-06-28",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.55,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 14.4,
       "industrySubdivision": "Basic metal wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-08-28",
+      "submittedDate": "2025-08-27",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 11,
-        "count": 13,
-        "percentile": 16.7
+        "rank": 2297,
+        "count": 2935,
+        "percentile": 21
       },
       "industryP95Position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
+        "rank": 293,
+        "count": 399,
+        "percentile": 26.4
       }
     },
     {
       "reportId": "PTR20000694",
       "acnArbn": "608543219",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-29",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-28",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31.98,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 20.5,
       "industrySubdivision": "Basic metal wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-06-20",
+      "submittedDate": "2025-06-19",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 11,
-        "count": 11,
-        "percentile": 0
+        "rank": 2304,
+        "count": 2524,
+        "percentile": 8.3
       },
       "industryP95Position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
+        "rank": 285,
+        "count": 326,
+        "percentile": 11.1
       }
     }
   ]

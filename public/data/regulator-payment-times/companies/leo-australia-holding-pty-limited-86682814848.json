@@ -6,13 +6,13 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008671",
       "acnArbn": "682814848",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.5,
@@ -24,16 +24,20 @@
       "paymentsMoreThan60Days": 19.21,
       "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-24",
+      "submittedDate": "2026-03-23",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2007,
-        "count": 2613,
-        "percentile": 22.5
+        "rank": 2277,
+        "count": 2976,
+        "percentile": 22.8
       },
       "industryP95Position": {
-        "rank": 210,
-        "count": 347,
-        "percentile": 37.9
+        "rank": 240,
+        "count": 404,
+        "percentile": 39
       }
     }
   ]

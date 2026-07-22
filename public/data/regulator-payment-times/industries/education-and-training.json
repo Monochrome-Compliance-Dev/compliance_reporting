@@ -1,60 +1,40 @@
 {
   "slug": "education-and-training",
   "industryDivision": "Education and Training",
-  "latestReportingPeriodEndDate": "2025-12-31",
-  "reportingEntityCount": 14,
-  "latestPeriod": {
-    "reportingPeriodEndDate": "2025-12-31",
-    "reportingEntityCount": 14,
-    "averageP95PaymentTimeDays": 47.3,
-    "medianP95PaymentTimeDays": 52.5,
-    "minimumP95PaymentTimeDays": 13,
-    "maximumP95PaymentTimeDays": 76,
-    "position": {
-      "rank": 11,
-      "count": 19,
-      "percentile": 44.4
-    }
-  },
-  "history": [
+  "latestReportingCycleId": "2025-H2",
+  "cycles": [
     {
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "reportingEntityCount": 12,
       "averageP95PaymentTimeDays": 50.9,
       "medianP95PaymentTimeDays": 53,
       "minimumP95PaymentTimeDays": 13,
-      "maximumP95PaymentTimeDays": 88,
-      "position": {
-        "rank": 10,
-        "count": 19,
-        "percentile": 50
-      }
+      "maximumP95PaymentTimeDays": 88
     },
     {
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "reportingEntityCount": 15,
       "averageP95PaymentTimeDays": 53.8,
       "medianP95PaymentTimeDays": 50,
       "minimumP95PaymentTimeDays": 14,
-      "maximumP95PaymentTimeDays": 123,
-      "position": {
-        "rank": 8,
-        "count": 19,
-        "percentile": 55.6
-      }
+      "maximumP95PaymentTimeDays": 123
     },
     {
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "reportingEntityCount": 14,
       "averageP95PaymentTimeDays": 47.3,
       "medianP95PaymentTimeDays": 52.5,
       "minimumP95PaymentTimeDays": 13,
-      "maximumP95PaymentTimeDays": 76,
-      "position": {
-        "rank": 11,
-        "count": 19,
-        "percentile": 44.4
-      }
+      "maximumP95PaymentTimeDays": 76
     }
   ],
   "companies": [

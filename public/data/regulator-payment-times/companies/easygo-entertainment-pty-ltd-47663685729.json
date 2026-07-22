@@ -6,13 +6,13 @@
   "industryDivision": "Information Media and Telecommunications",
   "industrySlug": "information-media-and-telecommunications",
   "industrySubdivision": "Internet publishing and broadcasting",
-  "latestReportingPeriodEndDate": "2024-12-31",
+  "latestReportingPeriodEndDate": "2024-12-30",
   "reports": [
     {
       "reportId": "PTR20002177",
       "acnArbn": "663685729",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 4.41,
@@ -24,15 +24,19 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Internet publishing and broadcasting",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
         "rank": 39,
-        "count": 2498,
+        "count": 2524,
         "percentile": 98.2
       },
       "industryP95Position": {
         "rank": 1,
-        "count": 58,
+        "count": 59,
         "percentile": 100
       }
     }

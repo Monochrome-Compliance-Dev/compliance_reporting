@@ -6,13 +6,13 @@
   "industryDivision": "Wholesale Trade",
   "industrySlug": "wholesale-trade",
   "industrySubdivision": "Other goods wholesaling",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20011211",
       "acnArbn": "001052704",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 14,
@@ -24,16 +24,20 @@
       "paymentsMoreThan60Days": 1.4,
       "industrySubdivision": "Other goods wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-05-29",
+      "submittedDate": "2026-05-28",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1648,
-        "count": 2613,
-        "percentile": 34
+        "rank": 1878,
+        "count": 2976,
+        "percentile": 34.1
       },
       "industryP95Position": {
-        "rank": 167,
-        "count": 329,
-        "percentile": 45.1
+        "rank": 216,
+        "count": 401,
+        "percentile": 42.8
       }
     }
   ]

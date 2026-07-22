@@ -6,13 +6,13 @@
   "industryDivision": "Construction",
   "industrySlug": "construction",
   "industrySubdivision": "Building construction",
-  "latestReportingPeriodEndDate": "2025-06-30",
+  "latestReportingPeriodEndDate": "2025-06-29",
   "reports": [
     {
       "reportId": "PTR20002307",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 58,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 17.71,
       "industrySubdivision": "Building construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-07-02",
+      "submittedDate": "2025-07-01",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1902,
-        "count": 2568,
-        "percentile": 24.9
+        "rank": 2167,
+        "count": 2935,
+        "percentile": 25.1
       },
       "industryP95Position": {
-        "rank": 186,
-        "count": 259,
-        "percentile": 26.7
+        "rank": 193,
+        "count": 269,
+        "percentile": 26.9
       }
     },
     {
       "reportId": "PTR20001045",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 53,
@@ -52,16 +56,20 @@
       "paymentsMoreThan60Days": 17.46,
       "industrySubdivision": "Building construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-06-25",
+      "submittedDate": "2025-06-24",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1851,
-        "count": 2498,
-        "percentile": 25.3
+        "rank": 1871,
+        "count": 2524,
+        "percentile": 25.2
       },
       "industryP95Position": {
-        "rank": 184,
-        "count": 250,
-        "percentile": 24.9
+        "rank": 185,
+        "count": 251,
+        "percentile": 24.8
       }
     }
   ]

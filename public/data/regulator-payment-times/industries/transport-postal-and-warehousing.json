@@ -1,242 +1,51 @@
 {
   "slug": "transport-postal-and-warehousing",
   "industryDivision": "Transport, Postal and Warehousing",
-  "latestReportingPeriodEndDate": "2026-03-31",
-  "reportingEntityCount": 14,
-  "latestPeriod": {
-    "reportingPeriodEndDate": "2026-03-31",
-    "reportingEntityCount": 14,
-    "averageP95PaymentTimeDays": 52.2,
-    "medianP95PaymentTimeDays": 48.5,
-    "minimumP95PaymentTimeDays": 18,
-    "maximumP95PaymentTimeDays": 116,
-    "position": {
-      "rank": 11,
-      "count": 17,
-      "percentile": 37.5
-    }
-  },
-  "history": [
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
     {
-      "reportingPeriodEndDate": "2024-12-29",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 54,
-      "medianP95PaymentTimeDays": 54,
-      "minimumP95PaymentTimeDays": 54,
-      "maximumP95PaymentTimeDays": 54,
-      "position": {
-        "rank": 4,
-        "count": 6,
-        "percentile": 40
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2024-12-31",
-      "reportingEntityCount": 140,
-      "averageP95PaymentTimeDays": 59.4,
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 141,
+      "averageP95PaymentTimeDays": 59.3,
       "medianP95PaymentTimeDays": 56,
       "minimumP95PaymentTimeDays": 0,
-      "maximumP95PaymentTimeDays": 375,
-      "position": {
-        "rank": 12,
-        "count": 19,
-        "percentile": 38.9
-      }
+      "maximumP95PaymentTimeDays": 375
     },
     {
-      "reportingPeriodEndDate": "2025-02-28",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 34,
-      "medianP95PaymentTimeDays": 34,
-      "minimumP95PaymentTimeDays": 34,
-      "maximumP95PaymentTimeDays": 34,
-      "position": {
-        "rank": 2,
-        "count": 10,
-        "percentile": 88.9
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-03-31",
-      "reportingEntityCount": 17,
-      "averageP95PaymentTimeDays": 63.5,
-      "medianP95PaymentTimeDays": 59,
-      "minimumP95PaymentTimeDays": 33,
-      "maximumP95PaymentTimeDays": 160,
-      "position": {
-        "rank": 15,
-        "count": 18,
-        "percentile": 17.6
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-04-30",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 72,
-      "medianP95PaymentTimeDays": 72,
-      "minimumP95PaymentTimeDays": 72,
-      "maximumP95PaymentTimeDays": 72,
-      "position": {
-        "rank": 8,
-        "count": 9,
-        "percentile": 12.5
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-05-31",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 69,
-      "medianP95PaymentTimeDays": 69,
-      "minimumP95PaymentTimeDays": 45,
-      "maximumP95PaymentTimeDays": 93,
-      "position": {
-        "rank": 5,
-        "count": 8,
-        "percentile": 28.6
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-06-29",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 52.5,
-      "medianP95PaymentTimeDays": 52.5,
-      "minimumP95PaymentTimeDays": 46,
-      "maximumP95PaymentTimeDays": 59,
-      "position": {
-        "rank": 2,
-        "count": 5,
-        "percentile": 75
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-06-30",
-      "reportingEntityCount": 144,
-      "averageP95PaymentTimeDays": 61.2,
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 167,
+      "averageP95PaymentTimeDays": 61.3,
       "medianP95PaymentTimeDays": 56,
       "minimumP95PaymentTimeDays": 2,
-      "maximumP95PaymentTimeDays": 582,
-      "position": {
-        "rank": 12,
-        "count": 19,
-        "percentile": 33.3
-      }
+      "maximumP95PaymentTimeDays": 582
     },
     {
-      "reportingPeriodEndDate": "2025-07-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 64,
-      "medianP95PaymentTimeDays": 64,
-      "minimumP95PaymentTimeDays": 64,
-      "maximumP95PaymentTimeDays": 64,
-      "position": {
-        "rank": 11,
-        "count": 12,
-        "percentile": 9.1
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-08-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 38,
-      "medianP95PaymentTimeDays": 38,
-      "minimumP95PaymentTimeDays": 38,
-      "maximumP95PaymentTimeDays": 38,
-      "position": {
-        "rank": 1,
-        "count": 11,
-        "percentile": 100
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-09-30",
-      "reportingEntityCount": 18,
-      "averageP95PaymentTimeDays": 60.3,
-      "medianP95PaymentTimeDays": 55,
-      "minimumP95PaymentTimeDays": 0,
-      "maximumP95PaymentTimeDays": 165,
-      "position": {
-        "rank": 14,
-        "count": 18,
-        "percentile": 23.5
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-10-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 70,
-      "medianP95PaymentTimeDays": 70,
-      "minimumP95PaymentTimeDays": 70,
-      "maximumP95PaymentTimeDays": 70,
-      "position": {
-        "rank": 7,
-        "count": 9,
-        "percentile": 25
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-11-30",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 85,
-      "medianP95PaymentTimeDays": 85,
-      "minimumP95PaymentTimeDays": 43,
-      "maximumP95PaymentTimeDays": 127,
-      "position": {
-        "rank": 8,
-        "count": 8,
-        "percentile": 0
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-12-28",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 54.5,
-      "medianP95PaymentTimeDays": 54.5,
-      "minimumP95PaymentTimeDays": 49,
-      "maximumP95PaymentTimeDays": 60,
-      "position": {
-        "rank": 3,
-        "count": 4,
-        "percentile": 33.3
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-12-31",
-      "reportingEntityCount": 143,
-      "averageP95PaymentTimeDays": 55.5,
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 167,
+      "averageP95PaymentTimeDays": 56.4,
       "medianP95PaymentTimeDays": 56,
       "minimumP95PaymentTimeDays": 0,
-      "maximumP95PaymentTimeDays": 184,
-      "position": {
-        "rank": 14,
-        "count": 19,
-        "percentile": 22.2
-      }
+      "maximumP95PaymentTimeDays": 184
     },
     {
-      "reportingPeriodEndDate": "2026-02-28",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 31,
-      "medianP95PaymentTimeDays": 31,
-      "minimumP95PaymentTimeDays": 31,
-      "maximumP95PaymentTimeDays": 31,
-      "position": {
-        "rank": 1,
-        "count": 12,
-        "percentile": 90.9
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2026-03-31",
-      "reportingEntityCount": 14,
-      "averageP95PaymentTimeDays": 52.2,
-      "medianP95PaymentTimeDays": 48.5,
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 15,
+      "averageP95PaymentTimeDays": 50.8,
+      "medianP95PaymentTimeDays": 47,
       "minimumP95PaymentTimeDays": 18,
-      "maximumP95PaymentTimeDays": 116,
-      "position": {
-        "rank": 11,
-        "count": 17,
-        "percentile": 37.5
-      }
+      "maximumP95PaymentTimeDays": 116
     }
   ],
   "companies": [
@@ -247,7 +56,7 @@
       "p95PaymentTimeDays": 18,
       "industryP95Position": {
         "rank": 1,
-        "count": 14,
+        "count": 15,
         "percentile": 100
       }
     },
@@ -258,8 +67,19 @@
       "p95PaymentTimeDays": 20,
       "industryP95Position": {
         "rank": 2,
-        "count": 14,
-        "percentile": 92.3
+        "count": 15,
+        "percentile": 92.9
+      }
+    },
+    {
+      "businessName": "HWR PETROLEUM PTY LTD",
+      "abn": "31621081990",
+      "slug": "hwr-petroleum-pty-ltd-31621081990",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 15,
+        "percentile": 85.7
       }
     },
     {
@@ -268,9 +88,9 @@
       "slug": "cubic-transportation-systems-australia-pty-limited-82003617561",
       "p95PaymentTimeDays": 35,
       "industryP95Position": {
-        "rank": 3,
-        "count": 14,
-        "percentile": 84.6
+        "rank": 4,
+        "count": 15,
+        "percentile": 78.6
       }
     },
     {
@@ -279,9 +99,9 @@
       "slug": "bowen-rail-company-pty-ltd-77638074889",
       "p95PaymentTimeDays": 41,
       "industryP95Position": {
-        "rank": 4,
-        "count": 14,
-        "percentile": 76.9
+        "rank": 5,
+        "count": 15,
+        "percentile": 71.4
       }
     },
     {
@@ -290,9 +110,9 @@
       "slug": "the-trustee-for-carmichael-rail-operations-trust-24943622415",
       "p95PaymentTimeDays": 42,
       "industryP95Position": {
-        "rank": 5,
-        "count": 14,
-        "percentile": 69.2
+        "rank": 6,
+        "count": 15,
+        "percentile": 64.3
       }
     },
     {
@@ -301,9 +121,9 @@
       "slug": "australian-parcels-group-pty-ltd-21649001409",
       "p95PaymentTimeDays": 47,
       "industryP95Position": {
-        "rank": 6,
-        "count": 14,
-        "percentile": 53.8
+        "rank": 7,
+        "count": 15,
+        "percentile": 50
       }
     },
     {
@@ -312,9 +132,9 @@
       "slug": "mainfreight-holdings-pty-ltd-24084637605",
       "p95PaymentTimeDays": 47,
       "industryP95Position": {
-        "rank": 6,
-        "count": 14,
-        "percentile": 53.8
+        "rank": 7,
+        "count": 15,
+        "percentile": 50
       }
     },
     {
@@ -323,9 +143,9 @@
       "slug": "abbot-point-operations-pty-ltd-58605852060",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 8,
-        "count": 14,
-        "percentile": 46.2
+        "rank": 9,
+        "count": 15,
+        "percentile": 42.9
       }
     },
     {
@@ -334,9 +154,9 @@
       "slug": "strait-link-shipping-pty-ltd-74138616645",
       "p95PaymentTimeDays": 57,
       "industryP95Position": {
-        "rank": 9,
-        "count": 14,
-        "percentile": 38.5
+        "rank": 10,
+        "count": 15,
+        "percentile": 35.7
       }
     },
     {
@@ -345,9 +165,9 @@
       "slug": "tvs-supply-chain-solutions-australia-holdings-pty-ltd-86607085496",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 10,
-        "count": 14,
-        "percentile": 30.8
+        "rank": 11,
+        "count": 15,
+        "percentile": 28.6
       }
     },
     {
@@ -356,9 +176,9 @@
       "slug": "hitachi-rail-sts-australia-pty-ltd-34068707380",
       "p95PaymentTimeDays": 61,
       "industryP95Position": {
-        "rank": 11,
-        "count": 14,
-        "percentile": 23.1
+        "rank": 12,
+        "count": 15,
+        "percentile": 21.4
       }
     },
     {
@@ -367,9 +187,9 @@
       "slug": "singapore-airlines-limited-52001056195",
       "p95PaymentTimeDays": 69,
       "industryP95Position": {
-        "rank": 12,
-        "count": 14,
-        "percentile": 15.4
+        "rank": 13,
+        "count": 15,
+        "percentile": 14.3
       }
     },
     {
@@ -378,9 +198,9 @@
       "slug": "toll-holdings-pty-limited-25006592089",
       "p95PaymentTimeDays": 70,
       "industryP95Position": {
-        "rank": 13,
-        "count": 14,
-        "percentile": 7.7
+        "rank": 14,
+        "count": 15,
+        "percentile": 7.1
       }
     },
     {
@@ -389,8 +209,8 @@
       "slug": "qatar-airways-group-q-c-s-c-18105742916",
       "p95PaymentTimeDays": 116,
       "industryP95Position": {
-        "rank": 14,
-        "count": 14,
+        "rank": 15,
+        "count": 15,
         "percentile": 0
       }
     }

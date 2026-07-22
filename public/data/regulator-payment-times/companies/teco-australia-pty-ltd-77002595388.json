@@ -6,13 +6,13 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Machinery and equipment mfg",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008587",
       "acnArbn": "002595388",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 38.07,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 10.89,
       "industrySubdivision": "Machinery and equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-23",
+      "submittedDate": "2026-03-22",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1839,
-        "count": 2613,
-        "percentile": 27.8
+        "rank": 2085,
+        "count": 2976,
+        "percentile": 28.2
       },
       "industryP95Position": {
-        "rank": 182,
-        "count": 347,
-        "percentile": 46.2
+        "rank": 208,
+        "count": 404,
+        "percentile": 46.9
       }
     },
     {
       "reportId": "PTR20003958",
       "acnArbn": "002595388",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 37.21,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 10.76,
       "industrySubdivision": "Machinery and equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-19",
+      "submittedDate": "2025-09-18",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1754,
-        "count": 2568,
+        "rank": 2002,
+        "count": 2935,
         "percentile": 30
       },
       "industryP95Position": {
-        "rank": 172,
-        "count": 335,
-        "percentile": 47.3
+        "rank": 201,
+        "count": 393,
+        "percentile": 47.2
       }
     },
     {
       "reportId": "PTR20000503",
       "acnArbn": "002595388",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 42.28,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 13.16,
       "industrySubdivision": "Machinery and equipment mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-16",
+      "submittedDate": "2025-06-15",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2071,
-        "count": 2498,
-        "percentile": 16
+        "rank": 2094,
+        "count": 2524,
+        "percentile": 15.9
       },
       "industryP95Position": {
-        "rank": 235,
-        "count": 323,
-        "percentile": 25.8
+        "rank": 242,
+        "count": 330,
+        "percentile": 25.2
       }
     }
   ]

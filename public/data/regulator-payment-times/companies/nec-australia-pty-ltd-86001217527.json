@@ -6,13 +6,13 @@
   "industryDivision": "Information Media and Telecommunications",
   "industrySlug": "information-media-and-telecommunications",
   "industrySubdivision": "Telecommunications services",
-  "latestReportingPeriodEndDate": "2026-03-31",
+  "latestReportingPeriodEndDate": "2026-03-30",
   "reports": [
     {
       "reportId": "PTR20011684",
       "acnArbn": "001217527",
-      "reportingPeriodStartDate": "2025-10-01",
-      "reportingPeriodEndDate": "2026-03-31",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 38,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 2,
       "industrySubdivision": "Telecommunications services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-06-30",
+      "submittedDate": "2026-06-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
       "overallP95Position": {
-        "rank": 124,
-        "count": 193,
-        "percentile": 33.9
+        "rank": 163,
+        "count": 270,
+        "percentile": 38.3
       },
       "industryP95Position": {
-        "rank": 5,
-        "count": 7,
-        "percentile": 33.3
+        "rank": 6,
+        "count": 12,
+        "percentile": 54.5
       }
     },
     {
       "reportId": "PTR20006857",
       "acnArbn": "001217527",
-      "reportingPeriodStartDate": "2025-04-01",
-      "reportingPeriodEndDate": "2025-09-30",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 39.99,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 3,
       "industrySubdivision": "Telecommunications services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-12-30",
+      "submittedDate": "2025-12-29",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 151,
-        "count": 228,
-        "percentile": 33
+        "rank": 1811,
+        "count": 2976,
+        "percentile": 36.9
       },
       "industryP95Position": {
-        "rank": 4,
-        "count": 6,
-        "percentile": 40
+        "rank": 46,
+        "count": 71,
+        "percentile": 34.3
       }
     },
     {
       "reportId": "PTR20002325",
       "acnArbn": "001217527",
-      "reportingPeriodStartDate": "2024-10-01",
-      "reportingPeriodEndDate": "2025-03-31",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 38,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 1,
       "industrySubdivision": "Telecommunications services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-07-03",
+      "submittedDate": "2025-07-02",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 138,
-        "count": 231,
-        "percentile": 38.7
+        "rank": 1609,
+        "count": 2935,
+        "percentile": 42.4
       },
       "industryP95Position": {
-        "rank": 4,
-        "count": 7,
-        "percentile": 50
+        "rank": 45,
+        "count": 69,
+        "percentile": 32.4
       }
     }
   ]

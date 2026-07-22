@@ -6,13 +6,13 @@
   "industryDivision": "Construction",
   "industrySlug": "construction",
   "industrySubdivision": "Heavy and civil engineering construction",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20009084",
       "acnArbn": "143512350",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 43.88,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 11.91,
       "industrySubdivision": "Heavy and civil engineering construction",
       "industryDivision": "Construction",
-      "submittedDate": "2026-03-26",
+      "submittedDate": "2026-03-25",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1934,
-        "count": 2613,
-        "percentile": 24.3
+        "rank": 2191,
+        "count": 2976,
+        "percentile": 24.6
       },
       "industryP95Position": {
-        "rank": 192,
-        "count": 270,
-        "percentile": 27.5
+        "rank": 200,
+        "count": 280,
+        "percentile": 27.2
       }
     },
     {
       "reportId": "PTR20006771",
       "acnArbn": "143512350",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-10-30",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-10-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31.46,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 8.06,
       "industrySubdivision": "Heavy and civil engineering construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-12-19",
+      "submittedDate": "2025-12-18",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
+        "rank": 906,
+        "count": 2976,
+        "percentile": 68.1
       },
       "industryP95Position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
+        "rank": 39,
+        "count": 280,
+        "percentile": 85.7
       }
     },
     {
       "reportId": "PTR20003626",
       "acnArbn": "143512350",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 38.85,
@@ -80,23 +88,27 @@
       "paymentsMoreThan60Days": 8.33,
       "industrySubdivision": "Heavy and civil engineering construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-09-12",
+      "submittedDate": "2025-09-11",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1855,
-        "count": 2568,
-        "percentile": 26.7
+        "rank": 2117,
+        "count": 2935,
+        "percentile": 26.9
       },
       "industryP95Position": {
-        "rank": 178,
-        "count": 259,
-        "percentile": 29.8
+        "rank": 185,
+        "count": 269,
+        "percentile": 29.9
       }
     },
     {
       "reportId": "PTR20001897",
       "acnArbn": "143512350",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 43,
@@ -108,16 +120,20 @@
       "paymentsMoreThan60Days": 8.11,
       "industrySubdivision": "Heavy and civil engineering construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1740,
-        "count": 2498,
-        "percentile": 29
+        "rank": 1759,
+        "count": 2524,
+        "percentile": 28.9
       },
       "industryP95Position": {
-        "rank": 167,
-        "count": 250,
-        "percentile": 31.3
+        "rank": 168,
+        "count": 251,
+        "percentile": 31.2
       }
     }
   ]

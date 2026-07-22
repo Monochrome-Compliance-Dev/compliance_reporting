@@ -6,13 +6,13 @@
   "industryDivision": "Mining",
   "industrySlug": "mining",
   "industrySubdivision": "Exploration and other mining support services",
-  "latestReportingPeriodEndDate": "2025-06-30",
+  "latestReportingPeriodEndDate": "2025-06-29",
   "reports": [
     {
       "reportId": "PTR20003543",
       "acnArbn": "050122051",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 29.39,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 0.31,
       "industrySubdivision": "Exploration and other mining support services",
       "industryDivision": "Mining",
-      "submittedDate": "2025-09-10",
+      "submittedDate": "2025-09-09",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 663,
-        "count": 2568,
-        "percentile": 72.8
+        "rank": 753,
+        "count": 2935,
+        "percentile": 73.1
       },
       "industryP95Position": {
-        "rank": 53,
-        "count": 173,
-        "percentile": 69.2
+        "rank": 60,
+        "count": 183,
+        "percentile": 67
       }
     },
     {
       "reportId": "PTR20002470",
       "acnArbn": "050122051",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.35,
@@ -52,10 +56,14 @@
       "paymentsMoreThan60Days": 6.43,
       "industrySubdivision": "Exploration and other mining support services",
       "industryDivision": "Mining",
-      "submittedDate": "2025-07-14",
+      "submittedDate": "2025-07-13",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1776,
-        "count": 2498,
+        "rank": 1795,
+        "count": 2524,
         "percentile": 27.5
       },
       "industryP95Position": {

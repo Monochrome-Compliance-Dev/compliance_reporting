@@ -6,13 +6,13 @@
   "industryDivision": "Public Administration and Safety",
   "industrySlug": "public-administration-and-safety",
   "industrySubdivision": "Public order, safety and regulatory services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008879",
       "acnArbn": "107247067",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 3.85,
       "industrySubdivision": "Public order, safety and regulatory services",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1186,
-        "count": 2613,
-        "percentile": 53.1
+        "rank": 1363,
+        "count": 2976,
+        "percentile": 52.6
       },
       "industryP95Position": {
-        "rank": 24,
-        "count": 33,
-        "percentile": 25
+        "rank": 25,
+        "count": 35,
+        "percentile": 26.5
       }
     },
     {
       "reportId": "PTR20003047",
       "acnArbn": "107247067",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Public order, safety and regulatory services",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2025-08-05",
+      "submittedDate": "2025-08-04",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 743,
-        "count": 2568,
-        "percentile": 70.3
+        "rank": 840,
+        "count": 2935,
+        "percentile": 70.6
       },
       "industryP95Position": {
-        "rank": 11,
-        "count": 34,
-        "percentile": 63.6
+        "rank": 12,
+        "count": 36,
+        "percentile": 62.9
       }
     },
     {
       "reportId": "PTR20002829",
       "acnArbn": "107247067",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 11.19,
@@ -80,10 +88,14 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Public order, safety and regulatory services",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2025-07-28",
+      "submittedDate": "2025-07-27",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 99,
-        "count": 2498,
+        "rank": 100,
+        "count": 2524,
         "percentile": 95.7
       },
       "industryP95Position": {

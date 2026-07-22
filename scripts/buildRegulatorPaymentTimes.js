@@ -159,42 +159,135 @@ function formatDateParts(year, month, day) {
 }
 
 function normaliseDate(value, fieldName, reportId) {
-  if (value instanceof Date) {
-    if (Number.isNaN(value.getTime())) {
-      fail(
-        `${fieldName} contains an invalid date for report ${reportId}: ${value}`,
-      );
-    }
-
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
     return formatDateParts(
-      value.getFullYear(),
-      value.getMonth() + 1,
-      value.getDate(),
+      value.getUTCFullYear(),
+      value.getUTCMonth() + 1,
+      value.getUTCDate(),
     );
   }
 
-  if (typeof value === "number") {
-    const parsedDate = XLSX.SSF.parse_date_code(value);
+  const textValue = normaliseText(value);
 
-    if (!parsedDate) {
-      fail(
-        `${fieldName} contains an invalid Excel date for report ${reportId}`,
-      );
+  if (!textValue) {
+    fail(`${fieldName} is missing for report ${reportId}`);
+  }
+
+  const isoMatch = textValue.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+  if (isoMatch) {
+    return formatDateParts(
+      Number(isoMatch[1]),
+      Number(isoMatch[2]),
+      Number(isoMatch[3]),
+    );
+  }
+
+  const australianDateMatch = textValue.match(
+    /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/,
+  );
+
+  if (australianDateMatch) {
+    return formatDateParts(
+      Number(australianDateMatch[3]),
+      Number(australianDateMatch[2]),
+      Number(australianDateMatch[1]),
+    );
+  }
+
+  fail(
+    `${fieldName} contains an unsupported date for report ${reportId}: ${value}`,
+  );
+}
+
+function parseIsoDate(dateValue, fieldName) {
+  const match = String(dateValue).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+  if (!match) {
+    fail(`${fieldName} contains an invalid ISO date: ${dateValue}`);
+  }
+
+  return {
+    year: Number(match[1]),
+    month: Number(match[2]),
+    day: Number(match[3]),
+  };
+}
+
+function createReportingCycle(reportingPeriodEndDate) {
+  const { year, month } = parseIsoDate(
+    reportingPeriodEndDate,
+    "Reporting period end date",
+  );
+
+  const isFirstHalf = month <= 6;
+
+  return {
+    id: `${year}-${isFirstHalf ? "H1" : "H2"}`,
+    name: isFirstHalf ? `January to June ${year}` : `July to December ${year}`,
+    startDate: isFirstHalf
+      ? formatDateParts(year, 1, 1)
+      : formatDateParts(year, 7, 1),
+    endDate: isFirstHalf
+      ? formatDateParts(year, 6, 30)
+      : formatDateParts(year, 12, 31),
+  };
+}
+
+function compareLatestEntityReport(left, right) {
+  const reportingPeriodComparison = left.reportingPeriodEndDate.localeCompare(
+    right.reportingPeriodEndDate,
+  );
+
+  if (reportingPeriodComparison !== 0) {
+    return reportingPeriodComparison;
+  }
+
+  const submittedDateComparison = left.submittedDate.localeCompare(
+    right.submittedDate,
+  );
+
+  if (submittedDateComparison !== 0) {
+    return submittedDateComparison;
+  }
+
+  return left.reportId.localeCompare(right.reportId);
+}
+
+function selectLatestReportByAbn(reports) {
+  const latestReportByAbn = new Map();
+
+  for (const report of reports) {
+    const existingReport = latestReportByAbn.get(report.abn);
+
+    if (
+      !existingReport ||
+      compareLatestEntityReport(existingReport, report) < 0
+    ) {
+      latestReportByAbn.set(report.abn, report);
     }
-
-    return formatDateParts(parsedDate.y, parsedDate.m, parsedDate.d);
   }
 
-  const normalisedValue = normaliseText(value);
-  const isoDateMatch = normalisedValue.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  return [...latestReportByAbn.values()];
+}
 
-  if (!isoDateMatch) {
-    fail(
-      `${fieldName} contains an unsupported date for report ${reportId}: ${value}`,
-    );
+function selectLatestReportByAbnAndCycle(reports) {
+  const latestReportByAbnAndCycle = new Map();
+
+  for (const report of reports) {
+    const key = [report.reportingCycleId, report.abn].join(":");
+
+    const existingReport = latestReportByAbnAndCycle.get(key);
+
+    if (
+      !existingReport ||
+      compareLatestEntityReport(existingReport, report) < 0
+    ) {
+      latestReportByAbnAndCycle.set(key, report);
+    }
   }
 
-  return normalisedValue;
+  return [...latestReportByAbnAndCycle.values()];
 }
 
 function createTextSlug(value, fieldName) {
@@ -431,11 +524,12 @@ function writePaymentTimesSitemap(searchIndex, industryIndex) {
       changeFrequency: "monthly",
       priority: "0.8",
     }),
-    ...industryIndex.map((industry) =>
+    ...industryIndex.industries.map((industry) =>
       createSitemapUrl({
         location:
           `${SITE_URL}/regulator-payment-times/industry/` + industry.slug,
-        lastModified: industry.latestReportingPeriodEndDate,
+        lastModified:
+          industry.cycles[industry.cycles.length - 1].reportingCycleEndDate,
         changeFrequency: "monthly",
         priority: "0.7",
       }),
@@ -480,6 +574,7 @@ function prepareOutputDirectories() {
 
 function createIndustryOutputs(publishedReports) {
   const reportsByIndustry = new Map();
+  const reportingCyclesById = new Map();
 
   for (const report of publishedReports) {
     if (!reportsByIndustry.has(report.industryDivision)) {
@@ -487,7 +582,20 @@ function createIndustryOutputs(publishedReports) {
     }
 
     reportsByIndustry.get(report.industryDivision).push(report);
+
+    if (!reportingCyclesById.has(report.reportingCycleId)) {
+      reportingCyclesById.set(report.reportingCycleId, {
+        id: report.reportingCycleId,
+        name: report.reportingCycleName,
+        startDate: report.reportingCycleStartDate,
+        endDate: report.reportingCycleEndDate,
+      });
+    }
   }
+
+  const reportingCycles = [...reportingCyclesById.values()].sort(
+    (left, right) => left.id.localeCompare(right.id),
+  );
 
   const industries = [];
 
@@ -503,76 +611,46 @@ function createIndustryOutputs(publishedReports) {
       `industry division ${industryDivision}`,
     );
 
-    const reportsByPeriod = new Map();
+    const reportsByCycle = new Map();
 
     for (const report of industryReports) {
-      if (!reportsByPeriod.has(report.reportingPeriodEndDate)) {
-        reportsByPeriod.set(report.reportingPeriodEndDate, []);
+      if (!reportsByCycle.has(report.reportingCycleId)) {
+        reportsByCycle.set(report.reportingCycleId, []);
       }
 
-      reportsByPeriod.get(report.reportingPeriodEndDate).push(report);
+      reportsByCycle.get(report.reportingCycleId).push(report);
     }
 
-    const history = [...reportsByPeriod.entries()]
-      .map(([reportingPeriodEndDate, periodReports]) => {
-        const p95Values = periodReports.map(
+    const cycleOutputs = [...reportsByCycle.entries()]
+      .map(([reportingCycleId, cycleReports]) => {
+        const entityReports = selectLatestReportByAbn(cycleReports);
+
+        const p95Values = entityReports.map(
           (report) => report.p95PaymentTimeDays,
         );
 
+        const firstReport = entityReports[0];
+
         return {
-          reportingPeriodEndDate,
-          reportingEntityCount: periodReports.length,
+          reportingCycleId,
+          reportingCycleName: firstReport.reportingCycleName,
+          reportingCycleStartDate: firstReport.reportingCycleStartDate,
+          reportingCycleEndDate: firstReport.reportingCycleEndDate,
+          reportingEntityCount: entityReports.length,
           averageP95PaymentTimeDays: calculateAverage(p95Values),
           medianP95PaymentTimeDays: calculateMedian(p95Values),
           minimumP95PaymentTimeDays: Math.min(...p95Values),
           maximumP95PaymentTimeDays: Math.max(...p95Values),
+          entityReports,
         };
       })
       .sort((left, right) =>
-        left.reportingPeriodEndDate.localeCompare(right.reportingPeriodEndDate),
+        left.reportingCycleId.localeCompare(right.reportingCycleId),
       );
 
-    industries.push({
-      slug,
-      industryDivision,
-      history,
-      reportsByPeriod,
-    });
-  }
+    const latestCycle = cycleOutputs[cycleOutputs.length - 1];
 
-  const medianValuesByPeriod = new Map();
-
-  for (const industry of industries) {
-    for (const period of industry.history) {
-      if (!medianValuesByPeriod.has(period.reportingPeriodEndDate)) {
-        medianValuesByPeriod.set(period.reportingPeriodEndDate, []);
-      }
-
-      medianValuesByPeriod
-        .get(period.reportingPeriodEndDate)
-        .push(period.medianP95PaymentTimeDays);
-    }
-  }
-
-  for (const industry of industries) {
-    for (const period of industry.history) {
-      period.position = calculatePosition(
-        period.medianP95PaymentTimeDays,
-        medianValuesByPeriod.get(period.reportingPeriodEndDate),
-      );
-    }
-  }
-
-  const industryIndex = [];
-
-  for (const industry of industries) {
-    const latestPeriod = industry.history[industry.history.length - 1];
-
-    const latestPeriodReports = industry.reportsByPeriod.get(
-      latestPeriod.reportingPeriodEndDate,
-    );
-
-    const companies = latestPeriodReports
+    const companies = latestCycle.entityReports
       .map((report) => ({
         businessName: report.businessName,
         abn: report.abn,
@@ -591,46 +669,36 @@ function createIndustryOutputs(publishedReports) {
         return left.businessName.localeCompare(right.businessName);
       });
 
+    const cycles = cycleOutputs.map(({ entityReports, ...cycle }) => cycle);
+
     const industryOutput = {
-      slug: industry.slug,
-      industryDivision: industry.industryDivision,
-      latestReportingPeriodEndDate: latestPeriod.reportingPeriodEndDate,
-      reportingEntityCount: latestPeriod.reportingEntityCount,
-      latestPeriod,
-      history: industry.history,
+      slug,
+      industryDivision,
+      latestReportingCycleId: latestCycle.reportingCycleId,
+      cycles,
       companies,
     };
 
     writeJson(
-      path.join(INDUSTRY_OUTPUT_DIRECTORY, `${industry.slug}.json`),
+      path.join(INDUSTRY_OUTPUT_DIRECTORY, `${slug}.json`),
       industryOutput,
     );
 
-    industryIndex.push({
-      slug: industry.slug,
-      industryDivision: industry.industryDivision,
-      latestReportingPeriodEndDate: latestPeriod.reportingPeriodEndDate,
-      reportingEntityCount: latestPeriod.reportingEntityCount,
-      averageP95PaymentTimeDays: latestPeriod.averageP95PaymentTimeDays,
-      medianP95PaymentTimeDays: latestPeriod.medianP95PaymentTimeDays,
-      minimumP95PaymentTimeDays: latestPeriod.minimumP95PaymentTimeDays,
-      maximumP95PaymentTimeDays: latestPeriod.maximumP95PaymentTimeDays,
-      position: latestPeriod.position,
+    industries.push({
+      slug,
+      industryDivision,
+      cycles,
     });
   }
 
-  industryIndex.sort((left, right) => {
-    const p95Comparison =
-      left.medianP95PaymentTimeDays - right.medianP95PaymentTimeDays;
+  industries.sort((left, right) =>
+    left.industryDivision.localeCompare(right.industryDivision),
+  );
 
-    if (p95Comparison !== 0) {
-      return p95Comparison;
-    }
-
-    return left.industryDivision.localeCompare(right.industryDivision);
-  });
-
-  return industryIndex;
+  return {
+    reportingCycles,
+    industries,
+  };
 }
 
 function importRegulatorPaymentTimes() {
@@ -790,42 +858,53 @@ function importRegulatorPaymentTimes() {
 
   const publishedReports = [...latestReportByCompanyPeriod.values()];
 
-  const p95ValuesByPeriod = new Map();
-  const p95ValuesByPeriodAndIndustry = new Map();
-
   for (const report of publishedReports) {
-    const periodKey = report.reportingPeriodEndDate;
+    const reportingCycle = createReportingCycle(report.reportingPeriodEndDate);
 
-    const industryKey = [periodKey, report.industryDivision].join(":");
+    report.reportingCycleId = reportingCycle.id;
+    report.reportingCycleName = reportingCycle.name;
+    report.reportingCycleStartDate = reportingCycle.startDate;
+    report.reportingCycleEndDate = reportingCycle.endDate;
+  }
 
-    if (!p95ValuesByPeriod.has(periodKey)) {
-      p95ValuesByPeriod.set(periodKey, []);
+  const p95ValuesByCycle = new Map();
+  const p95ValuesByCycleAndIndustry = new Map();
+
+  const comparisonReports = selectLatestReportByAbnAndCycle(publishedReports);
+
+  for (const report of comparisonReports) {
+    const cycleKey = report.reportingCycleId;
+
+    const industryKey = [cycleKey, report.industryDivision].join(":");
+
+    if (!p95ValuesByCycle.has(cycleKey)) {
+      p95ValuesByCycle.set(cycleKey, []);
     }
 
-    if (!p95ValuesByPeriodAndIndustry.has(industryKey)) {
-      p95ValuesByPeriodAndIndustry.set(industryKey, []);
+    if (!p95ValuesByCycleAndIndustry.has(industryKey)) {
+      p95ValuesByCycleAndIndustry.set(industryKey, []);
     }
 
-    p95ValuesByPeriod.get(periodKey).push(report.p95PaymentTimeDays);
+    p95ValuesByCycle.get(cycleKey).push(report.p95PaymentTimeDays);
 
-    p95ValuesByPeriodAndIndustry
+    p95ValuesByCycleAndIndustry
       .get(industryKey)
       .push(report.p95PaymentTimeDays);
   }
 
   for (const report of publishedReports) {
-    const periodKey = report.reportingPeriodEndDate;
+    const cycleKey = report.reportingCycleId;
 
-    const industryKey = [periodKey, report.industryDivision].join(":");
+    const industryKey = [cycleKey, report.industryDivision].join(":");
 
     report.overallP95Position = calculatePosition(
       report.p95PaymentTimeDays,
-      p95ValuesByPeriod.get(periodKey),
+      p95ValuesByCycle.get(cycleKey),
     );
 
     report.industryP95Position = calculatePosition(
       report.p95PaymentTimeDays,
-      p95ValuesByPeriodAndIndustry.get(industryKey),
+      p95ValuesByCycleAndIndustry.get(industryKey),
     );
   }
 
@@ -905,7 +984,7 @@ function importRegulatorPaymentTimes() {
     candidateStandardReportCount: candidateReports.length,
     publishedReportCount: publishedReports.length,
     companyCount: reportsByAbn.size,
-    industryCount: industryIndex.length,
+    industryCount: industryIndex.industries.length,
     excludedMissingAbnCount,
     excludedNonStandardCount,
     supersededReportCount: candidateReports.length - publishedReports.length,

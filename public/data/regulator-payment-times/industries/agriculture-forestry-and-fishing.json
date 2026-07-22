@@ -1,216 +1,51 @@
 {
   "slug": "agriculture-forestry-and-fishing",
   "industryDivision": "Agriculture, Forestry and Fishing",
-  "latestReportingPeriodEndDate": "2026-03-31",
-  "reportingEntityCount": 8,
-  "latestPeriod": {
-    "reportingPeriodEndDate": "2026-03-31",
-    "reportingEntityCount": 8,
-    "averageP95PaymentTimeDays": 49.1,
-    "medianP95PaymentTimeDays": 49.5,
-    "minimumP95PaymentTimeDays": 31,
-    "maximumP95PaymentTimeDays": 62,
-    "position": {
-      "rank": 12,
-      "count": 17,
-      "percentile": 31.3
-    }
-  },
-  "history": [
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
     {
-      "reportingPeriodEndDate": "2024-12-29",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 67,
-      "medianP95PaymentTimeDays": 67,
-      "minimumP95PaymentTimeDays": 67,
-      "maximumP95PaymentTimeDays": 67,
-      "position": {
-        "rank": 5,
-        "count": 6,
-        "percentile": 20
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2024-12-31",
-      "reportingEntityCount": 85,
-      "averageP95PaymentTimeDays": 47.7,
-      "medianP95PaymentTimeDays": 47,
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 86,
+      "averageP95PaymentTimeDays": 48,
+      "medianP95PaymentTimeDays": 48.5,
       "minimumP95PaymentTimeDays": 0,
-      "maximumP95PaymentTimeDays": 119,
-      "position": {
-        "rank": 5,
-        "count": 19,
-        "percentile": 77.8
-      }
+      "maximumP95PaymentTimeDays": 119
     },
     {
-      "reportingPeriodEndDate": "2025-01-31",
-      "reportingEntityCount": 1,
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 105,
       "averageP95PaymentTimeDays": 49,
-      "medianP95PaymentTimeDays": 49,
-      "minimumP95PaymentTimeDays": 49,
-      "maximumP95PaymentTimeDays": 49,
-      "position": {
-        "rank": 4,
-        "count": 11,
-        "percentile": 70
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-02-28",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 61.5,
-      "medianP95PaymentTimeDays": 61.5,
-      "minimumP95PaymentTimeDays": 60,
-      "maximumP95PaymentTimeDays": 63,
-      "position": {
-        "rank": 7,
-        "count": 10,
-        "percentile": 33.3
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-03-31",
-      "reportingEntityCount": 9,
-      "averageP95PaymentTimeDays": 52.6,
-      "medianP95PaymentTimeDays": 53,
-      "minimumP95PaymentTimeDays": 40,
-      "maximumP95PaymentTimeDays": 74,
-      "position": {
-        "rank": 11,
-        "count": 18,
-        "percentile": 41.2
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-05-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 31,
-      "medianP95PaymentTimeDays": 31,
-      "minimumP95PaymentTimeDays": 31,
-      "maximumP95PaymentTimeDays": 31,
-      "position": {
-        "rank": 1,
-        "count": 8,
-        "percentile": 100
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-06-30",
-      "reportingEntityCount": 92,
-      "averageP95PaymentTimeDays": 48.6,
       "medianP95PaymentTimeDays": 50,
       "minimumP95PaymentTimeDays": 0,
-      "maximumP95PaymentTimeDays": 120,
-      "position": {
-        "rank": 8,
-        "count": 19,
-        "percentile": 55.6
-      }
+      "maximumP95PaymentTimeDays": 120
     },
     {
-      "reportingPeriodEndDate": "2025-07-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 51,
-      "medianP95PaymentTimeDays": 51,
-      "minimumP95PaymentTimeDays": 51,
-      "maximumP95PaymentTimeDays": 51,
-      "position": {
-        "rank": 7,
-        "count": 12,
-        "percentile": 45.5
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-08-31",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 62.5,
-      "medianP95PaymentTimeDays": 62.5,
-      "minimumP95PaymentTimeDays": 60,
-      "maximumP95PaymentTimeDays": 65,
-      "position": {
-        "rank": 7,
-        "count": 11,
-        "percentile": 40
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-09-30",
-      "reportingEntityCount": 10,
-      "averageP95PaymentTimeDays": 51.6,
-      "medianP95PaymentTimeDays": 45.5,
-      "minimumP95PaymentTimeDays": 12,
-      "maximumP95PaymentTimeDays": 110,
-      "position": {
-        "rank": 5,
-        "count": 18,
-        "percentile": 76.5
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-11-30",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 35,
-      "medianP95PaymentTimeDays": 35,
-      "minimumP95PaymentTimeDays": 35,
-      "maximumP95PaymentTimeDays": 35,
-      "position": {
-        "rank": 1,
-        "count": 8,
-        "percentile": 100
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2025-12-31",
-      "reportingEntityCount": 102,
-      "averageP95PaymentTimeDays": 49.2,
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 116,
+      "averageP95PaymentTimeDays": 49.5,
       "medianP95PaymentTimeDays": 50,
       "minimumP95PaymentTimeDays": 0,
-      "maximumP95PaymentTimeDays": 129,
-      "position": {
-        "rank": 9,
-        "count": 19,
-        "percentile": 50
-      }
+      "maximumP95PaymentTimeDays": 129
     },
     {
-      "reportingPeriodEndDate": "2026-01-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 49,
-      "medianP95PaymentTimeDays": 49,
-      "minimumP95PaymentTimeDays": 49,
-      "maximumP95PaymentTimeDays": 49,
-      "position": {
-        "rank": 5,
-        "count": 11,
-        "percentile": 60
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2026-02-28",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 62,
-      "medianP95PaymentTimeDays": 62,
-      "minimumP95PaymentTimeDays": 60,
-      "maximumP95PaymentTimeDays": 64,
-      "position": {
-        "rank": 9,
-        "count": 12,
-        "percentile": 27.3
-      }
-    },
-    {
-      "reportingPeriodEndDate": "2026-03-31",
-      "reportingEntityCount": 8,
-      "averageP95PaymentTimeDays": 49.1,
-      "medianP95PaymentTimeDays": 49.5,
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 11,
+      "averageP95PaymentTimeDays": 51.5,
+      "medianP95PaymentTimeDays": 50,
       "minimumP95PaymentTimeDays": 31,
-      "maximumP95PaymentTimeDays": 62,
-      "position": {
-        "rank": 12,
-        "count": 17,
-        "percentile": 31.3
-      }
+      "maximumP95PaymentTimeDays": 64
     }
   ],
   "companies": [
@@ -221,7 +56,7 @@
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
         "rank": 1,
-        "count": 8,
+        "count": 11,
         "percentile": 100
       }
     },
@@ -232,8 +67,8 @@
       "p95PaymentTimeDays": 38,
       "industryP95Position": {
         "rank": 2,
-        "count": 8,
-        "percentile": 85.7
+        "count": 11,
+        "percentile": 90
       }
     },
     {
@@ -243,8 +78,8 @@
       "p95PaymentTimeDays": 44,
       "industryP95Position": {
         "rank": 3,
-        "count": 8,
-        "percentile": 71.4
+        "count": 11,
+        "percentile": 80
       }
     },
     {
@@ -254,8 +89,19 @@
       "p95PaymentTimeDays": 49,
       "industryP95Position": {
         "rank": 4,
-        "count": 8,
-        "percentile": 57.1
+        "count": 11,
+        "percentile": 60
+      }
+    },
+    {
+      "businessName": "The Trustee for WHSP Agriculture Holding Trust",
+      "abn": "74313288080",
+      "slug": "the-trustee-for-whsp-agriculture-holding-trust-74313288080",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 11,
+        "percentile": 60
       }
     },
     {
@@ -264,9 +110,9 @@
       "slug": "cpc-group-holdings-pty-ltd-28644449758",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 5,
-        "count": 8,
-        "percentile": 42.9
+        "rank": 6,
+        "count": 11,
+        "percentile": 50
       }
     },
     {
@@ -275,9 +121,20 @@
       "slug": "petuna-aquaculture-pty-ltd-62009485581",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 6,
-        "count": 8,
-        "percentile": 28.6
+        "rank": 7,
+        "count": 11,
+        "percentile": 40
+      }
+    },
+    {
+      "businessName": "PHILIP YATES FAMILY HOLDINGS PTY LTD",
+      "abn": "69610437119",
+      "slug": "philip-yates-family-holdings-pty-ltd-69610437119",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 11,
+        "percentile": 30
       }
     },
     {
@@ -286,9 +143,9 @@
       "slug": "a-a-company-pty-ltd-86010317067",
       "p95PaymentTimeDays": 61,
       "industryP95Position": {
-        "rank": 7,
-        "count": 8,
-        "percentile": 14.3
+        "rank": 9,
+        "count": 11,
+        "percentile": 20
       }
     },
     {
@@ -297,8 +154,19 @@
       "slug": "altora-ag-holdco-pty-ltd-29630396619",
       "p95PaymentTimeDays": 62,
       "industryP95Position": {
-        "rank": 8,
-        "count": 8,
+        "rank": 10,
+        "count": 11,
+        "percentile": 10
+      }
+    },
+    {
+      "businessName": "SIMPLOT AUSTRALIA (HOLDINGS) PTY LIMITED",
+      "abn": "23070571934",
+      "slug": "simplot-australia-holdings-pty-limited-23070571934",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 11,
         "percentile": 0
       }
     }

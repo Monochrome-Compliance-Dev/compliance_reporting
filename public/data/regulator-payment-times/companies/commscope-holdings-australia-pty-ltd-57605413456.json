@@ -6,13 +6,13 @@
   "industryDivision": "Wholesale Trade",
   "industrySlug": "wholesale-trade",
   "industrySubdivision": "Machinery and equipment wholesaling",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20009417",
       "acnArbn": "605413456",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 54,
@@ -24,23 +24,27 @@
       "paymentsMoreThan60Days": 19,
       "industrySubdivision": "Machinery and equipment wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-03-27",
+      "submittedDate": "2026-03-26",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2316,
-        "count": 2613,
-        "percentile": 11
+        "rank": 2626,
+        "count": 2976,
+        "percentile": 11.4
       },
       "industryP95Position": {
-        "rank": 280,
-        "count": 329,
+        "rank": 342,
+        "count": 401,
         "percentile": 14
       }
     },
     {
       "reportId": "PTR20003186",
       "acnArbn": "605413456",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 56,
@@ -52,23 +56,27 @@
       "paymentsMoreThan60Days": 39,
       "industrySubdivision": "Machinery and equipment wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-08-22",
+      "submittedDate": "2025-08-21",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2037,
-        "count": 2568,
-        "percentile": 19.9
+        "rank": 2321,
+        "count": 2935,
+        "percentile": 20.2
       },
       "industryP95Position": {
-        "rank": 236,
-        "count": 323,
-        "percentile": 25.8
+        "rank": 295,
+        "count": 399,
+        "percentile": 25.1
       }
     },
     {
       "reportId": "PTR20002719",
       "acnArbn": "605413456",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 64,
@@ -80,16 +88,20 @@
       "paymentsMoreThan60Days": 70.9,
       "industrySubdivision": "Machinery and equipment wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-07-24",
+      "submittedDate": "2025-07-23",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2181,
-        "count": 2498,
+        "rank": 2204,
+        "count": 2524,
         "percentile": 12.1
       },
       "industryP95Position": {
         "rank": 267,
-        "count": 323,
-        "percentile": 17.1
+        "count": 326,
+        "percentile": 17.8
       }
     }
   ]
