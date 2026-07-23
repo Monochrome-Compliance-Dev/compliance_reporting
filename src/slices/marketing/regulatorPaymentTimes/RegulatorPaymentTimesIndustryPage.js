@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import LaunchRoundedIcon from "@mui/icons-material/LaunchRounded";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { BarChart } from "@mui/x-charts/BarChart";
 import {
   Box,
@@ -23,6 +25,8 @@ import { useAlert } from "context";
 
 const INDUSTRY_DATA_BASE_URL = "/data/regulator-payment-times/industries";
 const INDUSTRY_INDEX_URL = "/data/regulator-payment-times/industry-index.json";
+const REGULATOR_REGISTER_URL =
+  "https://register.paymenttimes.gov.au/index.html";
 
 function createUtcDate(dateValue) {
   const match = String(dateValue).match(/^(\d{4})-(\d{2})-(\d{2})$/);
@@ -743,11 +747,20 @@ function IndustryOverview({
   onReportingCycleChange,
   onSelectIndustry,
 }) {
+  const navigate = useNavigate();
   const theme = useTheme();
 
   return (
     <Stack spacing={{ xs: 4, md: 6 }}>
       <Stack spacing={2}>
+        <Box>
+          <Button
+            startIcon={<ArrowBackRoundedIcon />}
+            onClick={() => navigate("/")}
+          >
+            Back to home
+          </Button>
+        </Box>
         <Typography
           component="h1"
           variant="h2"
@@ -1291,55 +1304,127 @@ function RegulatorPaymentTimesIndustryPage() {
       }}
     >
       <Container maxWidth="lg">
-        {industry ? (
-          <IndustryDetail
-            industry={industry}
-            industryIndex={industryIndex}
-            reportingCycles={reportingCycles}
-            selectedReportingCycleId={selectedReportingCycleId}
-            onReportingCycleChange={setSelectedReportingCycleId}
-            onBack={() => navigate("/regulator-payment-times/industries")}
-            onSelectIndustry={(selectedIndustrySlug) =>
-              navigate(
-                `/regulator-payment-times/industry/${selectedIndustrySlug}`,
-              )
-            }
-            onSelectCompany={(companySlug) => {
-              if (!companySlug) {
-                navigate("/contact");
-                return;
+        <Stack spacing={{ xs: 4, md: 6 }}>
+          {industry ? (
+            <IndustryDetail
+              industry={industry}
+              industryIndex={industryIndex}
+              reportingCycles={reportingCycles}
+              selectedReportingCycleId={selectedReportingCycleId}
+              onReportingCycleChange={setSelectedReportingCycleId}
+              onBack={() => navigate("/regulator-payment-times/industries")}
+              onSelectIndustry={(selectedIndustrySlug) =>
+                navigate(
+                  `/regulator-payment-times/industry/${selectedIndustrySlug}`,
+                )
               }
+              onSelectCompany={(companySlug) => {
+                if (!companySlug) {
+                  navigate("/contact");
+                  return;
+                }
 
-              navigate(`/regulator-payment-times/${companySlug}`);
+                navigate(`/regulator-payment-times/${companySlug}`);
+              }}
+            />
+          ) : (
+            <IndustryOverview
+              industries={industryIndex}
+              reportingCycles={reportingCycles}
+              selectedReportingCycleId={selectedReportingCycleId}
+              onReportingCycleChange={setSelectedReportingCycleId}
+              onSelectIndustry={(selectedIndustrySlug) =>
+                navigate(
+                  `/regulator-payment-times/industry/${selectedIndustrySlug}`,
+                )
+              }
+            />
+          )}
+          <Paper
+            elevation={0}
+            sx={{
+              p: { xs: 2.5, sm: 3.5 },
+              border: `1px solid ${theme.palette.divider}`,
+              borderRadius: 3,
+              backgroundColor: theme.palette.background.paper,
             }}
-          />
-        ) : (
-          <IndustryOverview
-            industries={industryIndex}
-            reportingCycles={reportingCycles}
-            selectedReportingCycleId={selectedReportingCycleId}
-            onReportingCycleChange={setSelectedReportingCycleId}
-            onSelectIndustry={(selectedIndustrySlug) =>
-              navigate(
-                `/regulator-payment-times/industry/${selectedIndustrySlug}`,
-              )
-            }
-          />
-        )}
+          >
+            <Stack
+              direction={{ xs: "column", md: "row" }}
+              spacing={2}
+              alignItems={{ xs: "stretch", md: "center" }}
+              justifyContent="space-between"
+            >
+              <Box>
+                <Typography
+                  component="h2"
+                  variant="h5"
+                  sx={{
+                    color: theme.palette.text.primary,
+                    fontWeight: 700,
+                  }}
+                >
+                  Explore payment times information
+                </Typography>
 
-        <Typography
-          variant="caption"
-          sx={{
-            display: "block",
-            mt: 6,
-            color: theme.palette.text.secondary,
-            lineHeight: 1.6,
-          }}
-        >
-          Source: Australian Government Payment Times Reports Register Standard
-          report data. Monochrome Compliance is not affiliated with or endorsed
-          by the Australian Government or the Payment Times Reporting Regulator.
-        </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    mt: 0.5,
+                    maxWidth: 650,
+                    color: theme.palette.text.secondary,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Search for an individual reporting entity on Monochrome
+                  Compliance or visit the official Payment Times Reports
+                  Register for source reports and further information.
+                </Typography>
+              </Box>
+
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={1.5}
+                flexShrink={0}
+              >
+                <Button
+                  variant="outlined"
+                  startIcon={<SearchRoundedIcon />}
+                  endIcon={<ArrowForwardRoundedIcon />}
+                  onClick={() => navigate("/regulator-payment-times")}
+                >
+                  Search companies
+                </Button>
+
+                <Button
+                  component="a"
+                  href={REGULATOR_REGISTER_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="contained"
+                  endIcon={<LaunchRoundedIcon />}
+                >
+                  Visit official register
+                </Button>
+              </Stack>
+            </Stack>
+          </Paper>
+
+          <Typography
+            variant="caption"
+            sx={{
+              display: "block",
+              mt: 6,
+              color: theme.palette.text.secondary,
+              lineHeight: 1.6,
+            }}
+          >
+            Source: Australian Government Payment Times Reports Register
+            Standard report data. Monochrome Compliance is not affiliated with
+            or endorsed by the Australian Government or the Payment Times
+            Reporting Regulator.
+          </Typography>
+        </Stack>
       </Container>
     </Box>
   );

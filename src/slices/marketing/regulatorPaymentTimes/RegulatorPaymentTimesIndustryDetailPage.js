@@ -325,9 +325,9 @@ function P95TrendChart({ cycles }) {
               height={380}
               margin={{
                 top: 30,
-                right: 90,
+                right: 65,
                 bottom: 50,
-                left: 65,
+                left: 50,
               }}
               xAxis={[
                 {
