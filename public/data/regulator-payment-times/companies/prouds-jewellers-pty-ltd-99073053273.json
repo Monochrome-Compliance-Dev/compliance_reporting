@@ -4,14 +4,15 @@
   "abn": "99073053273",
   "acnArbn": "073053273",
   "industryDivision": "Retail Trade",
+  "industrySlug": "retail-trade",
   "industrySubdivision": "Other store-based retailing",
-  "latestReportingPeriodEndDate": "2025-11-30",
+  "latestReportingPeriodEndDate": "2025-11-29",
   "reports": [
     {
       "reportId": "PTR20007509",
       "acnArbn": "073053273",
-      "reportingPeriodStartDate": "2025-06-01",
-      "reportingPeriodEndDate": "2025-11-30",
+      "reportingPeriodStartDate": "2025-05-31",
+      "reportingPeriodEndDate": "2025-11-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 7.3,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-02-26",
+      "submittedDate": "2026-02-25",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 19,
-        "count": 22,
-        "percentile": 14.3
+        "rank": 2551,
+        "count": 2976,
+        "percentile": 13.8
       },
       "industryP95Position": {
-        "rank": 2,
-        "count": 2,
-        "percentile": 0
+        "rank": 218,
+        "count": 249,
+        "percentile": 12.5
       }
     },
     {
       "reportId": "PTR20003297",
       "acnArbn": "073053273",
-      "reportingPeriodStartDate": "2024-12-01",
-      "reportingPeriodEndDate": "2025-05-31",
+      "reportingPeriodStartDate": "2024-11-30",
+      "reportingPeriodEndDate": "2025-05-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 38,
@@ -51,16 +56,20 @@
       "paymentsMoreThan60Days": 11.04,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-08-29",
+      "submittedDate": "2025-08-28",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 17,
-        "count": 22,
-        "percentile": 23.8
+        "rank": 2474,
+        "count": 2935,
+        "percentile": 15.2
       },
       "industryP95Position": {
-        "rank": 2,
-        "count": 2,
-        "percentile": 0
+        "rank": 215,
+        "count": 252,
+        "percentile": 13.9
       }
     }
   ]

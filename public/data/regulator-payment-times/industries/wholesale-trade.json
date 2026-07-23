@@ -1,0 +1,603 @@
+{
+  "slug": "wholesale-trade",
+  "industryDivision": "Wholesale Trade",
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 326,
+      "averageP95PaymentTimeDays": 63.4,
+      "medianP95PaymentTimeDays": 60,
+      "minimumP95PaymentTimeDays": 8,
+      "maximumP95PaymentTimeDays": 192
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 399,
+      "averageP95PaymentTimeDays": 62.4,
+      "medianP95PaymentTimeDays": 58,
+      "minimumP95PaymentTimeDays": 3,
+      "maximumP95PaymentTimeDays": 491
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 401,
+      "averageP95PaymentTimeDays": 59.5,
+      "medianP95PaymentTimeDays": 58,
+      "minimumP95PaymentTimeDays": 7,
+      "maximumP95PaymentTimeDays": 147
+    },
+    {
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 50,
+      "averageP95PaymentTimeDays": 47.8,
+      "medianP95PaymentTimeDays": 48,
+      "minimumP95PaymentTimeDays": 4,
+      "maximumP95PaymentTimeDays": 95
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "CBH GRAIN PTY LTD",
+      "abn": "39089394883",
+      "slug": "cbh-grain-pty-ltd-39089394883",
+      "p95PaymentTimeDays": 4,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 50,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "PINNACLE DIVERSITY PTY LTD",
+      "abn": "87614496196",
+      "slug": "pinnacle-diversity-pty-ltd-87614496196",
+      "p95PaymentTimeDays": 14,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 50,
+        "percentile": 98
+      }
+    },
+    {
+      "businessName": "MAZDA AUSTRALIA PTY. LIMITED",
+      "abn": "78004690804",
+      "slug": "mazda-australia-pty-limited-78004690804",
+      "p95PaymentTimeDays": 15,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 50,
+        "percentile": 95.9
+      }
+    },
+    {
+      "businessName": "DITH AUSTRALIA PTY LTD",
+      "abn": "21620953166",
+      "slug": "dith-australia-pty-ltd-21620953166",
+      "p95PaymentTimeDays": 18,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 50,
+        "percentile": 91.8
+      }
+    },
+    {
+      "businessName": "YAMAHA MUSIC AUSTRALIA PTY. LTD.",
+      "abn": "84004259527",
+      "slug": "yamaha-music-australia-pty-ltd-84004259527",
+      "p95PaymentTimeDays": 18,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 50,
+        "percentile": 91.8
+      }
+    },
+    {
+      "businessName": "MITSUBISHI MOTORS AUSTRALIA LIMITED",
+      "abn": "53007870395",
+      "slug": "mitsubishi-motors-australia-limited-53007870395",
+      "p95PaymentTimeDays": 23,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 50,
+        "percentile": 89.8
+      }
+    },
+    {
+      "businessName": "BROTHER INTERNATIONAL (AUST) PTY LTD",
+      "abn": "17001393835",
+      "slug": "brother-international-aust-pty-ltd-17001393835",
+      "p95PaymentTimeDays": 25,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 50,
+        "percentile": 87.8
+      }
+    },
+    {
+      "businessName": "NINTENDO AUSTRALIA PTY LIMITED",
+      "abn": "43060566083",
+      "slug": "nintendo-australia-pty-limited-43060566083",
+      "p95PaymentTimeDays": 26,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 50,
+        "percentile": 85.7
+      }
+    },
+    {
+      "businessName": "TERUMO AUSTRALIA PTY LIMITED",
+      "abn": "34158693595",
+      "slug": "terumo-australia-pty-limited-34158693595",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 50,
+        "percentile": 83.7
+      }
+    },
+    {
+      "businessName": "MITSUI & CO. (AUSTRALIA) LTD.",
+      "abn": "64004349795",
+      "slug": "mitsui-and-co-australia-ltd-64004349795",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 50,
+        "percentile": 81.6
+      }
+    },
+    {
+      "businessName": "CARL ZEISS PTY. LIMITED",
+      "abn": "82008410704",
+      "slug": "carl-zeiss-pty-limited-82008410704",
+      "p95PaymentTimeDays": 35,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 50,
+        "percentile": 79.6
+      }
+    },
+    {
+      "businessName": "TOSHIBA (AUSTRALIA) PTY LTD",
+      "abn": "19001320421",
+      "slug": "toshiba-australia-pty-ltd-19001320421",
+      "p95PaymentTimeDays": 36,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 50,
+        "percentile": 77.6
+      }
+    },
+    {
+      "businessName": "HINO MOTOR SALES AUSTRALIA PTY. LTD.",
+      "abn": "74064989724",
+      "slug": "hino-motor-sales-australia-pty-ltd-74064989724",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 50,
+        "percentile": 73.5
+      }
+    },
+    {
+      "businessName": "PANASONIC AUSTRALIA PTY LIMITED",
+      "abn": "83001592187",
+      "slug": "panasonic-australia-pty-limited-83001592187",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 50,
+        "percentile": 73.5
+      }
+    },
+    {
+      "businessName": "ITOCHU AUSTRALIA LTD.",
+      "abn": "63000192790",
+      "slug": "itochu-australia-ltd-63000192790",
+      "p95PaymentTimeDays": 40,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 50,
+        "percentile": 71.4
+      }
+    },
+    {
+      "businessName": "MITSUBISHI HEAVY INDUSTRIES AIR-CONDITIONERS AUSTRALIA, PTY. LTD.",
+      "abn": "92133980275",
+      "slug": "mitsubishi-heavy-industries-air-conditioners-australia-pty-ltd-92133980275",
+      "p95PaymentTimeDays": 41,
+      "industryP95Position": {
+        "rank": 16,
+        "count": 50,
+        "percentile": 69.4
+      }
+    },
+    {
+      "businessName": "CBH GROUP HOLDINGS PTY LTD",
+      "abn": "74068223147",
+      "slug": "cbh-group-holdings-pty-ltd-74068223147",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 50,
+        "percentile": 61.2
+      }
+    },
+    {
+      "businessName": "ISUZU AUSTRALIA LIMITED",
+      "abn": "97006962572",
+      "slug": "isuzu-australia-limited-97006962572",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 50,
+        "percentile": 61.2
+      }
+    },
+    {
+      "businessName": "MITSUBISHI ELECTRIC AUSTRALIA PTY LTD",
+      "abn": "58001215792",
+      "slug": "mitsubishi-electric-australia-pty-ltd-58001215792",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 50,
+        "percentile": 61.2
+      }
+    },
+    {
+      "businessName": "NITERRA AUSTRALIA PTY LTD",
+      "abn": "94005601294",
+      "slug": "niterra-australia-pty-ltd-94005601294",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 50,
+        "percentile": 61.2
+      }
+    },
+    {
+      "businessName": "ROC DON HOLDCO PTY LTD",
+      "abn": "81683191406",
+      "slug": "roc-don-holdco-pty-ltd-81683191406",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 21,
+        "count": 50,
+        "percentile": 57.1
+      }
+    },
+    {
+      "businessName": "TOTAL STEEL OF AUSTRALIA PTY LTD",
+      "abn": "34001201850",
+      "slug": "total-steel-of-australia-pty-ltd-34001201850",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 21,
+        "count": 50,
+        "percentile": 57.1
+      }
+    },
+    {
+      "businessName": "ARROW COMMODITIES PTY LIMITED",
+      "abn": "17078081428",
+      "slug": "arrow-commodities-pty-limited-17078081428",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 23,
+        "count": 50,
+        "percentile": 55.1
+      }
+    },
+    {
+      "businessName": "DBG GLOBAL ENTERPRISES PTY LTD",
+      "abn": "79667063050",
+      "slug": "dbg-global-enterprises-pty-ltd-79667063050",
+      "p95PaymentTimeDays": 48,
+      "industryP95Position": {
+        "rank": 24,
+        "count": 50,
+        "percentile": 49
+      }
+    },
+    {
+      "businessName": "GLEN DIMPLEX AUSTRALIA HOLDINGS PTY LIMITED",
+      "abn": "12609977728",
+      "slug": "glen-dimplex-australia-holdings-pty-limited-12609977728",
+      "p95PaymentTimeDays": 48,
+      "industryP95Position": {
+        "rank": 24,
+        "count": 50,
+        "percentile": 49
+      }
+    },
+    {
+      "businessName": "SPIRITS PLATFORM PTY LTD",
+      "abn": "44604520783",
+      "slug": "spirits-platform-pty-ltd-44604520783",
+      "p95PaymentTimeDays": 48,
+      "industryP95Position": {
+        "rank": 24,
+        "count": 50,
+        "percentile": 49
+      }
+    },
+    {
+      "businessName": "HITACHI CONSTRUCTION MACHINERY OCEANIA HOLDINGS PTY LTD",
+      "abn": "94632744275",
+      "slug": "hitachi-construction-machinery-oceania-holdings-pty-ltd-94632744275",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 27,
+        "count": 50,
+        "percentile": 46.9
+      }
+    },
+    {
+      "businessName": "Isuzu Ute Australia Pty Ltd",
+      "abn": "80129563739",
+      "slug": "isuzu-ute-australia-pty-ltd-80129563739",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 28,
+        "count": 50,
+        "percentile": 42.9
+      }
+    },
+    {
+      "businessName": "MAKITA (AUSTRALIA) PTY LTD",
+      "abn": "57001117335",
+      "slug": "makita-australia-pty-ltd-57001117335",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 28,
+        "count": 50,
+        "percentile": 42.9
+      }
+    },
+    {
+      "businessName": "CHAMBERLAIN HOLDINGS LIMITED",
+      "abn": "85008688202",
+      "slug": "chamberlain-holdings-limited-85008688202",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 30,
+        "count": 50,
+        "percentile": 38.8
+      }
+    },
+    {
+      "businessName": "SONY AUSTRALIA LIMITED",
+      "abn": "59001215354",
+      "slug": "sony-australia-limited-59001215354",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 30,
+        "count": 50,
+        "percentile": 38.8
+      }
+    },
+    {
+      "businessName": "EVERGREEN GARDEN CARE AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "18620606840",
+      "slug": "evergreen-garden-care-australia-holdings-pty-ltd-18620606840",
+      "p95PaymentTimeDays": 55,
+      "industryP95Position": {
+        "rank": 32,
+        "count": 50,
+        "percentile": 36.7
+      }
+    },
+    {
+      "businessName": "EPSON AUSTRALIA PTY LTD",
+      "abn": "91002625783",
+      "slug": "epson-australia-pty-ltd-91002625783",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 33,
+        "count": 50,
+        "percentile": 32.7
+      }
+    },
+    {
+      "businessName": "FUJIFILM HOLDINGS AUSTRALASIA PTY LTD",
+      "abn": "58008443892",
+      "slug": "fujifilm-holdings-australasia-pty-ltd-58008443892",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 33,
+        "count": 50,
+        "percentile": 32.7
+      }
+    },
+    {
+      "businessName": "AMES AUSTRALASIA PTY LTD",
+      "abn": "89169427061",
+      "slug": "ames-australasia-pty-ltd-89169427061",
+      "p95PaymentTimeDays": 59,
+      "industryP95Position": {
+        "rank": 35,
+        "count": 50,
+        "percentile": 28.6
+      }
+    },
+    {
+      "businessName": "Sektor Limited Partnership",
+      "abn": "74297651095",
+      "slug": "sektor-limited-partnership-74297651095",
+      "p95PaymentTimeDays": 59,
+      "industryP95Position": {
+        "rank": 35,
+        "count": 50,
+        "percentile": 28.6
+      }
+    },
+    {
+      "businessName": "SIEMENS HEALTHCARE PTY LTD",
+      "abn": "83604853938",
+      "slug": "siemens-healthcare-pty-ltd-83604853938",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 37,
+        "count": 50,
+        "percentile": 22.4
+      }
+    },
+    {
+      "businessName": "Stanley Black & Decker Holdings Australia Pty Ltd",
+      "abn": "81154671244",
+      "slug": "stanley-black-and-decker-holdings-australia-pty-ltd-81154671244",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 37,
+        "count": 50,
+        "percentile": 22.4
+      }
+    },
+    {
+      "businessName": "SUZUKI AUSTRALIA PTY LTD",
+      "abn": "57001828164",
+      "slug": "suzuki-australia-pty-ltd-57001828164",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 37,
+        "count": 50,
+        "percentile": 22.4
+      }
+    },
+    {
+      "businessName": "ECF ASIA PACIFIC PTY LTD",
+      "abn": "50602487721",
+      "slug": "ecf-asia-pacific-pty-ltd-50602487721",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 40,
+        "count": 50,
+        "percentile": 20.4
+      }
+    },
+    {
+      "businessName": "BECTON DICKINSON PTY. LTD.",
+      "abn": "82005914796",
+      "slug": "becton-dickinson-pty-ltd-82005914796",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 41,
+        "count": 50,
+        "percentile": 10.2
+      }
+    },
+    {
+      "businessName": "BRP AUSTRALIA PTY LTD",
+      "abn": "64097370100",
+      "slug": "brp-australia-pty-ltd-64097370100",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 41,
+        "count": 50,
+        "percentile": 10.2
+      }
+    },
+    {
+      "businessName": "JFC AUSTRALIA CO PTY LTD",
+      "abn": "36003080260",
+      "slug": "jfc-australia-co-pty-ltd-36003080260",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 41,
+        "count": 50,
+        "percentile": 10.2
+      }
+    },
+    {
+      "businessName": "MAHINDRA AUTOMOTIVE AUSTRALIA PTY LTD",
+      "abn": "85133379218",
+      "slug": "mahindra-automotive-australia-pty-ltd-85133379218",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 41,
+        "count": 50,
+        "percentile": 10.2
+      }
+    },
+    {
+      "businessName": "WESTCON GROUP PTY LIMITED",
+      "abn": "77050539672",
+      "slug": "westcon-group-pty-limited-77050539672",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 41,
+        "count": 50,
+        "percentile": 10.2
+      }
+    },
+    {
+      "businessName": "CROWN EQUIPMENT PTY. LIMITED",
+      "abn": "79000514858",
+      "slug": "crown-equipment-pty-limited-79000514858",
+      "p95PaymentTimeDays": 67,
+      "industryP95Position": {
+        "rank": 46,
+        "count": 50,
+        "percentile": 6.1
+      }
+    },
+    {
+      "businessName": "IDEALAIR GROUP PTY LTD",
+      "abn": "97097258154",
+      "slug": "idealair-group-pty-ltd-97097258154",
+      "p95PaymentTimeDays": 67,
+      "industryP95Position": {
+        "rank": 46,
+        "count": 50,
+        "percentile": 6.1
+      }
+    },
+    {
+      "businessName": "EMERSON PROCESS MANAGEMENT AUSTRALIA PTY LTD",
+      "abn": "99004590005",
+      "slug": "emerson-process-management-australia-pty-ltd-99004590005",
+      "p95PaymentTimeDays": 78,
+      "industryP95Position": {
+        "rank": 48,
+        "count": 50,
+        "percentile": 4.1
+      }
+    },
+    {
+      "businessName": "JAGUAR LAND ROVER AUSTRALIA PTY LTD",
+      "abn": "86004352238",
+      "slug": "jaguar-land-rover-australia-pty-ltd-86004352238",
+      "p95PaymentTimeDays": 91,
+      "industryP95Position": {
+        "rank": 49,
+        "count": 50,
+        "percentile": 2
+      }
+    },
+    {
+      "businessName": "ASTELLAS PHARMA AUSTRALIA PTY LTD",
+      "abn": "81147915482",
+      "slug": "astellas-pharma-australia-pty-ltd-81147915482",
+      "p95PaymentTimeDays": 95,
+      "industryP95Position": {
+        "rank": 50,
+        "count": 50,
+        "percentile": 0
+      }
+    }
+  ]
+}

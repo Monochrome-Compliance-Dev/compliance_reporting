@@ -1,0 +1,141 @@
+{
+  "slug": "construction",
+  "industryDivision": "Construction",
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 251,
+      "averageP95PaymentTimeDays": 67.3,
+      "medianP95PaymentTimeDays": 60,
+      "minimumP95PaymentTimeDays": 9,
+      "maximumP95PaymentTimeDays": 1445
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 269,
+      "averageP95PaymentTimeDays": 67.9,
+      "medianP95PaymentTimeDays": 60,
+      "minimumP95PaymentTimeDays": 9,
+      "maximumP95PaymentTimeDays": 750
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 280,
+      "averageP95PaymentTimeDays": 61.9,
+      "medianP95PaymentTimeDays": 59,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 346
+    },
+    {
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 8,
+      "averageP95PaymentTimeDays": 58.1,
+      "medianP95PaymentTimeDays": 56.5,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 112
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "GAMUDA BERHAD",
+      "abn": "27632738768",
+      "slug": "gamuda-berhad-27632738768",
+      "p95PaymentTimeDays": 1,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 8,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "FLUENCE ENERGY PTY LTD",
+      "abn": "18627071461",
+      "slug": "fluence-energy-pty-ltd-18627071461",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 8,
+        "percentile": 85.7
+      }
+    },
+    {
+      "businessName": "LAING O'ROURKE AUSTRALIA GROUP PTY LIMITED",
+      "abn": "36001333900",
+      "slug": "laing-o-rourke-australia-group-pty-limited-36001333900",
+      "p95PaymentTimeDays": 48,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 8,
+        "percentile": 71.4
+      }
+    },
+    {
+      "businessName": "FRASERS PROPERTY AUSTRALIA PTY LIMITED",
+      "abn": "89600448726",
+      "slug": "frasers-property-australia-pty-limited-89600448726",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 8,
+        "percentile": 57.1
+      }
+    },
+    {
+      "businessName": "NEX BUILDING GROUP PTY LTD",
+      "abn": "59089524050",
+      "slug": "nex-building-group-pty-ltd-59089524050",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 8,
+        "percentile": 42.9
+      }
+    },
+    {
+      "businessName": "FAR EAST CONSORTIUM HOLDINGS (AUSTRALIA) PTY LIMITED",
+      "abn": "80062878880",
+      "slug": "far-east-consortium-holdings-australia-pty-limited-80062878880",
+      "p95PaymentTimeDays": 72,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 8,
+        "percentile": 28.6
+      }
+    },
+    {
+      "businessName": "Gamuda Holdings Pty Ltd",
+      "abn": "81665763020",
+      "slug": "gamuda-holdings-pty-ltd-81665763020",
+      "p95PaymentTimeDays": 73,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 8,
+        "percentile": 14.3
+      }
+    },
+    {
+      "businessName": "CAPE AUSTRALIA HOLDINGS PTY LIMITED",
+      "abn": "12126824397",
+      "slug": "cape-australia-holdings-pty-limited-12126824397",
+      "p95PaymentTimeDays": 112,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 8,
+        "percentile": 0
+      }
+    }
+  ]
+}

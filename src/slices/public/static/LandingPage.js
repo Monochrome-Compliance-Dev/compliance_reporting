@@ -294,18 +294,39 @@ export function LandingPage() {
             </Typography>
           </Box>
 
-          <Button
-            variant="contained"
-            component={RouterLink}
-            to="/regulator-payment-times"
+          <Box
             sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              gap: 1.5,
               flexShrink: 0,
-              px: 3,
-              fontWeight: 800,
+              width: { xs: "100%", md: "auto" },
             }}
           >
-            Explore the register
-          </Button>
+            <Button
+              variant="outlined"
+              component={RouterLink}
+              to="/regulator-payment-times"
+              sx={{
+                px: 3,
+                fontWeight: 800,
+              }}
+            >
+              Search companies
+            </Button>
+
+            <Button
+              variant="contained"
+              component={RouterLink}
+              to="/regulator-payment-times/industries"
+              sx={{
+                px: 3,
+                fontWeight: 800,
+              }}
+            >
+              Explore industries
+            </Button>
+          </Box>
         </Card>
       </Box>
 

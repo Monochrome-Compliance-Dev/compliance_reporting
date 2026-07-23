@@ -1,0 +1,427 @@
+{
+  "slug": "public-administration-and-safety",
+  "industryDivision": "Public Administration and Safety",
+  "latestReportingCycleId": "2025-H2",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 31,
+      "averageP95PaymentTimeDays": 49.7,
+      "medianP95PaymentTimeDays": 51,
+      "minimumP95PaymentTimeDays": 16,
+      "maximumP95PaymentTimeDays": 89
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 36,
+      "averageP95PaymentTimeDays": 51.8,
+      "medianP95PaymentTimeDays": 48.5,
+      "minimumP95PaymentTimeDays": 5,
+      "maximumP95PaymentTimeDays": 141
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 35,
+      "averageP95PaymentTimeDays": 43.2,
+      "medianP95PaymentTimeDays": 43,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 85
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "SECURITAS REMOTE SERVICES PTY LTD",
+      "abn": "85617016832",
+      "slug": "securitas-remote-services-pty-ltd-85617016832",
+      "p95PaymentTimeDays": 1,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 35,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "DIRECTOR OF NATIONAL PARKS",
+      "abn": "13051694963",
+      "slug": "director-of-national-parks-13051694963",
+      "p95PaymentTimeDays": 13,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 35,
+        "percentile": 97.1
+      }
+    },
+    {
+      "businessName": "COURTS ADMINISTRATION AUTHORITY",
+      "abn": "65469760681",
+      "slug": "courts-administration-authority-65469760681",
+      "p95PaymentTimeDays": 17,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 35,
+        "percentile": 94.1
+      }
+    },
+    {
+      "businessName": "Murray-Darling Basin Authority",
+      "abn": "13679821382",
+      "slug": "murray-darling-basin-authority-13679821382",
+      "p95PaymentTimeDays": 20,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 35,
+        "percentile": 91.2
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN NUCLEAR SCIENCE AND TECHNOLOGY ORGANISATION",
+      "abn": "47956969590",
+      "slug": "australian-nuclear-science-and-technology-organisation-47956969590",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 35,
+        "percentile": 82.4
+      }
+    },
+    {
+      "businessName": "COAL MINING INDUSTRY (LONG SERVICE LEAVE FUNDING) CORPORATION",
+      "abn": "12039670644",
+      "slug": "coal-mining-industry-long-service-leave-funding-corporation-12039670644",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 35,
+        "percentile": 82.4
+      }
+    },
+    {
+      "businessName": "HEALTH ADMINISTRATION CORPORATION",
+      "abn": "45100538161",
+      "slug": "health-administration-corporation-45100538161",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 35,
+        "percentile": 82.4
+      }
+    },
+    {
+      "businessName": "National Heavy Vehicle Regulator",
+      "abn": "48557596718",
+      "slug": "national-heavy-vehicle-regulator-48557596718",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 35,
+        "percentile": 79.4
+      }
+    },
+    {
+      "businessName": "SOUTHERN CROSS PROTECTION PTY LTD",
+      "abn": "93094077255",
+      "slug": "southern-cross-protection-pty-ltd-93094077255",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 35,
+        "percentile": 76.5
+      }
+    },
+    {
+      "businessName": "THE GEO GROUP AUSTRALASIA PTY LIMITED",
+      "abn": "79051914688",
+      "slug": "the-geo-group-australasia-pty-limited-79051914688",
+      "p95PaymentTimeDays": 33,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 35,
+        "percentile": 73.5
+      }
+    },
+    {
+      "businessName": "RAYTHEON AUSTRALIA PTY LTD",
+      "abn": "35063709295",
+      "slug": "raytheon-australia-pty-ltd-35063709295",
+      "p95PaymentTimeDays": 35,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 35,
+        "percentile": 70.6
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN INSTITUTE OF HEALTH AND WELFARE",
+      "abn": "16515245497",
+      "slug": "australian-institute-of-health-and-welfare-16515245497",
+      "p95PaymentTimeDays": 36,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 35,
+        "percentile": 64.7
+      }
+    },
+    {
+      "businessName": "Queensland Building and Construction Commission",
+      "abn": "88568500260",
+      "slug": "queensland-building-and-construction-commission-88568500260",
+      "p95PaymentTimeDays": 36,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 35,
+        "percentile": 64.7
+      }
+    },
+    {
+      "businessName": "NHULUNBUY CORPORATION LIMITED",
+      "abn": "57009596598",
+      "slug": "nhulunbuy-corporation-limited-57009596598",
+      "p95PaymentTimeDays": 39,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 35,
+        "percentile": 61.8
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN MARITIME SAFETY AUTHORITY",
+      "abn": "65377938320",
+      "slug": "australian-maritime-safety-authority-65377938320",
+      "p95PaymentTimeDays": 41,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 35,
+        "percentile": 58.8
+      }
+    },
+    {
+      "businessName": "BOEING AUSTRALIA HOLDINGS PROPRIETARY LIMITED",
+      "abn": "42101168932",
+      "slug": "boeing-australia-holdings-proprietary-limited-42101168932",
+      "p95PaymentTimeDays": 42,
+      "industryP95Position": {
+        "rank": 16,
+        "count": 35,
+        "percentile": 55.9
+      }
+    },
+    {
+      "businessName": "COMCARE AUSTRALIA",
+      "abn": "41640788304",
+      "slug": "comcare-australia-41640788304",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 35,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "VICTORIAN WORKCOVER AUTHORITY",
+      "abn": "90296467627",
+      "slug": "victorian-workcover-authority-90296467627",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 35,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "NORTHROP GRUMMAN AUSTRALIA PTY LIMITED",
+      "abn": "78156458981",
+      "slug": "northrop-grumman-australia-pty-limited-78156458981",
+      "p95PaymentTimeDays": 44,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 35,
+        "percentile": 47.1
+      }
+    },
+    {
+      "businessName": "BAE SYSTEMS DIGITAL INTELLIGENCE PTY LIMITED",
+      "abn": "14111187270",
+      "slug": "bae-systems-digital-intelligence-pty-limited-14111187270",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 20,
+        "count": 35,
+        "percentile": 41.2
+      }
+    },
+    {
+      "businessName": "CREATIVE AUSTRALIA",
+      "abn": "38392626187",
+      "slug": "creative-australia-38392626187",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 20,
+        "count": 35,
+        "percentile": 41.2
+      }
+    },
+    {
+      "businessName": "HANWHA DEFENCE AUSTRALIA PTY LTD",
+      "abn": "76630335616",
+      "slug": "hanwha-defence-australia-pty-ltd-76630335616",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 22,
+        "count": 35,
+        "percentile": 38.2
+      }
+    },
+    {
+      "businessName": "SECOM AUSTRALIA PTY. LIMITED",
+      "abn": "91050293420",
+      "slug": "secom-australia-pty-limited-91050293420",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 23,
+        "count": 35,
+        "percentile": 32.4
+      }
+    },
+    {
+      "businessName": "The Trustee for Australian Registry Investments Trust",
+      "abn": "23519493925",
+      "slug": "the-trustee-for-australian-registry-investments-trust-23519493925",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 23,
+        "count": 35,
+        "percentile": 32.4
+      }
+    },
+    {
+      "businessName": "BAE SYSTEMS AUSTRALIA HOLDINGS LIMITED",
+      "abn": "44008648333",
+      "slug": "bae-systems-australia-holdings-limited-44008648333",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 25,
+        "count": 35,
+        "percentile": 26.5
+      }
+    },
+    {
+      "businessName": "VICTORIAN CORRECTIONAL INFRASTRUCTURE PARTNERSHIP PTY LTD",
+      "abn": "15107247067",
+      "slug": "victorian-correctional-infrastructure-partnership-pty-ltd-15107247067",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 25,
+        "count": 35,
+        "percentile": 26.5
+      }
+    },
+    {
+      "businessName": "ASC PTY LTD",
+      "abn": "64008605034",
+      "slug": "asc-pty-ltd-64008605034",
+      "p95PaymentTimeDays": 55,
+      "industryP95Position": {
+        "rank": 27,
+        "count": 35,
+        "percentile": 23.5
+      }
+    },
+    {
+      "businessName": "CEA TECHNOLOGIES PTY LIMITED",
+      "abn": "99059951183",
+      "slug": "cea-technologies-pty-limited-99059951183",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 28,
+        "count": 35,
+        "percentile": 17.6
+      }
+    },
+    {
+      "businessName": "MOONEE VALLEY CITY COUNCIL",
+      "abn": "54651216324",
+      "slug": "moonee-valley-city-council-54651216324",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 28,
+        "count": 35,
+        "percentile": 17.6
+      }
+    },
+    {
+      "businessName": "G4S AUSTRALIA HOLDINGS Pty Ltd",
+      "abn": "68128783602",
+      "slug": "g4s-australia-holdings-pty-ltd-68128783602",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 30,
+        "count": 35,
+        "percentile": 11.8
+      }
+    },
+    {
+      "businessName": "SAAB TECHNOLOGIES AUSTRALIA PTY LTD",
+      "abn": "47002950790",
+      "slug": "saab-technologies-australia-pty-ltd-47002950790",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 30,
+        "count": 35,
+        "percentile": 11.8
+      }
+    },
+    {
+      "businessName": "AVADA GROUP LIMITED",
+      "abn": "57648988783",
+      "slug": "avada-group-limited-57648988783",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 32,
+        "count": 35,
+        "percentile": 8.8
+      }
+    },
+    {
+      "businessName": "BABCOCK AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "99602953739",
+      "slug": "babcock-australia-holdings-pty-ltd-99602953739",
+      "p95PaymentTimeDays": 69,
+      "industryP95Position": {
+        "rank": 33,
+        "count": 35,
+        "percentile": 5.9
+      }
+    },
+    {
+      "businessName": "PSGA PTY. LTD.",
+      "abn": "67106191039",
+      "slug": "psga-pty-ltd-67106191039",
+      "p95PaymentTimeDays": 73,
+      "industryP95Position": {
+        "rank": 34,
+        "count": 35,
+        "percentile": 2.9
+      }
+    },
+    {
+      "businessName": "L3HARRIS TECHNOLOGIES AUSTRALIA GROUP PTY LTD",
+      "abn": "61654390146",
+      "slug": "l3harris-technologies-australia-group-pty-ltd-61654390146",
+      "p95PaymentTimeDays": 85,
+      "industryP95Position": {
+        "rank": 35,
+        "count": 35,
+        "percentile": 0
+      }
+    }
+  ]
+}

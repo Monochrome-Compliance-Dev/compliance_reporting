@@ -4,14 +4,15 @@
   "abn": "81095354582",
   "acnArbn": "095354582",
   "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
   "industrySubdivision": "Furniture and other mfg",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20010373",
       "acnArbn": "095354582",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 5,
       "industrySubdivision": "Furniture and other mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 950,
-        "count": 2613,
-        "percentile": 62.3
+        "rank": 1086,
+        "count": 2976,
+        "percentile": 62
       },
       "industryP95Position": {
-        "rank": 44,
-        "count": 347,
-        "percentile": 86.7
+        "rank": 51,
+        "count": 404,
+        "percentile": 86.8
       }
     },
     {
       "reportId": "PTR20005968",
       "acnArbn": "095354582",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 31,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 7,
       "industrySubdivision": "Furniture and other mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-10-06",
+      "submittedDate": "2025-10-05",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 978,
-        "count": 2568,
-        "percentile": 60.8
+        "rank": 1120,
+        "count": 2935,
+        "percentile": 60.7
       },
       "industryP95Position": {
-        "rank": 49,
-        "count": 335,
-        "percentile": 84.4
+        "rank": 61,
+        "count": 393,
+        "percentile": 83.7
       }
     },
     {
       "reportId": "PTR20001837",
       "acnArbn": "095354582",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 32.26,
@@ -79,16 +88,20 @@
       "paymentsMoreThan60Days": 7,
       "industrySubdivision": "Furniture and other mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 871,
-        "count": 2498,
+        "rank": 880,
+        "count": 2524,
         "percentile": 63.7
       },
       "industryP95Position": {
-        "rank": 48,
-        "count": 323,
-        "percentile": 84.5
+        "rank": 51,
+        "count": 330,
+        "percentile": 83.9
       }
     }
   ]

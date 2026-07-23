@@ -1,0 +1,75 @@
+{
+  "slug": "electricity-gas-water-and-waste-services",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 99,
+      "averageP95PaymentTimeDays": 47.1,
+      "medianP95PaymentTimeDays": 42,
+      "minimumP95PaymentTimeDays": 8,
+      "maximumP95PaymentTimeDays": 172
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 98,
+      "averageP95PaymentTimeDays": 49.2,
+      "medianP95PaymentTimeDays": 48,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 203
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 96,
+      "averageP95PaymentTimeDays": 43.8,
+      "medianP95PaymentTimeDays": 44,
+      "minimumP95PaymentTimeDays": 11,
+      "maximumP95PaymentTimeDays": 121
+    },
+    {
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 27,
+      "medianP95PaymentTimeDays": 27,
+      "minimumP95PaymentTimeDays": 15,
+      "maximumP95PaymentTimeDays": 39
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "BLUEWATERS POWER 1 PTY LTD",
+      "abn": "93106034879",
+      "slug": "bluewaters-power-1-pty-ltd-93106034879",
+      "p95PaymentTimeDays": 15,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "BLUEWATERS POWER 2 PTY LTD",
+      "abn": "57122896968",
+      "slug": "bluewaters-power-2-pty-ltd-57122896968",
+      "p95PaymentTimeDays": 39,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    }
+  ]
+}

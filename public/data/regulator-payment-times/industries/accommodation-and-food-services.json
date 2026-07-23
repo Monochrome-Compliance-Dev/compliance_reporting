@@ -1,0 +1,97 @@
+{
+  "slug": "accommodation-and-food-services",
+  "industryDivision": "Accommodation and Food Services",
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 33,
+      "averageP95PaymentTimeDays": 50.5,
+      "medianP95PaymentTimeDays": 51,
+      "minimumP95PaymentTimeDays": 14,
+      "maximumP95PaymentTimeDays": 127
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 39,
+      "averageP95PaymentTimeDays": 53.9,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 16,
+      "maximumP95PaymentTimeDays": 164
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 42,
+      "averageP95PaymentTimeDays": 49.1,
+      "medianP95PaymentTimeDays": 48.5,
+      "minimumP95PaymentTimeDays": 21,
+      "maximumP95PaymentTimeDays": 130
+    },
+    {
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 4,
+      "averageP95PaymentTimeDays": 43.3,
+      "medianP95PaymentTimeDays": 43,
+      "minimumP95PaymentTimeDays": 30,
+      "maximumP95PaymentTimeDays": 57
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "DELAWARE NORTH COMPANIES AUSTRALIA PTY LTD",
+      "abn": "92003435345",
+      "slug": "delaware-north-companies-australia-pty-ltd-92003435345",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "SEAGRASS HOLDCO PTY LTD",
+      "abn": "91634224936",
+      "slug": "seagrass-holdco-pty-ltd-91634224936",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 4,
+        "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "WESTERN SUBURBS (N'CLE) LEAGUES CLUB LTD",
+      "abn": "24000973919",
+      "slug": "western-suburbs-n-cle-leagues-club-ltd-24000973919",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 4,
+        "percentile": 33.3
+      }
+    },
+    {
+      "businessName": "NANDO'S AUSTRALIA PTY LTD",
+      "abn": "20079066407",
+      "slug": "nando-s-australia-pty-ltd-20079066407",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 4,
+        "percentile": 0
+      }
+    }
+  ]
+}

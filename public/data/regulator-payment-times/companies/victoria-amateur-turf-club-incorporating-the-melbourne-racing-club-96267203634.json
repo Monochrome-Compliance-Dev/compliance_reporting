@@ -4,14 +4,15 @@
   "abn": "96267203634",
   "acnArbn": "",
   "industryDivision": "Arts and Recreation Services",
+  "industrySlug": "arts-and-recreation-services",
   "industrySubdivision": "Sports and recreation activities",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20009185",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 2,
       "industrySubdivision": "Sports and recreation activities",
       "industryDivision": "Arts and Recreation Services",
-      "submittedDate": "2026-04-08",
+      "submittedDate": "2026-04-07",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1012,
-        "count": 2613,
-        "percentile": 60.1
+        "rank": 1159,
+        "count": 2976,
+        "percentile": 59.9
       },
       "industryP95Position": {
-        "rank": 24,
-        "count": 34,
-        "percentile": 30.3
+        "rank": 32,
+        "count": 49,
+        "percentile": 35.4
       }
     },
     {
       "reportId": "PTR20001198",
       "acnArbn": "",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.78,
@@ -51,16 +56,20 @@
       "paymentsMoreThan60Days": 1.68,
       "industrySubdivision": "Sports and recreation activities",
       "industryDivision": "Arts and Recreation Services",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-25",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 871,
-        "count": 2498,
+        "rank": 880,
+        "count": 2524,
         "percentile": 63.7
       },
       "industryP95Position": {
-        "rank": 18,
-        "count": 31,
-        "percentile": 40
+        "rank": 19,
+        "count": 32,
+        "percentile": 38.7
       }
     }
   ]

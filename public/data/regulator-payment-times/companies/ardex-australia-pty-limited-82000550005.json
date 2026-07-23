@@ -4,14 +4,15 @@
   "abn": "82000550005",
   "acnArbn": "000550005",
   "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
   "industrySubdivision": "Polymer product and rubber product mfg",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20007874",
       "acnArbn": "000550005",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.51,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 3.49,
       "industrySubdivision": "Polymer product and rubber product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-03-12",
+      "submittedDate": "2026-03-11",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1440,
-        "count": 2613,
+        "rank": 1646,
+        "count": 2976,
         "percentile": 41.8
       },
       "industryP95Position": {
-        "rank": 119,
-        "count": 347,
-        "percentile": 61.6
+        "rank": 137,
+        "count": 404,
+        "percentile": 62.3
       }
     },
     {
       "reportId": "PTR20005388",
       "acnArbn": "000550005",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 27.63,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 2.88,
       "industrySubdivision": "Polymer product and rubber product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-30",
+      "submittedDate": "2025-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1265,
-        "count": 2568,
-        "percentile": 48.1
+        "rank": 1448,
+        "count": 2935,
+        "percentile": 47.9
       },
       "industryP95Position": {
-        "rank": 86,
-        "count": 335,
-        "percentile": 70.4
+        "rank": 104,
+        "count": 393,
+        "percentile": 69.1
       }
     },
     {
       "reportId": "PTR20002687",
       "acnArbn": "000550005",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 25.86,
@@ -79,16 +88,20 @@
       "paymentsMoreThan60Days": 2.91,
       "industrySubdivision": "Polymer product and rubber product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-07-24",
+      "submittedDate": "2025-07-23",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1292,
-        "count": 2498,
+        "rank": 1306,
+        "count": 2524,
         "percentile": 46.1
       },
       "industryP95Position": {
-        "rank": 101,
-        "count": 323,
-        "percentile": 65.8
+        "rank": 105,
+        "count": 330,
+        "percentile": 65.3
       }
     }
   ]

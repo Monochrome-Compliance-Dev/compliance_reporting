@@ -1,0 +1,196 @@
+{
+  "slug": "education-and-training",
+  "industryDivision": "Education and Training",
+  "latestReportingCycleId": "2025-H2",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 12,
+      "averageP95PaymentTimeDays": 50.9,
+      "medianP95PaymentTimeDays": 53,
+      "minimumP95PaymentTimeDays": 13,
+      "maximumP95PaymentTimeDays": 88
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 15,
+      "averageP95PaymentTimeDays": 53.8,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 14,
+      "maximumP95PaymentTimeDays": 123
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 14,
+      "averageP95PaymentTimeDays": 47.3,
+      "medianP95PaymentTimeDays": 52.5,
+      "minimumP95PaymentTimeDays": 13,
+      "maximumP95PaymentTimeDays": 76
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "TAFE SA",
+      "abn": "67828419300",
+      "slug": "tafe-sa-67828419300",
+      "p95PaymentTimeDays": 13,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 14,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "Online Education Services Pty Ltd",
+      "abn": "75148177959",
+      "slug": "online-education-services-pty-ltd-75148177959",
+      "p95PaymentTimeDays": 18,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 14,
+        "percentile": 92.3
+      }
+    },
+    {
+      "businessName": "EDGE EARLY LEARNING ADMINISTRATION PTY LTD",
+      "abn": "11620108269",
+      "slug": "edge-early-learning-administration-pty-ltd-11620108269",
+      "p95PaymentTimeDays": 32,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 14,
+        "percentile": 84.6
+      }
+    },
+    {
+      "businessName": "JOURNEY EARLY LEARNING AUSTRALIA PTY LTD",
+      "abn": "88655964551",
+      "slug": "journey-early-learning-australia-pty-ltd-88655964551",
+      "p95PaymentTimeDays": 34,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 14,
+        "percentile": 69.2
+      }
+    },
+    {
+      "businessName": "MARRON GROUP HOLDINGS PTY LTD",
+      "abn": "71631941403",
+      "slug": "marron-group-holdings-pty-ltd-71631941403",
+      "p95PaymentTimeDays": 34,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 14,
+        "percentile": 69.2
+      }
+    },
+    {
+      "businessName": "TAFE QUEENSLAND",
+      "abn": "72898805093",
+      "slug": "tafe-queensland-72898805093",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 14,
+        "percentile": 61.5
+      }
+    },
+    {
+      "businessName": "The Trustee for UBT Marketing Trust",
+      "abn": "84296716805",
+      "slug": "the-trustee-for-ubt-marketing-trust-84296716805",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 14,
+        "percentile": 53.8
+      }
+    },
+    {
+      "businessName": "SHEL HOLDCO PTY LIMITED",
+      "abn": "68670538780",
+      "slug": "shel-holdco-pty-limited-68670538780",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 14,
+        "percentile": 46.2
+      }
+    },
+    {
+      "businessName": "Nido Education Limited",
+      "abn": "12650967703",
+      "slug": "nido-education-limited-12650967703",
+      "p95PaymentTimeDays": 59,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 14,
+        "percentile": 38.5
+      }
+    },
+    {
+      "businessName": "Kaplan Australia Holdings Pty Limited",
+      "abn": "30117261980",
+      "slug": "kaplan-australia-holdings-pty-limited-30117261980",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 14,
+        "percentile": 23.1
+      }
+    },
+    {
+      "businessName": "MONTESSORI ACADEMY GROUP HOLDINGS PTY LTD",
+      "abn": "42631760275",
+      "slug": "montessori-academy-group-holdings-pty-ltd-42631760275",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 14,
+        "percentile": 23.1
+      }
+    },
+    {
+      "businessName": "SEI AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "36133805820",
+      "slug": "sei-australia-holdings-pty-ltd-36133805820",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 14,
+        "percentile": 15.4
+      }
+    },
+    {
+      "businessName": "QORIA LIMITED",
+      "abn": "33167509177",
+      "slug": "qoria-limited-33167509177",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 14,
+        "percentile": 7.7
+      }
+    },
+    {
+      "businessName": "CPA AUSTRALIA LTD",
+      "abn": "64008392452",
+      "slug": "cpa-australia-ltd-64008392452",
+      "p95PaymentTimeDays": 76,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 14,
+        "percentile": 0
+      }
+    }
+  ]
+}

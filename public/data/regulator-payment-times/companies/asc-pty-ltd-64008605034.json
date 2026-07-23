@@ -4,14 +4,15 @@
   "abn": "64008605034",
   "acnArbn": "008605034",
   "industryDivision": "Public Administration and Safety",
+  "industrySlug": "public-administration-and-safety",
   "industrySubdivision": "Defence",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20009578",
       "acnArbn": "008605034",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.91,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 3.44,
       "industrySubdivision": "Defence",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-03-29",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1305,
-        "count": 2613,
-        "percentile": 47.8
+        "rank": 1502,
+        "count": 2976,
+        "percentile": 47.5
       },
       "industryP95Position": {
-        "rank": 26,
-        "count": 33,
-        "percentile": 21.9
+        "rank": 27,
+        "count": 35,
+        "percentile": 23.5
       }
     },
     {
       "reportId": "PTR20004243",
       "acnArbn": "008605034",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 36.44,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 8.82,
       "industrySubdivision": "Defence",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2025-09-23",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2081,
-        "count": 2568,
-        "percentile": 18.4
+        "rank": 2368,
+        "count": 2935,
+        "percentile": 18.7
       },
       "industryP95Position": {
-        "rank": 31,
-        "count": 34,
-        "percentile": 9.1
+        "rank": 33,
+        "count": 36,
+        "percentile": 8.6
       }
     },
     {
       "reportId": "PTR20002137",
       "acnArbn": "008605034",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 34.79,
@@ -79,10 +88,14 @@
       "paymentsMoreThan60Days": 8.48,
       "industrySubdivision": "Defence",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2026,
-        "count": 2498,
+        "rank": 2049,
+        "count": 2524,
         "percentile": 18.3
       },
       "industryP95Position": {

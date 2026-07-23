@@ -4,14 +4,15 @@
   "abn": "24060571673",
   "acnArbn": "060571673",
   "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
   "industrySubdivision": "Food product mfg",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20010503",
       "acnArbn": "060571673",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 13.82,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 0.4,
       "industrySubdivision": "Food product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-04-13",
+      "submittedDate": "2026-04-12",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 950,
-        "count": 2613,
-        "percentile": 62.3
+        "rank": 1086,
+        "count": 2976,
+        "percentile": 62
       },
       "industryP95Position": {
-        "rank": 44,
-        "count": 347,
-        "percentile": 86.7
+        "rank": 51,
+        "count": 404,
+        "percentile": 86.8
       }
     },
     {
       "reportId": "PTR20004586",
       "acnArbn": "060571673",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 9.43,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 0.9,
       "industrySubdivision": "Food product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-09-26",
+      "submittedDate": "2025-09-25",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 549,
-        "count": 2568,
-        "percentile": 77.4
+        "rank": 619,
+        "count": 2935,
+        "percentile": 77.7
       },
       "industryP95Position": {
-        "rank": 21,
-        "count": 335,
+        "rank": 25,
+        "count": 393,
         "percentile": 93.4
       }
     },
     {
       "reportId": "PTR20000142",
       "acnArbn": "060571673",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 13.75,
@@ -79,16 +88,20 @@
       "paymentsMoreThan60Days": 0.5,
       "industrySubdivision": "Food product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2025-05-23",
+      "submittedDate": "2025-05-22",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 674,
-        "count": 2498,
+        "rank": 682,
+        "count": 2524,
         "percentile": 72.3
       },
       "industryP95Position": {
-        "rank": 29,
-        "count": 323,
-        "percentile": 91
+        "rank": 32,
+        "count": 330,
+        "percentile": 90.3
       }
     }
   ]

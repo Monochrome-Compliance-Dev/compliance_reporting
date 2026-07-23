@@ -4,14 +4,15 @@
   "abn": "66008642751",
   "acnArbn": "008642751",
   "industryDivision": "Public Administration and Safety",
+  "industrySlug": "public-administration-and-safety",
   "industrySubdivision": "Defence",
-  "latestReportingPeriodEndDate": "2025-06-30",
+  "latestReportingPeriodEndDate": "2025-06-29",
   "reports": [
     {
       "reportId": "PTR20011331",
       "acnArbn": "008642751",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 37.76,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 8.22,
       "industrySubdivision": "Defence",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2026-06-12",
+      "submittedDate": "2026-06-11",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2171,
-        "count": 2568,
-        "percentile": 15.1
+        "rank": 2474,
+        "count": 2935,
+        "percentile": 15.2
       },
       "industryP95Position": {
-        "rank": 32,
-        "count": 34,
-        "percentile": 6.1
+        "rank": 34,
+        "count": 36,
+        "percentile": 5.7
       }
     },
     {
       "reportId": "PTR20001892",
       "acnArbn": "008642751",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 33.31,
@@ -51,11 +56,15 @@
       "paymentsMoreThan60Days": 5.61,
       "industrySubdivision": "Defence",
       "industryDivision": "Public Administration and Safety",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1740,
-        "count": 2498,
-        "percentile": 29
+        "rank": 1759,
+        "count": 2524,
+        "percentile": 28.9
       },
       "industryP95Position": {
         "rank": 23,

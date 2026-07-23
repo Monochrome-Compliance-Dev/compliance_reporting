@@ -4,14 +4,15 @@
   "abn": "25637540311",
   "acnArbn": "637540311",
   "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySlug": "agriculture-forestry-and-fishing",
   "industrySubdivision": "Agriculture",
-  "latestReportingPeriodEndDate": "2025-03-31",
+  "latestReportingPeriodEndDate": "2025-03-30",
   "reports": [
     {
       "reportId": "PTR20001944",
       "acnArbn": "637540311",
-      "reportingPeriodStartDate": "2024-10-01",
-      "reportingPeriodEndDate": "2025-03-31",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 25.75,
@@ -23,16 +24,20 @@
       "paymentsMoreThan60Days": 1.61,
       "industrySubdivision": "Agriculture",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 119,
-        "count": 231,
-        "percentile": 48.7
+        "rank": 1304,
+        "count": 2935,
+        "percentile": 54
       },
       "industryP95Position": {
-        "rank": 5,
-        "count": 9,
-        "percentile": 50
+        "rank": 61,
+        "count": 105,
+        "percentile": 42.3
       }
     }
   ]

@@ -4,14 +4,15 @@
   "abn": "95082931600",
   "acnArbn": "082931600",
   "industryDivision": "Information Media and Telecommunications",
+  "industrySlug": "information-media-and-telecommunications",
   "industrySubdivision": "Internet service providers, web search portals and data processing services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008036",
       "acnArbn": "082931600",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 45.67,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 23.6,
       "industrySubdivision": "Internet service providers, web search portals and data processing services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2026-03-17",
+      "submittedDate": "2026-03-16",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1794,
-        "count": 2613,
-        "percentile": 29.7
+        "rank": 2037,
+        "count": 2976,
+        "percentile": 30
       },
       "industryP95Position": {
-        "rank": 45,
-        "count": 60,
-        "percentile": 23.7
+        "rank": 52,
+        "count": 71,
+        "percentile": 25.7
       }
     },
     {
       "reportId": "PTR20004264",
       "acnArbn": "082931600",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 52,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 27.64,
       "industrySubdivision": "Internet service providers, web search portals and data processing services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2025-09-23",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1754,
-        "count": 2568,
+        "rank": 2002,
+        "count": 2935,
         "percentile": 30
       },
       "industryP95Position": {
-        "rank": 43,
-        "count": 55,
-        "percentile": 22.2
+        "rank": 53,
+        "count": 69,
+        "percentile": 23.5
       }
     },
     {
       "reportId": "PTR20001199",
       "acnArbn": "082931600",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 47,
@@ -79,16 +88,20 @@
       "paymentsMoreThan60Days": 17.73,
       "industrySubdivision": "Internet service providers, web search portals and data processing services",
       "industryDivision": "Information Media and Telecommunications",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-25",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1740,
-        "count": 2498,
-        "percentile": 29
+        "rank": 1759,
+        "count": 2524,
+        "percentile": 28.9
       },
       "industryP95Position": {
-        "rank": 40,
-        "count": 58,
-        "percentile": 31.6
+        "rank": 41,
+        "count": 59,
+        "percentile": 31
       }
     }
   ]
