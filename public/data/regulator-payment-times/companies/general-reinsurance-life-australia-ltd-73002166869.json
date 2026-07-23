@@ -4,14 +4,15 @@
   "abn": "73002166869",
   "acnArbn": "002166869",
   "industryDivision": "Financial and Insurance Services",
+  "industrySlug": "financial-and-insurance-services",
   "industrySubdivision": "Insurance and superannuation funds",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20007402",
       "acnArbn": "002166869",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 11.8,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 4,
       "industrySubdivision": "Insurance and superannuation funds",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2026-02-25",
+      "submittedDate": "2026-02-24",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 188,
-        "count": 2613,
+        "rank": 214,
+        "count": 2976,
         "percentile": 92.1
       },
       "industryP95Position": {
-        "rank": 67,
-        "count": 338,
-        "percentile": 78
+        "rank": 71,
+        "count": 368,
+        "percentile": 78.7
       }
     },
     {
       "reportId": "PTR20004212",
       "acnArbn": "002166869",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 14.42,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 3.23,
       "industrySubdivision": "Insurance and superannuation funds",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2025-09-23",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 459,
-        "count": 2568,
-        "percentile": 81
+        "rank": 514,
+        "count": 2935,
+        "percentile": 81.3
       },
       "industryP95Position": {
-        "rank": 138,
-        "count": 349,
-        "percentile": 58.9
+        "rank": 148,
+        "count": 378,
+        "percentile": 59.2
       }
     },
     {
       "reportId": "PTR20000184",
       "acnArbn": "002166869",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 37.18,
@@ -79,15 +88,19 @@
       "paymentsMoreThan60Days": 18.18,
       "industrySubdivision": "Insurance and superannuation funds",
       "industryDivision": "Financial and Insurance Services",
-      "submittedDate": "2025-05-28",
+      "submittedDate": "2025-05-27",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2439,
-        "count": 2498,
+        "rank": 2465,
+        "count": 2524,
         "percentile": 2.3
       },
       "industryP95Position": {
-        "rank": 335,
-        "count": 339,
+        "rank": 337,
+        "count": 341,
         "percentile": 1.2
       }
     }

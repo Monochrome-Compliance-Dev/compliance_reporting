@@ -4,14 +4,15 @@
   "abn": "55001442520",
   "acnArbn": "001442520",
   "industryDivision": "Wholesale Trade",
+  "industrySlug": "wholesale-trade",
   "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008739",
       "acnArbn": "001442520",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.23,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 0.44,
       "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2026-03-24",
+      "submittedDate": "2026-03-23",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 842,
-        "count": 2613,
-        "percentile": 66.7
+        "rank": 950,
+        "count": 2976,
+        "percentile": 66.9
       },
       "industryP95Position": {
-        "rank": 66,
-        "count": 329,
-        "percentile": 79
+        "rank": 86,
+        "count": 401,
+        "percentile": 77.5
       }
     },
     {
       "reportId": "PTR20005516",
       "acnArbn": "001442520",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 25.45,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 3,
       "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-09-30",
+      "submittedDate": "2025-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1133,
-        "count": 2568,
-        "percentile": 54.2
+        "rank": 1304,
+        "count": 2935,
+        "percentile": 54
       },
       "industryP95Position": {
-        "rank": 112,
-        "count": 323,
-        "percentile": 63.7
+        "rank": 148,
+        "count": 399,
+        "percentile": 61.6
       }
     },
     {
       "reportId": "PTR20001895",
       "acnArbn": "001442520",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 24.67,
@@ -79,16 +88,20 @@
       "paymentsMoreThan60Days": 2.75,
       "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1150,
-        "count": 2498,
+        "rank": 1161,
+        "count": 2524,
         "percentile": 52.4
       },
       "industryP95Position": {
         "rank": 113,
-        "count": 323,
-        "percentile": 63.7
+        "count": 326,
+        "percentile": 64
       }
     }
   ]

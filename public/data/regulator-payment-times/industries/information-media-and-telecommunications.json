@@ -1,0 +1,185 @@
+{
+  "slug": "information-media-and-telecommunications",
+  "industryDivision": "Information Media and Telecommunications",
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 59,
+      "averageP95PaymentTimeDays": 57.9,
+      "medianP95PaymentTimeDays": 49,
+      "minimumP95PaymentTimeDays": 10,
+      "maximumP95PaymentTimeDays": 389
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 69,
+      "averageP95PaymentTimeDays": 54.1,
+      "medianP95PaymentTimeDays": 49,
+      "minimumP95PaymentTimeDays": 14,
+      "maximumP95PaymentTimeDays": 136
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 71,
+      "averageP95PaymentTimeDays": 55.2,
+      "medianP95PaymentTimeDays": 49,
+      "minimumP95PaymentTimeDays": 14,
+      "maximumP95PaymentTimeDays": 132
+    },
+    {
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 12,
+      "averageP95PaymentTimeDays": 64.8,
+      "medianP95PaymentTimeDays": 59,
+      "minimumP95PaymentTimeDays": 15,
+      "maximumP95PaymentTimeDays": 136
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "Medion Australia Pty Limited",
+      "abn": "58106611330",
+      "slug": "medion-australia-pty-limited-58106611330",
+      "p95PaymentTimeDays": 15,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 12,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "INDUSTRIAL LIGHT & MAGIC (AUSTRALIA) PTY. LIMITED",
+      "abn": "46145485767",
+      "slug": "industrial-light-and-magic-australia-pty-limited-46145485767",
+      "p95PaymentTimeDays": 36,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 12,
+        "percentile": 90.9
+      }
+    },
+    {
+      "businessName": "BBC STUDIOS AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "85127624104",
+      "slug": "bbc-studios-australia-holdings-pty-ltd-85127624104",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 12,
+        "percentile": 81.8
+      }
+    },
+    {
+      "businessName": "SNOWFLAKE COMPUTING PTY LTD.",
+      "abn": "50624134587",
+      "slug": "snowflake-computing-pty-ltd-50624134587",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 12,
+        "percentile": 72.7
+      }
+    },
+    {
+      "businessName": "CDC GROUP HOLDINGS PTY LTD",
+      "abn": "67612332073",
+      "slug": "cdc-group-holdings-pty-ltd-67612332073",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 12,
+        "percentile": 63.6
+      }
+    },
+    {
+      "businessName": "NEC AUSTRALIA PTY LTD",
+      "abn": "86001217527",
+      "slug": "nec-australia-pty-ltd-86001217527",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 12,
+        "percentile": 54.5
+      }
+    },
+    {
+      "businessName": "GENESYS CLOUD SERVICES PTY. LTD.",
+      "abn": "80077375887",
+      "slug": "genesys-cloud-services-pty-ltd-80077375887",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 12,
+        "percentile": 36.4
+      }
+    },
+    {
+      "businessName": "THE WALT DISNEY COMPANY (AUSTRALIA) PTY LIMITED",
+      "abn": "30054610025",
+      "slug": "the-walt-disney-company-australia-pty-limited-30054610025",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 12,
+        "percentile": 36.4
+      }
+    },
+    {
+      "businessName": "SINGAPORE TELECOM AUSTRALIA INVESTMENTS PTY LIMITED",
+      "abn": "69096686190",
+      "slug": "singapore-telecom-australia-investments-pty-limited-69096686190",
+      "p95PaymentTimeDays": 69,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 12,
+        "percentile": 27.3
+      }
+    },
+    {
+      "businessName": "NETAPP AUSTRALIA PTY LTD",
+      "abn": "14092499431",
+      "slug": "netapp-australia-pty-ltd-14092499431",
+      "p95PaymentTimeDays": 89,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 12,
+        "percentile": 18.2
+      }
+    },
+    {
+      "businessName": "CISCO SYSTEMS AUSTRALIA PTY LIMITED",
+      "abn": "52050332940",
+      "slug": "cisco-systems-australia-pty-limited-52050332940",
+      "p95PaymentTimeDays": 90,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 12,
+        "percentile": 9.1
+      }
+    },
+    {
+      "businessName": "SPLUNK SERVICES AUSTRALIA PTY. LTD.",
+      "abn": "51609939817",
+      "slug": "splunk-services-australia-pty-ltd-51609939817",
+      "p95PaymentTimeDays": 136,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 12,
+        "percentile": 0
+      }
+    }
+  ]
+}

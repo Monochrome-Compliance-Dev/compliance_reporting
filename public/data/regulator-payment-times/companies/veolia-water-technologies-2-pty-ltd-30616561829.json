@@ -4,14 +4,15 @@
   "abn": "30616561829",
   "acnArbn": "616561829",
   "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySlug": "electricity-gas-water-and-waste-services",
   "industrySubdivision": "Water supply, sewerage and drainage services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20010031",
       "acnArbn": "616561829",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 41.35,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 16.71,
       "industrySubdivision": "Water supply, sewerage and drainage services",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1979,
-        "count": 2613,
-        "percentile": 23.2
+        "rank": 2244,
+        "count": 2976,
+        "percentile": 23.5
       },
       "industryP95Position": {
-        "rank": 86,
-        "count": 92,
-        "percentile": 5.5
+        "rank": 89,
+        "count": 96,
+        "percentile": 6.3
       }
     },
     {
       "reportId": "PTR20006182",
       "acnArbn": "616561829",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 28.05,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 7.83,
       "industrySubdivision": "Water supply, sewerage and drainage services",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-10-25",
+      "submittedDate": "2025-10-24",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1754,
-        "count": 2568,
+        "rank": 2002,
+        "count": 2935,
         "percentile": 30
       },
       "industryP95Position": {
-        "rank": 78,
-        "count": 95,
-        "percentile": 18.1
+        "rank": 80,
+        "count": 98,
+        "percentile": 18.6
       }
     },
     {
       "reportId": "PTR20006488",
       "acnArbn": "616561829",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 27.89,
@@ -79,10 +88,14 @@
       "paymentsMoreThan60Days": 10.58,
       "industrySubdivision": "Water supply, sewerage and drainage services",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-11-19",
+      "submittedDate": "2025-11-18",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1699,
-        "count": 2498,
+        "rank": 1718,
+        "count": 2524,
         "percentile": 30.4
       },
       "industryP95Position": {

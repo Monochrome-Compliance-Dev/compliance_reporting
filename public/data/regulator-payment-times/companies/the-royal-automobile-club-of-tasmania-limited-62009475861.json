@@ -4,14 +4,15 @@
   "abn": "62009475861",
   "acnArbn": "009475861",
   "industryDivision": "Other Services",
+  "industrySlug": "other-services",
   "industrySubdivision": "Personal and other services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20010113",
       "acnArbn": "009475861",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 6.15,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 0.65,
       "industrySubdivision": "Personal and other services",
       "industryDivision": "Other Services",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 99,
-        "count": 2613,
+        "rank": 114,
+        "count": 2976,
         "percentile": 95.9
       },
       "industryP95Position": {
         "rank": 2,
-        "count": 25,
-        "percentile": 91.7
+        "count": 28,
+        "percentile": 92.6
       }
     },
     {
       "reportId": "PTR20005060",
       "acnArbn": "009475861",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 6.98,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 1.36,
       "industrySubdivision": "Personal and other services",
       "industryDivision": "Other Services",
-      "submittedDate": "2025-09-29",
+      "submittedDate": "2025-09-28",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 225,
-        "count": 2568,
-        "percentile": 89.6
+        "rank": 253,
+        "count": 2935,
+        "percentile": 89.9
       },
       "industryP95Position": {
         "rank": 4,
-        "count": 26,
-        "percentile": 88
+        "count": 29,
+        "percentile": 89.3
       }
     },
     {
       "reportId": "PTR20005888",
       "acnArbn": "009475861",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 3.9,
@@ -79,10 +88,14 @@
       "paymentsMoreThan60Days": 0.62,
       "industrySubdivision": "Personal and other services",
       "industryDivision": "Other Services",
-      "submittedDate": "2025-10-01",
+      "submittedDate": "2025-09-30",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
         "rank": 29,
-        "count": 2498,
+        "count": 2524,
         "percentile": 98.7
       },
       "industryP95Position": {

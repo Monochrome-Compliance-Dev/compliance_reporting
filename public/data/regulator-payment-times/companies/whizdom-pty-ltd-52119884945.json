@@ -4,14 +4,15 @@
   "abn": "52119884945",
   "acnArbn": "119884945",
   "industryDivision": "Administrative and Support Services",
+  "industrySlug": "administrative-and-support-services",
   "industrySubdivision": "Administrative services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008079",
       "acnArbn": "119884945",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 2,
@@ -23,16 +24,20 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Administrative services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2026-03-16",
+      "submittedDate": "2026-03-15",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 7,
-        "count": 2613,
+        "rank": 9,
+        "count": 2976,
         "percentile": 99.6
       },
       "industryP95Position": {
         "rank": 4,
-        "count": 49,
-        "percentile": 93.8
+        "count": 58,
+        "percentile": 94.7
       }
     }
   ]

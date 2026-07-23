@@ -4,14 +4,15 @@
   "abn": "70105041209",
   "acnArbn": "105041209",
   "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySlug": "electricity-gas-water-and-waste-services",
   "industrySubdivision": "Electricity supply",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20009909",
       "acnArbn": "105041209",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.26,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 4.51,
       "industrySubdivision": "Electricity supply",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1440,
-        "count": 2613,
+        "rank": 1646,
+        "count": 2976,
         "percentile": 41.8
       },
       "industryP95Position": {
-        "rank": 68,
-        "count": 92,
-        "percentile": 23.1
+        "rank": 70,
+        "count": 96,
+        "percentile": 24.2
       }
     },
     {
       "reportId": "PTR20005402",
       "acnArbn": "105041209",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 26.45,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 6.65,
       "industrySubdivision": "Electricity supply",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-09-30",
+      "submittedDate": "2025-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1929,
-        "count": 2568,
-        "percentile": 23.7
+        "rank": 2201,
+        "count": 2935,
+        "percentile": 23.9
       },
       "industryP95Position": {
-        "rank": 81,
-        "count": 95,
-        "percentile": 13.8
+        "rank": 83,
+        "count": 98,
+        "percentile": 14.4
       }
     },
     {
       "reportId": "PTR20001035",
       "acnArbn": "105041209",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.04,
@@ -79,10 +88,14 @@
       "paymentsMoreThan60Days": 4.03,
       "industrySubdivision": "Electricity supply",
       "industryDivision": "Electricity, Gas, Water and Waste Services",
-      "submittedDate": "2025-06-25",
+      "submittedDate": "2025-06-24",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1191,
-        "count": 2498,
+        "rank": 1204,
+        "count": 2524,
         "percentile": 51
       },
       "industryP95Position": {

@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import LaunchRoundedIcon from "@mui/icons-material/LaunchRounded";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+
 import {
   Box,
   Button,
@@ -1062,6 +1066,80 @@ function RegulatorPaymentTimesCompanyPage() {
               >
                 Talk to us
               </Button>
+            </Stack>
+          </Paper>
+
+          <Paper
+            elevation={0}
+            sx={{
+              p: { xs: 2.5, sm: 3.5 },
+              border: `1px solid ${theme.palette.divider}`,
+              borderRadius: 3,
+              backgroundColor: theme.palette.background.paper,
+            }}
+          >
+            <Stack
+              direction={{ xs: "column", md: "row" }}
+              spacing={2}
+              alignItems={{ xs: "stretch", md: "center" }}
+              justifyContent="space-between"
+            >
+              <Box>
+                <Typography
+                  component="h2"
+                  variant="h5"
+                  sx={{
+                    color: theme.palette.text.primary,
+                    fontWeight: 700,
+                  }}
+                >
+                  Explore payment times information
+                </Typography>
+
+                <Typography
+                  variant="body2"
+                  sx={{
+                    mt: 0.5,
+                    maxWidth: 650,
+                    color: theme.palette.text.secondary,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Explore how this company compares with its industry or visit
+                  the official Payment Times Reports Register for source reports
+                  and further information.
+                </Typography>
+              </Box>
+
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={1.5}
+                flexShrink={0}
+              >
+                <Button
+                  variant="outlined"
+                  startIcon={<SearchRoundedIcon />}
+                  endIcon={<ArrowForwardRoundedIcon />}
+                  onClick={() =>
+                    navigate(
+                      `/regulator-payment-times/industry/${company.industrySlug}`,
+                    )
+                  }
+                >
+                  View industry insights
+                </Button>
+
+                <Button
+                  component="a"
+                  href="https://register.paymenttimes.gov.au/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="contained"
+                  endIcon={<LaunchRoundedIcon />}
+                >
+                  Visit official register
+                </Button>
+              </Stack>
             </Stack>
           </Paper>
 

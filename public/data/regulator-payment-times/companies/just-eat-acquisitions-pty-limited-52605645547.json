@@ -4,14 +4,15 @@
   "abn": "52605645547",
   "acnArbn": "605645547",
   "industryDivision": "Transport, Postal and Warehousing",
+  "industrySlug": "transport-postal-and-warehousing",
   "industrySubdivision": "Postal and courier pick-up and delivery services",
-  "latestReportingPeriodEndDate": "2024-12-31",
+  "latestReportingPeriodEndDate": "2024-12-30",
   "reports": [
     {
       "reportId": "PTR20001225",
       "acnArbn": "605645547",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 0,
@@ -23,15 +24,19 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Postal and courier pick-up and delivery services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-25",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
         "rank": 1,
-        "count": 2498,
+        "count": 2524,
         "percentile": 99.9
       },
       "industryP95Position": {
         "rank": 1,
-        "count": 140,
+        "count": 141,
         "percentile": 100
       }
     }

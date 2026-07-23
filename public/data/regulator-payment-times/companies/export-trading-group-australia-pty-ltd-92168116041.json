@@ -4,14 +4,15 @@
   "abn": "92168116041",
   "acnArbn": "168116041",
   "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySlug": "agriculture-forestry-and-fishing",
   "industrySubdivision": "Agriculture, forestry and fishing support services",
-  "latestReportingPeriodEndDate": "2025-03-31",
+  "latestReportingPeriodEndDate": "2025-03-30",
   "reports": [
     {
       "reportId": "PTR20002148",
       "acnArbn": "168116041",
-      "reportingPeriodStartDate": "2024-10-01",
-      "reportingPeriodEndDate": "2025-03-31",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 18.23,
@@ -23,16 +24,20 @@
       "paymentsMoreThan60Days": 1.7,
       "industrySubdivision": "Agriculture, forestry and fishing support services",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-06-30",
+      "submittedDate": "2025-06-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 185,
-        "count": 231,
-        "percentile": 20
+        "rank": 2321,
+        "count": 2935,
+        "percentile": 20.2
       },
       "industryP95Position": {
-        "rank": 9,
-        "count": 9,
-        "percentile": 0
+        "rank": 98,
+        "count": 105,
+        "percentile": 6.7
       }
     }
   ]

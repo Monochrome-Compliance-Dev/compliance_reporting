@@ -4,14 +4,15 @@
   "abn": "49063102198",
   "acnArbn": "063102198",
   "industryDivision": "Other Services",
+  "industrySlug": "other-services",
   "industrySubdivision": "Repair and maintenance",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20011523",
       "acnArbn": "063102198",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 22.1,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 0.44,
       "industrySubdivision": "Repair and maintenance",
       "industryDivision": "Other Services",
-      "submittedDate": "2026-06-23",
+      "submittedDate": "2026-06-22",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 672,
-        "count": 2613,
-        "percentile": 73.2
+        "rank": 747,
+        "count": 2976,
+        "percentile": 73.7
       },
       "industryP95Position": {
         "rank": 8,
-        "count": 25,
-        "percentile": 66.7
+        "count": 28,
+        "percentile": 70.4
       }
     },
     {
       "reportId": "PTR20004580",
       "acnArbn": "063102198",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 23.3,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 1.03,
       "industrySubdivision": "Repair and maintenance",
       "industryDivision": "Other Services",
-      "submittedDate": "2025-09-26",
+      "submittedDate": "2025-09-25",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 583,
-        "count": 2568,
-        "percentile": 75.3
+        "rank": 655,
+        "count": 2935,
+        "percentile": 75.7
       },
       "industryP95Position": {
         "rank": 7,
-        "count": 26,
-        "percentile": 76
+        "count": 29,
+        "percentile": 78.6
       }
     },
     {
       "reportId": "PTR20002296",
       "acnArbn": "063102198",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 19.65,
@@ -79,10 +88,14 @@
       "paymentsMoreThan60Days": 1.42,
       "industrySubdivision": "Repair and maintenance",
       "industryDivision": "Other Services",
-      "submittedDate": "2025-07-01",
+      "submittedDate": "2025-06-30",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 406,
-        "count": 2498,
+        "rank": 411,
+        "count": 2524,
         "percentile": 81.4
       },
       "industryP95Position": {

@@ -4,14 +4,15 @@
   "abn": "59002307682",
   "acnArbn": "002307682",
   "industryDivision": "Mining",
+  "industrySlug": "mining",
   "industrySubdivision": "Coal mining",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008971",
       "acnArbn": "002307682",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 14.69,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 3.45,
       "industrySubdivision": "Coal mining",
       "industryDivision": "Mining",
-      "submittedDate": "2026-03-25",
+      "submittedDate": "2026-03-24",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 188,
-        "count": 2613,
+        "rank": 214,
+        "count": 2976,
         "percentile": 92.1
       },
       "industryP95Position": {
-        "rank": 12,
-        "count": 177,
-        "percentile": 93.2
+        "rank": 14,
+        "count": 187,
+        "percentile": 91.9
       }
     },
     {
       "reportId": "PTR20004800",
       "acnArbn": "002307682",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 10.64,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Coal mining",
       "industryDivision": "Mining",
-      "submittedDate": "2025-09-29",
+      "submittedDate": "2025-09-28",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 96,
-        "count": 2568,
-        "percentile": 96.2
+        "rank": 107,
+        "count": 2935,
+        "percentile": 96.3
       },
       "industryP95Position": {
-        "rank": 12,
-        "count": 173,
-        "percentile": 93.6
+        "rank": 13,
+        "count": 183,
+        "percentile": 93.4
       }
     },
     {
       "reportId": "PTR20001259",
       "acnArbn": "002307682",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 11.68,
@@ -79,10 +88,14 @@
       "paymentsMoreThan60Days": 2.5,
       "industrySubdivision": "Coal mining",
       "industryDivision": "Mining",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-25",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 123,
-        "count": 2498,
+        "rank": 124,
+        "count": 2524,
         "percentile": 94.5
       },
       "industryP95Position": {

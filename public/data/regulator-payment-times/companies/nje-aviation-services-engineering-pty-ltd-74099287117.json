@@ -4,14 +4,15 @@
   "abn": "74099287117",
   "acnArbn": "099287117",
   "industryDivision": "Transport, Postal and Warehousing",
+  "industrySlug": "transport-postal-and-warehousing",
   "industrySubdivision": "Air and space transport",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20011424",
       "acnArbn": "099287117",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Air and space transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2026-06-19",
+      "submittedDate": "2026-06-18",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1012,
-        "count": 2613,
-        "percentile": 60.1
+        "rank": 1159,
+        "count": 2976,
+        "percentile": 59.9
       },
       "industryP95Position": {
-        "rank": 44,
-        "count": 143,
-        "percentile": 68.3
+        "rank": 51,
+        "count": 167,
+        "percentile": 68.7
       }
     },
     {
       "reportId": "PTR20002336",
       "acnArbn": "099287117",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 30,
@@ -51,16 +56,20 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Air and space transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-07-03",
+      "submittedDate": "2025-07-02",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 323,
-        "count": 2498,
+        "rank": 326,
+        "count": 2524,
         "percentile": 83.8
       },
       "industryP95Position": {
         "rank": 15,
-        "count": 140,
-        "percentile": 88.5
+        "count": 141,
+        "percentile": 88.6
       }
     }
   ]

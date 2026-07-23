@@ -4,14 +4,15 @@
   "abn": "83160890433",
   "acnArbn": "160890433",
   "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySlug": "rental-hiring-and-real-estate-services",
   "industrySubdivision": "Property operators and real estate services",
-  "latestReportingPeriodEndDate": "2025-12-31",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
       "reportId": "PTR20008680",
       "acnArbn": "160890433",
-      "reportingPeriodStartDate": "2025-07-01",
-      "reportingPeriodEndDate": "2025-12-31",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 14,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 0.77,
       "industrySubdivision": "Property operators and real estate services",
       "industryDivision": "Rental, Hiring and Real Estate Services",
-      "submittedDate": "2026-03-31",
+      "submittedDate": "2026-03-30",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 542,
-        "count": 2613,
-        "percentile": 78
+        "rank": 598,
+        "count": 2976,
+        "percentile": 78.6
       },
       "industryP95Position": {
-        "rank": 18,
-        "count": 66,
-        "percentile": 73.8
+        "rank": 19,
+        "count": 69,
+        "percentile": 73.5
       }
     },
     {
       "reportId": "PTR20004471",
       "acnArbn": "160890433",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 13,
@@ -51,23 +56,27 @@
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Property operators and real estate services",
       "industryDivision": "Rental, Hiring and Real Estate Services",
-      "submittedDate": "2025-09-25",
+      "submittedDate": "2025-09-24",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 316,
-        "count": 2568,
-        "percentile": 84.6
+        "rank": 353,
+        "count": 2935,
+        "percentile": 84.9
       },
       "industryP95Position": {
-        "rank": 9,
-        "count": 61,
-        "percentile": 81.7
+        "rank": 11,
+        "count": 64,
+        "percentile": 79.4
       }
     },
     {
       "reportId": "PTR20000451",
       "acnArbn": "160890433",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 13,
@@ -79,11 +88,15 @@
       "paymentsMoreThan60Days": 1.13,
       "industrySubdivision": "Property operators and real estate services",
       "industryDivision": "Rental, Hiring and Real Estate Services",
-      "submittedDate": "2025-06-13",
+      "submittedDate": "2025-06-12",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 466,
-        "count": 2498,
-        "percentile": 79.9
+        "rank": 472,
+        "count": 2524,
+        "percentile": 79.8
       },
       "industryP95Position": {
         "rank": 15,

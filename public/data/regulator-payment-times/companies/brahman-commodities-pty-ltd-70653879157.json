@@ -4,14 +4,15 @@
   "abn": "70653879157",
   "acnArbn": "653879157",
   "industryDivision": "Wholesale Trade",
+  "industrySlug": "wholesale-trade",
   "industrySubdivision": "Other goods wholesaling",
-  "latestReportingPeriodEndDate": "2025-09-30",
+  "latestReportingPeriodEndDate": "2025-09-29",
   "reports": [
     {
       "reportId": "PTR20006728",
       "acnArbn": "653879157",
-      "reportingPeriodStartDate": "2025-04-01",
-      "reportingPeriodEndDate": "2025-09-30",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 17.51,
@@ -23,16 +24,20 @@
       "paymentsMoreThan60Days": 1.7,
       "industrySubdivision": "Other goods wholesaling",
       "industryDivision": "Wholesale Trade",
-      "submittedDate": "2025-12-17",
+      "submittedDate": "2025-12-16",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 46,
-        "count": 228,
-        "percentile": 78.4
+        "rank": 598,
+        "count": 2976,
+        "percentile": 78.6
       },
       "industryP95Position": {
-        "rank": 13,
-        "count": 59,
-        "percentile": 75.9
+        "rank": 55,
+        "count": 401,
+        "percentile": 85.8
       }
     }
   ]

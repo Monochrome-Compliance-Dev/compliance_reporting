@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import {
   Box,
+  Button,
   CircularProgress,
   Container,
   InputAdornment,
@@ -12,7 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { useAlert } from "../../../context";
+import { useAlert } from "context";
 
 const SEARCH_INDEX_URL = "/data/regulator-payment-times/search-index.json";
 
@@ -148,6 +150,14 @@ function RegulatorPaymentTimesSearchPage() {
       <Container maxWidth="md">
         <Stack spacing={{ xs: 4, md: 5 }}>
           <Stack spacing={2}>
+            <Box>
+              <Button
+                startIcon={<ArrowBackRoundedIcon />}
+                onClick={() => navigate("/")}
+              >
+                Back to home
+              </Button>
+            </Box>
             <Typography
               component="h1"
               variant="h2"

@@ -1,0 +1,174 @@
+{
+  "slug": "agriculture-forestry-and-fishing",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 86,
+      "averageP95PaymentTimeDays": 48,
+      "medianP95PaymentTimeDays": 48.5,
+      "minimumP95PaymentTimeDays": 0,
+      "maximumP95PaymentTimeDays": 119
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 105,
+      "averageP95PaymentTimeDays": 49,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 0,
+      "maximumP95PaymentTimeDays": 120
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 116,
+      "averageP95PaymentTimeDays": 49.5,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 0,
+      "maximumP95PaymentTimeDays": 129
+    },
+    {
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 11,
+      "averageP95PaymentTimeDays": 51.5,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 31,
+      "maximumP95PaymentTimeDays": 64
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "ADITYA BIRLA GLOBAL TRADING (AUSTRALIA) PTY LTD",
+      "abn": "37609394176",
+      "slug": "aditya-birla-global-trading-australia-pty-ltd-37609394176",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 11,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "STAHMANN HOLDINGS PTY LTD",
+      "abn": "68617861677",
+      "slug": "stahmann-holdings-pty-ltd-68617861677",
+      "p95PaymentTimeDays": 38,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 11,
+        "percentile": 90
+      }
+    },
+    {
+      "businessName": "MITSUI & CO. WOOD RESOURCES OCEANIA PTY. LTD.",
+      "abn": "14070210990",
+      "slug": "mitsui-and-co-wood-resources-oceania-pty-ltd-14070210990",
+      "p95PaymentTimeDays": 44,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 11,
+        "percentile": 80
+      }
+    },
+    {
+      "businessName": "SUMMIT RURAL (WA) PTY LIMITED",
+      "abn": "49058794737",
+      "slug": "summit-rural-wa-pty-limited-49058794737",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 11,
+        "percentile": 60
+      }
+    },
+    {
+      "businessName": "The Trustee for WHSP Agriculture Holding Trust",
+      "abn": "74313288080",
+      "slug": "the-trustee-for-whsp-agriculture-holding-trust-74313288080",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 11,
+        "percentile": 60
+      }
+    },
+    {
+      "businessName": "CPC GROUP HOLDINGS PTY LTD",
+      "abn": "28644449758",
+      "slug": "cpc-group-holdings-pty-ltd-28644449758",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 11,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "PETUNA AQUACULTURE PTY LTD",
+      "abn": "62009485581",
+      "slug": "petuna-aquaculture-pty-ltd-62009485581",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 11,
+        "percentile": 40
+      }
+    },
+    {
+      "businessName": "PHILIP YATES FAMILY HOLDINGS PTY LTD",
+      "abn": "69610437119",
+      "slug": "philip-yates-family-holdings-pty-ltd-69610437119",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 11,
+        "percentile": 30
+      }
+    },
+    {
+      "businessName": "A. A. COMPANY PTY. LTD.",
+      "abn": "86010317067",
+      "slug": "a-a-company-pty-ltd-86010317067",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 11,
+        "percentile": 20
+      }
+    },
+    {
+      "businessName": "ALTORA AG HOLDCO PTY LTD",
+      "abn": "29630396619",
+      "slug": "altora-ag-holdco-pty-ltd-29630396619",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 11,
+        "percentile": 10
+      }
+    },
+    {
+      "businessName": "SIMPLOT AUSTRALIA (HOLDINGS) PTY LIMITED",
+      "abn": "23070571934",
+      "slug": "simplot-australia-holdings-pty-limited-23070571934",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 11,
+        "percentile": 0
+      }
+    }
+  ]
+}

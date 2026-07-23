@@ -4,14 +4,15 @@
   "abn": "24053113992",
   "acnArbn": "053113992",
   "industryDivision": "Retail Trade",
+  "industrySlug": "retail-trade",
   "industrySubdivision": "Fuel retailing",
-  "latestReportingPeriodEndDate": "2025-06-30",
+  "latestReportingPeriodEndDate": "2025-06-29",
   "reports": [
     {
       "reportId": "PTR20006096",
       "acnArbn": "053113992",
-      "reportingPeriodStartDate": "2025-01-01",
-      "reportingPeriodEndDate": "2025-06-30",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 29.76,
@@ -23,23 +24,27 @@
       "paymentsMoreThan60Days": 5.81,
       "industrySubdivision": "Fuel retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-10-20",
+      "submittedDate": "2025-10-19",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1823,
-        "count": 2568,
-        "percentile": 27.8
+        "rank": 2083,
+        "count": 2935,
+        "percentile": 27.9
       },
       "industryP95Position": {
-        "rank": 154,
-        "count": 208,
-        "percentile": 24.2
+        "rank": 185,
+        "count": 252,
+        "percentile": 25.1
       }
     },
     {
       "reportId": "PTR20001276",
       "acnArbn": "053113992",
-      "reportingPeriodStartDate": "2024-07-01",
-      "reportingPeriodEndDate": "2024-12-31",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
       "redactedReport": false,
       "averagePaymentTimeDays": 35.77,
@@ -51,16 +56,20 @@
       "paymentsMoreThan60Days": 7.8,
       "industrySubdivision": "Fuel retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2025-06-26",
+      "submittedDate": "2025-06-25",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2281,
-        "count": 2498,
+        "rank": 2304,
+        "count": 2524,
         "percentile": 8.3
       },
       "industryP95Position": {
-        "rank": 187,
-        "count": 207,
-        "percentile": 9.7
+        "rank": 190,
+        "count": 210,
+        "percentile": 9.6
       }
     }
   ]

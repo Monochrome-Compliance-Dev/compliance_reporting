@@ -4,6 +4,28 @@ const XLSX = require("xlsx");
 
 const SHEET_NAME = "Standard report";
 
+const ANZSIC_INDUSTRY_DIVISIONS = [
+  "Accommodation and Food Services",
+  "Administrative and Support Services",
+  "Agriculture, Forestry and Fishing",
+  "Arts and Recreation Services",
+  "Construction",
+  "Education and Training",
+  "Electricity, Gas, Water and Waste Services",
+  "Financial and Insurance Services",
+  "Health Care and Social Assistance",
+  "Information Media and Telecommunications",
+  "Manufacturing",
+  "Mining",
+  "Other Services",
+  "Professional, Scientific and Technical Services",
+  "Public Administration and Safety",
+  "Rental, Hiring and Real Estate Services",
+  "Retail Trade",
+  "Transport, Postal and Warehousing",
+  "Wholesale Trade",
+];
+
 const REQUIRED_COLUMNS = [
   "ReportId",
   "Business Name",
@@ -40,7 +62,11 @@ const OUTPUT_DIRECTORY = path.resolve(
 
 const COMPANY_OUTPUT_DIRECTORY = path.join(OUTPUT_DIRECTORY, "companies");
 
+const INDUSTRY_OUTPUT_DIRECTORY = path.join(OUTPUT_DIRECTORY, "industries");
+
 const SEARCH_INDEX_PATH = path.join(OUTPUT_DIRECTORY, "search-index.json");
+
+const INDUSTRY_INDEX_PATH = path.join(OUTPUT_DIRECTORY, "industry-index.json");
 
 const IMPORT_SUMMARY_PATH = path.join(OUTPUT_DIRECTORY, "import-summary.json");
 
@@ -133,46 +159,139 @@ function formatDateParts(year, month, day) {
 }
 
 function normaliseDate(value, fieldName, reportId) {
-  if (value instanceof Date) {
-    if (Number.isNaN(value.getTime())) {
-      fail(
-        `${fieldName} contains an invalid date for report ${reportId}: ${value}`,
-      );
-    }
-
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
     return formatDateParts(
-      value.getFullYear(),
-      value.getMonth() + 1,
-      value.getDate(),
+      value.getUTCFullYear(),
+      value.getUTCMonth() + 1,
+      value.getUTCDate(),
     );
   }
 
-  if (typeof value === "number") {
-    const parsedDate = XLSX.SSF.parse_date_code(value);
+  const textValue = normaliseText(value);
 
-    if (!parsedDate) {
-      fail(
-        `${fieldName} contains an invalid Excel date for report ${reportId}`,
-      );
-    }
-
-    return formatDateParts(parsedDate.y, parsedDate.m, parsedDate.d);
+  if (!textValue) {
+    fail(`${fieldName} is missing for report ${reportId}`);
   }
 
-  const normalisedValue = normaliseText(value);
-  const isoDateMatch = normalisedValue.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const isoMatch = textValue.match(/^(\d{4})-(\d{2})-(\d{2})$/);
 
-  if (!isoDateMatch) {
-    fail(
-      `${fieldName} contains an unsupported date for report ${reportId}: ${value}`,
+  if (isoMatch) {
+    return formatDateParts(
+      Number(isoMatch[1]),
+      Number(isoMatch[2]),
+      Number(isoMatch[3]),
     );
   }
 
-  return normalisedValue;
+  const australianDateMatch = textValue.match(
+    /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/,
+  );
+
+  if (australianDateMatch) {
+    return formatDateParts(
+      Number(australianDateMatch[3]),
+      Number(australianDateMatch[2]),
+      Number(australianDateMatch[1]),
+    );
+  }
+
+  fail(
+    `${fieldName} contains an unsupported date for report ${reportId}: ${value}`,
+  );
 }
 
-function createSlug(businessName, abn) {
-  const nameSlug = normaliseText(businessName)
+function parseIsoDate(dateValue, fieldName) {
+  const match = String(dateValue).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+  if (!match) {
+    fail(`${fieldName} contains an invalid ISO date: ${dateValue}`);
+  }
+
+  return {
+    year: Number(match[1]),
+    month: Number(match[2]),
+    day: Number(match[3]),
+  };
+}
+
+function createReportingCycle(reportingPeriodEndDate) {
+  const { year, month } = parseIsoDate(
+    reportingPeriodEndDate,
+    "Reporting period end date",
+  );
+
+  const isFirstHalf = month <= 6;
+
+  return {
+    id: `${year}-${isFirstHalf ? "H1" : "H2"}`,
+    name: isFirstHalf ? `January to June ${year}` : `July to December ${year}`,
+    startDate: isFirstHalf
+      ? formatDateParts(year, 1, 1)
+      : formatDateParts(year, 7, 1),
+    endDate: isFirstHalf
+      ? formatDateParts(year, 6, 30)
+      : formatDateParts(year, 12, 31),
+  };
+}
+
+function compareLatestEntityReport(left, right) {
+  const reportingPeriodComparison = left.reportingPeriodEndDate.localeCompare(
+    right.reportingPeriodEndDate,
+  );
+
+  if (reportingPeriodComparison !== 0) {
+    return reportingPeriodComparison;
+  }
+
+  const submittedDateComparison = left.submittedDate.localeCompare(
+    right.submittedDate,
+  );
+
+  if (submittedDateComparison !== 0) {
+    return submittedDateComparison;
+  }
+
+  return left.reportId.localeCompare(right.reportId);
+}
+
+function selectLatestReportByAbn(reports) {
+  const latestReportByAbn = new Map();
+
+  for (const report of reports) {
+    const existingReport = latestReportByAbn.get(report.abn);
+
+    if (
+      !existingReport ||
+      compareLatestEntityReport(existingReport, report) < 0
+    ) {
+      latestReportByAbn.set(report.abn, report);
+    }
+  }
+
+  return [...latestReportByAbn.values()];
+}
+
+function selectLatestReportByAbnAndCycle(reports) {
+  const latestReportByAbnAndCycle = new Map();
+
+  for (const report of reports) {
+    const key = [report.reportingCycleId, report.abn].join(":");
+
+    const existingReport = latestReportByAbnAndCycle.get(key);
+
+    if (
+      !existingReport ||
+      compareLatestEntityReport(existingReport, report) < 0
+    ) {
+      latestReportByAbnAndCycle.set(key, report);
+    }
+  }
+
+  return [...latestReportByAbnAndCycle.values()];
+}
+
+function createTextSlug(value, fieldName) {
+  const slug = normaliseText(value)
     .toLowerCase()
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -181,9 +300,15 @@ function createSlug(businessName, abn) {
     .replace(/^-+|-+$/g, "")
     .replace(/-{2,}/g, "-");
 
-  if (!nameSlug) {
-    fail(`Unable to create a slug for ABN ${abn}`);
+  if (!slug) {
+    fail(`Unable to create a slug for ${fieldName}`);
   }
+
+  return slug;
+}
+
+function createCompanySlug(businessName, abn) {
+  const nameSlug = createTextSlug(businessName, `business with ABN ${abn}`);
 
   return `${nameSlug}-${abn}`;
 }
@@ -267,6 +392,19 @@ function validateColumns(rows) {
   }
 }
 
+function validateIndustryDivision(industryDivision, reportId) {
+  if (!industryDivision) {
+    fail(`Industry Division is missing for report ${reportId}`);
+  }
+
+  if (!ANZSIC_INDUSTRY_DIVISIONS.includes(industryDivision)) {
+    fail(
+      `Industry Division contains an unsupported value for report ` +
+        `${reportId}: ${industryDivision}`,
+    );
+  }
+}
+
 function compareReports(left, right) {
   if (left.revisedReport !== right.revisedReport) {
     return left.revisedReport ? 1 : -1;
@@ -314,6 +452,33 @@ function calculatePosition(value, cohortValues) {
   };
 }
 
+function calculateAverage(values) {
+  if (values.length === 0) {
+    fail("Unable to calculate an average for an empty dataset");
+  }
+
+  const total = values.reduce((sum, value) => sum + value, 0);
+
+  return Number((total / values.length).toFixed(1));
+}
+
+function calculateMedian(values) {
+  if (values.length === 0) {
+    fail("Unable to calculate a median for an empty dataset");
+  }
+
+  const sortedValues = [...values].sort((left, right) => left - right);
+  const midpoint = Math.floor(sortedValues.length / 2);
+
+  if (sortedValues.length % 2 === 0) {
+    return Number(
+      ((sortedValues[midpoint - 1] + sortedValues[midpoint]) / 2).toFixed(1),
+    );
+  }
+
+  return Number(sortedValues[midpoint].toFixed(1));
+}
+
 function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
@@ -352,13 +517,23 @@ function createSitemapUrl({
   return lines.join("\n");
 }
 
-function writePaymentTimesSitemap(searchIndex) {
+function writePaymentTimesSitemap(searchIndex, industryIndex) {
   const sitemapEntries = [
     createSitemapUrl({
       location: `${SITE_URL}/regulator-payment-times`,
       changeFrequency: "monthly",
       priority: "0.8",
     }),
+    ...industryIndex.industries.map((industry) =>
+      createSitemapUrl({
+        location:
+          `${SITE_URL}/regulator-payment-times/industry/` + industry.slug,
+        lastModified:
+          industry.cycles[industry.cycles.length - 1].reportingCycleEndDate,
+        changeFrequency: "monthly",
+        priority: "0.7",
+      }),
+    ),
     ...searchIndex.map((company) =>
       createSitemapUrl({
         location: `${SITE_URL}/regulator-payment-times/${company.slug}`,
@@ -380,16 +555,150 @@ function writePaymentTimesSitemap(searchIndex) {
   fs.writeFileSync(PAYMENT_TIMES_SITEMAP_PATH, sitemap, "utf8");
 }
 
-function prepareOutputDirectories() {
-  fs.mkdirSync(COMPANY_OUTPUT_DIRECTORY, {
+function clearJsonDirectory(directoryPath) {
+  fs.mkdirSync(directoryPath, {
     recursive: true,
   });
 
-  for (const fileName of fs.readdirSync(COMPANY_OUTPUT_DIRECTORY)) {
+  for (const fileName of fs.readdirSync(directoryPath)) {
     if (fileName.endsWith(".json")) {
-      fs.rmSync(path.join(COMPANY_OUTPUT_DIRECTORY, fileName));
+      fs.rmSync(path.join(directoryPath, fileName));
     }
   }
+}
+
+function prepareOutputDirectories() {
+  clearJsonDirectory(COMPANY_OUTPUT_DIRECTORY);
+  clearJsonDirectory(INDUSTRY_OUTPUT_DIRECTORY);
+}
+
+function createIndustryOutputs(publishedReports) {
+  const reportsByIndustry = new Map();
+  const reportingCyclesById = new Map();
+
+  for (const report of publishedReports) {
+    if (!reportsByIndustry.has(report.industryDivision)) {
+      reportsByIndustry.set(report.industryDivision, []);
+    }
+
+    reportsByIndustry.get(report.industryDivision).push(report);
+
+    if (!reportingCyclesById.has(report.reportingCycleId)) {
+      reportingCyclesById.set(report.reportingCycleId, {
+        id: report.reportingCycleId,
+        name: report.reportingCycleName,
+        startDate: report.reportingCycleStartDate,
+        endDate: report.reportingCycleEndDate,
+      });
+    }
+  }
+
+  const reportingCycles = [...reportingCyclesById.values()].sort(
+    (left, right) => left.id.localeCompare(right.id),
+  );
+
+  const industries = [];
+
+  for (const industryDivision of ANZSIC_INDUSTRY_DIVISIONS) {
+    const industryReports = reportsByIndustry.get(industryDivision);
+
+    if (!industryReports || industryReports.length === 0) {
+      continue;
+    }
+
+    const slug = createTextSlug(
+      industryDivision,
+      `industry division ${industryDivision}`,
+    );
+
+    const reportsByCycle = new Map();
+
+    for (const report of industryReports) {
+      if (!reportsByCycle.has(report.reportingCycleId)) {
+        reportsByCycle.set(report.reportingCycleId, []);
+      }
+
+      reportsByCycle.get(report.reportingCycleId).push(report);
+    }
+
+    const cycleOutputs = [...reportsByCycle.entries()]
+      .map(([reportingCycleId, cycleReports]) => {
+        const entityReports = selectLatestReportByAbn(cycleReports);
+
+        const p95Values = entityReports.map(
+          (report) => report.p95PaymentTimeDays,
+        );
+
+        const firstReport = entityReports[0];
+
+        return {
+          reportingCycleId,
+          reportingCycleName: firstReport.reportingCycleName,
+          reportingCycleStartDate: firstReport.reportingCycleStartDate,
+          reportingCycleEndDate: firstReport.reportingCycleEndDate,
+          reportingEntityCount: entityReports.length,
+          averageP95PaymentTimeDays: calculateAverage(p95Values),
+          medianP95PaymentTimeDays: calculateMedian(p95Values),
+          minimumP95PaymentTimeDays: Math.min(...p95Values),
+          maximumP95PaymentTimeDays: Math.max(...p95Values),
+          entityReports,
+        };
+      })
+      .sort((left, right) =>
+        left.reportingCycleId.localeCompare(right.reportingCycleId),
+      );
+
+    const latestCycle = cycleOutputs[cycleOutputs.length - 1];
+
+    const companies = latestCycle.entityReports
+      .map((report) => ({
+        businessName: report.businessName,
+        abn: report.abn,
+        slug: createCompanySlug(report.businessName, report.abn),
+        p95PaymentTimeDays: report.p95PaymentTimeDays,
+        industryP95Position: report.industryP95Position,
+      }))
+      .sort((left, right) => {
+        const p95Comparison =
+          left.p95PaymentTimeDays - right.p95PaymentTimeDays;
+
+        if (p95Comparison !== 0) {
+          return p95Comparison;
+        }
+
+        return left.businessName.localeCompare(right.businessName);
+      });
+
+    const cycles = cycleOutputs.map(({ entityReports, ...cycle }) => cycle);
+
+    const industryOutput = {
+      slug,
+      industryDivision,
+      latestReportingCycleId: latestCycle.reportingCycleId,
+      cycles,
+      companies,
+    };
+
+    writeJson(
+      path.join(INDUSTRY_OUTPUT_DIRECTORY, `${slug}.json`),
+      industryOutput,
+    );
+
+    industries.push({
+      slug,
+      industryDivision,
+      cycles,
+    });
+  }
+
+  industries.sort((left, right) =>
+    left.industryDivision.localeCompare(right.industryDivision),
+  );
+
+  return {
+    reportingCycles,
+    industries,
+  };
 }
 
 function importRegulatorPaymentTimes() {
@@ -457,6 +766,10 @@ function importRegulatorPaymentTimes() {
       fail(`Business Name is missing for report ${reportId}`);
     }
 
+    const industryDivision = normaliseText(row["Industry Division"]);
+
+    validateIndustryDivision(industryDivision, reportId);
+
     candidateReports.push({
       reportId,
       businessName,
@@ -518,7 +831,7 @@ function importRegulatorPaymentTimes() {
         reportId,
       ),
       industrySubdivision: normaliseText(row["ANZSIC Industry subdivision"]),
-      industryDivision: normaliseText(row["Industry Division"]),
+      industryDivision,
       submittedDate: normaliseDate(
         row["Submitted date"],
         "Submitted date",
@@ -545,42 +858,53 @@ function importRegulatorPaymentTimes() {
 
   const publishedReports = [...latestReportByCompanyPeriod.values()];
 
-  const p95ValuesByPeriod = new Map();
-  const p95ValuesByPeriodAndIndustry = new Map();
-
   for (const report of publishedReports) {
-    const periodKey = report.reportingPeriodEndDate;
+    const reportingCycle = createReportingCycle(report.reportingPeriodEndDate);
 
-    const industryKey = [periodKey, report.industryDivision].join(":");
+    report.reportingCycleId = reportingCycle.id;
+    report.reportingCycleName = reportingCycle.name;
+    report.reportingCycleStartDate = reportingCycle.startDate;
+    report.reportingCycleEndDate = reportingCycle.endDate;
+  }
 
-    if (!p95ValuesByPeriod.has(periodKey)) {
-      p95ValuesByPeriod.set(periodKey, []);
+  const p95ValuesByCycle = new Map();
+  const p95ValuesByCycleAndIndustry = new Map();
+
+  const comparisonReports = selectLatestReportByAbnAndCycle(publishedReports);
+
+  for (const report of comparisonReports) {
+    const cycleKey = report.reportingCycleId;
+
+    const industryKey = [cycleKey, report.industryDivision].join(":");
+
+    if (!p95ValuesByCycle.has(cycleKey)) {
+      p95ValuesByCycle.set(cycleKey, []);
     }
 
-    if (!p95ValuesByPeriodAndIndustry.has(industryKey)) {
-      p95ValuesByPeriodAndIndustry.set(industryKey, []);
+    if (!p95ValuesByCycleAndIndustry.has(industryKey)) {
+      p95ValuesByCycleAndIndustry.set(industryKey, []);
     }
 
-    p95ValuesByPeriod.get(periodKey).push(report.p95PaymentTimeDays);
+    p95ValuesByCycle.get(cycleKey).push(report.p95PaymentTimeDays);
 
-    p95ValuesByPeriodAndIndustry
+    p95ValuesByCycleAndIndustry
       .get(industryKey)
       .push(report.p95PaymentTimeDays);
   }
 
   for (const report of publishedReports) {
-    const periodKey = report.reportingPeriodEndDate;
+    const cycleKey = report.reportingCycleId;
 
-    const industryKey = [periodKey, report.industryDivision].join(":");
+    const industryKey = [cycleKey, report.industryDivision].join(":");
 
     report.overallP95Position = calculatePosition(
       report.p95PaymentTimeDays,
-      p95ValuesByPeriod.get(periodKey),
+      p95ValuesByCycle.get(cycleKey),
     );
 
     report.industryP95Position = calculatePosition(
       report.p95PaymentTimeDays,
-      p95ValuesByPeriodAndIndustry.get(industryKey),
+      p95ValuesByCycleAndIndustry.get(industryKey),
     );
   }
 
@@ -612,7 +936,12 @@ function importRegulatorPaymentTimes() {
 
     const latestReport = reports[0];
 
-    const slug = createSlug(latestReport.businessName, abn);
+    const slug = createCompanySlug(latestReport.businessName, abn);
+
+    const industrySlug = createTextSlug(
+      latestReport.industryDivision,
+      `industry division ${latestReport.industryDivision}`,
+    );
 
     const company = {
       slug,
@@ -620,6 +949,7 @@ function importRegulatorPaymentTimes() {
       abn,
       acnArbn: latestReport.acnArbn,
       industryDivision: latestReport.industryDivision,
+      industrySlug,
       industrySubdivision: latestReport.industrySubdivision,
       latestReportingPeriodEndDate: latestReport.reportingPeriodEndDate,
       reports: reports.map(
@@ -634,6 +964,7 @@ function importRegulatorPaymentTimes() {
       abn: company.abn,
       slug: company.slug,
       industryDivision: company.industryDivision,
+      industrySlug: company.industrySlug,
       industrySubdivision: company.industrySubdivision,
       latestReportingPeriodEndDate: company.latestReportingPeriodEndDate,
     });
@@ -643,6 +974,8 @@ function importRegulatorPaymentTimes() {
     left.businessName.localeCompare(right.businessName),
   );
 
+  const industryIndex = createIndustryOutputs(publishedReports);
+
   const summary = {
     generatedAt: new Date().toISOString(),
     sourceWorkbook: path.basename(workbookPath),
@@ -651,12 +984,18 @@ function importRegulatorPaymentTimes() {
     candidateStandardReportCount: candidateReports.length,
     publishedReportCount: publishedReports.length,
     companyCount: reportsByAbn.size,
+    industryCount: industryIndex.industries.length,
     excludedMissingAbnCount,
     excludedNonStandardCount,
     supersededReportCount: candidateReports.length - publishedReports.length,
     outputs: {
       searchIndex: path.relative(process.cwd(), SEARCH_INDEX_PATH),
       companyDirectory: path.relative(process.cwd(), COMPANY_OUTPUT_DIRECTORY),
+      industryIndex: path.relative(process.cwd(), INDUSTRY_INDEX_PATH),
+      industryDirectory: path.relative(
+        process.cwd(),
+        INDUSTRY_OUTPUT_DIRECTORY,
+      ),
       paymentTimesSitemap: path.relative(
         process.cwd(),
         PAYMENT_TIMES_SITEMAP_PATH,
@@ -666,7 +1005,8 @@ function importRegulatorPaymentTimes() {
   };
 
   writeJson(SEARCH_INDEX_PATH, searchIndex);
-  writePaymentTimesSitemap(searchIndex);
+  writeJson(INDUSTRY_INDEX_PATH, industryIndex);
+  writePaymentTimesSitemap(searchIndex, industryIndex);
   writeJson(IMPORT_SUMMARY_PATH, summary);
 
   console.log("Regulator Payment Times import completed successfully.");

@@ -1,0 +1,152 @@
+{
+  "slug": "administrative-and-support-services",
+  "industryDivision": "Administrative and Support Services",
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 51,
+      "averageP95PaymentTimeDays": 54,
+      "medianP95PaymentTimeDays": 46,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 325
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 59,
+      "averageP95PaymentTimeDays": 44.9,
+      "medianP95PaymentTimeDays": 37,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 124
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 58,
+      "averageP95PaymentTimeDays": 45.4,
+      "medianP95PaymentTimeDays": 43.5,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 126
+    },
+    {
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 9,
+      "averageP95PaymentTimeDays": 43,
+      "medianP95PaymentTimeDays": 40,
+      "minimumP95PaymentTimeDays": 11,
+      "maximumP95PaymentTimeDays": 77
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "RGF STAFFING ANZ PTY LTD",
+      "abn": "84603568403",
+      "slug": "rgf-staffing-anz-pty-ltd-84603568403",
+      "p95PaymentTimeDays": 11,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 9,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "ETHOS BEATHCHAPMAN AUSTRALIA PTY LTD",
+      "abn": "15628088451",
+      "slug": "ethos-beathchapman-australia-pty-ltd-15628088451",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 9,
+        "percentile": 87.5
+      }
+    },
+    {
+      "businessName": "TALENT INTERNATIONAL HOLDINGS PTY LTD",
+      "abn": "28131419577",
+      "slug": "talent-international-holdings-pty-ltd-28131419577",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 9,
+        "percentile": 75
+      }
+    },
+    {
+      "businessName": "DRAKE AUSTRALIA PTY LTD",
+      "abn": "42004939771",
+      "slug": "drake-australia-pty-ltd-42004939771",
+      "p95PaymentTimeDays": 38,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 9,
+        "percentile": 62.5
+      }
+    },
+    {
+      "businessName": "Visa AP (Australia) Pty Ltd",
+      "abn": "20134885564",
+      "slug": "visa-ap-australia-pty-ltd-20134885564",
+      "p95PaymentTimeDays": 40,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 9,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "FUJIFILM DATA MANAGEMENT SOLUTIONS PTY LTD",
+      "abn": "74000553284",
+      "slug": "fujifilm-data-management-solutions-pty-ltd-74000553284",
+      "p95PaymentTimeDays": 44,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 9,
+        "percentile": 37.5
+      }
+    },
+    {
+      "businessName": "TRAVELCUBE PACIFIC PTY. LTD.",
+      "abn": "52099122577",
+      "slug": "travelcube-pacific-pty-ltd-52099122577",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 9,
+        "percentile": 25
+      }
+    },
+    {
+      "businessName": "ADCORP HOLDINGS AUSTRALIA PTY LIMITED",
+      "abn": "91161583893",
+      "slug": "adcorp-holdings-australia-pty-limited-91161583893",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 9,
+        "percentile": 12.5
+      }
+    },
+    {
+      "businessName": "MS OPERATIONS PTY LTD",
+      "abn": "37673801262",
+      "slug": "ms-operations-pty-ltd-37673801262",
+      "p95PaymentTimeDays": 77,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 9,
+        "percentile": 0
+      }
+    }
+  ]
+}

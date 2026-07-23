@@ -1,0 +1,174 @@
+{
+  "slug": "mining",
+  "industryDivision": "Mining",
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 170,
+      "averageP95PaymentTimeDays": 56,
+      "medianP95PaymentTimeDays": 56.5,
+      "minimumP95PaymentTimeDays": 8,
+      "maximumP95PaymentTimeDays": 273
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 183,
+      "averageP95PaymentTimeDays": 71.7,
+      "medianP95PaymentTimeDays": 55,
+      "minimumP95PaymentTimeDays": 1,
+      "maximumP95PaymentTimeDays": 2940
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 187,
+      "averageP95PaymentTimeDays": 54.1,
+      "medianP95PaymentTimeDays": 50,
+      "minimumP95PaymentTimeDays": 12,
+      "maximumP95PaymentTimeDays": 209
+    },
+    {
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 11,
+      "averageP95PaymentTimeDays": 42.2,
+      "medianP95PaymentTimeDays": 31,
+      "minimumP95PaymentTimeDays": 16,
+      "maximumP95PaymentTimeDays": 97
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "SUMISHO COAL AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "71057890865",
+      "slug": "sumisho-coal-australia-holdings-pty-ltd-71057890865",
+      "p95PaymentTimeDays": 16,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 11,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "MITSUBISHI DEVELOPMENT PTY LTD",
+      "abn": "17009779873",
+      "slug": "mitsubishi-development-pty-ltd-17009779873",
+      "p95PaymentTimeDays": 19,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 11,
+        "percentile": 90
+      }
+    },
+    {
+      "businessName": "MITSUI & CO. MINERAL RESOURCES DEVELOPMENT PTY LTD",
+      "abn": "27160296462",
+      "slug": "mitsui-and-co-mineral-resources-development-pty-ltd-27160296462",
+      "p95PaymentTimeDays": 24,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 11,
+        "percentile": 80
+      }
+    },
+    {
+      "businessName": "ITOCHU MINERALS & ENERGY OF AUSTRALIA PTY LTD",
+      "abn": "44009256259",
+      "slug": "itochu-minerals-and-energy-of-australia-pty-ltd-44009256259",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 11,
+        "percentile": 60
+      }
+    },
+    {
+      "businessName": "MARUBENI-ITOCHU TUBULARS OCEANIA PTY LTD",
+      "abn": "87077953827",
+      "slug": "marubeni-itochu-tubulars-oceania-pty-ltd-87077953827",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 11,
+        "percentile": 60
+      }
+    },
+    {
+      "businessName": "MITSUI E&P AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "70077897440",
+      "slug": "mitsui-e-and-p-australia-holdings-pty-ltd-70077897440",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 11,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "MITSUI RESOURCES PTY. LTD.",
+      "abn": "24002373588",
+      "slug": "mitsui-resources-pty-ltd-24002373588",
+      "p95PaymentTimeDays": 33,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 11,
+        "percentile": 40
+      }
+    },
+    {
+      "businessName": "BIG BEN HOLDINGS PTY. LIMITED",
+      "abn": "63008434562",
+      "slug": "big-ben-holdings-pty-limited-63008434562",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 11,
+        "percentile": 20
+      }
+    },
+    {
+      "businessName": "SHARK BAY SALT PTY LTD",
+      "abn": "89008759500",
+      "slug": "shark-bay-salt-pty-ltd-89008759500",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 11,
+        "percentile": 20
+      }
+    },
+    {
+      "businessName": "ADANI MINING PTY LTD",
+      "abn": "27145455205",
+      "slug": "adani-mining-pty-ltd-27145455205",
+      "p95PaymentTimeDays": 72,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 11,
+        "percentile": 10
+      }
+    },
+    {
+      "businessName": "ALTRAD AUSTRALIA PTY LTD",
+      "abn": "56652016807",
+      "slug": "altrad-australia-pty-ltd-56652016807",
+      "p95PaymentTimeDays": 97,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 11,
+        "percentile": 0
+      }
+    }
+  ]
+}

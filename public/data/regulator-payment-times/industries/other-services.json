@@ -1,0 +1,75 @@
+{
+  "slug": "other-services",
+  "industryDivision": "Other Services",
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 22,
+      "averageP95PaymentTimeDays": 52.9,
+      "medianP95PaymentTimeDays": 56.5,
+      "minimumP95PaymentTimeDays": 8,
+      "maximumP95PaymentTimeDays": 120
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 29,
+      "averageP95PaymentTimeDays": 57.8,
+      "medianP95PaymentTimeDays": 57,
+      "minimumP95PaymentTimeDays": 9,
+      "maximumP95PaymentTimeDays": 120
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 28,
+      "averageP95PaymentTimeDays": 48.2,
+      "medianP95PaymentTimeDays": 54,
+      "minimumP95PaymentTimeDays": 13,
+      "maximumP95PaymentTimeDays": 73
+    },
+    {
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 47,
+      "medianP95PaymentTimeDays": 47,
+      "minimumP95PaymentTimeDays": 44,
+      "maximumP95PaymentTimeDays": 50
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "CERTIS AUSTRALIA PTY LTD",
+      "abn": "51602871287",
+      "slug": "certis-australia-pty-ltd-51602871287",
+      "p95PaymentTimeDays": 44,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "PARK24 AUSTRALIA PTY LTD",
+      "abn": "58616101341",
+      "slug": "park24-australia-pty-ltd-58616101341",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
+      }
+    }
+  ]
+}

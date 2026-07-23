@@ -1,0 +1,284 @@
+{
+  "slug": "financial-and-insurance-services",
+  "industryDivision": "Financial and Insurance Services",
+  "latestReportingCycleId": "2026-H1",
+  "cycles": [
+    {
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "reportingEntityCount": 341,
+      "averageP95PaymentTimeDays": 43,
+      "medianP95PaymentTimeDays": 37,
+      "minimumP95PaymentTimeDays": 0,
+      "maximumP95PaymentTimeDays": 168
+    },
+    {
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "reportingEntityCount": 378,
+      "averageP95PaymentTimeDays": 42.4,
+      "medianP95PaymentTimeDays": 37,
+      "minimumP95PaymentTimeDays": 0,
+      "maximumP95PaymentTimeDays": 268
+    },
+    {
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "reportingEntityCount": 368,
+      "averageP95PaymentTimeDays": 38.9,
+      "medianP95PaymentTimeDays": 34.5,
+      "minimumP95PaymentTimeDays": 2,
+      "maximumP95PaymentTimeDays": 191
+    },
+    {
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "reportingEntityCount": 21,
+      "averageP95PaymentTimeDays": 39.5,
+      "medianP95PaymentTimeDays": 40,
+      "minimumP95PaymentTimeDays": 7,
+      "maximumP95PaymentTimeDays": 83
+    }
+  ],
+  "companies": [
+    {
+      "businessName": "SUMMIT AUTO LEASE AUSTRALIA PTY LIMITED",
+      "abn": "87054704737",
+      "slug": "summit-auto-lease-australia-pty-limited-87054704737",
+      "p95PaymentTimeDays": 7,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 21,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "FRANKLIN TEMPLETON (AUSTRALIA) HOLDINGS PTY LTD",
+      "abn": "66118222343",
+      "slug": "franklin-templeton-australia-holdings-pty-ltd-66118222343",
+      "p95PaymentTimeDays": 15,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 21,
+        "percentile": 95
+      }
+    },
+    {
+      "businessName": "GRESHAM PARTNERS GROUP LIMITED",
+      "abn": "75003856933",
+      "slug": "gresham-partners-group-limited-75003856933",
+      "p95PaymentTimeDays": 19,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 21,
+        "percentile": 90
+      }
+    },
+    {
+      "businessName": "NATIONAL AUSTRALIA BANK LIMITED",
+      "abn": "12004044937",
+      "slug": "national-australia-bank-limited-12004044937",
+      "p95PaymentTimeDays": 23,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 21,
+        "percentile": 85
+      }
+    },
+    {
+      "businessName": "DOMESTIC & GENERAL INSURANCE PLC",
+      "abn": "11124040768",
+      "slug": "domestic-and-general-insurance-plc-11124040768",
+      "p95PaymentTimeDays": 24,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 21,
+        "percentile": 80
+      }
+    },
+    {
+      "businessName": "ORIX AUSTRALIA CORPORATION LIMITED",
+      "abn": "79002992681",
+      "slug": "orix-australia-corporation-limited-79002992681",
+      "p95PaymentTimeDays": 25,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 21,
+        "percentile": 75
+      }
+    },
+    {
+      "businessName": "NORINCHUKIN AUSTRALIA PTY LIMITED",
+      "abn": "57617251617",
+      "slug": "norinchukin-australia-pty-limited-57617251617",
+      "p95PaymentTimeDays": 27,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 21,
+        "percentile": 70
+      }
+    },
+    {
+      "businessName": "MORRISON AUSTRALIA PTY LIMITED",
+      "abn": "39073922102",
+      "slug": "morrison-australia-pty-limited-39073922102",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 21,
+        "percentile": 65
+      }
+    },
+    {
+      "businessName": "BANK OF QUEENSLAND LIMITED",
+      "abn": "32009656740",
+      "slug": "bank-of-queensland-limited-32009656740",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 21,
+        "percentile": 60
+      }
+    },
+    {
+      "businessName": "WHSP HOLDINGS PTY LIMITED",
+      "abn": "49000002728",
+      "slug": "whsp-holdings-pty-limited-49000002728",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 21,
+        "percentile": 55
+      }
+    },
+    {
+      "businessName": "OFX GROUP LIMITED",
+      "abn": "12165602273",
+      "slug": "ofx-group-limited-12165602273",
+      "p95PaymentTimeDays": 40,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 21,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "MIZUHO BANK, LTD.",
+      "abn": "83099031106",
+      "slug": "mizuho-bank-ltd-83099031106",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 21,
+        "percentile": 45
+      }
+    },
+    {
+      "businessName": "JARDEN AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "31608611614",
+      "slug": "jarden-australia-holdings-pty-ltd-31608611614",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 21,
+        "percentile": 35
+      }
+    },
+    {
+      "businessName": "MITSUI SUMITOMO INSURANCE COMPANY, LIMITED",
+      "abn": "49000525637",
+      "slug": "mitsui-sumitomo-insurance-company-limited-49000525637",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 21,
+        "percentile": 35
+      }
+    },
+    {
+      "businessName": "TOKIO MARINE MANAGEMENT (AUSTRALASIA) PTY LTD",
+      "abn": "69001488455",
+      "slug": "tokio-marine-management-australasia-pty-ltd-69001488455",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 21,
+        "percentile": 30
+      }
+    },
+    {
+      "businessName": "TAL Dai-ichi Life Australia Pty Ltd",
+      "abn": "97150070483",
+      "slug": "tal-dai-ichi-life-australia-pty-ltd-97150070483",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 16,
+        "count": 21,
+        "percentile": 25
+      }
+    },
+    {
+      "businessName": "MUFG BANK, LTD.",
+      "abn": "75103418882",
+      "slug": "mufg-bank-ltd-75103418882",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 21,
+        "percentile": 15
+      }
+    },
+    {
+      "businessName": "STATE BANK OF INDIA",
+      "abn": "95082610008",
+      "slug": "state-bank-of-india-95082610008",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 21,
+        "percentile": 15
+      }
+    },
+    {
+      "businessName": "WISE AUSTRALIA PTY LTD",
+      "abn": "38616463855",
+      "slug": "wise-australia-pty-ltd-38616463855",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 21,
+        "percentile": 10
+      }
+    },
+    {
+      "businessName": "SUMITOMO MITSUI BANKING CORPORATION",
+      "abn": "98114053459",
+      "slug": "sumitomo-mitsui-banking-corporation-98114053459",
+      "p95PaymentTimeDays": 70,
+      "industryP95Position": {
+        "rank": 20,
+        "count": 21,
+        "percentile": 5
+      }
+    },
+    {
+      "businessName": "TOKIO MARINE & NICHIDO FIRE INSURANCE CO., LTD.",
+      "abn": "80000438291",
+      "slug": "tokio-marine-and-nichido-fire-insurance-co-ltd-80000438291",
+      "p95PaymentTimeDays": 83,
+      "industryP95Position": {
+        "rank": 21,
+        "count": 21,
+        "percentile": 0
+      }
+    }
+  ]
+}
