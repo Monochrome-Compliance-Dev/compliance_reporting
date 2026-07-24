@@ -28,7 +28,7 @@ export default function BlogPostPage() {
             to="/insights/blog"
             sx={{ color: theme.palette.primary.main }}
           >
-            Back to blog
+            Back to Blog
           </Typography>
         </Box>
       </Box>
