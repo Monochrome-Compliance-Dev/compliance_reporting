@@ -15,6 +15,14 @@ const normalisePreviewExample = (example) => {
   const documentType =
     example.documentType ?? example.document_type ?? example.doc ?? "";
   const ref = example.ref ?? example.reference ?? "";
+  const supplierName =
+    example.supplier_name ??
+    example.payee_entity_name ??
+    example.supplierName ??
+    "";
+  const excludeReason = example.exclude_reason ?? example.excludeReason ?? "";
+  const excludeComment =
+    example.exclude_comment ?? example.excludeComment ?? "";
   const baseBefore = example.baseBefore ?? example.base_before ?? "";
   const expectedDelta =
     example.expectedDelta ?? example.expected_delta ?? example.delta ?? "";
@@ -24,6 +32,9 @@ const normalisePreviewExample = (example) => {
     rowNo,
     documentType,
     ref,
+    supplier_name: supplierName,
+    exclude_reason: excludeReason,
+    exclude_comment: excludeComment,
     baseBefore,
     expectedDelta,
     wouldBe,
@@ -33,7 +44,7 @@ const normalisePreviewExample = (example) => {
 // -------------------- Rules (routes: /ptrs/:id/rules/...) ---
 export const previewRules = async (
   ptrsId,
-  { mode = "sample", limit = 50, groupName = null } = {},
+  { mode = "sample", limit = 30, groupName = null } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   const q = new URLSearchParams();

@@ -17,6 +17,7 @@ import PtrsMetricsDashboard from "./screens/PtrsMetricsDashboard";
 import PtrsMetricsDashboardV2 from "./components/PtrsMetricsDashboard";
 import PackPanel from "./panels/PackPanel";
 import XeroCallbackPanel from "./panels/XeroCallbackPanel";
+import LearningPanel from "./panels/LearningPanel";
 
 const ptrsRoutes = [
   {
@@ -59,6 +60,10 @@ const ptrsRoutes = [
       {
         path: "pack",
         Component: PackPanel,
+      },
+      {
+        path: "learning",
+        element: <LearningPanel />,
       },
       // Optional: catch-all can just show Landing as well (no Navigate)
       // { path: "*", Component: LandingPanel },

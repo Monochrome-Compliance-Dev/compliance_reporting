@@ -47,6 +47,10 @@ export const PTRS_OPTIONAL_FIELDS = [
   "noticeForPaymentTerms",
   "invoicePaymentTerms",
   "paymentTerm",
+  "documentType",
+  "documentCurrency",
+  "clearingDocument",
+  "sourceAccountCode",
 
   // Regulator classification flags
   "tradeCreditPayment",
@@ -71,6 +75,12 @@ export const PTRS_OPTIONAL_FIELDS = [
   "excludeComment",
   "excludeSetAt",
   "excludeSetBy",
+
+  // Processing fields (used for staging logic, not part of BE canonical contract)
+  "invoiceCreatedDate",
+  "entryDate",
+  "reconciliationStatus",
+  "sourceUser",
 ];
 
 // -----------------------------------------------------------------------------
@@ -104,6 +114,7 @@ export const PTRS_FIELD_LABELS = {
   payerEntityAcnArbn: "Payer ACN/ARBN",
   payeeEntityName: "Payee name",
   payeeEntityAbn: "Payee ABN",
+  payeeEntityAbnValid: "Payee ABN valid (checksum)",
   payeeEntityAcnArbn: "Payee ACN/ARBN",
   invoiceReferenceNumber: "Invoice reference number",
 
@@ -116,6 +127,10 @@ export const PTRS_FIELD_LABELS = {
 
   // Terms
   paymentTerm: "Payment term (raw text)",
+  documentType: "Document type",
+  documentCurrency: "Document currency",
+  clearingDocument: "Clearing document",
+  sourceAccountCode: "Source account code",
   paymentTermDays: "Payment term (days, derived)",
   paymentTermSource: "Payment term source (provenance)",
   contractPoReferenceNumber: "Contract/PO reference number",
@@ -126,6 +141,10 @@ export const PTRS_FIELD_LABELS = {
   invoiceIssueDate: "Invoice issue date",
   invoiceReceiptDate: "Invoice receipt date",
   invoiceDueDate: "Invoice due date",
+  invoiceCreatedDate: "Invoice created date (processing)",
+  entryDate: "Entry date (processing)",
+  reconciliationStatus: "Reconciliation status (processing)",
+  sourceUser: "User (processing)",
   supplyDate: "Supply date",
 
   // Flags
@@ -166,4 +185,8 @@ export const FIELD_SYNONYMS = {
   paymentDate: ["payment date", "clearing date", "paid on"],
   paymentTermDays: ["payment term days", "terms days", "net days"],
   paymentTerm: ["payment terms", "terms", "net terms"],
+  documentType: ["document type", "doc type"],
+  documentCurrency: ["document currency", "currency", "doc currency"],
+  clearingDocument: ["clearing document", "clearing doc"],
+  sourceAccountCode: ["account code", "source account code", "vendor code"],
 };

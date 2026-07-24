@@ -1,8 +1,28 @@
 import PaymentReportingProblemsAreDataArchitectureProblems from "./posts/payment-reporting-problems-are-data-architecture-problems";
 import WhySopaComplianceDoesntGuaranteeStrongPtrsResults from "./posts/why-sopa-compliance-doesnt-guarantee-strong-ptrs-results";
 import RetentionsAndPaymentReportingDistortions from "./posts/retentions-and-payment-reporting-distortions";
+import HowWeeklyPaymentRunsDistortPaymentMetrics from "./posts/how-weekly-payment-runs-distort-payment-metrics";
+import OperationalDelayVsBehaviouralDelay from "./posts/operational-delay-vs-behavioural-delay";
 
 export const blogPosts = [
+  {
+    slug: "operational-delay-vs-behavioural-delay",
+    title: "Operational Delay vs Behavioural Delay",
+    dateISO: "2026-06-15",
+    description:
+      "Understanding the difference between operational delay and behavioural delay is critical when interpreting deteriorating payment metrics.",
+    tags: ["PTRS", "Payment Behaviour", "P95", "Operations"],
+    Component: OperationalDelayVsBehaviouralDelay,
+  },
+  {
+    slug: "how-weekly-payment-runs-distort-payment-metrics",
+    title: "How Weekly Payment Runs Distort Payment Metrics",
+    dateISO: "2026-06-08",
+    description:
+      "Weekly payment runs often make operational sense, but they can quietly add elapsed reporting time and materially affect reported payment outcomes.",
+    tags: ["PTRS", "Payment Behaviour", "P95", "Operations"],
+    Component: HowWeeklyPaymentRunsDistortPaymentMetrics,
+  },
   {
     slug: "retentions-and-payment-reporting-distortions",
     title: "How retentions can distort payment reporting metrics",

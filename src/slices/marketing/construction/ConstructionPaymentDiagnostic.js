@@ -31,9 +31,9 @@ export default function ConstructionPaymentDiagnostic() {
   return (
     <>
       <PageMeta
-        title="Construction Payment Timing Diagnostic | Monochrome Compliance"
-        description="An illustrative example of how progress-claim mechanics, end-of-month treatment and retention handling can materially influence reported payment performance — without changing your actual payment intent."
-        path="/construction-payment-diagnostic"
+        title="Construction Payment Diagnostic"
+        description="Construction payment diagnostic showing how progress-claim mechanics, end-of-month treatment, and retention handling can materially influence reported payment performance."
+        url="https://monochrome-compliance.com/industries/construction/payment-diagnostic"
         image="/images/og/construction-diagnostic.jpg"
       />
 
@@ -341,7 +341,10 @@ export default function ConstructionPaymentDiagnostic() {
                   >
                     Book a quick chat
                   </Button>
-                  <Button variant="text" href="/construction-payment-reporting">
+                  <Button
+                    variant="text"
+                    href="/industries/construction/payment-reporting"
+                  >
                     Learn about Construction PTRS
                   </Button>
                 </Stack>

@@ -6,6 +6,7 @@ import {
   Button,
   Paper,
   CircularProgress,
+  LinearProgress,
   Divider,
   Chip,
   TextField,
@@ -32,7 +33,6 @@ import {
   useStagePtrsMutation,
   useUpdatePtrsMutation,
 } from "../hooks/usePtrsQueries";
-import { LoadingSpinner } from "shared/ui";
 
 // Convert snake_case, camelCase, or other separators to human-friendly labels
 const prettifyHeader = (key) => {
@@ -52,11 +52,25 @@ const prettifyHeader = (key) => {
     .join(" ");
 };
 
+const formatDuration = (ms) => {
+  if (!Number.isFinite(ms) || ms <= 0) return "less than a minute";
+
+  const totalSeconds = Math.max(1, Math.round(ms / 1000));
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  if (minutes <= 0) return `${seconds}s`;
+  if (seconds <= 0) return `${minutes}m`;
+  return `${minutes}m ${seconds}s`;
+};
+
 export default function StagePanel() {
   const { showAlert } = useAlert();
   const [params] = useSearchParams();
   const { goTo } = usePtrsNavigation();
   const ptrsId = params.get("ptrsId");
+  const autoRunStage =
+    params.get("autoRunStage") === "true" || params.get("autoStage") === "1";
   const { profileId } = usePtrsContext();
 
   const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
@@ -139,9 +153,11 @@ export default function StagePanel() {
   const [preview, setPreview] = useState({ rows: [], headers: [] });
   const [showPreview, setShowPreview] = useState(true);
 
-  const [lastAutoStageGateKey, setLastAutoStageGateKey] = useState(null);
-  const [autoStaging, setAutoStaging] = useState(false);
-  const [autoStageMessage, setAutoStageMessage] = useState("");
+  const [staging, setStaging] = useState(false);
+  const [stageMessage, setStageMessage] = useState("");
+  const [stageStartedAt, setStageStartedAt] = useState(null);
+  const [stageNow, setStageNow] = useState(null);
+  const autoRunStageTriggeredRef = useRef(false);
 
   // Safely pick a value from a row that may be flat or split across data / standard / custom
   const pickCell = (row, header) => {
@@ -231,7 +247,6 @@ export default function StagePanel() {
   };
 
   const mountedRef = useRef(true);
-  const autoStageInFlightRef = useRef(false);
 
   useEffect(() => {
     mountedRef.current = true;
@@ -241,13 +256,24 @@ export default function StagePanel() {
   }, []);
 
   useEffect(() => {
-    autoStageInFlightRef.current = false;
     setResult(null);
     setPreview({ rows: [], headers: [] });
-    setLastAutoStageGateKey(null);
-    setAutoStaging(false);
-    setAutoStageMessage("");
-  }, [ptrsId, profileId]);
+    setStaging(false);
+    setStageMessage("");
+    setStageStartedAt(null);
+    setStageNow(null);
+    autoRunStageTriggeredRef.current = false;
+  }, [ptrsId, profileId, autoRunStage]);
+
+  useEffect(() => {
+    if (!staging || !stageStartedAt) return undefined;
+
+    const tick = () => setStageNow(Date.now());
+    tick();
+
+    const timer = window.setInterval(tick, 1000);
+    return () => window.clearInterval(timer);
+  }, [staging, stageStartedAt]);
 
   const refetchStageView = useCallback(async () => {
     await Promise.allSettled([
@@ -261,153 +287,6 @@ export default function StagePanel() {
     refetchStagePreview,
     refetchStageCompletionGate,
     refetchDatasets,
-  ]);
-
-  useEffect(() => {
-    if (!ptrsId || !profileId) {
-      console.info("[StagePanel] auto-stage skipped: missing identifiers", {
-        ptrsId,
-        profileId,
-      });
-      return;
-    }
-    if (!hasSettledStageCompletionGate) {
-      console.info("[StagePanel] auto-stage skipped: gate not settled", {
-        ptrsId,
-        profileId,
-        gateStatus: stageCompletionGateQ.status,
-        gateFetchStatus: stageCompletionGateQ.fetchStatus,
-        gateIsSuccess: stageCompletionGateQ.isSuccess,
-        gateIsFetching: stageCompletionGateQ.isFetching,
-      });
-      return;
-    }
-    if (completionGateReady) {
-      console.info("[StagePanel] auto-stage skipped: gate ready", {
-        ptrsId,
-        profileId,
-        completionGateReason,
-        completionGateInputHash,
-      });
-      return;
-    }
-    if (autoStageInFlightRef.current) {
-      console.info("[StagePanel] auto-stage skipped: already in flight", {
-        ptrsId,
-        profileId,
-        completionGateReason,
-        completionGateInputHash,
-      });
-      return;
-    }
-
-    const gateKey = `${completionGateReason}:${completionGateInputHash || "no-hash"}`;
-    if (lastAutoStageGateKey === gateKey) {
-      console.info("[StagePanel] auto-stage skipped: gate already attempted", {
-        ptrsId,
-        profileId,
-        gateKey,
-        lastAutoStageGateKey,
-      });
-      return;
-    }
-
-    const reason = completionGateReason;
-    const msg =
-      reason === "stale"
-        ? "Showing the last staged snapshot. Rebuilding staging in the background — this may take a while."
-        : "Preparing staged dataset for the first time. This may take a while for large files.";
-
-    console.info("[StagePanel] auto-stage queued", {
-      ptrsId,
-      profileId,
-      gateKey,
-      reason,
-      completionGateInputHash,
-      lastAutoStageGateKey,
-    });
-
-    const runAutoStage = async () => {
-      autoStageInFlightRef.current = true;
-      console.info("[StagePanel] auto-stage starting", {
-        ptrsId,
-        profileId,
-        gateKey,
-        reason,
-        completionGateInputHash,
-      });
-      setLastAutoStageGateKey(gateKey);
-      setAutoStaging(true);
-      setAutoStageMessage(msg);
-      showAlert(msg, "info");
-
-      try {
-        const res = await stageMutation.mutateAsync({
-          profileId,
-          persist: true,
-          force: false,
-        });
-        console.info("[StagePanel] auto-stage completed", {
-          ptrsId,
-          profileId,
-          gateKey,
-          rowsIn: res?.rowsIn || 0,
-          rowsOut: res?.rowsOut || 0,
-          skipped: !!res?.skipped,
-          reason: res?.reason || null,
-          inputHash: res?.inputHash || null,
-          previousRunId: res?.previousRunId || null,
-        });
-        if (!mountedRef.current) return;
-
-        setResult(res);
-        await refetchStageView();
-
-        showAlert(`Staged ${res?.rowsOut || 0} rows`, "success");
-      } catch (stageErr) {
-        console.info("[StagePanel] auto-stage failed", {
-          ptrsId,
-          profileId,
-          gateKey,
-          message: stageErr?.message || null,
-        });
-        console.error("[StagePanel] auto-stage error:", stageErr);
-        if (mountedRef.current) {
-          showAlert(
-            stageErr?.message ||
-              "Failed to stage data automatically. You can try running staging again manually.",
-            "error",
-          );
-        }
-      } finally {
-        console.info("[StagePanel] auto-stage finished", {
-          ptrsId,
-          profileId,
-          gateKey,
-          mounted: mountedRef.current,
-        });
-        autoStageInFlightRef.current = false;
-        if (mountedRef.current) setAutoStaging(false);
-      }
-    };
-
-    void runAutoStage();
-  }, [
-    ptrsId,
-    profileId,
-    lastAutoStageGateKey,
-    showAlert,
-    hasSettledStageCompletionGate,
-    completionGateReady,
-    completionGateReason,
-    completionGateInputHash,
-    stageMutation.mutateAsync,
-    refetchStageView,
-    stageMutation,
-    stageCompletionGateQ.status,
-    stageCompletionGateQ.fetchStatus,
-    stageCompletionGateQ.isSuccess,
-    stageCompletionGateQ.isFetching,
   ]);
 
   useEffect(() => {
@@ -488,39 +367,102 @@ export default function StagePanel() {
 
   const datasetSummary = useMemo(() => {
     if (!datasets.length) return [];
-    // Expect each item like { id, role, fileName, meta, createdAt }
-    // Group by role and pick latest
-    const map = new Map();
-    datasets.forEach((d) => {
-      const prev = map.get(d.role);
-      if (!prev || new Date(d.createdAt) > new Date(prev.createdAt)) {
-        map.set(d.role, d);
-      }
+
+    return [...datasets].sort((a, b) => {
+      const aTs = new Date(a?.createdAt || 0).getTime();
+      const bTs = new Date(b?.createdAt || 0).getTime();
+      if (aTs !== bTs) return bTs - aTs;
+
+      const roleCmp = String(a?.role || "").localeCompare(
+        String(b?.role || ""),
+      );
+      if (roleCmp !== 0) return roleCmp;
+
+      return String(a?.fileName || "").localeCompare(String(b?.fileName || ""));
     });
-    const summary = Array.from(map.values());
-    return summary;
   }, [datasets]);
 
-  const handleStage = async () => {
+  const rows = useMemo(() => preview?.rows || [], [preview?.rows]);
+  const totalRows = preview?.totalRows ?? rows.length;
+
+  const estimatedStageInputRows = useMemo(
+    () =>
+      datasetSummary
+        .filter((d) => String(d?.role || "").startsWith("main"))
+        .reduce((sum, d) => sum + Number(d?.meta?.rowsCount || 0), 0),
+    [datasetSummary],
+  );
+
+  const latestStageDurationMs = useMemo(() => {
+    if (!latestStageRun?.startedAt || !latestStageRun?.finishedAt) return null;
+
+    const started = new Date(latestStageRun.startedAt).getTime();
+    const finished = new Date(latestStageRun.finishedAt).getTime();
+    const duration = finished - started;
+
+    return Number.isFinite(duration) && duration > 0 ? duration : null;
+  }, [latestStageRun?.startedAt, latestStageRun?.finishedAt]);
+
+  const estimatedStageMs = useMemo(() => {
+    if (!estimatedStageInputRows) return null;
+
+    const previousRows = result?.rowsIn || result?.rowsOut || totalRows || 0;
+    if (latestStageDurationMs && previousRows > 0) {
+      const baselineEstimate =
+        (latestStageDurationMs / previousRows) * estimatedStageInputRows;
+
+      return Math.max(60_000, Math.round(baselineEstimate * 1.1));
+    }
+
+    return Math.max(
+      60_000,
+      Math.round((estimatedStageInputRows / 30_000) * 60_000),
+    );
+  }, [
+    estimatedStageInputRows,
+    latestStageDurationMs,
+    result?.rowsIn,
+    result?.rowsOut,
+    totalRows,
+  ]);
+
+  const stageElapsedMs =
+    staging && stageStartedAt && stageNow ? stageNow - stageStartedAt : 0;
+
+  const stageProgress = estimatedStageMs
+    ? Math.min(95, Math.round((stageElapsedMs / estimatedStageMs) * 100))
+    : 0;
+
+  const stageRemainingMs = estimatedStageMs
+    ? Math.max(0, estimatedStageMs - stageElapsedMs)
+    : null;
+
+  const stageEstimateExceeded =
+    Boolean(estimatedStageMs) && stageElapsedMs > estimatedStageMs;
+
+  const handleStage = useCallback(async () => {
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
     }
+
+    // Determine if this is a rerun (i.e. "Run again" was clicked)
+    const isRerun = !!result;
 
     showAlert(
       "Running staging for this dataset. If it's a big one, it might take ages — get comfy while we crunch the numbers.",
       "info",
     );
 
-    setAutoStageMessage(
-      "Running staging… this can take a minute for large files.",
-    );
-    setAutoStaging(true);
+    setStageMessage("Running staging… this can take a minute for large files.");
+    setStageStartedAt(Date.now());
+    setStageNow(Date.now());
+    setStaging(true);
     try {
       const res = await stageMutation.mutateAsync({
         profileId,
         persist: true,
-        force: false,
+        force: isRerun,
       });
       if (!mountedRef.current) return;
       setResult(res);
@@ -534,9 +476,41 @@ export default function StagePanel() {
         showAlert(err?.message || "Failed to stage data", "error");
       }
     } finally {
-      if (mountedRef.current) setAutoStaging(false);
+      if (mountedRef.current) setStaging(false);
     }
-  };
+  }, [ptrsId, profileId, result, showAlert, stageMutation, refetchStageView]);
+
+  useEffect(() => {
+    if (!autoRunStage) return undefined;
+    if (autoRunStageTriggeredRef.current) return undefined;
+    if (!ptrsId || !profileId) return undefined;
+    if (staging || stageMutation.isPending) return undefined;
+    if (!stageCompletionGateQ.isSuccess) return undefined;
+
+    const gateReady = stageCompletionGateQ.data?.ready === true;
+    const gateReason = stageCompletionGateQ.data?.reason || null;
+
+    if (gateReady) return undefined;
+    if (!["stale", "missing-stage"].includes(gateReason)) return undefined;
+
+    autoRunStageTriggeredRef.current = true;
+
+    const timer = window.setTimeout(() => {
+      handleStage();
+    }, 250);
+
+    return () => window.clearTimeout(timer);
+  }, [
+    autoRunStage,
+    ptrsId,
+    profileId,
+    staging,
+    stageMutation.isPending,
+    stageCompletionGateQ.isSuccess,
+    stageCompletionGateQ.data?.ready,
+    stageCompletionGateQ.data?.reason,
+    handleStage,
+  ]);
 
   const HIDDEN_PREVIEW_HEADERS = useMemo(
     () =>
@@ -554,8 +528,6 @@ export default function StagePanel() {
       (preview?.headers || []).filter((h) => !HIDDEN_PREVIEW_HEADERS.has(h)),
     [preview?.headers, HIDDEN_PREVIEW_HEADERS],
   );
-  const rows = useMemo(() => preview?.rows || [], [preview?.rows]);
-  const totalRows = preview?.totalRows ?? rows.length;
 
   const handleGoToExclusions = async () => {
     if (!ptrsId) {
@@ -581,11 +553,39 @@ export default function StagePanel() {
 
   const hasPreview = Array.isArray(preview?.rows) && preview.rows.length > 0;
 
-  if (!ptrsId) return null;
+  const stageGateMessage = (() => {
+    if (staging) return "Rebuilding staged dataset…";
+    if (!profileId) return "Select a processing profile before staging.";
+    if (!hasSettledStageCompletionGate)
+      return "Checking staged dataset status…";
+    if (completionGateReady) {
+      if (stagePreviewQ.isFetching && !hasPreview) {
+        return "Staging is up to date. Loading preview…";
+      }
+      return "Staging is up to date.";
+    }
+    if (completionGateReason === "stale") {
+      return autoRunStage
+        ? "Staging is stale. Auto-run is enabled, so rebuild will start shortly."
+        : "Staging is stale. Run staging when you are ready to rebuild it.";
+    }
+    if (completionGateReason === "missing-stage") {
+      return autoRunStage
+        ? "No staged dataset exists yet. Auto-run is enabled, so staging will start shortly."
+        : "No staged dataset exists yet. Run staging when you are ready to create it.";
+    }
+    return "Staging needs to be run before continuing.";
+  })();
 
-  if (stagePreviewQ.isLoading && !result && !hasPreview) {
-    return <LoadingSpinner message="Loading stage preview…" />;
-  }
+  const stageGateSeverity = staging
+    ? "info"
+    : completionGateReady
+      ? "success"
+      : completionGateReason === "stale"
+        ? "warning"
+        : "default";
+
+  if (!ptrsId) return null;
 
   return (
     <Box sx={{ p: 3 }}>
@@ -661,17 +661,87 @@ export default function StagePanel() {
           alignItems={{ md: "center" }}
         >
           <Box sx={{ flex: 1 }}>
-            {autoStaging ? (
-              <Stack spacing={1}>
+            <Stack
+              direction="row"
+              spacing={1}
+              alignItems="center"
+              sx={{ mb: 1 }}
+            >
+              <Chip
+                size="small"
+                color={stageGateSeverity}
+                label={
+                  staging
+                    ? "Running"
+                    : !hasSettledStageCompletionGate
+                      ? "Checking"
+                      : completionGateReady
+                        ? "Ready"
+                        : completionGateReason
+                }
+              />
+              <Typography variant="body2" color="text.secondary">
+                {stageGateMessage}
+              </Typography>
+            </Stack>
+            {staging ? (
+              <Stack spacing={1.25}>
                 <Stack direction="row" alignItems="center" spacing={2}>
                   <CircularProgress size={18} />
                   <Typography variant="subtitle1">
-                    Auto-staging in progress
+                    Staging in progress
                   </Typography>
                 </Stack>
                 <Typography variant="body2" color="text.secondary">
-                  {autoStageMessage ||
+                  {stageMessage ||
                     "Running staging… this can take a minute for large files."}
+                </Typography>
+                {estimatedStageMs && (
+                  <Box sx={{ maxWidth: 760 }}>
+                    <LinearProgress
+                      variant="determinate"
+                      value={stageProgress}
+                      sx={{ mb: 0.75 }}
+                    />
+                    <Stack spacing={0.25} sx={{ minHeight: 42 }}>
+                      <Typography variant="body2" color="text.secondary">
+                        Estimated rebuild time: about{" "}
+                        {formatDuration(estimatedStageMs)}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Elapsed: {formatDuration(stageElapsedMs)}
+                        {stageEstimateExceeded
+                          ? " • finishing up"
+                          : stageRemainingMs != null
+                            ? ` • remaining: about ${formatDuration(stageRemainingMs)}`
+                            : ""}
+                      </Typography>
+                    </Stack>
+                    <Typography variant="caption" color="text.secondary">
+                      Estimate is based on{" "}
+                      {estimatedStageInputRows.toLocaleString()} input rows and
+                      the latest successful stage run where available.
+                    </Typography>
+                  </Box>
+                )}
+              </Stack>
+            ) : !hasSettledStageCompletionGate ? (
+              <Stack spacing={1}>
+                <Typography variant="subtitle1">
+                  Checking staged dataset
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Checking whether the current mapped data already has a usable
+                  staged dataset.
+                </Typography>
+              </Stack>
+            ) : completionGateReady && stagePreviewQ.isFetching ? (
+              <Stack spacing={1}>
+                <Typography variant="subtitle1">
+                  Loading staged dataset
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Staging is already up to date. Loading the preview now.
                 </Typography>
               </Stack>
             ) : result ? (
@@ -720,15 +790,19 @@ export default function StagePanel() {
             <Button
               variant="outlined"
               startIcon={<ReplayIcon />}
-              disabled={autoStaging}
+              disabled={staging}
               onClick={handleStage}
             >
-              {result ? "Run again" : "Run staging"}
+              {completionGateReason === "stale"
+                ? "Rebuild staging"
+                : result
+                  ? "Run again"
+                  : "Run staging"}
             </Button>
             <Button
               variant="contained"
               endIcon={<NavigateNextIcon />}
-              disabled={autoStaging || !result}
+              disabled={staging || !result}
               onClick={handleGoToExclusions}
             >
               Next: Exclusions
@@ -743,14 +817,22 @@ export default function StagePanel() {
           <Typography variant="subtitle1">Preview</Typography>
           <Button
             size="small"
-            disabled={autoStaging}
+            disabled={staging}
             onClick={() => setShowPreview((s) => !s)}
           >
             {showPreview ? "Hide" : "Show"} preview
           </Button>
         </Stack>
         {showPreview &&
-          (rows.length ? (
+          (!hasSettledStageCompletionGate ? (
+            <Typography variant="body2" color="text.secondary">
+              Preview will load once the staged dataset check is complete.
+            </Typography>
+          ) : stagePreviewQ.isFetching && !rows.length ? (
+            <Typography variant="body2" color="text.secondary">
+              Loading stage preview…
+            </Typography>
+          ) : rows.length ? (
             <>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
                 Showing {rows.length.toLocaleString()} of{" "}
@@ -790,7 +872,7 @@ export default function StagePanel() {
       <Divider sx={{ my: 3 }} />
       <Button
         variant="text"
-        disabled={autoStaging}
+        disabled={staging}
         onClick={() => {
           const qs = new URLSearchParams();
           qs.set("ptrsId", ptrsId);

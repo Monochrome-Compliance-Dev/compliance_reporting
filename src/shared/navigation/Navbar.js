@@ -110,11 +110,17 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
   // Shared marketing nav definition
   const marketingNav = {
     services: [
-      { label: "Payment Times Reporting", to: "/payment-times-reporting" },
-      { label: "Payment Health Check", to: "/construction-payment-diagnostic" },
+      { label: "Payment Health Check", to: "/services/payment-health-check" },
+      {
+        label: "Payment Times Reporting",
+        to: "/services/payment-times-reporting",
+      },
     ],
     industries: [
-      { label: "Construction", to: "/construction-payment-reporting" },
+      {
+        label: "Construction",
+        to: "/industries/construction/payment-reporting",
+      },
     ],
     insights: [
       { label: "Payment Times Register", to: "/regulator-payment-times" },

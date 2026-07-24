@@ -1,95 +1,72 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
-import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
+import { useEffect, useState } from "react";
 import {
   Box,
-  Paper,
-  Typography,
-  Stack,
   Button,
-  IconButton,
-  TextField,
-  InputAdornment,
-  Divider,
   Chip,
+  IconButton,
+  InputAdornment,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { useAlert } from "context";
-import { usePtrsContext } from "../context/PtrsContext";
-import { listPtrs } from "../services/ptrsApi";
+import { useNavigate } from "react-router";
+
+// TEMP: replace with real API later
+const fakeFetchRuns = async () => {
+  return [
+    {
+      id: "run_1",
+      fileName: "Veolia RP10",
+      currentStep: "stage",
+      status: "Draft",
+      createdAt: new Date().toISOString(),
+    },
+  ];
+};
 
 function formatDate(iso) {
   if (!iso) return "";
   const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleString();
+  return isNaN(d) ? iso : d.toLocaleString();
 }
 
 export default function LandingPanel() {
   const theme = useTheme();
-  const { goTo } = usePtrsNavigation();
-  const { setPtrsId } = usePtrsContext();
-  const { showAlert } = useAlert();
+  const navigate = useNavigate();
 
   const [runs, setRuns] = useState([]);
   const [q, setQ] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchRuns = useCallback(async () => {
+  const fetchRuns = async () => {
     setIsLoading(true);
     try {
-      const { items } = await listPtrs();
-      setRuns(items || []);
-    } catch (e) {
-      console.error(e);
-      showAlert("Failed to load PTRS runs", "error");
+      const data = await fakeFetchRuns();
+      setRuns(data);
     } finally {
       setIsLoading(false);
     }
-  }, [showAlert]);
+  };
 
   useEffect(() => {
     fetchRuns();
-  }, [fetchRuns]);
+  }, []);
 
-  const filtered = useMemo(() => {
-    const needle = q.trim().toLowerCase();
-    if (!needle) return runs;
-    return runs.filter((r) =>
-      [r?.id, r?.fileName, r?.status, r?.customerId]
-        .filter(Boolean)
-        .some((v) => String(v).toLowerCase().includes(needle)),
-    );
-  }, [q, runs]);
+  const goNew = () => navigate("/app/ptrs/create");
+  const goResume = (run) => navigate(`/app/ptrs/create/${run.id}`);
+  const goTo = (path) => navigate(`/app/ptrs/${path}`);
 
-  const goResume = (run) => {
-    if (!run || !run.id) return;
-
-    const ptrsId = run.id;
-    // Set the active PTRS in context so downstream panels don’t
-    // depend solely on the URL.
-    setPtrsId(ptrsId);
-
-    const step = String(run.currentStep || "").toLowerCase();
-
-    const qs = new URLSearchParams();
-    qs.set("ptrsId", ptrsId);
-
-    goTo(`${step}?${qs.toString()}`, { includeId: false });
-  };
-
-  const goNew = () => {
-    // Start a truly new run: clear any existing PTRS context so
-    // downstream panels don’t try to reuse an old ptrsId.
-    setPtrsId(null);
-
-    // Navigate without any query string (e.g. ?ptrsId=...), so the
-    // Data Console knows this is a fresh run, not a resume.
-    goTo("data", { includeId: false });
-  };
+  const filtered = runs.filter(
+    (r) =>
+      r.fileName?.toLowerCase().includes(q.toLowerCase()) ||
+      r.id.toLowerCase().includes(q.toLowerCase()),
+  );
 
   return (
     <Box
@@ -99,15 +76,16 @@ export default function LandingPanel() {
         minHeight: "100vh",
       }}
     >
+      {/* Header */}
       <Stack
         direction="row"
         alignItems="center"
         justifyContent="space-between"
         sx={{ mb: 3 }}
       >
-        <Typography variant="h4">PTRS</Typography>
+        <Typography variant="h4">PTRS Workspace</Typography>
         <Stack direction="row" spacing={1}>
-          <IconButton onClick={fetchRuns} title="Refresh" disabled={isLoading}>
+          <IconButton onClick={fetchRuns} disabled={isLoading}>
             <RefreshIcon />
           </IconButton>
           <Button
@@ -120,88 +98,72 @@ export default function LandingPanel() {
         </Stack>
       </Stack>
 
-      <Paper variant="outlined" sx={{ p: 2, mb: 3 }}>
-        <Typography variant="subtitle1" sx={{ mb: 1 }}>
-          Welcome
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Create a run and upload datasets in the Data Console, or resume an
-          existing run. If you’re acting on behalf of another customer (Boss),
-          switch customer in Workspace first — runs here are tenant-scoped.
-        </Typography>
-      </Paper>
-
-      <Paper variant="outlined" sx={{ p: 2 }}>
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={2}
-          alignItems="center"
-          sx={{ mb: 2 }}
-        >
-          <TextField
-            size="small"
-            placeholder="Search runs (id, name, status)"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-            fullWidth
-          />
-          <Chip
-            label={`${filtered.length} run${filtered.length === 1 ? "" : "s"}`}
-          />
+      {/* Data Prep */}
+      <Paper sx={{ p: 2, mb: 3 }}>
+        <Stack direction="row" justifyContent="space-between" sx={{ mb: 2 }}>
+          <Typography variant="h6">Data Preparation</Typography>
+          <Chip label={`${filtered.length} runs`} />
         </Stack>
 
-        <Divider sx={{ mb: 2 }} />
+        <TextField
+          size="small"
+          placeholder="Search runs"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+          fullWidth
+          sx={{ mb: 2 }}
+        />
 
-        {filtered.length === 0 ? (
-          <Typography variant="body2" color="text.secondary">
-            {isLoading
-              ? "Loading..."
-              : "No runs yet. Click “New run” to get started."}
-          </Typography>
-        ) : (
-          <Stack spacing={1}>
-            {filtered.map((r) => (
-              <Paper
-                key={r.id}
-                variant="outlined"
-                sx={{
-                  p: 2,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}
+        {filtered.map((r) => (
+          <Paper key={r.id} sx={{ p: 2, mb: 1 }}>
+            <Stack direction="row" justifyContent="space-between">
+              <Box>
+                <Typography variant="subtitle2">{r.fileName}</Typography>
+                <Typography variant="caption">
+                  Step: {r.currentStep} • {formatDate(r.createdAt)}
+                </Typography>
+              </Box>
+              <Button
+                onClick={() => goResume(r)}
+                endIcon={<ArrowForwardIcon />}
               >
-                <Box sx={{ mr: 2, minWidth: 0 }}>
-                  <Typography
-                    variant="subtitle2"
-                    noWrap
-                    title={r.fileName || r.id}
-                  >
-                    {r.fileName || r.id}
-                  </Typography>
-                  <Typography variant="caption" color="text.secondary" noWrap>
-                    PTRS ID: {r.id} • Current Step: {r.currentStep} • Status:{" "}
-                    {r.status || "New"} • Created: {formatDate(r.createdAt)}
-                  </Typography>
-                </Box>
-                <Button
-                  variant="text"
-                  endIcon={<ArrowForwardIcon />}
-                  onClick={() => goResume(r)}
-                >
-                  Resume
-                </Button>
-              </Paper>
-            ))}
-          </Stack>
-        )}
+                Resume
+              </Button>
+            </Stack>
+          </Paper>
+        ))}
+      </Paper>
+
+      {/* Review */}
+      <Paper sx={{ p: 2, mb: 3 }}>
+        <Typography variant="h6">Processing & Review</Typography>
+        <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
+          <Chip label="Groups: 24" />
+          <Chip label="Records: 12,480" />
+        </Stack>
+        <Button
+          sx={{ mt: 2 }}
+          onClick={() => goTo("learning")}
+          variant="contained"
+        >
+          Open review queue
+        </Button>
+      </Paper>
+
+      {/* Snapshot */}
+      <Paper sx={{ p: 2 }}>
+        <Typography variant="h6">Customer Snapshot</Typography>
+        <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
+          <Chip label="Payments: 18,240" />
+          <Chip label="P95: 64 days" color="error" />
+        </Stack>
       </Paper>
     </Box>
   );

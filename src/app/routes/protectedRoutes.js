@@ -4,6 +4,8 @@ import { RequireRoles } from "./RequireRoles";
 import Role from "context/role";
 import ptrsRoutes from "slices/ptrs/ptrsRouteConfig";
 import Ptrs from "slices/ptrs/Ptrs";
+import DataHub from "slices/dataHub/DataHub";
+import dataHubRoutes from "slices/dataHub/dataHubRouteConfig";
 import ComplianceDashboardLayout from "shared/layouts/ComplianceDashboardLayout";
 import BossLayout from "app/boss/BossLayout";
 import bossRoutes from "./bossRoutes";
@@ -28,6 +30,11 @@ export const protectedRoutes = [
         path: "ptrs",
         Component: Ptrs,
         children: ptrsRoutes,
+      },
+      {
+        path: "data-hub",
+        Component: DataHub,
+        children: dataHubRoutes,
       },
       {
         path: "boss",

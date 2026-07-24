@@ -37,15 +37,26 @@ const formatStatus = (status) => {
 
 const getSummaryCounts = (lastImport) => {
   const stage = lastImport?.summary?.stage || null;
-  if (!stage) return null;
+  const outcomes = lastImport?.summary?.outcomes || null;
+  const samples = lastImport?.summary?.samples || null;
+
+  if (!stage && !outcomes && !samples) return null;
 
   return {
-    affectedRows: stage.affectedRows ?? null,
-    matchedAbns: stage.matchedAbns ?? null,
-    totalRows: stage.totalRows ?? null,
-    missingAbnRows: stage.missingAbnRows ?? null,
-    invalidMatchRows: stage.invalidMatchRows ?? null,
-    unknownOutcomeRows: stage.unknownOutcomeRows ?? null,
+    affectedRows: stage?.affectedRows ?? null,
+    matchedAbns: stage?.matchedAbns ?? null,
+    totalRows: stage?.totalRows ?? null,
+    missingAbnRows: stage?.missingAbnRows ?? null,
+    invalidMatchRows: stage?.invalidMatchRows ?? null,
+    unknownOutcomeRows: stage?.unknownOutcomeRows ?? null,
+    abnMissingFromSbiResultsCount: stage?.abnMissingFromSbiResultsCount ?? null,
+    smallBusinessCount: outcomes?.smallBusinessCount ?? null,
+    notSmallBusinessCount: outcomes?.notSmallBusinessCount ?? null,
+    invalidAbns: outcomes?.invalidAbns ?? null,
+    unknownOutcomes: outcomes?.unknownOutcomes ?? null,
+    missingFromSbiResults: Array.isArray(samples?.missingFromSbiResults)
+      ? samples.missingFromSbiResults
+      : [],
   };
 };
 
@@ -313,14 +324,26 @@ export default function SbiPanel() {
                 </Typography>
 
                 {counts && (
-                  <Box sx={{ mt: 1 }}>
+                  <Stack spacing={1} sx={{ mt: 1 }}>
                     <Typography
                       variant="caption"
                       sx={{ color: theme.palette.text.secondary }}
                     >
                       Applied to {counts.affectedRows ?? "—"} row(s). Matched
                       ABNs: {counts.matchedAbns ?? "—"}. Missing ABN rows:{" "}
-                      {counts.missingAbnRows ?? "—"}.
+                      {counts.missingAbnRows ?? "—"}. Missing from SBI results:{" "}
+                      {counts.abnMissingFromSbiResultsCount ?? "—"}.
+                    </Typography>
+
+                    <Typography
+                      variant="caption"
+                      sx={{ color: theme.palette.text.secondary }}
+                    >
+                      Outcome breakdown — Small:{" "}
+                      {counts.smallBusinessCount ?? "—"}, Not small:{" "}
+                      {counts.notSmallBusinessCount ?? "—"}, Invalid ABNs:{" "}
+                      {counts.invalidAbns ?? "—"}, Unknown outcomes:{" "}
+                      {counts.unknownOutcomes ?? "—"}.
                     </Typography>
 
                     {counts.invalidMatchRows || counts.unknownOutcomeRows ? (
@@ -335,7 +358,46 @@ export default function SbiPanel() {
                         , unknown outcomes {counts.unknownOutcomeRows ?? 0}.
                       </Typography>
                     ) : null}
-                  </Box>
+
+                    {counts.missingFromSbiResults.length ? (
+                      <Box sx={{ mt: 1 }}>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            display: "block",
+                            color: theme.palette.text.secondary,
+                            mb: 0.5,
+                          }}
+                        >
+                          Records not found in SBI results (showing first{" "}
+                          {counts.missingFromSbiResults.length}):
+                        </Typography>
+
+                        <Stack spacing={0.5}>
+                          {counts.missingFromSbiResults.map((item, idx) => (
+                            <Typography
+                              key={`${item.stageRowId || item.rowNo || idx}`}
+                              variant="caption"
+                              sx={{
+                                display: "block",
+                                color: theme.palette.text.secondary,
+                              }}
+                            >
+                              Row {item.rowNo ?? "—"}:{" "}
+                              {item.payeeEntityName || "Unknown supplier"}
+                              {item.payeeAbn ? ` (${item.payeeAbn})` : ""}
+                              {item.invoiceReferenceNumber
+                                ? ` — Ref ${item.invoiceReferenceNumber}`
+                                : ""}
+                              {item.documentType
+                                ? ` — ${item.documentType}`
+                                : ""}
+                            </Typography>
+                          ))}
+                        </Stack>
+                      </Box>
+                    ) : null}
+                  </Stack>
                 )}
               </Stack>
             )}

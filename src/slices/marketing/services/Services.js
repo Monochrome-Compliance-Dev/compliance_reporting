@@ -11,7 +11,7 @@ export default function Services() {
     <>
       <PageMeta
         title="Services | Monochrome Compliance"
-        description="Structured payment reporting and advisory services focused on defensible data, regulatory alignment, and operational clarity."
+        description="Payment Times Reporting, payment data review, and compliance advisory services for organisations that need defensible reporting, clearer payment visibility, and stronger data foundations."
         image="/images/og/og-industry-insights.jpg"
       />
 
@@ -34,9 +34,38 @@ export default function Services() {
           >
             We help organisations bring structure to payment data so reporting,
             enforcement and transparency frameworks align rather than collide.
+            These services are delivered horizontally across different operating
+            environments, with industry-specific applications where payment
+            mechanics are especially demanding.
           </Typography>
 
           <Divider sx={{ mb: theme.spacing(4) }} />
+
+          <Box
+            sx={{
+              mb: theme.spacing(4),
+              p: theme.spacing(2.5),
+              border: `1px solid ${theme.palette.divider}`,
+              borderRadius: 2,
+              backgroundColor: theme.palette.background.paper,
+            }}
+          >
+            <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+              Looking for the industry view?
+            </Typography>
+            <Typography
+              variant="body1"
+              color={theme.palette.text.secondary}
+              sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
+            >
+              Our services are applied across different sectors. Where payment
+              mechanics vary materially by industry, we map the same core
+              service set into a more specific operating context.
+            </Typography>
+            <Button variant="outlined" component={Link} to="/industries">
+              Explore industries
+            </Button>
+          </Box>
 
           <Grid container spacing={4}>
             <Grid size={{ xs: 12, md: 6 }}>
@@ -69,7 +98,7 @@ export default function Services() {
                 <Button
                   variant="outlined"
                   component={Link}
-                  to="/payment-times-reporting"
+                  to="/services/payment-times-reporting"
                 >
                   View service
                 </Button>
@@ -80,7 +109,7 @@ export default function Services() {
               <Box>
                 <Box
                   component="img"
-                  src="/images/services/payment-health-check.jpg"
+                  src="/images/services/payment-health-check-web.jpg"
                   alt="Payment data diagnostic review"
                   sx={{
                     width: "100%",
@@ -106,7 +135,7 @@ export default function Services() {
                 <Button
                   variant="outlined"
                   component={Link}
-                  to="/construction-payment-diagnostic"
+                  to="/services/payment-health-check"
                 >
                   View health check
                 </Button>

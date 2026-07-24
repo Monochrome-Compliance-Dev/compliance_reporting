@@ -29,8 +29,8 @@ export default function ConstructionPaymentReporting() {
       <PageMeta
         title="Construction Payment Times Reporting"
         description="Construction PTRS for progress-claim environments..."
-        image="https://www.monochrome-compliance.com/images/og/og-construction.jpg"
-        url="https://www.monochrome-compliance.com/construction-payment-reporting"
+        image="https://monochrome-compliance.com/images/og/og-construction.jpg"
+        url="https://monochrome-compliance.com/industries/construction/payment-reporting"
       />
 
       <Box
@@ -88,13 +88,23 @@ export default function ConstructionPaymentReporting() {
 
             <Button
               component={RouterLink}
-              to="/insights"
+              to="/services/payment-times-reporting"
               variant="outlined"
               color="primary"
               size="small"
               sx={{ textTransform: "none", fontWeight: 600 }}
             >
-              Read the Construction Insight
+              Explore the broader PTRS service
+            </Button>
+            <Button
+              component={RouterLink}
+              to="/insights"
+              variant="text"
+              color="primary"
+              size="small"
+              sx={{ textTransform: "none", fontWeight: 600 }}
+            >
+              Read related insights
             </Button>
           </Box>
 
@@ -121,7 +131,9 @@ export default function ConstructionPaymentReporting() {
               variant="outlined"
               color="primary"
               size="large"
-              onClick={() => navigate("/construction-payment-diagnostic")}
+              onClick={() =>
+                navigate("/industries/construction/payment-diagnostic")
+              }
               sx={{ width: isSmallScreen ? "100%" : "auto" }}
             >
               See an example diagnostic
@@ -129,7 +141,7 @@ export default function ConstructionPaymentReporting() {
 
             <Typography variant="body2" color={theme.palette.text.secondary}>
               A short working session to confirm scope, identify distortion
-              risk, and outline practical next steps.
+              risk, and connect the issue back to your broader PTRS approach.
             </Typography>
           </Box>
         </Box>
@@ -401,7 +413,9 @@ export default function ConstructionPaymentReporting() {
                   variant="contained"
                   color="primary"
                   size="large"
-                  onClick={() => navigate("/construction-payment-diagnostic")}
+                  onClick={() =>
+                    navigate("/industries/construction/payment-diagnostic")
+                  }
                   sx={{ width: isSmallScreen ? "100%" : "auto" }}
                 >
                   See an example diagnostic
@@ -576,8 +590,9 @@ export default function ConstructionPaymentReporting() {
                   variant="body2"
                   color={theme.palette.text.secondary}
                 >
-                  If you prefer, send us your reporting period dataset and we’ll
-                  confirm what we need from your side.
+                  If you prefer, start with the broader PTRS service and we’ll
+                  confirm whether a construction diagnostic is the right next
+                  step.
                 </Typography>
               </Box>
             </CardContent>

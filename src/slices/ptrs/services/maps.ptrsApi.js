@@ -231,14 +231,15 @@ export const savePtrsMap = async (
   return normMap(pickData(res));
 };
 
-export const getPtrsFieldMap = async (ptrsId, profileId) => {
+export const getPtrsFieldMap = async (ptrsId, profileId, datasetId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!profileId) throw new Error("profileId is required");
 
-  debugPtrsApiCall("getPtrsFieldMap", { ptrsId, profileId });
+  debugPtrsApiCall("getPtrsFieldMap", { ptrsId, profileId, datasetId });
 
   const qs = new URLSearchParams();
   qs.set("profileId", String(profileId));
+  if (datasetId) qs.set("datasetId", String(datasetId));
 
   const res = await fetchWrapper.get(
     `${API_ROOT}/v2/ptrs/${ptrsId}/field-map?${qs.toString()}`,
@@ -254,14 +255,37 @@ export const getPtrsFieldMap = async (ptrsId, profileId) => {
         : [];
 };
 
-export const savePtrsFieldMap = async (ptrsId, profileId, fieldMap) => {
+export const importPtrsFieldMap = async (
+  ptrsId,
+  { sourcePtrsId, profileId },
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!sourcePtrsId) throw new Error("sourcePtrsId is required");
+  if (!profileId) throw new Error("profileId is required");
+
+  const res = await fetchWrapper.post(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/field-map/import`,
+    { sourcePtrsId, profileId },
+  );
+
+  return pickData(res) || {};
+};
+
+export const savePtrsFieldMap = async (
+  ptrsId,
+  profileId,
+  datasetId,
+  fieldMap,
+) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!profileId) throw new Error("profileId is required");
+  if (!datasetId) throw new Error("datasetId is required");
   if (!Array.isArray(fieldMap)) throw new Error("fieldMap array is required");
 
   debugPtrsApiCall("savePtrsFieldMap", {
     ptrsId,
     profileId,
+    datasetId,
     fieldMapCount: Array.isArray(fieldMap) ? fieldMap.length : 0,
   });
 
@@ -269,6 +293,7 @@ export const savePtrsFieldMap = async (ptrsId, profileId, fieldMap) => {
     `${API_ROOT}/v2/ptrs/${ptrsId}/field-map`,
     {
       profileId,
+      datasetId,
       fieldMap,
     },
   );
@@ -324,295 +349,122 @@ export const buildPtrsMappedDataset = async (
   };
 };
 
-// Unified sample: returns merged headers + examples from main + supporting datasets
-// IMPORTANT:
-// This function must always return a provenance-preserving unified sample for Mapping.
-// Do not add dataset-specific fast paths here. Use getDatasetSample(...) for single-dataset views.
 export const getUnifiedSample = async (
   ptrsId,
-  { limit = 10, offset = 0 } = {},
+  { limit = 5, offset = 0 } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
 
   debugPtrsApiCall("getUnifiedSample", { ptrsId, limit, offset });
 
-  limit = Number(limit) || 10;
-  offset = Number(offset) || 0;
+  const datasetsRes = await listDatasets(ptrsId);
+  const datasets = Array.isArray(datasetsRes?.items)
+    ? datasetsRes.items
+    : Array.isArray(datasetsRes)
+      ? datasetsRes
+      : [];
 
-  // 1) Load datasets so we can treat multiple mains correctly
-  let datasets = [];
-  try {
-    const { items } = await listDatasets(ptrsId);
-    datasets = items || [];
-  } catch {
-    datasets = [];
-  }
-
-  const isMainRole = (role) => {
-    const r = String(role || "").toLowerCase();
-    return r === "main" || r.startsWith("main_");
-  };
-
-  const mainDatasets = datasets.filter((d) => isMainRole(d?.role));
-  const supportingDatasets = datasets.filter((d) => !isMainRole(d?.role));
-
-  // 2) Get samples for each main dataset.
-  // IMPORTANT: header provenance for main datasets must come from dataset metadata
-  // (meta.headers) when available. The sample endpoint can return polluted header
-  // unions during iterative development, so we only trust it for row examples and
-  // as a fallback when metadata headers are missing.
-  const mainSamples = await Promise.all(
-    mainDatasets.map(async (ds) => {
-      const metaHeaders =
-        ds?.meta && Array.isArray(ds.meta.headers) ? ds.meta.headers : null;
-
-      try {
-        const s = await getDatasetSample(ds.id, { limit, offset });
-        return {
-          dataset: ds,
-          sample: {
-            ...(s || {}),
-            headers:
-              Array.isArray(metaHeaders) && metaHeaders.length
-                ? metaHeaders
-                : Array.isArray(s?.headers)
-                  ? s.headers
-                  : [],
-          },
-        };
-      } catch {
-        return {
-          dataset: ds,
-          sample: {
-            headers: Array.isArray(metaHeaders) ? metaHeaders : [],
-            rows: [],
-          },
-        };
-      }
-    }),
-  );
-
-  // 3) For each supporting dataset, grab headers (prefer meta.headers to avoid extra BE work)
-  const datasetSamples = await Promise.all(
-    supportingDatasets.map(async (ds) => {
-      const metaHeaders =
-        ds?.meta && Array.isArray(ds.meta.headers) ? ds.meta.headers : null;
-
-      let sample = { headers: metaHeaders || [], rows: [] };
-
-      // If we don’t have headers in meta, or we want examples, hit the sample endpoint lightly
-      if (!metaHeaders || !metaHeaders.length) {
-        try {
-          const s = await getDatasetSample(ds.id, { limit: 1, offset: 0 });
-          sample = s || sample;
-        } catch {
-          // ignore dataset sample failures; they’re optional
-        }
-      }
-
+  const targets = datasets.filter((d) => !!d?.id);
+  const results = await Promise.all(
+    targets.map(async (dataset) => {
+      const sample = await getDatasetSample(dataset.id, { limit, offset });
       return {
-        dataset: ds,
-        sample,
+        dataset,
+        sample: normSample(sample) || { headers: [], rows: [] },
       };
     }),
   );
 
-  // 4) Merge headers + build headerMeta
-  const headersSet = new Set();
-  const headerMeta = {};
-
-  const registerHeader = (header, sourceInfo) => {
-    if (!header) return;
-    const key = String(header);
-    headersSet.add(key);
-    if (!headerMeta[key]) {
-      headerMeta[key] = { sources: [] };
-    }
-    headerMeta[key].sources.push(sourceInfo);
-  };
-
-  // Main sample headers (multiple mains supported)
-  for (const { dataset, sample } of mainSamples) {
-    const srcRole = dataset?.role || null;
-    const srcFile = dataset?.fileName || null;
-    for (const h of sample?.headers || []) {
-      registerHeader(h, {
-        kind: "main",
-        datasetId: dataset?.id,
-        role: srcRole,
-        fileName: srcFile,
-      });
-    }
-  }
-
-  // Supporting dataset headers
-  for (const { dataset, sample } of datasetSamples) {
-    const srcRole = dataset?.role || null;
-    const srcFile = dataset?.fileName || null;
-    for (const h of sample.headers || []) {
-      registerHeader(h, {
-        kind: "dataset",
-        datasetId: dataset.id,
-        role: srcRole,
-        fileName: srcFile,
-      });
-    }
-  }
-
-  const allHeaders = Array.from(headersSet);
-
-  // 5) Build example values per header (from all mains first, then supporting datasets)
+  const headers = [];
   const examples = {};
+  const headerMeta = {};
+  const seen = new Set();
 
-  const pickCell = (row, h) => {
-    if (row && typeof row === "object") {
-      if (row.data && typeof row.data === "object" && h in row.data)
-        return row.data[h];
-      if (h in row) return row[h];
-    }
-    return undefined;
-  };
+  for (const { dataset, sample } of results) {
+    const role = String(dataset?.role || "");
+    const datasetId = String(dataset?.id || "");
+    const fileName = String(dataset?.fileName || dataset?.sourceName || "");
+    const sampleHeaders = Array.isArray(sample?.headers) ? sample.headers : [];
+    const sampleRows = Array.isArray(sample?.rows) ? sample.rows : [];
 
-  // helper to fill examples from a sample
-  const fillExamplesFromSample = (sample, tag) => {
-    if (!sample || !Array.isArray(sample.rows)) return;
-    for (const h of allHeaders) {
-      if (examples[h] != null && String(examples[h]).trim() !== "") continue;
-      for (const r of sample.rows) {
-        const v = pickCell(r, h);
-        if (v !== undefined && v !== null && String(v).trim() !== "") {
-          examples[h] = v;
-          break;
+    sampleHeaders.forEach((header, index) => {
+      const h = String(header || "").trim();
+      if (!h) return;
+
+      if (!seen.has(h)) {
+        seen.add(h);
+        headers.push(h);
+      }
+
+      if (!headerMeta[h]) {
+        headerMeta[h] = {
+          header: h,
+          sources: [],
+        };
+      }
+
+      const sourceKey = `${role}::${datasetId}::${fileName}`;
+      const existingSources = Array.isArray(headerMeta[h].sources)
+        ? headerMeta[h].sources
+        : [];
+
+      const alreadyHasSource = existingSources.some(
+        (src) =>
+          `${String(src?.role || "")}::${String(src?.datasetId || "")}::${String(src?.fileName || "")}` ===
+          sourceKey,
+      );
+
+      if (!alreadyHasSource) {
+        headerMeta[h].sources = [
+          ...existingSources,
+          {
+            role,
+            datasetId,
+            fileName,
+          },
+        ];
+      }
+
+      if (examples[h] == null) {
+        for (const row of sampleRows) {
+          const val = Array.isArray(row)
+            ? row[index]
+            : row?.data && typeof row.data === "object"
+              ? row.data[h]
+              : row?.[h];
+          if (val != null && String(val).trim() !== "") {
+            examples[h] = String(val);
+            break;
+          }
         }
       }
-    }
-  };
-
-  // Prefer examples from all mains first
-  for (const { sample } of mainSamples) {
-    if (sample) fillExamplesFromSample(sample, "main");
+    });
   }
-
-  // Then fill gaps from supporting datasets
-  for (const { sample } of datasetSamples) {
-    fillExamplesFromSample(sample, "dataset");
-  }
-
-  // 6) Build a synthetic single row combining examples so MapPanel can reuse its logic
-  const combinedRow = {};
-  for (const h of allHeaders) {
-    if (examples[h] != null) {
-      combinedRow[h] = examples[h];
-    }
-  }
-
-  const rows = Object.keys(combinedRow).length ? [combinedRow] : [];
-
-  const totalMainRows = mainSamples.reduce((acc, { sample }) => {
-    const n =
-      sample?.total ?? (Array.isArray(sample?.rows) ? sample.rows.length : 0);
-    return acc + (Number.isFinite(n) ? n : 0);
-  }, 0);
 
   return {
-    headers: allHeaders,
-    rows,
-    // total is mostly relevant to main; we expose it in case someone cares later
-    total: totalMainRows,
+    headers,
+    examples,
     headerMeta,
   };
 };
 
-export const listPtrsWithMap = async (profileId = null) => {
-  try {
-    const qs = new URLSearchParams();
-    if (profileId) qs.set("profileId", String(profileId));
+export const listPtrsWithMap = async ({ profileId } = {}) => {
+  debugPtrsApiCall("listPtrsWithMap", { profileId: profileId || null });
 
-    const suffix = qs.toString() ? `?${qs.toString()}` : "";
-    debugPtrsApiCall("listPtrsWithMap", { profileId: profileId || null });
-    const res = await fetchWrapper.get(
-      `${API_ROOT}/v2/ptrs/compatible-maps${suffix}`,
-    );
-    const data = pickData(res) || {};
-    const items = Array.isArray(data.items) ? data.items : [];
-    return { items };
-  } catch (err) {
-    if (err?.status === 404 || err?.response?.status === 404) {
-      return { items: [] };
-    }
-    throw err;
-  }
-};
+  const qs = new URLSearchParams();
+  if (profileId) qs.set("profileId", String(profileId));
+  const suffix = qs.toString() ? `?${qs.toString()}` : "";
 
-// -------------------- Map import compatibility ----------------
-// Accepts a variety of shapes and returns a plain mappings object or null.
-export const extractMappingsFromAny = (raw) => {
-  if (!raw) return null;
-  // Unwrap common envelopes
-  const candidates = [
-    raw?.mappings,
-    raw?.map?.mappings,
-    raw?.data?.mappings,
-    raw?.data?.map?.mappings,
-    raw?.data?.data?.mappings,
-    raw?.data?.data?.map?.mappings,
-    raw, // allow raw mappings object already
-  ].filter(Boolean);
-
-  // First candidate that looks like an object of mappings wins
-  for (const m of candidates) {
-    if (m && typeof m === "object" && !Array.isArray(m)) {
-      const entries = Object.entries(m);
-      if (!entries.length) return {};
-      const looksOk = entries.every(([k, v]) => {
-        if (!k) return false;
-        if (typeof v === "string") return true;
-        if (v && typeof v === "object") return "field" in v;
-        return false;
-      });
-      if (looksOk) {
-        const out = {};
-        for (const [src, cfg] of entries) {
-          if (typeof cfg === "string") {
-            out[src] = { field: cfg, type: "string" };
-          } else if (cfg && typeof cfg === "object" && "field" in cfg) {
-            const { field, type = "string", ...rest } = cfg;
-            out[src] = { field, type, ...rest };
-          }
-        }
-        return out;
-      }
-    }
-  }
-
-  // Also accept array form: [{ source/header/name, field, type? }]
-  if (Array.isArray(raw)) {
-    const out = {};
-    for (const row of raw) {
-      const src = row?.source || row?.header || row?.name;
-      const field = row?.field;
-      if (src && field) {
-        const { type = "string", ...rest } = row || {};
-        // Remove alias keys that identify the source name to avoid duplication
-        delete rest.source;
-        delete rest.header;
-        delete rest.name;
-        out[src] = { field, type, ...rest };
-      }
-    }
-    return Object.keys(out).length ? out : null;
-  }
-
-  return null;
-};
-
-export const getPtrsSample = async (
-  ptrsId,
-  { limit = 10, offset = 0 } = {},
-) => {
-  debugPtrsApiCall("getPtrsSample", { ptrsId, limit, offset });
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`,
+    `${API_ROOT}/v2/ptrs/compatible-maps${suffix}`,
   );
-  return normSample(pickData(res));
+
+  const data = pickData(res) || {};
+  const items = Array.isArray(data.items)
+    ? data.items
+    : Array.isArray(data)
+      ? data
+      : [];
+
+  return { items };
 };
