@@ -2,51 +2,7 @@ import { Box, Divider, Typography, useTheme } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Link as RouterLink } from "react-router";
 import PageMeta from "shared/ui/PageMeta";
-
-const knowledgeArticles = [
-  {
-    slug: "what-is-the-payment-times-reporting-scheme",
-    title: "What is the Payment Times Reporting Scheme?",
-    description:
-      "A plain-English overview of the PTRS, why it exists, and why payment transparency matters for large reporting entities and small business suppliers.",
-    category: "PTRS fundamentals",
-  },
-  {
-    slug: "what-is-p95",
-    title: "What is P95?",
-    description:
-      "A practical explanation of P95 payment performance and why it has become one of the most important measures in payment behaviour reporting.",
-    category: "Payment metrics",
-  },
-  {
-    slug: "what-does-a-p95-of-30-days-mean",
-    title: "What does a P95 of 30 days mean?",
-    description:
-      "How to understand a P95 result in real terms, including what it means for most invoices to be paid within 30 days.",
-    category: "Payment metrics",
-  },
-  {
-    slug: "what-does-the-bottom-20-percent-mean",
-    title: "What does the bottom 20% mean?",
-    description:
-      "A simple explanation of how the regulator compares slower payers within industry groups and why safe harbour matters.",
-    category: "Regulator focus",
-  },
-  {
-    slug: "how-are-payment-times-calculated",
-    title: "How are payment times calculated?",
-    description:
-      "An overview of elapsed payment timing and why invoice dates, receipt dates, payment dates, and operational workflows matter.",
-    category: "Payment calculations",
-  },
-  {
-    slug: "what-is-a-payment-run",
-    title: "What is a payment run?",
-    description:
-      "Why scheduled payment cycles can affect reported payment timing even when the underlying process feels normal internally.",
-    category: "Operational drivers",
-  },
-];
+import { knowledgeArticles } from "./knowledgeRegistry";
 
 export default function KnowledgeIndex() {
   const theme = useTheme();
@@ -68,6 +24,18 @@ export default function KnowledgeIndex() {
         }}
       >
         <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
+          <Typography
+            component={RouterLink}
+            to="/insights"
+            sx={{
+              display: "block",
+              mb: theme.spacing(2),
+              color: theme.palette.primary.main,
+              textDecoration: "none",
+            }}
+          >
+            ← Back to Insights
+          </Typography>
           <Typography
             variant="overline"
             color={theme.palette.primary.main}

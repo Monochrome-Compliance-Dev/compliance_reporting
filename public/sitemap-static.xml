@@ -32,6 +32,48 @@
   </url>
 
   <url>
+    <loc>https://www.monochrome-compliance.com/insights/knowledge</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+    <url>
+    <loc>https://www.monochrome-compliance.com/insights/knowledge/what-is-the-payment-times-reporting-scheme</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.monochrome-compliance.com/insights/knowledge/what-is-p95</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.monochrome-compliance.com/insights/knowledge/how-are-payment-times-calculated</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.monochrome-compliance.com/insights/knowledge/what-is-a-payment-run</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.monochrome-compliance.com/insights/knowledge/what-does-a-p95-of-30-days-mean</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.monochrome-compliance.com/insights/knowledge/what-does-the-bottom-20-percent-mean</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://www.monochrome-compliance.com/insights/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

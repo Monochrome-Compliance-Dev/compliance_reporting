@@ -16,7 +16,7 @@ export default function BlogIndex() {
     <>
       <PageMeta
         title="Blog | Industry Insights | Monochrome Compliance"
-        description="Short, practical insights on payment behaviour, reporting, and data architecture across industries — focused on clarity, defensibility, and outcomes."
+        description="Short, practical commentary on payment reporting, compliance, data quality, operational payment behaviour, and the issues affecting reporting outcomes."
         image="/images/og/og-industry-insights.jpg"
       />
 
@@ -28,8 +28,28 @@ export default function BlogIndex() {
         }}
       >
         <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
-          <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
-            Blog
+          <Typography
+            component={RouterLink}
+            to="/insights"
+            sx={{
+              display: "block",
+              mb: theme.spacing(2),
+              color: theme.palette.primary.main,
+              textDecoration: "none",
+            }}
+          >
+            ← Back to Insights
+          </Typography>
+          <Typography
+            variant="overline"
+            color={theme.palette.primary.main}
+            sx={{ fontWeight: 700, letterSpacing: 1.4 }}
+          >
+            Industry Insights Blog
+          </Typography>
+
+          <Typography variant="h3" sx={{ fontWeight: 700, mt: 1, mb: 1 }}>
+            Practical commentary on payment reporting
           </Typography>
 
           <Typography
@@ -37,23 +57,12 @@ export default function BlogIndex() {
             color={theme.palette.text.secondary}
             sx={{ lineHeight: 1.5 }}
           >
-            Short posts to build clarity around payment behaviour and reporting
-            pressure across industries — and the underlying data architecture
-            that makes it harder than it needs to be.
+            Short, practical posts covering payment reporting, compliance, data
+            quality, operational payment behaviour, and the issues that
+            influence reported outcomes.
           </Typography>
 
           <Divider sx={{ my: theme.spacing(4) }} />
-
-          <Typography variant="body2" sx={{ mb: theme.spacing(3) }}>
-            Looking for a more structured approach? Explore our core services{" "}
-            <RouterLink
-              to="/services"
-              style={{ color: theme.palette.primary.main }}
-            >
-              here
-            </RouterLink>
-            .
-          </Typography>
 
           <Grid container spacing={3}>
             {sorted.map((post) => (

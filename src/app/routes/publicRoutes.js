@@ -5,6 +5,8 @@ import ConstructionPaymentReporting from "slices/marketing/construction/Construc
 import IndustryInsights from "slices/marketing/insights/IndustryInsights";
 import Services from "slices/marketing/services/Services";
 import Industries from "slices/marketing/industries/Industries";
+import KnowledgeIndex from "slices/marketing/insights/knowledge/KnowledgeIndex";
+import KnowledgeArticlePage from "slices/marketing/insights/knowledge/KnowledgeArticlePage";
 import BlogIndex from "slices/marketing/insights/blog/BlogIndex";
 import BlogPostPage from "slices/marketing/insights/blog/BlogPostPage";
 import { Contact, ContactThankyou } from "slices/public/forms";
@@ -48,6 +50,11 @@ export const publicRoutes = [
   },
   { path: "insights/blog", Component: BlogIndex },
   { path: "insights/blog/:slug", Component: BlogPostPage },
+  { path: "insights/knowledge", Component: KnowledgeIndex },
+  {
+    path: "insights/knowledge/:slug",
+    Component: KnowledgeArticlePage,
+  },
   { path: "insights", Component: IndustryInsights },
   {
     path: "payment-times-reporting-print",

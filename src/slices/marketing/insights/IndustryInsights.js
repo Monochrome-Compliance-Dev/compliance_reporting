@@ -17,15 +17,16 @@ export default function IndustryInsights() {
   const theme = useTheme();
 
   const contentMaxWidth = 1080;
+  const pdfHref = "/documents/insights";
 
-  const industryInsights = [
+  const insights = [
     {
       series: "Industry Insight Series #1",
       title: "Construction Payment Times: Compliance vs Optics",
       description:
         "Why construction entities governed by Security of Payment legislation can appear slow in PTRS reporting even when operating within contractual and statutory frameworks.",
       publishDate: "February 2026",
-      href: "/insights/Industry_Insight_Series_01_Construction_Payment_Times.pdf",
+      href: `${pdfHref}/Industry_Insight_Series_01_Construction_Payment_Times.pdf`,
       tags: ["Construction", "PTRS", "Payment timing"],
     },
     {
@@ -34,34 +35,17 @@ export default function IndustryInsights() {
       description:
         "A practical look at the operational mechanics that can quietly affect reported payment outcomes across large and complex organisations.",
       publishDate: "June 2026",
-      href: "/insights/The_Hidden_Drivers_of_Poor_Payment_Metrics.pdf",
+      href: `${pdfHref}/The_Hidden_Drivers_of_Poor_Payment_Metrics.pdf`,
       tags: ["Payment behaviour", "Operational delay", "P95"],
     },
     {
       series: "Industry Insight Series #3",
       title: "How Can You Fix Your PTRS?",
       description:
-        "A practical guide to understanding P95, why averages can point organisations in the wrong direction, and how earlier visibility can support stronger reporting outcomes.",
+        "A practical guide to understanding P95, why averages can point organisations in the wrong direction, and how targeted operational changes can improve reported payment outcomes.",
       publishDate: "July 2026",
-      href: "/insights/How%20Can%20You%20Fix%20Your%20PTRS%3F.pdf",
+      href: `${pdfHref}/How%20Can%20You%20Fix%20Your%20PTRS%3F.pdf`,
       tags: ["PTRS", "P95", "Payment behaviour"],
-    },
-  ];
-
-  const articleTopics = [
-    {
-      title: "How Weekly Payment Runs Distort Payment Metrics",
-      description:
-        "Why ordinary payment cycle timing can create unexpected elapsed-day impacts in PTRS reporting.",
-      status: "Published",
-      href: "/insights/blog/how-weekly-payment-runs-distort-payment-metrics",
-    },
-    {
-      title: "Operational Delay vs Behavioural Delay",
-      description:
-        "A plain-English distinction between process-driven payment lag and deliberate payment behaviour.",
-      status: "Published",
-      href: "/insights/blog/operational-delay-vs-behavioural-delay",
     },
   ];
 
@@ -117,6 +101,7 @@ export default function IndustryInsights() {
             <Typography variant="h4" sx={{ fontWeight: 700 }}>
               Industry Insight Series
             </Typography>
+
             <Typography
               variant="body1"
               color={theme.palette.text.secondary}
@@ -129,8 +114,8 @@ export default function IndustryInsights() {
           </Stack>
 
           <Grid container spacing={3}>
-            {industryInsights.map((insight) => (
-              <Grid key={insight.title} size={{ xs: 12, md: 6 }}>
+            {insights.map((insight) => (
+              <Grid key={insight.series} size={{ xs: 12 }}>
                 <Card
                   elevation={0}
                   sx={{
@@ -155,7 +140,11 @@ export default function IndustryInsights() {
                     <Typography
                       variant="body1"
                       color={theme.palette.text.secondary}
-                      sx={{ mt: 1.5, mb: theme.spacing(2.5), lineHeight: 1.65 }}
+                      sx={{
+                        mt: 1.5,
+                        mb: theme.spacing(2.5),
+                        lineHeight: 1.65,
+                      }}
                     >
                       {insight.description}
                     </Typography>
@@ -193,139 +182,54 @@ export default function IndustryInsights() {
             ))}
           </Grid>
 
-          <Divider
-            sx={{ my: { xs: theme.spacing(4), md: theme.spacing(5) } }}
-          />
+          <Divider sx={{ my: theme.spacing(4) }} />
 
-          <Grid container spacing={3}>
-            <Grid size={{ xs: 12, md: 7 }}>
-              <Stack spacing={1} sx={{ mb: theme.spacing(3) }}>
-                <Typography variant="h4" sx={{ fontWeight: 700 }}>
-                  Articles & analysis
-                </Typography>
-                <Typography
-                  variant="body1"
-                  color={theme.palette.text.secondary}
-                  sx={{ lineHeight: 1.65 }}
-                >
-                  Shorter pieces that unpack specific payment reporting
-                  mechanics in a more focused way. These are written to be
-                  practical, searchable, and easy to share.
-                </Typography>
-              </Stack>
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
+            Knowledge Centre
+          </Typography>
 
-              <Stack spacing={2}>
-                {articleTopics.map((article) => (
-                  <Card
-                    key={article.title}
-                    elevation={0}
-                    sx={{
-                      border: `1px solid ${theme.palette.divider}`,
-                      backgroundColor: theme.palette.background.paper,
-                    }}
-                  >
-                    <CardContent>
-                      <Stack
-                        direction={{ xs: "column", sm: "row" }}
-                        spacing={2}
-                        justifyContent="space-between"
-                      >
-                        <Box>
-                          <Typography variant="h6" sx={{ fontWeight: 700 }}>
-                            {article.title}
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            color={theme.palette.text.secondary}
-                            sx={{ mt: 0.75, lineHeight: 1.6 }}
-                          >
-                            {article.description}
-                          </Typography>
-                        </Box>
+          <Typography
+            variant="body1"
+            color={theme.palette.text.secondary}
+            sx={{ mb: theme.spacing(2), lineHeight: 1.6 }}
+          >
+            Plain-English explanations of Payment Times Reporting concepts,
+            payment metrics and the operational processes that influence
+            reported outcomes.
+          </Typography>
 
-                        {article.href ? (
-                          <Button
-                            variant="outlined"
-                            color="primary"
-                            component={RouterLink}
-                            to={article.href}
-                            sx={{
-                              alignSelf: { xs: "flex-start", sm: "center" },
-                            }}
-                          >
-                            Read article
-                          </Button>
-                        ) : (
-                          <Chip
-                            label={article.status}
-                            size="small"
-                            color="primary"
-                            variant="outlined"
-                            sx={{
-                              alignSelf: { xs: "flex-start", sm: "center" },
-                            }}
-                          />
-                        )}
-                      </Stack>
-                    </CardContent>
-                  </Card>
-                ))}
-              </Stack>
+          <Button
+            variant="outlined"
+            color="primary"
+            component={RouterLink}
+            to="/insights/knowledge"
+          >
+            Explore the Knowledge Centre
+          </Button>
 
-              <Button
-                variant="outlined"
-                color="primary"
-                component={RouterLink}
-                to="/insights/blog"
-                sx={{ mt: theme.spacing(3) }}
-              >
-                View blog posts
-              </Button>
-            </Grid>
+          <Divider sx={{ my: theme.spacing(4) }} />
 
-            <Grid size={{ xs: 12, md: 5 }}>
-              <Card
-                elevation={0}
-                sx={{
-                  height: "100%",
-                  border: `1px solid ${theme.palette.divider}`,
-                  backgroundColor: theme.palette.background.paper,
-                }}
-              >
-                <CardContent sx={{ p: theme.spacing(3) }}>
-                  <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
-                    Knowledge Centre
-                  </Typography>
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
+            Blog
+          </Typography>
 
-                  <Typography
-                    variant="body1"
-                    color={theme.palette.text.secondary}
-                    sx={{ lineHeight: 1.65, mb: theme.spacing(2.5) }}
-                  >
-                    We are building a practical reference library for Payment
-                    Times Reporting concepts, including PTRS, P95, payment
-                    timing, regulator focus areas, and the operational mechanics
-                    that influence reported outcomes.
-                  </Typography>
+          <Typography
+            variant="body1"
+            color={theme.palette.text.secondary}
+            sx={{ mb: theme.spacing(2), lineHeight: 1.6 }}
+          >
+            Short posts that unpack specific mechanics behind payment reporting
+            in construction — written to be practical, searchable, and grounded.
+          </Typography>
 
-                  <Stack spacing={1.25}>
-                    <Chip label="PTRS fundamentals" variant="outlined" />
-                    <Chip label="P95 explainers" variant="outlined" />
-                    <Chip label="Payment behaviour" variant="outlined" />
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      component={RouterLink}
-                      to="/insights/knowledge"
-                      sx={{ alignSelf: "flex-start", mt: theme.spacing(1) }}
-                    >
-                      View Knowledge Centre
-                    </Button>
-                  </Stack>
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
+          <Button
+            variant="outlined"
+            color="primary"
+            component={RouterLink}
+            to="/insights/blog"
+          >
+            View blog posts
+          </Button>
         </Box>
       </Box>
     </>
