@@ -17,7 +17,7 @@ export default function IndustryInsights() {
   const contentMaxWidth = 980;
 
   const pdfHref =
-    "/insights/Industry_Insight_Series_01_Construction_Payment_Times.pdf";
+    "/documents/insights/Industry_Insight_Series_01_Construction_Payment_Times.pdf";
 
   const insights = [
     {
@@ -106,6 +106,31 @@ export default function IndustryInsights() {
               </Grid>
             ))}
           </Grid>
+
+          <Divider sx={{ my: theme.spacing(4) }} />
+
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
+            Knowledge Centre
+          </Typography>
+
+          <Typography
+            variant="body1"
+            color={theme.palette.text.secondary}
+            sx={{ mb: theme.spacing(2), lineHeight: 1.6 }}
+          >
+            Plain-English explanations of Payment Times Reporting concepts,
+            payment metrics and the operational processes that influence
+            reported outcomes.
+          </Typography>
+
+          <Button
+            variant="outlined"
+            color="primary"
+            component={RouterLink}
+            to="/insights/knowledge"
+          >
+            Explore the Knowledge Centre
+          </Button>
 
           <Divider sx={{ my: theme.spacing(4) }} />
 

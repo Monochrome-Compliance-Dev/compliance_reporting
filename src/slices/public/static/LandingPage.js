@@ -1,21 +1,24 @@
-import {
-  Box,
-  Typography,
-  Grid,
-  Card,
-  useTheme,
-  Divider,
-  Button,
-} from "@mui/material";
+import { Box, Typography, Grid, Card, useTheme, Button } from "@mui/material";
 import { Link as RouterLink } from "react-router";
 
 export function LandingPage() {
   const theme = useTheme();
 
-  const contentMaxWidth = 1100;
   const sectionSx = {
-    maxWidth: contentMaxWidth,
+    width: "calc(100% - 32px)",
+    maxWidth: 1440,
     mx: "auto",
+  };
+
+  const spacingSx = {
+    section: {
+      xs: 5,
+      md: 5,
+    },
+    group: {
+      xs: 3,
+      md: 4,
+    },
   };
 
   return (
@@ -29,7 +32,7 @@ export function LandingPage() {
         sx={{
           position: "relative",
           overflow: "hidden",
-          mb: 4,
+          mb: 0,
           minHeight: { xs: 220, sm: 280, md: 360 },
           display: "flex",
           alignItems: "center",
@@ -131,10 +134,11 @@ export function LandingPage() {
         sx={{
           ...sectionSx,
           px: { xs: 2, sm: 4, md: 6 },
-          py: { xs: 6, md: 8 },
+          pt: spacingSx.section,
+          pb: spacingSx.section,
         }}
       >
-        <Typography variant="h6" textAlign="center" sx={{ mt: 4, mb: 3 }}>
+        <Typography variant="h6" textAlign="center" sx={{ mb: 3 }}>
           Two ways we can help
         </Typography>
 
@@ -158,7 +162,7 @@ export function LandingPage() {
                 loading="lazy"
                 sx={{
                   width: "100%",
-                  height: { xs: 170, md: 190 },
+                  aspectRatio: "2.5 / 1",
                   objectFit: "cover",
                   borderRadius: 2,
                   mb: theme.spacing(2),
@@ -211,7 +215,7 @@ export function LandingPage() {
                 loading="lazy"
                 sx={{
                   width: "100%",
-                  height: { xs: 170, md: 190 },
+                  aspectRatio: "2.5 / 1",
                   objectFit: "cover",
                   borderRadius: 2,
                   mb: theme.spacing(2),
@@ -251,23 +255,41 @@ export function LandingPage() {
         sx={{
           ...sectionSx,
           px: { xs: 2, sm: 4, md: 6 },
-          pb: { xs: 6, md: 8 },
+          pb: spacingSx.section,
         }}
       >
-        <Card
-          variant="outlined"
+        <Box
           sx={{
-            p: { xs: 3, md: 4 },
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1.05fr 0.95fr" },
+            alignItems: "stretch",
+            overflow: "hidden",
+            border: `1px solid ${theme.palette.divider}`,
+            borderRadius: 3,
             backgroundColor: theme.palette.background.paper,
-            borderColor: theme.palette.divider,
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            alignItems: { xs: "flex-start", md: "center" },
-            justifyContent: "space-between",
-            gap: 3,
           }}
         >
-          <Box sx={{ maxWidth: 760 }}>
+          <Box
+            component="img"
+            src="/images/insights/insights.jpg"
+            alt="Payment Times Reporting public register analysis"
+            loading="lazy"
+            sx={{
+              width: "100%",
+              height: { xs: 240, sm: 320, md: "100%" },
+              minHeight: { md: 390 },
+              objectFit: "cover",
+            }}
+          />
+
+          <Box
+            sx={{
+              p: { xs: 3, sm: 4, md: 5 },
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          >
             <Typography
               variant="overline"
               sx={{
@@ -279,153 +301,533 @@ export function LandingPage() {
               Explore the public register
             </Typography>
 
-            <Typography variant="h5" sx={{ fontWeight: 800, mt: 0.5, mb: 1 }}>
+            <Typography
+              variant="h4"
+              sx={{
+                fontWeight: 800,
+                mt: 0.75,
+                mb: 2,
+                lineHeight: 1.2,
+              }}
+            >
               See how reporting entities are paying small businesses
             </Typography>
 
             <Typography
-              variant="body2"
+              variant="body1"
               color={theme.palette.text.secondary}
-              sx={{ lineHeight: 1.7 }}
+              sx={{
+                lineHeight: 1.75,
+                mb: theme.spacing(3),
+              }}
             >
-              Search thousands of Payment Times Reports, compare results within
-              each industry division and review payment performance trends over
+              Search thousands of Payment Times Reports, compare organisations
+              within their industry and review payment performance trends over
               time.
             </Typography>
+
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                alignItems: { xs: "stretch", sm: "center" },
+                gap: 1.5,
+              }}
+            >
+              <Button
+                variant="contained"
+                component={RouterLink}
+                to="/regulator-payment-times"
+                sx={{
+                  px: 3,
+                  fontWeight: 800,
+                }}
+              >
+                Search companies
+              </Button>
+
+              <Button
+                variant="outlined"
+                component={RouterLink}
+                to="/regulator-payment-times/industries"
+                sx={{
+                  px: 3,
+                  fontWeight: 800,
+                }}
+              >
+                Explore industries
+              </Button>
+            </Box>
           </Box>
+        </Box>
+      </Box>
+
+      <Box
+        sx={{
+          ...sectionSx,
+          px: { xs: 2, sm: 4, md: 6 },
+          mb: spacingSx.section,
+        }}
+      >
+        <Box sx={{ textAlign: "center", mb: theme.spacing(4) }}>
+          <Typography
+            variant="overline"
+            sx={{
+              color: theme.palette.primary.main,
+              fontWeight: 800,
+              letterSpacing: 1.4,
+            }}
+          >
+            Our thinking
+          </Typography>
+
+          <Typography variant="h4" sx={{ fontWeight: 800, mt: 0.5, mb: 1 }}>
+            Understand what is driving the result
+          </Typography>
+
+          <Typography
+            variant="body1"
+            color={theme.palette.text.secondary}
+            sx={{
+              maxWidth: 760,
+              mx: "auto",
+              lineHeight: 1.7,
+            }}
+          >
+            Practical analysis and plain-English explanations of Payment Times
+            Reporting, payment behaviour and the operational issues that
+            influence reported outcomes.
+          </Typography>
+        </Box>
+
+        <Grid container spacing={3}>
+          {[
+            {
+              type: "Blog",
+              title: "SOPA does not equal PTRS",
+              description:
+                "Construction payment rules and Payment Times Reporting obligations measure different things and need to be treated separately.",
+              image: "/images/services/payment-times-reporting.jpg",
+              alt: "Payment reporting documents and financial analysis",
+              to: "/insights/blog/why-sopa-compliance-doesnt-guarantee-strong-ptrs-results",
+            },
+            {
+              type: "Knowledge Centre",
+              title: "What is a payment run?",
+              description:
+                "How payment schedules influence supplier outcomes and why a routine weekly process can create avoidable reporting delays.",
+              image: "/images/insights/insights2.jpg",
+              alt: "Payment behaviour analysis and reporting schedule",
+              to: "/insights/knowledge/what-is-a-payment-run",
+            },
+            {
+              type: "Knowledge Centre",
+              title: "What does a P95 of 30 days mean?",
+              description:
+                "A practical explanation of tail performance and what the slowest-paid invoices can reveal about an organisation’s processes.",
+              image: "/images/brand/hero3.jpg",
+              alt: "Payment performance data and analytical reporting",
+              to: "/insights/knowledge/what-does-a-p95-of-30-days-mean",
+            },
+          ].map((item) => (
+            <Grid
+              key={item.title}
+              size={{ xs: 12, md: 4 }}
+              sx={{ display: "flex" }}
+            >
+              <Card
+                variant="outlined"
+                sx={{
+                  width: "100%",
+                  overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
+                  backgroundColor: theme.palette.background.paper,
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                  "&:hover": {
+                    transform: "translateY(-4px)",
+                    boxShadow: 4,
+                  },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={item.image}
+                  alt={item.alt}
+                  loading="lazy"
+                  sx={{
+                    width: "100%",
+                    aspectRatio: "16 / 7",
+                    objectFit: "cover",
+                  }}
+                />
+
+                <Box
+                  sx={{
+                    p: { xs: 2.5, md: 3 },
+                    display: "flex",
+                    flexDirection: "column",
+                    flexGrow: 1,
+                  }}
+                >
+                  <Typography
+                    variant="overline"
+                    sx={{
+                      color: theme.palette.primary.main,
+                      fontWeight: 800,
+                      letterSpacing: 1.2,
+                      mb: 0.5,
+                    }}
+                  >
+                    {item.type}
+                  </Typography>
+
+                  <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
+                    {item.title}
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    color={theme.palette.text.secondary}
+                    sx={{
+                      lineHeight: 1.7,
+                      mb: theme.spacing(3),
+                    }}
+                  >
+                    {item.description}
+                  </Typography>
+
+                  <Button
+                    variant="text"
+                    component={RouterLink}
+                    to={item.to}
+                    sx={{
+                      mt: "auto",
+                      px: 0,
+                      alignSelf: "flex-start",
+                      fontWeight: 800,
+                    }}
+                  >
+                    Read article →
+                  </Button>
+                </Box>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+
+        <Card
+          variant="outlined"
+          sx={{
+            mt: theme.spacing(5),
+            p: { xs: 3, md: 4 },
+            backgroundColor: theme.palette.background.default,
+          }}
+        >
+          <Typography
+            variant="overline"
+            sx={{
+              color: theme.palette.primary.main,
+              fontWeight: 800,
+              letterSpacing: 1.4,
+            }}
+          >
+            Join the conversation
+          </Typography>
+
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 800,
+              mt: 0.5,
+              mb: 1,
+            }}
+          >
+            Follow Monochrome Compliance on LinkedIn
+          </Typography>
+
+          <Typography
+            variant="body2"
+            color={theme.palette.text.secondary}
+            sx={{
+              lineHeight: 1.7,
+              mb: theme.spacing(4),
+              maxWidth: 720,
+            }}
+          >
+            We regularly share practical observations, operational lessons and
+            commentary on Payment Times Reporting between our longer articles.
+          </Typography>
+
+          <Grid container spacing={2.5}>
+            {[
+              {
+                title:
+                  "SOPA compliance does not guarantee a strong PTRS result",
+                description:
+                  "Why construction payment obligations and Payment Times Reporting measure different things.",
+                image: "/images/linkedin/sopa-vs-ptrs.jpg",
+                alt: "Construction payment compliance and Payment Times Reporting",
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7482569576363290625/?actorCompanyId=107866673",
+              },
+              {
+                title:
+                  "Poor payment metrics do not always mean poor payment behaviour",
+                description:
+                  "Operational delays can quietly distort reported payment outcomes.",
+                image: "/images/linkedin/operational-payment-delays.jpg",
+                alt: "Operational payment delays affecting reported payment performance",
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7467059424604438528/?actorCompanyId=107866673",
+              },
+              {
+                title: "Are you watching your tail?",
+                description:
+                  "A TGIF reminder that averages rarely tell the whole story.",
+                image: "/images/linkedin/watching-your-tail.jpg",
+                alt: "Tiger representing payment performance tail metrics",
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7465911039914844160/?actorCompanyId=107866673",
+              },
+            ].map((post) => (
+              <Grid
+                key={post.title}
+                size={{ xs: 12, md: 4 }}
+                sx={{ display: "flex" }}
+              >
+                <Card
+                  variant="outlined"
+                  sx={{
+                    width: "100%",
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                    backgroundColor: theme.palette.background.paper,
+                    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                    "&:hover": {
+                      transform: "translateY(-4px)",
+                      boxShadow: 4,
+                    },
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={post.image}
+                    alt={post.alt}
+                    loading="lazy"
+                    sx={{
+                      width: "100%",
+                      aspectRatio: "16 / 9",
+                      objectFit: "cover",
+                    }}
+                  />
+
+                  <Box
+                    sx={{
+                      p: 3,
+                      display: "flex",
+                      flexDirection: "column",
+                      flexGrow: 1,
+                    }}
+                  >
+                    <Typography
+                      variant="overline"
+                      sx={{
+                        color: theme.palette.primary.main,
+                        fontWeight: 800,
+                        letterSpacing: 1.2,
+                        mb: 0.5,
+                      }}
+                    >
+                      LinkedIn
+                    </Typography>
+
+                    <Typography
+                      variant="subtitle1"
+                      sx={{
+                        fontWeight: 700,
+                        mb: 1,
+                      }}
+                    >
+                      {post.title}
+                    </Typography>
+
+                    <Typography
+                      variant="body2"
+                      color={theme.palette.text.secondary}
+                      sx={{
+                        flexGrow: 1,
+                        lineHeight: 1.7,
+                        mb: 2,
+                      }}
+                    >
+                      {post.description}
+                    </Typography>
+
+                    <Button
+                      component="a"
+                      href={post.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        alignSelf: "flex-start",
+                        px: 0,
+                        fontWeight: 700,
+                      }}
+                    >
+                      View on LinkedIn →
+                    </Button>
+                  </Box>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
 
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
-              gap: 1.5,
-              flexShrink: 0,
-              width: { xs: "100%", md: "auto" },
+              justifyContent: "center",
+              mt: theme.spacing(4),
             }}
           >
             <Button
-              variant="outlined"
-              component={RouterLink}
-              to="/regulator-payment-times"
-              sx={{
-                px: 3,
-                fontWeight: 800,
-              }}
-            >
-              Search companies
-            </Button>
-
-            <Button
               variant="contained"
-              component={RouterLink}
-              to="/regulator-payment-times/industries"
-              sx={{
-                px: 3,
-                fontWeight: 800,
-              }}
+              component="a"
+              href="https://www.linkedin.com/company/monochrome-compliance/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Explore industries
+              Follow Monochrome Compliance
             </Button>
           </Box>
         </Card>
-      </Box>
 
-      <Divider />
-
-      <Box sx={{ ...sectionSx, px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
-        <Typography variant="h6" textAlign="center" gutterBottom>
-          The reporting result is only the end of the story
-        </Typography>
-
-        <Typography variant="body2" textAlign="center" sx={{ mb: 4 }}>
-          Payment Times Reporting is shaped by everyday operational choices. We
-          help you understand which of those choices are actually driving the
-          result.
-        </Typography>
-
-        <Grid container spacing={3} justifyContent="center" sx={{ mt: 2 }}>
-          {[
-            {
-              title: "SOPA does not equal PTRS",
-              description:
-                "Construction payment rules and Payment Times Reporting obligations measure different things and need to be treated separately.",
-              to: "/insights",
-            },
-            {
-              title: "Weekly payment runs",
-              description:
-                "A routine payment schedule can create avoidable delays that materially affect reported payment performance.",
-              to: "/insights",
-            },
-            {
-              title: "Why P95 problems are rarely random",
-              description:
-                "Poor tail performance is usually concentrated around a small number of operational causes that can be identified and addressed.",
-              to: "/insights",
-            },
-          ].map((card) => (
-            <Grid
-              key={card.title}
-              size={{ xs: 12, sm: 8, md: 4 }}
-              sx={{ display: "flex" }}
-            >
-              <Box sx={{ ...sectionSx, width: "100%" }}>
-                <RouterLink to={card.to} style={{ textDecoration: "none" }}>
-                  <Card
-                    sx={{
-                      p: 3,
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      transition: "transform 0.2s ease, box-shadow 0.2s ease",
-                      "&:hover": {
-                        transform: "translateY(-4px)",
-                        boxShadow: 4,
-                      },
-                    }}
-                  >
-                    <Typography variant="h6" gutterBottom>
-                      {card.title}
-                    </Typography>
-
-                    <Typography variant="body2">{card.description}</Typography>
-                  </Card>
-                </RouterLink>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-
-      <Divider />
-
-      <Box
-        textAlign="center"
-        sx={{ ...sectionSx, px: { xs: 2, sm: 4, md: 8 }, py: 4 }}
-      >
-        <Typography variant="h6" gutterBottom>
-          Know where you stand before the reporting period closes
-        </Typography>
-
-        <Typography variant="body2" sx={{ mb: 2 }}>
-          Whether you need help preparing your next submission or ongoing
-          visibility into payment behaviour, we’re happy to talk through your
-          situation.
-        </Typography>
-
-        <Button
-          variant="contained"
-          size="large"
-          component={RouterLink}
-          to="/contact"
+        <Box
           sx={{
-            px: 4,
-            fontWeight: 700,
+            mt: spacingSx.group,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: { xs: 1.5, sm: 3 },
+            flexWrap: "wrap",
           }}
         >
-          Talk to us
-        </Button>
+          <Typography
+            component={RouterLink}
+            to="/insights"
+            sx={{
+              color: theme.palette.primary.main,
+              fontWeight: 700,
+              textDecoration: "none",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
+          >
+            Industry Insights
+          </Typography>
+
+          <Typography color={theme.palette.text.secondary}>•</Typography>
+
+          <Typography
+            component={RouterLink}
+            to="/insights/knowledge"
+            sx={{
+              color: theme.palette.primary.main,
+              fontWeight: 700,
+              textDecoration: "none",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
+          >
+            Knowledge Centre
+          </Typography>
+
+          <Typography color={theme.palette.text.secondary}>•</Typography>
+
+          <Typography
+            component={RouterLink}
+            to="/insights/blog"
+            sx={{
+              color: theme.palette.primary.main,
+              fontWeight: 700,
+              textDecoration: "none",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
+          >
+            Blog
+          </Typography>
+        </Box>
+      </Box>
+
+      <Box
+        sx={{
+          ...sectionSx,
+          px: { xs: 2, sm: 4, md: 6 },
+          mb: spacingSx.section,
+        }}
+      >
+        <Box
+          sx={{
+            px: { xs: 3, sm: 4, md: 6 },
+            py: { xs: 4, md: 5 },
+            textAlign: "center",
+            border: `1px solid ${theme.palette.divider}`,
+            borderRadius: 3,
+            backgroundColor: theme.palette.background.paper,
+          }}
+        >
+          <Typography
+            variant="overline"
+            sx={{
+              color: theme.palette.primary.main,
+              fontWeight: 800,
+              letterSpacing: 1.4,
+            }}
+          >
+            Ready when you are
+          </Typography>
+
+          <Typography
+            variant="h4"
+            sx={{
+              fontWeight: 800,
+              mt: 0.5,
+              mb: 1.5,
+            }}
+          >
+            Know where you stand before the reporting period closes
+          </Typography>
+
+          <Typography
+            variant="body1"
+            color={theme.palette.text.secondary}
+            sx={{
+              maxWidth: 760,
+              mx: "auto",
+              mb: theme.spacing(3),
+              lineHeight: 1.7,
+            }}
+          >
+            Whether you need help preparing your next submission or ongoing
+            visibility into payment behaviour, we’re happy to talk through your
+            situation.
+          </Typography>
+
+          <Button
+            variant="contained"
+            size="large"
+            component={RouterLink}
+            to="/contact"
+            sx={{
+              px: 4,
+              fontWeight: 800,
+            }}
+          >
+            Talk to us
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
