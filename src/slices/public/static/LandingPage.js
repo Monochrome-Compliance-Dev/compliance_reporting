@@ -400,6 +400,66 @@ export function LandingPage() {
           </Typography>
         </Box>
 
+        <Box
+          sx={{
+            mb: spacingSx.group,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: { xs: 1.5, sm: 3 },
+            flexWrap: "wrap",
+          }}
+        >
+          <Typography
+            component={RouterLink}
+            to="/insights"
+            sx={{
+              color: theme.palette.primary.main,
+              fontWeight: 700,
+              textDecoration: "none",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
+          >
+            Industry Insights
+          </Typography>
+
+          <Typography color={theme.palette.text.secondary}>•</Typography>
+
+          <Typography
+            component={RouterLink}
+            to="/insights/knowledge"
+            sx={{
+              color: theme.palette.primary.main,
+              fontWeight: 700,
+              textDecoration: "none",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
+          >
+            Knowledge Centre
+          </Typography>
+
+          <Typography color={theme.palette.text.secondary}>•</Typography>
+
+          <Typography
+            component={RouterLink}
+            to="/insights/blog"
+            sx={{
+              color: theme.palette.primary.main,
+              fontWeight: 700,
+              textDecoration: "none",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
+          >
+            Blog
+          </Typography>
+        </Box>
+
         <Grid container spacing={3}>
           {[
             {
@@ -699,66 +759,6 @@ export function LandingPage() {
             </Button>
           </Box>
         </Card>
-
-        <Box
-          sx={{
-            mt: spacingSx.group,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: { xs: 1.5, sm: 3 },
-            flexWrap: "wrap",
-          }}
-        >
-          <Typography
-            component={RouterLink}
-            to="/insights"
-            sx={{
-              color: theme.palette.primary.main,
-              fontWeight: 700,
-              textDecoration: "none",
-              "&:hover": {
-                textDecoration: "underline",
-              },
-            }}
-          >
-            Industry Insights
-          </Typography>
-
-          <Typography color={theme.palette.text.secondary}>•</Typography>
-
-          <Typography
-            component={RouterLink}
-            to="/insights/knowledge"
-            sx={{
-              color: theme.palette.primary.main,
-              fontWeight: 700,
-              textDecoration: "none",
-              "&:hover": {
-                textDecoration: "underline",
-              },
-            }}
-          >
-            Knowledge Centre
-          </Typography>
-
-          <Typography color={theme.palette.text.secondary}>•</Typography>
-
-          <Typography
-            component={RouterLink}
-            to="/insights/blog"
-            sx={{
-              color: theme.palette.primary.main,
-              fontWeight: 700,
-              textDecoration: "none",
-              "&:hover": {
-                textDecoration: "underline",
-              },
-            }}
-          >
-            Blog
-          </Typography>
-        </Box>
       </Box>
 
       <Box
