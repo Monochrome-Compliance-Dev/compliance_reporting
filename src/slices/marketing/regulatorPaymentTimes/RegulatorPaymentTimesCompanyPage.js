@@ -506,7 +506,6 @@ function P95TrendChart({ reports }) {
             sx={{
               display: "block",
               width: "100%",
-              minWidth: 560,
             }}
           >
             <line
@@ -546,7 +545,7 @@ function P95TrendChart({ reports }) {
                     y={point.y - 16}
                     textAnchor="middle"
                     fill={theme.palette.text.primary}
-                    fontSize="14"
+                    fontSize="10"
                     fontWeight="700"
                   >
                     {point.value.toFixed(1)} days
@@ -557,7 +556,7 @@ function P95TrendChart({ reports }) {
                     y={height - 10}
                     textAnchor="middle"
                     fill={theme.palette.text.secondary}
-                    fontSize="12"
+                    fontSize="10"
                   >
                     {formatMonthYear(report.reportingPeriodEndDate)}
                   </text>
