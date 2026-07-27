@@ -1,224 +1,327 @@
 import { createTheme } from "@mui/material/styles";
 
 const lightPalette = {
-  primary: { main: "#7c4dff" }, // Accent purple #7c4dff
-  secondary: { main: "#6f7e8c" }, // Steel grey #6f7e8c
+  primary: {
+    main: "#7c4dff",
+    dark: "#6138d8",
+    light: "#a980ff",
+  },
+  secondary: {
+    main: "#6f7e8c",
+  },
   background: {
-    default: "#f4f6f8", // Background default #f4f6f8
-    paper: "#ffffff", // Background paper #ffffff
-    navbar: "#e1e5ea", // Navbar background #e1e5ea
+    default: "#f4f6f8",
+    paper: "#ffffff",
+    navbar: "#e1e5ea",
+    subtle: "#eef1f4",
   },
   text: {
-    primary: "#1e1e1e", // Primary text #1e1e1e
-    secondary: "#4d4d4d", // Secondary text #4d4d4d
+    primary: "#1e1e1e",
+    secondary: "#4d4d4d",
   },
-  action: { hoverOpacity: 0.08 },
+  divider: "#d9dee3",
+  action: {
+    hoverOpacity: 0.08,
+  },
 };
 
 const darkPalette = {
-  primary: { main: "#1e88e5" }, // Mid-blue for dark CTAs #1e88e5
-  secondary: { main: "#6f7e8c" }, // Steel grey #6f7e8c
+  primary: {
+    main: "#1e88e5",
+    dark: "#1565c0",
+    light: "#64b5f6",
+  },
+  secondary: {
+    main: "#6f7e8c",
+  },
   background: {
-    default: "#292940", // Background default #1e1e2f
-    paper: "#2b2b3c", // Background paper #2b2b3c
-    navbar: "#1e1e2f", // Navbar background #1e1e2f
+    default: "#292940",
+    paper: "#2b2b3c",
+    navbar: "#1e1e2f",
+    subtle: "#242436",
   },
   text: {
-    primary: "#f0f2f5", // Primary text #f0f2f5
-    secondary: "#aeb0b5", // Secondary text #aeb0b5
+    primary: "#f0f2f5",
+    secondary: "#aeb0b5",
   },
-  action: { hoverOpacity: 0.08 },
+  divider: "#434356",
+  action: {
+    hoverOpacity: 0.08,
+  },
 };
 
 const globalTheme = (mode) => {
-  // Ensure mode is extracted if passed as an object or is undefined
-  if (typeof mode === "object" && mode.mode) {
-    mode = mode.mode; // Extract the mode property
-  }
+  const resolvedMode =
+    typeof mode === "object" && mode?.mode ? mode.mode : mode;
 
-  if (!mode || typeof mode !== "string") mode = "light"; // Default to light mode if mode is invalid
+  const activeMode = typeof resolvedMode === "string" ? resolvedMode : "light";
 
-  // console.log("globalTheme mode", mode); // Debug log to check the theme mode
+  const palette = activeMode === "dark" ? darkPalette : lightPalette;
 
   return createTheme({
     palette: {
-      mode, // Ensure mode is either "light" or "dark"
-      ...(mode === "light" ? lightPalette : darkPalette),
-      neutral: { main: "#6f7e8c", light: "#a3adb8", dark: "#495566" },
-    },
-    // Status color extension
-    status: {
-      success: "#2ecc71", // #2ecc71
-      warning: "#f39c12", // #f39c12
-      danger: "#e74c3c", // #e74c3c
-    },
-    typography: {
-      fontFamily: "'Outfit','Roboto', 'Helvetica', 'Arial', sans-serif",
-      h4: {
-        fontWeight: 600,
-        fontSize: "1.8rem",
+      mode: activeMode,
+      ...palette,
+      neutral: {
+        main: "#6f7e8c",
+        light: "#a3adb8",
+        dark: "#495566",
       },
+    },
+
+    status: {
+      success: "#2ecc71",
+      warning: "#f39c12",
+      danger: "#e74c3c",
+    },
+
+    layout: {
+      public: {
+        maxWidth: 1440,
+        contentWidth: 1180,
+        textWidth: 760,
+        pageGutter: {
+          xs: 2,
+          sm: 3,
+          md: 5,
+          lg: 6,
+        },
+        sectionSpacing: {
+          xs: 6,
+          md: 9,
+        },
+        sectionPadding: {
+          xs: 3,
+          sm: 4,
+          md: 6,
+        },
+        cardPadding: {
+          xs: 2.5,
+          sm: 3,
+        },
+        borderRadius: 3,
+      },
+    },
+
+    typography: {
+      fontFamily: "'Outfit', 'Roboto', 'Helvetica', 'Arial', sans-serif",
+
+      h1: {
+        fontSize: "clamp(2.25rem, 5vw, 4.25rem)",
+        fontWeight: 700,
+        lineHeight: 1.08,
+        letterSpacing: "-0.035em",
+      },
+
+      h2: {
+        fontSize: "clamp(1.9rem, 3.5vw, 3rem)",
+        fontWeight: 700,
+        lineHeight: 1.15,
+        letterSpacing: "-0.025em",
+      },
+
+      h3: {
+        fontSize: "clamp(1.65rem, 2.5vw, 2.35rem)",
+        fontWeight: 700,
+        lineHeight: 1.2,
+        letterSpacing: "-0.02em",
+      },
+
+      h4: {
+        fontSize: "clamp(1.4rem, 2vw, 1.8rem)",
+        fontWeight: 700,
+        lineHeight: 1.25,
+        letterSpacing: "-0.015em",
+      },
+
+      h5: {
+        fontSize: "1.25rem",
+        fontWeight: 700,
+        lineHeight: 1.35,
+      },
+
+      h6: {
+        fontSize: "1.05rem",
+        fontWeight: 700,
+        lineHeight: 1.4,
+      },
+
+      subtitle1: {
+        fontSize: "1rem",
+        fontWeight: 600,
+        lineHeight: 1.5,
+      },
+
+      subtitle2: {
+        fontSize: "0.875rem",
+        fontWeight: 600,
+        lineHeight: 1.5,
+      },
+
       body1: {
         fontSize: "1rem",
-        color:
-          mode === "light"
-            ? lightPalette.text.primary
-            : darkPalette.text.primary, // Adjust text color for modes
         lineHeight: 1.7,
       },
-      // Additional variants
+
       body2: {
         fontSize: "0.875rem",
         lineHeight: 1.6,
       },
-      subtitle1: {
-        fontWeight: 500,
-        fontSize: "1rem",
+
+      overline: {
+        fontSize: "0.75rem",
+        fontWeight: 700,
+        lineHeight: 1.5,
+        letterSpacing: "0.1em",
+        textTransform: "uppercase",
       },
+
       caption: {
         fontSize: "0.75rem",
-        color:
-          mode === "light"
-            ? lightPalette.text.secondary
-            : darkPalette.text.secondary,
+        lineHeight: 1.5,
       },
+
+      button: {
+        fontWeight: 600,
+        textTransform: "none",
+      },
+
       allVariants: {
-        color:
-          mode === "light"
-            ? lightPalette.text.primary
-            : darkPalette.text.primary,
-        lineHeight: 1.7,
+        color: palette.text.primary,
       },
     },
+
     shape: {
       borderRadius: 8,
     },
+
     spacing: 8,
+
     components: {
-      MuiPaper: {
+      MuiCssBaseline: {
         styleOverrides: {
-          root: {
-            padding: "16px",
-            borderRadius: "8px",
-            boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-            backgroundColor:
-              mode === "light"
-                ? lightPalette.background.paper
-                : darkPalette.background.paper,
+          html: {
+            scrollBehavior: "smooth",
+          },
+          body: {
+            backgroundColor: palette.background.default,
+          },
+          "*": {
+            boxSizing: "border-box",
+          },
+          img: {
+            maxWidth: "100%",
           },
         },
       },
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            textTransform: "none", // Disable uppercase text
-            borderRadius: "8px",
-            padding: "10px 16px",
-          },
-          containedPrimary: {
-            backgroundColor: mode === "light" ? "#7c4dff" : "#1e88e5",
-            "&:hover": {
-              backgroundColor: mode === "light" ? "#9575cd" : "#42a5f5",
-            },
-          },
-          outlined: {
-            borderColor:
-              mode === "light"
-                ? lightPalette.primary.main
-                : darkPalette.primary.main,
-            color:
-              mode === "light"
-                ? lightPalette.text.secondary
-                : darkPalette.text.secondary,
-            "&:hover": {
-              borderColor:
-                mode === "light"
-                  ? lightPalette.text.secondary
-                  : darkPalette.text.secondary,
-              backgroundColor: mode === "light" ? "#ede7f6" : "#3a3a4d",
-            },
-          },
-        },
-      },
-      MuiTextField: {
-        styleOverrides: {
-          root: {
-            marginBottom: "16px", // Consistent spacing between fields
-          },
-        },
-      },
-      MuiFormControl: {
-        styleOverrides: {
-          root: {
-            marginBottom: "16px", // Consistent spacing for form controls
-          },
-        },
-      },
-      MuiOutlinedInput: {
-        styleOverrides: {
-          root: {
-            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-              borderColor:
-                mode === "light"
-                  ? lightPalette.text.primary
-                  : darkPalette.text.primary,
-              borderWidth: "1.5px",
-            },
-          },
-          notchedOutline: {
-            borderColor:
-              mode === "light"
-                ? lightPalette.text.secondary
-                : darkPalette.text.secondary,
-          },
-        },
-      },
+
       MuiAppBar: {
         styleOverrides: {
           root: {
-            backgroundColor:
-              mode === "light"
-                ? lightPalette.background.navbar // Use navbar color for light mode
-                : darkPalette.background.navbar, // Use navbar color for dark mode
-            backgroundImage: "none", // Remove the default gradient
+            backgroundColor: palette.background.navbar,
+            backgroundImage: "none",
           },
         },
       },
-      MuiToggleButton: {
+
+      MuiPaper: {
+        defaultProps: {
+          elevation: 0,
+        },
         styleOverrides: {
           root: {
-            color:
-              mode === "light"
-                ? lightPalette.text.primary
-                : darkPalette.text.primary,
-            "&.Mui-selected": {
-              backgroundColor:
-                mode === "light"
-                  ? lightPalette.primary.main
-                  : darkPalette.primary.main,
-              color:
-                mode === "light"
-                  ? lightPalette.text.primary
-                  : darkPalette.text.primary,
-              "&:hover": {
-                backgroundColor:
-                  mode === "light"
-                    ? "#c0c0c0"
-                    : darkPalette.primary.dark || "#333", // fallback if not defined
-              },
+            backgroundColor: palette.background.paper,
+            backgroundImage: "none",
+          },
+          rounded: {
+            borderRadius: 16,
+          },
+        },
+      },
+
+      MuiCard: {
+        defaultProps: {
+          elevation: 0,
+        },
+        styleOverrides: {
+          root: {
+            border: `1px solid ${palette.divider}`,
+            borderRadius: 16,
+            backgroundImage: "none",
+          },
+        },
+      },
+
+      MuiCardContent: {
+        styleOverrides: {
+          root: {
+            padding: 24,
+            "&:last-child": {
+              paddingBottom: 24,
             },
           },
         },
       },
 
-      // Additional component overrides
+      MuiCardHeader: {
+        styleOverrides: {
+          root: {
+            padding: 24,
+          },
+          title: {
+            fontWeight: 700,
+          },
+          subheader: {
+            marginTop: 4,
+          },
+        },
+      },
+
+      MuiButton: {
+        defaultProps: {
+          disableElevation: true,
+        },
+        styleOverrides: {
+          root: {
+            minHeight: 42,
+            padding: "9px 18px",
+            borderRadius: 8,
+            fontWeight: 600,
+            textTransform: "none",
+          },
+
+          sizeSmall: {
+            minHeight: 34,
+            padding: "6px 12px",
+          },
+
+          sizeLarge: {
+            minHeight: 48,
+            padding: "11px 22px",
+          },
+
+          containedPrimary: {
+            backgroundColor: palette.primary.main,
+            "&:hover": {
+              backgroundColor: palette.primary.dark,
+            },
+          },
+
+          outlined: {
+            borderColor: palette.divider,
+            color: palette.text.primary,
+            "&:hover": {
+              borderColor: palette.text.secondary,
+              backgroundColor: activeMode === "light" ? "#ede7f6" : "#3a3a4d",
+            },
+          },
+        },
+      },
+
       MuiLink: {
         styleOverrides: {
           root: {
-            color:
-              mode === "light"
-                ? lightPalette.primary.main
-                : darkPalette.primary.main,
+            color: palette.primary.main,
             textDecoration: "none",
             "&:hover": {
               textDecoration: "underline",
@@ -226,33 +329,71 @@ const globalTheme = (mode) => {
           },
         },
       },
+
+      MuiTextField: {
+        defaultProps: {
+          variant: "outlined",
+        },
+      },
+
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            borderRadius: 8,
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: palette.primary.main,
+              borderWidth: 1.5,
+            },
+          },
+          notchedOutline: {
+            borderColor: palette.divider,
+          },
+        },
+      },
+
+      MuiFormControl: {
+        styleOverrides: {
+          root: {
+            minWidth: 0,
+          },
+        },
+      },
+
+      MuiTableCell: {
+        styleOverrides: {
+          root: {
+            borderBottom: `1px solid ${palette.divider}`,
+            color: palette.text.primary,
+          },
+          head: {
+            fontWeight: 700,
+            backgroundColor: activeMode === "light" ? "#f5f5f5" : "#1f1f2e",
+          },
+        },
+      },
+
       MuiTooltip: {
         styleOverrides: {
           tooltip: {
-            backgroundColor: mode === "light" ? "#333" : "#eee",
-            color: mode === "light" ? "#fff" : "#000",
+            backgroundColor: activeMode === "light" ? "#333333" : "#eeeeee",
+            color: activeMode === "light" ? "#ffffff" : "#000000",
             fontSize: "0.75rem",
           },
         },
       },
-      MuiTableCell: {
+
+      MuiToggleButton: {
         styleOverrides: {
           root: {
-            borderBottom: `1px solid ${mode === "light" ? "#e0e0e0" : "#444"}`,
-            color:
-              mode === "light"
-                ? lightPalette.text.primary
-                : darkPalette.text.primary,
+            color: palette.text.primary,
+            "&.Mui-selected": {
+              backgroundColor: palette.primary.main,
+              color: "#ffffff",
+              "&:hover": {
+                backgroundColor: palette.primary.dark,
+              },
+            },
           },
-          head: {
-            fontWeight: 600,
-            backgroundColor: mode === "light" ? "#f5f5f5" : "#1f1f2e",
-          },
-        },
-      },
-      MuiCardHeader: {
-        styleOverrides: {
-          title: { fontWeight: 600 },
         },
       },
     },

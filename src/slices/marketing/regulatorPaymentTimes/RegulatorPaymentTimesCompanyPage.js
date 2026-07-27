@@ -1,24 +1,23 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
-import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import LaunchRoundedIcon from "@mui/icons-material/LaunchRounded";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-
 import {
   Box,
   Button,
   CircularProgress,
-  Container,
   Divider,
   Grid,
   LinearProgress,
-  Paper,
   Stack,
   Typography,
 } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
+import PublicPageLayout, {
+  PublicContent,
+  PublicPageSection,
+  PublicSurface,
+} from "shared/layouts/PublicPageLayout";
 
 const COMPANY_DATA_BASE_URL = "/data/regulator-payment-times/companies";
 
@@ -125,7 +124,13 @@ function calculateIndustryPosition(rank, count) {
   );
 }
 
-function buildTrendPoints(reports, width, height, padding) {
+function buildTrendPoints(
+  reports,
+  width,
+  height,
+  horizontalPadding,
+  verticalPadding,
+) {
   const values = reports.map((report) => Number(report.p95PaymentTimeDays));
 
   if (values.length < 2 || values.some((value) => !Number.isFinite(value))) {
@@ -135,210 +140,61 @@ function buildTrendPoints(reports, width, height, padding) {
   const minimum = Math.min(...values);
   const maximum = Math.max(...values);
   const range = maximum - minimum || 1;
-  const usableWidth = width - padding * 2;
-  const usableHeight = height - padding * 2;
+  const usableWidth = width - horizontalPadding * 2;
+  const usableHeight = height - verticalPadding * 2;
+
   return values.map((value, index) => ({
     value,
-    x: padding + (index * usableWidth) / (values.length - 1),
-    y: padding + ((maximum - value) / range) * usableHeight,
-  }));
-}
-
-function P95TrendChart({ reports }) {
-  const theme = useTheme();
-  const chronologicalReports = [...reports].reverse();
-  const width = 720;
-  const height = 230;
-  const horizontalPadding = 44;
-  const verticalPadding = 38;
-
-  const points = buildTrendPoints(
-    chronologicalReports,
-    width,
-    height,
-    verticalPadding,
-  );
-
-  if (points.length < 2) {
-    return null;
-  }
-
-  const adjustedPoints = points.map((point, index) => ({
-    ...point,
     x:
       horizontalPadding +
-      (index * (width - horizontalPadding * 2)) / (points.length - 1),
+      (index * usableWidth) / Math.max(values.length - 1, 1),
+    y: verticalPadding + ((maximum - value) / range) * usableHeight,
   }));
-
-  const polylinePoints = adjustedPoints
-    .map((point) => `${point.x},${point.y}`)
-    .join(" ");
-
-  return (
-    <Paper
-      elevation={0}
-      sx={{
-        p: { xs: 2.5, sm: 3.5 },
-        border: `1px solid ${theme.palette.divider}`,
-        borderRadius: 3,
-        backgroundColor: theme.palette.background.paper,
-      }}
-    >
-      <Stack spacing={3}>
-        <Box>
-          <Typography
-            component="h2"
-            variant="h5"
-            sx={{
-              color: theme.palette.text.primary,
-              fontWeight: 700,
-            }}
-          >
-            P95 payment time trend
-          </Typography>
-
-          <Typography
-            variant="body2"
-            sx={{
-              mt: 0.5,
-              color: theme.palette.text.secondary,
-            }}
-          >
-            95% of small business invoices were paid within this number of days.
-          </Typography>
-        </Box>
-
-        <Box
-          sx={{
-            width: "100%",
-            overflowX: "auto",
-          }}
-        >
-          <Box
-            component="svg"
-            viewBox={`0 0 ${width} ${height}`}
-            role="img"
-            aria-label="P95 payment time trend"
-            sx={{
-              display: "block",
-              width: "100%",
-              minWidth: 560,
-            }}
-          >
-            <line
-              x1={horizontalPadding}
-              y1={height - verticalPadding}
-              x2={width - horizontalPadding}
-              y2={height - verticalPadding}
-              stroke={theme.palette.divider}
-              strokeWidth="1"
-            />
-
-            <polyline
-              points={polylinePoints}
-              fill="none"
-              stroke={theme.palette.primary.main}
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-
-            {adjustedPoints.map((point, index) => {
-              const report = chronologicalReports[index];
-
-              return (
-                <g key={report.reportId}>
-                  <circle
-                    cx={point.x}
-                    cy={point.y}
-                    r="7"
-                    fill={theme.palette.background.paper}
-                    stroke={theme.palette.primary.main}
-                    strokeWidth="4"
-                  />
-
-                  <text
-                    x={point.x}
-                    y={point.y - 16}
-                    textAnchor="middle"
-                    fill={theme.palette.text.primary}
-                    fontSize="14"
-                    fontWeight="700"
-                  >
-                    {point.value.toFixed(1)} days
-                  </text>
-
-                  <text
-                    x={point.x}
-                    y={height - 10}
-                    textAnchor="middle"
-                    fill={theme.palette.text.secondary}
-                    fontSize="12"
-                  >
-                    {formatMonthYear(report.reportingPeriodEndDate)}
-                  </text>
-                </g>
-              );
-            })}
-          </Box>
-        </Box>
-      </Stack>
-    </Paper>
-  );
 }
 
 function MetricCard({ label, value, description }) {
   const theme = useTheme();
 
   return (
-    <Paper
-      elevation={0}
+    <PublicSurface
       sx={{
+        width: "100%",
         height: "100%",
-        p: 3,
-        border: `1px solid ${theme.palette.divider}`,
-        borderRadius: 3,
-        background: `linear-gradient(
-    145deg,
-    ${alpha(theme.palette.primary.main, 0.1)},
-    ${theme.palette.background.paper} 60%
-  )`,
       }}
     >
       <Stack spacing={1}>
         <Typography
-          variant="body2"
+          variant="overline"
           sx={{
-            color: theme.palette.text.secondary,
-            fontWeight: 600,
+            color: theme.palette.primary.main,
+            fontWeight: 800,
+            letterSpacing: 1.2,
           }}
         >
           {label}
         </Typography>
 
         <Typography
-          variant="h4"
+          variant="h5"
           sx={{
             color: theme.palette.text.primary,
-            fontWeight: 700,
+            fontWeight: 800,
           }}
         >
           {value}
         </Typography>
 
-        {description && (
-          <Typography
-            variant="body2"
-            sx={{
-              color: theme.palette.text.secondary,
-              lineHeight: 1.5,
-            }}
-          >
-            {description}
-          </Typography>
-        )}
+        <Typography
+          variant="body2"
+          sx={{
+            color: theme.palette.text.secondary,
+            lineHeight: 1.7,
+          }}
+        >
+          {description}
+        </Typography>
       </Stack>
-    </Paper>
+    </PublicSurface>
   );
 }
 
@@ -387,6 +243,333 @@ function PaymentBucketRow({ label, value }) {
   );
 }
 
+function IndustryPositionCard({ company, latestReport }) {
+  const theme = useTheme();
+
+  const industryPosition = calculateIndustryPosition(
+    latestReport.industryP95Position?.rank,
+    latestReport.industryP95Position?.count,
+  );
+
+  return (
+    <PublicSurface
+      sx={{
+        height: "100%",
+      }}
+    >
+      <Stack spacing={3}>
+        <Box>
+          <Typography
+            component="h2"
+            variant="h5"
+            sx={{
+              color: theme.palette.text.primary,
+              fontWeight: 700,
+            }}
+          >
+            Industry position
+          </Typography>
+
+          <Typography
+            variant="body2"
+            sx={{
+              mt: 0.5,
+              color: theme.palette.text.secondary,
+            }}
+          >
+            {company.industryDivision}
+          </Typography>
+        </Box>
+
+        <Box>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            spacing={2}
+            sx={{ mb: 1.25 }}
+          >
+            <Typography
+              variant="caption"
+              sx={{ color: theme.palette.text.secondary }}
+            >
+              Faster-paying
+            </Typography>
+
+            <Typography
+              variant="caption"
+              sx={{ color: theme.palette.text.secondary }}
+            >
+              Slower-paying
+            </Typography>
+          </Stack>
+
+          <Box
+            sx={{
+              position: "relative",
+              height: 18,
+              borderRadius: 999,
+              backgroundColor: alpha(
+                theme.palette.primary.main,
+                theme.palette.mode === "dark" ? 0.28 : 0.12,
+              ),
+            }}
+          >
+            <Box
+              sx={{
+                position: "absolute",
+                inset: 0,
+                right: "80%",
+                borderRadius: "999px 0 0 999px",
+                backgroundColor: alpha(
+                  theme.palette.success.main,
+                  theme.palette.mode === "dark" ? 0.55 : 0.28,
+                ),
+              }}
+            />
+
+            <Box
+              sx={{
+                position: "absolute",
+                inset: 0,
+                left: "80%",
+                borderRadius: "0 999px 999px 0",
+                backgroundColor: alpha(
+                  theme.palette.error.main,
+                  theme.palette.mode === "dark" ? 0.5 : 0.24,
+                ),
+              }}
+            />
+
+            <Box
+              sx={{
+                position: "absolute",
+                top: -6,
+                bottom: -6,
+                left: "20%",
+                width: 2,
+                borderRadius: 999,
+                backgroundColor: theme.palette.text.secondary,
+                opacity: theme.palette.mode === "dark" ? 0.9 : 0.65,
+                transform: "translateX(-50%)",
+              }}
+            />
+
+            <Box
+              sx={{
+                position: "absolute",
+                top: -6,
+                bottom: -6,
+                left: "80%",
+                width: 2,
+                borderRadius: 999,
+                backgroundColor: theme.palette.text.secondary,
+                opacity: theme.palette.mode === "dark" ? 0.9 : 0.65,
+                transform: "translateX(-50%)",
+              }}
+            />
+
+            {industryPosition !== null && (
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: `${industryPosition}%`,
+                  width: 18,
+                  height: 18,
+                  border: `3px solid ${theme.palette.background.paper}`,
+                  borderRadius: "50%",
+                  backgroundColor:
+                    theme.palette.mode === "dark"
+                      ? theme.palette.primary.light
+                      : theme.palette.primary.main,
+                  boxShadow: theme.shadows[2],
+                  transform: "translate(-50%, -50%)",
+                }}
+              />
+            )}
+          </Box>
+
+          <Stack
+            direction="row"
+            alignItems="flex-start"
+            justifyContent="space-between"
+            spacing={2}
+            sx={{ mt: 1.25 }}
+          >
+            <Typography
+              variant="caption"
+              sx={{ color: theme.palette.text.secondary }}
+            >
+              Top 20%
+            </Typography>
+
+            <Typography
+              variant="body2"
+              sx={{
+                color: theme.palette.text.primary,
+                fontWeight: 700,
+                textAlign: "center",
+              }}
+            >
+              {formatRank(
+                latestReport.industryP95Position?.rank,
+                latestReport.industryP95Position?.count,
+              )}
+            </Typography>
+
+            <Typography
+              variant="caption"
+              sx={{ color: theme.palette.text.secondary }}
+            >
+              Bottom 20%
+            </Typography>
+          </Stack>
+        </Box>
+
+        <Typography
+          variant="body2"
+          sx={{
+            color: theme.palette.text.secondary,
+            lineHeight: 1.6,
+          }}
+        >
+          The dot shows the company&apos;s P95 position within its industry
+          cohort. The shaded areas represent the fastest-paying and
+          slowest-paying 20% of entities.
+        </Typography>
+      </Stack>
+    </PublicSurface>
+  );
+}
+
+function P95TrendChart({ reports }) {
+  const theme = useTheme();
+  const chronologicalReports = [...reports].reverse();
+  const width = 720;
+  const height = 230;
+  const horizontalPadding = 44;
+  const verticalPadding = 38;
+
+  const points = buildTrendPoints(
+    chronologicalReports,
+    width,
+    height,
+    horizontalPadding,
+    verticalPadding,
+  );
+
+  if (points.length < 2) {
+    return null;
+  }
+
+  const polylinePoints = points
+    .map((point) => `${point.x},${point.y}`)
+    .join(" ");
+
+  return (
+    <PublicSurface>
+      <Stack spacing={3}>
+        <Box>
+          <Typography
+            component="h2"
+            variant="h5"
+            sx={{
+              color: theme.palette.text.primary,
+              fontWeight: 700,
+            }}
+          >
+            P95 payment time trend
+          </Typography>
+
+          <Typography
+            variant="body2"
+            sx={{
+              mt: 0.5,
+              color: theme.palette.text.secondary,
+            }}
+          >
+            95% of small business invoices were paid within this number of days.
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            width: "100%",
+            overflowX: "auto",
+          }}
+        >
+          <Box
+            component="svg"
+            viewBox={`0 0 ${width} ${height}`}
+            role="img"
+            aria-label="P95 payment time trend"
+            sx={{
+              display: "block",
+              width: "100%",
+            }}
+          >
+            <line
+              x1={horizontalPadding}
+              y1={height - verticalPadding}
+              x2={width - horizontalPadding}
+              y2={height - verticalPadding}
+              stroke={theme.palette.divider}
+              strokeWidth="1"
+            />
+
+            <polyline
+              points={polylinePoints}
+              fill="none"
+              stroke={theme.palette.primary.main}
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+
+            {points.map((point, index) => {
+              const report = chronologicalReports[index];
+
+              return (
+                <g key={report.reportId}>
+                  <circle
+                    cx={point.x}
+                    cy={point.y}
+                    r="7"
+                    fill={theme.palette.background.paper}
+                    stroke={theme.palette.primary.main}
+                    strokeWidth="4"
+                  />
+
+                  <text
+                    x={point.x}
+                    y={point.y - 16}
+                    textAnchor="middle"
+                    fill={theme.palette.text.primary}
+                    fontSize="10"
+                    fontWeight="700"
+                  >
+                    {point.value.toFixed(1)} days
+                  </text>
+
+                  <text
+                    x={point.x}
+                    y={height - 10}
+                    textAnchor="middle"
+                    fill={theme.palette.text.secondary}
+                    fontSize="10"
+                  >
+                    {formatMonthYear(report.reportingPeriodEndDate)}
+                  </text>
+                </g>
+              );
+            })}
+          </Box>
+        </Box>
+      </Stack>
+    </PublicSurface>
+  );
+}
+
 function RegulatorPaymentTimesCompanyPage() {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -424,9 +607,7 @@ function RegulatorPaymentTimesCompanyPage() {
           !data.businessName ||
           !Array.isArray(data.reports)
         ) {
-          throw new Error(
-            "The regulator payment times company data is invalid",
-          );
+          throw new Error("The Payment Times Explorer company data is invalid");
         }
 
         setCompany(data);
@@ -435,7 +616,7 @@ function RegulatorPaymentTimesCompanyPage() {
           console.error(error);
 
           showAlert(
-            "The regulator payment times company data could not be loaded.",
+            "The Payment Times Explorer company data could not be loaded.",
             "error",
           );
         }
@@ -469,472 +650,204 @@ function RegulatorPaymentTimesCompanyPage() {
 
   if (isLoading) {
     return (
-      <Box
-        component="main"
-        sx={{
-          minHeight: "100vh",
-          backgroundColor: theme.palette.background.default,
-          py: { xs: 8, md: 12 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Stack
-            direction="row"
-            spacing={2}
-            alignItems="center"
-            justifyContent="center"
-          >
+      <PublicPageLayout>
+        <PublicPageSection
+          sx={{
+            minHeight: "60vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Stack direction="row" spacing={2} alignItems="center">
             <CircularProgress size={26} />
 
             <Typography color="text.secondary">
-              Loading company payment times…
+              Loading Payment Times Explorer…
             </Typography>
           </Stack>
-        </Container>
-      </Box>
+        </PublicPageSection>
+      </PublicPageLayout>
     );
   }
 
   if (!company || !latestReport) {
     return (
-      <Box
-        component="main"
-        sx={{
-          minHeight: "100vh",
-          backgroundColor: theme.palette.background.default,
-          py: { xs: 8, md: 12 },
-        }}
-      >
-        <Container maxWidth="md">
-          <Stack spacing={3} alignItems="flex-start">
-            <Typography component="h1" variant="h3">
-              Company not found
-            </Typography>
+      <PublicPageLayout>
+        <PublicPageSection>
+          <PublicContent maxWidth={760}>
+            <Stack spacing={3} alignItems="flex-start">
+              <Typography component="h1" variant="h3">
+                Company not found
+              </Typography>
 
-            <Typography color="text.secondary">
-              No regulator payment times data could be found for this company.
-            </Typography>
+              <Typography color="text.secondary">
+                No Payment Times Explorer data could be found for this company.
+              </Typography>
 
-            <Button
-              variant="contained"
-              startIcon={<ArrowBackRoundedIcon />}
-              onClick={() => navigate("/regulator-payment-times")}
-            >
-              Back to company search
-            </Button>
-          </Stack>
-        </Container>
-      </Box>
+              <Button
+                variant="contained"
+                startIcon={<ArrowBackRoundedIcon />}
+                onClick={() => navigate("/regulator-payment-times")}
+              >
+                Back to Payment Times Explorer
+              </Button>
+            </Stack>
+          </PublicContent>
+        </PublicPageSection>
+      </PublicPageLayout>
     );
   }
 
-  const paymentBuckets = {
-    payments30DaysOrLess: latestReport.payments30DaysOrLess,
-    payments31To60Days: latestReport.payments31To60Days,
-    paymentsMoreThan60Days: latestReport.paymentsMoreThan60Days,
-  };
-
-  const industryPosition = calculateIndustryPosition(
-    latestReport.industryP95Position?.rank,
-    latestReport.industryP95Position?.count,
-  );
-
   return (
-    <Box
-      component="main"
-      sx={{
-        minHeight: "100vh",
-        backgroundColor: theme.palette.background.default,
-        py: { xs: 6, md: 10 },
-      }}
-    >
-      <Container maxWidth="lg">
-        <Stack spacing={{ xs: 4, md: 6 }}>
-          <Box>
-            <Button
-              startIcon={<ArrowBackRoundedIcon />}
-              onClick={() => navigate("/regulator-payment-times")}
-              sx={{ mb: 3 }}
-            >
-              Back to company search
-            </Button>
-
-            <Stack spacing={2}>
-              <Typography
-                component="h1"
-                variant="h2"
-                sx={{
-                  color: theme.palette.text.primary,
-                  fontSize: "clamp(2.25rem, 4vw, 3.4rem)",
-                  fontWeight: 700,
-                  lineHeight: 1.15,
-                  letterSpacing: "-0.02em",
-                  overflowWrap: "anywhere",
-                }}
+    <PublicPageLayout>
+      <PublicPageSection
+        sx={{
+          pt: {
+            xs: 4,
+            md: 5,
+          },
+        }}
+      >
+        <PublicContent>
+          <Stack spacing={{ xs: 4, md: 5 }}>
+            <Box>
+              <Button
+                startIcon={<ArrowBackRoundedIcon />}
+                onClick={() => navigate("/regulator-payment-times")}
+                sx={{ mb: 3 }}
               >
-                {company.businessName}
-              </Typography>
+                Payment Times Explorer
+              </Button>
 
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                spacing={{ xs: 1, sm: 3 }}
-              >
+              <Stack spacing={2}>
                 <Typography
-                  variant="body1"
+                  component="h1"
+                  variant="h3"
                   sx={{
-                    color: theme.palette.text.secondary,
+                    color: theme.palette.text.primary,
+                    fontSize: {
+                      xs: "1.8rem",
+                      sm: "2.2rem",
+                      md: "2.6rem",
+                    },
+                    fontWeight: 800,
+                    lineHeight: 1.15,
+                    overflowWrap: "anywhere",
                   }}
                 >
-                  ABN {formatAbn(company.abn)}
+                  {company.businessName}
                 </Typography>
 
-                {company.acnArbn && (
+                <Stack
+                  direction={{ xs: "column", sm: "row" }}
+                  spacing={{ xs: 1, sm: 3 }}
+                  useFlexGap
+                  flexWrap="wrap"
+                >
                   <Typography
                     variant="body1"
                     sx={{
                       color: theme.palette.text.secondary,
                     }}
                   >
-                    ACN/ARBN {company.acnArbn}
-                  </Typography>
-                )}
-              </Stack>
-
-              {company.industryDivision && (
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: theme.palette.text.secondary,
-                  }}
-                >
-                  ANZSIC Industry Division: {company.industryDivision}
-                </Typography>
-              )}
-
-              <Typography
-                variant="body1"
-                sx={{
-                  maxWidth: 800,
-                  color: theme.palette.text.secondary,
-                  lineHeight: 1.7,
-                }}
-              >
-                Published payment performance for the reporting period ending{" "}
-                {formatMonthYear(latestReport.reportingPeriodEndDate)}.
-              </Typography>
-
-              {latestReport.revisedReport && (
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: theme.palette.text.secondary,
-                    fontWeight: 600,
-                  }}
-                >
-                  This is the revised report published for the period.
-                </Typography>
-              )}
-            </Stack>
-          </Box>
-
-          <Grid container spacing={2.5}>
-            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <MetricCard
-                label="Average"
-                value={formatDays(latestReport.averagePaymentTimeDays)}
-                description="Average time taken to pay invoices."
-              />
-            </Grid>
-
-            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <MetricCard
-                label="Median"
-                value={formatDays(latestReport.medianPaymentTimeDays)}
-                description="Half of invoices were paid within this time."
-              />
-            </Grid>
-
-            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <MetricCard
-                label="P80"
-                value={formatDays(latestReport.p80PaymentTimeDays)}
-                description="80% of invoices were paid within this time."
-              />
-            </Grid>
-
-            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <MetricCard
-                label="P95"
-                value={formatDays(latestReport.p95PaymentTimeDays)}
-                description="95% of invoices were paid within this time."
-              />
-            </Grid>
-          </Grid>
-
-          <Grid container spacing={3}>
-            <Grid size={{ xs: 12, md: 7 }}>
-              <Paper
-                elevation={0}
-                sx={{
-                  height: "100%",
-                  p: { xs: 2.5, sm: 3.5 },
-                  border: `1px solid ${theme.palette.divider}`,
-                  borderRadius: 3,
-                  backgroundColor: theme.palette.background.paper,
-                }}
-              >
-                <Stack spacing={3}>
-                  <Typography
-                    component="h2"
-                    variant="h5"
-                    sx={{ fontWeight: 700 }}
-                  >
-                    Payment distribution
+                    ABN {formatAbn(company.abn)}
                   </Typography>
 
-                  <PaymentBucketRow
-                    label="Paid within 30 days"
-                    value={paymentBuckets.payments30DaysOrLess}
-                  />
-
-                  <PaymentBucketRow
-                    label="Paid between 31 and 60 days"
-                    value={paymentBuckets.payments31To60Days}
-                  />
-
-                  <PaymentBucketRow
-                    label="Paid after 60 days"
-                    value={paymentBuckets.paymentsMoreThan60Days}
-                  />
-                </Stack>
-              </Paper>
-            </Grid>
-
-            <Grid size={{ xs: 12, md: 5 }}>
-              <Paper
-                elevation={0}
-                sx={{
-                  height: "100%",
-                  p: { xs: 2.5, sm: 3.5 },
-                  border: `1px solid ${theme.palette.divider}`,
-                  borderRadius: 3,
-                  backgroundColor: theme.palette.background.paper,
-                }}
-              >
-                <Stack spacing={3}>
-                  <Box>
+                  {company.acnArbn && (
                     <Typography
-                      component="h2"
-                      variant="h5"
+                      variant="body1"
                       sx={{
-                        color: theme.palette.text.primary,
-                        fontWeight: 700,
-                      }}
-                    >
-                      Industry position
-                    </Typography>
-
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        mt: 0.5,
                         color: theme.palette.text.secondary,
                       }}
                     >
-                      {company.industryDivision}
+                      ACN/ARBN {company.acnArbn}
                     </Typography>
-                  </Box>
+                  )}
+                </Stack>
 
-                  <Box>
-                    <Stack
-                      direction="row"
-                      justifyContent="space-between"
-                      spacing={2}
-                      sx={{ mb: 1.25 }}
-                    >
-                      <Typography
-                        variant="caption"
-                        sx={{ color: theme.palette.text.secondary }}
-                      >
-                        Faster-paying
-                      </Typography>
+                {company.industryDivision && (
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                    }}
+                  >
+                    ANZSIC Industry Division: {company.industryDivision}
+                  </Typography>
+                )}
 
-                      <Typography
-                        variant="caption"
-                        sx={{ color: theme.palette.text.secondary }}
-                      >
-                        Slower-paying
-                      </Typography>
-                    </Stack>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    maxWidth: 800,
+                    color: theme.palette.text.secondary,
+                    lineHeight: 1.7,
+                  }}
+                >
+                  Published payment performance for the reporting period ending{" "}
+                  {formatMonthYear(latestReport.reportingPeriodEndDate)}.
+                </Typography>
 
-                    <Box
-                      sx={{
-                        position: "relative",
-                        height: 18,
-                        borderRadius: 999,
-                        overflow: "visible",
-                        backgroundColor: alpha(
-                          theme.palette.primary.main,
-                          theme.palette.mode === "dark" ? 0.28 : 0.12,
-                        ),
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          inset: 0,
-                          right: "80%",
-                          borderRadius: "999px 0 0 999px",
-                          backgroundColor: alpha(
-                            theme.palette.success.main,
-                            theme.palette.mode === "dark" ? 0.55 : 0.28,
-                          ),
-                        }}
-                      />
-
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          inset: 0,
-                          left: "80%",
-                          borderRadius: "0 999px 999px 0",
-                          backgroundColor: alpha(
-                            theme.palette.error.main,
-                            theme.palette.mode === "dark" ? 0.5 : 0.24,
-                          ),
-                        }}
-                      />
-
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          top: -6,
-                          bottom: -6,
-                          left: "20%",
-                          width: 2,
-                          borderRadius: 999,
-                          backgroundColor: theme.palette.text.secondary,
-                          opacity: theme.palette.mode === "dark" ? 0.9 : 0.65,
-                          transform: "translateX(-50%)",
-                        }}
-                      />
-
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          top: -6,
-                          bottom: -6,
-                          left: "80%",
-                          width: 2,
-                          borderRadius: 999,
-                          backgroundColor: theme.palette.text.secondary,
-                          opacity: theme.palette.mode === "dark" ? 0.9 : 0.65,
-                          transform: "translateX(-50%)",
-                        }}
-                      />
-
-                      {industryPosition !== null && (
-                        <Box
-                          sx={{
-                            position: "absolute",
-                            top: "50%",
-                            left: `${industryPosition}%`,
-                            width: 18,
-                            height: 18,
-                            border: `3px solid ${theme.palette.background.paper}`,
-                            borderRadius: "50%",
-                            backgroundColor:
-                              theme.palette.mode === "dark"
-                                ? theme.palette.primary.light
-                                : theme.palette.primary.main,
-                            boxShadow: theme.shadows[2],
-                            transform: "translate(-50%, -50%)",
-                          }}
-                        />
-                      )}
-                    </Box>
-
-                    <Stack
-                      direction="row"
-                      alignItems="flex-start"
-                      justifyContent="space-between"
-                      spacing={2}
-                      sx={{ mt: 1.25 }}
-                    >
-                      <Typography
-                        variant="caption"
-                        sx={{ color: theme.palette.text.secondary }}
-                      >
-                        Top 20%
-                      </Typography>
-
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: theme.palette.text.primary,
-                          fontWeight: 700,
-                          textAlign: "center",
-                        }}
-                      >
-                        {formatRank(
-                          latestReport.industryP95Position?.rank,
-                          latestReport.industryP95Position?.count,
-                        )}
-                      </Typography>
-
-                      <Typography
-                        variant="caption"
-                        sx={{ color: theme.palette.text.secondary }}
-                      >
-                        Bottom 20%
-                      </Typography>
-                    </Stack>
-                  </Box>
-
+                {latestReport.revisedReport && (
                   <Typography
                     variant="body2"
                     sx={{
                       color: theme.palette.text.secondary,
-                      lineHeight: 1.6,
+                      fontWeight: 600,
                     }}
                   >
-                    The dot shows the company&apos;s P95 position within its
-                    industry cohort. The shaded areas represent the
-                    fastest-paying and slowest-paying 20% of entities.
+                    This is the revised report published for the period.
                   </Typography>
-                </Stack>
-              </Paper>
+                )}
+              </Stack>
+            </Box>
+
+            <Grid container spacing={2.5}>
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} sx={{ display: "flex" }}>
+                <MetricCard
+                  label="Average"
+                  value={formatDays(latestReport.averagePaymentTimeDays)}
+                  description="Average time taken to pay small business invoices."
+                />
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} sx={{ display: "flex" }}>
+                <MetricCard
+                  label="Median"
+                  value={formatDays(latestReport.medianPaymentTimeDays)}
+                  description="Half of small business invoices were paid within this time."
+                />
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} sx={{ display: "flex" }}>
+                <MetricCard
+                  label="P80"
+                  value={formatDays(latestReport.p80PaymentTimeDays)}
+                  description="80% of small business invoices were paid within this time."
+                />
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} sx={{ display: "flex" }}>
+                <MetricCard
+                  label="P95"
+                  value={formatDays(latestReport.p95PaymentTimeDays)}
+                  description="95% of small business invoices were paid within this time."
+                />
+              </Grid>
             </Grid>
-          </Grid>
 
-          <P95TrendChart reports={sortedReports} />
-
-          <Paper
-            elevation={0}
-            sx={{
-              p: { xs: 2.5, sm: 3.5 },
-              border: `1px solid ${theme.palette.divider}`,
-              borderRadius: 3,
-              backgroundColor: theme.palette.background.paper,
-            }}
-          >
-            <Stack spacing={3}>
-              <Typography component="h2" variant="h5" sx={{ fontWeight: 700 }}>
-                Reporting history
-              </Typography>
-
-              <Stack divider={<Divider flexItem />}>
-                {sortedReports.map((report) => (
-                  <Grid
-                    key={report.reportId}
-                    container
-                    spacing={2}
-                    sx={{ py: 2 }}
-                  >
-                    <Grid size={{ xs: 12, md: 4 }}>
-                      <Typography variant="body1" sx={{ fontWeight: 700 }}>
-                        {formatMonthYear(report.reportingPeriodStartDate)} to{" "}
-                        {formatMonthYear(report.reportingPeriodEndDate)}
+            <Grid container spacing={3}>
+              <Grid size={{ xs: 12, md: 7 }}>
+                <PublicSurface sx={{ height: "100%" }}>
+                  <Stack spacing={3}>
+                    <Box>
+                      <Typography
+                        component="h2"
+                        variant="h5"
+                        sx={{ fontWeight: 700 }}
+                      >
+                        Payment distribution
                       </Typography>
 
                       <Typography
@@ -944,220 +857,220 @@ function RegulatorPaymentTimesCompanyPage() {
                           color: theme.palette.text.secondary,
                         }}
                       >
-                        Submitted {formatDate(report.submittedDate)}
+                        The proportion of small business invoices paid within
+                        each timeframe.
                       </Typography>
+                    </Box>
 
-                      {report.revisedReport && (
+                    <PaymentBucketRow
+                      label="Paid within 30 days"
+                      value={latestReport.payments30DaysOrLess}
+                    />
+
+                    <PaymentBucketRow
+                      label="Paid between 31 and 60 days"
+                      value={latestReport.payments31To60Days}
+                    />
+
+                    <PaymentBucketRow
+                      label="Paid after 60 days"
+                      value={latestReport.paymentsMoreThan60Days}
+                    />
+                  </Stack>
+                </PublicSurface>
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 5 }}>
+                <IndustryPositionCard
+                  company={company}
+                  latestReport={latestReport}
+                />
+              </Grid>
+            </Grid>
+
+            {sortedReports.length > 1 && (
+              <P95TrendChart reports={sortedReports} />
+            )}
+
+            <PublicSurface>
+              <Stack spacing={3}>
+                <Box>
+                  <Typography
+                    component="h2"
+                    variant="h5"
+                    sx={{ fontWeight: 700 }}
+                  >
+                    Reporting history
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      mt: 0.5,
+                      color: theme.palette.text.secondary,
+                    }}
+                  >
+                    Published results across each available reporting period.
+                  </Typography>
+                </Box>
+
+                <Stack divider={<Divider flexItem />}>
+                  {sortedReports.map((report) => (
+                    <Grid
+                      key={report.reportId}
+                      container
+                      spacing={2}
+                      alignItems="center"
+                      sx={{ py: 2 }}
+                    >
+                      <Grid size={{ xs: 12, md: 6 }}>
+                        <Typography variant="body1" sx={{ fontWeight: 700 }}>
+                          {formatMonthYear(report.reportingPeriodStartDate)} to{" "}
+                          {formatMonthYear(report.reportingPeriodEndDate)}
+                        </Typography>
+
                         <Typography
-                          variant="caption"
+                          variant="body2"
                           sx={{
-                            display: "block",
                             mt: 0.5,
                             color: theme.palette.text.secondary,
                           }}
                         >
-                          Revised report
+                          Submitted {formatDate(report.submittedDate)}
                         </Typography>
-                      )}
+
+                        {report.revisedReport && (
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              display: "block",
+                              mt: 0.5,
+                              color: theme.palette.text.secondary,
+                            }}
+                          >
+                            Revised report
+                          </Typography>
+                        )}
+                      </Grid>
+
+                      <Grid size={{ xs: 4, md: 2 }}>
+                        <Typography variant="caption" color="text.secondary">
+                          Average
+                        </Typography>
+
+                        <Typography variant="body1" sx={{ fontWeight: 700 }}>
+                          {formatDays(report.averagePaymentTimeDays)}
+                        </Typography>
+                      </Grid>
+
+                      <Grid size={{ xs: 4, md: 2 }}>
+                        <Typography variant="caption" color="text.secondary">
+                          Median
+                        </Typography>
+
+                        <Typography variant="body1" sx={{ fontWeight: 700 }}>
+                          {formatDays(report.medianPaymentTimeDays)}
+                        </Typography>
+                      </Grid>
+
+                      <Grid size={{ xs: 4, md: 2 }}>
+                        <Typography variant="caption" color="text.secondary">
+                          P95
+                        </Typography>
+
+                        <Typography variant="body1" sx={{ fontWeight: 700 }}>
+                          {formatDays(report.p95PaymentTimeDays)}
+                        </Typography>
+                      </Grid>
                     </Grid>
-
-                    <Grid size={{ xs: 6, sm: 3, md: 2 }}>
-                      <Typography variant="caption" color="text.secondary">
-                        Average
-                      </Typography>
-
-                      <Typography variant="body1" sx={{ fontWeight: 700 }}>
-                        {formatDays(report.averagePaymentTimeDays)}
-                      </Typography>
-                    </Grid>
-
-                    <Grid size={{ xs: 6, sm: 3, md: 2 }}>
-                      <Typography variant="caption" color="text.secondary">
-                        Median
-                      </Typography>
-
-                      <Typography variant="body1" sx={{ fontWeight: 700 }}>
-                        {formatDays(report.medianPaymentTimeDays)}
-                      </Typography>
-                    </Grid>
-
-                    <Grid size={{ xs: 6, sm: 3, md: 2 }}>
-                      <Typography variant="caption" color="text.secondary">
-                        P80
-                      </Typography>
-
-                      <Typography variant="body1" sx={{ fontWeight: 700 }}>
-                        {formatDays(report.p80PaymentTimeDays)}
-                      </Typography>
-                    </Grid>
-
-                    <Grid size={{ xs: 6, sm: 3, md: 2 }}>
-                      <Typography variant="caption" color="text.secondary">
-                        P95
-                      </Typography>
-
-                      <Typography variant="body1" sx={{ fontWeight: 700 }}>
-                        {formatDays(report.p95PaymentTimeDays)}
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                ))}
+                  ))}
+                </Stack>
               </Stack>
-            </Stack>
-          </Paper>
+            </PublicSurface>
 
-          <Paper
-            elevation={0}
-            sx={{
-              p: { xs: 3, md: 4 },
-              borderRadius: 3,
-              backgroundColor: theme.palette.primary.main,
-              color: theme.palette.getContrastText(theme.palette.primary.main),
-            }}
-          >
-            <Stack
-              direction={{ xs: "column", md: "row" }}
-              spacing={3}
-              alignItems={{ xs: "flex-start", md: "center" }}
-              justifyContent="space-between"
+            <PublicSurface
+              sx={{
+                px: {
+                  xs: 3,
+                  sm: 4,
+                  md: 5,
+                },
+                py: {
+                  xs: 3.5,
+                  md: 4,
+                },
+                backgroundColor: theme.palette.primary.main, //alpha(theme.palette.secondary.main, 0.06),
+                borderColor: theme.palette.primary.main,
+              }}
             >
-              <Stack spacing={1}>
-                <Typography
-                  component="h2"
-                  variant="h5"
-                  sx={{
-                    color: theme.palette.getContrastText(
-                      theme.palette.primary.main,
-                    ),
-                    fontWeight: 700,
-                  }}
-                >
-                  Understand what is driving these results
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  sx={{
-                    maxWidth: 700,
-                    color: alpha(
-                      theme.palette.getContrastText(theme.palette.primary.main),
-                      0.9,
-                    ),
-                    lineHeight: 1.6,
-                  }}
-                >
-                  Monochrome Compliance helps businesses identify the
-                  operational causes behind poor payment performance and prepare
-                  their Payment Times Reporting Scheme submissions.
-                </Typography>
-              </Stack>
-
-              <Button
-                variant="contained"
-                onClick={() => navigate("/contact")}
-                sx={{
-                  flexShrink: 0,
-                  backgroundColor: theme.palette.background.paper,
-                  color: theme.palette.text.primary,
-                  "&:hover": {
-                    backgroundColor: alpha(theme.palette.background.paper, 0.9),
-                  },
-                }}
-              >
-                Talk to us
-              </Button>
-            </Stack>
-          </Paper>
-
-          <Paper
-            elevation={0}
-            sx={{
-              p: { xs: 2.5, sm: 3.5 },
-              border: `1px solid ${theme.palette.divider}`,
-              borderRadius: 3,
-              backgroundColor: theme.palette.background.paper,
-            }}
-          >
-            <Stack
-              direction={{ xs: "column", md: "row" }}
-              spacing={2}
-              alignItems={{ xs: "stretch", md: "center" }}
-              justifyContent="space-between"
-            >
-              <Box>
-                <Typography
-                  component="h2"
-                  variant="h5"
-                  sx={{
-                    color: theme.palette.text.primary,
-                    fontWeight: 700,
-                  }}
-                >
-                  Explore payment times information
-                </Typography>
-
-                <Typography
-                  variant="body2"
-                  sx={{
-                    mt: 0.5,
-                    maxWidth: 650,
-                    color: theme.palette.text.secondary,
-                    lineHeight: 1.6,
-                  }}
-                >
-                  Explore how this company compares with its industry or visit
-                  the official Payment Times Reports Register for source reports
-                  and further information.
-                </Typography>
-              </Box>
-
               <Stack
-                direction={{ xs: "column", sm: "row" }}
-                spacing={1.5}
-                flexShrink={0}
+                direction={{ xs: "column", md: "row" }}
+                spacing={3}
+                alignItems={{ xs: "flex-start", md: "center" }}
+                justifyContent="space-between"
               >
+                <Stack spacing={1}>
+                  <Typography
+                    component="h2"
+                    variant="h5"
+                    sx={{
+                      color: theme.palette.text.primary,
+                      fontWeight: 700,
+                    }}
+                  >
+                    Understand what is driving these results
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      maxWidth: 700,
+                      color: theme.palette.text.primary,
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    Monochrome Compliance helps businesses identify the
+                    operational causes behind poor payment performance and
+                    prepare their Payment Times Reporting Scheme submissions.
+                  </Typography>
+                </Stack>
+
                 <Button
                   variant="outlined"
-                  startIcon={<SearchRoundedIcon />}
-                  endIcon={<ArrowForwardRoundedIcon />}
-                  onClick={() =>
-                    navigate(
-                      `/regulator-payment-times/industry/${company.industrySlug}`,
-                    )
-                  }
+                  onClick={() => navigate("/contact")}
+                  sx={{
+                    flexShrink: 0,
+                    backgroundColor: theme.palette.background.paper,
+                    color: theme.palette.text.primary,
+                    "&:hover": {
+                      backgroundColor: alpha(
+                        theme.palette.background.paper,
+                        0.9,
+                      ),
+                    },
+                  }}
                 >
-                  View industry insights
-                </Button>
-
-                <Button
-                  component="a"
-                  href="https://register.paymenttimes.gov.au/index.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="contained"
-                  endIcon={<LaunchRoundedIcon />}
-                >
-                  Visit official register
+                  Talk to us
                 </Button>
               </Stack>
-            </Stack>
-          </Paper>
+            </PublicSurface>
 
-          <Typography
-            variant="caption"
-            sx={{
-              color: theme.palette.text.secondary,
-              lineHeight: 1.6,
-            }}
-          >
-            Source: Australian Government Payment Times Reports Register
-            Standard report data. Monochrome Compliance is not affiliated with
-            or endorsed by the Australian Government or the Payment Times
-            Reporting Regulator.
-          </Typography>
-        </Stack>
-      </Container>
-    </Box>
+            <Typography
+              variant="caption"
+              sx={{
+                color: theme.palette.text.secondary,
+                lineHeight: 1.6,
+              }}
+            >
+              Source: Australian Government Payment Times Reports Register
+              Standard report data. Monochrome Compliance is not affiliated with
+              or endorsed by the Australian Government or the Payment Times
+              Reporting Regulator.
+            </Typography>
+          </Stack>
+        </PublicContent>
+      </PublicPageSection>
+    </PublicPageLayout>
   );
 }
 
