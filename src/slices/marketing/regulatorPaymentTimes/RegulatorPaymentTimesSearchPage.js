@@ -155,10 +155,6 @@ function RegulatorPaymentTimesSearchPage() {
     normaliseSearchValue(searchValue).length >= 2 ||
     normaliseAbn(searchValue).length >= 2;
 
-  const handleCompanySelect = (slug) => {
-    navigate(`/regulator-payment-times/${slug}`);
-  };
-
   return (
     <PublicPageLayout>
       <PublicPageSection
@@ -280,14 +276,14 @@ function RegulatorPaymentTimesSearchPage() {
                 {searchResults.map((company) => (
                   <PublicSurface
                     key={company.abn}
-                    component="button"
-                    type="button"
-                    onClick={() => handleCompanySelect(company.slug)}
+                    component={RouterLink}
+                    to={`/regulator-payment-times/${company.slug}`}
                     sx={{
                       width: "100%",
+                      display: "block",
                       textAlign: "left",
-                      font: "inherit",
                       color: "inherit",
+                      textDecoration: "none",
                       cursor: "pointer",
                       transition:
                         "border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease",

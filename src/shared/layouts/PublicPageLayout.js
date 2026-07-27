@@ -64,12 +64,13 @@ export function PublicContent({ children, maxWidth = 1180, sx }) {
   );
 }
 
-export function PublicSurface({ children, component = "div", sx }) {
+export function PublicSurface({ children, component = "div", sx, ...props }) {
   const theme = useTheme();
 
   return (
     <Box
       component={component}
+      {...props}
       sx={{
         p: {
           xs: 2.5,
