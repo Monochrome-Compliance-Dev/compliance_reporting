@@ -3,6 +3,7 @@ import { PricingPage } from "slices/marketing/pricing/PricingPage";
 import PaymentTimesReportingPrint from "slices/marketing/ptrs/PaymentTimesReporting.print";
 import ConstructionPaymentReporting from "slices/marketing/construction/ConstructionPaymentReporting";
 import IndustryInsights from "slices/marketing/insights/IndustryInsights";
+import PaymentTimesExplorerLaunch from "slices/marketing/insights/PaymentTimesExplorerLaunch";
 import Services from "slices/marketing/services/Services";
 import Industries from "slices/marketing/industries/Industries";
 import KnowledgeIndex from "slices/marketing/insights/knowledge/KnowledgeIndex";
@@ -54,6 +55,10 @@ export const publicRoutes = [
   {
     path: "insights/knowledge/:slug",
     Component: KnowledgeArticlePage,
+  },
+  {
+    path: "insights/payment-times-explorer",
+    Component: PaymentTimesExplorerLaunch,
   },
   { path: "insights", Component: IndustryInsights },
   {
