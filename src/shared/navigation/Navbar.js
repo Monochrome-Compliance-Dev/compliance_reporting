@@ -1,172 +1,321 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import {
   AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
   Box,
   Button,
+  Divider,
+  IconButton,
+  ListSubheader,
   Menu,
   MenuItem,
-  Popper,
-  Paper,
-  MenuList,
-  ClickAwayListener,
-  Grow,
+  Toolbar,
+  Typography,
 } from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
-import Divider from "@mui/material/Divider";
-import MenuIcon from "@mui/icons-material/Menu";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import ArticleIcon from "@mui/icons-material/Article";
+import MenuIcon from "@mui/icons-material/Menu";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
-import { Link, useNavigate, useLocation } from "react-router";
 import { useTheme } from "@mui/material/styles";
-import { useAuthContext } from "context";
+import { Link, useLocation, useNavigate } from "react-router";
+import { useAlert, useAuthContext } from "../../context";
 import { userService } from "slices/users/userApi";
+
+const marketingNav = {
+  services: {
+    label: "Services",
+    to: "/services",
+    items: [
+      {
+        label: "Payment Times Reporting",
+        to: "/payment-times-reporting",
+      },
+      {
+        label: "Pricing",
+        to: "/pricing",
+      },
+    ],
+  },
+  industries: {
+    label: "Industries",
+    to: "/industries",
+    items: [
+      {
+        label: "Construction",
+        to: "/construction-payment-reporting",
+      },
+    ],
+  },
+  insights: {
+    label: "Insights",
+    to: "/insights",
+    items: [
+      {
+        label: "Knowledge Centre",
+        to: "/insights/knowledge",
+      },
+      {
+        label: "Blog",
+        to: "/insights/blog",
+      },
+    ],
+  },
+  company: {
+    label: "Company",
+    to: "/about",
+    items: [
+      {
+        label: "Contact",
+        to: "/contact",
+      },
+    ],
+  },
+};
 
 export default function Navbar({ isDarkTheme, onToggleTheme }) {
   const { user } = useAuthContext();
+  const { showAlert } = useAlert();
   const theme = useTheme();
-  const [anchorEl, setAnchorEl] = useState(null);
-  const servicesAnchorRef = useRef(null);
-  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
-  const handleServicesToggle = () => setIsServicesMenuOpen((prev) => !prev);
-  const handleServicesClose = () => setIsServicesMenuOpen(false);
-  const industriesAnchorRef = useRef(null);
-  const [isIndustriesMenuOpen, setIsIndustriesMenuOpen] = useState(false);
-  const handleIndustriesToggle = () => setIsIndustriesMenuOpen((prev) => !prev);
-  const handleIndustriesClose = () => setIsIndustriesMenuOpen(false);
-  const [companyAnchor, setCompanyAnchor] = useState(null);
-  const handleCompanyOpen = (event) => setCompanyAnchor(event.currentTarget);
-  const handleCompanyClose = () => setCompanyAnchor(null);
-  const [exploreAnchor, setExploreAnchor] = useState(null);
-  const handleExploreOpen = (event) => setExploreAnchor(event.currentTarget);
-  const handleExploreClose = () => setExploreAnchor(null);
-  const insightsAnchorRef = useRef(null);
-  const [isInsightsMenuOpen, setIsInsightsMenuOpen] = useState(false);
-  const handleInsightsToggle = () => setIsInsightsMenuOpen((prev) => !prev);
-  const handleInsightsClose = () => setIsInsightsMenuOpen(false);
-
-  // --- Marketing dropdown close delay helpers ---
-  const marketingCloseTimerRef = useRef(null);
-
-  const cancelMarketingClose = () => {
-    if (marketingCloseTimerRef.current) {
-      clearTimeout(marketingCloseTimerRef.current);
-      marketingCloseTimerRef.current = null;
-    }
-  };
-
-  const scheduleMarketingClose = (closeFn) => {
-    cancelMarketingClose();
-    marketingCloseTimerRef.current = setTimeout(() => {
-      closeFn();
-      marketingCloseTimerRef.current = null;
-    }, 120);
-  };
-
-  // --- Desktop marketing dropdown helpers ---
-  const closeAllMarketingDropdowns = () => {
-    setIsServicesMenuOpen(false);
-    setIsIndustriesMenuOpen(false);
-    setIsInsightsMenuOpen(false);
-  };
-
-  const handleServicesOpen = () => {
-    cancelMarketingClose();
-    setIsIndustriesMenuOpen(false);
-    setIsInsightsMenuOpen(false);
-    setIsServicesMenuOpen(true);
-  };
-
-  const handleIndustriesOpen = () => {
-    cancelMarketingClose();
-    setIsServicesMenuOpen(false);
-    setIsInsightsMenuOpen(false);
-    setIsIndustriesMenuOpen(true);
-  };
-
-  const handleInsightsOpen = () => {
-    cancelMarketingClose();
-    setIsServicesMenuOpen(false);
-    setIsIndustriesMenuOpen(false);
-    setIsInsightsMenuOpen(true);
-  };
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [mobileAnchor, setMobileAnchor] = useState(null);
+  const [desktopMenu, setDesktopMenu] = useState({
+    key: null,
+    anchorEl: null,
+  });
+
   const isPublicOnlyMode =
     String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
-  const isAuthEnabled = !isPublicOnlyMode;
 
+  const isAuthEnabled = !isPublicOnlyMode;
+  const isLoggedIn = isAuthEnabled && Boolean(user);
   const isMarketingRoute = !location.pathname.startsWith("/app");
 
-  const isLoggedIn = isAuthEnabled && Boolean(user);
+  const isPathActive = (path, exact = false) =>
+    exact
+      ? location.pathname === path
+      : location.pathname === path || location.pathname.startsWith(`${path}/`);
 
-  // Shared marketing nav definition
-  const marketingNav = {
-    services: [
-      { label: "Payment Health Check", to: "/services/payment-health-check" },
-      {
-        label: "Payment Times Reporting",
-        to: "/services/payment-times-reporting",
-      },
-    ],
-    industries: [
-      {
-        label: "Construction",
-        to: "/industries/construction/payment-reporting",
-      },
-    ],
-    insights: [
-      { label: "Payment Times Register", to: "/regulator-payment-times" },
-      { label: "Industry Insights", to: "/insights" },
-      { label: "Blog", to: "/insights/blog" },
-    ],
-    company: [
-      { label: "About", to: "/about" },
-      { label: "Contact", to: "/contact" },
-    ],
+  const openDesktopMenu = (key, event) => {
+    setDesktopMenu({
+      key,
+      anchorEl: event.currentTarget,
+    });
   };
 
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const closeDesktopMenu = () => {
+    setDesktopMenu({
+      key: null,
+      anchorEl: null,
+    });
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
+  const openMobileMenu = (event) => {
+    setMobileAnchor(event.currentTarget);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileAnchor(null);
   };
 
   const handleLogout = async () => {
     try {
-      userService.logout();
-      handleMenuClose();
+      await userService.logout();
       navigate("/login");
     } catch (error) {
-      console.error("Logout failed:", error); // Log the error
-      alert("Failed to log out. Please try again."); // Display a user-friendly message
+      console.error("Logout failed:", error);
+      showAlert("Failed to log out. Please try again.", "error");
     }
   };
+
+  const navLinkSx = (active = false) => ({
+    minWidth: "auto",
+    px: 1,
+    py: 0.75,
+    borderRadius: 1.5,
+    color: theme.palette.text.primary,
+    backgroundColor: active ? theme.palette.action.selected : "transparent",
+    fontSize: theme.typography.body2.fontSize,
+    fontWeight: active ? 700 : 500,
+    lineHeight: 1.25,
+    textTransform: "none",
+    whiteSpace: "nowrap",
+    "&:hover": {
+      backgroundColor: theme.palette.action.hover,
+    },
+  });
+
+  const dropdownButtonSx = (active = false) => ({
+    width: 28,
+    height: 28,
+    p: 0,
+    ml: -0.5,
+    borderRadius: 1,
+    color: theme.palette.text.secondary,
+    backgroundColor: active ? theme.palette.action.selected : "transparent",
+    "&:hover": {
+      color: theme.palette.text.primary,
+      backgroundColor: theme.palette.action.hover,
+    },
+  });
+
+  const dropdownPaperSx = {
+    mt: 0.75,
+    minWidth: 210,
+    border: `1px solid ${theme.palette.divider}`,
+    borderRadius: 2,
+    backgroundColor: theme.palette.background.paper,
+    backgroundImage: "none",
+  };
+
+  const renderSplitNavigation = (key, item) => {
+    const active = isPathActive(item.to);
+    const menuOpen = desktopMenu.key === key;
+
+    return (
+      <>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Button
+            component={Link}
+            to={item.to}
+            onClick={closeDesktopMenu}
+            sx={navLinkSx(active)}
+          >
+            {item.label}
+          </Button>
+
+          <IconButton
+            id={`${key}-navigation-button`}
+            aria-label={`Open ${item.label} menu`}
+            aria-controls={menuOpen ? `${key}-navigation-menu` : undefined}
+            aria-haspopup="true"
+            aria-expanded={menuOpen ? "true" : undefined}
+            onClick={(event) => openDesktopMenu(key, event)}
+            sx={dropdownButtonSx(active)}
+          >
+            <ExpandMoreIcon
+              sx={{
+                fontSize: 18,
+                transform: menuOpen ? "rotate(180deg)" : "rotate(0deg)",
+                transition: "transform 150ms ease",
+              }}
+            />
+          </IconButton>
+        </Box>
+
+        <Menu
+          id={`${key}-navigation-menu`}
+          anchorEl={menuOpen ? desktopMenu.anchorEl : null}
+          open={menuOpen}
+          onClose={closeDesktopMenu}
+          slotProps={{
+            paper: {
+              elevation: 0,
+              sx: dropdownPaperSx,
+            },
+          }}
+          MenuListProps={{
+            "aria-labelledby": `${key}-navigation-button`,
+            sx: {
+              py: 0.75,
+            },
+          }}
+        >
+          {item.items.map((menuItem) => (
+            <MenuItem
+              key={menuItem.to}
+              component={Link}
+              to={menuItem.to}
+              selected={isPathActive(menuItem.to)}
+              onClick={closeDesktopMenu}
+              sx={{
+                mx: 0.75,
+                px: 1.5,
+                py: 1,
+                borderRadius: 1.25,
+                color: theme.palette.text.primary,
+                fontSize: theme.typography.body2.fontSize,
+              }}
+            >
+              {menuItem.label}
+            </MenuItem>
+          ))}
+        </Menu>
+      </>
+    );
+  };
+
+  const renderMobileSection = (key, item) => (
+    <Box key={key}>
+      <MenuItem
+        component={Link}
+        to={item.to}
+        selected={isPathActive(item.to)}
+        onClick={closeMobileMenu}
+        sx={{
+          fontWeight: 700,
+        }}
+      >
+        {item.label}
+      </MenuItem>
+
+      {item.items.map((menuItem) => (
+        <MenuItem
+          key={menuItem.to}
+          component={Link}
+          to={menuItem.to}
+          selected={isPathActive(menuItem.to)}
+          onClick={closeMobileMenu}
+          sx={{
+            pl: 4,
+            fontSize: theme.typography.body2.fontSize,
+          }}
+        >
+          {menuItem.label}
+        </MenuItem>
+      ))}
+    </Box>
+  );
 
   return (
     <AppBar
       position="sticky"
+      elevation={0}
       sx={{
+        width: "100%",
+        borderBottom: `1px solid ${theme.palette.divider}`,
         backgroundColor: theme.palette.background.navbar,
         color: theme.palette.text.primary,
-        backgroundImage: "none", // Explicitly remove the gradient
-        width: "100%",
+        backgroundImage: "none",
       }}
     >
-      <Toolbar>
+      <Toolbar
+        variant="dense"
+        sx={{
+          minHeight: {
+            xs: 58,
+            md: 62,
+          },
+          px: {
+            xs: 2,
+            sm: 2.5,
+            lg: 3,
+          },
+          gap: 0.25,
+        }}
+      >
         <Typography
           variant="h6"
+          component="div"
           sx={{
             flexGrow: 1,
+            minWidth: 0,
             color: theme.palette.text.primary,
           }}
         >
@@ -174,682 +323,336 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
             component="img"
             src={
               isDarkTheme
-                ? // ? "/images/logos/logo-dark-thin.png"
-                  "https://monochrome-assets.s3.ap-southeast-2.amazonaws.com/logo-dark-no-background.png"
+                ? "https://monochrome-assets.s3.ap-southeast-2.amazonaws.com/logo-dark-no-background.png"
                 : "https://monochrome-assets.s3.ap-southeast-2.amazonaws.com/logo-light-no-background.png"
             }
-            alt="Monochrome Compliance Logo"
+            alt="Monochrome Compliance"
+            onClick={() => navigate("/")}
             sx={{
-              height: "auto",
-              maxWidth: { xs: "200px", md: "300px" },
+              display: "block",
               width: "100%",
+              maxWidth: {
+                xs: 190,
+                sm: 220,
+                lg: 250,
+              },
+              height: "auto",
               objectFit: "contain",
-              mt: 1.5,
-              mb: 0.5,
-              ml: -1.5,
+              ml: -1,
               cursor: "pointer",
+              transition: "opacity 120ms ease",
               "&:hover": {
                 opacity: 0.8,
               },
             }}
-            onClick={() => {
-              navigate("/");
-            }}
           />
         </Typography>
-        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+
+        <Box
+          sx={{
+            display: {
+              xs: "none",
+              lg: "flex",
+            },
+            alignItems: "center",
+            gap: 0.25,
+          }}
+        >
           {isMarketingRoute && (
-            <Box sx={{ display: "contents" }}>
-              <Box
-                ref={servicesAnchorRef}
-                onMouseEnter={handleServicesOpen}
-                onMouseLeave={() => scheduleMarketingClose(handleServicesClose)}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  borderRadius: 1.5,
-                  px: 0.75,
-                  py: 0.25,
-                  transition: "background-color 120ms ease",
-                  "&:hover": {
-                    backgroundColor: theme.palette.action.hover,
-                  },
-                  "&:focus-within": {
-                    backgroundColor: theme.palette.action.hover,
-                  },
-                }}
-              >
-                <Button
-                  color="inherit"
-                  component={Link}
-                  to="/services"
-                  onClick={() => {
-                    closeAllMarketingDropdowns();
-                    handleMenuClose();
-                  }}
-                  sx={{
-                    color: theme.palette.text.primary,
-                    textTransform: "none",
-                    fontWeight: 500,
-                    fontSize: theme.typography.body1.fontSize,
-                    minWidth: "auto",
-                    px: 0.5,
-                  }}
-                >
-                  Services
-                </Button>
-                <IconButton
-                  size="small"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    handleServicesToggle();
-                  }}
-                  aria-label="Open services menu"
-                  sx={{
-                    color: theme.palette.text.primary,
-                    ml: 0,
-                    p: 0.5,
-                    borderRadius: 1,
-                    "&:hover": { backgroundColor: "transparent" },
-                  }}
-                >
-                  <ExpandMoreIcon />
-                </IconButton>
-              </Box>
-              <Popper
-                open={isServicesMenuOpen}
-                anchorEl={servicesAnchorRef.current}
-                placement="bottom-start"
-                transition
-                sx={{ zIndex: theme.zIndex.modal }}
-                modifiers={[
-                  {
-                    name: "offset",
-                    options: {
-                      offset: [0, 8],
-                    },
-                  },
-                ]}
-              >
-                {({ TransitionProps }) => (
-                  <Grow {...TransitionProps}>
-                    <Paper
-                      elevation={0}
-                      sx={{
-                        border: `1px solid ${theme.palette.divider}`,
-                        backgroundColor: theme.palette.background.paper,
-                        minWidth: 240,
-                      }}
-                      onMouseEnter={cancelMarketingClose}
-                      onMouseLeave={() =>
-                        scheduleMarketingClose(handleServicesClose)
-                      }
-                    >
-                      <ClickAwayListener
-                        onClickAway={() => {
-                          handleServicesClose();
-                        }}
-                      >
-                        <MenuList variant="menu" autoFocusItem={false}>
-                          {marketingNav.services.map((item) => (
-                            <MenuItem
-                              key={item.to}
-                              onClick={() => {
-                                cancelMarketingClose();
-                                closeAllMarketingDropdowns();
-                                handleMenuClose();
-                              }}
-                              component={Link}
-                              to={item.to}
-                            >
-                              {item.label}
-                            </MenuItem>
-                          ))}
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
-
-              <Box
-                ref={industriesAnchorRef}
-                onMouseEnter={handleIndustriesOpen}
-                onMouseLeave={() =>
-                  scheduleMarketingClose(handleIndustriesClose)
-                }
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  borderRadius: 1.5,
-                  px: 0.75,
-                  py: 0.25,
-                  transition: "background-color 120ms ease",
-                  "&:hover": {
-                    backgroundColor: theme.palette.action.hover,
-                  },
-                  "&:focus-within": {
-                    backgroundColor: theme.palette.action.hover,
-                  },
-                }}
-              >
-                <Button
-                  color="inherit"
-                  component={Link}
-                  to="/industries"
-                  onClick={() => {
-                    closeAllMarketingDropdowns();
-                    handleMenuClose();
-                  }}
-                  sx={{
-                    color: theme.palette.text.primary,
-                    textTransform: "none",
-                    fontWeight: 500,
-                    fontSize: theme.typography.body1.fontSize,
-                    minWidth: "auto",
-                    px: 0.5,
-                  }}
-                >
-                  Industries
-                </Button>
-                <IconButton
-                  size="small"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    handleIndustriesToggle();
-                  }}
-                  aria-label="Open industries menu"
-                  sx={{
-                    color: theme.palette.text.primary,
-                    ml: 0,
-                    p: 0.5,
-                    borderRadius: 1,
-                    "&:hover": { backgroundColor: "transparent" },
-                  }}
-                >
-                  <ExpandMoreIcon />
-                </IconButton>
-              </Box>
-              <Popper
-                open={isIndustriesMenuOpen}
-                anchorEl={industriesAnchorRef.current}
-                placement="bottom-start"
-                transition
-                sx={{ zIndex: theme.zIndex.modal }}
-                modifiers={[
-                  {
-                    name: "offset",
-                    options: {
-                      offset: [0, 8],
-                    },
-                  },
-                ]}
-              >
-                {({ TransitionProps }) => (
-                  <Grow {...TransitionProps}>
-                    <Paper
-                      elevation={0}
-                      sx={{
-                        border: `1px solid ${theme.palette.divider}`,
-                        backgroundColor: theme.palette.background.paper,
-                        minWidth: 240,
-                      }}
-                      onMouseEnter={cancelMarketingClose}
-                      onMouseLeave={() =>
-                        scheduleMarketingClose(handleIndustriesClose)
-                      }
-                    >
-                      <ClickAwayListener
-                        onClickAway={() => {
-                          handleIndustriesClose();
-                        }}
-                      >
-                        <MenuList variant="menu" autoFocusItem={false}>
-                          {marketingNav.industries.map((item) => (
-                            <MenuItem
-                              key={item.to}
-                              onClick={() => {
-                                cancelMarketingClose();
-                                closeAllMarketingDropdowns();
-                                handleMenuClose();
-                              }}
-                              component={Link}
-                              to={item.to}
-                            >
-                              {item.label}
-                            </MenuItem>
-                          ))}
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
-
-              <Box
-                ref={insightsAnchorRef}
-                onMouseEnter={handleInsightsOpen}
-                onMouseLeave={() => scheduleMarketingClose(handleInsightsClose)}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  borderRadius: 1.5,
-                  px: 0.75,
-                  py: 0.25,
-                  transition: "background-color 120ms ease",
-                  "&:hover": {
-                    backgroundColor: theme.palette.action.hover,
-                  },
-                  "&:focus-within": {
-                    backgroundColor: theme.palette.action.hover,
-                  },
-                }}
-              >
-                <Button
-                  color="inherit"
-                  component={Link}
-                  to="/insights"
-                  onClick={() => {
-                    closeAllMarketingDropdowns();
-                    handleMenuClose();
-                  }}
-                  sx={{
-                    color: theme.palette.text.primary,
-                    textTransform: "none",
-                    fontWeight: 500,
-                    fontSize: theme.typography.body1.fontSize,
-                    minWidth: "auto",
-                    px: 0.5,
-                  }}
-                >
-                  Insights
-                </Button>
-                <IconButton
-                  size="small"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    handleInsightsToggle();
-                  }}
-                  aria-label="Open insights menu"
-                  sx={{
-                    color: theme.palette.text.primary,
-                    ml: 0,
-                    p: 0.5,
-                    borderRadius: 1,
-                    "&:hover": { backgroundColor: "transparent" },
-                  }}
-                >
-                  <ExpandMoreIcon />
-                </IconButton>
-              </Box>
-              <Popper
-                open={isInsightsMenuOpen}
-                anchorEl={insightsAnchorRef.current}
-                placement="bottom-start"
-                transition
-                sx={{ zIndex: theme.zIndex.modal }}
-                modifiers={[
-                  {
-                    name: "offset",
-                    options: {
-                      offset: [0, 8],
-                    },
-                  },
-                ]}
-              >
-                {({ TransitionProps }) => (
-                  <Grow {...TransitionProps}>
-                    <Paper
-                      elevation={0}
-                      sx={{
-                        border: `1px solid ${theme.palette.divider}`,
-                        backgroundColor: theme.palette.background.paper,
-                        minWidth: 220,
-                      }}
-                      onMouseEnter={cancelMarketingClose}
-                      onMouseLeave={() =>
-                        scheduleMarketingClose(handleInsightsClose)
-                      }
-                    >
-                      <ClickAwayListener
-                        onClickAway={() => {
-                          handleInsightsClose();
-                        }}
-                      >
-                        <MenuList variant="menu" autoFocusItem={false}>
-                          {marketingNav.insights.map((item) => (
-                            <MenuItem
-                              key={item.to}
-                              onClick={() => {
-                                cancelMarketingClose();
-                                closeAllMarketingDropdowns();
-                                handleMenuClose();
-                              }}
-                              component={Link}
-                              to={item.to}
-                              sx={{ color: theme.palette.text.primary }}
-                            >
-                              {item.label}
-                            </MenuItem>
-                          ))}
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
-
+            <>
               <Button
-                color="inherit"
                 component={Link}
-                to="/pricing"
-                onClick={() => {
-                  closeAllMarketingDropdowns();
-                  handleMenuClose();
-                }}
-                sx={{
-                  color: theme.palette.text.primary,
-                  textTransform: "none",
-                  fontWeight: 500,
-                  fontSize: theme.typography.body1.fontSize,
-                }}
+                to="/regulator-payment-times"
+                onClick={closeDesktopMenu}
+                sx={navLinkSx(isPathActive("/regulator-payment-times"))}
               >
-                Pricing
+                Payment Times Explorer
               </Button>
 
-              <Button
-                color="inherit"
-                onClick={handleCompanyOpen}
-                sx={{
-                  color: theme.palette.text.primary,
-                  textTransform: "none",
-                  fontWeight: 500,
-                  fontSize: theme.typography.body1.fontSize,
-                }}
-                endIcon={<ExpandMoreIcon />}
-              >
-                Company
-              </Button>
-              <Menu
-                anchorEl={companyAnchor}
-                open={Boolean(companyAnchor)}
-                onClose={handleCompanyClose}
-                sx={{ mt: 1 }}
-              >
-                {marketingNav.company.map((item) => (
-                  <MenuItem
-                    key={item.to}
-                    onClick={() => {
-                      handleCompanyClose();
-                      handleMenuClose();
-                    }}
-                    component={Link}
-                    to={item.to}
-                  >
-                    {item.label}
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
+              {renderSplitNavigation("services", marketingNav.services)}
+
+              {renderSplitNavigation("industries", marketingNav.industries)}
+
+              {renderSplitNavigation("insights", marketingNav.insights)}
+
+              {renderSplitNavigation("company", marketingNav.company)}
+            </>
           )}
+
           {isLoggedIn && !isMarketingRoute && (
-            <Box sx={{ display: "contents" }}>
+            <>
               <Button
-                color="inherit"
-                onClick={handleExploreOpen}
-                sx={{
-                  color: theme.palette.text.secondary,
-                  alignItems: "center",
-                }}
-                endIcon={<ExpandMoreIcon />}
+                id="explore-navigation-button"
+                endIcon={<ExpandMoreIcon sx={{ fontSize: 18 }} />}
+                onClick={(event) => openDesktopMenu("explore", event)}
+                sx={navLinkSx(desktopMenu.key === "explore")}
               >
                 Explore
               </Button>
+
               <Menu
-                anchorEl={exploreAnchor}
-                open={Boolean(exploreAnchor)}
-                onClose={handleExploreClose}
-                sx={{ mt: 1 }}
+                anchorEl={
+                  desktopMenu.key === "explore" ? desktopMenu.anchorEl : null
+                }
+                open={desktopMenu.key === "explore"}
+                onClose={closeDesktopMenu}
+                slotProps={{
+                  paper: {
+                    elevation: 0,
+                    sx: dropdownPaperSx,
+                  },
+                }}
               >
-                <MenuItem onClick={handleExploreClose} disabled>
+                <MenuItem
+                  component={Link}
+                  to="/regulator-payment-times"
+                  onClick={closeDesktopMenu}
+                >
+                  Payment Times Explorer
+                </MenuItem>
+
+                <Divider />
+
+                <ListSubheader
+                  sx={{
+                    backgroundColor: theme.palette.background.paper,
+                    color: theme.palette.text.secondary,
+                  }}
+                >
+                  Services
+                </ListSubheader>
+
+                <MenuItem
+                  component={Link}
+                  to="/services"
+                  onClick={closeDesktopMenu}
+                >
                   Services
                 </MenuItem>
-                {marketingNav.services.map((item) => (
-                  <MenuItem
-                    key={item.to}
-                    onClick={handleExploreClose}
-                    component={Link}
-                    to={item.to}
-                  >
-                    <AccessTimeIcon sx={{ fontSize: 20, mr: 1 }} />
-                    {item.label}
-                  </MenuItem>
-                ))}
 
-                <Divider />
-
-                <MenuItem onClick={handleExploreClose} disabled>
-                  Industries
-                </MenuItem>
-                {marketingNav.industries.map((item) => (
-                  <MenuItem
-                    key={item.to}
-                    onClick={handleExploreClose}
-                    component={Link}
-                    to={item.to}
-                  >
-                    <WorkOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
-                    {item.label}
-                  </MenuItem>
-                ))}
-
-                <Divider />
-
-                <MenuItem onClick={handleExploreClose} disabled>
-                  Insights
-                </MenuItem>
-                {marketingNav.insights.map((item) => (
-                  <MenuItem
-                    key={item.to}
-                    onClick={handleExploreClose}
-                    component={Link}
-                    to={item.to}
-                  >
-                    <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
-                    {item.label}
-                  </MenuItem>
-                ))}
                 <MenuItem
-                  onClick={handleExploreClose}
                   component={Link}
-                  to="/pricing"
+                  to="/payment-times-reporting"
+                  onClick={closeDesktopMenu}
                 >
-                  <ArticleIcon sx={{ fontSize: 20, mr: 1 }} />
-                  Pricing
+                  Payment Times Reporting
                 </MenuItem>
 
                 <Divider />
 
-                <MenuItem onClick={handleExploreClose} disabled>
-                  Company
+                <ListSubheader
+                  sx={{
+                    backgroundColor: theme.palette.background.paper,
+                    color: theme.palette.text.secondary,
+                  }}
+                >
+                  Insights
+                </ListSubheader>
+
+                <MenuItem
+                  component={Link}
+                  to="/insights"
+                  onClick={closeDesktopMenu}
+                >
+                  Industry Insights
                 </MenuItem>
-                {marketingNav.company.map((item) => (
-                  <MenuItem
-                    key={item.to}
-                    onClick={handleExploreClose}
-                    component={Link}
-                    to={item.to}
-                  >
-                    {item.to === "/contact" ? (
-                      <MailOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
-                    ) : (
-                      <InfoIcon sx={{ fontSize: 20, mr: 1 }} />
-                    )}
-                    {item.label}
-                  </MenuItem>
-                ))}
+
+                <MenuItem
+                  component={Link}
+                  to="/insights/knowledge"
+                  onClick={closeDesktopMenu}
+                >
+                  Knowledge Centre
+                </MenuItem>
+
+                <MenuItem
+                  component={Link}
+                  to="/insights/blog"
+                  onClick={closeDesktopMenu}
+                >
+                  Blog
+                </MenuItem>
               </Menu>
-            </Box>
+            </>
           )}
         </Box>
-        <Box sx={{ display: { xs: "flex", md: "none" } }}>
+
+        <Box
+          sx={{
+            display: {
+              xs: "flex",
+              lg: "none",
+            },
+          }}
+        >
           <IconButton
             color="inherit"
-            aria-label="menu"
-            onClick={handleMenuOpen}
-            sx={{ color: theme.palette.text.primary }}
+            aria-label="Open navigation"
+            aria-controls={mobileAnchor ? "mobile-navigation-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={mobileAnchor ? "true" : undefined}
+            onClick={openMobileMenu}
+            sx={{
+              color: theme.palette.text.primary,
+            }}
           >
             <MenuIcon />
           </IconButton>
+
           <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
-            sx={{ backgroundColor: theme.palette.background.paper }}
+            id="mobile-navigation-menu"
+            anchorEl={mobileAnchor}
+            open={Boolean(mobileAnchor)}
+            onClose={closeMobileMenu}
+            slotProps={{
+              paper: {
+                elevation: 0,
+                sx: {
+                  mt: 0.75,
+                  width: "min(320px, calc(100vw - 24px))",
+                  maxHeight: "calc(100vh - 80px)",
+                  border: `1px solid ${theme.palette.divider}`,
+                  borderRadius: 2,
+                  backgroundColor: theme.palette.background.paper,
+                  backgroundImage: "none",
+                },
+              },
+            }}
+            MenuListProps={{
+              sx: {
+                py: 0.75,
+              },
+            }}
           >
             {isLoggedIn && !isMarketingRoute && (
-              <MenuItem
-                onClick={handleMenuClose}
-                component={Link}
-                to="/app"
-                sx={{ color: theme.palette.text.primary }}
-              >
-                <WorkOutlineIcon sx={{ fontSize: 20, mr: 1 }} />
-                Open Workspace
-              </MenuItem>
+              <>
+                <MenuItem component={Link} to="/app" onClick={closeMobileMenu}>
+                  <WorkOutlineIcon
+                    sx={{
+                      mr: 1.5,
+                      fontSize: 19,
+                    }}
+                  />
+                  Open Workspace
+                </MenuItem>
+
+                <Divider />
+              </>
             )}
-            <Divider />
+
             {isMarketingRoute && (
-              <Box sx={{ display: "contents" }}>
+              <>
                 <MenuItem
-                  onClick={handleMenuClose}
                   component={Link}
-                  to="/services"
-                  sx={{ color: theme.palette.text.primary }}
+                  to="/regulator-payment-times"
+                  selected={isPathActive("/regulator-payment-times")}
+                  onClick={closeMobileMenu}
+                  sx={{
+                    fontWeight: 700,
+                  }}
                 >
-                  Services overview
+                  Payment Times Explorer
                 </MenuItem>
+
                 <Divider />
-                {marketingNav.services.map((item) => (
-                  <MenuItem
-                    key={item.to}
-                    onClick={handleMenuClose}
-                    component={Link}
-                    to={item.to}
-                    sx={{ color: theme.palette.text.primary }}
-                  >
-                    {item.label}
-                  </MenuItem>
+
+                {Object.entries(marketingNav).map(([key, item], index) => (
+                  <Box key={key}>
+                    {index > 0 && <Divider />}
+                    {renderMobileSection(key, item)}
+                  </Box>
                 ))}
-                <Divider />
-                <MenuItem
-                  onClick={handleMenuClose}
-                  component={Link}
-                  to="/industries"
-                  sx={{ color: theme.palette.text.primary }}
-                >
-                  Industries overview
-                </MenuItem>
-                {marketingNav.industries.map((item) => (
-                  <MenuItem
-                    key={item.to}
-                    onClick={handleMenuClose}
-                    component={Link}
-                    to={item.to}
-                    sx={{ color: theme.palette.text.primary }}
-                  >
-                    {item.label}
-                  </MenuItem>
-                ))}
-                <Divider />
-                {marketingNav.insights.map((item) => (
-                  <MenuItem
-                    key={item.to}
-                    onClick={handleMenuClose}
-                    component={Link}
-                    to={item.to}
-                    sx={{ color: theme.palette.text.primary }}
-                  >
-                    {item.label}
-                  </MenuItem>
-                ))}
-                <MenuItem
-                  onClick={handleMenuClose}
-                  component={Link}
-                  to="/pricing"
-                  sx={{ color: theme.palette.text.primary }}
-                >
-                  Pricing
-                </MenuItem>
-                <Divider />
-                {marketingNav.company.map((item) => (
-                  <MenuItem
-                    key={item.to}
-                    onClick={handleMenuClose}
-                    component={Link}
-                    to={item.to}
-                    sx={{ color: theme.palette.text.primary }}
-                  >
-                    {item.label}
-                  </MenuItem>
-                ))}
-              </Box>
+              </>
             )}
           </Menu>
         </Box>
-        {/* Book a Call CTA removed */}
+
         {isLoggedIn && (
           <Button
             variant="outlined"
             color="inherit"
             size="small"
             onClick={() => navigate("/app")}
-            startIcon={<WorkOutlineIcon sx={{ fontSize: 18 }} />}
+            startIcon={
+              <WorkOutlineIcon
+                sx={{
+                  fontSize: 17,
+                }}
+              />
+            }
             aria-label="Open workspace"
             sx={{
-              ml: 1,
-              fontWeight: 600,
+              ml: 0.75,
               px: 1.25,
               py: 0.5,
               borderColor: theme.palette.divider,
-              display: { xs: "none", md: "inline-flex" },
-              "&:hover": { borderColor: theme.palette.text.secondary },
+              display: {
+                xs: "none",
+                lg: "inline-flex",
+              },
+              fontSize: theme.typography.body2.fontSize,
+              fontWeight: 600,
+              textTransform: "none",
+              "&:hover": {
+                borderColor: theme.palette.text.secondary,
+              },
             }}
           >
             Workspace
           </Button>
         )}
-        {/* Dynamic Login/Logout button */}
+
         {!isLoggedIn && !isPublicOnlyMode && (
           <Button
             variant="outlined"
             color="primary"
+            size="small"
             onClick={() => navigate("/login")}
-            sx={{ ml: 2, fontWeight: 600 }}
+            sx={{
+              ml: 0.75,
+              px: 1.5,
+              py: 0.6,
+              fontSize: theme.typography.body2.fontSize,
+              fontWeight: 600,
+              textTransform: "none",
+            }}
           >
             Login
           </Button>
         )}
+
         {isLoggedIn && (
           <Button
             variant="outlined"
             color="secondary"
+            size="small"
             onClick={handleLogout}
-            sx={{ ml: 2, fontWeight: 600 }}
+            sx={{
+              ml: 0.75,
+              fontSize: theme.typography.body2.fontSize,
+              fontWeight: 600,
+              textTransform: "none",
+            }}
           >
             Logout
           </Button>
         )}
+
         <IconButton
-          sx={{ ml: 1, color: theme.palette.text.primary }}
-          onClick={onToggleTheme}
           color="inherit"
-          aria-label="toggle theme"
+          aria-label="Toggle colour theme"
+          onClick={onToggleTheme}
+          size="small"
+          sx={{
+            ml: 0.25,
+            color: theme.palette.text.primary,
+          }}
         >
-          {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
+          {isDarkTheme ? (
+            <Brightness7Icon sx={{ fontSize: 20 }} />
+          ) : (
+            <Brightness4Icon sx={{ fontSize: 20 }} />
+          )}
         </IconButton>
       </Toolbar>
     </AppBar>

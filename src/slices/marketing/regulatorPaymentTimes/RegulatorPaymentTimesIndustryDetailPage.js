@@ -11,15 +11,18 @@ import {
   Box,
   Button,
   CircularProgress,
-  Container,
   Divider,
   Grid,
-  Paper,
   Stack,
   Typography,
 } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
+import PublicPageLayout, {
+  PublicContent,
+  PublicPageSection,
+  PublicSurface,
+} from "shared/layouts/PublicPageLayout";
 
 const INDUSTRY_DATA_BASE_URL = "/data/regulator-payment-times/industries";
 const REGULATOR_REGISTER_URL =
@@ -182,36 +185,29 @@ function MetricCard({ label, value, description }) {
   const theme = useTheme();
 
   return (
-    <Paper
-      elevation={0}
+    <PublicSurface
       sx={{
+        width: "100%",
         height: "100%",
-        p: 3,
-        border: `1px solid ${theme.palette.divider}`,
-        borderRadius: 3,
-        background: `linear-gradient(
-          145deg,
-          ${alpha(theme.palette.primary.main, 0.1)},
-          ${theme.palette.background.paper} 60%
-        )`,
       }}
     >
       <Stack spacing={1}>
         <Typography
-          variant="body2"
+          variant="overline"
           sx={{
-            color: theme.palette.text.secondary,
-            fontWeight: 600,
+            color: theme.palette.primary.main,
+            fontWeight: 800,
+            letterSpacing: 1.2,
           }}
         >
           {label}
         </Typography>
 
         <Typography
-          variant="h4"
+          variant="h5"
           sx={{
             color: theme.palette.text.primary,
-            fontWeight: 700,
+            fontWeight: 800,
           }}
         >
           {value}
@@ -221,13 +217,13 @@ function MetricCard({ label, value, description }) {
           variant="body2"
           sx={{
             color: theme.palette.text.secondary,
-            lineHeight: 1.5,
+            lineHeight: 1.7,
           }}
         >
           {description}
         </Typography>
       </Stack>
-    </Paper>
+    </PublicSurface>
   );
 }
 
@@ -261,15 +257,7 @@ function P95TrendChart({ cycles }) {
   const yAxisMaximum = Math.ceil(highestP95Value + p95Range * 0.15);
 
   return (
-    <Paper
-      elevation={0}
-      sx={{
-        p: { xs: 2.5, sm: 3.5 },
-        border: `1px solid ${theme.palette.divider}`,
-        borderRadius: 3,
-        backgroundColor: theme.palette.background.paper,
-      }}
-    >
+    <PublicSurface>
       <Stack spacing={3}>
         <Box>
           <Typography
@@ -374,7 +362,7 @@ function P95TrendChart({ cycles }) {
           </Box>
         </Box>
       </Stack>
-    </Paper>
+    </PublicSurface>
   );
 }
 
@@ -390,15 +378,7 @@ function EntityCountChart({ cycles }) {
   }
 
   return (
-    <Paper
-      elevation={0}
-      sx={{
-        p: { xs: 2.5, sm: 3.5 },
-        border: `1px solid ${theme.palette.divider}`,
-        borderRadius: 3,
-        backgroundColor: theme.palette.background.paper,
-      }}
-    >
+    <PublicSurface>
       <Stack spacing={3}>
         <Box>
           <Typography
@@ -489,7 +469,7 @@ function EntityCountChart({ cycles }) {
           </Box>
         </Box>
       </Stack>
-    </Paper>
+    </PublicSurface>
   );
 }
 
@@ -497,15 +477,7 @@ function HistoricalSummary({ cycles }) {
   const theme = useTheme();
 
   return (
-    <Paper
-      elevation={0}
-      sx={{
-        p: { xs: 2.5, sm: 3.5 },
-        border: `1px solid ${theme.palette.divider}`,
-        borderRadius: 3,
-        backgroundColor: theme.palette.background.paper,
-      }}
-    >
+    <PublicSurface>
       <Stack spacing={3}>
         <Box>
           <Typography
@@ -605,7 +577,7 @@ function HistoricalSummary({ cycles }) {
           ))}
         </Stack>
       </Stack>
-    </Paper>
+    </PublicSurface>
   );
 }
 
@@ -689,252 +661,189 @@ function RegulatorPaymentTimesIndustryDetailPage() {
 
   if (isLoading) {
     return (
-      <Box
-        component="main"
-        sx={{
-          minHeight: "100vh",
-          backgroundColor: theme.palette.background.default,
-          py: { xs: 8, md: 12 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Stack
-            direction="row"
-            spacing={2}
-            alignItems="center"
-            justifyContent="center"
-          >
+      <PublicPageLayout>
+        <PublicPageSection
+          sx={{
+            minHeight: "60vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Stack direction="row" spacing={2} alignItems="center">
             <CircularProgress size={26} />
 
             <Typography color="text.secondary">
               Loading industry payment times…
             </Typography>
           </Stack>
-        </Container>
-      </Box>
+        </PublicPageSection>
+      </PublicPageLayout>
     );
   }
 
   if (!industry || !headlineCycle) {
     return (
-      <Box
-        component="main"
-        sx={{
-          minHeight: "100vh",
-          backgroundColor: theme.palette.background.default,
-          py: { xs: 8, md: 12 },
-        }}
-      >
-        <Container maxWidth="md">
-          <Stack spacing={3} alignItems="flex-start">
-            <Typography component="h1" variant="h3">
-              Industry not found
-            </Typography>
+      <PublicPageLayout>
+        <PublicPageSection>
+          <PublicContent maxWidth={760}>
+            <Stack spacing={3} alignItems="flex-start">
+              <Typography component="h1" variant="h3">
+                Industry not found
+              </Typography>
 
-            <Typography color="text.secondary">
-              No regulator payment times data could be found for this industry.
-            </Typography>
+              <Typography color="text.secondary">
+                No regulator payment times data could be found for this
+                industry.
+              </Typography>
 
-            <Button
-              variant="contained"
-              startIcon={<ArrowBackRoundedIcon />}
-              onClick={() => navigate("/regulator-payment-times/industries")}
-            >
-              Back to Industry Insights
-            </Button>
-          </Stack>
-        </Container>
-      </Box>
+              <Button
+                variant="contained"
+                startIcon={<ArrowBackRoundedIcon />}
+                onClick={() => navigate("/regulator-payment-times/industries")}
+              >
+                Back to Industry Insights
+              </Button>
+            </Stack>
+          </PublicContent>
+        </PublicPageSection>
+      </PublicPageLayout>
     );
   }
 
   return (
-    <Box
-      component="main"
-      sx={{
-        minHeight: "100vh",
-        backgroundColor: theme.palette.background.default,
-        py: { xs: 6, md: 10 },
-      }}
-    >
-      <Container maxWidth="lg">
-        <Stack spacing={{ xs: 4, md: 6 }}>
-          <Box>
-            <Button
-              startIcon={<ArrowBackRoundedIcon />}
-              onClick={() => navigate("/regulator-payment-times/industries")}
-              sx={{ mb: 3 }}
+    <PublicPageLayout>
+      <PublicPageSection
+        sx={{
+          pt: {
+            xs: 4,
+            md: 5,
+          },
+        }}
+      >
+        <PublicContent>
+          <Stack spacing={{ xs: 4, md: 5 }}>
+            <Box>
+              <Button
+                startIcon={<ArrowBackRoundedIcon />}
+                onClick={() => navigate("/regulator-payment-times/industries")}
+                sx={{ mb: 3 }}
+              >
+                Industry Insights
+              </Button>
+
+              <Stack spacing={2}>
+                <Typography
+                  component="h1"
+                  variant="h3"
+                  sx={{
+                    color: theme.palette.text.primary,
+                    fontSize: {
+                      xs: "1.8rem",
+                      sm: "2.2rem",
+                      md: "2.6rem",
+                    },
+                    fontWeight: 800,
+                    lineHeight: 1.15,
+                    overflowWrap: "anywhere",
+                  }}
+                >
+                  {industry.industryDivision} Payment Times
+                </Typography>
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    maxWidth: 900,
+                    color: theme.palette.text.secondary,
+                    lineHeight: 1.7,
+                  }}
+                >
+                  Explore how reported small business payment times have
+                  developed across the {industry.industryDivision} ANZSIC
+                  Industry Division under the Payment Times Reporting Scheme.
+                </Typography>
+
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: theme.palette.text.secondary,
+                    fontWeight: 600,
+                  }}
+                >
+                  Headline figures use {formatReportingCycle(headlineCycle)},
+                  the latest cycle with a broadly established reporting cohort.
+                </Typography>
+              </Stack>
+            </Box>
+
+            {incompleteCycleNotice && (
+              <Alert severity="info">
+                {formatReportingCycle(incompleteCycleNotice.latestCycle)}{" "}
+                currently contains{" "}
+                {formatInteger(
+                  incompleteCycleNotice.latestCycle.reportingEntityCount,
+                )}{" "}
+                published reporting entities, compared with{" "}
+                {formatInteger(
+                  incompleteCycleNotice.previousCycle.reportingEntityCount,
+                )}{" "}
+                in the previous cycle. The latest result may therefore change as
+                further reports are published.
+              </Alert>
+            )}
+
+            <Grid container spacing={2.5}>
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} sx={{ display: "flex" }}>
+                <MetricCard
+                  label="Reporting entities"
+                  value={formatInteger(headlineCycle.reportingEntityCount)}
+                  description="Published Standard reports represented in the headline cycle."
+                />
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} sx={{ display: "flex" }}>
+                <MetricCard
+                  label="Median P95"
+                  value={formatDays(headlineCycle.medianP95PaymentTimeDays)}
+                  description="The middle P95 result across reporting entities in the industry."
+                />
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} sx={{ display: "flex" }}>
+                <MetricCard
+                  label="Average P95"
+                  value={formatDays(headlineCycle.averageP95PaymentTimeDays)}
+                  description="The average P95 result across reporting entities in the industry."
+                />
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} sx={{ display: "flex" }}>
+                <MetricCard
+                  label="Reported P95 range"
+                  value={`${formatWholeDays(
+                    headlineCycle.minimumP95PaymentTimeDays,
+                  )} – ${formatWholeDays(
+                    headlineCycle.maximumP95PaymentTimeDays,
+                  )}`}
+                  description="The lowest and highest published P95 results in the headline cycle."
+                />
+              </Grid>
+            </Grid>
+
+            <P95TrendChart cycles={industry.cycles} />
+
+            <EntityCountChart cycles={industry.cycles} />
+
+            <HistoricalSummary cycles={industry.cycles} />
+
+            <PublicSurface
+              sx={{
+                backgroundColor: alpha(theme.palette.info.main, 0.08),
+                borderColor: alpha(theme.palette.info.main, 0.22),
+              }}
             >
-              Back to Industry Insights
-            </Button>
-
-            <Stack spacing={2}>
-              <Typography
-                component="h1"
-                variant="h2"
-                sx={{
-                  color: theme.palette.text.primary,
-                  fontSize: "clamp(2.25rem, 4vw, 3.4rem)",
-                  fontWeight: 700,
-                  lineHeight: 1.15,
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                {industry.industryDivision} Payment Times
-              </Typography>
-
-              <Typography
-                variant="body1"
-                sx={{
-                  maxWidth: 900,
-                  color: theme.palette.text.secondary,
-                  lineHeight: 1.7,
-                }}
-              >
-                Explore how reported small business payment times have developed
-                across the {industry.industryDivision} ANZSIC Industry Division
-                under the Payment Times Reporting Scheme.
-              </Typography>
-
-              <Typography
-                variant="body2"
-                sx={{
-                  color: theme.palette.text.secondary,
-                  fontWeight: 600,
-                }}
-              >
-                Headline figures use {formatReportingCycle(headlineCycle)}, the
-                latest cycle with a broadly established reporting cohort.
-              </Typography>
-            </Stack>
-          </Box>
-
-          {incompleteCycleNotice && (
-            <Alert severity="info">
-              {formatReportingCycle(incompleteCycleNotice.latestCycle)}{" "}
-              currently contains{" "}
-              {formatInteger(
-                incompleteCycleNotice.latestCycle.reportingEntityCount,
-              )}{" "}
-              published reporting entities, compared with{" "}
-              {formatInteger(
-                incompleteCycleNotice.previousCycle.reportingEntityCount,
-              )}{" "}
-              in the previous cycle. The latest result may therefore change as
-              further reports are published.
-            </Alert>
-          )}
-
-          <Grid container spacing={2.5}>
-            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <MetricCard
-                label="Reporting entities"
-                value={formatInteger(headlineCycle.reportingEntityCount)}
-                description="Published Standard reports represented in the headline cycle."
-              />
-            </Grid>
-
-            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <MetricCard
-                label="Median P95"
-                value={formatDays(headlineCycle.medianP95PaymentTimeDays)}
-                description="The middle P95 result across reporting entities in the industry."
-              />
-            </Grid>
-
-            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <MetricCard
-                label="Average P95"
-                value={formatDays(headlineCycle.averageP95PaymentTimeDays)}
-                description="The average P95 result across reporting entities in the industry."
-              />
-            </Grid>
-
-            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <MetricCard
-                label="Reported P95 range"
-                value={`${formatWholeDays(
-                  headlineCycle.minimumP95PaymentTimeDays,
-                )} – ${formatWholeDays(
-                  headlineCycle.maximumP95PaymentTimeDays,
-                )}`}
-                description="The lowest and highest published P95 results in the headline cycle."
-              />
-            </Grid>
-          </Grid>
-
-          <P95TrendChart cycles={industry.cycles} />
-
-          <EntityCountChart cycles={industry.cycles} />
-
-          <HistoricalSummary cycles={industry.cycles} />
-
-          <Paper
-            elevation={0}
-            sx={{
-              p: { xs: 2.5, sm: 3.5 },
-              border: `1px solid ${theme.palette.divider}`,
-              borderRadius: 3,
-              backgroundColor: alpha(theme.palette.info.main, 0.08),
-            }}
-          >
-            <Stack spacing={2}>
-              <Typography
-                component="h2"
-                variant="h5"
-                sx={{
-                  color: theme.palette.text.primary,
-                  fontWeight: 700,
-                }}
-              >
-                Understanding these figures
-              </Typography>
-
-              <Typography
-                variant="body2"
-                sx={{
-                  color: theme.palette.text.secondary,
-                  lineHeight: 1.7,
-                }}
-              >
-                These figures are calculated by Monochrome Compliance from
-                publicly available Standard reports. They describe reported
-                payment outcomes across entities assigned to this ANZSIC
-                Industry Division.
-              </Typography>
-
-              <Typography
-                variant="body2"
-                sx={{
-                  color: theme.palette.text.secondary,
-                  lineHeight: 1.7,
-                }}
-              >
-                Changes between reporting cycles may reflect payment
-                performance, changes in the reporting cohort, revised reports or
-                the timing of publication. Industry results should not be
-                treated as an assessment of legal compliance, financial health
-                or business quality.
-              </Typography>
-            </Stack>
-          </Paper>
-
-          <Paper
-            elevation={0}
-            sx={{
-              p: { xs: 2.5, sm: 3.5 },
-              border: `1px solid ${theme.palette.divider}`,
-              borderRadius: 3,
-              backgroundColor: theme.palette.background.paper,
-            }}
-          >
-            <Stack
-              direction={{ xs: "column", md: "row" }}
-              spacing={2}
-              alignItems={{ xs: "stretch", md: "center" }}
-              justifyContent="space-between"
-            >
-              <Box>
+              <Stack spacing={2}>
                 <Typography
                   component="h2"
                   variant="h5"
@@ -943,67 +852,142 @@ function RegulatorPaymentTimesIndustryDetailPage() {
                     fontWeight: 700,
                   }}
                 >
-                  Explore payment times information
+                  Understanding these figures
                 </Typography>
 
                 <Typography
                   variant="body2"
                   sx={{
-                    mt: 0.5,
-                    maxWidth: 650,
                     color: theme.palette.text.secondary,
-                    lineHeight: 1.6,
+                    lineHeight: 1.7,
                   }}
                 >
-                  Search for an individual reporting entity on Monochrome
-                  Compliance or visit the official Payment Times Reports
-                  Register for source reports and further information.
+                  These figures are calculated by Monochrome Compliance from
+                  publicly available Standard reports. They describe reported
+                  payment outcomes across entities assigned to this ANZSIC
+                  Industry Division.
                 </Typography>
-              </Box>
 
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                spacing={1.5}
-                flexShrink={0}
-              >
-                <Button
-                  variant="outlined"
-                  startIcon={<SearchRoundedIcon />}
-                  endIcon={<ArrowForwardRoundedIcon />}
-                  onClick={() => navigate("/regulator-payment-times")}
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: theme.palette.text.secondary,
+                    lineHeight: 1.7,
+                  }}
                 >
-                  Search companies
-                </Button>
-
-                <Button
-                  component="a"
-                  href={REGULATOR_REGISTER_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="contained"
-                  endIcon={<LaunchRoundedIcon />}
-                >
-                  Visit official register
-                </Button>
+                  Changes between reporting cycles may reflect payment
+                  performance, changes in the reporting cohort, revised reports
+                  or the timing of publication. Industry results should not be
+                  treated as an assessment of legal compliance, financial health
+                  or business quality.
+                </Typography>
               </Stack>
-            </Stack>
-          </Paper>
+            </PublicSurface>
 
-          <Typography
-            variant="caption"
-            sx={{
-              color: theme.palette.text.secondary,
-              lineHeight: 1.6,
-            }}
-          >
-            Source: Australian Government Payment Times Reports Register
-            Standard report data. Monochrome Compliance is not affiliated with
-            or endorsed by the Australian Government or the Payment Times
-            Reporting Regulator.
-          </Typography>
-        </Stack>
-      </Container>
-    </Box>
+            <PublicSurface
+              sx={{
+                backgroundColor: theme.palette.primary.main,
+                borderColor: theme.palette.primary.main,
+              }}
+            >
+              <Stack
+                direction={{ xs: "column", md: "row" }}
+                spacing={3}
+                alignItems={{ xs: "flex-start", md: "center" }}
+                justifyContent="space-between"
+              >
+                <Box>
+                  <Typography
+                    component="h2"
+                    variant="h5"
+                    sx={{
+                      color: theme.palette.text.primary,
+                      fontWeight: 700,
+                    }}
+                  >
+                    Explore payment times information
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      mt: 0.5,
+                      maxWidth: 650,
+                      color: theme.palette.text.primary,
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    Search for an individual reporting entity on Monochrome
+                    Compliance or visit the official Payment Times Reports
+                    Register for source reports and further information.
+                  </Typography>
+                </Box>
+
+                <Stack
+                  direction={{ xs: "column", sm: "row" }}
+                  spacing={1.5}
+                  flexShrink={0}
+                  width={{ xs: "100%", md: "auto" }}
+                >
+                  <Button
+                    variant="outlined"
+                    startIcon={<SearchRoundedIcon />}
+                    endIcon={<ArrowForwardRoundedIcon />}
+                    onClick={() => navigate("/regulator-payment-times")}
+                    sx={{
+                      backgroundColor: theme.palette.background.paper,
+                      color: theme.palette.text.primary,
+                      "&:hover": {
+                        backgroundColor: alpha(
+                          theme.palette.background.paper,
+                          0.9,
+                        ),
+                      },
+                    }}
+                  >
+                    Search companies
+                  </Button>
+
+                  <Button
+                    component="a"
+                    href={REGULATOR_REGISTER_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="outlined"
+                    endIcon={<LaunchRoundedIcon />}
+                    sx={{
+                      backgroundColor: theme.palette.background.paper,
+                      color: theme.palette.text.primary,
+                      "&:hover": {
+                        backgroundColor: alpha(
+                          theme.palette.background.paper,
+                          0.9,
+                        ),
+                      },
+                    }}
+                  >
+                    Visit official register
+                  </Button>
+                </Stack>
+              </Stack>
+            </PublicSurface>
+
+            <Typography
+              variant="caption"
+              sx={{
+                color: theme.palette.text.secondary,
+                lineHeight: 1.6,
+              }}
+            >
+              Source: Australian Government Payment Times Reports Register
+              Standard report data. Monochrome Compliance is not affiliated with
+              or endorsed by the Australian Government or the Payment Times
+              Reporting Regulator.
+            </Typography>
+          </Stack>
+        </PublicContent>
+      </PublicPageSection>
+    </PublicPageLayout>
   );
 }
 
