@@ -16,17 +16,25 @@ const PageMeta = ({ title, description, image, url: overrideUrl }) => {
 
   const metaImage = image || defaultImage;
 
+  const configuredSiteUrl = process.env.REACT_APP_SITE_URL?.replace(/\/$/, "");
+
+  const siteUrl =
+    configuredSiteUrl ||
+    (typeof window !== "undefined" ? window.location.origin : "");
+
+  const robots = process.env.REACT_APP_ROBOTS || "noindex, nofollow";
+
   const currentUrl =
     overrideUrl ||
-    (typeof window !== "undefined"
-      ? `${window.location.origin}${window.location.pathname}`
-      : "https://monochrome-compliance.com/");
+    `${siteUrl}${
+      typeof window !== "undefined" ? window.location.pathname : ""
+    }`;
 
   return (
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={metaDescription} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={robots} />
       <link rel="canonical" href={currentUrl} />
 
       <meta property="og:site_name" content="Monochrome Compliance" />
