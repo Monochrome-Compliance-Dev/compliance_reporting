@@ -1022,7 +1022,7 @@ export default function MapPanel() {
     if (didChange) setIsDirty(true);
   };
 
-  const copyFromPtrsId = async (otherPtrsId) => {
+  const copyFromPtrsId = async (sourceMap) => {
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
@@ -1033,8 +1033,24 @@ export default function MapPanel() {
       return;
     }
 
-    if (!otherPtrsId) {
+    const sourcePtrsId = sourceMap?.id || sourceMap?.ptrsId || null;
+    const sourceDatasetId = sourceMap?.datasetId || null;
+
+    if (!sourcePtrsId) {
       showAlert("Choose a previous PTRS map to import.", "warning");
+      return;
+    }
+
+    if (!sourceDatasetId) {
+      showAlert(
+        "The selected previous map does not identify its source dataset.",
+        "error",
+      );
+      return;
+    }
+
+    if (!selectedMapDatasetId) {
+      showAlert("Choose the current main dataset slice first.", "warning");
       return;
     }
 
@@ -1042,7 +1058,9 @@ export default function MapPanel() {
 
     try {
       const result = await importPtrsFieldMap(ptrsId, {
-        sourcePtrsId: otherPtrsId,
+        sourcePtrsId,
+        sourceDatasetId,
+        targetDatasetId: selectedMapDatasetId,
         profileId,
       });
 
@@ -2273,7 +2291,7 @@ export default function MapPanel() {
           <Button onClick={() => setImportOpen(false)}>Close</Button>
           <Button
             variant="contained"
-            onClick={() => copyFromPtrsId(selectedCopyPtrs?.id)}
+            onClick={() => copyFromPtrsId(selectedCopyPtrs)}
             disabled={loadingCopyMaps || !selectedCopyPtrs}
           >
             Copy

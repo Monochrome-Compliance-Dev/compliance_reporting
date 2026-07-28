@@ -257,18 +257,46 @@ export const getPtrsFieldMap = async (ptrsId, profileId, datasetId) => {
 
 export const importPtrsFieldMap = async (
   ptrsId,
-  { sourcePtrsId, profileId },
+  { sourcePtrsId, sourceDatasetId, targetDatasetId, profileId },
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!sourcePtrsId) throw new Error("sourcePtrsId is required");
+  if (!sourceDatasetId) throw new Error("sourceDatasetId is required");
+  if (!targetDatasetId) throw new Error("targetDatasetId is required");
   if (!profileId) throw new Error("profileId is required");
 
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/field-map/import`,
-    { sourcePtrsId, profileId },
+    {
+      sourcePtrsId,
+      sourceDatasetId,
+      targetDatasetId,
+      profileId,
+    },
   );
 
-  return pickData(res) || {};
+  const data = pickData(res) || {};
+
+  const rows = Array.isArray(data.fieldMap)
+    ? data.fieldMap
+    : Array.isArray(data.rows)
+      ? data.rows
+      : Array.isArray(data.items)
+        ? data.items
+        : Array.isArray(data)
+          ? data
+          : [];
+
+  const importedRowsCount =
+    typeof data.count === "number" && Number.isFinite(data.count)
+      ? data.count
+      : rows.length;
+
+  return {
+    rows,
+    importedRowsCount,
+    importedDatasetsCount: importedRowsCount > 0 ? 1 : 0,
+  };
 };
 
 export const savePtrsFieldMap = async (
