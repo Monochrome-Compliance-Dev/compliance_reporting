@@ -70,7 +70,7 @@ const INDUSTRY_INDEX_PATH = path.join(OUTPUT_DIRECTORY, "industry-index.json");
 
 const IMPORT_SUMMARY_PATH = path.join(OUTPUT_DIRECTORY, "import-summary.json");
 
-const SITE_URL = "https://www.monochrome-compliance.com";
+const SITE_URL = "https://monochrome-compliance.com";
 
 const PAYMENT_TIMES_SITEMAP_PATH = path.resolve(
   process.cwd(),
@@ -546,7 +546,7 @@ function writePaymentTimesSitemap(searchIndex, industryIndex) {
 
   const sitemap = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    '<urlset xmlns="http://sitemaps.org/schemas/sitemap/0.9">',
     ...sitemapEntries,
     "</urlset>",
     "",
