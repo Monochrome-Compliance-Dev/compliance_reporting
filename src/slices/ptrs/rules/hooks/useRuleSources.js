@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
 import { listRuleSources } from "../services/rulesHistory.ptrsApi";
 
 export default function useRuleSources(ptrsId, profileId) {
@@ -6,22 +7,38 @@ export default function useRuleSources(ptrsId, profileId) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!ptrsId || !profileId) return;
+    if (!ptrsId || !profileId) {
+      setSources([]);
+      return undefined;
+    }
+
+    let cancelled = false;
 
     const load = async () => {
       setLoading(true);
+
       try {
         const data = await listRuleSources(ptrsId, profileId);
-        // Do not normalise here – API layer is responsible for shaping data
-        setSources(data);
+
+        if (!cancelled) {
+          setSources(Array.isArray(data) ? data : []);
+        }
       } catch {
-        // On error, expose the failure by clearing sources but do not guess shape
-        setSources(undefined);
+        if (!cancelled) {
+          setSources([]);
+        }
       } finally {
-        setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     };
+
     load();
+
+    return () => {
+      cancelled = true;
+    };
   }, [ptrsId, profileId]);
 
   return { sources, loading };
