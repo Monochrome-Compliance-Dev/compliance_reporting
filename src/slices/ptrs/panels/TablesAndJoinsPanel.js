@@ -28,6 +28,142 @@ import {
 } from "../hooks/usePtrsQueries";
 import JoinsDesigner from "../components/JoinsDesigner";
 
+const normaliseRole = (value) =>
+  String(value || "")
+    .trim()
+    .toLowerCase();
+
+const normaliseFileName = (value) =>
+  String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\.csv$/i, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\b20\d{2}\b/g, " ")
+    .replace(/\b\d{6,8}\b/g, " ")
+    .replace(/\bjan\b|\bfeb\b|\bmar\b|\bapr\b|\bmay\b|\bjun\b/g, " ")
+    .replace(/\bjul\b|\baug\b|\bsep\b|\boct\b|\bnov\b|\bdec\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const fileNameTokens = (value) =>
+  new Set(
+    normaliseFileName(value)
+      .split(" ")
+      .map((token) => token.trim())
+      .filter(Boolean),
+  );
+
+const countSharedTokens = (left, right) => {
+  const leftTokens = fileNameTokens(left);
+  const rightTokens = fileNameTokens(right);
+
+  let count = 0;
+
+  leftTokens.forEach((token) => {
+    if (rightTokens.has(token)) count += 1;
+  });
+
+  return count;
+};
+
+const countSharedHeaders = (leftHeaders, rightHeaders) => {
+  const right = new Set(
+    (Array.isArray(rightHeaders) ? rightHeaders : []).map((header) =>
+      String(header || "")
+        .trim()
+        .toLowerCase(),
+    ),
+  );
+
+  return (Array.isArray(leftHeaders) ? leftHeaders : []).reduce(
+    (count, header) => {
+      const normalised = String(header || "")
+        .trim()
+        .toLowerCase();
+
+      return normalised && right.has(normalised) ? count + 1 : count;
+    },
+    0,
+  );
+};
+
+const getDatasetHeaders = (dataset) => {
+  const headers = dataset?.meta?.headers || dataset?.headers || [];
+  return Array.isArray(headers) ? headers.filter(Boolean).map(String) : [];
+};
+
+const buildImportedDatasetMap = ({ sourceDatasets, targetDatasets }) => {
+  const mapping = new Map();
+  const unresolved = [];
+
+  for (const sourceDataset of sourceDatasets) {
+    const sourceId = String(sourceDataset?.id || "").trim();
+    const sourceRole = normaliseRole(sourceDataset?.role);
+
+    if (!sourceId || !sourceRole) {
+      unresolved.push({
+        sourceDataset,
+        reason: "The historical dataset has no ID or role.",
+      });
+      continue;
+    }
+
+    const candidates = targetDatasets.filter(
+      (targetDataset) => normaliseRole(targetDataset?.role) === sourceRole,
+    );
+
+    if (candidates.length === 0) {
+      unresolved.push({
+        sourceDataset,
+        reason: `No current dataset has role ${sourceRole}.`,
+      });
+      continue;
+    }
+
+    if (candidates.length === 1) {
+      mapping.set(sourceId, String(candidates[0].id));
+      continue;
+    }
+
+    const ranked = candidates
+      .map((candidate) => {
+        const filenameScore = countSharedTokens(
+          sourceDataset?.fileName,
+          candidate?.sourceName || candidate?.fileName,
+        );
+
+        const headerScore = countSharedHeaders(
+          sourceDataset?.headers,
+          getDatasetHeaders(candidate),
+        );
+
+        return {
+          candidate,
+          score: filenameScore * 1000 + headerScore,
+          filenameScore,
+          headerScore,
+        };
+      })
+      .sort((a, b) => b.score - a.score);
+
+    const best = ranked[0];
+    const second = ranked[1];
+
+    if (!best || best.score === 0 || (second && second.score === best.score)) {
+      unresolved.push({
+        sourceDataset,
+        reason: `Multiple current datasets have role ${sourceRole}, but no unique match could be determined.`,
+      });
+      continue;
+    }
+
+    mapping.set(sourceId, String(best.candidate.id));
+  }
+
+  return { mapping, unresolved };
+};
+
 export default function TablesAndJoinsPanel() {
   const [params] = useSearchParams();
   const debugJoins =
@@ -427,80 +563,277 @@ export default function TablesAndJoinsPanel() {
     try {
       setImportingTemplateId(templatePtrsId);
 
+      const sourceItem = importableJoinItems.find(
+        (item) => String(item?.id) === String(templatePtrsId),
+      );
+
+      if (!sourceItem) {
+        throw new Error(
+          "The selected historical joins template was not found.",
+        );
+      }
+
       const imported = await getPtrsJoins(templatePtrsId);
-      const importedConditions = Array.isArray(imported?.joins?.conditions)
+
+      const rawImportedConditions = Array.isArray(imported?.joins?.conditions)
         ? imported.joins.conditions
         : [];
-      const importedCustomFields = Array.isArray(imported?.customFields)
+
+      const rawImportedCustomFields = Array.isArray(imported?.customFields)
         ? imported.customFields
         : [];
 
-      const roleSet = new Set(mainAndSupportingRoles);
-      const roleOk = (role) => {
-        const r = String(role || "")
-          .trim()
-          .toLowerCase();
-        return !r || roleSet.has(r);
+      const sourceDatasets = Array.isArray(sourceItem?.datasets)
+        ? sourceItem.datasets
+        : [];
+
+      const sourceDatasetIds = new Set(
+        sourceDatasets
+          .map((dataset) => String(dataset?.id || "").trim())
+          .filter(Boolean),
+      );
+
+      const importedConditions = rawImportedConditions.filter((condition) => {
+        const fromDatasetId = String(condition?.from?.datasetId || "").trim();
+
+        const toDatasetId = String(condition?.to?.datasetId || "").trim();
+
+        const fromColumn = String(condition?.from?.column || "").trim();
+        const toColumn = String(condition?.to?.column || "").trim();
+
+        const belongsToSelectedTemplate =
+          sourceDatasetIds.has(fromDatasetId) &&
+          sourceDatasetIds.has(toDatasetId);
+
+        const isRedundantSelfJoin =
+          fromDatasetId &&
+          fromDatasetId === toDatasetId &&
+          fromColumn &&
+          fromColumn === toColumn;
+
+        return belongsToSelectedTemplate && !isRedundantSelfJoin;
+      });
+
+      const redundantSelfJoinCount = rawImportedConditions.filter(
+        (condition) => {
+          const fromDatasetId = String(condition?.from?.datasetId || "").trim();
+
+          const toDatasetId = String(condition?.to?.datasetId || "").trim();
+
+          const fromColumn = String(condition?.from?.column || "").trim();
+          const toColumn = String(condition?.to?.column || "").trim();
+
+          return (
+            fromDatasetId &&
+            fromDatasetId === toDatasetId &&
+            fromColumn &&
+            fromColumn === toColumn
+          );
+        },
+      ).length;
+
+      const importedCustomFields = rawImportedCustomFields.filter((field) =>
+        sourceDatasetIds.has(String(field?.datasetId || "").trim()),
+      );
+
+      const skippedJoinCount =
+        rawImportedConditions.length -
+        importedConditions.length -
+        redundantSelfJoinCount;
+
+      const skippedCustomFieldCount =
+        rawImportedCustomFields.length - importedCustomFields.length;
+
+      if (!sourceDatasets.length) {
+        throw new Error(
+          "The historical joins template does not include source dataset metadata.",
+        );
+      }
+
+      const { mapping, unresolved } = buildImportedDatasetMap({
+        sourceDatasets,
+        targetDatasets: datasets,
+      });
+
+      if (unresolved.length > 0) {
+        const details = unresolved
+          .map(({ sourceDataset, reason }) => {
+            const label =
+              sourceDataset?.fileName || sourceDataset?.id || "Unknown dataset";
+
+            return `${label}: ${reason}`;
+          })
+          .join(" ");
+
+        throw new Error(
+          `The joins could not be imported because one or more historical datasets could not be matched to the current run. ${details}`,
+        );
+      }
+
+      const remapEndpoint = (endpoint) => {
+        const sourceDatasetId = String(endpoint?.datasetId || "").trim();
+        const role = normaliseRole(endpoint?.role);
+        const column = String(endpoint?.column || "").trim();
+
+        let targetDatasetId = mapping.get(sourceDatasetId);
+
+        if (!targetDatasetId) {
+          const candidates = datasets.filter((dataset) => {
+            if (normaliseRole(dataset?.role) !== role) return false;
+
+            const headers = new Set(getDatasetHeaders(dataset));
+            return column && headers.has(column);
+          });
+
+          if (candidates.length === 1) {
+            targetDatasetId = String(candidates[0].id);
+          } else if (candidates.length === 0) {
+            throw new Error(
+              `No current dataset with role ${role || "unknown"} contains column ${column || "unknown"} for historical dataset ${sourceDatasetId || "unknown"}.`,
+            );
+          } else {
+            throw new Error(
+              `Historical dataset ${sourceDatasetId || "unknown"} is ambiguous: ${candidates.length} current datasets with role ${role} contain column ${column}.`,
+            );
+          }
+        }
+
+        return {
+          ...endpoint,
+          datasetId: targetDatasetId,
+        };
       };
 
-      const filteredConditions = importedConditions.filter((join) => {
-        const fromRole = String(join?.from?.role || "")
-          .trim()
-          .toLowerCase();
-        const toRole = String(join?.to?.role || "")
-          .trim()
-          .toLowerCase();
-        return roleOk(fromRole) && roleOk(toRole);
+      const remappedConditions = importedConditions.map((condition) => ({
+        ...condition,
+        from: remapEndpoint(condition?.from),
+        to: remapEndpoint(condition?.to),
+      }));
+
+      const remappedCustomFields = importedCustomFields.map((field) => {
+        const sourceDatasetId = String(field?.datasetId || "").trim();
+        const role = normaliseRole(field?.role);
+
+        let targetDatasetId = mapping.get(sourceDatasetId);
+
+        if (!targetDatasetId) {
+          const requiredHeaders = (
+            Array.isArray(field?.segments) ? field.segments : []
+          )
+            .filter((segment) => segment?.kind === "field")
+            .map((segment) => String(segment?.name || "").trim())
+            .filter(Boolean);
+
+          const candidates = datasets.filter((dataset) => {
+            if (normaliseRole(dataset?.role) !== role) return false;
+
+            const headers = new Set(getDatasetHeaders(dataset));
+            return requiredHeaders.every((header) => headers.has(header));
+          });
+
+          if (candidates.length === 1) {
+            targetDatasetId = String(candidates[0].id);
+          } else if (candidates.length === 0) {
+            throw new Error(
+              `No current dataset with role ${role || "unknown"} contains all fields required by computed field ${field?.key || "unknown"}.`,
+            );
+          } else {
+            throw new Error(
+              `Computed field ${field?.key || "unknown"} is ambiguous across ${candidates.length} current datasets with role ${role}.`,
+            );
+          }
+        }
+
+        const targetDataset = datasets.find(
+          (dataset) => String(dataset?.id) === targetDatasetId,
+        );
+
+        const targetHeaders = new Set(getDatasetHeaders(targetDataset));
+
+        const missingSegmentFields = (
+          Array.isArray(field?.segments) ? field.segments : []
+        )
+          .filter((segment) => segment?.kind === "field")
+          .map((segment) => String(segment?.name || "").trim())
+          .filter((fieldName) => fieldName && !targetHeaders.has(fieldName));
+
+        if (missingSegmentFields.length > 0) {
+          throw new Error(
+            `Computed field ${field?.key || "unknown"} refers to missing current header(s): ${missingSegmentFields.join(", ")}.`,
+          );
+        }
+
+        return {
+          ...field,
+          datasetId: targetDatasetId,
+          role: String(targetDataset?.role || field?.role || ""),
+        };
       });
 
-      const filteredCustomFields = importedCustomFields.filter((field) => {
-        const fieldRole = String(field?.role || "")
-          .trim()
-          .toLowerCase();
-        const segmentRoles = Array.isArray(field?.segments)
-          ? field.segments
-              .map((segment) =>
-                String(segment?.role || "")
-                  .trim()
-                  .toLowerCase(),
-              )
-              .filter(Boolean)
-          : [];
+      const currentDatasetIds = new Set(
+        datasets.map((dataset) => String(dataset?.id || "")),
+      );
 
-        return roleOk(fieldRole) && segmentRoles.every((r) => roleOk(r));
-      });
+      const invalidEndpoint = remappedConditions.find(
+        (condition) =>
+          !currentDatasetIds.has(String(condition?.from?.datasetId || "")) ||
+          !currentDatasetIds.has(String(condition?.to?.datasetId || "")),
+      );
 
-      const skippedJoins =
-        importedConditions.length - filteredConditions.length;
-      const skippedCustomFields =
-        importedCustomFields.length - filteredCustomFields.length;
+      if (invalidEndpoint) {
+        throw new Error(
+          "The imported joins still contain a dataset reference that does not belong to the current PTRS run.",
+        );
+      }
+
+      const invalidCustomField = remappedCustomFields.find(
+        (field) => !currentDatasetIds.has(String(field?.datasetId || "")),
+      );
+
+      if (invalidCustomField) {
+        throw new Error(
+          "The imported computed fields still contain a dataset reference that does not belong to the current PTRS run.",
+        );
+      }
 
       const nextJoins = {
-        conditions: filteredConditions,
-        customFields: filteredCustomFields,
+        conditions: remappedConditions,
+        customFields: remappedCustomFields,
       };
 
       setJoins(nextJoins);
-      scheduleAutosave(nextJoins);
+
+      await performSave(nextJoins, { silent: true });
+
       setImportDialogOpen(false);
 
-      if (!filteredConditions.length && !filteredCustomFields.length) {
-        showAlert(
-          "No compatible joins or computed fields could be imported for the current dataset roles.",
-          "warning",
+      const skippedParts = [];
+
+      if (redundantSelfJoinCount > 0) {
+        skippedParts.push(
+          `${redundantSelfJoinCount} redundant self-join(s) ignored`,
         );
-        return;
       }
 
-      if (skippedJoins > 0 || skippedCustomFields > 0) {
-        showAlert(
-          `Imported joins template with ${skippedJoins} join(s) and ${skippedCustomFields} computed field(s) skipped due to unsupported roles.`,
-          "warning",
-        );
-        return;
+      if (skippedJoinCount > 0) {
+        skippedParts.push(`${skippedJoinCount} stale join(s) ignored`);
       }
 
-      showAlert("Imported joins and computed fields", "success");
+      if (skippedCustomFieldCount > 0) {
+        skippedParts.push(
+          `${skippedCustomFieldCount} stale computed field(s) ignored`,
+        );
+      }
+
+      showAlert(
+        [
+          `Imported ${remappedConditions.length} join(s) and ${remappedCustomFields.length} computed field(s).`,
+          skippedParts.join("; "),
+        ]
+          .filter(Boolean)
+          .join(" "),
+        "success",
+      );
     } catch (e) {
       showAlert(e?.message || "Failed to import joins", "error");
     } finally {
@@ -627,8 +960,14 @@ export default function TablesAndJoinsPanel() {
         onClose={() => {
           if (!importingTemplateId) setImportDialogOpen(false);
         }}
-        maxWidth="sm"
+        maxWidth="md"
         fullWidth
+        PaperProps={{
+          sx: {
+            minHeight: "70vh",
+            maxHeight: "90vh",
+          },
+        }}
       >
         <DialogTitle>Import joins from previous PTRS</DialogTitle>
         <DialogContent dividers>
@@ -650,8 +989,16 @@ export default function TablesAndJoinsPanel() {
               {importableJoinItems.map((item) => {
                 const label =
                   item?.fileName || item?.name || item?.ptrsId || item?.id;
-                const secondary = `${item?.joinsCount || 0} join(s) • ${item?.customFieldsCount || 0} computed field(s)`;
+
                 const selected = importingTemplateId === item.id;
+
+                const sourceDatasets = Array.isArray(item?.datasets)
+                  ? item.datasets
+                  : [];
+
+                const updatedLabel = item?.updatedAt
+                  ? new Date(item.updatedAt).toLocaleString("en-AU")
+                  : "Unknown";
 
                 return (
                   <ListItemButton
@@ -659,8 +1006,101 @@ export default function TablesAndJoinsPanel() {
                     onClick={() => applyImportedJoins(item.id)}
                     disabled={!!importingTemplateId}
                     selected={selected}
+                    alignItems="flex-start"
+                    sx={{
+                      py: 2,
+                      px: 2,
+                      borderBottom: "1px solid",
+                      borderColor: "divider",
+                    }}
                   >
-                    <ListItemText primary={label} secondary={secondary} />
+                    <ListItemText
+                      disableTypography
+                      primary={
+                        <Stack spacing={0.75}>
+                          <Typography variant="subtitle1">{label}</Typography>
+
+                          <Stack
+                            direction="row"
+                            spacing={1}
+                            useFlexGap
+                            flexWrap="wrap"
+                          >
+                            <Chip
+                              size="small"
+                              label={`${item?.joinsCount || 0} join(s)`}
+                            />
+
+                            <Chip
+                              size="small"
+                              label={`${item?.customFieldsCount || 0} computed field(s)`}
+                            />
+
+                            <Chip
+                              size="small"
+                              variant="outlined"
+                              label={`${sourceDatasets.length} dataset(s)`}
+                            />
+                          </Stack>
+
+                          <Typography variant="caption" color="text.secondary">
+                            PTRS: {item?.ptrsId || item?.id || "Unknown"} ·
+                            Updated: {updatedLabel}
+                          </Typography>
+                        </Stack>
+                      }
+                      secondary={
+                        <Stack spacing={0.75} sx={{ mt: 1.25 }}>
+                          {sourceDatasets.map((dataset) => (
+                            <Paper
+                              key={dataset.id}
+                              variant="outlined"
+                              sx={{ px: 1.25, py: 1 }}
+                            >
+                              <Stack
+                                direction={{ xs: "column", sm: "row" }}
+                                spacing={1}
+                                alignItems={{ sm: "center" }}
+                                justifyContent="space-between"
+                              >
+                                <Box sx={{ minWidth: 0 }}>
+                                  <Typography
+                                    variant="body2"
+                                    sx={{
+                                      fontWeight: 600,
+                                      overflowWrap: "anywhere",
+                                    }}
+                                  >
+                                    {dataset?.fileName || dataset?.id}
+                                  </Typography>
+
+                                  <Typography
+                                    variant="caption"
+                                    color="text.secondary"
+                                    sx={{ overflowWrap: "anywhere" }}
+                                  >
+                                    Dataset ID: {dataset?.id || "Unknown"}
+                                  </Typography>
+                                </Box>
+
+                                <Stack direction="row" spacing={1}>
+                                  <Chip
+                                    size="small"
+                                    label={dataset?.role || "unknown role"}
+                                  />
+
+                                  <Chip
+                                    size="small"
+                                    variant="outlined"
+                                    label={`${dataset?.rowCount || 0} rows`}
+                                  />
+                                </Stack>
+                              </Stack>
+                            </Paper>
+                          ))}
+                        </Stack>
+                      }
+                    />
                   </ListItemButton>
                 );
               })}
