@@ -1,358 +1,292 @@
-// src/slices/marketing/construction/ConstructionPaymentDiagnostic.js
-
-import {
-  Box,
-  Button,
-  Container,
-  Divider,
-  Paper,
-  Stack,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import { useNavigate } from "react-router";
 import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { Link as RouterLink } from "react-router";
+import PublicPageLayout from "shared/layouts/PublicPageLayout";
 import PageMeta from "shared/ui/PageMeta";
+import {
+  PublicCallToAction,
+  PublicCard,
+  PublicPageHero,
+  PublicPageSection,
+} from "shared/ui";
 
 const PDF_PATH = "/diagnostics/Construction_Payment_Diagnostic.pdf";
 
 export default function ConstructionPaymentDiagnostic() {
   const theme = useTheme();
-  const navigate = useNavigate();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
-  const contentMaxWidth = 980;
-  const sectionSx = { maxWidth: contentMaxWidth, mx: "auto" };
 
   return (
     <>
       <PageMeta
         title="Construction Payment Diagnostic"
         description="Construction payment diagnostic showing how progress-claim mechanics, end-of-month treatment, and retention handling can materially influence reported payment performance."
-        url="https://monochrome-compliance.com/industries/construction/payment-diagnostic"
-        image="/images/og/construction-diagnostic.jpg"
+        url="https://monochrome-compliance.com/construction-payment-diagnostic"
+        image="/images/og/og-construction.jpg"
       />
 
-      <Box
-        sx={{
-          px: { xs: theme.spacing(3), md: theme.spacing(8) },
-          py: theme.spacing(6),
-          backgroundColor: theme.palette.background.default,
-        }}
+      <PublicPageLayout
+        sx={{ backgroundColor: theme.palette.background.default }}
       >
-        <Container maxWidth="lg">
-          <Box sx={sectionSx}>
-            <Stack spacing={3}>
-              <Typography variant="overline" sx={{ color: "text.secondary" }}>
-                Construction sector
-              </Typography>
-
-              <Typography
-                variant="h3"
-                color={theme.palette.text.primary}
-                sx={{ fontWeight: 700, mb: theme.spacing(1) }}
+        <PublicPageHero
+          eyebrow="Construction sector"
+          title="Construction Payment Timing Diagnostic"
+          description={
+            <>
+              A practical way to separate <strong>mechanics</strong> (how claims
+              and invoices are processed) from <strong>behaviour</strong> (whether
+              suppliers are actually being paid fairly) — and understand what
+              your Payment Times Reporting metrics are really reflecting.
+            </>
+          }
+          contentMaxWidth={theme.layout.public.contentWidth}
+          sx={{ py: { xs: 4, md: 6 } }}
+        >
+          <Stack spacing={2} alignItems="flex-start">
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={1.5}
+              sx={{ width: { xs: "100%", sm: "auto" } }}
+            >
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                startIcon={<AssessmentOutlinedIcon />}
+                href={PDF_PATH}
               >
-                Construction Payment Timing Diagnostic
-              </Typography>
+                View illustrative report
+              </Button>
 
-              <Typography
-                variant="h6"
-                color={theme.palette.text.secondary}
-                sx={{ lineHeight: 1.5 }}
+              <Button
+                variant="outlined"
+                color="primary"
+                size="large"
+                startIcon={<ChatOutlinedIcon />}
+                component={RouterLink}
+                to="/contact"
               >
-                A practical way to separate <strong>mechanics</strong> (how
-                claims and invoices are processed) from{" "}
-                <strong>behaviour</strong> (whether suppliers are actually being
-                paid fairly) — and understand what your Payment Times Reporting
-                metrics are really reflecting.
-              </Typography>
-
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: 2,
-                  flexDirection: isSmallScreen ? "column" : "row",
-                  alignItems: isSmallScreen ? "stretch" : "center",
-                  flexWrap: "wrap",
-                }}
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  startIcon={<AssessmentOutlinedIcon />}
-                  href={PDF_PATH}
-                  sx={{ width: isSmallScreen ? "100%" : "auto" }}
-                >
-                  View illustrative report
-                </Button>
-
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  size="large"
-                  startIcon={<ChatOutlinedIcon />}
-                  onClick={() => navigate("/contact")}
-                  sx={{ width: isSmallScreen ? "100%" : "auto" }}
-                >
-                  Discuss a diagnostic
-                </Button>
-
-                <Typography
-                  variant="body2"
-                  color={theme.palette.text.secondary}
-                >
-                  No forms. No gimmicks. Just an example output your team can
-                  use to drive clarity and action.
-                </Typography>
-              </Box>
+                Discuss a diagnostic
+              </Button>
             </Stack>
-          </Box>
-        </Container>
-      </Box>
 
-      <Divider />
-
-      <Box sx={{ py: { xs: 6, md: 8 } }}>
-        <Container maxWidth="lg">
-          <Stack spacing={4}>
-            <Paper
-              elevation={0}
-              sx={{
-                p: { xs: 3, md: 4 },
-                border: `1px solid ${theme.palette.divider}`,
-                borderRadius: 2,
-              }}
+            <Typography
+              variant="body2"
+              sx={{ color: theme.palette.text.secondary }}
             >
-              <Stack spacing={2}>
-                <Typography variant="h4">Why this exists</Typography>
+              No forms. No gimmicks. Just an example output your team can use
+              to drive clarity and action.
+            </Typography>
+          </Stack>
+        </PublicPageHero>
 
-                <Typography
-                  variant="body1"
-                  sx={{ color: "text.secondary", lineHeight: 1.7 }}
-                >
-                  Construction payment performance is often assessed at face
-                  value. But progress claims, end-of-month treatment, retention
-                  releases, milestone verification, and invoice/claim timing
-                  conventions can materially shift the reporting outcome.
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  sx={{ color: "text.secondary", lineHeight: 1.7 }}
-                >
-                  This diagnostic is designed to surface those mechanics quickly
-                  — so you can understand whether the numbers reflect{" "}
-                  <strong>process</strong> or <strong>behaviour</strong>, and
-                  take the right action before the next reporting cycle.
-                </Typography>
-              </Stack>
-            </Paper>
-
-            <Box>
-              <Typography variant="h4" sx={{ mb: 2 }}>
-                What the diagnostic does
-              </Typography>
-
-              <Stack spacing={2}>
-                <Stack direction="row" spacing={1.5} alignItems="flex-start">
-                  <InsightsOutlinedIcon
-                    sx={{ mt: 0.5, color: "text.secondary" }}
-                  />
-                  <Box>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                      Identifies mechanical distortion drivers
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "text.secondary", lineHeight: 1.7 }}
-                    >
-                      Highlights where timing conventions (claim vs invoice
-                      date, EOM, retention treatment) can inflate or suppress
-                      “within term” outcomes.
-                    </Typography>
-                  </Box>
-                </Stack>
-
-                <Stack direction="row" spacing={1.5} alignItems="flex-start">
-                  <FactCheckOutlinedIcon
-                    sx={{ mt: 0.5, color: "text.secondary" }}
-                  />
-                  <Box>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                      Quantifies impact on reported performance
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "text.secondary", lineHeight: 1.7 }}
-                    >
-                      Shows the practical delta between the reported metric and
-                      the mechanically adjusted view — without changing your
-                      underlying payment behaviour.
-                    </Typography>
-                  </Box>
-                </Stack>
-
-                <Stack direction="row" spacing={1.5} alignItems="flex-start">
-                  <AssessmentOutlinedIcon
-                    sx={{ mt: 0.5, color: "text.secondary" }}
-                  />
-                  <Box>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                      Produces an executive-ready snapshot
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "text.secondary", lineHeight: 1.7 }}
-                    >
-                      A one-page output that gives finance leadership a clear
-                      explanation of what is driving the numbers and what to do
-                      next.
-                    </Typography>
-                  </Box>
-                </Stack>
-              </Stack>
-            </Box>
-
-            <Paper
-              elevation={0}
-              sx={{
-                p: { xs: 3, md: 4 },
-                border: `1px solid ${theme.palette.divider}`,
-                borderRadius: 2,
-                backgroundColor: theme.palette.background.paper,
-              }}
+        <PublicPageSection
+          title="Why this exists"
+          sx={{ py: { xs: 4, md: 6 } }}
+        >
+          <PublicCard component="div">
+            <Typography
+              variant="body1"
+              sx={{ color: theme.palette.text.secondary, lineHeight: 1.7 }}
             >
-              <Stack spacing={2}>
-                <Typography variant="h4">Illustrative snapshot</Typography>
-                <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  Example metrics (illustrative only — numbers vary by entity,
-                  portfolio and claim profile).
-                </Typography>
+              Construction payment performance is often assessed at face value.
+              But progress claims, end-of-month treatment, retention releases,
+              milestone verification, and invoice/claim timing conventions can
+              materially shift the reporting outcome.
+            </Typography>
 
-                <Divider />
+            <Typography
+              variant="body1"
+              sx={{ color: theme.palette.text.secondary, lineHeight: 1.7 }}
+            >
+              This diagnostic is designed to surface those mechanics quickly —
+              so you can understand whether the numbers reflect{" "}
+              <strong>process</strong> or <strong>behaviour</strong>, and take
+              the right action before the next reporting cycle.
+            </Typography>
+          </PublicCard>
+        </PublicPageSection>
 
-                <Stack direction={{ xs: "column", md: "row" }} spacing={3}>
-                  <Box sx={{ flex: 1 }}>
-                    <Typography
-                      variant="overline"
-                      sx={{ color: "text.secondary" }}
-                    >
-                      Sample size
-                    </Typography>
-                    <Typography variant="h5">124 transactions</Typography>
-                  </Box>
-
-                  <Box sx={{ flex: 1 }}>
-                    <Typography
-                      variant="overline"
-                      sx={{ color: "text.secondary" }}
-                    >
-                      Reported within term
-                    </Typography>
-                    <Typography variant="h5">38%</Typography>
-                  </Box>
-
-                  <Box sx={{ flex: 1 }}>
-                    <Typography
-                      variant="overline"
-                      sx={{ color: "text.secondary" }}
-                    >
-                      Mechanically adjusted within term
-                    </Typography>
-                    <Typography variant="h5">52%</Typography>
-                  </Box>
-                </Stack>
-
+        <PublicPageSection
+          title="What the diagnostic does"
+          sx={{ py: { xs: 4, md: 6 } }}
+        >
+          <Grid container spacing={3}>
+            <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex" }}>
+              <PublicCard
+                title="Identifies mechanical distortion drivers"
+                titleComponent="h3"
+                titleVariant="h6"
+              >
+                <InsightsOutlinedIcon
+                  aria-hidden="true"
+                  sx={{ color: theme.palette.primary.main }}
+                />
                 <Typography
                   variant="body2"
-                  sx={{ color: "text.secondary", lineHeight: 1.7 }}
+                  sx={{ color: theme.palette.text.secondary, lineHeight: 1.7 }}
                 >
-                  The gap between these figures typically points to timing
-                  interpretation and processing mechanics (not necessarily
-                  deteriorating supplier treatment). The diagnostic shows
-                  *where* the distortion is coming from so you can fix the right
-                  thing.
+                  Highlights where timing conventions (claim vs invoice date,
+                  EOM, retention treatment) can inflate or suppress “within
+                  term” outcomes.
                 </Typography>
+              </PublicCard>
+            </Grid>
 
-                <Stack
-                  direction={{ xs: "column", sm: "row" }}
-                  spacing={1.5}
-                  sx={{ pt: 1 }}
-                >
-                  <Button
-                    variant="contained"
-                    startIcon={<AssessmentOutlinedIcon />}
-                    href={PDF_PATH}
-                  >
-                    View illustrative report
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    startIcon={<ChatOutlinedIcon />}
-                    href="/contact"
-                  >
-                    Discuss a diagnostic
-                  </Button>
-                </Stack>
-              </Stack>
-            </Paper>
-
-            <Paper
-              elevation={0}
-              sx={{
-                p: { xs: 3, md: 4 },
-                border: `1px solid ${theme.palette.divider}`,
-                borderRadius: 2,
-              }}
-            >
-              <Stack spacing={2}>
-                <Typography variant="h4">How we run it</Typography>
-
+            <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex" }}>
+              <PublicCard
+                title="Quantifies impact on reported performance"
+                titleComponent="h3"
+                titleVariant="h6"
+              >
+                <FactCheckOutlinedIcon
+                  aria-hidden="true"
+                  sx={{ color: theme.palette.primary.main }}
+                />
                 <Typography
-                  variant="body1"
-                  sx={{ color: "text.secondary", lineHeight: 1.7 }}
+                  variant="body2"
+                  sx={{ color: theme.palette.text.secondary, lineHeight: 1.7 }}
                 >
-                  We typically start with a small sample (50–150 transactions)
-                  to confirm the profile and identify the drivers. Then, if
-                  helpful, we scale the analysis across the reporting period and
-                  align it to your reporting approach.
+                  Shows the practical delta between the reported metric and the
+                  mechanically adjusted view — without changing your underlying
+                  payment behaviour.
                 </Typography>
+              </PublicCard>
+            </Grid>
 
-                <Typography variant="body2" sx={{ color: "text.secondary" }}>
+            <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex" }}>
+              <PublicCard
+                title="Produces an executive-ready snapshot"
+                titleComponent="h3"
+                titleVariant="h6"
+              >
+                <AssessmentOutlinedIcon
+                  aria-hidden="true"
+                  sx={{ color: theme.palette.primary.main }}
+                />
+                <Typography
+                  variant="body2"
+                  sx={{ color: theme.palette.text.secondary, lineHeight: 1.7 }}
+                >
+                  A one-page output that gives finance leadership a clear
+                  explanation of what is driving the numbers and what to do next.
+                </Typography>
+              </PublicCard>
+            </Grid>
+          </Grid>
+        </PublicPageSection>
+
+        <PublicPageSection
+          title="Illustrative snapshot"
+          introduction="Example metrics (illustrative only — numbers vary by entity, portfolio and claim profile)."
+          sx={{ py: { xs: 4, md: 6 } }}
+        >
+          <PublicCard component="div">
+            <Grid container spacing={2}>
+              <Grid size={{ xs: 12, sm: 4 }} sx={{ display: "flex" }}>
+                <PublicCard
+                  component="div"
+                  eyebrow="Sample size"
+                  title="124 transactions"
+                  titleComponent="p"
+                  titleVariant="h5"
+                  sx={{ backgroundColor: theme.palette.background.default }}
+                />
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 4 }} sx={{ display: "flex" }}>
+                <PublicCard
+                  component="div"
+                  eyebrow="Reported within term"
+                  title="38%"
+                  titleComponent="p"
+                  titleVariant="h5"
+                  sx={{ backgroundColor: theme.palette.background.default }}
+                />
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 4 }} sx={{ display: "flex" }}>
+                <PublicCard
+                  component="div"
+                  eyebrow="Mechanically adjusted within term"
+                  title="52%"
+                  titleComponent="p"
+                  titleVariant="h5"
+                  sx={{ backgroundColor: theme.palette.background.default }}
+                />
+              </Grid>
+            </Grid>
+
+            <Typography
+              variant="body2"
+              sx={{ color: theme.palette.text.secondary, lineHeight: 1.7 }}
+            >
+              The gap between these figures typically points to timing
+              interpretation and processing mechanics (not necessarily
+              deteriorating supplier treatment). The diagnostic shows *where*
+              the distortion is coming from so you can fix the right thing.
+            </Typography>
+
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
+              <Button
+                variant="contained"
+                startIcon={<AssessmentOutlinedIcon />}
+                href={PDF_PATH}
+              >
+                View illustrative report
+              </Button>
+              <Button
+                variant="outlined"
+                startIcon={<ChatOutlinedIcon />}
+                component={RouterLink}
+                to="/contact"
+              >
+                Discuss a diagnostic
+              </Button>
+            </Stack>
+          </PublicCard>
+        </PublicPageSection>
+
+        <PublicPageSection sx={{ pt: 0, pb: { xs: 4, md: 6 } }}>
+          <PublicCallToAction
+            align="left"
+            title="How we run it"
+            description={
+              <>
+                We typically start with a small sample (50–150 transactions) to
+                confirm the profile and identify the drivers. Then, if helpful,
+                we scale the analysis across the reporting period and align it
+                to your reporting approach.
+                <Box component="span" sx={{ display: "block", mt: 1.5 }}>
                   If you’re preparing for the next reporting cycle and want a
                   mechanical review that is construction-aware, we’re happy to
                   have a first conversation.
-                </Typography>
-
-                <Stack
-                  direction={{ xs: "column", sm: "row" }}
-                  spacing={1.5}
-                  sx={{ pt: 1 }}
-                >
-                  <Button
-                    variant="contained"
-                    startIcon={<ChatOutlinedIcon />}
-                    href="/contact"
-                  >
-                    Book a quick chat
-                  </Button>
-                  <Button
-                    variant="text"
-                    href="/industries/construction/payment-reporting"
-                  >
-                    Learn about Construction PTRS
-                  </Button>
-                </Stack>
-              </Stack>
-            </Paper>
-          </Stack>
-        </Container>
-      </Box>
+                </Box>
+              </>
+            }
+            sx={{ py: { xs: 3, md: 4 } }}
+          >
+            <Button
+              variant="contained"
+              startIcon={<ChatOutlinedIcon />}
+              component={RouterLink}
+              to="/contact"
+            >
+              Book a quick chat
+            </Button>
+            <Button
+              variant="text"
+              component={RouterLink}
+              to="/construction-payment-reporting"
+            >
+              Learn about Construction PTRS
+            </Button>
+          </PublicCallToAction>
+        </PublicPageSection>
+      </PublicPageLayout>
     </>
   );
 }

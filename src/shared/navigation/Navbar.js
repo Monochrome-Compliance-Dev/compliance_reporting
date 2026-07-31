@@ -31,6 +31,10 @@ const marketingNav = {
         to: "/payment-times-reporting",
       },
       {
+        label: "Payment Health Check",
+        to: "/payment-health-check",
+      },
+      {
         label: "Pricing",
         to: "/pricing",
       },
@@ -436,6 +440,14 @@ export default function Navbar({ isDarkTheme, onToggleTheme }) {
                   onClick={closeDesktopMenu}
                 >
                   Payment Times Reporting
+                </MenuItem>
+
+                <MenuItem
+                  component={Link}
+                  to="/payment-health-check"
+                  onClick={closeDesktopMenu}
+                >
+                  Payment Health Check
                 </MenuItem>
 
                 <Divider />

@@ -127,7 +127,7 @@ export default function Industries() {
                 <Button
                   variant="outlined"
                   component={Link}
-                  to="/industries/construction/payment-reporting"
+                  to="/construction-payment-reporting"
                 >
                   Explore construction focus
                 </Button>

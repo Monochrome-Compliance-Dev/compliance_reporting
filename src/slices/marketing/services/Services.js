@@ -1,11 +1,19 @@
-import { Box, Typography, Divider, Button, useTheme } from "@mui/material";
-import Grid from "@mui/material/Grid";
-import { Link } from "react-router";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { Link as RouterLink } from "react-router";
+import PublicPageLayout, {
+  PublicSurface,
+} from "shared/layouts/PublicPageLayout";
 import PageMeta from "shared/ui/PageMeta";
+import {
+  PublicCallToAction,
+  PublicCard,
+  PublicPageHero,
+  PublicPageSection,
+} from "shared/ui";
 
 export default function Services() {
   const theme = useTheme();
-  const contentMaxWidth = 1000;
 
   return (
     <>
@@ -15,245 +23,239 @@ export default function Services() {
         image="/images/og/og-industry-insights.jpg"
       />
 
-      <Box
-        sx={{
-          px: { xs: theme.spacing(3), md: theme.spacing(8) },
-          py: theme.spacing(6),
-          backgroundColor: theme.palette.background.default,
-        }}
+      <PublicPageLayout
+        sx={{ backgroundColor: theme.palette.background.default }}
       >
-        <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
-          <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
-            Services
-          </Typography>
+        <PublicPageHero
+          title="Services"
+          description="We help organisations bring structure to payment data so reporting, enforcement and transparency frameworks align rather than collide. These services are delivered horizontally across different operating environments, with industry-specific applications where payment mechanics are especially demanding."
+          sx={{ py: { xs: 4, md: 6 } }}
+        />
 
-          <Typography
-            variant="h6"
-            color={theme.palette.text.secondary}
-            sx={{ lineHeight: 1.6, mb: theme.spacing(4) }}
-          >
-            We help organisations bring structure to payment data so reporting,
-            enforcement and transparency frameworks align rather than collide.
-            These services are delivered horizontally across different operating
-            environments, with industry-specific applications where payment
-            mechanics are especially demanding.
-          </Typography>
-
-          <Divider sx={{ mb: theme.spacing(4) }} />
-
-          <Box
-            sx={{
-              mb: theme.spacing(4),
-              p: theme.spacing(2.5),
-              border: `1px solid ${theme.palette.divider}`,
-              borderRadius: 2,
-              backgroundColor: theme.palette.background.paper,
-            }}
-          >
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
-              Looking for the industry view?
-            </Typography>
-            <Typography
-              variant="body1"
-              color={theme.palette.text.secondary}
-              sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
+        <PublicPageSection sx={{ pt: 0, pb: { xs: 4, md: 6 } }}>
+          <PublicSurface>
+            <Stack
+              direction={{ xs: "column", md: "row" }}
+              spacing={2}
+              alignItems={{ xs: "stretch", md: "center" }}
             >
-              Our services are applied across different sectors. Where payment
-              mechanics vary materially by industry, we map the same core
-              service set into a more specific operating context.
-            </Typography>
-            <Button variant="outlined" component={Link} to="/industries">
-              Explore industries
-            </Button>
-          </Box>
-
-          <Grid container spacing={4}>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Box>
-                <Box
-                  component="img"
-                  src="/images/services/payment-times-reporting.jpg"
-                  alt="Payment reporting data architecture"
-                  sx={{
-                    width: "100%",
-                    height: 160,
-                    objectFit: "cover",
-                    borderRadius: 2,
-                    mb: theme.spacing(2),
-                  }}
-                />
-                <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
-                  Payment Times Reporting
+              <Box sx={{ flexGrow: 1 }}>
+                <Typography component="h2" variant="h6">
+                  Looking for the industry view?
                 </Typography>
                 <Typography
                   variant="body1"
-                  color={theme.palette.text.secondary}
-                  sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
+                  sx={{ mt: 1, color: theme.palette.text.secondary }}
                 >
-                  End-to-end preparation and submission support under the
-                  Payment Times Reporting framework. We focus on defensible
-                  methodology, small business identification integrity, and
-                  reconciliation across source systems.
+                  Our services are applied across different sectors. Where
+                  payment mechanics vary materially by industry, we map the same
+                  core service set into a more specific operating context.
                 </Typography>
-                <Button
-                  variant="outlined"
-                  component={Link}
-                  to="/services/payment-times-reporting"
-                >
-                  View service
-                </Button>
               </Box>
+
+              <Button
+                variant="outlined"
+                component={RouterLink}
+                to="/industries"
+                sx={{ flexShrink: 0 }}
+              >
+                Explore industries
+              </Button>
+            </Stack>
+          </PublicSurface>
+        </PublicPageSection>
+
+        <PublicPageSection
+          title="Core services"
+          sx={{ py: { xs: 4, md: 6 } }}
+        >
+          <Grid container spacing={3}>
+            <Grid size={{ xs: 12, sm: 6 }} sx={{ display: "flex" }}>
+              <PublicCard
+                eyebrow="Reporting support"
+                title="Payment Times Reporting"
+                titleComponent="h3"
+                titleVariant="h5"
+                description="End-to-end preparation and submission support under the Payment Times Reporting framework. We focus on defensible methodology, small business identification integrity, and reconciliation across source systems."
+                actions={
+                  <Button
+                    variant="outlined"
+                    component={RouterLink}
+                    to="/payment-times-reporting"
+                  >
+                    View service
+                  </Button>
+                }
+              />
             </Grid>
 
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Box>
-                <Box
-                  component="img"
-                  src="/images/services/payment-health-check-web.jpg"
-                  alt="Payment data diagnostic review"
-                  sx={{
-                    width: "100%",
-                    height: 160,
-                    objectFit: "cover",
-                    borderRadius: 2,
-                    mb: theme.spacing(2),
-                  }}
-                />
-                <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
-                  Payment Health Check
-                </Typography>
-                <Typography
-                  variant="body1"
-                  color={theme.palette.text.secondary}
-                  sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
-                >
-                  A structured review of your payment data architecture, timing
-                  logic, supplier classification and ABN integrity. Designed to
-                  surface structural misalignment before it becomes a public
-                  reporting issue.
-                </Typography>
-                <Button
-                  variant="outlined"
-                  component={Link}
-                  to="/services/payment-health-check"
-                >
-                  View health check
-                </Button>
-              </Box>
+            <Grid size={{ xs: 12, sm: 6 }} sx={{ display: "flex" }}>
+              <PublicCard
+                eyebrow="Payment visibility"
+                title="Payment Health Check"
+                titleComponent="h3"
+                titleVariant="h5"
+                description="A structured review of your payment data architecture, timing logic, supplier classification and ABN integrity. Designed to surface structural misalignment before it becomes a public reporting issue."
+                actions={
+                  <Button
+                    variant="outlined"
+                    component={RouterLink}
+                    to="/payment-health-check"
+                  >
+                    View health check
+                  </Button>
+                }
+              />
             </Grid>
           </Grid>
+        </PublicPageSection>
 
-          <Divider sx={{ my: theme.spacing(6) }} />
+        <PublicPageSection
+          title="Construction-specific services"
+          sx={{ py: { xs: 4, md: 6 } }}
+        >
+          <Grid container spacing={3}>
+            <Grid size={{ xs: 12, sm: 6 }} sx={{ display: "flex" }}>
+              <PublicCard
+                eyebrow="Construction sector"
+                title="Construction Payment Reporting"
+                titleComponent="h3"
+                titleVariant="h5"
+                description="Construction payment environments are not the same as standard trade creditors. Progress claims, certification, retentions, end-of-month terms and state-based Security of Payment requirements can all be compliant and still produce weak PTRS outcomes when reporting logic does not match operating reality."
+                actions={
+                  <Button
+                    variant="outlined"
+                    component={RouterLink}
+                    to="/construction-payment-reporting"
+                  >
+                    Learn about Construction PTRS
+                  </Button>
+                }
+              />
+            </Grid>
 
-          <Box id="data-review">
-            <Typography variant="h4" sx={{ fontWeight: 800, mb: 1 }}>
-              Payment data review
-            </Typography>
+            <Grid size={{ xs: 12, sm: 6 }} sx={{ display: "flex" }}>
+              <PublicCard
+                eyebrow="Construction sector"
+                title="Construction Payment Diagnostic"
+                titleComponent="h3"
+                titleVariant="h5"
+                description="A practical way to separate mechanics (how claims and invoices are processed) from behaviour (whether suppliers are actually being paid fairly) — and understand what your Payment Times Reporting metrics are really reflecting."
+                actions={
+                  <Button
+                    variant="outlined"
+                    component={RouterLink}
+                    to="/construction-payment-diagnostic"
+                  >
+                    See an example diagnostic
+                  </Button>
+                }
+              />
+            </Grid>
+          </Grid>
+        </PublicPageSection>
 
+        <Box id="data-review" sx={{ scrollMarginTop: theme.spacing(10) }}>
+          <PublicPageSection
+            title="Payment data review"
+            introduction="If you’re responsible for Payment Times Reporting or supplier payment data and would like a second set of eyes on a sample dataset, we’re happy to review it and share what we see."
+            sx={{ py: { xs: 4, md: 6 } }}
+          >
             <Typography
               variant="body1"
-              color={theme.palette.text.secondary}
-              sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
-            >
-              If you’re responsible for Payment Times Reporting or supplier
-              payment data and would like a second set of eyes on a sample
-              dataset, we’re happy to review it and share what we see.
-            </Typography>
-
-            <Typography
-              variant="body1"
-              color={theme.palette.text.secondary}
-              sx={{ lineHeight: 1.7, mb: theme.spacing(3) }}
+              sx={{
+                maxWidth: theme.layout.public.textWidth,
+                color: theme.palette.text.secondary,
+              }}
             >
               This is not a formal engagement. It’s a practical way to
               understand how your payment dataset behaves under reporting
               frameworks before deadlines arrive.
             </Typography>
 
-            <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
-              What we typically need
-            </Typography>
+            <Grid container spacing={3}>
+              <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex" }}>
+                <PublicCard
+                  title="What we typically need"
+                  titleComponent="h3"
+                  titleVariant="h6"
+                >
+                  <Box
+                    component="ul"
+                    sx={{ my: 0, pl: 3, color: theme.palette.text.secondary }}
+                  >
+                    <li>Supplier name</li>
+                    <li>Invoice date</li>
+                    <li>Payment date</li>
+                    <li>Payment amount</li>
+                    <li>ABN (if available)</li>
+                  </Box>
+                </PublicCard>
+              </Grid>
 
-            <Box
-              component="ul"
-              sx={{
-                mt: 0,
-                mb: theme.spacing(3),
-                pl: theme.spacing(3),
-                color: theme.palette.text.secondary,
-                lineHeight: 1.7,
-              }}
-            >
-              <li>Supplier name</li>
-              <li>Invoice date</li>
-              <li>Payment date</li>
-              <li>Payment amount</li>
-              <li>ABN (if available)</li>
-            </Box>
-
-            <Typography variant="h6" sx={{ fontWeight: 800, mb: 1 }}>
-              What happens next
-            </Typography>
-
-            <Box
-              component="ol"
-              sx={{
-                mt: 0,
-                mb: theme.spacing(3),
-                pl: theme.spacing(3),
-                color: theme.palette.text.secondary,
-                lineHeight: 1.7,
-              }}
-            >
-              <li>
-                We confirm scope and the extract format (usually 10 minutes).
-              </li>
-              <li>
-                We review the sample and flag any structural timing or
-                classification issues.
-              </li>
-              <li>
-                We return a short summary of observations and suggested next
-                steps.
-              </li>
-            </Box>
-
-            <Button variant="contained" component={Link} to="/contact">
-              Request a payment data review
-            </Button>
-          </Box>
-
-          <Divider sx={{ my: theme.spacing(6) }} />
-
-          <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
-            How engagements work
-          </Typography>
-
-          <Typography
-            variant="body1"
-            color={theme.palette.text.secondary}
-            sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
-          >
-            Most work begins with a short scoping conversation and a review of
-            your source data and system context. From there, we define a clear
-            scope, deliverables and evidence trail.
-          </Typography>
-
-          <Typography
-            variant="body1"
-            color={theme.palette.text.secondary}
-            sx={{ lineHeight: 1.7, mb: theme.spacing(2) }}
-          >
-            We keep engagements practical and bounded. Where it makes sense, we
-            can sequence work in stages so you can build confidence and internal
-            alignment before committing to broader changes.
-          </Typography>
-
-          <Button variant="outlined" component={Link} to="/contact">
-            Get in touch
-          </Button>
+              <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex" }}>
+                <PublicCard
+                  title="What happens next"
+                  titleComponent="h3"
+                  titleVariant="h6"
+                  actions={
+                    <Button
+                      variant="contained"
+                      component={RouterLink}
+                      to="/contact"
+                    >
+                      Request a payment data review
+                    </Button>
+                  }
+                >
+                  <Box
+                    component="ol"
+                    sx={{ my: 0, pl: 3, color: theme.palette.text.secondary }}
+                  >
+                    <li>
+                      We confirm scope and the extract format (usually 10
+                      minutes).
+                    </li>
+                    <li>
+                      We review the sample and flag any structural timing or
+                      classification issues.
+                    </li>
+                    <li>
+                      We return a short summary of observations and suggested
+                      next steps.
+                    </li>
+                  </Box>
+                </PublicCard>
+              </Grid>
+            </Grid>
+          </PublicPageSection>
         </Box>
-      </Box>
+
+        <PublicPageSection sx={{ pt: 0, pb: { xs: 4, md: 6 } }}>
+          <PublicCallToAction
+            align="left"
+            title="How engagements work"
+            description={
+              <>
+                Most work begins with a short scoping conversation and a review
+                of your source data and system context. From there, we define a
+                clear scope, deliverables and evidence trail.
+                <Box component="span" sx={{ display: "block", mt: 1.5 }}>
+                  We keep engagements practical and bounded. Where it makes
+                  sense, we can sequence work in stages so you can build
+                  confidence and internal alignment before committing to broader
+                  changes.
+                </Box>
+              </>
+            }
+            sx={{ py: { xs: 3, md: 4 } }}
+          >
+            <Button variant="outlined" component={RouterLink} to="/contact">
+              Get in touch
+            </Button>
+          </PublicCallToAction>
+        </PublicPageSection>
+      </PublicPageLayout>
     </>
   );
 }
