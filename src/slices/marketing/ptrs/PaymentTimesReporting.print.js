@@ -121,6 +121,8 @@ export default function PaymentTimesReportingPrint() {
       <PageMeta
         title="PTRS Marketing One-pager (Print)"
         description="A print-first PTRS one-pager designed for executive review."
+        path="/payment-times-reporting-print"
+        noIndex
       />
 
       <Box id="ptrs-print-canvas">

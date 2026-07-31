@@ -9,6 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router";
+import PageMeta from "shared/ui/PageMeta";
 
 const pricingOptions = [
   {
@@ -58,12 +59,19 @@ export function PricingPage() {
   };
 
   return (
-    <Box
-      sx={{
-        maxWidth: "100%",
-        overflowX: "hidden",
-      }}
-    >
+    <>
+      <PageMeta
+        title="Payment Times Reporting Pricing"
+        description="Straightforward Payment Times Reporting submission support and payment behaviour monitoring options from Monochrome Compliance."
+        path="/pricing"
+      />
+
+      <Box
+        sx={{
+          maxWidth: "100%",
+          overflowX: "hidden",
+        }}
+      >
       <Box
         sx={{
           position: "relative",
@@ -542,6 +550,7 @@ export function PricingPage() {
           Talk to us
         </Button>
       </Box>
-    </Box>
+      </Box>
+    </>
   );
 }

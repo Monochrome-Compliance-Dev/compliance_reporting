@@ -1,5 +1,6 @@
 import { Box, Typography, Grid, Card, useTheme, Button } from "@mui/material";
 import { Link as RouterLink } from "react-router";
+import PageMeta from "shared/ui/PageMeta";
 
 export function LandingPage() {
   const theme = useTheme();
@@ -22,12 +23,19 @@ export function LandingPage() {
   };
 
   return (
-    <Box
-      sx={{
-        maxWidth: "100%",
-        overflowX: "hidden",
-      }}
-    >
+    <>
+      <PageMeta
+        title="Payment Data & Compliance Solutions"
+        description="Payment data, compliance, and reporting solutions for organisations operating in complex environments, including Payment Times Reporting. Understand reporting performance before the period closes."
+        path="/"
+      />
+
+      <Box
+        sx={{
+          maxWidth: "100%",
+          overflowX: "hidden",
+        }}
+      >
       <Box
         sx={{
           position: "relative",
@@ -829,6 +837,7 @@ export function LandingPage() {
           </Button>
         </Box>
       </Box>
-    </Box>
+      </Box>
+    </>
   );
 }

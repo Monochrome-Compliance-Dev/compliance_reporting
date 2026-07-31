@@ -16,6 +16,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAlert } from "context";
 import { error as logError, sanitiseInput } from "shared/utils";
+import PageMeta from "shared/ui/PageMeta";
 import { publicService } from "../publicApi";
 
 // Yup schema moved outside the component and updated to use yup.object({ ... }) directly
@@ -165,15 +166,22 @@ export function Contact() {
   };
 
   return (
-    <Container
-      maxWidth="sm"
-      sx={{
-        mt: theme.spacing(4),
-        backgroundColor: theme.palette.background.default,
-        padding: theme.spacing(2),
-        borderRadius: theme.shape.borderRadius,
-      }}
-    >
+    <>
+      <PageMeta
+        title="Contact"
+        description="Contact Monochrome Compliance to discuss Payment Times Reporting, payment data review and compliance support."
+        path="/contact"
+      />
+
+      <Container
+        maxWidth="sm"
+        sx={{
+          mt: theme.spacing(4),
+          backgroundColor: theme.palette.background.default,
+          padding: theme.spacing(2),
+          borderRadius: theme.shape.borderRadius,
+        }}
+      >
       <Paper
         elevation={3}
         sx={{
@@ -295,6 +303,7 @@ export function Contact() {
           </Button>
         </Box>
       </Paper>
-    </Container>
+      </Container>
+    </>
   );
 }

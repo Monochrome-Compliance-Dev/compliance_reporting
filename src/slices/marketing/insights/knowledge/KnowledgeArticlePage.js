@@ -12,26 +12,33 @@ export default function KnowledgeArticlePage() {
 
   if (!article) {
     return (
-      <Box
-        sx={{
-          px: { xs: theme.spacing(3), md: theme.spacing(8) },
-          py: theme.spacing(6),
-          backgroundColor: theme.palette.background.default,
-        }}
-      >
-        <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
-            Article not found
-          </Typography>
-          <Typography
-            component={RouterLink}
-            to="/insights/knowledge"
-            sx={{ color: theme.palette.primary.main }}
-          >
-            Back to Knowledge Centre
-          </Typography>
+      <>
+        <PageMeta
+          title="Knowledge Article Not Found"
+          description="The requested Monochrome Compliance knowledge article could not be found."
+          noIndex
+        />
+        <Box
+          sx={{
+            px: { xs: theme.spacing(3), md: theme.spacing(8) },
+            py: theme.spacing(6),
+            backgroundColor: theme.palette.background.default,
+          }}
+        >
+          <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
+            <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
+              Article not found
+            </Typography>
+            <Typography
+              component={RouterLink}
+              to="/insights/knowledge"
+              sx={{ color: theme.palette.primary.main }}
+            >
+              Back to Knowledge Centre
+            </Typography>
+          </Box>
         </Box>
-      </Box>
+      </>
     );
   }
 
@@ -43,6 +50,7 @@ export default function KnowledgeArticlePage() {
         title={`${article.title} | Monochrome Compliance`}
         description={article.description}
         image="https://monochrome-compliance.com/images/og/og-industry-insights.jpg"
+        type="article"
       />
 
       <Box

@@ -12,26 +12,33 @@ export default function BlogPostPage() {
 
   if (!post) {
     return (
-      <Box
-        sx={{
-          px: { xs: theme.spacing(3), md: theme.spacing(8) },
-          py: theme.spacing(6),
-          backgroundColor: theme.palette.background.default,
-        }}
-      >
-        <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
-            Post not found
-          </Typography>
-          <Typography
-            component={RouterLink}
-            to="/insights/blog"
-            sx={{ color: theme.palette.primary.main }}
-          >
-            Back to Blog
-          </Typography>
+      <>
+        <PageMeta
+          title="Blog Post Not Found"
+          description="The requested Monochrome Compliance blog post could not be found."
+          noIndex
+        />
+        <Box
+          sx={{
+            px: { xs: theme.spacing(3), md: theme.spacing(8) },
+            py: theme.spacing(6),
+            backgroundColor: theme.palette.background.default,
+          }}
+        >
+          <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
+            <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
+              Post not found
+            </Typography>
+            <Typography
+              component={RouterLink}
+              to="/insights/blog"
+              sx={{ color: theme.palette.primary.main }}
+            >
+              Back to Blog
+            </Typography>
+          </Box>
         </Box>
-      </Box>
+      </>
     );
   }
 
@@ -43,6 +50,7 @@ export default function BlogPostPage() {
         title={`${post.title} | Monochrome Compliance`}
         description={post.description}
         image="https://monochrome-compliance.com/images/og/og-industry-insights.jpg"
+        type="article"
       />
 
       <Box

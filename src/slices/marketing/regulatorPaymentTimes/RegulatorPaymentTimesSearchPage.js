@@ -19,6 +19,7 @@ import PublicPageLayout, {
   PublicPageSection,
   PublicSurface,
 } from "shared/layouts/PublicPageLayout";
+import PageMeta from "shared/ui/PageMeta";
 
 const SEARCH_INDEX_URL = "/data/regulator-payment-times/search-index.json";
 const MAX_RESULTS = 25;
@@ -160,7 +161,14 @@ function RegulatorPaymentTimesSearchPage() {
   };
 
   return (
-    <PublicPageLayout>
+    <>
+      <PageMeta
+        title="Payment Times Explorer"
+        description="Search published Australian Payment Times Reporting Scheme data by business name or ABN."
+        path="/regulator-payment-times"
+      />
+
+      <PublicPageLayout>
       <PublicPageSection
         sx={{
           pt: {
@@ -447,7 +455,8 @@ function RegulatorPaymentTimesSearchPage() {
           </Stack>
         </PublicContent>
       </PublicPageSection>
-    </PublicPageLayout>
+      </PublicPageLayout>
+    </>
   );
 }
 

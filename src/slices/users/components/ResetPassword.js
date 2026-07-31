@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 
 import { useAlert } from "context";
+import PageMeta from "shared/ui/PageMeta";
 import { userService } from "../userApi";
 
 const TokenStatus = {
@@ -178,16 +179,24 @@ export default function ResetPassword() {
   })();
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        minHeight: "100vh",
-        backgroundColor: theme.palette.background.default,
-        p: 2,
-      }}
-    >
+    <>
+      <PageMeta
+        title="Set a New Password"
+        description="Set a new password for your Monochrome Compliance account."
+        path="/reset-password"
+        noIndex
+      />
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          minHeight: "100vh",
+          backgroundColor: theme.palette.background.default,
+          p: 2,
+        }}
+      >
       <Paper
         elevation={3}
         sx={{
@@ -209,6 +218,7 @@ export default function ResetPassword() {
 
         {body}
       </Paper>
-    </Box>
+      </Box>
+    </>
   );
 }

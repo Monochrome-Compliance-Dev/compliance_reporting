@@ -13,7 +13,7 @@ export default function PaymentTimesExplorerLaunch() {
       <PageMeta
         title="Introducing the Payment Times Explorer | Monochrome Compliance"
         description="Explore Australia’s published Payment Times Reporting data by organisation, reporting period and industry."
-        image="/images/og/og-payment-times-explorer.jpg"
+        image="/images/og/og-industry-insights.jpg"
       />
 
       <PublicPageLayout

@@ -18,6 +18,7 @@ import PublicPageLayout, {
   PublicPageSection,
   PublicSurface,
 } from "shared/layouts/PublicPageLayout";
+import PageMeta from "shared/ui/PageMeta";
 
 const COMPANY_DATA_BASE_URL = "/data/regulator-payment-times/companies";
 
@@ -650,57 +651,76 @@ function RegulatorPaymentTimesCompanyPage() {
 
   if (isLoading) {
     return (
-      <PublicPageLayout>
-        <PublicPageSection
-          sx={{
-            minHeight: "60vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Stack direction="row" spacing={2} alignItems="center">
-            <CircularProgress size={26} />
+      <>
+        <PageMeta
+          title="Company Payment Times"
+          description="Published Australian Payment Times Reporting data and payment-time metrics for this reporting entity."
+        />
+        <PublicPageLayout>
+          <PublicPageSection
+            sx={{
+              minHeight: "60vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Stack direction="row" spacing={2} alignItems="center">
+              <CircularProgress size={26} />
 
-            <Typography color="text.secondary">
-              Loading Payment Times Explorer…
-            </Typography>
-          </Stack>
-        </PublicPageSection>
-      </PublicPageLayout>
+              <Typography color="text.secondary">
+                Loading Payment Times Explorer…
+              </Typography>
+            </Stack>
+          </PublicPageSection>
+        </PublicPageLayout>
+      </>
     );
   }
 
   if (!company || !latestReport) {
     return (
-      <PublicPageLayout>
-        <PublicPageSection>
-          <PublicContent maxWidth={760}>
-            <Stack spacing={3} alignItems="flex-start">
-              <Typography component="h1" variant="h3">
-                Company not found
-              </Typography>
+      <>
+        <PageMeta
+          title="Payment Times Company Not Found"
+          description="The requested Payment Times Explorer company could not be found."
+          noIndex
+        />
+        <PublicPageLayout>
+          <PublicPageSection>
+            <PublicContent maxWidth={760}>
+              <Stack spacing={3} alignItems="flex-start">
+                <Typography component="h1" variant="h3">
+                  Company not found
+                </Typography>
 
-              <Typography color="text.secondary">
-                No Payment Times Explorer data could be found for this company.
-              </Typography>
+                <Typography color="text.secondary">
+                  No Payment Times Explorer data could be found for this
+                  company.
+                </Typography>
 
-              <Button
-                variant="contained"
-                startIcon={<ArrowBackRoundedIcon />}
-                onClick={() => navigate("/regulator-payment-times")}
-              >
-                Back to Payment Times Explorer
-              </Button>
-            </Stack>
-          </PublicContent>
-        </PublicPageSection>
-      </PublicPageLayout>
+                <Button
+                  variant="contained"
+                  startIcon={<ArrowBackRoundedIcon />}
+                  onClick={() => navigate("/regulator-payment-times")}
+                >
+                  Back to Payment Times Explorer
+                </Button>
+              </Stack>
+            </PublicContent>
+          </PublicPageSection>
+        </PublicPageLayout>
+      </>
     );
   }
 
   return (
-    <PublicPageLayout>
+    <>
+      <PageMeta
+        title={`${company.businessName} Payment Times`}
+        description={`Published Payment Times Reporting data for ${company.businessName}, including recent payment-time metrics, P95 performance and industry comparisons.`}
+      />
+      <PublicPageLayout>
       <PublicPageSection
         sx={{
           pt: {
@@ -1070,7 +1090,8 @@ function RegulatorPaymentTimesCompanyPage() {
           </Stack>
         </PublicContent>
       </PublicPageSection>
-    </PublicPageLayout>
+      </PublicPageLayout>
+    </>
   );
 }
 

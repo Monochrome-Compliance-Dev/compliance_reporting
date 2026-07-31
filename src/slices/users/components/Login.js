@@ -17,6 +17,7 @@ import * as yup from "yup";
 
 import { useAlert } from "context";
 import { error as logError } from "shared/utils/logger";
+import PageMeta from "shared/ui/PageMeta";
 import { userService } from "../userApi";
 
 export default function Login() {
@@ -83,18 +84,26 @@ export default function Login() {
   };
 
   return (
-    <Box
-      className="login-container"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        height: "100vh",
-        margin: 2,
-        backgroundColor: theme.palette.background.default,
-      }}
-    >
+    <>
+      <PageMeta
+        title="Login"
+        description="Sign in to Monochrome Compliance."
+        path="/login"
+        noIndex
+      />
+
+      <Box
+        className="login-container"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          height: "100vh",
+          margin: 2,
+          backgroundColor: theme.palette.background.default,
+        }}
+      >
       <Paper
         elevation={3}
         sx={{
@@ -177,6 +186,7 @@ export default function Login() {
           </Box>
         </form>
       </Paper>
-    </Box>
+      </Box>
+    </>
   );
 }

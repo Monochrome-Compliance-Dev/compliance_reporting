@@ -1,60 +1,91 @@
 import { Helmet } from "react-helmet-async";
 
-const PageMeta = ({ title, description, image, url: overrideUrl }) => {
-  const fullTitle = title
-    ? `${title} | Monochrome Compliance`
-    : "Monochrome Compliance | Payment Data & Compliance";
+const SITE_NAME = "Monochrome Compliance";
+const SITE_URL = "https://monochrome-compliance.com";
+const DEFAULT_IMAGE_PATH = "/images/og/og-industry-insights.jpg";
+const DEFAULT_DESCRIPTION =
+  "Payment data, compliance, and reporting solutions for complex organisations, including Payment Times Reporting (PTRS). Improve visibility, manage risk, and strengthen payment performance.";
 
-  const metaDescription =
-    description ||
-    "Payment data, compliance, and reporting solutions for complex organisations, including Payment Times Reporting (PTRS). Improve visibility, manage risk, and strengthen payment performance.";
+function formatTitle(title) {
+  if (!title) {
+    return `${SITE_NAME} | Payment Data & Compliance`;
+  }
 
-  // Fallback image used when a page does not provide an `image` prop.
-  // This should be a publicly accessible absolute URL so LinkedIn/Twitter can fetch it.
-  const defaultImage =
-    "https://monochrome-compliance.com/images/landing-page/expertise-compliance.jpg";
+  return title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+}
 
-  const metaImage = image || defaultImage;
+function normalisePath(value) {
+  if (!value || value === "/") {
+    return "/";
+  }
 
-  const configuredSiteUrl = process.env.REACT_APP_SITE_URL?.replace(/\/$/, "");
+  return `/${value.replace(/^\/+|\/+$/g, "")}`;
+}
 
-  const siteUrl =
-    configuredSiteUrl ||
-    (typeof window !== "undefined" ? window.location.origin : "");
+function getPathname(path, url) {
+  if (path) {
+    return normalisePath(path);
+  }
 
-  const robots = process.env.REACT_APP_ROBOTS || "noindex, nofollow";
+  if (url) {
+    try {
+      return normalisePath(new URL(url, SITE_URL).pathname);
+    } catch {
+      return normalisePath(url);
+    }
+  }
 
-  const currentUrl =
-    overrideUrl ||
-    `${siteUrl}${
-      typeof window !== "undefined" ? window.location.pathname : ""
-    }`;
+  return normalisePath(
+    typeof window !== "undefined" ? window.location.pathname : "/",
+  );
+}
+
+function getAbsoluteAssetUrl(assetPath) {
+  return new URL(assetPath || DEFAULT_IMAGE_PATH, SITE_URL).href;
+}
+
+const PageMeta = ({
+  title,
+  description,
+  image,
+  imageAlt,
+  path,
+  url,
+  type = "website",
+  noIndex = false,
+}) => {
+  const fullTitle = formatTitle(title);
+
+  const metaDescription = description || DEFAULT_DESCRIPTION;
+
+  const metaImage = getAbsoluteAssetUrl(image);
+  const metaImageAlt = imageAlt || fullTitle;
+  const canonicalUrl = `${SITE_URL}${getPathname(path, url)}`;
+
+  const robots = noIndex
+    ? "noindex, nofollow"
+    : process.env.REACT_APP_ROBOTS || "index, follow";
 
   return (
-    <Helmet>
+    <Helmet prioritizeSeoTags>
       <title>{fullTitle}</title>
       <meta name="description" content={metaDescription} />
       <meta name="robots" content={robots} />
-      <link rel="canonical" href={currentUrl} />
-
-      <meta property="og:site_name" content="Monochrome Compliance" />
+      <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={currentUrl} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={metaImage} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={fullTitle} />
+      <meta property="og:image:alt" content={metaImageAlt} />
 
       {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={metaImage} />
-      <meta name="twitter:image:alt" content={fullTitle} />
+      <meta name="twitter:image:alt" content={metaImageAlt} />
     </Helmet>
   );
 };

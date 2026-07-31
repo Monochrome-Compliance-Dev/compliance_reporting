@@ -22,6 +22,7 @@ import {
 } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
+import PageMeta from "shared/ui/PageMeta";
 
 const INDUSTRY_DATA_BASE_URL = "/data/regulator-payment-times/industries";
 const INDUSTRY_INDEX_URL = "/data/regulator-payment-times/industry-index.json";
@@ -1232,77 +1233,97 @@ function RegulatorPaymentTimesIndustryPage() {
   }, [industrySlug, showAlert]);
 
   const isLoading = isIndexLoading || isIndustryLoading;
+  const pageMeta = (
+    <PageMeta
+      title="Payment Times by Industry"
+      description="Compare published Australian Payment Times Reporting data across industries and reporting cycles."
+      path="/regulator-payment-times/industries"
+    />
+  );
 
   if (isLoading) {
     return (
-      <Box
-        component="main"
-        sx={{
-          minHeight: "100vh",
-          backgroundColor: theme.palette.background.default,
-          py: { xs: 8, md: 12 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Stack
-            direction="row"
-            spacing={2}
-            alignItems="center"
-            justifyContent="center"
-          >
-            <CircularProgress size={26} />
+      <>
+        {pageMeta}
+        <Box
+          component="main"
+          sx={{
+            minHeight: "100vh",
+            backgroundColor: theme.palette.background.default,
+            py: { xs: 8, md: 12 },
+          }}
+        >
+          <Container maxWidth="lg">
+            <Stack
+              direction="row"
+              spacing={2}
+              alignItems="center"
+              justifyContent="center"
+            >
+              <CircularProgress size={26} />
 
-            <Typography color="text.secondary">
-              Loading industry payment times…
-            </Typography>
-          </Stack>
-        </Container>
-      </Box>
+              <Typography color="text.secondary">
+                Loading industry payment times…
+              </Typography>
+            </Stack>
+          </Container>
+        </Box>
+      </>
     );
   }
 
   if (industrySlug && !industry) {
     return (
+      <>
+        <PageMeta
+          title="Payment Times Industry Not Found"
+          description="The requested Payment Times Explorer industry could not be found."
+          noIndex
+        />
+        <Box
+          component="main"
+          sx={{
+            minHeight: "100vh",
+            backgroundColor: theme.palette.background.default,
+            py: { xs: 8, md: 12 },
+          }}
+        >
+          <Container maxWidth="md">
+            <Stack spacing={3} alignItems="flex-start">
+              <Typography component="h1" variant="h3">
+                Industry not found
+              </Typography>
+
+              <Typography color="text.secondary">
+                No regulator payment times data could be found for this
+                industry.
+              </Typography>
+
+              <Button
+                variant="contained"
+                startIcon={<ArrowBackRoundedIcon />}
+                onClick={() => navigate("/regulator-payment-times/industries")}
+              >
+                Back to Industry Insights
+              </Button>
+            </Stack>
+          </Container>
+        </Box>
+      </>
+    );
+  }
+
+  return (
+    <>
+      {pageMeta}
       <Box
         component="main"
         sx={{
           minHeight: "100vh",
           backgroundColor: theme.palette.background.default,
-          py: { xs: 8, md: 12 },
+          py: { xs: 6, md: 10 },
         }}
       >
-        <Container maxWidth="md">
-          <Stack spacing={3} alignItems="flex-start">
-            <Typography component="h1" variant="h3">
-              Industry not found
-            </Typography>
-
-            <Typography color="text.secondary">
-              No regulator payment times data could be found for this industry.
-            </Typography>
-
-            <Button
-              variant="contained"
-              startIcon={<ArrowBackRoundedIcon />}
-              onClick={() => navigate("/regulator-payment-times/industries")}
-            >
-              Back to Industry Insights
-            </Button>
-          </Stack>
-        </Container>
-      </Box>
-    );
-  }
-
-  return (
-    <Box
-      component="main"
-      sx={{
-        minHeight: "100vh",
-        backgroundColor: theme.palette.background.default,
-        py: { xs: 6, md: 10 },
-      }}
-    >
       <Container maxWidth="lg">
         <Stack spacing={{ xs: 4, md: 6 }}>
           {industry ? (
@@ -1426,7 +1447,8 @@ function RegulatorPaymentTimesIndustryPage() {
           </Typography>
         </Stack>
       </Container>
-    </Box>
+      </Box>
+    </>
   );
 }
 

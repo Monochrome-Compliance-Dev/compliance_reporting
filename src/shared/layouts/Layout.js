@@ -2,7 +2,6 @@ import { useEffect, useState, useMemo, Suspense } from "react";
 import { Outlet, useLocation } from "react-router";
 import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { Helmet } from "react-helmet-async";
 import { Alert, Snackbar } from "@mui/material";
 import { useAlert } from "context";
 import globalTheme from "shared/theme/globalTheme";
@@ -45,13 +44,6 @@ export default function Layout() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Helmet>
-        <title>Monochrome Compliance</title>
-        <meta
-          name="description"
-          content="Automate compliance reporting and governance workflows with Monochrome Compliance."
-        />
-      </Helmet>
       <CssBaseline />
       <Snackbar
         open={alertOpen}

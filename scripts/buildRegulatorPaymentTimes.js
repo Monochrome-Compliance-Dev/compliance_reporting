@@ -524,6 +524,11 @@ function writePaymentTimesSitemap(searchIndex, industryIndex) {
       changeFrequency: "monthly",
       priority: "0.8",
     }),
+    createSitemapUrl({
+      location: `${SITE_URL}/regulator-payment-times/industries`,
+      changeFrequency: "monthly",
+      priority: "0.8",
+    }),
     ...industryIndex.industries.map((industry) =>
       createSitemapUrl({
         location:

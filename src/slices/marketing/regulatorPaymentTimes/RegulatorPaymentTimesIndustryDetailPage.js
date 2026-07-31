@@ -23,6 +23,7 @@ import PublicPageLayout, {
   PublicPageSection,
   PublicSurface,
 } from "shared/layouts/PublicPageLayout";
+import PageMeta from "shared/ui/PageMeta";
 
 const INDUSTRY_DATA_BASE_URL = "/data/regulator-payment-times/industries";
 const REGULATOR_REGISTER_URL =
@@ -661,58 +662,78 @@ function RegulatorPaymentTimesIndustryDetailPage() {
 
   if (isLoading) {
     return (
-      <PublicPageLayout>
-        <PublicPageSection
-          sx={{
-            minHeight: "60vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Stack direction="row" spacing={2} alignItems="center">
-            <CircularProgress size={26} />
+      <>
+        <PageMeta
+          title="Industry Payment Times"
+          description="Published Australian Payment Times Reporting data and payment-time trends for this industry."
+        />
+        <PublicPageLayout>
+          <PublicPageSection
+            sx={{
+              minHeight: "60vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Stack direction="row" spacing={2} alignItems="center">
+              <CircularProgress size={26} />
 
-            <Typography color="text.secondary">
-              Loading industry payment times…
-            </Typography>
-          </Stack>
-        </PublicPageSection>
-      </PublicPageLayout>
+              <Typography color="text.secondary">
+                Loading industry payment times…
+              </Typography>
+            </Stack>
+          </PublicPageSection>
+        </PublicPageLayout>
+      </>
     );
   }
 
   if (!industry || !headlineCycle) {
     return (
-      <PublicPageLayout>
-        <PublicPageSection>
-          <PublicContent maxWidth={760}>
-            <Stack spacing={3} alignItems="flex-start">
-              <Typography component="h1" variant="h3">
-                Industry not found
-              </Typography>
+      <>
+        <PageMeta
+          title="Payment Times Industry Not Found"
+          description="The requested Payment Times Explorer industry could not be found."
+          noIndex
+        />
+        <PublicPageLayout>
+          <PublicPageSection>
+            <PublicContent maxWidth={760}>
+              <Stack spacing={3} alignItems="flex-start">
+                <Typography component="h1" variant="h3">
+                  Industry not found
+                </Typography>
 
-              <Typography color="text.secondary">
-                No regulator payment times data could be found for this
-                industry.
-              </Typography>
+                <Typography color="text.secondary">
+                  No regulator payment times data could be found for this
+                  industry.
+                </Typography>
 
-              <Button
-                variant="contained"
-                startIcon={<ArrowBackRoundedIcon />}
-                onClick={() => navigate("/regulator-payment-times/industries")}
-              >
-                Back to Industry Insights
-              </Button>
-            </Stack>
-          </PublicContent>
-        </PublicPageSection>
-      </PublicPageLayout>
+                <Button
+                  variant="contained"
+                  startIcon={<ArrowBackRoundedIcon />}
+                  onClick={() =>
+                    navigate("/regulator-payment-times/industries")
+                  }
+                >
+                  Back to Industry Insights
+                </Button>
+              </Stack>
+            </PublicContent>
+          </PublicPageSection>
+        </PublicPageLayout>
+      </>
     );
   }
 
   return (
-    <PublicPageLayout>
+    <>
+      <PageMeta
+        title={`${industry.industryDivision} Payment Times`}
+        description={`Published Payment Times Reporting data for the ${industry.industryDivision} industry, including P95 trends and reporting entity comparisons.`}
+      />
+      <PublicPageLayout>
       <PublicPageSection
         sx={{
           pt: {
@@ -987,7 +1008,8 @@ function RegulatorPaymentTimesIndustryDetailPage() {
           </Stack>
         </PublicContent>
       </PublicPageSection>
-    </PublicPageLayout>
+      </PublicPageLayout>
+    </>
   );
 }
 
