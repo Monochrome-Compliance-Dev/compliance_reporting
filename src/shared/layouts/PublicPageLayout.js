@@ -23,24 +23,17 @@ export function PublicPageSection({
   disablePadding = false,
   sx,
 }) {
+  const theme = useTheme();
+
   return (
     <Box
       component={component}
       sx={{
-        width: "calc(100% - 32px)",
-        maxWidth: 1440,
+        width: "100%",
+        maxWidth: theme.layout.public.maxWidth,
         mx: "auto",
-        px: disablePadding
-          ? 0
-          : {
-              xs: 2,
-              sm: 4,
-              md: 6,
-            },
-        py: {
-          xs: 5,
-          md: 5,
-        },
+        px: disablePadding ? 0 : theme.layout.public.pageGutter,
+        py: theme.layout.public.sectionSpacing,
         ...sx,
       }}
     >
@@ -49,12 +42,15 @@ export function PublicPageSection({
   );
 }
 
-export function PublicContent({ children, maxWidth = 1180, sx }) {
+export function PublicContent({ children, maxWidth, sx }) {
+  const theme = useTheme();
+  const resolvedMaxWidth = maxWidth ?? theme.layout.public.contentWidth;
+
   return (
     <Box
       sx={{
         width: "100%",
-        maxWidth,
+        maxWidth: resolvedMaxWidth,
         mx: "auto",
         ...sx,
       }}
@@ -71,12 +67,9 @@ export function PublicSurface({ children, component = "div", sx }) {
     <Box
       component={component}
       sx={{
-        p: {
-          xs: 2.5,
-          md: 3,
-        },
+        p: theme.layout.public.cardPadding,
         border: `1px solid ${theme.palette.divider}`,
-        borderRadius: 3,
+        borderRadius: theme.layout.public.borderRadius,
         backgroundColor: theme.palette.background.paper,
         ...sx,
       }}

@@ -1,11 +1,9 @@
 import {
   Box,
   Button,
-  Card,
-  CardContent,
-  Divider,
   GlobalStyles,
   Grid,
+  Stack,
   Step,
   StepLabel,
   Stepper,
@@ -14,15 +12,16 @@ import {
   useTheme,
 } from "@mui/material";
 import { useAuthContext } from "context";
-import { useNavigate } from "react-router";
+import { Link as RouterLink } from "react-router";
+import PublicPageLayout, {
+  PublicSurface,
+} from "shared/layouts/PublicPageLayout";
 import PageMeta from "shared/ui/PageMeta";
+import { PublicCallToAction, PublicCard, PublicPageSection } from "shared/ui";
 
 export default function PaymentTimesReporting() {
-  const navigate = useNavigate();
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const contentMaxWidth = 980;
-  const sectionSx = { maxWidth: contentMaxWidth, mx: "auto" };
   // Public-facing preview images (store these in /public so they can be swapped easily)
   // e.g. /public/images/ptrs-dashboard-light.png and /public/images/ptrs-dashboard-dark.png
   const dashboardPreview = {
@@ -32,14 +31,6 @@ export default function PaymentTimesReporting() {
 
   const isDark = theme.palette.mode === "dark";
   const { user } = useAuthContext();
-
-  const handlePrint = () => {
-    window.open(
-      "/payment-times-reporting-print",
-      "_blank",
-      "noopener,noreferrer",
-    );
-  };
 
   return (
     <>
@@ -194,446 +185,341 @@ export default function PaymentTimesReporting() {
         description="PTRS reporting, without the scramble. Monochrome Compliance helps enterprises meet Payment Times Reporting obligations with less effort and stronger audit confidence."
       />
 
-      <Box
-        id="ptrs-onepager"
-        sx={{
-          px: { xs: theme.spacing(3), md: theme.spacing(8) },
-          py: theme.spacing(6),
-          backgroundColor: theme.palette.background.default,
-        }}
-      >
-        {/* Print-only header removed */}
-        {/* Hero */}
-        <Box sx={sectionSx}>
-          <Typography
-            variant="h3"
-            color={theme.palette.text.primary}
-            sx={{ fontWeight: 700, mb: theme.spacing(1) }}
-          >
-            PTRS reporting, without the scramble
-          </Typography>
-
-          <Typography
-            variant="h6"
-            color={theme.palette.text.secondary}
-            sx={{ mb: theme.spacing(3), lineHeight: 1.5 }}
-          >
-            Monochrome Compliance helps enterprises meet their Payment Times
-            Reporting obligations accurately and confidently — with far less
-            effort than traditional approaches. Payment Times Reports are
-            mandatory, run every six months, and are often prepared under time
-            pressure using fragile spreadsheets and manual checks.
-          </Typography>
-
-          <Box
-            className="no-print"
-            sx={{
-              display: "flex",
-              gap: 2,
-              flexDirection: isSmallScreen ? "column" : "row",
-              alignItems: isSmallScreen ? "stretch" : "center",
-              flexWrap: "wrap",
-            }}
-          >
-            <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              onClick={() => navigate("/contact")}
-              sx={{ width: isSmallScreen ? "100%" : "auto" }}
-            >
-              Book a quick call
-            </Button>
-            {/* <Button
-              variant="outlined"
-              color="primary"
-              size="large"
-              onClick={() => navigate("/compliance-navigator")}
-              sx={{ width: isSmallScreen ? "100%" : "auto" }}
-            >
-              Check if you need to report
-            </Button> */}
-            {user?.role === "boss" && (
-              <Button
-                variant="text"
-                color="primary"
-                size="large"
-                onClick={handlePrint}
-                sx={{ width: isSmallScreen ? "100%" : "auto" }}
-              >
-                Open print version
-              </Button>
-            )}
-          </Box>
-        </Box>
-
-        <Divider sx={{ my: theme.spacing(5) }} />
-
-        {/* What we do + dashboard */}
-        <Box
+      <Box id="ptrs-onepager">
+        <PublicPageLayout
           sx={{
-            ...sectionSx,
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-            gap: theme.spacing(3),
+            backgroundColor: theme.palette.background.default,
           }}
         >
-          <Card
-            elevation={0}
+          <PublicPageSection sx={{ py: { xs: 4, md: 6 } }}>
+            <Grid
+              container
+              spacing={{ xs: 3, md: 5 }}
+              alignItems={{ xs: "flex-start", md: "stretch" }}
+            >
+              <Grid size={{ xs: 12, md: 7 }} sx={{ display: "flex" }}>
+                <Stack
+                  spacing={2}
+                  justifyContent="center"
+                  sx={{ width: "100%", maxWidth: 600 }}
+                >
+                  <Typography
+                    variant="overline"
+                    sx={{
+                      color: theme.palette.primary.main,
+                      fontWeight: 700,
+                      letterSpacing: 1.4,
+                    }}
+                  >
+                    Payment Times Reporting
+                  </Typography>
+
+                  <Typography
+                    component="h1"
+                    variant="h3"
+                    sx={{ fontWeight: 700 }}
+                  >
+                    PTRS reporting, without the scramble
+                  </Typography>
+
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      fontWeight: 400,
+                      lineHeight: 1.55,
+                    }}
+                  >
+                    Monochrome Compliance helps enterprises meet their Payment
+                    Times Reporting obligations accurately and confidently —
+                    with far less effort than traditional approaches. Payment
+                    Times Reports are mandatory, run every six months, and are
+                    often prepared under time pressure using fragile
+                    spreadsheets and manual checks.
+                  </Typography>
+
+                  <Stack
+                    className="no-print"
+                    direction={{ xs: "column", sm: "row" }}
+                    spacing={1.5}
+                    alignItems={{ xs: "stretch", sm: "center" }}
+                    sx={{ width: { xs: "100%", sm: "auto" }, pt: 1 }}
+                  >
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                      component={RouterLink}
+                      to="/contact"
+                      sx={{ width: { xs: "100%", sm: "auto" } }}
+                    >
+                      Book a quick call
+                    </Button>
+
+                    {user?.role === "boss" && (
+                      <Button
+                        variant="outlined"
+                        size="large"
+                        component={RouterLink}
+                        to="/payment-times-reporting-print"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{ width: { xs: "100%", sm: "auto" } }}
+                      >
+                        Open print version
+                      </Button>
+                    )}
+                  </Stack>
+                </Stack>
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 5 }} sx={{ display: "flex" }}>
+                <Box
+                  sx={{
+                    position: "relative",
+                    width: "100%",
+                    aspectRatio: { xs: "16 / 10", sm: "2 / 1", md: "4 / 3" },
+                    overflow: "hidden",
+                    border: `1px solid ${theme.palette.divider}`,
+                    borderRadius: theme.layout.public.borderRadius,
+                    backgroundColor: theme.palette.background.paper,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src="/images/services/payment-times-reporting.jpg"
+                    alt="Payment reporting analysis workspace"
+                    sx={{
+                      position: "absolute",
+                      inset: 0,
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "left center",
+                      transform: "scale(1.15)",
+                      transformOrigin: "left center",
+                    }}
+                  />
+                </Box>
+              </Grid>
+            </Grid>
+          </PublicPageSection>
+
+          <PublicPageSection sx={{ py: { xs: 4, md: 6 } }}>
+            <Grid container spacing={3}>
+              <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex" }}>
+                <PublicCard
+                  title="Structured reporting support"
+                  titleComponent="h2"
+                  titleVariant="h5"
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    Most organisations still prepare PTRS reports using
+                    spreadsheets, manual checks, and last-minute rule
+                    interpretation. We replace that with a structured,
+                    repeatable process that reduces risk and surprises.
+                  </Typography>
+
+                  <Box
+                    component="ul"
+                    sx={{ my: 1, pl: 3, color: theme.palette.text.secondary }}
+                  >
+                    <li>
+                      Validate your payment data against PTRS requirements
+                    </li>
+                    <li>Apply the relevant rules and interpretations</li>
+                    <li>Identify issues early, not at submission time</li>
+                    <li>Produce a clear, review-ready PTRS report</li>
+                  </Box>
+
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    You stay informed and in control, without having to manage
+                    the mechanics yourself.
+                  </Typography>
+                </PublicCard>
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex" }}>
+                <PublicCard
+                  title="The dashboard"
+                  titleComponent="h2"
+                  titleVariant="h5"
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    The dashboard exists to answer one question clearly: “Are we
+                    ready to sign this report, and why?”
+                  </Typography>
+
+                  <Box
+                    component="ul"
+                    sx={{ my: 1, pl: 3, color: theme.palette.text.secondary }}
+                  >
+                    <li>Reporting status and progress at a glance</li>
+                    <li>Key drivers that affect PTRS outcomes</li>
+                    <li>
+                      Practical “what-if” views to show the smallest levers that
+                      move results
+                    </li>
+                    <li>A clear audit trail of what was checked and why</li>
+                  </Box>
+
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    It’s built to support confident review and sign-off —
+                    without drowning you in detail.
+                  </Typography>
+                </PublicCard>
+              </Grid>
+            </Grid>
+          </PublicPageSection>
+
+          <PublicPageSection
+            title="Why this matters"
+            introduction="PTRS reporting is mandatory, recurring, and easy to get wrong — often because small timing or classification details are buried in the data."
             sx={{
-              height: "100%",
-              border: `1px solid ${theme.palette.divider}`,
-              backgroundColor: theme.palette.background.paper,
+              paddingTop: { xs: 4, md: 6 },
+              paddingBottom: { xs: 3, md: 4 },
             }}
           >
-            <CardContent>
-              <Typography
-                variant="h5"
-                color={theme.palette.text.primary}
-                sx={{ fontWeight: 700, mb: theme.spacing(1) }}
-              >
-                What we do
-              </Typography>
-
-              <Typography variant="body1" color={theme.palette.text.secondary}>
-                Most organisations still prepare PTRS reports using
-                spreadsheets, manual checks, and last-minute rule
-                interpretation. We replace that with a structured, repeatable
-                process that reduces risk and surprises.
-              </Typography>
-
-              <Box
-                component="ul"
-                sx={{ mt: theme.spacing(2), pl: theme.spacing(3), mb: 0 }}
-              >
-                <Box component="li" sx={{ mb: 1 }}>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.text.secondary}
-                  >
-                    Validate your payment data against PTRS requirements
-                  </Typography>
-                </Box>
-                <Box component="li" sx={{ mb: 1 }}>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.text.secondary}
-                  >
-                    Apply the relevant rules and interpretations
-                  </Typography>
-                </Box>
-                <Box component="li" sx={{ mb: 1 }}>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.text.secondary}
-                  >
-                    Identify issues early, not at submission time
-                  </Typography>
-                </Box>
-                <Box component="li" sx={{ mb: 0 }}>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.text.secondary}
-                  >
-                    Produce a clear, review-ready PTRS report
-                  </Typography>
-                </Box>
-              </Box>
-
-              <Typography
-                variant="body2"
-                color={theme.palette.text.secondary}
-                sx={{ mt: theme.spacing(2) }}
-              >
-                You stay informed and in control, without having to manage the
-                mechanics yourself.
-              </Typography>
-            </CardContent>
-          </Card>
-
-          <Card
-            elevation={0}
-            sx={{
-              height: "100%",
-              border: `1px solid ${theme.palette.divider}`,
-              backgroundColor: theme.palette.background.paper,
-            }}
-          >
-            <CardContent>
-              <Typography
-                variant="h5"
-                color={theme.palette.text.primary}
-                sx={{ fontWeight: 700, mb: theme.spacing(1) }}
-              >
-                The dashboard
-              </Typography>
-
-              <Typography variant="body1" color={theme.palette.text.secondary}>
-                The dashboard exists to answer one question clearly: “Are we
-                ready to sign this report, and why?”
-              </Typography>
-
-              <Box
-                component="ul"
-                sx={{ mt: theme.spacing(2), pl: theme.spacing(3), mb: 0 }}
-              >
-                <Box component="li" sx={{ mb: 1 }}>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.text.secondary}
-                  >
-                    Reporting status and progress at a glance
-                  </Typography>
-                </Box>
-                <Box component="li" sx={{ mb: 1 }}>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.text.secondary}
-                  >
-                    Key drivers that affect PTRS outcomes
-                  </Typography>
-                </Box>
-                <Box component="li" sx={{ mb: 1 }}>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.text.secondary}
-                  >
-                    Practical “what-if” views to show the smallest levers that
-                    move results
-                  </Typography>
-                </Box>
-                <Box component="li" sx={{ mb: 0 }}>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.text.secondary}
-                  >
-                    A clear audit trail of what was checked and why
-                  </Typography>
-                </Box>
-              </Box>
-
-              <Typography
-                variant="body2"
-                color={theme.palette.text.secondary}
-                sx={{ mt: theme.spacing(2) }}
-              >
-                It’s built to support confident review and sign-off — without
-                drowning you in detail.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Box>
-
-        <Divider sx={{ my: theme.spacing(5) }} />
-
-        {/* Proof early */}
-        <Box sx={{ ...sectionSx, mb: theme.spacing(5) }}>
-          <Typography
-            variant="h5"
-            color={theme.palette.text.primary}
-            sx={{ fontWeight: 700, mb: theme.spacing(1) }}
-          >
-            Why this matters
-          </Typography>
-
-          <Typography variant="body1" color={theme.palette.text.secondary}>
-            PTRS reporting is mandatory, recurring, and easy to get wrong —
-            often because small timing or classification details are buried in
-            the data.
-          </Typography>
-
-          <Card
-            elevation={0}
-            sx={{
-              mt: theme.spacing(3),
-              border: `1px solid ${theme.palette.divider}`,
-              backgroundColor: theme.palette.background.paper,
-            }}
-          >
-            <CardContent>
-              <Typography
-                variant="subtitle1"
-                color={theme.palette.text.primary}
-                sx={{ fontWeight: 700, mb: theme.spacing(1) }}
-              >
+            <PublicCard component="div">
+              <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
                 What looks like an operational detail can materially change what
                 gets reported. A simple timing change can shift reported
                 performance.
               </Typography>
 
-              <Typography variant="body2" color={theme.palette.text.secondary}>
+              <Typography
+                variant="body2"
+                sx={{ color: theme.palette.text.secondary, lineHeight: 1.7 }}
+              >
                 In one engagement, we identified that paying invoices just six
                 days earlier would shift small business invoices paid on time
                 from:
               </Typography>
 
-              <Box sx={{ mt: theme.spacing(2) }}>
-                <Grid container spacing={2}>
-                  <Grid size={{ xs: 12, sm: 4 }}>
-                    <Card
-                      elevation={0}
-                      sx={{
-                        height: "100%",
-                        border: `1px solid ${theme.palette.divider}`,
-                      }}
-                    >
-                      <CardContent>
-                        <Typography
-                          variant="h4"
-                          sx={{ fontWeight: 800, mb: 0.5 }}
-                          color={theme.palette.text.primary}
-                        >
-                          40%
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          color={theme.palette.text.secondary}
-                        >
-                          Current position
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-
-                  <Grid size={{ xs: 12, sm: 4 }}>
-                    <Card
-                      elevation={0}
-                      sx={{
-                        height: "100%",
-                        border: `1px solid ${theme.palette.divider}`,
-                      }}
-                    >
-                      <CardContent>
-                        <Typography
-                          variant="h4"
-                          sx={{ fontWeight: 800, mb: 0.5 }}
-                          color={theme.palette.text.primary}
-                        >
-                          72%
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          color={theme.palette.text.secondary}
-                        >
-                          If paid 6 days earlier
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-
-                  <Grid size={{ xs: 12, sm: 4 }}>
-                    <Card
-                      elevation={0}
-                      sx={{
-                        height: "100%",
-                        border: `1px solid ${theme.palette.divider}`,
-                      }}
-                    >
-                      <CardContent>
-                        <Typography
-                          variant="h4"
-                          sx={{ fontWeight: 800, mb: 0.5 }}
-                          color={theme.palette.text.primary}
-                        >
-                          86%
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          color={theme.palette.text.secondary}
-                        >
-                          If paid within average days late
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Grid>
+              <Grid container spacing={2} sx={{ py: 1 }}>
+                <Grid size={{ xs: 12, sm: 4 }} sx={{ display: "flex" }}>
+                  <PublicCard
+                    component="div"
+                    title="40%"
+                    titleComponent="p"
+                    titleVariant="h4"
+                    description="Current position"
+                    sx={{ backgroundColor: theme.palette.background.default }}
+                  />
                 </Grid>
-              </Box>
+
+                <Grid size={{ xs: 12, sm: 4 }} sx={{ display: "flex" }}>
+                  <PublicCard
+                    component="div"
+                    title="72%"
+                    titleComponent="p"
+                    titleVariant="h4"
+                    description="If paid 6 days earlier"
+                    sx={{ backgroundColor: theme.palette.background.default }}
+                  />
+                </Grid>
+
+                <Grid size={{ xs: 12, sm: 4 }} sx={{ display: "flex" }}>
+                  <PublicCard
+                    component="div"
+                    title="86%"
+                    titleComponent="p"
+                    titleVariant="h4"
+                    description="If paid within average days late"
+                    sx={{ backgroundColor: theme.palette.background.default }}
+                  />
+                </Grid>
+              </Grid>
 
               <Typography
                 variant="body2"
-                color={theme.palette.text.secondary}
-                sx={{ mt: theme.spacing(2) }}
+                sx={{ color: theme.palette.text.secondary, lineHeight: 1.7 }}
               >
                 No system changes. No supplier renegotiation. Just visibility
                 into what’s driving the reported outcome.
               </Typography>
-            </CardContent>
-          </Card>
+            </PublicCard>
+          </PublicPageSection>
 
-          <Card
-            elevation={0}
+          <PublicPageSection
             sx={{
-              mt: theme.spacing(4),
-              border: `1px solid ${theme.palette.divider}`,
-              backgroundColor: theme.palette.background.paper,
+              py: 0,
+              pb: { xs: 4, md: 6 },
             }}
           >
-            <CardContent>
+            <PublicCard
+              component="div"
+              media={
+                <Box
+                  sx={{
+                    overflow: "hidden",
+                    backgroundColor: theme.palette.background.default,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    className="ptrs-dashboard-shot--dark"
+                    alt="PTRS dashboard preview (dark)"
+                    src={dashboardPreview.dark}
+                    sx={{
+                      display: isDark ? "block" : "none",
+                      width: "100%",
+                      height: "auto",
+                    }}
+                  />
+                  <Box
+                    component="img"
+                    className="ptrs-dashboard-shot--light"
+                    alt="PTRS dashboard preview (light)"
+                    src={dashboardPreview.light}
+                    sx={{
+                      display: isDark ? "none" : "block",
+                      width: "100%",
+                      height: "auto",
+                    }}
+                  />
+                </Box>
+              }
+            >
               <Typography
                 variant="body2"
-                color={theme.palette.text.secondary}
-                sx={{ mt: theme.spacing(1.5) }}
+                sx={{ color: theme.palette.text.secondary }}
               >
                 Dashboard shown with synthetic data for illustrative purposes.
               </Typography>
+            </PublicCard>
+          </PublicPageSection>
 
-              <Box
-                sx={{
-                  mt: theme.spacing(1.5),
-                  border: `1px solid ${theme.palette.divider}`,
-                  borderRadius: 1,
-                  overflow: "hidden",
-                  bgcolor: theme.palette.background.default,
-                }}
-              >
-                {/* Render both so print can force the light variant via CSS */}
-                <Box
-                  component="img"
-                  className="ptrs-dashboard-shot--dark"
-                  alt="PTRS dashboard preview (dark)"
-                  src={dashboardPreview.dark}
-                  sx={{
-                    display: isDark ? "block" : "none",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                  }}
-                />
-                <Box
-                  component="img"
-                  className="ptrs-dashboard-shot--light"
-                  alt="PTRS dashboard preview (light)"
-                  src={dashboardPreview.light}
-                  sx={{
-                    display: isDark ? "none" : "block",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                  }}
-                />
-              </Box>
-            </CardContent>
-          </Card>
-        </Box>
-
-        {/* How the engagement works */}
-        <Box sx={{ ...sectionSx, mt: theme.spacing(5) }}>
-          <Card
-            elevation={0}
-            sx={{
-              border: `1px solid ${theme.palette.divider}`,
-              backgroundColor: theme.palette.background.paper,
-            }}
+          <PublicPageSection
+            title="How the engagement works"
+            sx={{ py: { xs: 4, md: 6 } }}
           >
-            <CardContent>
-              <Typography
-                variant="h5"
-                color={theme.palette.text.primary}
-                sx={{ fontWeight: 700, mb: theme.spacing(2) }}
-              >
-                How the engagement works
-              </Typography>
-
+            <PublicSurface>
               <Stepper
                 activeStep={-1}
                 orientation={isSmallScreen ? "vertical" : "horizontal"}
@@ -703,152 +589,127 @@ export default function PaymentTimesReporting() {
                   </StepLabel>
                 </Step>
               </Stepper>
-            </CardContent>
-          </Card>
-        </Box>
+            </PublicSurface>
+          </PublicPageSection>
 
-        {/* What it's like + approach + pricing */}
-        <Box sx={{ ...sectionSx, mt: theme.spacing(5) }}>
-          <Card
-            elevation={0}
+          <PublicPageSection
             sx={{
-              mt: theme.spacing(3),
-              border: `1px solid ${theme.palette.divider}`,
-              backgroundColor: theme.palette.background.paper,
+              paddingTop: { xs: 4, md: 6 },
+              paddingBottom: { xs: 3, md: 4 },
             }}
           >
-            <CardContent>
-              <Typography
-                variant="h5"
-                color={theme.palette.text.primary}
-                sx={{ fontWeight: 700, mb: theme.spacing(1) }}
-              >
-                What it’s like to work with us
-              </Typography>
+            <Grid container spacing={3}>
+              <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex" }}>
+                <PublicCard
+                  title="What it’s like to work with us"
+                  titleComponent="h2"
+                  titleVariant="h5"
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    We take the time up front to understand your data properly.
+                    That initial effort means PTRS reporting becomes predictable
+                    and repeatable — not a fire drill every six months.
+                  </Typography>
 
-              <Typography variant="body1" color={theme.palette.text.secondary}>
-                We take the time up front to understand your data properly. That
-                initial effort means PTRS reporting becomes predictable and
-                repeatable — not a fire drill every six months.
-              </Typography>
+                  <Box
+                    component="ul"
+                    sx={{ my: 1, pl: 3, color: theme.palette.text.secondary }}
+                  >
+                    <li>Easy to deal with and clear in communication</li>
+                    <li>Careful rather than rushed — we ask before assuming</li>
+                    <li>
+                      Accountable for the work and the decisions behind it
+                    </li>
+                  </Box>
+                </PublicCard>
+              </Grid>
 
-              <Box
-                component="ul"
-                sx={{ mt: theme.spacing(2), pl: theme.spacing(3), mb: 0 }}
-              >
-                <Box component="li" sx={{ mb: 1 }}>
+              <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex" }}>
+                <PublicCard
+                  title="Our approach"
+                  titleComponent="h2"
+                  titleVariant="h5"
+                  contentSx={{ justifyContent: "center" }}
+                >
                   <Typography
                     variant="body2"
-                    color={theme.palette.text.secondary}
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      lineHeight: 1.7,
+                    }}
                   >
-                    Easy to deal with and clear in communication
+                    Our work is software-led, with human judgement where it
+                    matters. Automation removes repetition and reduces error.
+                    Human review ensures context, interpretation, and
+                    defensibility.
                   </Typography>
-                </Box>
-                <Box component="li" sx={{ mb: 1 }}>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.text.secondary}
-                  >
-                    Careful rather than rushed — we ask before assuming
-                  </Typography>
-                </Box>
-                <Box component="li" sx={{ mb: 0 }}>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.text.secondary}
-                  >
-                    Accountable for the work and the decisions behind it
-                  </Typography>
-                </Box>
-              </Box>
+                </PublicCard>
+              </Grid>
+            </Grid>
+          </PublicPageSection>
 
-              <Divider sx={{ my: theme.spacing(3) }} />
-
-              <Typography
-                variant="h6"
-                color={theme.palette.text.primary}
-                sx={{ fontWeight: 700, mb: theme.spacing(1) }}
-              >
-                Our approach
-              </Typography>
-
-              <Typography variant="body2" color={theme.palette.text.secondary}>
-                Our work is software-led, with human judgement where it matters.
-                Automation removes repetition and reduces error. Human review
-                ensures context, interpretation, and defensibility.
-              </Typography>
-            </CardContent>
-          </Card>
-
-          <Card
-            elevation={0}
+          <PublicPageSection
             sx={{
-              border: `1px solid ${theme.palette.divider}`,
-              backgroundColor: theme.palette.background.paper,
+              py: 0,
+              pb: { xs: 4, md: 6 },
             }}
           >
-            <CardContent>
-              <Typography
-                variant="h5"
-                color={theme.palette.text.primary}
-                sx={{ fontWeight: 700, mb: theme.spacing(1) }}
-              >
-                Pricing
-              </Typography>
-
-              <Typography variant="body2" color={theme.palette.text.secondary}>
-                PTRS reporting is priced at <strong>$7,000</strong> per report,
-                per reporting period. Clear scope. No surprises.
-              </Typography>
-
-              <Box
+            <PublicCallToAction
+              component="div"
+              eyebrow="Pricing"
+              title="$7,500 per submission"
+              description="PTRS reporting is priced at $7,500 per submission. Clear scope. No surprises."
+              sx={{ py: { xs: 3, md: 4 } }}
+            >
+              <Button
                 className="no-print"
+                variant="contained"
+                color="primary"
+                size="large"
+                component={RouterLink}
+                to="/contact"
+              >
+                Talk to us
+              </Button>
+
+              <Typography
+                variant="body2"
                 sx={{
-                  mt: theme.spacing(3),
-                  display: "flex",
-                  gap: 2,
-                  flexDirection: isSmallScreen ? "column" : "row",
-                  alignItems: isSmallScreen ? "stretch" : "center",
-                  flexWrap: "wrap",
+                  alignSelf: "center",
+                  color: theme.palette.text.secondary,
                 }}
               >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  onClick={() => navigate("/contact")}
-                  sx={{ width: isSmallScreen ? "100%" : "auto" }}
-                >
-                  Talk to us
-                </Button>
-                <Typography
-                  variant="body2"
-                  color={theme.palette.text.secondary}
-                >
-                  A short conversation is usually enough to confirm whether
-                  we’re a good fit.
-                </Typography>
+                A short conversation is usually enough to confirm whether we’re
+                a good fit.
+              </Typography>
+            </PublicCallToAction>
+          </PublicPageSection>
+
+          <Box
+            className="ptrs-print-footer print-only"
+            sx={{ display: "none" }}
+          >
+            <Box className="ptrs-print-footer__row">
+              <Box className="ptrs-print-footer__left">
+                <span>{new Date().getFullYear()} Monochrome Compliance</span>
+                <span className="ptrs-print-footer__sep">•</span>
+                <span>PTRS Marketing v1.0</span>
+                <span className="ptrs-print-footer__sep">•</span>
+                <span>Printed: {new Date().toLocaleDateString("en-AU")}</span>
+                <span className="ptrs-print-footer__sep">•</span>
+                <span>ABN 20687127386</span>
+                <span className="ptrs-print-footer__sep">•</span>
+                <span>contact@monochrome-compliance.com</span>
               </Box>
-            </CardContent>
-          </Card>
-        </Box>
-        {/* Print-only footer */}
-        <Box className="ptrs-print-footer print-only" sx={{ display: "none" }}>
-          <Box className="ptrs-print-footer__row">
-            <Box className="ptrs-print-footer__left">
-              <span>{new Date().getFullYear()} Monochrome Compliance</span>
-              <span className="ptrs-print-footer__sep">•</span>
-              <span>PTRS Marketing v1.0</span>
-              <span className="ptrs-print-footer__sep">•</span>
-              <span>Printed: {new Date().toLocaleDateString("en-AU")}</span>
-              <span className="ptrs-print-footer__sep">•</span>
-              <span>ABN 20687127386</span>
-              <span className="ptrs-print-footer__sep">•</span>
-              <span>contact@monochrome-compliance.com</span>
             </Box>
-            {/* Removed: <Box className="ptrs-print-footer__page" /> */}
           </Box>
-        </Box>
+        </PublicPageLayout>
       </Box>
     </>
   );
