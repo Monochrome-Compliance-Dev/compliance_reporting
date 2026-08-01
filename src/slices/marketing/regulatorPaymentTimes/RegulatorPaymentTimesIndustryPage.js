@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { Link as RouterLink, useNavigate, useParams } from "react-router";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import LaunchRoundedIcon from "@mui/icons-material/LaunchRounded";
@@ -9,7 +9,6 @@ import {
   Box,
   Button,
   CircularProgress,
-  Container,
   Divider,
   FormControl,
   Grid,
@@ -22,6 +21,11 @@ import {
 } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
 import { useAlert } from "context";
+import PublicPageLayout, {
+  PublicContent,
+  PublicPageSection,
+  PublicSurface,
+} from "shared/layouts/PublicPageLayout";
 import PageMeta from "shared/ui/PageMeta";
 
 const INDUSTRY_DATA_BASE_URL = "/data/regulator-payment-times/industries";
@@ -748,7 +752,6 @@ function IndustryOverview({
   onReportingCycleChange,
   onSelectIndustry,
 }) {
-  const navigate = useNavigate();
   const theme = useTheme();
 
   return (
@@ -756,8 +759,9 @@ function IndustryOverview({
       <Stack spacing={2}>
         <Box>
           <Button
+            component={RouterLink}
+            to="/"
             startIcon={<ArrowBackRoundedIcon />}
-            onClick={() => navigate("/")}
           >
             Back to home
           </Button>
@@ -798,8 +802,7 @@ function IndustryOverview({
         onSelectIndustry={onSelectIndustry}
       />
 
-      <Paper
-        elevation={0}
+      <PublicSurface
         sx={{
           p: { xs: 2.5, sm: 3.5 },
           border: `1px solid ${theme.palette.divider}`,
@@ -838,7 +841,7 @@ function IndustryOverview({
             health or business quality.
           </Typography>
         </Stack>
-      </Paper>
+      </PublicSurface>
     </Stack>
   );
 }
@@ -849,8 +852,6 @@ function IndustryDetail({
   reportingCycles,
   selectedReportingCycleId,
   onReportingCycleChange,
-  onBack,
-  onSelectCompany,
   onSelectIndustry,
 }) {
   const theme = useTheme();
@@ -873,8 +874,9 @@ function IndustryDetail({
     <Stack spacing={{ xs: 4, md: 6 }}>
       <Box>
         <Button
+          component={RouterLink}
+          to="/regulator-payment-times/industries"
           startIcon={<ArrowBackRoundedIcon />}
-          onClick={onBack}
           sx={{ mb: 3 }}
         >
           Back to Industry Insights
@@ -1002,17 +1004,30 @@ function IndustryDetail({
             {companies.map((company) => (
               <Grid
                 key={company.companySlug}
+                component={RouterLink}
+                to={
+                  company.companySlug
+                    ? `/regulator-payment-times/${company.companySlug}`
+                    : "/contact"
+                }
                 container
                 spacing={2}
                 alignItems="center"
                 sx={{
                   py: 2,
+                  px: 1,
                   cursor: "pointer",
+                  color: "inherit",
+                  textDecoration: "none",
+                  borderRadius: 1,
                   "&:hover": {
                     backgroundColor: alpha(theme.palette.primary.main, 0.04),
                   },
+                  "&:focus-visible": {
+                    outline: `3px solid ${alpha(theme.palette.primary.main, 0.45)}`,
+                    outlineOffset: 2,
+                  },
                 }}
-                onClick={() => onSelectCompany(company.companySlug)}
               >
                 <Grid size={{ xs: 12, md: 6 }}>
                   <Typography
@@ -1053,15 +1068,21 @@ function IndustryDetail({
                     justifyContent: { xs: "flex-start", md: "flex-end" },
                   }}
                 >
-                  <Button
-                    endIcon={<ArrowForwardRoundedIcon />}
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      onSelectCompany(company.companySlug);
-                    }}
+                  <Stack
+                    component="span"
+                    direction="row"
+                    spacing={0.75}
+                    alignItems="center"
+                    sx={{ color: "primary.main", fontWeight: 700 }}
                   >
-                    View company
-                  </Button>
+                    <Typography component="span" variant="button">
+                      View company
+                    </Typography>
+                    <ArrowForwardRoundedIcon
+                      fontSize="small"
+                      aria-hidden="true"
+                    />
+                  </Stack>
                 </Grid>
               </Grid>
             ))}
@@ -1245,29 +1266,26 @@ function RegulatorPaymentTimesIndustryPage() {
     return (
       <>
         {pageMeta}
-        <Box
-          component="main"
-          sx={{
-            minHeight: "100vh",
-            backgroundColor: theme.palette.background.default,
-            py: { xs: 8, md: 12 },
-          }}
-        >
-          <Container maxWidth="lg">
-            <Stack
-              direction="row"
-              spacing={2}
-              alignItems="center"
-              justifyContent="center"
-            >
-              <CircularProgress size={26} />
+        <PublicPageLayout>
+          <PublicPageSection>
+            <PublicContent>
+              <Stack
+                direction="row"
+                spacing={2}
+                alignItems="center"
+                justifyContent="center"
+                role="status"
+                aria-live="polite"
+              >
+                <CircularProgress size={26} />
 
-              <Typography color="text.secondary">
-                Loading industry payment times…
-              </Typography>
-            </Stack>
-          </Container>
-        </Box>
+                <Typography color="text.secondary">
+                  Loading industry payment times…
+                </Typography>
+              </Stack>
+            </PublicContent>
+          </PublicPageSection>
+        </PublicPageLayout>
       </>
     );
   }
@@ -1280,35 +1298,31 @@ function RegulatorPaymentTimesIndustryPage() {
           description="The requested Payment Times Explorer industry could not be found."
           noIndex
         />
-        <Box
-          component="main"
-          sx={{
-            minHeight: "100vh",
-            backgroundColor: theme.palette.background.default,
-            py: { xs: 8, md: 12 },
-          }}
-        >
-          <Container maxWidth="md">
-            <Stack spacing={3} alignItems="flex-start">
-              <Typography component="h1" variant="h3">
-                Industry not found
-              </Typography>
+        <PublicPageLayout>
+          <PublicPageSection>
+            <PublicContent maxWidth={760}>
+              <Stack spacing={3} alignItems="flex-start">
+                <Typography component="h1" variant="h3">
+                  Industry not found
+                </Typography>
 
-              <Typography color="text.secondary">
-                No regulator payment times data could be found for this
-                industry.
-              </Typography>
+                <Typography color="text.secondary">
+                  No regulator payment times data could be found for this
+                  industry.
+                </Typography>
 
-              <Button
-                variant="contained"
-                startIcon={<ArrowBackRoundedIcon />}
-                onClick={() => navigate("/regulator-payment-times/industries")}
-              >
-                Back to Industry Insights
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+                <Button
+                  variant="contained"
+                  component={RouterLink}
+                  to="/regulator-payment-times/industries"
+                  startIcon={<ArrowBackRoundedIcon />}
+                >
+                  Back to Industry Insights
+                </Button>
+              </Stack>
+            </PublicContent>
+          </PublicPageSection>
+        </PublicPageLayout>
       </>
     );
   }
@@ -1316,138 +1330,125 @@ function RegulatorPaymentTimesIndustryPage() {
   return (
     <>
       {pageMeta}
-      <Box
-        component="main"
-        sx={{
-          minHeight: "100vh",
-          backgroundColor: theme.palette.background.default,
-          py: { xs: 6, md: 10 },
-        }}
-      >
-      <Container maxWidth="lg">
-        <Stack spacing={{ xs: 4, md: 6 }}>
-          {industry ? (
-            <IndustryDetail
-              industry={industry}
-              industryIndex={industryIndex}
-              reportingCycles={reportingCycles}
-              selectedReportingCycleId={selectedReportingCycleId}
-              onReportingCycleChange={setSelectedReportingCycleId}
-              onBack={() => navigate("/regulator-payment-times/industries")}
-              onSelectIndustry={(selectedIndustrySlug) =>
-                navigate(
-                  `/regulator-payment-times/industry/${selectedIndustrySlug}`,
-                )
-              }
-              onSelectCompany={(companySlug) => {
-                if (!companySlug) {
-                  navigate("/contact");
-                  return;
-                }
-
-                navigate(`/regulator-payment-times/${companySlug}`);
-              }}
-            />
-          ) : (
-            <IndustryOverview
-              industries={industryIndex}
-              reportingCycles={reportingCycles}
-              selectedReportingCycleId={selectedReportingCycleId}
-              onReportingCycleChange={setSelectedReportingCycleId}
-              onSelectIndustry={(selectedIndustrySlug) =>
-                navigate(
-                  `/regulator-payment-times/industry/${selectedIndustrySlug}`,
-                )
-              }
-            />
-          )}
-          <Paper
-            elevation={0}
-            sx={{
-              p: { xs: 2.5, sm: 3.5 },
-              border: `1px solid ${theme.palette.divider}`,
-              borderRadius: 3,
-              backgroundColor: theme.palette.background.paper,
-            }}
-          >
-            <Stack
-              direction={{ xs: "column", md: "row" }}
-              spacing={2}
-              alignItems={{ xs: "stretch", md: "center" }}
-              justifyContent="space-between"
-            >
-              <Box>
-                <Typography
-                  component="h2"
-                  variant="h5"
-                  sx={{
-                    color: theme.palette.text.primary,
-                    fontWeight: 700,
-                  }}
-                >
-                  Explore payment times information
-                </Typography>
-
-                <Typography
-                  variant="body2"
-                  sx={{
-                    mt: 0.5,
-                    maxWidth: 650,
-                    color: theme.palette.text.secondary,
-                    lineHeight: 1.6,
-                  }}
-                >
-                  Search for an individual reporting entity on Monochrome
-                  Compliance or visit the official Payment Times Reports
-                  Register for source reports and further information.
-                </Typography>
-              </Box>
-
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                spacing={1.5}
-                flexShrink={0}
+      <PublicPageLayout>
+        <PublicPageSection>
+          <PublicContent>
+            <Stack spacing={{ xs: 4, md: 6 }}>
+              {industry ? (
+                <IndustryDetail
+                  industry={industry}
+                  industryIndex={industryIndex}
+                  reportingCycles={reportingCycles}
+                  selectedReportingCycleId={selectedReportingCycleId}
+                  onReportingCycleChange={setSelectedReportingCycleId}
+                  onSelectIndustry={(selectedIndustrySlug) =>
+                    navigate(
+                      `/regulator-payment-times/industry/${selectedIndustrySlug}`,
+                    )
+                  }
+                />
+              ) : (
+                <IndustryOverview
+                  industries={industryIndex}
+                  reportingCycles={reportingCycles}
+                  selectedReportingCycleId={selectedReportingCycleId}
+                  onReportingCycleChange={setSelectedReportingCycleId}
+                  onSelectIndustry={(selectedIndustrySlug) =>
+                    navigate(
+                      `/regulator-payment-times/industry/${selectedIndustrySlug}`,
+                    )
+                  }
+                />
+              )}
+              <PublicSurface
+                sx={{
+                  p: { xs: 2.5, sm: 3.5 },
+                  border: `1px solid ${theme.palette.divider}`,
+                  borderRadius: 3,
+                  backgroundColor: theme.palette.background.paper,
+                }}
               >
-                <Button
-                  variant="outlined"
-                  startIcon={<SearchRoundedIcon />}
-                  endIcon={<ArrowForwardRoundedIcon />}
-                  onClick={() => navigate("/regulator-payment-times")}
+                <Stack
+                  direction={{ xs: "column", md: "row" }}
+                  spacing={2}
+                  alignItems={{ xs: "stretch", md: "center" }}
+                  justifyContent="space-between"
                 >
-                  Search companies
-                </Button>
+                  <Box>
+                    <Typography
+                      component="h2"
+                      variant="h5"
+                      sx={{
+                        color: theme.palette.text.primary,
+                        fontWeight: 700,
+                      }}
+                    >
+                      Explore payment times information
+                    </Typography>
 
-                <Button
-                  component="a"
-                  href={REGULATOR_REGISTER_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="contained"
-                  endIcon={<LaunchRoundedIcon />}
-                >
-                  Visit official register
-                </Button>
-              </Stack>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        mt: 0.5,
+                        maxWidth: 650,
+                        color: theme.palette.text.secondary,
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      Search for an individual reporting entity on Monochrome
+                      Compliance or visit the official Payment Times Reports
+                      Register for source reports and further information.
+                    </Typography>
+                  </Box>
+
+                  <Stack
+                    direction={{ xs: "column", sm: "row" }}
+                    spacing={1.5}
+                    flexShrink={0}
+                  >
+                    <Button
+                      variant="outlined"
+                      component={RouterLink}
+                      to="/regulator-payment-times"
+                      startIcon={<SearchRoundedIcon />}
+                      endIcon={<ArrowForwardRoundedIcon />}
+                    >
+                      Search companies
+                    </Button>
+
+                    <Button
+                      component="a"
+                      href={REGULATOR_REGISTER_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Visit the official Payment Times Reports Register in a new tab"
+                      variant="contained"
+                      endIcon={<LaunchRoundedIcon />}
+                    >
+                      Visit official register
+                    </Button>
+                  </Stack>
+                </Stack>
+              </PublicSurface>
+
+              <Typography
+                variant="caption"
+                sx={{
+                  display: "block",
+                  mt: 6,
+                  color: theme.palette.text.secondary,
+                  lineHeight: 1.6,
+                }}
+              >
+                Source: Australian Government Payment Times Reports Register
+                Standard report data. Monochrome Compliance is not affiliated
+                with or endorsed by the Australian Government or the Payment
+                Times Reporting Regulator.
+              </Typography>
             </Stack>
-          </Paper>
-
-          <Typography
-            variant="caption"
-            sx={{
-              display: "block",
-              mt: 6,
-              color: theme.palette.text.secondary,
-              lineHeight: 1.6,
-            }}
-          >
-            Source: Australian Government Payment Times Reports Register
-            Standard report data. Monochrome Compliance is not affiliated with
-            or endorsed by the Australian Government or the Payment Times
-            Reporting Regulator.
-          </Typography>
-        </Stack>
-      </Container>
-      </Box>
+          </PublicContent>
+        </PublicPageSection>
+      </PublicPageLayout>
     </>
   );
 }

@@ -1,15 +1,14 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  Divider,
-  Grid,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router";
+import PublicPageLayout from "shared/layouts/PublicPageLayout";
 import PageMeta from "shared/ui/PageMeta";
+import {
+  PublicCallToAction,
+  PublicCard,
+  PublicPageHero,
+  PublicPageSection,
+} from "shared/ui";
 
 const pricingOptions = [
   {
@@ -27,7 +26,6 @@ const pricingOptions = [
       "Clear explanation of the reporting result",
     ],
     cta: "Talk to us about your submission",
-    to: "/contact",
   },
   {
     title: "Payment Behaviour Monitoring",
@@ -44,19 +42,61 @@ const pricingOptions = [
       "Payment Times Reporting submission included",
     ],
     cta: "Discuss ongoing monitoring",
-    to: "/contact",
     featured: true,
   },
 ];
 
-export function PricingPage() {
+const comparisonOptions = [
+  {
+    title: "Submission Support",
+    description:
+      "Ideal if you already have your payment data and simply want an experienced partner to prepare a complete, accurate and defensible Payment Times Report.",
+    points: [
+      "One engagement every reporting period",
+      "We prepare the report from your payment data",
+      "Clear explanation of the reported outcome",
+      "Submission-ready outputs",
+    ],
+  },
+  {
+    title: "Ongoing Monitoring",
+    description:
+      "Designed for organisations that want to understand payment behaviour throughout the reporting period so there are fewer surprises when reporting time arrives.",
+    points: [
+      "Monthly payment behaviour analysis",
+      "Early identification of emerging issues",
+      "Practical recommendations before the period closes",
+      "Payment Times Report preparation included",
+    ],
+    featured: true,
+  },
+];
+
+function DetailList({ items }) {
   const theme = useTheme();
 
-  const contentMaxWidth = 1100;
-  const sectionSx = {
-    maxWidth: contentMaxWidth,
-    mx: "auto",
-  };
+  return (
+    <Box
+      component="ul"
+      sx={{
+        my: 0,
+        pl: 3,
+        color: theme.palette.text.secondary,
+        "& li": { mb: 1.25 },
+        "& li:last-child": { mb: 0 },
+      }}
+    >
+      {items.map((item) => (
+        <Typography component="li" variant="body2" key={item}>
+          {item}
+        </Typography>
+      ))}
+    </Box>
+  );
+}
+
+export function PricingPage() {
+  const theme = useTheme();
 
   return (
     <>
@@ -66,491 +106,142 @@ export function PricingPage() {
         path="/pricing"
       />
 
-      <Box
-        sx={{
-          maxWidth: "100%",
-          overflowX: "hidden",
-        }}
+      <PublicPageLayout
+        sx={{ backgroundColor: theme.palette.background.default }}
       >
-      <Box
-        sx={{
-          position: "relative",
-          overflow: "hidden",
-          minHeight: { xs: 220, sm: 280, md: 340 },
-          display: "flex",
-          alignItems: "center",
-          backgroundImage: `url('/images/brand/hero3.jpg')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.58) 55%, rgba(0,0,0,0.28) 100%)",
-            zIndex: 1,
-          },
-        }}
-      >
-        <Box
-          sx={{
-            position: "relative",
-            zIndex: 2,
-            width: "100%",
-            ...sectionSx,
-            px: { xs: 3, md: 8 },
-            py: { xs: 5, md: 7 },
-          }}
+        <PublicPageHero
+          image="/images/brand/hero3.jpg"
+          eyebrow="Pricing"
+          title="Straightforward support for Payment Times Reporting."
+          description="Choose submission support when you need help completing your report, or ongoing monitoring when you want visibility while there is still time to improve the outcome."
+        />
+
+        <PublicPageSection
+          title="Two simple options"
+          introduction="Whether you simply need help preparing your next submission or want ongoing insight into your payment behaviour, we have a service that fits."
+          textMaxWidth={theme.layout.public.textWidth}
         >
-          <Typography
-            variant="h3"
-            sx={{
-              maxWidth: 850,
-              color: theme.palette.common.white,
-              fontWeight: 800,
-              lineHeight: 1.15,
-              mb: 2,
-            }}
-          >
-            Straightforward support for Payment Times Reporting.
-          </Typography>
-
-          <Typography
-            variant="h6"
-            sx={{
-              maxWidth: 780,
-              color: "rgba(255,255,255,0.88)",
-              lineHeight: 1.6,
-            }}
-          >
-            Choose submission support when you need help completing your report,
-            or ongoing monitoring when you want visibility while there is still
-            time to improve the outcome.
-          </Typography>
-        </Box>
-      </Box>
-
-      <Box
-        sx={{
-          ...sectionSx,
-          px: { xs: 3, md: 8 },
-          py: { xs: 6, md: 8 },
-        }}
-      >
-        <Typography
-          variant="h4"
-          textAlign="center"
-          sx={{
-            fontWeight: 800,
-            mb: 1,
-          }}
-        >
-          Two simple options
-        </Typography>
-
-        <Typography
-          variant="body1"
-          textAlign="center"
-          color={theme.palette.text.secondary}
-          sx={{
-            maxWidth: 760,
-            mx: "auto",
-            lineHeight: 1.7,
-            mb: 5,
-          }}
-        >
-          Whether you simply need help preparing your next submission or want
-          ongoing insight into your payment behaviour, we have a service that
-          fits.
-        </Typography>
-
-        <Grid container spacing={3}>
-          {pricingOptions.map((option) => (
-            <Grid key={option.title} size={{ xs: 12, md: 6 }}>
-              <Card
-                elevation={0}
-                sx={{
-                  height: "100%",
-                  border: `1px solid ${
-                    option.featured
-                      ? theme.palette.primary.main
-                      : theme.palette.divider
-                  }`,
-                  borderWidth: option.featured ? 2 : 1,
-                  backgroundColor: theme.palette.background.paper,
-                }}
+          <Grid container spacing={3} alignItems="stretch">
+            {pricingOptions.map((option) => (
+              <Grid
+                key={option.title}
+                size={{ xs: 12, md: 6 }}
+                sx={{ display: "flex" }}
               >
-                <CardContent
+                <PublicCard
+                  eyebrow={option.featured ? "Best value" : undefined}
+                  title={option.title}
+                  titleComponent="h3"
+                  titleVariant="h5"
                   sx={{
-                    p: 4,
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
+                    borderColor: option.featured
+                      ? theme.palette.primary.main
+                      : theme.palette.divider,
+                    borderWidth: option.featured ? 2 : 1,
                   }}
+                  actions={
+                    <Button
+                      variant={option.featured ? "contained" : "outlined"}
+                      component={RouterLink}
+                      to="/contact"
+                    >
+                      {option.cta}
+                    </Button>
+                  }
                 >
-                  {option.featured && (
-                    <Typography
-                      variant="overline"
-                      sx={{
-                        display: "inline-flex",
-                        alignSelf: "flex-start",
-                        mb: 2,
-                        px: 1.5,
-                        py: 0.5,
-                        borderRadius: 1,
-                        backgroundColor: theme.palette.primary.main,
-                        color: theme.palette.primary.contrastText,
-                        fontWeight: 800,
-                        letterSpacing: 1,
-                      }}
-                    >
-                      Best value
-                    </Typography>
-                  )}
-
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      fontWeight: 800,
-                      mb: 2,
-                    }}
-                  >
-                    {option.title}
-                  </Typography>
-
-                  <Box sx={{ mb: 3 }}>
-                    <Typography
-                      component="span"
-                      variant="h3"
-                      sx={{
-                        fontWeight: 800,
-                        lineHeight: 1,
-                      }}
-                    >
-                      {option.price}
-                    </Typography>
+                  <Stack spacing={2.5} sx={{ pt: 1 }}>
+                    <Box>
+                      <Typography component="span" variant="h3">
+                        {option.price}
+                      </Typography>
+                      <Typography
+                        component="span"
+                        variant="body1"
+                        sx={{ ml: 1, color: theme.palette.text.secondary }}
+                      >
+                        {option.cadence}
+                      </Typography>
+                    </Box>
 
                     <Typography
-                      component="span"
                       variant="body1"
-                      color={theme.palette.text.secondary}
-                      sx={{ ml: 1 }}
+                      sx={{
+                        color: theme.palette.text.secondary,
+                        lineHeight: 1.7,
+                      }}
                     >
-                      {option.cadence}
+                      {option.description}
                     </Typography>
-                  </Box>
 
-                  <Typography
-                    variant="body1"
-                    color={theme.palette.text.secondary}
-                    sx={{
-                      lineHeight: 1.7,
-                      mb: 3,
-                    }}
-                  >
-                    {option.description}
-                  </Typography>
+                    <Divider />
 
-                  <Divider sx={{ mb: 3 }} />
-
-                  <Typography
-                    variant="subtitle1"
-                    sx={{
-                      fontWeight: 800,
-                      mb: 2,
-                    }}
-                  >
-                    Included
-                  </Typography>
-
-                  <Box
-                    component="ul"
-                    sx={{
-                      mt: 0,
-                      mb: 4,
-                      pl: 3,
-                      color: theme.palette.text.secondary,
-                      "& li": {
-                        mb: 1.25,
-                      },
-                    }}
-                  >
-                    {option.inclusions.map((inclusion) => (
-                      <Box component="li" key={inclusion}>
-                        <Typography
-                          variant="body2"
-                          color={theme.palette.text.secondary}
-                        >
-                          {inclusion}
-                        </Typography>
-                      </Box>
-                    ))}
-                  </Box>
-
-                  <Button
-                    variant={option.featured ? "contained" : "outlined"}
-                    component={RouterLink}
-                    to={option.to}
-                    sx={{
-                      mt: "auto",
-                      alignSelf: "flex-start",
-                      fontWeight: 700,
-                    }}
-                  >
-                    {option.cta}
-                  </Button>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-
-      <Divider />
-
-      <Box
-        sx={{
-          ...sectionSx,
-          px: { xs: 3, md: 8 },
-          py: { xs: 6, md: 8 },
-        }}
-      >
-        <Typography
-          variant="h4"
-          textAlign="center"
-          sx={{
-            fontWeight: 800,
-            mb: 1,
-          }}
-        >
-          Which option is right for you?
-        </Typography>
-
-        <Typography
-          variant="body1"
-          textAlign="center"
-          color={theme.palette.text.secondary}
-          sx={{
-            maxWidth: 760,
-            mx: "auto",
-            lineHeight: 1.7,
-            mb: 5,
-          }}
-        >
-          Some organisations only need help every six months. Others want
-          confidence throughout the reporting period. Both approaches deliver an
-          accurate Payment Times Report — the difference is when you gain
-          visibility.
-        </Typography>
-
-        <Grid container spacing={3}>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Card
-              elevation={0}
-              sx={{
-                height: "100%",
-                border: `1px solid ${theme.palette.divider}`,
-                backgroundColor: theme.palette.background.paper,
-              }}
-            >
-              <CardContent>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: 700,
-                    mb: 2,
-                  }}
-                >
-                  Submission Support
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  color={theme.palette.text.secondary}
-                  sx={{ lineHeight: 1.7, mb: 3 }}
-                >
-                  Ideal if you already have your payment data and simply want an
-                  experienced partner to prepare a complete, accurate and
-                  defensible Payment Times Report.
-                </Typography>
-
-                <Box
-                  component="ul"
-                  sx={{
-                    pl: 3,
-                    mb: 0,
-                    "& li": { mb: 1.25 },
-                  }}
-                >
-                  <Box component="li">
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.text.secondary}
-                    >
-                      One engagement every reporting period
-                    </Typography>
-                  </Box>
-
-                  <Box component="li">
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.text.secondary}
-                    >
-                      We prepare the report from your payment data
-                    </Typography>
-                  </Box>
-
-                  <Box component="li">
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.text.secondary}
-                    >
-                      Clear explanation of the reported outcome
-                    </Typography>
-                  </Box>
-
-                  <Box component="li">
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.text.secondary}
-                    >
-                      Submission-ready outputs
-                    </Typography>
-                  </Box>
-                </Box>
-              </CardContent>
-            </Card>
+                    <Box>
+                      <Typography
+                        component="p"
+                        variant="subtitle1"
+                        sx={{ mb: 1.5 }}
+                      >
+                        Included
+                      </Typography>
+                      <DetailList items={option.inclusions} />
+                    </Box>
+                  </Stack>
+                </PublicCard>
+              </Grid>
+            ))}
           </Grid>
+        </PublicPageSection>
 
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Card
-              elevation={0}
-              sx={{
-                height: "100%",
-                border: `2px solid ${theme.palette.primary.main}`,
-                backgroundColor: theme.palette.background.paper,
-              }}
-            >
-              <CardContent>
-                <Typography
-                  variant="h5"
+        <PublicPageSection
+          title="Which option is right for you?"
+          introduction="Some organisations only need help every six months. Others want confidence throughout the reporting period. Both approaches deliver an accurate Payment Times Report — the difference is when you gain visibility."
+          sx={{ pt: { xs: 4, md: 6 } }}
+        >
+          <Grid container spacing={3} alignItems="stretch">
+            {comparisonOptions.map((option) => (
+              <Grid
+                key={option.title}
+                size={{ xs: 12, md: 6 }}
+                sx={{ display: "flex" }}
+              >
+                <PublicCard
+                  title={option.title}
+                  titleComponent="h3"
+                  titleVariant="h5"
+                  description={option.description}
                   sx={{
-                    fontWeight: 700,
-                    mb: 2,
+                    borderColor: option.featured
+                      ? theme.palette.primary.main
+                      : theme.palette.divider,
+                    borderWidth: option.featured ? 2 : 1,
                   }}
                 >
-                  Ongoing Monitoring
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  color={theme.palette.text.secondary}
-                  sx={{ lineHeight: 1.7, mb: 3 }}
-                >
-                  Designed for organisations that want to understand payment
-                  behaviour throughout the reporting period so there are fewer
-                  surprises when reporting time arrives.
-                </Typography>
-
-                <Box
-                  component="ul"
-                  sx={{
-                    pl: 3,
-                    mb: 0,
-                    "& li": { mb: 1.25 },
-                  }}
-                >
-                  <Box component="li">
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.text.secondary}
-                    >
-                      Monthly payment behaviour analysis
-                    </Typography>
+                  <Box sx={{ pt: 1.5 }}>
+                    <DetailList items={option.points} />
                   </Box>
-
-                  <Box component="li">
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.text.secondary}
-                    >
-                      Early identification of emerging issues
-                    </Typography>
-                  </Box>
-
-                  <Box component="li">
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.text.secondary}
-                    >
-                      Practical recommendations before the period closes
-                    </Typography>
-                  </Box>
-
-                  <Box component="li">
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.text.secondary}
-                    >
-                      Payment Times Report preparation included
-                    </Typography>
-                  </Box>
-                </Box>
-              </CardContent>
-            </Card>
+                </PublicCard>
+              </Grid>
+            ))}
           </Grid>
-        </Grid>
-      </Box>
+        </PublicPageSection>
 
-      <Divider />
-
-      <Box
-        sx={{
-          ...sectionSx,
-          px: { xs: 3, md: 8 },
-          py: { xs: 6, md: 8 },
-          textAlign: "center",
-        }}
-      >
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: 800,
-            mb: 2,
-          }}
-        >
-          Ready to make your next Payment Times Report easier?
-        </Typography>
-
-        <Typography
-          variant="body1"
-          color={theme.palette.text.secondary}
-          sx={{
-            maxWidth: 760,
-            mx: "auto",
-            lineHeight: 1.7,
-            mb: 4,
-          }}
-        >
-          Whether you need help with your next submission or want ongoing
-          visibility into your payment behaviour, we'd be happy to talk through
-          your situation and recommend the most suitable approach.
-        </Typography>
-
-        <Button
-          variant="contained"
-          size="large"
-          component={RouterLink}
-          to="/contact"
-          sx={{
-            px: 5,
-            fontWeight: 700,
-          }}
-        >
-          Talk to us
-        </Button>
-      </Box>
-      </Box>
+        <PublicPageSection sx={{ pt: { xs: 4, md: 6 } }}>
+          <PublicCallToAction
+            title="Ready to make your next Payment Times Report easier?"
+            description="Whether you need help with your next submission or want ongoing visibility into your payment behaviour, we'd be happy to talk through your situation and recommend the most suitable approach."
+            sx={{ py: { xs: 3, md: 4 } }}
+          >
+            <Button
+              variant="contained"
+              size="large"
+              component={RouterLink}
+              to="/contact"
+            >
+              Talk to us
+            </Button>
+          </PublicCallToAction>
+        </PublicPageSection>
+      </PublicPageLayout>
     </>
   );
 }

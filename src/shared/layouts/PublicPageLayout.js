@@ -1,10 +1,11 @@
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-export default function PublicPageLayout({ children, sx }) {
+export default function PublicPageLayout({ children, sx, ...props }) {
   return (
     <Box
       component="main"
+      {...props}
       sx={{
         width: "100%",
         maxWidth: "100%",
@@ -60,12 +61,13 @@ export function PublicContent({ children, maxWidth, sx }) {
   );
 }
 
-export function PublicSurface({ children, component = "div", sx }) {
+export function PublicSurface({ children, component = "div", sx, ...props }) {
   const theme = useTheme();
 
   return (
     <Box
       component={component}
+      {...props}
       sx={{
         p: theme.layout.public.cardPadding,
         border: `1px solid ${theme.palette.divider}`,

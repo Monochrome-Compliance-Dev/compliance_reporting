@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { Link as RouterLink, useParams } from "react-router";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import LaunchRoundedIcon from "@mui/icons-material/LaunchRounded";
@@ -205,6 +205,7 @@ function MetricCard({ label, value, description }) {
         </Typography>
 
         <Typography
+          component="p"
           variant="h5"
           sx={{
             color: theme.palette.text.primary,
@@ -584,7 +585,6 @@ function HistoricalSummary({ cycles }) {
 
 function RegulatorPaymentTimesIndustryDetailPage() {
   const theme = useTheme();
-  const navigate = useNavigate();
   const { industrySlug } = useParams();
   const { showAlert } = useAlert();
 
@@ -712,10 +712,9 @@ function RegulatorPaymentTimesIndustryDetailPage() {
 
                 <Button
                   variant="contained"
+                  component={RouterLink}
+                  to="/regulator-payment-times/industries"
                   startIcon={<ArrowBackRoundedIcon />}
-                  onClick={() =>
-                    navigate("/regulator-payment-times/industries")
-                  }
                 >
                   Back to Industry Insights
                 </Button>
@@ -746,8 +745,9 @@ function RegulatorPaymentTimesIndustryDetailPage() {
           <Stack spacing={{ xs: 4, md: 5 }}>
             <Box>
               <Button
+                component={RouterLink}
+                to="/regulator-payment-times/industries"
                 startIcon={<ArrowBackRoundedIcon />}
-                onClick={() => navigate("/regulator-payment-times/industries")}
                 sx={{ mb: 3 }}
               >
                 Industry Insights
@@ -952,9 +952,10 @@ function RegulatorPaymentTimesIndustryDetailPage() {
                 >
                   <Button
                     variant="outlined"
+                    component={RouterLink}
+                    to="/regulator-payment-times"
                     startIcon={<SearchRoundedIcon />}
                     endIcon={<ArrowForwardRoundedIcon />}
-                    onClick={() => navigate("/regulator-payment-times")}
                     sx={{
                       backgroundColor: theme.palette.background.paper,
                       color: theme.palette.text.primary,
@@ -974,6 +975,7 @@ function RegulatorPaymentTimesIndustryDetailPage() {
                     href={REGULATOR_REGISTER_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Visit the official Payment Times Reports Register in a new tab"
                     variant="outlined"
                     endIcon={<LaunchRoundedIcon />}
                     sx={{

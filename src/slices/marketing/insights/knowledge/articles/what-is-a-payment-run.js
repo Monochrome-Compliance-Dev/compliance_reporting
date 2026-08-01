@@ -6,7 +6,7 @@ const sectionSpacing = { xs: 3, md: 4 };
 function Section({ title, children }) {
   return (
     <Box component="section">
-      <Typography variant="h4" gutterBottom>
+      <Typography component="h2" variant="h4" gutterBottom>
         {title}
       </Typography>
       <Stack spacing={2}>{children}</Stack>
@@ -24,7 +24,8 @@ export default function WhatIsAPaymentRun() {
           Operational drivers
         </Typography>
         <Typography
-          variant="h1"
+          component="p"
+          variant="h5"
           gutterBottom
           sx={{
             fontSize: { xs: "3rem", md: "4rem" },

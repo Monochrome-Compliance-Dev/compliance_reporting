@@ -14,6 +14,17 @@ import {
 
 export default function Services() {
   const theme = useTheme();
+  const listTypographySx = {
+    my: 0,
+    pl: 3,
+    color: theme.palette.text.secondary,
+    fontFamily: theme.typography.fontFamily,
+    fontSize: theme.typography.body2.fontSize,
+    fontWeight:
+      theme.typography.body2.fontWeight ?? theme.typography.fontWeightRegular,
+    lineHeight: 1.7,
+    "& li + li": { mt: 0.75 },
+  };
 
   return (
     <>
@@ -29,10 +40,31 @@ export default function Services() {
         <PublicPageHero
           title="Services"
           description="We help organisations bring structure to payment data so reporting, enforcement and transparency frameworks align rather than collide. These services are delivered horizontally across different operating environments, with industry-specific applications where payment mechanics are especially demanding."
-          sx={{ py: { xs: 4, md: 6 } }}
+          sx={{
+            "&&": {
+              paddingTop: { xs: theme.spacing(4), md: theme.spacing(5) },
+              paddingBottom: {
+                xs: theme.spacing(3),
+                md: theme.spacing(4),
+              },
+            },
+            "& > .MuiBox-root > .MuiBox-root > .MuiStack-root": {
+              gap: { xs: theme.spacing(2.25), md: theme.spacing(2.5) },
+            },
+          }}
         />
 
-        <PublicPageSection sx={{ pt: 0, pb: { xs: 4, md: 6 } }}>
+        <PublicPageSection
+          sx={{
+            "&&": {
+              paddingTop: 0,
+              paddingBottom: {
+                xs: theme.spacing(2),
+                md: theme.spacing(3),
+              },
+            },
+          }}
+        >
           <PublicSurface>
             <Stack
               direction={{ xs: "column", md: "row" }}
@@ -67,7 +99,15 @@ export default function Services() {
 
         <PublicPageSection
           title="Core services"
-          sx={{ py: { xs: 4, md: 6 } }}
+          sx={{
+            "&&": {
+              paddingTop: { xs: theme.spacing(3), md: theme.spacing(4) },
+              paddingBottom: {
+                xs: theme.spacing(3),
+                md: theme.spacing(4),
+              },
+            },
+          }}
         >
           <Grid container spacing={3}>
             <Grid size={{ xs: 12, sm: 6 }} sx={{ display: "flex" }}>
@@ -112,7 +152,15 @@ export default function Services() {
 
         <PublicPageSection
           title="Construction-specific services"
-          sx={{ py: { xs: 4, md: 6 } }}
+          sx={{
+            "&&": {
+              paddingTop: { xs: theme.spacing(3), md: theme.spacing(4) },
+              paddingBottom: {
+                xs: theme.spacing(3),
+                md: theme.spacing(4),
+              },
+            },
+          }}
         >
           <Grid container spacing={3}>
             <Grid size={{ xs: 12, sm: 6 }} sx={{ display: "flex" }}>
@@ -159,7 +207,20 @@ export default function Services() {
           <PublicPageSection
             title="Payment data review"
             introduction="If you’re responsible for Payment Times Reporting or supplier payment data and would like a second set of eyes on a sample dataset, we’re happy to review it and share what we see."
-            sx={{ py: { xs: 4, md: 6 } }}
+            sx={{
+              "&&": {
+                paddingTop: { xs: theme.spacing(3), md: theme.spacing(4) },
+                paddingBottom: {
+                  xs: theme.spacing(4),
+                  md: theme.spacing(5),
+                },
+              },
+            }}
+            contentSx={{
+              "& > .MuiStack-root": {
+                gap: { xs: theme.spacing(2), md: theme.spacing(2.5) },
+              },
+            }}
           >
             <Typography
               variant="body1"
@@ -182,7 +243,7 @@ export default function Services() {
                 >
                   <Box
                     component="ul"
-                    sx={{ my: 0, pl: 3, color: theme.palette.text.secondary }}
+                    sx={listTypographySx}
                   >
                     <li>Supplier name</li>
                     <li>Invoice date</li>
@@ -210,7 +271,7 @@ export default function Services() {
                 >
                   <Box
                     component="ol"
-                    sx={{ my: 0, pl: 3, color: theme.palette.text.secondary }}
+                    sx={listTypographySx}
                   >
                     <li>
                       We confirm scope and the extract format (usually 10
@@ -231,7 +292,17 @@ export default function Services() {
           </PublicPageSection>
         </Box>
 
-        <PublicPageSection sx={{ pt: 0, pb: { xs: 4, md: 6 } }}>
+        <PublicPageSection
+          sx={{
+            "&&": {
+              paddingTop: 0,
+              paddingBottom: {
+                xs: theme.spacing(4),
+                md: theme.spacing(6),
+              },
+            },
+          }}
+        >
           <PublicCallToAction
             align="left"
             title="How engagements work"

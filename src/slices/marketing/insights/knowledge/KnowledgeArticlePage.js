@@ -1,13 +1,16 @@
-import { Box, Divider, Typography, useTheme } from "@mui/material";
-import { useParams, Link as RouterLink } from "react-router";
+import { Button, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { Link as RouterLink, useParams } from "react-router";
+import PublicPageLayout, {
+  PublicSurface,
+} from "shared/layouts/PublicPageLayout";
 import PageMeta from "shared/ui/PageMeta";
+import { PublicPageHero, PublicPageSection } from "shared/ui";
 import { knowledgeArticles } from "./knowledgeRegistry";
 
 export default function KnowledgeArticlePage() {
   const theme = useTheme();
   const { slug } = useParams();
-  const contentMaxWidth = 980;
-
   const article = knowledgeArticles.find((item) => item.slug === slug);
 
   if (!article) {
@@ -18,26 +21,21 @@ export default function KnowledgeArticlePage() {
           description="The requested Monochrome Compliance knowledge article could not be found."
           noIndex
         />
-        <Box
-          sx={{
-            px: { xs: theme.spacing(3), md: theme.spacing(8) },
-            py: theme.spacing(6),
-            backgroundColor: theme.palette.background.default,
-          }}
-        >
-          <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
-            <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
-              Article not found
-            </Typography>
-            <Typography
+        <PublicPageLayout>
+          <PublicPageHero
+            eyebrow="PTRS Knowledge Centre"
+            title="Article not found"
+            description="The requested knowledge article could not be found."
+          >
+            <Button
+              variant="outlined"
               component={RouterLink}
               to="/insights/knowledge"
-              sx={{ color: theme.palette.primary.main }}
             >
               Back to Knowledge Centre
-            </Typography>
-          </Box>
-        </Box>
+            </Button>
+          </PublicPageHero>
+        </PublicPageLayout>
       </>
     );
   }
@@ -53,72 +51,48 @@ export default function KnowledgeArticlePage() {
         type="article"
       />
 
-      <Box
-        sx={{
-          px: { xs: theme.spacing(3), md: theme.spacing(8) },
-          py: theme.spacing(6),
-          backgroundColor: theme.palette.background.default,
-        }}
+      <PublicPageLayout
+        sx={{ backgroundColor: theme.palette.background.default }}
       >
-        <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
-          <Typography
+        <PublicPageHero
+          eyebrow={article.category}
+          title={article.title}
+          description={article.description}
+          contentMaxWidth={theme.layout.public.textWidth}
+        >
+          <Button
+            variant="text"
             component={RouterLink}
             to="/insights/knowledge"
-            sx={{
-              display: "block",
-              mb: theme.spacing(2),
-              color: theme.palette.primary.main,
-              textDecoration: "none",
-            }}
           >
-            ← Back to Knowledge Centre
-          </Typography>
+            Back to Knowledge Centre
+          </Button>
+        </PublicPageHero>
 
-          <Typography
-            variant="overline"
-            color={theme.palette.text.secondary}
-            sx={{ fontWeight: 700 }}
-          >
-            {article.category}
-          </Typography>
-
-          <Typography variant="h3" sx={{ fontWeight: 700, mt: 1, mb: 1 }}>
-            {article.title}
-          </Typography>
-
-          <Typography
-            variant="h6"
-            color={theme.palette.text.secondary}
-            sx={{ lineHeight: 1.55 }}
-          >
-            {article.description}
-          </Typography>
-
-          <Divider sx={{ my: theme.spacing(4) }} />
-
+        <PublicPageSection
+          component="article"
+          contentMaxWidth={theme.layout.public.textWidth}
+          sx={{ pt: 0 }}
+          contentSx={{
+            "& p": { lineHeight: 1.8 },
+            "& h2, & h3, & h4": { scrollMarginTop: theme.spacing(12) },
+            "& img": { maxWidth: "100%", height: "auto" },
+          }}
+        >
           <ArticleComponent />
 
-          <Divider sx={{ my: theme.spacing(4) }} />
-
-          <Typography variant="body2">
-            Explore more practical explainers in the{" "}
-            <RouterLink
-              to="/insights/knowledge"
-              style={{ color: theme.palette.primary.main }}
-            >
-              PTRS Knowledge Centre
-            </RouterLink>
-            , or read our longer analysis in the{" "}
-            <RouterLink
-              to="/insights"
-              style={{ color: theme.palette.primary.main }}
-            >
-              Industry Insight Series
-            </RouterLink>
-            .
-          </Typography>
-        </Box>
-      </Box>
+          <PublicSurface component="aside" sx={{ mt: { xs: 2, md: 3 } }}>
+            <Typography variant="body1" sx={{ lineHeight: 1.7 }}>
+              Explore more practical explainers in the{" "}
+              <RouterLink to="/insights/knowledge">
+                PTRS Knowledge Centre
+              </RouterLink>
+              , or read our longer analysis in the{" "}
+              <RouterLink to="/insights">Industry Insight Series</RouterLink>.
+            </Typography>
+          </PublicSurface>
+        </PublicPageSection>
+      </PublicPageLayout>
     </>
   );
 }

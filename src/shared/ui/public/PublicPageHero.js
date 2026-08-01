@@ -54,6 +54,7 @@ export default function PublicPageHero({
 
         {description ? (
           <Typography
+            component="p"
             variant="h6"
             sx={{
               maxWidth: theme.layout.public.textWidth,
