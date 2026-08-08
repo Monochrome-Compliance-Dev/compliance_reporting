@@ -8,6 +8,7 @@ import globalTheme from "shared/theme/globalTheme";
 import Navbar from "shared/navigation/Navbar";
 import { LoadingSpinner } from "shared/ui";
 import Footer from "shared/navigation/Footer";
+import PageMeta from "shared/ui/PageMeta";
 
 export default function Layout() {
   const [isDarkTheme, setIsDarkTheme] = useState(
@@ -44,6 +45,7 @@ export default function Layout() {
 
   return (
     <ThemeProvider theme={theme}>
+      <PageMeta path={location.pathname} />
       <CssBaseline />
       <Snackbar
         open={alertOpen}
