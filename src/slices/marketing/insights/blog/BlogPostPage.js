@@ -1,37 +1,50 @@
-import { Box, Divider, Typography, useTheme } from "@mui/material";
-import { useParams, Link as RouterLink } from "react-router";
+import { Button, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { Link as RouterLink, useParams } from "react-router";
+import PublicPageLayout, {
+  PublicSurface,
+} from "shared/layouts/PublicPageLayout";
 import PageMeta from "shared/ui/PageMeta";
+import { PublicPageHero, PublicPageSection } from "shared/ui";
 import { blogPosts } from "./blogRegistry";
+
+function formatDate(dateISO) {
+  return new Date(dateISO).toLocaleDateString("en-AU", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 
 export default function BlogPostPage() {
   const theme = useTheme();
   const { slug } = useParams();
-  const contentMaxWidth = 980;
-
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = blogPosts.find((item) => item.slug === slug);
 
   if (!post) {
     return (
-      <Box
-        sx={{
-          px: { xs: theme.spacing(3), md: theme.spacing(8) },
-          py: theme.spacing(6),
-          backgroundColor: theme.palette.background.default,
-        }}
-      >
-        <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
-            Post not found
-          </Typography>
-          <Typography
-            component={RouterLink}
-            to="/insights/blog"
-            sx={{ color: theme.palette.primary.main }}
+      <>
+        <PageMeta
+          title="Blog Post Not Found"
+          description="The requested Monochrome Compliance blog post could not be found."
+          noIndex
+        />
+        <PublicPageLayout>
+          <PublicPageHero
+            eyebrow="Industry Insights Blog"
+            title="Post not found"
+            description="The requested blog post could not be found."
           >
-            Back to Blog
-          </Typography>
-        </Box>
-      </Box>
+            <Button
+              variant="outlined"
+              component={RouterLink}
+              to="/insights/blog"
+            >
+              Back to Blog
+            </Button>
+          </PublicPageHero>
+        </PublicPageLayout>
+      </>
     );
   }
 
@@ -43,66 +56,46 @@ export default function BlogPostPage() {
         title={`${post.title} | Monochrome Compliance`}
         description={post.description}
         image="https://monochrome-compliance.com/images/og/og-industry-insights.jpg"
+        type="article"
       />
 
-      <Box
-        sx={{
-          px: { xs: theme.spacing(3), md: theme.spacing(8) },
-          py: theme.spacing(6),
-          backgroundColor: theme.palette.background.default,
-        }}
+      <PublicPageLayout
+        sx={{ backgroundColor: theme.palette.background.default }}
       >
-        <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
-          <Typography
-            component={RouterLink}
-            to="/insights/blog"
-            sx={{
-              display: "block",
-              mb: theme.spacing(2),
-              color: theme.palette.primary.main,
-              textDecoration: "none",
-            }}
-          >
-            ← Back to blog
-          </Typography>
+        <PublicPageHero
+          eyebrow="Industry Insights Blog"
+          title={post.title}
+          description={post.description}
+          metadata={formatDate(post.dateISO)}
+          contentMaxWidth={theme.layout.public.textWidth}
+        >
+          <Button variant="text" component={RouterLink} to="/insights/blog">
+            Back to blog
+          </Button>
+        </PublicPageHero>
 
-          <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
-            {post.title}
-          </Typography>
-
-          <Typography variant="body2" color={theme.palette.text.secondary}>
-            {new Date(post.dateISO).toLocaleDateString("en-AU", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </Typography>
-
-          <Divider sx={{ my: theme.spacing(4) }} />
-
+        <PublicPageSection
+          component="article"
+          contentMaxWidth={theme.layout.public.textWidth}
+          sx={{ pt: 0 }}
+          contentSx={{
+            "& p": { lineHeight: 1.8 },
+            "& h2, & h3, & h4": { scrollMarginTop: theme.spacing(12) },
+            "& img": { maxWidth: "100%", height: "auto" },
+          }}
+        >
           <PostComponent />
 
-          <Divider sx={{ my: theme.spacing(4) }} />
-
-          <Typography variant="body2">
-            Explore how these ideas translate into practical outcomes through{" "}
-            <RouterLink
-              to="/services"
-              style={{ color: theme.palette.primary.main }}
-            >
-              our services
-            </RouterLink>
-            , or see how they apply in specific sectors on the{" "}
-            <RouterLink
-              to="/industries"
-              style={{ color: theme.palette.primary.main }}
-            >
-              industries page
-            </RouterLink>
-            .
-          </Typography>
-        </Box>
-      </Box>
+          <PublicSurface component="aside" sx={{ mt: { xs: 2, md: 3 } }}>
+            <Typography variant="body1" sx={{ lineHeight: 1.7 }}>
+              Explore how these ideas translate into practical outcomes through{" "}
+              <RouterLink to="/services">our services</RouterLink>, or see how
+              they apply in specific sectors on the{" "}
+              <RouterLink to="/industries">industries page</RouterLink>.
+            </Typography>
+          </PublicSurface>
+        </PublicPageSection>
+      </PublicPageLayout>
     </>
   );
 }

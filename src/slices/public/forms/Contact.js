@@ -1,24 +1,27 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
-  Container,
-  TextField,
-  Typography,
   Button,
-  Paper,
-  useTheme,
   CircularProgress,
   MenuItem,
+  Stack,
+  TextField,
+  Typography,
 } from "@mui/material";
-import { useNavigate, useLocation } from "react-router";
-import { useForm, Controller } from "react-hook-form";
+import { useTheme } from "@mui/material/styles";
+import { useLocation, useNavigate } from "react-router";
+import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAlert } from "context";
+import PublicPageLayout, {
+  PublicSurface,
+} from "shared/layouts/PublicPageLayout";
+import PageMeta from "shared/ui/PageMeta";
+import { PublicPageHero, PublicPageSection } from "shared/ui";
 import { error as logError, sanitiseInput } from "shared/utils";
 import { publicService } from "../publicApi";
 
-// Yup schema moved outside the component and updated to use yup.object({ ... }) directly
 const schema = yup.object({
   name: yup
     .string()
@@ -54,9 +57,7 @@ export function Contact() {
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
-
   const { showAlert } = useAlert();
-
   const [loading, setLoading] = useState(false);
 
   const {
@@ -86,6 +87,7 @@ export function Contact() {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const context = params.get("context");
+
     if (context === "pulse") {
       const current = getValues();
       reset({
@@ -94,15 +96,13 @@ export function Contact() {
         subject: "[PULSE] Contact",
       });
     }
-  }, [location.search, reset, getValues]);
+  }, [getValues, location.search, reset]);
 
   const sendContactEmail = async (data) => {
-    // Honeypot: if filled, abort silently
     if (data.website) {
-      return; // do nothing to avoid confirming to bots
+      return;
     }
 
-    // Sanitise user inputs
     const safe = {
       name: sanitiseInput(data.name),
       email: sanitiseInput(data.email),
@@ -123,23 +123,16 @@ export function Contact() {
     const contactEmail = {
       to: data.to || "contact@monochrome-compliance.com",
       subject,
-
-      // Message content (duplicate keys for compatibility with different handlers)
       message: safe.message,
       body: safe.message,
       text: safe.message,
       messageBody: safe.message,
-
       name: safe.name,
       email: safe.email,
       company: safe.company,
       topic: safe.topic,
-
-      // Optional metadata (if provided by future UI)
       date: data.date,
       time: data.time,
-
-      // Email routing overrides
       from: data.from || safe.email,
       cc: data.cc,
       bcc: data.bcc,
@@ -148,13 +141,11 @@ export function Contact() {
     try {
       setLoading(true);
 
-      // Send the contact email
       const response = await publicService.sendSesEmailLambda(contactEmail);
       if (response?.status === 200) {
         reset();
         showAlert("Message sent successfully!", "success");
         navigate("/thankyou-contact", { replace: true });
-        return;
       }
     } catch (error) {
       logError("Error sending email:", error);
@@ -165,136 +156,146 @@ export function Contact() {
   };
 
   return (
-    <Container
-      maxWidth="sm"
-      sx={{
-        mt: theme.spacing(4),
-        backgroundColor: theme.palette.background.default,
-        padding: theme.spacing(2),
-        borderRadius: theme.shape.borderRadius,
-      }}
-    >
-      <Paper
-        elevation={3}
-        sx={{
-          padding: theme.spacing(3),
-          backgroundColor: theme.palette.background.paper,
-          color: theme.palette.text.primary,
-        }}
+    <>
+      <PageMeta
+        title="Contact"
+        description="Contact Monochrome Compliance to discuss Payment Times Reporting, payment data review and compliance support."
+        path="/contact"
+      />
+
+      <PublicPageLayout
+        sx={{ backgroundColor: theme.palette.background.default }}
       >
-        <Typography
-          variant="body1"
-          paragraph
-          sx={{ color: theme.palette.text.secondary }}
+        <PublicPageHero
+          eyebrow="Contact"
+          title="Tell us what you need help with"
+          description="Fill out the form below and we'll get back to you as soon as possible to see how we can help."
+          sx={{
+            pt: { xs: 3, md: 4 },
+            pb: { xs: 2, md: 3 },
+          }}
+        />
+
+        <PublicPageSection
+          contentMaxWidth={theme.layout.public.textWidth}
+          sx={{ pt: 0, pb: { xs: 4, md: 6 } }}
         >
-          Fill out the form below and we'll get back to you as soon as possible
-          to see how we can help.
-        </Typography>
-        <Box
-          component="form"
-          onSubmit={handleSubmit(sendContactEmail)}
-          sx={{ mb: theme.spacing(2) }}
-        >
-          <Controller
-            name="topic"
-            control={control}
-            render={({ field }) => (
-              <TextField
-                label="Topic *"
-                select
-                {...field}
-                value={field.value ?? "Payment Times Reporting"}
-                error={!!errors.topic}
-                helperText={errors.topic?.message}
-                fullWidth
-                sx={{ mb: theme.spacing(2) }}
-                InputLabelProps={{
-                  style: { color: theme.palette.text.primary },
-                }}
-              >
-                <MenuItem value="Payment Times Reporting">
-                  Payment Times Reporting
-                </MenuItem>
-                <MenuItem value="Sales">Sales</MenuItem>
-                <MenuItem value="Support">Support</MenuItem>
-                <MenuItem value="General">General</MenuItem>
-              </TextField>
-            )}
-          />
-          <TextField
-            label="Name *"
-            type="text"
-            {...register("name")}
-            error={!!errors.name}
-            helperText={errors.name?.message}
-            autoComplete="off"
-            autoFocus
-            fullWidth
-            sx={{ mb: theme.spacing(2) }}
-            InputLabelProps={{ style: { color: theme.palette.text.primary } }}
-          />
-          <TextField
-            label="Company *"
-            type="text"
-            {...register("company")}
-            error={!!errors.company}
-            helperText={errors.company?.message}
-            autoComplete="off"
-            fullWidth
-            sx={{ mb: theme.spacing(2) }}
-            InputLabelProps={{ style: { color: theme.palette.text.primary } }}
-          />
-          <TextField
-            label="Email *"
-            type="email"
-            {...register("email")}
-            error={!!errors.email}
-            helperText={errors.email?.message}
-            autoComplete="off"
-            fullWidth
-            sx={{ mb: theme.spacing(2) }}
-            InputLabelProps={{ style: { color: theme.palette.text.primary } }}
-          />
-          <TextField
-            label="Message *"
-            type="text"
-            {...register("message")}
-            error={!!errors.message}
-            helperText={errors.message?.message}
-            autoComplete="off"
-            fullWidth
-            multiline
-            rows={4}
-            InputLabelProps={{ style: { color: theme.palette.text.primary } }}
-          />
-          {/* Honeypot field for bots */}
-          <TextField
-            label="Website"
-            type="text"
-            {...register("website")}
-            autoComplete="off"
-            fullWidth
-            sx={{ display: "none" }}
-            tabIndex={-1}
-            aria-hidden
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            disabled={loading}
-            startIcon={loading ? <CircularProgress size={20} /> : null}
+          <PublicSurface
             sx={{
-              padding: theme.spacing(1.5),
-              fontWeight: "bold",
-              borderRadius: theme.shape.borderRadius,
+              width: "100%",
+              maxWidth: theme.layout.public.textWidth,
             }}
           >
-            {loading ? "Submitting..." : "Submit"}
-          </Button>
-        </Box>
-      </Paper>
-    </Container>
+            <Box
+              component="form"
+              onSubmit={handleSubmit(sendContactEmail)}
+              aria-busy={loading}
+              noValidate
+            >
+              <Stack spacing={2.5}>
+                <Typography component="h2" variant="h5">
+                  Contact Monochrome Compliance
+                </Typography>
+
+                <Controller
+                  name="topic"
+                  control={control}
+                  render={({ field }) => (
+                    <TextField
+                      label="Topic"
+                      select
+                      required
+                      {...field}
+                      value={field.value ?? "Payment Times Reporting"}
+                      error={!!errors.topic}
+                      helperText={errors.topic?.message}
+                      fullWidth
+                    >
+                      <MenuItem value="Payment Times Reporting">
+                        Payment Times Reporting
+                      </MenuItem>
+                      <MenuItem value="Sales">Sales</MenuItem>
+                      <MenuItem value="Support">Support</MenuItem>
+                      <MenuItem value="General">General</MenuItem>
+                    </TextField>
+                  )}
+                />
+
+                <TextField
+                  label="Name"
+                  required
+                  {...register("name")}
+                  error={!!errors.name}
+                  helperText={errors.name?.message}
+                  autoComplete="name"
+                  autoFocus
+                  fullWidth
+                />
+
+                <TextField
+                  label="Company"
+                  required
+                  {...register("company")}
+                  error={!!errors.company}
+                  helperText={errors.company?.message}
+                  autoComplete="organization"
+                  fullWidth
+                />
+
+                <TextField
+                  label="Email"
+                  type="email"
+                  required
+                  {...register("email")}
+                  error={!!errors.email}
+                  helperText={errors.email?.message}
+                  autoComplete="email"
+                  fullWidth
+                />
+
+                <TextField
+                  label="Message"
+                  required
+                  {...register("message")}
+                  error={!!errors.message}
+                  helperText={errors.message?.message}
+                  fullWidth
+                  multiline
+                  minRows={5}
+                />
+
+                <TextField
+                  label="Website"
+                  {...register("website")}
+                  autoComplete="off"
+                  sx={{ display: "none" }}
+                  slotProps={{
+                    htmlInput: {
+                      tabIndex: -1,
+                      "aria-hidden": true,
+                    },
+                  }}
+                />
+
+                <Button
+                  type="submit"
+                  variant="contained"
+                  size="large"
+                  fullWidth
+                  disabled={loading}
+                  startIcon={
+                    loading ? (
+                      <CircularProgress size={20} color="inherit" />
+                    ) : null
+                  }
+                >
+                  {loading ? "Submitting..." : "Submit"}
+                </Button>
+              </Stack>
+            </Box>
+          </PublicSurface>
+        </PublicPageSection>
+      </PublicPageLayout>
+    </>
   );
 }

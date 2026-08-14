@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 
 import { useAlert } from "context";
+import PageMeta from "shared/ui/PageMeta";
 import { userService } from "../userApi";
 
 const schema = yup.object().shape({
@@ -66,16 +67,24 @@ export default function ForgotPassword() {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        minHeight: "100vh",
-        backgroundColor: theme.palette.background.default,
-        p: 2,
-      }}
-    >
+    <>
+      <PageMeta
+        title="Reset Password"
+        description="Request a Monochrome Compliance password reset link."
+        path="/forgot-password"
+        noIndex
+      />
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          minHeight: "100vh",
+          backgroundColor: theme.palette.background.default,
+          p: 2,
+        }}
+      >
       <Paper
         elevation={3}
         sx={{
@@ -126,6 +135,7 @@ export default function ForgotPassword() {
           </ButtonGroup>
         </form>
       </Paper>
-    </Box>
+      </Box>
+    </>
   );
 }

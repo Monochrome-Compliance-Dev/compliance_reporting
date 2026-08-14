@@ -6,7 +6,7 @@ const sectionSpacing = { xs: 3, md: 4 };
 function Section({ title, children }) {
   return (
     <Box component="section">
-      <Typography variant="h4" gutterBottom>
+      <Typography component="h2" variant="h4" gutterBottom>
         {title}
       </Typography>
       <Stack spacing={2}>{children}</Stack>
@@ -23,7 +23,7 @@ export default function HowArePaymentTimesCalculated() {
         <Typography variant="overline" color="primary.main">
           Payment calculations
         </Typography>
-        <Typography variant="h1" gutterBottom>
+        <Typography component="p" variant="h5" gutterBottom>
           How are payment times calculated?
         </Typography>
         <Typography variant="body1" color="text.secondary">

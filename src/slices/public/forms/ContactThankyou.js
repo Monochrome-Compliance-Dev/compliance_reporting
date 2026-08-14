@@ -1,37 +1,36 @@
-import { Box, Typography, Button, useTheme } from "@mui/material";
-import { useNavigate } from "react-router";
+import { Button } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { Link as RouterLink } from "react-router";
+import PublicPageLayout from "shared/layouts/PublicPageLayout";
+import PageMeta from "shared/ui/PageMeta";
+import { PublicPageHero } from "shared/ui";
 
 export function ContactThankyou() {
   const theme = useTheme();
-  const navigate = useNavigate();
 
   return (
-    <Box
-      sx={{
-        minHeight: "70vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-        padding: 4,
-        backgroundColor: theme.palette.background.default,
-      }}
-    >
-      <Typography variant="h4" gutterBottom>
-        Thank you for getting in touch!
-      </Typography>
-      <Typography variant="body1" sx={{ mb: 3 }}>
-        We’ve received your message and will get back to you shortly.
-      </Typography>
-      <Button
-        variant="outlined"
-        onClick={() => navigate("/")}
-        sx={{ mt: 2 }}
-        color="secondary"
+    <>
+      <PageMeta
+        title="Thank You"
+        description="Confirmation that Monochrome Compliance has received your contact request."
+        path="/thankyou-contact"
+        noIndex
+      />
+
+      <PublicPageLayout
+        sx={{ backgroundColor: theme.palette.background.default }}
       >
-        Back to Home
-      </Button>
-    </Box>
+        <PublicPageHero
+          eyebrow="Message received"
+          title="Thank you for getting in touch!"
+          description="We’ve received your message and will get back to you shortly."
+          sx={{ py: { xs: 5, md: 7 } }}
+        >
+          <Button variant="outlined" component={RouterLink} to="/">
+            Back to Home
+          </Button>
+        </PublicPageHero>
+      </PublicPageLayout>
+    </>
   );
 }

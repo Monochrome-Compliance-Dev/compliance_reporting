@@ -1,12 +1,13 @@
-import { Box, Divider, Typography, useTheme } from "@mui/material";
-import Grid from "@mui/material/Grid";
+import { Button, Grid } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router";
+import PublicPageLayout from "shared/layouts/PublicPageLayout";
 import PageMeta from "shared/ui/PageMeta";
+import { PublicCard, PublicPageHero, PublicPageSection } from "shared/ui";
 import { knowledgeArticles } from "./knowledgeRegistry";
 
 export default function KnowledgeIndex() {
   const theme = useTheme();
-  const contentMaxWidth = 980;
 
   return (
     <>
@@ -16,110 +17,52 @@ export default function KnowledgeIndex() {
         image="/images/og/og-industry-insights.jpg"
       />
 
-      <Box
-        sx={{
-          px: { xs: theme.spacing(3), md: theme.spacing(8) },
-          py: theme.spacing(6),
-          backgroundColor: theme.palette.background.default,
-        }}
+      <PublicPageLayout
+        sx={{ backgroundColor: theme.palette.background.default }}
       >
-        <Box sx={{ maxWidth: contentMaxWidth, mx: "auto" }}>
-          <Typography
-            component={RouterLink}
-            to="/insights"
-            sx={{
-              display: "block",
-              mb: theme.spacing(2),
-              color: theme.palette.primary.main,
-              textDecoration: "none",
-            }}
-          >
-            ← Back to Insights
-          </Typography>
-          <Typography
-            variant="overline"
-            color={theme.palette.primary.main}
-            sx={{ fontWeight: 700, letterSpacing: 1.4 }}
-          >
-            PTRS Knowledge Centre
-          </Typography>
+        <PublicPageHero
+          eyebrow="PTRS Knowledge Centre"
+          title="Plain-English answers to common payment reporting questions"
+          description="Short practical explainers covering the Payment Times Reporting Scheme, P95, payment timing, regulator focus areas, and the operational mechanics that can influence reported payment outcomes."
+        >
+          <Button variant="text" component={RouterLink} to="/insights">
+            Back to Insights
+          </Button>
+        </PublicPageHero>
 
-          <Typography variant="h3" sx={{ fontWeight: 700, mt: 1, mb: 1 }}>
-            Plain-English answers to common payment reporting questions
-          </Typography>
-
-          <Typography
-            variant="h6"
-            color={theme.palette.text.secondary}
-            sx={{ lineHeight: 1.5 }}
-          >
-            Short practical explainers covering the Payment Times Reporting
-            Scheme, P95, payment timing, regulator focus areas, and the
-            operational mechanics that can influence reported payment outcomes.
-          </Typography>
-
-          <Divider sx={{ my: theme.spacing(4) }} />
-
-          <Typography
-            variant="body1"
-            sx={{ mb: theme.spacing(3), lineHeight: 1.7 }}
-          >
-            The Knowledge Centre is designed for quick reference. Each article
-            answers one question clearly, then links to related concepts so
-            teams can build a practical understanding of payment behaviour
-            reporting without having to interpret the scheme from scratch every
-            time.
-          </Typography>
-
-          <Grid container spacing={3}>
+        <PublicPageSection
+          title="Build a practical understanding"
+          introduction="The Knowledge Centre is designed for quick reference. Each article answers one question clearly, then links to related concepts so teams can build a practical understanding of payment behaviour reporting without having to interpret the scheme from scratch every time."
+          sx={{ pt: 0 }}
+        >
+          <Grid container spacing={3} alignItems="stretch">
             {knowledgeArticles.map((article) => (
-              <Grid key={article.slug} size={{ xs: 12, md: 6 }}>
-                <Box
-                  sx={{
-                    height: "100%",
-                    border: `1px solid ${theme.palette.divider}`,
-                    backgroundColor: theme.palette.background.paper,
-                    borderRadius: theme.shape.borderRadius,
-                    p: theme.spacing(3),
-                  }}
-                >
-                  <Typography
-                    variant="overline"
-                    color={theme.palette.text.secondary}
-                    sx={{ fontWeight: 700 }}
-                  >
-                    {article.category}
-                  </Typography>
-
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      fontWeight: 700,
-                      mt: 1,
-                      mb: 1,
-                      textDecoration: "none",
-                      color: "inherit",
-                      display: "block",
-                    }}
-                    component={RouterLink}
-                    to={`/insights/knowledge/${article.slug}`}
-                  >
-                    {article.title}
-                  </Typography>
-
-                  <Typography
-                    variant="body1"
-                    color={theme.palette.text.secondary}
-                    sx={{ lineHeight: 1.6 }}
-                  >
-                    {article.description}
-                  </Typography>
-                </Box>
+              <Grid
+                key={article.slug}
+                size={{ xs: 12, md: 6 }}
+                sx={{ display: "flex" }}
+              >
+                <PublicCard
+                  eyebrow={article.category}
+                  title={article.title}
+                  titleComponent="h3"
+                  titleVariant="h5"
+                  description={article.description}
+                  actions={
+                    <Button
+                      variant="outlined"
+                      component={RouterLink}
+                      to={`/insights/knowledge/${article.slug}`}
+                    >
+                      Read explainer
+                    </Button>
+                  }
+                />
               </Grid>
             ))}
           </Grid>
-        </Box>
-      </Box>
+        </PublicPageSection>
+      </PublicPageLayout>
     </>
   );
 }

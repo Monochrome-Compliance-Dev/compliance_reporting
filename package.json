@@ -57,11 +57,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run build:regulator-payment-times:static",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "react-scripts start",
-    "build:regulator-payment-times": "node scripts/buildRegulatorPaymentTimes.js"
+    "build:regulator-payment-times": "node scripts/buildRegulatorPaymentTimes.js",
+    "build:regulator-payment-times:static": "node scripts/buildRegulatorPaymentTimesStaticPages.js"
   },
   "eslintConfig": {
     "extends": [

@@ -14,6 +14,24 @@
   </url>
 
   <url>
+    <loc>https://monochrome-compliance.com/payment-health-check</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://monochrome-compliance.com/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://monochrome-compliance.com/industries</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://monochrome-compliance.com/construction-payment-reporting</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -32,12 +50,18 @@
   </url>
 
   <url>
+    <loc>https://monochrome-compliance.com/insights/payment-times-explorer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://monochrome-compliance.com/insights/knowledge</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-    <url>
+  <url>
     <loc>https://monochrome-compliance.com/insights/knowledge/what-is-the-payment-times-reporting-scheme</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -77,6 +101,24 @@
     <loc>https://monochrome-compliance.com/insights/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://monochrome-compliance.com/insights/blog/operational-delay-vs-behavioural-delay</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://monochrome-compliance.com/insights/blog/how-weekly-payment-runs-distort-payment-metrics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://monochrome-compliance.com/insights/blog/retentions-and-payment-reporting-distortions</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>

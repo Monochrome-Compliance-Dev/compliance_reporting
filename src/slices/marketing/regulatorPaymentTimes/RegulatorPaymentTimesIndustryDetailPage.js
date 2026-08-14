@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { Link as RouterLink, useParams } from "react-router";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import LaunchRoundedIcon from "@mui/icons-material/LaunchRounded";
@@ -23,6 +23,7 @@ import PublicPageLayout, {
   PublicPageSection,
   PublicSurface,
 } from "shared/layouts/PublicPageLayout";
+import PageMeta from "shared/ui/PageMeta";
 
 const INDUSTRY_DATA_BASE_URL = "/data/regulator-payment-times/industries";
 const REGULATOR_REGISTER_URL =
@@ -204,6 +205,7 @@ function MetricCard({ label, value, description }) {
         </Typography>
 
         <Typography
+          component="p"
           variant="h5"
           sx={{
             color: theme.palette.text.primary,
@@ -583,7 +585,6 @@ function HistoricalSummary({ cycles }) {
 
 function RegulatorPaymentTimesIndustryDetailPage() {
   const theme = useTheme();
-  const navigate = useNavigate();
   const { industrySlug } = useParams();
   const { showAlert } = useAlert();
 
@@ -661,58 +662,77 @@ function RegulatorPaymentTimesIndustryDetailPage() {
 
   if (isLoading) {
     return (
-      <PublicPageLayout>
-        <PublicPageSection
-          sx={{
-            minHeight: "60vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Stack direction="row" spacing={2} alignItems="center">
-            <CircularProgress size={26} />
+      <>
+        <PageMeta
+          title="Industry Payment Times"
+          description="Published Australian Payment Times Reporting data and payment-time trends for this industry."
+        />
+        <PublicPageLayout>
+          <PublicPageSection
+            sx={{
+              minHeight: "60vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Stack direction="row" spacing={2} alignItems="center">
+              <CircularProgress size={26} />
 
-            <Typography color="text.secondary">
-              Loading industry payment times…
-            </Typography>
-          </Stack>
-        </PublicPageSection>
-      </PublicPageLayout>
+              <Typography color="text.secondary">
+                Loading industry payment times…
+              </Typography>
+            </Stack>
+          </PublicPageSection>
+        </PublicPageLayout>
+      </>
     );
   }
 
   if (!industry || !headlineCycle) {
     return (
-      <PublicPageLayout>
-        <PublicPageSection>
-          <PublicContent maxWidth={760}>
-            <Stack spacing={3} alignItems="flex-start">
-              <Typography component="h1" variant="h3">
-                Industry not found
-              </Typography>
+      <>
+        <PageMeta
+          title="Payment Times Industry Not Found"
+          description="The requested Payment Times Explorer industry could not be found."
+          noIndex
+        />
+        <PublicPageLayout>
+          <PublicPageSection>
+            <PublicContent maxWidth={760}>
+              <Stack spacing={3} alignItems="flex-start">
+                <Typography component="h1" variant="h3">
+                  Industry not found
+                </Typography>
 
-              <Typography color="text.secondary">
-                No regulator payment times data could be found for this
-                industry.
-              </Typography>
+                <Typography color="text.secondary">
+                  No regulator payment times data could be found for this
+                  industry.
+                </Typography>
 
-              <Button
-                variant="contained"
-                startIcon={<ArrowBackRoundedIcon />}
-                onClick={() => navigate("/regulator-payment-times/industries")}
-              >
-                Back to Industry Insights
-              </Button>
-            </Stack>
-          </PublicContent>
-        </PublicPageSection>
-      </PublicPageLayout>
+                <Button
+                  variant="contained"
+                  component={RouterLink}
+                  to="/regulator-payment-times/industries"
+                  startIcon={<ArrowBackRoundedIcon />}
+                >
+                  Back to Industry Insights
+                </Button>
+              </Stack>
+            </PublicContent>
+          </PublicPageSection>
+        </PublicPageLayout>
+      </>
     );
   }
 
   return (
-    <PublicPageLayout>
+    <>
+      <PageMeta
+        title={`${industry.industryDivision} Payment Times`}
+        description={`Published Payment Times Reporting data for the ${industry.industryDivision} industry, including P95 trends and reporting entity comparisons.`}
+      />
+      <PublicPageLayout>
       <PublicPageSection
         sx={{
           pt: {
@@ -725,8 +745,9 @@ function RegulatorPaymentTimesIndustryDetailPage() {
           <Stack spacing={{ xs: 4, md: 5 }}>
             <Box>
               <Button
+                component={RouterLink}
+                to="/regulator-payment-times/industries"
                 startIcon={<ArrowBackRoundedIcon />}
-                onClick={() => navigate("/regulator-payment-times/industries")}
                 sx={{ mb: 3 }}
               >
                 Industry Insights
@@ -931,9 +952,10 @@ function RegulatorPaymentTimesIndustryDetailPage() {
                 >
                   <Button
                     variant="outlined"
+                    component={RouterLink}
+                    to="/regulator-payment-times"
                     startIcon={<SearchRoundedIcon />}
                     endIcon={<ArrowForwardRoundedIcon />}
-                    onClick={() => navigate("/regulator-payment-times")}
                     sx={{
                       backgroundColor: theme.palette.background.paper,
                       color: theme.palette.text.primary,
@@ -953,6 +975,7 @@ function RegulatorPaymentTimesIndustryDetailPage() {
                     href={REGULATOR_REGISTER_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Visit the official Payment Times Reports Register in a new tab"
                     variant="outlined"
                     endIcon={<LaunchRoundedIcon />}
                     sx={{
@@ -987,7 +1010,8 @@ function RegulatorPaymentTimesIndustryDetailPage() {
           </Stack>
         </PublicContent>
       </PublicPageSection>
-    </PublicPageLayout>
+      </PublicPageLayout>
+    </>
   );
 }
 

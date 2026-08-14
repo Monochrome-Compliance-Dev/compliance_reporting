@@ -399,6 +399,7 @@ export default function RulesPanel() {
   };
 
   const [lastPreview, setLastPreview] = useState(null);
+  const [lastPreviewRows, setLastPreviewRows] = useState([]);
   const [lastPreviewExamples, setLastPreviewExamples] = useState([]);
   const [lastPreviewExamplesPagination, setLastPreviewExamplesPagination] =
     useState({ page: 1, limit: 30, total: 0, totalPages: 1 });
@@ -426,6 +427,55 @@ export default function RulesPanel() {
     }
     return rules.filter((rule) => getRuleGroupKey(rule) === selectedGroupKey);
   }, [rules, selectedGroupKey]);
+
+  const rowPreviewColumns = useMemo(() => {
+    const columns = [
+      {
+        key: "row_no",
+        label: "Row",
+      },
+    ];
+
+    const seen = new Set(["row_no"]);
+
+    for (const rule of selectedRules) {
+      if (getRuleType(rule) !== "row") continue;
+
+      const action = rule?.action || {};
+
+      if (action.op === "concat_fields") {
+        for (const segment of Array.isArray(action.segments)
+          ? action.segments
+          : []) {
+          if (segment?.kind !== "field") continue;
+
+          const fieldName = String(segment?.name || "").trim();
+          if (!fieldName) continue;
+
+          const normalisedFieldName = toSnake(fieldName);
+          if (seen.has(normalisedFieldName)) continue;
+
+          seen.add(normalisedFieldName);
+          columns.push({
+            key: normalisedFieldName,
+            sourceKey: fieldName,
+            label: fieldName,
+          });
+        }
+      }
+
+      const targetField = String(action?.field || "").trim();
+      if (targetField && !seen.has(targetField)) {
+        seen.add(targetField);
+        columns.push({
+          key: targetField,
+          label: targetField,
+        });
+      }
+    }
+
+    return columns;
+  }, [selectedRules]);
 
   const selectedGroupLabel = useMemo(() => {
     if (selectedGroupKey === "__all__") {
@@ -648,9 +698,7 @@ export default function RulesPanel() {
       const raw = String(input || "").trim();
       if (!raw) return;
 
-      const value = String(
-        explicitValue || resolveCanonicalField(raw) || raw,
-      ).trim();
+      const value = String(explicitValue || raw).trim();
       if (!value) return;
 
       const label = sourceLabel ? `${raw} — ${sourceLabel}` : raw;
@@ -1000,6 +1048,7 @@ export default function RulesPanel() {
     setPreviewPage(0);
     setIsPreviewing(true);
     setLastPreview(null);
+    setLastPreviewRows([]);
     setLastPreviewExamples([]);
     setLastPreviewExamplesPagination({
       page: 1,
@@ -1050,8 +1099,10 @@ export default function RulesPanel() {
         limit: 30,
         groupName: previewGroupName,
       });
+
       const actions = prev?.summary?.actions ?? 0;
       const affected = prev?.summary?.rowsAffected ?? 0;
+      const previewRows = Array.isArray(prev?.rows) ? prev.rows : [];
 
       setLastPreview({
         kind: "row",
@@ -1059,6 +1110,8 @@ export default function RulesPanel() {
         actions,
         generatedAt: new Date().toISOString(),
       });
+
+      setLastPreviewRows(previewRows);
 
       showAlert(
         `Preview ready — ${affected} row(s) affected, ${actions} action(s).`,
@@ -1239,7 +1292,7 @@ export default function RulesPanel() {
                           }
                         : {
                             kind: "field",
-                            name: resolveCanonicalField(seg?.name || ""),
+                            name: String(seg?.name || "").trim(),
                           },
                     )
                   : [],
@@ -1310,7 +1363,7 @@ export default function RulesPanel() {
                           }
                         : {
                             kind: "field",
-                            name: resolveCanonicalField(seg?.name || ""),
+                            name: String(seg?.name || "").trim(),
                           },
                     )
                   : [],
@@ -1788,6 +1841,75 @@ export default function RulesPanel() {
                       {lastPreview.actions} action(s).
                     </Typography>
                   )}
+                  {lastPreview?.kind === "row" &&
+                    lastPreviewRows.length > 0 && (
+                      <TableContainer
+                        component={Paper}
+                        variant="outlined"
+                        sx={{
+                          mt: 2,
+                          maxHeight: 420,
+                          borderColor: theme.palette.divider,
+                        }}
+                      >
+                        <Table stickyHeader size="small">
+                          <TableHead>
+                            <TableRow>
+                              {rowPreviewColumns.map((column) => (
+                                <TableCell
+                                  key={column.key}
+                                  sx={{
+                                    whiteSpace: "nowrap",
+                                    fontWeight: 600,
+                                  }}
+                                >
+                                  {column.label}
+                                </TableCell>
+                              ))}
+                            </TableRow>
+                          </TableHead>
+
+                          <TableBody>
+                            {lastPreviewRows.map((row, index) => (
+                              <TableRow
+                                key={
+                                  getPreviewField(row, "row_no", "rowNo") ||
+                                  `preview-row-${index}`
+                                }
+                                hover
+                              >
+                                {rowPreviewColumns.map((column) => {
+                                  const value =
+                                    column.key === "row_no"
+                                      ? getPreviewField(row, "row_no", "rowNo")
+                                      : getPreviewField(
+                                          row,
+                                          column.key,
+                                          column.sourceKey,
+                                          toSnake(column.sourceKey || ""),
+                                        );
+
+                                  return (
+                                    <TableCell
+                                      key={column.key}
+                                      sx={{
+                                        whiteSpace: "nowrap",
+                                        fontFamily:
+                                          column.key === "row_no"
+                                            ? "inherit"
+                                            : "monospace",
+                                      }}
+                                    >
+                                      {formatPreviewText(value)}
+                                    </TableCell>
+                                  );
+                                })}
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>
+                    )}
                 </Box>
 
                 <Button

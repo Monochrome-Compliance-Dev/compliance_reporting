@@ -1,4 +1,5 @@
 import PaymentTimesReporting from "slices/marketing/ptrs/PaymentTimesReporting";
+import PaymentHealthCheck from "slices/marketing/services/PaymentHealthCheck";
 import { PricingPage } from "slices/marketing/pricing/PricingPage";
 import PaymentTimesReportingPrint from "slices/marketing/ptrs/PaymentTimesReporting.print";
 import ConstructionPaymentReporting from "slices/marketing/construction/ConstructionPaymentReporting";
@@ -40,6 +41,7 @@ export const publicRoutes = [
   { path: "services", Component: Services },
   { path: "industries", Component: Industries },
   { path: "payment-times-reporting", Component: PaymentTimesReporting },
+  { path: "payment-health-check", Component: PaymentHealthCheck },
   { path: "pricing", Component: PricingPage },
   {
     path: "construction-payment-reporting",

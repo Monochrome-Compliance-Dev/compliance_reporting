@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 
-# Disallow internal application routes if any are added later (none currently public-facing)
+# Protected application routes are not public search destinations.
+Disallow: /app/
 
 Sitemap: https://monochrome-compliance.com/sitemap.xml
