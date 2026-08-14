@@ -324,6 +324,17 @@ function createIndustryDetailBody(industry) {
       ? industry.cycles[industry.cycles.length - 1]
       : null;
 
+  const companyLinks = (
+    Array.isArray(industry.companies) ? industry.companies : []
+  )
+    .map(
+      (company) =>
+        `      <li><a href="/regulator-payment-times/${escapeHtml(
+          company.slug,
+        )}">${escapeHtml(company.businessName)}</a></li>`,
+    )
+    .join("\n");
+
   return [
     "<main>",
     `  <h1>${escapeHtml(industry.industryDivision)} payment times</h1>`,
@@ -343,6 +354,16 @@ function createIndustryDetailBody(industry) {
       ? `  <p>Industry median P95 payment time: ${escapeHtml(
           formatDays(latestCycle.medianP95PaymentTimeDays),
         )}.</p>`
+      : "",
+    companyLinks
+      ? [
+          "  <section>",
+          "    <h2>Reporting entities in this industry</h2>",
+          "    <ul>",
+          companyLinks,
+          "    </ul>",
+          "  </section>",
+        ].join("\n")
       : "",
     "</main>",
   ]
@@ -414,6 +435,7 @@ function createExplorerIndexPages(template) {
         "  <p>",
         "    Search published Australian Payment Times Reporting data and explore payment performance for reporting entities.",
         "  </p>",
+        '  <p><a href="/regulator-payment-times/industries">Explore payment times by industry</a></p>',
         "</main>",
       ].join("\n"),
     }),
