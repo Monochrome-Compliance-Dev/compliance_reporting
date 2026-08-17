@@ -1254,13 +1254,21 @@ function RegulatorPaymentTimesIndustryPage() {
   }, [industrySlug, showAlert]);
 
   const isLoading = isIndexLoading || isIndustryLoading;
-  const pageMeta = (
-    <PageMeta
-      title="Payment Times by Industry"
-      description="Compare published Australian Payment Times Reporting data across industries and reporting cycles."
-      path="/regulator-payment-times/industries"
-    />
-  );
+
+  const pageMeta =
+    industrySlug && industry ? (
+      <PageMeta
+        title={`${industry.industryName} Payment Times`}
+        description={`Explore published Payment Times Reporting data for the ${industry.industryName} ANZSIC Industry Division, including P95 payment times, reporting trends and reporting entities.`}
+        path={`/regulator-payment-times/industry/${industrySlug}`}
+      />
+    ) : (
+      <PageMeta
+        title="Payment Times by Industry"
+        description="Compare published Australian Payment Times Reporting data across industries and reporting cycles."
+        path="/regulator-payment-times/industries"
+      />
+    );
 
   if (isLoading) {
     return (
