@@ -414,6 +414,55 @@ function createIndustryPages(template) {
   return generatedCount;
 }
 
+function createHomePage(template) {
+  const title = "Payment Data & Compliance Solutions | Monochrome Compliance";
+
+  const description =
+    "Payment data, compliance, and reporting solutions for organisations operating in complex environments, including Payment Times Reporting. Understand reporting performance before the period closes.";
+
+  const html = createDocument({
+    template,
+    title,
+    description,
+    canonicalPath: "/",
+    body: [
+      "<main>",
+      "  <h1>Payment data and compliance solutions</h1>",
+      "  <p>",
+      "    Monochrome Compliance helps Australian organisations understand payment behaviour, prepare Payment Times Reports and identify reporting issues before the reporting period closes.",
+      "  </p>",
+
+      "  <section>",
+      "    <h2>Payment Times Reporting</h2>",
+      "    <p>",
+      "      Prepare accurate and defensible Payment Times Reports while understanding the operational behaviour driving the reported result.",
+      "    </p>",
+      '    <p><a href="/payment-times-reporting">Explore Payment Times Reporting services</a></p>',
+      "  </section>",
+
+      "  <section>",
+      "    <h2>Payment Times Explorer</h2>",
+      "    <p>",
+      "      Search published Australian Payment Times Reporting data, review reported payment performance and compare reporting entities across industries.",
+      "    </p>",
+      '    <p><a href="/regulator-payment-times">Search the Payment Times Explorer</a></p>',
+      '    <p><a href="/regulator-payment-times/industries">Explore payment times by industry</a></p>',
+      "  </section>",
+
+      "  <section>",
+      "    <h2>Payment behaviour monitoring</h2>",
+      "    <p>",
+      "      Monitor payment behaviour during the reporting period to identify emerging risks and reporting issues while there is still time to act.",
+      "    </p>",
+      '    <p><a href="/pricing">View Payment Times Reporting options</a></p>',
+      "  </section>",
+      "</main>",
+    ].join("\n"),
+  });
+
+  fs.writeFileSync(BUILD_INDEX_PATH, html, "utf8");
+}
+
 function createExplorerIndexPages(template) {
   const industryIndex = readJson(INDUSTRY_INDEX_PATH);
 
@@ -433,9 +482,37 @@ function createExplorerIndexPages(template) {
         "<main>",
         "  <h1>Payment Times Explorer</h1>",
         "  <p>",
-        "    Search published Australian Payment Times Reporting data and explore payment performance for reporting entities.",
+        "    Search published Australian Payment Times Reporting data by business name or ABN and review reported payment performance over time.",
         "  </p>",
-        '  <p><a href="/regulator-payment-times/industries">Explore payment times by industry</a></p>',
+
+        "  <section>",
+        "    <h2>What the Payment Times Explorer shows</h2>",
+        "    <p>",
+        "      The Explorer brings together Standard reports published in the Australian Government Payment Times Reports Register and makes reporting entity results easier to search and compare.",
+        "    </p>",
+        "  </section>",
+
+        "  <section>",
+        "    <h2>Payment performance beyond the average</h2>",
+        "    <p>",
+        "      Review average, median, P80 and P95 payment times together with payment distributions and historical reporting results. P95 helps expose the slow-payment tail that averages and medians can hide.",
+        "    </p>",
+        "  </section>",
+
+        "  <section>",
+        "    <h2>Compare payment times by industry</h2>",
+        "    <p>",
+        "      Industry views group reporting entities across the regulator's 19 ANZSIC Industry Divisions and provide industry-level P95 comparisons and reporting trends.",
+        "    </p>",
+        '    <p><a href="/regulator-payment-times/industries">Explore payment times by industry</a></p>',
+        "  </section>",
+
+        "  <section>",
+        "    <h2>About the source data</h2>",
+        "    <p>",
+        "      Source data is published in the Australian Government Payment Times Reports Register. Rankings, comparisons and industry insights are calculated by Monochrome Compliance from the published data.",
+        "    </p>",
+        "  </section>",
         "</main>",
       ].join("\n"),
     }),
@@ -468,11 +545,32 @@ function createExplorerIndexPages(template) {
         "<main>",
         "  <h1>Payment Times by industry</h1>",
         "  <p>",
-        "    Explore published Australian Payment Times Reporting data by ANZSIC Industry Division.",
+        "    Explore published Australian Payment Times Reporting data across the regulator's 19 ANZSIC Industry Divisions.",
         "  </p>",
-        "  <ul>",
+
+        "  <section>",
+        "    <h2>Compare payment performance across industries</h2>",
+        "    <p>",
+        "      Industry views show the number of reporting entities and median P95 payment time for each reporting cycle, helping provide context for reported payment performance.",
+        "    </p>",
+        "  </section>",
+
+        "  <section>",
+        "    <h2>About these industry insights</h2>",
+        "    <p>",
+        "      These figures are calculated by Monochrome Compliance from publicly available Standard report data published by the Payment Times Reporting Regulator.",
+        "    </p>",
+        "    <p>",
+        "      Industry structures, supplier arrangements and payment practices differ substantially. These results should not be treated as a ranking of industries or as an assessment of legal compliance, financial health or business quality.",
+        "    </p>",
+        "  </section>",
+
+        "  <section>",
+        "    <h2>Explore ANZSIC Industry Divisions</h2>",
+        "    <ul>",
         industryLinks,
-        "  </ul>",
+        "    </ul>",
+        "  </section>",
         "</main>",
       ].join("\n"),
     }),
@@ -492,6 +590,8 @@ function buildStaticPages() {
 
   const industryCount = createIndustryPages(template);
   const companyCount = createCompanyPages(template);
+
+  createHomePage(template);
 
   console.log(
     `Payment Times Explorer static build complete: ` +
