@@ -22,6 +22,8 @@ import RegulatorPaymentTimesSearchPage from "slices/marketing/regulatorPaymentTi
 import RegulatorPaymentTimesCompanyPage from "slices/marketing/regulatorPaymentTimes/RegulatorPaymentTimesCompanyPage";
 import RegulatorPaymentTimesIndustryPage from "slices/marketing/regulatorPaymentTimes/RegulatorPaymentTimesIndustryPage";
 import RegulatorPaymentTimesIndustryDetailPage from "slices/marketing/regulatorPaymentTimes/RegulatorPaymentTimesIndustryDetailPage";
+import PtrsGuidanceIndex from "slices/marketing/ptrsGuidance/PtrsGuidanceIndex";
+import PtrsGuidancePage from "slices/marketing/ptrsGuidance/PtrsGuidancePage";
 
 const isPublicOnlyMode =
   String(process.env.REACT_APP_PUBLIC_ONLY).toLowerCase() === "true";
@@ -63,6 +65,8 @@ export const publicRoutes = [
     Component: PaymentTimesExplorerLaunch,
   },
   { path: "insights", Component: IndustryInsights },
+  { path: "ptrs-guidance", Component: PtrsGuidanceIndex },
+  { path: "ptrs-guidance/:slug", Component: PtrsGuidancePage },
   {
     path: "payment-times-reporting-print",
     Component: PaymentTimesReportingPrint,

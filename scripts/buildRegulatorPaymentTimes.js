@@ -75,6 +75,7 @@ const SITE_URL = "https://monochrome-compliance.com";
 const PAYMENT_TIMES_SITEMAP_PATH = path.resolve(
   process.cwd(),
   "public",
+  "sitemaps",
   "sitemap-payment-times.xml",
 );
 

@@ -141,7 +141,7 @@ export default function IndustryInsights() {
           sx={{ pt: { xs: 4, md: 6 }, pb: { xs: 5, md: 7 } }}
         >
           <Grid container spacing={3} alignItems="stretch">
-            <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex" }}>
+            <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex" }}>
               <PublicCard
                 eyebrow="Practical guidance"
                 title="Knowledge Centre"
@@ -171,7 +171,7 @@ export default function IndustryInsights() {
               </PublicCard>
             </Grid>
 
-            <Grid size={{ xs: 12, md: 6 }} sx={{ display: "flex" }}>
+            <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex" }}>
               <PublicCard
                 eyebrow="Short-form analysis"
                 title="Blog"
@@ -195,6 +195,36 @@ export default function IndustryInsights() {
                       "Payment cycles",
                       "Invoice recognition",
                       "Operational delay",
+                    ]}
+                  />
+                </Box>
+              </PublicCard>
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex" }}>
+              <PublicCard
+                eyebrow="Official guidance made easier"
+                title="PTRS Guidance Explorer"
+                titleComponent="h3"
+                titleVariant="h4"
+                description="Search plain-English answers to common Payment Times Reporting questions, grounded in the Regulator's published guidance and worked examples."
+                actions={
+                  <Button
+                    variant="contained"
+                    component={RouterLink}
+                    to="/ptrs-guidance"
+                  >
+                    Explore PTRS Guidance
+                  </Button>
+                }
+              >
+                <Box sx={{ pt: 1.5 }}>
+                  <TagList
+                    tags={[
+                      "Trade credit",
+                      "Payments",
+                      "Exclusions",
+                      "Calculations",
                     ]}
                   />
                 </Box>

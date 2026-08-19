@@ -4,4 +4,4 @@ Allow: /
 # Protected application routes are not public search destinations.
 Disallow: /app/
 
-Sitemap: https://monochrome-compliance.com/sitemap.xml
+Sitemap: https://monochrome-compliance.com/sitemaps/sitemap.xml
