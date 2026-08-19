@@ -54,6 +54,8 @@ const PtrsGuidanceIndex = () => {
         item.practicalNote,
         item.category,
         item.type,
+        ...(item.searchTerms || []),
+        ...(item.alternateQuestions || []),
       ]
         .filter(Boolean)
         .join(" ")
