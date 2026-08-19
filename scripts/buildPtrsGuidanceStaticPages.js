@@ -274,6 +274,19 @@ function createGuidanceBody(guidance, guidanceContent) {
         ].join("\n")
       : "",
 
+    guidance.alternateQuestions?.length
+      ? [
+          "  <section>",
+          "    <h2>Other ways people ask this</h2>",
+          "    <ul>",
+          ...guidance.alternateQuestions.map(
+            (question) => `      <li>${escapeHtml(question)}</li>`,
+          ),
+          "    </ul>",
+          "  </section>",
+        ].join("\n")
+      : "",
+
     "  <section>",
     "    <h2>Official sources</h2>",
     "    <ul>",
