@@ -206,6 +206,36 @@ const PtrsGuidancePage = () => {
         </Box>
       )}
 
+      {guidance.alternateQuestions?.length > 0 && (
+        <Box sx={{ mb: 4 }}>
+          <Typography
+            component="h2"
+            variant="h5"
+            sx={{
+              fontWeight: 700,
+              mb: 1.5,
+            }}
+          >
+            Other ways people ask this
+          </Typography>
+
+          <Stack component="ul" spacing={1} sx={{ pl: 3, m: 0 }}>
+            {guidance.alternateQuestions.map((question) => (
+              <Typography
+                key={question}
+                component="li"
+                variant="body1"
+                sx={{
+                  color: theme.palette.text.secondary,
+                }}
+              >
+                {question}
+              </Typography>
+            ))}
+          </Stack>
+        </Box>
+      )}
+
       <Divider sx={{ my: 4 }} />
 
       <Typography
