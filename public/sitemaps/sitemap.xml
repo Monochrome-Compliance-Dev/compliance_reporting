@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://monochrome-compliance.com/sitemaps/sitemap-static.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://monochrome-compliance.com/sitemaps/sitemap-payment-times.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://monochrome-compliance.com/sitemaps/sitemap-ptrs-guidance.xml</loc>
+  </sitemap>
+</sitemapindex>
