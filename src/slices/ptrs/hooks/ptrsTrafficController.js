@@ -97,6 +97,15 @@ function processEvents(ptrsId, events) {
         keysToInvalidate.add(qk("report", ptrsId));
         break;
 
+      case "transformations_ran":
+        keysToInvalidate.add(qk("stage", ptrsId));
+        keysToInvalidate.add(qk("exclusions", ptrsId));
+        keysToInvalidate.add(qk("sbi", ptrsId));
+        keysToInvalidate.add(qk("validate", ptrsId));
+        keysToInvalidate.add(qk("metrics", ptrsId));
+        keysToInvalidate.add(qk("report", ptrsId));
+        break;
+
       case "sbi_imported":
         // Preserve existing behaviour from usePtrsQueries.js.
         keysToInvalidate.add(qk("sbi", ptrsId));
