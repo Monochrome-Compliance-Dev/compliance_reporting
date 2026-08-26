@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router";
@@ -7,6 +8,14 @@ import { PublicPageHero } from "shared/ui";
 
 export function ContactThankyou() {
   const theme = useTheme();
+
+  useEffect(() => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "conversion", {
+        send_to: "AW-17266555248/8T3iCJzv7eUcEPDyqgIA",
+      });
+    }
+  }, []);
 
   return (
     <>
