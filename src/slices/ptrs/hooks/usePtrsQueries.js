@@ -23,6 +23,7 @@ import { getSbiStatus, importSbiResults } from "../services/sbi.ptrsApi";
 import { getValidate, runValidate } from "../services/validate.ptrsApi";
 import { getMetrics, updateMetricsDraft } from "../services/metrics.ptrsApi";
 import { getReportSnapshot } from "../services/report.ptrsApi";
+import { runPtrsTransformations } from "../services/process.ptrsApi";
 import { listDatasets } from "../services/data.ptrsApi";
 import {
   getPtrsMap,
@@ -317,6 +318,18 @@ export function useStagePtrsMutation(ptrsId) {
     onSuccess: () => {
       if (ptrsId) {
         ptrsTraffic.emit(ptrsId, { reason: "stage_ran" });
+      }
+    },
+  });
+}
+
+export function usePtrsTransformationsMutation(ptrsId) {
+  return useMutation({
+    mutationFn: ({ profileId = null } = {}) =>
+      runPtrsTransformations(ptrsId, { profileId }),
+    onSuccess: () => {
+      if (ptrsId) {
+        ptrsTraffic.emit(ptrsId, { reason: "transformations_ran" });
       }
     },
   });

@@ -23,6 +23,7 @@ import { useAlert } from "context";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ReplayIcon from "@mui/icons-material/Replay";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { usePtrsContext } from "../context/PtrsContext";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import {
@@ -31,6 +32,7 @@ import {
   useStagePreviewQuery,
   useStageCompletionGateQuery,
   useStagePtrsMutation,
+  usePtrsTransformationsMutation,
   useUpdatePtrsMutation,
 } from "../hooks/usePtrsQueries";
 
@@ -75,6 +77,7 @@ export default function StagePanel() {
 
   const updatePtrsStep = useUpdatePtrsMutation(ptrsId);
   const stageMutation = useStagePtrsMutation(ptrsId);
+  const transformationsMutation = usePtrsTransformationsMutation(ptrsId);
   const datasetsQ = usePtrsDatasetsQuery(ptrsId);
   const latestStageRunQ = useStageLatestExecutionRunQuery(ptrsId);
   const stageCompletionGateQ = useStageCompletionGateQuery(ptrsId, {
@@ -150,6 +153,7 @@ export default function StagePanel() {
   ]);
 
   const [result, setResult] = useState(null);
+  const [transformationsResult, setTransformationsResult] = useState(null);
   const [preview, setPreview] = useState({ rows: [], headers: [] });
   const [showPreview, setShowPreview] = useState(true);
 
@@ -257,6 +261,7 @@ export default function StagePanel() {
 
   useEffect(() => {
     setResult(null);
+    setTransformationsResult(null);
     setPreview({ rows: [], headers: [] });
     setStaging(false);
     setStageMessage("");
@@ -551,6 +556,36 @@ export default function StagePanel() {
     goTo(`exclusions?${qs.toString()}`, { includeId: false });
   };
 
+  const handleTransformations = useCallback(async () => {
+    if (!ptrsId) {
+      showAlert("Missing ptrsId", "error");
+      return;
+    }
+
+    showAlert("Running the complete PTRS transformation chain…", "info");
+    try {
+      const response = await transformationsMutation.mutateAsync({ profileId });
+      if (!mountedRef.current) return;
+      setTransformationsResult(response);
+      await refetchStageView();
+      const counts = response.counts || {};
+      showAlert(
+        `PTRS transformations complete: ${(counts.derivedPaymentObservations || 0).toLocaleString()} payment observations, ${(counts.sbiPositiveObservations || 0).toLocaleString()} SBI-positive.`,
+        counts.blockers > 0
+          ? "warning"
+          : "success",
+      );
+    } catch (error) {
+      console.error("[StagePanel] PTRS transformations error:", error);
+      if (mountedRef.current) {
+        showAlert(
+          error?.message || "Failed to run PTRS transformations",
+          "error",
+        );
+      }
+    }
+  }, [ptrsId, profileId, showAlert, transformationsMutation, refetchStageView]);
+
   const hasPreview = Array.isArray(preview?.rows) && preview.rows.length > 0;
 
   const stageGateMessage = (() => {
@@ -808,6 +843,61 @@ export default function StagePanel() {
               Next: Exclusions
             </Button>
           </Stack>
+        </Stack>
+      </Paper>
+
+      <Paper sx={{ p: 2, mb: 3 }}>
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          spacing={2}
+          justifyContent="space-between"
+          alignItems={{ md: "center" }}
+        >
+          <Box>
+            <Typography variant="subtitle1">Post-Stage processing</Typography>
+            <Typography variant="body2" color="text.secondary">
+              Run exclusions, configured rules, SBI enrichment, payment
+              observations, validation and metrics in the backend-owned order.
+            </Typography>
+            {transformationsResult && (
+              <Typography variant="body2" sx={{ mt: 1 }}>
+                {Number(
+                  transformationsResult.counts?.sourceStageRows || 0,
+                ).toLocaleString()} stage rows · {Number(
+                  transformationsResult.counts?.excludedStageRows || 0,
+                ).toLocaleString()} excluded · {Number(
+                  transformationsResult.counts?.derivedPaymentObservations || 0,
+                ).toLocaleString()} observations · {Number(
+                  transformationsResult.counts?.sbiPositiveObservations || 0,
+                ).toLocaleString()} SBI-positive · {Number(
+                  transformationsResult.counts?.blockers || 0,
+                ).toLocaleString()} blockers · {Number(
+                  transformationsResult.counts?.warnings || 0,
+                ).toLocaleString()} warnings
+              </Typography>
+            )}
+          </Box>
+          <Button
+            variant="contained"
+            startIcon={
+              transformationsMutation.isPending ? (
+                <CircularProgress size={16} color="inherit" />
+              ) : (
+                <PlayArrowIcon />
+              )
+            }
+            disabled={
+              staging ||
+              transformationsMutation.isPending ||
+              !completionGateReady ||
+              !result
+            }
+            onClick={handleTransformations}
+          >
+            {transformationsMutation.isPending
+              ? "Running transformations…"
+              : "Run PTRS Transformations"}
+          </Button>
         </Stack>
       </Paper>
 
