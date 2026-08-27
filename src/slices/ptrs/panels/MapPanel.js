@@ -36,7 +36,8 @@ import {
   PTRS_OPTIONAL_FIELDS,
   PTRS_FIELD_LABELS,
   FIELD_SYNONYMS,
-  PTRS_REQUIRED_FIELD_GROUPS,
+  getPtrsAdapterLabel,
+  getPtrsAdapterMappingRequirements,
 } from "../ingestConfig";
 import { usePtrsContext } from "../context/PtrsContext";
 import { getFieldLabel } from "../services/ingestConfig";
@@ -53,7 +54,7 @@ import {
   listPtrsWithMap,
   savePtrsMap,
   savePtrsFieldMap,
-  buildPtrsMappedDataset,
+  buildPtrsCanonicalRevision,
 } from "../services/maps.ptrsApi";
 import SupportingDatasetsSection from "./SupportingDatasetsSection";
 import { LoadingSpinner } from "shared/ui";
@@ -70,7 +71,7 @@ export default function MapPanel() {
   const [autoRunStage, setAutoRunStage] = useState(true);
 
   const sourceRefKey = (source) => {
-    const role = String(source?.role || "main")
+    const role = String(source?.role || "transaction")
       .trim()
       .toLowerCase();
     const header = String(source?.header || "").trim();
@@ -84,7 +85,7 @@ export default function MapPanel() {
     if (typeof source === "string") {
       return {
         header: source,
-        role: String(fallbackRole || "main")
+        role: String(fallbackRole || "transaction")
           .trim()
           .toLowerCase(),
       };
@@ -97,7 +98,9 @@ export default function MapPanel() {
 
     return {
       header,
-      role: String(source?.role || source?.sourceRole || fallbackRole || "main")
+      role: String(
+        source?.role || source?.sourceRole || fallbackRole || "transaction",
+      )
         .trim()
         .toLowerCase(),
       datasetId: source?.datasetId || null,
@@ -225,25 +228,10 @@ export default function MapPanel() {
     [],
   );
 
-  const getFieldMapSourceDatasetId = useCallback(
-    (row) => {
-      const meta = row?.meta && typeof row.meta === "object" ? row.meta : null;
-      const sourceDatasetId = String(meta?.sourceDatasetId || "").trim();
-      if (sourceDatasetId) return sourceDatasetId;
-
-      const role = String(row?.sourceRole || "main")
-        .trim()
-        .toLowerCase();
-
-      if (isMainSourceRole(role)) {
-        const mappingDatasetId = String(row?.datasetId || "").trim();
-        return mappingDatasetId || null;
-      }
-
-      return null;
-    },
-    [isMainSourceRole],
-  );
+  const getFieldMapSourceDatasetId = useCallback((row) => {
+    const mappingDatasetId = String(row?.datasetId || "").trim();
+    return mappingDatasetId || null;
+  }, []);
 
   const hydrateAssignFromFieldMap = useCallback(
     (rows, availableSourceOptions, existingCustomFields = []) => {
@@ -275,10 +263,10 @@ export default function MapPanel() {
           normaliseSourceRef(
             {
               header: row?.sourceColumn,
-              role: row?.sourceRole || "main",
+              role: row?.sourceRole || "transaction",
               datasetId: sourceDatasetId || null,
             },
-            row?.sourceRole || "main",
+            row?.sourceRole || "transaction",
           );
 
         if (sourceRef) {
@@ -298,14 +286,11 @@ export default function MapPanel() {
 
   const dsQ = usePtrsDatasetsQuery(ptrsId);
 
-  const mainDatasets = useMemo(
+  const transactionDatasets = useMemo(
     () =>
-      (dsQ.data?.items || []).filter((dataset) => {
-        const role = String(dataset?.role || "")
-          .trim()
-          .toLowerCase();
-        return role === "main" || role.startsWith("main_");
-      }),
+      (dsQ.data?.items || []).filter(
+        (dataset) => dataset?.purpose === "transaction",
+      ),
     [dsQ.data?.items],
   );
 
@@ -313,14 +298,9 @@ export default function MapPanel() {
 
   const mapQ = usePtrsMapQuery(ptrsId);
   const bpQ = usePtrsBlueprintQuery({ profileId });
-  const fieldMapQ = usePtrsFieldMapQuery(
-    ptrsId,
-    profileId,
-    selectedMapDatasetId,
-    {
-      enabled: Boolean(ptrsId && profileId && selectedMapDatasetId),
-    },
-  );
+  const fieldMapQ = usePtrsFieldMapQuery(ptrsId, profileId, {
+    enabled: Boolean(ptrsId && profileId),
+  });
 
   const [blueprint, setBlueprint] = useState(null);
   const [examples, setExamples] = useState({});
@@ -353,12 +333,22 @@ export default function MapPanel() {
 
   const selectedMapDataset = useMemo(
     () =>
-      (mainDatasets || []).find(
+      (transactionDatasets || []).find(
         (dataset) =>
           String(dataset?.id || "") === String(selectedMapDatasetId || ""),
       ) || null,
-    [mainDatasets, selectedMapDatasetId],
+    [transactionDatasets, selectedMapDatasetId],
   );
+
+  const adapterMappingRequirements = useMemo(
+    () =>
+      getPtrsAdapterMappingRequirements(
+        selectedMapDataset?.adapterType || "sap_accounting_event",
+      ),
+    [selectedMapDataset?.adapterType],
+  );
+  const requiredFields = adapterMappingRequirements.requiredFields;
+  const requiredFieldGroups = adapterMappingRequirements.requiredFieldGroups;
 
   const [supportingDatasetsCount, setSupportingDatasetsCount] = useState(0);
 
@@ -397,7 +387,7 @@ export default function MapPanel() {
       const datasetId = String(dataset?.id || "").trim();
       if (!datasetId || !reachableDatasetIds.has(datasetId)) continue;
 
-      const role = String(dataset?.role || "main")
+      const role = String(dataset?.role || "transaction")
         .trim()
         .toLowerCase();
       const fileName =
@@ -493,7 +483,7 @@ export default function MapPanel() {
           const datasetId = String(dataset?.id || "").trim();
           if (!datasetId) continue;
 
-          const role = String(dataset?.role || "main")
+          const role = String(dataset?.role || "transaction")
             .trim()
             .toLowerCase();
           const sampleHeaders = Array.isArray(sample?.headers)
@@ -593,7 +583,10 @@ export default function MapPanel() {
           const field = cfg?.field || null;
           if (!field) continue;
 
-          const sourceRef = normaliseSourceRef(src, cfg?.sourceRole || "main");
+          const sourceRef = normaliseSourceRef(
+            src,
+            cfg?.sourceRole || "transaction",
+          );
 
           if (sourceRef) {
             toTargetSource[field] = sourceRef;
@@ -642,7 +635,7 @@ export default function MapPanel() {
   }, [ptrsId, profileId]);
 
   useEffect(() => {
-    const availableIds = (mainDatasets || []).map((dataset) =>
+    const availableIds = (transactionDatasets || []).map((dataset) =>
       String(dataset?.id || ""),
     );
     const fallback = availableIds[0] || "";
@@ -655,7 +648,7 @@ export default function MapPanel() {
     }
 
     setSelectedMapDatasetId(fallback);
-  }, [mainDatasets, selectedMapDatasetId]);
+  }, [transactionDatasets, selectedMapDatasetId]);
 
   useEffect(() => {
     didInitFromFieldMap.current = false;
@@ -1050,7 +1043,7 @@ export default function MapPanel() {
     }
 
     if (!selectedMapDatasetId) {
-      showAlert("Choose the current main dataset slice first.", "warning");
+      showAlert("Choose the current transaction dataset first.", "warning");
       return;
     }
 
@@ -1121,7 +1114,7 @@ export default function MapPanel() {
 
         payload.push({
           canonicalField,
-          sourceRole: sourceRef.role || "main",
+          sourceRole: sourceRef.role || "transaction",
           sourceColumn: sourceRef.header,
           transformType: null,
           transformConfig: null,
@@ -1221,12 +1214,12 @@ export default function MapPanel() {
           // Legacy mappings are keyed only by header name, so they are only safe
           // for non-profiled/main-only runs. Profile-backed runs persist authoritative
           // mappings via the canonical field-map payload instead.
-          if ((src.role || "main") !== "main") continue;
+          if ((src.role || "transaction") !== "transaction") continue;
 
           payload[src.header] = {
             field: tgt,
             type: "string",
-            sourceRole: "main",
+            sourceRole: "transaction",
           };
         }
       }
@@ -1269,7 +1262,9 @@ export default function MapPanel() {
 
       if (profileId) {
         if (!selectedMapDatasetId) {
-          throw new Error("Choose a main dataset slice before saving mappings");
+          throw new Error(
+            "Choose a transaction dataset before saving mappings",
+          );
         }
 
         savedCanonicalRows = await savePtrsFieldMap(
@@ -1347,9 +1342,7 @@ export default function MapPanel() {
     };
 
     // Guard: ensure all required canonical targets are mapped before staging
-    const missingRequired = (PTRS_REQUIRED_FIELDS || []).filter(
-      (field) => !assign?.[field],
-    );
+    const missingRequired = requiredFields.filter((field) => !assign?.[field]);
 
     if (missingRequired.length > 0) {
       const labels = missingRequired.map((f) => labelFor(f));
@@ -1374,12 +1367,14 @@ export default function MapPanel() {
         await save(false);
       }
 
-      // No heavy build work here.
-      // Stage step will decide whether to rebuild or reuse server-side based on the saved map and inputs.
-
-      // Build the mapped snapshot before handing over to Stage.
-      // Stage consumes PtrsMappedRow, so Mapping must materialise it first.
-      await buildPtrsMappedDataset(ptrsId, { profileId });
+      // Materialise each transaction dataset independently. Exact-input
+      // revisions are reused, while failures remain visible for that dataset.
+      for (const dataset of transactionDatasets) {
+        await buildPtrsCanonicalRevision(ptrsId, {
+          profileId,
+          datasetId: dataset.id,
+        });
+      }
 
       try {
         await updatePtrsStep.mutateAsync({ currentStep: "stage" });
@@ -1547,22 +1542,18 @@ export default function MapPanel() {
     );
   };
 
-  const requiredMappedCount = PTRS_REQUIRED_FIELDS.filter(
-    (f) => !!assign[f],
-  ).length;
+  const requiredMappedCount = requiredFields.filter((f) => !!assign[f]).length;
 
-  const groupedRequirementFailures = (PTRS_REQUIRED_FIELD_GROUPS || []).filter(
-    (group) => {
-      const mappedCount = group.fields.filter((f) => !!assign[f]).length;
-      return mappedCount < (group.minRequired || 1);
-    },
-  );
+  const groupedRequirementFailures = requiredFieldGroups.filter((group) => {
+    const mappedCount = group.fields.filter((f) => !!assign[f]).length;
+    return mappedCount < (group.minRequired || 1);
+  });
 
   const optionalMappedCount = PTRS_OPTIONAL_FIELDS.filter(
-    (f) => !PTRS_REQUIRED_FIELDS.includes(f) && !!assign[f],
+    (f) => !requiredFields.includes(f) && !!assign[f],
   ).length;
 
-  const missingRequiredFields = (PTRS_REQUIRED_FIELDS || []).filter(
+  const missingRequiredFields = requiredFields.filter(
     (field) => !assign?.[field],
   );
 
@@ -1684,7 +1675,7 @@ export default function MapPanel() {
     >
       {/* LEFT: targets/workspace */}
       <Box>
-        {mainDatasets.length > 0 ? (
+        {transactionDatasets.length > 0 ? (
           <Stack
             direction={{ xs: "column", md: "row" }}
             spacing={1}
@@ -1693,7 +1684,7 @@ export default function MapPanel() {
             <TextField
               select
               size="small"
-              label="Main dataset slice"
+              label="Transaction dataset"
               value={selectedMapDatasetId}
               onChange={(e) => setSelectedMapDatasetId(e.target.value)}
               sx={{ minWidth: 360 }}
@@ -1703,7 +1694,7 @@ export default function MapPanel() {
                 },
               }}
             >
-              {mainDatasets.map((dataset) => (
+              {transactionDatasets.map((dataset) => (
                 <option key={dataset.id} value={dataset.id}>
                   {String(
                     dataset?.fileName ||
@@ -1720,11 +1711,14 @@ export default function MapPanel() {
                 color="text.secondary"
                 sx={{ alignSelf: "center" }}
               >
-                Mapping slice:{" "}
+                Mapping dataset:{" "}
                 {selectedMapDataset.fileName ||
                   selectedMapDataset.sourceName ||
                   selectedMapDataset.id}{" "}
-                · Role: {selectedMapDataset.role}
+                · Source type:{" "}
+                {getPtrsAdapterLabel(
+                  selectedMapDataset.adapterType || "sap_accounting_event",
+                )}
               </Typography>
             ) : null}
           </Stack>
@@ -1732,6 +1726,13 @@ export default function MapPanel() {
         <Typography variant="h5" gutterBottom>
           Map columns
         </Typography>
+
+        {selectedMapDataset?.adapterType === "direct_payment" ? (
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            For a direct transaction source, Payment amount must be the actual
+            amount paid or settled, not the invoice face value.
+          </Typography>
+        ) : null}
 
         {/* Required */}
         <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
@@ -1744,11 +1745,11 @@ export default function MapPanel() {
             <Typography variant="subtitle2">Required fields</Typography>
             <Chip
               size="small"
-              label={`${requiredMappedCount}/${PTRS_REQUIRED_FIELDS.length} mapped`}
+              label={`${requiredMappedCount}/${requiredFields.length} mapped`}
             />
           </Stack>
           <Stack spacing={1}>
-            {PTRS_REQUIRED_FIELDS.map((f) => (
+            {requiredFields.map((f) => (
               <TargetBin key={f} field={f} />
             ))}
           </Stack>
@@ -1765,7 +1766,7 @@ export default function MapPanel() {
           <AccordionDetails>
             <Stack spacing={1}>
               {PTRS_OPTIONAL_FIELDS.filter(
-                (f) => !PTRS_REQUIRED_FIELDS.includes(f),
+                (f) => !requiredFields.includes(f),
               ).map((f) => (
                 <TargetBin key={f} field={f} />
               ))}

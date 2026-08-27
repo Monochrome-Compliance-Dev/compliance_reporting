@@ -177,8 +177,9 @@ export default function TablesAndJoinsPanel() {
 
   const [datasets, setDatasets] = useState([]);
   const [joins, setJoins] = useState({ conditions: [], customFields: [] });
-  const [mainHeaders, setMainHeaders] = useState([]);
-  const [mainHeadersByRole, setMainHeadersByRole] = useState({});
+  const [transactionHeaders, setTransactionHeaders] = useState([]);
+  const [transactionHeadersByDataset, setTransactionHeadersByDataset] =
+    useState({});
   const [loading, setLoading] = useState(false);
 
   const [importDialogOpen, setImportDialogOpen] = useState(false);
@@ -348,11 +349,10 @@ export default function TablesAndJoinsPanel() {
   useEffect(() => {
     const items = Array.isArray(dsQ.data?.items) ? dsQ.data.items : [];
 
-    const byRole = {};
+    const byDatasetId = {};
 
     items.forEach((dataset) => {
-      const role = String(dataset?.role || "");
-      if (!role || !(role === "main" || role.startsWith("main_"))) return;
+      if (dataset?.purpose !== "transaction" || !dataset?.id) return;
 
       const roleHeaders = (dataset?.meta?.headers || dataset?.headers || [])
         .filter(Boolean)
@@ -360,27 +360,24 @@ export default function TablesAndJoinsPanel() {
 
       if (!roleHeaders.length) return;
 
-      byRole[role] = Array.from(new Set(roleHeaders)).sort((a, b) =>
+      byDatasetId[dataset.id] = Array.from(new Set(roleHeaders)).sort((a, b) =>
         a.localeCompare(b),
       );
     });
 
-    const mainRole = byRole.main || [];
-    const mains = mainRole.length
-      ? mainRole
-      : Array.from(
-          new Set(Object.values(byRole).flatMap((arr) => arr || [])),
-        ).sort((a, b) => a.localeCompare(b));
+    const transactionHeaders = Array.from(
+      new Set(Object.values(byDatasetId).flatMap((headers) => headers || [])),
+    ).sort((a, b) => a.localeCompare(b));
 
-    setMainHeadersByRole(byRole);
-    setMainHeaders(mains);
+    setTransactionHeadersByDataset(byDatasetId);
+    setTransactionHeaders(transactionHeaders);
 
     if (debugJoins) {
       // eslint-disable-next-line no-console
       console.log("[TablesAndJoinsPanel] dataset metadata headers", {
         datasets: items,
-        mainHeaders: mains,
-        mainHeadersByRole: byRole,
+        transactionHeaders,
+        transactionHeadersByDatasetId: byDatasetId,
       });
     }
   }, [dsQ.data, debugJoins]);
@@ -398,6 +395,8 @@ export default function TablesAndJoinsPanel() {
     return (datasets || []).map((d) => ({
       id: d.id,
       role: d.role,
+      purpose: d.purpose,
+      referenceKind: d.referenceKind || null,
       name: d.sourceName || d.fileName,
       rows: d.meta?.rowsCount ?? d.rowCount ?? 0,
     }));
@@ -407,70 +406,53 @@ export default function TablesAndJoinsPanel() {
     ? joins.conditions.length
     : 0;
 
-  const mainAndSupportingRoles = useMemo(() => {
-    return Array.from(
-      new Set(
-        (datasets || [])
-          .map((d) =>
-            String(d?.role || "")
-              .trim()
-              .toLowerCase(),
-          )
-          .filter(Boolean),
-      ),
-    );
+  const datasetIds = useMemo(() => {
+    return (datasets || [])
+      .map((dataset) => String(dataset?.id || "").trim())
+      .filter(Boolean);
   }, [datasets]);
 
-  const supportingRoles = useMemo(() => {
-    return mainAndSupportingRoles.filter(
-      (role) => !(role === "main" || role.startsWith("main_")),
-    );
-  }, [mainAndSupportingRoles]);
-
-  const hasSupportingDatasets = supportingRoles.length > 0;
-  const mustHaveJoin = hasSupportingDatasets;
-  const mainDatasetRoles = useMemo(() => {
-    return mainAndSupportingRoles.filter(
-      (role) => role === "main" || role.startsWith("main_"),
-    );
-  }, [mainAndSupportingRoles]);
-
-  const hasMultipleMainDatasets = mainDatasetRoles.length > 1;
+  const transactionDatasetIds = useMemo(
+    () =>
+      (datasets || [])
+        .filter((dataset) => dataset?.purpose === "transaction")
+        .map((dataset) => String(dataset.id)),
+    [datasets],
+  );
+  const hasReferenceDatasets = (datasets || []).some(
+    (dataset) => dataset?.purpose === "reference",
+  );
+  const mustHaveJoin = hasReferenceDatasets;
+  const hasMultipleTransactionDatasets = transactionDatasetIds.length > 1;
 
   const joinCoverage = useMemo(() => {
     const conditions = Array.isArray(joins?.conditions) ? joins.conditions : [];
-    const roles = mainAndSupportingRoles;
-    const roleSet = new Set(roles);
+    const idSet = new Set(datasetIds);
 
-    if (!roles.length) {
+    if (!datasetIds.length) {
       return {
         connected: true,
-        connectedRoles: [],
-        orphanedRoles: [],
+        connectedDatasetIds: [],
+        orphanedDatasetIds: [],
       };
     }
 
     const graph = new Map();
-    roles.forEach((role) => graph.set(role, new Set()));
+    datasetIds.forEach((datasetId) => graph.set(datasetId, new Set()));
 
     for (const j of conditions) {
-      const fromRole = String(j?.from?.role || "")
-        .trim()
-        .toLowerCase();
-      const toRole = String(j?.to?.role || "")
-        .trim()
-        .toLowerCase();
-      if (!fromRole || !toRole) continue;
-      if (!roleSet.has(fromRole) || !roleSet.has(toRole)) continue;
+      const fromDatasetId = String(j?.from?.datasetId || "").trim();
+      const toDatasetId = String(j?.to?.datasetId || "").trim();
+      if (!fromDatasetId || !toDatasetId) continue;
+      if (!idSet.has(fromDatasetId) || !idSet.has(toDatasetId)) continue;
 
-      graph.get(fromRole)?.add(toRole);
-      graph.get(toRole)?.add(fromRole);
+      graph.get(fromDatasetId)?.add(toDatasetId);
+      graph.get(toDatasetId)?.add(fromDatasetId);
     }
 
-    const mainCandidates = roles.filter(
-      (role) => role === "main" || role.startsWith("main_"),
-    );
-    const roots = mainCandidates.length ? mainCandidates : roles.slice(0, 1);
+    const roots = transactionDatasetIds.length
+      ? transactionDatasetIds
+      : datasetIds.slice(0, 1);
 
     const visited = new Set();
     const queue = [...roots];
@@ -486,14 +468,16 @@ export default function TablesAndJoinsPanel() {
       });
     }
 
-    const orphanedRoles = roles.filter((role) => !visited.has(role));
+    const orphanedDatasetIds = datasetIds.filter(
+      (datasetId) => !visited.has(datasetId),
+    );
 
     return {
-      connected: orphanedRoles.length === 0,
-      connectedRoles: Array.from(visited),
-      orphanedRoles,
+      connected: orphanedDatasetIds.length === 0,
+      connectedDatasetIds: Array.from(visited),
+      orphanedDatasetIds,
     };
-  }, [joins, mainAndSupportingRoles]);
+  }, [joins, datasetIds, transactionDatasetIds]);
 
   const canProceedToMap = !mustHaveJoin || joinCoverage.connected;
 
@@ -550,7 +534,7 @@ export default function TablesAndJoinsPanel() {
 
   const orphanedJoinMessage =
     mustHaveJoin && !joinCoverage.connected
-      ? `Every dataset must be connected before you can continue. Orphaned dataset role(s): ${joinCoverage.orphanedRoles.join(", ")}.`
+      ? `Every reference dataset must be connected to a transaction dataset before you can continue. Orphaned dataset ID(s): ${joinCoverage.orphanedDatasetIds.join(", ")}.`
       : null;
 
   const importableJoinItems = Array.isArray(compatibleJoinsQ.data?.items)
@@ -920,11 +904,11 @@ export default function TablesAndJoinsPanel() {
           <Typography variant="body2" color="error" sx={{ mb: 1 }}>
             {orphanedJoinMessage}
           </Typography>
-        ) : hasMultipleMainDatasets && !hasSupportingDatasets ? (
+        ) : hasMultipleTransactionDatasets && !hasReferenceDatasets ? (
           <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-            Multiple main datasets detected. No joins are required between main
-            roles. Continue to mapping and map the CSV-backed dataset fields as
-            needed.
+            Multiple transaction datasets are available. Map each transaction
+            dataset independently; joins between transaction datasets are not
+            required.
           </Typography>
         ) : null}
         <JoinsDesigner
@@ -949,8 +933,8 @@ export default function TablesAndJoinsPanel() {
             setJoins(nextJoins);
             scheduleAutosave(nextJoins);
           }}
-          leftHeaders={mainHeaders}
-          leftHeadersByRole={mainHeadersByRole}
+          leftHeaders={transactionHeaders}
+          leftHeadersByRole={transactionHeadersByDataset}
           debug={debugJoins}
         />
       </Paper>

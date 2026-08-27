@@ -18,11 +18,11 @@ import { getDatasetSample, listDatasets } from "../services/data.ptrsApi";
 
 /**
  * Fancy Joins Designer (Option B)
- * - Left: main dataset columns
+ * - Left: selected transaction dataset columns
  * - Right: supporting dataset cards with their headers
  * - Click a left item, then a right item to create a link (connection)
  * - SVG overlays draw bezier curves between linked items
- * - Emits `onChange(joins[])` where joins: [{ from:{role,column}, to:{role,column} }]
+ * - Emits `onChange(joins[])` where every endpoint includes datasetId, role and column.
  */
 export default function JoinsDesigner({
   ptrsId,
@@ -117,21 +117,19 @@ export default function JoinsDesigner({
       .catch(() => setDatasets([]));
   }, [ptrsId]);
 
-  // Choose a FROM main dataset slice for the left-side links.
+  // Choose the concrete transaction dataset for the left-side links.
   const [selectedFromDatasetId, setSelectedFromDatasetId] = useState(null);
 
-  const mainDatasets = useMemo(() => {
-    return (datasets || []).filter((d) => {
-      const role = String(d?.role || "");
-      return role === "main" || role.startsWith("main_");
-    });
+  const transactionDatasets = useMemo(() => {
+    return (datasets || []).filter(
+      (dataset) => dataset?.purpose === "transaction",
+    );
   }, [datasets]);
 
-  const supportingDatasets = useMemo(() => {
-    return (datasets || []).filter((d) => {
-      const role = String(d?.role || "");
-      return !(role === "main" || role.startsWith("main_"));
-    });
+  const referenceDatasets = useMemo(() => {
+    return (datasets || []).filter(
+      (dataset) => dataset?.purpose === "reference",
+    );
   }, [datasets]);
 
   const customFieldsByDatasetId = useMemo(() => {
@@ -156,24 +154,26 @@ export default function JoinsDesigner({
   }, [customFields]);
 
   useEffect(() => {
-    const mainIds = (mainDatasets || []).map((d) => String(d.id));
-    const fallback = mainIds[0] || null;
+    const transactionIds = (transactionDatasets || []).map((dataset) =>
+      String(dataset.id),
+    );
+    const fallback = transactionIds[0] || null;
     if (
       selectedFromDatasetId &&
-      mainIds.includes(String(selectedFromDatasetId))
+      transactionIds.includes(String(selectedFromDatasetId))
     ) {
       return;
     }
     setSelectedFromDatasetId(fallback);
-  }, [mainDatasets, selectedFromDatasetId]);
+  }, [transactionDatasets, selectedFromDatasetId]);
 
   const selectedFromDataset = useMemo(() => {
     return (
-      (mainDatasets || []).find(
+      (transactionDatasets || []).find(
         (d) => String(d.id) === String(selectedFromDatasetId || ""),
       ) || null
     );
-  }, [mainDatasets, selectedFromDatasetId]);
+  }, [transactionDatasets, selectedFromDatasetId]);
 
   const leftFields = useMemo(() => {
     const fromDatasetId = String(selectedFromDataset?.id || "");
@@ -251,7 +251,7 @@ export default function JoinsDesigner({
       }
       setExamplesByDatasetId(datasetMap);
     })();
-  }, [datasets, mainDatasets]);
+  }, [datasets, transactionDatasets]);
 
   useEffect(() => {
     if (!debug) return;
@@ -266,8 +266,8 @@ export default function JoinsDesigner({
     );
     // eslint-disable-next-line no-console
     console.log(
-      "[JoinsDesigner][debug] mainDatasets",
-      (mainDatasets || []).map((d) => ({
+      "[JoinsDesigner][debug] transactionDatasets",
+      (transactionDatasets || []).map((d) => ({
         id: d.id,
         role: d.role,
         name: d.sourceName || d.fileName,
@@ -279,13 +279,12 @@ export default function JoinsDesigner({
       role: selectedFromDataset?.role,
       name: selectedFromDataset?.sourceName || selectedFromDataset?.fileName,
     });
-  }, [debug, datasets, mainDatasets, selectedFromDataset]);
+  }, [debug, datasets, transactionDatasets, selectedFromDataset]);
 
-  // Build right-side: join TARGET roles depend on the selected FROM role.
-  // - If FROM is main/main_* => RHS shows supporting roles only, because main-to-main joins are not required.
-  // - If FROM is supporting => RHS includes main roles + other supporting roles.
+  // Build right-side reference endpoints for the selected transaction dataset.
+  // Each reference endpoint remains a concrete dataset, even when kinds repeat.
   const rightColumns = useMemo(() => {
-    return (supportingDatasets || []).map((d) => {
+    return (referenceDatasets || []).map((d) => {
       const role = String(d?.role || "dataset");
       const datasetId = String(d?.id || "");
       const baseHeaders = (d.meta?.headers || d.headers || [])
@@ -307,7 +306,7 @@ export default function JoinsDesigner({
         headers,
       };
     });
-  }, [supportingDatasets, customFieldsByDatasetId]);
+  }, [referenceDatasets, customFieldsByDatasetId]);
 
   const datasetFieldOptionsById = useMemo(() => {
     const map = {};
@@ -427,7 +426,7 @@ export default function JoinsDesigner({
 
     setPending({
       datasetId: String(datasetId),
-      role: String(role || "main"),
+      role: String(role || "transaction"),
       column,
     });
   };
@@ -528,18 +527,18 @@ export default function JoinsDesigner({
   return (
     <Box sx={{ position: "relative" }}>
       <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
-        {/* LEFT: Main dataset columns */}
+        {/* LEFT: selected transaction dataset columns */}
         <Paper ref={leftRef} sx={{ p: 2, flex: 1, minHeight: 420 }}>
           <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
-            <Typography variant="subtitle1">FROM main dataset slice</Typography>
-            {(mainDatasets || []).length > 1 ? (
+            <Typography variant="subtitle1">FROM transaction dataset</Typography>
+            {(transactionDatasets || []).length > 1 ? (
               <Select
                 size="small"
                 value={selectedFromDatasetId || ""}
                 onChange={(e) => setSelectedFromDatasetId(e.target.value)}
                 sx={{ ml: 1, minWidth: 320 }}
               >
-                {(mainDatasets || []).map((d) => (
+                {(transactionDatasets || []).map((d) => (
                   <MenuItem key={d.id} value={d.id}>
                     {String(d?.sourceName || d?.fileName || d?.id || "Dataset")}
                   </MenuItem>
@@ -549,7 +548,7 @@ export default function JoinsDesigner({
           </Stack>
           {selectedFromDataset ? (
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              Slice:{" "}
+              Dataset:{" "}
               {selectedFromDataset.sourceName ||
                 selectedFromDataset.fileName ||
                 selectedFromDataset.id}{" "}
@@ -561,21 +560,21 @@ export default function JoinsDesigner({
               <Box
                 key={key}
                 data-endpoint={keyL(
-                  selectedFromDataset?.id || "main",
-                  selectedFromDataset?.role || "main",
+                  selectedFromDataset?.id || "",
+                  selectedFromDataset?.role || "transaction",
                   key,
                 )}
                 onClick={() => {
                   if (!pending) {
                     beginLink(
                       selectedFromDataset?.id,
-                      selectedFromDataset?.role || "main",
+                      selectedFromDataset?.role || "transaction",
                       key,
                     );
                   } else {
                     completeLink(
                       selectedFromDataset?.id,
-                      selectedFromDataset?.role || "main",
+                      selectedFromDataset?.role || "transaction",
                       key,
                     );
                   }
@@ -619,8 +618,8 @@ export default function JoinsDesigner({
                 {debug && (
                   <Typography variant="caption" color="text.secondary">
                     {keyL(
-                      selectedFromDataset?.id || "main",
-                      selectedFromDataset?.role || "main",
+                      selectedFromDataset?.id || "",
+                      selectedFromDataset?.role || "transaction",
                       key,
                     )}
                   </Typography>
@@ -785,7 +784,8 @@ export default function JoinsDesigner({
                         From
                       </Typography>
                       <Typography variant="body2">
-                        {ln?.from?.role || "main"} · {ln?.from?.datasetId || ""}{" "}
+                        {ln?.from?.role || "transaction"} ·{" "}
+                        {ln?.from?.datasetId || ""}{" "}
                         · {ln?.from?.column || ""}
                       </Typography>
                     </Box>
@@ -905,7 +905,7 @@ export default function JoinsDesigner({
             const fromKey = fromOnLeft
               ? keyL(
                   fromDatasetId,
-                  String(ln?.from?.role || "main"),
+                  String(ln?.from?.role || "transaction"),
                   ln?.from?.column,
                 )
               : keyR(
@@ -917,7 +917,7 @@ export default function JoinsDesigner({
             const toKey = toOnLeft
               ? keyL(
                   toDatasetId,
-                  String(ln?.to?.role || "main"),
+                  String(ln?.to?.role || "transaction"),
                   ln?.to?.column,
                 )
               : keyR(toDatasetId, String(ln?.to?.role || ""), ln?.to?.column);
@@ -1012,7 +1012,7 @@ export default function JoinsDesigner({
                         item?.datasetId || selectedFromDataset?.id || "",
                       ),
                       role: String(
-                        item?.role || selectedFromDataset?.role || "main",
+                        item?.role || selectedFromDataset?.role || "transaction",
                       ),
                       ...patch,
                     }
@@ -1069,11 +1069,11 @@ export default function JoinsDesigner({
                     />
                     <Chip
                       size="small"
-                      label={`Role: ${String(cf?.role || "main")}`}
+                      label={`Role: ${String(cf?.role || "transaction")}`}
                     />
                     <Chip
                       size="small"
-                      label={`Slice: ${String(cf?.datasetId || "none")}`}
+                      label={`Dataset: ${String(cf?.datasetId || "none")}`}
                     />
                     <Button
                       size="small"
@@ -1096,7 +1096,7 @@ export default function JoinsDesigner({
                         updateField({
                           datasetId: nextDatasetId,
                           role: String(
-                            selectedDataset?.role || cf?.role || "main",
+                            selectedDataset?.role || cf?.role || "transaction",
                           ),
                           segments: segments.map((seg) =>
                             seg?.kind === "field" ? { ...seg, name: "" } : seg,
@@ -1242,7 +1242,7 @@ export default function JoinsDesigner({
                   key: "",
                   type: "concat",
                   datasetId: String(selectedFromDataset?.id || ""),
-                  role: String(selectedFromDataset?.role || "main"),
+                  role: String(selectedFromDataset?.role || "transaction"),
                   segments: [],
                 },
               ];

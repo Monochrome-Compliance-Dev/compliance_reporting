@@ -231,15 +231,14 @@ export const savePtrsMap = async (
   return normMap(pickData(res));
 };
 
-export const getPtrsFieldMap = async (ptrsId, profileId, datasetId) => {
+export const getPtrsFieldMap = async (ptrsId, profileId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!profileId) throw new Error("profileId is required");
 
-  debugPtrsApiCall("getPtrsFieldMap", { ptrsId, profileId, datasetId });
+  debugPtrsApiCall("getPtrsFieldMap", { ptrsId, profileId });
 
   const qs = new URLSearchParams();
   qs.set("profileId", String(profileId));
-  if (datasetId) qs.set("datasetId", String(datasetId));
 
   const res = await fetchWrapper.get(
     `${API_ROOT}/v2/ptrs/${ptrsId}/field-map?${qs.toString()}`,
@@ -336,16 +335,18 @@ export const savePtrsFieldMap = async (
         : [];
 };
 
-// Build and persist the mapped + joined dataset for this PTRS run
-export const buildPtrsMappedDataset = async (
+// Materialise one immutable canonical revision for one transaction dataset.
+export const buildPtrsCanonicalRevision = async (
   ptrsId,
-  { profileId = null } = {},
+  { profileId = null, datasetId } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
+  if (!datasetId) throw new Error("datasetId is required");
 
-  debugPtrsApiCall("buildPtrsMappedDataset", {
+  debugPtrsApiCall("buildPtrsCanonicalRevision", {
     ptrsId,
     profileId: profileId || null,
+    datasetId,
   });
 
   const qs = new URLSearchParams();
@@ -353,27 +354,14 @@ export const buildPtrsMappedDataset = async (
   const suffix = qs.toString() ? `?${qs.toString()}` : "";
 
   const res = await fetchWrapper.post(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/map/build-mapped${suffix}`,
-    profileId ? { profileId } : {},
+    `${API_ROOT}/v2/ptrs/${ptrsId}/datasets/${datasetId}/canonical-revisions${suffix}`,
+    { profileId },
   );
 
   const data = pickData(res) || {};
-
-  const count =
-    typeof data.count === "number" && Number.isFinite(data.count)
-      ? data.count
-      : 0;
-
-  const headers = Array.isArray(data.headers) ? data.headers : [];
-
   return {
-    count,
-    headers,
-    skipped: !!data.skipped,
-    reason: data.reason || null,
-    inputHash: data.inputHash || null,
-    previousRunId: data.previousRunId || null,
-    profileId: data.profileId || profileId || null,
+    revision: data.revision || null,
+    reused: !!data.reused,
   };
 };
 
