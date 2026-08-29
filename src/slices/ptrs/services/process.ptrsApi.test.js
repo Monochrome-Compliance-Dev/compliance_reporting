@@ -13,6 +13,7 @@ describe("runPtrsTransformations", () => {
         data: {
           ptrsId: "ptrs000001",
           profileId: "profile001",
+          executionRunId: "process01",
           tookMs: 250,
           counts: { sourceStageRows: 1786, derivedPaymentObservations: 1063 },
           steps: { validation: { status: "PASSED" } },
@@ -31,6 +32,7 @@ describe("runPtrsTransformations", () => {
     expect(result).toEqual(
       expect.objectContaining({
         ptrsId: "ptrs000001",
+        executionRunId: "process01",
         tookMs: 250,
         counts: expect.objectContaining({ derivedPaymentObservations: 1063 }),
       }),
