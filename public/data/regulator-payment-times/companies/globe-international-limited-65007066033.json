@@ -30,14 +30,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1086,
-        "count": 2976,
-        "percentile": 62
+        "rank": 1100,
+        "count": 3004,
+        "percentile": 61.9
       },
       "industryP95Position": {
-        "rank": 104,
-        "count": 401,
-        "percentile": 72.8
+        "rank": 106,
+        "count": 408,
+        "percentile": 72.7
       }
     },
     {
@@ -63,13 +63,45 @@
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
         "rank": 1762,
-        "count": 2935,
-        "percentile": 36.8
+        "count": 2941,
+        "percentile": 36.9
       },
       "industryP95Position": {
         "rank": 213,
-        "count": 399,
-        "percentile": 42.5
+        "count": 400,
+        "percentile": 42.6
+      }
+    },
+    {
+      "reportId": "PTR20010968",
+      "acnArbn": "007066033",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.35,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 79.45,
+      "payments31To60Days": 15.82,
+      "paymentsMoreThan60Days": 4.73,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-07-22",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 754,
+        "count": 2530,
+        "percentile": 68.8
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 328,
+        "percentile": 79.2
       }
     }
   ]

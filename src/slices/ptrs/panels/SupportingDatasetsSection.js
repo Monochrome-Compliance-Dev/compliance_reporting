@@ -20,7 +20,7 @@ import {
   removeDataset,
 } from "../services/data.ptrsApi";
 
-const ROLES = [
+const REFERENCE_KINDS = [
   { value: "vendormaster", label: "Vendor Master", required: false },
   { value: "termschanges", label: "Payment Terms Changes", required: false },
   {
@@ -28,6 +28,7 @@ const ROLES = [
     label: "Entity Structure / Holdings",
     required: false,
   },
+  { value: "invoices", label: "Invoice Context", required: false },
   { value: "other", label: "Other", required: false },
 ];
 
@@ -56,18 +57,20 @@ export default function SupportingDatasetsSection({
     refresh();
   }, [refresh]);
 
-  const byRole = useMemo(() => {
+  const byReferenceKind = useMemo(() => {
     const map = new Map();
-    for (const r of ROLES) map.set(r.value, []);
-    for (const it of items) {
-      const arr = map.get(it.role) || [];
+    for (const kind of REFERENCE_KINDS) map.set(kind.value, []);
+    for (const it of items.filter((item) => item.purpose === "reference")) {
+      const arr = map.get(it.referenceKind) || [];
       arr.push(it);
-      map.set(it.role, arr);
+      map.set(it.referenceKind, arr);
     }
     return map;
   }, [items]);
 
-  const totalDatasets = items.length;
+  const totalDatasets = items.filter(
+    (item) => item.purpose === "reference",
+  ).length;
 
   useEffect(() => {
     if (typeof onTotalChange === "function") {
@@ -77,8 +80,8 @@ export default function SupportingDatasetsSection({
 
   const statusChips = (
     <Stack direction="row" spacing={1} sx={{ mb: 1, flexWrap: "wrap" }}>
-      {ROLES.map((r) => {
-        const hasAny = (byRole.get(r.value) || []).length > 0;
+      {REFERENCE_KINDS.map((r) => {
+        const hasAny = (byReferenceKind.get(r.value) || []).length > 0;
         return (
           <Chip
             key={r.value}
@@ -118,7 +121,12 @@ export default function SupportingDatasetsSection({
     if (!ptrsId) return showAlert("Missing ptrsId", "error");
     setBusyRole(role);
     try {
-      await addDataset(ptrsId, file, { role, sourceName: file.name });
+      await addDataset(ptrsId, file, {
+        purpose: "reference",
+        referenceKind: role,
+        sourceFormat: "csv",
+        sourceName: file.name,
+      });
       await refresh();
       showAlert(`${rLabel(role)} uploaded`, "success");
       if (onChanged) onChanged();
@@ -130,7 +138,8 @@ export default function SupportingDatasetsSection({
     }
   };
 
-  const rLabel = (val) => ROLES.find((r) => r.value === val)?.label || val;
+  const rLabel = (val) =>
+    REFERENCE_KINDS.find((kind) => kind.value === val)?.label || val;
 
   const onDelete = async (id) => {
     try {
@@ -149,8 +158,8 @@ export default function SupportingDatasetsSection({
       {statusChips}
       <Divider sx={{ mb: 1 }} />
       <Stack spacing={1}>
-        {ROLES.map((r) => {
-          const list = byRole.get(r.value) || [];
+        {REFERENCE_KINDS.map((r) => {
+          const list = byReferenceKind.get(r.value) || [];
           const hasAny = list.length > 0;
           return (
             <Paper key={r.value} variant="outlined" sx={{ p: 1.5 }}>

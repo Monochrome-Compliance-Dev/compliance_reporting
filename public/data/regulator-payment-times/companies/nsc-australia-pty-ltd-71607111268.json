@@ -1,0 +1,76 @@
+{
+  "slug": "nsc-australia-pty-ltd-71607111268",
+  "businessName": "NSC (AUSTRALIA) PTY LTD",
+  "abn": "71607111268",
+  "acnArbn": "607111268",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySlug": "electricity-gas-water-and-waste-services",
+  "industrySubdivision": "Gas supply",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011945",
+      "acnArbn": "607111268",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 67.88,
+      "payments31To60Days": 23.39,
+      "paymentsMoreThan60Days": 8.73,
+      "industrySubdivision": "Gas supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-07-23",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 302,
+        "count": 409,
+        "percentile": 25.2
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 12,
+        "percentile": 18.2
+      }
+    },
+    {
+      "reportId": "PTR20011954",
+      "acnArbn": "607111268",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 61,
+      "payments31To60Days": 32,
+      "paymentsMoreThan60Days": 7,
+      "industrySubdivision": "Gas supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-07-23",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 3004,
+        "percentile": 24.6
+      },
+      "industryP95Position": {
+        "rank": 87,
+        "count": 97,
+        "percentile": 8.3
+      }
+    }
+  ]
+}

@@ -149,12 +149,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/7-eleven-stores-pty-ltd-48005299427</loc>
-    <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/7c-holdings-pty-ltd-63008210106</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -181,6 +175,12 @@
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/a-w-nicholson-pty-ltd-14118404381</loc>
     <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/a-bl-super-topco-1-pty-ltd-25673597110</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -360,7 +360,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/acer-computer-australia-pty-limited-78003872768</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -588,7 +588,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/afgri-australia-pty-ltd-14103619067</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -600,7 +600,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ag-n-vet-rural-pty-ltd-52125781222</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -618,7 +618,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/agilent-technologies-australia-pty-ltd-29088510605</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -636,7 +636,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/agnico-eagle-australia-pty-ltd-30136505587</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -846,7 +846,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/allegiance-care-pty-ltd-37662838360</loc>
-    <lastmod>2024-12-30</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1080,7 +1080,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ameropa-australia-pty-ltd-21009504394</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1283,6 +1283,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/appen-limited-60138878298</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/apple-pty-limited-46002510054</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -1308,6 +1314,12 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/aquasure-holdings-pty-ltd-46135956053</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/ar-holdco-pty-ltd-43673156593</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1451,7 +1463,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/as-colour-holdings-limited-17130999165</loc>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/as-colour-pty-ltd-17130999165</loc>
     <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1488,7 +1500,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ashurst-australia-75304286095</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1704,7 +1716,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ausfine-foods-international-pty-ltd-12006926129</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1746,7 +1758,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/austral-fisheries-pty-ltd-71008989982</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1824,7 +1836,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/australian-comfort-group-holdings-pty-ltd-48143785522</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1896,7 +1908,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/australian-grain-export-pty-ltd-92073563185</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2022,7 +2034,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/australian-renewable-energy-agency-35931927899</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2202,7 +2214,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/aztech-services-australia-pty-ltd-76612469084</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2226,7 +2238,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/b-braun-australia-pty-ltd-56002945155</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2328,6 +2340,12 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/balverona-pty-ltd-78002826173</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/bangarra-group-ltd-54115325356</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -2712,7 +2730,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/bhaajayu-pty-ltd-29084980263</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2796,7 +2814,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/biomar-pty-ltd-52619617248</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2856,7 +2874,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/blackrock-investment-management-australia-limited-13006165975</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2868,7 +2886,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/bloomberg-australia-pty-ltd-47622777851</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2898,7 +2916,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/blum-australia-pty-ltd-80076459713</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2922,7 +2940,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/bms-heavy-cranes-australia-pty-ltd-13623691378</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2958,7 +2976,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/boart-longyear-australia-pty-ltd-99000401025</loc>
-    <lastmod>2024-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3006,7 +3024,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/boom-logistics-ltd-28095466961</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3055,6 +3073,12 @@
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/bouygues-construction-australia-pty-ltd-37144013801</loc>
     <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/bouygues-construction-australia-pty-ltd-and-john-holland-pty-ltd-96495635476</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3108,7 +3132,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/bpw-transpec-pty-ltd-63006645272</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3276,7 +3300,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/brown-forman-australia-pty-limited-87000064086</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3300,7 +3324,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/bsa-limited-50088412748</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3408,7 +3432,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/burra-foods-pty-ltd-58007119904</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3420,7 +3444,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/busways-australia-pty-ltd-26643586225</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3708,7 +3732,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/carrier-investments-australia-pty-ltd-12117282149</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3804,7 +3828,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/cbp-lawyers-holdings-limited-41606739888</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3846,7 +3870,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/cdm-australia-pty-ltd-68009592965</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -4194,7 +4218,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ck-william-australia-holdings-pty-ltd-14613690243</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -4476,7 +4500,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/compass-group-australia-pty-ltd-41000683125</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -4542,13 +4566,19 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/construction-control-pty-limited-79150745154</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/construction-industry-long-service-leave-fund-87254502400</loc>
     <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/construction-services-australia-pty-ltd-99007641787</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -4578,7 +4608,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/cook-australia-pty-ltd-27141258648</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -4668,7 +4698,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/cory-johnston-aust-pty-limited-22010083020</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -4746,7 +4776,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/cps-technology-and-infrastructure-pty-ltd-48148905159</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -4770,7 +4800,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/crawford-and-company-australia-pty-ltd-11002317133</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -4836,13 +4866,13 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/croftminster-pty-ltd-11007061314</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/crokers-fuel-and-oils-pty-ltd-41069396354</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -5040,7 +5070,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/dairy-farmers-milk-co-operative-limited-74669522867</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -5082,7 +5112,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/dan-bunkering-australia-pty-ltd-26123643952</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -5220,7 +5250,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/de-longhi-australia-pty-limited-49104012857</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -5310,7 +5340,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/denison-gas-limited-86625883561</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -5681,12 +5711,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/dsi-holdings-2-australia-pty-ltd-49151658785</loc>
-    <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/dsm-food-specialties-australia-pty-limited-60003994198</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -5772,7 +5796,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/dynamoney-limited-80613082698</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -5868,13 +5892,13 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ecolab-pty-ltd-59000449990</loc>
-    <lastmod>2025-11-29</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ecom-commodities-pty-ltd-65089892713</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -5988,7 +6012,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/electrolux-home-products-pty-limited-51004762341</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -6012,7 +6036,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ellis-air-group-pty-ltd-80666957473</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -6120,7 +6144,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/energizer-australia-pty-ltd-91003539026</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -6192,7 +6216,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/enviropacific-services-limited-43111372064</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -6342,7 +6366,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ets-infrastructure-management-pty-ltd-38070013884</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -6354,7 +6378,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/euc-management-pty-ltd-54631013860</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -6384,6 +6408,12 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/evergreen-garden-care-australia-holdings-pty-ltd-18620606840</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/everlight-radiology-holdings-pty-ltd-49651297139</loc>
     <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -6533,6 +6563,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/fec-construction-holdings-australia-pty-ltd-38658945521</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/federal-express-australia-pty-ltd-51624271487</loc>
     <lastmod>2025-11-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -6594,13 +6630,13 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/findex-group-limited-40128588714</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/finisar-australia-pty-limited-45098184582</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -6720,7 +6756,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/fmc-australasia-pty-ltd-45095326891</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -6822,7 +6858,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/frasers-property-industrial-australia-pty-limited-22107356454</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -7116,7 +7152,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ge-grid-australia-pty-ltd-91106900707</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -7704,7 +7740,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/h-and-m-hennes-and-mauritz-pty-ltd-83160056548</loc>
-    <lastmod>2025-11-29</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -7944,7 +7980,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/hdi-global-se-55490279016</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -7956,7 +7992,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/hdi-syd1-holdings-pty-limited-35138200049</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -8153,6 +8189,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/hillside-meat-processors-pty-ltd-46159963729</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/hilti-aust-pty-ltd-44007602100</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -8267,6 +8309,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/homecorp-constructions-pty-ltd-27169928205</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/homestart-finance-82829169885</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -8304,7 +8352,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/hospira-australia-pty-ltd-58097064330</loc>
-    <lastmod>2025-11-29</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -8340,13 +8388,13 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/hp-pps-australia-pty-ltd-16603480628</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/hpe-financial-services-australia-pty-limited-86082062413</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -8658,7 +8706,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/imperial-tobacco-australia-limited-46088148681</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -8767,6 +8815,12 @@
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/info-management-services-pty-ltd-88119821457</loc>
     <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/infocus-wealth-management-pty-ltd-28103551015</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -8964,7 +9018,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/iqvia-rds-pty-limited-20060233810</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -9108,7 +9162,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/j-j-richards-and-sons-pty-ltd-40000805425</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -9330,7 +9384,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/john-holland-pty-ltd-and-cpb-contractors-pty-ltd-79385373351</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -9504,7 +9558,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/karcher-pty-ltd-76002721226</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -9528,7 +9582,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/kce-pty-limited-83059721881</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -9774,13 +9828,13 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/komatsu-australia-holdings-pty-ltd-61001663752</loc>
-    <lastmod>2025-03-30</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/komatsu-australia-pty-ltd-63053514739</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -9816,7 +9870,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/korn-ferry-au-pty-ltd-73001804799</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -10056,7 +10110,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/latran-capital-pty-ltd-76615781185</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -10230,7 +10284,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/liftrite-hire-and-sales-pty-ltd-52009063003</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -10284,7 +10338,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/linkforce-engineering-pty-ltd-57123543699</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -10344,7 +10398,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/lloyd-helicopter-services-pty-ltd-45058277491</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -10494,7 +10548,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/luye-australia-holdings-pty-ltd-98609669472</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -10698,7 +10752,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/martin-brower-australia-pty-ltd-95111374344</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -10716,7 +10770,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/marubeni-iron-ore-australia-pty-ltd-91156488130</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -10956,7 +11010,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/melbourne-cricket-club-92871871964</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -11107,12 +11161,6 @@
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/meyer-timber-pty-ltd-54005314321</loc>
     <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/mfs-international-australia-pty-ltd-68607579537</loc>
-    <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -11490,7 +11538,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/moody-s-group-australia-pty-ltd-54129182485</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -11598,7 +11646,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/motus-australia-pty-ltd-79113527263</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -11616,7 +11664,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/mp-australia-holdings-pty-ltd-37156629211</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -11898,7 +11946,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/nc-limited-21118108384</loc>
-    <lastmod>2024-12-30</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -11994,7 +12042,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/neumann-steel-pty-ltd-59009818035</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -12186,7 +12234,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/norgap-pty-limited-34008553955</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -12270,12 +12318,6 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/northline-partnership-18677809229</loc>
-    <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/northrop-consulting-engineers-pty-limited-81094433100</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12365,6 +12407,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/nsc-australia-pty-ltd-71607111268</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ntaw-holdings-limited-97095843020</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -12414,7 +12462,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/o-s-alcorn-and-others-83508451308</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -12575,6 +12623,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/opella-healthcare-australia-pty-ltd-43076651959</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/opic-australia-pty-limited-66008603487</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -12653,6 +12707,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/orde-financial-pty-ltd-27634779990</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/organon-pharma-pty-ltd-54637107512</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -12684,7 +12744,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/oscar-aluminium-holdings-pty-ltd-74650522811</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -12906,7 +12966,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/parramatta-leagues-club-ltd-52000218655</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -12936,7 +12996,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/paul-ramsay-holdings-pty-limited-33008446151</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -12984,7 +13044,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/pcl-constructors-pacific-rim-pty-ltd-74140877792</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -13056,7 +13116,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/penrith-rugby-league-club-ltd-57000578398</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -13176,7 +13236,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/petroleum-helicopters-australia-pty-limited-48154419628</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -13212,7 +13272,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/pfg-australia-pty-ltd-82093037533</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -13224,7 +13284,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/pfizer-australia-pty-ltd-50008422348</loc>
-    <lastmod>2025-11-29</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -13722,7 +13782,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/qic-agribusiness-holdings-pty-ltd-93612232112</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -14046,7 +14106,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/realwise-holdings-pty-limited-87059309161</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -14142,7 +14202,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/regroup-australia-pty-ltd-70646172358</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -14232,19 +14292,19 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/rex-gorell-ford-pty-ltd-75006175515</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/rex-gorell-motors-pty-ltd-72006649869</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/rex-gorell-pty-ltd-96006256668</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -14310,7 +14370,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/richmond-football-club-limited-25679793340</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -14388,7 +14448,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/rje-global-pty-ltd-79607859852</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -14447,8 +14507,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/rockwell-automation-australia-ltd-80005549477</loc>
+    <lastmod>2025-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/rohlig-australia-pty-ltd-51001191402</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -14466,7 +14532,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/ron-finemore-transport-pty-ltd-30106495087</loc>
-    <lastmod>2025-12-27</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -14532,13 +14598,13 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/rpbj-gorell-pty-ltd-29004908490</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/rpbj-pty-ltd-54114494307</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -14771,13 +14837,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/sanofi-aventis-australia-pty-ltd-31008558807</loc>
-    <lastmod>2025-12-30</lastmod>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/sandvik-ground-support-australia-holdings-pty-ltd-49151658785</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/sanofi-aventis-healthcare-pty-ltd-43076651959</loc>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/sanofi-aventis-australia-pty-ltd-31008558807</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -14903,12 +14969,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/sea-plant-and-equipment-pty-ltd-59601889614</loc>
-    <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/sea-swift-pty-ltd-16010889040</loc>
     <lastmod>2025-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -15018,7 +15078,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/sephora-australia-pty-ltd-37169030737</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -15042,13 +15102,13 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/servcorp-limited-97089222506</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/servicenow-australia-pty-ltd-88149683312</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -15438,7 +15498,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/smeg-australia-pty-ltd-33146901082</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -15462,7 +15522,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/snap-on-tools-australia-pty-ltd-55010793683</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -15498,7 +15558,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/sojitz-development-pty-ltd-34063050680</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -15552,7 +15612,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/sony-interactive-entertainment-australia-pty-limited-80077583183</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -15648,7 +15708,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/special-broadcasting-service-corporation-91314398574</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -15768,7 +15828,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/stabilised-pavements-of-australia-pty-limited-90002900736</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -15882,7 +15942,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/stihl-pty-ltd-76004881145</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -15948,7 +16008,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/suburban-land-agency-and-riverview-developments-act-pty-limited-72619778053</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -16026,7 +16086,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/sungrow-australia-group-pty-ltd-76168258679</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -16158,7 +16218,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/swarovski-australia-pty-ltd-16000679416</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -16440,7 +16500,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/temperzone-australia-holdings-pty-limited-52001653176</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -16476,7 +16536,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/terex-australia-pty-ltd-86010671048</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -16596,7 +16656,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/the-bank-of-nova-scotia-34133513827</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -16626,6 +16686,12 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/the-brown-and-hurley-group-pty-ltd-66010732966</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/the-collagen-co-pty-ltd-86603721491</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -16763,7 +16829,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/the-royal-automobile-club-of-wa-inc-33212133120</loc>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/the-royal-automobile-club-of-w-a-limited-33212133120</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -16926,7 +16992,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/the-trustee-for-construction-and-building-unions-superannuation-fund-75493363262</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -17406,7 +17472,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/the-trustee-for-telstra-superannuation-scheme-85502108833</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -17454,13 +17520,13 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/the-trustee-for-the-freehills-service-trust-40648381164</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/the-trustee-for-the-henry-schein-regional-trust-83132312515</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -17639,26 +17705,8 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/thomas-cappo-seafoods-pty-limited-80621912007</loc>
-    <lastmod>2025-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/thomas-foods-international-bourke-pty-limited-94654997001</loc>
-    <lastmod>2025-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/thomas-foods-international-consolidated-pty-limited-20105099849</loc>
     <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/thomas-foods-international-murray-bridge-pty-limited-34085672457</loc>
-    <lastmod>2025-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -17682,12 +17730,6 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/thoughtworks-australia-pty-ltd-99088279761</loc>
-    <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/thryv-australia-pty-ltd-30007423912</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -17749,6 +17791,12 @@
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/timberlink-australia-pty-limited-12161713015</loc>
     <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/titan-recruitment-pty-ltd-34086897636</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -17844,7 +17892,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/toro-australia-pty-ltd-47001310443</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -17856,7 +17904,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/toshiba-international-corporation-pty-ltd-29001555068</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -17898,13 +17946,13 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/toyota-motor-corporation-australia-limited-64009686097</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/toyota-tsusho-south-pacific-holdings-pty-ltd-82050105443</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -18029,12 +18077,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/tricare-aged-care-pty-ltd-50607875490</loc>
-    <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/trility-group-pty-ltd-39144522565</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -18137,7 +18179,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://monochrome-compliance.com/regulator-payment-times/tynan-motors-pty-ltd-50000663347</loc>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/tynan-motors-holdings-pty-ltd-15002448446</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -18210,7 +18252,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/unisys-australia-pty-limited-31105642902</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -18222,7 +18264,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/united-energy-distribution-holdings-pty-limited-15104381660</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -18450,7 +18492,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/victoria-power-networks-pty-ltd-37116940820</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -18540,7 +18582,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/vmware-australia-pty-ltd-77122677089</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -18564,7 +18606,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/volkswagen-group-australia-pty-ltd-14093117876</loc>
-    <lastmod>2025-06-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -18774,7 +18816,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/weir-group-australian-holdings-pty-limited-57090873117</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -18857,6 +18899,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://monochrome-compliance.com/regulator-payment-times/western-suburbs-leagues-club-ltd-69000154736</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/western-truck-group-pty-ltd-31624305353</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -18930,13 +18978,13 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/widebay-motors-pty-ltd-56009715146</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/wiley-publishing-australia-pty-ltd-48085710952</loc>
-    <lastmod>2025-04-29</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -19206,7 +19254,7 @@
   </url>
   <url>
     <loc>https://monochrome-compliance.com/regulator-payment-times/yarra-valley-water-corporation-93066902501</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -29,6 +29,7 @@ import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import {
   usePtrsDatasetsQuery,
   useStageLatestExecutionRunQuery,
+  useProcessLatestExecutionRunQuery,
   useStagePreviewQuery,
   useStageCompletionGateQuery,
   useStagePtrsMutation,
@@ -80,6 +81,7 @@ export default function StagePanel() {
   const transformationsMutation = usePtrsTransformationsMutation(ptrsId);
   const datasetsQ = usePtrsDatasetsQuery(ptrsId);
   const latestStageRunQ = useStageLatestExecutionRunQuery(ptrsId);
+  const latestProcessRunQ = useProcessLatestExecutionRunQuery(ptrsId);
   const stageCompletionGateQ = useStageCompletionGateQuery(ptrsId, {
     profileId,
     enabled: !!profileId,
@@ -98,8 +100,12 @@ export default function StagePanel() {
     [datasetsQ.data?.items],
   );
   const latestStageRun = latestStageRunQ.data ?? null;
+  const latestProcessRun = latestProcessRunQ.data ?? null;
+  const transformationsRunning =
+    transformationsMutation.isPending || latestProcessRun?.status === "running";
   // Stabilise refetch functions so hooks can depend on them safely
   const refetchLatestStageRun = latestStageRunQ.refetch;
+  const refetchLatestProcessRun = latestProcessRunQ.refetch;
   const refetchStagePreview = stagePreviewQ.refetch;
   const refetchStageCompletionGate = stageCompletionGateQ.refetch;
   const refetchDatasets = datasetsQ.refetch;
@@ -567,13 +573,12 @@ export default function StagePanel() {
       const response = await transformationsMutation.mutateAsync({ profileId });
       if (!mountedRef.current) return;
       setTransformationsResult(response);
+      await refetchLatestProcessRun();
       await refetchStageView();
       const counts = response.counts || {};
       showAlert(
         `PTRS transformations complete: ${(counts.derivedPaymentObservations || 0).toLocaleString()} payment observations, ${(counts.sbiPositiveObservations || 0).toLocaleString()} SBI-positive.`,
-        counts.blockers > 0
-          ? "warning"
-          : "success",
+        counts.blockers > 0 ? "warning" : "success",
       );
     } catch (error) {
       console.error("[StagePanel] PTRS transformations error:", error);
@@ -583,8 +588,17 @@ export default function StagePanel() {
           "error",
         );
       }
+    } finally {
+      await refetchLatestProcessRun();
     }
-  }, [ptrsId, profileId, showAlert, transformationsMutation, refetchStageView]);
+  }, [
+    ptrsId,
+    profileId,
+    showAlert,
+    transformationsMutation,
+    refetchLatestProcessRun,
+    refetchStageView,
+  ]);
 
   const hasPreview = Array.isArray(preview?.rows) && preview.rows.length > 0;
 
@@ -856,31 +870,50 @@ export default function StagePanel() {
           <Box>
             <Typography variant="subtitle1">Post-Stage processing</Typography>
             <Typography variant="body2" color="text.secondary">
-              Run exclusions, configured rules, SBI enrichment, payment
-              observations, validation and metrics in the backend-owned order.
+              Run exclusions, configured rules, payment observations, validation
+              and metrics in the backend-owned order.
             </Typography>
             {transformationsResult && (
               <Typography variant="body2" sx={{ mt: 1 }}>
                 {Number(
                   transformationsResult.counts?.sourceStageRows || 0,
-                ).toLocaleString()} stage rows · {Number(
+                ).toLocaleString()}{" "}
+                stage rows ·{" "}
+                {Number(
                   transformationsResult.counts?.excludedStageRows || 0,
-                ).toLocaleString()} excluded · {Number(
+                ).toLocaleString()}{" "}
+                excluded ·{" "}
+                {Number(
                   transformationsResult.counts?.derivedPaymentObservations || 0,
-                ).toLocaleString()} observations · {Number(
+                ).toLocaleString()}{" "}
+                observations ·{" "}
+                {Number(
                   transformationsResult.counts?.sbiPositiveObservations || 0,
-                ).toLocaleString()} SBI-positive · {Number(
+                ).toLocaleString()}{" "}
+                SBI-positive ·{" "}
+                {Number(
                   transformationsResult.counts?.blockers || 0,
-                ).toLocaleString()} blockers · {Number(
+                ).toLocaleString()}{" "}
+                blockers ·{" "}
+                {Number(
                   transformationsResult.counts?.warnings || 0,
-                ).toLocaleString()} warnings
+                ).toLocaleString()}{" "}
+                warnings
+              </Typography>
+            )}
+            {latestProcessRun?.status && (
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                Latest transformation run: {latestProcessRun.status}
+                {latestProcessRun.errorMessage
+                  ? ` — ${latestProcessRun.errorMessage}`
+                  : ""}
               </Typography>
             )}
           </Box>
           <Button
             variant="contained"
             startIcon={
-              transformationsMutation.isPending ? (
+              transformationsRunning ? (
                 <CircularProgress size={16} color="inherit" />
               ) : (
                 <PlayArrowIcon />
@@ -888,13 +921,13 @@ export default function StagePanel() {
             }
             disabled={
               staging ||
-              transformationsMutation.isPending ||
+              transformationsRunning ||
               !completionGateReady ||
               !result
             }
             onClick={handleTransformations}
           >
-            {transformationsMutation.isPending
+            {transformationsRunning
               ? "Running transformations…"
               : "Run PTRS Transformations"}
           </Button>

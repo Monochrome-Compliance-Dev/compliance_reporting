@@ -1,0 +1,44 @@
+{
+  "slug": "bouygues-construction-australia-pty-ltd-and-john-holland-pty-ltd-96495635476",
+  "businessName": "BOUYGUES CONSTRUCTION AUSTRALIA PTY LTD & JOHN HOLLAND PTY LTD",
+  "abn": "96495635476",
+  "acnArbn": "",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20012038",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.39,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 88,
+      "payments31To60Days": 8.75,
+      "paymentsMoreThan60Days": 3.25,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-07-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 192,
+        "count": 409,
+        "percentile": 51.5
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 22,
+        "percentile": 57.1
+      }
+    }
+  ]
+}

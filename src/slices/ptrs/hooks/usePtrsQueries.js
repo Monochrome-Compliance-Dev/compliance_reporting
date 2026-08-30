@@ -55,6 +55,7 @@ const K = {
   map: (id) => ["ptrs", "map", id],
   stage: (id) => ["ptrs", "stage", id],
   stageLatestRun: (id) => ["ptrs", "stage", "latestRun", id],
+  processLatestRun: (id) => ["ptrs", "process", "latestRun", id],
   stagePreview: (id, { profileId = null, limit = 20 } = {}) => [
     "ptrs",
     "stage",
@@ -204,14 +205,13 @@ export function usePtrsMapQuery(ptrsId) {
 export function usePtrsFieldMapQuery(
   ptrsId,
   profileId,
-  datasetId,
   { enabled = true } = {},
 ) {
-  const queryEnabled = !!ptrsId && !!profileId && !!datasetId && enabled;
+  const queryEnabled = !!ptrsId && !!profileId && enabled;
 
   return useQuery({
-    queryKey: ["ptrs", "fieldMap", ptrsId, profileId, datasetId],
-    queryFn: async () => getPtrsFieldMap(ptrsId, profileId, datasetId),
+    queryKey: ["ptrs", "fieldMap", ptrsId, profileId],
+    queryFn: async () => getPtrsFieldMap(ptrsId, profileId),
     enabled: queryEnabled,
     staleTime: 5 * 60_000,
     refetchOnMount: false,
@@ -276,6 +276,21 @@ export function useStageLatestExecutionRunQuery(ptrsId) {
     staleTime: 10_000,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
+  });
+}
+
+export function useProcessLatestExecutionRunQuery(ptrsId) {
+  const enabled = !!ptrsId;
+
+  return useQuery({
+    queryKey: K.processLatestRun(ptrsId),
+    queryFn: async () => getStageLatestExecutionRun(ptrsId, { step: "process" }),
+    enabled,
+    staleTime: 2_000,
+    refetchInterval: (query) =>
+      query.state.data?.status === "running" ? 5_000 : false,
+    refetchOnWindowFocus: true,
+    refetchOnReconnect: true,
   });
 }
 

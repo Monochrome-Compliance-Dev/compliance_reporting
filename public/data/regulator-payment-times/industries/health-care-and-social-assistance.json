@@ -30,8 +30,8 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 113,
-      "averageP95PaymentTimeDays": 57.3,
+      "reportingEntityCount": 115,
+      "averageP95PaymentTimeDays": 57,
       "medianP95PaymentTimeDays": 56,
       "minimumP95PaymentTimeDays": 2,
       "maximumP95PaymentTimeDays": 172
@@ -41,23 +41,67 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 7,
-      "averageP95PaymentTimeDays": 60,
-      "medianP95PaymentTimeDays": 59,
-      "minimumP95PaymentTimeDays": 30,
+      "reportingEntityCount": 12,
+      "averageP95PaymentTimeDays": 50.5,
+      "medianP95PaymentTimeDays": 45.5,
+      "minimumP95PaymentTimeDays": 25,
       "maximumP95PaymentTimeDays": 90
     }
   ],
   "companies": [
+    {
+      "businessName": "B BRAUN AUSTRALIA PTY LTD",
+      "abn": "56002945155",
+      "slug": "b-braun-australia-pty-ltd-56002945155",
+      "p95PaymentTimeDays": 25,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 12,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "EVERLIGHT RADIOLOGY HOLDINGS PTY LTD",
+      "abn": "49651297139",
+      "slug": "everlight-radiology-holdings-pty-ltd-49651297139",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 12,
+        "percentile": 72.7
+      }
+    },
+    {
+      "businessName": "PFIZER AUSTRALIA PTY LTD",
+      "abn": "50008422348",
+      "slug": "pfizer-australia-pty-ltd-50008422348",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 12,
+        "percentile": 72.7
+      }
+    },
     {
       "businessName": "RA (HOLDINGS) 2014 PTY LIMITED",
       "abn": "75603289792",
       "slug": "ra-holdings-2014-pty-limited-75603289792",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 1,
-        "count": 7,
-        "percentile": 100
+        "rank": 2,
+        "count": 12,
+        "percentile": 72.7
+      }
+    },
+    {
+      "businessName": "LUYE AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "98609669472",
+      "slug": "luye-australia-holdings-pty-ltd-98609669472",
+      "p95PaymentTimeDays": 35,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 12,
+        "percentile": 63.6
       }
     },
     {
@@ -66,9 +110,9 @@
       "slug": "qscan-group-holdings-newco-pty-ltd-22645220328",
       "p95PaymentTimeDays": 45,
       "industryP95Position": {
-        "rank": 2,
-        "count": 7,
-        "percentile": 83.3
+        "rank": 6,
+        "count": 12,
+        "percentile": 54.5
       }
     },
     {
@@ -77,9 +121,9 @@
       "slug": "varian-medical-systems-australasia-pty-ltd-53086249630",
       "p95PaymentTimeDays": 46,
       "industryP95Position": {
-        "rank": 3,
-        "count": 7,
-        "percentile": 66.7
+        "rank": 7,
+        "count": 12,
+        "percentile": 45.5
       }
     },
     {
@@ -88,9 +132,9 @@
       "slug": "specsavers-pty-ltd-82097147932",
       "p95PaymentTimeDays": 59,
       "industryP95Position": {
-        "rank": 4,
-        "count": 7,
-        "percentile": 50
+        "rank": 8,
+        "count": 12,
+        "percentile": 36.4
       }
     },
     {
@@ -99,9 +143,20 @@
       "slug": "ryman-healthcare-australia-pty-ltd-44142241110",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 5,
-        "count": 7,
-        "percentile": 33.3
+        "rank": 9,
+        "count": 12,
+        "percentile": 27.3
+      }
+    },
+    {
+      "businessName": "Cook Australia Pty Ltd",
+      "abn": "27141258648",
+      "slug": "cook-australia-pty-ltd-27141258648",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 12,
+        "percentile": 18.2
       }
     },
     {
@@ -110,8 +165,8 @@
       "slug": "medtronic-australasia-pty-ltd-47001162661",
       "p95PaymentTimeDays": 90,
       "industryP95Position": {
-        "rank": 6,
-        "count": 7,
+        "rank": 11,
+        "count": 12,
         "percentile": 0
       }
     },
@@ -121,8 +176,8 @@
       "slug": "takeda-pharmaceuticals-australia-pty-ltd-71095610870",
       "p95PaymentTimeDays": 90,
       "industryP95Position": {
-        "rank": 6,
-        "count": 7,
+        "rank": 11,
+        "count": 12,
         "percentile": 0
       }
     }

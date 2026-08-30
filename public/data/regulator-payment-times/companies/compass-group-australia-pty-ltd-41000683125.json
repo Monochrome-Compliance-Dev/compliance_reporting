@@ -6,8 +6,40 @@
   "industryDivision": "Accommodation and Food Services",
   "industrySlug": "accommodation-and-food-services",
   "industrySubdivision": "Food and beverage services",
-  "latestReportingPeriodEndDate": "2025-09-29",
+  "latestReportingPeriodEndDate": "2026-03-30",
   "reports": [
+    {
+      "reportId": "PTR20012020",
+      "acnArbn": "000683125",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.16,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 40.81,
+      "payments31To60Days": 40.37,
+      "paymentsMoreThan60Days": 18.82,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-07-27",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 352,
+        "count": 409,
+        "percentile": 13.5
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 7,
+        "percentile": 0
+      }
+    },
     {
       "reportId": "PTR20006863",
       "acnArbn": "000683125",
@@ -30,8 +62,8 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2599,
-        "count": 2976,
+        "rank": 2624,
+        "count": 3004,
         "percentile": 12.2
       },
       "industryP95Position": {
@@ -62,9 +94,9 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2497,
-        "count": 2935,
-        "percentile": 14.5
+        "rank": 2501,
+        "count": 2941,
+        "percentile": 14.6
       },
       "industryP95Position": {
         "rank": 36,

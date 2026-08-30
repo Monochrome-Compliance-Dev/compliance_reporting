@@ -1,0 +1,44 @@
+{
+  "slug": "the-collagen-co-pty-ltd-86603721491",
+  "businessName": "THE COLLAGEN CO PTY LTD",
+  "abn": "86603721491",
+  "acnArbn": "603721491",
+  "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011845",
+      "acnArbn": "603721491",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8,
+      "medianPaymentTimeDays": 2,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 40,
+      "payments30DaysOrLess": 91.7,
+      "payments31To60Days": 8.29,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-07-13",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 859,
+        "count": 3004,
+        "percentile": 70.6
+      },
+      "industryP95Position": {
+        "rank": 37,
+        "count": 404,
+        "percentile": 90.8
+      }
+    }
+  ]
+}

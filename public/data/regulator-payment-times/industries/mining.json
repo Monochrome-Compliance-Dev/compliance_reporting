@@ -19,19 +19,19 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 183,
-      "averageP95PaymentTimeDays": 71.7,
+      "reportingEntityCount": 185,
+      "averageP95PaymentTimeDays": 56.4,
       "medianP95PaymentTimeDays": 55,
       "minimumP95PaymentTimeDays": 1,
-      "maximumP95PaymentTimeDays": 2940
+      "maximumP95PaymentTimeDays": 260
     },
     {
       "reportingCycleId": "2025-H2",
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 187,
-      "averageP95PaymentTimeDays": 54.1,
+      "reportingEntityCount": 190,
+      "averageP95PaymentTimeDays": 54.6,
       "medianP95PaymentTimeDays": 50,
       "minimumP95PaymentTimeDays": 12,
       "maximumP95PaymentTimeDays": 209
@@ -41,9 +41,9 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 11,
-      "averageP95PaymentTimeDays": 42.2,
-      "medianP95PaymentTimeDays": 31,
+      "reportingEntityCount": 18,
+      "averageP95PaymentTimeDays": 52.8,
+      "medianP95PaymentTimeDays": 55.5,
       "minimumP95PaymentTimeDays": 16,
       "maximumP95PaymentTimeDays": 97
     }
@@ -56,7 +56,7 @@
       "p95PaymentTimeDays": 16,
       "industryP95Position": {
         "rank": 1,
-        "count": 11,
+        "count": 18,
         "percentile": 100
       }
     },
@@ -67,8 +67,8 @@
       "p95PaymentTimeDays": 19,
       "industryP95Position": {
         "rank": 2,
-        "count": 11,
-        "percentile": 90
+        "count": 18,
+        "percentile": 94.1
       }
     },
     {
@@ -78,8 +78,8 @@
       "p95PaymentTimeDays": 24,
       "industryP95Position": {
         "rank": 3,
-        "count": 11,
-        "percentile": 80
+        "count": 18,
+        "percentile": 88.2
       }
     },
     {
@@ -89,8 +89,8 @@
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
         "rank": 4,
-        "count": 11,
-        "percentile": 60
+        "count": 18,
+        "percentile": 76.5
       }
     },
     {
@@ -100,8 +100,8 @@
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
         "rank": 4,
-        "count": 11,
-        "percentile": 60
+        "count": 18,
+        "percentile": 76.5
       }
     },
     {
@@ -111,8 +111,8 @@
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
         "rank": 6,
-        "count": 11,
-        "percentile": 50
+        "count": 18,
+        "percentile": 70.6
       }
     },
     {
@@ -122,8 +122,30 @@
       "p95PaymentTimeDays": 33,
       "industryP95Position": {
         "rank": 7,
-        "count": 11,
-        "percentile": 40
+        "count": 18,
+        "percentile": 64.7
+      }
+    },
+    {
+      "businessName": "MARUBENI IRON ORE AUSTRALIA PTY. LTD.",
+      "abn": "91156488130",
+      "slug": "marubeni-iron-ore-australia-pty-ltd-91156488130",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 18,
+        "percentile": 58.8
+      }
+    },
+    {
+      "businessName": "DENISON GAS LIMITED",
+      "abn": "86625883561",
+      "slug": "denison-gas-limited-86625883561",
+      "p95PaymentTimeDays": 55,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 18,
+        "percentile": 52.9
       }
     },
     {
@@ -132,9 +154,9 @@
       "slug": "big-ben-holdings-pty-limited-63008434562",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 8,
-        "count": 11,
-        "percentile": 20
+        "rank": 10,
+        "count": 18,
+        "percentile": 41.2
       }
     },
     {
@@ -143,9 +165,42 @@
       "slug": "shark-bay-salt-pty-ltd-89008759500",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 8,
-        "count": 11,
-        "percentile": 20
+        "rank": 10,
+        "count": 18,
+        "percentile": 41.2
+      }
+    },
+    {
+      "businessName": "AGNICO EAGLE AUSTRALIA PTY LTD",
+      "abn": "30136505587",
+      "slug": "agnico-eagle-australia-pty-ltd-30136505587",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 18,
+        "percentile": 35.3
+      }
+    },
+    {
+      "businessName": "PETROLEUM HELICOPTERS AUSTRALIA PTY LIMITED",
+      "abn": "48154419628",
+      "slug": "petroleum-helicopters-australia-pty-limited-48154419628",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 18,
+        "percentile": 29.4
+      }
+    },
+    {
+      "businessName": "SOJITZ DEVELOPMENT PTY LTD",
+      "abn": "34063050680",
+      "slug": "sojitz-development-pty-ltd-34063050680",
+      "p95PaymentTimeDays": 65,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 18,
+        "percentile": 23.5
       }
     },
     {
@@ -154,9 +209,20 @@
       "slug": "adani-mining-pty-ltd-27145455205",
       "p95PaymentTimeDays": 72,
       "industryP95Position": {
-        "rank": 10,
-        "count": 11,
-        "percentile": 10
+        "rank": 15,
+        "count": 18,
+        "percentile": 17.6
+      }
+    },
+    {
+      "businessName": "A-BL SUPER TOPCO 1 PTY LTD",
+      "abn": "25673597110",
+      "slug": "a-bl-super-topco-1-pty-ltd-25673597110",
+      "p95PaymentTimeDays": 97,
+      "industryP95Position": {
+        "rank": 16,
+        "count": 18,
+        "percentile": 0
       }
     },
     {
@@ -165,8 +231,19 @@
       "slug": "altrad-australia-pty-ltd-56652016807",
       "p95PaymentTimeDays": 97,
       "industryP95Position": {
-        "rank": 11,
-        "count": 11,
+        "rank": 16,
+        "count": 18,
+        "percentile": 0
+      }
+    },
+    {
+      "businessName": "BOART LONGYEAR AUSTRALIA PTY LTD",
+      "abn": "99000401025",
+      "slug": "boart-longyear-australia-pty-ltd-99000401025",
+      "p95PaymentTimeDays": 97,
+      "industryP95Position": {
+        "rank": 16,
+        "count": 18,
         "percentile": 0
       }
     }

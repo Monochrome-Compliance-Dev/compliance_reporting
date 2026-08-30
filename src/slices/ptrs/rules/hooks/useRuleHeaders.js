@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { getStagePreview } from "slices/ptrs/services/stage.ptrsApi";
+import { useMemo } from "react";
+import { useStagePreviewQuery } from "slices/ptrs/hooks/usePtrsQueries";
 
 const toSnake = (s) =>
   !s
@@ -18,52 +18,20 @@ const deriveHeadersFromMap = (map) => {
 };
 
 export default function useRuleHeaders(ptrsId, ptrsMap) {
-  const [headers, setHeaders] = useState([]);
-  const [isLoadingHeaders, setIsLoadingHeaders] = useState(false);
+  const stagePreviewQuery = useStagePreviewQuery(ptrsId, {
+    limit: 1,
+    enabled: !!ptrsId,
+  });
+  const seed = useMemo(() => deriveHeadersFromMap(ptrsMap), [ptrsMap]);
+  const headers = useMemo(() => {
+    const fromStage = Array.isArray(stagePreviewQuery.data?.headers)
+      ? stagePreviewQuery.data.headers
+      : [];
+    return uniq(fromStage.length ? fromStage : seed);
+  }, [seed, stagePreviewQuery.data?.headers]);
 
-  useEffect(() => {
-    let cancelled = false;
-
-    const load = async () => {
-      if (!ptrsId && !ptrsMap) return;
-
-      setIsLoadingHeaders(true);
-
-      const seed = deriveHeadersFromMap(ptrsMap);
-      if (!cancelled && seed.length) {
-        setHeaders(seed);
-      }
-
-      if (!ptrsId) {
-        setIsLoadingHeaders(false);
-        return;
-      }
-
-      try {
-        const prev = await getStagePreview(ptrsId, { limit: 1 });
-        if (cancelled) return;
-        const fromSrv = Array.isArray(prev?.headers) ? prev.headers : [];
-        const combined = fromSrv.length ? fromSrv : seed;
-        if (combined.length) {
-          setHeaders(uniq(combined));
-        }
-      } catch (e) {
-        if (!cancelled && seed.length) {
-          setHeaders(seed);
-        }
-      } finally {
-        if (!cancelled) {
-          setIsLoadingHeaders(false);
-        }
-      }
-    };
-
-    load();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [ptrsId, ptrsMap]);
-
-  return { headers, isLoadingHeaders };
+  return {
+    headers,
+    isLoadingHeaders: stagePreviewQuery.isLoading,
+  };
 }

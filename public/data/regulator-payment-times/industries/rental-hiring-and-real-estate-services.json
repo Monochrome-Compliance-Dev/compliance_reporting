@@ -30,8 +30,8 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 69,
-      "averageP95PaymentTimeDays": 51.8,
+      "reportingEntityCount": 71,
+      "averageP95PaymentTimeDays": 51.6,
       "medianP95PaymentTimeDays": 49,
       "minimumP95PaymentTimeDays": 6,
       "maximumP95PaymentTimeDays": 106
@@ -41,9 +41,9 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 3,
-      "averageP95PaymentTimeDays": 53.7,
-      "medianP95PaymentTimeDays": 68,
+      "reportingEntityCount": 5,
+      "averageP95PaymentTimeDays": 51.4,
+      "medianP95PaymentTimeDays": 66,
       "minimumP95PaymentTimeDays": 10,
       "maximumP95PaymentTimeDays": 83
     }
@@ -56,8 +56,30 @@
       "p95PaymentTimeDays": 10,
       "industryP95Position": {
         "rank": 1,
-        "count": 3,
+        "count": 5,
         "percentile": 100
+      }
+    },
+    {
+      "businessName": "SERVCORP LIMITED",
+      "abn": "97089222506",
+      "slug": "servcorp-limited-97089222506",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 5,
+        "percentile": 75
+      }
+    },
+    {
+      "businessName": "BOOM LOGISTICS LTD",
+      "abn": "28095466961",
+      "slug": "boom-logistics-ltd-28095466961",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 5,
+        "percentile": 50
       }
     },
     {
@@ -66,9 +88,9 @@
       "slug": "movigo-pty-ltd-57606409394",
       "p95PaymentTimeDays": 68,
       "industryP95Position": {
-        "rank": 2,
-        "count": 3,
-        "percentile": 50
+        "rank": 4,
+        "count": 5,
+        "percentile": 25
       }
     },
     {
@@ -77,8 +99,8 @@
       "slug": "tutt-bryant-group-limited-89009242675",
       "p95PaymentTimeDays": 83,
       "industryP95Position": {
-        "rank": 3,
-        "count": 3,
+        "rank": 5,
+        "count": 5,
         "percentile": 0
       }
     }

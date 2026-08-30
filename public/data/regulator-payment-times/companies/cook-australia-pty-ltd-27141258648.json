@@ -6,8 +6,72 @@
   "industryDivision": "Health Care and Social Assistance",
   "industrySlug": "health-care-and-social-assistance",
   "industrySubdivision": "Medical and other health care services",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20011808",
+      "acnArbn": "141258648",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.8,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 48.55,
+      "payments31To60Days": 19.33,
+      "paymentsMoreThan60Days": 32.12,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-07-08",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 307,
+        "count": 409,
+        "percentile": 22.3
+      },
+      "industryP95Position": {
+        "rank": 10,
+        "count": 12,
+        "percentile": 18.2
+      }
+    },
+    {
+      "reportId": "PTR20011809",
+      "acnArbn": "141258648",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.34,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 52.79,
+      "payments31To60Days": 37.72,
+      "paymentsMoreThan60Days": 9.49,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-07-08",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 3004,
+        "percentile": 24.6
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 115,
+        "percentile": 32.5
+      }
+    },
     {
       "reportId": "PTR20003833",
       "acnArbn": "141258648",
@@ -30,9 +94,9 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1692,
-        "count": 2935,
-        "percentile": 40
+        "rank": 1691,
+        "count": 2941,
+        "percentile": 40.1
       },
       "industryP95Position": {
         "rank": 53,
@@ -62,8 +126,8 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1423,
-        "count": 2524,
+        "rank": 1426,
+        "count": 2530,
         "percentile": 40.9
       },
       "industryP95Position": {

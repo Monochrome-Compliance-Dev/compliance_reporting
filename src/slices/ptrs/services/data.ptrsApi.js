@@ -4,7 +4,7 @@ import { normDataset, normDatasetList, normSample, pickData } from "./ptrsApi";
 // Avoid trailing slashes
 const API_ROOT = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 
-// -------------------- Main CSV ingest / run sample --------------------
+// -------------------- Transaction CSV ingest / run sample --------------------
 
 export const uploadCsv = async (ptrsId, file) => {
   if (!ptrsId) throw new Error("ptrsId is required");
@@ -12,8 +12,9 @@ export const uploadCsv = async (ptrsId, file) => {
 
   const fd = new FormData();
   fd.append("file", file);
-  fd.append("role", "main");
-  fd.append("sourceName", file.name || "Main input");
+  fd.append("purpose", "transaction");
+  fd.append("sourceFormat", "csv");
+  fd.append("sourceName", file.name || "Transaction dataset");
 
   const res = await fetchWrapper.postUpload(
     `${API_ROOT}/v2/ptrs/${ptrsId}/datasets`,
@@ -28,28 +29,45 @@ export const uploadCsv = async (ptrsId, file) => {
   };
 };
 
-export const getRunSample = async (ptrsId, { limit = 10, offset = 0 } = {}) => {
+export const getRunSample = async (
+  ptrsId,
+  { datasetId, limit = 10, offset = 0 } = {},
+) => {
   if (!ptrsId) throw new Error("ptrsId is required");
+  if (!datasetId) throw new Error("datasetId is required");
 
   const res = await fetchWrapper.get(
-    `${API_ROOT}/v2/ptrs/${ptrsId}/sample?limit=${limit}&offset=${offset}`,
+    `${API_ROOT}/v2/ptrs/${ptrsId}/sample?datasetId=${encodeURIComponent(datasetId)}&limit=${limit}&offset=${offset}`,
   );
 
   return normSample(pickData(res));
 };
 
-// Upload an auxiliary dataset (vendorMaster, termsChanges, entityStructure, other)
+// Upload one explicitly classified dataset.
 export const addDataset = async (
   ptrsId,
   file,
-  { role, sourceName = "" } = {},
+  {
+    purpose,
+    referenceKind = null,
+    sourceFormat = "csv",
+    adapterType = null,
+    adapterVersion = null,
+    sourceGroupScope = null,
+    sourceName = "",
+  } = {},
 ) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!file) throw new Error("file is required");
-  if (!role) throw new Error("role is required");
+  if (!purpose) throw new Error("purpose is required");
   const fd = new FormData();
   fd.append("file", file);
-  fd.append("role", role);
+  fd.append("purpose", purpose);
+  fd.append("sourceFormat", sourceFormat);
+  if (referenceKind) fd.append("referenceKind", referenceKind);
+  if (adapterType) fd.append("adapterType", adapterType);
+  if (adapterVersion) fd.append("adapterVersion", adapterVersion);
+  if (sourceGroupScope) fd.append("sourceGroupScope", sourceGroupScope);
   if (sourceName) fd.append("sourceName", sourceName);
   const res = await fetchWrapper.postUpload(
     `${API_ROOT}/v2/ptrs/${ptrsId}/datasets`,

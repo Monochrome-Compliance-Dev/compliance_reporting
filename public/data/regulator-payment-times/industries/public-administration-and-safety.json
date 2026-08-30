@@ -20,8 +20,8 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "reportingEntityCount": 36,
-      "averageP95PaymentTimeDays": 51.8,
-      "medianP95PaymentTimeDays": 48.5,
+      "averageP95PaymentTimeDays": 51.1,
+      "medianP95PaymentTimeDays": 48,
       "minimumP95PaymentTimeDays": 5,
       "maximumP95PaymentTimeDays": 141
     },

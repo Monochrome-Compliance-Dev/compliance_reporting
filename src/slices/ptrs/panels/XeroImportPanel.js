@@ -41,7 +41,7 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
   const effectivePtrsId = ptrsId || ctxPtrsId || null;
 
   const [forceRefresh, setForceRefresh] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
+  const [, setHasStarted] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
 
   const [exceptionsCount, setExceptionsCount] = useState(null);
@@ -283,8 +283,8 @@ export default function XeroImportPanel({ ptrsId, onImported }) {
 
         <Typography variant="body2" sx={{ mb: theme.spacing(2) }}>
           Connect to Xero once per customer, then import payments to build your
-          main dataset. The next step (link tables and custom fields) stays
-          unchanged.
+          Xero transaction dataset. The next step links reference datasets and
+          defines custom fields.
         </Typography>
 
         {isReadinessLoading ? (

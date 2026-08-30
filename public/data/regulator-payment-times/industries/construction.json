@@ -19,8 +19,8 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 269,
-      "averageP95PaymentTimeDays": 67.9,
+      "reportingEntityCount": 272,
+      "averageP95PaymentTimeDays": 67.8,
       "medianP95PaymentTimeDays": 60,
       "minimumP95PaymentTimeDays": 9,
       "maximumP95PaymentTimeDays": 750
@@ -30,8 +30,8 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 280,
-      "averageP95PaymentTimeDays": 61.9,
+      "reportingEntityCount": 283,
+      "averageP95PaymentTimeDays": 61.8,
       "medianP95PaymentTimeDays": 59,
       "minimumP95PaymentTimeDays": 1,
       "maximumP95PaymentTimeDays": 346
@@ -41,9 +41,9 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 8,
-      "averageP95PaymentTimeDays": 58.1,
-      "medianP95PaymentTimeDays": 56.5,
+      "reportingEntityCount": 22,
+      "averageP95PaymentTimeDays": 53.1,
+      "medianP95PaymentTimeDays": 52,
       "minimumP95PaymentTimeDays": 1,
       "maximumP95PaymentTimeDays": 112
     }
@@ -56,8 +56,74 @@
       "p95PaymentTimeDays": 1,
       "industryP95Position": {
         "rank": 1,
-        "count": 8,
+        "count": 22,
         "percentile": 100
+      }
+    },
+    {
+      "businessName": "LINKFORCE ENGINEERING PTY LTD",
+      "abn": "57123543699",
+      "slug": "linkforce-engineering-pty-ltd-57123543699",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 22,
+        "percentile": 95.2
+      }
+    },
+    {
+      "businessName": "SUBURBAN LAND AGENCY & RIVERVIEW DEVELOPMENTS (ACT) PTY LIMITED",
+      "abn": "72619778053",
+      "slug": "suburban-land-agency-and-riverview-developments-act-pty-limited-72619778053",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 22,
+        "percentile": 90.5
+      }
+    },
+    {
+      "businessName": "BMS HEAVY CRANES AUSTRALIA PTY LTD",
+      "abn": "13623691378",
+      "slug": "bms-heavy-cranes-australia-pty-ltd-13623691378",
+      "p95PaymentTimeDays": 39,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 22,
+        "percentile": 85.7
+      }
+    },
+    {
+      "businessName": "FRASERS PROPERTY INDUSTRIAL AUSTRALIA PTY LIMITED",
+      "abn": "22107356454",
+      "slug": "frasers-property-industrial-australia-pty-limited-22107356454",
+      "p95PaymentTimeDays": 40,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 22,
+        "percentile": 81
+      }
+    },
+    {
+      "businessName": "FEC CONSTRUCTION HOLDINGS (AUSTRALIA) PTY LTD",
+      "abn": "38658945521",
+      "slug": "fec-construction-holdings-australia-pty-ltd-38658945521",
+      "p95PaymentTimeDays": 42,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 22,
+        "percentile": 76.2
+      }
+    },
+    {
+      "businessName": "HOMECORP CONSTRUCTIONS PTY LTD",
+      "abn": "27169928205",
+      "slug": "homecorp-constructions-pty-ltd-27169928205",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 22,
+        "percentile": 71.4
       }
     },
     {
@@ -66,9 +132,9 @@
       "slug": "fluence-energy-pty-ltd-18627071461",
       "p95PaymentTimeDays": 46,
       "industryP95Position": {
-        "rank": 2,
-        "count": 8,
-        "percentile": 85.7
+        "rank": 8,
+        "count": 22,
+        "percentile": 66.7
       }
     },
     {
@@ -77,9 +143,31 @@
       "slug": "laing-o-rourke-australia-group-pty-limited-36001333900",
       "p95PaymentTimeDays": 48,
       "industryP95Position": {
-        "rank": 3,
-        "count": 8,
-        "percentile": 71.4
+        "rank": 9,
+        "count": 22,
+        "percentile": 61.9
+      }
+    },
+    {
+      "businessName": "BOUYGUES CONSTRUCTION AUSTRALIA PTY LTD & JOHN HOLLAND PTY LTD",
+      "abn": "96495635476",
+      "slug": "bouygues-construction-australia-pty-ltd-and-john-holland-pty-ltd-96495635476",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 22,
+        "percentile": 57.1
+      }
+    },
+    {
+      "businessName": "CONSTRUCTION SERVICES AUSTRALIA PTY LTD",
+      "abn": "99007641787",
+      "slug": "construction-services-australia-pty-ltd-99007641787",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 22,
+        "percentile": 47.6
       }
     },
     {
@@ -88,9 +176,42 @@
       "slug": "frasers-property-australia-pty-limited-89600448726",
       "p95PaymentTimeDays": 52,
       "industryP95Position": {
-        "rank": 4,
-        "count": 8,
-        "percentile": 57.1
+        "rank": 11,
+        "count": 22,
+        "percentile": 47.6
+      }
+    },
+    {
+      "businessName": "STABILISED PAVEMENTS OF AUSTRALIA PTY. LIMITED",
+      "abn": "90002900736",
+      "slug": "stabilised-pavements-of-australia-pty-limited-90002900736",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 22,
+        "percentile": 42.9
+      }
+    },
+    {
+      "businessName": "PCL Constructors Pacific Rim Pty Ltd",
+      "abn": "74140877792",
+      "slug": "pcl-constructors-pacific-rim-pty-ltd-74140877792",
+      "p95PaymentTimeDays": 54,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 22,
+        "percentile": 38.1
+      }
+    },
+    {
+      "businessName": "ELLIS AIR GROUP PTY LTD",
+      "abn": "80666957473",
+      "slug": "ellis-air-group-pty-ltd-80666957473",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 22,
+        "percentile": 33.3
       }
     },
     {
@@ -99,9 +220,31 @@
       "slug": "nex-building-group-pty-ltd-59089524050",
       "p95PaymentTimeDays": 61,
       "industryP95Position": {
-        "rank": 5,
-        "count": 8,
-        "percentile": 42.9
+        "rank": 16,
+        "count": 22,
+        "percentile": 28.6
+      }
+    },
+    {
+      "businessName": "CONSTRUCTION CONTROL PTY LIMITED",
+      "abn": "79150745154",
+      "slug": "construction-control-pty-limited-79150745154",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 22,
+        "percentile": 19
+      }
+    },
+    {
+      "businessName": "KCE PTY LIMITED",
+      "abn": "83059721881",
+      "slug": "kce-pty-limited-83059721881",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 22,
+        "percentile": 19
       }
     },
     {
@@ -110,9 +253,9 @@
       "slug": "far-east-consortium-holdings-australia-pty-limited-80062878880",
       "p95PaymentTimeDays": 72,
       "industryP95Position": {
-        "rank": 6,
-        "count": 8,
-        "percentile": 28.6
+        "rank": 19,
+        "count": 22,
+        "percentile": 14.3
       }
     },
     {
@@ -121,9 +264,20 @@
       "slug": "gamuda-holdings-pty-ltd-81665763020",
       "p95PaymentTimeDays": 73,
       "industryP95Position": {
-        "rank": 7,
-        "count": 8,
-        "percentile": 14.3
+        "rank": 20,
+        "count": 22,
+        "percentile": 9.5
+      }
+    },
+    {
+      "businessName": "JOHN HOLLAND PTY LTD & CPB CONTRACTORS PTY LTD",
+      "abn": "79385373351",
+      "slug": "john-holland-pty-ltd-and-cpb-contractors-pty-ltd-79385373351",
+      "p95PaymentTimeDays": 82,
+      "industryP95Position": {
+        "rank": 21,
+        "count": 22,
+        "percentile": 4.8
       }
     },
     {
@@ -132,8 +286,8 @@
       "slug": "cape-australia-holdings-pty-limited-12126824397",
       "p95PaymentTimeDays": 112,
       "industryP95Position": {
-        "rank": 8,
-        "count": 8,
+        "rank": 22,
+        "count": 22,
         "percentile": 0
       }
     }

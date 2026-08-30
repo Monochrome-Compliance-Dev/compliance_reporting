@@ -22,7 +22,6 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import TableChartIcon from "@mui/icons-material/TableChart";
-import LinkIcon from "@mui/icons-material/Link";
 import { usePtrsContext } from "../context/PtrsContext";
 import { useUpdatePtrsMutation } from "../hooks/usePtrsQueries";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
@@ -33,30 +32,43 @@ import {
 } from "../services/data.ptrsApi";
 import CreateRunCard from "./CreateRunCard";
 import { useAlert } from "context";
+import { PTRS_ADAPTER_LABELS } from "../ingestConfig";
 
-const ROLE_OPTIONS = [
-  { value: "main_csv", label: "Payments / Transactions (CSV)" },
-  { value: "invoices_csv", label: "Invoices (CSV)" },
+const REFERENCE_KIND_OPTIONS = [
   { value: "vendormaster", label: "Vendor Master" },
   { value: "termschanges", label: "Payment Terms Changes" },
   { value: "entitystructure", label: "Entity Structure" },
+  { value: "invoices", label: "Invoice Context" },
   { value: "other", label: "Other" },
 ];
 
-const COLUMNS = [
-  { key: "payments", label: "Payments / Transactions", roles: ["main_csv"] },
-  { key: "invoices", label: "Invoices", roles: ["invoices_csv"] },
+const TRANSACTION_ADAPTER_OPTIONS = [
   {
-    key: "supporting",
-    label: "Supporting datasets",
-    roles: ["vendormaster", "termschanges", "entitystructure", "other"],
+    value: "sap_accounting_event",
+    label: PTRS_ADAPTER_LABELS.sap_accounting_event,
+  },
+  {
+    value: "direct_payment",
+    label: PTRS_ADAPTER_LABELS.direct_payment,
   },
 ];
 
-const isXeroMainRole = (r) => {
-  const v = String(r || "").toLowerCase();
-  return v === "main_xero" || v === "transactions";
-};
+const transactionAdapterLabel = (adapterType) =>
+  TRANSACTION_ADAPTER_OPTIONS.find((option) => option.value === adapterType)
+    ?.label || adapterType;
+
+const COLUMNS = [
+  {
+    key: "transaction",
+    label: "Transaction datasets",
+    purpose: "transaction",
+  },
+  {
+    key: "reference",
+    label: "Reference datasets",
+    purpose: "reference",
+  },
+];
 
 export default function DataConsole() {
   const theme = useTheme();
@@ -79,8 +91,11 @@ export default function DataConsole() {
 
   // Datasets state
   const [datasets, setDatasets] = useState([]);
-  const [role, setRole] = useState("main_csv");
-  const [supportingRole, setSupportingRole] = useState("vendormaster");
+  const [purpose, setPurpose] = useState("transaction");
+  const [transactionAdapterType, setTransactionAdapterType] = useState(
+    "sap_accounting_event",
+  );
+  const [referenceKind, setReferenceKind] = useState("vendormaster");
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
   const [liveUploadStatus, setLiveUploadStatus] = useState(null);
@@ -125,7 +140,6 @@ export default function DataConsole() {
       : 0;
   const uploadError = liveUploadStatus?.error || null;
   const updatedAt = liveUploadStatus?.updatedAt || null;
-  const uploadDatasetId = liveUploadStatus?.datasetId || null;
   const uploadRole = liveUploadStatus?.role || null;
   const uploadSourceType = liveUploadStatus?.sourceType || null;
 
@@ -203,8 +217,8 @@ export default function DataConsole() {
       showAlert("CSV files only — please export as CSV and retry", "error");
       return;
     }
-    if (!role) {
-      showAlert("Select a role for the file", "info");
+    if (!purpose) {
+      showAlert("Select a dataset purpose", "info");
       return;
     }
     setIsUploading(true);
@@ -212,7 +226,7 @@ export default function DataConsole() {
     setLiveUploadStatus({
       ptrsId,
       datasetId: null,
-      role: String(role || "").toLowerCase(),
+      role: purpose === "transaction" ? "transaction" : referenceKind,
       sourceType: "csv",
       status: "uploading",
       rowsInserted: 0,
@@ -221,7 +235,11 @@ export default function DataConsole() {
     });
     try {
       await addDataset(ptrsId, file, {
-        role: String(role || "").toLowerCase(),
+        purpose,
+        referenceKind: purpose === "reference" ? referenceKind : null,
+        sourceFormat: "csv",
+        adapterType: purpose === "transaction" ? transactionAdapterType : null,
+        adapterVersion: purpose === "transaction" ? "1" : null,
         sourceName: file.name,
       });
       setFile(null);
@@ -232,7 +250,9 @@ export default function DataConsole() {
       setLiveUploadStatus((prev) => ({
         ptrsId,
         datasetId: prev?.datasetId || null,
-        role: prev?.role || String(role || "").toLowerCase(),
+        role:
+          prev?.role ||
+          (purpose === "transaction" ? "transaction" : referenceKind),
         sourceType: prev?.sourceType || "csv",
         status: "failed",
         rowsInserted: Number(prev?.rowsInserted || 0),
@@ -277,27 +297,6 @@ export default function DataConsole() {
     }
 
     goTo("tables");
-  };
-
-  const goToXero = async () => {
-    if (!ptrsId) {
-      showAlert("Create a PTRS first", "info");
-      return;
-    }
-
-    try {
-      // Treat Xero import as part of the data step (Step 1)
-      await updatePtrsStep.mutateAsync({ currentStep: "data" });
-    } catch (err) {
-      console.error(err);
-      // Don't block navigation if the step update fails
-      showAlert(
-        "Failed to update PTRS step. Continuing to Xero import.",
-        "warning",
-      );
-    }
-
-    goTo("xero");
   };
 
   return (
@@ -372,8 +371,8 @@ export default function DataConsole() {
                   gutterBottom
                   sx={{ mb: 2 }}
                 >
-                  Upload additional files (e.g., Vendor Master, Payment Terms).
-                  Map core roles on the Transactions dataset.
+                  Upload transaction datasets independently, then add any
+                  reference data such as Vendor Master or Payment Terms.
                 </Typography>
 
                 {/* Columns */}
@@ -383,8 +382,8 @@ export default function DataConsole() {
                   sx={{ mb: 3 }}
                 >
                   {COLUMNS.map((col) => {
-                    const colDatasets = datasets.filter((d) =>
-                      col.roles.includes(d.role),
+                    const colDatasets = datasets.filter(
+                      (dataset) => dataset.purpose === col.purpose,
                     );
 
                     return (
@@ -397,7 +396,32 @@ export default function DataConsole() {
                           {col.label}
                         </Typography>
 
-                        {col.key === "supporting" && (
+                        {col.key === "transaction" && (
+                          <FormControl size="small" fullWidth sx={{ mb: 2 }}>
+                            <InputLabel id="transaction-source-type-label">
+                              Transaction source type
+                            </InputLabel>
+                            <Select
+                              labelId="transaction-source-type-label"
+                              label="Transaction source type"
+                              value={transactionAdapterType}
+                              onChange={(event) =>
+                                setTransactionAdapterType(event.target.value)
+                              }
+                            >
+                              {TRANSACTION_ADAPTER_OPTIONS.map((option) => (
+                                <MenuItem
+                                  key={option.value}
+                                  value={option.value}
+                                >
+                                  {option.label}
+                                </MenuItem>
+                              ))}
+                            </Select>
+                          </FormControl>
+                        )}
+
+                        {col.key === "reference" && (
                           <FormControl size="small" fullWidth sx={{ mb: 2 }}>
                             <InputLabel id="supporting-role-select-label">
                               Supporting dataset type
@@ -405,19 +429,12 @@ export default function DataConsole() {
                             <Select
                               labelId="supporting-role-select-label"
                               label="Supporting dataset type"
-                              value={supportingRole}
+                              value={referenceKind}
                               onChange={(e) =>
-                                setSupportingRole(e.target.value)
+                                setReferenceKind(e.target.value)
                               }
                             >
-                              {ROLE_OPTIONS.filter((opt) =>
-                                [
-                                  "vendormaster",
-                                  "termschanges",
-                                  "entitystructure",
-                                  "other",
-                                ].includes(opt.value),
-                              ).map((opt) => (
+                              {REFERENCE_KIND_OPTIONS.map((opt) => (
                                 <MenuItem key={opt.value} value={opt.value}>
                                   {opt.label}
                                 </MenuItem>
@@ -451,7 +468,13 @@ export default function DataConsole() {
                                     variant="caption"
                                     color="text.secondary"
                                   >
-                                    Rows: {d.rowsCount ?? "?"}
+                                    {d.referenceKind
+                                      ? `${REFERENCE_KIND_OPTIONS.find((option) => option.value === d.referenceKind)?.label || d.referenceKind} • `
+                                      : ""}
+                                    {d.adapterType
+                                      ? `${transactionAdapterLabel(d.adapterType)} • `
+                                      : ""}
+                                    {d.sourceFormat?.toUpperCase() || "CSV"} • Rows: {d.rowsCount ?? "?"} • {d.status || "unknown"}
                                   </Typography>
                                 </Box>
                                 <IconButton
@@ -471,17 +494,11 @@ export default function DataConsole() {
                           fullWidth
                           variant="outlined"
                           startIcon={<UploadFileIcon />}
-                          onClick={() =>
-                            setRole(
-                              col.key === "supporting"
-                                ? supportingRole
-                                : col.roles[0],
-                            )
-                          }
+                          onClick={() => setPurpose(col.purpose)}
                         >
-                          {col.key === "supporting"
-                            ? "Upload supporting CSV"
-                            : "Upload CSV"}
+                          {col.key === "reference"
+                            ? "Upload reference CSV"
+                            : "Upload transaction CSV"}
                           <input
                             hidden
                             type="file"

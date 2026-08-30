@@ -61,7 +61,7 @@ const toSnake = (s) =>
     ? ""
     : String(s)
         .replace(/([a-z0-9])([A-Z])/g, "$1_$2")
-        .replace(/[\s\-\/]+/g, "_")
+        .replace(/[\s/-]+/g, "_")
         .replace(/__+/g, "_")
         .replace(/^_+|_+$/g, "")
         .toLowerCase();
@@ -279,12 +279,12 @@ export default function RulesPanel() {
     [dsQ.data],
   );
 
-  const mainHeadersByRole = useMemo(() => {
-    const byRole = {};
+  const transactionHeadersByDataset = useMemo(() => {
+    const byDataset = {};
 
     datasetItems.forEach((dataset) => {
-      const role = String(dataset?.role || "");
-      if (!role || !(role === "main" || role.startsWith("main_"))) return;
+      const datasetId = String(dataset?.id || "");
+      if (!datasetId || dataset?.purpose !== "transaction") return;
 
       const roleHeaders = (dataset?.meta?.headers || dataset?.headers || [])
         .filter(Boolean)
@@ -292,22 +292,21 @@ export default function RulesPanel() {
 
       if (!roleHeaders.length) return;
 
-      byRole[role] = Array.from(new Set(roleHeaders)).sort((a, b) =>
+      byDataset[datasetId] = Array.from(new Set(roleHeaders)).sort((a, b) =>
         a.localeCompare(b),
       );
     });
 
-    return byRole;
+    return byDataset;
   }, [datasetItems]);
 
-  const mainHeaders = useMemo(() => {
-    const mainRole = mainHeadersByRole.main || [];
-    if (mainRole.length) return mainRole;
-
+  const transactionHeaders = useMemo(() => {
     return Array.from(
-      new Set(Object.values(mainHeadersByRole).flatMap((arr) => arr || [])),
+      new Set(
+        Object.values(transactionHeadersByDataset).flatMap((arr) => arr || []),
+      ),
     ).sort((a, b) => a.localeCompare(b));
-  }, [mainHeadersByRole]);
+  }, [transactionHeadersByDataset]);
 
   const joinsData = joinsQ.data || null;
   const normalisedJoins = useMemo(
@@ -403,7 +402,7 @@ export default function RulesPanel() {
   const [lastPreviewExamples, setLastPreviewExamples] = useState([]);
   const [lastPreviewExamplesPagination, setLastPreviewExamplesPagination] =
     useState({ page: 1, limit: 30, total: 0, totalPages: 1 });
-  const [previewPage, setPreviewPage] = useState(0);
+  const [, setPreviewPage] = useState(0);
   const [lastApplyResult, setLastApplyResult] = useState(null);
   const [showRuleGroups, setShowRuleGroups] = useState({});
   const [selectedGroupKey, setSelectedGroupKey] = useState("__all__");
@@ -712,32 +711,28 @@ export default function RulesPanel() {
       }
     };
 
-    const mainRoleCandidates = Object.keys(mainHeadersByRole).filter(
-      (role) => role === "main" || role.startsWith("main_"),
-    );
-
-    const roleDrivenHeaders = mainRoleCandidates.length
-      ? mainRoleCandidates.flatMap((role) =>
-          Array.isArray(mainHeadersByRole[role])
-            ? mainHeadersByRole[role].map((header) => ({
+    const datasetDrivenHeaders = datasetItems
+      .filter((dataset) => dataset?.purpose === "transaction")
+      .flatMap((dataset) =>
+        Array.isArray(transactionHeadersByDataset[dataset.id])
+          ? transactionHeadersByDataset[dataset.id].map((header) => ({
                 header,
-                role,
+                sourceLabel:
+                  dataset.sourceName || dataset.fileName || dataset.id,
               }))
-            : [],
-        )
-      : mainHeaders.map((header) => ({
-          header,
-          role: "main",
-        }));
+          : [],
+      );
 
-    for (const item of roleDrivenHeaders) {
-      addOption(item?.header, item?.role || "dataset");
+    for (const item of datasetDrivenHeaders) {
+      addOption(item?.header, item?.sourceLabel || "transaction dataset");
     }
 
     for (const cf of joinsCustomFields) {
-      const role = String(cf?.role || "main");
-      if (role === "main" || role.startsWith("main_")) {
-        addOption(cf?.key, `custom field (${role})`);
+      const sourceDataset = datasetItems.find(
+        (dataset) => String(dataset?.id || "") === String(cf?.datasetId || ""),
+      );
+      if (sourceDataset?.purpose === "transaction") {
+        addOption(cf?.key, "custom field (transaction dataset)");
       }
     }
 
@@ -795,11 +790,10 @@ export default function RulesPanel() {
     headers,
     helperFields,
     rules,
-    mainHeaders,
-    mainHeadersByRole,
+    transactionHeadersByDataset,
+    datasetItems,
     joinsCustomFields,
     fieldMapRows,
-    resolveCanonicalField,
     effectiveMap,
   ]);
 
@@ -927,7 +921,9 @@ export default function RulesPanel() {
       profileId,
       effectiveMap,
       datasetItemsCount: Array.isArray(datasetItems) ? datasetItems.length : 0,
-      mainHeadersCount: Array.isArray(mainHeaders) ? mainHeaders.length : 0,
+      transactionHeadersCount: Array.isArray(transactionHeaders)
+        ? transactionHeaders.length
+        : 0,
       joinsCustomFieldsCount: Array.isArray(joinsCustomFields)
         ? joinsCustomFields.length
         : 0,
@@ -957,7 +953,7 @@ export default function RulesPanel() {
     ruleSources,
     rules,
     datasetItems,
-    mainHeaders,
+    transactionHeaders,
     joinsCustomFields,
     fieldMapRows,
   ]);
