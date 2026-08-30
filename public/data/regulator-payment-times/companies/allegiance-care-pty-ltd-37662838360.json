@@ -6,8 +6,40 @@
   "industryDivision": "Health Care and Social Assistance",
   "industrySlug": "health-care-and-social-assistance",
   "industrySubdivision": "Residential care services",
-  "latestReportingPeriodEndDate": "2024-12-30",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
+    {
+      "reportId": "PTR20011865",
+      "acnArbn": "662838360",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.91,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 72.2,
+      "payments31To60Days": 22.23,
+      "paymentsMoreThan60Days": 5.76,
+      "industrySubdivision": "Residential care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-07-15",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2209,
+        "count": 3004,
+        "percentile": 24.6
+      },
+      "industryP95Position": {
+        "rank": 74,
+        "count": 115,
+        "percentile": 32.5
+      }
+    },
     {
       "reportId": "PTR20001965",
       "acnArbn": "662838360",
@@ -30,9 +62,9 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 236,
-        "count": 2524,
-        "percentile": 89.3
+        "rank": 238,
+        "count": 2530,
+        "percentile": 89.2
       },
       "industryP95Position": {
         "rank": 6,

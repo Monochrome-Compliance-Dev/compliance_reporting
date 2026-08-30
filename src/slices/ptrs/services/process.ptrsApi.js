@@ -18,6 +18,7 @@ export const runPtrsTransformations = async (
   return {
     ptrsId: data.ptrsId || ptrsId,
     profileId: data.profileId || profileId,
+    executionRunId: data.executionRunId || null,
     tookMs: data.tookMs ?? null,
     counts: data.counts || {},
     steps: data.steps || {},

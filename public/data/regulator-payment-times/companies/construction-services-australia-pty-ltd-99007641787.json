@@ -1,0 +1,108 @@
+{
+  "slug": "construction-services-australia-pty-ltd-99007641787",
+  "businessName": "CONSTRUCTION SERVICES AUSTRALIA PTY LTD",
+  "abn": "99007641787",
+  "acnArbn": "007641787",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20011862",
+      "acnArbn": "007641787",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.75,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 77.09,
+      "payments31To60Days": 21.08,
+      "paymentsMoreThan60Days": 1.01,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-07-15",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 200,
+        "count": 409,
+        "percentile": 50.2
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 22,
+        "percentile": 47.6
+      }
+    },
+    {
+      "reportId": "PTR20011861",
+      "acnArbn": "007641787",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.12,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 76.22,
+      "payments31To60Days": 23.05,
+      "paymentsMoreThan60Days": 0.72,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-07-15",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1472,
+        "count": 3004,
+        "percentile": 49.5
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 283,
+        "percentile": 66.7
+      }
+    },
+    {
+      "reportId": "PTR20011801",
+      "acnArbn": "007641787",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.08,
+      "medianPaymentTimeDays": 6,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 76.11,
+      "payments31To60Days": 23.22,
+      "paymentsMoreThan60Days": 0.67,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-07-07",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1220,
+        "count": 2941,
+        "percentile": 57.3
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 272,
+        "percentile": 75.6
+      }
+    }
+  ]
+}

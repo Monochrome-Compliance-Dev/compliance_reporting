@@ -1,0 +1,140 @@
+{
+  "slug": "appen-limited-60138878298",
+  "businessName": "APPEN LIMITED",
+  "abn": "60138878298",
+  "acnArbn": "138878298",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySlug": "information-media-and-telecommunications",
+  "industrySubdivision": "Internet service providers, web search portals and data processing services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20011911",
+      "acnArbn": "138878298",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 25,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94,
+      "payments31To60Days": 4,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-07-20",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 84,
+        "count": 409,
+        "percentile": 78.7
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 18,
+        "percentile": 88.2
+      }
+    },
+    {
+      "reportId": "PTR20011910",
+      "acnArbn": "138878298",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 86,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-07-20",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1896,
+        "count": 3004,
+        "percentile": 34.1
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 73,
+        "percentile": 30.6
+      }
+    },
+    {
+      "reportId": "PTR20011909",
+      "acnArbn": "138878298",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 84,
+      "payments31To60Days": 13,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-07-20",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1762,
+        "count": 2941,
+        "percentile": 36.9
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 70,
+        "percentile": 26.1
+      }
+    },
+    {
+      "reportId": "PTR20011887",
+      "acnArbn": "138878298",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Internet service providers, web search portals and data processing services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-07-20",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1497,
+        "count": 2530,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 60,
+        "percentile": 32.2
+      }
+    }
+  ]
+}

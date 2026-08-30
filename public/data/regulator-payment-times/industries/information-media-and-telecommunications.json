@@ -8,7 +8,7 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 59,
+      "reportingEntityCount": 60,
       "averageP95PaymentTimeDays": 57.9,
       "medianP95PaymentTimeDays": 49,
       "minimumP95PaymentTimeDays": 10,
@@ -19,8 +19,8 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 69,
-      "averageP95PaymentTimeDays": 54.1,
+      "reportingEntityCount": 70,
+      "averageP95PaymentTimeDays": 54.2,
       "medianP95PaymentTimeDays": 49,
       "minimumP95PaymentTimeDays": 14,
       "maximumP95PaymentTimeDays": 136
@@ -30,8 +30,8 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 71,
-      "averageP95PaymentTimeDays": 55.2,
+      "reportingEntityCount": 73,
+      "averageP95PaymentTimeDays": 54.8,
       "medianP95PaymentTimeDays": 49,
       "minimumP95PaymentTimeDays": 14,
       "maximumP95PaymentTimeDays": 132
@@ -41,9 +41,9 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 12,
-      "averageP95PaymentTimeDays": 64.8,
-      "medianP95PaymentTimeDays": 59,
+      "reportingEntityCount": 18,
+      "averageP95PaymentTimeDays": 59.3,
+      "medianP95PaymentTimeDays": 57.5,
       "minimumP95PaymentTimeDays": 15,
       "maximumP95PaymentTimeDays": 136
     }
@@ -56,8 +56,30 @@
       "p95PaymentTimeDays": 15,
       "industryP95Position": {
         "rank": 1,
-        "count": 12,
+        "count": 18,
         "percentile": 100
+      }
+    },
+    {
+      "businessName": "SPECIAL BROADCASTING SERVICE CORPORATION",
+      "abn": "91314398574",
+      "slug": "special-broadcasting-service-corporation-91314398574",
+      "p95PaymentTimeDays": 28,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 18,
+        "percentile": 94.1
+      }
+    },
+    {
+      "businessName": "APPEN LIMITED",
+      "abn": "60138878298",
+      "slug": "appen-limited-60138878298",
+      "p95PaymentTimeDays": 32,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 18,
+        "percentile": 88.2
       }
     },
     {
@@ -66,9 +88,20 @@
       "slug": "industrial-light-and-magic-australia-pty-limited-46145485767",
       "p95PaymentTimeDays": 36,
       "industryP95Position": {
-        "rank": 2,
-        "count": 12,
-        "percentile": 90.9
+        "rank": 4,
+        "count": 18,
+        "percentile": 82.4
+      }
+    },
+    {
+      "businessName": "BLOOMBERG AUSTRALIA PTY LTD",
+      "abn": "47622777851",
+      "slug": "bloomberg-australia-pty-ltd-47622777851",
+      "p95PaymentTimeDays": 40,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 18,
+        "percentile": 76.5
       }
     },
     {
@@ -77,9 +110,20 @@
       "slug": "bbc-studios-australia-holdings-pty-ltd-85127624104",
       "p95PaymentTimeDays": 51,
       "industryP95Position": {
-        "rank": 3,
-        "count": 12,
-        "percentile": 81.8
+        "rank": 6,
+        "count": 18,
+        "percentile": 70.6
+      }
+    },
+    {
+      "businessName": "CDM AUSTRALIA PTY. LTD.",
+      "abn": "68009592965",
+      "slug": "cdm-australia-pty-ltd-68009592965",
+      "p95PaymentTimeDays": 55,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 18,
+        "percentile": 64.7
       }
     },
     {
@@ -88,9 +132,9 @@
       "slug": "snowflake-computing-pty-ltd-50624134587",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 4,
-        "count": 12,
-        "percentile": 72.7
+        "rank": 8,
+        "count": 18,
+        "percentile": 58.8
       }
     },
     {
@@ -99,9 +143,9 @@
       "slug": "cdc-group-holdings-pty-ltd-67612332073",
       "p95PaymentTimeDays": 57,
       "industryP95Position": {
-        "rank": 5,
-        "count": 12,
-        "percentile": 63.6
+        "rank": 9,
+        "count": 18,
+        "percentile": 52.9
       }
     },
     {
@@ -110,9 +154,20 @@
       "slug": "nec-australia-pty-ltd-86001217527",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 6,
-        "count": 12,
-        "percentile": 54.5
+        "rank": 10,
+        "count": 18,
+        "percentile": 47.1
+      }
+    },
+    {
+      "businessName": "CPS TECHNOLOGY & INFRASTRUCTURE PTY LTD",
+      "abn": "48148905159",
+      "slug": "cps-technology-and-infrastructure-pty-ltd-48148905159",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 18,
+        "percentile": 29.4
       }
     },
     {
@@ -121,9 +176,9 @@
       "slug": "genesys-cloud-services-pty-ltd-80077375887",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 7,
-        "count": 12,
-        "percentile": 36.4
+        "rank": 11,
+        "count": 18,
+        "percentile": 29.4
       }
     },
     {
@@ -132,9 +187,9 @@
       "slug": "the-walt-disney-company-australia-pty-limited-30054610025",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 7,
-        "count": 12,
-        "percentile": 36.4
+        "rank": 11,
+        "count": 18,
+        "percentile": 29.4
       }
     },
     {
@@ -143,9 +198,20 @@
       "slug": "singapore-telecom-australia-investments-pty-limited-69096686190",
       "p95PaymentTimeDays": 69,
       "industryP95Position": {
-        "rank": 9,
-        "count": 12,
-        "percentile": 27.3
+        "rank": 14,
+        "count": 18,
+        "percentile": 23.5
+      }
+    },
+    {
+      "businessName": "WILEY PUBLISHING AUSTRALIA PTY LTD",
+      "abn": "48085710952",
+      "slug": "wiley-publishing-australia-pty-ltd-48085710952",
+      "p95PaymentTimeDays": 75,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 18,
+        "percentile": 17.6
       }
     },
     {
@@ -154,9 +220,9 @@
       "slug": "netapp-australia-pty-ltd-14092499431",
       "p95PaymentTimeDays": 89,
       "industryP95Position": {
-        "rank": 10,
-        "count": 12,
-        "percentile": 18.2
+        "rank": 16,
+        "count": 18,
+        "percentile": 11.8
       }
     },
     {
@@ -165,9 +231,9 @@
       "slug": "cisco-systems-australia-pty-limited-52050332940",
       "p95PaymentTimeDays": 90,
       "industryP95Position": {
-        "rank": 11,
-        "count": 12,
-        "percentile": 9.1
+        "rank": 17,
+        "count": 18,
+        "percentile": 5.9
       }
     },
     {
@@ -176,8 +242,8 @@
       "slug": "splunk-services-australia-pty-ltd-51609939817",
       "p95PaymentTimeDays": 136,
       "industryP95Position": {
-        "rank": 12,
-        "count": 12,
+        "rank": 18,
+        "count": 18,
         "percentile": 0
       }
     }

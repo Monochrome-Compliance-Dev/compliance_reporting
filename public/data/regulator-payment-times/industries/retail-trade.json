@@ -20,7 +20,7 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "reportingEntityCount": 252,
-      "averageP95PaymentTimeDays": 62.9,
+      "averageP95PaymentTimeDays": 63,
       "medianP95PaymentTimeDays": 57,
       "minimumP95PaymentTimeDays": 7,
       "maximumP95PaymentTimeDays": 701
@@ -41,9 +41,9 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 32,
-      "averageP95PaymentTimeDays": 53.4,
-      "medianP95PaymentTimeDays": 47.5,
+      "reportingEntityCount": 41,
+      "averageP95PaymentTimeDays": 50.6,
+      "medianP95PaymentTimeDays": 48,
       "minimumP95PaymentTimeDays": 11,
       "maximumP95PaymentTimeDays": 165
     }
@@ -56,7 +56,7 @@
       "p95PaymentTimeDays": 11,
       "industryP95Position": {
         "rank": 1,
-        "count": 32,
+        "count": 41,
         "percentile": 100
       }
     },
@@ -67,8 +67,30 @@
       "p95PaymentTimeDays": 14,
       "industryP95Position": {
         "rank": 2,
-        "count": 32,
-        "percentile": 96.8
+        "count": 41,
+        "percentile": 97.5
+      }
+    },
+    {
+      "businessName": "SEPHORA AUSTRALIA PTY LTD",
+      "abn": "37169030737",
+      "slug": "sephora-australia-pty-ltd-37169030737",
+      "p95PaymentTimeDays": 17,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 41,
+        "percentile": 95
+      }
+    },
+    {
+      "businessName": "DAN-BUNKERING (AUSTRALIA) PTY LTD",
+      "abn": "26123643952",
+      "slug": "dan-bunkering-australia-pty-ltd-26123643952",
+      "p95PaymentTimeDays": 21,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 41,
+        "percentile": 92.5
       }
     },
     {
@@ -77,9 +99,9 @@
       "slug": "lululemon-athletica-australia-holding-pty-ltd-45131437468",
       "p95PaymentTimeDays": 28,
       "industryP95Position": {
-        "rank": 3,
-        "count": 32,
-        "percentile": 93.5
+        "rank": 5,
+        "count": 41,
+        "percentile": 90
       }
     },
     {
@@ -88,9 +110,9 @@
       "slug": "leica-camera-australia-pty-ltd-32162179740",
       "p95PaymentTimeDays": 29,
       "industryP95Position": {
-        "rank": 4,
-        "count": 32,
-        "percentile": 90.3
+        "rank": 6,
+        "count": 41,
+        "percentile": 87.5
       }
     },
     {
@@ -99,9 +121,9 @@
       "slug": "adcome-pty-ltd-99110315681",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 5,
-        "count": 32,
-        "percentile": 83.9
+        "rank": 7,
+        "count": 41,
+        "percentile": 82.5
       }
     },
     {
@@ -110,9 +132,9 @@
       "slug": "incomm-australia-and-new-zealand-pty-ltd-31125567357",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 5,
-        "count": 32,
-        "percentile": 83.9
+        "rank": 7,
+        "count": 41,
+        "percentile": 82.5
       }
     },
     {
@@ -121,9 +143,31 @@
       "slug": "richemont-australia-pty-limited-99003432504",
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
-        "rank": 7,
-        "count": 32,
-        "percentile": 80.6
+        "rank": 9,
+        "count": 41,
+        "percentile": 75
+      }
+    },
+    {
+      "businessName": "RPBJ GORELL PTY. LTD.",
+      "abn": "29004908490",
+      "slug": "rpbj-gorell-pty-ltd-29004908490",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 41,
+        "percentile": 75
+      }
+    },
+    {
+      "businessName": "RPBJ PTY LTD",
+      "abn": "54114494307",
+      "slug": "rpbj-pty-ltd-54114494307",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 41,
+        "percentile": 75
       }
     },
     {
@@ -132,9 +176,9 @@
       "slug": "retail-apparel-group-pty-ltd-31110176077",
       "p95PaymentTimeDays": 32,
       "industryP95Position": {
-        "rank": 8,
-        "count": 32,
-        "percentile": 71
+        "rank": 12,
+        "count": 41,
+        "percentile": 67.5
       }
     },
     {
@@ -143,9 +187,9 @@
       "slug": "the-trustee-for-tarocash-trading-trust-36449159653",
       "p95PaymentTimeDays": 32,
       "industryP95Position": {
-        "rank": 8,
-        "count": 32,
-        "percentile": 71
+        "rank": 12,
+        "count": 41,
+        "percentile": 67.5
       }
     },
     {
@@ -154,9 +198,9 @@
       "slug": "yd-pty-limited-52096242590",
       "p95PaymentTimeDays": 32,
       "industryP95Position": {
-        "rank": 8,
-        "count": 32,
-        "percentile": 71
+        "rank": 12,
+        "count": 41,
+        "percentile": 67.5
       }
     },
     {
@@ -165,9 +209,9 @@
       "slug": "connor-clothing-pty-ltd-53087433029",
       "p95PaymentTimeDays": 33,
       "industryP95Position": {
-        "rank": 11,
-        "count": 32,
-        "percentile": 64.5
+        "rank": 15,
+        "count": 41,
+        "percentile": 62.5
       }
     },
     {
@@ -176,9 +220,9 @@
       "slug": "the-trustee-for-beaujolais-unit-trust-36155404826",
       "p95PaymentTimeDays": 33,
       "industryP95Position": {
-        "rank": 11,
-        "count": 32,
-        "percentile": 64.5
+        "rank": 15,
+        "count": 41,
+        "percentile": 62.5
       }
     },
     {
@@ -187,9 +231,9 @@
       "slug": "glassons-australia-pty-ltd-15074774637",
       "p95PaymentTimeDays": 36,
       "industryP95Position": {
-        "rank": 13,
-        "count": 32,
-        "percentile": 58.1
+        "rank": 17,
+        "count": 41,
+        "percentile": 57.5
       }
     },
     {
@@ -198,9 +242,9 @@
       "slug": "johnny-bigg-pty-limited-48168371015",
       "p95PaymentTimeDays": 36,
       "industryP95Position": {
-        "rank": 13,
-        "count": 32,
-        "percentile": 58.1
+        "rank": 17,
+        "count": 41,
+        "percentile": 57.5
       }
     },
     {
@@ -209,9 +253,9 @@
       "slug": "freedom-energy-holdings-pty-ltd-24093243844",
       "p95PaymentTimeDays": 45,
       "industryP95Position": {
-        "rank": 15,
-        "count": 32,
-        "percentile": 51.6
+        "rank": 19,
+        "count": 41,
+        "percentile": 52.5
       }
     },
     {
@@ -220,9 +264,42 @@
       "slug": "intuit-australia-pty-limited-28163072704",
       "p95PaymentTimeDays": 45,
       "industryP95Position": {
-        "rank": 15,
-        "count": 32,
-        "percentile": 51.6
+        "rank": 19,
+        "count": 41,
+        "percentile": 52.5
+      }
+    },
+    {
+      "businessName": "WIDEBAY MOTORS PTY LTD",
+      "abn": "56009715146",
+      "slug": "widebay-motors-pty-ltd-56009715146",
+      "p95PaymentTimeDays": 48,
+      "industryP95Position": {
+        "rank": 21,
+        "count": 41,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "CROKERS FUEL & OILS PTY LTD",
+      "abn": "41069396354",
+      "slug": "crokers-fuel-and-oils-pty-ltd-41069396354",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 22,
+        "count": 41,
+        "percentile": 47.5
+      }
+    },
+    {
+      "businessName": "H&M HENNES & MAURITZ PTY LTD",
+      "abn": "83160056548",
+      "slug": "h-and-m-hennes-and-mauritz-pty-ltd-83160056548",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 23,
+        "count": 41,
+        "percentile": 42.5
       }
     },
     {
@@ -231,9 +308,9 @@
       "slug": "strandbags-holdings-pty-ltd-99128842482",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 17,
-        "count": 32,
-        "percentile": 48.4
+        "rank": 23,
+        "count": 41,
+        "percentile": 42.5
       }
     },
     {
@@ -242,9 +319,9 @@
       "slug": "jd-sports-fashion-holdings-australia-pty-ltd-15614248332",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 18,
-        "count": 32,
-        "percentile": 45.2
+        "rank": 25,
+        "count": 41,
+        "percentile": 40
       }
     },
     {
@@ -253,9 +330,20 @@
       "slug": "costco-wholesale-australia-pty-ltd-57104012893",
       "p95PaymentTimeDays": 57,
       "industryP95Position": {
-        "rank": 19,
-        "count": 32,
-        "percentile": 41.9
+        "rank": 26,
+        "count": 41,
+        "percentile": 37.5
+      }
+    },
+    {
+      "businessName": "MOTUS AUSTRALIA PTY LTD",
+      "abn": "79113527263",
+      "slug": "motus-australia-pty-ltd-79113527263",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 27,
+        "count": 41,
+        "percentile": 35
       }
     },
     {
@@ -264,9 +352,20 @@
       "slug": "electronics-boutique-australia-pty-limited-50077681442",
       "p95PaymentTimeDays": 59,
       "industryP95Position": {
-        "rank": 20,
-        "count": 32,
-        "percentile": 38.7
+        "rank": 28,
+        "count": 41,
+        "percentile": 32.5
+      }
+    },
+    {
+      "businessName": "SWAROVSKI AUSTRALIA PTY LTD",
+      "abn": "16000679416",
+      "slug": "swarovski-australia-pty-ltd-16000679416",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 29,
+        "count": 41,
+        "percentile": 27.5
       }
     },
     {
@@ -275,9 +374,9 @@
       "slug": "uniqlo-australia-pty-ltd-36161922103",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 21,
-        "count": 32,
-        "percentile": 35.5
+        "rank": 29,
+        "count": 41,
+        "percentile": 27.5
       }
     },
     {
@@ -286,9 +385,9 @@
       "slug": "mj-bale-group-pty-ltd-55629040348",
       "p95PaymentTimeDays": 63,
       "industryP95Position": {
-        "rank": 22,
-        "count": 32,
-        "percentile": 32.3
+        "rank": 31,
+        "count": 41,
+        "percentile": 25
       }
     },
     {
@@ -297,9 +396,9 @@
       "slug": "dollarama-australia-pty-ltd-33006122676",
       "p95PaymentTimeDays": 65,
       "industryP95Position": {
-        "rank": 23,
-        "count": 32,
-        "percentile": 29
+        "rank": 32,
+        "count": 41,
+        "percentile": 22.5
       }
     },
     {
@@ -308,20 +407,20 @@
       "slug": "wh-smith-australia-pty-limited-70146430622",
       "p95PaymentTimeDays": 68,
       "industryP95Position": {
-        "rank": 24,
-        "count": 32,
-        "percentile": 25.8
+        "rank": 33,
+        "count": 41,
+        "percentile": 20
       }
     },
     {
-      "businessName": "AS COLOUR HOLDINGS LIMITED",
+      "businessName": "AS COLOUR PTY LTD",
       "abn": "17130999165",
-      "slug": "as-colour-holdings-limited-17130999165",
+      "slug": "as-colour-pty-ltd-17130999165",
       "p95PaymentTimeDays": 69,
       "industryP95Position": {
-        "rank": 25,
-        "count": 32,
-        "percentile": 19.4
+        "rank": 34,
+        "count": 41,
+        "percentile": 15
       }
     },
     {
@@ -330,9 +429,9 @@
       "slug": "optimus-group-australia-pty-ltd-19628862840",
       "p95PaymentTimeDays": 69,
       "industryP95Position": {
-        "rank": 25,
-        "count": 32,
-        "percentile": 19.4
+        "rank": 34,
+        "count": 41,
+        "percentile": 15
       }
     },
     {
@@ -341,9 +440,9 @@
       "slug": "inditex-australia-pty-ltd-64089376349",
       "p95PaymentTimeDays": 73,
       "industryP95Position": {
-        "rank": 27,
-        "count": 32,
-        "percentile": 16.1
+        "rank": 36,
+        "count": 41,
+        "percentile": 12.5
       }
     },
     {
@@ -352,9 +451,9 @@
       "slug": "honda-australia-pty-ltd-66004759611",
       "p95PaymentTimeDays": 74,
       "industryP95Position": {
-        "rank": 28,
-        "count": 32,
-        "percentile": 12.9
+        "rank": 37,
+        "count": 41,
+        "percentile": 10
       }
     },
     {
@@ -363,9 +462,9 @@
       "slug": "the-hour-glass-australia-pty-ltd-64010831713",
       "p95PaymentTimeDays": 78,
       "industryP95Position": {
-        "rank": 29,
-        "count": 32,
-        "percentile": 9.7
+        "rank": 38,
+        "count": 41,
+        "percentile": 7.5
       }
     },
     {
@@ -374,9 +473,9 @@
       "slug": "arj-group-holdings-pty-ltd-31104958527",
       "p95PaymentTimeDays": 91,
       "industryP95Position": {
-        "rank": 30,
-        "count": 32,
-        "percentile": 6.5
+        "rank": 39,
+        "count": 41,
+        "percentile": 5
       }
     },
     {
@@ -385,9 +484,9 @@
       "slug": "myer-holdings-limited-14119085602",
       "p95PaymentTimeDays": 115,
       "industryP95Position": {
-        "rank": 31,
-        "count": 32,
-        "percentile": 3.2
+        "rank": 40,
+        "count": 41,
+        "percentile": 2.5
       }
     },
     {
@@ -396,8 +495,8 @@
       "slug": "ikea-pty-limited-84006270757",
       "p95PaymentTimeDays": 165,
       "industryP95Position": {
-        "rank": 32,
-        "count": 32,
+        "rank": 41,
+        "count": 41,
         "percentile": 0
       }
     }

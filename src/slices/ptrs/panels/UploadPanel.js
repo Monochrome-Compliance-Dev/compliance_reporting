@@ -84,7 +84,11 @@ export default function UploadPanel() {
         res?.data?.rowsInserted ?? res?.rowsInserted ?? rowsInserted ?? 0;
       showAlert(`Ingested ${inserted} rows`, "success");
       // Fetch a small sample to confirm rows landed
-      const sampleRes = await getRunSample(ptrsId, { limit: 10, offset: 0 });
+      const sampleRes = await getRunSample(ptrsId, {
+        datasetId: res?.id,
+        limit: 10,
+        offset: 0,
+      });
       setLastSample(sampleRes || null);
     } catch (e) {
       setLiveUploadStatus((prev) => ({

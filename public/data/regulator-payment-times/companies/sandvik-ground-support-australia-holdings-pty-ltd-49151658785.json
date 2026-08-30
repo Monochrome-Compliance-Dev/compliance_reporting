@@ -1,13 +1,45 @@
 {
-  "slug": "dsi-holdings-2-australia-pty-ltd-49151658785",
-  "businessName": "DSI HOLDINGS 2 AUSTRALIA PTY LTD",
+  "slug": "sandvik-ground-support-australia-holdings-pty-ltd-49151658785",
+  "businessName": "SANDVIK GROUND SUPPORT AUSTRALIA HOLDINGS PTY LTD",
   "abn": "49151658785",
   "acnArbn": "151658785",
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Fabricated metal product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20012033",
+      "acnArbn": "151658785",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.13,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 58.78,
+      "payments31To60Days": 37.2,
+      "paymentsMoreThan60Days": 4.02,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-07-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 239,
+        "count": 409,
+        "percentile": 39.5
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 53,
+        "percentile": 61.5
+      }
+    },
     {
       "reportId": "PTR20007181",
       "acnArbn": "151658785",
@@ -30,8 +62,8 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2037,
-        "count": 2976,
+        "rank": 2056,
+        "count": 3004,
         "percentile": 30
       },
       "industryP95Position": {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1909,
-        "count": 2935,
-        "percentile": 33.1
+        "rank": 1911,
+        "count": 2941,
+        "percentile": 33.2
       },
       "industryP95Position": {
-        "rank": 182,
-        "count": 393,
-        "percentile": 51.5
+        "rank": 178,
+        "count": 390,
+        "percentile": 52.2
       }
     },
     {
@@ -94,14 +126,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1718,
-        "count": 2524,
+        "rank": 1722,
+        "count": 2530,
         "percentile": 30.4
       },
       "industryP95Position": {
-        "rank": 171,
-        "count": 330,
-        "percentile": 45.9
+        "rank": 170,
+        "count": 329,
+        "percentile": 46.3
       }
     }
   ]

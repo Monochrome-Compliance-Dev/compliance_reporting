@@ -36,15 +36,6 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
-    "businessName": "7-ELEVEN STORES PTY LTD",
-    "abn": "48005299427",
-    "slug": "7-eleven-stores-pty-ltd-48005299427",
-    "industryDivision": "Retail Trade",
-    "industrySlug": "retail-trade",
-    "industrySubdivision": "Other store-based retailing",
-    "latestReportingPeriodEndDate": "2025-12-30"
-  },
-  {
     "businessName": "7C HOLDINGS PTY LTD",
     "abn": "63008210106",
     "slug": "7c-holdings-pty-ltd-63008210106",
@@ -88,6 +79,15 @@
     "industrySlug": "construction",
     "industrySubdivision": "Building construction",
     "latestReportingPeriodEndDate": "2025-12-30"
+  },
+  {
+    "businessName": "A-BL SUPER TOPCO 1 PTY LTD",
+    "abn": "25673597110",
+    "slug": "a-bl-super-topco-1-pty-ltd-25673597110",
+    "industryDivision": "Mining",
+    "industrySlug": "mining",
+    "industrySubdivision": "Metal ore mining",
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "A. A. COMPANY PTY. LTD.",
@@ -357,7 +357,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "ACHMEA SCHADEVERZEKERINGEN N.V.",
@@ -699,7 +699,7 @@
     "industryDivision": "Agriculture, Forestry and Fishing",
     "industrySlug": "agriculture-forestry-and-fishing",
     "industrySubdivision": "Agriculture",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "AG N VET MANAGEMENT SERVICES PTY LIMITED",
@@ -717,7 +717,7 @@
     "industryDivision": "Agriculture, Forestry and Fishing",
     "industrySlug": "agriculture-forestry-and-fishing",
     "industrySubdivision": "Agriculture",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "AGCO AUSTRALIA LIMITED",
@@ -744,7 +744,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "AGILITUS PTY LTD",
@@ -771,7 +771,7 @@
     "industryDivision": "Mining",
     "industrySlug": "mining",
     "industrySubdivision": "Metal ore mining",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "Agricultural Bank of China Limited",
@@ -1086,7 +1086,7 @@
     "industryDivision": "Health Care and Social Assistance",
     "industrySlug": "health-care-and-social-assistance",
     "industrySubdivision": "Residential care services",
-    "latestReportingPeriodEndDate": "2024-12-30"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "ALLEGION (AUSTRALIA) PTY LTD",
@@ -1437,7 +1437,7 @@
     "industryDivision": "Agriculture, Forestry and Fishing",
     "industrySlug": "agriculture-forestry-and-fishing",
     "industrySubdivision": "Agriculture",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "AMES AUSTRALASIA PTY LTD",
@@ -1737,6 +1737,15 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
+    "businessName": "APPEN LIMITED",
+    "abn": "60138878298",
+    "slug": "appen-limited-60138878298",
+    "industryDivision": "Information Media and Telecommunications",
+    "industrySlug": "information-media-and-telecommunications",
+    "industrySubdivision": "Internet service providers, web search portals and data processing services",
+    "latestReportingPeriodEndDate": "2026-06-29"
+  },
+  {
     "businessName": "APPLE PTY LIMITED",
     "abn": "46002510054",
     "slug": "apple-pty-limited-46002510054",
@@ -1779,6 +1788,15 @@
     "industryDivision": "Electricity, Gas, Water and Waste Services",
     "industrySlug": "electricity-gas-water-and-waste-services",
     "industrySubdivision": "Water supply, sewerage and drainage services",
+    "latestReportingPeriodEndDate": "2026-06-29"
+  },
+  {
+    "businessName": "AR HOLDCO PTY LTD",
+    "abn": "43673156593",
+    "slug": "ar-holdco-pty-ltd-43673156593",
+    "industryDivision": "Retail Trade",
+    "industrySlug": "retail-trade",
+    "industrySubdivision": "Other store-based retailing",
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
@@ -1989,9 +2007,9 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
-    "businessName": "AS COLOUR HOLDINGS LIMITED",
+    "businessName": "AS COLOUR PTY LTD",
     "abn": "17130999165",
-    "slug": "as-colour-holdings-limited-17130999165",
+    "slug": "as-colour-pty-ltd-17130999165",
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Other store-based retailing",
@@ -2049,7 +2067,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "ASICS OCEANIA PTY LTD",
@@ -2373,7 +2391,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Other goods wholesaling",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "AUSGRID FINANCE PTY LTD",
@@ -2436,7 +2454,7 @@
     "industryDivision": "Agriculture, Forestry and Fishing",
     "industrySlug": "agriculture-forestry-and-fishing",
     "industrySubdivision": "Fishing, hunting and trapping",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "AUSTRALASIAN LANDSCAPE SERVICES HOLDCO PTY LTD",
@@ -2553,7 +2571,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Furniture and other mfg",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "AUSTRALIAN CONSTRUCTION GROUP PTY LTD",
@@ -2661,7 +2679,7 @@
     "industryDivision": "Agriculture, Forestry and Fishing",
     "industrySlug": "agriculture-forestry-and-fishing",
     "industrySubdivision": "Agriculture",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "AUSTRALIAN GRAND PRIX",
@@ -2850,7 +2868,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "AUSTRALIAN RUGBY LEAGUE COMMISSION LIMITED",
@@ -3120,7 +3138,7 @@
     "industryDivision": "Electricity, Gas, Water and Waste Services",
     "industrySlug": "electricity-gas-water-and-waste-services",
     "industrySubdivision": "Waste collection, treatment and disposal services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "AZZ Pty Ltd",
@@ -3156,7 +3174,7 @@
     "industryDivision": "Health Care and Social Assistance",
     "industrySlug": "health-care-and-social-assistance",
     "industrySubdivision": "Medical and other health care services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "B.I.C. SERVICES PTY. LIMITED",
@@ -3309,6 +3327,15 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+    "latestReportingPeriodEndDate": "2025-12-30"
+  },
+  {
+    "businessName": "BANGARRA GROUP LTD",
+    "abn": "54115325356",
+    "slug": "bangarra-group-ltd-54115325356",
+    "industryDivision": "Financial and Insurance Services",
+    "industrySlug": "financial-and-insurance-services",
+    "industrySubdivision": "Finance",
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
@@ -3885,7 +3912,7 @@
     "industryDivision": "Transport, Postal and Warehousing",
     "industrySlug": "transport-postal-and-warehousing",
     "industrySubdivision": "Road transport",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BHCA1 PTY LTD",
@@ -4011,7 +4038,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Food product mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BIOPAK PTY LTD",
@@ -4101,7 +4128,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Finance",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BLENNER'S TRANSPORT QLD PTY LTD",
@@ -4119,7 +4146,7 @@
     "industryDivision": "Information Media and Telecommunications",
     "industrySlug": "information-media-and-telecommunications",
     "industrySubdivision": "Internet publishing and broadcasting",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BLUESTAR GLOBAL LOGISTICS AU PTY LTD",
@@ -4164,7 +4191,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Furniture and other mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BM ALLIANCE COAL OPERATIONS PTY LIMITED",
@@ -4200,7 +4227,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Heavy and civil engineering construction",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BMS RETAIL GROUP PTY LTD",
@@ -4254,7 +4281,7 @@
     "industryDivision": "Mining",
     "industrySlug": "mining",
     "industrySubdivision": "Exploration and other mining support services",
-    "latestReportingPeriodEndDate": "2024-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BOB & PETE'S PTY LIMITED",
@@ -4326,7 +4353,7 @@
     "industryDivision": "Rental, Hiring and Real Estate Services",
     "industrySlug": "rental-hiring-and-real-estate-services",
     "industrySubdivision": "Rental and hiring services (except real estate)",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BOORTMALT AUSTRALIA PTY LTD",
@@ -4399,6 +4426,15 @@
     "industrySlug": "construction",
     "industrySubdivision": "Heavy and civil engineering construction",
     "latestReportingPeriodEndDate": "2025-12-30"
+  },
+  {
+    "businessName": "BOUYGUES CONSTRUCTION AUSTRALIA PTY LTD & JOHN HOLLAND PTY LTD",
+    "abn": "96495635476",
+    "slug": "bouygues-construction-australia-pty-ltd-and-john-holland-pty-ltd-96495635476",
+    "industryDivision": "Construction",
+    "industrySlug": "construction",
+    "industrySubdivision": "Heavy and civil engineering construction",
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BOUYGUES CONSTRUCTION AUSTRALIA PTY LTD & JOHN HOLLAND PTY LTD & LENDLEASE MELBOURNE METRO PTY LIMITED",
@@ -4479,7 +4515,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Transport equipment mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BRADCORP HOLDINGS PTY LIMITED",
@@ -4731,7 +4767,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Grocery. Liquor and tobacco product wholesaling",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "BRP AUSTRALIA PTY LTD",
@@ -4767,7 +4803,7 @@
     "industryDivision": "Information Media and Telecommunications",
     "industrySlug": "information-media-and-telecommunications",
     "industrySubdivision": "Telecommunications services",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "BSH HOME APPLIANCES PTY LTD",
@@ -4929,7 +4965,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Food product mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BURRA SHEETMETAL PTY LTD",
@@ -4947,7 +4983,7 @@
     "industryDivision": "Transport, Postal and Warehousing",
     "industrySlug": "transport-postal-and-warehousing",
     "industrySubdivision": "Road transport",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "BUSY BEES AUSTRALIA HOLDING PTY LTD",
@@ -5379,7 +5415,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "CASELLA WINES PTY. LIMITED",
@@ -5523,7 +5559,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "CBRE AUSTRALIA PTY LIMITED",
@@ -5586,7 +5622,7 @@
     "industryDivision": "Information Media and Telecommunications",
     "industrySlug": "information-media-and-telecommunications",
     "industrySubdivision": "Telecommunications services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "CEA TECHNOLOGIES PTY LIMITED",
@@ -6108,7 +6144,7 @@
     "industryDivision": "Electricity, Gas, Water and Waste Services",
     "industrySlug": "electricity-gas-water-and-waste-services",
     "industrySubdivision": "Electricity supply",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "CKI UTILITIES DEVELOPMENT LIMITED & Others",
@@ -6531,7 +6567,7 @@
     "industryDivision": "Accommodation and Food Services",
     "industrySlug": "accommodation-and-food-services",
     "industrySubdivision": "Food and beverage services",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "COMPETITIVE FOODS AUSTRALIA PTY LTD",
@@ -6630,7 +6666,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Building construction",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "CONSTRUCTION INDUSTRY LONG SERVICE LEAVE FUND",
@@ -6640,6 +6676,15 @@
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Finance",
     "latestReportingPeriodEndDate": "2025-12-30"
+  },
+  {
+    "businessName": "CONSTRUCTION SERVICES AUSTRALIA PTY LTD",
+    "abn": "99007641787",
+    "slug": "construction-services-australia-pty-ltd-99007641787",
+    "industryDivision": "Construction",
+    "industrySlug": "construction",
+    "industrySubdivision": "Building construction",
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "Continental Tyres of Australia Pty Ltd",
@@ -6684,7 +6729,7 @@
     "industryDivision": "Health Care and Social Assistance",
     "industrySlug": "health-care-and-social-assistance",
     "industrySubdivision": "Medical and other health care services",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "COOPERATIEVE RABOBANK U.A.",
@@ -6819,7 +6864,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Other goods wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "COSOL LIMITED",
@@ -6936,7 +6981,7 @@
     "industryDivision": "Information Media and Telecommunications",
     "industrySlug": "information-media-and-telecommunications",
     "industrySubdivision": "Telecommunications services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "CR Kennedy & Company Pty Ltd",
@@ -6972,7 +7017,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Auxiliary finance and insurance services",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "CRAYON AUSTRALIA HOLDING PTY LIMITED",
@@ -7071,7 +7116,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Other goods wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "CROKERS FUEL & OILS PTY LTD",
@@ -7080,7 +7125,7 @@
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Fuel retailing",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "CROPLINE GROUP PTY LTD",
@@ -7377,7 +7422,7 @@
     "industryDivision": "Agriculture, Forestry and Fishing",
     "industrySlug": "agriculture-forestry-and-fishing",
     "industrySubdivision": "Agriculture",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "DAISHO DEVELOPMENT MELBOURNE PTY LTD",
@@ -7440,7 +7485,7 @@
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Non-store retailing and retail commission-based buying and/or selling",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "Dana Australia (Holdings) Pty Ltd",
@@ -7647,7 +7692,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Other goods wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "DECATHLON (AUSTRALIA) PTY LTD",
@@ -7782,7 +7827,7 @@
     "industryDivision": "Mining",
     "industrySlug": "mining",
     "industrySubdivision": "Oil and gas extraction",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "DENNIS FAMILY CORPORATION PTY LTD",
@@ -8334,15 +8379,6 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
-    "businessName": "DSI HOLDINGS 2 AUSTRALIA PTY LTD",
-    "abn": "49151658785",
-    "slug": "dsi-holdings-2-australia-pty-ltd-49151658785",
-    "industryDivision": "Manufacturing",
-    "industrySlug": "manufacturing",
-    "industrySubdivision": "Fabricated metal product mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
-  },
-  {
     "businessName": "DSM FOOD SPECIALTIES AUSTRALIA PTY. LIMITED",
     "abn": "60003994198",
     "slug": "dsm-food-specialties-australia-pty-limited-60003994198",
@@ -8475,7 +8511,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Finance",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "DYNO NOBEL LIMITED",
@@ -8619,7 +8655,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Basic chemical and chemical product mfg",
-    "latestReportingPeriodEndDate": "2025-11-29"
+    "latestReportingPeriodEndDate": "2026-05-30"
   },
   {
     "businessName": "ECOM COMMODITIES PTY LTD",
@@ -8628,7 +8664,7 @@
     "industryDivision": "Agriculture, Forestry and Fishing",
     "industrySlug": "agriculture-forestry-and-fishing",
     "industrySubdivision": "Agriculture",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "EDEN BRAE HOLDINGS PTY LIMITED",
@@ -8799,7 +8835,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Machinery and equipment mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "ELECTRONICS BOUTIQUE AUSTRALIA PTY LIMITED",
@@ -8835,7 +8871,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Construction services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "ELMO SOFTWARE HOLDINGS PTY LTD",
@@ -8997,7 +9033,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Other goods wholesaling",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "ENERGY BAY GROUP PTY LTD",
@@ -9105,7 +9141,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "EP2 Management Pty Limited",
@@ -9330,7 +9366,7 @@
     "industryDivision": "Administrative and Support Services",
     "industrySlug": "administrative-and-support-services",
     "industrySubdivision": "Building cleaning, pest control and other support services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "ETTASON PTY. LIMITED",
@@ -9348,7 +9384,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Finance",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "EUROLINE PTY LIMITED",
@@ -9393,6 +9429,15 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Other goods wholesaling",
+    "latestReportingPeriodEndDate": "2026-03-30"
+  },
+  {
+    "businessName": "EVERLIGHT RADIOLOGY HOLDINGS PTY LTD",
+    "abn": "49651297139",
+    "slug": "everlight-radiology-holdings-pty-ltd-49651297139",
+    "industryDivision": "Health Care and Social Assistance",
+    "industrySlug": "health-care-and-social-assistance",
+    "industrySubdivision": "Medical and other health care services",
     "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
@@ -9612,6 +9657,15 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
+    "businessName": "FEC CONSTRUCTION HOLDINGS (AUSTRALIA) PTY LTD",
+    "abn": "38658945521",
+    "slug": "fec-construction-holdings-australia-pty-ltd-38658945521",
+    "industryDivision": "Construction",
+    "industrySlug": "construction",
+    "industrySubdivision": "Building construction",
+    "latestReportingPeriodEndDate": "2026-03-30"
+  },
+  {
     "businessName": "FEDERAL EXPRESS (AUSTRALIA) PTY LTD",
     "abn": "51624271487",
     "slug": "federal-express-australia-pty-ltd-51624271487",
@@ -9708,7 +9762,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Finance",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "FINISAR AUSTRALIA PTY LIMITED",
@@ -9717,7 +9771,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Machinery and equipment mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "FIRST COMMERCIAL BANK, LTD.",
@@ -9897,7 +9951,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Basic metal wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "FOCUS MINERALS LTD",
@@ -10050,7 +10104,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Building construction",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "FREDON INDUSTRIES PTY. LIMITED",
@@ -10491,7 +10545,7 @@
     "industryDivision": "Electricity, Gas, Water and Waste Services",
     "industrySlug": "electricity-gas-water-and-waste-services",
     "industrySubdivision": "Electricity supply",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "GE HEALTHCARE AUSTRALIA HOLDINGS PTY LTD",
@@ -11373,7 +11427,7 @@
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Other store-based retailing",
-    "latestReportingPeriodEndDate": "2025-11-29"
+    "latestReportingPeriodEndDate": "2026-05-30"
   },
   {
     "businessName": "HACER AUSTRALIA PTY LTD",
@@ -11733,7 +11787,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Insurance and superannuation funds",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "HDI GLOBAL SPECIALTY SE",
@@ -11751,7 +11805,7 @@
     "industryDivision": "Rental, Hiring and Real Estate Services",
     "industrySlug": "rental-hiring-and-real-estate-services",
     "industrySubdivision": "Property operators and real estate services",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "HEALIUS LIMITED",
@@ -12042,6 +12096,15 @@
     "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
+    "businessName": "HILLSIDE MEAT PROCESSORS PTY LTD",
+    "abn": "46159963729",
+    "slug": "hillside-meat-processors-pty-ltd-46159963729",
+    "industryDivision": "Manufacturing",
+    "industrySlug": "manufacturing",
+    "industrySubdivision": "Food product mfg",
+    "latestReportingPeriodEndDate": "2024-12-30"
+  },
+  {
     "businessName": "HILTI (AUST.) PTY. LTD.",
     "abn": "44007602100",
     "slug": "hilti-aust-pty-ltd-44007602100",
@@ -12213,6 +12276,15 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
+    "businessName": "HOMECORP CONSTRUCTIONS PTY LTD",
+    "abn": "27169928205",
+    "slug": "homecorp-constructions-pty-ltd-27169928205",
+    "industryDivision": "Construction",
+    "industrySlug": "construction",
+    "industrySubdivision": "Building construction",
+    "latestReportingPeriodEndDate": "2026-06-29"
+  },
+  {
     "businessName": "HOMESTART FINANCE",
     "abn": "82829169885",
     "slug": "homestart-finance-82829169885",
@@ -12273,7 +12345,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Basic chemical and chemical product mfg",
-    "latestReportingPeriodEndDate": "2025-11-29"
+    "latestReportingPeriodEndDate": "2026-05-30"
   },
   {
     "businessName": "HOSPIRA HOLDINGS (S.A.) PTY LTD",
@@ -12327,7 +12399,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "HPE FINANCIAL SERVICES (AUSTRALIA) PTY LIMITED",
@@ -12336,7 +12408,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Finance",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "HQVA PTY LTD",
@@ -12804,7 +12876,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Other goods wholesaling",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "In Vitro Technologies Pty Ltd",
@@ -12967,6 +13039,15 @@
     "industrySlug": "transport-postal-and-warehousing",
     "industrySubdivision": "Road transport",
     "latestReportingPeriodEndDate": "2025-12-30"
+  },
+  {
+    "businessName": "INFOCUS WEALTH MANAGEMENT PTY LTD",
+    "abn": "28103551015",
+    "slug": "infocus-wealth-management-pty-ltd-28103551015",
+    "industryDivision": "Financial and Insurance Services",
+    "industrySlug": "financial-and-insurance-services",
+    "industrySubdivision": "Auxiliary finance and insurance services",
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "Infomedia Pty Ltd",
@@ -13263,7 +13344,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "IQVIA SOLUTIONS AUSTRALIA HOLDINGS PTY. LTD.",
@@ -13479,7 +13560,7 @@
     "industryDivision": "Electricity, Gas, Water and Waste Services",
     "industrySlug": "electricity-gas-water-and-waste-services",
     "industrySubdivision": "Waste collection, treatment and disposal services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "J.K. WILLIAMS HOLDINGS PTY LTD",
@@ -13812,7 +13893,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Heavy and civil engineering construction",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "JOHN HOLLAND PTY LTD & KELLOGG BROWN & ROOT PTY LTD",
@@ -14073,7 +14154,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Machinery and equipment mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "KARORA RESOURCES PTY LTD",
@@ -14109,7 +14190,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Heavy and civil engineering construction",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "KCI MEDICAL AUSTRALIA PTY LTD",
@@ -14478,7 +14559,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-03-30"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "KOMATSU AUSTRALIA PTY LTD",
@@ -14487,7 +14568,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "KONE HOLDINGS (AUSTRALIA) LIMITED",
@@ -14541,7 +14622,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "KORVEST LTD.",
@@ -14901,7 +14982,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Finance",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "Latrobe Health Services Limited",
@@ -15162,7 +15243,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "LIGHTSPEED POS HOLDING PTY LTD",
@@ -15243,7 +15324,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Heavy and civil engineering construction",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "LION PTY LTD",
@@ -15333,7 +15414,7 @@
     "industryDivision": "Transport, Postal and Warehousing",
     "industrySlug": "transport-postal-and-warehousing",
     "industrySubdivision": "Air and space transport",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "LMS ENERGY PTY LTD",
@@ -15558,7 +15639,7 @@
     "industryDivision": "Health Care and Social Assistance",
     "industrySlug": "health-care-and-social-assistance",
     "industrySubdivision": "Medical and other health care services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "LYNAS RARE EARTHS LIMITED",
@@ -15864,7 +15945,7 @@
     "industryDivision": "Transport, Postal and Warehousing",
     "industrySlug": "transport-postal-and-warehousing",
     "industrySubdivision": "Warehousing and storage services",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "MARUBENI ALUMINIUM AUSTRALIA PTY. LTD.",
@@ -15891,7 +15972,7 @@
     "industryDivision": "Mining",
     "industrySlug": "mining",
     "industrySubdivision": "Metal ore mining",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "MARUBENI RESOURCES DEVELOPMENT PTY LTD",
@@ -16251,7 +16332,7 @@
     "industryDivision": "Arts and Recreation Services",
     "industrySlug": "arts-and-recreation-services",
     "industrySubdivision": "Sports and recreation activities",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "MELBOURNE WATER CORPORATION",
@@ -16477,15 +16558,6 @@
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Basic metal wholesaling",
     "latestReportingPeriodEndDate": "2025-12-30"
-  },
-  {
-    "businessName": "MFS INTERNATIONAL AUSTRALIA PTY LTD",
-    "abn": "68607579537",
-    "slug": "mfs-international-australia-pty-ltd-68607579537",
-    "industryDivision": "Financial and Insurance Services",
-    "industrySlug": "financial-and-insurance-services",
-    "industrySubdivision": "Finance",
-    "latestReportingPeriodEndDate": "2024-12-30"
   },
   {
     "businessName": "MH PREMIUM FARMS HOLDINGS PTY LTD",
@@ -17052,7 +17124,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Auxiliary finance and insurance services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "MOONEE VALLEY CITY COUNCIL",
@@ -17214,7 +17286,7 @@
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "MOUNT PRITCHARD & DISTRICT COMMUNITY CLUB LTD",
@@ -17241,7 +17313,7 @@
     "industryDivision": "Agriculture, Forestry and Fishing",
     "industrySlug": "agriculture-forestry-and-fishing",
     "industrySubdivision": "Agriculture",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "MPA HOLDINGS (AUST.) PTY LIMITED",
@@ -17664,7 +17736,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Construction services",
-    "latestReportingPeriodEndDate": "2024-12-30"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "NCI HOLDINGS PTY LTD",
@@ -17808,7 +17880,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Fabricated metal product mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "NEUREN PHARMACEUTICALS LIMITED",
@@ -18096,7 +18168,7 @@
     "industryDivision": "Rental, Hiring and Real Estate Services",
     "industrySlug": "rental-hiring-and-real-estate-services",
     "industrySubdivision": "Property operators and real estate services",
-    "latestReportingPeriodEndDate": "2026-01-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "NORINCHUKIN AUSTRALIA PTY LIMITED",
@@ -18222,15 +18294,6 @@
     "industryDivision": "Transport, Postal and Warehousing",
     "industrySlug": "transport-postal-and-warehousing",
     "industrySubdivision": "Road transport",
-    "latestReportingPeriodEndDate": "2025-12-30"
-  },
-  {
-    "businessName": "NORTHROP CONSULTING ENGINEERS PTY LIMITED",
-    "abn": "81094433100",
-    "slug": "northrop-consulting-engineers-pty-limited-81094433100",
-    "industryDivision": "Professional, Scientific and Technical Services",
-    "industrySlug": "professional-scientific-and-technical-services",
-    "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
@@ -18360,6 +18423,15 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
+    "businessName": "NSC (AUSTRALIA) PTY LTD",
+    "abn": "71607111268",
+    "slug": "nsc-australia-pty-ltd-71607111268",
+    "industryDivision": "Electricity, Gas, Water and Waste Services",
+    "industrySlug": "electricity-gas-water-and-waste-services",
+    "industrySubdivision": "Gas supply",
+    "latestReportingPeriodEndDate": "2026-03-30"
+  },
+  {
     "businessName": "NTAW Holdings Limited",
     "abn": "97095843020",
     "slug": "ntaw-holdings-limited-97095843020",
@@ -18438,7 +18510,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "O'BRIEN GLASS INDUSTRIES LIMITED",
@@ -18675,6 +18747,15 @@
     "latestReportingPeriodEndDate": "2025-06-29"
   },
   {
+    "businessName": "OPELLA HEALTHCARE AUSTRALIA PTY LTD",
+    "abn": "43076651959",
+    "slug": "opella-healthcare-australia-pty-ltd-43076651959",
+    "industryDivision": "Health Care and Social Assistance",
+    "industrySlug": "health-care-and-social-assistance",
+    "industrySubdivision": "Medical and other health care services",
+    "latestReportingPeriodEndDate": "2025-12-30"
+  },
+  {
     "businessName": "OPIC AUSTRALIA PTY. LIMITED",
     "abn": "66008603487",
     "slug": "opic-australia-pty-limited-66008603487",
@@ -18792,6 +18873,15 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
+    "businessName": "ORDE FINANCIAL PTY LTD",
+    "abn": "27634779990",
+    "slug": "orde-financial-pty-ltd-27634779990",
+    "industryDivision": "Financial and Insurance Services",
+    "industrySlug": "financial-and-insurance-services",
+    "industrySubdivision": "Finance",
+    "latestReportingPeriodEndDate": "2025-12-30"
+  },
+  {
     "businessName": "ORGANON PHARMA PTY LTD",
     "abn": "54637107512",
     "slug": "organon-pharma-pty-ltd-54637107512",
@@ -18843,7 +18933,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "OSMOSIS HOLDINGS AUSTRALIA I PTY LTD",
@@ -19176,7 +19266,7 @@
     "industryDivision": "Arts and Recreation Services",
     "industrySlug": "arts-and-recreation-services",
     "industrySubdivision": "Sports and recreation activities",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "PASTEL HOLDINGS PTY LIMITED",
@@ -19221,7 +19311,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Auxiliary finance and insurance services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "PAUL WAKELING PTY. LIMITED",
@@ -19293,7 +19383,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Construction services",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "PE WHEATSTONE PTY LTD",
@@ -19401,7 +19491,7 @@
     "industryDivision": "Accommodation and Food Services",
     "industrySlug": "accommodation-and-food-services",
     "industrySubdivision": "Food and beverage services",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "PENSKE TRANSPORTATION GROUP INTERNATIONAL PTY LTD",
@@ -19581,7 +19671,7 @@
     "industryDivision": "Mining",
     "industrySlug": "mining",
     "industrySubdivision": "Exploration and other mining support services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "PETRONAS AUSTRALIA PTY LIMITED",
@@ -19635,7 +19725,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "PFIZER AUSTRALIA HOLDINGS PTY LIMITED",
@@ -19653,7 +19743,7 @@
     "industryDivision": "Health Care and Social Assistance",
     "industrySlug": "health-care-and-social-assistance",
     "industrySubdivision": "Medical and other health care services",
-    "latestReportingPeriodEndDate": "2025-11-29"
+    "latestReportingPeriodEndDate": "2026-05-30"
   },
   {
     "businessName": "PGL HOLDCO LIMITED",
@@ -20400,7 +20490,7 @@
     "industryDivision": "Agriculture, Forestry and Fishing",
     "industrySlug": "agriculture-forestry-and-fishing",
     "industrySubdivision": "Agriculture",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "QIC LIMITED",
@@ -20886,7 +20976,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Finance",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "RED BULL AUSTRALIA PTY. LTD.",
@@ -21030,7 +21120,7 @@
     "industryDivision": "Mining",
     "industrySlug": "mining",
     "industrySubdivision": "Exploration and other mining support services",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "RELX HOLDINGS AUSTRALIA PTY LTD",
@@ -21165,7 +21255,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "REX GORELL MOTORS PTY. LTD.",
@@ -21174,7 +21264,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "REX GORELL PTY. LTD.",
@@ -21183,7 +21273,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "REXEL HOLDINGS AUSTRALIA PTY LTD",
@@ -21282,7 +21372,7 @@
     "industryDivision": "Arts and Recreation Services",
     "industrySlug": "arts-and-recreation-services",
     "industrySubdivision": "Sports and recreation activities",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "RICOH AUSTRALIA PTY LTD",
@@ -21399,7 +21489,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "RM HASSALL & AS WHITE & OTHERS",
@@ -21483,13 +21573,22 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
+    "businessName": "ROCKWELL AUTOMATION AUSTRALIA LTD",
+    "abn": "80005549477",
+    "slug": "rockwell-automation-australia-ltd-80005549477",
+    "industryDivision": "Wholesale Trade",
+    "industrySlug": "wholesale-trade",
+    "industrySubdivision": "Machinery and equipment wholesaling",
+    "latestReportingPeriodEndDate": "2025-03-30"
+  },
+  {
     "businessName": "ROHLIG AUSTRALIA PTY LTD",
     "abn": "51001191402",
     "slug": "rohlig-australia-pty-ltd-51001191402",
     "industryDivision": "Transport, Postal and Warehousing",
     "industrySlug": "transport-postal-and-warehousing",
     "industrySubdivision": "Transport support services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "ROLEX AUSTRALIA PTY LTD",
@@ -21516,7 +21615,7 @@
     "industryDivision": "Transport, Postal and Warehousing",
     "industrySlug": "transport-postal-and-warehousing",
     "industrySubdivision": "Road transport",
-    "latestReportingPeriodEndDate": "2025-12-27"
+    "latestReportingPeriodEndDate": "2026-06-27"
   },
   {
     "businessName": "RONDO BUILDING SERVICES PTY LTD",
@@ -21615,7 +21714,7 @@
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "RPBJ PTY LTD",
@@ -21624,7 +21723,7 @@
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "RPS AUSTRALIA WEST PTY LTD",
@@ -21969,18 +22068,18 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
+    "businessName": "SANDVIK GROUND SUPPORT AUSTRALIA HOLDINGS PTY LTD",
+    "abn": "49151658785",
+    "slug": "sandvik-ground-support-australia-holdings-pty-ltd-49151658785",
+    "industryDivision": "Manufacturing",
+    "industrySlug": "manufacturing",
+    "industrySubdivision": "Fabricated metal product mfg",
+    "latestReportingPeriodEndDate": "2026-06-29"
+  },
+  {
     "businessName": "SANOFI-AVENTIS AUSTRALIA PTY LTD",
     "abn": "31008558807",
     "slug": "sanofi-aventis-australia-pty-ltd-31008558807",
-    "industryDivision": "Health Care and Social Assistance",
-    "industrySlug": "health-care-and-social-assistance",
-    "industrySubdivision": "Medical and other health care services",
-    "latestReportingPeriodEndDate": "2025-12-30"
-  },
-  {
-    "businessName": "SANOFI-AVENTIS HEALTHCARE PTY LTD",
-    "abn": "43076651959",
-    "slug": "sanofi-aventis-healthcare-pty-ltd-43076651959",
     "industryDivision": "Health Care and Social Assistance",
     "industrySlug": "health-care-and-social-assistance",
     "industrySubdivision": "Medical and other health care services",
@@ -22167,15 +22266,6 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
-    "businessName": "SEA PLANT & EQUIPMENT PTY. LTD.",
-    "abn": "59601889614",
-    "slug": "sea-plant-and-equipment-pty-ltd-59601889614",
-    "industryDivision": "Retail Trade",
-    "industrySlug": "retail-trade",
-    "industrySubdivision": "Other store-based retailing",
-    "latestReportingPeriodEndDate": "2025-12-30"
-  },
-  {
     "businessName": "SEA SWIFT PTY. LTD.",
     "abn": "16010889040",
     "slug": "sea-swift-pty-ltd-16010889040",
@@ -22344,7 +22434,7 @@
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Other store-based retailing",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "SEQUOIA FINANCIAL GROUP LTD",
@@ -22380,7 +22470,7 @@
     "industryDivision": "Rental, Hiring and Real Estate Services",
     "industrySlug": "rental-hiring-and-real-estate-services",
     "industrySubdivision": "Property operators and real estate services",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "SERVICENOW AUSTRALIA PTY LTD",
@@ -22389,7 +22479,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Computer system design and related services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "SEV.EN GLOBAL INVESTMENTS PTY LTD",
@@ -22974,7 +23064,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Other goods wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "SMITH & NEPHEW PTY LIMITED",
@@ -23010,7 +23100,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "SNF (AUSTRALIA) PTY. LIMITED",
@@ -23064,7 +23154,7 @@
     "industryDivision": "Mining",
     "industrySlug": "mining",
     "industrySubdivision": "Coal mining",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "Solar Juice Pty Ltd",
@@ -23145,7 +23235,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Other goods wholesaling",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "SONY MUSIC ENTERTAINMENT AUSTRALIA PTY LTD",
@@ -23289,7 +23379,7 @@
     "industryDivision": "Information Media and Telecommunications",
     "industrySlug": "information-media-and-telecommunications",
     "industrySubdivision": "Broadcasting (except internet)",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "SPECSAVERS PTY. LTD.",
@@ -23469,7 +23559,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Heavy and civil engineering construction",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "STAHMANN HOLDINGS PTY LTD",
@@ -23640,7 +23730,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "STOCKYARD GROUP PTY LTD",
@@ -23739,7 +23829,7 @@
     "industryDivision": "Construction",
     "industrySlug": "construction",
     "industrySubdivision": "Construction services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "SUEZ ANZ HOLDINGS PTY LTD",
@@ -23856,7 +23946,7 @@
     "industryDivision": "Electricity, Gas, Water and Waste Services",
     "industrySlug": "electricity-gas-water-and-waste-services",
     "industrySubdivision": "Electricity supply",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "Sunny Queen Australia Pty Ltd",
@@ -24054,7 +24144,7 @@
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Other store-based retailing",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "SWICKER'S KINGAROY BACON FACTORY PTY. LTD.",
@@ -24477,7 +24567,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Machinery and equipment mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "TEMPLE & WEBSTER GROUP LTD",
@@ -24531,7 +24621,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Machinery and equipment mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "TERRACE TOWER GROUP PTY. LIMITED",
@@ -24711,7 +24801,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Finance",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "THE BANKTECH GROUP PTY LTD",
@@ -24756,6 +24846,15 @@
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+    "latestReportingPeriodEndDate": "2025-12-30"
+  },
+  {
+    "businessName": "THE COLLAGEN CO PTY LTD",
+    "abn": "86603721491",
+    "slug": "the-collagen-co-pty-ltd-86603721491",
+    "industryDivision": "Manufacturing",
+    "industrySlug": "manufacturing",
+    "industrySubdivision": "Food product mfg",
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
@@ -24957,9 +25056,9 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
-    "businessName": "THE ROYAL AUTOMOBILE CLUB OF WA INC",
+    "businessName": "THE ROYAL AUTOMOBILE CLUB OF W.A. Limited",
     "abn": "33212133120",
-    "slug": "the-royal-automobile-club-of-wa-inc-33212133120",
+    "slug": "the-royal-automobile-club-of-w-a-limited-33212133120",
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Insurance and superannuation funds",
@@ -25206,7 +25305,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Insurance and superannuation funds",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "The Trustee for Cookers Trust",
@@ -25926,7 +26025,7 @@
     "industryDivision": "Financial and Insurance Services",
     "industrySlug": "financial-and-insurance-services",
     "industrySubdivision": "Insurance and superannuation funds",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "The Trustee for TGA PBSA Hold Trust",
@@ -25998,7 +26097,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "The Trustee for THE HENRY SCHEIN REGIONAL TRUST",
@@ -26007,7 +26106,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Other goods wholesaling",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "The Trustee for THE LAWSERV UNIT TRUST",
@@ -26271,24 +26370,6 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
-    "businessName": "THOMAS CAPPO SEAFOODS PTY LIMITED",
-    "abn": "80621912007",
-    "slug": "thomas-cappo-seafoods-pty-limited-80621912007",
-    "industryDivision": "Manufacturing",
-    "industrySlug": "manufacturing",
-    "industrySubdivision": "Food product mfg",
-    "latestReportingPeriodEndDate": "2025-06-29"
-  },
-  {
-    "businessName": "THOMAS FOODS INTERNATIONAL BOURKE PTY LIMITED",
-    "abn": "94654997001",
-    "slug": "thomas-foods-international-bourke-pty-limited-94654997001",
-    "industryDivision": "Manufacturing",
-    "industrySlug": "manufacturing",
-    "industrySubdivision": "Food product mfg",
-    "latestReportingPeriodEndDate": "2025-06-29"
-  },
-  {
     "businessName": "THOMAS FOODS INTERNATIONAL CONSOLIDATED PTY LIMITED",
     "abn": "20105099849",
     "slug": "thomas-foods-international-consolidated-pty-limited-20105099849",
@@ -26296,15 +26377,6 @@
     "industrySlug": "manufacturing",
     "industrySubdivision": "Food product mfg",
     "latestReportingPeriodEndDate": "2025-12-30"
-  },
-  {
-    "businessName": "THOMAS FOODS INTERNATIONAL MURRAY BRIDGE PTY LIMITED",
-    "abn": "34085672457",
-    "slug": "thomas-foods-international-murray-bridge-pty-limited-34085672457",
-    "industryDivision": "Manufacturing",
-    "industrySlug": "manufacturing",
-    "industrySubdivision": "Food product mfg",
-    "latestReportingPeriodEndDate": "2025-06-29"
   },
   {
     "businessName": "THOMPSON HEALTH CARE PTY. LTD.",
@@ -26340,15 +26412,6 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Computer system design and related services",
-    "latestReportingPeriodEndDate": "2025-12-30"
-  },
-  {
-    "businessName": "THRYV AUSTRALIA PTY LTD",
-    "abn": "30007423912",
-    "slug": "thryv-australia-pty-ltd-30007423912",
-    "industryDivision": "Manufacturing",
-    "industrySlug": "manufacturing",
-    "industrySubdivision": "Printing (including the reproduction of recorded media)",
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
@@ -26440,6 +26503,15 @@
     "industrySlug": "agriculture-forestry-and-fishing",
     "industrySubdivision": "Agriculture, forestry and fishing support services",
     "latestReportingPeriodEndDate": "2025-12-30"
+  },
+  {
+    "businessName": "TITAN RECRUITMENT PTY LTD",
+    "abn": "34086897636",
+    "slug": "titan-recruitment-pty-ltd-34086897636",
+    "industryDivision": "Administrative and Support Services",
+    "industrySlug": "administrative-and-support-services",
+    "industrySubdivision": "Administrative services",
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "TIVOLI INVESTMENTS PTY LTD",
@@ -26583,7 +26655,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "TOSHIBA (AUSTRALIA) PTY LTD",
@@ -26601,7 +26673,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Machinery and equipment wholesaling",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "TOTAL AMS PTY LTD",
@@ -26664,7 +26736,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "TOYOTA TSUSHO SOUTH PACIFIC HOLDINGS PTY LTD",
@@ -26673,7 +26745,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
-    "latestReportingPeriodEndDate": "2025-09-29"
+    "latestReportingPeriodEndDate": "2026-03-30"
   },
   {
     "businessName": "TP-LINK AUSTRALIA PTY LTD",
@@ -26856,15 +26928,6 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
-    "businessName": "TRICARE AGED CARE PTY LTD",
-    "abn": "50607875490",
-    "slug": "tricare-aged-care-pty-ltd-50607875490",
-    "industryDivision": "Health Care and Social Assistance",
-    "industrySlug": "health-care-and-social-assistance",
-    "industrySubdivision": "Residential care services",
-    "latestReportingPeriodEndDate": "2025-12-30"
-  },
-  {
     "businessName": "TRILITY GROUP PTY LTD",
     "abn": "39144522565",
     "slug": "trility-group-pty-ltd-39144522565",
@@ -27018,9 +27081,9 @@
     "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
-    "businessName": "TYNAN MOTORS PTY LTD",
-    "abn": "50000663347",
-    "slug": "tynan-motors-pty-ltd-50000663347",
+    "businessName": "TYNAN MOTORS (HOLDINGS) PTY LTD",
+    "abn": "15002448446",
+    "slug": "tynan-motors-holdings-pty-ltd-15002448446",
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
@@ -27132,7 +27195,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Computer system design and related services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "UNITED AIRLINES, INC.",
@@ -27150,7 +27213,7 @@
     "industryDivision": "Electricity, Gas, Water and Waste Services",
     "industrySlug": "electricity-gas-water-and-waste-services",
     "industrySubdivision": "Electricity supply",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "UNITED MALT GROUP PTY LTD",
@@ -27492,7 +27555,7 @@
     "industryDivision": "Electricity, Gas, Water and Waste Services",
     "industrySlug": "electricity-gas-water-and-waste-services",
     "industrySubdivision": "Electricity supply",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "VICTORIA TEACHERS LIMITED",
@@ -27627,7 +27690,7 @@
     "industryDivision": "Professional, Scientific and Technical Services",
     "industrySlug": "professional-scientific-and-technical-services",
     "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-    "latestReportingPeriodEndDate": "2025-10-30"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "VOESTALPINE HIGH PERFORMANCE METALS (AUSTRALIA) PTY LTD",
@@ -27663,7 +27726,7 @@
     "industryDivision": "Wholesale Trade",
     "industrySlug": "wholesale-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
-    "latestReportingPeriodEndDate": "2025-06-29"
+    "latestReportingPeriodEndDate": "2025-12-30"
   },
   {
     "businessName": "VOLVO GROUP AUSTRALIA PTY LTD",
@@ -27978,7 +28041,7 @@
     "industryDivision": "Manufacturing",
     "industrySlug": "manufacturing",
     "industrySubdivision": "Machinery and equipment mfg",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "WELLCOM GROUP PTY LTD",
@@ -28098,6 +28161,15 @@
     "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
+    "businessName": "WESTERN SUBURBS LEAGUES CLUB LTD",
+    "abn": "69000154736",
+    "slug": "western-suburbs-leagues-club-ltd-69000154736",
+    "industryDivision": "Accommodation and Food Services",
+    "industrySlug": "accommodation-and-food-services",
+    "industrySubdivision": "Food and beverage services",
+    "latestReportingPeriodEndDate": "2026-05-02"
+  },
+  {
     "businessName": "WESTERN TRUCK GROUP PTY LTD",
     "abn": "31624305353",
     "slug": "western-truck-group-pty-ltd-31624305353",
@@ -28212,7 +28284,7 @@
     "industryDivision": "Retail Trade",
     "industrySlug": "retail-trade",
     "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "WILEY PUBLISHING AUSTRALIA PTY LTD",
@@ -28221,7 +28293,7 @@
     "industryDivision": "Information Media and Telecommunications",
     "industrySlug": "information-media-and-telecommunications",
     "industrySubdivision": "Publishing (except internet and music publishing)",
-    "latestReportingPeriodEndDate": "2025-04-29"
+    "latestReportingPeriodEndDate": "2026-04-29"
   },
   {
     "businessName": "WILKINSON PROPERTY HOLD CO PTY LTD",
@@ -28626,7 +28698,7 @@
     "industryDivision": "Electricity, Gas, Water and Waste Services",
     "industrySlug": "electricity-gas-water-and-waste-services",
     "industrySubdivision": "Water supply, sewerage and drainage services",
-    "latestReportingPeriodEndDate": "2025-12-30"
+    "latestReportingPeriodEndDate": "2026-06-29"
   },
   {
     "businessName": "YD. PTY LIMITED",

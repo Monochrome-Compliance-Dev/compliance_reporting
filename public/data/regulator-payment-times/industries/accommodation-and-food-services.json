@@ -41,22 +41,33 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 4,
-      "averageP95PaymentTimeDays": 43.3,
-      "medianP95PaymentTimeDays": 43,
-      "minimumP95PaymentTimeDays": 30,
-      "maximumP95PaymentTimeDays": 57
+      "reportingEntityCount": 7,
+      "averageP95PaymentTimeDays": 45.4,
+      "medianP95PaymentTimeDays": 39,
+      "minimumP95PaymentTimeDays": 28,
+      "maximumP95PaymentTimeDays": 78
     }
   ],
   "companies": [
+    {
+      "businessName": "WESTERN SUBURBS LEAGUES CLUB LTD",
+      "abn": "69000154736",
+      "slug": "western-suburbs-leagues-club-ltd-69000154736",
+      "p95PaymentTimeDays": 28,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 7,
+        "percentile": 100
+      }
+    },
     {
       "businessName": "DELAWARE NORTH COMPANIES AUSTRALIA PTY LTD",
       "abn": "92003435345",
       "slug": "delaware-north-companies-australia-pty-ltd-92003435345",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 1,
-        "count": 4,
+        "rank": 2,
+        "count": 7,
         "percentile": 66.7
       }
     },
@@ -66,9 +77,20 @@
       "slug": "seagrass-holdco-pty-ltd-91634224936",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 1,
-        "count": 4,
+        "rank": 2,
+        "count": 7,
         "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "PENRITH RUGBY LEAGUE CLUB LTD",
+      "abn": "57000578398",
+      "slug": "penrith-rugby-league-club-ltd-57000578398",
+      "p95PaymentTimeDays": 39,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 7,
+        "percentile": 50
       }
     },
     {
@@ -77,8 +99,8 @@
       "slug": "western-suburbs-n-cle-leagues-club-ltd-24000973919",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 3,
-        "count": 4,
+        "rank": 5,
+        "count": 7,
         "percentile": 33.3
       }
     },
@@ -88,8 +110,19 @@
       "slug": "nando-s-australia-pty-ltd-20079066407",
       "p95PaymentTimeDays": 57,
       "industryP95Position": {
-        "rank": 4,
-        "count": 4,
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    },
+    {
+      "businessName": "COMPASS GROUP (AUSTRALIA) PTY LTD",
+      "abn": "41000683125",
+      "slug": "compass-group-australia-pty-ltd-41000683125",
+      "p95PaymentTimeDays": 78,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 7,
         "percentile": 0
       }
     }

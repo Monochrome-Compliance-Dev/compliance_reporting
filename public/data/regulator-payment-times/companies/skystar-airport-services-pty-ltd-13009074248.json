@@ -9,35 +9,35 @@
   "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
-      "reportId": "PTR20009564",
+      "reportId": "PTR20012067",
       "acnArbn": "009074248",
       "reportingPeriodStartDate": "2025-06-30",
       "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": true,
       "redactedReport": false,
-      "averagePaymentTimeDays": 34,
-      "medianPaymentTimeDays": 35,
-      "p80PaymentTimeDays": 46,
-      "p95PaymentTimeDays": 64,
-      "payments30DaysOrLess": 44.6,
-      "payments31To60Days": 46,
-      "paymentsMoreThan60Days": 9.39,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 63.82,
+      "payments31To60Days": 7.06,
+      "paymentsMoreThan60Days": 29.12,
       "industrySubdivision": "Transport support services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2026-03-29",
+      "submittedDate": "2026-07-29",
       "reportingCycleId": "2025-H2",
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2139,
-        "count": 2976,
-        "percentile": 26.4
+        "rank": 2209,
+        "count": 3004,
+        "percentile": 24.6
       },
       "industryP95Position": {
-        "rank": 123,
-        "count": 167,
-        "percentile": 25.9
+        "rank": 125,
+        "count": 168,
+        "percentile": 23.4
       }
     },
     {
@@ -62,78 +62,78 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2139,
-        "count": 2976,
-        "percentile": 26.4
+        "rank": 2158,
+        "count": 3004,
+        "percentile": 26.5
       },
       "industryP95Position": {
-        "rank": 123,
-        "count": 167,
-        "percentile": 25.9
+        "rank": 124,
+        "count": 168,
+        "percentile": 26.3
       }
     },
     {
-      "reportId": "PTR20004382",
+      "reportId": "PTR20012065",
       "acnArbn": "009074248",
       "reportingPeriodStartDate": "2024-12-31",
       "reportingPeriodEndDate": "2025-06-29",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
-      "averagePaymentTimeDays": 32,
-      "medianPaymentTimeDays": 33,
+      "averagePaymentTimeDays": 33,
+      "medianPaymentTimeDays": 32,
       "p80PaymentTimeDays": 41,
-      "p95PaymentTimeDays": 49,
-      "payments30DaysOrLess": 41.1,
-      "payments31To60Days": 58.9,
-      "paymentsMoreThan60Days": 0,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 28.83,
+      "payments31To60Days": 60.32,
+      "paymentsMoreThan60Days": 10.85,
       "industrySubdivision": "Transport support services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-09-24",
+      "submittedDate": "2026-07-29",
       "reportingCycleId": "2025-H1",
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1120,
-        "count": 2935,
-        "percentile": 60.7
+        "rank": 2170,
+        "count": 2941,
+        "percentile": 25.1
       },
       "industryP95Position": {
-        "rank": 54,
+        "rank": 126,
         "count": 167,
-        "percentile": 65.7
+        "percentile": 23.5
       }
     },
     {
-      "reportId": "PTR20000258",
+      "reportId": "PTR20012064",
       "acnArbn": "009074248",
       "reportingPeriodStartDate": "2024-06-30",
       "reportingPeriodEndDate": "2024-12-30",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
-      "averagePaymentTimeDays": 33,
+      "averagePaymentTimeDays": 34,
       "medianPaymentTimeDays": 31,
       "p80PaymentTimeDays": 42,
-      "p95PaymentTimeDays": 61,
-      "payments30DaysOrLess": 75.4,
-      "payments31To60Days": 9.8,
-      "paymentsMoreThan60Days": 14.8,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 75.3,
+      "payments31To60Days": 23.49,
+      "paymentsMoreThan60Days": 1.21,
       "industrySubdivision": "Transport support services",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-06-03",
+      "submittedDate": "2026-07-29",
       "reportingCycleId": "2024-H2",
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1582,
-        "count": 2524,
-        "percentile": 35.4
+        "rank": 1762,
+        "count": 2530,
+        "percentile": 29
       },
       "industryP95Position": {
-        "rank": 90,
+        "rank": 97,
         "count": 141,
-        "percentile": 35
+        "percentile": 30
       }
     }
   ]

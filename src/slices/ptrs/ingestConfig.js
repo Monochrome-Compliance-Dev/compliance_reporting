@@ -48,6 +48,7 @@ export const PTRS_OPTIONAL_FIELDS = [
   "invoicePaymentTerms",
   "paymentTerm",
   "documentType",
+  "companyCode",
   "documentCurrency",
   "clearingDocument",
   "sourceAccountCode",
@@ -104,6 +105,46 @@ export const PTRS_REQUIRED_FIELD_GROUPS = [
   },
 ];
 
+const SAP_ACCOUNTING_REQUIRED_FIELDS = [
+  ...PTRS_REQUIRED_FIELDS,
+  "documentType",
+  "companyCode",
+  "sourceAccountCode",
+  "clearingDocument",
+];
+
+export const PTRS_ADAPTER_MAPPING_REQUIREMENTS = Object.freeze({
+  sap_accounting_event: Object.freeze({
+    requiredFields: Object.freeze(SAP_ACCOUNTING_REQUIRED_FIELDS),
+    requiredFieldGroups: Object.freeze(PTRS_REQUIRED_FIELD_GROUPS),
+  }),
+  xero_accounting_event: Object.freeze({
+    requiredFields: Object.freeze(PTRS_REQUIRED_FIELDS),
+    requiredFieldGroups: Object.freeze(PTRS_REQUIRED_FIELD_GROUPS),
+  }),
+  direct_payment: Object.freeze({
+    requiredFields: Object.freeze(PTRS_REQUIRED_FIELDS),
+    requiredFieldGroups: Object.freeze(PTRS_REQUIRED_FIELD_GROUPS),
+  }),
+});
+
+export const PTRS_ADAPTER_LABELS = Object.freeze({
+  sap_accounting_event: "SAP accounting transactions",
+  xero_accounting_event: "Xero accounting transactions",
+  direct_payment: "Direct / self-contained transactions",
+});
+
+export function getPtrsAdapterMappingRequirements(adapterType) {
+  return (
+    PTRS_ADAPTER_MAPPING_REQUIREMENTS[adapterType] ||
+    PTRS_ADAPTER_MAPPING_REQUIREMENTS.sap_accounting_event
+  );
+}
+
+export function getPtrsAdapterLabel(adapterType) {
+  return PTRS_ADAPTER_LABELS[adapterType] || "Unknown transaction source";
+}
+
 // -----------------------------------------------------------------------------
 // Human-readable labels (MapPanel should prefer these for display)
 // -----------------------------------------------------------------------------
@@ -128,6 +169,7 @@ export const PTRS_FIELD_LABELS = {
   // Terms
   paymentTerm: "Payment term (raw text)",
   documentType: "Document type",
+  companyCode: "Company code",
   documentCurrency: "Document currency",
   clearingDocument: "Clearing document",
   sourceAccountCode: "Source account code",

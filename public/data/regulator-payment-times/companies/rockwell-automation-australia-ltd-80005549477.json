@@ -1,0 +1,44 @@
+{
+  "slug": "rockwell-automation-australia-ltd-80005549477",
+  "businessName": "ROCKWELL AUTOMATION AUSTRALIA LTD",
+  "abn": "80005549477",
+  "acnArbn": "005549477",
+  "industryDivision": "Wholesale Trade",
+  "industrySlug": "wholesale-trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20011934",
+      "acnArbn": "005549477",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23.71,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 73,
+      "payments31To60Days": 22,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-07-22",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1691,
+        "count": 2941,
+        "percentile": 40.1
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 400,
+        "percentile": 47.1
+      }
+    }
+  ]
+}

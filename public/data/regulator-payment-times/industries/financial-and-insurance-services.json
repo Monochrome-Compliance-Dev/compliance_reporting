@@ -8,19 +8,19 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 341,
-      "averageP95PaymentTimeDays": 43,
+      "reportingEntityCount": 344,
+      "averageP95PaymentTimeDays": 43.5,
       "medianP95PaymentTimeDays": 37,
       "minimumP95PaymentTimeDays": 0,
-      "maximumP95PaymentTimeDays": 168
+      "maximumP95PaymentTimeDays": 217
     },
     {
       "reportingCycleId": "2025-H1",
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 378,
-      "averageP95PaymentTimeDays": 42.4,
+      "reportingEntityCount": 380,
+      "averageP95PaymentTimeDays": 42.5,
       "medianP95PaymentTimeDays": 37,
       "minimumP95PaymentTimeDays": 0,
       "maximumP95PaymentTimeDays": 268
@@ -30,7 +30,7 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 368,
+      "reportingEntityCount": 374,
       "averageP95PaymentTimeDays": 38.9,
       "medianP95PaymentTimeDays": 34.5,
       "minimumP95PaymentTimeDays": 2,
@@ -41,23 +41,34 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 21,
-      "averageP95PaymentTimeDays": 39.5,
-      "medianP95PaymentTimeDays": 40,
-      "minimumP95PaymentTimeDays": 7,
-      "maximumP95PaymentTimeDays": 83
+      "reportingEntityCount": 34,
+      "averageP95PaymentTimeDays": 51.1,
+      "medianP95PaymentTimeDays": 41.5,
+      "minimumP95PaymentTimeDays": 4,
+      "maximumP95PaymentTimeDays": 413
     }
   ],
   "companies": [
+    {
+      "businessName": "LATRAN CAPITAL PTY LTD",
+      "abn": "76615781185",
+      "slug": "latran-capital-pty-ltd-76615781185",
+      "p95PaymentTimeDays": 4,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 34,
+        "percentile": 100
+      }
+    },
     {
       "businessName": "SUMMIT AUTO LEASE AUSTRALIA PTY LIMITED",
       "abn": "87054704737",
       "slug": "summit-auto-lease-australia-pty-limited-87054704737",
       "p95PaymentTimeDays": 7,
       "industryP95Position": {
-        "rank": 1,
-        "count": 21,
-        "percentile": 100
+        "rank": 2,
+        "count": 34,
+        "percentile": 97
       }
     },
     {
@@ -66,9 +77,31 @@
       "slug": "franklin-templeton-australia-holdings-pty-ltd-66118222343",
       "p95PaymentTimeDays": 15,
       "industryP95Position": {
-        "rank": 2,
-        "count": 21,
-        "percentile": 95
+        "rank": 3,
+        "count": 34,
+        "percentile": 93.9
+      }
+    },
+    {
+      "businessName": "THE BANK OF NOVA SCOTIA",
+      "abn": "34133513827",
+      "slug": "the-bank-of-nova-scotia-34133513827",
+      "p95PaymentTimeDays": 16,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 34,
+        "percentile": 90.9
+      }
+    },
+    {
+      "businessName": "INFOCUS WEALTH MANAGEMENT PTY LTD",
+      "abn": "28103551015",
+      "slug": "infocus-wealth-management-pty-ltd-28103551015",
+      "p95PaymentTimeDays": 18,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 34,
+        "percentile": 87.9
       }
     },
     {
@@ -77,9 +110,9 @@
       "slug": "gresham-partners-group-limited-75003856933",
       "p95PaymentTimeDays": 19,
       "industryP95Position": {
-        "rank": 3,
-        "count": 21,
-        "percentile": 90
+        "rank": 6,
+        "count": 34,
+        "percentile": 84.8
       }
     },
     {
@@ -88,9 +121,9 @@
       "slug": "national-australia-bank-limited-12004044937",
       "p95PaymentTimeDays": 23,
       "industryP95Position": {
-        "rank": 4,
-        "count": 21,
-        "percentile": 85
+        "rank": 7,
+        "count": 34,
+        "percentile": 81.8
       }
     },
     {
@@ -99,9 +132,20 @@
       "slug": "domestic-and-general-insurance-plc-11124040768",
       "p95PaymentTimeDays": 24,
       "industryP95Position": {
-        "rank": 5,
-        "count": 21,
-        "percentile": 80
+        "rank": 8,
+        "count": 34,
+        "percentile": 75.8
+      }
+    },
+    {
+      "businessName": "Moody's Group Australia Pty Ltd",
+      "abn": "54129182485",
+      "slug": "moody-s-group-australia-pty-ltd-54129182485",
+      "p95PaymentTimeDays": 24,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 34,
+        "percentile": 75.8
       }
     },
     {
@@ -110,9 +154,9 @@
       "slug": "orix-australia-corporation-limited-79002992681",
       "p95PaymentTimeDays": 25,
       "industryP95Position": {
-        "rank": 6,
-        "count": 21,
-        "percentile": 75
+        "rank": 10,
+        "count": 34,
+        "percentile": 72.7
       }
     },
     {
@@ -121,9 +165,9 @@
       "slug": "norinchukin-australia-pty-limited-57617251617",
       "p95PaymentTimeDays": 27,
       "industryP95Position": {
-        "rank": 7,
-        "count": 21,
-        "percentile": 70
+        "rank": 11,
+        "count": 34,
+        "percentile": 69.7
       }
     },
     {
@@ -132,9 +176,9 @@
       "slug": "morrison-australia-pty-limited-39073922102",
       "p95PaymentTimeDays": 29,
       "industryP95Position": {
-        "rank": 8,
-        "count": 21,
-        "percentile": 65
+        "rank": 12,
+        "count": 34,
+        "percentile": 66.7
       }
     },
     {
@@ -143,9 +187,31 @@
       "slug": "bank-of-queensland-limited-32009656740",
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
-        "rank": 9,
-        "count": 21,
-        "percentile": 60
+        "rank": 13,
+        "count": 34,
+        "percentile": 60.6
+      }
+    },
+    {
+      "businessName": "EUC MANAGEMENT PTY LTD",
+      "abn": "54631013860",
+      "slug": "euc-management-pty-ltd-54631013860",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 34,
+        "percentile": 60.6
+      }
+    },
+    {
+      "businessName": "BLACKROCK INVESTMENT MANAGEMENT (AUSTRALIA) LIMITED",
+      "abn": "13006165975",
+      "slug": "blackrock-investment-management-australia-limited-13006165975",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 34,
+        "percentile": 54.5
       }
     },
     {
@@ -154,9 +220,9 @@
       "slug": "whsp-holdings-pty-limited-49000002728",
       "p95PaymentTimeDays": 37,
       "industryP95Position": {
-        "rank": 10,
-        "count": 21,
-        "percentile": 55
+        "rank": 15,
+        "count": 34,
+        "percentile": 54.5
       }
     },
     {
@@ -165,9 +231,9 @@
       "slug": "ofx-group-limited-12165602273",
       "p95PaymentTimeDays": 40,
       "industryP95Position": {
-        "rank": 11,
-        "count": 21,
-        "percentile": 50
+        "rank": 17,
+        "count": 34,
+        "percentile": 51.5
       }
     },
     {
@@ -176,9 +242,20 @@
       "slug": "mizuho-bank-ltd-83099031106",
       "p95PaymentTimeDays": 43,
       "industryP95Position": {
-        "rank": 12,
-        "count": 21,
-        "percentile": 45
+        "rank": 18,
+        "count": 34,
+        "percentile": 48.5
+      }
+    },
+    {
+      "businessName": "FINDEX GROUP LIMITED",
+      "abn": "40128588714",
+      "slug": "findex-group-limited-40128588714",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 34,
+        "percentile": 39.4
       }
     },
     {
@@ -187,9 +264,9 @@
       "slug": "jarden-australia-holdings-pty-ltd-31608611614",
       "p95PaymentTimeDays": 47,
       "industryP95Position": {
-        "rank": 13,
-        "count": 21,
-        "percentile": 35
+        "rank": 19,
+        "count": 34,
+        "percentile": 39.4
       }
     },
     {
@@ -198,9 +275,9 @@
       "slug": "mitsui-sumitomo-insurance-company-limited-49000525637",
       "p95PaymentTimeDays": 47,
       "industryP95Position": {
-        "rank": 13,
-        "count": 21,
-        "percentile": 35
+        "rank": 19,
+        "count": 34,
+        "percentile": 39.4
       }
     },
     {
@@ -209,9 +286,20 @@
       "slug": "tokio-marine-management-australasia-pty-ltd-69001488455",
       "p95PaymentTimeDays": 49,
       "industryP95Position": {
-        "rank": 15,
-        "count": 21,
-        "percentile": 30
+        "rank": 22,
+        "count": 34,
+        "percentile": 36.4
+      }
+    },
+    {
+      "businessName": "CRAWFORD & COMPANY (AUSTRALIA) PTY. LTD.",
+      "abn": "11002317133",
+      "slug": "crawford-and-company-australia-pty-ltd-11002317133",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 23,
+        "count": 34,
+        "percentile": 30.3
       }
     },
     {
@@ -220,9 +308,9 @@
       "slug": "tal-dai-ichi-life-australia-pty-ltd-97150070483",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 16,
-        "count": 21,
-        "percentile": 25
+        "rank": 23,
+        "count": 34,
+        "percentile": 30.3
       }
     },
     {
@@ -231,9 +319,9 @@
       "slug": "mufg-bank-ltd-75103418882",
       "p95PaymentTimeDays": 53,
       "industryP95Position": {
-        "rank": 17,
-        "count": 21,
-        "percentile": 15
+        "rank": 25,
+        "count": 34,
+        "percentile": 24.2
       }
     },
     {
@@ -242,9 +330,9 @@
       "slug": "state-bank-of-india-95082610008",
       "p95PaymentTimeDays": 53,
       "industryP95Position": {
-        "rank": 17,
-        "count": 21,
-        "percentile": 15
+        "rank": 25,
+        "count": 34,
+        "percentile": 24.2
       }
     },
     {
@@ -253,9 +341,42 @@
       "slug": "wise-australia-pty-ltd-38616463855",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 19,
-        "count": 21,
-        "percentile": 10
+        "rank": 27,
+        "count": 34,
+        "percentile": 21.2
+      }
+    },
+    {
+      "businessName": "PAUL RAMSAY HOLDINGS PTY. LIMITED",
+      "abn": "33008446151",
+      "slug": "paul-ramsay-holdings-pty-limited-33008446151",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 28,
+        "count": 34,
+        "percentile": 18.2
+      }
+    },
+    {
+      "businessName": "THE TRUSTEE FOR TELSTRA SUPERANNUATION SCHEME",
+      "abn": "85502108833",
+      "slug": "the-trustee-for-telstra-superannuation-scheme-85502108833",
+      "p95PaymentTimeDays": 65,
+      "industryP95Position": {
+        "rank": 29,
+        "count": 34,
+        "percentile": 15.2
+      }
+    },
+    {
+      "businessName": "REALWISE HOLDINGS PTY LIMITED",
+      "abn": "87059309161",
+      "slug": "realwise-holdings-pty-limited-87059309161",
+      "p95PaymentTimeDays": 69,
+      "industryP95Position": {
+        "rank": 30,
+        "count": 34,
+        "percentile": 12.1
       }
     },
     {
@@ -264,9 +385,20 @@
       "slug": "sumitomo-mitsui-banking-corporation-98114053459",
       "p95PaymentTimeDays": 70,
       "industryP95Position": {
-        "rank": 20,
-        "count": 21,
-        "percentile": 5
+        "rank": 31,
+        "count": 34,
+        "percentile": 9.1
+      }
+    },
+    {
+      "businessName": "HPE FINANCIAL SERVICES (AUSTRALIA) PTY LIMITED",
+      "abn": "86082062413",
+      "slug": "hpe-financial-services-australia-pty-limited-86082062413",
+      "p95PaymentTimeDays": 71,
+      "industryP95Position": {
+        "rank": 32,
+        "count": 34,
+        "percentile": 6.1
       }
     },
     {
@@ -275,8 +407,19 @@
       "slug": "tokio-marine-and-nichido-fire-insurance-co-ltd-80000438291",
       "p95PaymentTimeDays": 83,
       "industryP95Position": {
-        "rank": 21,
-        "count": 21,
+        "rank": 33,
+        "count": 34,
+        "percentile": 3
+      }
+    },
+    {
+      "businessName": "HDI GLOBAL SE",
+      "abn": "55490279016",
+      "slug": "hdi-global-se-55490279016",
+      "p95PaymentTimeDays": 413,
+      "industryP95Position": {
+        "rank": 34,
+        "count": 34,
         "percentile": 0
       }
     }

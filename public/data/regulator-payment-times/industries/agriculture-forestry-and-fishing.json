@@ -41,23 +41,56 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 11,
-      "averageP95PaymentTimeDays": 51.5,
-      "medianP95PaymentTimeDays": 50,
-      "minimumP95PaymentTimeDays": 31,
-      "maximumP95PaymentTimeDays": 64
+      "reportingEntityCount": 20,
+      "averageP95PaymentTimeDays": 50.7,
+      "medianP95PaymentTimeDays": 50.5,
+      "minimumP95PaymentTimeDays": 12,
+      "maximumP95PaymentTimeDays": 100
     }
   ],
   "companies": [
+    {
+      "businessName": "AUSTRALIAN GRAIN EXPORT PTY LTD",
+      "abn": "92073563185",
+      "slug": "australian-grain-export-pty-ltd-92073563185",
+      "p95PaymentTimeDays": 12,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 20,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "DAIRY FARMERS MILK CO-OPERATIVE LIMITED",
+      "abn": "74669522867",
+      "slug": "dairy-farmers-milk-co-operative-limited-74669522867",
+      "p95PaymentTimeDays": 14,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 20,
+        "percentile": 94.7
+      }
+    },
+    {
+      "businessName": "ECOM COMMODITIES PTY LTD",
+      "abn": "65089892713",
+      "slug": "ecom-commodities-pty-ltd-65089892713",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 20,
+        "percentile": 89.5
+      }
+    },
     {
       "businessName": "ADITYA BIRLA GLOBAL TRADING (AUSTRALIA) PTY LTD",
       "abn": "37609394176",
       "slug": "aditya-birla-global-trading-australia-pty-ltd-37609394176",
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
-        "rank": 1,
-        "count": 11,
-        "percentile": 100
+        "rank": 4,
+        "count": 20,
+        "percentile": 84.2
       }
     },
     {
@@ -66,9 +99,9 @@
       "slug": "stahmann-holdings-pty-ltd-68617861677",
       "p95PaymentTimeDays": 38,
       "industryP95Position": {
-        "rank": 2,
-        "count": 11,
-        "percentile": 90
+        "rank": 5,
+        "count": 20,
+        "percentile": 78.9
       }
     },
     {
@@ -77,9 +110,20 @@
       "slug": "mitsui-and-co-wood-resources-oceania-pty-ltd-14070210990",
       "p95PaymentTimeDays": 44,
       "industryP95Position": {
-        "rank": 3,
-        "count": 11,
-        "percentile": 80
+        "rank": 6,
+        "count": 20,
+        "percentile": 73.7
+      }
+    },
+    {
+      "businessName": "QIC AGRIBUSINESS HOLDINGS PTY LTD",
+      "abn": "93612232112",
+      "slug": "qic-agribusiness-holdings-pty-ltd-93612232112",
+      "p95PaymentTimeDays": 48,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 20,
+        "percentile": 68.4
       }
     },
     {
@@ -88,9 +132,9 @@
       "slug": "summit-rural-wa-pty-limited-49058794737",
       "p95PaymentTimeDays": 49,
       "industryP95Position": {
-        "rank": 4,
-        "count": 11,
-        "percentile": 60
+        "rank": 8,
+        "count": 20,
+        "percentile": 57.9
       }
     },
     {
@@ -99,9 +143,9 @@
       "slug": "the-trustee-for-whsp-agriculture-holding-trust-74313288080",
       "p95PaymentTimeDays": 49,
       "industryP95Position": {
-        "rank": 4,
-        "count": 11,
-        "percentile": 60
+        "rank": 8,
+        "count": 20,
+        "percentile": 57.9
       }
     },
     {
@@ -110,9 +154,42 @@
       "slug": "cpc-group-holdings-pty-ltd-28644449758",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 6,
-        "count": 11,
-        "percentile": 50
+        "rank": 10,
+        "count": 20,
+        "percentile": 52.6
+      }
+    },
+    {
+      "businessName": "AMEROPA AUSTRALIA PTY LTD",
+      "abn": "21009504394",
+      "slug": "ameropa-australia-pty-ltd-21009504394",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 20,
+        "percentile": 42.1
+      }
+    },
+    {
+      "businessName": "AUSTRAL FISHERIES PTY LTD",
+      "abn": "71008989982",
+      "slug": "austral-fisheries-pty-ltd-71008989982",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 20,
+        "percentile": 42.1
+      }
+    },
+    {
+      "businessName": "MP Australia Holdings Pty Ltd",
+      "abn": "37156629211",
+      "slug": "mp-australia-holdings-pty-ltd-37156629211",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 20,
+        "percentile": 36.8
       }
     },
     {
@@ -121,9 +198,9 @@
       "slug": "petuna-aquaculture-pty-ltd-62009485581",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 7,
-        "count": 11,
-        "percentile": 40
+        "rank": 14,
+        "count": 20,
+        "percentile": 31.6
       }
     },
     {
@@ -132,9 +209,9 @@
       "slug": "philip-yates-family-holdings-pty-ltd-69610437119",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 8,
-        "count": 11,
-        "percentile": 30
+        "rank": 15,
+        "count": 20,
+        "percentile": 26.3
       }
     },
     {
@@ -143,9 +220,9 @@
       "slug": "a-a-company-pty-ltd-86010317067",
       "p95PaymentTimeDays": 61,
       "industryP95Position": {
-        "rank": 9,
-        "count": 11,
-        "percentile": 20
+        "rank": 16,
+        "count": 20,
+        "percentile": 21.1
       }
     },
     {
@@ -154,9 +231,9 @@
       "slug": "altora-ag-holdco-pty-ltd-29630396619",
       "p95PaymentTimeDays": 62,
       "industryP95Position": {
-        "rank": 10,
-        "count": 11,
-        "percentile": 10
+        "rank": 17,
+        "count": 20,
+        "percentile": 15.8
       }
     },
     {
@@ -165,8 +242,30 @@
       "slug": "simplot-australia-holdings-pty-limited-23070571934",
       "p95PaymentTimeDays": 64,
       "industryP95Position": {
-        "rank": 11,
-        "count": 11,
+        "rank": 18,
+        "count": 20,
+        "percentile": 10.5
+      }
+    },
+    {
+      "businessName": "AFGRI AUSTRALIA PTY LTD",
+      "abn": "14103619067",
+      "slug": "afgri-australia-pty-ltd-14103619067",
+      "p95PaymentTimeDays": 85,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 20,
+        "percentile": 5.3
+      }
+    },
+    {
+      "businessName": "AG N VET RURAL PTY LTD",
+      "abn": "52125781222",
+      "slug": "ag-n-vet-rural-pty-ltd-52125781222",
+      "p95PaymentTimeDays": 100,
+      "industryP95Position": {
+        "rank": 20,
+        "count": 20,
         "percentile": 0
       }
     }

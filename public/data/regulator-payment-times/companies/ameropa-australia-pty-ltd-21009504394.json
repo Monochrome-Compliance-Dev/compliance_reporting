@@ -6,8 +6,40 @@
   "industryDivision": "Agriculture, Forestry and Fishing",
   "industrySlug": "agriculture-forestry-and-fishing",
   "industrySubdivision": "Agriculture",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20011952",
+      "acnArbn": "009504394",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.45,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 36,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 71.47,
+      "payments31To60Days": 28.25,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Agriculture",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-07-23",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 192,
+        "count": 409,
+        "percentile": 51.5
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 20,
+        "percentile": 42.1
+      }
+    },
     {
       "reportId": "PTR20007250",
       "acnArbn": "009504394",
@@ -30,9 +62,9 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1313,
-        "count": 2976,
-        "percentile": 54.3
+        "rank": 1328,
+        "count": 3004,
+        "percentile": 54.2
       },
       "industryP95Position": {
         "rank": 60,
@@ -62,8 +94,8 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1257,
-        "count": 2935,
+        "rank": 1258,
+        "count": 2941,
         "percentile": 55.6
       },
       "industryP95Position": {
@@ -94,8 +126,8 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1018,
-        "count": 2524,
+        "rank": 1021,
+        "count": 2530,
         "percentile": 58.4
       },
       "industryP95Position": {
