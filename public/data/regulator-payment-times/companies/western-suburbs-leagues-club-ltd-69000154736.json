@@ -1,0 +1,44 @@
+{
+  "slug": "western-suburbs-leagues-club-ltd-69000154736",
+  "businessName": "WESTERN SUBURBS LEAGUES CLUB LTD",
+  "abn": "69000154736",
+  "acnArbn": "000154736",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySlug": "accommodation-and-food-services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2026-05-02",
+  "reports": [
+    {
+      "reportId": "PTR20012042",
+      "acnArbn": "000154736",
+      "reportingPeriodStartDate": "2025-10-31",
+      "reportingPeriodEndDate": "2026-05-02",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 14,
+      "p95PaymentTimeDays": 28,
+      "payments30DaysOrLess": 97.03,
+      "payments31To60Days": 2.86,
+      "paymentsMoreThan60Days": 0.11,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-07-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 47,
+        "count": 409,
+        "percentile": 88.2
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 7,
+        "percentile": 100
+      }
+    }
+  ]
+}

@@ -6,8 +6,40 @@
   "industryDivision": "Professional, Scientific and Technical Services",
   "industrySlug": "professional-scientific-and-technical-services",
   "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20011980",
+      "acnArbn": "111372064",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.39,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 44.96,
+      "payments31To60Days": 44.05,
+      "paymentsMoreThan60Days": 10.99,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-07-27",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 307,
+        "count": 409,
+        "percentile": 22.3
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 47,
+        "percentile": 32.6
+      }
+    },
     {
       "reportId": "PTR20009757",
       "acnArbn": "111372064",
@@ -30,9 +62,9 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2338,
-        "count": 2976,
-        "percentile": 20.1
+        "rank": 2361,
+        "count": 3004,
+        "percentile": 20
       },
       "industryP95Position": {
         "rank": 168,
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2083,
-        "count": 2935,
-        "percentile": 27.9
+        "rank": 2086,
+        "count": 2941,
+        "percentile": 28
       },
       "industryP95Position": {
-        "rank": 146,
-        "count": 225,
-        "percentile": 34.8
+        "rank": 145,
+        "count": 224,
+        "percentile": 35
       }
     },
     {
@@ -94,9 +126,9 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1759,
-        "count": 2524,
-        "percentile": 28.9
+        "rank": 1762,
+        "count": 2530,
+        "percentile": 29
       },
       "industryP95Position": {
         "rank": 114,

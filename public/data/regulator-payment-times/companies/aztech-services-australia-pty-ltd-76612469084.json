@@ -6,8 +6,40 @@
   "industryDivision": "Electricity, Gas, Water and Waste Services",
   "industrySlug": "electricity-gas-water-and-waste-services",
   "industrySubdivision": "Waste collection, treatment and disposal services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20011975",
+      "acnArbn": "612469084",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 74.2,
+      "payments31To60Days": 25.4,
+      "paymentsMoreThan60Days": 0.4,
+      "industrySubdivision": "Waste collection, treatment and disposal services",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-07-26",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 208,
+        "count": 409,
+        "percentile": 48.5
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 12,
+        "percentile": 54.5
+      }
+    },
     {
       "reportId": "PTR20007010",
       "acnArbn": "612469084",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1502,
-        "count": 2976,
-        "percentile": 47.5
+        "rank": 1518,
+        "count": 3004,
+        "percentile": 47.4
       },
       "industryP95Position": {
         "rank": 68,
-        "count": 96,
-        "percentile": 28.4
+        "count": 97,
+        "percentile": 29.2
       }
     },
     {
@@ -62,9 +94,9 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1396,
-        "count": 2935,
-        "percentile": 50.7
+        "rank": 1397,
+        "count": 2941,
+        "percentile": 50.8
       },
       "industryP95Position": {
         "rank": 66,
@@ -94,9 +126,9 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1238,
-        "count": 2524,
-        "percentile": 48.3
+        "rank": 1240,
+        "count": 2530,
+        "percentile": 48.4
       },
       "industryP95Position": {
         "rank": 68,

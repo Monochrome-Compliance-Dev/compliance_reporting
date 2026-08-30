@@ -1,0 +1,108 @@
+{
+  "slug": "tynan-motors-holdings-pty-ltd-15002448446",
+  "businessName": "TYNAN MOTORS (HOLDINGS) PTY LTD",
+  "abn": "15002448446",
+  "acnArbn": "002448446",
+  "industryDivision": "Retail Trade",
+  "industrySlug": "retail-trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20011968",
+      "acnArbn": "002448446",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.51,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 79.06,
+      "payments31To60Days": 16.56,
+      "paymentsMoreThan60Days": 4.36,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-07-26",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1581,
+        "count": 3004,
+        "percentile": 44.7
+      },
+      "industryP95Position": {
+        "rank": 120,
+        "count": 249,
+        "percentile": 46.4
+      }
+    },
+    {
+      "reportId": "PTR20011969",
+      "acnArbn": "002448446",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 23,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 75,
+      "payments31To60Days": 20,
+      "paymentsMoreThan60Days": 4.99,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-07-26",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1856,
+        "count": 2941,
+        "percentile": 35.1
+      },
+      "industryP95Position": {
+        "rank": 158,
+        "count": 252,
+        "percentile": 35.5
+      }
+    },
+    {
+      "reportId": "PTR20011970",
+      "acnArbn": "002448446",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 13,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 80.99,
+      "payments31To60Days": 15.99,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-07-26",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1364,
+        "count": 2530,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 210,
+        "percentile": 45.9
+      }
+    }
+  ]
+}

@@ -30,8 +30,8 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 96,
-      "averageP95PaymentTimeDays": 43.8,
+      "reportingEntityCount": 97,
+      "averageP95PaymentTimeDays": 44.1,
       "medianP95PaymentTimeDays": 44,
       "minimumP95PaymentTimeDays": 11,
       "maximumP95PaymentTimeDays": 121
@@ -41,23 +41,56 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 27,
-      "medianP95PaymentTimeDays": 27,
-      "minimumP95PaymentTimeDays": 15,
-      "maximumP95PaymentTimeDays": 39
+      "reportingEntityCount": 12,
+      "averageP95PaymentTimeDays": 48.2,
+      "medianP95PaymentTimeDays": 56.5,
+      "minimumP95PaymentTimeDays": 14,
+      "maximumP95PaymentTimeDays": 93
     }
   ],
   "companies": [
+    {
+      "businessName": "CK WILLIAM AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "14613690243",
+      "slug": "ck-william-australia-holdings-pty-ltd-14613690243",
+      "p95PaymentTimeDays": 14,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 12,
+        "percentile": 100
+      }
+    },
     {
       "businessName": "BLUEWATERS POWER 1 PTY LTD",
       "abn": "93106034879",
       "slug": "bluewaters-power-1-pty-ltd-93106034879",
       "p95PaymentTimeDays": 15,
       "industryP95Position": {
-        "rank": 1,
-        "count": 2,
-        "percentile": 100
+        "rank": 2,
+        "count": 12,
+        "percentile": 90.9
+      }
+    },
+    {
+      "businessName": "YARRA VALLEY WATER CORPORATION",
+      "abn": "93066902501",
+      "slug": "yarra-valley-water-corporation-93066902501",
+      "p95PaymentTimeDays": 21,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 12,
+        "percentile": 81.8
+      }
+    },
+    {
+      "businessName": "AquaSure Holdings Pty Ltd",
+      "abn": "46135956053",
+      "slug": "aquasure-holdings-pty-ltd-46135956053",
+      "p95PaymentTimeDays": 22,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 12,
+        "percentile": 72.7
       }
     },
     {
@@ -66,8 +99,85 @@
       "slug": "bluewaters-power-2-pty-ltd-57122896968",
       "p95PaymentTimeDays": 39,
       "industryP95Position": {
-        "rank": 2,
-        "count": 2,
+        "rank": 5,
+        "count": 12,
+        "percentile": 63.6
+      }
+    },
+    {
+      "businessName": "AZTECH SERVICES AUSTRALIA PTY LTD",
+      "abn": "76612469084",
+      "slug": "aztech-services-australia-pty-ltd-76612469084",
+      "p95PaymentTimeDays": 54,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 12,
+        "percentile": 54.5
+      }
+    },
+    {
+      "businessName": "VICTORIA POWER NETWORKS PTY LTD",
+      "abn": "37116940820",
+      "slug": "victoria-power-networks-pty-ltd-37116940820",
+      "p95PaymentTimeDays": 59,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 12,
+        "percentile": 45.5
+      }
+    },
+    {
+      "businessName": "SUNGROW AUSTRALIA GROUP PTY LTD",
+      "abn": "76168258679",
+      "slug": "sungrow-australia-group-pty-ltd-76168258679",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 12,
+        "percentile": 36.4
+      }
+    },
+    {
+      "businessName": "UNITED ENERGY DISTRIBUTION HOLDINGS PTY LIMITED",
+      "abn": "15104381660",
+      "slug": "united-energy-distribution-holdings-pty-limited-15104381660",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 12,
+        "percentile": 27.3
+      }
+    },
+    {
+      "businessName": "NSC (AUSTRALIA) PTY LTD",
+      "abn": "71607111268",
+      "slug": "nsc-australia-pty-ltd-71607111268",
+      "p95PaymentTimeDays": 65,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 12,
+        "percentile": 18.2
+      }
+    },
+    {
+      "businessName": "J.J. RICHARDS & SONS PTY LTD",
+      "abn": "40000805425",
+      "slug": "j-j-richards-and-sons-pty-ltd-40000805425",
+      "p95PaymentTimeDays": 71,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 12,
+        "percentile": 9.1
+      }
+    },
+    {
+      "businessName": "GE GRID AUSTRALIA PTY LTD",
+      "abn": "91106900707",
+      "slug": "ge-grid-australia-pty-ltd-91106900707",
+      "p95PaymentTimeDays": 93,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 12,
         "percentile": 0
       }
     }

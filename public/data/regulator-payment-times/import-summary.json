@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-07-28T05:19:00.631Z",
-  "sourceWorkbook": "15072026-Payment-Times-Reports-Register.xlsx",
+  "generatedAt": "2026-08-30T04:02:13.339Z",
+  "sourceWorkbook": "19082026-Payment-Times-Reports-Register.xlsx",
   "sourceWorksheet": "Standard report",
-  "sourceRowCount": 9183,
-  "candidateStandardReportCount": 9165,
-  "publishedReportCount": 8723,
-  "companyCount": 3206,
+  "sourceRowCount": 9413,
+  "candidateStandardReportCount": 9390,
+  "publishedReportCount": 8904,
+  "companyCount": 3214,
   "industryCount": 19,
-  "excludedMissingAbnCount": 18,
+  "excludedMissingAbnCount": 23,
   "excludedNonStandardCount": 0,
-  "supersededReportCount": 442,
+  "supersededReportCount": 486,
   "outputs": {
     "searchIndex": "public/data/regulator-payment-times/search-index.json",
     "companyDirectory": "public/data/regulator-payment-times/companies",
     "industryIndex": "public/data/regulator-payment-times/industry-index.json",
     "industryDirectory": "public/data/regulator-payment-times/industries",
-    "paymentTimesSitemap": "public/sitemap-payment-times.xml",
+    "paymentTimesSitemap": "public/sitemaps/sitemap-payment-times.xml",
     "importSummary": "public/data/regulator-payment-times/import-summary.json"
   }
 }

@@ -8,9 +8,9 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 51,
-      "averageP95PaymentTimeDays": 54,
-      "medianP95PaymentTimeDays": 46,
+      "reportingEntityCount": 52,
+      "averageP95PaymentTimeDays": 53.6,
+      "medianP95PaymentTimeDays": 45.5,
       "minimumP95PaymentTimeDays": 1,
       "maximumP95PaymentTimeDays": 325
     },
@@ -19,9 +19,9 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 59,
-      "averageP95PaymentTimeDays": 44.9,
-      "medianP95PaymentTimeDays": 37,
+      "reportingEntityCount": 60,
+      "averageP95PaymentTimeDays": 44.7,
+      "medianP95PaymentTimeDays": 36.5,
       "minimumP95PaymentTimeDays": 1,
       "maximumP95PaymentTimeDays": 124
     },
@@ -30,9 +30,9 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 58,
-      "averageP95PaymentTimeDays": 45.4,
-      "medianP95PaymentTimeDays": 43.5,
+      "reportingEntityCount": 59,
+      "averageP95PaymentTimeDays": 45.7,
+      "medianP95PaymentTimeDays": 43,
       "minimumP95PaymentTimeDays": 1,
       "maximumP95PaymentTimeDays": 126
     },
@@ -41,8 +41,8 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 9,
-      "averageP95PaymentTimeDays": 43,
+      "reportingEntityCount": 11,
+      "averageP95PaymentTimeDays": 43.4,
       "medianP95PaymentTimeDays": 40,
       "minimumP95PaymentTimeDays": 11,
       "maximumP95PaymentTimeDays": 77
@@ -56,7 +56,7 @@
       "p95PaymentTimeDays": 11,
       "industryP95Position": {
         "rank": 1,
-        "count": 9,
+        "count": 11,
         "percentile": 100
       }
     },
@@ -67,8 +67,19 @@
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
         "rank": 2,
-        "count": 9,
-        "percentile": 87.5
+        "count": 11,
+        "percentile": 90
+      }
+    },
+    {
+      "businessName": "TITAN RECRUITMENT PTY LTD",
+      "abn": "34086897636",
+      "slug": "titan-recruitment-pty-ltd-34086897636",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 11,
+        "percentile": 80
       }
     },
     {
@@ -77,9 +88,9 @@
       "slug": "talent-international-holdings-pty-ltd-28131419577",
       "p95PaymentTimeDays": 37,
       "industryP95Position": {
-        "rank": 3,
-        "count": 9,
-        "percentile": 75
+        "rank": 4,
+        "count": 11,
+        "percentile": 70
       }
     },
     {
@@ -88,9 +99,9 @@
       "slug": "drake-australia-pty-ltd-42004939771",
       "p95PaymentTimeDays": 38,
       "industryP95Position": {
-        "rank": 4,
-        "count": 9,
-        "percentile": 62.5
+        "rank": 5,
+        "count": 11,
+        "percentile": 60
       }
     },
     {
@@ -99,8 +110,8 @@
       "slug": "visa-ap-australia-pty-ltd-20134885564",
       "p95PaymentTimeDays": 40,
       "industryP95Position": {
-        "rank": 5,
-        "count": 9,
+        "rank": 6,
+        "count": 11,
         "percentile": 50
       }
     },
@@ -110,9 +121,9 @@
       "slug": "fujifilm-data-management-solutions-pty-ltd-74000553284",
       "p95PaymentTimeDays": 44,
       "industryP95Position": {
-        "rank": 6,
-        "count": 9,
-        "percentile": 37.5
+        "rank": 7,
+        "count": 11,
+        "percentile": 40
       }
     },
     {
@@ -121,9 +132,20 @@
       "slug": "travelcube-pacific-pty-ltd-52099122577",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 7,
-        "count": 9,
-        "percentile": 25
+        "rank": 8,
+        "count": 11,
+        "percentile": 30
+      }
+    },
+    {
+      "businessName": "ETS INFRASTRUCTURE MANAGEMENT PTY LTD",
+      "abn": "38070013884",
+      "slug": "ets-infrastructure-management-pty-ltd-38070013884",
+      "p95PaymentTimeDays": 59,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 11,
+        "percentile": 20
       }
     },
     {
@@ -132,9 +154,9 @@
       "slug": "adcorp-holdings-australia-pty-limited-91161583893",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 8,
-        "count": 9,
-        "percentile": 12.5
+        "rank": 10,
+        "count": 11,
+        "percentile": 10
       }
     },
     {
@@ -143,8 +165,8 @@
       "slug": "ms-operations-pty-ltd-37673801262",
       "p95PaymentTimeDays": 77,
       "industryP95Position": {
-        "rank": 9,
-        "count": 9,
+        "rank": 11,
+        "count": 11,
         "percentile": 0
       }
     }

@@ -6,8 +6,40 @@
   "industryDivision": "Arts and Recreation Services",
   "industrySlug": "arts-and-recreation-services",
   "industrySubdivision": "Sports and recreation activities",
-  "latestReportingPeriodEndDate": "2025-10-30",
+  "latestReportingPeriodEndDate": "2026-04-29",
   "reports": [
+    {
+      "reportId": "PTR20011783",
+      "acnArbn": "000218655",
+      "reportingPeriodStartDate": "2025-10-31",
+      "reportingPeriodEndDate": "2026-04-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.3,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 85.55,
+      "payments31To60Days": 12.28,
+      "paymentsMoreThan60Days": 2.17,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-07-06",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 140,
+        "count": 409,
+        "percentile": 64.2
+      },
+      "industryP95Position": {
+        "rank": 7,
+        "count": 13,
+        "percentile": 50
+      }
+    },
     {
       "reportId": "PTR20007063",
       "acnArbn": "000218655",
@@ -30,9 +62,9 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1194,
-        "count": 2976,
-        "percentile": 58.2
+        "rank": 1209,
+        "count": 3004,
+        "percentile": 58.1
       },
       "industryP95Position": {
         "rank": 33,
@@ -62,9 +94,9 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1692,
-        "count": 2935,
-        "percentile": 40
+        "rank": 1691,
+        "count": 2941,
+        "percentile": 40.1
       },
       "industryP95Position": {
         "rank": 41,

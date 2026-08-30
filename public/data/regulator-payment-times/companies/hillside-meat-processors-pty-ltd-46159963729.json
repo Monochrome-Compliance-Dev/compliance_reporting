@@ -1,0 +1,44 @@
+{
+  "slug": "hillside-meat-processors-pty-ltd-46159963729",
+  "businessName": "HILLSIDE MEAT PROCESSORS PTY LTD",
+  "abn": "46159963729",
+  "acnArbn": "159963729",
+  "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
+  "industrySubdivision": "Food product mfg",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20012024",
+      "acnArbn": "159963729",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-07-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 177,
+        "count": 2530,
+        "percentile": 92.3
+      },
+      "industryP95Position": {
+        "rank": 9,
+        "count": 329,
+        "percentile": 97.6
+      }
+    }
+  ]
+}

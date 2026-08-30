@@ -9,13 +9,13 @@
   "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
-      "reportId": "PTR20007800",
+      "reportId": "PTR20011795",
       "acnArbn": "140108390",
       "reportingPeriodStartDate": "2025-06-30",
       "reportingPeriodEndDate": "2025-12-30",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
-      "averagePaymentTimeDays": 25.72,
+      "averagePaymentTimeDays": 25.73,
       "medianPaymentTimeDays": 18,
       "p80PaymentTimeDays": 34,
       "p95PaymentTimeDays": 73,
@@ -24,20 +24,20 @@
       "paymentsMoreThan60Days": 7,
       "industrySubdivision": "Construction services",
       "industryDivision": "Construction",
-      "submittedDate": "2026-03-29",
+      "submittedDate": "2026-07-06",
       "reportingCycleId": "2025-H2",
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2424,
-        "count": 2976,
-        "percentile": 17.5
+        "rank": 2447,
+        "count": 3004,
+        "percentile": 17.4
       },
       "industryP95Position": {
-        "rank": 223,
-        "count": 280,
-        "percentile": 18.3
+        "rank": 226,
+        "count": 283,
+        "percentile": 18.1
       }
     },
     {
@@ -62,14 +62,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2723,
-        "count": 2935,
+        "rank": 2728,
+        "count": 2941,
         "percentile": 6.9
       },
       "industryP95Position": {
-        "rank": 242,
-        "count": 269,
-        "percentile": 9.7
+        "rank": 245,
+        "count": 272,
+        "percentile": 9.6
       }
     },
     {
@@ -94,8 +94,8 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1935,
-        "count": 2524,
+        "rank": 1937,
+        "count": 2530,
         "percentile": 22.5
       },
       "industryP95Position": {

@@ -30,46 +30,46 @@
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
       "overallP95Position": {
-        "rank": 235,
-        "count": 270,
-        "percentile": 13
+        "rank": 350,
+        "count": 409,
+        "percentile": 14.2
       },
       "industryP95Position": {
-        "rank": 9,
-        "count": 9,
+        "rank": 11,
+        "count": 11,
         "percentile": 0
       }
     },
     {
-      "reportId": "PTR20006874",
+      "reportId": "PTR20011884",
       "acnArbn": "673801262",
       "reportingPeriodStartDate": "2025-03-31",
       "reportingPeriodEndDate": "2025-09-29",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
-      "averagePaymentTimeDays": 33.83,
-      "medianPaymentTimeDays": 38,
-      "p80PaymentTimeDays": 45,
-      "p95PaymentTimeDays": 53,
-      "payments30DaysOrLess": 31.73,
-      "payments31To60Days": 68.02,
-      "paymentsMoreThan60Days": 0.26,
+      "averagePaymentTimeDays": 49.65,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 10.86,
+      "payments31To60Days": 78.71,
+      "paymentsMoreThan60Days": 10.43,
       "industrySubdivision": "Building cleaning, pest control and other support services",
       "industryDivision": "Administrative and Support Services",
-      "submittedDate": "2025-12-30",
+      "submittedDate": "2026-07-16",
       "reportingCycleId": "2025-H2",
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1411,
-        "count": 2976,
-        "percentile": 51.1
+        "rank": 2608,
+        "count": 3004,
+        "percentile": 12.7
       },
       "industryP95Position": {
-        "rank": 37,
-        "count": 58,
-        "percentile": 33.3
+        "rank": 55,
+        "count": 59,
+        "percentile": 6.9
       }
     }
   ]
