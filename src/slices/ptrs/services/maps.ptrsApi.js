@@ -356,12 +356,20 @@ export const buildPtrsCanonicalRevision = async (
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/datasets/${datasetId}/canonical-revisions${suffix}`,
     { profileId },
+    { retry: 0 },
   );
 
-  const data = pickData(res) || {};
+  const data = pickData(res);
+  if (
+    !data?.revision?.id ||
+    !["building", "succeeded"].includes(data.revision.status)
+  ) {
+    throw new Error("Invalid canonical materialisation response");
+  }
   return {
-    revision: data.revision || null,
+    revision: data.revision,
     reused: !!data.reused,
+    ready: data.revision.status === "succeeded",
   };
 };
 

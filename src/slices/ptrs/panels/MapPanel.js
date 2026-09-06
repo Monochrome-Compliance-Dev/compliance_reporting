@@ -1326,7 +1326,7 @@ export default function MapPanel() {
 
   const stageData = async () => {
     if (isBusy) return;
-    // Move to StagePanel (server will handle build/reuse if needed).
+    // Canonical materialisation must finish before Stage can consume it.
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
@@ -1370,10 +1370,17 @@ export default function MapPanel() {
       // Materialise each transaction dataset independently. Exact-input
       // revisions are reused, while failures remain visible for that dataset.
       for (const dataset of transactionDatasets) {
-        await buildPtrsCanonicalRevision(ptrsId, {
+        const canonical = await buildPtrsCanonicalRevision(ptrsId, {
           profileId,
           datasetId: dataset.id,
         });
+        if (!canonical.ready) {
+          showAlert(
+            "Canonical materialisation is already in progress. Stay on Map and select Next again once it has completed.",
+            "info",
+          );
+          return;
+        }
       }
 
       try {
@@ -1391,7 +1398,7 @@ export default function MapPanel() {
       if (profileId) qs.set("profileId", profileId);
       qs.set("autoRunStage", autoRunStage ? "true" : "false");
 
-      // Navigate immediately (don’t wait for 200k-row work)
+      // Stage is a separate operation over the completed canonical revisions.
       goTo(`stage?${qs.toString()}`, { includeId: false });
     } catch (e) {
       showAlert(
