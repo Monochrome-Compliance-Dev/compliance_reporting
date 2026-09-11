@@ -27,6 +27,7 @@ import { useUpdatePtrsMutation } from "../hooks/usePtrsQueries";
 import { usePtrsNavigation } from "../hooks/usePtrsNavigation";
 import {
   addDataset,
+  importWorkbook,
   listDatasets,
   removeDataset,
 } from "../services/data.ptrsApi";
@@ -97,7 +98,9 @@ export default function DataConsole() {
   );
   const [referenceKind, setReferenceKind] = useState("vendormaster");
   const [file, setFile] = useState(null);
+  const [workbookFile, setWorkbookFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [isWorkbookUploading, setIsWorkbookUploading] = useState(false);
   const [liveUploadStatus, setLiveUploadStatus] = useState(null);
 
   const refreshDatasets = useCallback(async () => {
@@ -267,6 +270,26 @@ export default function DataConsole() {
     }
   };
 
+  const doWorkbookUpload = async () => {
+    if (!ptrsId || !workbookFile) return;
+    setIsWorkbookUploading(true);
+    try {
+      const result = await importWorkbook(ptrsId, workbookFile);
+      setWorkbookFile(null);
+      await refreshDatasets();
+      await refreshCtxDatasets?.();
+      showAlert(
+        `${result.datasets.length} workbook sheet${result.datasets.length === 1 ? "" : "s"} imported`,
+        "success",
+      );
+    } catch (err) {
+      console.error(err);
+      showAlert(err?.message || "Workbook import failed", "error");
+    } finally {
+      setIsWorkbookUploading(false);
+    }
+  };
+
   const onDelete = async (datasetId) => {
     try {
       await removeDataset(ptrsId, datasetId);
@@ -375,6 +398,61 @@ export default function DataConsole() {
                   reference data such as Vendor Master or Payment Terms.
                 </Typography>
 
+                <Paper variant="outlined" sx={{ p: 2, mb: 3 }}>
+                  <Typography variant="subtitle1">
+                    Import a self-contained workbook
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ mb: 2 }}
+                  >
+                    Each configured worksheet becomes an ordinary transaction or
+                    reference dataset. Sheet names, roles and required columns
+                    come from the selected PTRS profile.
+                  </Typography>
+                  <Stack
+                    direction={{ xs: "column", sm: "row" }}
+                    spacing={2}
+                    alignItems={{ sm: "center" }}
+                  >
+                    <Button
+                      component="label"
+                      variant="outlined"
+                      startIcon={<UploadFileIcon />}
+                      disabled={isWorkbookUploading}
+                    >
+                      Choose workbook
+                      <input
+                        key={workbookFile ? "selected" : "empty"}
+                        hidden
+                        type="file"
+                        accept=".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                        onChange={(event) =>
+                          setWorkbookFile(event.target.files?.[0] || null)
+                        }
+                      />
+                    </Button>
+                    <Tooltip
+                      title={
+                        workbookFile ? workbookFile.name : "No workbook chosen"
+                      }
+                    >
+                      <Chip
+                        label={workbookFile ? workbookFile.name : "No workbook"}
+                        variant="outlined"
+                      />
+                    </Tooltip>
+                    <Button
+                      variant="contained"
+                      onClick={doWorkbookUpload}
+                      disabled={!workbookFile || isWorkbookUploading}
+                    >
+                      {isWorkbookUploading ? "Importing..." : "Import workbook"}
+                    </Button>
+                  </Stack>
+                </Paper>
+
                 {/* Columns */}
                 <Stack
                   direction={{ xs: "column", md: "row" }}
@@ -430,9 +508,7 @@ export default function DataConsole() {
                               labelId="supporting-role-select-label"
                               label="Supporting dataset type"
                               value={referenceKind}
-                              onChange={(e) =>
-                                setReferenceKind(e.target.value)
-                              }
+                              onChange={(e) => setReferenceKind(e.target.value)}
                             >
                               {REFERENCE_KIND_OPTIONS.map((opt) => (
                                 <MenuItem key={opt.value} value={opt.value}>
@@ -474,7 +550,9 @@ export default function DataConsole() {
                                     {d.adapterType
                                       ? `${transactionAdapterLabel(d.adapterType)} • `
                                       : ""}
-                                    {d.sourceFormat?.toUpperCase() || "CSV"} • Rows: {d.rowsCount ?? "?"} • {d.status || "unknown"}
+                                    {d.sourceFormat?.toUpperCase() || "CSV"} •
+                                    Rows: {d.rowsCount ?? "?"} •{" "}
+                                    {d.status || "unknown"}
                                   </Typography>
                                 </Box>
                                 <IconButton

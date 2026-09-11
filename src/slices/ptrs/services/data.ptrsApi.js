@@ -76,6 +76,23 @@ export const addDataset = async (
   return normDataset(pickData(res));
 };
 
+// Import a self-contained workbook according to the selected PTRS profile.
+export const importWorkbook = async (ptrsId, file) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!file) throw new Error("file is required");
+  const fd = new FormData();
+  fd.append("file", file);
+  const res = await fetchWrapper.postUpload(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/workbooks`,
+    fd,
+  );
+  const data = pickData(res) || {};
+  return {
+    profileId: data.profileId || null,
+    datasets: normDatasetList(data.datasets),
+  };
+};
+
 // List datasets attached to a ptrs
 export const listDatasets = async (ptrsId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
