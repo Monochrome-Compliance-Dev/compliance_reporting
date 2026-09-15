@@ -38,6 +38,8 @@ import {
   FIELD_SYNONYMS,
   getPtrsAdapterLabel,
   getPtrsAdapterMappingRequirements,
+  getPtrsDatasetMappingReadiness,
+  getReachablePtrsDatasetIds,
 } from "../ingestConfig";
 import { usePtrsContext } from "../context/PtrsContext";
 import { getFieldLabel } from "../services/ingestConfig";
@@ -55,10 +57,23 @@ import {
   savePtrsMap,
   savePtrsFieldMap,
   buildPtrsCanonicalRevision,
+  getPtrsFieldMap,
 } from "../services/maps.ptrsApi";
 import SupportingDatasetsSection from "./SupportingDatasetsSection";
 import { LoadingSpinner } from "shared/ui";
 import { getDatasetSample } from "../services/data.ptrsApi";
+
+const DIRECT_PAYMENT_DATE_FORMATS = new Set(["ISO", "MDY", "DMY"]);
+
+export const hasCompleteDirectPaymentSettings = (dataset) => {
+  const entityName = String(dataset?.reportingEntity?.entityName || "").trim();
+  const suppliedAbn = String(dataset?.reportingEntity?.abn || "").trim();
+  return (
+    DIRECT_PAYMENT_DATE_FORMATS.has(dataset?.dateFormat) &&
+    Boolean(entityName) &&
+    Boolean(suppliedAbn)
+  );
+};
 
 export default function MapPanel() {
   const labelFor = (fieldId) =>
@@ -298,9 +313,14 @@ export default function MapPanel() {
 
   const mapQ = usePtrsMapQuery(ptrsId);
   const bpQ = usePtrsBlueprintQuery({ profileId });
-  const fieldMapQ = usePtrsFieldMapQuery(ptrsId, profileId, {
-    enabled: Boolean(ptrsId && profileId),
-  });
+  const fieldMapQ = usePtrsFieldMapQuery(
+    ptrsId,
+    profileId,
+    selectedMapDatasetId,
+    {
+      enabled: Boolean(ptrsId && profileId),
+    },
+  );
 
   const [blueprint, setBlueprint] = useState(null);
   const [examples, setExamples] = useState({});
@@ -366,15 +386,14 @@ export default function MapPanel() {
   const [search, setSearch] = useState("");
   const [importOpen, setImportOpen] = useState(false);
 
-  const reachableDatasetIds = useMemo(
-    () =>
-      new Set(
-        (dsQ.data?.items || [])
-          .map((dataset) => String(dataset?.id || "").trim())
-          .filter(Boolean),
-      ),
-    [dsQ.data?.items],
-  );
+  const reachableDatasetIds = useMemo(() => {
+    const datasets = Array.isArray(dsQ.data?.items) ? dsQ.data.items : [];
+    const joins =
+      mapQ.data?.joins?.conditions ||
+      mapQ.data?.map?.joins?.conditions ||
+      (Array.isArray(mapQ.data?.joins) ? mapQ.data.joins : []);
+    return getReachablePtrsDatasetIds(datasets, joins, selectedMapDatasetId);
+  }, [dsQ.data?.items, mapQ.data, selectedMapDatasetId]);
 
   const sourceOptions = useMemo(() => {
     const datasets = Array.isArray(dsQ.data?.items) ? dsQ.data.items : [];
@@ -1242,8 +1261,8 @@ export default function MapPanel() {
         mappings: profileId ? null : payload,
         extras: mapExtras,
         profileId,
-        joins: [],
-        customFields: [],
+        joins: mapQ.data?.joins ?? mapQ.data?.map?.joins,
+        customFields: mapQ.data?.customFields ?? mapQ.data?.map?.customFields,
       });
 
       console.log(
@@ -1326,7 +1345,7 @@ export default function MapPanel() {
 
   const stageData = async () => {
     if (isBusy) return;
-    // Move to StagePanel (server will handle build/reuse if needed).
+    // Canonical materialisation must finish before Stage can consume it.
     if (!ptrsId) {
       showAlert("Missing ptrsId", "error");
       return;
@@ -1367,13 +1386,53 @@ export default function MapPanel() {
         await save(false);
       }
 
+      const incompleteDirectSettings = transactionDatasets.filter(
+        (dataset) =>
+          dataset.adapterType === "direct_payment" &&
+          !hasCompleteDirectPaymentSettings(dataset),
+      );
+      if (incompleteDirectSettings.length) {
+        abortStage(
+          `Direct-payment settings are incomplete for: ${incompleteDirectSettings
+            .map((dataset) => dataset.fileName || dataset.id)
+            .join(", ")}`,
+        );
+        return;
+      }
+
+      const readiness = await Promise.all(
+        transactionDatasets.map(async (dataset) => ({
+          dataset,
+          result: getPtrsDatasetMappingReadiness(
+            dataset.adapterType,
+            await getPtrsFieldMap(ptrsId, profileId, dataset.id),
+          ),
+        })),
+      );
+      const incomplete = readiness.filter(({ result }) => !result.ready);
+      if (incomplete.length) {
+        abortStage(
+          `Mapping is incomplete for: ${incomplete
+            .map(({ dataset }) => dataset.fileName || dataset.id)
+            .join(", ")}`,
+        );
+        return;
+      }
+
       // Materialise each transaction dataset independently. Exact-input
       // revisions are reused, while failures remain visible for that dataset.
       for (const dataset of transactionDatasets) {
-        await buildPtrsCanonicalRevision(ptrsId, {
+        const canonical = await buildPtrsCanonicalRevision(ptrsId, {
           profileId,
           datasetId: dataset.id,
         });
+        if (!canonical.ready) {
+          showAlert(
+            "Canonical materialisation is already in progress. Stay on Map and select Next again once it has completed.",
+            "info",
+          );
+          return;
+        }
       }
 
       try {
@@ -1391,7 +1450,7 @@ export default function MapPanel() {
       if (profileId) qs.set("profileId", profileId);
       qs.set("autoRunStage", autoRunStage ? "true" : "false");
 
-      // Navigate immediately (don’t wait for 200k-row work)
+      // Stage is a separate operation over the completed canonical revisions.
       goTo(`stage?${qs.toString()}`, { includeId: false });
     } catch (e) {
       showAlert(
@@ -1730,7 +1789,8 @@ export default function MapPanel() {
         {selectedMapDataset?.adapterType === "direct_payment" ? (
           <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
             For a direct transaction source, Payment amount must be the actual
-            amount paid or settled, not the invoice face value.
+            amount paid or settled, not the invoice face value. Payer identity
+            and source date format are governed per dataset in the Data step.
           </Typography>
         ) : null}
 

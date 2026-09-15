@@ -231,14 +231,16 @@ export const savePtrsMap = async (
   return normMap(pickData(res));
 };
 
-export const getPtrsFieldMap = async (ptrsId, profileId) => {
+export const getPtrsFieldMap = async (ptrsId, profileId, datasetId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!profileId) throw new Error("profileId is required");
+  if (!datasetId) throw new Error("datasetId is required");
 
-  debugPtrsApiCall("getPtrsFieldMap", { ptrsId, profileId });
+  debugPtrsApiCall("getPtrsFieldMap", { ptrsId, profileId, datasetId });
 
   const qs = new URLSearchParams();
   qs.set("profileId", String(profileId));
+  qs.set("datasetId", String(datasetId));
 
   const res = await fetchWrapper.get(
     `${API_ROOT}/v2/ptrs/${ptrsId}/field-map?${qs.toString()}`,
@@ -356,12 +358,20 @@ export const buildPtrsCanonicalRevision = async (
   const res = await fetchWrapper.post(
     `${API_ROOT}/v2/ptrs/${ptrsId}/datasets/${datasetId}/canonical-revisions${suffix}`,
     { profileId },
+    { retry: 0 },
   );
 
-  const data = pickData(res) || {};
+  const data = pickData(res);
+  if (
+    !data?.revision?.id ||
+    !["building", "succeeded"].includes(data.revision.status)
+  ) {
+    throw new Error("Invalid canonical materialisation response");
+  }
   return {
-    revision: data.revision || null,
+    revision: data.revision,
     reused: !!data.reused,
+    ready: data.revision.status === "succeeded",
   };
 };
 
