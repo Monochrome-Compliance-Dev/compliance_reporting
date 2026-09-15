@@ -231,14 +231,16 @@ export const savePtrsMap = async (
   return normMap(pickData(res));
 };
 
-export const getPtrsFieldMap = async (ptrsId, profileId) => {
+export const getPtrsFieldMap = async (ptrsId, profileId, datasetId) => {
   if (!ptrsId) throw new Error("ptrsId is required");
   if (!profileId) throw new Error("profileId is required");
+  if (!datasetId) throw new Error("datasetId is required");
 
-  debugPtrsApiCall("getPtrsFieldMap", { ptrsId, profileId });
+  debugPtrsApiCall("getPtrsFieldMap", { ptrsId, profileId, datasetId });
 
   const qs = new URLSearchParams();
   qs.set("profileId", String(profileId));
+  qs.set("datasetId", String(datasetId));
 
   const res = await fetchWrapper.get(
     `${API_ROOT}/v2/ptrs/${ptrsId}/field-map?${qs.toString()}`,

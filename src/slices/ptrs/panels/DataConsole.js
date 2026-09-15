@@ -12,11 +12,13 @@ import {
   MenuItem,
   InputLabel,
   FormControl,
+  TextField,
   Tooltip,
   Chip,
   LinearProgress,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useQueryClient } from "@tanstack/react-query";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -30,6 +32,7 @@ import {
   importWorkbook,
   listDatasets,
   removeDataset,
+  updateDatasetSettings,
 } from "../services/data.ptrsApi";
 import CreateRunCard from "./CreateRunCard";
 import { useAlert } from "context";
@@ -54,6 +57,12 @@ const TRANSACTION_ADAPTER_OPTIONS = [
   },
 ];
 
+const DATE_FORMAT_OPTIONS = [
+  { value: "ISO", label: "YYYY-MM-DD" },
+  { value: "MDY", label: "Month/day/year" },
+  { value: "DMY", label: "Day/month/year" },
+];
+
 const transactionAdapterLabel = (adapterType) =>
   TRANSACTION_ADAPTER_OPTIONS.find((option) => option.value === adapterType)
     ?.label || adapterType;
@@ -73,6 +82,7 @@ const COLUMNS = [
 
 export default function DataConsole() {
   const theme = useTheme();
+  const queryClient = useQueryClient();
   const { showAlert } = useAlert();
   const {
     ptrsId,
@@ -102,12 +112,28 @@ export default function DataConsole() {
   const [isUploading, setIsUploading] = useState(false);
   const [isWorkbookUploading, setIsWorkbookUploading] = useState(false);
   const [liveUploadStatus, setLiveUploadStatus] = useState(null);
+  const [directSettings, setDirectSettings] = useState({});
+  const [savingDatasetId, setSavingDatasetId] = useState(null);
 
   const refreshDatasets = useCallback(async () => {
     if (!ptrsId) return;
     try {
       const { items } = await listDatasets(ptrsId);
       setDatasets(items || []);
+      setDirectSettings(
+        Object.fromEntries(
+          (items || [])
+            .filter((dataset) => dataset.adapterType === "direct_payment")
+            .map((dataset) => [
+              dataset.id,
+              {
+                dateFormat: dataset.dateFormat || "",
+                reportingEntityName: dataset.reportingEntity?.entityName || "",
+                reportingEntityAbn: dataset.reportingEntity?.abn || "",
+              },
+            ]),
+        ),
+      );
     } catch (err) {
       console.error(err);
       showAlert("Failed to load datasets", "error");
@@ -298,6 +324,51 @@ export default function DataConsole() {
     } catch (err) {
       console.error(err);
       showAlert("Failed to remove dataset", "error");
+    }
+  };
+
+  const updateDirectSetting = (datasetId, field, value) => {
+    setDirectSettings((current) => ({
+      ...current,
+      [datasetId]: {
+        ...(current[datasetId] || {}),
+        [field]: value,
+      },
+    }));
+  };
+
+  const saveDirectSettings = async (datasetId) => {
+    const settings = directSettings[datasetId] || {};
+    if (
+      !settings.dateFormat ||
+      !String(settings.reportingEntityName || "").trim() ||
+      !String(settings.reportingEntityAbn || "").trim()
+    ) {
+      showAlert(
+        "Select a date format and enter the reporting entity name and supplied ABN",
+        "error",
+      );
+      return;
+    }
+    setSavingDatasetId(datasetId);
+    try {
+      const updated = await updateDatasetSettings(ptrsId, datasetId, settings);
+      queryClient.setQueryData(["ptrs", "datasets", ptrsId], (current) =>
+        current
+          ? {
+              ...current,
+              items: (current.items || []).map((dataset) =>
+                dataset.id === datasetId ? updated : dataset,
+              ),
+            }
+          : current,
+      );
+      await refreshDatasets();
+      showAlert("Direct-payment dataset settings saved", "success");
+    } catch (error) {
+      showAlert(error?.message || "Failed to save dataset settings", "error");
+    } finally {
+      setSavingDatasetId(null);
     }
   };
 
@@ -531,37 +602,123 @@ export default function DataConsole() {
                                 variant="outlined"
                                 sx={{
                                   p: 1.5,
-                                  display: "flex",
-                                  alignItems: "center",
-                                  justifyContent: "space-between",
                                 }}
                               >
-                                <Box>
-                                  <Typography variant="body2">
-                                    {d.sourceName || d.fileName || "Dataset"}
-                                  </Typography>
-                                  <Typography
-                                    variant="caption"
-                                    color="text.secondary"
-                                  >
-                                    {d.referenceKind
-                                      ? `${REFERENCE_KIND_OPTIONS.find((option) => option.value === d.referenceKind)?.label || d.referenceKind} • `
-                                      : ""}
-                                    {d.adapterType
-                                      ? `${transactionAdapterLabel(d.adapterType)} • `
-                                      : ""}
-                                    {d.sourceFormat?.toUpperCase() || "CSV"} •
-                                    Rows: {d.rowsCount ?? "?"} •{" "}
-                                    {d.status || "unknown"}
-                                  </Typography>
-                                </Box>
-                                <IconButton
-                                  size="small"
-                                  color="error"
-                                  onClick={() => onDelete(d.id)}
+                                <Box
+                                  sx={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "space-between",
+                                  }}
                                 >
-                                  <DeleteOutlineIcon fontSize="small" />
-                                </IconButton>
+                                  <Box>
+                                    <Typography variant="body2">
+                                      {d.sourceName || d.fileName || "Dataset"}
+                                    </Typography>
+                                    <Typography
+                                      variant="caption"
+                                      color="text.secondary"
+                                    >
+                                      {d.referenceKind
+                                        ? `${REFERENCE_KIND_OPTIONS.find((option) => option.value === d.referenceKind)?.label || d.referenceKind} • `
+                                        : ""}
+                                      {d.adapterType
+                                        ? `${transactionAdapterLabel(d.adapterType)} • `
+                                        : ""}
+                                      {d.sourceFormat?.toUpperCase() || "CSV"} •
+                                      Rows: {d.rowsCount ?? "?"} •{" "}
+                                      {d.status || "unknown"}
+                                    </Typography>
+                                  </Box>
+                                  <IconButton
+                                    size="small"
+                                    color="error"
+                                    onClick={() => onDelete(d.id)}
+                                  >
+                                    <DeleteOutlineIcon fontSize="small" />
+                                  </IconButton>
+                                </Box>
+                                {d.adapterType === "direct_payment" ? (
+                                  <Stack spacing={1.5} sx={{ mt: 2 }}>
+                                    <Typography
+                                      variant="caption"
+                                      color="text.secondary"
+                                    >
+                                      Governed payer identity and source date
+                                      convention for this dataset
+                                    </Typography>
+                                    <TextField
+                                      size="small"
+                                      label="Reporting entity name"
+                                      value={
+                                        directSettings[d.id]
+                                          ?.reportingEntityName || ""
+                                      }
+                                      onChange={(event) =>
+                                        updateDirectSetting(
+                                          d.id,
+                                          "reportingEntityName",
+                                          event.target.value,
+                                        )
+                                      }
+                                    />
+                                    <TextField
+                                      size="small"
+                                      label="Reporting entity ABN"
+                                      value={
+                                        directSettings[d.id]
+                                          ?.reportingEntityAbn || ""
+                                      }
+                                      onChange={(event) =>
+                                        updateDirectSetting(
+                                          d.id,
+                                          "reportingEntityAbn",
+                                          event.target.value,
+                                        )
+                                      }
+                                    />
+                                    <FormControl size="small" fullWidth>
+                                      <InputLabel
+                                        id={`date-format-${d.id}-label`}
+                                      >
+                                        Source date format
+                                      </InputLabel>
+                                      <Select
+                                        labelId={`date-format-${d.id}-label`}
+                                        label="Source date format"
+                                        value={
+                                          directSettings[d.id]?.dateFormat || ""
+                                        }
+                                        onChange={(event) =>
+                                          updateDirectSetting(
+                                            d.id,
+                                            "dateFormat",
+                                            event.target.value,
+                                          )
+                                        }
+                                      >
+                                        {DATE_FORMAT_OPTIONS.map((option) => (
+                                          <MenuItem
+                                            key={option.value}
+                                            value={option.value}
+                                          >
+                                            {option.label}
+                                          </MenuItem>
+                                        ))}
+                                      </Select>
+                                    </FormControl>
+                                    <Button
+                                      size="small"
+                                      variant="outlined"
+                                      disabled={savingDatasetId === d.id}
+                                      onClick={() => saveDirectSettings(d.id)}
+                                    >
+                                      {savingDatasetId === d.id
+                                        ? "Saving..."
+                                        : "Save direct-payment settings"}
+                                    </Button>
+                                  </Stack>
+                                ) : null}
                               </Paper>
                             ))
                           )}

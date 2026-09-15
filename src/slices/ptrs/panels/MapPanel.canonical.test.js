@@ -1,12 +1,16 @@
 import { act } from "react";
 import { createRoot } from "react-dom/client";
-import MapPanel from "./MapPanel";
-import { buildPtrsCanonicalRevision } from "../services/maps.ptrsApi";
+import MapPanel, { hasCompleteDirectPaymentSettings } from "./MapPanel";
+import {
+  buildPtrsCanonicalRevision,
+  getPtrsFieldMap,
+} from "../services/maps.ptrsApi";
 import { getDatasetSample } from "../services/data.ptrsApi";
 
 const mockGoTo = jest.fn();
 const mockShowAlert = jest.fn();
 const mockUpdateStep = jest.fn(async () => {});
+const mockGetReadiness = jest.fn(() => ({ ready: true }));
 
 jest.mock("react-router", () => ({
   useSearchParams: () => [new URLSearchParams("ptrsId=ptrs000001")],
@@ -34,6 +38,16 @@ jest.mock("../ingestConfig", () => {
     FIELD_SYNONYMS: {},
     getPtrsAdapterLabel: () => "Test adapter",
     getPtrsAdapterMappingRequirements: () => requirements,
+    getPtrsDatasetMappingReadiness: (...args) => mockGetReadiness(...args),
+    getReachablePtrsDatasetIds: (datasets, _joins, selectedId) =>
+      new Set(
+        datasets
+          .filter(
+            (dataset) =>
+              dataset.id === selectedId || dataset.purpose !== "transaction",
+          )
+          .map((dataset) => dataset.id),
+      ),
   };
 });
 jest.mock("../hooks/usePtrsQueries", () => {
@@ -74,6 +88,7 @@ jest.mock("../services/maps.ptrsApi", () => ({
   listPtrsWithMap: jest.fn(),
   savePtrsMap: jest.fn(),
   savePtrsFieldMap: jest.fn(),
+  getPtrsFieldMap: jest.fn(async () => []),
 }));
 
 let container;
@@ -81,6 +96,8 @@ let root;
 beforeEach(() => {
   jest.clearAllMocks();
   getDatasetSample.mockResolvedValue({ rows: [], headers: [] });
+  getPtrsFieldMap.mockResolvedValue([]);
+  mockGetReadiness.mockReturnValue({ ready: true });
   mockUpdateStep.mockResolvedValue({});
   global.IS_REACT_ACT_ENVIRONMENT = true;
   container = document.createElement("div");
@@ -102,6 +119,57 @@ afterEach(async () => {
   container.remove();
   delete global.IS_REACT_ACT_ENVIRONMENT;
 });
+
+test.each([
+  ["missing snapshot", { dateFormat: "MDY", reportingEntity: null }],
+  [
+    "missing entity name",
+    { dateFormat: "MDY", reportingEntity: { abn: "40115288492" } },
+  ],
+  [
+    "missing supplied ABN",
+    {
+      dateFormat: "MDY",
+      reportingEntity: { entityName: "Supplied Entity", abn: "  " },
+    },
+  ],
+  [
+    "invalid date convention",
+    {
+      dateFormat: "guess",
+      reportingEntity: { entityName: "Entity", abn: "43 111 372 064" },
+    },
+  ],
+])("rejects direct-payment settings with %s", (_label, dataset) => {
+  expect(hasCompleteDirectPaymentSettings(dataset)).toBe(false);
+});
+
+test.each(["1234", "not-an-abn", "12345678901"])(
+  "accepts supplied invalid ABN %s for downstream validation",
+  (abn) => {
+    expect(
+      hasCompleteDirectPaymentSettings({
+        dateFormat: "MDY",
+        reportingEntity: { entityName: "Supplied Entity", abn },
+      }),
+    ).toBe(true);
+  },
+);
+
+test.each(["ISO", "MDY", "DMY"])(
+  "accepts complete direct-payment settings using %s",
+  (dateFormat) => {
+    expect(
+      hasCompleteDirectPaymentSettings({
+        dateFormat,
+        reportingEntity: {
+          entityName: "ENVIROPACIFIC SERVICES LIMITED",
+          abn: "43 111 372 064",
+        },
+      }),
+    ).toBe(true);
+  },
+);
 
 test("builds sequentially, guards repeat clicks and navigates only after both canonical revisions succeed", async () => {
   const button = await mountMap();
@@ -161,4 +229,25 @@ test("an active build leaves Map usable without starting the next dataset or nav
     "info",
   );
   expect(button.disabled).toBe(false);
+});
+
+test("checks every transaction dataset independently before materialising", async () => {
+  const button = await mountMap();
+  mockGetReadiness
+    .mockReturnValueOnce({ ready: true })
+    .mockReturnValueOnce({ ready: false });
+
+  await act(async () => {
+    button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  });
+
+  expect(
+    getPtrsFieldMap.mock.calls.map(([, , datasetId]) => datasetId),
+  ).toEqual(["dataset001", "dataset002"]);
+  expect(buildPtrsCanonicalRevision).not.toHaveBeenCalled();
+  expect(mockGoTo).not.toHaveBeenCalled();
+  expect(mockShowAlert).toHaveBeenCalledWith(
+    "Mapping is incomplete for: Second.csv",
+    "error",
+  );
 });

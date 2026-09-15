@@ -94,8 +94,6 @@ export const PTRS_REQUIRED_FIELD_GROUPS = [
     description:
       "Map at least one date that can be used as the start date for calculating payment time.",
     fields: [
-      // Pragmatic FE fallback + canonical raw dates
-      "invoiceDueDate",
       "invoiceIssueDate",
       "invoiceReceiptDate",
       "noticeForPaymentIssueDate",
@@ -123,7 +121,11 @@ export const PTRS_ADAPTER_MAPPING_REQUIREMENTS = Object.freeze({
     requiredFieldGroups: Object.freeze(PTRS_REQUIRED_FIELD_GROUPS),
   }),
   direct_payment: Object.freeze({
-    requiredFields: Object.freeze(PTRS_REQUIRED_FIELDS),
+    requiredFields: Object.freeze(
+      PTRS_REQUIRED_FIELDS.filter(
+        (field) => !["payerEntityName", "payerEntityAbn"].includes(field),
+      ),
+    ),
     requiredFieldGroups: Object.freeze(PTRS_REQUIRED_FIELD_GROUPS),
   }),
 });
@@ -143,6 +145,74 @@ export function getPtrsAdapterMappingRequirements(adapterType) {
 
 export function getPtrsAdapterLabel(adapterType) {
   return PTRS_ADAPTER_LABELS[adapterType] || "Unknown transaction source";
+}
+
+const normaliseCanonicalFieldId = (value) =>
+  String(value || "")
+    .replace(/[^a-z0-9]/gi, "")
+    .toLowerCase();
+
+export function getPtrsDatasetMappingReadiness(adapterType, fieldMap = []) {
+  const requirements = getPtrsAdapterMappingRequirements(adapterType);
+  const mapped = new Set(
+    (Array.isArray(fieldMap) ? fieldMap : [])
+      .map((row) => normaliseCanonicalFieldId(row?.canonicalField))
+      .filter(Boolean),
+  );
+  const missingFields = requirements.requiredFields.filter(
+    (field) => !mapped.has(normaliseCanonicalFieldId(field)),
+  );
+  const missingGroups = requirements.requiredFieldGroups.filter(
+    (group) =>
+      !group.fields.some((field) =>
+        mapped.has(normaliseCanonicalFieldId(field)),
+      ),
+  );
+  return {
+    ready: missingFields.length === 0 && missingGroups.length === 0,
+    missingFields,
+    missingGroups,
+  };
+}
+
+export function getReachablePtrsDatasetIds(
+  datasets = [],
+  joins = [],
+  selectedId,
+) {
+  const selected = String(selectedId || "");
+  const transactionIds = new Set(
+    datasets
+      .filter((dataset) => dataset?.purpose === "transaction")
+      .map((dataset) => String(dataset.id)),
+  );
+  const reachable = new Set(selected ? [selected] : []);
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const condition of Array.isArray(joins) ? joins : []) {
+      const fromId = String(condition?.from?.datasetId || "");
+      const toId = String(condition?.to?.datasetId || "");
+      if (!fromId || !toId) continue;
+      if (
+        reachable.has(fromId) &&
+        !reachable.has(toId) &&
+        (!transactionIds.has(toId) || toId === selected)
+      ) {
+        reachable.add(toId);
+        changed = true;
+      }
+      if (
+        reachable.has(toId) &&
+        !reachable.has(fromId) &&
+        (!transactionIds.has(fromId) || fromId === selected)
+      ) {
+        reachable.add(fromId);
+        changed = true;
+      }
+    }
+  }
+  return reachable;
 }
 
 // -----------------------------------------------------------------------------
