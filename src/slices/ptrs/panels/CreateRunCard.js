@@ -191,12 +191,10 @@ export default function CreatePtrsCard({ onSuccess }) {
         periodStart: p.start,
         periodEnd: p.end,
         reportingEntityName: sanitised.reportingEntityName,
+        reportingEntityAbn: sanitised.abn,
+        reportingEntityAcn: sanitised.acn,
+        reportingEntityArbn: sanitised.arbn,
         profileId,
-        meta: {
-          abn: sanitised.abn,
-          acn: sanitised.acn,
-          arbn: sanitised.arbn,
-        },
       };
 
       const res = await createPtrs(payload);

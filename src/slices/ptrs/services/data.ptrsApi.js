@@ -53,6 +53,7 @@ export const addDataset = async (
     sourceFormat = "csv",
     adapterType = null,
     adapterVersion = null,
+    dateFormat = null,
     sourceGroupScope = null,
     sourceName = "",
   } = {},
@@ -67,6 +68,7 @@ export const addDataset = async (
   if (referenceKind) fd.append("referenceKind", referenceKind);
   if (adapterType) fd.append("adapterType", adapterType);
   if (adapterVersion) fd.append("adapterVersion", adapterVersion);
+  if (dateFormat) fd.append("dateFormat", dateFormat);
   if (sourceGroupScope) fd.append("sourceGroupScope", sourceGroupScope);
   if (sourceName) fd.append("sourceName", sourceName);
   const res = await fetchWrapper.postUpload(
@@ -74,6 +76,49 @@ export const addDataset = async (
     fd,
   );
   return normDataset(pickData(res));
+};
+
+export const updateDatasetSettings = async (
+  ptrsId,
+  datasetId,
+  {
+    dateFormat,
+    reportingEntityName,
+    reportingEntityAbn,
+    reportingEntityAcn = null,
+    reportingEntityArbn = null,
+  },
+) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!datasetId) throw new Error("datasetId is required");
+  const res = await fetchWrapper.patch(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/datasets/${datasetId}/settings`,
+    {
+      dateFormat,
+      reportingEntityName,
+      reportingEntityAbn,
+      reportingEntityAcn,
+      reportingEntityArbn,
+    },
+  );
+  return normDataset(pickData(res));
+};
+
+// Import a self-contained workbook according to the selected PTRS profile.
+export const importWorkbook = async (ptrsId, file) => {
+  if (!ptrsId) throw new Error("ptrsId is required");
+  if (!file) throw new Error("file is required");
+  const fd = new FormData();
+  fd.append("file", file);
+  const res = await fetchWrapper.postUpload(
+    `${API_ROOT}/v2/ptrs/${ptrsId}/workbooks`,
+    fd,
+  );
+  const data = pickData(res) || {};
+  return {
+    profileId: data.profileId || null,
+    datasets: normDatasetList(data.datasets),
+  };
 };
 
 // List datasets attached to a ptrs

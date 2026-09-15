@@ -201,6 +201,8 @@ export const normDataset = (x = {}) => {
     sourceFormat: x.sourceFormat,
     adapterType: x.adapterType || null,
     adapterVersion: x.adapterVersion || null,
+    dateFormat: x.dateFormat || null,
+    reportingEntity: x.reportingEntity || null,
     referenceKind: x.referenceKind || null,
     sourceGroupScope: x.sourceGroupScope || null,
     status: x.status,

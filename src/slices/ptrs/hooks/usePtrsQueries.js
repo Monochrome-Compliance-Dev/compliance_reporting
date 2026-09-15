@@ -205,13 +205,14 @@ export function usePtrsMapQuery(ptrsId) {
 export function usePtrsFieldMapQuery(
   ptrsId,
   profileId,
+  datasetId,
   { enabled = true } = {},
 ) {
-  const queryEnabled = !!ptrsId && !!profileId && enabled;
+  const queryEnabled = !!ptrsId && !!profileId && !!datasetId && enabled;
 
   return useQuery({
-    queryKey: ["ptrs", "fieldMap", ptrsId, profileId],
-    queryFn: async () => getPtrsFieldMap(ptrsId, profileId),
+    queryKey: ["ptrs", "fieldMap", ptrsId, profileId, datasetId],
+    queryFn: async () => getPtrsFieldMap(ptrsId, profileId, datasetId),
     enabled: queryEnabled,
     staleTime: 5 * 60_000,
     refetchOnMount: false,
