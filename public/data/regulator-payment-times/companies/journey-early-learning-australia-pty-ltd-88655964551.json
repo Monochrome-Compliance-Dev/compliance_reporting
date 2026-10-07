@@ -6,8 +6,40 @@
   "industryDivision": "Education and Training",
   "industrySlug": "education-and-training",
   "industrySubdivision": "Preschool and school education",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20012090",
+      "acnArbn": "655964551",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 17.06,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 89.77,
+      "payments31To60Days": 9.93,
+      "paymentsMoreThan60Days": 0.02,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2026-08-02",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 272,
+        "count": 1052,
+        "percentile": 73
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 6,
+        "percentile": 80
+      }
+    },
     {
       "reportId": "PTR20007167",
       "acnArbn": "655964551",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 648,
-        "count": 3004,
-        "percentile": 77.6
+        "rank": 654,
+        "count": 3050,
+        "percentile": 77.7
       },
       "industryP95Position": {
         "rank": 4,
-        "count": 14,
-        "percentile": 69.2
+        "count": 17,
+        "percentile": 75
       }
     },
     {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 656,
-        "count": 2941,
-        "percentile": 75.7
+        "rank": 660,
+        "count": 2977,
+        "percentile": 75.8
       },
       "industryP95Position": {
         "rank": 4,
-        "count": 15,
-        "percentile": 71.4
+        "count": 16,
+        "percentile": 73.3
       }
     }
   ]

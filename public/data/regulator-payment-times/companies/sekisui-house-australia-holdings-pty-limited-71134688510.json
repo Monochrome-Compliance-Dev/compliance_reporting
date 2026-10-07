@@ -6,8 +6,40 @@
   "industryDivision": "Construction",
   "industrySlug": "construction",
   "industrySubdivision": "Building construction",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20013119",
+      "acnArbn": "134688510",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.29,
+      "medianPaymentTimeDays": 5,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95.17,
+      "payments31To60Days": 4.79,
+      "paymentsMoreThan60Days": 0.04,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-13",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 155,
+        "count": 1052,
+        "percentile": 81.6
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 84,
+        "percentile": 89.2
+      }
+    },
     {
       "reportId": "PTR20007696",
       "acnArbn": "134688510",
@@ -30,22 +62,22 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 713,
-        "count": 3004,
+        "rank": 722,
+        "count": 3050,
         "percentile": 74.9
       },
       "industryP95Position": {
-        "rank": 28,
-        "count": 283,
+        "rank": 29,
+        "count": 293,
         "percentile": 89
       }
     },
     {
-      "reportId": "PTR20006037",
+      "reportId": "PTR20013116",
       "acnArbn": "134688510",
       "reportingPeriodStartDate": "2024-12-31",
       "reportingPeriodEndDate": "2025-06-29",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 10.04,
       "medianPaymentTimeDays": 6,
@@ -56,29 +88,29 @@
       "paymentsMoreThan60Days": 0.01,
       "industrySubdivision": "Building construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-10-13",
+      "submittedDate": "2026-09-13",
       "reportingCycleId": "2025-H1",
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 620,
-        "count": 2941,
-        "percentile": 77.8
+        "rank": 623,
+        "count": 2977,
+        "percentile": 77.9
       },
       "industryP95Position": {
         "rank": 25,
-        "count": 272,
-        "percentile": 90.8
+        "count": 279,
+        "percentile": 91
       }
     },
     {
-      "reportId": "PTR20002730",
+      "reportId": "PTR20013115",
       "acnArbn": "134688510",
       "reportingPeriodStartDate": "2024-06-30",
       "reportingPeriodEndDate": "2024-12-30",
-      "revisedReport": false,
-      "redactedReport": true,
+      "revisedReport": true,
+      "redactedReport": false,
       "averagePaymentTimeDays": 9.71,
       "medianPaymentTimeDays": 6,
       "p80PaymentTimeDays": 13,
@@ -88,20 +120,20 @@
       "paymentsMoreThan60Days": 0.34,
       "industrySubdivision": "Building construction",
       "industryDivision": "Construction",
-      "submittedDate": "2025-07-24",
+      "submittedDate": "2026-09-13",
       "reportingCycleId": "2024-H2",
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 275,
-        "count": 2530,
-        "percentile": 87.1
+        "rank": 276,
+        "count": 2565,
+        "percentile": 87.3
       },
       "industryP95Position": {
         "rank": 12,
-        "count": 251,
-        "percentile": 95.2
+        "count": 258,
+        "percentile": 95.3
       }
     }
   ]

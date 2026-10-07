@@ -6,8 +6,40 @@
   "industryDivision": "Arts and Recreation Services",
   "industrySlug": "arts-and-recreation-services",
   "industrySubdivision": "Gambling activities",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20012415",
+      "acnArbn": "165597482",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.04,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 27,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 91.84,
+      "payments31To60Days": 6.07,
+      "paymentsMoreThan60Days": 2.09,
+      "industrySubdivision": "Gambling activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-08-23",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 262,
+        "count": 1052,
+        "percentile": 74.3
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 26,
+        "percentile": 68
+      }
+    },
     {
       "reportId": "PTR20009913",
       "acnArbn": "165597482",
@@ -30,9 +62,9 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 385,
-        "count": 3004,
-        "percentile": 83.8
+        "rank": 387,
+        "count": 3050,
+        "percentile": 83.9
       },
       "industryP95Position": {
         "rank": 12,
@@ -63,8 +95,8 @@
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
         "rank": 190,
-        "count": 2941,
-        "percentile": 92.7
+        "count": 2977,
+        "percentile": 92.8
       },
       "industryP95Position": {
         "rank": 4,
@@ -94,9 +126,9 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 662,
-        "count": 2530,
-        "percentile": 73
+        "rank": 669,
+        "count": 2565,
+        "percentile": 73.1
       },
       "industryP95Position": {
         "rank": 15,

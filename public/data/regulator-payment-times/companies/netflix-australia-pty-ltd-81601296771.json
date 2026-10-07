@@ -1,0 +1,108 @@
+{
+  "slug": "netflix-australia-pty-ltd-81601296771",
+  "businessName": "NETFLIX AUSTRALIA PTY LTD",
+  "abn": "81601296771",
+  "acnArbn": "601296771",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySlug": "information-media-and-telecommunications",
+  "industrySubdivision": "Motion picture and sound recording activities",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20012958",
+      "acnArbn": "601296771",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.8,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 94.31,
+      "payments31To60Days": 2.92,
+      "paymentsMoreThan60Days": 2.77,
+      "industrySubdivision": "Motion picture and sound recording activities",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-09-09",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 773,
+        "count": 1052,
+        "percentile": 24.6
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 35,
+        "percentile": 20.6
+      }
+    },
+    {
+      "reportId": "PTR20012954",
+      "acnArbn": "601296771",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.9,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 104,
+      "payments30DaysOrLess": 96.67,
+      "payments31To60Days": 2.58,
+      "paymentsMoreThan60Days": 0.75,
+      "industrySubdivision": "Motion picture and sound recording activities",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-09-09",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2912,
+        "count": 3050,
+        "percentile": 4.5
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 74,
+        "percentile": 6.8
+      }
+    },
+    {
+      "reportId": "PTR20012957",
+      "acnArbn": "601296771",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.8,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 103,
+      "payments30DaysOrLess": 92.4,
+      "payments31To60Days": 6.22,
+      "paymentsMoreThan60Days": 1.38,
+      "industrySubdivision": "Motion picture and sound recording activities",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-09-09",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2803,
+        "count": 2977,
+        "percentile": 5.7
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 71,
+        "percentile": 5.7
+      }
+    }
+  ]
+}

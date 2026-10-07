@@ -1,0 +1,44 @@
+{
+  "slug": "sqm-australia-pty-ltd-64621414659",
+  "businessName": "SQM AUSTRALIA PTY LTD",
+  "abn": "64621414659",
+  "acnArbn": "621414659",
+  "industryDivision": "Mining",
+  "industrySlug": "mining",
+  "industrySubdivision": "Non-metallic mineral mining and quarrying",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20012201",
+      "acnArbn": "621414659",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.9,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 85,
+      "payments30DaysOrLess": 59.8,
+      "payments31To60Days": 28.8,
+      "paymentsMoreThan60Days": 11.4,
+      "industrySubdivision": "Non-metallic mineral mining and quarrying",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-08-10",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 960,
+        "count": 1052,
+        "percentile": 8.5
+      },
+      "industryP95Position": {
+        "rank": 56,
+        "count": 61,
+        "percentile": 8.3
+      }
+    }
+  ]
+}

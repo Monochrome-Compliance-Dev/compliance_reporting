@@ -41,11 +41,11 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 2,
-      "averageP95PaymentTimeDays": 47,
-      "medianP95PaymentTimeDays": 47,
+      "reportingEntityCount": 7,
+      "averageP95PaymentTimeDays": 58.1,
+      "medianP95PaymentTimeDays": 58,
       "minimumP95PaymentTimeDays": 44,
-      "maximumP95PaymentTimeDays": 50
+      "maximumP95PaymentTimeDays": 79
     }
   ],
   "companies": [
@@ -56,7 +56,7 @@
       "p95PaymentTimeDays": 44,
       "industryP95Position": {
         "rank": 1,
-        "count": 2,
+        "count": 7,
         "percentile": 100
       }
     },
@@ -67,7 +67,62 @@
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
         "rank": 2,
-        "count": 2,
+        "count": 7,
+        "percentile": 83.3
+      }
+    },
+    {
+      "businessName": "R.G.M. MAINTENANCE PTY LTD",
+      "abn": "18100509484",
+      "slug": "r-g-m-maintenance-pty-ltd-18100509484",
+      "p95PaymentTimeDays": 54,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 7,
+        "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "GE POWER AU HOLDINGS PTY LTD",
+      "abn": "29113566377",
+      "slug": "ge-power-au-holdings-pty-ltd-29113566377",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 7,
+        "percentile": 33.3
+      }
+    },
+    {
+      "businessName": "WESTRAC PTY LTD",
+      "abn": "63009342572",
+      "slug": "westrac-pty-ltd-63009342572",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 7,
+        "percentile": 33.3
+      }
+    },
+    {
+      "businessName": "DRIVE GROUP CORPORATION PTY LTD",
+      "abn": "54660445296",
+      "slug": "drive-group-corporation-pty-ltd-54660445296",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 7,
+        "percentile": 16.7
+      }
+    },
+    {
+      "businessName": "Murray Engineering Pty Ltd",
+      "abn": "21119603655",
+      "slug": "murray-engineering-pty-ltd-21119603655",
+      "p95PaymentTimeDays": 79,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 7,
         "percentile": 0
       }
     }

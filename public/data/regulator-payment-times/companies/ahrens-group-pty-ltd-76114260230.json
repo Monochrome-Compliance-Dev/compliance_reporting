@@ -1,0 +1,44 @@
+{
+  "slug": "ahrens-group-pty-ltd-76114260230",
+  "businessName": "Ahrens Group Pty Ltd",
+  "abn": "76114260230",
+  "acnArbn": "114260230",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20012156",
+      "acnArbn": "114260230",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 22.75,
+      "payments31To60Days": 72.54,
+      "paymentsMoreThan60Days": 4.71,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-08-24",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1921,
+        "count": 3050,
+        "percentile": 34.2
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 293,
+        "percentile": 43.2
+      }
+    }
+  ]
+}

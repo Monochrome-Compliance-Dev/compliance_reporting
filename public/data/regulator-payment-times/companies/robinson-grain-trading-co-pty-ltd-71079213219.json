@@ -9,75 +9,75 @@
   "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
-      "reportId": "PTR20006971",
+      "reportId": "PTR20012518",
       "acnArbn": "079213219",
       "reportingPeriodStartDate": "2025-06-30",
       "reportingPeriodEndDate": "2025-12-30",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 18,
       "medianPaymentTimeDays": 18,
       "p80PaymentTimeDays": 30,
-      "p95PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 54,
       "payments30DaysOrLess": 80,
       "payments31To60Days": 20,
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Agriculture",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2026-01-19",
+      "submittedDate": "2026-08-25",
       "reportingCycleId": "2025-H2",
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1896,
-        "count": 3004,
-        "percentile": 34.1
+        "rank": 1487,
+        "count": 3050,
+        "percentile": 49.8
       },
       "industryP95Position": {
-        "rank": 91,
-        "count": 116,
-        "percentile": 20
+        "rank": 74,
+        "count": 118,
+        "percentile": 35.9
       }
     },
     {
-      "reportId": "PTR20002906",
+      "reportId": "PTR20012516",
       "acnArbn": "079213219",
       "reportingPeriodStartDate": "2024-12-31",
       "reportingPeriodEndDate": "2025-06-29",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 18,
       "medianPaymentTimeDays": 14,
-      "p80PaymentTimeDays": 100,
-      "p95PaymentTimeDays": 100,
-      "payments30DaysOrLess": 77,
-      "payments31To60Days": 23,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 70,
+      "payments31To60Days": 30,
       "paymentsMoreThan60Days": 0,
       "industrySubdivision": "Agriculture",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-07-27",
+      "submittedDate": "2026-08-25",
       "reportingCycleId": "2025-H1",
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2752,
-        "count": 2941,
-        "percentile": 6.2
+        "rank": 1779,
+        "count": 2977,
+        "percentile": 37.1
       },
       "industryP95Position": {
-        "rank": 101,
-        "count": 105,
-        "percentile": 3.8
+        "rank": 83,
+        "count": 107,
+        "percentile": 19.8
       }
     },
     {
-      "reportId": "PTR20000592",
+      "reportId": "PTR20012514",
       "acnArbn": "079213219",
       "reportingPeriodStartDate": "2024-06-30",
       "reportingPeriodEndDate": "2024-12-30",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 25,
       "medianPaymentTimeDays": 10,
@@ -88,20 +88,20 @@
       "paymentsMoreThan60Days": 0.01,
       "industrySubdivision": "Agriculture",
       "industryDivision": "Agriculture, Forestry and Fishing",
-      "submittedDate": "2025-06-17",
+      "submittedDate": "2026-08-25",
       "reportingCycleId": "2024-H2",
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1497,
-        "count": 2530,
+        "rank": 1518,
+        "count": 2565,
         "percentile": 37.4
       },
       "industryP95Position": {
-        "rank": 69,
-        "count": 86,
-        "percentile": 15.3
+        "rank": 70,
+        "count": 87,
+        "percentile": 15.1
       }
     }
   ]
