@@ -6,8 +6,40 @@
   "industryDivision": "Rental, Hiring and Real Estate Services",
   "industrySlug": "rental-hiring-and-real-estate-services",
   "industrySubdivision": "Rental and hiring services (except real estate)",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20012733",
+      "acnArbn": "670403059",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.13,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 83,
+      "payments30DaysOrLess": 72.33,
+      "payments31To60Days": 17.71,
+      "paymentsMoreThan60Days": 9.96,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-09-02",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 948,
+        "count": 1052,
+        "percentile": 9.3
+      },
+      "industryP95Position": {
+        "rank": 18,
+        "count": 19,
+        "percentile": 0
+      }
+    },
     {
       "reportId": "PTR20007566",
       "acnArbn": "670403059",
@@ -30,9 +62,9 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2684,
-        "count": 3004,
-        "percentile": 10.1
+        "rank": 2721,
+        "count": 3050,
+        "percentile": 10.2
       },
       "industryP95Position": {
         "rank": 64,

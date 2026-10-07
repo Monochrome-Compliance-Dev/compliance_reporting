@@ -1,0 +1,108 @@
+{
+  "slug": "tjx-australia-holding-company-pty-limited-58605889843",
+  "businessName": "TJX AUSTRALIA HOLDING COMPANY PTY LIMITED",
+  "abn": "58605889843",
+  "acnArbn": "605889843",
+  "industryDivision": "Retail Trade",
+  "industrySlug": "retail-trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-01-30",
+  "reports": [
+    {
+      "reportId": "PTR20012697",
+      "acnArbn": "605889843",
+      "reportingPeriodStartDate": "2025-07-31",
+      "reportingPeriodEndDate": "2026-01-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.4,
+      "medianPaymentTimeDays": 35.9,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 66,
+      "payments30DaysOrLess": 41.3,
+      "payments31To60Days": 52.9,
+      "paymentsMoreThan60Days": 5.8,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-01",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 829,
+        "count": 1052,
+        "percentile": 19.7
+      },
+      "industryP95Position": {
+        "rank": 71,
+        "count": 88,
+        "percentile": 19.5
+      }
+    },
+    {
+      "reportId": "PTR20012695",
+      "acnArbn": "605889843",
+      "reportingPeriodStartDate": "2025-02-01",
+      "reportingPeriodEndDate": "2025-07-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.1,
+      "medianPaymentTimeDays": 35.6,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 41.7,
+      "payments31To60Days": 54.1,
+      "paymentsMoreThan60Days": 4.2,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-01",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2007,
+        "count": 3050,
+        "percentile": 31.6
+      },
+      "industryP95Position": {
+        "rank": 170,
+        "count": 254,
+        "percentile": 30
+      }
+    },
+    {
+      "reportId": "PTR20012692",
+      "acnArbn": "605889843",
+      "reportingPeriodStartDate": "2024-07-31",
+      "reportingPeriodEndDate": "2025-01-31",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.2,
+      "medianPaymentTimeDays": 40.3,
+      "p80PaymentTimeDays": 54,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 30.4,
+      "payments31To60Days": 63.7,
+      "paymentsMoreThan60Days": 5.99,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-01",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2228,
+        "count": 2977,
+        "percentile": 24
+      },
+      "industryP95Position": {
+        "rank": 195,
+        "count": 256,
+        "percentile": 23.9
+      }
+    }
+  ]
+}

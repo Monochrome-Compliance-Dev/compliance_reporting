@@ -57,7 +57,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && npm run build:ptrs-guidance:static && npm run build:regulator-payment-times:static",
+    "build": "npm run build:regulator-payment-times && react-scripts build && npm run build:ptrs-guidance:static && npm run build:regulator-payment-times:static",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "react-scripts start",

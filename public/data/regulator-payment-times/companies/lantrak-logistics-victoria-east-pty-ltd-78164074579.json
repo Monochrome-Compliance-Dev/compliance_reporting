@@ -1,0 +1,140 @@
+{
+  "slug": "lantrak-logistics-victoria-east-pty-ltd-78164074579",
+  "businessName": "LANTRAK LOGISTICS (VICTORIA EAST) PTY LTD",
+  "abn": "78164074579",
+  "acnArbn": "164074579",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20012888",
+      "acnArbn": "164074579",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.55,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 53.49,
+      "payments31To60Days": 46.22,
+      "paymentsMoreThan60Days": 0.29,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-08",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 241,
+        "count": 1052,
+        "percentile": 75.7
+      },
+      "industryP95Position": {
+        "rank": 12,
+        "count": 84,
+        "percentile": 86.7
+      }
+    },
+    {
+      "reportId": "PTR20012886",
+      "acnArbn": "164074579",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.51,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 52.1,
+      "payments31To60Days": 47.65,
+      "paymentsMoreThan60Days": 0.25,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-08",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 683,
+        "count": 3050,
+        "percentile": 76.4
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 293,
+        "percentile": 90.8
+      }
+    },
+    {
+      "reportId": "PTR20012882",
+      "acnArbn": "164074579",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.3,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 47.47,
+      "payments31To60Days": 51.62,
+      "paymentsMoreThan60Days": 0.91,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-08",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 660,
+        "count": 2977,
+        "percentile": 75.8
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 279,
+        "percentile": 89.9
+      }
+    },
+    {
+      "reportId": "PTR20012685",
+      "acnArbn": "164074579",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.66,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 53.95,
+      "payments31To60Days": 45.22,
+      "paymentsMoreThan60Days": 0.83,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-08",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 516,
+        "count": 2565,
+        "percentile": 78.8
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 258,
+        "percentile": 90.3
+      }
+    }
+  ]
+}

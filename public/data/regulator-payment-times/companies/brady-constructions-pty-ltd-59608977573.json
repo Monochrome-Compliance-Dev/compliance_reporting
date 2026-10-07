@@ -1,0 +1,44 @@
+{
+  "slug": "brady-constructions-pty-ltd-59608977573",
+  "businessName": "BRADY CONSTRUCTIONS PTY LTD",
+  "abn": "59608977573",
+  "acnArbn": "608977573",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20012175",
+      "acnArbn": "608977573",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 0,
+      "p80PaymentTimeDays": 0,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-08-09",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2780,
+        "count": 3050,
+        "percentile": 7.9
+      },
+      "industryP95Position": {
+        "rank": 269,
+        "count": 293,
+        "percentile": 7.5
+      }
+    }
+  ]
+}

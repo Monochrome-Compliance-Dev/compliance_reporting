@@ -1,0 +1,76 @@
+{
+  "slug": "pacific-hyundai-pty-ltd-95106247492",
+  "businessName": "PACIFIC HYUNDAI PTY LTD",
+  "abn": "95106247492",
+  "acnArbn": "106247492",
+  "industryDivision": "Retail Trade",
+  "industrySlug": "retail-trade",
+  "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20012611",
+      "acnArbn": "106247492",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.05,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 71.86,
+      "payments31To60Days": 24.68,
+      "paymentsMoreThan60Days": 3.46,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-08-27",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 773,
+        "count": 1052,
+        "percentile": 24.6
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 88,
+        "percentile": 25.3
+      }
+    },
+    {
+      "reportId": "PTR20012670",
+      "acnArbn": "106247492",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.93,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 47,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 52.78,
+      "payments31To60Days": 42.21,
+      "paymentsMoreThan60Days": 5.01,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-08-31",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2007,
+        "count": 3050,
+        "percentile": 31.6
+      },
+      "industryP95Position": {
+        "rank": 170,
+        "count": 254,
+        "percentile": 30
+      }
+    }
+  ]
+}

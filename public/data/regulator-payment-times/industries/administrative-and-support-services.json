@@ -41,23 +41,89 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 11,
-      "averageP95PaymentTimeDays": 43.4,
-      "medianP95PaymentTimeDays": 40,
-      "minimumP95PaymentTimeDays": 11,
+      "reportingEntityCount": 25,
+      "averageP95PaymentTimeDays": 40.2,
+      "medianP95PaymentTimeDays": 38,
+      "minimumP95PaymentTimeDays": 1,
       "maximumP95PaymentTimeDays": 77
     }
   ],
   "companies": [
+    {
+      "businessName": "ONCORE GROUP HOLDINGS PTY LTD",
+      "abn": "83137343349",
+      "slug": "oncore-group-holdings-pty-ltd-83137343349",
+      "p95PaymentTimeDays": 1,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 25,
+        "percentile": 100
+      }
+    },
     {
       "businessName": "RGF STAFFING ANZ PTY LTD",
       "abn": "84603568403",
       "slug": "rgf-staffing-anz-pty-ltd-84603568403",
       "p95PaymentTimeDays": 11,
       "industryP95Position": {
-        "rank": 1,
-        "count": 11,
-        "percentile": 100
+        "rank": 2,
+        "count": 25,
+        "percentile": 95.8
+      }
+    },
+    {
+      "businessName": "CX HOLDCO PTY LIMITED",
+      "abn": "92653475417",
+      "slug": "cx-holdco-pty-limited-92653475417",
+      "p95PaymentTimeDays": 20,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 25,
+        "percentile": 91.7
+      }
+    },
+    {
+      "businessName": "ROBERT HALF AUSTRALIA PTY LIMITED",
+      "abn": "32081257052",
+      "slug": "robert-half-australia-pty-limited-32081257052",
+      "p95PaymentTimeDays": 21,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 25,
+        "percentile": 87.5
+      }
+    },
+    {
+      "businessName": "CARESUPER (SECRETARIAT CO) PTY LTD",
+      "abn": "29104826413",
+      "slug": "caresuper-secretariat-co-pty-ltd-29104826413",
+      "p95PaymentTimeDays": 27,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 25,
+        "percentile": 83.3
+      }
+    },
+    {
+      "businessName": "SNOW SUMMIT INVESTMENTS PTY LTD",
+      "abn": "64633002007",
+      "slug": "snow-summit-investments-pty-ltd-64633002007",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 25,
+        "percentile": 79.2
+      }
+    },
+    {
+      "businessName": "CORNERSTONE MEDICAL RECRUITMENT PTY. LTD.",
+      "abn": "70605575531",
+      "slug": "cornerstone-medical-recruitment-pty-ltd-70605575531",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 25,
+        "percentile": 70.8
       }
     },
     {
@@ -66,9 +132,20 @@
       "slug": "ethos-beathchapman-australia-pty-ltd-15628088451",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 2,
-        "count": 11,
-        "percentile": 90
+        "rank": 7,
+        "count": 25,
+        "percentile": 70.8
+      }
+    },
+    {
+      "businessName": "DFP RECRUITMENT HOLDINGS PTY LTD",
+      "abn": "46622014788",
+      "slug": "dfp-recruitment-holdings-pty-ltd-46622014788",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 25,
+        "percentile": 62.5
       }
     },
     {
@@ -77,9 +154,20 @@
       "slug": "titan-recruitment-pty-ltd-34086897636",
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
-        "rank": 3,
-        "count": 11,
-        "percentile": 80
+        "rank": 9,
+        "count": 25,
+        "percentile": 62.5
+      }
+    },
+    {
+      "businessName": "TALENT ACQUISITION GROUP PTY LIMITED",
+      "abn": "32676701045",
+      "slug": "talent-acquisition-group-pty-limited-32676701045",
+      "p95PaymentTimeDays": 32,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 25,
+        "percentile": 58.3
       }
     },
     {
@@ -88,9 +176,9 @@
       "slug": "talent-international-holdings-pty-ltd-28131419577",
       "p95PaymentTimeDays": 37,
       "industryP95Position": {
-        "rank": 4,
-        "count": 11,
-        "percentile": 70
+        "rank": 12,
+        "count": 25,
+        "percentile": 54.2
       }
     },
     {
@@ -99,9 +187,9 @@
       "slug": "drake-australia-pty-ltd-42004939771",
       "p95PaymentTimeDays": 38,
       "industryP95Position": {
-        "rank": 5,
-        "count": 11,
-        "percentile": 60
+        "rank": 13,
+        "count": 25,
+        "percentile": 50
       }
     },
     {
@@ -110,9 +198,9 @@
       "slug": "visa-ap-australia-pty-ltd-20134885564",
       "p95PaymentTimeDays": 40,
       "industryP95Position": {
-        "rank": 6,
-        "count": 11,
-        "percentile": 50
+        "rank": 14,
+        "count": 25,
+        "percentile": 45.8
       }
     },
     {
@@ -121,9 +209,20 @@
       "slug": "fujifilm-data-management-solutions-pty-ltd-74000553284",
       "p95PaymentTimeDays": 44,
       "industryP95Position": {
-        "rank": 7,
-        "count": 11,
-        "percentile": 40
+        "rank": 15,
+        "count": 25,
+        "percentile": 41.7
+      }
+    },
+    {
+      "businessName": "CHALLENGER SERVICES GROUP PTY LTD",
+      "abn": "60610657479",
+      "slug": "challenger-services-group-pty-ltd-60610657479",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 16,
+        "count": 25,
+        "percentile": 37.5
       }
     },
     {
@@ -132,9 +231,53 @@
       "slug": "travelcube-pacific-pty-ltd-52099122577",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 8,
-        "count": 11,
-        "percentile": 30
+        "rank": 17,
+        "count": 25,
+        "percentile": 33.3
+      }
+    },
+    {
+      "businessName": "MENZIES INTERNATIONAL (AUST.) PTY. LTD.",
+      "abn": "44004967757",
+      "slug": "menzies-international-aust-pty-ltd-44004967757",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 18,
+        "count": 25,
+        "percentile": 29.2
+      }
+    },
+    {
+      "businessName": "ASHLEY SERVICES GROUP LIMITED",
+      "abn": "92094747510",
+      "slug": "ashley-services-group-limited-92094747510",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 25,
+        "percentile": 16.7
+      }
+    },
+    {
+      "businessName": "F.E. ANDERSON PTY LTD",
+      "abn": "32000169102",
+      "slug": "f-e-anderson-pty-ltd-32000169102",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 25,
+        "percentile": 16.7
+      }
+    },
+    {
+      "businessName": "SERCO GROUP PTY LIMITED",
+      "abn": "55061889763",
+      "slug": "serco-group-pty-limited-55061889763",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 25,
+        "percentile": 16.7
       }
     },
     {
@@ -143,9 +286,9 @@
       "slug": "ets-infrastructure-management-pty-ltd-38070013884",
       "p95PaymentTimeDays": 59,
       "industryP95Position": {
-        "rank": 9,
-        "count": 11,
-        "percentile": 20
+        "rank": 22,
+        "count": 25,
+        "percentile": 12.5
       }
     },
     {
@@ -154,9 +297,20 @@
       "slug": "adcorp-holdings-australia-pty-limited-91161583893",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 10,
-        "count": 11,
-        "percentile": 10
+        "rank": 23,
+        "count": 25,
+        "percentile": 8.3
+      }
+    },
+    {
+      "businessName": "NES FIRCROFT AUSTRALIA PTY LTD",
+      "abn": "58100091245",
+      "slug": "nes-fircroft-australia-pty-ltd-58100091245",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 24,
+        "count": 25,
+        "percentile": 4.2
       }
     },
     {
@@ -165,8 +319,8 @@
       "slug": "ms-operations-pty-ltd-37673801262",
       "p95PaymentTimeDays": 77,
       "industryP95Position": {
-        "rank": 11,
-        "count": 11,
+        "rank": 25,
+        "count": 25,
         "percentile": 0
       }
     }

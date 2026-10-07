@@ -1,0 +1,44 @@
+{
+  "slug": "emerald-row-holdco-pte-ltd-61196990571",
+  "businessName": "Emerald ROW Holdco Pte. Ltd.",
+  "abn": "61196990571",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySlug": "professional-scientific-and-technical-services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20012574",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42,
+      "medianPaymentTimeDays": 43.3,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 100,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-09",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 447,
+        "count": 1052,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 94,
+        "percentile": 67.7
+      }
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "slug": "nexus-day-hospitals-holdings-pty-ltd-75165809101",
+  "businessName": "NEXUS DAY HOSPITALS HOLDINGS PTY LTD",
+  "abn": "75165809101",
+  "acnArbn": "165809101",
+  "industryDivision": "Health Care and Social Assistance",
+  "industrySlug": "health-care-and-social-assistance",
+  "industrySubdivision": "Hospitals",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20012486",
+      "acnArbn": "165809101",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.39,
+      "medianPaymentTimeDays": 26.82,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Hospitals",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-08-24",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 155,
+        "count": 1052,
+        "percentile": 81.6
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 32,
+        "percentile": 74.2
+      }
+    },
+    {
+      "reportId": "PTR20012488",
+      "acnArbn": "165809101",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.58,
+      "medianPaymentTimeDays": 32.11,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Hospitals",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-08-24",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 612,
+        "count": 3050,
+        "percentile": 78.6
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 115,
+        "percentile": 77.2
+      }
+    },
+    {
+      "reportId": "PTR20012491",
+      "acnArbn": "165809101",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.69,
+      "medianPaymentTimeDays": 33.32,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Hospitals",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-08-24",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 623,
+        "count": 2977,
+        "percentile": 77.9
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 105,
+        "percentile": 77.9
+      }
+    },
+    {
+      "reportId": "PTR20012493",
+      "acnArbn": "165809101",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.92,
+      "medianPaymentTimeDays": 34.07,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Hospitals",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-08-24",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 603,
+        "count": 2565,
+        "percentile": 75.5
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 98,
+        "percentile": 75.3
+      }
+    }
+  ]
+}

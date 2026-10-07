@@ -1,0 +1,140 @@
+{
+  "slug": "gunlake-concrete-nsw-pty-limited-35606681850",
+  "businessName": "GUNLAKE CONCRETE NSW PTY LIMITED",
+  "abn": "35606681850",
+  "acnArbn": "606681850",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20012975",
+      "acnArbn": "606681850",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.4,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 55.05,
+      "payments31To60Days": 44.69,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-09",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 518,
+        "count": 1052,
+        "percentile": 48.9
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 84,
+        "percentile": 56.6
+      }
+    },
+    {
+      "reportId": "PTR20012974",
+      "acnArbn": "606681850",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.08,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 52.82,
+      "payments31To60Days": 47.15,
+      "paymentsMoreThan60Days": 0.03,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-09",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1339,
+        "count": 3050,
+        "percentile": 54.4
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 293,
+        "percentile": 72.3
+      }
+    },
+    {
+      "reportId": "PTR20012970",
+      "acnArbn": "606681850",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.6,
+      "medianPaymentTimeDays": 28,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 55.54,
+      "payments31To60Days": 44.46,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-09",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1228,
+        "count": 2977,
+        "percentile": 57.5
+      },
+      "industryP95Position": {
+        "rank": 65,
+        "count": 279,
+        "percentile": 75.5
+      }
+    },
+    {
+      "reportId": "PTR20012874",
+      "acnArbn": "606681850",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24.08,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 52,
+      "payments30DaysOrLess": 61.78,
+      "payments31To60Days": 38.17,
+      "paymentsMoreThan60Days": 0.05,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-09",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1103,
+        "count": 2565,
+        "percentile": 55.2
+      },
+      "industryP95Position": {
+        "rank": 72,
+        "count": 258,
+        "percentile": 70
+      }
+    }
+  ]
+}

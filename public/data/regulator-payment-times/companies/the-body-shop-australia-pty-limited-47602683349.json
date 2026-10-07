@@ -6,14 +6,46 @@
   "industryDivision": "Retail Trade",
   "industrySlug": "retail-trade",
   "industrySubdivision": "Other store-based retailing",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
     {
-      "reportId": "PTR20009959",
+      "reportId": "PTR20012836",
+      "acnArbn": "602683349",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 65,
+      "payments30DaysOrLess": 59.5,
+      "payments31To60Days": 31.9,
+      "paymentsMoreThan60Days": 8.6,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-07",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 816,
+        "count": 1052,
+        "percentile": 21.3
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 88,
+        "percentile": 20.7
+      }
+    },
+    {
+      "reportId": "PTR20012835",
       "acnArbn": "602683349",
       "reportingPeriodStartDate": "2025-06-30",
       "reportingPeriodEndDate": "2025-12-30",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 26,
       "medianPaymentTimeDays": 24,
@@ -24,20 +56,20 @@
       "paymentsMoreThan60Days": 8.1,
       "industrySubdivision": "Other store-based retailing",
       "industryDivision": "Retail Trade",
-      "submittedDate": "2026-03-30",
+      "submittedDate": "2026-09-07",
       "reportingCycleId": "2025-H2",
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2266,
-        "count": 3004,
-        "percentile": 23.5
+        "rank": 2298,
+        "count": 3050,
+        "percentile": 23.6
       },
       "industryP95Position": {
-        "rank": 192,
-        "count": 249,
-        "percentile": 21.8
+        "rank": 195,
+        "count": 254,
+        "percentile": 22.1
       }
     },
     {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2390,
-        "count": 2941,
+        "rank": 2419,
+        "count": 2977,
         "percentile": 17.8
       },
       "industryP95Position": {
-        "rank": 209,
-        "count": 252,
-        "percentile": 15.9
+        "rank": 211,
+        "count": 256,
+        "percentile": 16.5
       }
     },
     {
@@ -94,14 +126,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2236,
-        "count": 2530,
+        "rank": 2267,
+        "count": 2565,
         "percentile": 11
       },
       "industryP95Position": {
-        "rank": 184,
-        "count": 210,
-        "percentile": 12
+        "rank": 185,
+        "count": 214,
+        "percentile": 13.1
       }
     }
   ]
