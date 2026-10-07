@@ -1,16 +1,16 @@
 {
-  "slug": "bellamy-s-organic-pty-ltd-11125461903",
-  "businessName": "Bellamy's Organic Pty Ltd",
-  "abn": "11125461903",
-  "acnArbn": "125461903",
+  "slug": "bright-treasure-pty-ltd-18636561432",
+  "businessName": "BRIGHT TREASURE PTY LTD",
+  "abn": "18636561432",
+  "acnArbn": "636561432",
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Food product mfg",
   "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
     {
-      "reportId": "PTR20011381",
-      "acnArbn": "125461903",
+      "reportId": "PTR20012442",
+      "acnArbn": "636561432",
       "reportingPeriodStartDate": "2025-06-30",
       "reportingPeriodEndDate": "2025-12-30",
       "revisedReport": false,
@@ -24,25 +24,25 @@
       "paymentsMoreThan60Days": 0.38,
       "industrySubdivision": "Food product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-06-15",
+      "submittedDate": "2026-08-23",
       "reportingCycleId": "2025-H2",
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 713,
-        "count": 3004,
+        "rank": 722,
+        "count": 3050,
         "percentile": 74.9
       },
       "industryP95Position": {
-        "rank": 25,
-        "count": 404,
-        "percentile": 93.5
+        "rank": 26,
+        "count": 409,
+        "percentile": 93.4
       }
     },
     {
-      "reportId": "PTR20011380",
-      "acnArbn": "125461903",
+      "reportId": "PTR20012441",
+      "acnArbn": "636561432",
       "reportingPeriodStartDate": "2024-12-31",
       "reportingPeriodEndDate": "2025-06-29",
       "revisedReport": false,
@@ -56,25 +56,25 @@
       "paymentsMoreThan60Days": 4.12,
       "industrySubdivision": "Food product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-06-15",
+      "submittedDate": "2026-08-23",
       "reportingCycleId": "2025-H1",
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1448,
-        "count": 2941,
-        "percentile": 48
+        "rank": 1459,
+        "count": 2977,
+        "percentile": 48.2
       },
       "industryP95Position": {
-        "rank": 101,
-        "count": 390,
-        "percentile": 69.7
+        "rank": 104,
+        "count": 395,
+        "percentile": 69.3
       }
     },
     {
-      "reportId": "PTR20011326",
-      "acnArbn": "125461903",
+      "reportId": "PTR20012440",
+      "acnArbn": "636561432",
       "reportingPeriodStartDate": "2024-06-30",
       "reportingPeriodEndDate": "2024-12-30",
       "revisedReport": false,
@@ -83,25 +83,25 @@
       "medianPaymentTimeDays": 19,
       "p80PaymentTimeDays": 29,
       "p95PaymentTimeDays": 42,
-      "payments30DaysOrLess": 83.9,
+      "payments30DaysOrLess": 83.98,
       "payments31To60Days": 13.59,
       "paymentsMoreThan60Days": 2.43,
       "industrySubdivision": "Food product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-06-10",
+      "submittedDate": "2026-08-23",
       "reportingCycleId": "2024-H2",
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 754,
-        "count": 2530,
-        "percentile": 68.8
+        "rank": 762,
+        "count": 2565,
+        "percentile": 68.9
       },
       "industryP95Position": {
         "rank": 39,
-        "count": 329,
-        "percentile": 87.2
+        "count": 333,
+        "percentile": 87.3
       }
     }
   ]

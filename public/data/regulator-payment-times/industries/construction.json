@@ -8,8 +8,8 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 251,
-      "averageP95PaymentTimeDays": 67.3,
+      "reportingEntityCount": 258,
+      "averageP95PaymentTimeDays": 66.9,
       "medianP95PaymentTimeDays": 60,
       "minimumP95PaymentTimeDays": 9,
       "maximumP95PaymentTimeDays": 1445
@@ -19,7 +19,7 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 272,
+      "reportingEntityCount": 279,
       "averageP95PaymentTimeDays": 67.8,
       "medianP95PaymentTimeDays": 60,
       "minimumP95PaymentTimeDays": 9,
@@ -30,7 +30,7 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 283,
+      "reportingEntityCount": 293,
       "averageP95PaymentTimeDays": 61.8,
       "medianP95PaymentTimeDays": 59,
       "minimumP95PaymentTimeDays": 1,
@@ -41,9 +41,9 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 22,
-      "averageP95PaymentTimeDays": 53.1,
-      "medianP95PaymentTimeDays": 52,
+      "reportingEntityCount": 84,
+      "averageP95PaymentTimeDays": 54.3,
+      "medianP95PaymentTimeDays": 56,
       "minimumP95PaymentTimeDays": 1,
       "maximumP95PaymentTimeDays": 112
     }
@@ -56,8 +56,74 @@
       "p95PaymentTimeDays": 1,
       "industryP95Position": {
         "rank": 1,
-        "count": 22,
+        "count": 84,
         "percentile": 100
+      }
+    },
+    {
+      "businessName": "MARUBENI-ITOCHU STEEL OCEANIA PTY LTD",
+      "abn": "78098025506",
+      "slug": "marubeni-itochu-steel-oceania-pty-ltd-78098025506",
+      "p95PaymentTimeDays": 14,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 84,
+        "percentile": 98.8
+      }
+    },
+    {
+      "businessName": "DENNIS FAMILY HOLDINGS PTY LTD",
+      "abn": "39097641855",
+      "slug": "dennis-family-holdings-pty-ltd-39097641855",
+      "p95PaymentTimeDays": 23,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 84,
+        "percentile": 96.4
+      }
+    },
+    {
+      "businessName": "HB LAND PTY LTD",
+      "abn": "46637165498",
+      "slug": "hb-land-pty-ltd-46637165498",
+      "p95PaymentTimeDays": 23,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 84,
+        "percentile": 96.4
+      }
+    },
+    {
+      "businessName": "JOHN HOLLAND PTY LTD & SEYMOUR WHYTE CONSTRUCTIONS PTY LTD",
+      "abn": "53263039349",
+      "slug": "john-holland-pty-ltd-and-seymour-whyte-constructions-pty-ltd-53263039349",
+      "p95PaymentTimeDays": 26,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 84,
+        "percentile": 95.2
+      }
+    },
+    {
+      "businessName": "ROYSTON HOMES PTY LTD",
+      "abn": "56116651346",
+      "slug": "royston-homes-pty-ltd-56116651346",
+      "p95PaymentTimeDays": 27,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 84,
+        "percentile": 92.8
+      }
+    },
+    {
+      "businessName": "SHERRIDON PTY LTD",
+      "abn": "14127439132",
+      "slug": "sherridon-pty-ltd-14127439132",
+      "p95PaymentTimeDays": 27,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 84,
+        "percentile": 92.8
       }
     },
     {
@@ -66,9 +132,31 @@
       "slug": "linkforce-engineering-pty-ltd-57123543699",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 2,
-        "count": 22,
-        "percentile": 95.2
+        "rank": 8,
+        "count": 84,
+        "percentile": 89.2
+      }
+    },
+    {
+      "businessName": "Sekisui House Australia Holdings Pty Limited",
+      "abn": "71134688510",
+      "slug": "sekisui-house-australia-holdings-pty-limited-71134688510",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 84,
+        "percentile": 89.2
+      }
+    },
+    {
+      "businessName": "The Trustee for NGR Project Trust",
+      "abn": "39281214407",
+      "slug": "the-trustee-for-ngr-project-trust-39281214407",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 84,
+        "percentile": 89.2
       }
     },
     {
@@ -77,9 +165,31 @@
       "slug": "suburban-land-agency-and-riverview-developments-act-pty-limited-72619778053",
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
-        "rank": 3,
-        "count": 22,
-        "percentile": 90.5
+        "rank": 11,
+        "count": 84,
+        "percentile": 88
+      }
+    },
+    {
+      "businessName": "LANTRAK LOGISTICS (VICTORIA EAST) PTY LTD",
+      "abn": "78164074579",
+      "slug": "lantrak-logistics-victoria-east-pty-ltd-78164074579",
+      "p95PaymentTimeDays": 33,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 84,
+        "percentile": 86.7
+      }
+    },
+    {
+      "businessName": "BARPA PTY. LTD.",
+      "abn": "63600276015",
+      "slug": "barpa-pty-ltd-63600276015",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 84,
+        "percentile": 85.5
       }
     },
     {
@@ -88,9 +198,9 @@
       "slug": "bms-heavy-cranes-australia-pty-ltd-13623691378",
       "p95PaymentTimeDays": 39,
       "industryP95Position": {
-        "rank": 4,
-        "count": 22,
-        "percentile": 85.7
+        "rank": 14,
+        "count": 84,
+        "percentile": 84.3
       }
     },
     {
@@ -99,9 +209,20 @@
       "slug": "frasers-property-industrial-australia-pty-limited-22107356454",
       "p95PaymentTimeDays": 40,
       "industryP95Position": {
-        "rank": 5,
-        "count": 22,
-        "percentile": 81
+        "rank": 15,
+        "count": 84,
+        "percentile": 83.1
+      }
+    },
+    {
+      "businessName": "DENNIS FAMILY CORPORATION PTY LTD",
+      "abn": "67605630144",
+      "slug": "dennis-family-corporation-pty-ltd-67605630144",
+      "p95PaymentTimeDays": 41,
+      "industryP95Position": {
+        "rank": 16,
+        "count": 84,
+        "percentile": 81.9
       }
     },
     {
@@ -110,9 +231,20 @@
       "slug": "fec-construction-holdings-australia-pty-ltd-38658945521",
       "p95PaymentTimeDays": 42,
       "industryP95Position": {
-        "rank": 6,
-        "count": 22,
-        "percentile": 76.2
+        "rank": 17,
+        "count": 84,
+        "percentile": 79.5
+      }
+    },
+    {
+      "businessName": "RISLAND AUSTRALIA PTY LTD",
+      "abn": "97168912374",
+      "slug": "risland-australia-pty-ltd-97168912374",
+      "p95PaymentTimeDays": 42,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 84,
+        "percentile": 79.5
       }
     },
     {
@@ -121,9 +253,20 @@
       "slug": "homecorp-constructions-pty-ltd-27169928205",
       "p95PaymentTimeDays": 43,
       "industryP95Position": {
-        "rank": 7,
-        "count": 22,
-        "percentile": 71.4
+        "rank": 19,
+        "count": 84,
+        "percentile": 78.3
+      }
+    },
+    {
+      "businessName": "BUILDCORP GROUP PTY LIMITED",
+      "abn": "85091336168",
+      "slug": "buildcorp-group-pty-limited-85091336168",
+      "p95PaymentTimeDays": 44,
+      "industryP95Position": {
+        "rank": 20,
+        "count": 84,
+        "percentile": 77.1
       }
     },
     {
@@ -132,9 +275,42 @@
       "slug": "fluence-energy-pty-ltd-18627071461",
       "p95PaymentTimeDays": 46,
       "industryP95Position": {
-        "rank": 8,
-        "count": 22,
-        "percentile": 66.7
+        "rank": 21,
+        "count": 84,
+        "percentile": 75.9
+      }
+    },
+    {
+      "businessName": "NORTH CONSTRUCTION & BUILDING PTY LTD",
+      "abn": "15147507702",
+      "slug": "north-construction-and-building-pty-ltd-15147507702",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 22,
+        "count": 84,
+        "percentile": 73.5
+      }
+    },
+    {
+      "businessName": "YELLOW STAR ENTERPRISES PTY LTD",
+      "abn": "49164413343",
+      "slug": "yellow-star-enterprises-pty-ltd-49164413343",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 22,
+        "count": 84,
+        "percentile": 73.5
+      }
+    },
+    {
+      "businessName": "A.G. COOMBS GROUP PTY. LTD.",
+      "abn": "67005711722",
+      "slug": "a-g-coombs-group-pty-ltd-67005711722",
+      "p95PaymentTimeDays": 48,
+      "industryP95Position": {
+        "rank": 24,
+        "count": 84,
+        "percentile": 71.1
       }
     },
     {
@@ -143,9 +319,20 @@
       "slug": "laing-o-rourke-australia-group-pty-limited-36001333900",
       "p95PaymentTimeDays": 48,
       "industryP95Position": {
-        "rank": 9,
-        "count": 22,
-        "percentile": 61.9
+        "rank": 24,
+        "count": 84,
+        "percentile": 71.1
+      }
+    },
+    {
+      "businessName": "EDEN BRAE HOLDINGS PTY LIMITED",
+      "abn": "42083807489",
+      "slug": "eden-brae-holdings-pty-limited-42083807489",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 26,
+        "count": 84,
+        "percentile": 69.9
       }
     },
     {
@@ -154,9 +341,31 @@
       "slug": "bouygues-construction-australia-pty-ltd-and-john-holland-pty-ltd-96495635476",
       "p95PaymentTimeDays": 51,
       "industryP95Position": {
-        "rank": 10,
-        "count": 22,
-        "percentile": 57.1
+        "rank": 27,
+        "count": 84,
+        "percentile": 67.5
+      }
+    },
+    {
+      "businessName": "HALLMARK HOMES PTY. LTD.",
+      "abn": "57007959524",
+      "slug": "hallmark-homes-pty-ltd-57007959524",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 27,
+        "count": 84,
+        "percentile": 67.5
+      }
+    },
+    {
+      "businessName": "AZZURRI CONCRETE GROUP PTY LIMITED",
+      "abn": "13132759650",
+      "slug": "azzurri-concrete-group-pty-limited-13132759650",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 29,
+        "count": 84,
+        "percentile": 61.4
       }
     },
     {
@@ -165,9 +374,9 @@
       "slug": "construction-services-australia-pty-ltd-99007641787",
       "p95PaymentTimeDays": 52,
       "industryP95Position": {
-        "rank": 11,
-        "count": 22,
-        "percentile": 47.6
+        "rank": 29,
+        "count": 84,
+        "percentile": 61.4
       }
     },
     {
@@ -176,9 +385,64 @@
       "slug": "frasers-property-australia-pty-limited-89600448726",
       "p95PaymentTimeDays": 52,
       "industryP95Position": {
-        "rank": 11,
-        "count": 22,
-        "percentile": 47.6
+        "rank": 29,
+        "count": 84,
+        "percentile": 61.4
+      }
+    },
+    {
+      "businessName": "MITCHELL WATER AUSTRALIA PTY LTD",
+      "abn": "16097612149",
+      "slug": "mitchell-water-australia-pty-ltd-16097612149",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 29,
+        "count": 84,
+        "percentile": 61.4
+      }
+    },
+    {
+      "businessName": "ZENVIRON PTY LTD",
+      "abn": "87612344313",
+      "slug": "zenviron-pty-ltd-87612344313",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 29,
+        "count": 84,
+        "percentile": 61.4
+      }
+    },
+    {
+      "businessName": "AUSBUILD PTY. LTD.",
+      "abn": "76464427582",
+      "slug": "ausbuild-pty-ltd-76464427582",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 34,
+        "count": 84,
+        "percentile": 56.6
+      }
+    },
+    {
+      "businessName": "GUNLAKE CONCRETE NSW PTY LIMITED",
+      "abn": "35606681850",
+      "slug": "gunlake-concrete-nsw-pty-limited-35606681850",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 34,
+        "count": 84,
+        "percentile": 56.6
+      }
+    },
+    {
+      "businessName": "ORBIT HOMES (QUEENSLAND) PTY. LTD.",
+      "abn": "93064726905",
+      "slug": "orbit-homes-queensland-pty-ltd-93064726905",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 34,
+        "count": 84,
+        "percentile": 56.6
       }
     },
     {
@@ -187,9 +451,20 @@
       "slug": "stabilised-pavements-of-australia-pty-limited-90002900736",
       "p95PaymentTimeDays": 53,
       "industryP95Position": {
-        "rank": 13,
-        "count": 22,
-        "percentile": 42.9
+        "rank": 34,
+        "count": 84,
+        "percentile": 56.6
+      }
+    },
+    {
+      "businessName": "ONE DIVERSIFIED PTY LTD",
+      "abn": "22632586844",
+      "slug": "one-diversified-pty-ltd-22632586844",
+      "p95PaymentTimeDays": 54,
+      "industryP95Position": {
+        "rank": 38,
+        "count": 84,
+        "percentile": 54.2
       }
     },
     {
@@ -198,9 +473,163 @@
       "slug": "pcl-constructors-pacific-rim-pty-ltd-74140877792",
       "p95PaymentTimeDays": 54,
       "industryP95Position": {
-        "rank": 14,
-        "count": 22,
-        "percentile": 38.1
+        "rank": 38,
+        "count": 84,
+        "percentile": 54.2
+      }
+    },
+    {
+      "businessName": "A W NICHOLSON PTY LTD",
+      "abn": "14118404381",
+      "slug": "a-w-nicholson-pty-ltd-14118404381",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 40,
+        "count": 84,
+        "percentile": 49.4
+      }
+    },
+    {
+      "businessName": "BOUYGUES CONSTRUCTION AUSTRALIA PTY LTD & JOHN HOLLAND PTY LTD & LENDLEASE MELBOURNE METRO PTY LIMITED",
+      "abn": "64946559212",
+      "slug": "bouygues-construction-australia-pty-ltd-and-john-holland-pty-ltd-and-lendlease-melbourne-metro-pty-limited-64946559212",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 40,
+        "count": 84,
+        "percentile": 49.4
+      }
+    },
+    {
+      "businessName": "DENSFORD CIVIL PTY LTD",
+      "abn": "28009090073",
+      "slug": "densford-civil-pty-ltd-28009090073",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 40,
+        "count": 84,
+        "percentile": 49.4
+      }
+    },
+    {
+      "businessName": "Lantrak Logistics (QLD) Pty Ltd",
+      "abn": "76151310440",
+      "slug": "lantrak-logistics-qld-pty-ltd-76151310440",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 40,
+        "count": 84,
+        "percentile": 49.4
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN CONSTRUCTION GROUP PTY LTD",
+      "abn": "19604459127",
+      "slug": "australian-construction-group-pty-ltd-19604459127",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 44,
+        "count": 84,
+        "percentile": 43.4
+      }
+    },
+    {
+      "businessName": "CHARLES HULL CONTRACTING CO. PTY LTD",
+      "abn": "20008694406",
+      "slug": "charles-hull-contracting-co-pty-ltd-20008694406",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 44,
+        "count": 84,
+        "percentile": 43.4
+      }
+    },
+    {
+      "businessName": "FAIRBROTHER PTY LTD",
+      "abn": "51009510561",
+      "slug": "fairbrother-pty-ltd-51009510561",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 44,
+        "count": 84,
+        "percentile": 43.4
+      }
+    },
+    {
+      "businessName": "MAZ BUILDING MAINTENANCE PTY LTD",
+      "abn": "36091323750",
+      "slug": "maz-building-maintenance-pty-ltd-36091323750",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 44,
+        "count": 84,
+        "percentile": 43.4
+      }
+    },
+    {
+      "businessName": "PHILIP USHER CONSTRUCTIONS PTY. LTD.",
+      "abn": "38011008101",
+      "slug": "philip-usher-constructions-pty-ltd-38011008101",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 44,
+        "count": 84,
+        "percentile": 43.4
+      }
+    },
+    {
+      "businessName": "2CONSTRUCT PTY. LTD.",
+      "abn": "28109517188",
+      "slug": "2construct-pty-ltd-28109517188",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 49,
+        "count": 84,
+        "percentile": 38.6
+      }
+    },
+    {
+      "businessName": "GAMUDA BERHAD & JOHN HOLLAND PTY LTD",
+      "abn": "61105030757",
+      "slug": "gamuda-berhad-and-john-holland-pty-ltd-61105030757",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 49,
+        "count": 84,
+        "percentile": 38.6
+      }
+    },
+    {
+      "businessName": "ORBIT HOMES AUSTRALIA PTY LTD",
+      "abn": "11080735771",
+      "slug": "orbit-homes-australia-pty-ltd-11080735771",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 49,
+        "count": 84,
+        "percentile": 38.6
+      }
+    },
+    {
+      "businessName": "T.R.N. HOLDINGS PTY. LTD.",
+      "abn": "89635243097",
+      "slug": "t-r-n-holdings-pty-ltd-89635243097",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 49,
+        "count": 84,
+        "percentile": 38.6
+      }
+    },
+    {
+      "businessName": "COATES SIGNCO PTY LIMITED",
+      "abn": "61131100046",
+      "slug": "coates-signco-pty-limited-61131100046",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 53,
+        "count": 84,
+        "percentile": 33.7
       }
     },
     {
@@ -209,9 +638,64 @@
       "slug": "ellis-air-group-pty-ltd-80666957473",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 15,
-        "count": 22,
-        "percentile": 33.3
+        "rank": 53,
+        "count": 84,
+        "percentile": 33.7
+      }
+    },
+    {
+      "businessName": "Maxcon Constructions Pty Ltd",
+      "abn": "69152259820",
+      "slug": "maxcon-constructions-pty-ltd-69152259820",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 53,
+        "count": 84,
+        "percentile": 33.7
+      }
+    },
+    {
+      "businessName": "MODSCAPE HOLDINGS PTY LTD",
+      "abn": "31617645182",
+      "slug": "modscape-holdings-pty-ltd-31617645182",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 53,
+        "count": 84,
+        "percentile": 33.7
+      }
+    },
+    {
+      "businessName": "CAMPBELL PROPERTY GROUP PTY LTD",
+      "abn": "64126219912",
+      "slug": "campbell-property-group-pty-ltd-64126219912",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 57,
+        "count": 84,
+        "percentile": 27.7
+      }
+    },
+    {
+      "businessName": "COLAS AUSTRALIA GROUP PTY LTD",
+      "abn": "11000388161",
+      "slug": "colas-australia-group-pty-ltd-11000388161",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 57,
+        "count": 84,
+        "percentile": 27.7
+      }
+    },
+    {
+      "businessName": "JOHN HOLLAND PTY LTD & KELLOGG BROWN & ROOT PTY LTD",
+      "abn": "48418909355",
+      "slug": "john-holland-pty-ltd-and-kellogg-brown-and-root-pty-ltd-48418909355",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 57,
+        "count": 84,
+        "percentile": 27.7
       }
     },
     {
@@ -220,9 +704,75 @@
       "slug": "nex-building-group-pty-ltd-59089524050",
       "p95PaymentTimeDays": 61,
       "industryP95Position": {
-        "rank": 16,
-        "count": 22,
-        "percentile": 28.6
+        "rank": 57,
+        "count": 84,
+        "percentile": 27.7
+      }
+    },
+    {
+      "businessName": "T.C. DRAINAGE (WA) PTY LTD",
+      "abn": "37064603096",
+      "slug": "t-c-drainage-wa-pty-ltd-37064603096",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 57,
+        "count": 84,
+        "percentile": 27.7
+      }
+    },
+    {
+      "businessName": "J.K. WILLIAMS HOLDINGS PTY LTD",
+      "abn": "58084225883",
+      "slug": "j-k-williams-holdings-pty-ltd-58084225883",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 62,
+        "count": 84,
+        "percentile": 22.9
+      }
+    },
+    {
+      "businessName": "JAYDO CONSTRUCTION PTY LTD",
+      "abn": "16062221596",
+      "slug": "jaydo-construction-pty-ltd-16062221596",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 62,
+        "count": 84,
+        "percentile": 22.9
+      }
+    },
+    {
+      "businessName": "THE DOUGLAS GROUP LTD",
+      "abn": "50002624357",
+      "slug": "the-douglas-group-ltd-50002624357",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 62,
+        "count": 84,
+        "percentile": 22.9
+      }
+    },
+    {
+      "businessName": "VSA ROADS PTY LTD",
+      "abn": "18136665935",
+      "slug": "vsa-roads-pty-ltd-18136665935",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 62,
+        "count": 84,
+        "percentile": 22.9
+      }
+    },
+    {
+      "businessName": "CCCI AUSTRALIA PTY LTD",
+      "abn": "95603555988",
+      "slug": "ccci-australia-pty-ltd-95603555988",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 66,
+        "count": 84,
+        "percentile": 18.1
       }
     },
     {
@@ -231,9 +781,9 @@
       "slug": "construction-control-pty-limited-79150745154",
       "p95PaymentTimeDays": 63,
       "industryP95Position": {
-        "rank": 17,
-        "count": 22,
-        "percentile": 19
+        "rank": 66,
+        "count": 84,
+        "percentile": 18.1
       }
     },
     {
@@ -242,9 +792,86 @@
       "slug": "kce-pty-limited-83059721881",
       "p95PaymentTimeDays": 63,
       "industryP95Position": {
-        "rank": 17,
-        "count": 22,
-        "percentile": 19
+        "rank": 66,
+        "count": 84,
+        "percentile": 18.1
+      }
+    },
+    {
+      "businessName": "RIVERGUM HOMES PTY LTD",
+      "abn": "70065466337",
+      "slug": "rivergum-homes-pty-ltd-70065466337",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 66,
+        "count": 84,
+        "percentile": 18.1
+      }
+    },
+    {
+      "businessName": "ACROW LIMITED",
+      "abn": "36124893465",
+      "slug": "acrow-limited-36124893465",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 70,
+        "count": 84,
+        "percentile": 15.7
+      }
+    },
+    {
+      "businessName": "HILTI (AUST.) PTY. LTD.",
+      "abn": "44007602100",
+      "slug": "hilti-aust-pty-ltd-44007602100",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 70,
+        "count": 84,
+        "percentile": 15.7
+      }
+    },
+    {
+      "businessName": "CPB CONTRACTORS PTY LIMITED & GHELLA PTY LTD & JOHN HOLLAND PTY LTD",
+      "abn": "77863045764",
+      "slug": "cpb-contractors-pty-limited-and-ghella-pty-ltd-and-john-holland-pty-ltd-77863045764",
+      "p95PaymentTimeDays": 65,
+      "industryP95Position": {
+        "rank": 72,
+        "count": 84,
+        "percentile": 14.5
+      }
+    },
+    {
+      "businessName": "CATEGORY 5 LABOUR MANAGEMENT (WA) PTY LTD",
+      "abn": "60625535506",
+      "slug": "category-5-labour-management-wa-pty-ltd-60625535506",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 73,
+        "count": 84,
+        "percentile": 13.3
+      }
+    },
+    {
+      "businessName": "LANDCOM",
+      "abn": "79268260688",
+      "slug": "landcom-79268260688",
+      "p95PaymentTimeDays": 67,
+      "industryP95Position": {
+        "rank": 74,
+        "count": 84,
+        "percentile": 12
+      }
+    },
+    {
+      "businessName": "EXACT CONTRACTING GROUP PTY LTD",
+      "abn": "65057760353",
+      "slug": "exact-contracting-group-pty-ltd-65057760353",
+      "p95PaymentTimeDays": 69,
+      "industryP95Position": {
+        "rank": 75,
+        "count": 84,
+        "percentile": 10.8
       }
     },
     {
@@ -253,9 +880,9 @@
       "slug": "far-east-consortium-holdings-australia-pty-limited-80062878880",
       "p95PaymentTimeDays": 72,
       "industryP95Position": {
-        "rank": 19,
-        "count": 22,
-        "percentile": 14.3
+        "rank": 76,
+        "count": 84,
+        "percentile": 9.6
       }
     },
     {
@@ -264,9 +891,20 @@
       "slug": "gamuda-holdings-pty-ltd-81665763020",
       "p95PaymentTimeDays": 73,
       "industryP95Position": {
-        "rank": 20,
-        "count": 22,
-        "percentile": 9.5
+        "rank": 77,
+        "count": 84,
+        "percentile": 8.4
+      }
+    },
+    {
+      "businessName": "COMMERCIAL & GENERAL PTY LTD",
+      "abn": "14600978103",
+      "slug": "commercial-and-general-pty-ltd-14600978103",
+      "p95PaymentTimeDays": 78,
+      "industryP95Position": {
+        "rank": 78,
+        "count": 84,
+        "percentile": 7.2
       }
     },
     {
@@ -275,9 +913,53 @@
       "slug": "john-holland-pty-ltd-and-cpb-contractors-pty-ltd-79385373351",
       "p95PaymentTimeDays": 82,
       "industryP95Position": {
-        "rank": 21,
-        "count": 22,
+        "rank": 79,
+        "count": 84,
+        "percentile": 6
+      }
+    },
+    {
+      "businessName": "COBRA ASIA PACIFIC PTY LTD",
+      "abn": "73141813630",
+      "slug": "cobra-asia-pacific-pty-ltd-73141813630",
+      "p95PaymentTimeDays": 83,
+      "industryP95Position": {
+        "rank": 80,
+        "count": 84,
         "percentile": 4.8
+      }
+    },
+    {
+      "businessName": "BILLBERGIA GROUP HOLDING PTY LTD",
+      "abn": "32633155423",
+      "slug": "billbergia-group-holding-pty-ltd-32633155423",
+      "p95PaymentTimeDays": 92,
+      "industryP95Position": {
+        "rank": 81,
+        "count": 84,
+        "percentile": 3.6
+      }
+    },
+    {
+      "businessName": "MERITON PROPERTIES PTY LTD",
+      "abn": "49000698626",
+      "slug": "meriton-properties-pty-ltd-49000698626",
+      "p95PaymentTimeDays": 95,
+      "industryP95Position": {
+        "rank": 82,
+        "count": 84,
+        "percentile": 2.4
+      }
+    },
+    {
+      "businessName": "DAHUA GROUP SYDNEY INVESTMENT PTY LTD",
+      "abn": "22606376416",
+      "slug": "dahua-group-sydney-investment-pty-ltd-22606376416",
+      "p95PaymentTimeDays": 100,
+      "industryP95Position": {
+        "rank": 83,
+        "count": 84,
+        "percentile": 1.2
       }
     },
     {
@@ -286,8 +968,8 @@
       "slug": "cape-australia-holdings-pty-limited-12126824397",
       "p95PaymentTimeDays": 112,
       "industryP95Position": {
-        "rank": 22,
-        "count": 22,
+        "rank": 84,
+        "count": 84,
         "percentile": 0
       }
     }

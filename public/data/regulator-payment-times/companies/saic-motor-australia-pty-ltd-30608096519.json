@@ -30,14 +30,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2104,
-        "count": 3004,
+        "rank": 2135,
+        "count": 3050,
         "percentile": 28.2
       },
       "industryP95Position": {
-        "rank": 255,
-        "count": 408,
-        "percentile": 36.1
+        "rank": 260,
+        "count": 415,
+        "percentile": 36
       }
     },
     {
@@ -63,13 +63,45 @@
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
         "rank": 55,
-        "count": 2941,
+        "count": 2977,
         "percentile": 98
       },
       "industryP95Position": {
         "rank": 6,
-        "count": 400,
-        "percentile": 98.7
+        "count": 407,
+        "percentile": 98.8
+      }
+    },
+    {
+      "reportId": "PTR20013159",
+      "acnArbn": "608096519",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 89,
+      "payments31To60Days": 7,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Motor vehicle and motor vehicle parts wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-14",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1518,
+        "count": 2565,
+        "percentile": 37.4
+      },
+      "industryP95Position": {
+        "rank": 162,
+        "count": 333,
+        "percentile": 44.9
       }
     }
   ]

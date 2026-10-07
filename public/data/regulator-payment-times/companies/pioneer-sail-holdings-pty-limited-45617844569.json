@@ -30,9 +30,9 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1261,
-        "count": 3004,
-        "percentile": 55.8
+        "rank": 1272,
+        "count": 3050,
+        "percentile": 56.1
       },
       "industryP95Position": {
         "rank": 59,
@@ -62,9 +62,9 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1156,
-        "count": 2941,
-        "percentile": 58.6
+        "rank": 1164,
+        "count": 2977,
+        "percentile": 58.8
       },
       "industryP95Position": {
         "rank": 53,
@@ -94,8 +94,8 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 844,
-        "count": 2530,
+        "rank": 854,
+        "count": 2565,
         "percentile": 65.2
       },
       "industryP95Position": {

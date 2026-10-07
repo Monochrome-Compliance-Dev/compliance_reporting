@@ -31,7 +31,7 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "reportingEntityCount": 97,
-      "averageP95PaymentTimeDays": 44.1,
+      "averageP95PaymentTimeDays": 43.9,
       "medianP95PaymentTimeDays": 44,
       "minimumP95PaymentTimeDays": 11,
       "maximumP95PaymentTimeDays": 121
@@ -41,23 +41,45 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 12,
-      "averageP95PaymentTimeDays": 48.2,
-      "medianP95PaymentTimeDays": 56.5,
-      "minimumP95PaymentTimeDays": 14,
+      "reportingEntityCount": 28,
+      "averageP95PaymentTimeDays": 43.3,
+      "medianP95PaymentTimeDays": 46.5,
+      "minimumP95PaymentTimeDays": 11,
       "maximumP95PaymentTimeDays": 93
     }
   ],
   "companies": [
+    {
+      "businessName": "SOLSTICE ENERGY HOLDINGS PTY LTD",
+      "abn": "96636365805",
+      "slug": "solstice-energy-holdings-pty-ltd-96636365805",
+      "p95PaymentTimeDays": 11,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 28,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "WR Carpenter No 1 Pty Ltd",
+      "abn": "34118630461",
+      "slug": "wr-carpenter-no-1-pty-ltd-34118630461",
+      "p95PaymentTimeDays": 12,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 28,
+        "percentile": 96.3
+      }
+    },
     {
       "businessName": "CK WILLIAM AUSTRALIA HOLDINGS PTY LTD",
       "abn": "14613690243",
       "slug": "ck-william-australia-holdings-pty-ltd-14613690243",
       "p95PaymentTimeDays": 14,
       "industryP95Position": {
-        "rank": 1,
-        "count": 12,
-        "percentile": 100
+        "rank": 3,
+        "count": 28,
+        "percentile": 92.6
       }
     },
     {
@@ -66,9 +88,31 @@
       "slug": "bluewaters-power-1-pty-ltd-93106034879",
       "p95PaymentTimeDays": 15,
       "industryP95Position": {
-        "rank": 2,
-        "count": 12,
-        "percentile": 90.9
+        "rank": 4,
+        "count": 28,
+        "percentile": 88.9
+      }
+    },
+    {
+      "businessName": "SOUTH AUSTRALIAN WATER CORPORATION",
+      "abn": "69336525019",
+      "slug": "south-australian-water-corporation-69336525019",
+      "p95PaymentTimeDays": 18,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 28,
+        "percentile": 85.2
+      }
+    },
+    {
+      "businessName": "Electricity Networks Corporation",
+      "abn": "18540492861",
+      "slug": "electricity-networks-corporation-18540492861",
+      "p95PaymentTimeDays": 21,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 28,
+        "percentile": 77.8
       }
     },
     {
@@ -77,9 +121,9 @@
       "slug": "yarra-valley-water-corporation-93066902501",
       "p95PaymentTimeDays": 21,
       "industryP95Position": {
-        "rank": 3,
-        "count": 12,
-        "percentile": 81.8
+        "rank": 6,
+        "count": 28,
+        "percentile": 77.8
       }
     },
     {
@@ -88,9 +132,53 @@
       "slug": "aquasure-holdings-pty-ltd-46135956053",
       "p95PaymentTimeDays": 22,
       "industryP95Position": {
-        "rank": 4,
-        "count": 12,
-        "percentile": 72.7
+        "rank": 8,
+        "count": 28,
+        "percentile": 74.1
+      }
+    },
+    {
+      "businessName": "The Trustee for NSW Electricity Networks Operations Holdings Trust",
+      "abn": "30784528036",
+      "slug": "the-trustee-for-nsw-electricity-networks-operations-holdings-trust-30784528036",
+      "p95PaymentTimeDays": 27,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 28,
+        "percentile": 70.4
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN GAS NETWORKS HOLDINGS PTY LIMITED",
+      "abn": "24169818026",
+      "slug": "australian-gas-networks-holdings-pty-limited-24169818026",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 28,
+        "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "TASMANIAN WATER & SEWERAGE CORPORATION PTY LTD",
+      "abn": "47162220653",
+      "slug": "tasmanian-water-and-sewerage-corporation-pty-ltd-47162220653",
+      "p95PaymentTimeDays": 33,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 28,
+        "percentile": 63
+      }
+    },
+    {
+      "businessName": "MIDOCEAN ENERGY PARENT PTY LTD",
+      "abn": "31666688786",
+      "slug": "midocean-energy-parent-pty-ltd-31666688786",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 28,
+        "percentile": 59.3
       }
     },
     {
@@ -99,9 +187,42 @@
       "slug": "bluewaters-power-2-pty-ltd-57122896968",
       "p95PaymentTimeDays": 39,
       "industryP95Position": {
-        "rank": 5,
-        "count": 12,
-        "percentile": 63.6
+        "rank": 13,
+        "count": 28,
+        "percentile": 55.6
+      }
+    },
+    {
+      "businessName": "BLUE NRG PTY. LTD.",
+      "abn": "30151014658",
+      "slug": "blue-nrg-pty-ltd-30151014658",
+      "p95PaymentTimeDays": 42,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 28,
+        "percentile": 51.9
+      }
+    },
+    {
+      "businessName": "Regional Power Corporation",
+      "abn": "57955011697",
+      "slug": "regional-power-corporation-57955011697",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 28,
+        "percentile": 44.4
+      }
+    },
+    {
+      "businessName": "STANWELL CORPORATION LIMITED",
+      "abn": "37078848674",
+      "slug": "stanwell-corporation-limited-37078848674",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 28,
+        "percentile": 44.4
       }
     },
     {
@@ -110,9 +231,42 @@
       "slug": "aztech-services-australia-pty-ltd-76612469084",
       "p95PaymentTimeDays": 54,
       "industryP95Position": {
-        "rank": 6,
-        "count": 12,
-        "percentile": 54.5
+        "rank": 17,
+        "count": 28,
+        "percentile": 40.7
+      }
+    },
+    {
+      "businessName": "GE RENEWABLE ENERGY AUSTRALIA PTY LTD",
+      "abn": "47003760790",
+      "slug": "ge-renewable-energy-australia-pty-ltd-47003760790",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 18,
+        "count": 28,
+        "percentile": 37
+      }
+    },
+    {
+      "businessName": "JJR ENGINEERING PTY LTD",
+      "abn": "51079215133",
+      "slug": "jjr-engineering-pty-ltd-51079215133",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 28,
+        "percentile": 29.6
+      }
+    },
+    {
+      "businessName": "QGIF SWAN HOLDCO PTY LTD",
+      "abn": "64634920184",
+      "slug": "qgif-swan-holdco-pty-ltd-64634920184",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 28,
+        "percentile": 29.6
       }
     },
     {
@@ -121,9 +275,9 @@
       "slug": "victoria-power-networks-pty-ltd-37116940820",
       "p95PaymentTimeDays": 59,
       "industryP95Position": {
-        "rank": 7,
-        "count": 12,
-        "percentile": 45.5
+        "rank": 21,
+        "count": 28,
+        "percentile": 25.9
       }
     },
     {
@@ -132,9 +286,9 @@
       "slug": "sungrow-australia-group-pty-ltd-76168258679",
       "p95PaymentTimeDays": 61,
       "industryP95Position": {
-        "rank": 8,
-        "count": 12,
-        "percentile": 36.4
+        "rank": 22,
+        "count": 28,
+        "percentile": 22.2
       }
     },
     {
@@ -143,9 +297,20 @@
       "slug": "united-energy-distribution-holdings-pty-limited-15104381660",
       "p95PaymentTimeDays": 64,
       "industryP95Position": {
-        "rank": 9,
-        "count": 12,
-        "percentile": 27.3
+        "rank": 23,
+        "count": 28,
+        "percentile": 14.8
+      }
+    },
+    {
+      "businessName": "XYLEM AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "89162495070",
+      "slug": "xylem-australia-holdings-pty-ltd-89162495070",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 23,
+        "count": 28,
+        "percentile": 14.8
       }
     },
     {
@@ -154,9 +319,20 @@
       "slug": "nsc-australia-pty-ltd-71607111268",
       "p95PaymentTimeDays": 65,
       "industryP95Position": {
-        "rank": 10,
-        "count": 12,
-        "percentile": 18.2
+        "rank": 25,
+        "count": 28,
+        "percentile": 11.1
+      }
+    },
+    {
+      "businessName": "TRANSALTA ENERGY (AUSTRALIA) PTY LTD",
+      "abn": "40062135844",
+      "slug": "transalta-energy-australia-pty-ltd-40062135844",
+      "p95PaymentTimeDays": 67,
+      "industryP95Position": {
+        "rank": 26,
+        "count": 28,
+        "percentile": 7.4
       }
     },
     {
@@ -165,9 +341,9 @@
       "slug": "j-j-richards-and-sons-pty-ltd-40000805425",
       "p95PaymentTimeDays": 71,
       "industryP95Position": {
-        "rank": 11,
-        "count": 12,
-        "percentile": 9.1
+        "rank": 27,
+        "count": 28,
+        "percentile": 3.7
       }
     },
     {
@@ -176,8 +352,8 @@
       "slug": "ge-grid-australia-pty-ltd-91106900707",
       "p95PaymentTimeDays": 93,
       "industryP95Position": {
-        "rank": 12,
-        "count": 12,
+        "rank": 28,
+        "count": 28,
         "percentile": 0
       }
     }

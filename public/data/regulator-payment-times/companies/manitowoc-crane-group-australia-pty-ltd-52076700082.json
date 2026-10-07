@@ -1,0 +1,44 @@
+{
+  "slug": "manitowoc-crane-group-australia-pty-ltd-52076700082",
+  "businessName": "MANITOWOC CRANE GROUP AUSTRALIA PTY LTD",
+  "abn": "52076700082",
+  "acnArbn": "076700082",
+  "industryDivision": "Wholesale Trade",
+  "industrySlug": "wholesale-trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20012725",
+      "acnArbn": "076700082",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.14,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 72,
+      "payments30DaysOrLess": 64.03,
+      "payments31To60Days": 28.32,
+      "paymentsMoreThan60Days": 7.65,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-02",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2295,
+        "count": 2977,
+        "percentile": 21.9
+      },
+      "industryP95Position": {
+        "rank": 295,
+        "count": 407,
+        "percentile": 26.8
+      }
+    }
+  ]
+}

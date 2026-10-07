@@ -6,8 +6,40 @@
   "industryDivision": "Mining",
   "industrySlug": "mining",
   "industrySubdivision": "Exploration and other mining support services",
-  "latestReportingPeriodEndDate": "2025-06-29",
+  "latestReportingPeriodEndDate": "2025-12-30",
   "reports": [
+    {
+      "reportId": "PTR20012473",
+      "acnArbn": "051538580",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 84.53,
+      "payments31To60Days": 11.19,
+      "paymentsMoreThan60Days": 4.27,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-08-24",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1597,
+        "count": 3050,
+        "percentile": 44.9
+      },
+      "industryP95Position": {
+        "rank": 108,
+        "count": 193,
+        "percentile": 43.8
+      }
+    },
     {
       "reportId": "PTR20005892",
       "acnArbn": "051538580",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2086,
-        "count": 2941,
-        "percentile": 28
+        "rank": 2106,
+        "count": 2977,
+        "percentile": 28.1
       },
       "industryP95Position": {
-        "rank": 133,
-        "count": 185,
-        "percentile": 27.2
+        "rank": 135,
+        "count": 187,
+        "percentile": 26.9
       }
     },
     {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 623,
-        "count": 2530,
-        "percentile": 73.9
+        "rank": 630,
+        "count": 2565,
+        "percentile": 74
       },
       "industryP95Position": {
         "rank": 49,
-        "count": 170,
-        "percentile": 71
+        "count": 173,
+        "percentile": 71.5
       }
     }
   ]

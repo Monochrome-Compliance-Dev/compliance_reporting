@@ -8,10 +8,10 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 97,
-      "averageP95PaymentTimeDays": 59.6,
+      "reportingEntityCount": 98,
+      "averageP95PaymentTimeDays": 60.5,
       "medianP95PaymentTimeDays": 59,
-      "minimumP95PaymentTimeDays": 8,
+      "minimumP95PaymentTimeDays": 15,
       "maximumP95PaymentTimeDays": 174
     },
     {
@@ -20,10 +20,10 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "reportingEntityCount": 105,
-      "averageP95PaymentTimeDays": 62.1,
+      "averageP95PaymentTimeDays": 60.9,
       "medianP95PaymentTimeDays": 59,
       "minimumP95PaymentTimeDays": 23,
-      "maximumP95PaymentTimeDays": 212
+      "maximumP95PaymentTimeDays": 172
     },
     {
       "reportingCycleId": "2025-H2",
@@ -31,7 +31,7 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "reportingEntityCount": 115,
-      "averageP95PaymentTimeDays": 57,
+      "averageP95PaymentTimeDays": 56.3,
       "medianP95PaymentTimeDays": 56,
       "minimumP95PaymentTimeDays": 2,
       "maximumP95PaymentTimeDays": 172
@@ -41,23 +41,56 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 12,
-      "averageP95PaymentTimeDays": 50.5,
-      "medianP95PaymentTimeDays": 45.5,
-      "minimumP95PaymentTimeDays": 25,
-      "maximumP95PaymentTimeDays": 90
+      "reportingEntityCount": 32,
+      "averageP95PaymentTimeDays": 51.6,
+      "medianP95PaymentTimeDays": 46,
+      "minimumP95PaymentTimeDays": 9,
+      "maximumP95PaymentTimeDays": 104
     }
   ],
   "companies": [
+    {
+      "businessName": "NORTHERN HEALTH",
+      "abn": "42986169981",
+      "slug": "northern-health-42986169981",
+      "p95PaymentTimeDays": 9,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 32,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN HEALTH PRACTITIONER REGULATION AGENCY",
+      "abn": "78685433429",
+      "slug": "australian-health-practitioner-regulation-agency-78685433429",
+      "p95PaymentTimeDays": 23,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 32,
+        "percentile": 96.8
+      }
+    },
     {
       "businessName": "B BRAUN AUSTRALIA PTY LTD",
       "abn": "56002945155",
       "slug": "b-braun-australia-pty-ltd-56002945155",
       "p95PaymentTimeDays": 25,
       "industryP95Position": {
-        "rank": 1,
-        "count": 12,
-        "percentile": 100
+        "rank": 3,
+        "count": 32,
+        "percentile": 93.5
+      }
+    },
+    {
+      "businessName": "IMAGE HOLDCO PTY LTD",
+      "abn": "18623028740",
+      "slug": "image-holdco-pty-ltd-18623028740",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 32,
+        "percentile": 90.3
       }
     },
     {
@@ -66,9 +99,20 @@
       "slug": "everlight-radiology-holdings-pty-ltd-49651297139",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 2,
-        "count": 12,
-        "percentile": 72.7
+        "rank": 5,
+        "count": 32,
+        "percentile": 74.2
+      }
+    },
+    {
+      "businessName": "NEXUS DAY HOSPITALS HOLDINGS PTY LTD",
+      "abn": "75165809101",
+      "slug": "nexus-day-hospitals-holdings-pty-ltd-75165809101",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 32,
+        "percentile": 74.2
       }
     },
     {
@@ -77,9 +121,9 @@
       "slug": "pfizer-australia-pty-ltd-50008422348",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 2,
-        "count": 12,
-        "percentile": 72.7
+        "rank": 5,
+        "count": 32,
+        "percentile": 74.2
       }
     },
     {
@@ -88,9 +132,31 @@
       "slug": "ra-holdings-2014-pty-limited-75603289792",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 2,
-        "count": 12,
-        "percentile": 72.7
+        "rank": 5,
+        "count": 32,
+        "percentile": 74.2
+      }
+    },
+    {
+      "businessName": "THE TRUSTEE FOR KEYTON TRUST",
+      "abn": "44349706307",
+      "slug": "the-trustee-for-keyton-trust-44349706307",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 32,
+        "percentile": 74.2
+      }
+    },
+    {
+      "businessName": "ALTIUS HOLDCO PTY LTD",
+      "abn": "22646640280",
+      "slug": "altius-holdco-pty-ltd-22646640280",
+      "p95PaymentTimeDays": 33,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 32,
+        "percentile": 71
       }
     },
     {
@@ -99,9 +165,31 @@
       "slug": "luye-australia-holdings-pty-ltd-98609669472",
       "p95PaymentTimeDays": 35,
       "industryP95Position": {
-        "rank": 5,
-        "count": 12,
-        "percentile": 63.6
+        "rank": 11,
+        "count": 32,
+        "percentile": 67.7
+      }
+    },
+    {
+      "businessName": "GUARDIAN ALPHABET HOLDCO PTY LTD",
+      "abn": "54628455103",
+      "slug": "guardian-alphabet-holdco-pty-ltd-54628455103",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 12,
+        "count": 32,
+        "percentile": 64.5
+      }
+    },
+    {
+      "businessName": "INTEGRAL DIAGNOSTICS LIMITED",
+      "abn": "55130832816",
+      "slug": "integral-diagnostics-limited-55130832816",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 32,
+        "percentile": 54.8
       }
     },
     {
@@ -110,9 +198,31 @@
       "slug": "qscan-group-holdings-newco-pty-ltd-22645220328",
       "p95PaymentTimeDays": 45,
       "industryP95Position": {
-        "rank": 6,
-        "count": 12,
-        "percentile": 54.5
+        "rank": 13,
+        "count": 32,
+        "percentile": 54.8
+      }
+    },
+    {
+      "businessName": "RESMED HOLDINGS PTY LTD",
+      "abn": "28003765133",
+      "slug": "resmed-holdings-pty-ltd-28003765133",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 32,
+        "percentile": 54.8
+      }
+    },
+    {
+      "businessName": "GRIFOLS AUSTRALIA PTY LTD",
+      "abn": "35050104875",
+      "slug": "grifols-australia-pty-ltd-35050104875",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 16,
+        "count": 32,
+        "percentile": 48.4
       }
     },
     {
@@ -121,9 +231,20 @@
       "slug": "varian-medical-systems-australasia-pty-ltd-53086249630",
       "p95PaymentTimeDays": 46,
       "industryP95Position": {
-        "rank": 7,
-        "count": 12,
-        "percentile": 45.5
+        "rank": 16,
+        "count": 32,
+        "percentile": 48.4
+      }
+    },
+    {
+      "businessName": "APOG TOPCO PTY LTD",
+      "abn": "66654198268",
+      "slug": "apog-topco-pty-ltd-66654198268",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 18,
+        "count": 32,
+        "percentile": 45.2
       }
     },
     {
@@ -132,9 +253,31 @@
       "slug": "specsavers-pty-ltd-82097147932",
       "p95PaymentTimeDays": 59,
       "industryP95Position": {
-        "rank": 8,
-        "count": 12,
-        "percentile": 36.4
+        "rank": 19,
+        "count": 32,
+        "percentile": 38.7
+      }
+    },
+    {
+      "businessName": "VANTIVE PTY LTD",
+      "abn": "91625652280",
+      "slug": "vantive-pty-ltd-91625652280",
+      "p95PaymentTimeDays": 59,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 32,
+        "percentile": 38.7
+      }
+    },
+    {
+      "businessName": "In Vitro Technologies Pty Ltd",
+      "abn": "27102379895",
+      "slug": "in-vitro-technologies-pty-ltd-27102379895",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 21,
+        "count": 32,
+        "percentile": 29
       }
     },
     {
@@ -143,9 +286,20 @@
       "slug": "ryman-healthcare-australia-pty-ltd-44142241110",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 9,
-        "count": 12,
-        "percentile": 27.3
+        "rank": 21,
+        "count": 32,
+        "percentile": 29
+      }
+    },
+    {
+      "businessName": "THOMPSON HEALTH CARE PTY. LTD.",
+      "abn": "29000745004",
+      "slug": "thompson-health-care-pty-ltd-29000745004",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 21,
+        "count": 32,
+        "percentile": 29
       }
     },
     {
@@ -154,9 +308,64 @@
       "slug": "cook-australia-pty-ltd-27141258648",
       "p95PaymentTimeDays": 66,
       "industryP95Position": {
-        "rank": 10,
-        "count": 12,
-        "percentile": 18.2
+        "rank": 24,
+        "count": 32,
+        "percentile": 25.8
+      }
+    },
+    {
+      "businessName": "ELI LILLY AUSTRALIA PTY LTD",
+      "abn": "39000233992",
+      "slug": "eli-lilly-australia-pty-ltd-39000233992",
+      "p95PaymentTimeDays": 67,
+      "industryP95Position": {
+        "rank": 25,
+        "count": 32,
+        "percentile": 22.6
+      }
+    },
+    {
+      "businessName": "ROCHE DIAGNOSTICS AUSTRALIA PTY LIMITED",
+      "abn": "29003001205",
+      "slug": "roche-diagnostics-australia-pty-limited-29003001205",
+      "p95PaymentTimeDays": 68,
+      "industryP95Position": {
+        "rank": 26,
+        "count": 32,
+        "percentile": 19.4
+      }
+    },
+    {
+      "businessName": "ASTRAZENECA HOLDINGS PTY LTD",
+      "abn": "59066876962",
+      "slug": "astrazeneca-holdings-pty-ltd-59066876962",
+      "p95PaymentTimeDays": 75,
+      "industryP95Position": {
+        "rank": 27,
+        "count": 32,
+        "percentile": 16.1
+      }
+    },
+    {
+      "businessName": "4CYTE PATHOLOGY PTY LTD",
+      "abn": "12619244852",
+      "slug": "4cyte-pathology-pty-ltd-12619244852",
+      "p95PaymentTimeDays": 79,
+      "industryP95Position": {
+        "rank": 28,
+        "count": 32,
+        "percentile": 12.9
+      }
+    },
+    {
+      "businessName": "EDWARDS LIFESCIENCES PTY LIMITED",
+      "abn": "77098906873",
+      "slug": "edwards-lifesciences-pty-limited-77098906873",
+      "p95PaymentTimeDays": 88,
+      "industryP95Position": {
+        "rank": 29,
+        "count": 32,
+        "percentile": 9.7
       }
     },
     {
@@ -165,9 +374,9 @@
       "slug": "medtronic-australasia-pty-ltd-47001162661",
       "p95PaymentTimeDays": 90,
       "industryP95Position": {
-        "rank": 11,
-        "count": 12,
-        "percentile": 0
+        "rank": 30,
+        "count": 32,
+        "percentile": 3.2
       }
     },
     {
@@ -176,8 +385,19 @@
       "slug": "takeda-pharmaceuticals-australia-pty-ltd-71095610870",
       "p95PaymentTimeDays": 90,
       "industryP95Position": {
-        "rank": 11,
-        "count": 12,
+        "rank": 30,
+        "count": 32,
+        "percentile": 3.2
+      }
+    },
+    {
+      "businessName": "LEONARDO HOLDCO PTY LTD",
+      "abn": "63629681116",
+      "slug": "leonardo-holdco-pty-ltd-63629681116",
+      "p95PaymentTimeDays": 104,
+      "industryP95Position": {
+        "rank": 32,
+        "count": 32,
         "percentile": 0
       }
     }

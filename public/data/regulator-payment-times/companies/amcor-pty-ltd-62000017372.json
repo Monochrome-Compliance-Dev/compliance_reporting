@@ -6,8 +6,40 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Polymer product and rubber product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20012445",
+      "acnArbn": "000017372",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.4,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 75,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 32.82,
+      "payments31To60Days": 26.65,
+      "paymentsMoreThan60Days": 40.52,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-08-23",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 974,
+        "count": 1052,
+        "percentile": 6.5
+      },
+      "industryP95Position": {
+        "rank": 124,
+        "count": 136,
+        "percentile": 6.7
+      }
+    },
     {
       "reportId": "PTR20007907",
       "acnArbn": "000017372",
@@ -30,13 +62,13 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2842,
-        "count": 3004,
+        "rank": 2885,
+        "count": 3050,
         "percentile": 5.3
       },
       "industryP95Position": {
-        "rank": 374,
-        "count": 404,
+        "rank": 379,
+        "count": 409,
         "percentile": 7.4
       }
     },
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2728,
-        "count": 2941,
+        "rank": 2762,
+        "count": 2977,
         "percentile": 6.9
       },
       "industryP95Position": {
-        "rank": 357,
-        "count": 390,
-        "percentile": 7.5
+        "rank": 363,
+        "count": 395,
+        "percentile": 7.1
       }
     },
     {
@@ -94,14 +126,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2396,
-        "count": 2530,
+        "rank": 2429,
+        "count": 2565,
         "percentile": 5.3
       },
       "industryP95Position": {
-        "rank": 310,
-        "count": 329,
-        "percentile": 5.8
+        "rank": 315,
+        "count": 333,
+        "percentile": 5.4
       }
     }
   ]

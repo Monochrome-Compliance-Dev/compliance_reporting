@@ -30,14 +30,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2414,
-        "count": 2530,
+        "rank": 2448,
+        "count": 2565,
         "percentile": 4.5
       },
       "industryP95Position": {
-        "rank": 199,
-        "count": 210,
-        "percentile": 5.3
+        "rank": 202,
+        "count": 214,
+        "percentile": 5.6
       }
     }
   ]

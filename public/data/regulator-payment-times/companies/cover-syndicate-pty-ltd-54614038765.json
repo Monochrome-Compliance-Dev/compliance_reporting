@@ -1,0 +1,140 @@
+{
+  "slug": "cover-syndicate-pty-ltd-54614038765",
+  "businessName": "COVER SYNDICATE PTY LTD",
+  "abn": "54614038765",
+  "acnArbn": "614038765",
+  "industryDivision": "Retail Trade",
+  "industrySlug": "retail-trade",
+  "industrySubdivision": "Other store-based retailing",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20012918",
+      "acnArbn": "614038765",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 73.52,
+      "medianPaymentTimeDays": 77,
+      "p80PaymentTimeDays": 107,
+      "p95PaymentTimeDays": 108,
+      "payments30DaysOrLess": 16.4,
+      "payments31To60Days": 21.18,
+      "paymentsMoreThan60Days": 62.42,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-08",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1023,
+        "count": 1052,
+        "percentile": 2.6
+      },
+      "industryP95Position": {
+        "rank": 84,
+        "count": 88,
+        "percentile": 4.6
+      }
+    },
+    {
+      "reportId": "PTR20012912",
+      "acnArbn": "614038765",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 69.57,
+      "medianPaymentTimeDays": 76,
+      "p80PaymentTimeDays": 107,
+      "p95PaymentTimeDays": 109,
+      "payments30DaysOrLess": 18.02,
+      "payments31To60Days": 27.01,
+      "paymentsMoreThan60Days": 54.98,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-08",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2930,
+        "count": 3050,
+        "percentile": 3.8
+      },
+      "industryP95Position": {
+        "rank": 247,
+        "count": 254,
+        "percentile": 2.8
+      }
+    },
+    {
+      "reportId": "PTR20012913",
+      "acnArbn": "614038765",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 78.93,
+      "medianPaymentTimeDays": 106,
+      "p80PaymentTimeDays": 108,
+      "p95PaymentTimeDays": 109,
+      "payments30DaysOrLess": 13.04,
+      "payments31To60Days": 19.24,
+      "paymentsMoreThan60Days": 67.72,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-08",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2833,
+        "count": 2977,
+        "percentile": 4.7
+      },
+      "industryP95Position": {
+        "rank": 246,
+        "count": 256,
+        "percentile": 3.9
+      }
+    },
+    {
+      "reportId": "PTR20012899",
+      "acnArbn": "614038765",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.27,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 78,
+      "p95PaymentTimeDays": 107,
+      "payments30DaysOrLess": 39.84,
+      "payments31To60Days": 27.84,
+      "paymentsMoreThan60Days": 32.32,
+      "industrySubdivision": "Other store-based retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-08",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 2443,
+        "count": 2565,
+        "percentile": 4.6
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 214,
+        "percentile": 6.1
+      }
+    }
+  ]
+}

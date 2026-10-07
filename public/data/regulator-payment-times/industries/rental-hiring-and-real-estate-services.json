@@ -31,8 +31,8 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "reportingEntityCount": 71,
-      "averageP95PaymentTimeDays": 51.6,
-      "medianP95PaymentTimeDays": 49,
+      "averageP95PaymentTimeDays": 51.7,
+      "medianP95PaymentTimeDays": 50,
       "minimumP95PaymentTimeDays": 6,
       "maximumP95PaymentTimeDays": 106
     },
@@ -41,9 +41,9 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 5,
-      "averageP95PaymentTimeDays": 51.4,
-      "medianP95PaymentTimeDays": 66,
+      "reportingEntityCount": 19,
+      "averageP95PaymentTimeDays": 49.3,
+      "medianP95PaymentTimeDays": 52,
       "minimumP95PaymentTimeDays": 10,
       "maximumP95PaymentTimeDays": 83
     }
@@ -56,8 +56,19 @@
       "p95PaymentTimeDays": 10,
       "industryP95Position": {
         "rank": 1,
-        "count": 5,
+        "count": 19,
         "percentile": 100
+      }
+    },
+    {
+      "businessName": "FOLKESTONE LIMITED",
+      "abn": "21004715226",
+      "slug": "folkestone-limited-21004715226",
+      "p95PaymentTimeDays": 23,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 19,
+        "percentile": 94.4
       }
     },
     {
@@ -66,9 +77,130 @@
       "slug": "servcorp-limited-97089222506",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 2,
-        "count": 5,
-        "percentile": 75
+        "rank": 3,
+        "count": 19,
+        "percentile": 83.3
+      }
+    },
+    {
+      "businessName": "The Trustee for Keppel Reit (Australia) Trust",
+      "abn": "76971120912",
+      "slug": "the-trustee-for-keppel-reit-australia-trust-76971120912",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 19,
+        "percentile": 83.3
+      }
+    },
+    {
+      "businessName": "OPTEON GROUP HOLDINGS LIMITED",
+      "abn": "20616574755",
+      "slug": "opteon-group-holdings-limited-20616574755",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 19,
+        "percentile": 72.2
+      }
+    },
+    {
+      "businessName": "WAYPOINT REIT LIMITED",
+      "abn": "35612986517",
+      "slug": "waypoint-reit-limited-35612986517",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 19,
+        "percentile": 72.2
+      }
+    },
+    {
+      "businessName": "The Trustee for BWP Trust",
+      "abn": "18446483705",
+      "slug": "the-trustee-for-bwp-trust-18446483705",
+      "p95PaymentTimeDays": 36,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 19,
+        "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "ASCOTT INTERNATIONAL MANAGEMENT (AUSTRALIA) PTY LTD",
+      "abn": "20078223186",
+      "slug": "ascott-international-management-australia-pty-ltd-20078223186",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 19,
+        "percentile": 55.6
+      }
+    },
+    {
+      "businessName": "PRUDENTIAL INVESTMENT COMPANY OF AUSTRALIA PTY LTD",
+      "abn": "84004266817",
+      "slug": "prudential-investment-company-of-australia-pty-ltd-84004266817",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 19,
+        "percentile": 55.6
+      }
+    },
+    {
+      "businessName": "NATIONAL PUMP & ENERGY PTY LTD",
+      "abn": "83098812492",
+      "slug": "national-pump-and-energy-pty-ltd-83098812492",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 19,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN MOTOR GROUP PTY LIMITED",
+      "abn": "67095047902",
+      "slug": "australian-motor-group-pty-limited-67095047902",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 19,
+        "percentile": 38.9
+      }
+    },
+    {
+      "businessName": "CAPE BOUVARD INVESTMENTS PTY LTD",
+      "abn": "17009171402",
+      "slug": "cape-bouvard-investments-pty-ltd-17009171402",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 19,
+        "percentile": 38.9
+      }
+    },
+    {
+      "businessName": "The Trustee for OSBORNE TRUCK RENTALS UNIT TRUST",
+      "abn": "28356747284",
+      "slug": "the-trustee-for-osborne-truck-rentals-unit-trust-28356747284",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 19,
+        "percentile": 33.3
+      }
+    },
+    {
+      "businessName": "CBRE AUSTRALIA PTY LIMITED",
+      "abn": "47664591682",
+      "slug": "cbre-australia-pty-limited-47664591682",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 19,
+        "percentile": 27.8
       }
     },
     {
@@ -77,9 +209,9 @@
       "slug": "boom-logistics-ltd-28095466961",
       "p95PaymentTimeDays": 66,
       "industryP95Position": {
-        "rank": 3,
-        "count": 5,
-        "percentile": 50
+        "rank": 15,
+        "count": 19,
+        "percentile": 22.2
       }
     },
     {
@@ -88,9 +220,31 @@
       "slug": "movigo-pty-ltd-57606409394",
       "p95PaymentTimeDays": 68,
       "industryP95Position": {
-        "rank": 4,
-        "count": 5,
-        "percentile": 25
+        "rank": 16,
+        "count": 19,
+        "percentile": 16.7
+      }
+    },
+    {
+      "businessName": "BIFM AUS HOLDINGS PTY LTD",
+      "abn": "16632468109",
+      "slug": "bifm-aus-holdings-pty-ltd-16632468109",
+      "p95PaymentTimeDays": 75,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 19,
+        "percentile": 11.1
+      }
+    },
+    {
+      "businessName": "MARQUIS HOLDCO PTY LTD",
+      "abn": "71670403059",
+      "slug": "marquis-holdco-pty-ltd-71670403059",
+      "p95PaymentTimeDays": 83,
+      "industryP95Position": {
+        "rank": 18,
+        "count": 19,
+        "percentile": 0
       }
     },
     {
@@ -99,8 +253,8 @@
       "slug": "tutt-bryant-group-limited-89009242675",
       "p95PaymentTimeDays": 83,
       "industryP95Position": {
-        "rank": 5,
-        "count": 5,
+        "rank": 18,
+        "count": 19,
         "percentile": 0
       }
     }

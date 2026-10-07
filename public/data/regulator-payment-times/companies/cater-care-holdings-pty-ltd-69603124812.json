@@ -1,0 +1,108 @@
+{
+  "slug": "cater-care-holdings-pty-ltd-69603124812",
+  "businessName": "CATER CARE HOLDINGS PTY LTD",
+  "abn": "69603124812",
+  "acnArbn": "603124812",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySlug": "accommodation-and-food-services",
+  "industrySubdivision": "Food and beverage services",
+  "latestReportingPeriodEndDate": "2025-12-28",
+  "reports": [
+    {
+      "reportId": "PTR20013062",
+      "acnArbn": "603124812",
+      "reportingPeriodStartDate": "2025-06-29",
+      "reportingPeriodEndDate": "2025-12-28",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.88,
+      "medianPaymentTimeDays": 42,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 23.24,
+      "payments31To60Days": 62.7,
+      "paymentsMoreThan60Days": 14.06,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-09-10",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2375,
+        "count": 3050,
+        "percentile": 21.5
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 43,
+        "percentile": 4.8
+      }
+    },
+    {
+      "reportId": "PTR20013063",
+      "acnArbn": "603124812",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-28",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.94,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 28.99,
+      "payments31To60Days": 59.07,
+      "paymentsMoreThan60Days": 11.95,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-09-10",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2141,
+        "count": 2977,
+        "percentile": 27.1
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 40,
+        "percentile": 17.9
+      }
+    },
+    {
+      "reportId": "PTR20012544",
+      "acnArbn": "603124812",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.4,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 31.54,
+      "payments31To60Days": 56.03,
+      "paymentsMoreThan60Days": 12.43,
+      "industrySubdivision": "Food and beverage services",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-09-10",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1861,
+        "count": 2565,
+        "percentile": 26
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 34,
+        "percentile": 6.1
+      }
+    }
+  ]
+}

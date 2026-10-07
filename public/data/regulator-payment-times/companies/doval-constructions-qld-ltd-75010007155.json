@@ -1,0 +1,108 @@
+{
+  "slug": "doval-constructions-qld-ltd-75010007155",
+  "businessName": "DOVAL CONSTRUCTIONS (QLD.) LTD",
+  "abn": "75010007155",
+  "acnArbn": "010007155",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20013103",
+      "acnArbn": "010007155",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.68,
+      "medianPaymentTimeDays": 40,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 27.26,
+      "payments31To60Days": 72.5,
+      "paymentsMoreThan60Days": 0.27,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-13",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1682,
+        "count": 3050,
+        "percentile": 41.9
+      },
+      "industryP95Position": {
+        "rank": 125,
+        "count": 293,
+        "percentile": 52.7
+      }
+    },
+    {
+      "reportId": "PTR20013002",
+      "acnArbn": "010007155",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.04,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 31.52,
+      "payments31To60Days": 68.4,
+      "paymentsMoreThan60Days": 0.08,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-09",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1545,
+        "count": 2977,
+        "percentile": 45.5
+      },
+      "industryP95Position": {
+        "rank": 112,
+        "count": 279,
+        "percentile": 57.6
+      }
+    },
+    {
+      "reportId": "PTR20012723",
+      "acnArbn": "010007155",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.13,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 28.24,
+      "payments31To60Days": 71.31,
+      "paymentsMoreThan60Days": 0.45,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-09",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1381,
+        "count": 2565,
+        "percentile": 43.7
+      },
+      "industryP95Position": {
+        "rank": 106,
+        "count": 258,
+        "percentile": 55.6
+      }
+    }
+  ]
+}

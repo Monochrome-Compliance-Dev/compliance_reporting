@@ -41,23 +41,56 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 13,
-      "averageP95PaymentTimeDays": 45.3,
-      "medianP95PaymentTimeDays": 45,
-      "minimumP95PaymentTimeDays": 26,
-      "maximumP95PaymentTimeDays": 73
+      "reportingEntityCount": 26,
+      "averageP95PaymentTimeDays": 50.4,
+      "medianP95PaymentTimeDays": 44,
+      "minimumP95PaymentTimeDays": 24,
+      "maximumP95PaymentTimeDays": 147
     }
   ],
   "companies": [
+    {
+      "businessName": "NATIONAL GALLERY OF AUSTRALIA",
+      "abn": "27855975449",
+      "slug": "national-gallery-of-australia-27855975449",
+      "p95PaymentTimeDays": 24,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 26,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN SPORTS FOUNDATION LIMITED",
+      "abn": "27008613858",
+      "slug": "australian-sports-foundation-limited-27008613858",
+      "p95PaymentTimeDays": 26,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 26,
+        "percentile": 92
+      }
+    },
     {
       "businessName": "WESTERN SUBURBS LEAGUE CLUB (CAMPBELLTOWN) LTD",
       "abn": "43000841958",
       "slug": "western-suburbs-league-club-campbelltown-ltd-43000841958",
       "p95PaymentTimeDays": 26,
       "industryP95Position": {
-        "rank": 1,
-        "count": 13,
-        "percentile": 100
+        "rank": 2,
+        "count": 26,
+        "percentile": 92
+      }
+    },
+    {
+      "businessName": "ITV STUDIOS AUSTRALIA PTY LTD",
+      "abn": "91088957706",
+      "slug": "itv-studios-australia-pty-ltd-91088957706",
+      "p95PaymentTimeDays": 28,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 26,
+        "percentile": 88
       }
     },
     {
@@ -66,9 +99,31 @@
       "slug": "tennis-australia-limited-61006281125",
       "p95PaymentTimeDays": 29,
       "industryP95Position": {
-        "rank": 2,
-        "count": 13,
-        "percentile": 91.7
+        "rank": 5,
+        "count": 26,
+        "percentile": 84
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN GRAND PRIX",
+      "abn": "86947927465",
+      "slug": "australian-grand-prix-86947927465",
+      "p95PaymentTimeDays": 32,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 26,
+        "percentile": 80
+      }
+    },
+    {
+      "businessName": "FETTLE GROUP PTY LTD",
+      "abn": "90648441258",
+      "slug": "fettle-group-pty-ltd-90648441258",
+      "p95PaymentTimeDays": 33,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 26,
+        "percentile": 76
       }
     },
     {
@@ -77,9 +132,31 @@
       "slug": "canterbury-league-club-limited-84000191248",
       "p95PaymentTimeDays": 35,
       "industryP95Position": {
-        "rank": 3,
-        "count": 13,
-        "percentile": 83.3
+        "rank": 8,
+        "count": 26,
+        "percentile": 68
+      }
+    },
+    {
+      "businessName": "LB AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "96165597482",
+      "slug": "lb-australia-holdings-pty-ltd-96165597482",
+      "p95PaymentTimeDays": 35,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 26,
+        "percentile": 68
+      }
+    },
+    {
+      "businessName": "PADDY POWER AUSTRALIA PTY LIMITED",
+      "abn": "83133081491",
+      "slug": "paddy-power-australia-pty-limited-83133081491",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 26,
+        "percentile": 64
       }
     },
     {
@@ -88,9 +165,9 @@
       "slug": "sony-music-entertainment-australia-pty-ltd-95107133184",
       "p95PaymentTimeDays": 41,
       "industryP95Position": {
-        "rank": 4,
-        "count": 13,
-        "percentile": 75
+        "rank": 11,
+        "count": 26,
+        "percentile": 60
       }
     },
     {
@@ -99,9 +176,9 @@
       "slug": "moonee-valley-racing-club-inc-45806588917",
       "p95PaymentTimeDays": 42,
       "industryP95Position": {
-        "rank": 5,
-        "count": 13,
-        "percentile": 66.7
+        "rank": 12,
+        "count": 26,
+        "percentile": 56
       }
     },
     {
@@ -110,9 +187,9 @@
       "slug": "carlile-swim-pty-ltd-36623260033",
       "p95PaymentTimeDays": 43,
       "industryP95Position": {
-        "rank": 6,
-        "count": 13,
-        "percentile": 58.3
+        "rank": 13,
+        "count": 26,
+        "percentile": 52
       }
     },
     {
@@ -121,9 +198,9 @@
       "slug": "parramatta-leagues-club-ltd-52000218655",
       "p95PaymentTimeDays": 45,
       "industryP95Position": {
-        "rank": 7,
-        "count": 13,
-        "percentile": 50
+        "rank": 14,
+        "count": 26,
+        "percentile": 48
       }
     },
     {
@@ -132,9 +209,9 @@
       "slug": "australian-turf-club-limited-81148157288",
       "p95PaymentTimeDays": 46,
       "industryP95Position": {
-        "rank": 8,
-        "count": 13,
-        "percentile": 33.3
+        "rank": 15,
+        "count": 26,
+        "percentile": 40
       }
     },
     {
@@ -143,9 +220,20 @@
       "slug": "richmond-football-club-limited-25679793340",
       "p95PaymentTimeDays": 46,
       "industryP95Position": {
-        "rank": 8,
-        "count": 13,
-        "percentile": 33.3
+        "rank": 15,
+        "count": 26,
+        "percentile": 40
+      }
+    },
+    {
+      "businessName": "LIVE NATION AUSTRALIA VENUES PTY LTD",
+      "abn": "21612559136",
+      "slug": "live-nation-australia-venues-pty-ltd-21612559136",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 26,
+        "percentile": 36
       }
     },
     {
@@ -154,9 +242,9 @@
       "slug": "melbourne-cricket-club-92871871964",
       "p95PaymentTimeDays": 51,
       "industryP95Position": {
-        "rank": 10,
-        "count": 13,
-        "percentile": 25
+        "rank": 18,
+        "count": 26,
+        "percentile": 32
       }
     },
     {
@@ -165,9 +253,9 @@
       "slug": "adelaide-oval-sma-limited-46141259538",
       "p95PaymentTimeDays": 52,
       "industryP95Position": {
-        "rank": 11,
-        "count": 13,
-        "percentile": 16.7
+        "rank": 19,
+        "count": 26,
+        "percentile": 28
       }
     },
     {
@@ -176,9 +264,42 @@
       "slug": "vrv-australia-pty-ltd-66631624729",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 12,
-        "count": 13,
-        "percentile": 8.3
+        "rank": 20,
+        "count": 26,
+        "percentile": 24
+      }
+    },
+    {
+      "businessName": "LIVE NATION HOLDINGS AUSTRALASIA PTY LTD",
+      "abn": "22156028992",
+      "slug": "live-nation-holdings-australasia-pty-ltd-22156028992",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 21,
+        "count": 26,
+        "percentile": 20
+      }
+    },
+    {
+      "businessName": "LIVE NATION HOLDINGS AUSTRALASIA 2 PTY LTD",
+      "abn": "29653825891",
+      "slug": "live-nation-holdings-australasia-2-pty-ltd-29653825891",
+      "p95PaymentTimeDays": 71,
+      "industryP95Position": {
+        "rank": 22,
+        "count": 26,
+        "percentile": 16
+      }
+    },
+    {
+      "businessName": "POINTSBET HOLDINGS LIMITED",
+      "abn": "68621179351",
+      "slug": "pointsbet-holdings-limited-68621179351",
+      "p95PaymentTimeDays": 72,
+      "industryP95Position": {
+        "rank": 23,
+        "count": 26,
+        "percentile": 12
       }
     },
     {
@@ -187,8 +308,30 @@
       "slug": "hillside-australia-new-media-pty-limited-75148920665",
       "p95PaymentTimeDays": 73,
       "industryP95Position": {
-        "rank": 13,
-        "count": 13,
+        "rank": 24,
+        "count": 26,
+        "percentile": 8
+      }
+    },
+    {
+      "businessName": "LIVE NATION AUSTRALIA FESTIVALS PTY LTD",
+      "abn": "54615960917",
+      "slug": "live-nation-australia-festivals-pty-ltd-54615960917",
+      "p95PaymentTimeDays": 108,
+      "industryP95Position": {
+        "rank": 25,
+        "count": 26,
+        "percentile": 4
+      }
+    },
+    {
+      "businessName": "CANTERBURY BANKSTOWN BULLDOGS RUGBY LEAGUE CLUB LIMITED",
+      "abn": "38001869405",
+      "slug": "canterbury-bankstown-bulldogs-rugby-league-club-limited-38001869405",
+      "p95PaymentTimeDays": 147,
+      "industryP95Position": {
+        "rank": 26,
+        "count": 26,
         "percentile": 0
       }
     }
