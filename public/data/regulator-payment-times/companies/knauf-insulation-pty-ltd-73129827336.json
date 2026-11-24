@@ -1,0 +1,140 @@
+{
+  "slug": "knauf-insulation-pty-ltd-73129827336",
+  "businessName": "Knauf Insulation Pty Ltd",
+  "abn": "73129827336",
+  "acnArbn": "129827336",
+  "industryDivision": "Wholesale Trade",
+  "industrySlug": "wholesale-trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015638",
+      "acnArbn": "129827336",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 62,
+      "payments31To60Days": 36,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-10-06",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1466,
+        "count": 2794,
+        "percentile": 45
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 394,
+        "percentile": 52.2
+      }
+    },
+    {
+      "reportId": "PTR20015637",
+      "acnArbn": "129827336",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 47,
+      "payments31To60Days": 43,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-10-06",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2409,
+        "count": 3151,
+        "percentile": 22.8
+      },
+      "industryP95Position": {
+        "rank": 301,
+        "count": 427,
+        "percentile": 28.9
+      }
+    },
+    {
+      "reportId": "PTR20015636",
+      "acnArbn": "129827336",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 57,
+      "payments31To60Days": 35,
+      "paymentsMoreThan60Days": 8,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-10-06",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2440,
+        "count": 3052,
+        "percentile": 19.2
+      },
+      "industryP95Position": {
+        "rank": 313,
+        "count": 415,
+        "percentile": 24.2
+      }
+    },
+    {
+      "reportId": "PTR20015635",
+      "acnArbn": "129827336",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 62,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-10-06",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1491,
+        "count": 2639,
+        "percentile": 40.7
+      },
+      "industryP95Position": {
+        "rank": 159,
+        "count": 342,
+        "percentile": 51.6
+      }
+    }
+  ]
+}

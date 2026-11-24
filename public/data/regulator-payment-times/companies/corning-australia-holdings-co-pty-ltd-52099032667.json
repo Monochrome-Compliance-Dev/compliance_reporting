@@ -1,0 +1,44 @@
+{
+  "slug": "corning-australia-holdings-co-pty-ltd-52099032667",
+  "businessName": "CORNING AUSTRALIA HOLDINGS CO. PTY. LTD.",
+  "abn": "52099032667",
+  "acnArbn": "099032667",
+  "industryDivision": "Information Media and Telecommunications",
+  "industrySlug": "information-media-and-telecommunications",
+  "industrySubdivision": "Telecommunications services",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20015694",
+      "acnArbn": "099032667",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 90,
+      "payments30DaysOrLess": 33,
+      "payments31To60Days": 39,
+      "paymentsMoreThan60Days": 28,
+      "industrySubdivision": "Telecommunications services",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-10-12",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 2370,
+        "count": 2639,
+        "percentile": 9.1
+      },
+      "industryP95Position": {
+        "rank": 59,
+        "count": 62,
+        "percentile": 4.9
+      }
+    }
+  ]
+}

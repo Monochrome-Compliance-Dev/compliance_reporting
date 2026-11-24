@@ -1,0 +1,140 @@
+{
+  "slug": "triangle-fruit-and-vegetable-company-pty-ltd-17008679445",
+  "businessName": "TRIANGLE FRUIT AND VEGETABLE COMPANY PTY LTD",
+  "abn": "17008679445",
+  "acnArbn": "008679445",
+  "industryDivision": "Wholesale Trade",
+  "industrySlug": "wholesale-trade",
+  "industrySubdivision": "Other goods wholesaling",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015901",
+      "acnArbn": "008679445",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-10-20",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 489,
+        "count": 2794,
+        "percentile": 80.5
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 394,
+        "percentile": 88
+      }
+    },
+    {
+      "reportId": "PTR20015899",
+      "acnArbn": "008679445",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-10-20",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 515,
+        "count": 3151,
+        "percentile": 81.2
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 427,
+        "percentile": 87.3
+      }
+    },
+    {
+      "reportId": "PTR20015898",
+      "acnArbn": "008679445",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-10-20",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 460,
+        "count": 3052,
+        "percentile": 82.6
+      },
+      "industryP95Position": {
+        "rank": 39,
+        "count": 415,
+        "percentile": 88.6
+      }
+    },
+    {
+      "reportId": "PTR20015896",
+      "acnArbn": "008679445",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 90,
+      "payments31To60Days": 9,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Other goods wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-10-20",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 435,
+        "count": 2639,
+        "percentile": 81.1
+      },
+      "industryP95Position": {
+        "rank": 33,
+        "count": 342,
+        "percentile": 88.9
+      }
+    }
+  ]
+}

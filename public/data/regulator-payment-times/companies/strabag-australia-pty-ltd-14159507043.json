@@ -1,0 +1,44 @@
+{
+  "slug": "strabag-australia-pty-ltd-14159507043",
+  "businessName": "STRABAG AUSTRALIA PTY LTD",
+  "abn": "14159507043",
+  "acnArbn": "159507043",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20013592",
+      "acnArbn": "159507043",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.15,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 93.48,
+      "payments31To60Days": 6.01,
+      "paymentsMoreThan60Days": 0.51,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-20",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 646,
+        "count": 2794,
+        "percentile": 75.8
+      },
+      "industryP95Position": {
+        "rank": 30,
+        "count": 270,
+        "percentile": 89.2
+      }
+    }
+  ]
+}

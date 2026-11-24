@@ -1,0 +1,140 @@
+{
+  "slug": "thryv-australia-holdings-pty-ltd-89638633342",
+  "businessName": "THRYV AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "89638633342",
+  "acnArbn": "638633342",
+  "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
+  "industrySubdivision": "Printing (including the reproduction of recorded media)",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015782",
+      "acnArbn": "638633342",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.7,
+      "medianPaymentTimeDays": 28.3,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 42,
+      "payments30DaysOrLess": 93.4,
+      "payments31To60Days": 6.3,
+      "paymentsMoreThan60Days": 0.3,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-10-15",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 876,
+        "count": 2794,
+        "percentile": 67.5
+      },
+      "industryP95Position": {
+        "rank": 45,
+        "count": 359,
+        "percentile": 87.4
+      }
+    },
+    {
+      "reportId": "PTR20015781",
+      "acnArbn": "638633342",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.5,
+      "medianPaymentTimeDays": 28.4,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 46,
+      "payments30DaysOrLess": 84.6,
+      "payments31To60Days": 14,
+      "paymentsMoreThan60Days": 1.4,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-10-15",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1155,
+        "count": 3151,
+        "percentile": 61.8
+      },
+      "industryP95Position": {
+        "rank": 54,
+        "count": 424,
+        "percentile": 86.3
+      }
+    },
+    {
+      "reportId": "PTR20015780",
+      "acnArbn": "638633342",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.7,
+      "medianPaymentTimeDays": 26.9,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 74,
+      "payments30DaysOrLess": 96.4,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 1.7,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-10-15",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2415,
+        "count": 3052,
+        "percentile": 20.1
+      },
+      "industryP95Position": {
+        "rank": 271,
+        "count": 407,
+        "percentile": 32.5
+      }
+    },
+    {
+      "reportId": "PTR20015779",
+      "acnArbn": "638633342",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.3,
+      "medianPaymentTimeDays": 27.3,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 90.5,
+      "payments31To60Days": 8.5,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Printing (including the reproduction of recorded media)",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-10-15",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 847,
+        "count": 2639,
+        "percentile": 66.5
+      },
+      "industryP95Position": {
+        "rank": 46,
+        "count": 341,
+        "percentile": 86.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "slug": "ubi-logistics-australia-pty-ltd-73134943285",
+  "businessName": "UBI LOGISTICS (AUSTRALIA) PTY LTD",
+  "abn": "73134943285",
+  "acnArbn": "134943285",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySlug": "transport-postal-and-warehousing",
+  "industrySubdivision": "Postal and courier pick-up and delivery services",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20014967",
+      "acnArbn": "134943285",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.5,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Postal and courier pick-up and delivery services",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 24,
+        "count": 2639,
+        "percentile": 98.8
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 149,
+        "percentile": 98
+      }
+    }
+  ]
+}

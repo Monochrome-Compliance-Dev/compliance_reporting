@@ -1,0 +1,76 @@
+{
+  "slug": "southern-labour-hire-pty-ltd-75651747616",
+  "businessName": "SOUTHERN LABOUR HIRE PTY LTD",
+  "abn": "75651747616",
+  "acnArbn": "651747616",
+  "industryDivision": "Administrative and Support Services",
+  "industrySlug": "administrative-and-support-services",
+  "industrySubdivision": "Administrative services",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015806",
+      "acnArbn": "651747616",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-10-15",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 23,
+        "count": 3052,
+        "percentile": 99
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 64,
+        "percentile": 92.1
+      }
+    },
+    {
+      "reportId": "PTR20015643",
+      "acnArbn": "651747616",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 7,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 7,
+      "p95PaymentTimeDays": 7,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Administrative services",
+      "industryDivision": "Administrative and Support Services",
+      "submittedDate": "2026-10-15",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 24,
+        "count": 2639,
+        "percentile": 98.8
+      },
+      "industryP95Position": {
+        "rank": 6,
+        "count": 57,
+        "percentile": 91.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "slug": "apollo-holdco-pty-ltd-68626190896",
+  "businessName": "APOLLO HOLDCO PTY LTD",
+  "abn": "68626190896",
+  "acnArbn": "626190896",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySlug": "financial-and-insurance-services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20014128",
+      "acnArbn": "626190896",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 53,
+      "payments30DaysOrLess": 88.92,
+      "payments31To60Days": 6.95,
+      "paymentsMoreThan60Days": 4.13,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-09-27",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1187,
+        "count": 2639,
+        "percentile": 54
+      },
+      "industryP95Position": {
+        "rank": 259,
+        "count": 358,
+        "percentile": 26.1
+      }
+    }
+  ]
+}

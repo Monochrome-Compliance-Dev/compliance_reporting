@@ -1,0 +1,140 @@
+{
+  "slug": "qualitas-diversified-credit-investments-pty-ltd-85660336069",
+  "businessName": "QUALITAS DIVERSIFIED CREDIT INVESTMENTS PTY LTD",
+  "abn": "85660336069",
+  "acnArbn": "660336069",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySlug": "financial-and-insurance-services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015718",
+      "acnArbn": "660336069",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45,
+      "medianPaymentTimeDays": 61,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 67,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-10-12",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1853,
+        "count": 2794,
+        "percentile": 31.4
+      },
+      "industryP95Position": {
+        "rank": 319,
+        "count": 369,
+        "percentile": 13
+      }
+    },
+    {
+      "reportId": "PTR20015712",
+      "acnArbn": "660336069",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 64.8,
+      "medianPaymentTimeDays": 62,
+      "p80PaymentTimeDays": 74,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 40,
+      "paymentsMoreThan60Days": 60,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-10-12",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 3012,
+        "count": 3151,
+        "percentile": 4.2
+      },
+      "industryP95Position": {
+        "rank": 385,
+        "count": 389,
+        "percentile": 1
+      }
+    },
+    {
+      "reportId": "PTR20013543",
+      "acnArbn": "660336069",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 67,
+      "payments31To60Days": 33,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-09-20",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 3052,
+        "percentile": 70.6
+      },
+      "industryP95Position": {
+        "rank": 218,
+        "count": 390,
+        "percentile": 42.7
+      }
+    },
+    {
+      "reportId": "PTR20013537",
+      "acnArbn": "660336069",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 52,
+      "medianPaymentTimeDays": 54,
+      "p80PaymentTimeDays": 64,
+      "p95PaymentTimeDays": 71,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 75,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-09-20",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 2027,
+        "count": 2639,
+        "percentile": 22.3
+      },
+      "industryP95Position": {
+        "rank": 312,
+        "count": 358,
+        "percentile": 12
+      }
+    }
+  ]
+}

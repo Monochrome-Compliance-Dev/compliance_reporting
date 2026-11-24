@@ -1,0 +1,140 @@
+{
+  "slug": "j-c-d-australia-pty-ltd-49002017209",
+  "businessName": "J.C.D. AUSTRALIA PTY.LTD.",
+  "abn": "49002017209",
+  "acnArbn": "002017209",
+  "industryDivision": "Mining",
+  "industrySlug": "mining",
+  "industrySubdivision": "Coal mining",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20013473",
+      "acnArbn": "002017209",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.33,
+      "medianPaymentTimeDays": 18.5,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 97.83,
+      "payments31To60Days": 2.17,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-09-17",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 265,
+        "count": 2794,
+        "percentile": 89.8
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 166,
+        "percentile": 90.3
+      }
+    },
+    {
+      "reportId": "PTR20013472",
+      "acnArbn": "002017209",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.38,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 20,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-09-17",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 228,
+        "count": 3151,
+        "percentile": 92
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 195,
+        "percentile": 91.8
+      }
+    },
+    {
+      "reportId": "PTR20013471",
+      "acnArbn": "002017209",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.7,
+      "medianPaymentTimeDays": 12.5,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 96.55,
+      "payments31To60Days": 3.45,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-09-17",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 224,
+        "count": 3052,
+        "percentile": 92.1
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 190,
+        "percentile": 86.8
+      }
+    },
+    {
+      "reportId": "PTR20013474",
+      "acnArbn": "002017209",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 6.08,
+      "medianPaymentTimeDays": 5.5,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 20,
+      "payments30DaysOrLess": 98.41,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 1.59,
+      "industrySubdivision": "Coal mining",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-09-17",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 121,
+        "count": 2639,
+        "percentile": 94.9
+      },
+      "industryP95Position": {
+        "rank": 8,
+        "count": 176,
+        "percentile": 93.7
+      }
+    }
+  ]
+}

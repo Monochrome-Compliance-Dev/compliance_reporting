@@ -6,8 +6,40 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20014803",
+      "acnArbn": "152867984",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.6,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 60,
+      "payments30DaysOrLess": 76.3,
+      "payments31To60Days": 21.1,
+      "paymentsMoreThan60Days": 2.6,
+      "industrySubdivision": "Textile. Leather, clothing and footwear mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1769,
+        "count": 2794,
+        "percentile": 33.7
+      },
+      "industryP95Position": {
+        "rank": 162,
+        "count": 359,
+        "percentile": 53.1
+      }
+    },
     {
       "reportId": "PTR20009994",
       "acnArbn": "152867984",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1921,
-        "count": 3050,
-        "percentile": 34.2
+        "rank": 1993,
+        "count": 3151,
+        "percentile": 34
       },
       "industryP95Position": {
-        "rank": 176,
-        "count": 409,
-        "percentile": 53.7
+        "rank": 183,
+        "count": 424,
+        "percentile": 53.2
       }
     },
     {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1545,
-        "count": 2977,
+        "rank": 1584,
+        "count": 3052,
         "percentile": 45.5
       },
       "industryP95Position": {
-        "rank": 123,
-        "count": 395,
-        "percentile": 65.7
+        "rank": 127,
+        "count": 407,
+        "percentile": 65.8
       }
     },
     {
@@ -94,14 +126,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 960,
-        "count": 2565,
-        "percentile": 61.5
+        "rank": 992,
+        "count": 2639,
+        "percentile": 61.4
       },
       "industryP95Position": {
-        "rank": 59,
-        "count": 333,
-        "percentile": 81.3
+        "rank": 60,
+        "count": 341,
+        "percentile": 81.5
       }
     }
   ]

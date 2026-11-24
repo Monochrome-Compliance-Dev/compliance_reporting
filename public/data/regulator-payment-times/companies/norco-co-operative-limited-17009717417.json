@@ -1,0 +1,140 @@
+{
+  "slug": "norco-co-operative-limited-17009717417",
+  "businessName": "NORCO CO-OPERATIVE LIMITED",
+  "abn": "17009717417",
+  "acnArbn": "009717417",
+  "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
+  "industrySubdivision": "Beverage and tobacco product mfg",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014209",
+      "acnArbn": "009717417",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.23,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 57.14,
+      "payments31To60Days": 37.2,
+      "paymentsMoreThan60Days": 5.67,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-24",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1918,
+        "count": 2794,
+        "percentile": 30
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 359,
+        "percentile": 49.2
+      }
+    },
+    {
+      "reportId": "PTR20014208",
+      "acnArbn": "009717417",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.77,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 56,
+      "payments31To60Days": 38.04,
+      "paymentsMoreThan60Days": 5.97,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-24",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2160,
+        "count": 3151,
+        "percentile": 29.9
+      },
+      "industryP95Position": {
+        "rank": 211,
+        "count": 424,
+        "percentile": 48.2
+      }
+    },
+    {
+      "reportId": "PTR20014207",
+      "acnArbn": "009717417",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.05,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 60.27,
+      "payments31To60Days": 35.44,
+      "paymentsMoreThan60Days": 4.29,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-24",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1751,
+        "count": 3052,
+        "percentile": 40.2
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 407,
+        "percentile": 59.6
+      }
+    },
+    {
+      "reportId": "PTR20013187",
+      "acnArbn": "009717417",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.39,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 63.01,
+      "payments31To60Days": 33.58,
+      "paymentsMoreThan60Days": 3.41,
+      "industrySubdivision": "Beverage and tobacco product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-24",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1423,
+        "count": 2639,
+        "percentile": 43.6
+      },
+      "industryP95Position": {
+        "rank": 121,
+        "count": 341,
+        "percentile": 62.1
+      }
+    }
+  ]
+}

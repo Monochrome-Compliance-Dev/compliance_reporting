@@ -3,17 +3,49 @@
   "businessName": "DASSAULT SYSTEMES AUSTRALIA PTY LTD",
   "abn": "92113589772",
   "acnArbn": "113589772",
-  "industryDivision": "Retail Trade",
-  "industrySlug": "retail-trade",
-  "industrySubdivision": "Other store-based retailing",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySlug": "professional-scientific-and-technical-services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
     {
-      "reportId": "PTR20009593",
+      "reportId": "PTR20014258",
+      "acnArbn": "113589772",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.24,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 44,
+      "payments30DaysOrLess": 81.58,
+      "payments31To60Days": 18.42,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-24",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 959,
+        "count": 2794,
+        "percentile": 64.3
+      },
+      "industryP95Position": {
+        "rank": 73,
+        "count": 219,
+        "percentile": 65.1
+      }
+    },
+    {
+      "reportId": "PTR20015827",
       "acnArbn": "113589772",
       "reportingPeriodStartDate": "2025-06-30",
       "reportingPeriodEndDate": "2025-12-30",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 27.13,
       "medianPaymentTimeDays": 28,
@@ -22,22 +54,22 @@
       "payments30DaysOrLess": 83.5,
       "payments31To60Days": 16.5,
       "paymentsMoreThan60Days": 0,
-      "industrySubdivision": "Other store-based retailing",
-      "industryDivision": "Retail Trade",
-      "submittedDate": "2026-03-29",
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-10-18",
       "reportingCycleId": "2025-H2",
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 802,
-        "count": 3050,
-        "percentile": 72.5
+        "rank": 836,
+        "count": 3151,
+        "percentile": 72.3
       },
       "industryP95Position": {
-        "rank": 56,
-        "count": 254,
-        "percentile": 77.9
+        "rank": 65,
+        "count": 241,
+        "percentile": 71.3
       }
     },
     {
@@ -54,22 +86,22 @@
       "payments30DaysOrLess": 88.66,
       "payments31To60Days": 11.34,
       "paymentsMoreThan60Days": 0,
-      "industrySubdivision": "Other store-based retailing",
-      "industryDivision": "Retail Trade",
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
       "submittedDate": "2025-09-25",
       "reportingCycleId": "2025-H1",
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 445,
-        "count": 2977,
-        "percentile": 82.7
+        "rank": 460,
+        "count": 3052,
+        "percentile": 82.6
       },
       "industryP95Position": {
-        "rank": 22,
-        "count": 256,
-        "percentile": 87.8
+        "rank": 31,
+        "count": 235,
+        "percentile": 85
       }
     }
   ]

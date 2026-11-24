@@ -1,0 +1,44 @@
+{
+  "slug": "ritchie-bros-holdings-pty-ltd-27080895861",
+  "businessName": "RITCHIE BROS. HOLDINGS PTY. LTD.",
+  "abn": "27080895861",
+  "acnArbn": "080895861",
+  "industryDivision": "Wholesale Trade",
+  "industrySlug": "wholesale-trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20013361",
+      "acnArbn": "080895861",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.18,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 56,
+      "payments30DaysOrLess": 88.67,
+      "payments31To60Days": 7.02,
+      "paymentsMoreThan60Days": 4.32,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-20",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1466,
+        "count": 2794,
+        "percentile": 45
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 394,
+        "percentile": 52.2
+      }
+    }
+  ]
+}

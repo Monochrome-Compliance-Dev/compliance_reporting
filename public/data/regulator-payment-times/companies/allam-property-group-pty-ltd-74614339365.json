@@ -1,0 +1,76 @@
+{
+  "slug": "allam-property-group-pty-ltd-74614339365",
+  "businessName": "ALLAM PROPERTY GROUP PTY LTD",
+  "abn": "74614339365",
+  "acnArbn": "614339365",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20013336",
+      "acnArbn": "614339365",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.67,
+      "medianPaymentTimeDays": 34.5,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 94.4,
+      "paymentsMoreThan60Days": 5.6,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-16",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2467,
+        "count": 3052,
+        "percentile": 18.5
+      },
+      "industryP95Position": {
+        "rank": 237,
+        "count": 292,
+        "percentile": 18.6
+      }
+    },
+    {
+      "reportId": "PTR20013083",
+      "acnArbn": "614339365",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.79,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 73,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 21.1,
+      "payments31To60Days": 57.8,
+      "paymentsMoreThan60Days": 21.1,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-16",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 2075,
+        "count": 2639,
+        "percentile": 20.5
+      },
+      "industryP95Position": {
+        "rank": 216,
+        "count": 270,
+        "percentile": 18.6
+      }
+    }
+  ]
+}

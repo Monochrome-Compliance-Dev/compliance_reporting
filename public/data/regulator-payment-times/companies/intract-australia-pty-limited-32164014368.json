@@ -1,0 +1,76 @@
+{
+  "slug": "intract-australia-pty-limited-32164014368",
+  "businessName": "INTRACT AUSTRALIA PTY LIMITED",
+  "abn": "32164014368",
+  "acnArbn": "164014368",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015361",
+      "acnArbn": "164014368",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.08,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 85.93,
+      "payments31To60Days": 13.48,
+      "paymentsMoreThan60Days": 0.59,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 910,
+        "count": 2794,
+        "percentile": 65.7
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 270,
+        "percentile": 81
+      }
+    },
+    {
+      "reportId": "PTR20015788",
+      "acnArbn": "164014368",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.41,
+      "medianPaymentTimeDays": 12,
+      "p80PaymentTimeDays": 23,
+      "p95PaymentTimeDays": 34,
+      "payments30DaysOrLess": 87.09,
+      "payments31To60Days": 12.31,
+      "paymentsMoreThan60Days": 0.6,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-10-15",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 680,
+        "count": 3151,
+        "percentile": 77.5
+      },
+      "industryP95Position": {
+        "rank": 25,
+        "count": 310,
+        "percentile": 91.3
+      }
+    }
+  ]
+}

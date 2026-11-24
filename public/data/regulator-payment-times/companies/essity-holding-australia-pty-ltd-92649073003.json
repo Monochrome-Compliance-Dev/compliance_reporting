@@ -6,8 +6,40 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Pulp, paper and converted paper product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20015229",
+      "acnArbn": "649073003",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.46,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 81,
+      "payments30DaysOrLess": 71.34,
+      "payments31To60Days": 9.57,
+      "paymentsMoreThan60Days": 19.09,
+      "industrySubdivision": "Pulp, paper and converted paper product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2463,
+        "count": 2794,
+        "percentile": 11.5
+      },
+      "industryP95Position": {
+        "rank": 286,
+        "count": 359,
+        "percentile": 19
+      }
+    },
     {
       "reportId": "PTR20010285",
       "acnArbn": "649073003",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2780,
-        "count": 3050,
+        "rank": 2872,
+        "count": 3151,
         "percentile": 7.9
       },
       "industryP95Position": {
-        "rank": 354,
-        "count": 409,
-        "percentile": 11.5
+        "rank": 366,
+        "count": 424,
+        "percentile": 11.8
       }
     },
     {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2531,
-        "count": 2977,
-        "percentile": 14.5
+        "rank": 2601,
+        "count": 3052,
+        "percentile": 14.4
       },
       "industryP95Position": {
-        "rank": 302,
-        "count": 395,
-        "percentile": 22.6
+        "rank": 314,
+        "count": 407,
+        "percentile": 21.9
       }
     }
   ]

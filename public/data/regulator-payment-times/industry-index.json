@@ -41,9 +41,9 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 34,
-          "averageP95PaymentTimeDays": 51,
-          "medianP95PaymentTimeDays": 51.5,
+          "reportingEntityCount": 35,
+          "averageP95PaymentTimeDays": 50.3,
+          "medianP95PaymentTimeDays": 51,
           "minimumP95PaymentTimeDays": 14,
           "maximumP95PaymentTimeDays": 127
         },
@@ -52,9 +52,9 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 40,
-          "averageP95PaymentTimeDays": 54.2,
-          "medianP95PaymentTimeDays": 51.5,
+          "reportingEntityCount": 41,
+          "averageP95PaymentTimeDays": 53.6,
+          "medianP95PaymentTimeDays": 50,
           "minimumP95PaymentTimeDays": 16,
           "maximumP95PaymentTimeDays": 164
         },
@@ -63,9 +63,9 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 43,
-          "averageP95PaymentTimeDays": 49.5,
-          "medianP95PaymentTimeDays": 49,
+          "reportingEntityCount": 44,
+          "averageP95PaymentTimeDays": 49,
+          "medianP95PaymentTimeDays": 48.5,
           "minimumP95PaymentTimeDays": 21,
           "maximumP95PaymentTimeDays": 130
         },
@@ -74,11 +74,22 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 12,
-          "averageP95PaymentTimeDays": 45.6,
-          "medianP95PaymentTimeDays": 43.5,
-          "minimumP95PaymentTimeDays": 28,
-          "maximumP95PaymentTimeDays": 78
+          "reportingEntityCount": 44,
+          "averageP95PaymentTimeDays": 46.2,
+          "medianP95PaymentTimeDays": 44,
+          "minimumP95PaymentTimeDays": 25,
+          "maximumP95PaymentTimeDays": 99
+        },
+        {
+          "reportingCycleId": "2026-H2",
+          "reportingCycleName": "July to December 2026",
+          "reportingCycleStartDate": "2026-07-01",
+          "reportingCycleEndDate": "2026-12-31",
+          "reportingEntityCount": 3,
+          "averageP95PaymentTimeDays": 47.7,
+          "medianP95PaymentTimeDays": 53,
+          "minimumP95PaymentTimeDays": 32,
+          "maximumP95PaymentTimeDays": 58
         }
       ]
     },
@@ -91,9 +102,9 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 52,
-          "averageP95PaymentTimeDays": 53.6,
-          "medianP95PaymentTimeDays": 45.5,
+          "reportingEntityCount": 57,
+          "averageP95PaymentTimeDays": 53,
+          "medianP95PaymentTimeDays": 45,
           "minimumP95PaymentTimeDays": 1,
           "maximumP95PaymentTimeDays": 325
         },
@@ -102,9 +113,9 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 60,
-          "averageP95PaymentTimeDays": 44.7,
-          "medianP95PaymentTimeDays": 36.5,
+          "reportingEntityCount": 64,
+          "averageP95PaymentTimeDays": 43.7,
+          "medianP95PaymentTimeDays": 36,
           "minimumP95PaymentTimeDays": 1,
           "maximumP95PaymentTimeDays": 124
         },
@@ -113,9 +124,9 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 59,
-          "averageP95PaymentTimeDays": 45.7,
-          "medianP95PaymentTimeDays": 43,
+          "reportingEntityCount": 64,
+          "averageP95PaymentTimeDays": 44.5,
+          "medianP95PaymentTimeDays": 42.5,
           "minimumP95PaymentTimeDays": 1,
           "maximumP95PaymentTimeDays": 126
         },
@@ -124,11 +135,22 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 25,
-          "averageP95PaymentTimeDays": 40.2,
-          "medianP95PaymentTimeDays": 38,
+          "reportingEntityCount": 59,
+          "averageP95PaymentTimeDays": 47.7,
+          "medianP95PaymentTimeDays": 44,
           "minimumP95PaymentTimeDays": 1,
-          "maximumP95PaymentTimeDays": 77
+          "maximumP95PaymentTimeDays": 128
+        },
+        {
+          "reportingCycleId": "2026-H2",
+          "reportingCycleName": "July to December 2026",
+          "reportingCycleStartDate": "2026-07-01",
+          "reportingCycleEndDate": "2026-12-31",
+          "reportingEntityCount": 1,
+          "averageP95PaymentTimeDays": 48,
+          "medianP95PaymentTimeDays": 48,
+          "minimumP95PaymentTimeDays": 48,
+          "maximumP95PaymentTimeDays": 48
         }
       ]
     },
@@ -141,9 +163,9 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 87,
+          "reportingEntityCount": 88,
           "averageP95PaymentTimeDays": 47.8,
-          "medianP95PaymentTimeDays": 47,
+          "medianP95PaymentTimeDays": 48.5,
           "minimumP95PaymentTimeDays": 0,
           "maximumP95PaymentTimeDays": 119
         },
@@ -152,8 +174,8 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 107,
-          "averageP95PaymentTimeDays": 48.7,
+          "reportingEntityCount": 108,
+          "averageP95PaymentTimeDays": 48.6,
           "medianP95PaymentTimeDays": 50,
           "minimumP95PaymentTimeDays": 0,
           "maximumP95PaymentTimeDays": 120
@@ -163,7 +185,7 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 118,
+          "reportingEntityCount": 119,
           "averageP95PaymentTimeDays": 49.1,
           "medianP95PaymentTimeDays": 50,
           "minimumP95PaymentTimeDays": 0,
@@ -174,11 +196,22 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 43,
-          "averageP95PaymentTimeDays": 44.7,
+          "reportingEntityCount": 96,
+          "averageP95PaymentTimeDays": 47.7,
+          "medianP95PaymentTimeDays": 49,
+          "minimumP95PaymentTimeDays": 7,
+          "maximumP95PaymentTimeDays": 109
+        },
+        {
+          "reportingCycleId": "2026-H2",
+          "reportingCycleName": "July to December 2026",
+          "reportingCycleStartDate": "2026-07-01",
+          "reportingCycleEndDate": "2026-12-31",
+          "reportingEntityCount": 1,
+          "averageP95PaymentTimeDays": 44,
           "medianP95PaymentTimeDays": 44,
-          "minimumP95PaymentTimeDays": 12,
-          "maximumP95PaymentTimeDays": 100
+          "minimumP95PaymentTimeDays": 44,
+          "maximumP95PaymentTimeDays": 44
         }
       ]
     },
@@ -202,20 +235,20 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 50,
-          "averageP95PaymentTimeDays": 45.7,
-          "medianP95PaymentTimeDays": 43.5,
+          "reportingEntityCount": 51,
+          "averageP95PaymentTimeDays": 47.9,
+          "medianP95PaymentTimeDays": 44,
           "minimumP95PaymentTimeDays": 16,
-          "maximumP95PaymentTimeDays": 128
+          "maximumP95PaymentTimeDays": 159
         },
         {
           "reportingCycleId": "2025-H2",
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 49,
-          "averageP95PaymentTimeDays": 46.3,
-          "medianP95PaymentTimeDays": 42,
+          "reportingEntityCount": 52,
+          "averageP95PaymentTimeDays": 48.5,
+          "medianP95PaymentTimeDays": 42.5,
           "minimumP95PaymentTimeDays": 10,
           "maximumP95PaymentTimeDays": 131
         },
@@ -224,11 +257,22 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 26,
-          "averageP95PaymentTimeDays": 50.4,
-          "medianP95PaymentTimeDays": 44,
-          "minimumP95PaymentTimeDays": 24,
+          "reportingEntityCount": 50,
+          "averageP95PaymentTimeDays": 48,
+          "medianP95PaymentTimeDays": 45,
+          "minimumP95PaymentTimeDays": 11,
           "maximumP95PaymentTimeDays": 147
+        },
+        {
+          "reportingCycleId": "2026-H2",
+          "reportingCycleName": "July to December 2026",
+          "reportingCycleStartDate": "2026-07-01",
+          "reportingCycleEndDate": "2026-12-31",
+          "reportingEntityCount": 2,
+          "averageP95PaymentTimeDays": 48.5,
+          "medianP95PaymentTimeDays": 48.5,
+          "minimumP95PaymentTimeDays": 46,
+          "maximumP95PaymentTimeDays": 51
         }
       ]
     },
@@ -241,8 +285,8 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 258,
-          "averageP95PaymentTimeDays": 66.9,
+          "reportingEntityCount": 270,
+          "averageP95PaymentTimeDays": 66.7,
           "medianP95PaymentTimeDays": 60,
           "minimumP95PaymentTimeDays": 9,
           "maximumP95PaymentTimeDays": 1445
@@ -252,8 +296,8 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 279,
-          "averageP95PaymentTimeDays": 67.8,
+          "reportingEntityCount": 292,
+          "averageP95PaymentTimeDays": 67.6,
           "medianP95PaymentTimeDays": 60,
           "minimumP95PaymentTimeDays": 9,
           "maximumP95PaymentTimeDays": 750
@@ -263,9 +307,9 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 293,
-          "averageP95PaymentTimeDays": 61.8,
-          "medianP95PaymentTimeDays": 59,
+          "reportingEntityCount": 310,
+          "averageP95PaymentTimeDays": 61.5,
+          "medianP95PaymentTimeDays": 58,
           "minimumP95PaymentTimeDays": 1,
           "maximumP95PaymentTimeDays": 346
         },
@@ -274,11 +318,22 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 84,
-          "averageP95PaymentTimeDays": 54.3,
-          "medianP95PaymentTimeDays": 56,
+          "reportingEntityCount": 270,
+          "averageP95PaymentTimeDays": 60,
+          "medianP95PaymentTimeDays": 58,
           "minimumP95PaymentTimeDays": 1,
-          "maximumP95PaymentTimeDays": 112
+          "maximumP95PaymentTimeDays": 424
+        },
+        {
+          "reportingCycleId": "2026-H2",
+          "reportingCycleName": "July to December 2026",
+          "reportingCycleStartDate": "2026-07-01",
+          "reportingCycleEndDate": "2026-12-31",
+          "reportingEntityCount": 1,
+          "averageP95PaymentTimeDays": 35,
+          "medianP95PaymentTimeDays": 35,
+          "minimumP95PaymentTimeDays": 35,
+          "maximumP95PaymentTimeDays": 35
         }
       ]
     },
@@ -291,11 +346,11 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 13,
-          "averageP95PaymentTimeDays": 51.3,
+          "reportingEntityCount": 15,
+          "averageP95PaymentTimeDays": 52.8,
           "medianP95PaymentTimeDays": 56,
           "minimumP95PaymentTimeDays": 13,
-          "maximumP95PaymentTimeDays": 88
+          "maximumP95PaymentTimeDays": 101
         },
         {
           "reportingCycleId": "2025-H1",
@@ -324,11 +379,11 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 6,
-          "averageP95PaymentTimeDays": 43.7,
-          "medianP95PaymentTimeDays": 48.5,
+          "reportingEntityCount": 14,
+          "averageP95PaymentTimeDays": 54.8,
+          "medianP95PaymentTimeDays": 52.5,
           "minimumP95PaymentTimeDays": 13,
-          "maximumP95PaymentTimeDays": 59
+          "maximumP95PaymentTimeDays": 142
         }
       ]
     },
@@ -341,8 +396,8 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 99,
-          "averageP95PaymentTimeDays": 47.1,
+          "reportingEntityCount": 101,
+          "averageP95PaymentTimeDays": 46.8,
           "medianP95PaymentTimeDays": 42,
           "minimumP95PaymentTimeDays": 8,
           "maximumP95PaymentTimeDays": 172
@@ -352,8 +407,8 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 98,
-          "averageP95PaymentTimeDays": 49.2,
+          "reportingEntityCount": 102,
+          "averageP95PaymentTimeDays": 49,
           "medianP95PaymentTimeDays": 48,
           "minimumP95PaymentTimeDays": 1,
           "maximumP95PaymentTimeDays": 203
@@ -363,9 +418,9 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 97,
-          "averageP95PaymentTimeDays": 43.9,
-          "medianP95PaymentTimeDays": 44,
+          "reportingEntityCount": 102,
+          "averageP95PaymentTimeDays": 44.2,
+          "medianP95PaymentTimeDays": 44.5,
           "minimumP95PaymentTimeDays": 11,
           "maximumP95PaymentTimeDays": 121
         },
@@ -374,11 +429,11 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 28,
-          "averageP95PaymentTimeDays": 43.3,
-          "medianP95PaymentTimeDays": 46.5,
+          "reportingEntityCount": 92,
+          "averageP95PaymentTimeDays": 44.4,
+          "medianP95PaymentTimeDays": 44.5,
           "minimumP95PaymentTimeDays": 11,
-          "maximumP95PaymentTimeDays": 93
+          "maximumP95PaymentTimeDays": 99
         }
       ]
     },
@@ -391,9 +446,9 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 346,
-          "averageP95PaymentTimeDays": 43.7,
-          "medianP95PaymentTimeDays": 37.5,
+          "reportingEntityCount": 358,
+          "averageP95PaymentTimeDays": 42.9,
+          "medianP95PaymentTimeDays": 37,
           "minimumP95PaymentTimeDays": 0,
           "maximumP95PaymentTimeDays": 217
         },
@@ -402,8 +457,8 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 382,
-          "averageP95PaymentTimeDays": 42.9,
+          "reportingEntityCount": 390,
+          "averageP95PaymentTimeDays": 42.4,
           "medianP95PaymentTimeDays": 37,
           "minimumP95PaymentTimeDays": 0,
           "maximumP95PaymentTimeDays": 268
@@ -413,9 +468,9 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 377,
-          "averageP95PaymentTimeDays": 39.4,
-          "medianP95PaymentTimeDays": 35,
+          "reportingEntityCount": 389,
+          "averageP95PaymentTimeDays": 39,
+          "medianP95PaymentTimeDays": 34,
           "minimumP95PaymentTimeDays": 2,
           "maximumP95PaymentTimeDays": 232
         },
@@ -424,10 +479,10 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 121,
-          "averageP95PaymentTimeDays": 41,
-          "medianP95PaymentTimeDays": 33,
-          "minimumP95PaymentTimeDays": 3,
+          "reportingEntityCount": 369,
+          "averageP95PaymentTimeDays": 40.7,
+          "medianP95PaymentTimeDays": 34,
+          "minimumP95PaymentTimeDays": 0,
           "maximumP95PaymentTimeDays": 413
         }
       ]
@@ -441,8 +496,8 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 98,
-          "averageP95PaymentTimeDays": 60.5,
+          "reportingEntityCount": 99,
+          "averageP95PaymentTimeDays": 60.7,
           "medianP95PaymentTimeDays": 59,
           "minimumP95PaymentTimeDays": 15,
           "maximumP95PaymentTimeDays": 174
@@ -474,11 +529,11 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 32,
-          "averageP95PaymentTimeDays": 51.6,
-          "medianP95PaymentTimeDays": 46,
+          "reportingEntityCount": 103,
+          "averageP95PaymentTimeDays": 57.7,
+          "medianP95PaymentTimeDays": 58,
           "minimumP95PaymentTimeDays": 9,
-          "maximumP95PaymentTimeDays": 104
+          "maximumP95PaymentTimeDays": 172
         }
       ]
     },
@@ -491,8 +546,8 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 60,
-          "averageP95PaymentTimeDays": 51.9,
+          "reportingEntityCount": 62,
+          "averageP95PaymentTimeDays": 52.3,
           "medianP95PaymentTimeDays": 47.5,
           "minimumP95PaymentTimeDays": 10,
           "maximumP95PaymentTimeDays": 124
@@ -503,7 +558,7 @@
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
           "reportingEntityCount": 71,
-          "averageP95PaymentTimeDays": 54.9,
+          "averageP95PaymentTimeDays": 54.1,
           "medianP95PaymentTimeDays": 49,
           "minimumP95PaymentTimeDays": 14,
           "maximumP95PaymentTimeDays": 136
@@ -514,8 +569,8 @@
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
           "reportingEntityCount": 74,
-          "averageP95PaymentTimeDays": 55.4,
-          "medianP95PaymentTimeDays": 49.5,
+          "averageP95PaymentTimeDays": 54.6,
+          "medianP95PaymentTimeDays": 48.5,
           "minimumP95PaymentTimeDays": 14,
           "maximumP95PaymentTimeDays": 132
         },
@@ -524,11 +579,11 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 35,
-          "averageP95PaymentTimeDays": 52.1,
-          "medianP95PaymentTimeDays": 55,
+          "reportingEntityCount": 71,
+          "averageP95PaymentTimeDays": 56.8,
+          "medianP95PaymentTimeDays": 53,
           "minimumP95PaymentTimeDays": 15,
-          "maximumP95PaymentTimeDays": 136
+          "maximumP95PaymentTimeDays": 278
         }
       ]
     },
@@ -541,8 +596,8 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 333,
-          "averageP95PaymentTimeDays": 66.5,
+          "reportingEntityCount": 341,
+          "averageP95PaymentTimeDays": 66.3,
           "medianP95PaymentTimeDays": 62,
           "minimumP95PaymentTimeDays": 11,
           "maximumP95PaymentTimeDays": 240
@@ -552,8 +607,8 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 395,
-          "averageP95PaymentTimeDays": 67.2,
+          "reportingEntityCount": 407,
+          "averageP95PaymentTimeDays": 66.8,
           "medianP95PaymentTimeDays": 63,
           "minimumP95PaymentTimeDays": 7,
           "maximumP95PaymentTimeDays": 222
@@ -563,8 +618,8 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 409,
-          "averageP95PaymentTimeDays": 66.8,
+          "reportingEntityCount": 424,
+          "averageP95PaymentTimeDays": 67.2,
           "medianP95PaymentTimeDays": 62,
           "minimumP95PaymentTimeDays": 7,
           "maximumP95PaymentTimeDays": 219
@@ -574,21 +629,21 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 136,
-          "averageP95PaymentTimeDays": 61.8,
-          "medianP95PaymentTimeDays": 60,
-          "minimumP95PaymentTimeDays": 9,
-          "maximumP95PaymentTimeDays": 164
+          "reportingEntityCount": 359,
+          "averageP95PaymentTimeDays": 66.8,
+          "medianP95PaymentTimeDays": 62,
+          "minimumP95PaymentTimeDays": 7,
+          "maximumP95PaymentTimeDays": 311
         },
         {
           "reportingCycleId": "2026-H2",
           "reportingCycleName": "July to December 2026",
           "reportingCycleStartDate": "2026-07-01",
           "reportingCycleEndDate": "2026-12-31",
-          "reportingEntityCount": 1,
-          "averageP95PaymentTimeDays": 72,
-          "medianP95PaymentTimeDays": 72,
-          "minimumP95PaymentTimeDays": 72,
+          "reportingEntityCount": 2,
+          "averageP95PaymentTimeDays": 69,
+          "medianP95PaymentTimeDays": 69,
+          "minimumP95PaymentTimeDays": 66,
           "maximumP95PaymentTimeDays": 72
         }
       ]
@@ -602,10 +657,10 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 173,
-          "averageP95PaymentTimeDays": 56,
+          "reportingEntityCount": 176,
+          "averageP95PaymentTimeDays": 55.6,
           "medianP95PaymentTimeDays": 56,
-          "minimumP95PaymentTimeDays": 8,
+          "minimumP95PaymentTimeDays": 7,
           "maximumP95PaymentTimeDays": 273
         },
         {
@@ -613,7 +668,7 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 187,
+          "reportingEntityCount": 190,
           "averageP95PaymentTimeDays": 56.3,
           "medianP95PaymentTimeDays": 55,
           "minimumP95PaymentTimeDays": 1,
@@ -624,8 +679,8 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 193,
-          "averageP95PaymentTimeDays": 54.5,
+          "reportingEntityCount": 195,
+          "averageP95PaymentTimeDays": 54.6,
           "medianP95PaymentTimeDays": 50,
           "minimumP95PaymentTimeDays": 12,
           "maximumP95PaymentTimeDays": 209
@@ -635,11 +690,11 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 61,
-          "averageP95PaymentTimeDays": 49.8,
-          "medianP95PaymentTimeDays": 51,
+          "reportingEntityCount": 166,
+          "averageP95PaymentTimeDays": 54.6,
+          "medianP95PaymentTimeDays": 54,
           "minimumP95PaymentTimeDays": 4,
-          "maximumP95PaymentTimeDays": 103
+          "maximumP95PaymentTimeDays": 381
         }
       ]
     },
@@ -652,9 +707,9 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 22,
-          "averageP95PaymentTimeDays": 52.9,
-          "medianP95PaymentTimeDays": 56.5,
+          "reportingEntityCount": 26,
+          "averageP95PaymentTimeDays": 54.6,
+          "medianP95PaymentTimeDays": 57.5,
           "minimumP95PaymentTimeDays": 8,
           "maximumP95PaymentTimeDays": 120
         },
@@ -663,9 +718,9 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 29,
-          "averageP95PaymentTimeDays": 57.8,
-          "medianP95PaymentTimeDays": 57,
+          "reportingEntityCount": 33,
+          "averageP95PaymentTimeDays": 58.8,
+          "medianP95PaymentTimeDays": 58,
           "minimumP95PaymentTimeDays": 9,
           "maximumP95PaymentTimeDays": 120
         },
@@ -674,21 +729,21 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 28,
-          "averageP95PaymentTimeDays": 48.2,
+          "reportingEntityCount": 33,
+          "averageP95PaymentTimeDays": 49.5,
           "medianP95PaymentTimeDays": 54,
           "minimumP95PaymentTimeDays": 13,
-          "maximumP95PaymentTimeDays": 73
+          "maximumP95PaymentTimeDays": 80
         },
         {
           "reportingCycleId": "2026-H1",
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 7,
-          "averageP95PaymentTimeDays": 58.1,
-          "medianP95PaymentTimeDays": 58,
-          "minimumP95PaymentTimeDays": 44,
+          "reportingEntityCount": 29,
+          "averageP95PaymentTimeDays": 47.4,
+          "medianP95PaymentTimeDays": 51,
+          "minimumP95PaymentTimeDays": 12,
           "maximumP95PaymentTimeDays": 79
         }
       ]
@@ -702,9 +757,9 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 180,
-          "averageP95PaymentTimeDays": 64.5,
-          "medianP95PaymentTimeDays": 54.5,
+          "reportingEntityCount": 183,
+          "averageP95PaymentTimeDays": 64.6,
+          "medianP95PaymentTimeDays": 54,
           "minimumP95PaymentTimeDays": 5,
           "maximumP95PaymentTimeDays": 424
         },
@@ -713,7 +768,7 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 226,
+          "reportingEntityCount": 235,
           "averageP95PaymentTimeDays": 62.8,
           "medianP95PaymentTimeDays": 57,
           "minimumP95PaymentTimeDays": 4,
@@ -724,8 +779,8 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 232,
-          "averageP95PaymentTimeDays": 60.8,
+          "reportingEntityCount": 241,
+          "averageP95PaymentTimeDays": 60.7,
           "medianP95PaymentTimeDays": 55,
           "minimumP95PaymentTimeDays": 6,
           "maximumP95PaymentTimeDays": 277
@@ -735,11 +790,22 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 94,
-          "averageP95PaymentTimeDays": 63.9,
-          "medianP95PaymentTimeDays": 57.5,
-          "minimumP95PaymentTimeDays": 16,
+          "reportingEntityCount": 219,
+          "averageP95PaymentTimeDays": 61,
+          "medianP95PaymentTimeDays": 57,
+          "minimumP95PaymentTimeDays": 6,
           "maximumP95PaymentTimeDays": 170
+        },
+        {
+          "reportingCycleId": "2026-H2",
+          "reportingCycleName": "July to December 2026",
+          "reportingCycleStartDate": "2026-07-01",
+          "reportingCycleEndDate": "2026-12-31",
+          "reportingEntityCount": 3,
+          "averageP95PaymentTimeDays": 46.7,
+          "medianP95PaymentTimeDays": 48,
+          "minimumP95PaymentTimeDays": 21,
+          "maximumP95PaymentTimeDays": 71
         }
       ]
     },
@@ -764,7 +830,7 @@
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
           "reportingEntityCount": 36,
-          "averageP95PaymentTimeDays": 51.1,
+          "averageP95PaymentTimeDays": 50.7,
           "medianP95PaymentTimeDays": 48,
           "minimumP95PaymentTimeDays": 5,
           "maximumP95PaymentTimeDays": 141
@@ -776,7 +842,7 @@
           "reportingCycleEndDate": "2025-12-31",
           "reportingEntityCount": 35,
           "averageP95PaymentTimeDays": 43.2,
-          "medianP95PaymentTimeDays": 43,
+          "medianP95PaymentTimeDays": 44,
           "minimumP95PaymentTimeDays": 1,
           "maximumP95PaymentTimeDays": 85
         },
@@ -785,11 +851,11 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 7,
-          "averageP95PaymentTimeDays": 50.4,
-          "medianP95PaymentTimeDays": 44,
-          "minimumP95PaymentTimeDays": 29,
-          "maximumP95PaymentTimeDays": 93
+          "reportingEntityCount": 33,
+          "averageP95PaymentTimeDays": 46.3,
+          "medianP95PaymentTimeDays": 41,
+          "minimumP95PaymentTimeDays": 1,
+          "maximumP95PaymentTimeDays": 120
         }
       ]
     },
@@ -802,9 +868,9 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 55,
-          "averageP95PaymentTimeDays": 50.3,
-          "medianP95PaymentTimeDays": 50,
+          "reportingEntityCount": 58,
+          "averageP95PaymentTimeDays": 50.8,
+          "medianP95PaymentTimeDays": 50.5,
           "minimumP95PaymentTimeDays": 6,
           "maximumP95PaymentTimeDays": 100
         },
@@ -813,7 +879,7 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 64,
+          "reportingEntityCount": 66,
           "averageP95PaymentTimeDays": 56.7,
           "medianP95PaymentTimeDays": 53,
           "minimumP95PaymentTimeDays": 5,
@@ -824,8 +890,8 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 71,
-          "averageP95PaymentTimeDays": 51.7,
+          "reportingEntityCount": 73,
+          "averageP95PaymentTimeDays": 51.6,
           "medianP95PaymentTimeDays": 50,
           "minimumP95PaymentTimeDays": 6,
           "maximumP95PaymentTimeDays": 106
@@ -835,11 +901,11 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 19,
-          "averageP95PaymentTimeDays": 49.3,
+          "reportingEntityCount": 67,
+          "averageP95PaymentTimeDays": 54.5,
           "medianP95PaymentTimeDays": 52,
-          "minimumP95PaymentTimeDays": 10,
-          "maximumP95PaymentTimeDays": 83
+          "minimumP95PaymentTimeDays": 3,
+          "maximumP95PaymentTimeDays": 127
         }
       ]
     },
@@ -852,8 +918,8 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 214,
-          "averageP95PaymentTimeDays": 61.3,
+          "reportingEntityCount": 216,
+          "averageP95PaymentTimeDays": 61.1,
           "medianP95PaymentTimeDays": 57,
           "minimumP95PaymentTimeDays": 7,
           "maximumP95PaymentTimeDays": 296
@@ -863,19 +929,19 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 256,
-          "averageP95PaymentTimeDays": 63.3,
+          "reportingEntityCount": 258,
+          "averageP95PaymentTimeDays": 60.6,
           "medianP95PaymentTimeDays": 57,
           "minimumP95PaymentTimeDays": 7,
-          "maximumP95PaymentTimeDays": 701
+          "maximumP95PaymentTimeDays": 558
         },
         {
           "reportingCycleId": "2025-H2",
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 254,
-          "averageP95PaymentTimeDays": 55.9,
+          "reportingEntityCount": 261,
+          "averageP95PaymentTimeDays": 55.7,
           "medianP95PaymentTimeDays": 56,
           "minimumP95PaymentTimeDays": 11,
           "maximumP95PaymentTimeDays": 202
@@ -885,9 +951,9 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 88,
-          "averageP95PaymentTimeDays": 56.1,
-          "medianP95PaymentTimeDays": 55.5,
+          "reportingEntityCount": 208,
+          "averageP95PaymentTimeDays": 56.9,
+          "medianP95PaymentTimeDays": 57,
           "minimumP95PaymentTimeDays": 11,
           "maximumP95PaymentTimeDays": 182
         },
@@ -896,11 +962,11 @@
           "reportingCycleName": "July to December 2026",
           "reportingCycleStartDate": "2026-07-01",
           "reportingCycleEndDate": "2026-12-31",
-          "reportingEntityCount": 1,
-          "averageP95PaymentTimeDays": 35,
-          "medianP95PaymentTimeDays": 35,
-          "minimumP95PaymentTimeDays": 35,
-          "maximumP95PaymentTimeDays": 35
+          "reportingEntityCount": 8,
+          "averageP95PaymentTimeDays": 47.5,
+          "medianP95PaymentTimeDays": 46,
+          "minimumP95PaymentTimeDays": 32,
+          "maximumP95PaymentTimeDays": 64
         }
       ]
     },
@@ -913,8 +979,8 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 145,
-          "averageP95PaymentTimeDays": 58.8,
+          "reportingEntityCount": 149,
+          "averageP95PaymentTimeDays": 58.3,
           "medianP95PaymentTimeDays": 56,
           "minimumP95PaymentTimeDays": 0,
           "maximumP95PaymentTimeDays": 375
@@ -924,20 +990,20 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 169,
-          "averageP95PaymentTimeDays": 61,
+          "reportingEntityCount": 172,
+          "averageP95PaymentTimeDays": 58,
           "medianP95PaymentTimeDays": 56,
           "minimumP95PaymentTimeDays": 2,
-          "maximumP95PaymentTimeDays": 582
+          "maximumP95PaymentTimeDays": 262
         },
         {
           "reportingCycleId": "2025-H2",
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 171,
-          "averageP95PaymentTimeDays": 56,
-          "medianP95PaymentTimeDays": 56,
+          "reportingEntityCount": 176,
+          "averageP95PaymentTimeDays": 55.7,
+          "medianP95PaymentTimeDays": 55,
           "minimumP95PaymentTimeDays": 0,
           "maximumP95PaymentTimeDays": 184
         },
@@ -946,11 +1012,22 @@
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 54,
-          "averageP95PaymentTimeDays": 51.9,
-          "medianP95PaymentTimeDays": 53.5,
-          "minimumP95PaymentTimeDays": 18,
-          "maximumP95PaymentTimeDays": 116
+          "reportingEntityCount": 151,
+          "averageP95PaymentTimeDays": 52.6,
+          "medianP95PaymentTimeDays": 53,
+          "minimumP95PaymentTimeDays": 2,
+          "maximumP95PaymentTimeDays": 185
+        },
+        {
+          "reportingCycleId": "2026-H2",
+          "reportingCycleName": "July to December 2026",
+          "reportingCycleStartDate": "2026-07-01",
+          "reportingCycleEndDate": "2026-12-31",
+          "reportingEntityCount": 1,
+          "averageP95PaymentTimeDays": 62,
+          "medianP95PaymentTimeDays": 62,
+          "minimumP95PaymentTimeDays": 62,
+          "maximumP95PaymentTimeDays": 62
         }
       ]
     },
@@ -963,7 +1040,7 @@
           "reportingCycleName": "July to December 2024",
           "reportingCycleStartDate": "2024-07-01",
           "reportingCycleEndDate": "2024-12-31",
-          "reportingEntityCount": 333,
+          "reportingEntityCount": 342,
           "averageP95PaymentTimeDays": 63.6,
           "medianP95PaymentTimeDays": 60,
           "minimumP95PaymentTimeDays": 8,
@@ -974,8 +1051,8 @@
           "reportingCycleName": "January to June 2025",
           "reportingCycleStartDate": "2025-01-01",
           "reportingCycleEndDate": "2025-06-30",
-          "reportingEntityCount": 407,
-          "averageP95PaymentTimeDays": 62.7,
+          "reportingEntityCount": 415,
+          "averageP95PaymentTimeDays": 62.5,
           "medianP95PaymentTimeDays": 59,
           "minimumP95PaymentTimeDays": 3,
           "maximumP95PaymentTimeDays": 491
@@ -985,22 +1062,33 @@
           "reportingCycleName": "July to December 2025",
           "reportingCycleStartDate": "2025-07-01",
           "reportingCycleEndDate": "2025-12-31",
-          "reportingEntityCount": 415,
-          "averageP95PaymentTimeDays": 59.7,
+          "reportingEntityCount": 427,
+          "averageP95PaymentTimeDays": 59.4,
           "medianP95PaymentTimeDays": 58,
           "minimumP95PaymentTimeDays": 7,
-          "maximumP95PaymentTimeDays": 147
+          "maximumP95PaymentTimeDays": 154
         },
         {
           "reportingCycleId": "2026-H1",
           "reportingCycleName": "January to June 2026",
           "reportingCycleStartDate": "2026-01-01",
           "reportingCycleEndDate": "2026-06-30",
-          "reportingEntityCount": 174,
-          "averageP95PaymentTimeDays": 55.4,
-          "medianP95PaymentTimeDays": 55,
+          "reportingEntityCount": 394,
+          "averageP95PaymentTimeDays": 58.5,
+          "medianP95PaymentTimeDays": 57,
           "minimumP95PaymentTimeDays": 4,
-          "maximumP95PaymentTimeDays": 137
+          "maximumP95PaymentTimeDays": 188
+        },
+        {
+          "reportingCycleId": "2026-H2",
+          "reportingCycleName": "July to December 2026",
+          "reportingCycleStartDate": "2026-07-01",
+          "reportingCycleEndDate": "2026-12-31",
+          "reportingEntityCount": 2,
+          "averageP95PaymentTimeDays": 48.5,
+          "medianP95PaymentTimeDays": 48.5,
+          "minimumP95PaymentTimeDays": 37,
+          "maximumP95PaymentTimeDays": 60
         }
       ]
     }

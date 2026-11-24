@@ -1,0 +1,44 @@
+{
+  "slug": "the-trustee-for-the-north-woods-northcote-class-trust-59819030127",
+  "businessName": "The Trustee for The North Woods Northcote Class Trust",
+  "abn": "59819030127",
+  "acnArbn": "",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySlug": "rental-hiring-and-real-estate-services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014684",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 62,
+      "medianPaymentTimeDays": 51,
+      "p80PaymentTimeDays": 127,
+      "p95PaymentTimeDays": 127,
+      "payments30DaysOrLess": 44.82,
+      "payments31To60Days": 24.13,
+      "paymentsMoreThan60Days": 31.03,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2748,
+        "count": 2794,
+        "percentile": 1.5
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 67,
+        "percentile": 0
+      }
+    }
+  ]
+}

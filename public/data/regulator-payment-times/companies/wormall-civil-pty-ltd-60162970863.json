@@ -1,0 +1,140 @@
+{
+  "slug": "wormall-civil-pty-ltd-60162970863",
+  "businessName": "WORMALL CIVIL PTY LTD",
+  "abn": "60162970863",
+  "acnArbn": "162970863",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Heavy and civil engineering construction",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015470",
+      "acnArbn": "162970863",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40.32,
+      "medianPaymentTimeDays": 44,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 36.05,
+      "payments31To60Days": 56.87,
+      "paymentsMoreThan60Days": 7.08,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2146,
+        "count": 2794,
+        "percentile": 22.2
+      },
+      "industryP95Position": {
+        "rank": 206,
+        "count": 270,
+        "percentile": 23
+      }
+    },
+    {
+      "reportId": "PTR20015466",
+      "acnArbn": "162970863",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.33,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 30.63,
+      "payments31To60Days": 60.44,
+      "paymentsMoreThan60Days": 8.93,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2434,
+        "count": 3151,
+        "percentile": 22.1
+      },
+      "industryP95Position": {
+        "rank": 235,
+        "count": 310,
+        "percentile": 23.9
+      }
+    },
+    {
+      "reportId": "PTR20015462",
+      "acnArbn": "162970863",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 42.68,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 22.52,
+      "payments31To60Days": 64.73,
+      "paymentsMoreThan60Days": 12.75,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2288,
+        "count": 3052,
+        "percentile": 23.8
+      },
+      "industryP95Position": {
+        "rank": 215,
+        "count": 292,
+        "percentile": 24.4
+      }
+    },
+    {
+      "reportId": "PTR20015030",
+      "acnArbn": "162970863",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.89,
+      "medianPaymentTimeDays": 47,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 14.99,
+      "payments31To60Days": 63.75,
+      "paymentsMoreThan60Days": 21.26,
+      "industrySubdivision": "Heavy and civil engineering construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 2075,
+        "count": 2639,
+        "percentile": 20.5
+      },
+      "industryP95Position": {
+        "rank": 216,
+        "count": 270,
+        "percentile": 18.6
+      }
+    }
+  ]
+}

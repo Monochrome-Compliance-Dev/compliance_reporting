@@ -1,0 +1,140 @@
+{
+  "slug": "vgw-holdings-pty-ltd-36147193511",
+  "businessName": "VGW HOLDINGS PTY LTD",
+  "abn": "36147193511",
+  "acnArbn": "147193511",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySlug": "professional-scientific-and-technical-services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015729",
+      "acnArbn": "147193511",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.96,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 90.48,
+      "payments31To60Days": 7.41,
+      "paymentsMoreThan60Days": 2.12,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-10-12",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 678,
+        "count": 2794,
+        "percentile": 74.5
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 219,
+        "percentile": 78
+      }
+    },
+    {
+      "reportId": "PTR20015728",
+      "acnArbn": "147193511",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 21.09,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 93.09,
+      "payments31To60Days": 5.99,
+      "paymentsMoreThan60Days": 0.92,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-10-12",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 710,
+        "count": 3151,
+        "percentile": 76.2
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 241,
+        "percentile": 77.9
+      }
+    },
+    {
+      "reportId": "PTR20014970",
+      "acnArbn": "147193511",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 22.61,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 87.88,
+      "payments31To60Days": 9.96,
+      "paymentsMoreThan60Days": 2.16,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 682,
+        "count": 3052,
+        "percentile": 75.6
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 235,
+        "percentile": 76.5
+      }
+    },
+    {
+      "reportId": "PTR20014961",
+      "acnArbn": "147193511",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18.24,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 93.97,
+      "payments31To60Days": 6.03,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 500,
+        "count": 2639,
+        "percentile": 79.5
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 183,
+        "percentile": 79.7
+      }
+    }
+  ]
+}

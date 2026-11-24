@@ -1,0 +1,44 @@
+{
+  "slug": "a-bl-super-topco-2-pty-ltd-15673597129",
+  "businessName": "A-BL SUPER TOPCO 2 PTY LTD",
+  "abn": "15673597129",
+  "acnArbn": "673597129",
+  "industryDivision": "Mining",
+  "industrySlug": "mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015693",
+      "acnArbn": "673597129",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 46.56,
+      "medianPaymentTimeDays": 43,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 26.79,
+      "payments31To60Days": 53.58,
+      "paymentsMoreThan60Days": 19.63,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-10-12",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2473,
+        "count": 2794,
+        "percentile": 11.1
+      },
+      "industryP95Position": {
+        "rank": 148,
+        "count": 166,
+        "percentile": 10.3
+      }
+    }
+  ]
+}
