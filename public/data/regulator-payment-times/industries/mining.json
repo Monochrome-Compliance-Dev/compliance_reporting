@@ -8,10 +8,10 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 173,
-      "averageP95PaymentTimeDays": 56,
+      "reportingEntityCount": 176,
+      "averageP95PaymentTimeDays": 55.6,
       "medianP95PaymentTimeDays": 56,
-      "minimumP95PaymentTimeDays": 8,
+      "minimumP95PaymentTimeDays": 7,
       "maximumP95PaymentTimeDays": 273
     },
     {
@@ -19,7 +19,7 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 187,
+      "reportingEntityCount": 190,
       "averageP95PaymentTimeDays": 56.3,
       "medianP95PaymentTimeDays": 55,
       "minimumP95PaymentTimeDays": 1,
@@ -30,8 +30,8 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 193,
-      "averageP95PaymentTimeDays": 54.5,
+      "reportingEntityCount": 195,
+      "averageP95PaymentTimeDays": 54.6,
       "medianP95PaymentTimeDays": 50,
       "minimumP95PaymentTimeDays": 12,
       "maximumP95PaymentTimeDays": 209
@@ -41,11 +41,11 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 61,
-      "averageP95PaymentTimeDays": 49.8,
-      "medianP95PaymentTimeDays": 51,
+      "reportingEntityCount": 166,
+      "averageP95PaymentTimeDays": 54.6,
+      "medianP95PaymentTimeDays": 54,
       "minimumP95PaymentTimeDays": 4,
-      "maximumP95PaymentTimeDays": 103
+      "maximumP95PaymentTimeDays": 381
     }
   ],
   "companies": [
@@ -56,8 +56,8 @@
       "p95PaymentTimeDays": 4,
       "industryP95Position": {
         "rank": 1,
-        "count": 61,
-        "percentile": 98.3
+        "count": 166,
+        "percentile": 99.4
       }
     },
     {
@@ -67,8 +67,8 @@
       "p95PaymentTimeDays": 4,
       "industryP95Position": {
         "rank": 1,
-        "count": 61,
-        "percentile": 98.3
+        "count": 166,
+        "percentile": 99.4
       }
     },
     {
@@ -78,8 +78,8 @@
       "p95PaymentTimeDays": 7,
       "industryP95Position": {
         "rank": 3,
-        "count": 61,
-        "percentile": 96.7
+        "count": 166,
+        "percentile": 98.8
       }
     },
     {
@@ -89,8 +89,19 @@
       "p95PaymentTimeDays": 16,
       "industryP95Position": {
         "rank": 4,
-        "count": 61,
-        "percentile": 95
+        "count": 166,
+        "percentile": 98.2
+      }
+    },
+    {
+      "businessName": "Energy Fuels Australia Pty Ltd",
+      "abn": "88125546910",
+      "slug": "energy-fuels-australia-pty-ltd-88125546910",
+      "p95PaymentTimeDays": 19,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 166,
+        "percentile": 97
       }
     },
     {
@@ -100,8 +111,41 @@
       "p95PaymentTimeDays": 19,
       "industryP95Position": {
         "rank": 5,
-        "count": 61,
-        "percentile": 93.3
+        "count": 166,
+        "percentile": 97
+      }
+    },
+    {
+      "businessName": "CNOOC Gas and Power (AUS) Investment Pty Ltd",
+      "abn": "28142591044",
+      "slug": "cnooc-gas-and-power-aus-investment-pty-ltd-28142591044",
+      "p95PaymentTimeDays": 20,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 166,
+        "percentile": 96.4
+      }
+    },
+    {
+      "businessName": "JAPAN AUSTRALIA LNG (MIMI) PTY. LTD.",
+      "abn": "18006303180",
+      "slug": "japan-australia-lng-mimi-pty-ltd-18006303180",
+      "p95PaymentTimeDays": 21,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 166,
+        "percentile": 95.8
+      }
+    },
+    {
+      "businessName": "TOTALENERGIES EP HOLDINGS AUSTRALIA PTY LTD",
+      "abn": "11602975619",
+      "slug": "totalenergies-ep-holdings-australia-pty-ltd-11602975619",
+      "p95PaymentTimeDays": 23,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 166,
+        "percentile": 95.2
       }
     },
     {
@@ -110,9 +154,9 @@
       "slug": "mitsui-and-co-mineral-resources-development-pty-ltd-27160296462",
       "p95PaymentTimeDays": 24,
       "industryP95Position": {
-        "rank": 6,
-        "count": 61,
-        "percentile": 90
+        "rank": 10,
+        "count": 166,
+        "percentile": 93.9
       }
     },
     {
@@ -121,9 +165,9 @@
       "slug": "pe-wheatstone-pty-ltd-53158341612",
       "p95PaymentTimeDays": 24,
       "industryP95Position": {
-        "rank": 6,
-        "count": 61,
-        "percentile": 90
+        "rank": 10,
+        "count": 166,
+        "percentile": 93.9
       }
     },
     {
@@ -132,9 +176,20 @@
       "slug": "jera-australia-pty-ltd-68140147048",
       "p95PaymentTimeDays": 25,
       "industryP95Position": {
-        "rank": 8,
-        "count": 61,
-        "percentile": 88.3
+        "rank": 12,
+        "count": 166,
+        "percentile": 93.3
+      }
+    },
+    {
+      "businessName": "AURENNE GROUP HOLDINGS PTY LTD",
+      "abn": "90627857176",
+      "slug": "aurenne-group-holdings-pty-ltd-90627857176",
+      "p95PaymentTimeDays": 26,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 166,
+        "percentile": 92.1
       }
     },
     {
@@ -143,9 +198,42 @@
       "slug": "coranar-australia-pty-ltd-12114668727",
       "p95PaymentTimeDays": 26,
       "industryP95Position": {
-        "rank": 9,
-        "count": 61,
-        "percentile": 86.7
+        "rank": 13,
+        "count": 166,
+        "percentile": 92.1
+      }
+    },
+    {
+      "businessName": "J.C.D. AUSTRALIA PTY.LTD.",
+      "abn": "49002017209",
+      "slug": "j-c-d-australia-pty-ltd-49002017209",
+      "p95PaymentTimeDays": 27,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 166,
+        "percentile": 90.3
+      }
+    },
+    {
+      "businessName": "Kogas Australia Pty Ltd",
+      "abn": "42130065682",
+      "slug": "kogas-australia-pty-ltd-42130065682",
+      "p95PaymentTimeDays": 27,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 166,
+        "percentile": 90.3
+      }
+    },
+    {
+      "businessName": "METALS X LIMITED",
+      "abn": "25110150055",
+      "slug": "metals-x-limited-25110150055",
+      "p95PaymentTimeDays": 27,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 166,
+        "percentile": 90.3
       }
     },
     {
@@ -154,9 +242,20 @@
       "slug": "cnooc-australia-international-holdings-private-limited-61605732689",
       "p95PaymentTimeDays": 28,
       "industryP95Position": {
-        "rank": 10,
-        "count": 61,
-        "percentile": 83.3
+        "rank": 18,
+        "count": 166,
+        "percentile": 87.9
+      }
+    },
+    {
+      "businessName": "GENESIS MINERALS LIMITED",
+      "abn": "72124772041",
+      "slug": "genesis-minerals-limited-72124772041",
+      "p95PaymentTimeDays": 28,
+      "industryP95Position": {
+        "rank": 18,
+        "count": 166,
+        "percentile": 87.9
       }
     },
     {
@@ -165,9 +264,31 @@
       "slug": "kufpec-australia-pty-ltd-42001800924",
       "p95PaymentTimeDays": 28,
       "industryP95Position": {
-        "rank": 10,
-        "count": 61,
-        "percentile": 83.3
+        "rank": 18,
+        "count": 166,
+        "percentile": 87.9
+      }
+    },
+    {
+      "businessName": "PETRONAS AUSTRALIA PTY LIMITED",
+      "abn": "25064998867",
+      "slug": "petronas-australia-pty-limited-25064998867",
+      "p95PaymentTimeDays": 28,
+      "industryP95Position": {
+        "rank": 18,
+        "count": 166,
+        "percentile": 87.9
+      }
+    },
+    {
+      "businessName": "J-POWER AUSTRALIA PTY. LTD.",
+      "abn": "59002307682",
+      "slug": "j-power-australia-pty-ltd-59002307682",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 22,
+        "count": 166,
+        "percentile": 85.5
       }
     },
     {
@@ -176,9 +297,53 @@
       "slug": "kansai-electric-power-holdings-australia-pty-ltd-57601296226",
       "p95PaymentTimeDays": 29,
       "industryP95Position": {
-        "rank": 12,
-        "count": 61,
-        "percentile": 81.7
+        "rank": 22,
+        "count": 166,
+        "percentile": 85.5
+      }
+    },
+    {
+      "businessName": "POSCO AUSTRALIA PTY LTD",
+      "abn": "54002062160",
+      "slug": "posco-australia-pty-ltd-54002062160",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 22,
+        "count": 166,
+        "percentile": 85.5
+      }
+    },
+    {
+      "businessName": "SUMITOMO METAL MINING OCEANIA PTY LTD",
+      "abn": "81059761125",
+      "slug": "sumitomo-metal-mining-oceania-pty-ltd-81059761125",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 22,
+        "count": 166,
+        "percentile": 85.5
+      }
+    },
+    {
+      "businessName": "BYERWEN COAL PTY LTD",
+      "abn": "64133357632",
+      "slug": "byerwen-coal-pty-ltd-64133357632",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 26,
+        "count": 166,
+        "percentile": 81.8
+      }
+    },
+    {
+      "businessName": "FQM AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "77136613075",
+      "slug": "fqm-australia-holdings-pty-ltd-77136613075",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 26,
+        "count": 166,
+        "percentile": 81.8
       }
     },
     {
@@ -187,9 +352,9 @@
       "slug": "itochu-minerals-and-energy-of-australia-pty-ltd-44009256259",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 13,
-        "count": 61,
-        "percentile": 76.7
+        "rank": 26,
+        "count": 166,
+        "percentile": 81.8
       }
     },
     {
@@ -198,9 +363,9 @@
       "slug": "marubeni-itochu-tubulars-oceania-pty-ltd-87077953827",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 13,
-        "count": 61,
-        "percentile": 76.7
+        "rank": 26,
+        "count": 166,
+        "percentile": 81.8
       }
     },
     {
@@ -209,9 +374,20 @@
       "slug": "ogog-otway-holdings-pty-ltd-51628945657",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 13,
-        "count": 61,
-        "percentile": 76.7
+        "rank": 26,
+        "count": 166,
+        "percentile": 81.8
+      }
+    },
+    {
+      "businessName": "OSAKA GAS AUSTRALIA PTY LTD",
+      "abn": "49093246381",
+      "slug": "osaka-gas-australia-pty-ltd-49093246381",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 26,
+        "count": 166,
+        "percentile": 81.8
       }
     },
     {
@@ -220,9 +396,31 @@
       "slug": "amci-wa-pty-ltd-91120952150",
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
-        "rank": 16,
-        "count": 61,
-        "percentile": 73.3
+        "rank": 32,
+        "count": 166,
+        "percentile": 78.2
+      }
+    },
+    {
+      "businessName": "CHUGOKU ELECTRIC POWER AUSTRALIA RESOURCES PTY. LTD.",
+      "abn": "14600294068",
+      "slug": "chugoku-electric-power-australia-resources-pty-ltd-14600294068",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 32,
+        "count": 166,
+        "percentile": 78.2
+      }
+    },
+    {
+      "businessName": "MARUBENI RESOURCES DEVELOPMENT PTY LTD",
+      "abn": "57009932236",
+      "slug": "marubeni-resources-development-pty-ltd-57009932236",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 32,
+        "count": 166,
+        "percentile": 78.2
       }
     },
     {
@@ -231,9 +429,31 @@
       "slug": "mitsui-e-and-p-australia-holdings-pty-ltd-70077897440",
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
-        "rank": 16,
-        "count": 61,
-        "percentile": 73.3
+        "rank": 32,
+        "count": 166,
+        "percentile": 78.2
+      }
+    },
+    {
+      "businessName": "SGH ENERGY (NO 1) PTY LIMITED",
+      "abn": "77168933355",
+      "slug": "sgh-energy-no-1-pty-limited-77168933355",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 32,
+        "count": 166,
+        "percentile": 78.2
+      }
+    },
+    {
+      "businessName": "TOTALENERGIES EP AUSTRALIA",
+      "abn": "96832035151",
+      "slug": "totalenergies-ep-australia-96832035151",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 32,
+        "count": 166,
+        "percentile": 78.2
       }
     },
     {
@@ -242,9 +462,9 @@
       "slug": "baker-hughes-group-australia-pty-ltd-77618893226",
       "p95PaymentTimeDays": 32,
       "industryP95Position": {
-        "rank": 18,
-        "count": 61,
-        "percentile": 68.3
+        "rank": 38,
+        "count": 166,
+        "percentile": 76.4
       }
     },
     {
@@ -253,9 +473,9 @@
       "slug": "senex-energy-pty-ltd-50008942827",
       "p95PaymentTimeDays": 32,
       "industryP95Position": {
-        "rank": 18,
-        "count": 61,
-        "percentile": 68.3
+        "rank": 38,
+        "count": 166,
+        "percentile": 76.4
       }
     },
     {
@@ -264,9 +484,9 @@
       "slug": "wilpinjong-coal-pty-ltd-87104594694",
       "p95PaymentTimeDays": 32,
       "industryP95Position": {
-        "rank": 18,
-        "count": 61,
-        "percentile": 68.3
+        "rank": 38,
+        "count": 166,
+        "percentile": 76.4
       }
     },
     {
@@ -275,9 +495,9 @@
       "slug": "arrow-energy-holdings-pty-ltd-94141385293",
       "p95PaymentTimeDays": 33,
       "industryP95Position": {
-        "rank": 21,
-        "count": 61,
-        "percentile": 63.3
+        "rank": 41,
+        "count": 166,
+        "percentile": 73.9
       }
     },
     {
@@ -286,9 +506,9 @@
       "slug": "kestrel-coal-group-pty-ltd-70624655518",
       "p95PaymentTimeDays": 33,
       "industryP95Position": {
-        "rank": 21,
-        "count": 61,
-        "percentile": 63.3
+        "rank": 41,
+        "count": 166,
+        "percentile": 73.9
       }
     },
     {
@@ -297,9 +517,31 @@
       "slug": "mitsui-resources-pty-ltd-24002373588",
       "p95PaymentTimeDays": 33,
       "industryP95Position": {
-        "rank": 21,
-        "count": 61,
-        "percentile": 63.3
+        "rank": 41,
+        "count": 166,
+        "percentile": 73.9
+      }
+    },
+    {
+      "businessName": "QGC UPSTREAM HOLDINGS PTY LTD",
+      "abn": "76130856843",
+      "slug": "qgc-upstream-holdings-pty-ltd-76130856843",
+      "p95PaymentTimeDays": 33,
+      "industryP95Position": {
+        "rank": 41,
+        "count": 166,
+        "percentile": 73.9
+      }
+    },
+    {
+      "businessName": "AGNEW HOLDING COMPANY PTY LTD",
+      "abn": "27165234659",
+      "slug": "agnew-holding-company-pty-ltd-27165234659",
+      "p95PaymentTimeDays": 34,
+      "industryP95Position": {
+        "rank": 45,
+        "count": 166,
+        "percentile": 72.7
       }
     },
     {
@@ -308,9 +550,20 @@
       "slug": "jfe-steel-australia-resources-pty-ltd-77113447064",
       "p95PaymentTimeDays": 34,
       "industryP95Position": {
-        "rank": 24,
-        "count": 61,
-        "percentile": 61.7
+        "rank": 45,
+        "count": 166,
+        "percentile": 72.7
+      }
+    },
+    {
+      "businessName": "QCOAL PTY LTD",
+      "abn": "99010911234",
+      "slug": "qcoal-pty-ltd-99010911234",
+      "p95PaymentTimeDays": 35,
+      "industryP95Position": {
+        "rank": 47,
+        "count": 166,
+        "percentile": 72.1
       }
     },
     {
@@ -319,9 +572,31 @@
       "slug": "peabody-australia-holdco-pty-ltd-61154820130",
       "p95PaymentTimeDays": 36,
       "industryP95Position": {
-        "rank": 25,
-        "count": 61,
-        "percentile": 58.3
+        "rank": 48,
+        "count": 166,
+        "percentile": 69.7
+      }
+    },
+    {
+      "businessName": "PETROCHINA INTERNATIONAL (AUSTRALIA) PTY LTD",
+      "abn": "67618641697",
+      "slug": "petrochina-international-australia-pty-ltd-67618641697",
+      "p95PaymentTimeDays": 36,
+      "industryP95Position": {
+        "rank": 48,
+        "count": 166,
+        "percentile": 69.7
+      }
+    },
+    {
+      "businessName": "ROY HILL HOLDINGS PTY LTD",
+      "abn": "71123721077",
+      "slug": "roy-hill-holdings-pty-ltd-71123721077",
+      "p95PaymentTimeDays": 36,
+      "industryP95Position": {
+        "rank": 48,
+        "count": 166,
+        "percentile": 69.7
       }
     },
     {
@@ -330,9 +605,207 @@
       "slug": "sungela-pty-ltd-31665234739",
       "p95PaymentTimeDays": 36,
       "industryP95Position": {
-        "rank": 25,
-        "count": 61,
-        "percentile": 58.3
+        "rank": 48,
+        "count": 166,
+        "percentile": 69.7
+      }
+    },
+    {
+      "businessName": "GRUYERE HOLDINGS PTY LTD",
+      "abn": "65615728491",
+      "slug": "gruyere-holdings-pty-ltd-65615728491",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 52,
+        "count": 166,
+        "percentile": 69.1
+      }
+    },
+    {
+      "businessName": "GOLDEN M NSW PTY LTD",
+      "abn": "62674991345",
+      "slug": "golden-m-nsw-pty-ltd-62674991345",
+      "p95PaymentTimeDays": 38,
+      "industryP95Position": {
+        "rank": 53,
+        "count": 166,
+        "percentile": 67.3
+      }
+    },
+    {
+      "businessName": "GSM HOLDING COMPANY PTY LTD",
+      "abn": "91165234051",
+      "slug": "gsm-holding-company-pty-ltd-91165234051",
+      "p95PaymentTimeDays": 38,
+      "industryP95Position": {
+        "rank": 53,
+        "count": 166,
+        "percentile": 67.3
+      }
+    },
+    {
+      "businessName": "ST IVES HOLDING COMPANY PTY LTD",
+      "abn": "97165234515",
+      "slug": "st-ives-holding-company-pty-ltd-97165234515",
+      "p95PaymentTimeDays": 38,
+      "industryP95Position": {
+        "rank": 53,
+        "count": 166,
+        "percentile": 67.3
+      }
+    },
+    {
+      "businessName": "IDEMITSU AUSTRALIA PTY LTD",
+      "abn": "45010236272",
+      "slug": "idemitsu-australia-pty-ltd-45010236272",
+      "p95PaymentTimeDays": 39,
+      "industryP95Position": {
+        "rank": 56,
+        "count": 166,
+        "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "ATLAS IRON PTY LTD",
+      "abn": "63110396168",
+      "slug": "atlas-iron-pty-ltd-63110396168",
+      "p95PaymentTimeDays": 40,
+      "industryP95Position": {
+        "rank": 57,
+        "count": 166,
+        "percentile": 65.5
+      }
+    },
+    {
+      "businessName": "CHEVRON AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "60098079344",
+      "slug": "chevron-australia-holdings-pty-ltd-60098079344",
+      "p95PaymentTimeDays": 40,
+      "industryP95Position": {
+        "rank": 57,
+        "count": 166,
+        "percentile": 65.5
+      }
+    },
+    {
+      "businessName": "JELLINBAH MINING PTY LTD",
+      "abn": "63052251000",
+      "slug": "jellinbah-mining-pty-ltd-63052251000",
+      "p95PaymentTimeDays": 41,
+      "industryP95Position": {
+        "rank": 59,
+        "count": 166,
+        "percentile": 63
+      }
+    },
+    {
+      "businessName": "NIPPON STEEL AUSTRALIA PTY. LIMITED",
+      "abn": "64001445049",
+      "slug": "nippon-steel-australia-pty-limited-64001445049",
+      "p95PaymentTimeDays": 41,
+      "industryP95Position": {
+        "rank": 59,
+        "count": 166,
+        "percentile": 63
+      }
+    },
+    {
+      "businessName": "QGC MIDSTREAM HOLDINGS PTY LTD",
+      "abn": "67130927203",
+      "slug": "qgc-midstream-holdings-pty-ltd-67130927203",
+      "p95PaymentTimeDays": 41,
+      "industryP95Position": {
+        "rank": 59,
+        "count": 166,
+        "percentile": 63
+      }
+    },
+    {
+      "businessName": "QMETCO PTY LTD",
+      "abn": "98008124025",
+      "slug": "qmetco-pty-ltd-98008124025",
+      "p95PaymentTimeDays": 41,
+      "industryP95Position": {
+        "rank": 59,
+        "count": 166,
+        "percentile": 63
+      }
+    },
+    {
+      "businessName": "JELLINBAH GROUP PTY LTD",
+      "abn": "54010754793",
+      "slug": "jellinbah-group-pty-ltd-54010754793",
+      "p95PaymentTimeDays": 42,
+      "industryP95Position": {
+        "rank": 63,
+        "count": 166,
+        "percentile": 62.4
+      }
+    },
+    {
+      "businessName": "AMPLITUDE ENERGY LIMITED",
+      "abn": "93096170295",
+      "slug": "amplitude-energy-limited-93096170295",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 64,
+        "count": 166,
+        "percentile": 60
+      }
+    },
+    {
+      "businessName": "HANROY IRON ORE PROJECTS PTY LTD",
+      "abn": "56661341975",
+      "slug": "hanroy-iron-ore-projects-pty-ltd-56661341975",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 64,
+        "count": 166,
+        "percentile": 60
+      }
+    },
+    {
+      "businessName": "NEWMONT AUSTRALIA PTY LTD",
+      "abn": "95099040507",
+      "slug": "newmont-australia-pty-ltd-95099040507",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 64,
+        "count": 166,
+        "percentile": 60
+      }
+    },
+    {
+      "businessName": "PORT WARATAH COAL SERVICES LTD",
+      "abn": "99001363828",
+      "slug": "port-waratah-coal-services-ltd-99001363828",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 64,
+        "count": 166,
+        "percentile": 60
+      }
+    },
+    {
+      "businessName": "AUSTRALIA PACIFIC LNG PTY LIMITED",
+      "abn": "68001646331",
+      "slug": "australia-pacific-lng-pty-limited-68001646331",
+      "p95PaymentTimeDays": 44,
+      "industryP95Position": {
+        "rank": 68,
+        "count": 166,
+        "percentile": 58.2
+      }
+    },
+    {
+      "businessName": "SINO IRON HOLDINGS PTY LTD",
+      "abn": "43118791772",
+      "slug": "sino-iron-holdings-pty-ltd-43118791772",
+      "p95PaymentTimeDays": 44,
+      "industryP95Position": {
+        "rank": 68,
+        "count": 166,
+        "percentile": 58.2
       }
     },
     {
@@ -341,9 +814,31 @@
       "slug": "yunnan-tin-australia-tdk-resources-pty-ltd-76124405107",
       "p95PaymentTimeDays": 44,
       "industryP95Position": {
-        "rank": 27,
-        "count": 61,
-        "percentile": 56.7
+        "rank": 68,
+        "count": 166,
+        "percentile": 58.2
+      }
+    },
+    {
+      "businessName": "THE BARRO GROUP TRUST SETTLOR MARIE TERESE WILLEY",
+      "abn": "25553947414",
+      "slug": "the-barro-group-trust-settlor-marie-terese-willey-25553947414",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 71,
+        "count": 166,
+        "percentile": 57.6
+      }
+    },
+    {
+      "businessName": "AECI AUSTRALIA PTY LTD",
+      "abn": "33165704870",
+      "slug": "aeci-australia-pty-ltd-33165704870",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 72,
+        "count": 166,
+        "percentile": 55.8
       }
     },
     {
@@ -352,9 +847,20 @@
       "slug": "baralaba-coal-company-pty-ltd-42096909634",
       "p95PaymentTimeDays": 46,
       "industryP95Position": {
-        "rank": 28,
-        "count": 61,
-        "percentile": 55
+        "rank": 72,
+        "count": 166,
+        "percentile": 55.8
+      }
+    },
+    {
+      "businessName": "HANCOCK PROSPECTING PTY LIMITED",
+      "abn": "69008676417",
+      "slug": "hancock-prospecting-pty-limited-69008676417",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 72,
+        "count": 166,
+        "percentile": 55.8
       }
     },
     {
@@ -363,9 +869,9 @@
       "slug": "bml-ventures-pty-ltd-16648071587",
       "p95PaymentTimeDays": 48,
       "industryP95Position": {
-        "rank": 29,
-        "count": 61,
-        "percentile": 53.3
+        "rank": 75,
+        "count": 166,
+        "percentile": 55.2
       }
     },
     {
@@ -374,9 +880,20 @@
       "slug": "wright-prospecting-pty-ltd-35008677021",
       "p95PaymentTimeDays": 49,
       "industryP95Position": {
-        "rank": 30,
-        "count": 61,
-        "percentile": 51.7
+        "rank": 76,
+        "count": 166,
+        "percentile": 54.5
+      }
+    },
+    {
+      "businessName": "AURENNE MT IDA PTY LTD",
+      "abn": "57168928416",
+      "slug": "aurenne-mt-ida-pty-ltd-57168928416",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 77,
+        "count": 166,
+        "percentile": 53.9
       }
     },
     {
@@ -385,9 +902,64 @@
       "slug": "marubeni-iron-ore-australia-pty-ltd-91156488130",
       "p95PaymentTimeDays": 51,
       "industryP95Position": {
-        "rank": 31,
-        "count": 61,
-        "percentile": 50
+        "rank": 78,
+        "count": 166,
+        "percentile": 52.7
+      }
+    },
+    {
+      "businessName": "MASTERMYNE GROUP LIMITED",
+      "abn": "96142490579",
+      "slug": "mastermyne-group-limited-96142490579",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 78,
+        "count": 166,
+        "percentile": 52.7
+      }
+    },
+    {
+      "businessName": "ALKANE RESOURCES LTD",
+      "abn": "35000689216",
+      "slug": "alkane-resources-ltd-35000689216",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 80,
+        "count": 166,
+        "percentile": 51.5
+      }
+    },
+    {
+      "businessName": "SHELL ENERGY HOLDINGS AUSTRALIA LIMITED",
+      "abn": "69054260776",
+      "slug": "shell-energy-holdings-australia-limited-69054260776",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 80,
+        "count": 166,
+        "percentile": 51.5
+      }
+    },
+    {
+      "businessName": "GLENCORE INVESTMENT PTY LIMITED",
+      "abn": "67076513034",
+      "slug": "glencore-investment-pty-limited-67076513034",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 82,
+        "count": 166,
+        "percentile": 50.3
+      }
+    },
+    {
+      "businessName": "Liontown Limited",
+      "abn": "39118153825",
+      "slug": "liontown-limited-39118153825",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 82,
+        "count": 166,
+        "percentile": 50.3
       }
     },
     {
@@ -396,9 +968,9 @@
       "slug": "denison-gas-limited-86625883561",
       "p95PaymentTimeDays": 55,
       "industryP95Position": {
-        "rank": 32,
-        "count": 61,
-        "percentile": 46.7
+        "rank": 84,
+        "count": 166,
+        "percentile": 49.1
       }
     },
     {
@@ -407,9 +979,9 @@
       "slug": "garnet-international-resources-pty-ltd-77081244715",
       "p95PaymentTimeDays": 55,
       "industryP95Position": {
-        "rank": 32,
-        "count": 61,
-        "percentile": 46.7
+        "rank": 84,
+        "count": 166,
+        "percentile": 49.1
       }
     },
     {
@@ -418,9 +990,31 @@
       "slug": "big-ben-holdings-pty-limited-63008434562",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 34,
-        "count": 61,
-        "percentile": 43.3
+        "rank": 86,
+        "count": 166,
+        "percentile": 46.7
+      }
+    },
+    {
+      "businessName": "KANTRA COPPER LIMITED",
+      "abn": "73004297116",
+      "slug": "kantra-copper-limited-73004297116",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 86,
+        "count": 166,
+        "percentile": 46.7
+      }
+    },
+    {
+      "businessName": "Lake Vermont Resources Pty Ltd",
+      "abn": "28114286841",
+      "slug": "lake-vermont-resources-pty-ltd-28114286841",
+      "p95PaymentTimeDays": 56,
+      "industryP95Position": {
+        "rank": 86,
+        "count": 166,
+        "percentile": 46.7
       }
     },
     {
@@ -429,9 +1023,31 @@
       "slug": "shark-bay-salt-pty-ltd-89008759500",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 34,
-        "count": 61,
-        "percentile": 43.3
+        "rank": 86,
+        "count": 166,
+        "percentile": 46.7
+      }
+    },
+    {
+      "businessName": "ENAEX AUSTRALIA PTY LTD",
+      "abn": "97009687487",
+      "slug": "enaex-australia-pty-ltd-97009687487",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 90,
+        "count": 166,
+        "percentile": 43
+      }
+    },
+    {
+      "businessName": "HEATHGATE RESOURCES PTY LTD",
+      "abn": "31011018232",
+      "slug": "heathgate-resources-pty-ltd-31011018232",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 90,
+        "count": 166,
+        "percentile": 43
       }
     },
     {
@@ -440,9 +1056,42 @@
       "slug": "helix-robotics-solutions-inc-97439346426",
       "p95PaymentTimeDays": 57,
       "industryP95Position": {
-        "rank": 36,
-        "count": 61,
-        "percentile": 41.7
+        "rank": 90,
+        "count": 166,
+        "percentile": 43
+      }
+    },
+    {
+      "businessName": "PIACENTINI & SON PTY LTD",
+      "abn": "18008797715",
+      "slug": "piacentini-and-son-pty-ltd-18008797715",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 90,
+        "count": 166,
+        "percentile": 43
+      }
+    },
+    {
+      "businessName": "SUN METALS HOLDINGS LIMITED",
+      "abn": "30051538580",
+      "slug": "sun-metals-holdings-limited-30051538580",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 90,
+        "count": 166,
+        "percentile": 43
+      }
+    },
+    {
+      "businessName": "Tomingley Gold Operations Pty Ltd",
+      "abn": "53149040371",
+      "slug": "tomingley-gold-operations-pty-ltd-53149040371",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 90,
+        "count": 166,
+        "percentile": 43
       }
     },
     {
@@ -451,9 +1100,31 @@
       "slug": "agnico-eagle-australia-pty-ltd-30136505587",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 37,
-        "count": 61,
-        "percentile": 38.3
+        "rank": 96,
+        "count": 166,
+        "percentile": 40
+      }
+    },
+    {
+      "businessName": "DARWIN LNG PTY LTD",
+      "abn": "48085130981",
+      "slug": "darwin-lng-pty-ltd-48085130981",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 96,
+        "count": 166,
+        "percentile": 40
+      }
+    },
+    {
+      "businessName": "PREMIER COAL HOLDINGS PTY LTD",
+      "abn": "89158560911",
+      "slug": "premier-coal-holdings-pty-ltd-89158560911",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 96,
+        "count": 166,
+        "percentile": 40
       }
     },
     {
@@ -462,9 +1133,20 @@
       "slug": "vysarn-limited-41124212175",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 37,
-        "count": 61,
-        "percentile": 38.3
+        "rank": 96,
+        "count": 166,
+        "percentile": 40
+      }
+    },
+    {
+      "businessName": "YANCOAL ENERGY PTY LTD",
+      "abn": "89158560975",
+      "slug": "yancoal-energy-pty-ltd-89158560975",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 96,
+        "count": 166,
+        "percentile": 40
       }
     },
     {
@@ -473,9 +1155,9 @@
       "slug": "byrnecut-australia-pty-ltd-94129142516",
       "p95PaymentTimeDays": 59,
       "industryP95Position": {
-        "rank": 39,
-        "count": 61,
-        "percentile": 35
+        "rank": 101,
+        "count": 166,
+        "percentile": 37.6
       }
     },
     {
@@ -484,9 +1166,42 @@
       "slug": "pembroke-olive-downs-pty-ltd-53611674376",
       "p95PaymentTimeDays": 59,
       "industryP95Position": {
-        "rank": 39,
-        "count": 61,
-        "percentile": 35
+        "rank": 101,
+        "count": 166,
+        "percentile": 37.6
+      }
+    },
+    {
+      "businessName": "VERMILION NETHERLANDS HOLDING BV AND VERMILION NETHERLANDS AUSTRALIA HOLDINGBV",
+      "abn": "92210617868",
+      "slug": "vermilion-netherlands-holding-bv-and-vermilion-netherlands-australia-holdingbv-92210617868",
+      "p95PaymentTimeDays": 59,
+      "industryP95Position": {
+        "rank": 101,
+        "count": 166,
+        "percentile": 37.6
+      }
+    },
+    {
+      "businessName": "YANCOAL AUSTRALIA LTD",
+      "abn": "82111859119",
+      "slug": "yancoal-australia-ltd-82111859119",
+      "p95PaymentTimeDays": 59,
+      "industryP95Position": {
+        "rank": 101,
+        "count": 166,
+        "percentile": 37.6
+      }
+    },
+    {
+      "businessName": "BM ALLIANCE COAL OPERATIONS PTY LIMITED",
+      "abn": "67096412752",
+      "slug": "bm-alliance-coal-operations-pty-limited-67096412752",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 105,
+        "count": 166,
+        "percentile": 34.5
       }
     },
     {
@@ -495,9 +1210,119 @@
       "slug": "exxonmobil-australia-pty-ltd-48091561198",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 41,
-        "count": 61,
-        "percentile": 33.3
+        "rank": 105,
+        "count": 166,
+        "percentile": 34.5
+      }
+    },
+    {
+      "businessName": "MANDALAY RESOURCES AUSTRALIA PTY LIMITED",
+      "abn": "38005482815",
+      "slug": "mandalay-resources-australia-pty-limited-38005482815",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 105,
+        "count": 166,
+        "percentile": 34.5
+      }
+    },
+    {
+      "businessName": "MIDDLEMOUNT COAL PTY LTD",
+      "abn": "49122348412",
+      "slug": "middlemount-coal-pty-ltd-49122348412",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 105,
+        "count": 166,
+        "percentile": 34.5
+      }
+    },
+    {
+      "businessName": "MITCHELL SERVICES LIMITED",
+      "abn": "31149206333",
+      "slug": "mitchell-services-limited-31149206333",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 105,
+        "count": 166,
+        "percentile": 34.5
+      }
+    },
+    {
+      "businessName": "FLUOR AUSTRALIA PTY LTD",
+      "abn": "28004511942",
+      "slug": "fluor-australia-pty-ltd-28004511942",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 110,
+        "count": 166,
+        "percentile": 32.1
+      }
+    },
+    {
+      "businessName": "IWATANI AUSTRALIA PTY LTD",
+      "abn": "85008902841",
+      "slug": "iwatani-australia-pty-ltd-85008902841",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 110,
+        "count": 166,
+        "percentile": 32.1
+      }
+    },
+    {
+      "businessName": "MLG OZ LIMITED",
+      "abn": "53102642366",
+      "slug": "mlg-oz-limited-53102642366",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 110,
+        "count": 166,
+        "percentile": 32.1
+      }
+    },
+    {
+      "businessName": "PANTORO GOLD LIMITED",
+      "abn": "30003207467",
+      "slug": "pantoro-gold-limited-30003207467",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 110,
+        "count": 166,
+        "percentile": 32.1
+      }
+    },
+    {
+      "businessName": "SEDCO FOREX INTERNATIONAL LIMITED",
+      "abn": "44188717522",
+      "slug": "sedco-forex-international-limited-44188717522",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 114,
+        "count": 166,
+        "percentile": 31.5
+      }
+    },
+    {
+      "businessName": "COAL SERVICES PTY LIMITED",
+      "abn": "98099078234",
+      "slug": "coal-services-pty-limited-98099078234",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 115,
+        "count": 166,
+        "percentile": 27.9
+      }
+    },
+    {
+      "businessName": "DOF AUSTRALIA PTY LTD",
+      "abn": "53083000239",
+      "slug": "dof-australia-pty-ltd-53083000239",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 115,
+        "count": 166,
+        "percentile": 27.9
       }
     },
     {
@@ -506,9 +1331,20 @@
       "slug": "holcim-participations-australia-pty-ltd-46122401405",
       "p95PaymentTimeDays": 63,
       "industryP95Position": {
-        "rank": 42,
-        "count": 61,
-        "percentile": 30
+        "rank": 115,
+        "count": 166,
+        "percentile": 27.9
+      }
+    },
+    {
+      "businessName": "MPC KINETIC HOLDINGS PTY LTD",
+      "abn": "68626678911",
+      "slug": "mpc-kinetic-holdings-pty-ltd-68626678911",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 115,
+        "count": 166,
+        "percentile": 27.9
       }
     },
     {
@@ -517,9 +1353,31 @@
       "slug": "petroleum-helicopters-australia-pty-limited-48154419628",
       "p95PaymentTimeDays": 63,
       "industryP95Position": {
-        "rank": 42,
-        "count": 61,
-        "percentile": 30
+        "rank": 115,
+        "count": 166,
+        "percentile": 27.9
+      }
+    },
+    {
+      "businessName": "SOLAR TURBINES INTERNATIONAL COMPANY",
+      "abn": "43066283074",
+      "slug": "solar-turbines-international-company-43066283074",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 115,
+        "count": 166,
+        "percentile": 27.9
+      }
+    },
+    {
+      "businessName": "AJ LUCAS GROUP LIMITED",
+      "abn": "12060309104",
+      "slug": "aj-lucas-group-limited-12060309104",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 121,
+        "count": 166,
+        "percentile": 26.7
       }
     },
     {
@@ -528,9 +1386,20 @@
       "slug": "anglogold-investments-australia-pty-ltd-48090112459",
       "p95PaymentTimeDays": 64,
       "industryP95Position": {
-        "rank": 44,
-        "count": 61,
-        "percentile": 28.3
+        "rank": 121,
+        "count": 166,
+        "percentile": 26.7
+      }
+    },
+    {
+      "businessName": "BUMA AUSTRALIA PTY LTD",
+      "abn": "28649634579",
+      "slug": "buma-australia-pty-ltd-28649634579",
+      "p95PaymentTimeDays": 65,
+      "industryP95Position": {
+        "rank": 123,
+        "count": 166,
+        "percentile": 25.5
       }
     },
     {
@@ -539,9 +1408,20 @@
       "slug": "sojitz-development-pty-ltd-34063050680",
       "p95PaymentTimeDays": 65,
       "industryP95Position": {
-        "rank": 45,
-        "count": 61,
-        "percentile": 26.7
+        "rank": 123,
+        "count": 166,
+        "percentile": 25.5
+      }
+    },
+    {
+      "businessName": "NOV AUSTRALIA PTY LTD",
+      "abn": "77004449478",
+      "slug": "nov-australia-pty-ltd-77004449478",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 125,
+        "count": 166,
+        "percentile": 24.8
       }
     },
     {
@@ -550,9 +1430,9 @@
       "slug": "metro-mining-limited-45117763443",
       "p95PaymentTimeDays": 68,
       "industryP95Position": {
-        "rank": 46,
-        "count": 61,
-        "percentile": 23.3
+        "rank": 126,
+        "count": 166,
+        "percentile": 23.6
       }
     },
     {
@@ -561,9 +1441,31 @@
       "slug": "mobil-png-gas-holdings-pty-ltd-35008633707",
       "p95PaymentTimeDays": 68,
       "industryP95Position": {
-        "rank": 46,
-        "count": 61,
-        "percentile": 23.3
+        "rank": 126,
+        "count": 166,
+        "percentile": 23.6
+      }
+    },
+    {
+      "businessName": "ANGLO AMERICAN AUSTRALIA LIMITED",
+      "abn": "47004892371",
+      "slug": "anglo-american-australia-limited-47004892371",
+      "p95PaymentTimeDays": 69,
+      "industryP95Position": {
+        "rank": 128,
+        "count": 166,
+        "percentile": 21.8
+      }
+    },
+    {
+      "businessName": "GREATLAND RESOURCES LIMITED",
+      "abn": "17668338618",
+      "slug": "greatland-resources-limited-17668338618",
+      "p95PaymentTimeDays": 69,
+      "industryP95Position": {
+        "rank": 128,
+        "count": 166,
+        "percentile": 21.8
       }
     },
     {
@@ -572,9 +1474,20 @@
       "slug": "yt-parksong-australia-holding-pty-ltd-71141125920",
       "p95PaymentTimeDays": 69,
       "industryP95Position": {
-        "rank": 48,
-        "count": 61,
-        "percentile": 21.7
+        "rank": 128,
+        "count": 166,
+        "percentile": 21.8
+      }
+    },
+    {
+      "businessName": "DEVELOP GLOBAL LIMITED",
+      "abn": "28122180205",
+      "slug": "develop-global-limited-28122180205",
+      "p95PaymentTimeDays": 70,
+      "industryP95Position": {
+        "rank": 131,
+        "count": 166,
+        "percentile": 18.8
       }
     },
     {
@@ -583,9 +1496,9 @@
       "slug": "ensco-australia-pty-limited-79100601634",
       "p95PaymentTimeDays": 70,
       "industryP95Position": {
-        "rank": 49,
-        "count": 61,
-        "percentile": 18.3
+        "rank": 131,
+        "count": 166,
+        "percentile": 18.8
       }
     },
     {
@@ -594,9 +1507,42 @@
       "slug": "jadestone-energy-australia-holdings-pty-ltd-37627000239",
       "p95PaymentTimeDays": 70,
       "industryP95Position": {
-        "rank": 49,
-        "count": 61,
-        "percentile": 18.3
+        "rank": 131,
+        "count": 166,
+        "percentile": 18.8
+      }
+    },
+    {
+      "businessName": "MITSUBISHI MATERIALS (AUSTRALIA) PTY. LIMITED",
+      "abn": "78001429349",
+      "slug": "mitsubishi-materials-australia-pty-limited-78001429349",
+      "p95PaymentTimeDays": 70,
+      "industryP95Position": {
+        "rank": 131,
+        "count": 166,
+        "percentile": 18.8
+      }
+    },
+    {
+      "businessName": "SLB AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "37141037925",
+      "slug": "slb-australia-holdings-pty-ltd-37141037925",
+      "p95PaymentTimeDays": 70,
+      "industryP95Position": {
+        "rank": 131,
+        "count": 166,
+        "percentile": 18.8
+      }
+    },
+    {
+      "businessName": "Banpu Australia Co. Pty Ltd",
+      "abn": "56136468007",
+      "slug": "banpu-australia-co-pty-ltd-56136468007",
+      "p95PaymentTimeDays": 71,
+      "industryP95Position": {
+        "rank": 136,
+        "count": 166,
+        "percentile": 17
       }
     },
     {
@@ -605,9 +1551,20 @@
       "slug": "jadestone-energy-australia-pty-ltd-48613671819",
       "p95PaymentTimeDays": 71,
       "industryP95Position": {
-        "rank": 51,
-        "count": 61,
-        "percentile": 16.7
+        "rank": 136,
+        "count": 166,
+        "percentile": 17
+      }
+    },
+    {
+      "businessName": "MMG DUGALD RIVER PTY LTD",
+      "abn": "19083405556",
+      "slug": "mmg-dugald-river-pty-ltd-19083405556",
+      "p95PaymentTimeDays": 71,
+      "industryP95Position": {
+        "rank": 136,
+        "count": 166,
+        "percentile": 17
       }
     },
     {
@@ -616,9 +1573,42 @@
       "slug": "adani-mining-pty-ltd-27145455205",
       "p95PaymentTimeDays": 72,
       "industryP95Position": {
-        "rank": 52,
-        "count": 61,
-        "percentile": 15
+        "rank": 139,
+        "count": 166,
+        "percentile": 15.2
+      }
+    },
+    {
+      "businessName": "IRON MINE SERVICES PTY LTD",
+      "abn": "77608402446",
+      "slug": "iron-mine-services-pty-ltd-77608402446",
+      "p95PaymentTimeDays": 72,
+      "industryP95Position": {
+        "rank": 139,
+        "count": 166,
+        "percentile": 15.2
+      }
+    },
+    {
+      "businessName": "REGROUP AUSTRALIA PTY LTD",
+      "abn": "70646172358",
+      "slug": "regroup-australia-pty-ltd-70646172358",
+      "p95PaymentTimeDays": 72,
+      "industryP95Position": {
+        "rank": 139,
+        "count": 166,
+        "percentile": 15.2
+      }
+    },
+    {
+      "businessName": "AIC MINES LIMITED",
+      "abn": "11060156452",
+      "slug": "aic-mines-limited-11060156452",
+      "p95PaymentTimeDays": 74,
+      "industryP95Position": {
+        "rank": 142,
+        "count": 166,
+        "percentile": 13.9
       }
     },
     {
@@ -627,9 +1617,20 @@
       "slug": "anglo-american-technical-and-sustainability-services-ltd-81629813216",
       "p95PaymentTimeDays": 74,
       "industryP95Position": {
-        "rank": 53,
-        "count": 61,
-        "percentile": 13.3
+        "rank": 142,
+        "count": 166,
+        "percentile": 13.9
+      }
+    },
+    {
+      "businessName": "GRAYMONT (AUSTRALIA) PTY LTD",
+      "abn": "24004406688",
+      "slug": "graymont-australia-pty-ltd-24004406688",
+      "p95PaymentTimeDays": 76,
+      "industryP95Position": {
+        "rank": 144,
+        "count": 166,
+        "percentile": 12.7
       }
     },
     {
@@ -638,9 +1639,20 @@
       "slug": "yuxin-holdings-pty-limited-53653087257",
       "p95PaymentTimeDays": 76,
       "industryP95Position": {
-        "rank": 54,
-        "count": 61,
-        "percentile": 11.7
+        "rank": 144,
+        "count": 166,
+        "percentile": 12.7
+      }
+    },
+    {
+      "businessName": "CASTROL HOLDINGS AUSTRALIA PTY LTD",
+      "abn": "12647117762",
+      "slug": "castrol-holdings-australia-pty-ltd-12647117762",
+      "p95PaymentTimeDays": 80,
+      "industryP95Position": {
+        "rank": 146,
+        "count": 166,
+        "percentile": 11.5
       }
     },
     {
@@ -649,9 +1661,42 @@
       "slug": "focus-minerals-ltd-56005470799",
       "p95PaymentTimeDays": 80,
       "industryP95Position": {
-        "rank": 55,
-        "count": 61,
-        "percentile": 10
+        "rank": 146,
+        "count": 166,
+        "percentile": 11.5
+      }
+    },
+    {
+      "businessName": "A-BL SUPER TOPCO 2 PTY LTD",
+      "abn": "15673597129",
+      "slug": "a-bl-super-topco-2-pty-ltd-15673597129",
+      "p95PaymentTimeDays": 82,
+      "industryP95Position": {
+        "rank": 148,
+        "count": 166,
+        "percentile": 10.3
+      }
+    },
+    {
+      "businessName": "NEWMONT INTERNATIONAL HOLDINGS PTY LTD",
+      "abn": "53667812642",
+      "slug": "newmont-international-holdings-pty-ltd-53667812642",
+      "p95PaymentTimeDays": 82,
+      "industryP95Position": {
+        "rank": 148,
+        "count": 166,
+        "percentile": 10.3
+      }
+    },
+    {
+      "businessName": "WYLOO CONSOLIDATED PTY LTD",
+      "abn": "49646334269",
+      "slug": "wyloo-consolidated-pty-ltd-49646334269",
+      "p95PaymentTimeDays": 84,
+      "industryP95Position": {
+        "rank": 150,
+        "count": 166,
+        "percentile": 9.7
       }
     },
     {
@@ -660,9 +1705,9 @@
       "slug": "sqm-australia-pty-ltd-64621414659",
       "p95PaymentTimeDays": 85,
       "industryP95Position": {
-        "rank": 56,
-        "count": 61,
-        "percentile": 8.3
+        "rank": 151,
+        "count": 166,
+        "percentile": 9.1
       }
     },
     {
@@ -671,8 +1716,41 @@
       "slug": "barto-industry-co-pty-ltd-84616407777",
       "p95PaymentTimeDays": 86,
       "industryP95Position": {
-        "rank": 57,
-        "count": 61,
+        "rank": 152,
+        "count": 166,
+        "percentile": 8.5
+      }
+    },
+    {
+      "businessName": "CORONADO GLOBAL RESOURCES INC.",
+      "abn": "99628199468",
+      "slug": "coronado-global-resources-inc-99628199468",
+      "p95PaymentTimeDays": 93,
+      "industryP95Position": {
+        "rank": 153,
+        "count": 166,
+        "percentile": 7.9
+      }
+    },
+    {
+      "businessName": "HALLIBURTON CONSOLIDATED PTY LTD",
+      "abn": "67101049521",
+      "slug": "halliburton-consolidated-pty-ltd-67101049521",
+      "p95PaymentTimeDays": 94,
+      "industryP95Position": {
+        "rank": 154,
+        "count": 166,
+        "percentile": 6.7
+      }
+    },
+    {
+      "businessName": "MMG AUSTRALIA LIMITED",
+      "abn": "23004074962",
+      "slug": "mmg-australia-limited-23004074962",
+      "p95PaymentTimeDays": 94,
+      "industryP95Position": {
+        "rank": 154,
+        "count": 166,
         "percentile": 6.7
       }
     },
@@ -682,9 +1760,9 @@
       "slug": "a-bl-super-topco-1-pty-ltd-25673597110",
       "p95PaymentTimeDays": 97,
       "industryP95Position": {
-        "rank": 58,
-        "count": 61,
-        "percentile": 1.7
+        "rank": 156,
+        "count": 166,
+        "percentile": 4.2
       }
     },
     {
@@ -693,9 +1771,9 @@
       "slug": "altrad-australia-pty-ltd-56652016807",
       "p95PaymentTimeDays": 97,
       "industryP95Position": {
-        "rank": 58,
-        "count": 61,
-        "percentile": 1.7
+        "rank": 156,
+        "count": 166,
+        "percentile": 4.2
       }
     },
     {
@@ -704,9 +1782,31 @@
       "slug": "boart-longyear-australia-pty-ltd-99000401025",
       "p95PaymentTimeDays": 97,
       "industryP95Position": {
-        "rank": 58,
-        "count": 61,
-        "percentile": 1.7
+        "rank": 156,
+        "count": 166,
+        "percentile": 4.2
+      }
+    },
+    {
+      "businessName": "HANCOCK ENERGY (WGO) PTY LTD",
+      "abn": "82125394667",
+      "slug": "hancock-energy-wgo-pty-ltd-82125394667",
+      "p95PaymentTimeDays": 97,
+      "industryP95Position": {
+        "rank": 156,
+        "count": 166,
+        "percentile": 4.2
+      }
+    },
+    {
+      "businessName": "RAVENSWOOD GOLD PTY LTD",
+      "abn": "88637527309",
+      "slug": "ravenswood-gold-pty-ltd-88637527309",
+      "p95PaymentTimeDays": 99,
+      "industryP95Position": {
+        "rank": 160,
+        "count": 166,
+        "percentile": 3.6
       }
     },
     {
@@ -715,8 +1815,63 @@
       "slug": "centamin-egypt-limited-86007700352",
       "p95PaymentTimeDays": 103,
       "industryP95Position": {
-        "rank": 61,
-        "count": 61,
+        "rank": 161,
+        "count": 166,
+        "percentile": 3
+      }
+    },
+    {
+      "businessName": "SUBSEA 7 AUSTRALIA CONTRACTING PTY LTD",
+      "abn": "36005288406",
+      "slug": "subsea-7-australia-contracting-pty-ltd-36005288406",
+      "p95PaymentTimeDays": 107,
+      "industryP95Position": {
+        "rank": 162,
+        "count": 166,
+        "percentile": 2.4
+      }
+    },
+    {
+      "businessName": "WEATHERFORD AUSTRALIA PTY LIMITED",
+      "abn": "68008947395",
+      "slug": "weatherford-australia-pty-limited-68008947395",
+      "p95PaymentTimeDays": 109,
+      "industryP95Position": {
+        "rank": 163,
+        "count": 166,
+        "percentile": 1.8
+      }
+    },
+    {
+      "businessName": "Argo Natural Resources Pty Ltd",
+      "abn": "61103902389",
+      "slug": "argo-natural-resources-pty-ltd-61103902389",
+      "p95PaymentTimeDays": 122,
+      "industryP95Position": {
+        "rank": 164,
+        "count": 166,
+        "percentile": 1.2
+      }
+    },
+    {
+      "businessName": "BIS INDUSTRIES HOLDINGS LIMITED",
+      "abn": "48622481752",
+      "slug": "bis-industries-holdings-limited-48622481752",
+      "p95PaymentTimeDays": 134,
+      "industryP95Position": {
+        "rank": 165,
+        "count": 166,
+        "percentile": 0.6
+      }
+    },
+    {
+      "businessName": "ROC OIL COMPANY PTY LIMITED",
+      "abn": "32075965856",
+      "slug": "roc-oil-company-pty-limited-32075965856",
+      "p95PaymentTimeDays": 381,
+      "industryP95Position": {
+        "rank": 166,
+        "count": 166,
         "percentile": 0
       }
     }

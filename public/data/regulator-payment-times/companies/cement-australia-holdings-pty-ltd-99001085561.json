@@ -6,38 +6,70 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Non-metallic mineral product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
     {
-      "reportId": "PTR20007238",
+      "reportId": "PTR20013412",
+      "acnArbn": "001085561",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 44.8,
+      "medianPaymentTimeDays": 46,
+      "p80PaymentTimeDays": 63,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 31.92,
+      "payments31To60Days": 44.31,
+      "paymentsMoreThan60Days": 23.77,
+      "industrySubdivision": "Non-metallic mineral product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-18",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2364,
+        "count": 2794,
+        "percentile": 14.5
+      },
+      "industryP95Position": {
+        "rank": 263,
+        "count": 359,
+        "percentile": 24.3
+      }
+    },
+    {
+      "reportId": "PTR20013424",
       "acnArbn": "001085561",
       "reportingPeriodStartDate": "2025-06-30",
       "reportingPeriodEndDate": "2025-12-30",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
       "averagePaymentTimeDays": 45.96,
       "medianPaymentTimeDays": 48,
       "p80PaymentTimeDays": 63,
       "p95PaymentTimeDays": 75,
-      "payments30DaysOrLess": 27.1,
-      "payments31To60Days": 48.3,
-      "paymentsMoreThan60Days": 23.6,
+      "payments30DaysOrLess": 27.14,
+      "payments31To60Days": 48.26,
+      "paymentsMoreThan60Days": 24.6,
       "industrySubdivision": "Non-metallic mineral product mfg",
       "industryDivision": "Manufacturing",
-      "submittedDate": "2026-02-16",
+      "submittedDate": "2026-09-18",
       "reportingCycleId": "2025-H2",
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2541,
-        "count": 3050,
-        "percentile": 15.9
+        "rank": 2630,
+        "count": 3151,
+        "percentile": 15.8
       },
       "industryP95Position": {
-        "rank": 293,
-        "count": 409,
-        "percentile": 27.2
+        "rank": 305,
+        "count": 424,
+        "percentile": 27
       }
     },
     {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2399,
-        "count": 2977,
-        "percentile": 18.8
+        "rank": 2467,
+        "count": 3052,
+        "percentile": 18.5
       },
       "industryP95Position": {
-        "rank": 270,
-        "count": 395,
-        "percentile": 31
+        "rank": 282,
+        "count": 407,
+        "percentile": 30
       }
     },
     {
@@ -94,14 +126,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2082,
-        "count": 2565,
-        "percentile": 18.3
+        "rank": 2147,
+        "count": 2639,
+        "percentile": 18.1
       },
       "industryP95Position": {
-        "rank": 232,
-        "count": 333,
-        "percentile": 28.9
+        "rank": 240,
+        "count": 341,
+        "percentile": 28.2
       }
     }
   ]

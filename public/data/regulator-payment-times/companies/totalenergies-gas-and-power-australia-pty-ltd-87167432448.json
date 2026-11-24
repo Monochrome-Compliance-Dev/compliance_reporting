@@ -1,0 +1,140 @@
+{
+  "slug": "totalenergies-gas-and-power-australia-pty-ltd-87167432448",
+  "businessName": "TOTALENERGIES GAS & POWER AUSTRALIA PTY LTD",
+  "abn": "87167432448",
+  "acnArbn": "167432448",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySlug": "electricity-gas-water-and-waste-services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014716",
+      "acnArbn": "167432448",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26,
+      "medianPaymentTimeDays": 27.5,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 87.5,
+      "payments31To60Days": 12.5,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 547,
+        "count": 2794,
+        "percentile": 78.9
+      },
+      "industryP95Position": {
+        "rank": 32,
+        "count": 92,
+        "percentile": 64.8
+      }
+    },
+    {
+      "reportId": "PTR20014713",
+      "acnArbn": "167432448",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.25,
+      "medianPaymentTimeDays": 26,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 341,
+        "count": 3151,
+        "percentile": 87.2
+      },
+      "industryP95Position": {
+        "rank": 24,
+        "count": 102,
+        "percentile": 71.3
+      }
+    },
+    {
+      "reportId": "PTR20014708",
+      "acnArbn": "167432448",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.25,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 364,
+        "count": 3052,
+        "percentile": 85
+      },
+      "industryP95Position": {
+        "rank": 22,
+        "count": 102,
+        "percentile": 74.3
+      }
+    },
+    {
+      "reportId": "PTR20014694",
+      "acnArbn": "167432448",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.38,
+      "medianPaymentTimeDays": 18.5,
+      "p80PaymentTimeDays": 26,
+      "p95PaymentTimeDays": 27,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 227,
+        "count": 2639,
+        "percentile": 90.4
+      },
+      "industryP95Position": {
+        "rank": 14,
+        "count": 101,
+        "percentile": 86
+      }
+    }
+  ]
+}

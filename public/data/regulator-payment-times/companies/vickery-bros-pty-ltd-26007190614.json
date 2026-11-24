@@ -1,0 +1,140 @@
+{
+  "slug": "vickery-bros-pty-ltd-26007190614",
+  "businessName": "VICKERY BROS. PTY. LTD.",
+  "abn": "26007190614",
+  "acnArbn": "007190614",
+  "industryDivision": "Agriculture, Forestry and Fishing",
+  "industrySlug": "agriculture-forestry-and-fishing",
+  "industrySubdivision": "Agriculture, forestry and fishing support services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015375",
+      "acnArbn": "007190614",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.7,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 17.45,
+      "payments31To60Days": 81.6,
+      "paymentsMoreThan60Days": 0.95,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1186,
+        "count": 2794,
+        "percentile": 55.7
+      },
+      "industryP95Position": {
+        "rank": 50,
+        "count": 96,
+        "percentile": 44.2
+      }
+    },
+    {
+      "reportId": "PTR20015371",
+      "acnArbn": "007190614",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.48,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 25.82,
+      "payments31To60Days": 73.92,
+      "paymentsMoreThan60Days": 0.26,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1321,
+        "count": 3151,
+        "percentile": 55.9
+      },
+      "industryP95Position": {
+        "rank": 58,
+        "count": 119,
+        "percentile": 48.3
+      }
+    },
+    {
+      "reportId": "PTR20015365",
+      "acnArbn": "007190614",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.35,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 50,
+      "payments30DaysOrLess": 24.42,
+      "payments31To60Days": 75.27,
+      "paymentsMoreThan60Days": 0.31,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1195,
+        "count": 3052,
+        "percentile": 58.7
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 108,
+        "percentile": 49.5
+      }
+    },
+    {
+      "reportId": "PTR20015287",
+      "acnArbn": "007190614",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.58,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 51,
+      "payments30DaysOrLess": 23.03,
+      "payments31To60Days": 76.89,
+      "paymentsMoreThan60Days": 0.09,
+      "industrySubdivision": "Agriculture, forestry and fishing support services",
+      "industryDivision": "Agriculture, Forestry and Fishing",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1100,
+        "count": 2639,
+        "percentile": 56.9
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 88,
+        "percentile": 42.5
+      }
+    }
+  ]
+}

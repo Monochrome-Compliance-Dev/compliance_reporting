@@ -1,0 +1,140 @@
+{
+  "slug": "westina-corporation-pty-ltd-64095230943",
+  "businessName": "Westina Corporation Pty Ltd",
+  "abn": "64095230943",
+  "acnArbn": "095230943",
+  "industryDivision": "Transport, Postal and Warehousing",
+  "industrySlug": "transport-postal-and-warehousing",
+  "industrySubdivision": "Road transport",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20013630",
+      "acnArbn": "095230943",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-09-20",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 832,
+        "count": 2794,
+        "percentile": 68.7
+      },
+      "industryP95Position": {
+        "rank": 41,
+        "count": 151,
+        "percentile": 71.3
+      }
+    },
+    {
+      "reportId": "PTR20013629",
+      "acnArbn": "095230943",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-09-20",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 931,
+        "count": 3151,
+        "percentile": 69.4
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 176,
+        "percentile": 76
+      }
+    },
+    {
+      "reportId": "PTR20013626",
+      "acnArbn": "095230943",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-09-20",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 3052,
+        "percentile": 70.6
+      },
+      "industryP95Position": {
+        "rank": 36,
+        "count": 172,
+        "percentile": 78.9
+      }
+    },
+    {
+      "reportId": "PTR20013621",
+      "acnArbn": "095230943",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32,
+      "medianPaymentTimeDays": 38,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 95,
+      "payments31To60Days": 3,
+      "paymentsMoreThan60Days": 1,
+      "industrySubdivision": "Road transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-09-20",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 766,
+        "count": 2639,
+        "percentile": 70.1
+      },
+      "industryP95Position": {
+        "rank": 34,
+        "count": 149,
+        "percentile": 76.4
+      }
+    }
+  ]
+}

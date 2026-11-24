@@ -1,0 +1,44 @@
+{
+  "slug": "veyance-technologies-australia-pty-ltd-87125188070",
+  "businessName": "VEYANCE TECHNOLOGIES AUSTRALIA PTY LTD",
+  "abn": "87125188070",
+  "acnArbn": "125188070",
+  "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014908",
+      "acnArbn": "125188070",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 43.19,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 55,
+      "p95PaymentTimeDays": 89,
+      "payments30DaysOrLess": 22.39,
+      "payments31To60Days": 61.77,
+      "paymentsMoreThan60Days": 15.84,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2561,
+        "count": 2794,
+        "percentile": 8.1
+      },
+      "industryP95Position": {
+        "rank": 311,
+        "count": 359,
+        "percentile": 13.1
+      }
+    }
+  ]
+}

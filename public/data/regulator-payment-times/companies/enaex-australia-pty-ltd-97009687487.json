@@ -1,0 +1,44 @@
+{
+  "slug": "enaex-australia-pty-ltd-97009687487",
+  "businessName": "ENAEX AUSTRALIA PTY LTD",
+  "abn": "97009687487",
+  "acnArbn": "009687487",
+  "industryDivision": "Mining",
+  "industrySlug": "mining",
+  "industrySubdivision": "Exploration and other mining support services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015150",
+      "acnArbn": "009687487",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 24,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 44,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 81.33,
+      "payments31To60Days": 17.52,
+      "paymentsMoreThan60Days": 1.15,
+      "industrySubdivision": "Exploration and other mining support services",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1539,
+        "count": 2794,
+        "percentile": 41.3
+      },
+      "industryP95Position": {
+        "rank": 90,
+        "count": 166,
+        "percentile": 43
+      }
+    }
+  ]
+}

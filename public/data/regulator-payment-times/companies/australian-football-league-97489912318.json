@@ -6,8 +6,40 @@
   "industryDivision": "Arts and Recreation Services",
   "industrySlug": "arts-and-recreation-services",
   "industrySubdivision": "Sports and recreation activities",
-  "latestReportingPeriodEndDate": "2025-04-29",
+  "latestReportingPeriodEndDate": "2025-10-30",
   "reports": [
+    {
+      "reportId": "PTR20013419",
+      "acnArbn": "004155211",
+      "reportingPeriodStartDate": "2025-04-30",
+      "reportingPeriodEndDate": "2025-10-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 38.47,
+      "medianPaymentTimeDays": 33,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 91,
+      "payments30DaysOrLess": 30.45,
+      "payments31To60Days": 59.85,
+      "paymentsMoreThan60Days": 9.69,
+      "industrySubdivision": "Sports and recreation activities",
+      "industryDivision": "Arts and Recreation Services",
+      "submittedDate": "2026-09-17",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2903,
+        "count": 3151,
+        "percentile": 7.5
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 52,
+        "percentile": 9.8
+      }
+    },
     {
       "reportId": "PTR20003052",
       "acnArbn": "004155211",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1930,
-        "count": 2977,
-        "percentile": 33.4
+        "rank": 1979,
+        "count": 3052,
+        "percentile": 33.3
       },
       "industryP95Position": {
         "rank": 44,
-        "count": 50,
-        "percentile": 12.2
+        "count": 51,
+        "percentile": 14
       }
     }
   ]

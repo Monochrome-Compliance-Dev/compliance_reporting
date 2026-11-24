@@ -8,8 +8,8 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 214,
-      "averageP95PaymentTimeDays": 61.3,
+      "reportingEntityCount": 216,
+      "averageP95PaymentTimeDays": 61.1,
       "medianP95PaymentTimeDays": 57,
       "minimumP95PaymentTimeDays": 7,
       "maximumP95PaymentTimeDays": 296
@@ -19,19 +19,19 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 256,
-      "averageP95PaymentTimeDays": 63.3,
+      "reportingEntityCount": 258,
+      "averageP95PaymentTimeDays": 60.6,
       "medianP95PaymentTimeDays": 57,
       "minimumP95PaymentTimeDays": 7,
-      "maximumP95PaymentTimeDays": 701
+      "maximumP95PaymentTimeDays": 558
     },
     {
       "reportingCycleId": "2025-H2",
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 254,
-      "averageP95PaymentTimeDays": 55.9,
+      "reportingEntityCount": 261,
+      "averageP95PaymentTimeDays": 55.7,
       "medianP95PaymentTimeDays": 56,
       "minimumP95PaymentTimeDays": 11,
       "maximumP95PaymentTimeDays": 202
@@ -41,9 +41,9 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 88,
-      "averageP95PaymentTimeDays": 56.1,
-      "medianP95PaymentTimeDays": 55.5,
+      "reportingEntityCount": 208,
+      "averageP95PaymentTimeDays": 56.9,
+      "medianP95PaymentTimeDays": 57,
       "minimumP95PaymentTimeDays": 11,
       "maximumP95PaymentTimeDays": 182
     },
@@ -52,23 +52,100 @@
       "reportingCycleName": "July to December 2026",
       "reportingCycleStartDate": "2026-07-01",
       "reportingCycleEndDate": "2026-12-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 35,
-      "medianP95PaymentTimeDays": 35,
-      "minimumP95PaymentTimeDays": 35,
-      "maximumP95PaymentTimeDays": 35
+      "reportingEntityCount": 8,
+      "averageP95PaymentTimeDays": 47.5,
+      "medianP95PaymentTimeDays": 46,
+      "minimumP95PaymentTimeDays": 32,
+      "maximumP95PaymentTimeDays": 64
     }
   ],
   "companies": [
+    {
+      "businessName": "LSKD GROUP PTY LTD",
+      "abn": "88639986502",
+      "slug": "lskd-group-pty-ltd-88639986502",
+      "p95PaymentTimeDays": 32,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 8,
+        "percentile": 100
+      }
+    },
     {
       "businessName": "SUNSHINE A PTY LTD",
       "abn": "86631684770",
       "slug": "sunshine-a-pty-ltd-86631684770",
       "p95PaymentTimeDays": 35,
       "industryP95Position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
+        "rank": 2,
+        "count": 8,
+        "percentile": 85.7
+      }
+    },
+    {
+      "businessName": "FREEDOM ENERGY HOLDINGS PTY LTD",
+      "abn": "24093243844",
+      "slug": "freedom-energy-holdings-pty-ltd-24093243844",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 8,
+        "percentile": 71.4
+      }
+    },
+    {
+      "businessName": "INTUIT AUSTRALIA PTY LIMITED",
+      "abn": "28163072704",
+      "slug": "intuit-australia-pty-limited-28163072704",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 8,
+        "percentile": 42.9
+      }
+    },
+    {
+      "businessName": "The Trustee for BEAUJOLAIS UNIT TRUST",
+      "abn": "36155404826",
+      "slug": "the-trustee-for-beaujolais-unit-trust-36155404826",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 8,
+        "percentile": 42.9
+      }
+    },
+    {
+      "businessName": "Dollarama Australia PTY LTD",
+      "abn": "33006122676",
+      "slug": "dollarama-australia-pty-ltd-33006122676",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 6,
+        "count": 8,
+        "percentile": 28.6
+      }
+    },
+    {
+      "businessName": "ELECTRONICS BOUTIQUE AUSTRALIA PTY LIMITED",
+      "abn": "50077681442",
+      "slug": "electronics-boutique-australia-pty-limited-50077681442",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 8,
+        "percentile": 14.3
+      }
+    },
+    {
+      "businessName": "MJ BALE GROUP PTY LTD",
+      "abn": "55629040348",
+      "slug": "mj-bale-group-pty-ltd-55629040348",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 8,
+        "percentile": 0
       }
     }
   ]

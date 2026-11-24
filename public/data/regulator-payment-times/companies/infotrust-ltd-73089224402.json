@@ -6,8 +6,40 @@
   "industryDivision": "Professional, Scientific and Technical Services",
   "industrySlug": "professional-scientific-and-technical-services",
   "industrySubdivision": "Computer system design and related services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20015125",
+      "acnArbn": "089224402",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.41,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 38,
+      "p95PaymentTimeDays": 58,
+      "payments30DaysOrLess": 65.68,
+      "payments31To60Days": 29.92,
+      "paymentsMoreThan60Days": 4.4,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1642,
+        "count": 2794,
+        "percentile": 38.6
+      },
+      "industryP95Position": {
+        "rank": 117,
+        "count": 219,
+        "percentile": 44.5
+      }
+    },
     {
       "reportId": "PTR20007632",
       "acnArbn": "089224402",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2331,
-        "count": 3050,
+        "rank": 2409,
+        "count": 3151,
         "percentile": 22.8
       },
       "industryP95Position": {
-        "rank": 166,
-        "count": 232,
-        "percentile": 28.1
+        "rank": 172,
+        "count": 241,
+        "percentile": 28.3
       }
     }
   ]

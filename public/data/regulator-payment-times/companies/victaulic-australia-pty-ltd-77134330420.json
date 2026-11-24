@@ -1,0 +1,44 @@
+{
+  "slug": "victaulic-australia-pty-ltd-77134330420",
+  "businessName": "Victaulic Australia Pty Ltd",
+  "abn": "77134330420",
+  "acnArbn": "134330420",
+  "industryDivision": "Wholesale Trade",
+  "industrySlug": "wholesale-trade",
+  "industrySubdivision": "Basic metal wholesaling",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014700",
+      "acnArbn": "134330420",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 41.17,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 62,
+      "p95PaymentTimeDays": 80,
+      "payments30DaysOrLess": 45.53,
+      "payments31To60Days": 27.32,
+      "paymentsMoreThan60Days": 27.15,
+      "industrySubdivision": "Basic metal wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2445,
+        "count": 2794,
+        "percentile": 11.9
+      },
+      "industryP95Position": {
+        "rank": 338,
+        "count": 394,
+        "percentile": 13
+      }
+    }
+  ]
+}

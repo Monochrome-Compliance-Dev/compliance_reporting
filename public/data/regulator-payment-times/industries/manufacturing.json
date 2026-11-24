@@ -8,8 +8,8 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 333,
-      "averageP95PaymentTimeDays": 66.5,
+      "reportingEntityCount": 341,
+      "averageP95PaymentTimeDays": 66.3,
       "medianP95PaymentTimeDays": 62,
       "minimumP95PaymentTimeDays": 11,
       "maximumP95PaymentTimeDays": 240
@@ -19,8 +19,8 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 395,
-      "averageP95PaymentTimeDays": 67.2,
+      "reportingEntityCount": 407,
+      "averageP95PaymentTimeDays": 66.8,
       "medianP95PaymentTimeDays": 63,
       "minimumP95PaymentTimeDays": 7,
       "maximumP95PaymentTimeDays": 222
@@ -30,8 +30,8 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 409,
-      "averageP95PaymentTimeDays": 66.8,
+      "reportingEntityCount": 424,
+      "averageP95PaymentTimeDays": 67.2,
       "medianP95PaymentTimeDays": 62,
       "minimumP95PaymentTimeDays": 7,
       "maximumP95PaymentTimeDays": 219
@@ -41,34 +41,45 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 136,
-      "averageP95PaymentTimeDays": 61.8,
-      "medianP95PaymentTimeDays": 60,
-      "minimumP95PaymentTimeDays": 9,
-      "maximumP95PaymentTimeDays": 164
+      "reportingEntityCount": 359,
+      "averageP95PaymentTimeDays": 66.8,
+      "medianP95PaymentTimeDays": 62,
+      "minimumP95PaymentTimeDays": 7,
+      "maximumP95PaymentTimeDays": 311
     },
     {
       "reportingCycleId": "2026-H2",
       "reportingCycleName": "July to December 2026",
       "reportingCycleStartDate": "2026-07-01",
       "reportingCycleEndDate": "2026-12-31",
-      "reportingEntityCount": 1,
-      "averageP95PaymentTimeDays": 72,
-      "medianP95PaymentTimeDays": 72,
-      "minimumP95PaymentTimeDays": 72,
+      "reportingEntityCount": 2,
+      "averageP95PaymentTimeDays": 69,
+      "medianP95PaymentTimeDays": 69,
+      "minimumP95PaymentTimeDays": 66,
       "maximumP95PaymentTimeDays": 72
     }
   ],
   "companies": [
+    {
+      "businessName": "NEW FOOD COATINGS PTY LTD",
+      "abn": "51002604042",
+      "slug": "new-food-coatings-pty-ltd-51002604042",
+      "p95PaymentTimeDays": 66,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 2,
+        "percentile": 100
+      }
+    },
     {
       "businessName": "DONALDSON AUSTRALASIA PTY LTD",
       "abn": "78000521200",
       "slug": "donaldson-australasia-pty-ltd-78000521200",
       "p95PaymentTimeDays": 72,
       "industryP95Position": {
-        "rank": 1,
-        "count": 1,
-        "percentile": 100
+        "rank": 2,
+        "count": 2,
+        "percentile": 0
       }
     }
   ]

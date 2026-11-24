@@ -1,0 +1,140 @@
+{
+  "slug": "roc-oil-company-pty-limited-32075965856",
+  "businessName": "ROC OIL COMPANY PTY LIMITED",
+  "abn": "32075965856",
+  "acnArbn": "075965856",
+  "industryDivision": "Mining",
+  "industrySlug": "mining",
+  "industrySubdivision": "Oil and gas extraction",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015721",
+      "acnArbn": "075965856",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 61.63,
+      "medianPaymentTimeDays": 20,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 381,
+      "payments30DaysOrLess": 72.55,
+      "payments31To60Days": 7.84,
+      "paymentsMoreThan60Days": 19.61,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-10-12",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2792,
+        "count": 2794,
+        "percentile": 0.1
+      },
+      "industryP95Position": {
+        "rank": 166,
+        "count": 166,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20015720",
+      "acnArbn": "075965856",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.31,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 70.83,
+      "payments31To60Days": 16.67,
+      "paymentsMoreThan60Days": 12.5,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-10-12",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2917,
+        "count": 3151,
+        "percentile": 7
+      },
+      "industryP95Position": {
+        "rank": 180,
+        "count": 195,
+        "percentile": 7.2
+      }
+    },
+    {
+      "reportId": "PTR20015719",
+      "acnArbn": "075965856",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.78,
+      "medianPaymentTimeDays": 24.5,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 92,
+      "payments30DaysOrLess": 78.13,
+      "payments31To60Days": 12.5,
+      "paymentsMoreThan60Days": 9.38,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-10-12",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2772,
+        "count": 3052,
+        "percentile": 8.6
+      },
+      "industryP95Position": {
+        "rank": 169,
+        "count": 190,
+        "percentile": 10.6
+      }
+    },
+    {
+      "reportId": "PTR20015685",
+      "acnArbn": "075965856",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.3,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 25,
+      "paymentsMoreThan60Days": 25,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-10-12",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1956,
+        "count": 2639,
+        "percentile": 25.1
+      },
+      "industryP95Position": {
+        "rank": 134,
+        "count": 176,
+        "percentile": 24
+      }
+    }
+  ]
+}

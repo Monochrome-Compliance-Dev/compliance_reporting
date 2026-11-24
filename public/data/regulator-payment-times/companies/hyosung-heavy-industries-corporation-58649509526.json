@@ -1,0 +1,108 @@
+{
+  "slug": "hyosung-heavy-industries-corporation-58649509526",
+  "businessName": "HYOSUNG HEAVY INDUSTRIES CORPORATION",
+  "abn": "58649509526",
+  "acnArbn": "649509526",
+  "industryDivision": "Wholesale Trade",
+  "industrySlug": "wholesale-trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015517",
+      "acnArbn": "649509526",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 8.29,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.55,
+      "payments31To60Days": 5.45,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 547,
+        "count": 2794,
+        "percentile": 78.9
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 394,
+        "percentile": 87
+      }
+    },
+    {
+      "reportId": "PTR20015515",
+      "acnArbn": "649509526",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 4.92,
+      "medianPaymentTimeDays": 4,
+      "p80PaymentTimeDays": 8,
+      "p95PaymentTimeDays": 13,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 56,
+        "count": 3151,
+        "percentile": 98
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 427,
+        "percentile": 99.3
+      }
+    },
+    {
+      "reportId": "PTR20015418",
+      "acnArbn": "649509526",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 15.61,
+      "medianPaymentTimeDays": 11,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 86.96,
+      "payments31To60Days": 13.04,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 642,
+        "count": 3052,
+        "percentile": 77.7
+      },
+      "industryP95Position": {
+        "rank": 61,
+        "count": 415,
+        "percentile": 84.8
+      }
+    }
+  ]
+}

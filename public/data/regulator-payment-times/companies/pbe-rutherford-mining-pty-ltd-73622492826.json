@@ -1,0 +1,140 @@
+{
+  "slug": "pbe-rutherford-mining-pty-ltd-73622492826",
+  "businessName": "PBE RUTHERFORD MINING PTY LTD",
+  "abn": "73622492826",
+  "acnArbn": "622492826",
+  "industryDivision": "Other Services",
+  "industrySlug": "other-services",
+  "industrySubdivision": "Repair and maintenance",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014418",
+      "acnArbn": "622492826",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.4,
+      "medianPaymentTimeDays": 41,
+      "p80PaymentTimeDays": 60,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 31.13,
+      "payments31To60Days": 54.55,
+      "paymentsMoreThan60Days": 14.32,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-09-27",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2174,
+        "count": 2794,
+        "percentile": 21.4
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 29,
+        "percentile": 10.7
+      }
+    },
+    {
+      "reportId": "PTR20014415",
+      "acnArbn": "622492826",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.99,
+      "medianPaymentTimeDays": 43.5,
+      "p80PaymentTimeDays": 61,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 30.28,
+      "payments31To60Days": 54.35,
+      "paymentsMoreThan60Days": 15.36,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-09-27",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2457,
+        "count": 3151,
+        "percentile": 21.4
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 33,
+        "percentile": 15.6
+      }
+    },
+    {
+      "reportId": "PTR20014410",
+      "acnArbn": "622492826",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49.87,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 68,
+      "p95PaymentTimeDays": 75,
+      "payments30DaysOrLess": 16.58,
+      "payments31To60Days": 50.75,
+      "paymentsMoreThan60Days": 32.67,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-09-27",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2440,
+        "count": 3052,
+        "percentile": 19.2
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 33,
+        "percentile": 18.8
+      }
+    },
+    {
+      "reportId": "PTR20013678",
+      "acnArbn": "622492826",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 45.74,
+      "medianPaymentTimeDays": 48,
+      "p80PaymentTimeDays": 66,
+      "p95PaymentTimeDays": 73,
+      "payments30DaysOrLess": 20.16,
+      "payments31To60Days": 55.9,
+      "paymentsMoreThan60Days": 23.94,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-09-27",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 2075,
+        "count": 2639,
+        "percentile": 20.5
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 26,
+        "percentile": 20
+      }
+    }
+  ]
+}

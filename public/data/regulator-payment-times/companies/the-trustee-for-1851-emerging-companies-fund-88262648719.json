@@ -1,0 +1,44 @@
+{
+  "slug": "the-trustee-for-1851-emerging-companies-fund-88262648719",
+  "businessName": "The Trustee for 1851 Emerging Companies Fund",
+  "abn": "88262648719",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySlug": "financial-and-insurance-services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20015891",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.5,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 31,
+      "payments30DaysOrLess": 50,
+      "payments31To60Days": 50,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-10-20",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 435,
+        "count": 2639,
+        "percentile": 81.1
+      },
+      "industryP95Position": {
+        "rank": 135,
+        "count": 358,
+        "percentile": 58.8
+      }
+    }
+  ]
+}

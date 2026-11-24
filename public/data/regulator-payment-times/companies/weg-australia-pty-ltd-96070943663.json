@@ -1,0 +1,44 @@
+{
+  "slug": "weg-australia-pty-ltd-96070943663",
+  "businessName": "WEG AUSTRALIA PTY. LTD.",
+  "abn": "96070943663",
+  "acnArbn": "070943663",
+  "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
+  "industrySubdivision": "Machinery and equipment mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20014081",
+      "acnArbn": "070943663",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 25,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 45,
+      "payments30DaysOrLess": 85,
+      "payments31To60Days": 10,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Machinery and equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1085,
+        "count": 3151,
+        "percentile": 63.4
+      },
+      "industryP95Position": {
+        "rank": 48,
+        "count": 424,
+        "percentile": 87.7
+      }
+    }
+  ]
+}

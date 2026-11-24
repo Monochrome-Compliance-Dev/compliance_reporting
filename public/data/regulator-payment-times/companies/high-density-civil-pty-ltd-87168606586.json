@@ -1,0 +1,44 @@
+{
+  "slug": "high-density-civil-pty-ltd-87168606586",
+  "businessName": "HIGH DENSITY CIVIL PTY LTD",
+  "abn": "87168606586",
+  "acnArbn": "168606586",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySlug": "rental-hiring-and-real-estate-services",
+  "industrySubdivision": "Rental and hiring services (except real estate)",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20012199",
+      "acnArbn": "168606586",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.01,
+      "medianPaymentTimeDays": 37,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 61,
+      "payments30DaysOrLess": 12.53,
+      "payments31To60Days": 82.43,
+      "paymentsMoreThan60Days": 5.04,
+      "industrySubdivision": "Rental and hiring services (except real estate)",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-10-20",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1659,
+        "count": 2639,
+        "percentile": 35.2
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 58,
+        "percentile": 33.3
+      }
+    }
+  ]
+}

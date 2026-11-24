@@ -1,0 +1,140 @@
+{
+  "slug": "australian-bearings-corporation-pty-ltd-15139918013",
+  "businessName": "AUSTRALIAN BEARINGS CORPORATION PTY LTD",
+  "abn": "15139918013",
+  "acnArbn": "139918013",
+  "industryDivision": "Other Services",
+  "industrySlug": "other-services",
+  "industrySubdivision": "Repair and maintenance",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015812",
+      "acnArbn": "139918013",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 34.14,
+      "medianPaymentTimeDays": 34,
+      "p80PaymentTimeDays": 59,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 47.74,
+      "payments31To60Days": 34.25,
+      "paymentsMoreThan60Days": 18.01,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-10-17",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2225,
+        "count": 2794,
+        "percentile": 19.4
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 29,
+        "percentile": 7.1
+      }
+    },
+    {
+      "reportId": "PTR20015811",
+      "acnArbn": "139918013",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31.25,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 51.35,
+      "payments31To60Days": 34.92,
+      "paymentsMoreThan60Days": 13.73,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-10-17",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2478,
+        "count": 3151,
+        "percentile": 20
+      },
+      "industryP95Position": {
+        "rank": 29,
+        "count": 33,
+        "percentile": 9.4
+      }
+    },
+    {
+      "reportId": "PTR20015810",
+      "acnArbn": "139918013",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30.97,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 67,
+      "payments30DaysOrLess": 50.05,
+      "payments31To60Days": 38.26,
+      "paymentsMoreThan60Days": 11.69,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-10-17",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2198,
+        "count": 3052,
+        "percentile": 27
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 33,
+        "percentile": 31.3
+      }
+    },
+    {
+      "reportId": "PTR20015809",
+      "acnArbn": "139918013",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 426,
+      "medianPaymentTimeDays": 16,
+      "p80PaymentTimeDays": 51,
+      "p95PaymentTimeDays": 68,
+      "payments30DaysOrLess": 60.6,
+      "payments31To60Days": 29.43,
+      "paymentsMoreThan60Days": 9.97,
+      "industrySubdivision": "Repair and maintenance",
+      "industryDivision": "Other Services",
+      "submittedDate": "2026-10-17",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1956,
+        "count": 2639,
+        "percentile": 25.1
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 26,
+        "percentile": 28
+      }
+    }
+  ]
+}

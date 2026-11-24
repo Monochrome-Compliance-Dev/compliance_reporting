@@ -1,0 +1,76 @@
+{
+  "slug": "byblos-constructions-pty-ltd-34093886241",
+  "businessName": "BYBLOS CONSTRUCTIONS PTY LTD",
+  "abn": "34093886241",
+  "acnArbn": "093886241",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015614",
+      "acnArbn": "093886241",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25.74,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 33,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 74.73,
+      "payments31To60Days": 22.17,
+      "paymentsMoreThan60Days": 3.11,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-10-04",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1539,
+        "count": 2794,
+        "percentile": 41.3
+      },
+      "industryP95Position": {
+        "rank": 119,
+        "count": 270,
+        "percentile": 50.6
+      }
+    },
+    {
+      "reportId": "PTR20015612",
+      "acnArbn": "093886241",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 27.21,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 34,
+      "p95PaymentTimeDays": 55,
+      "payments30DaysOrLess": 73.29,
+      "payments31To60Days": 23.65,
+      "paymentsMoreThan60Days": 3.05,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-10-04",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1591,
+        "count": 3151,
+        "percentile": 47.5
+      },
+      "industryP95Position": {
+        "rank": 107,
+        "count": 310,
+        "percentile": 63.4
+      }
+    }
+  ]
+}

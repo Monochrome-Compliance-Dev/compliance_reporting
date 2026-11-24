@@ -1,0 +1,44 @@
+{
+  "slug": "education-centre-of-australia-pty-ltd-14111918775",
+  "businessName": "Education Centre of Australia Pty Ltd",
+  "abn": "14111918775",
+  "acnArbn": "111918775",
+  "industryDivision": "Education and Training",
+  "industrySlug": "education-and-training",
+  "industrySubdivision": "Tertiary education",
+  "latestReportingPeriodEndDate": "2024-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20014269",
+      "acnArbn": "111918775",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.14,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 15,
+      "p95PaymentTimeDays": 24,
+      "payments30DaysOrLess": 98.03,
+      "payments31To60Days": 1.76,
+      "paymentsMoreThan60Days": 0.28,
+      "industrySubdivision": "Tertiary education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 175,
+        "count": 2639,
+        "percentile": 92.9
+      },
+      "industryP95Position": {
+        "rank": 2,
+        "count": 15,
+        "percentile": 92.9
+      }
+    }
+  ]
+}

@@ -1,16 +1,16 @@
 {
   "slug": "accommodation-and-food-services",
   "industryDivision": "Accommodation and Food Services",
-  "latestReportingCycleId": "2026-H1",
+  "latestReportingCycleId": "2026-H2",
   "cycles": [
     {
       "reportingCycleId": "2024-H2",
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 34,
-      "averageP95PaymentTimeDays": 51,
-      "medianP95PaymentTimeDays": 51.5,
+      "reportingEntityCount": 35,
+      "averageP95PaymentTimeDays": 50.3,
+      "medianP95PaymentTimeDays": 51,
       "minimumP95PaymentTimeDays": 14,
       "maximumP95PaymentTimeDays": 127
     },
@@ -19,9 +19,9 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 40,
-      "averageP95PaymentTimeDays": 54.2,
-      "medianP95PaymentTimeDays": 51.5,
+      "reportingEntityCount": 41,
+      "averageP95PaymentTimeDays": 53.6,
+      "medianP95PaymentTimeDays": 50,
       "minimumP95PaymentTimeDays": 16,
       "maximumP95PaymentTimeDays": 164
     },
@@ -30,9 +30,9 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 43,
-      "averageP95PaymentTimeDays": 49.5,
-      "medianP95PaymentTimeDays": 49,
+      "reportingEntityCount": 44,
+      "averageP95PaymentTimeDays": 49,
+      "medianP95PaymentTimeDays": 48.5,
       "minimumP95PaymentTimeDays": 21,
       "maximumP95PaymentTimeDays": 130
     },
@@ -41,143 +41,55 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 12,
-      "averageP95PaymentTimeDays": 45.6,
-      "medianP95PaymentTimeDays": 43.5,
-      "minimumP95PaymentTimeDays": 28,
-      "maximumP95PaymentTimeDays": 78
+      "reportingEntityCount": 44,
+      "averageP95PaymentTimeDays": 46.2,
+      "medianP95PaymentTimeDays": 44,
+      "minimumP95PaymentTimeDays": 25,
+      "maximumP95PaymentTimeDays": 99
+    },
+    {
+      "reportingCycleId": "2026-H2",
+      "reportingCycleName": "July to December 2026",
+      "reportingCycleStartDate": "2026-07-01",
+      "reportingCycleEndDate": "2026-12-31",
+      "reportingEntityCount": 3,
+      "averageP95PaymentTimeDays": 47.7,
+      "medianP95PaymentTimeDays": 53,
+      "minimumP95PaymentTimeDays": 32,
+      "maximumP95PaymentTimeDays": 58
     }
   ],
   "companies": [
     {
-      "businessName": "WESTERN SUBURBS LEAGUES CLUB LTD",
-      "abn": "69000154736",
-      "slug": "western-suburbs-leagues-club-ltd-69000154736",
-      "p95PaymentTimeDays": 28,
-      "industryP95Position": {
-        "rank": 1,
-        "count": 12,
-        "percentile": 100
-      }
-    },
-    {
       "businessName": "DELAWARE NORTH COMPANIES AUSTRALIA PTY LTD",
       "abn": "92003435345",
       "slug": "delaware-north-companies-australia-pty-ltd-92003435345",
-      "p95PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 32,
       "industryP95Position": {
-        "rank": 2,
-        "count": 12,
-        "percentile": 81.8
-      }
-    },
-    {
-      "businessName": "SEAGRASS HOLDCO PTY LTD",
-      "abn": "91634224936",
-      "slug": "seagrass-holdco-pty-ltd-91634224936",
-      "p95PaymentTimeDays": 30,
-      "industryP95Position": {
-        "rank": 2,
-        "count": 12,
-        "percentile": 81.8
-      }
-    },
-    {
-      "businessName": "THE STEPHEN MORAITIS FAMILY TRUST & The Trustee for The Paul Moraitis Family Trust",
-      "abn": "84648757315",
-      "slug": "the-stephen-moraitis-family-trust-and-the-trustee-for-the-paul-moraitis-family-trust-84648757315",
-      "p95PaymentTimeDays": 36,
-      "industryP95Position": {
-        "rank": 4,
-        "count": 12,
-        "percentile": 72.7
-      }
-    },
-    {
-      "businessName": "PENRITH RUGBY LEAGUE CLUB LTD",
-      "abn": "57000578398",
-      "slug": "penrith-rugby-league-club-ltd-57000578398",
-      "p95PaymentTimeDays": 39,
-      "industryP95Position": {
-        "rank": 5,
-        "count": 12,
-        "percentile": 63.6
-      }
-    },
-    {
-      "businessName": "KENTUCKY FRIED CHICKEN PTY LTD",
-      "abn": "79000587780",
-      "slug": "kentucky-fried-chicken-pty-ltd-79000587780",
-      "p95PaymentTimeDays": 42,
-      "industryP95Position": {
-        "rank": 6,
-        "count": 12,
-        "percentile": 54.5
-      }
-    },
-    {
-      "businessName": "Discovery Parks Holdings Pty Limited",
-      "abn": "61127847269",
-      "slug": "discovery-parks-holdings-pty-limited-61127847269",
-      "p95PaymentTimeDays": 45,
-      "industryP95Position": {
-        "rank": 7,
-        "count": 12,
-        "percentile": 45.5
-      }
-    },
-    {
-      "businessName": "WENTWORTHVILLE LEAGUES CLUB LTD",
-      "abn": "25000244459",
-      "slug": "wentworthville-leagues-club-ltd-25000244459",
-      "p95PaymentTimeDays": 49,
-      "industryP95Position": {
-        "rank": 8,
-        "count": 12,
-        "percentile": 36.4
+        "rank": 1,
+        "count": 3,
+        "percentile": 100
       }
     },
     {
       "businessName": "WESTERN SUBURBS (N'CLE) LEAGUES CLUB LTD",
       "abn": "24000973919",
       "slug": "western-suburbs-n-cle-leagues-club-ltd-24000973919",
-      "p95PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 53,
       "industryP95Position": {
-        "rank": 9,
-        "count": 12,
-        "percentile": 27.3
-      }
-    },
-    {
-      "businessName": "CIVEO HOLDING COMPANY 1 PTY LTD",
-      "abn": "91146700441",
-      "slug": "civeo-holding-company-1-pty-ltd-91146700441",
-      "p95PaymentTimeDays": 57,
-      "industryP95Position": {
-        "rank": 10,
-        "count": 12,
-        "percentile": 9.1
+        "rank": 2,
+        "count": 3,
+        "percentile": 50
       }
     },
     {
       "businessName": "NANDO'S AUSTRALIA PTY LTD",
       "abn": "20079066407",
       "slug": "nando-s-australia-pty-ltd-20079066407",
-      "p95PaymentTimeDays": 57,
+      "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 10,
-        "count": 12,
-        "percentile": 9.1
-      }
-    },
-    {
-      "businessName": "COMPASS GROUP (AUSTRALIA) PTY LTD",
-      "abn": "41000683125",
-      "slug": "compass-group-australia-pty-ltd-41000683125",
-      "p95PaymentTimeDays": 78,
-      "industryP95Position": {
-        "rank": 12,
-        "count": 12,
+        "rank": 3,
+        "count": 3,
         "percentile": 0
       }
     }

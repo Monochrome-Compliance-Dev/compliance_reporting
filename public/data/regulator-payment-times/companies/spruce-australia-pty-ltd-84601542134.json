@@ -1,0 +1,44 @@
+{
+  "slug": "spruce-australia-pty-ltd-84601542134",
+  "businessName": "SPRUCE AUSTRALIA PTY LTD",
+  "abn": "84601542134",
+  "acnArbn": "601542134",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySlug": "accommodation-and-food-services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20013498",
+      "acnArbn": "601542134",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 25,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 29,
+      "p95PaymentTimeDays": 54,
+      "payments30DaysOrLess": 80,
+      "payments31To60Days": 15,
+      "paymentsMoreThan60Days": 4,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-09-22",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1370,
+        "count": 2794,
+        "percentile": 49.3
+      },
+      "industryP95Position": {
+        "rank": 28,
+        "count": 44,
+        "percentile": 37.2
+      }
+    }
+  ]
+}

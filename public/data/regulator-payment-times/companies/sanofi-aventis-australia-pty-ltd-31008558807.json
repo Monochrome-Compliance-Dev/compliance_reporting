@@ -6,8 +6,40 @@
   "industryDivision": "Health Care and Social Assistance",
   "industrySlug": "health-care-and-social-assistance",
   "industrySubdivision": "Medical and other health care services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20012923",
+      "acnArbn": "008558807",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 56,
+      "medianPaymentTimeDays": 58,
+      "p80PaymentTimeDays": 67,
+      "p95PaymentTimeDays": 88,
+      "payments30DaysOrLess": 16,
+      "payments31To60Days": 52,
+      "paymentsMoreThan60Days": 32,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2549,
+        "count": 2794,
+        "percentile": 8.4
+      },
+      "industryP95Position": {
+        "rank": 91,
+        "count": 103,
+        "percentile": 10.8
+      }
+    },
     {
       "reportId": "PTR20007265",
       "acnArbn": "008558807",
@@ -30,8 +62,8 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2740,
-        "count": 3050,
+        "rank": 2833,
+        "count": 3151,
         "percentile": 9.7
       },
       "industryP95Position": {
@@ -62,9 +94,9 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1779,
-        "count": 2977,
-        "percentile": 37.1
+        "rank": 1827,
+        "count": 3052,
+        "percentile": 37
       },
       "industryP95Position": {
         "rank": 57,
@@ -94,14 +126,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1786,
-        "count": 2565,
-        "percentile": 29
+        "rank": 1842,
+        "count": 2639,
+        "percentile": 28.8
       },
       "industryP95Position": {
         "rank": 65,
-        "count": 98,
-        "percentile": 30.9
+        "count": 99,
+        "percentile": 31.6
       }
     }
   ]

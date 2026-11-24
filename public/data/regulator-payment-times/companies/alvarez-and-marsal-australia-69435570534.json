@@ -1,0 +1,44 @@
+{
+  "slug": "alvarez-and-marsal-australia-69435570534",
+  "businessName": "ALVAREZ & MARSAL AUSTRALIA",
+  "abn": "69435570534",
+  "acnArbn": "",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySlug": "professional-scientific-and-technical-services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014864",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29.91,
+      "medianPaymentTimeDays": 21,
+      "p80PaymentTimeDays": 43,
+      "p95PaymentTimeDays": 82,
+      "payments30DaysOrLess": 67.93,
+      "payments31To60Days": 22.57,
+      "paymentsMoreThan60Days": 9.5,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2473,
+        "count": 2794,
+        "percentile": 11.1
+      },
+      "industryP95Position": {
+        "rank": 172,
+        "count": 219,
+        "percentile": 21.6
+      }
+    }
+  ]
+}

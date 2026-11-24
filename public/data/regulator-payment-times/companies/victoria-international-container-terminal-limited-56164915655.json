@@ -6,8 +6,40 @@
   "industryDivision": "Transport, Postal and Warehousing",
   "industrySlug": "transport-postal-and-warehousing",
   "industrySubdivision": "Water transport",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20015024",
+      "acnArbn": "164915655",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.79,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 93,
+      "payments30DaysOrLess": 68.79,
+      "payments31To60Days": 19.31,
+      "paymentsMoreThan60Days": 11.9,
+      "industrySubdivision": "Water transport",
+      "industryDivision": "Transport, Postal and Warehousing",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2608,
+        "count": 2794,
+        "percentile": 6.3
+      },
+      "industryP95Position": {
+        "rank": 147,
+        "count": 151,
+        "percentile": 2.7
+      }
+    },
     {
       "reportId": "PTR20009858",
       "acnArbn": "164915655",
@@ -30,46 +62,46 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2701,
-        "count": 3050,
-        "percentile": 10.8
+        "rank": 2793,
+        "count": 3151,
+        "percentile": 10.7
       },
       "industryP95Position": {
-        "rank": 152,
-        "count": 171,
-        "percentile": 9.4
+        "rank": 157,
+        "count": 176,
+        "percentile": 9.1
       }
     },
     {
-      "reportId": "PTR20004122",
+      "reportId": "PTR20015608",
       "acnArbn": "164915655",
       "reportingPeriodStartDate": "2024-12-31",
       "reportingPeriodEndDate": "2025-06-29",
-      "revisedReport": false,
+      "revisedReport": true,
       "redactedReport": false,
-      "averagePaymentTimeDays": 36,
+      "averagePaymentTimeDays": 35.79,
       "medianPaymentTimeDays": 30,
-      "p80PaymentTimeDays": 490,
-      "p95PaymentTimeDays": 582,
-      "payments30DaysOrLess": 79,
-      "payments31To60Days": 11,
-      "paymentsMoreThan60Days": 10,
+      "p80PaymentTimeDays": 39,
+      "p95PaymentTimeDays": 84,
+      "payments30DaysOrLess": 73.82,
+      "payments31To60Days": 13.61,
+      "paymentsMoreThan60Days": 12.57,
       "industrySubdivision": "Water transport",
       "industryDivision": "Transport, Postal and Warehousing",
-      "submittedDate": "2025-09-22",
+      "submittedDate": "2026-10-01",
       "reportingCycleId": "2025-H1",
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2975,
-        "count": 2977,
-        "percentile": 0.1
+        "rank": 2615,
+        "count": 3052,
+        "percentile": 13.5
       },
       "industryP95Position": {
-        "rank": 169,
-        "count": 169,
-        "percentile": 0
+        "rank": 152,
+        "count": 172,
+        "percentile": 10.5
       }
     },
     {
@@ -94,14 +126,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1966,
-        "count": 2565,
-        "percentile": 22.5
+        "rank": 2027,
+        "count": 2639,
+        "percentile": 22.3
       },
       "industryP95Position": {
-        "rank": 112,
-        "count": 145,
-        "percentile": 20.8
+        "rank": 116,
+        "count": 149,
+        "percentile": 20.3
       }
     }
   ]

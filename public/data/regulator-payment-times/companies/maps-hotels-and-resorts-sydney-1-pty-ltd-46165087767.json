@@ -1,0 +1,140 @@
+{
+  "slug": "maps-hotels-and-resorts-sydney-1-pty-ltd-46165087767",
+  "businessName": "MAPS HOTELS AND RESORTS SYDNEY 1 PTY. LTD.",
+  "abn": "46165087767",
+  "acnArbn": "165087767",
+  "industryDivision": "Accommodation and Food Services",
+  "industrySlug": "accommodation-and-food-services",
+  "industrySubdivision": "Accommodation",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015842",
+      "acnArbn": "165087767",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 98.09,
+      "payments31To60Days": 1.91,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-10-18",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 223,
+        "count": 2794,
+        "percentile": 91.4
+      },
+      "industryP95Position": {
+        "rank": 1,
+        "count": 44,
+        "percentile": 100
+      }
+    },
+    {
+      "reportId": "PTR20015840",
+      "acnArbn": "165087767",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 17,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 98.82,
+      "payments31To60Days": 1.18,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-10-18",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 228,
+        "count": 3151,
+        "percentile": 92
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 44,
+        "percentile": 95.3
+      }
+    },
+    {
+      "reportId": "PTR20015839",
+      "acnArbn": "165087767",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 29,
+      "payments30DaysOrLess": 97.2,
+      "payments31To60Days": 2.8,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-10-18",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 309,
+        "count": 3052,
+        "percentile": 88.1
+      },
+      "industryP95Position": {
+        "rank": 4,
+        "count": 41,
+        "percentile": 90
+      }
+    },
+    {
+      "reportId": "PTR20015831",
+      "acnArbn": "165087767",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 13,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 26,
+      "payments30DaysOrLess": 99.33,
+      "payments31To60Days": 0.67,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Accommodation",
+      "industryDivision": "Accommodation and Food Services",
+      "submittedDate": "2026-10-18",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 207,
+        "count": 2639,
+        "percentile": 91.5
+      },
+      "industryP95Position": {
+        "rank": 3,
+        "count": 35,
+        "percentile": 94.1
+      }
+    }
+  ]
+}
